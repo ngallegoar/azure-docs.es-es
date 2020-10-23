@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fdd046a855c4e2114e96e7911a928165f808710c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242753"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530551"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Depuración local de funciones de Azure desencadenadas por Event Grid
 
@@ -52,7 +52,7 @@ ngrok http -host-header=localhost 7071
 ```
 Al configurar la utilidad, la ventana de comandos debe ser similar a la que se muestra en la siguiente captura de pantalla:
 
-![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Captura de pantalla que muestra el símbolo del sistema después de iniciar la utilidad "ngrok".](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
 Copie la dirección URL **HTTPS** generada al ejecutar *ngrok*. Este valor se utiliza al configurar el punto de conexión del desencadenador de Event Grid.
 

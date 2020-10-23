@@ -15,12 +15,12 @@ ms.date: 08/18/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06e61bb966313265f7e3772dbbf6017a03a42386
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 48c4473cfafce1215219251c47bce1d5730645fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869675"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534427"
 ---
 # <a name="assign-eligibility-for-a-privileged-access-group-preview-in-privileged-identity-management"></a>Asignación de la elegibilidad para un grupo de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -48,7 +48,7 @@ Siga estos pasos para hacer que un usuario sea elegible para ser miembro o propi
 
 1. Seleccione los miembros o propietarios que desea que sean elegibles para el grupo de acceso con privilegios.
 
-    ![Panel Seleccionar un miembro o grupo](./media/groups-assign-member-owner/add-assignments.png)
+    ![Captura de pantalla que muestra la página "Agregar asignaciones" con el panel "Seleccionar un miembro o grupo" abierto y el botón "Seleccionar" resaltado.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Seleccione **Siguiente** para establecer la duración de la pertenencia o la propiedad.
 

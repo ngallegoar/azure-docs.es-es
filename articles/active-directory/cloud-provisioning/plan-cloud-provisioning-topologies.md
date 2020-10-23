@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 172e836a212f9ce097c2c4e392a7386a510c2c6b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526857"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91266299"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Topologías y escenarios admitidas para el aprovisionamiento en la nube de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan el aprovisionamiento en la nube de Azure AD Connect. En este artículo solo se incluyen las configuraciones y los escenarios admitidos.
@@ -34,7 +34,7 @@ A continuación se muestra una lista con información que se debe tener en cuent
 - No se puede cambiar el atributo que se usa para el delimitador de origen.
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Un único bosque, un único inquilino de Azure AD
-![Topología para un único bosque y un solo inquilino](media/plan-cloud-provisioning-topologies/single-forest.png)
+![Diagrama que muestra la topología para un único bosque y un solo inquilino.](media/plan-cloud-provisioning-topologies/single-forest.png)
 
 La topología más sencilla es un único bosque local, con uno o varios dominios y un único inquilino de Azure AD.  Para ver un ejemplo de este escenario, consulte [Tutorial: Un único bosque con un único inquilino de Azure AD](tutorial-single-forest.md).
 
@@ -45,7 +45,7 @@ La topología más sencilla es un único bosque local, con uno o varios dominios
 Una topología común es la de varios bosques de AD, con uno o varios dominios y un único inquilino de Azure AD.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Bosque existente con Azure AD Connect, nuevo bosque con aprovisionamiento en la nube
-![Topología para un único bosque y un solo inquilino](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
+![Diagrama que muestra la topología para un bosque existente y otro nuevo.](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
 
 Este escenario es una topología similar a la del escenario de varios bosques; sin embargo, en este caso hay un entorno de Azure AD Connect existente y, a continuación, se incorpora un nuevo bosque con aprovisionamiento en la nube de Azure AD Connect.  Para ver un ejemplo de este escenario, consulte [Tutorial: Un bosque existente con un único inquilino de Azure AD](tutorial-existing-forest.md).
 

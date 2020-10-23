@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725093"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399693"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Administración y análisis de registros de flujo de grupo de seguridad de red con Network Watcher y Grafana
 
@@ -199,7 +199,7 @@ Ahora que ha configurado correctamente Grafana para leer desde el índice de Ela
 
 La captura de pantalla siguiente muestra un grafo y un gráfico con los principales flujos y su frecuencia. También se muestran flujos por regla de grupo de seguridad de red y flujos por decisión. Grafana es sumamente personalizable, por lo que se aconseja crear paneles para adaptarse a sus necesidades de supervisión específicas. En el ejemplo siguiente se muestra un panel típico:
 
-![Panel Grafo](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Captura de pantalla que muestra la configuración del grafo de ejemplo con flujos segmentados por regla de grupo de seguridad de red.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Conclusión
 

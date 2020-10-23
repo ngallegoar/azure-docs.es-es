@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530835"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91448101"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Varios servidores front-end para Azure Load Balancer
 
@@ -64,8 +64,8 @@ Se definen dos reglas:
 
 | Regla | Asignación de front-end | Para grupo back-end |
 | --- | --- | --- |
-| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![front-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![IP virtual](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end morado](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![back-end morado](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 La asignación completa en Azure Load Balancer ahora se realiza como sigue:
 
@@ -143,8 +143,8 @@ Se definen dos reglas:
 
 | Regla | Front-end | Asignar a grupo de servidores back-end |
 | --- | --- | --- |
-| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (en VM1 y VM2) |
-| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (en VM1 y VM2) |
+| 1 |![regla verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![back-end verde](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (en VM1 y VM2) |
+| 2 |![regla violeta](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![back-end morado](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (en VM1 y VM2) |
 
 En la tabla siguiente se muestra la asignación completa en el equilibrador de carga:
 

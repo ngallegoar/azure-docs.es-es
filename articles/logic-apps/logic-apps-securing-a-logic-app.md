@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/19/2020
+ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500409"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91269172"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger el acceso y los datos en Azure Logic Apps
 
@@ -75,6 +75,8 @@ Cada dirección URL contiene el parámetro de consulta `sp`, `sv` y `sig`, tal y
 | `sig` | Especifica la firma que se usará para autenticar el acceso al desencadenador. Esta firma se genera mediante el algoritmo SHA256 con una clave de acceso secreta en todas las rutas de acceso de direcciones URL y propiedades. Esta clave nunca se expone ni se publica, y se mantiene cifrada y almacenada con la aplicación lógica. La aplicación lógica solo autoriza los desencadenadores que contienen una firma válida creada con la clave secreta. |
 |||
 
+Las llamadas entrantes a un punto de conexión de solicitud solo pueden usar un esquema de autorización, ya sea SAS u [Azure Active Directory Open Authentication](#enable-oauth). Aunque el uso de un esquema no deshabilita el otro, si se utilizan ambos al mismo tiempo se produce un error porque el servicio no sabe cuál elegir.
+
 Para obtener más información sobre la protección del acceso con la Firma de acceso compartido, consulte estas secciones del tema:
 
 * [Regenerar las claves de acceso](#access-keys)
@@ -121,62 +123,62 @@ En el cuerpo, incluya la propiedad `KeyType` como `Primary` o `Secondary`. Esta 
 
 ### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Habilitación de Azure Active Directory Open Authentication (Azure AD OAuth)
 
-Si la aplicación lógica se inicia con un [desencadenador Request](../connectors/connectors-native-reqres.md) (Solicitud), puede habilitar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) mediante la definición o incorporación de una directiva de autorización para las llamadas entrantes al desencadenador Request (Solicitud).
+Para las llamadas entrantes a un punto de conexión que se haya creado con un desencadenador basado en una solicitud, puede habilitar [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml) mediante la definición o la incorporación de una directiva de autorización para la aplicación lógica. De este modo, las llamadas entrantes usan [tokens de acceso](../active-directory/develop/access-tokens.md) de OAuth para la autorización.
 
-Antes de habilitar esta autenticación, tenga en cuenta los siguientes aspectos:
+Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de acceso de OAuth, el servicio Azure Logic Apps compara las notificaciones del token con las especificadas en cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
 
-* La llamada entrante al desencadenador Request (Solicitud) solo puede usar un esquema de autorización, ya sea Azure AD OAuth mediante un token de autenticación, que solo es compatible con el desencadenador Request (Solicitud) o mediante una dirección URL de [firma de acceso compartido (SAS)](#sas). Ambos esquemas no se pueden usar.
+Antes de habilitar Azure AD OAuth, tenga en cuenta los siguientes aspectos:
 
-  Aunque el uso de un esquema no deshabilita el otro, si se utilizan ambos al mismo tiempo se produce un error porque el servicio no sabe qué esquema elegir. Además, solo se admiten esquemas de autorización [Bearer-type](../active-directory/develop/active-directory-v2-protocols.md#tokens) para los tokens de autenticación OAuth, que solo se admiten para el desencadenador Request (Solicitud). El token de autenticación debe especificar `Bearer-type` en el encabezado de autorización.
+* Una llamada entrante al punto de conexión de la solicitud solo puede usar un esquema de autorización, ya sea Azure AD OAuth o [firma de acceso compartido (SAS)](#sas). Aunque el uso de un esquema no deshabilita el otro, si se utilizan ambos al mismo tiempo se produce un error porque el servicio Logic Apps no sabe cuál elegir.
+
+* Solo se admiten esquemas de autorización de [tipo portador](../active-directory/develop/active-directory-v2-protocols.md#tokens) para los tokens de acceso de Azure AD OAuth, lo que significa que en el encabezado `Authorization` para el token de acceso se debe especificar el tipo `Bearer`.
 
 * La aplicación lógica está limitada a un número máximo de directivas de autorización. Cada directiva de autorización también tiene un número máximo de [notificaciones](../active-directory/develop/developer-glossary.md#claim). Para más información, consulte el artículo de [límites y configuración para Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
 
-* Una directiva de autorización debe incluir al menos la notificación de **Emisor**, que tiene un valor que comienza con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth V2) como identificador de emisor de Azure AD. Para obtener más información sobre los tokens de acceso, consulte [Tokens de acceso de la Plataforma de identidad de Microsoft](../active-directory/develop/access-tokens.md).
+* Una directiva de autorización debe incluir al menos la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth V2) como identificador de emisor de Azure AD.
 
-Cuando la aplicación lógica recibe una solicitud entrante que incluye un token de autenticación OAuth, Azure Logic Apps compara las notificaciones del token con las de cada directiva de autorización. Si existe una coincidencia entre las notificaciones del token y todas las notificaciones en al menos una directiva, la autorización de la solicitud entrante se realiza correctamente. El token puede tener más notificaciones que el número especificado por la directiva de autorización.
+  Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autorización que requiere dos tipos de notificaciones: **Emisor** y **Audiencia**. En este ejemplo de [sección de carga](../active-directory/develop/access-tokens.md#payload-claims) para un token de acceso descodificado se incluyen los dos tipos de notificaciones, donde `aud` es el valor **Audiencia** y `iss` el valor **Emisor**:
 
-Por ejemplo, supongamos que la aplicación lógica tiene una directiva de autorización que requiere dos tipos de notificaciones: **emisor** y **audiencia**. Este [token de acceso](../active-directory/develop/access-tokens.md) descodificado de ejemplo incluye ambos tipos de notificaciones:
-
-```json
-{
-   "aud": "https://management.core.windows.net/",
-   "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
-   "iat": 1582056988,
-   "nbf": 1582056988,
-   "exp": 1582060888,
-   "_claim_names": {
-      "groups": "src1"
-   },
-   "_claim_sources": {
-      "src1": {
-         "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
-    }
-   },
-   "acr": "1",
-   "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
-   "amr": [
-      "rsa",
-      "mfa"
-   ],
-   "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
-   "appidacr": "2",
-   "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
-   "family_name": "Sophia Owen",
-   "given_name": "Sophia Owen (Fabrikam)",
-   "ipaddr": "167.220.2.46",
-   "name": "sophiaowen",
-   "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
-   "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
-   "puid": "1003000000098FE48CE",
-   "scp": "user_impersonation",
-   "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
-   "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-   "unique_name": "SophiaOwen@fabrikam.com",
-   "upn": "SophiaOwen@fabrikam.com",
-   "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
-   "ver": "1.0"
-}
-```
+  ```json
+  {
+      "aud": "https://management.core.windows.net/",
+      "iss": "https://sts.windows.net/<Azure-AD-issuer-ID>/",
+      "iat": 1582056988,
+      "nbf": 1582056988,
+      "exp": 1582060888,
+      "_claim_names": {
+         "groups": "src1"
+      },
+      "_claim_sources": {
+         "src1": {
+            "endpoint": "https://graph.windows.net/7200000-86f1-41af-91ab-2d7cd011db47/users/00000-f433-403e-b3aa-7d8406464625d7/getMemberObjects"
+         }
+      },
+      "acr": "1",
+      "aio": "AVQAq/8OAAAA7k1O1C2fRfeG604U9e6EzYcy52wb65Cx2OkaHIqDOkuyyr0IBa/YuaImaydaf/twVaeW/etbzzlKFNI4Q=",
+      "amr": [
+         "rsa",
+         "mfa"
+      ],
+      "appid": "c44b4083-3bb0-00001-b47d-97400853cbdf3c",
+      "appidacr": "2",
+      "deviceid": "bfk817a1-3d981-4dddf82-8ade-2bddd2f5f8172ab",
+      "family_name": "Sophia Owen",
+      "given_name": "Sophia Owen (Fabrikam)",
+      "ipaddr": "167.220.2.46",
+      "name": "sophiaowen",
+      "oid": "3d5053d9-f433-00000e-b3aa-7d84041625d7",
+      "onprem_sid": "S-1-5-21-2497521184-1604012920-1887927527-21913475",
+      "puid": "1003000000098FE48CE",
+      "scp": "user_impersonation",
+      "sub": "KGlhIodTx3XCVIWjJarRfJbsLX9JcdYYWDPkufGVij7_7k",
+      "tid": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+      "unique_name": "SophiaOwen@fabrikam.com",
+      "upn": "SophiaOwen@fabrikam.com",
+      "uti": "TPJ7nNNMMZkOSx6_uVczUAA",
+      "ver": "1.0"
+   }
+   ```
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -190,14 +192,14 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
 
    ![Selección de "Autorización" > "Agregar directiva"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
-1. Proporcione información sobre la directiva de autorización; puede especificar los [tipos de notificaciones](../active-directory/develop/developer-glossary.md#claim) y los valores que espera la aplicación lógica en el token de autenticación presentado por cada llamada entrante al desencadenador de solicitud:
+1. Proporcione información sobre la directiva de autorización; puede especificar los [tipos de notificaciones](../active-directory/develop/developer-glossary.md#claim) y los valores que espera la aplicación lógica en el token de acceso presentado por cada llamada entrante al desencadenador de solicitud:
 
    ![Proporcionar información de la directiva de autorización](./media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png)
 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
    | **Nombre de directiva** | Sí | El nombre que quiere usar para la directiva de autorización. |
-   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza con `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para obtener más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
+   | **Notificaciones** | Sí | Los tipos de notificaciones y los valores que acepta la aplicación lógica de las llamadas entrantes. Estos son los tipos de notificaciones disponibles: <p><p>- **Emisor** <br>- **Audiencia** <br>- **Subject** (Asunto) <br>- **JWT ID** (Id. de JWT) (identificador de token web de JSON) <p><p>Como mínimo, la lista **Notificaciones** debe incluir la notificación de **Emisor**, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador de emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor. |
    |||
 
 1. Para agregar otra notificación, seleccione una de estas opciones:
@@ -210,14 +212,27 @@ Para habilitar Azure AD OAuth para la aplicación lógica en Azure Portal, siga
 
 1. Cuando finalice, seleccione **Guardar**.
 
+1. Para incluir el encabezado `Authorization` del token de acceso en las salidas del desencadenador basado en la solicitud, consulte [Inclusión del encabezado "Authorization" en las salidas del desencadenador por solicitud](#include-auth-header).
+
 <a name="define-authorization-policy-template"></a>
 
 #### <a name="define-authorization-policy-in-azure-resource-manager-template"></a>Definición de la directiva de autorización en la plantilla de Azure Resource Manager
 
-Para habilitar Azure AD OAuth en la plantilla de ARM para implementar la aplicación lógica, en la sección `properties` de la [definición de recursos de la aplicación lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), agregue un objeto `accessControl`, si no existe ninguno, que contenga un objeto `triggers`. En el objeto `triggers`, agregue un objeto `openAuthenticationPolicies` en el que defina una o varias directivas de autorización siguiendo esta sintaxis:
+Para habilitar Azure AD OAuth en la plantilla de Resource Manager para implementar la aplicación lógica, siga estos pasos y la sintaxis siguiente:
 
-> [!NOTE]
-> Como mínimo, la matriz `claims` debe incluir la notificación `iss`, que tiene un valor que comienza por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador del emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor.
+1. En la sección `properties` de la [definición de los recursos de la aplicación lógica](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition), agregue un objeto `accessControl`, si no existe ninguno, que contenga un objeto `triggers`.
+
+   Para más información sobre el objeto `accessControl`, consulte [Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager](#restrict-inbound-ip-template) y [Referencia de plantillas de flujos de trabajo de Microsoft.Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+
+1. En el objeto `triggers`, agregue un objeto `openAuthenticationPolicies` que contenga el objeto `policies` donde pueda definir una o varias directivas de autorización.
+
+1. Proporciónele un nombre a la directiva de autorización, establezca el tipo de directiva en `AAD`e incluya una matriz de `claims` donde se especifiquen uno o varios tipos de notificaciones.
+
+   Como mínimo, la matriz de `claims` debe incluir el tipo de notificación de emisor en el que se establece la propiedad `name` de la notificación en `iss` y `value`, para que empiece por `https://sts.windows.net/` o `https://login.microsoftonline.com/` como identificador del emisor de Azure AD. Para más información sobre estos tipos de notificaciones, consulte [Notificaciones de tokens de seguridad de Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). También puede especificar su propio tipo de notificaciones y valor.
+
+1. Para incluir el encabezado `Authorization` del token de acceso en las salidas del desencadenador basado en la solicitud, consulte [Inclusión del encabezado "Authorization" en las salidas del desencadenador por solicitud](#include-auth-header).
+
+Esta es la sintaxis que debe seguir:
 
 ```json
 "resources": [
@@ -256,7 +271,30 @@ Para habilitar Azure AD OAuth en la plantilla de ARM para implementar la aplicac
 ],
 ```
 
-Para más información sobre la sección `accessControl`, vea [Restricción de los intervalos IP entrantes en la plantilla de Azure Resource Manager](#restrict-inbound-ip-template) y [Referencia de plantillas de flujos de trabajo de Microsoft.Logic](/azure/templates/microsoft.logic/2019-05-01/workflows).
+<a name="include-auth-header"></a>
+
+#### <a name="include-authorization-header-in-request-trigger-outputs"></a>Inclusión del encabezado "Authorization" en las salidas del desencadenador por solicitud
+
+En el caso de las aplicaciones lógicas que [permiten Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth) para autorizar el acceso de las llamadas entrantes a desencadenadores por solicitud, puede habilitar que las salidas del desencadenador Request o HTTP Webhook incluyan el encabezado `Authorization` del token de acceso de OAuth. En la definición de JSON subyacente del desencadenador, agregue y establezca la propiedad `operationOptions` en `IncludeAuthorizationHeadersInOutputs`. Este es un ejemplo del desencadenador Request (Solicitud):
+
+```json
+"triggers": {
+   "manual": {
+      "inputs": {
+         "schema": {}
+      },
+      "kind": "Http",
+      "type": "Request",
+      "operationOptions": "IncludeAuthorizationHeadersInOutputs"
+   }
+}
+```
+
+Para más información, consulte los temas siguientes:
+
+* [Referencia de esquema para los tipos de desencadenador y de acción: desencadenador Request (Solicitud)](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger)
+* [Referencia de esquema para los tipos de desencadenador y de acción: desencadenador HTTP Webhook](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
+* [Referencia de esquema para los tipos de desencadenador y de acción: opciones de operación](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options)
 
 <a name="azure-api-management"></a>
 
@@ -896,7 +934,7 @@ En los desencadenadores Request (Solicitud), se puede usar [Azure Active Directo
 | Propiedad (diseñador) | Propiedad (JSON) | Obligatorio | Value | Descripción |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autenticación** | `type` | Sí | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | Tipo de autenticación que se debe usar. Actualmente, Logic Apps sigue el [protocolo OAuth 2.0](../active-directory/develop/v2-overview.md). |
-| **Autoridad** | `authority` | No | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación. De manera predeterminada, este valor es `https://login.windows.net`. |
+| **Autoridad** | `authority` | No | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de acceso. De manera predeterminada, este valor es `https://login.windows.net`. |
 | **Inquilino** | `tenant` | Sí | <*tenant-ID*> | El identificador del inquilino de Azure AD |
 | **Audiencia** | `audience` | Sí | <*resource-to-authorize*> | Recurso que quiere usar para la autorización; por ejemplo, `https://management.core.windows.net/` |
 | **Id. de cliente** | `clientId` | Sí | <*client-ID*> | El identificador de cliente para la aplicación que solicita autorización |

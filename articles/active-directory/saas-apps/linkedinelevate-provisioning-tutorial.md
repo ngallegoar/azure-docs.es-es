@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: e49b35de5cce914edbd8db2ac0c0c8cccd5f811b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549779"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91361591"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configuración de LinkedIn Elevate para aprovisionar usuarios automáticamente
 
@@ -70,12 +70,12 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
     > [!NOTE]
     > Si no está habilitada la asignación de licencias automática, solo se sincronizan los datos de usuario.
 
-    ![Aprovisionamiento de LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+    ![Captura de pantalla que muestra la configuración global del centro de cuentas de LinkedIn.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
     > [!NOTE]
     > Si está habilitada la asignación de licencias automática, debe tomar nota de la instancia de la aplicación y del tipo de licencia. Las licencias se asignan por orden de llegada hasta que se obtienen todas las licencias.
 
-    ![Aprovisionamiento de LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+    ![Captura de pantalla que muestra la página de configuración de S C I M.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
 5. Haga clic en **Generar token**. El token de acceso debería aparecer en el campo **Token de acceso**.
 
@@ -89,7 +89,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 10. Establezca el **modo de aprovisionamiento** en **Automático**.
 
-    ![Aprovisionamiento de LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+    ![Captura de pantalla que muestra la página de aprovisionamiento de LinkedIn Elevate.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
 11. Rellene los campos siguientes en **Credenciales de administrador**:
 
@@ -105,7 +105,7 @@ El primer paso consiste en recuperar el token de acceso de LinkedIn. Si es admin
 
 14. En la sección **Asignaciones de atributos**, revise los atributos de usuario y de grupo que se sincronizarán de Azure AD a LinkedIn Elevate. Tenga en cuenta que los atributos seleccionados como propiedades de **Coincidencia** se usarán para establecer coincidencias con las cuentas de usuario y grupos de LinkedIn Elevate con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-    ![Aprovisionamiento de LinkedIn Elevate](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+    ![La captura de pantalla muestra las asignaciones, incluidas las asignaciones de atributos.](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
 15. Para habilitar el servicio de aprovisionamiento de Azure AD para LinkedIn Elevate, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 

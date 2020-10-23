@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876791"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530160"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usar las herramientas Spark y Hive para Visual Studio Code
 
@@ -199,11 +199,11 @@ Para usar el comando de PySpark Interactive con el fin de enviar las consultas, 
 
 4. El mensaje para instalar el kernel de PySpark se muestra en la esquina inferior derecha de la ventana. Puede hacer clic en el botón **Install** (Instalar) para continuar con las instalaciones de PySpark; o bien, hacer clic en el botón **Skip** (Omitir) para omitir este paso.
 
-   ![instalación del kernel de pyspark](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![Captura de pantalla que muestra una opción para omitir la instalación de PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. Si tiene que instalarlo más adelante, puede ir a **File** (Archivo)  > **Preference** (Preferencia)  > **Settings** (Configuración) y, después, desactivar **Hdinsight: Enable Skip Pyspark Installation** (Habilitar Omitir la instalación de Pyspark) en las opciones. 
     
-    ![instalación del kernel de pyspark](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![Captura de pantalla que muestra la opción Enable Skip Pyspark Installation (Habilitar Omitir la instalación de Pyspark).](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Si la instalación se realiza correctamente en el paso 4, el cuadro de mensaje "PySpark installed succesfully" (PySpark se instaló correctamente) se muestra en la esquina inferior derecha de la ventana. Haga clic en botón **Reload** (Recargar) para volver a cargar la ventana.
     ![pyspark se ha instalado correctamente](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)

@@ -7,12 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 2bf369b784cddf307abc59d2b8766fc8a87e0985
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9653a584382584d982c55008a6e8547de28691b7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74975353"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91842859"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub
 
@@ -32,7 +32,7 @@ La compatibilidad del reaprovisionamiento en el Device Provisioning Service solu
 
 Los datos sobre el estado del dispositivo están formados por las funcionalidades del dispositivo y el [dispositivo gemelo](../iot-hub/iot-hub-devguide-device-twins.md). Estos datos se almacenan en la instancia de Device Provisioning Service y el centro de IoT al cual está asignado un dispositivo.
 
-![Aprovisionamiento con Device Provisioning Service](./media/concepts-device-reprovisioning/dps-provisioning.png)
+![Diagrama que muestra cómo funciona el aprovisionamiento con el servicio Device Provisioning.](./media/concepts-device-reprovisioning/dps-provisioning.png)
 
 Cuando un dispositivo se aprovisiona inicialmente con una instancia de Device Provisioning Service, se llevan a cabo los pasos siguientes:
 
@@ -52,13 +52,13 @@ Según el escenario, un dispositivo normalmente envía una solicitud a una insta
 
 * **Volver a aprovisionar y migrar datos**: esta directiva es el valor predeterminado para nuevas entradas de inscripción. Esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud (1). Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. La información sobre el estado actualizado del dispositivo se migrará de este centro de IoT inicial al nuevo centro de IoT (2). Durante la migración, el estado del dispositivo será **Assigning** (Asignando).
 
-    ![Aprovisionamiento con Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
+    ![Diagrama que muestra que una directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud.](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
 * **Reaprovisionar y restablecer a la configuración inicial**: esta directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud de aprovisionamiento (1). Según la configuración de la entrada de inscripción, el dispositivo se puede reasignar a otro centro de IoT. Si el dispositivo cambia a los centros de IoT, se quitará el registro de dispositivos con el centro de IoT inicial. Los datos de configuración inicial que recibió la instancia del servicio de aprovisionamiento al aprovisionar el dispositivo se proporcionan para el nuevo centro de IoT (2). Durante la migración, el estado del dispositivo será **Assigning** (Asignando).
 
     Esta directiva se utiliza a menudo para llevar a cabo un restablecimiento de fábrica sin cambiar los centros de IoT.
 
-    ![Aprovisionamiento con Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
+    ![Diagrama que muestra cómo una directiva toma medidas cuando los dispositivos asociados a la entrada de inscripción envían una nueva solicitud de aprovisionamiento.](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
 * **No volver a aprovisionar nunca**: el dispositivo nunca se reasigna a un centro diferente. Esta directiva se proporciona para administrar la compatibilidad con versiones anteriores.
 

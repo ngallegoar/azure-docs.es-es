@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046461"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91530143"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnóstico y solución de problemas en el entorno de Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este es un artículo de Gen1.
 
 En este artículo se describen algunos problemas que podría encontrar en el entorno de Azure Time Series Insights. Se ofrecen posibles causas y soluciones para la resolución.
 
@@ -66,8 +69,8 @@ Por ejemplo, si tiene 5 millones de eventos en un origen de eventos al conectar
 
 Si tiene los eventos antiguos en el origen de eventos, puede enfocarlo de dos maneras:
 
-- Cambie los límites de retención del origen de eventos para ayudar a eliminar los eventos antiguos que no quiere que aparezcan en Azure Time Series Insights.
-- Aprovisione un tamaño mayor de entorno (número de unidades) para aumentar el rendimiento de los eventos antiguos. Siguiendo con el ejemplo anterior, si aumenta ese mismo entorno de S1 a cinco unidades durante un día, debería actualizarse en el plazo de un día. Si la producción de eventos de estado estable es de 1 millón o menos eventos al día, puede reducir la capacidad de eventos a una unidad cuando Azure Time Series Insights se ponga al día.
+* Cambie los límites de retención del origen de eventos para ayudar a eliminar los eventos antiguos que no quiere que aparezcan en Azure Time Series Insights.
+* Aprovisione un tamaño mayor de entorno (número de unidades) para aumentar el rendimiento de los eventos antiguos. Siguiendo con el ejemplo anterior, si aumenta ese mismo entorno de S1 a cinco unidades durante un día, debería actualizarse en el plazo de un día. Si la producción de eventos de estado estable es de 1 millón o menos eventos al día, puede reducir la capacidad de eventos a una unidad cuando Azure Time Series Insights se ponga al día.
 
 El límite de aplicación se basa en el tipo y la capacidad de la SKU del entorno. Todos los orígenes de eventos del entorno comparten esta capacidad. Si el origen de eventos de la instancia de IoT Hub o del centro de evento inserta datos por encima de los límites exigidos, experimentará limitaciones y retrasos.
 
@@ -128,12 +131,12 @@ El primer encabezado de columna debe ser el nombre de propiedad timestamp. Junto
 
 No se mostrarán estos valores:
 
-- *(abc)* : indica que Azure Time Series Insights está leyendo los valores de datos como cadenas.
-- *Icono de calendario*: indica que Azure Time Series Insights está leyendo los valores de datos como valores datetime.
-- *#* : indica que Azure Time Series Insights está leyendo los valores de datos como enteros.
+* *(abc)* : indica que Azure Time Series Insights está leyendo los valores de datos como cadenas.
+* *Icono de calendario*: indica que Azure Time Series Insights está leyendo los valores de datos como valores datetime.
+* *#* : indica que Azure Time Series Insights está leyendo los valores de datos como enteros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [mitigación de la latencia en Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+* Más información sobre la [mitigación de la latencia en Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Aprenda a [escalar el entorno de Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+* Aprenda a [escalar el entorno de Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

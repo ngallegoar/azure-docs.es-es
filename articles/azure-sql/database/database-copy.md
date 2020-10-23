@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 02ff222337e1b1c22df79724c232d4ca2b8b9f67
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225740"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91443787"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL Database
 
@@ -26,7 +26,10 @@ Azure SQL Database proporciona varios métodos para crear una copia de una [bas
 
 ## <a name="overview"></a>Información general
 
-Una copia de base de datos es una instantánea coherente con las transacciones de la base de datos de origen a partir de un momento dado después de iniciarse la solicitud de copia. Puede seleccionar el mismo servidor u otro distinto para la copia. También puede optar por conservar el nivel de servicio y tamaño de proceso de la base de datos de origen, o usar un tamaño de proceso diferente dentro del mismo nivel de servicio o uno diferente. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, los usuarios y los permisos de la base de datos copiada se administran independientemente de la base de datos de origen. La copia se crea mediante la tecnología de replicación geográfica. Una vez completada la propagación de réplicas, el vínculo de replicación geográfica finaliza automáticamente. Todos los requisitos para usar la replicación geográfica se aplican a la operación de copia de la base de datos. Consulte [Información general de la replicación geográfica activa](active-geo-replication-overview.md) para obtener más información.
+Una copia de base de datos es una instantánea coherente con las transacciones de la base de datos de origen a partir de un momento dado después de iniciarse la solicitud de copia. Puede seleccionar el mismo servidor u otro distinto para la copia. También puede optar por conservar la redundancia de copia de seguridad , el nivel de servicio y el tamaño de proceso de la base de datos de origen, o usar una redundancia de almacenamiento de copia de seguridad o tamaño de proceso diferentes dentro del mismo nivel de servicio o uno diferente. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, los usuarios y los permisos de la base de datos copiada se administran independientemente de la base de datos de origen. La copia se crea mediante la tecnología de replicación geográfica. Una vez completada la propagación de réplicas, el vínculo de replicación geográfica finaliza automáticamente. Todos los requisitos para usar la replicación geográfica se aplican a la operación de copia de la base de datos. Consulte [Información general de la replicación geográfica activa](active-geo-replication-overview.md) para obtener más información.
+
+> [!NOTE]
+> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente como versión preliminar pública en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de copia de seguridad de zona, no se admitirá la copia de una base de datos en un servidor de una región de Azure distinta. 
 
 ## <a name="logins-in-the-database-copy"></a>Inicios de sesión en la copia de la base de datos
 
@@ -84,6 +87,9 @@ Inicie la copia de la base de datos de origen con la instrucción [CREATE DATABA
 > [!NOTE]
 > La finalización de la instrucción T-SQL no finaliza la operación de copia de la base de datos. Para finalizar la operación, quite la base de datos de destino.
 >
+
+> [!IMPORTANT]
+> Aún no se admite la selección de redundancia de almacenamiento de copia de seguridad al usar el comando T-SQL CREATE DATABASE... AS COPY OF. 
 
 ### <a name="copy-to-the-same-server"></a>Copia en el mismo servidor
 

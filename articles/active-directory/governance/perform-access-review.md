@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 7e03ba5e7a4a24ee3114946230f78a64ea3d42cf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299973"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91265688"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Revisión del acceso a los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -37,7 +37,7 @@ Puede iniciar el proceso de revisión de acceso desde el correo electrónico de 
 
 1. Busque un correo electrónico de Microsoft en el que se le pide que revise el acceso. Este es un ejemplo de un correo electrónico para revisar el acceso de un grupo.
 
-    ![Ejemplo de correo electrónico de Microsoft para revisar el acceso a un grupo](./media/perform-access-review/access-review-email.png)
+    ![Captura de pantalla que muestra un ejemplo de correo electrónico de Microsoft para revisar el acceso a un grupo.](./media/perform-access-review/access-review-email.png)
 
 1. Haga clic en el vínculo **Start review** (Iniciar revisión) para abrir la revisión de acceso.
 
@@ -54,7 +54,7 @@ Puede iniciar el proceso de revisión de acceso desde el correo electrónico de 
         > [!NOTE]
         > Si el icono **Revisiones de acceso** no está visible, no hay ninguna revisión de acceso pendiente para esa organización y no se requiere ninguna acción en este momento.
 
-        ![Lista de revisiones de acceso pendientes para aplicaciones y grupos](./media/perform-access-review/access-reviews-list.png)
+        ![Captura de pantalla que muestra la lista de revisiones de acceso pendientes para aplicaciones y grupos.](./media/perform-access-review/access-reviews-list.png)
 
     1. Haga clic en el vínculo **Begin review** (Comenzar revisión) correspondiente a la revisión de acceso que quiere realizar.
 
@@ -99,7 +99,7 @@ Para facilitar las revisiones de acceso y que sean más rápidas, también se pr
 
 1. En la barra azul en la parte inferior de la página, haga clic en **Aceptar recomendaciones**.
 
-    ![Revisión de acceso abierta que muestra el botón Aceptar recomendaciones](./media/perform-access-review/accept-recommendations.png)
+    ![Captura de pantalla que muestra la lista de revisión de acceso abierta con el botón "Aceptar recomendaciones" seleccionado.](./media/perform-access-review/accept-recommendations.png)
 
     Verá un resumen de las acciones recomendadas.
 

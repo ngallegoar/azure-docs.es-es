@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 9/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535289"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91461485"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configuración del cifrado Kerberos de NFSv4.1 para Azure NetApp Files
 
@@ -135,7 +135,7 @@ En esta sección se describe el impacto en el rendimiento del cliente único de 
 
 ### <a name="expected-performance-impact"></a>Impacto en el rendimiento esperado 
 
-Hay dos áreas de enfoque: carga ligera y límite superior. En las listas siguientes se describe la configuración de seguridad del impacto de rendimiento por configuración de seguridad y escenario por escenario. Todas las comparaciones se realizan en relación con el parámetro de seguridad `sec=sys`.
+Hay dos áreas de enfoque: carga ligera y límite superior. En las listas siguientes se describe la configuración de seguridad del impacto de rendimiento por configuración de seguridad y escenario por escenario. Todas las comparaciones se realizan en relación con el parámetro de seguridad `sec=sys`. La prueba se realizó en un único volumen con un solo cliente. 
 
 Impacto sobre el rendimiento de krb5:
 

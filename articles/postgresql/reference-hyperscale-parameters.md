@@ -1,5 +1,5 @@
 ---
-title: 'Parámetros del servidor en Azure Database for PostgreSQL: Hiperescala (Hiperescala [Citus])'
+title: 'Parámetros del servidor en Azure Database for PostgreSQL: Hiperescala (Citus)'
 description: Parámetros de la API de SQL de Hiperescala (Citus)
 author: jonels-msft
 ms.author: jonels
@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 2b4d3d44cb4e78f52ab03f31e58df5e66118ae25
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441517"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91336248"
 ---
 # <a name="server-parameters"></a>Parámetros del servidor
 
 Hay varios parámetros de servidor que afectan al comportamiento de Hiperescala (Citus), tanto de PostgreSQL estándar como específicos de Hiperescala (Citus).
 Estos parámetros se pueden establecer en Azure Portal para un grupo de servidores de Hiperescala (Citus). En la categoría **Configuración**, seleccione **Parámetros del nodo de trabajo** o **Parámetros del nodo de coordinación**. Estas páginas permiten establecer parámetros para todos los nodos de trabajo o solo para el nodo de coordinación.
 
-## <a name="hyperscale-parameters"></a>Parámetros de Hiperescala
+## <a name="hyperscale-citus-parameters"></a>Parámetros de Hiperescala (Citus)
 
 > [!NOTE]
 >
-> Es posible que los grupos de servidores de Hiperescala que ejecutan versiones anteriores del motor de Citus no ofrezcan todos los parámetros que se enumeran a continuación.
+> Es posible que los grupos de servidores de Hiperescala (Citus) que ejecutan versiones anteriores del motor de Citus no ofrezcan todos los parámetros que se enumeran a continuación.
 
 ### <a name="general-configuration"></a>Configuración general
 

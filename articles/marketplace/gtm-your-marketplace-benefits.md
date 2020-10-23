@@ -4,21 +4,21 @@ description: 'Servicios de comercialización: en esta sección se describen los 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/24/2020
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 0a98bf7d6a035dbf293bda5d8afe5d0e1130f58f
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: da3194559ef5ec4c325f7dc15591f57c0d9c38c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705561"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91368293"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Las ventajas de Marketplace comercial
 
-Ya ha publicado en el marketplace comercial de Microsoft, ahora quiere ver que la oferta tenga éxito. Se le ofrecen las ventajas (de ventas, técnicas y de marketing) que necesita para agilizar el crecimiento de la oferta.
+Ya ha publicado en el marketplace comercial de Microsoft, ahora quiere ver que la oferta tenga éxito. Se le ofrecen las ventajas comerciales, técnicas y de marketing que necesita para acelerar el crecimiento de su oferta.
 
-Una vez que la oferta esté activa en Microsoft AppSource o Azure Marketplace, vaya al [Centro de partners](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para acceder a sus ventajas aptas de marketing, ventas y técnicas y activarlas. Las ventajas de las Recompensas de Marketplace se basan en la involucración y las ventas comerciales de Marketplace. Cuanto más se involucra, más gana.
+Una vez que la oferta esté activa en Microsoft AppSource o Azure Marketplace, vaya al [Centro de partners](https://partner.microsoft.com/dashboard/mpn/membership/benefits/commercialmarketplace) para acceder a sus ventajas aptas de marketing, ventas y técnicas y activarlas. Para obtener información general sobre cómo inscribirse en Marketplace Rewards y activar en el Centro de partners las ventajas de hacerlo, vea el [vídeo de demostración](https://partner.microsoft.com/asset/detail/marketplace-rewards-demo-mp4) de Marketplace Rewards. Las ventajas de las Recompensas de Marketplace se basan en la involucración y las ventas comerciales de Marketplace. Cuanto más se involucra, más gana.
 
 ## <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
@@ -44,13 +44,12 @@ Comenzar es fácil:
 2. Vaya a [Marketplace Rewards](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) en el Centro de Partners y seleccione **Enroll in Marketplace Rewards Program** (Inscribirse en el programa Marketplace Rewards).
 3. Para activar las ventajas de ventas y marketing, asigne un contacto de marketing de la empresa. Este contacto recibirá comunicaciones de seguimiento sobre Marketplace Rewards.
 4. Para agregar o actualizar la información del contacto de marketing, vaya a la parte superior de la pestaña Ventajas de marketing y ventas en la página Marketplace Rewards y seleccione **Add, update, or change** (Agregar, actualizar o cambiar).  A continuación, haga lo siguiente:
-
     1. Seleccione un usuario en la lista. Si el usuario que desea asignar no está en la lista, puede agregar nuevos usuarios en **Configuración de la cuenta**.
     1. Proporcione una dirección de correo electrónico para el usuario, que sea diferente de la dirección de correo electrónico asociada a la cuenta del Centro de partners de su empresa. Le enviaremos instrucciones por correo electrónico para usar la ventaja de Marketplace Rewards a la dirección de correo electrónico del contacto de marketing designado.
     1. Proporcione el teléfono de contacto y el idioma preferido para este contacto de marketing. Cuando termine de escribir esta información, seleccione **Asignar usuario**.
     1. Una vez que haya actualizado el contacto de marketing, seleccione **Activar** para la ventaja que desea empezar a usar. Una vez que active una ventaja, un miembro del equipo de Rewards se comunicará con el contacto de marketing en el plazo de una semana.
 
-**Ventajas técnicas**
+### <a name="technical-benefits"></a>Ventajas técnicas
 
 1. Puede usar sus ventajas técnicas para solicitar asistencia técnica durante las fases de preventa, diseño, implementación y desarrollo de aplicaciones de sus soluciones híbridas y en la nube. Para solicitar asistencia, rellene el formulario de solicitud y, a continuación, seleccione **Enviar solicitud**.
 2. El uso de las ventajas de patrocinio de Azure se compartirá a través de un correo electrónico a medida que desbloquee estas ventajas.
@@ -79,7 +78,7 @@ Cuando publique su oferta que permite transacciones en Microsoft AppSource o Az
 
 Estas ventajas están diseñadas para ayudarlo en actividades de marketing, de ventas y técnicas y, por lo tanto, lo ayudan a obtener más visitantes, a recibir más clientes potenciales y a convertir más negocios.
 
-Todos los partners que tienen una oferta publicada trabajan con un administrador de involucración dedicado para elegir las actividades de mayor valor para su cartera de ofertas del marketplace comercial. Esta involucración es permanente para cada oferta, lo que significa que puede elegir las actividades y el tiempo de estas actividades para alinearse con el tiempo de las estrategias de ventas y marketing más amplias de su empresa. 
+Todos los partners que tienen una oferta publicada trabajan con un administrador de involucración dedicado para elegir las actividades de mayor valor para su cartera de ofertas del marketplace comercial. Esta involucración es permanente para cada oferta, lo que significa que puede elegir las actividades y el tiempo de estas actividades para alinearse con el tiempo de las estrategias de ventas y marketing más amplias de su empresa.
 
 ![Ventajas de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
 
@@ -97,23 +96,23 @@ Además de las ventajas de las recompensas, los asociados de aplicaciones empres
 
 ### <a name="publisher-agreement"></a>Contrato del anunciante
 
-Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante de Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) y se incluyen en el anexo del programa de ventajas comerciales.
+Todas las actividades descritas en esta página se incluyen en el [contrato del anunciante](https://go.microsoft.com/fwlink/?LinkID=699560) de Microsoft y se incluyen en el anexo del programa de ventajas comerciales.
 
 ### <a name="cancellation-policy"></a>Directiva de cancelaciones
 
-Los anunciantes de ofertas de [lista y prueba](determine-your-listing-type.md) pueden participar o no en las actividades por publicación de oferta. Los asociados pueden rechazar cualquier involucración en cualquier momento. 
+Los anunciantes de ofertas de [lista y prueba](determine-your-listing-type.md) pueden participar o no en las actividades por publicación de oferta. Los asociados pueden rechazar cualquier involucración en cualquier momento.
 
-Microsoft se reserva el derecho de revocar y finalizar las ventajas de las Recompensas de Marketplace para los anunciantes que: 
+Microsoft se reserva el derecho de revocar y finalizar las ventajas de las Recompensas de Marketplace para los anunciantes que:
 
 * participen en una actividad ilícita con su lista de Marketplace;
 * reciban una compra conocida o que se cree que sea fraudulenta.
-* hayan sido eliminados de las listas de Marketplace comercial; 
+* hayan sido eliminados de las listas de Marketplace comercial;
 * usen su oferta para mostrar contenido de marketing o de otro tipo que infrinja los derechos de autor o las leyes de marcas comerciales;
 * infrinjan las directivas del [programa de patrocinio de Azure](https://azure.microsoft.com/offers/ms-azr-0036p/), que incluyen, entre otras, el uso de fondos de patrocinio de Azure para sus propias operaciones internas o minería de bitcoins.
 
 Microsoft se reserva el derecho de revocar y finalizar Marketplace Rewards cuando:
 
-* el cliente que realiza la compra lo hizo por accidente y quiere cancelar la compra. 
+* el cliente que realiza la compra lo hizo por accidente y quiere cancelar la compra.
 * el cliente cancela antes de usar el producto del asociado.
 
 ### <a name="offer-availability"></a>Disponibilidad de la oferta
@@ -124,10 +123,7 @@ Las transacciones que se demuestran fraudulentas no se contabilizan en el nivel 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para crear o configurar la oferta.
-
-Active las ventajas de Marketplace Rewards en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-
-Revise los [recursos de autoservicio disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
-
-Regístrese en el [foro de la comunidad de Microsoft AppSource y Azure Marketplace](https://aka.ms/MarketplaceCommunity) y obtenga información sobre los temas pertinentes o únase al debate.
+- Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) para crear o configurar la oferta.
+- Active las ventajas de Marketplace Rewards en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
+- Revise los [recursos de autoservicio disponibles](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+- Regístrese en el [foro de la comunidad de Microsoft AppSource y Azure Marketplace](https://aka.ms/MarketplaceCommunity) y obtenga información sobre los temas pertinentes o únase al debate.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541029"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91399608"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -64,13 +64,13 @@ Ejemplos de algunas de las maneras en que Azure Identity Protection puede ayudar
 
 ### <a name="azure-ad-privileged-identity-management"></a>Administración de identidades con privilegios de Azure AD
 
-Con [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md), puede administrar, controlar y supervisar el acceso dentro de la organización. Esta característica incluye el acceso a los recursos de Azure AD y otros servicios en línea de Microsoft, como Office 365 o Microsoft Intune.
+Con [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md), puede administrar, controlar y supervisar el acceso dentro de la organización. Esta característica incluye el acceso a los recursos de Azure AD y otros servicios en línea de Microsoft, como Microsoft 365 o Microsoft Intune.
 
 ![Diagrama de Azure AD Privileged Identity Management](./media/threat-detection/azure-threat-detection-fig2.png)
 
 PIM ayuda a:
 
--   Obtener alertas e informes sobre los administradores de Azure AD y el acceso administrativo Just-In-Time (JIT) a los servicios en línea de Microsoft, como Office 365 e Intune.
+-   Obtener alertas e informes sobre los administradores de Azure AD y el acceso administrativo Just-In-Time (JIT) a los servicios en línea de Microsoft, como Microsoft 365 e Intune.
 
 -   Obtener informes sobre el historial de acceso de administrador y los cambios en las asignaciones de administrador.
 
@@ -155,7 +155,7 @@ Security Center utiliza análisis avanzados que superan con creces los enfoques 
 
 Microsoft tiene acceso a una cantidad ingente de información sobre amenazas globales.
 
-Los recursos telemétricos proceden de diferentes fuentes, como Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, la Unidad de crímenes digitales de Microsoft (DCU) y Microsoft Security Response Center (MSRC).
+Los recursos telemétricos proceden de diferentes fuentes, como Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, la Unidad de crímenes digitales de Microsoft (DCU) y Microsoft Security Response Center (MSRC).
 
 ![Conclusiones de inteligencia sobre amenazas](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Estos son algunos ejemplos:
 
 -   **Scripts de PowerShell malintencionados**: los atacantes usan PowerShell para ejecutar código malintencionado en las máquinas virtuales objetivo con diferentes propósitos. Security Center analiza la actividad de PowerShell en busca de evidencias de actividad sospechosa.
 
--   **Ataques de salida**: a menudo, el objetivo de los atacantes son recursos en la nube, que utilizan con el propósito de perpetrar otros ataques. Por ejemplo, es posible que las máquinas virtuales afectadas se usen para iniciar ataques por fuerza bruta contra otras máquinas virtuales, enviar correo no deseado o buscar puertos abiertos y otros dispositivos en Internet. Gracias a la aplicación del aprendizaje automático en el tráfico de red, Security Center puede detectar cuándo las comunicaciones de red salientes superan la norma establecida. Cuando se detecta correo no deseado, Security Center relaciona el tráfico inusual de correo electrónico con la información de Office 365 para determinar si es probable que el mensaje sea fraudulento o si es el resultado de una campaña de correo electrónico legítima.
+-   **Ataques de salida**: a menudo, el objetivo de los atacantes son recursos en la nube, que utilizan con el propósito de perpetrar otros ataques. Por ejemplo, es posible que las máquinas virtuales afectadas se usen para iniciar ataques por fuerza bruta contra otras máquinas virtuales, enviar correo no deseado o buscar puertos abiertos y otros dispositivos en Internet. Gracias a la aplicación del aprendizaje automático en el tráfico de red, Security Center puede detectar cuándo las comunicaciones de red salientes superan la norma establecida. Cuando se detecta correo no deseado, Security Center relaciona el tráfico inusual de correo electrónico con la información de Microsoft 365 para determinar si es probable que el mensaje sea fraudulento o si es el resultado de una campaña de correo electrónico legítima.
 
 ### <a name="anomaly-detection"></a>Detección de anomalías
 

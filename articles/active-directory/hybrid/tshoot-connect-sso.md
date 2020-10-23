@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016272"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91294825"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solución de problemas de inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -37,6 +37,7 @@ Este artículo sirve de ayuda para encontrar información sobre cómo solucionar
 - Si va a sincronizar treinta bosques de Active Directory o más, no se puede habilitar el inicio de sesión único de conexión directa mediante Azure AD Connect. Como alternativa, también puede [habilitar manualmente](#manual-reset-of-the-feature) la característica en su inquilino.
 - Agregar la dirección URL del servicio de Azure AD (`https://autologon.microsoftazuread-sso.com`) a la zona de sitios de confianza en lugar de a la zona de intranet local *impide que los usuarios inicien sesión*.
 - El inicio de sesión único de conexión directa admite los tipos de cifrado AES256_HMAC_SHA1, AES128_HMAC_SHA1 y RC4_HMAC_MD5 para Kerberos. Se recomienda que el tipo de cifrado de la cuenta AzureADSSOAcc$ se establezca en AES256_HMAC_SHA1 o uno de los tipos AES en lugar de RC4, para mayor seguridad. El tipo de cifrado se almacena en el atributo msDS-SupportedEncryptionTypes de la cuenta en Active Directory.  Si el tipo de cifrado de la cuenta AzureADSSOAcc$ está establecido en RC4_HMAC_MD5 y desea cambiarlo a uno de los tipos de cifrado AES, asegúrese de revertir primero la clave de descifrado de Kerberos de dicha cuenta, tal como se explica en la pregunta correspondiente del [documento de preguntas más frecuentes](how-to-connect-sso-faq.md); de lo contrario, no se producirá el inicio de sesión único de conexión directa.
+-  Si tiene más de un bosque con confianza de bosque, la habilitación del inicio de sesión único en uno de los bosques habilitará el inicio de sesión único en todos los bosques de confianza. Si habilita SSO en un bosque en el que el SSO ya está habilitado, recibirá un error que indica que SSO ya está habilitado en el bosque.
 
 ## <a name="check-status-of-feature"></a>Comprobación del estado de la característica
 

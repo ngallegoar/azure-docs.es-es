@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0cb51cd224145e7fe359e2b14a87ed2b87b18c26
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563032"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91408867"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Supervisión de conectividad de red con el Monitor de conexión (versión preliminar)
 
@@ -30,11 +30,11 @@ Estos son algunos casos de uso del Monitor de conexión (versión preliminar):
 
 - La VM de servidor front-end web se comunica con una VM de servidor de bases de datos en una aplicación de varios niveles. Quiere comprobar la conectividad de red entre las dos VM.
 - Quiere que las VM en la región Este de EE. UU. hagan ping a las VM en la región Centro de EE. UU. y quiere comparar las latencias de red entre regiones.
-- Tiene varios sitios de oficina locales en Seattle, Washington y en Ashburn, Virginia. Los sitios de oficina se conectan a las direcciones URL de Office 365. Para los usuarios de las direcciones URL de Office 365, compare las latencias entre Seattle y Ashburn.
+- Tiene varios sitios de oficina locales en Seattle, Washington y en Ashburn, Virginia. Los sitios de oficina se conectan a las direcciones URL de Microsoft 365. En el caso de los usuarios de las direcciones URL de Microsoft 365, compare las latencias entre Seattle y Ashburn.
 - La aplicación híbrida necesita conectividad a un punto de conexión de Azure Storage. El sitio local y la aplicación de Azure se conectan al mismo punto de conexión de Azure Storage. Quiere comparar las latencias del sitio local con las latencias de la aplicación de Azure.
 - Quiere comprobar la conectividad entre las instalaciones locales y las máquinas virtuales de Azure que hospedan la aplicación en la nube.
 
-En su fase de versión preliminar, el Monitor de conexión combina lo mejor de dos características: la [Monitor de conexión](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) de Network Watcher y la característica [Monitor de conectividad de servicio](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) de Network Performance Monitor (NPM).
+En su fase de versión preliminar, Connection Monitor combina lo mejor de las dos características: la característica [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) de Network Watcher y las características [Monitor de conectividad de servicio](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Supervisión de ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm) y [Monitor de rendimiento](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) de Network Performance Monitor (NPM).
 
 Estas son algunas ventajas del Monitor de conexión (versión preliminar):
 
@@ -87,16 +87,15 @@ Para más información, consulte [Habilitación de Network Watcher](https://docs
 
 El Monitor de conexión supervisa la comunicación a intervalos regulares. Informa sobre los cambios en la disponibilidad y la latencia. También puede comprobar la topología de red actual e histórica entre los agentes de origen y los puntos de conexión de destino.
 
-Los orígenes pueden ser máquinas virtuales de Azure o máquinas locales que tengan instalado un agente de supervisión. Los puntos de conexión de destino pueden ser direcciones URL de Office 365, direcciones URL de Dynamics 365, direcciones URL personalizadas, identificadores de recursos de máquinas virtuales de Azure, IPv4, IPv6, FQDN o cualquier nombre de dominio.
+Los orígenes pueden ser máquinas virtuales de Azure o máquinas locales que tengan instalado un agente de supervisión. Los puntos de conexión de destino pueden ser direcciones URL de Microsoft 365, direcciones URL de Dynamics 365, direcciones URL personalizadas, identificadores de recursos de máquina virtual de Azure, IPv4, IPv6, FQDN o cualquier nombre de dominio.
 
 ### <a name="access-connection-monitor-preview"></a>Acceso al Monitor de conexión (versión preliminar)
 
 1. En la página principal de Azure Portal, vaya a **Network Watcher**.
 1. A la izquierda, en la sección **Supervisión**, seleccione **Monitor de conexión (versión preliminar)** .
 1. Verá todos los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar). Para ver los monitores de conexión que se crearon en la experiencia clásica del Monitor de conexión, vaya a la pestaña **Monitor de conexión**.
-
-    ![Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)](./media/connection-monitor-2-preview/cm-resource-view.png)
-
+    
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>Creación de un monitor de conexión
 
@@ -156,7 +155,7 @@ Una vez que se crea un monitor de conexión, los orígenes comprueban la conecti
 
 En función del protocolo que eligió en la configuración de prueba, el Monitor de conexión (versión preliminar) ejecuta una serie de comprobaciones para el par origen-destino. Las comprobaciones se ejecutan según la frecuencia de prueba elegida.
 
-Si usa HTTP, el servicio calcula el número de respuestas HTTP que devolvieron un código de respuesta. El resultado determina el porcentaje de comprobaciones con error. Para calcular el RTT, el servicio mide el tiempo entre una llamada HTTP y la respuesta.
+Si usa HTTP, el servicio calcula el número de respuestas HTTP que devolvieron un código de respuesta válido. Los códigos de respuesta válidos se pueden establecer mediante PowerShell y la CLI. El resultado determina el porcentaje de comprobaciones con error. Para calcular el RTT, el servicio mide el tiempo entre una llamada HTTP y la respuesta.
 
 Si usa TCP o ICMP, el servicio calcula el porcentaje de pérdida de paquetes para determinar el porcentaje de comprobaciones con error. Para calcular el RTT, el servicio mide el tiempo que se tarda en recibir la confirmación (ACK) de los paquetes que se enviaron. Si habilitó los datos de traceroute para las pruebas de red, puede ver la pérdida y la latencia salto a salto correspondiente a la red local.
 
@@ -166,7 +165,11 @@ En función de los datos devueltos por las comprobaciones, las pruebas pueden te
 
 * **Pass** (Sin errores): los valores reales para el porcentaje de comprobaciones con error y RTT están dentro de los umbrales especificados.
 * **Fail** (Con errores): los valores reales para el porcentaje de comprobaciones con error o RTT superaron los umbrales especificados. Si no se especifica ningún umbral, una prueba alcanza el estado Fail (Con errores) cuando el porcentaje de comprobaciones con error es 100.
-* **Warning** (Advertencia): no se especificó ningún criterio para el porcentaje de comprobaciones con error. En ausencia de los criterios especificados, el Monitor de conexión (versión preliminar) asigna automáticamente un umbral. Cuando se supera ese umbral, el estado de la prueba cambia a Warning (Advertencia).
+* **Warning** (Advertencia): 
+     * si se especifica un umbral y Connection Monitor (versión preliminar) observa que el porcentaje de comprobaciones con error supera el 80 % del umbral, la prueba se marca como advertencia.
+     * En ausencia de umbrales especificados, Connection Monitor (versión preliminar) asigna automáticamente un umbral. Cuando se supera ese umbral, el estado de la prueba cambia a Warning (Advertencia). En cuanto al tiempo del recorrido de ida y vuelta en las pruebas de TCP o ICMP, el umbral es 750 ms. En cuanto al porcentaje de comprobaciones con errores, el umbral es el 10 %. 
+* **Indeterminate**  (Indeterminado): no hay datos en el área de trabajo de Log Analytics.  Compruebe las métricas. 
+* **Not Running**  (No está en ejecución): se deshabilita al deshabilitar el grupo de prueba  
 
 ### <a name="data-collection-analysis-and-alerts"></a>Colección de datos, análisis y alertas
 
@@ -192,77 +195,71 @@ En el panel, puede expandir cada monitor de conexión para ver sus grupos de pru
 
 Puede filtrar esta lista en función de lo siguiente:
 
-* **Filtros de nivel superior**: elija suscripciones, regiones, marcas de tiempo, orígenes y tipos de destino. Vea el cuadro 2 en la imagen siguiente.
-* **Filtros basados en estado**: filtre por el estado del monitor de conexión, el grupo de prueba o la prueba. Vea la flecha 3 en la imagen siguiente.
-* **Filtros personalizados**: elija **Seleccionar todo** para llevar a cabo una búsqueda genérica. Para buscar por una entidad específica, seleccione en la lista desplegable. Vea la flecha 4 en la imagen siguiente.
+* **Top-level filters** (Filtros de nivel superior): lista de búsqueda por texto, tipo de entidad (Connection Monitor, grupo de prueba o prueba) marca de tiempo y ámbito. El ámbito incluye suscripciones, regiones, orígenes y tipos de destino. Consulte el cuadro 1 en la imagen siguiente.
+* **Filtros basados en estado**: filtre por el estado del monitor de conexión, el grupo de prueba o la prueba. Vea el cuadro 2 en la imagen siguiente.
+* **Filtro basado en alertas**: filtre por las alertas que se desencadenan en el recurso de Connection Monitor. Consulte el cuadro 3 en la imagen siguiente.
 
-![Captura de pantalla que muestra cómo filtrar vistas de monitores de conexión, grupos de prueba y pruebas en el Monitor de conexión (versión preliminar)](./media/connection-monitor-2-preview/cm-view.png)
-
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+    
 Por ejemplo, para ver todas las pruebas del Monitor de conexión (versión preliminar) donde la dirección IP de origen es 10.192.64.56:
 1. Cambie la vista a **Prueba**.
 1. En el campo de búsqueda, escriba *10.192.64.56*.
-1. En la lista desplegable, seleccione **Orígenes**.
+1. En **Ámbito** en el filtro de nivel superior, seleccione **Orígenes**.
 
 Para mostrar solo las pruebas con error en el Monitor de conexión (versión preliminar) donde la dirección IP de origen es 10.192.64.56:
 1. Cambie la vista a **Prueba**.
 1. En el caso del filtro basado en estado, seleccione **Fail** (Con errores).
 1. En el campo de búsqueda, escriba *10.192.64.56*.
-1. En la lista desplegable, seleccione **Orígenes**.
+1. En **Ámbito** en el filtro de nivel superior, seleccione **Orígenes**.
 
 Para mostrar solo las pruebas con error en el Monitor de conexión (versión preliminar) donde el destino es outlook.office365.com:
 1. Cambie la vista a **Prueba**.
 1. En el caso del filtro basado en estado, seleccione **Fail** (Con errores).
 1. En el campo de búsqueda, escriba *outlook.office365.com*.
-1. En la lista desplegable, seleccione **Destinos**.
+1. En **Ámbito** en el filtro de nivel superior, seleccione **Destinos**.
+  
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
-   ![Captura de pantalla que muestra una vista filtrada para mostrar solo las pruebas con error para el destino Outlook.Office365.com](./media/connection-monitor-2-preview/tests-view.png)
-
+Para conocer el motivo del error de un monitor de conexión, un grupo de pruebas o prueba, haga clic en la columna denominada motivo.  Esto indica qué umbral (porcentaje de comprobaciones con error o RTT) se ha superado y los mensajes de diagnóstico relacionados
+  
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+    
 Para ver las tendencias en RTT y el porcentaje de comprobaciones con error de un monitor de conexión:
-1. Seleccione el monitor de conexión que desea investigar. De forma predeterminada, los datos de supervisión están organizados por grupo de prueba.
+1. Seleccione el monitor de conexión que desea investigar.
 
-   ![Captura de pantalla que muestra las métricas de un monitor de conexión por grupo de prueba](./media/connection-monitor-2-preview/cm-drill-landing.png)
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
-1. Elija el grupo de prueba que quiere investigar.
+1. Verá las siguientes secciones  
+    1. Essentials: propiedades específicas de los recursos de la instancia de Connection Monitor seleccionada 
+    1. Resumen: 
+        1. Líneas de tendencia agregadas para RTT y el porcentaje de comprobaciones con error para todas las pruebas de Connection Monitor. Puede establecer una hora específica para ver los detalles.
+        1. Los cinco principales grupos de prueba, orígenes y destinos basados en el RTT o en el porcentaje de comprobaciones con error. 
+    1. Pestañas de Grupos de prueba, Orígenes, Destinos y Configuraciones de prueba: enumera los grupos de prueba, orígenes o destinos de Connection Monitor. Valores en porcentaje de pruebas de comprobación, RTT agregado y comprobaciones con error.  También puede volver atrás en el tiempo para ver los datos. 
+    1. Problemas: problemas de nivel de salto para cada prueba de Connection Monitor. 
 
-   ![Captura de pantalla que muestra dónde seleccionar un grupo de prueba](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
-    Verá las cinco principales pruebas con error del grupo de prueba, según el RTT o el porcentaje de comprobaciones con error. Para cada prueba, verá el RTT y las líneas de tendencia del porcentaje de comprobaciones con error.
-1. Seleccione una prueba de la lista o elija otra prueba para investigar. Para el intervalo de tiempo y el porcentaje de comprobaciones con error, verá el umbral y los valores reales. En el caso de RTT, verá los valores de umbral, promedio, mínimo y máximo.
+1. Puede
+    * Haga clic en View all tests (Ver todas las pruebas): para ver todas las pruebas de Connection Monitor
+    * Haga clic en View all test groups, test configurations, sources and destinations (Ver todos los grupos de prueba, configuraciones de prueba, orígenes y destinos): para ver detalles específicos de cada una. 
+    * Elija un grupo de prueba, configuración de prueba, origen o destino para ver todas las pruebas de la entidad.
 
-   ![Captura de pantalla que muestra los resultados de una prueba para el RTT y el porcentaje de comprobaciones con error](./media/connection-monitor-2-preview/cm-drill-charts.png)
-
-1. Cambie el intervalo de tiempo para ver más datos.
-1. Cambie la vista para ver los orígenes, destinos o configuraciones de prueba. 
-1. Elija un origen basado en pruebas con error e investigue las cinco principales pruebas con error. Por ejemplo, elija **Ver por** > **Orígenes** y **Ver por** > **Destinos** para investigar las pruebas pertinentes en el monitor de conexión.
-
-   ![Captura de pantalla que muestra las métricas de rendimiento de las cinco principales pruebas con error](./media/connection-monitor-2-preview/cm-drill-select-source.png)
+1. En la vista en la que se ven todas las pruebas, puede:
+    * Seleccionar pruebas y hacer clic en Compare (Comparar).
+    
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    
+    * Usar un clúster para expandir recursos compuestos, como una red virtual o las subredes, a sus recursos secundarios
+    * Para ver la topología de las pruebas, haga clic en Topology (Topología).
 
 Para ver las tendencias en RTT y el porcentaje de comprobaciones con error de un grupo de prueba:
-
 1. Seleccione el grupo de prueba que quiere investigar. 
-
-    De forma predeterminada, los datos de supervisión se organizan por orígenes, destinos y configuraciones de prueba (pruebas). Posteriormente, puede cambiar la vista de grupos de prueba a orígenes, destinos o configuraciones de prueba. A continuación, elija una entidad para investigar las cinco principales pruebas con error. Por ejemplo, cambie la vista a orígenes y destinos para investigar las pruebas pertinentes en el monitor de conexión seleccionado.
-1. Elija la prueba que quiere investigar.
-
-   ![Captura de pantalla que muestra dónde seleccionar una prueba](./media/connection-monitor-2-preview/tg-drill.png)
-
-    Para el intervalo de tiempo y el porcentaje de comprobaciones con error, verá los valores de umbral y los valores reales. En el caso de RTT, verá los valores de umbral, promedio, mínimo y máximo. También verá alertas activadas para la prueba que seleccionó.
-1. Cambie el intervalo de tiempo para ver más datos.
+1. Verá algo similar a Connection Monitor: aspectos básicos, resumen, tabla para grupos de prueba, orígenes, destinos y configuraciones de prueba. Desplácese por ellos como lo haría en Connection Monitor
 
 Para ver las tendencias en RTT y el porcentaje de comprobaciones con error de una prueba:
-1. Seleccione el origen, el destino y la configuración de prueba que quiere investigar.
+1. Seleccione la prueba que quiere investigar. Verá la topología de red y los gráficos de tendencias completos del porcentaje de comprobaciones con error y el del tiempo del recorrido de ida y vuelta. Para ver los problemas identificados, en la topología, seleccione cualquier salto en la ruta de acceso. (Estos saltos son recursos de Azure). Actualmente, esta funcionalidad no está disponible para redes locales.
 
-    Para el intervalo de tiempo y el porcentaje de comprobaciones con error, verá los valores de umbral y los valores reales. En el caso de RTT, verá los valores de umbral, promedio, mínimo y máximo. También verá alertas activadas para la prueba que seleccionó.
-
-   ![Captura de pantalla que muestra las métricas de una prueba](./media/connection-monitor-2-preview/test-drill.png)
-
-1. Para ver la topología de red, seleccione **Topología**.
-
-   ![Captura de pantalla que muestra la pestaña Topología de red](./media/connection-monitor-2-preview/test-topo.png)
-
-1. Para ver los problemas identificados, en la topología, seleccione cualquier salto en la ruta de acceso. (Estos saltos son recursos de Azure). Actualmente, esta funcionalidad no está disponible para las redes locales.
-
-   ![Captura de pantalla que muestra un vínculo de salto seleccionado en la pestaña Topología](./media/connection-monitor-2-preview/test-topo-hop.png)
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### <a name="log-queries-in-log-analytics"></a>Consultas de registro en Log Analytics
 
@@ -272,7 +269,7 @@ Utilice Log Analytics para crear vistas personalizadas de los datos de supervisi
 
 En los monitores de conexión que se crearon antes de la experiencia del Monitor de conexión (versión preliminar), las cuatro métricas están disponibles: % Probes Failed (% de sondeos con error), AverageRoundtripMs, ChecksFailedPercent (versión preliminar) y RoundTripTimeMs (versión preliminar). En los monitores de conexión que se crearon en la experiencia del Monitor de conexión (versión preliminar), los datos solo están disponibles para las métricas etiquetadas con *(versión preliminar)* .
 
-![Captura de pantalla que muestra métricas en el Monitor de conexión (versión preliminar)](./media/connection-monitor-2-preview/monitor-metrics.png)
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Cuando use métricas, establezca el tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors.
 
@@ -283,24 +280,27 @@ Cuando use métricas, establezca el tipo de recurso como Microsoft.Network/netwo
 | ChecksFailedPercent (versión preliminar) | Comprobaciones erróneas (%) (versión preliminar) | Porcentaje | Average | Porcentaje de comprobaciones con error de una prueba. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 | RoundTripTimeMs (versión preliminar) | Tiempo de ida y vuelta (ms) (versión preliminar) | Milisegundos | Average | RTT para las comprobaciones enviadas entre el origen y el destino. Este valor no se calcula como promedio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
-#### <a name="metric-alerts-in-azure-monitor"></a>Alertas de métricas en Azure Monitor
+#### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas basadas en métricas de Connection Monitor
 
-Para crear una alerta en Azure Monitor:
+Puede crear alertas de métricas en monitores de conexión mediante los métodos siguientes 
 
-1. Elija el recurso de monitor de conexión que creó en el Monitor de conexión (versión preliminar).
-1. Asegúrese de que la **Métrica** se muestra como un tipo de señal para el monitor de conexión.
-1. En **Agregar conexión**, para el **Nombre de señal**, seleccione **ChecksFailedPercent(Preview)** o **RoundTripTimeMs(Preview)** .
-1. En **Tipo de señal**, elija **Métricas**. Por ejemplo, seleccione **ChecksFailedPercent(Preview)** .
-1. Se muestran todas las dimensiones de la métrica. Elija el nombre de la dimensión y el valor de la dimensión. Por ejemplo, seleccione **Dirección de origen** y escriba la dirección IP de cualquier origen en el monitor de conexión.
-1. En **Lógica de alerta**, rellene estos detalles:
-   * **Tipo de condición**: **Estática**.
-   * **Condición** y **Umbral**.
-   * **Granularidad de agregación y frecuencia de evaluación**: el Monitor de conexión (versión preliminar) actualiza los datos cada minuto.
-1. En **Acciones**, elija el grupo de acciones.
-1. Proporcione los detalles de la alerta.
-1. Cree la regla de alertas.
+1. Desde Connection Monitor (versión preliminar), durante la creación de Connection Monitor [mediante Azure Portal](connection-monitor-preview-create-using-portal.md#) 
+1. Desde Connection Monitor (versión preliminar), mediante "Configurar alertas" en el panel 
+1. Desde Azure Monitor: para crear una alerta en Azure Monitor: 
+    1. Elija el recurso de monitor de conexión que creó en el Monitor de conexión (versión preliminar).
+    1. Asegúrese de que la **Métrica** se muestra como un tipo de señal para el monitor de conexión.
+    1. En **Agregar conexión**, para el **Nombre de señal**, seleccione **ChecksFailedPercent(Preview)** o **RoundTripTimeMs(Preview)** .
+    1. En **Tipo de señal**, elija **Métricas**. Por ejemplo, seleccione **ChecksFailedPercent(Preview)** .
+    1. Se muestran todas las dimensiones de la métrica. Elija el nombre de la dimensión y el valor de la dimensión. Por ejemplo, seleccione **Dirección de origen** y escriba la dirección IP de cualquier origen en el monitor de conexión.
+    1. En **Lógica de alerta**, rellene estos detalles:
+        * **Tipo de condición**: **Estática**.
+        * **Condición** y **Umbral**.
+        * **Granularidad de agregación y frecuencia de evaluación**: el Monitor de conexión (versión preliminar) actualiza los datos cada minuto.
+    1. En **Acciones**, elija el grupo de acciones.
+    1. Proporcione los detalles de la alerta.
+    1. Cree la regla de alertas.
 
-   ![Captura de pantalla que muestra el área Crear regla en Azure Monitor. Se resalta "Dirección de origen" y "Nombre del punto de conexión de origen"](./media/connection-monitor-2-preview/mdm-alerts.jpg)
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnosticar problemas en la red
 
@@ -347,3 +347,8 @@ En el caso de las redes cuyos orígenes son máquinas virtuales de Azure, se pue
 * Tráfico detenido debido a rutas del sistema o UDR.
 * BGP no está habilitado en la conexión de puerta de enlace.
 * El sondeo de DIP está inactivo en el equilibrador de carga.
+
+## <a name="next-steps"></a>Pasos siguientes
+    
+   * Aprenda a [crear Connection Monitor (versión preliminar) mediante Azure Portal](connection-monitor-preview-create-using-portal.md)  
+   * Aprenda a [crear una instancia de Connection Monitor (versión preliminar) mediante ARMClient](connection-monitor-preview-create-using-arm-client.md)  

@@ -9,20 +9,20 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 44fbbbdb1c36f74a4131d4e5a82de6ef058381f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 289bca140392ec77fa453e594aface6be9befeca
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508761"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91446605"
 ---
 # <a name="create-a-vm-using-a-specialized-image"></a>Creación de una VM con una imagen especializada 
 
 Cree una VM a partir de una versión de imagen especializada que esté almacenada en una instancia de Shared Image Gallery. Si quiere crear una máquina virtual con una versión de imagen generalizada, vea [Creación de una VM con una imagen generalizada](vm-generalized-image-version-powershell.md).
 
-Cuando tenga una versión de una imagen especializada, puede crear una o varias VM. Mediante el uso del cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm). 
+Cuando tenga una versión de una imagen especializada, puede crear una o varias máquinas virtuales nuevas con el cmdlet [New-AzVM](/powershell/module/az.compute/new-azvm). 
 
-En este ejemplo, se usa el identificador de definición de imagen para asegurarse de que la nueva VM usará la versión más reciente de una imagen. También puede usar una versión específica con el identificador de la versión de imagen de `Set-AzVMSourceImage -Id`. Por ejemplo, para usar la versión de imagen *1.0.0*, escriba: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
+En este ejemplo, se usa el identificador de definición de imagen para asegurarse de que la nueva máquina virtual usará la versión más reciente de una imagen. También puede usar una versión específica con el identificador de la versión de imagen de `Set-AzVMSourceImage -Id`. Por ejemplo, para usar la versión de imagen *1.0.0*, escriba: `Set-AzVMSourceImage -Id "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`. 
 
 Tenga en cuenta que el uso de una versión de imagen específica significa que la automatización podría producir un error si dicha versión específica no está disponible porque se eliminó o se quitó de la región. Se recomienda usar el id. de definición de la imagen para crear la nueva VM, a menos que se requiera una versión de imagen específica.
 
@@ -133,4 +133,4 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Creación de una máquina virtual a partir de la versión de la imagen](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](./windows/shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](./windows/troubleshooting-shared-images.md).
+Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](./windows/shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](troubleshooting-shared-images.md).

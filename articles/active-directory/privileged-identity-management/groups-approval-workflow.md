@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3fbb92c2e3623f5fd9571cd94ae521a41139dd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505580"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91536994"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Aprobación de solicitudes de activación para miembros y propietarios de un grupo de acceso con privilegios (versión preliminar)
 
@@ -46,7 +46,7 @@ Como aprobador delegado, recibirá una notificación por correo electrónico cua
 
 1. Busque y seleccione la solicitud que desea aprobar y seleccione **Aprobar**.
 
-    ![Aprobar solicitudes: panel de aprobación o denegación con detalles y cuadro Justificación](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Captura de pantalla que muestra la página "Aprobar solicitudes" con los botones "Aprobar" y "Confirmar" resaltados.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. En el cuadro **Justificación**, escriba la justificación empresarial.
 

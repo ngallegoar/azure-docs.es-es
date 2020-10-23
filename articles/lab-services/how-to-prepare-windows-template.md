@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445328"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91396695"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guía para configurar una máquina de plantillas de Windows en Azure Lab Services
 
@@ -61,7 +61,7 @@ Si se encuentra en una máquina que no usa Active Directory, los usuarios pueden
 
 Si la máquina virtual está conectada a Active Directory, puede establecer la máquina de plantillas para que solicite automáticamente a los alumnos que muevan las carpetas conocidas a OneDrive.  
 
-Primero deberá recuperar el identificador de inquilino de Office.  Para obtener más instrucciones, consulte [Buscar el identificador de inquilino de Office 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  También puede obtener el identificador de inquilino de Office 365 mediante el siguiente PowerShell.
+Primero deberá recuperar el identificador de la organización.  Para más instrucciones, consulte [Búsqueda del ID. de la organización de Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  También puede obtener el identificador de la organización mediante el siguiente código de PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -71,7 +71,7 @@ $officeTenantID = Get-MSOLCompanyInformation |
     Select-Object -expand Guid
 ```
 
-Una vez que tenga el identificador de inquilino de Office 365, establezca OneDrive para que pregunte si mover las carpetas conocidas a OneDrive con el siguiente PowerShell.
+Una vez que tenga el identificador de la organización, establezca OneDrive para que pregunte si se deben mover las carpetas conocidas a OneDrive con el siguiente código de PowerShell.
 
 ```powershell
 if ($officeTenantID -eq $null)
@@ -95,7 +95,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="silently-sign-in-users-to-onedrive"></a>Inicio de sesión silencioso de usuarios en OneDrive
 
-OneDrive puede establecerse para que inicie sesión automáticamente con las credenciales de Windows del usuario que ha iniciado sesión.  El inicio de sesión automático es útil para las clases en las que el alumno inicia sesión con sus credenciales de la cuenta educativa de Office 365.
+OneDrive puede establecerse para que inicie sesión automáticamente con las credenciales de Windows del usuario que ha iniciado sesión.  El inicio de sesión automático es útil para las clases en las que el alumno inicia sesión con sus credenciales de la cuenta educativa.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -115,7 +115,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="set-the-maximum-size-of-a-file-that-to-be-download-automatically"></a>Definición del tamaño máximo de un archivo que se va a descargar automáticamente
 
-Esta configuración se usa junto con los usuarios que inician sesión de forma silenciosa en el cliente de sincronización de OneDrive con sus credenciales de Windows en dispositivos que no tienen habilitada la opción a petición de archivos de OneDrive. A todo usuario que tenga una instancia de OneDrive que sea mayor que el umbral especificado (en MB) se le pedirá que elija las carpetas que desea sincronizar antes de que el cliente de sincronización de OneDrive (OneDrive.exe) descargue los archivos.  En nuestro ejemplo, "1111-2222-3333-4444" es el identificador de inquilino de Office 365, y 0005000 establece un umbral de 5 GB.
+Esta configuración se usa junto con los usuarios que inician sesión de forma silenciosa en el cliente de sincronización de OneDrive con sus credenciales de Windows en dispositivos que no tienen habilitada la opción a petición de archivos de OneDrive. A todo usuario que tenga una instancia de OneDrive que sea mayor que el umbral especificado (en MB) se le pedirá que elija las carpetas que desea sincronizar antes de que el cliente de sincronización de OneDrive (OneDrive.exe) descargue los archivos.  En nuestro ejemplo, "1111-2222-3333-4444" es el identificador de la organización y 0005000 establece un umbral de 5 GB.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -124,23 +124,23 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
     -Name "1111-2222-3333-4444" -Value "0005000" -PropertyType DWORD
 ```
 
-## <a name="install-and-configure-microsoft-office-365"></a>Instalación y configuración de Microsoft Office 365
+## <a name="install-and-configure-microsoft-365"></a>Instalación y configuración de Microsoft 365
 
-### <a name="install-microsoft-office-365"></a>Instalación de Microsoft Office 365
+### <a name="install-microsoft-365"></a>Instalación de Microsoft 365
 
-Si la máquina de plantillas necesita Office, se recomienda la instalación de Office a través de la [Herramienta de implementación de Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Tendrá que crear un archivo de configuración reutilizable mediante el [servicio de configuración de cliente de Office 365](https://config.office.com/) para elegir la arquitectura, las características que necesitará de Office y la frecuencia con que se actualiza.
+Si la máquina de plantillas necesita Office, se recomienda la instalación de Office a través de la [Herramienta de implementación de Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117). Tendrá que crear un archivo de configuración reutilizable mediante [Apps Admin Center de Microsoft 365](https://config.office.com/) para elegir la arquitectura, las características que necesitará de Office y la frecuencia de actualización.
 
-1. Vaya al [servicio de configuración de cliente de Office 365](https://config.office.com/) y descargue su propio archivo de configuración.
+1. Vaya a [Apps Admin Center de Microsoft 365](https://config.office.com/) y descargue su propio archivo de configuración.
 2. Descargue la [Herramienta de implementación de Office](https://www.microsoft.com/download/details.aspx?id=49117).  El archivo descargado será `setup.exe`.
 3. Ejecute `setup.exe /download configuration.xml` para descargar los componentes de Office.
 4. Ejecute `setup.exe /configure configuration.xml` para instalar los componentes de Office.
 
-### <a name="change-the-microsoft-office-365-update-channel"></a>Cambio de canal de actualización de Microsoft Office 365
+### <a name="change-the-microsoft-365-update-channel"></a>Cambio de canal de actualización de Microsoft 365
 
-Con la Herramienta de configuración de Office, puede establecer la frecuencia con la que Office recibe actualizaciones. Sin embargo, si necesita modificar la frecuencia con la que Office recibe actualizaciones después de la instalación, puede cambiar la dirección URL del canal de actualización. Las direcciones URL del canal de actualización se pueden encontrar en [Cambio del canal de actualización de Office 365 ProPlus en los dispositivos de una organización](https://docs.microsoft.com/deployoffice/change-update-channels). En el ejemplo siguiente se muestra cómo configurar Office 365 para usar el canal de actualización mensual.
+Con la Herramienta de configuración de Office, puede establecer la frecuencia con la que Office recibe actualizaciones. Sin embargo, si necesita modificar la frecuencia con la que Office recibe actualizaciones después de la instalación, puede cambiar la dirección URL del canal de actualización. Las direcciones URL del canal de actualización se encuentran en [Cambio del canal de actualización de Aplicaciones de Microsoft 365 en los dispositivos de la organización](https://docs.microsoft.com/deployoffice/change-update-channels). En el ejemplo siguiente se muestra cómo configurar Microsoft 365 para usar el canal de actualización mensual.
 
 ```powershell
-# Update to the Office 365 Monthly Channel
+# Update to the Microsoft 365 Monthly Channel
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"
@@ -228,7 +228,7 @@ Instale otras aplicaciones que se usan habitualmente para la enseñanza a travé
 
 ## <a name="conclusion"></a>Conclusión
 
-En este artículo se han mostrado pasos opcionales para preparar la VM de plantillas de Windows para una clase eficaz.  Los pasos incluyen la instalación de OneDrive y la instalación de Office 365, la instalación de actualizaciones para Windows y la instalación de actualizaciones para aplicaciones de Microsoft Store.  También se ha explicado cómo establecer actualizaciones en un cronograma que funcione mejor para su clase.  
+En este artículo se han mostrado pasos opcionales para preparar la VM de plantillas de Windows para una clase eficaz.  Los pasos incluyen la instalación de OneDrive y de Microsoft 365, de actualizaciones para Windows y de actualizaciones para aplicaciones de Microsoft Store.  También se ha explicado cómo establecer actualizaciones en un cronograma que funcione mejor para su clase.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte el artículo sobre cómo controlar el comportamiento de apagado de Windows para ayudar a administrar los costos: [Guía para controlar el comportamiento de apagado de Windows](how-to-windows-shutdown.md)

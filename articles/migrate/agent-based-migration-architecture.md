@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
-ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77425871"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91357172"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitectura de migración basada en agente
 
@@ -34,7 +34,7 @@ La migración basada en agente se usa para migrar las VM de VMware locales y los
 
 En el diagrama se muestran los componentes implicados en la migración basada en agente.
 
-![Architecture](./media/agent-based-replication-architecture/architecture.png)
+![En el diagrama se muestran los componentes de la migración basada en agente, que se explican en una tabla.](./media/agent-based-replication-architecture/architecture.png)
 
 En la tabla se resumen los componentes usados para la migración basada en agente.
 

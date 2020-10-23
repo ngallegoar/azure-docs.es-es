@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 80e87d6fdab6ecf15c241581f8c19d36b30d7e30
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327113"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91449414"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -83,9 +83,9 @@ Las secciones siguientes describen cómo puede usar las hojas que aparecen en el
 
 Haga clic en el icono **Application Insights** para abrir el panel **Application Insights** y ver las hojas siguientes.
 
-![Panel Application Insights](./media/app-insights-connector/app-insights-dash01.png)
+![Captura de pantalla del panel de Application Insights que muestra las hojas de aplicaciones, volumen de datos y disponibilidad.](./media/app-insights-connector/app-insights-dash01.png)
 
-![Panel Application Insights](./media/app-insights-connector/app-insights-dash02.png)
+![Captura de pantalla del panel de Application Insights que muestra las hojas de solicitudes de servidor, errores y excepciones.](./media/app-insights-connector/app-insights-dash02.png)
 
 El panel incluye las hojas que aparecen en la tabla. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros cuando haga clic en **Ver todo** en la parte inferior de la hoja o cuando haga clic en el encabezado de esta.
 

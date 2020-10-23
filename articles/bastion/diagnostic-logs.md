@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744211"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91445385"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Habilitación y uso de registros de recursos de Bastion
 
@@ -22,13 +22,13 @@ A medida que los usuarios se conectan a las cargas de trabajo mediante Azure Bas
 
 1. En [Azure Portal](https://portal.azure.com), navegue hasta el recurso Azure Bastion y seleccione **Configuración de diagnóstico** en la página de Azure Bastion.
 
-   ![Configuración de diagnóstico](./media/diagnostic-logs/1diagnostics-settings.png)
+   ![Captura de pantalla que muestra la página "Diagnostics settings" (Configuración de diagnóstico).](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Seleccione **Configuración de diagnóstico** y seleccione **+ Agregar configuración de diagnóstico** para agregar un destino para los registros.
 
-   ![Agregar configuración de diagnóstico](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Captura de pantalla que muestra la página "Diagnostics settings" (Configuración de diagnóstico) con el botón "Add diagnostic setting" (Agregar configuración de diagnóstico) seleccionado.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. En la página **Configuración de diagnóstico**, seleccione el tipo de cuenta de almacenamiento que se va a usar para almacenar los registros de diagnóstico.
 
-   ![Seleccionar la ubicación de almacenamiento](./media/diagnostic-logs/3add-storage-account.png)
+   ![Captura de pantalla de la página "Diagnostics settings" (Configuración de diagnóstico) con la sección para seleccionar una ubicación de almacenamiento resaltada.](./media/diagnostic-logs/3add-storage-account.png)
 4. Una vez completada, la configuración tendrá un aspecto similar al de este ejemplo:
 
    ![Configuración de ejemplo](./media/diagnostic-logs/4example-settings.png)

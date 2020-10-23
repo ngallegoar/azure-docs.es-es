@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: a7afaf0da3bbb021d76c2d109cb385d86fd7c860
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319854"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91409483"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuración técnica de la versión de prueba
 
@@ -30,7 +30,7 @@ Microsoft puede eliminar la complejidad de configurar una versión de prueba hos
 
 - **Máximo de versiones de prueba simultáneas** (obligatorio): establezca el número máximo de clientes que pueden usar la versión de prueba al mismo tiempo. Cada usuario simultáneo consumirá una licencia de Dynamics 365 mientras la versión de prueba esté activa, por lo que debe asegurarse de tener suficientes licencias disponibles para admitir el límite máximo establecido. Se recomienda un valor entre 3 y 5.
 
-- **Duración de la versión de prueba** (obligatorio): especifique el número de horas que la versión de prueba permanecerá activa. Después de este período, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede establecer en horas completas (por ejemplo, "2" horas es válido; "1,5" no lo es). El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
+- **Duración de la versión de prueba** (obligatorio): especifique el número de horas que la versión de prueba permanecerá activa (al menos una hora). Después de este período, la sesión finalizará y dejará de consumir una de las licencias. Se recomienda un valor que oscile entre 2 y 24 horas, en función de la complejidad de la oferta. Esta duración solo se puede establecer en horas completas (por ejemplo, "2" horas es válido; "1,5" no lo es). El usuario puede solicitar una nueva sesión si se agota el tiempo y desea volver a acceder a la versión de prueba.
 
 - **URL de la instancia** (obligatorio): la dirección URL en la que el cliente comenzará su versión de prueba. Normalmente es la dirección URL de la instancia de Dynamics 365 en la que se ejecuta la aplicación con los datos de ejemplo instalados (por ejemplo, `https://testdrive.crm.dynamics.com`).
 
@@ -48,7 +48,7 @@ Microsoft no hospeda este tipo de versión de prueba. Úselo para conectarse con
 
 - **Número máximo de versiones de prueba simultáneas** (obligatorio): Establezca el número máximo de clientes que puede usar la versión de prueba al mismo tiempo. Estas versiones de prueba ya están implementadas, lo que permitiendo a los clientes acceder al instante a ellas sin tener que esperar que se implementen.
 
-- **Duración de la versión de prueba** (obligatorio): Especifique la duración en que la versión de prueba permanecerá activa, en número de horas. La versión de prueba termina automáticamente al finalizar este período.
+- **Duración de la versión de prueba** (obligatorio): especifique el número de horas que la versión de prueba permanecerá activa (al menos una hora). La versión de prueba termina automáticamente al finalizar este período.
 
 - **Nombre del grupo de recursos de Azure:** (obligatorio): escriba el nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md#resource-groups) en el que se guarda la versión de prueba de la aplicación lógica.
 
@@ -74,7 +74,7 @@ Para permitir que Microsoft implemente la versión de prueba en su nombre, cree 
 
 - **Identificador de aplicación de Azure AD** (obligatorio): escriba el [identificador de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para buscarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en menú de la izquierda, elija **Registros de aplicaciones** y busque el número de **Id. de aplicación** que aparece (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Secreto del cliente de la aplicación Azure AD** (obligatorio): escriba el [secreto del cliente](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret) de su aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. No olvide copiar el valor. No salga de la página antes de copiar el valor.
+- **Secreto del cliente de la aplicación Azure AD** (obligatorio): escriba el [secreto del cliente](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de su aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. No olvide copiar el valor. No salga de la página antes de copiar el valor.
 
 ## <a name="test-drive-listings"></a>Listas de versiones de prueba
 

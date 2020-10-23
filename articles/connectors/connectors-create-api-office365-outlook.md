@@ -7,16 +7,16 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832984"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91400781"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Administración del correo electrónico, los contactos y los calendarios en Office 365 Outlook con Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Office 365 Outlook](/connectors/office365connector/), puede crear tareas y flujos de trabajo automatizados que administren su cuenta de Office 365 mediante la compilación de aplicaciones lógicas. Por ejemplo, puede automatizar estas tareas:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Office 365 Outlook](/connectors/office365connector/), puede crear tareas y flujos de trabajo automatizados que administren su cuenta profesional o educativa mediante la compilación de aplicaciones lógicas. Por ejemplo, puede automatizar estas tareas:
 
 * Recibir, enviar y responder mensajes de correo electrónico. 
 * Programar reuniones en el calendario.
@@ -31,9 +31,9 @@ Puede usar cualquier desencadenador para iniciar el flujo de trabajo (por ejempl
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Una [cuenta de Office 365](https://www.office.com/).
+* Una [cuenta profesional o educativa](https://www.office.com/)
 
-* La aplicación lógica donde quiere acceder a su cuenta de Office 365 Outlook. Para iniciar el flujo de trabajo con un desencadenador de Office 365 Outlook, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para agregar una acción de Office 365 Outlook al flujo de trabajo, la aplicación lógica ya debe tener un desencadenador.
+* La aplicación lógica desde donde quiere acceder a la cuenta profesional o educativa. Para iniciar el flujo de trabajo con un desencadenador de Office 365 Outlook, necesita una [aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para agregar una acción de Office 365 Outlook al flujo de trabajo, la aplicación lógica ya debe tener un desencadenador.
 
 ## <a name="add-a-trigger"></a>Incorporación de un desencadenador
 
@@ -45,7 +45,7 @@ Un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) es 
    
    ![Seleccionar el desencadenador para iniciar la aplicación lógica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Si se le pide que inicie sesión, proporcione sus credenciales de Office 365 para que la aplicación lógica pueda conectarse a la cuenta. O bien, si la conexión ya existe, especifique la información de las propiedades del desencadenador.
+1. Si se le pide que inicie sesión, proporcione las credenciales de su cuenta profesional o educativa para que la aplicación lógica pueda conectarse a la cuenta. O bien, si la conexión ya existe, especifique la información de las propiedades del desencadenador.
 
    > [!NOTE]
    > La conexión no expira hasta que se revoca, incluso si cambia las credenciales de inicio de sesión. Para obtener más información, consulte [Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -78,7 +78,7 @@ Una [acción](../logic-apps/logic-apps-overview.md#logic-app-concepts) es una op
 
    ![Seleccione la acción que se ejecutará en la aplicación lógica](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Si se le pide que inicie sesión, proporcione sus credenciales de Office 365 para que la aplicación lógica pueda conectarse a la cuenta. O bien, si la conexión ya existe, especifique la información de las propiedades de la acción.
+1. Si se le pide que inicie sesión, proporcione las credenciales de su cuenta profesional o educativa para que la aplicación lógica pueda conectarse a la cuenta. O bien, si la conexión ya existe, especifique la información de las propiedades de la acción.
 
    > [!NOTE]
    > La conexión no expira hasta que se revoca, incluso si cambia las credenciales de inicio de sesión. Para obtener más información, consulte [Vigencia de tokens configurables de Azure Active Directory (versión preliminar pública)](../active-directory/develop/active-directory-configurable-token-lifetimes.md).

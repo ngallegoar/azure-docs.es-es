@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883240"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91439102"
 ---
 # <a name="train-pytorch-model"></a>Entrenamiento del modelo de PyTorch
 
@@ -49,7 +49,7 @@ En este artículo se describe cómo usar el módulo **Entrenamiento del modelo d
 
 8.  Por **Patience** (Paciencia), especifique para cuántas épocas quiere detener el entrenamiento con antelación si la pérdida de validación no se reduce consecutivamente. De forma predeterminada 3.
 
-9.  Envíe la canalización. Si el conjunto de datos tiene un tamaño mayor, tardará un tiempo.
+9.  Envíe la canalización. Si el conjunto de datos tiene un tamaño mayor, tardará un tiempo, por lo que se recomienda un proceso de GPU.
 
 ## <a name="results"></a>Results
 

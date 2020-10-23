@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005978"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91534444"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Detección e información (versión preliminar) para roles de Azure AD (anteriormente, Asistente para seguridad)
 
@@ -29,9 +29,9 @@ Si es la primera vez que usa Privileged Identity Management (PIM) en la organiza
 
 Antes de que la organización empiece a usar Privileged Identity Management, todas las asignaciones de roles son permanentes. Los usuarios siempre tienen sus roles asignados aunque no necesiten sus privilegios. Detección e información (versión preliminar), que reemplaza al antiguo Asistente de seguridad, muestra una lista de roles con privilegios y el número de usuarios que tienen actualmente esos roles. Puede obtener una lista de las asignaciones de un rol para obtener más información sobre los usuarios asignados si uno o varios de ellos no están familiarizados.
 
-:heavy_check_mark: **Microsoft recomienda** que mantenga 2 cuentas de emergencia que estén asignadas permanentemente al rol de administrador global y que no requieran la autenticación multifactor al iniciar sesión. Puede usarlas en cualquier escenario de emergencia o en caso de que nadie pueda convertirse en administrador global.
+:heavy_check_mark: **Microsoft recomienda** que mantenga dos cuentas de emergencia que estén asignadas permanentemente al rol de administrador global. Asegúrese de que estas cuentas no requieren el mismo mecanismo de autenticación multifactor que las cuentas administrativas normales para iniciar sesión, como se describe en [Administración de cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md).
 
-Además, mantenga las asignaciones de roles permanentes si un usuario tiene una cuenta de Microsoft (es decir, una cuenta que usan para iniciar sesión en servicios de Microsoft como Skype u Outlook.com). Si necesita que la autenticación multifactor se active en ese rol, el usuario se bloqueará.
+Además, mantenga las asignaciones de roles permanentes si un usuario tiene una cuenta de Microsoft (es decir, una cuenta que usan para iniciar sesión en servicios de Microsoft como Skype u Outlook.com). Si necesita autenticación multifactor para un usuario con un cuenta Microsoft para activar una asignación de roles, el usuario se bloqueará.
 
 ## <a name="open-discovery-and-insights-preview"></a>Apertura de Detección e información (versión preliminar)
 
@@ -45,11 +45,11 @@ Además, mantenga las asignaciones de roles permanentes si un usuario tiene una 
 
 1. Seleccione **Reducir administradores globales**.
 
-    ![Panel Reducir administradores globales - Rol que muestra todos los miembros](./media/pim-security-wizard/new-preview-page.png)
+    ![Captura de pantalla que muestra la opción "Detección e información (versión preliminar)" con la acción "Reducir administradores globales" seleccionada.](./media/pim-security-wizard/new-preview-page.png)
 
 1. Revise la lista de asignaciones de roles de administradores globales.
 
-    ![Panel Reducir administradores globales - Rol que muestra todos los miembros](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Reducir administradores globales: panel de roles que muestra todos los administradores global](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Seleccione **Siguiente** para seleccionar los usuarios o grupos que desea que sean válidos y, a continuación, seleccione **Establecer como apto** o **Quitar asignación**.
 

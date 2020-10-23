@@ -4,12 +4,12 @@ description: Describe cómo solucionar errores comunes al implementar recursos e
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650946"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91372245"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solución de errores comunes de implementación de Azure con Azure Resource Manager
 
@@ -34,6 +34,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | DeploymentNameLengthLimitExceeded | Los nombres de implementación se limitan a 64 caracteres.  | |
 | DeploymentFailed | El error DeploymentFailed es un error general que no proporciona la información necesaria para resolverlo. Mire en los detalles del error si hay un código de error que proporcione más información. | [Búsqueda de códigos de error](#find-error-code) |
 | DeploymentQuotaExceeded | Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. | [Resolución de error cuando el recuento de implementaciones es superior a 800](deployment-quota-exceeded.md) |
+| DeploymentSizeExceeded | Simplifique la plantilla para reducir el tamaño. | [Resolución de errores de tamaño de plantilla](error-job-size-exceeded.md) |
 | DnsRecordInUse | El nombre del registro de DNS debe ser único. Escribe otro nombre. | |
 | ImageNotFound | Compruebe la configuración de la imagen de máquina virtual. |  |
 | InUseSubnetCannotBeDeleted | Este error puede aparecer al intentar actualizar un recurso y la solicitud se procesa mediante la eliminación y creación del recurso. Asegúrese de especificar todos los valores sin cambios. | [Actualización de recursos](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ Si busca información sobre un código de error y esa información no se proporc
 | InvalidSubscriptionRegistrationState | Registre la suscripción con el proveedor de recursos. | [Resolución de registros](error-register-resource-provider.md) |
 | InvalidTemplate | Compruebe la sintaxis de la plantilla en busca de errores. | [Resolución de plantilla no válida](error-invalid-template.md) |
 | InvalidTemplateCircularDependency | Quite las dependencias innecesarias. | [Resolver dependencias circulares](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Simplifique la plantilla para reducir el tamaño. | [Resolución de errores de tamaño de plantilla](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Compruebe si la cuenta pertenece al mismo inquilino que el grupo de recursos en que está realizando la implementación. | |
 | LinkedInvalidPropertyId | El identificador de un recurso no se resuelve correctamente. Compruebe que ha proporcionado todos los valores necesarios para el identificador del recurso, entre otros, el identificador de la suscripción, el nombre del grupo de recursos, el tipo de recurso, el nombre del recurso principal (si procede) y el nombre del recurso. | |
 | LocationRequired | Proporcione una ubicación para el recurso. | [Establecimiento de la ubicación](resource-location.md) |

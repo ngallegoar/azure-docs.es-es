@@ -1,6 +1,6 @@
 ---
 title: Creación de un conjunto de escalado a partir de una imagen generalizada con Azure PowerShell
-description: Cree un conjunto de escalado mediante una imagen generalizada en Shared Image Gallery.
+description: Cree un conjunto de escalado con una imagen generalizada en Shared Image Gallery mediante PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077566"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91331529"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Creación de un conjunto de escalado a partir de una imagen generalizada
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Creación de un conjunto de escalado a partir de una imagen generalizada mediante PowerShell 
 
 Cree una máquina virtual a partir de una versión de imagen generalizada almacenada en [Shared Image Gallery](shared-image-galleries.md). Si desea crear un conjunto de escalado mediante una imagen especializada, consulte el artículo sobre la [creación de instancias de un conjunto de escalado a partir de una imagen especializada](instance-specialized-image-version-powershell.md).
 
@@ -181,4 +181,4 @@ Puede crear también recursos de galería de imágenes compartidas con plantilla
 - [Creación de una definición de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Creación de una versión de imagen en una galería de imágenes compartidas](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](troubleshooting-shared-images.md).
+Para más información sobre las galerías de imágenes compartidas, consulte la [Introducción](shared-image-galleries.md). Si encuentra problemas, consulte [Solución de problemas de galerías de imágenes compartidas](../virtual-machines/troubleshooting-shared-images.md).

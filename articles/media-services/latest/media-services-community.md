@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5c54c3702dabf254e50068aadeac0992e3a20cb2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 445155ed48334c9680dfa0be7b5402d057c98cef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262471"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91329727"
 ---
 # <a name="azure-media-services-v3-community"></a>Comunidad de Azure Media Services v3
 
@@ -42,7 +42,7 @@ Los siguientes foros se pueden usar para hacer preguntas sobre las característi
 
 Actualmente, MSDN es el foro principal de la comunidad del equipo de Media Services.
 
-[![MSDN](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
+[![Captura de pantalla que muestra el logotipo de MSDN, el foro principal de la comunidad del equipo de Media Services.](./media/media-services-community/msdn.png)](/answers/topics/azure-media-services.html) 
 
 El equipo también supervisa las preguntas etiquetadas con "azure-media-services" en Stack Overflow.
 

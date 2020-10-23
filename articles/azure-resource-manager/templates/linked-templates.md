@@ -3,12 +3,12 @@ title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535565"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91369321"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -369,7 +369,7 @@ No se pueden usar los parámetros alineados ni un vínculo a un archivo de pará
 
 ## <a name="template-specs"></a>Especificaciones de plantilla
 
-En lugar de mantener las plantillas vinculadas en un punto de conexión accesible, puede crear una [especificación de plantilla](template-specs.md) que empaqueta la plantilla principal y sus plantillas vinculadas en una sola entidad que puede implementar. La especificación de plantilla es un recurso de su suscripción de Azure. Facilita el uso compartido de la plantilla de forma segura con los usuarios de la organización. Use el control de acceso basado en rol (RBAC) para conceder acceso a la especificación de la plantilla. Esta funcionalidad actualmente está en su versión preliminar.
+En lugar de mantener las plantillas vinculadas en un punto de conexión accesible, puede crear una [especificación de plantilla](template-specs.md) que empaqueta la plantilla principal y sus plantillas vinculadas en una sola entidad que puede implementar. La especificación de plantilla es un recurso de su suscripción de Azure. Facilita el uso compartido de la plantilla de forma segura con los usuarios de la organización. Use el control de acceso basado en rol de Azure (RBAC de Azure) para conceder acceso a la especificación de la plantilla. Esta funcionalidad actualmente está en su versión preliminar.
 
 Para más información, consulte:
 
@@ -731,7 +731,7 @@ También se puede limitar el acceso al archivo de parámetros a través de un to
 Actualmente, no se puede agregar un vínculo a una plantilla que se encuentre en una cuenta de almacenamiento detrás de un [firewall de Azure Storage](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> En lugar de proteger la plantilla vinculada con un token de SAS, considere la posibilidad de crear una [especificación de plantilla](template-specs.md). La especificación de plantilla almacena de forma segura la plantilla principal y sus plantillas vinculadas como un recurso en la suscripción de Azure. Use RBAC para conceder acceso a los usuarios que necesiten implementar la plantilla.
+> En lugar de proteger la plantilla vinculada con un token de SAS, considere la posibilidad de crear una [especificación de plantilla](template-specs.md). La especificación de plantilla almacena de forma segura la plantilla principal y sus plantillas vinculadas como un recurso en la suscripción de Azure. Use RBAC de Azure para conceder acceso a los usuarios que necesiten implementar la plantilla.
 
 En el ejemplo siguiente se muestra cómo pasar un token de SAS al vincular a una plantilla:
 

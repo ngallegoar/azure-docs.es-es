@@ -4,19 +4,22 @@ description: Aprenda a configurar Azure Private Link para acceder a una cuenta d
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502127"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91334436"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configuración de Azure Private Link para una cuenta de Azure Cosmos
 
 Al usar Azure Private Link, puede conectarse a una cuenta de Azure Cosmos a través de un punto de conexión privado. El punto de conexión privado es un conjunto de direcciones IP privadas en una subred dentro de la red virtual. A continuación, puede limitar el acceso a una cuenta de Azure Cosmos a través de direcciones IP privadas. Cuando se combina Private Link con directivas de NSG restringidas, ayuda a reducir el riesgo de la exfiltración de datos. Para más información sobre los puntos de conexión privados, consulte el artículo [Azure Private Link](../private-link/private-link-overview.md).
+
+> [!NOTE]
+> El vínculo privado no impide que el DNS público resuelva los puntos de conexión de Azure Cosmos. El filtrado de solicitudes entrantes se produce en el nivel de aplicación, no en el nivel de transporte ni de red.
 
 Private Link permite a los usuarios obtener acceso a una cuenta de Azure Cosmos desde dentro de la red virtual o cualquier red virtual emparejada. También se puede acceder a los recursos asignados a Private Link en el entorno local a través de un emparejamiento privado a través de VPN o Azure ExpressRoute. 
 
@@ -53,7 +56,7 @@ Siga los pasos que se indican a continuación para crear un punto de conexión p
     |Método de conexión  | Seleccione **Conectarse a un recurso de Azure en mi directorio**. <br/><br/> A continuación, puede elegir uno de sus recursos para configurar Private Link. O bien, puede conectarse al recurso de otro usuario mediante un alias o identificador del recurso que haya compartido con usted.|
     | Suscripción| Seleccione su suscripción. |
     | Tipo de recurso | Seleccione **Microsoft.AzureCosmosDB/databaseAccounts**. |
-    | Recurso |Seleccione la cuenta de Azure Cosmos. |
+    | Resource |Seleccione la cuenta de Azure Cosmos. |
     |Recurso secundario de destino |Seleccione el tipo de API de Azure Cosmos DB que desea asignar. Este valor predeterminado es solo una opción para las API de SQL, MongoDB y Cassandra. En el caso de las API de Gremlin y Table, también puede elegir **Sql**, ya que estas API son interoperables con la API de SQL. |
     |||
 
@@ -95,7 +98,7 @@ Una vez aprovisionado el punto de conexión privado, puede consultar las direcci
 1. Busque el punto de conexión privado que creó anteriormente. En este caso, es **cdbPrivateEndpoint3**.
 1. Seleccione la pestaña **Información general** para ver la configuración de DNS y las direcciones IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Direcciones IP privadas en Azure Portal":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Selecciones para la creación de un punto de conexión privado en Azure Portal":::
 
 Se crean varias direcciones IP por punto de conexión privado:
 
@@ -408,7 +411,7 @@ Para esas cuentas, debe crear un punto de conexión privado para cada tipo de AP
 
 Una vez que la plantilla se ha implementado correctamente, puede ver un resultado similar a la que se muestra en la siguiente imagen. Si los puntos de conexión privados están configurados correctamente, el valor `provisioningState` es `Succeeded`.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Resultado de la implementación de la plantilla de Resource Manager":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Selecciones para la creación de un punto de conexión privado en Azure Portal":::
 
 Una vez implementada la plantilla, las direcciones IP privadas se reservan dentro de la subred. La regla de firewall de la cuenta de Azure Cosmos está configurada para aceptar conexiones solo del punto de conexión privado.
 
@@ -627,7 +630,18 @@ Las situaciones y resultados que se muestran a continuación son posibles cuando
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Bloqueo del acceso a la red pública durante la creación de la cuenta
 
-Tal como se describe en la sección anterior y, a menos que se hayan establecido reglas de firewall específicas, la adición de un punto de conexión privado hace que su cuenta de Azure Cosmos sea accesible solo a través de puntos de conexión privados. Esto significa que se puede acceder a la cuenta de Azure Cosmos desde el tráfico público una vez creada y antes de que se agregue un punto de conexión privado. Para asegurarse de que el acceso a la red pública esté deshabilitado incluso antes de la creación de puntos de conexión privados, puede establecer la marca `publicNetworkAccess` en `Disabled` durante la creación de la cuenta. Consulte [esta plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para obtener un ejemplo que muestra cómo usar esta marca.
+Tal como se describe en la sección anterior y, a menos que se hayan establecido reglas de firewall específicas, la adición de un punto de conexión privado hace que su cuenta de Azure Cosmos sea accesible solo a través de puntos de conexión privados. Esto significa que se puede acceder a la cuenta de Azure Cosmos desde el tráfico público una vez creada y antes de que se agregue un punto de conexión privado. Para asegurarse de que el acceso a la red pública esté deshabilitado incluso antes de la creación de puntos de conexión privados, puede establecer la marca `publicNetworkAccess` en `Disabled` durante la creación de la cuenta. Tenga en cuenta que esta marca tiene prioridad sobre cualquier regla de red virtual o IP; todo el tráfico público y de la red virtual se bloquea cuando la marca se establece en `Disabled`, aunque la dirección IP de origen o la red virtual se permitan en la configuración del firewall.
+
+Consulte [esta plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para obtener un ejemplo que muestra cómo usar esta marca.
+
+## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Incorporación de puntos de conexión privados a una cuenta de Cosmos existente sin tiempo de inactividad
+
+De forma predeterminada, al agregar un punto de conexión privado a una cuenta existente, se produce un breve tiempo de inactividad de aproximadamente 5 minutos. Siga las instrucciones siguientes para evitar este tiempo de inactividad:
+
+1. Agregue reglas de IP o red virtual a la configuración del firewall para permitir explícitamente las conexiones del cliente.
+1. Espere 10 minutos para asegurarse de que entra en vigor la actualización de la configuración.
+1. Configure el nuevo punto de conexión privado.
+1. Quite las reglas de firewall establecidas en el paso 1.
 
 ## <a name="port-range-when-using-direct-mode"></a>Intervalo de puertos al usar el modo directo
 
@@ -635,7 +649,7 @@ Cuando use Private Link con una cuenta de Azure Cosmos a través de una conexió
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Actualización de un punto de conexión privado al agregar o quitar una región
 
-La adición o eliminación de regiones a una cuenta de Azure Cosmos requiere que se agreguen o quiten las entradas DNS para esa cuenta. Después de agregar o quitar regiones, puede actualizar la zona DNS privada de la subred para reflejar las entradas DNS agregadas o eliminadas y sus direcciones IP privadas correspondientes.
+A menos que use un grupo de zonas DNS privado, la incorporación de regiones a una cuenta de Azure Cosmos y su eliminación requiere que se agreguen o quiten las entradas DNS para esa cuenta. Después de agregar o quitar regiones, puede actualizar la zona DNS privada de la subred para reflejar las entradas DNS agregadas o eliminadas y sus direcciones IP privadas correspondientes.
 
 Por ejemplo, imagine que implementa una cuenta de Azure Cosmos en tres regiones: "Oeste de EE. UU.", "Centro de EE. UU." y "Oeste de Europa". Cuando crea un punto de conexión privado para la cuenta, se reservan cuatro direcciones IP privadas en la subred. Hay una dirección IP para cada una de las tres regiones y una para el punto de conexión global o independiente de la región.
 
@@ -659,7 +673,7 @@ Al usar Private Link con una cuenta de Azure Cosmos se aplican las siguientes li
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitaciones de la integración de la zona DNS privada
 
-Los registros DNS de la zona DNS privada no se quitan automáticamente cuando se elimina un punto de conexión privado o se quita una región de la cuenta de Azure Cosmos. Debe quitar manualmente los registros DNS antes de realizar las siguientes actividades:
+A menos que use un grupo de zonas DNS privado, los registros DNS de la zona DNS privada no se quitan automáticamente cuando se elimina un punto de conexión privado o se quita una región de la cuenta de Azure Cosmos. Debe quitar manualmente los registros DNS antes de realizar las siguientes actividades:
 
 * Agregar un nuevo punto de conexión privado conectado a esta zona DNS privada.
 * Agregar una nueva región a cualquier cuenta de base de datos que tenga puntos de conexión privados conectados a esta zona DNS privada.

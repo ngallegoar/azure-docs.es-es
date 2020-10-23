@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260076"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91329593"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Acerca de Azure Edge Zone (versión preliminar)
 
@@ -74,7 +74,7 @@ Entre los casos de uso comunes se incluyen:
 
 Edge Zones se ofrecerá en colaboración con los operadores siguientes:
 
-- AT&T (Atlanta, Dallas y Los Ángeles) 
+- AT&T (Atlanta, Dallas y Los Ángeles)
 
 Los ISV que trabajan en aplicaciones optimizadas y escalables conectadas a redes 5G ahora pueden usar la nueva ubicación de versión preliminar de Los Ángeles de Azure Edge Zone con AT&T al compilar y experimentar con plataformas de latencia muy baja y escenarios móviles y conectados. Regístrese en el programa pionero para aprovechar la conectividad segura y de ancho de banda alto.
 
@@ -86,9 +86,9 @@ Los ISV que trabajan en aplicaciones optimizadas y escalables conectadas a redes
 
 Las instancias privadas de Azure Edge Zone son pequeñas extensiones de superficie de Azure que están ubicadas en el entorno local. Azure Private Edge Zone se basa en la plataforma de [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/). Permite el acceso de baja latencia a los servicios informáticos y de almacenamiento implementados en el entorno local. Private Edge Zone también le permite implementar aplicaciones de ISV y funciones de red virtualizadas (VNFs) como [aplicaciones administradas de Azure](https://azure.microsoft.com/services/managed-applications/), junto con máquinas virtuales y contenedores en el entorno local. Estos VNF pueden incluir núcleos de paquetes móviles, enrutadores, firewalls y dispositivos SD-WAN. Azure Private Edge Zone incluye una solución de orquestación nativa en la nube que le permite administrar el ciclo de vida de las VNF y las aplicaciones desde Azure Portal.
 
-Azure Private Edge Zone le permite desarrollar e implementar aplicaciones de forma local con las mismas herramientas conocidas utilizadas para crear e implementar aplicaciones en Azure. 
+Azure Private Edge Zone le permite desarrollar e implementar aplicaciones de forma local con las mismas herramientas conocidas utilizadas para crear e implementar aplicaciones en Azure.
 
-También le permite lo siguiente: 
+También le permite lo siguiente:
 
 - Ejecutar redes móviles privadas (LTE o 5G privadas).
 - Implementar funciones de seguridad como firewalls.
@@ -113,6 +113,7 @@ Disponemos de un amplio ecosistema de proveedores de VNF, ISV y asociados de MSP
 ##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Virtualized Evolved Packet Core (vEPC) para redes móviles
 
 - [Affirmed Networks](https://www.affirmednetworks.com/)
+- [Celona](https://www.celona.io/azure-edge)
 - [Druid Software](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
 - [Mavenir](https://mavenir.com/)
@@ -121,12 +122,15 @@ Disponemos de un amplio ecosistema de proveedores de VNF, ISV y asociados de MSP
 
 ##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Asociados de radio móvil
 
+- [Celona](https://www.celona.io/azure-edge)
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
 ##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>Proveedores de SD-WAN
 
+- [128 Technology](https://www.128technology.com/)
 - [NetFoundry](https://netfoundry.io/)
 - [Nuage Networks de Nokia](https://www.nuagenetworks.net/)
+- [Versa Networks](https://www.versa-networks.com/)
 - [VMware SD-WAN de Velocloud](https://www.velocloud.com/)
 
 ##### <a name="router-vendors"></a><a name="router-vendors"></a>Proveedores de routers
@@ -158,10 +162,10 @@ Disponemos de un amplio ecosistema de proveedores de VNF, ISV y asociados de MSP
 
 ![Private Mobile Network en Private Edge Zone](./media/edge-zones-overview/mobile-networks.png "Private Mobile Network en Private Edge Zone")
 
-Ahora puede implementar Private Mobile Network en Private Edge Zone. Private Mobile Network tiene una latencia muy baja, gran capacidad y la red inalámbrica confiable y segura que es necesaria para las aplicaciones críticas de la empresa. 
+Ahora puede implementar Private Mobile Network en Private Edge Zone. Private Mobile Network tiene una latencia muy baja, gran capacidad y la red inalámbrica confiable y segura que es necesaria para las aplicaciones críticas de la empresa.
 
-Private Mobile Network puede habilitar escenarios como: 
-- Comando y control de vehículos con guía automatizada (AGV) en almacenes. 
+Private Mobile Network puede habilitar escenarios como:
+- Comando y control de vehículos con guía automatizada (AGV) en almacenes.
 - Comunicación en tiempo real entre robots en fábricas inteligentes.
 - Aplicaciones perimetrales de realidad aumentada y realidad virtual.
 
@@ -174,7 +178,7 @@ Microsoft proporciona un ecosistema de partners que puede ayudar en todos los as
 #### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-WAN en Private Edge Zones
 
 ![SD-WAN en Private Edge Zones](./media/edge-zones-overview/sd-wan.png "SD-WAN en Private Edge Zones")
- 
+
 SD-WAN le permite crear redes de área extensa (WAN) de nivel empresarial que tienen estas ventajas:
 
 - Mayor ancho de banda
@@ -183,7 +187,7 @@ SD-WAN le permite crear redes de área extensa (WAN) de nivel empresarial que ti
 - Confiabilidad
 - Administración de directivas
 - Amplia visibilidad de red
-    
+
 SD-WAN proporciona conectividad sin problemas para las sucursales organizada desde controladores centrales redundantes, con un costo menor de propiedad.
 SD-WAN en Private Edge Zone permite pasar de un modelo centrado en gastos de capital a un modelo de software como servicio (SaaS) para reducir los presupuestos de TI. Puede usar la opción del orquestador o el controlador de asociados de SD-WAN para habilitar nuevos servicios y propagarlos a toda la red de forma inmediata.
 
