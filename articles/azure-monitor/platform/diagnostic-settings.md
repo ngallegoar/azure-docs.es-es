@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449333"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107936"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -46,8 +46,8 @@ Los registros y las métricas de plataforma se pueden enviar a los destinos de l
 | Destination | Descripción |
 |:---|:---|
 | [Área de trabajo de Log Analytics](design-logs-deployment.md) | El envío de registros y métricas a un área de trabajo de Log Analytics le permite analizar con otros datos de supervisión recopilados por Azure Monitor mediante consultas de registro eficaces, junto con otras características de Azure Monitor, como las alertas y las visualizaciones. |
-| [Event Hubs](/azure/event-hubs/) | El envío de registros y métricas a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.  |
-| [Cuenta de Almacenamiento de Azure](/azure/storage/blobs/) | Archivar los registros y las métricas en una cuenta de almacenamiento de Azure resulta útil para realizar auditorías, análisis estáticos o copias de seguridad. En comparación con los registros de Azure Monitor y las áreas de trabajo de Log Analytics, Azure Storage es más económico y los registros se pueden mantener indefinidamente.  |
+| [Event Hubs](../../event-hubs/index.yml) | El envío de registros y métricas a Event Hubs permite transmitir datos a sistemas externos, como SIEM de terceros y otras soluciones de análisis de registros.  |
+| [Cuenta de Almacenamiento de Azure](../../storage/blobs/index.yml) | Archivar los registros y las métricas en una cuenta de almacenamiento de Azure resulta útil para realizar auditorías, análisis estáticos o copias de seguridad. En comparación con los registros de Azure Monitor y las áreas de trabajo de Log Analytics, Azure Storage es más económico y los registros se pueden mantener indefinidamente.  |
 
 
 ### <a name="destination-requirements"></a>Requisitos de destino
@@ -137,7 +137,7 @@ Transcurridos unos instantes, la nueva configuración aparece en la lista de con
 Use el cmdlet [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para crear una configuración de diagnóstico con [Azure PowerShell](../samples/powershell-samples.md). Consulte la documentación de este cmdlet para las descripciones de sus parámetros.
 
 > [!IMPORTANT]
-> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](diagnostic-settings-template.md) para crear una plantilla de Resource Manager e implementarla con PowerShell.
+> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](../samples/resource-manager-diagnostic-settings.md) para crear una plantilla de Resource Manager e implementarla con PowerShell.
 
 A continuación se muestra un cmdlet de PowerShell de ejemplo para crear una configuración de diagnóstico con los tres destinos.
 
@@ -150,7 +150,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 Use el comando [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) para crear una configuración de diagnóstico con la [CLI de Azure](/cli/azure/monitor?view=azure-cli-latest). Consulte la documentación de este comando para las descripciones de sus parámetros.
 
 > [!IMPORTANT]
-> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](diagnostic-settings-template.md) para crear una plantilla de Resource Manager e implementarla con la CLI.
+> No puede usar este método con el registro de actividad de Azure. En su lugar, siga las indicaciones de [Creación de la configuración de diagnóstico en Azure Monitor con una plantilla de Resource Manager](../samples/resource-manager-diagnostic-settings.md) para crear una plantilla de Resource Manager e implementarla con la CLI.
 
 A continuación se muestra un comando de la CLI de ejemplo para crear una configuración de diagnóstico con los tres destinos.
 

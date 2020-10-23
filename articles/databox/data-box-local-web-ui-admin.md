@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449719"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127531"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use la interfaz de usuario web local para administrar los dispositivos Data Box y Data Box Heavy
 
@@ -206,7 +206,7 @@ Para habilitar la firma de SMB en el dispositivo de Azure:
 
 Los usuarios de la interfaz de usuario web tienen privilegios de operador de copia de seguridad en los recursos compartidos SMB de forma predeterminada. Si no desea esto, use **Enable Backup Operator privileges** (Habilitar los privilegios de operador de copia de seguridad) para deshabilitar o habilitar los privilegios.
 
-Para más información, consulte Operadores de copia de seguridad en [Grupos de seguridad de Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+Para más información, consulte Operadores de copia de seguridad en [Grupos de seguridad de Active Directory](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 Para habilitar los privilegios de operador de copia de seguridad en el dispositivo de Azure:
 
