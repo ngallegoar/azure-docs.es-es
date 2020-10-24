@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371766"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116740"
 ---
 En las tablas siguientes se enumeran las cuotas y los límites específicos de [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Para más información sobre los precios de Event Hubs, consulte los [precios de Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -71,7 +71,7 @@ La oferta de Event Hubs dedicado se factura aplicando una tarifa mensual fija co
 | Tamaño, en bytes, por esquema | 1 MB |   
 | Número de propiedades por grupo de esquemas | 1024 |
 | Tamaño, en bytes, por clave de propiedad del grupo | 256 | 
-| Tamaño, en bytes, por clave de propiedad del grupo | 1024 | 
+| Tamaño, en bytes, por valor de propiedad del grupo | 1024 | 
 
 
 #### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Límites que son distintos para los niveles **estándar** y **dedicado** 

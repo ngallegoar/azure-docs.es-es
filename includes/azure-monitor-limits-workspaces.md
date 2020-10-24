@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91643656"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92321865"
 ---
 **Volumen de colección de datos y retención** 
 
@@ -70,31 +70,7 @@ Azure Monitor es un servicio de datos a gran escala que atiende a miles de clien
 
 Cuando se envían datos a un área de trabajo a una velocidad superior al 80 % del umbral configurado en el área de trabajo, se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Cuando la velocidad de ingesta del volumen supera el umbral, se quitan algunos datos y se envía un evento a la tabla *Operación* del área de trabajo cada 6 horas mientras se siga superando el umbral. Si la velocidad de ingesta del sigue superando el umbral o prevé que lo va a alcanzar pronto, puede abrir una solicitud de soporte técnico para solicitar su aumento. 
 
-Para recibir una notificación tanto si se acerca al límite de la velocidad del volumen de ingesta de datos del área de trabajo como si lo ha alcanzado, cree una [regla de alerta de registro](../articles/azure-monitor/platform/alerts-log.md), para lo que debe utilizar la siguiente consulta con base lógica de alerta que sea el número de resultados mayores que cero, un período de evaluación de 5 minutos y una frecuencia de 5 minutos.
-
-La velocidad de ingesta del volumen ha superado el umbral
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Error"
-```
-
-La velocidad de ingesta del volumen ha superado el 80 % del umbral
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Warning"
-```
-
-La velocidad de ingesta del volumen ha superado el 70 % del umbral
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Info"
-```
+Para crear reglas de alerta, con el fin de recibir una notificación cada vez que alcance los límites de ingesta, consulte [Supervisión del estado del área de trabajo de Log Analytics in Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md).
 
 >[!NOTE]
 >Dependiendo del tiempo que lleve utilizando Log Analytics, es posible que tenga acceso a planes de tarifa heredados. Obtenga más información sobre los [planes de tarifa heredados de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

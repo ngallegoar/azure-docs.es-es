@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 05/05/2019
+ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95c553d26a3e79b53106b933c629c5884c3e004c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84466893"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116794"
 ---
 | Recurso | Destino | Límite máximo |
 |----------|--------------|------------|
@@ -27,7 +27,7 @@ ms.locfileid: "84466893"
 | Número máximo de objetos del sistema de archivos (archivos y directorios) en un directorio | 5 millones de objetos | Sí |
 | Tamaño máximo del descriptor de seguridad de (archivos y directorios) del objeto | 64 KiB | Sí |
 | Tamaño de archivo | 100 GiB | No |
-| Tamaño mínimo de un archivo que se va a organizar en niveles | V9: basado en el tamaño del clúster del sistema de archivos (tamaño del clúster del sistema de archivos doble). Por ejemplo, si el tamaño del clúster del sistema de archivos es 4 Kb, el tamaño mínimo del archivo será de 8 Kb.<br> V8 y anteriores: 64 KiB  | Sí |
+| Tamaño mínimo de un archivo que se va a organizar en niveles | V9 y más recientes: basado en el tamaño del clúster del sistema de archivos (tamaño del clúster del sistema de archivos doble). Por ejemplo, si el tamaño del clúster del sistema de archivos es 4 Kb, el tamaño mínimo del archivo será de 8 Kb.<br> V8 y anteriores: 64 KiB  | Sí |
 
 > [!Note]  
 > Un punto de conexión de Azure File Sync puede escalar verticalmente hasta el tamaño de un recurso compartido de archivos de Azure. Si se alcanza el límite de tamaño de recurso compartido de archivos de Azure, la sincronización no podrá funcionar.

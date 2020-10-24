@@ -1,35 +1,37 @@
 ### YamlMime:Landing
-title: Documentación de Azure DevOps Starter
-summary: Azure DevOps Starter ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o bien elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
+title: Documentación de DevOps Starter para realizar implementaciones en Azure
+summary: DevOps Starter ofrece una experiencia simplificada en la que puede utilizar su código existente y el repositorio de Git, o bien elegir una de las aplicaciones de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) o un flujo de trabajo en Azure. DevOps Starter ahora admite la creación de flujos de trabajo de acciones de GitHub.
 metadata:
-  title: Documentación de Azure DevOps Starter
+  title: Documentación de DevOps Starter
   description: Utilice su código existente y el repositorio de Git, o elija una aplicación de ejemplo para crear una canalización de integración continua (CI) y entrega continua (CD) en Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
   ms.date: 03/24/2020
-  ms.openlocfilehash: 62e95192f25487be60ed0334054f200447fc64cb
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 7521a5a57b6dd1c090fbc880033fc5fc0707419b
+  ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91855946"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92330689"
 landingContent:
-- title: Acerca de Azure DevOps Starter
+- title: Acerca de DevOps Starter
   linkLists:
   - linkListType: overview
     links:
-    - text: ¿Qué es Azure DevOps Starter?
+    - text: ¿Qué es DevOps Starter?
       url: overview.md
   - linkListType: video
     links:
-    - text: Creación de integración continua y entrega continua con DevOps Project (8:53)
+    - text: Creación de CI/CD con DevOps Starter mediante Azure DevOps (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
-- title: Creación de una canalización de CI/CD
+- title: Configuración de CI/CD
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Node.js mediante acciones de GitHub
+      url: /azure/devops-project/devops-starter-gh-nodejs
     - text: .NET
       url: ./azure-devops-project-aspnet-core.md
     - text: Node.js
@@ -44,10 +46,12 @@ landingContent:
       url: ./azure-devops-project-ruby.md
     - text: Go
       url: ./azure-devops-project-go.md
-- title: Creación de canalizaciones de versión
+- title: Implementar en Azure
   linkLists:
   - linkListType: tutorial
     links:
+    - text: Implementación de una aplicación en Azure Web App mediante acciones de GitHub
+      url: devops-starter-gh-web-app.md
     - text: Traiga su propio código con GitHub
       url: azure-devops-project-vms.md
     - text: Implementación de una aplicación ASP.NET en Azure Virtual Machines

@@ -66,8 +66,16 @@
       items:
         - name: Supervisión con Grafana y Kibana
           href: monitor-grafana-kibana.md
-        - name: Carga de métricas y registros
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Carga en Azure Monitor
+          items:
+            - name: Carga de requisitos previos
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: Carga de registros
+              href: upload-logs.md
+            - name: Carga de métricas
+              href: upload-metrics.md
+            - name: Carga de datos de uso
+              href: upload-usage-data.md
         - name: Instancias de base de datos de inventario
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Obtención del nombre de usuario y la contraseña del controlador de datos

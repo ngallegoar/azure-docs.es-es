@@ -33,6 +33,10 @@
       href: tutorial-private-endpoint-cosmosdb-portal.md
     - name: Conexión a una aplicación web
       href: tutorial-private-endpoint-webapp-portal.md
+    - name: SQL
+      items:
+        - name: 'Conexión a un servidor de SQL Server: Azure Portal'
+          href: tutorial-private-endpoint-sql-portal.md
 - name: Conceptos
   items:
     - name: Punto de conexión privado
@@ -47,8 +51,92 @@
           href: security-baseline.md
 - name: Instrucciones
   items:
-    - name: Conexión privada a una aplicación web
-      href: create-private-endpoint-webapp-portal.md
+    - name: AI + Aprendizaje automático
+      items:
+        - name: Machine Learning
+          href: ../machine-learning/how-to-configure-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Análisis
+      items:
+        - name: Analysis Services
+          href: ../azure-sql/database/private-endpoint-overview.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Data Factory
+          href: ../data-factory/data-factory-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Event Hubs
+          href: ../event-hubs/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: HDInsight
+          href: ../hdinsight/hdinsight-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Power BI
+          href: /power-bi/admin/service-security-private-links
+    - name: Proceso
+      items:
+        - name: Batch
+          href: ../batch/private-connectivity.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Discos administrados con vínculos privados
+          href: ../virtual-machines/disks-enable-private-links-for-import-export-portal.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Contenedores
+      items:
+        - name: Container Registry
+          href: ../container-registry/container-registry-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Kubernetes Service
+          href: ../aks/private-clusters.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Bases de datos
+      items:
+        - name: Cache for Redis
+          href: ../azure-cache-for-redis/cache-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Cosmos DB
+          href: ../cosmos-db/how-to-configure-private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Database for MariaDB
+          href: ../mariadb/concepts-data-access-security-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Database for MySQL
+          href: ../mysql/concepts-data-access-security-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Database for PostgreSQL
+          href: ../postgresql/concepts-data-access-and-security-private-link.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: SQL
+          href: tutorial-private-endpoint-sql-portal.md
+    - name: Herramientas de desarrollo
+      items:
+        - name: App Configuration
+          href: ../azure-app-configuration/concept-private-endpoint.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Retransmisión
+          href: ../azure-relay/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Integración
+      items:
+        - name: Event Grid
+          href: ../event-grid/network-security.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Azure Service Bus
+          href: ../service-bus-messaging/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Internet de las cosas
+      items:
+        - name: IoT Hub
+          href: ../iot-hub/virtual-network-support.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Administración y gobernanza
+      items:
+        - name: Automatización
+          href: ../automation/how-to/private-link-security.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Copia de seguridad
+          href: ../backup/private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Supervisión
+          href: ../azure-monitor/platform/private-link-security.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Seguridad
+      items:
+        - name: Key Vault
+          href: ../key-vault/general/private-link-service.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Storage
+      items:
+        - name: Archivos
+          href: ../storage/files/storage-files-networking-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: File Sync
+          href: ../storage/files/storage-sync-files-networking-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Storage
+          href: ../storage/common/storage-private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+    - name: Web
+      items:
+        - name: Cognitive Search
+          href: ../search/service-create-private-endpoint.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: SignalR
+          href: ../azure-signalr/howto-private-endpoints.md?toc=%2fazure%2fprivate-link%2ftoc.json
+        - name: Aplicación web
+          href: tutorial-private-endpoint-webapp-portal.md
     - name: Deshabilitar las directivas de red de un punto de conexión privado
       href: disable-private-endpoint-network-policy.md
     - name: Deshabilitar las directivas de red de un servicio Private Link
