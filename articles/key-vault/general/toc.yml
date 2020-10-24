@@ -100,7 +100,9 @@
           href: rbac-migration.md
         - name: Solución de problemas de acceso
           href: troubleshooting-access-issues.md
-    - name: Habilitación del registro
+    - name: Habilitación de la eliminación temporal y la protección de purga
+      href: key-vault-recovery.md
+    - name: Habilitar registro
       href: howto-logging.md
     - name: Desarrollar
       items:
@@ -109,7 +111,7 @@
         - name: Uso de Azure Resource Manager para implementar Key Vault
           href: vault-create-template.md
         - name: Guardar secretos de Web Apps
-          href: vs-secure-secret-appsettings.md
+          href: /previous-versions/azure/key-vault/vs-secure-secret-appsettings?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
         - name: Autenticación de servicio a servicio con .NET
           href: service-to-service-authentication.md
         - name: Uso del servicio conectado Key Vault
@@ -134,14 +136,6 @@
           href: private-link-service.md
         - name: 'Acceso a Key Vault detrás de un firewall: Azure Key Vault'
           href: access-behind-firewall.md
-    - name: Eliminación temporal
-      items:
-        - name: Recuperación de Key Vault (protección ante eliminación temporal y purga)
-          href: key-vault-recovery.md
-        - name: Uso de la eliminación temporal con la CLI
-          href: soft-delete-cli.md
-        - name: Uso de la eliminación temporal con PowerShell
-          href: soft-delete-powershell.md
     - name: Traslado de Key Vault
       items:
         - name: Traslado de Key Vault a otro grupo de recursos
@@ -170,7 +164,7 @@
       href: versions.md
     - name: Azure PowerShell
       href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
-    - name: CLI de Azure
+    - name: Azure CLI
       href: /cli/azure/keyvault
     - name: .NET
       href: /dotnet/api/overview/azure/keyvault/management?view=azure-dotnet
