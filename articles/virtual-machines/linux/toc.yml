@@ -1024,8 +1024,6 @@
               href: disks-benchmarks.md
             - name: Optimización del rendimiento
               href: optimization.md
-            - name: Configuración del software RAID
-              href: configure-raid.md
             - name: Configuración del LVM
               href: configure-lvm.md
         - name: 'Búsqueda de discos sin conectar: CLI'
