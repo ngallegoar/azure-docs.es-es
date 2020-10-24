@@ -1022,6 +1022,8 @@
           href: insights/container-insights-analyze.md
         - name: Supervisión del rendimiento de GPU
           href: insights/container-insights-gpu-monitoring.md
+        - name: Supervisión de la configuración de red
+          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: Supervisión de implementaciones y HPA
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: Visualización de datos en directo
@@ -1068,7 +1070,7 @@
       items:
         - name: Azure Cache for Redis (versión preliminar)
           href: insights/redis-cache-insights-overview.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: insights/cosmosdb-insights-overview.md
         - name: Redes
           href: insights/network-insights-overview.md
