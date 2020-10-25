@@ -1,6 +1,6 @@
 - name: API de Azure para FHIR
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de la API de Azure para FHIR
       href: overview.md
@@ -19,6 +19,7 @@
         - name: Uso de CLI
           href: fhir-paas-cli-quickstart.md
         - name: Uso de una plantilla de Resource Manager
+          displayName: Resource Manager
           href: fhir-paas-arm-template-quickstart.md
     - name: 'Implementación del conector de Azure IoT para FHIR (versión preliminar): Azure Portal'
       href: iot-fhir-portal-quickstart.md

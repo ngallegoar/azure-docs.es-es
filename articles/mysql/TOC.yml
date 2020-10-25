@@ -224,7 +224,7 @@
               displayName: 'manage, reset password, scale'
             - name: Reglas de firewall
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: howto-manage-firewall-using-portal.md
                   displayName: firewall
                 - name: CLI de Azure
@@ -240,7 +240,7 @@
               displayName: 'managed identity, msi'
         - name: Restauración de un servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
             - name: Azure CLI
@@ -271,7 +271,7 @@
               displayName: 'development, redirection , php'
         - name: Configuración de parámetros del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -286,7 +286,7 @@
               href: how-to-stop-start-server.md
         - name: Almacenamiento de crecimiento automático
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
             - name: Azure CLI
@@ -297,7 +297,7 @@
               displayName: 'storage, business continuity , downtime, powershell'
         - name: Registros de consultas lentos
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
             - name: Azure CLI
@@ -305,7 +305,7 @@
               displayName: 'debug, slow query log , performance'
         - name: Registros de auditoría
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
             - name: Azure CLI
@@ -357,7 +357,7 @@
               displayName: 'atp, advanced thread, security'
             - name: Virtual Network
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: howto-manage-vnet-using-portal.md
                   displayName: 'vnet, virtual network, service endpoint'
                 - name: CLI de Azure
@@ -389,12 +389,12 @@
               displayName: 'infrastructure encryption, security'
         - name: Denegación del acceso a una red pública
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-deny-public-network-access.md
               displayName: 'security, public access'
         - name: Reinicio del servidor
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: howto-restart-server-portal.md
               displayName: restart
             - name: Azure CLI
@@ -477,7 +477,7 @@
       items:
         - name: Administración de un servicio
           items:
-            - name: Azure portal
+            - name: Azure Portal
               href: flexible-server/how-to-manage-server-portal.md
             - name: CLI de Azure
               href: flexible-server/how-to-manage-server-cli.md
@@ -515,6 +515,14 @@
               items:
                 - name: Conexión mediante TLS/SSL
                   href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Configuración de parámetros del servidor
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-configure-server-parameters-portal.md
+              displayName: server parameters
+            - name: Azure CLI
+              href: flexible-server/how-to-configure-server-parameters-cli.md
+              displayName: 'server parameters, cli'
         - name: Supervisión y registros
           items:
             - name: Creación de alertas basadas en métricas
