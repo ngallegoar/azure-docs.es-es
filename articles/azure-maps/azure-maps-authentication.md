@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036851"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091413"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
@@ -51,7 +51,7 @@ Para información general sobre la autenticación con Azure AD, consulte [¿Qu�
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades administradas para recursos de Azure y Azure Maps
 
-Las [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) proporcionan a los servicios de Azure una entidad de seguridad basada en un aplicación administrada automáticamente, que se puede autenticar con Azure AD. Con el control de acceso basado en rol (RBAC), se puede autorizar el acceso de la entidad de seguridad de la identidad administrada a los servicios de Azure Maps. Algunos ejemplos de identidades administradas son: Azure App Service, Azure Functions y Azure Virtual Machines. Para obtener una lista de identidades administradas, consulte [Identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+Las [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) proporcionan a los servicios de Azure una entidad de seguridad basada en un aplicación administrada automáticamente, que se puede autenticar con Azure AD. Con el control de acceso basado en rol de Azure (RBAC de Azure), se puede autorizar el acceso de la entidad de seguridad de la identidad administrada a los servicios de Azure Maps. Algunos ejemplos de identidades administradas son: Azure App Service, Azure Functions y Azure Virtual Machines. Para obtener una lista de identidades administradas, consulte [Identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
 
 ### <a name="configuring-application-azure-ad-authentication"></a>Configuración de la aplicación de autenticación de Azure AD
 
@@ -82,7 +82,7 @@ Para información sobre cómo ver el identificador de cliente, consulte [Visuali
 
 Azure Maps admite el acceso a todos los tipos de entidad de seguridad para el [control de acceso basado en rol de Azure (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview), por ejemplo, usuarios individuales de Azure AD, grupos, aplicaciones, recursos de Azure e identidades administradas de Azure. A los tipos de entidad de seguridad se les concede un conjunto de permisos, también conocido como definición de roles. Una definición de roles proporciona permisos para las acciones de la API REST. La aplicación del acceso a una o varias cuentas de Azure Maps se conoce como ámbito. Al aplicar una entidad de seguridad, una definición de roles y un ámbito, se crea una asignación de roles. 
 
-En las secciones siguientes se describen los conceptos y componentes de la integración de Azure Maps con el control de acceso base en roles de Azure AD. Como parte del proceso de configuración de la cuenta de Azure Maps, se asocia un directorio de Azure AD a la suscripción de Azure en la que reside la cuenta de Azure Maps. 
+En las secciones siguientes se habla de los conceptos y componentes de la integración de Azure Maps con RBAC de Azure. Como parte del proceso de configuración de la cuenta de Azure Maps, se asocia un directorio de Azure AD a la suscripción de Azure en la que reside la cuenta de Azure Maps. 
 
 Al configurar RBAC de Azure, elija una entidad de seguridad y aplíquela a una asignación de roles. Para más información sobre cómo agregar asignaciones de roles en Azure Portal, consulte [Incorporación o eliminación de asignaciones de roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
@@ -104,7 +104,7 @@ Algunos servicios de Azure Maps pueden requerir privilegios elevados para realiz
 | Creador            | Colaborador de datos de Azure Maps |
 | Espacial            | Colaborador de datos de Azure Maps |
 
-Para información sobre cómo ver la configuración de RBAC, consulte [Configuración de Azure Maps](https://aka.ms/amrbac).
+Para obtener información sobre la visualización de la configuración de RBAC, vea [Configuración de RBAC de Azure para Azure Maps](https://aka.ms/amrbac).
 
 #### <a name="custom-role-definitions"></a>Definiciones de roles personalizados
 
@@ -131,7 +131,7 @@ Asignar una asignación de roles a un grupo de recursos puede permitir el acceso
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre RBAC, consulte
+Para obtener más información sobre RBAC de Azure, vea
 > [!div class="nextstepaction"]
 > [Control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/overview)
 

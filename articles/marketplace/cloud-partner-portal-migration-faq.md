@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 122de64e33778966d563cc8e94b46515e54769f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369916"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331216"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -58,11 +58,11 @@ Estas son las diferencias en el informe de pago entre Cloud Partner Portal (ya r
 
 | Cloud Partner Portal | Centro de partners |
 | --- | --- |
-| **Vínculo**: https://cloudpartner.azure.com/ | **Vínculo**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory y https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| **Navegación**: Informes de pago proporcionados en Insights Payout | **Navegación**: Informes de pago proporcionados en el Centro de Partners: icono de pago |
-| **Ámbito**:<ul><li>Transacción por artículo de línea visible, para cobros en curso, realizados y pagados.</li><li>Informes: se muestran todos los artículos de línea una vez creado el pedido de compra, incluidos los cobros y la facturación en curso; también se muestran el estado de cobro y los artículos de línea que aún no son válidos para su pago.</li></ul> | **Ámbito**:<ul><li>Muestra los artículos de línea después de que se consideran ganancias válidas.</li><li>Los clientes pagan primero a Microsoft y entonces los ISV pueden ver que se inicia el informe de pago.</li><li>El informe de pago no muestra ni el cobro ni la facturación en curso.</li></ul> |
-| **La transacción no está lista para el pago**: Facturación en curso | **La transacción no está lista para el pago**: Siguiente pago estimado: El estado del pago es sin procesar. |
-| **Estado del pago**: n/d | **Estado del pago**:<ul><li>Sin procesar: La ganancia es válida para el pago.</li><li>Próximamente: La ganancia se enviará al editor en el siguiente pago mensual.</li><li>Enviado: El pago se ha enviado al banco.</li></ul> |
+| **Vínculo** : https://cloudpartner.azure.com/ | **Vínculo** : https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory y https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navegación** : Informes de pago proporcionados en Insights Payout | **Navegación** : Informes de pago proporcionados en el Centro de Partners: icono de pago |
+| **Ámbito** :<ul><li>Transacción por artículo de línea visible, para cobros en curso, realizados y pagados.</li><li>Informes: se muestran todos los artículos de línea una vez creado el pedido de compra, incluidos los cobros y la facturación en curso; también se muestran el estado de cobro y los artículos de línea que aún no son válidos para su pago.</li></ul> | **Ámbito** :<ul><li>Muestra los artículos de línea después de que se consideran ganancias válidas.</li><li>Los clientes pagan primero a Microsoft y entonces los ISV pueden ver que se inicia el informe de pago.</li><li>El informe de pago no muestra ni el cobro ni la facturación en curso.</li></ul> |
+| **La transacción no está lista para el pago** : Facturación en curso | **La transacción no está lista para el pago** : Siguiente pago estimado: El estado del pago es sin procesar. |
+| **Estado del pago** : n/d | **Estado del pago** :<ul><li>Sin procesar: La ganancia es válida para el pago.</li><li>Próximamente: La ganancia se enviará al editor en el siguiente pago mensual.</li><li>Enviado: El pago se ha enviado al banco.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>¿Qué ocurre con las ofertas publicadas en Cloud Partner Portal?
@@ -77,8 +77,8 @@ En el caso de los tipos de oferta admitidos en el Centro de partners, todas las 
 
 | Tipo de oferta <img src="" width=150px>| ¿Se ha movido al Centro de partners? <img src="" width=100px>| Pasos siguientes |
 | --- | --- | --- |
-| SaaS | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de SaaS en el marketplace comercial](partner-center-portal/create-new-saas-offer.md). |
-| Máquina virtual | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de máquina virtual de Azure en Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| SaaS | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en [Planeamiento de una oferta de SaaS en el marketplace comercial](plan-saas-offer.md). |
+| Máquina virtual | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Puede encontrar más información en el artículo sobre la [planificación de ofertas de máquina virtual](marketplace-virtual-machines.md). |
 | Aplicación de Azure | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de aplicación de Azure](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 Business Central](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 for Customer Engagement y Power Apps | Sí | Inicie sesión en el Centro de partners para crear ofertas y administrar las que se hayan creado en Cloud Partner Portal. Más información en [Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps](partner-center-portal/create-new-customer-engagement-offer.md). |
@@ -117,7 +117,7 @@ Si forma parte de varias cuentas, en el Centro de partners verá un botón de se
 
 ## <a name="how-do-i-create-new-offers"></a>¿Cómo se crean las ofertas?
 
-Para crear ofertas, acceda al programa Marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). En la página Información general, seleccione **+ Nueva oferta**.
+Para crear ofertas, acceda al programa Marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). En la página Información general, seleccione **+ Nueva oferta** .
 
 [![Captura de pantalla que muestra el menú Información general del Centro de partners](media/cpp-pc-faq/new-offer.png "Se muestra el menú Información general del Centro de partners")](media/cpp-pc-faq/new-offer.png#lightbox)
 
@@ -127,7 +127,7 @@ Si no puede iniciar sesión en la cuenta, aquí puede abrir una [incidencia de s
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>¿Dónde están las instrucciones para usa el Centro de partners?
 
-Vaya a la [documentación de marketplace comercial](index.yml) y, después, expanda la seción sobre el **portal de Marketplace comercial en el Centro de partners**. Para ver artículos de ayuda sobre la creación de ofertas en el Centro de partners, expanda **Creación de una nueva oferta**.
+Vaya a la [documentación de marketplace comercial](index.yml) y, después, expanda la seción sobre el **portal de Marketplace comercial en el Centro de partners** . Para ver artículos de ayuda sobre la creación de ofertas en el Centro de partners, expanda **Creación de una nueva oferta** .
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>¿Cuáles son las diferencias de administración de publicación y ofertas?
 
@@ -135,7 +135,7 @@ Estas son algunas de las diferencias entre Cloud Partner Portal y el Centro de p
 
 ### <a name="modular-publishing-capabilities"></a>Funcionalidades de publicación modular
 
-El Centro de partners proporciona una opción de publicación modular que le permite seleccionar los cambios que desea publicar en lugar de publicar siempre todas las actualizaciones a la vez. Por ejemplo, en la pantalla siguiente se muestra que los únicos cambios seleccionados para publicar son los cambios en las **propiedades** y la **descripción de la oferta**. Los cambios que realice en la página de vista previa no se publicarán.
+El Centro de partners proporciona una opción de publicación modular que le permite seleccionar los cambios que desea publicar en lugar de publicar siempre todas las actualizaciones a la vez. Por ejemplo, en la pantalla siguiente se muestra que los únicos cambios seleccionados para publicar son los cambios en las **propiedades** y la **descripción de la oferta** . Los cambios que realice en la página de vista previa no se publicarán.
 
 [![Captura de pantalla que muestra la página de revisión y publicación del Centro de partners](media/cpp-pc-faq/review-page.png "Se muestra la página Revisar y publicar del Centro de partners")](media/cpp-pc-faq/review-page.png#lightbox)
 
@@ -155,7 +155,7 @@ Observará algunos cambios en la personalización de marca. Por ejemplo, las *SK
 
 Además, la información que antes se proporcionaba en las páginas **Marketplace** o **Detalles del escaparate electrónico** (servicio de consultoría, aplicación Power BI) de Cloud Partner Portal, ahora se recopila en la página **Descripción de la oferta** del Centro de partners:
 
-[![Captura de pantalla que muestra la página de listado de ofertas del Centro de partners](media/cpp-pc-faq/offer-listing.png "Se muestra la página Descripción de la oferta del Centro de partners")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![La captura de pantalla muestra la página de la lista de ofertas del Centro de partners.](media/cpp-pc-faq/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 La información que antes se proporcionaba para las SKU en una única página de Cloud Partner Portal es posible que ahora se recopile en varias páginas del Centro de partners:
 
@@ -164,7 +164,7 @@ La información que antes se proporcionaba para las SKU en una única página de
 - Página de disponibilidad del plan
 - Página de configuración técnica del plan, como se muestra aquí:
 
-![![La captura de pantalla muestra la página de configuración técnica del Centro de partners.](media/cpp-pc-faq/technical-configuration.png "Se muestra la página de configuración técnica del plan en el Centro de partners")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![Muestra la página de configuración técnica del Centro de partners.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 El identificador de la oferta ahora se muestra en la barra de navegación izquierda de la oferta:
 

@@ -11,29 +11,29 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 4e14bd6365ce53d98d6e0b0d1f2601ff3b3e59b4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997134"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145585"
 ---
-# <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Información sobre la integración entre el aprovisionamiento y los registros de Azure Monitor
+# <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entienda cómo se integra el aprovisionamiento con los registros de Azure Monitor
 
-El aprovisionamiento se integra con registros de Azure Monitor y Log Analytics. Con la supervisión de Azure, puede hacer cosas como crear libros, también conocidos como paneles, almacenar registros de aprovisionamiento durante más de 30 días, y crear consultas y alertas personalizadas. En este artículo se describe cómo se integran los registros de aprovisionamiento con los registros de Azure Monitor. Para obtener más información sobre cómo funcionan los registros de aprovisionamiento en general, consulte [Informes de aprovisionamiento en el portal de Azure Active Directory (versión preliminar)](../reports-monitoring/concept-provisioning-logs.md).
+El aprovisionamiento se integra con registros de Azure Monitor y Log Analytics. Con la supervisión de Azure puede hacer cosas como crear libros, también conocidos como paneles, almacenar registros de aprovisionamiento durante más de 30 días y crear consultas y alertas personalizadas. En este artículo se describe cómo se integran los registros de aprovisionamiento con los registros de Azure Monitor. Para obtener más información sobre cómo funcionan los registros de aprovisionamiento en general, vea [Registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md).
 
 ## <a name="enabling-provisioning-logs"></a>Habilitación de los registros de aprovisionamiento
 
-Ya debería estar familiarizado con Azure Monitoring y Log Analytics. Si no es así, vaya directamente al artículo correspondiente para obtener más información al respecto y, luego, vuelva aquí para conocer los registros de aprovisionamiento de las aplicaciones. Para obtener más información sobre la supervisión en Azure, consulte [Introducción a Azure Monitor](../../azure-monitor/overview.md). Para obtener más información sobre los registros de Azure Monitor y Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Ya debería estar familiarizado con la supervisión de Azure y Log Analytics. Si no es así, vaya a obtener más información sobre ellos y luego vuelva aquí para conocer los registros de aprovisionamiento de aplicaciones. Para obtener más información sobre la supervisión de Azure, vea [Introducción a Azure Monitor](../../azure-monitor/overview.md). Para obtener más información sobre los registros de Azure Monitor y Log Analytics, consulte [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Cuando haya configurado la supervisión de Azure, podrá habilitar los registros para el aprovisionamiento de las aplicaciones. La opción se encuentra en la página **Configuración de diagnóstico**.
+Una vez configurada la supervisión de Azure, es posible habilitar registros para el aprovisionamiento de aplicaciones. La opción se encuentra en la página **Configuración de diagnóstico** .
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
 :::image type="content" source="media/application-provisioning-log-analytics/enable-log-analytics.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/enable-log-analytics.png":::
 
 > [!NOTE]
-> Si acaba de aprovisionar un área de trabajo, puede pasar algún tiempo antes de que pueda enviarle registros. Si recibe un error que le indica que la suscripción no está registrada para usar *microsoft.insights*, vuelva a realizar la comprobación después de unos minutos.
+> Si acaba de aprovisionar un área de trabajo, puede pasar algún tiempo antes de que pueda enviarle registros. Si recibe un error que le indica que la suscripción no está registrada para usar *microsoft.insights* , vuelva a realizar la comprobación después de unos minutos.
  
 ## <a name="understanding-the-data"></a>Descripción de los datos
 El flujo de datos subyacente que el aprovisionamiento envía a los visores de registro es casi idéntico. Los registros de Azure Monitor obtienen casi el mismo flujo que la interfaz de usuario de Azure Portal y la API de Azure. Solo hay algunas **diferencias** en los campos de registro, tal y como se describe en la tabla siguiente. Para obtener más información sobre estos campos, consulte el artículo sobre la [lista provisioningObjectSummary](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http&preserve-view=true).
@@ -49,7 +49,7 @@ El flujo de datos subyacente que el aprovisionamiento envía a los visores de re
 
 Los libros de Azure Monitor facilitan un lienzo flexible para el análisis de datos. También permiten la creación de informes visuales completos en Azure Portal. Para obtener más información, consulte [Introducción a los libros de Azure Monitor](../../azure-monitor/platform/workbooks-overview.md).
 
-El aprovisionamiento de las aplicaciones incluye un conjunto de libros pregenerados. Puede encontrarlos en la página Libros. Para ver los datos, tiene que asegurarse de que se rellenen todos los filtros (timeRange, jobID y appName). También tendrá que asegurarse de haber aprovisionado una aplicación; de lo contrario, no habrá ningún dato en los registros.
+El aprovisionamiento de aplicaciones incluye un conjunto de libros precompilados. Puede encontrarlos en la página Libros. Para ver los datos, tiene que asegurarse de que se rellenen todos los filtros (timeRange, jobID y appName). También tendrá que asegurarse de haber aprovisionado una aplicación; de lo contrario, no habrá ningún dato en los registros.
 
 :::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Acceso a la configuración de diagnóstico" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
@@ -59,7 +59,7 @@ El aprovisionamiento de las aplicaciones incluye un conjunto de libros pregenera
 
 Puede crear consultas personalizadas y mostrar los datos en los paneles de Azure. Para conocer cómo hacerlo, consulte [Creación y uso compartido de paneles de datos de Log Analytics](../../azure-monitor/log-query/get-started-queries.md). Además, asegúrese de consultar [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Estos son algunos ejemplos para empezar a trabajar con el aprovisionamiento de las aplicaciones.
+Estos son algunos ejemplos para empezar a trabajar con el aprovisionamiento de aplicaciones.
 
 Consulte los registros de un usuario en función de su identificador en el sistema de origen:
 ```kusto
@@ -113,7 +113,7 @@ Alerta cuando hay un pico de deshabilitaciones o eliminaciones.
 
 ## <a name="community-contributions"></a>Contribuciones de la comunidad
 
-Vamos a adoptar un enfoque de código abierto basado en la comunidad para las consultas y los paneles de aprovisionamiento de las aplicaciones. Si ha creado una consulta, una alerta o un libro que cree que puede resultar útil a otros usuarios, asegúrese de publicarlo en el [repositorio AzureMonitorCommunity de GitHub](https://github.com/microsoft/AzureMonitorCommunity). Luego, envíenos un correo electrónico con un vínculo. Lo revisaremos y publicaremos en el servicio para que otros usuarios también puedan beneficiarse. Puede ponerse en contacto con nosotros en provisioningfeedback@microsoft.com.
+Se está adoptando un enfoque de código abierto basado en la comunidad para las consultas y los paneles de aprovisionamiento de aplicaciones. Si ha creado una consulta, una alerta o un libro que cree que puede resultar útil a otros usuarios, asegúrese de publicarlo en el [repositorio AzureMonitorCommunity de GitHub](https://github.com/microsoft/AzureMonitorCommunity). Luego, envíenos un correo electrónico con un vínculo. Lo revisaremos y publicaremos en el servicio para que otros usuarios también puedan beneficiarse. Puede ponerse en contacto con nosotros en provisioningfeedback@microsoft.com.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

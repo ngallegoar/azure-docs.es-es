@@ -3,14 +3,23 @@ title: Configuración de Red Hat OpenShift en Azure v3.x con Azure Monitor para
 description: En este artículo se describe cómo configurar la supervisión de un clúster de Kubernetes con Azure Monitor hospedado en Red Hat OpenShift en Azure versión 3 y posteriores.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 4e1770944fa1917bc94dfbf1a3daa0708593e356
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1186056559d6497b2b48cb3533a0967d6d61f38e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994569"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216375"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configuración de Red Hat OpenShift en Azure v3.x con Azure Monitor para contenedores 
+# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configuración de Red Hat OpenShift en Azure v3.x con Azure Monitor para contenedores
+
+>[!IMPORTANT]
+> Red Hat OpenShift en Azure 3.11 se retirará en junio de 2022.
+>
+> A partir de octubre de 2020, ya no podrá crear nuevos clústeres de 3.11.
+> Los clústeres existentes de 3.11 seguirán funcionando hasta junio de 2022, pero dejarán de admitirse después de esa fecha.
+>
+> Siga esta guía para [crear un clúster de la versión 4 de Red Hat OpenShift en Azure](https://docs.microsoft.com/azure/openshift/tutorial-create-cluster).
+> Si tiene alguna pregunta específica, [póngase en contacto con nosotros](mailto:aro-feedback@microsoft.com).
 
 Azure Monitor para contenedores proporciona una experiencia de supervisión enriquecida para los clústeres de Azure Kubernetes Service (AKS) y Motor de AKS. En este artículo se describe cómo habilitar la supervisión de clústeres de Kubernetes hospedados en [Red Hat OpenShift en Azure](../../openshift/intro-openshift.md) versión 3 y la última versión compatible de la versión 3, para lograr una experiencia de supervisión similar.
 
@@ -58,7 +67,7 @@ Azure Monitor para contenedores admite la supervisión de Red Hat OpenShift en A
     Microsoft Azure                       AzureCloud   0fb60ef2-03cc-4290-b595-e71108e8f4ce  Enabled  True
     ```
 
-1. Copie el valor de **SubscriptionId**.
+1. Copie el valor de **SubscriptionId** .
 
 1. Cambie a la suscripción que hospeda el área de trabajo de Log Analytics mediante la ejecución del siguiente comando:
 
@@ -72,7 +81,7 @@ Azure Monitor para contenedores admite la supervisión de Red Hat OpenShift en A
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-1. En la salida, busque el nombre del área de trabajo y copie el identificador de recurso completo de esa área de trabajo de Log Analytics en el campo **identificador**.
+1. En la salida, busque el nombre del área de trabajo y copie el identificador de recurso completo de esa área de trabajo de Log Analytics en el campo **identificador** .
 
 ## <a name="enable-for-a-new-cluster-using-an-azure-resource-manager-template"></a>Habilitar para un nuevo clúster mediante una plantilla de Azure Resource Manager
 
@@ -161,13 +170,13 @@ Realice los siguientes pasos para habilitar la supervisión de un clúster de Re
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. En el menú de Azure Portal o en la página principal, seleccione **Azure Monitor**. En la sección **Insights**  (Conclusiones), seleccione **Contenedores**.
+2. En el menú de Azure Portal o en la página principal, seleccione **Azure Monitor** . En la sección **Insights**  (Conclusiones), seleccione **Contenedores** .
 
-3. En la página **Supervisión - Contenedores**, seleccione **Non-monitored clusters** (Clústeres sin supervisión).
+3. En la página **Supervisión - Contenedores** , seleccione **Non-monitored clusters** (Clústeres sin supervisión).
 
-4. En la lista de clústeres sin supervisión, busque el clúster y haga clic en **Habilitar**. Puede identificar los resultados en la lista buscando el valor **ARO** en la columna **TIPO DE CLÚSTER**.
+4. En la lista de clústeres sin supervisión, busque el clúster y haga clic en **Habilitar** . Puede identificar los resultados en la lista buscando el valor **ARO** en la columna **TIPO DE CLÚSTER** .
 
-5. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.  
+5. En la página **Incorporación a Azure Monitor para contenedores** , si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.  
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa el clúster en la suscripción.
 
     ![Habilitar la supervisión para clústeres sin supervisión](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -221,7 +230,7 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
     az openshift show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-5. Edite el archivo de parámetros JSON **existingClusterParam.json** y actualice los valores *aroResourceId* y *aroResourceLocation*. El valor de **workspaceResourceId** es el identificador de recurso completo del área de trabajo de Log Analytics e incluye el nombre del área de trabajo.
+5. Edite el archivo de parámetros JSON **existingClusterParam.json** y actualice los valores *aroResourceId* y *aroResourceLocation* . El valor de **workspaceResourceId** es el identificador de recurso completo del área de trabajo de Log Analytics e incluye el nombre del área de trabajo.
 
 6. Para implementar con la CLI de Azure, ejecute los siguientes comandos:
 

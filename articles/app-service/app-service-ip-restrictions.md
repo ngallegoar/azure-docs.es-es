@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962968"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168229"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restricciones de acceso de Azure App Service
 
@@ -30,13 +30,13 @@ La capacidad de restringir el acceso a la aplicación web desde una instancia de
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>Incorporación y edición de reglas de restricciones de acceso en el portal ##
 
-Para agregar una regla de restricción de acceso a la aplicación, use el menú para abrir **Red**>**Restricciones de acceso** y haga clic en **Configurar restricciones de acceso**.
+Para agregar una regla de restricción de acceso a la aplicación, use el menú para abrir **Red**>**Restricciones de acceso** y haga clic en **Configurar restricciones de acceso** .
 
 ![Opciones de red de App Service](media/app-service-ip-restrictions/access-restrictions.png)  
 
 En la interfaz de las restricciones de acceso puede revisar la lista de reglas de restricción de acceso definidas en relación con la aplicación.
 
-![Lista de restricciones de acceso](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Captura de pantalla de Restricciones de acceso en Azure Portal que muestra la lista de reglas de restricción de acceso definidas para la aplicación seleccionada.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 La lista mostrará todas las restricciones actuales que hay en la aplicación. Si tiene una restricción de red virtual en la aplicación, la tabla mostrará si los puntos de conexión del servicio están habilitados para Microsoft.Web. Si no hay ninguna restricción definida en la aplicación, esta será accesible desde cualquier lugar.  
 
@@ -68,19 +68,19 @@ Si se usan puntos de conexión de servicio, la aplicación se puede configurar c
 
 Puede hacer clic en cualquier fila para editar una regla de restricción de acceso existente. Las modificaciones son efectivas inmediatamente, incluidos los cambios en el orden de prioridad.
 
-![Edición de una regla de restricción de acceso](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Captura de pantalla del cuadro de diálogo para editar restricción de IP en Azure Portal que muestra los campos para una regla de restricción de acceso existente.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 Al editar una regla, no se puede cambiar el tipo entre una regla de dirección IP y una regla de Virtual Network. 
 
-![Edición de una regla de restricción de acceso](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Captura de pantalla del cuadro de diálogo para editar restricción de IP en Azure Portal que muestra la configuración de una regla de red virtual.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Para eliminar una regla, haga clic en los puntos suspensivos **...** en la regla y, a continuación, haga clic en **Quitar**.
+Para eliminar una regla, haga clic en los puntos suspensivos **...** en la regla y, a continuación, haga clic en **Quitar** .
 
 ![Eliminación de una regla de restricción de acceso](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
 ## <a name="blocking-a-single-ip-address"></a>Bloqueo de una única dirección IP ##
 
-Al agregar la primera regla de restricción de IP, el servicio agregará una regla **Denegar todo** explícita con una prioridad de 2147483647. En la práctica, la regla explícita **Denegar todo** será la última regla que se ejecute y bloqueará el acceso a cualquier dirección IP que no esté expresamente permitida mediante una regla **Permitir**.
+Al agregar la primera regla de restricción de IP, el servicio agregará una regla **Denegar todo** explícita con una prioridad de 2147483647. En la práctica, la regla explícita **Denegar todo** será la última regla que se ejecute y bloqueará el acceso a cualquier dirección IP que no esté expresamente permitida mediante una regla **Permitir** .
 
 En situaciones en las que los usuarios quieran bloquear expresamente una única dirección IP o un bloque de direcciones IP, pero permitir el acceso a todo lo demás, será necesario agregar la regla **Permitir todo** explícita.
 
@@ -90,7 +90,7 @@ En situaciones en las que los usuarios quieran bloquear expresamente una única 
 
 Aparte de controlar el acceso a la aplicación, también puede restringir el acceso al sitio de SCM utilizado por la aplicación. El sitio de SCM es el punto de conexión de Web Deploy y, también, la consola de Kudu. Puede asignar restricciones de acceso aisladas al sitio de SCM desde la aplicación o usar el mismo conjunto para la aplicación y el sitio de SCM. Si se activa la casilla para tener las mismas restricciones que la aplicación, todo estará en blanco. Si se desactiva, se aplicarán las configuraciones que hubiera anteriormente en el sitio de SCM. 
 
-![Lista de restricciones de acceso](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Captura de pantalla de Restricciones de acceso en Azure Portal que muestra que no hay restricciones de acceso establecidas para la aplicación o el sitio de SCM.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulación mediante programación de reglas de restricción de acceso ##
 
@@ -111,7 +111,7 @@ Los valores también se pueden establecer manualmente con una operación PUT de 
 
 La ubicación de esta información en Resource Manager es:
 
-management.azure.com/subscriptions/**Id. de suscripción**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**nombre de aplicación web**/config/web?api-version=2018-02-01
+management.azure.com/subscriptions/ **Id. de suscripción** /resourceGroups/ **resource groups** /providers/Microsoft.Web/sites/ **nombre de aplicación web** /config/web?api-version=2018-02-01
 
 La sintaxis JSON para el ejemplo anterior es:
 ```json

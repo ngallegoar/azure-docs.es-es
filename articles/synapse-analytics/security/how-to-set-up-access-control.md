@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260162"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341556"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar)
+# <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar) 
 
 En este artículo se explica cómo usar roles y el control de acceso para controlar las actividades y el acceso a los datos. Si sigue estas instrucciones, se simplificará el control de acceso en Azure Synapse Analytics. Solo debe agregar y quitar usuarios de uno de los tres grupos de seguridad.
 
@@ -31,7 +31,7 @@ Para proteger un área de trabajo de Synapse (versión preliminar), debe seguir 
   - Apache Spark para el administrador de Azure Synapse Analytics
 - Control de acceso a los datos de Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Control de acceso a las bases de datos de SQL y Spark de Synapse
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Pasos para proteger un área de trabajo de Synapse
 
 En este documento se usan nombres estándar para simplificar las instrucciones. Reemplácelos por los nombres de su preferencia.
@@ -48,9 +48,9 @@ En este documento se usan nombres estándar para simplificar las instrucciones. 
 
 Cree y rellene tres grupos de seguridad para el área de trabajo:
 
-- **WS1\_WSAdmins**: para los usuarios que necesitan control completo sobre el área de trabajo.
-- **WS1\_SparkAdmins**: para aquellos usuarios que necesitan control completo sobre las características de Spark del área de trabajo.
-- **WS1\_SQLAdmins**: para aquellos usuarios que necesitan control completo sobre las características de SQL del área de trabajo.
+- **WS1\_WSAdmins** : para los usuarios que necesitan control completo sobre el área de trabajo.
+- **WS1\_SparkAdmins** : para aquellos usuarios que necesitan control completo sobre las características de Spark del área de trabajo.
+- **WS1\_SQLAdmins** : para aquellos usuarios que necesitan control completo sobre las características de SQL del área de trabajo.
 - Agregue **WS1\_WSAdmins** a **WS1\_SQLAdmins**
 - Agregue **WS1\_WSAdmins** a **WS1\_SparkAdmins**
 
@@ -65,17 +65,18 @@ Identifique esta información sobre su instancia de almacenamiento:
 
 - Mediante Azure Portal, asigne los grupos de seguridad a los siguientes roles de CNT1.
 
-  - Asigne el grupo **WS1\_WSAdmins** al rol **Colaborador de datos de Storage Blob**.
-  - Asigne el grupo **WS1\_SparkAdmins** al rol **Colaborador de datos de Storage Blob**.
-  - Asigne el grupo **WS1\_SQLAdmins** al rol **Colaborador de datos de Storage Blob**.
+  - Asigne el grupo **WS1\_WSAdmins** al rol **Colaborador de datos de Storage Blob** .
+  - Asigne el grupo **WS1\_SparkAdmins** al rol **Colaborador de datos de Storage Blob** .
+  - Asigne el grupo **WS1\_SQLAdmins** al rol **Colaborador de datos de Storage Blob** .
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>PASO 3: Creación y configuración del área de trabajo de Synapse
 
-En Azure Portal, cree un área de trabajo de Synapse:
+ En Azure Portal, cree un área de trabajo de Synapse:
 
+- Seleccione su suscripción.
+- Seleccione el grupo de recursos: debe tener acceso a un grupo de recursos en el que tenga asignado el rol **Propietario** .
 - Asigne el nombre WS1 al área de trabajo.
-- Elija STG1 para la cuenta de almacenamiento.
-- Elija CNT1 para el contenedor que se usará como "sistema de archivos".
+- Seleccione STG1 en la cuenta de almacenamiento. Elija CNT1 para el contenedor que se usará como "sistema de archivos".
 - Abra WS1 en Synapse Studio.
 - Seleccione **Administrar** > **Control de acceso** y asigne los grupos de seguridad a los siguientes roles de Synapse.
   - Asigne **WS1\_WSAdmins** a los administradores del área de trabajo de Synapse.
@@ -97,7 +98,7 @@ El área de trabajo de Synapse necesita acceso a STG1 y CNT1 para que ejecutar c
 
 - Abra Azure Portal.
 - Vaya a al área de trabajo WS1.
-- En **Configuración**, seleccione **Administrador de SQL Active Directory**.
+- En **Configuración** , seleccione **Administrador de SQL Active Directory** .
 - Seleccione **Establecer administrador** y seleccione WS1\_SQLAdmins.
 
 ## <a name="step-6-maintain-access-control"></a>PASO 6: Mantenimiento del control de acceso

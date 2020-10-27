@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: ef99ff874376e0d76e45e4b0b2c36a78d938130b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843664"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205585"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperación de un dispositivo GPU de Azure Stack Edge Pro con errores 
 
@@ -62,7 +62,8 @@ Para prepararse para un posible error de dispositivo, es posible que haya implem
 | Software de terceros           | Referencia a la solución                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> Para obtener más información, póngase en contacto con Cohesity.          |
-| Veritas                        | Para obtener más información, póngase en contacto con Veritas.   |
+| Commvault                      | https://www.commvault.com/azure <br> Para obtener más información, póngase en contacto con Commvault. |
+| Veritas                        | http://veritas.com/azure <br> Para obtener más información, póngase en contacto con Veritas.   |
 
 Una vez configurado completamente el dispositivo de sustitución, habilítelo para el almacenamiento local. 
 
@@ -82,7 +83,8 @@ Para prepararse para un posible error de dispositivo, es posible que haya implem
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente de Microsoft Azure Recovery Services (MARS) para Azure Backup | Windows        | [Acerca del agente de MARS](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Breve descripción de la solución de integración, copia de seguridad y recuperación Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Para obtener más información, póngase en contacto con Cohesity.                          |
-| Veritas                 | Windows, Linux | Para obtener más información, póngase en contacto con Veritas.                    |
+| Commvault               | Windows, Linux | https://www.commvault.com/azure <br> Para obtener más información, póngase en contacto con Commvault.
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> Para obtener más información, póngase en contacto con Veritas.                    |
 
 Una vez configurado completamente el dispositivo de sustitución, puede volver a implementar las máquinas virtuales con la imagen de VM usada anteriormente. 
 

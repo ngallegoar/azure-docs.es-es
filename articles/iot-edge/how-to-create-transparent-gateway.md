@@ -4,19 +4,19 @@ description: Uso de un dispositivo Azure IoT Edge como una puerta de enlace tran
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/12/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ae01fc2ef8761305c2096904471ce75b69d1150d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 506f6a2025a61b4d9d16918b2a95de620171c46b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048413"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147845"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -31,8 +31,8 @@ Este artículo proporciona instrucciones detalladas para configurar un dispositi
 Hay tres pasos generales para configurar una conexión de puerta de enlace transparente correcta. En este artículo se describe el primer paso:
 
 1. **Configure el dispositivo de puerta de enlace como servidor para que los dispositivos de bajada puedan conectarse a él de forma segura. Configure la puerta de enlace para recibir mensajes de los dispositivos de bajada y enrutarlos al destino adecuado.**
-2. Cree una identidad de dispositivo para el dispositivo de bajada para que pueda autenticarse en IoT Hub. Configure el dispositivo de bajada para enviar mensajes a través del dispositivo de puerta de enlace. Para más información, consulte [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
-3. Conecte el dispositivo de bajada al dispositivo de puerta de enlace y empiece a enviar mensajes. Para más información, consulte [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md).
+2. Cree una identidad de dispositivo para el dispositivo de bajada para que pueda autenticarse en IoT Hub. Configure el dispositivo de bajada para enviar mensajes a través del dispositivo de puerta de enlace. Para conocer estos pasos, consulte [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
+3. Conecte el dispositivo de bajada al dispositivo de puerta de enlace y empiece a enviar mensajes. Para conocer estos pasos, consulte [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md).
 
 Para que un dispositivo funcione como puerta de enlace, tiene que conectarse de forma segura a sus dispositivos de bajada. Azure IoT Edge le permite usar una infraestructura de clave pública (PKI) para configurar conexiones seguras entre los dispositivos. En este caso, vamos a permitir que un dispositivo de bajada se conecte a un dispositivo IoT Edge que actúa como puerta de enlace transparente. Para mantener una seguridad razonable, el dispositivo de bajada debe confirmar la identidad del dispositivo de puerta de enlace. Esta comprobación de identidad evita que los dispositivos se conecten a puertas de enlace que pueden ser malintencionadas.
 
@@ -48,6 +48,8 @@ Los pasos siguientes le guían por el proceso de crear los certificados e instal
 ## <a name="prerequisites"></a>Requisitos previos
 
 Un dispositivo Linux o Windows con IoT Edge instalado.
+
+Si no tiene listo un dispositivo, puede crear uno en una máquina virtual de Azure. Siga los pasos descritos en [Implementación del primer módulo de IoT Edge en un dispositivo virtual Linux](quickstart-linux.md) para crear una instancia de IoT Hub, crear una máquina virtual y configurar el entorno de ejecución de Azure IoT Edge. 
 
 ## <a name="set-up-the-device-ca-certificate"></a>Configuración del certificado de CA de dispositivo
 
@@ -68,24 +70,27 @@ Tenga listos los archivos siguientes:
 
 En escenarios de producción, debe generar estos archivos con su propia entidad de certificación. En escenarios de desarrollo y pruebas, puede usar certificados de demostración.
 
-1. Si usa certificados de demostración, siga este conjunto de pasos para crear los archivos:
-   1. [Cree un certificado de CA raíz](how-to-create-test-certificates.md#create-root-ca-certificate). Al final de estas instrucciones, tendrá un archivo de certificado de CA raíz:
-      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+1. Si usa certificados de demostración, siga las instrucciones de [Creación de certificados de demostración para probar las características de dispositivo IoT Edge](how-to-create-test-certificates.md) para crear los archivos. En esa página, debe seguir los pasos a continuación:
 
-   2. [Cree un certificado de CA de dispositivo IoT Edge](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). Al final de estas instrucciones, tendrá dos archivos, un certificado de CA de dispositivo y su clave privada:
+   1. Para empezar, configure los scripts para generar certificados en el dispositivo.
+   2. Cree un certificado de CA raíz. Al final de esas instrucciones, tendrá un archivo de certificado de CA raíz:
+      * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
+   3. Cree certificados de CA de dispositivo IoT Edge. Al final de esas instrucciones, tendrá un certificado de CA de dispositivo y su clave privada:
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` y
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
-2. Si ha creado estos archivos en otro equipo, cópielos en el dispositivo IoT Edge.
+2. Si ha creado los certificados en otra máquina, cópielos en el dispositivo IoT Edge.
 
 3. Abra el archivo de configuración del demonio de seguridad en el dispositivo IoT Edge.
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-4. Busque la sección **certificates** del archivo y proporcione los identificadores URI de archivo a los tres archivos como valores de las siguientes propiedades:
-   * **device_ca_cert**: certificado de CA de dispositivo
-   * **device_ca_pk**: clave privada de CA de dispositivo
-   * **trusted_ca_certs**: certificado de CA raíz
+4. Busque la sección **Configuración de certificado** del archivo. Quite la marca de comentario de las cuatro líneas que empiezan por **certificates:** y proporcione los URI de archivo a los tres archivos como valores de las siguientes propiedades:
+   * **device_ca_cert** : certificado de CA de dispositivo
+   * **device_ca_pk** : clave privada de CA de dispositivo
+   * **trusted_ca_certs** : certificado de CA raíz
+
+   Asegúrese de que la línea **certificates:** no tenga ningún espacio en blanco delante y de que las otras líneas tengan una sangría de dos espacios.
 
 5. Guarde y cierre el archivo.
 
@@ -113,27 +118,27 @@ Para implementar el módulo del centro de IoT Edge y configurarlo con rutas para
 
 3. Seleccione **Set modules** (Establecer módulos).
 
-4. En la página **Módulos**, puede agregar cualquier módulo que desee implementar en el dispositivo de puerta de enlace. Para los fines de este artículo, nos centramos en la configuración e implementación del módulo edgeHub, que no es necesario establecer explícitamente en esta página.
+4. En la página **Módulos** , puede agregar cualquier módulo que desee implementar en el dispositivo de puerta de enlace. Para los fines de este artículo, nos centramos en la configuración e implementación del módulo edgeHub, que no es necesario establecer explícitamente en esta página.
 
-5. Seleccione **Siguiente: Rutas**.
+5. Seleccione **Siguiente: Rutas** .
 
-6. En la página **Rutas**, asegúrese de que hay una ruta para controlar los mensajes procedentes de los dispositivos de nivel inferior. Por ejemplo:
+6. En la página **Rutas** , asegúrese de que hay una ruta para controlar los mensajes procedentes de los dispositivos de nivel inferior. Por ejemplo:
 
    * Ruta que envía todos los mensajes, ya sea desde un módulo o desde un dispositivo de nivel inferior, a IoT Hub:
-       * **Nombre**: `allMessagesToHub`
-       * **Valor**: `FROM /messages/* INTO $upstream`
+       * **Nombre** : `allMessagesToHub`
+       * **Valor** : `FROM /messages/* INTO $upstream`
 
    * Una ruta que envía todos los mensajes de todos los dispositivos de nivel inferior a IoT Hub:
-      * **Nombre**: `allDownstreamToHub`
-      * **Valor**: `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
+      * **Nombre** : `allDownstreamToHub`
+      * **Valor** : `FROM /messages/* WHERE NOT IS_DEFINED ($connectionModuleId) INTO $upstream`
 
       Esta ruta funciona porque, a diferencia de los mensajes de Ios módulos de IoT Edge, los mensajes de los dispositivos de nivel inferior no tienen un identificador de módulo asociado. El uso de la cláusula **WHERE** de la ruta nos permite filtrar los mensajes que contengan esa propiedad del sistema.
 
       Para obtener más información sobre el enrutamiento de mensajes, vea [Implementar módulos y establecer rutas](./module-composition.md#declare-routes).
 
-7. Una vez creadas las rutas, seleccione **Revisar y crear**.
+7. Una vez creadas las rutas, seleccione **Revisar y crear** .
 
-8. En la página **Revisar y crear**, seleccione **Crear**.
+8. En la página **Revisar y crear** , seleccione **Crear** .
 
 ## <a name="open-ports-on-gateway-device"></a>Apertura de puertos en el dispositivo de puerta de enlace
 
@@ -146,14 +151,6 @@ Para que un escenario de puerta de enlace funcione, al menos uno de los protocol
 | 8883 | MQTT |
 | 5671 | AMQP |
 | 443 | HTTPS <br> MQTT + WS <br> AMQP + WS |
-
-## <a name="enable-extended-offline-operation"></a>Habilitación del funcionamiento sin conexión extendido
-
-A partir de la [versión 1.0.4](https://github.com/Azure/azure-iotedge/releases/tag/1.0.4) del entorno de ejecución de Azure IoT Edge, el dispositivo de puerta de enlace y los dispositivos de bajada conectados a él pueden configurarse para un funcionamiento sin conexión extendido.
-
-Con esta funcionalidad, los módulos locales o los dispositivos de bajada pueden volver a autenticarse con el dispositivo IoT Edge según sea necesario y comunicarse entre sí mediante mensajes y métodos, aunque estén desconectados de IoT Hub. Para obtener más información, consulte [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md) (Entender las capacidades sin conexión extendidas para dispositivos IoT Edge, módulos y dispositivos secundarios).
-
-Para habilitar la funcionalidad sin conexión extendida, se debe establecer una relación principal-secundario entre el dispositivo de puerta de enlace IoT Edge y los dispositivos de bajada que se conectarán a él. Estos pasos se explican más detalladamente en el siguiente artículo de esta serie, [Autenticación de un dispositivo de bajada en Azure IoT Hub](how-to-authenticate-downstream-device.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

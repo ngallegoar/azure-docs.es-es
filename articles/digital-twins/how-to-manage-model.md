@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057746"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102500"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
@@ -22,7 +22,7 @@ Las operaciones de administración incluyen la carga, validación, recuperación
 
 ## <a name="create-models"></a>Crear modelos
 
-Los modelos de Azure Digital Twins se escriben en DTDL y se guardan como archivos *.json*. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/), que proporciona validación de sintaxis y otras características para facilitar la escritura de documentos DTDL.
+Los modelos de Azure Digital Twins se escriben en DTDL y se guardan como archivos *.json* . También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/), que proporciona validación de sintaxis y otras características para facilitar la escritura de documentos DTDL.
 
 Considere un ejemplo en el que un hospital quiere representar digitalmente sus habitaciones. Cada habitación contiene un dispensador de jabón inteligente para supervisar el lavado de manos y sensores para controlar el tráfico en la habitación.
 
@@ -61,7 +61,7 @@ El primer paso para la solución consiste en crear modelos para representar aspe
 > [!NOTE]
 > Se trata de un cuerpo de ejemplo de un archivo .json en el que se define y se guarda un modelo, que se va a cargar como parte de un proyecto de cliente. La llamada a la API de REST, por otro lado, adopta una matriz de definiciones de modelo como la anterior (que se asigna a un atributo `IEnumerable<string>` en el SDK de .NET). Por lo tanto, para usar este modelo en la API de REST directamente, inclúyalo entre corchetes.
 
-Este modelo define un nombre y un identificador único para la habitación del paciente, y las propiedades para representar el número de visitantes y el estado del lavado de mano (estos contadores se actualizarán a partir de sensores de movimiento y dispensadores de jabón inteligentes, y se usarán juntos para calcular una propiedad de *porcentaje de lavado de manos*). El modelo también define una relación *hasDevices*, que se usará para conectar cualquier instancia de [Digital Twins](concepts-twins-graph.md) basada este modelo de *Habitación* con los dispositivos reales.
+Este modelo define un nombre y un identificador único para la habitación del paciente, y las propiedades para representar el número de visitantes y el estado del lavado de mano (estos contadores se actualizarán a partir de sensores de movimiento y dispensadores de jabón inteligentes, y se usarán juntos para calcular una propiedad de *porcentaje de lavado de manos* ). El modelo también define una relación *hasDevices* , que se usará para conectar cualquier instancia de [Digital Twins](concepts-twins-graph.md) basada este modelo de *Habitación* con los dispositivos reales.
 
 Siguiendo este método, puede continuar con la definición de modelos para las salas y las zonas del hospital, o bien para todo el hospital.
 
@@ -174,10 +174,7 @@ En su lugar, si desea realizar cambios en un modelo, como cargar `displayName` o
 
 #### <a name="model-versioning"></a>Control de versiones de los modelos
 
-Para crear una nueva versión de un modelo existente, empiece con el DTDL del modelo original. Actualice los campos que quiera cambiar.
-
->[!NOTE]
->Durante la versión preliminar, el avance de una versión del modelo solo permitirá agregar nuevos campos, no quitar los que ya hay. Para quitar campos, debe [crear un modelo](#create-models).
+Para crear una nueva versión de un modelo existente, empiece con el DTDL del modelo original. Actualice, agregue o quite los campos que quiera cambiar.
 
 A continuación, márquelo como una versión más reciente del modelo actualizando el campo `id` del modelo. La última sección del identificador de modelo, después del `;`, representa el número de modelo. Para indicar que esta es una versión más actualizada de este modelo, incremente el número al final del valor `id` en cualquier número mayor que el número de versión actual.
 
@@ -203,13 +200,13 @@ Cuando se crea un gemelo, dado que la nueva versión del modelo y la versión de
 
 Esto también significa que la carga de una nueva versión de un modelo no afecta automáticamente a los gemelos que ya existan. Los gemelos existentes simplemente conservarán las instancias de la versión antigua del modelo.
 
-Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [*Actualización de un modelo de gemelo digital*](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins*. Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo**.
+Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [*Actualización de un modelo de gemelo digital*](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins* . Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo** .
 
 ### <a name="remove-models"></a>Eliminación de modelos
 
 Los modelos también se pueden quitar del servicio, de alguna de estas dos maneras:
-* **Retirada**: una vez que se retira un modelo, ya no se puede usar para crear instancias de Digital Twins. Las instancias existentes de Digital Twins que ya usan este modelo no se ven afectadas, por lo que todavía se pueden actualizar con elementos como cambios de propiedades y con la adición o eliminación de relaciones.
-* **Eliminación**: el modelo se eliminará definitivamente de la solución. Todas las instancias de Digital Twins que utilicen este modelo dejarán de estar asociadas con cualquier modelo válido, por lo que se tratarán como si no tuvieran ningún modelo. Todavía puede leer estas instancias de Digital Twins, pero no podrá actualizarlas hasta que se reasignen a un modelo diferente.
+* **Retirada** : una vez que se retira un modelo, ya no se puede usar para crear instancias de Digital Twins. Las instancias existentes de Digital Twins que ya usan este modelo no se ven afectadas, por lo que todavía se pueden actualizar con elementos como cambios de propiedades y con la adición o eliminación de relaciones.
+* **Eliminación** : el modelo se eliminará definitivamente de la solución. Todas las instancias de Digital Twins que utilicen este modelo dejarán de estar asociadas con cualquier modelo válido, por lo que se tratarán como si no tuvieran ningún modelo. Todavía puede leer estas instancias de Digital Twins, pero no podrá actualizarlas hasta que se reasignen a un modelo diferente.
 
 Se trata de características independientes que no se ven afectadas entre sí, aunque se pueden usar juntas para quitar un modelo gradualmente. 
 

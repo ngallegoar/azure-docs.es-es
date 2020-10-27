@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595105"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101909"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -163,11 +163,13 @@ En el panel configuración se muestra la siguiente configuración del repositori
 
 - La integración de GitHub con las herramientas de creación visual de Data Factory solo funciona con la versión de Data Factory disponible con carácter general.
 
+- Azure Data Factory no admite cuentas de organización de GitHub
+
 - Se puede capturar un máximo de 1 000 entidades por tipo de recurso (por ejemplo, canalizaciones y conjuntos de valores) desde una sola rama de GitHub. Si se alcanza este límite, se recomienda dividir los recursos en factorías independientes. GIT de Azure DevOps no presenta esta limitación.
 
 ## <a name="version-control"></a>Control de versiones
 
-Los sistemas de control de versiones, conocidos también como _de control de código fuente_, permiten a los desarrolladores colaborar en el código y llevar a cabo el seguimiento de los cambios realizados en la base de código. El control del código fuente es una herramienta esencial para proyectos de varios desarrolladores.
+Los sistemas de control de versiones, conocidos también como _de control de código fuente_ , permiten a los desarrolladores colaborar en el código y llevar a cabo el seguimiento de los cambios realizados en la base de código. El control del código fuente es una herramienta esencial para proyectos de varios desarrolladores.
 
 ### <a name="creating-feature-branches"></a>Creación de ramas de características
 
@@ -242,7 +244,7 @@ A continuación, se muestran algunos ejemplos de situaciones que pueden provocar
 
 ## <a name="switch-to-a-different-git-repository"></a>Cambio a un repositorio de Git diferente
 
-Para cambiar a un repositorio de Git diferente, vaya a la página de configuración de Git en el centro de administración en **Control de código fuente**. Seleccione **Desconectar**. 
+Para cambiar a un repositorio de Git diferente, vaya a la página de configuración de Git en el centro de administración en **Control de código fuente** . Seleccione **Desconectar** . 
 
 ![Icono de Git](media/author-visually/remove-repository.png)
 

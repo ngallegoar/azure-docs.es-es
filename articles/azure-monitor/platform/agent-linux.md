@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013753"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332508"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalación del agente de Log Analytics en equipos Linux
 En este artículo, se proporcionan detalles sobre la instalación del agente de Log Analytics en equipos Linux con los métodos siguientes:
@@ -43,15 +43,17 @@ A partir de las versiones publicadas después de agosto de 2018, hemos realizado
 >[!NOTE]
 >Si utiliza una distribución o versión que no se admite actualmente y no se alinea con nuestro modelo de soporte técnico, se recomienda bifurcar este repositorio, confirmar que el soporte técnico de Microsoft no prestará asistencia con versiones de agente con bifurcación.
 
-### <a name="python-2-requirement"></a>Requisito de Python 2
+### <a name="python-requirement"></a>Requisito de Python
 
- El agente de Log Analytics requiere Python 2. Si la máquina virtual usa un distribución que no incluye Python 2 de forma predeterminada, debe instalarlo. Los siguientes comandos de ejemplo instalarán Python 2 en diferentes distribuciones.
+A partir de la versión del agente 1.13.27, el agente de Linux admitirá Python 2 y 3. Siempre se recomienda usar el agente más reciente. 
+
+Si usa una versión anterior del agente, debe hacer que la máquina virtual use Python 2 de forma predeterminada. Si la máquina virtual usa un distribución que no incluye Python 2 de forma predeterminada, debe instalarlo. Los siguientes comandos de ejemplo instalarán Python 2 en diferentes distribuciones.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-El ejecutable python2 debe tener un alias para *python*. A continuación se ofrece un método que puede usar para establecer este alias:
+El ejecutable python2 debe tener un alias para *python* . A continuación se ofrece un método que puede usar para establecer este alias:
 
 1. Ejecute el siguiente comando para quitar los alias existentes.
  
@@ -71,7 +73,7 @@ El agente de OMS tiene compatibilidad de personalización limitada para Linux.
 Actualmente se admiten los siguientes: 
 - FIPs
 
-Los siguientes están planeados, pero no se admiten actualmente:
+Los siguientes están planeados pero todavía no se admiten:
 - CIS
 - SELINUX
 
@@ -213,7 +215,7 @@ sudo sh ./omsagent-*.universal.x64.sh --extract
 A partir de la versión 1.0.0-47, todos los lanzamientos permiten actualizar desde la versión anterior. Realice la instalación con el parámetro `--upgrade` para actualizar todos los componentes del agente a la última versión.
 
 ## <a name="cache-information"></a>Información de caché
-Los datos del agente de Log Analytics para Linux se almacenan en la caché del equipo local en *% STATE_DIR_WS%/out_oms_common*. buffer * antes de enviarse a Azure Monitor. Los datos de registro personalizados se almacenan en búfer en *%STATE_DIR_WS%/out_oms_blob*.buffer*. La ruta de acceso puede ser diferente para algunas [soluciones y tipos de datos](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
+Los datos del agente de Log Analytics para Linux se almacenan en la caché del equipo local en *% STATE_DIR_WS%/out_oms_common* . buffer * antes de enviarse a Azure Monitor. Los datos de registro personalizados se almacenan en búfer en *%STATE_DIR_WS%/out_oms_blob* .buffer*. La ruta de acceso puede ser diferente para algunas [soluciones y tipos de datos](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=).
 
 El agente intenta realizar la carga cada 20 segundos. Si no lo consigue, el tiempo de espera aumentará de forma exponencial hasta que la operación se ejecute correctamente: 30 segundos antes del segundo intento; 60 segundos antes del tercero; 120 segundos a continuación y así sucesivamente hasta un máximo de 16 minutos entre reintentos hasta que se vuelva a conectar correctamente. El agente volverá a intentar la operación hasta 6 veces para un fragmento determinado de datos antes de descartarlo y pasar al siguiente. Esto continuará hasta que el agente pueda volver a efectuar la carga correctamente. Por esta razón, los datos se pueden almacenar en búfer hasta 30 minutos aproximadamente antes de ser descartados.
 

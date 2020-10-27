@@ -4,16 +4,16 @@ description: Procedimientos para autenticar dispositivos de bajada o de hoja en 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046730"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151391"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticación de un dispositivo de bajada en Azure IoT Hub
 
@@ -21,13 +21,13 @@ En un escenario de puerta de enlace transparente, los dispositivos de bajada (ta
 
 Hay tres pasos generales para configurar una conexión de puerta de enlace transparente correcta. En este artículo se describe el segundo paso:
 
-1. Configure el dispositivo de puerta de enlace como servidor para que los dispositivos de bajada puedan conectarse a él de forma segura. Configure la puerta de enlace para recibir mensajes de los dispositivos de bajada y enrutarlos al destino adecuado. Para más información, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
+1. Configure el dispositivo de puerta de enlace como servidor para que los dispositivos de bajada puedan conectarse a él de forma segura. Configure la puerta de enlace para recibir mensajes de los dispositivos de bajada y enrutarlos al destino adecuado. Para realizar esos pasos, consulte [Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente](how-to-create-transparent-gateway.md).
 2. **Cree una identidad de dispositivo para el dispositivo de bajada para que pueda autenticarse en IoT Hub. Configure el dispositivo de bajada para enviar mensajes a través del dispositivo de puerta de enlace.**
-3. Conecte el dispositivo de bajada al dispositivo de puerta de enlace y empiece a enviar mensajes. Para más información, consulte [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md).
+3. Conecte el dispositivo de bajada al dispositivo de puerta de enlace y empiece a enviar mensajes. Para realizar esos pasos, consulte [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md).
 
 Los dispositivos de bajada se pueden autenticar con IoT Hub mediante uno de estos tres métodos: claves simétricas (en ocasiones denominadas claves de acceso compartido), certificados X.509 autofirmados o certificados X.509 firmados por una entidad de certificación (CA). Los pasos de autenticación son similares a los que se usan para configurar cualquier dispositivo que no es IoT Edge con IoT Hub, con pequeñas diferencias para declarar la relación de la puerta de enlace.
 
-En los pasos de este artículo se muestra el aprovisionamiento manual de dispositivos. No se admite el aprovisionamiento automático de dispositivos de bajada con Azure IoT Hub Device Provisioning Service.
+No se admite el aprovisionamiento automático de dispositivos de bajada con Azure IoT Hub Device Provisioning Service.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,10 +42,16 @@ Este artículo hace referencia al *nombre de host de la puerta de enlace* en var
 Elija cómo desea que el dispositivo de bajada se autentique con IoT Hub:
 
 * [Autenticación de clave simétrica](#symmetric-key-authentication): IoT Hub crea una clave que se coloca en el dispositivo de bajada. Cuando el dispositivo se autentica, IoT Hub comprueba que las dos claves coinciden. No es necesario crear certificados adicionales para usar la autenticación de clave simétrica.
+
+  Este método permite comenzar de manera más rápida si está probando puertas de enlace en un escenario de desarrollo o prueba.
+
 * [Autenticación con X.509 autofirmado](#x509-self-signed-authentication): a veces denominada autenticación mediante huella digital, porque comparte la huella digital del certificado X.509 del dispositivo con IoT Hub.
+
+  Se recomienda la autenticación de certificados para los dispositivos en escenarios de producción.
+
 * [Autenticación X.509 firmado por una entidad de certificación](#x509-ca-signed-authentication): cargue el certificado de la entidad de certificación raíz en IoT Hub. Cuando los dispositivos presentan su certificado X.509 para la autenticación, IoT Hub comprueba que pertenece a una cadena de confianza firmada por el mismo certificado de entidad de certificación raíz.
 
-Después de registrar el dispositivo con uno de estos tres métodos, continúe con la siguiente sección para [recuperar y modificar la cadena de conexión](#retrieve-and-modify-connection-string) para el dispositivo de bajada.
+  Se recomienda la autenticación de certificados para los dispositivos en escenarios de producción.
 
 ### <a name="symmetric-key-authentication"></a>Autenticación de clave simétrica
 
@@ -59,17 +65,15 @@ Al crear la identidad del dispositivo, proporcione la información siguiente:
 
 * Seleccione **Clave simétrica** como el tipo de autenticación.
 
-* Seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace de IoT Edge a través del que se va a conectar este dispositivo de bajada. Este paso habilita [funcionalidades sin conexión](offline-capabilities.md) para el dispositivo de bajada. Siempre puede cambiar el dispositivo primario más adelante.
+* Seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace de IoT Edge a través del que se va a conectar este dispositivo de bajada. Siempre puede cambiar el dispositivo primario más adelante.
 
    ![Creación de la identidad del dispositivo con la autenticación de clave simétrica en el portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
-También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) con el fin de completar la misma operación. En el ejemplo siguiente se crea un dispositivo IoT con la autenticación de clave simétrica y se asigna un dispositivo primario:
+También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) con el fin de completar la misma operación. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para crear un dispositivo IoT con autenticación de clave simétrica y asignar un dispositivo principal:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
-
-Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 
@@ -104,7 +108,7 @@ Para la autenticación con X.509 autofirmado, en ocasiones denominada autenticac
    * Proporcione el **identificador de dispositivo** que coincida con el nombre de sujeto de los certificados de dispositivo.
    * Seleccione **X.509 autofirmado** como el tipo de autenticación.
    * Pegue las cadenas hexadecimales que ha copiado de los certificados principal y secundario del dispositivo.
-   * Seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace de IoT Edge a través del que se va a conectar este dispositivo de bajada. Para la autenticación X.509 de un dispositivo de bajada se requiere un dispositivo primario.
+   * Seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace de IoT Edge a través del que se va a conectar este dispositivo de bajada. Siempre puede cambiar el dispositivo primario más adelante.
 
    ![Creación de la identidad del dispositivo con la autenticación autofirmada de X.509 en el portal](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
@@ -120,13 +124,11 @@ Para la autenticación con X.509 autofirmado, en ocasiones denominada autenticac
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se crea un dispositivo IoT con autenticación X.509 autofirmado y se asigna un dispositivo primario:
+También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para crear un dispositivo IoT con autenticación autofirmada X.509 y se asigna un dispositivo principal:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
-
-Para obtener más información sobre los comandos de la CLI de Azure para la creación de dispositivos, la generación de certificados y la administración de elementos primarios y secundarios, vea el contenido de referencia para los comandos [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 
@@ -140,17 +142,17 @@ Esta sección se basa en las instrucciones detalladas en el artículo de IoT Hub
 
    Si no tiene una entidad de certificación para crear certificados X.509, puede usar los scripts de certificado de demostración de IoT Edge para [crear certificados de dispositivo de bajada](how-to-create-test-certificates.md#create-downstream-device-certificates). Siga los pasos para crear certificados firmados por una entidad de certificación. Use el mismo certificado de entidad de certificación raíz que generó los certificados para el dispositivo de puerta de enlace.
 
-2. Siga las instrucciones de la sección [Registro de certificados de entidad de certificación X.509 en una instancia de IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) de *Configuración de la seguridad de X.509 en Azure IoT Hub*. En esa sección, realice los pasos siguientes:
+2. Siga las instrucciones de la sección [Registro de certificados de entidad de certificación X.509 en una instancia de IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) de *Configuración de la seguridad de X.509 en Azure IoT Hub* . En esa sección, realice los pasos siguientes:
 
-   1. Cargue un certificado de entidad de certificación raíz. Si va a usar los certificados de demostración, la entidad de certificación raíz será **\<path>/certs/azure-iot-test-only.root.ca.cert.pem**.
+   1. Cargue un certificado de entidad de certificación raíz. Si va a usar los certificados de demostración, la entidad de certificación raíz será **\<path>/certs/azure-iot-test-only.root.ca.cert.pem** .
 
    2. Compruebe que es el propietario de ese certificado de entidad de certificación raíz.
 
-3. Siga las instrucciones de la sección [Creación de un dispositivo X.509 para una instancia de IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) de *Configuración de la seguridad de X.509 en Azure IoT Hub*. En esa sección, realice los pasos siguientes:
+3. Siga las instrucciones de la sección [Creación de un dispositivo X.509 para una instancia de IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub) de *Configuración de la seguridad de X.509 en Azure IoT Hub* . En esa sección, realice los pasos siguientes:
 
-   1. Agregue un nuevo dispositivo. Proporcione un nombre en minúsculas para **Id. de dispositivo** y elija el tipo de autenticación **X.509 firmado por CA**.
+   1. Agregue un nuevo dispositivo. Proporcione un nombre en minúsculas para **Id. de dispositivo** y elija el tipo de autenticación **X.509 firmado por CA** .
 
-   2. Configure un dispositivo primario. Para los dispositivos de bajada, seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace de IoT Edge que proporcionará la conexión a IoT Hub.
+   2. Configure un dispositivo primario. Seleccione **Establecer un dispositivo primario** y elija el dispositivo de puerta de enlace IoT Edge que proporcionará la conexión a IoT Hub.
 
 4. Cree una cadena de certificados para el dispositivo de bajada. Use el mismo certificado de entidad de certificación raíz que ha cargado en IoT Hub para crear esta cadena. Use el mismo identificador de dispositivo en minúsculas que ha asignado a la identidad del dispositivo en el portal.
 
@@ -166,13 +168,11 @@ Esta sección se basa en las instrucciones detalladas en el artículo de IoT Hub
    * Java: [SendEventX509.java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se crea un dispositivo IoT con autenticación X.509 firmado por CA y se asigna un dispositivo primario:
+También puede usar la [extensión IoT para la CLI de Azure](https://github.com/Azure/azure-iot-cli-extension) para completar la misma operación de creación de dispositivos. En el ejemplo siguiente se usa el comando [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para crear un dispositivo IoT con autenticación firmada por CA X.509 y se asigna un dispositivo principal:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
-
-Para más información, consulte el contenido de referencia de la CLI de Azure de los comandos [az iot hub device-identity](/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 A continuación, [recupere y modifique la cadena de conexión](#retrieve-and-modify-connection-string) para que el dispositivo sepa conectarse a través de su puerta de enlace.
 
@@ -213,4 +213,4 @@ Usará esta cadena de conexión modificada en el siguiente artículo de la serie
 
 En este punto, tiene un dispositivo IoT Edge registrado en su centro de IoT y configurado como puerta de enlace transparente. También tiene un dispositivo de bajada registrado en su centro de IoT que apunta a su dispositivo de puerta de enlace.
 
-En los pasos de este artículo se configura el dispositivo de bajada para autenticarse en IoT Hub. A continuación, tendrá que configurar los dispositivos de bajada para que confíen en el dispositivo de puerta de enlace y se conecten a él de forma segura. Continúe con el siguiente artículo de la serie sobre la puerta de enlace transparente, [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md).
+A continuación, tendrá que configurar los dispositivos de bajada para que confíen en el dispositivo de puerta de enlace y se conecten a él de forma segura. Continúe con el siguiente artículo de la serie sobre la puerta de enlace transparente, [Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge](how-to-connect-downstream-device.md).

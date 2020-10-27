@@ -3,15 +3,15 @@ title: 'Solución de problemas con la conexión al servicio de Windows Virtual D
 description: Cómo resolver problemas al configurar conexiones de servicio en un entorno de inquilinos de Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089911"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108956"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexiones al servicio de Windows Virtual Desktop
 
@@ -45,6 +45,13 @@ Un usuario puede iniciar clientes de Escritorio remoto y es capaz de realizar la
 Este error suele aparecer después de que un usuario haya trasladado su suscripción de un inquilino de Azure AD a otro. Como resultado, el servicio pierde el seguimiento de las asignaciones de usuario, ya que siguen estando asociadas al inquilino de Azure AD anterior.
 
 Para resolver esto, lo único que debe hacer es reasignar los usuarios a sus grupos de aplicaciones.
+
+Esto también puede ocurrir si un proveedor de CSP creó la suscripción y, a continuación, la transfirió al cliente. Para resolverlo, vuelva a registrar el proveedor de recursos.
+
+1. Inicie sesión en Azure Portal.
+2. Vaya a **Suscripción** y seleccione la suscripción.
+3. En el menú de la izquierda de la página, seleccione **Proveedor de recursos** .
+4. Busque y seleccione **Microsoft.DesktopVirtualization** y, a continuación, seleccione **Volver a registrar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

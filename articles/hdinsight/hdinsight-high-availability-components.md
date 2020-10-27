@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842587"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102938"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Servicios de alta disponibilidad admitidos en Azure HDInsight
 
@@ -21,7 +21,7 @@ Con el fin de proporcionarle niveles óptimos de disponibilidad para los compone
 > [!NOTE]
 > Comunicación sin prejuicios
 >
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_ . En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
 >
 
 ## <a name="high-availability-infrastructure"></a>Infraestructura de alta disponibilidad
@@ -52,7 +52,7 @@ En las secciones siguientes se proporciona más información sobre cómo funcion
 
 ## <a name="hdinsight-high-availability-services"></a>Servicios de alta disponibilidad de HDInsight
 
-Microsoft ofrece compatibilidad con los cuatro servicios de Apache de la tabla siguiente en los clústeres de HDInsight. Para distinguirlos de los servicios de alta disponibilidad que admiten los componentes de Apache, se denominan *servicios de alta disponibilidad de HDInsight*.
+Microsoft ofrece compatibilidad con los cuatro servicios de Apache de la tabla siguiente en los clústeres de HDInsight. Para distinguirlos de los servicios de alta disponibilidad que admiten los componentes de Apache, se denominan *servicios de alta disponibilidad de HDInsight* .
 
 | Servicio | Nodos de clúster | Tipos de clúster | Propósito |
 |---|---|---|---|
@@ -62,13 +62,13 @@ Microsoft ofrece compatibilidad con los cuatro servicios de Apache de la tabla s
 | Apache Livy | Nodo principal activo | Spark | Permite una interacción sencilla con un clúster de Spark a través de una interfaz REST. |
 
 >[!Note]
-> Actualmente, los clústeres de Enterprise Security Package (ESP) de HDInsight solo proporcionan la alta disponibilidad del servidor de Ambari.
+> Actualmente, los clústeres de Enterprise Security Package (ESP) de HDInsight solo proporcionan la alta disponibilidad del servidor de Ambari. El servidor de escala de tiempo de la aplicación, el servidor del historial de trabajos y Livy se ejecutan solo en headnode0 y no conmutan por error a headnode1 cuando se produce la conmutación por error de Ambari. La base de datos de escala de tiempo de la aplicación también se encuentra en headnode0 y no en SQL Server para Ambari.
 
 ### <a name="architecture"></a>Architecture
 
 Cada clúster de HDInsight tiene dos nodos principales en los modos activo y en espera, respectivamente. Los servicios de alta disponibilidad de HDInsight solo se ejecutan en nodos principales. Estos servicios se deben ejecutar siempre en el nodo principal activo y detenerse y ponerse en modo de mantenimiento en el nodo principal en espera.
 
-Para mantener los estados correctos de los servicios de alta disponibilidad y proporcionar una conmutación por error rápida, HDInsight emplea Apache ZooKeeper, que es un servicio de coordinación para aplicaciones distribuidas empleado para realizar la elección del nodo principal activo. HDInsight también aprovisiona algunos procesos de Java en segundo plano, que coordinan el procedimiento de conmutación por error de los servicios de alta disponibilidad de HDInsight. Estos servicios son los siguientes: el controlador de conmutación por error maestro, el Controlador de conmutación por error subordinado, *master-ha-service* y *slave-ha-service*.
+Para mantener los estados correctos de los servicios de alta disponibilidad y proporcionar una conmutación por error rápida, HDInsight emplea Apache ZooKeeper, que es un servicio de coordinación para aplicaciones distribuidas empleado para realizar la elección del nodo principal activo. HDInsight también aprovisiona algunos procesos de Java en segundo plano, que coordinan el procedimiento de conmutación por error de los servicios de alta disponibilidad de HDInsight. Estos servicios son los siguientes: el controlador de conmutación por error maestro, el Controlador de conmutación por error subordinado, *master-ha-service* y *slave-ha-service* .
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 

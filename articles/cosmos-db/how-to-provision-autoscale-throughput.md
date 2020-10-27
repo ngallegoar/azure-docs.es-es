@@ -1,22 +1,25 @@
 ---
-title: Aprovisionamiento del rendimiento de escalabilidad automática en Azure Cosmos DB
-description: Aprenda a aprovisionar el rendimiento de escalabilidad automática en el nivel de contenedor y base de datos en Azure Cosmos DB mediante Azure Portal, CLI, PowerShell y otros SDK.
+title: Aprovisionamiento del rendimiento de escalabilidad automática en SQL API de Azure Cosmos DB
+description: Aprenda a aprovisionar el rendimiento de escalabilidad automática en el nivel de contenedor y base de datos en SQL API de Azure Cosmos DB mediante Azure Portal, la CLI, PowerShell y otros SDK.
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017148"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277830"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB.
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB: SQL API
 
-En este artículo se explica cómo aprovisionar el rendimiento de escalabilidad automática en una base de datos o un contenedor (colección, grafo, tabla) en Azure Cosmos DB. Puede habilitar la escalabilidad automática en un solo contenedor o aprovisionar el rendimiento de escalabilidad automática en una base de datos y compartirlo entre todos los contenedores de la base de datos.
+En este artículo se explica cómo aprovisionar el rendimiento de escalabilidad automática en una base de datos o un contenedor (colección, grafo o tabla) en SQL API de Azure Cosmos DB. Puede habilitar la escalabilidad automática en un solo contenedor o aprovisionar el rendimiento de escalabilidad automática en una base de datos y compartirlo entre todos los contenedores de la base de datos.
+
+Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md) y [Gremlin API](how-to-provision-throughput-gremlin.md) para aprovisionar el rendimiento.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -24,13 +27,13 @@ En este artículo se explica cómo aprovisionar el rendimiento de escalabilidad 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [explorador de Azure Cosmos DB](https://cosmos.azure.com/).
 
-1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos**.
+1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos** .
 
-1. Seleccione **Nuevo contenedor**. Escriba un nombre para la base de datos, el contenedor y una clave de partición. En **Rendimiento**, seleccione la opción **Escalabilidad automática** y elija el [rendimiento máximo (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) al que desea escalar la base de datos o el contenedor.
+1. Seleccione **Nuevo contenedor** . Escriba un nombre para la base de datos, el contenedor y una clave de partición. En **Rendimiento** , seleccione la opción **Escalabilidad automática** y elija el [rendimiento máximo (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) al que desea escalar la base de datos o el contenedor.
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creación de un contenedor y configuración del rendimiento aprovisionado de escalabilidad automática":::
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
 
 Para aprovisionar la escalabilidad automática en la base de datos de rendimiento compartido, seleccione la opción **Aprovisionar rendimiento de base de datos** al crear una nueva base de datos. 
 
@@ -41,18 +44,18 @@ Para aprovisionar la escalabilidad automática en la base de datos de rendimient
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) o en el [explorador de Azure Cosmos DB](https://cosmos.azure.com/).
 
-1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos**.
+1. Vaya a la cuenta de Azure Cosmos DB y abra la pestaña **Explorador de datos** .
 
 1. Seleccione **Escala y configuración** para su contenedor o **Escala** para la base de datos.
 
-1. En **Escala**, seleccione la opción **Escalabilidad automática** y **Guardar**.
+1. En **Escala** , seleccione la opción **Escalabilidad automática** y **Guardar** .
 
    :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Creación de un contenedor y configuración del rendimiento aprovisionado de escalabilidad automática":::
 
 > [!NOTE]
 > Cuando se habilita la escalabilidad automática en una base de datos o un contenedor existente, el sistema determina el valor inicial para el número máximo de RU/s, en función de la configuración de rendimiento y el almacenamiento aprovisionados manualmente. Una vez completada la operación, puede cambiar el número máximo de RU/s si es necesario. [Más información.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>SDK de Azure Cosmos DB para .NET V3 para SQL API:
+## <a name="azure-cosmos-db-net-v3-sdk"></a>SDK de Azure Cosmos DB para .NET V3
 
 Use la [versión 3.9 o posterior](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) de la API del SDK de Azure Cosmos DB para .NET para SQL API para administrar los recursos de escalabilidad automática. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>SDK de Azure Cosmos DB para Java v4 para SQL API
+## <a name="azure-cosmos-db-java-v4-sdk"></a>SDK de Azure Cosmos DB para Java V4
 
 Puede usar la [versión 4.0 o posterior](https://mvnrepository.com/artifact/com.azure/azure-cosmos) de Azure Cosmos DB Java SDK para SQL API para administrar los recursos de escalabilidad automática.
 
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>Cassandra API
-
-Las cuentas de Cassandra API de Azure Cosmos DB se pueden aprovisionar para el escalado automático mediante los [comandos CQL](manage-scale-cassandra.md#use-autoscale), la [CLI de Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) o [plantillas de Azure Resource Manager](resource-manager-samples.md).
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API para MongoDB
-
-Las cuentas de MongoDB API de Azure Cosmos DB se pueden aprovisionar para el escalado automático mediante los [comandos de la extensión MongoDB](mongodb-custom-commands.md), la [CLI de Azure](cli-samples.md), [Azure PowerShell](powershell-samples.md) o [plantillas de Azure Resource Manager](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

@@ -1,18 +1,18 @@
 ---
-title: Roles y permisos de Azure
+title: Registro de roles y permisos
 description: Use el control de acceso basado en roles (Azure RBAC) de Azure y la administración de identidades y acceso (IAM) para proporcionar la personalización avanzada de permisos a los recursos de una instancia de Azure Container Registry.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661391"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207961"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
-El servicio Azure Container Registry admite un conjunto de [roles de Azure integrados](../role-based-access-control/built-in-roles.md) que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en rol de Azure](../role-based-access-control/index.yml) (RBAC de Azure) para asignar permisos específicos a usuarios, entidades de servicio u otras entidades que necesiten interactuar con un registro. También puede definir [roles personalizados](#custom-roles) con permisos específicos en un registro para distintas operaciones.
+El servicio Azure Container Registry admite un conjunto de [roles de Azure integrados](../role-based-access-control/built-in-roles.md) que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en roles de Azure](../role-based-access-control/index.yml) (RBAC de Azure) para asignar permisos específicos a usuarios, entidades de servicio u otras entidades que necesiten interactuar con un registro, por ejemplo, para insertar o extraer imágenes de contenedor. También puede definir [roles personalizados](#custom-roles) con permisos específicos en un registro para distintas operaciones.
 
 | Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Eliminar los datos de imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -24,21 +24,27 @@ El servicio Azure Container Registry admite un conjunto de [roles de Azure integ
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
+## <a name="assign-roles"></a>Asignación de roles
+
+Consulte [Pasos para agregar una asignación de roles](../role-based-access-control/role-assignments-steps.md) para conocer los pasos de alto nivel para agregar una asignación de roles a un usuario, un grupo, una entidad de servicio o una identidad administrada existente. Puede usar Azure Portal, la CLI de Azure u otras herramientas de Azure.
+
+Al crear una entidad de servicio, también se configuran los permisos y el acceso a los recursos de Azure como, por ejemplo, un registro de contenedor. Para ver un script de ejemplo del uso de la CLI de Azure, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md#create-a-service-principal).
+
 ## <a name="differentiate-users-and-services"></a>Diferenciar usuarios y servicios
 
 Cada vez que se aplican permisos, el procedimiento recomendado es proporcionar el conjunto de permisos más limitados para que una persona o servicio puedan completar una tarea. Los siguientes conjuntos de permisos representan un conjunto de funciones para usuarios humanos y servicios desatendidos.
 
 ### <a name="cicd-solutions"></a>Soluciones de CI/CD
 
-Al automatizar comandos de `docker build` de soluciones de CI/CD, necesita funciones de `docker push`. En estos escenarios de servicios desatendidos, le sugerimos que asigne el rol **AcrPush**. Este rol, al contrario que el rol **Colaborador** (que es más amplio), impide que la cuenta pueda realizar otras operaciones de registro o que acceda a Azure Resource Manager.
+Al automatizar comandos de `docker build` de soluciones de CI/CD, necesita funciones de `docker push`. En estos escenarios de servicios desatendidos, se recomienda asignar el rol **AcrPush** . Este rol, al contrario que el rol **Colaborador** (que es más amplio), impide que la cuenta pueda realizar otras operaciones de registro o que acceda a Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Nodos de host de contenedor
 
-Del mismo modo, los nodos que ejecuten los contenedores han de tener asignado el rol **AcrPull**, pero no necesitan de forma obligatoria funciones de **Lector**.
+Del mismo modo, los nodos que ejecuten los contenedores han de tener asignado el rol **AcrPull** , pero no necesitan de forma obligatoria funciones de **Lector** .
 
 ### <a name="visual-studio-code-docker-extension"></a>Extensión de Docker de Visual Studio Code
 
-Para herramientas como la [extensión de Docker](https://code.visualstudio.com/docs/azure/docker) de Visual Studio Code, se necesita acceso adicional de proveedor de recursos para mostrar la lista de registros de contenedor de Azure. En este caso, proporcione a los usuarios acceso al rol **Lector** o **Colaborador**. Estos roles permiten `docker pull`, `docker push`, `az acr list`, `az acr build` y otras funciones. 
+Para herramientas como la [extensión de Docker](https://code.visualstudio.com/docs/azure/docker) de Visual Studio Code, se necesita acceso adicional de proveedor de recursos para mostrar la lista de registros de contenedor de Azure. En este caso, proporcione a los usuarios acceso al rol **Lector** o **Colaborador** . Estos roles permiten `docker pull`, `docker push`, `az acr list`, `az acr build` y otras funciones. 
 
 ## <a name="access-resource-manager"></a>Acceso a Resource Manager
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595bf6f921265e9e8dbc0e0e065fe835efea14bc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072780"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331658"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Motivación y ventajas de migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -33,29 +33,29 @@ Azure HDInsight es una distribución de nube de componentes de Hadoop. Azure HDI
 
 ## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Ventajas de Azure HDInsight sobre las instancias locales de Hadoop
 
-- **Bajo costo**: se pueden reducir los costos mediante la [creación de clústeres a petición](../hdinsight-hadoop-create-linux-clusters-adf.md) y pagando solo por lo que usa. El almacenamiento y proceso desacoplado proporciona flexibilidad al mantener el volumen de datos independiente del tamaño del clúster.
+- **Bajo costo** : se pueden reducir los costos mediante la [creación de clústeres a petición](../hdinsight-hadoop-create-linux-clusters-adf.md) y pagando solo por lo que usa. El almacenamiento y proceso desacoplado proporciona flexibilidad al mantener el volumen de datos independiente del tamaño del clúster.
 
-- **Creación automatizada del clúster**: la creación automatizada de clúster requiere una configuración mínima. La automatización puede usarse para clústeres a petición.
+- **Creación automatizada del clúster** : la creación automatizada de clúster requiere una configuración mínima. La automatización puede usarse para clústeres a petición.
 
-- **Hardware y configuración administrados**: no es necesario preocuparse por la infraestructura ni por el hardware físico con un clúster de HDInsight. Simplemente especifique la configuración del clúster, y Azure lo configurará.
+- **Hardware y configuración administrados** : no es necesario preocuparse por la infraestructura ni por el hardware físico con un clúster de HDInsight. Simplemente especifique la configuración del clúster, y Azure lo configurará.
 
-- **Fácilmente escalable**: HDInsight le permite [escalar o reducir](../hdinsight-administer-use-portal-linux.md) verticalmente las cargas de trabajo. Azure se encarga de la redistribución de datos y del reequilibrio de la carga de trabajo sin interrumpir los trabajos de procesamiento de datos.
+- **Fácilmente escalable** : HDInsight le permite[escalar o reducir](../hdinsight-administer-use-portal-linux.md) verticalmente las cargas de trabajo. Azure se encarga de la redistribución de datos y del reequilibrio de la carga de trabajo sin interrumpir los trabajos de procesamiento de datos.
 
-- **Disponibilidad global**: HDInsight está disponible en más [regiones](https://azure.microsoft.com/regions/services/) que ninguna otra oferta de análisis de macrodatos. También está disponible en Azure Government, China y Alemania, lo que le permite satisfacer las necesidades de su empresa en áreas soberanas clave.
+- **Disponibilidad global** : HDInsight está disponible en más [regiones](https://azure.microsoft.com/regions/services/) que ninguna otra oferta de análisis de macrodatos. También está disponible en Azure Government, China y Alemania, lo que le permite satisfacer las necesidades de su empresa en áreas soberanas clave.
 
-- **Seguro y compatible**: HDInsight le permite proteger los recursos de datos de la empresa mediante [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), el  [cifrado](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) y la integración con  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight también cumple con los  [estándares de cumplimiento normativo](https://azure.microsoft.com/overview/trusted-cloud) más conocidos del sector y de la administración.
+- **Seguro y compatible** : HDInsight le permite proteger los recursos de datos de la empresa mediante[Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), el [cifrado](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) y la integración con [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight también cumple con los [estándares de cumplimiento normativo](https://azure.microsoft.com/overview/trusted-cloud) más conocidos del sector y de la administración.
 
-- **Administración de versiones simplificada**: Azure HDInsight administra la versión de componentes del ecosistema de Hadoop y los mantiene actualizados. Las actualizaciones de software suelen ser un proceso complejo para las implementaciones locales.
+- **Administración de versiones simplificada** : Azure HDInsight administra la versión de componentes del ecosistema de Hadoop y los mantiene actualizados. Las actualizaciones de software suelen ser un proceso complejo para las implementaciones locales.
 
-- **Clústeres más pequeños optimizados para cargas de trabajo específicas con menos dependencias entre los componentes**: un programa de instalación de Hadoop local típico usa un único clúster que sirve para muchos propósitos. Con Azure HDInsight, se pueden crear clústeres específicos para cargas de trabajo. La creación de clústeres para cargas de trabajo específicas elimina la complejidad de mantener un solo clúster con complejidad cada vez mayor.
+- **Clústeres más pequeños optimizados para cargas de trabajo específicas con menos dependencias entre los componentes** : un programa de instalación de Hadoop local típico usa un único clúster que sirve para muchos propósitos. Con Azure HDInsight, se pueden crear clústeres específicos para cargas de trabajo. La creación de clústeres para cargas de trabajo específicas elimina la complejidad de mantener un solo clúster con complejidad cada vez mayor.
 
-- **Productividad**: puede usar varias herramientas de Hadoop y Spark en su entorno de desarrollo preferido.
+- **Productividad** : puede usar varias herramientas de Hadoop y Spark en su entorno de desarrollo preferido.
 
-- **Extensibilidad con herramientas personalizadas o aplicaciones de terceros**: los clústeres de HDInsight se pueden ampliar con componentes instalados y también pueden integrarse con otras soluciones de macrodatos utilizando implementaciones de [un solo clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) del Marketplace de Azure.
+- **Extensibilidad con herramientas personalizadas o aplicaciones de terceros** : los clústeres de HDInsight se pueden ampliar con componentes instalados y también pueden integrarse con otras soluciones de macrodatos utilizando implementaciones de [un solo clic](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) d Azure Marketplace.
 
-- **Fácil administración y supervisión**: Azure HDInsight se integra con los  [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md)  para proporcionar una única interfaz con la que puede supervisar todos los clústeres.
+- **Fácil administración y supervisión** : Azure HDInsight se integra con los [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para proporcionar una única interfaz con la que puede supervisar todos los clústeres.
 
-- **Integración con otros servicios de Azure**: HDInsight puede integrarse fácilmente con otros servicios populares de Azure como los siguientes:
+- **Integración con otros servicios de Azure** : HDInsight puede integrarse fácilmente con otros servicios populares de Azure como los siguientes:
 
     - Azure Data Factory (ADF)
     - Azure Blob Storage
@@ -64,7 +64,7 @@ Azure HDInsight es una distribución de nube de componentes de Hadoop. Azure HDI
     - Azure SQL Database
     - Azure Analysis Services
 
-- **Componentes y procesos de recuperación automática**: HDInsight comprueba constantemente los componentes de la infraestructura y de código abierto con su propia infraestructura de supervisión. También se recupera automáticamente de errores críticos como la falta de disponibilidad de nodos y componentes de código abierto. Las alertas se activan en Ambari si se produjo un error en cualquier componente de OSS.
+- **Componentes y procesos de recuperación automática** : HDInsight comprueba constantemente los componentes de la infraestructura y de código abierto con su propia infraestructura de supervisión. También se recupera automáticamente de errores críticos como la falta de disponibilidad de nodos y componentes de código abierto. Las alertas se activan en Ambari si se produjo un error en cualquier componente de OSS.
 
 Para obtener más información, vea el artículo [Qué son Azure HDInsight y la pila de tecnología de Apache Hadoop](../hadoop/apache-hadoop-introduction.md).
 
@@ -89,7 +89,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 
 | **Pregunta** | **Ejemplo** | **Respuesta** |
 |---|---|---|
-|**Tema**: **Entorno**|||
+|**Tema** : **Entorno**|||
 |Versión de distribución de clúster|HDP 2.6.5, CDH 5.7|
 |Componentes de ecosistema de big Data|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |Tipos de clúster|Hadoop, Spark, Confluent Kafka, Storm, Solr|
@@ -106,7 +106,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Recuperación ante desastres / Copia de seguridad|¿Copia de seguridad del clúster?|  
 |Sistemas que dependen de clúster|SQL Server, Teradata, Power BI, MongoDB|
 |Integración con productos de terceros|Tableau GridGain, Qubole, Informatica, Splunk|
-|**Tema**: **Seguridad**|||
+|**Tema** : **Seguridad**|||
 |Seguridad del perímetro|Firewalls|
 |Autenticación y autorización de clúster|Active Directory, Ambari, Cloudera Manager, sin autenticación|
 |Control de acceso de HDFS|  Manual, usuarios SSH|
@@ -121,7 +121,7 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 
 |**Pregunta**|**Ejemplo**|**Respuesta**|
 |---|---|---|
-|**Tema**: **cargas de trabajo y frecuencia**|||
+|**Tema** : **cargas de trabajo y frecuencia**|||
 |Trabajos MapReduce|10 trabajos, dos veces al día||
 |Trabajos de Hive|100 trabajos, cada hora||
 |Trabajos por lotes de Spark|50 trabajos, cada 15 minutos||
@@ -130,34 +130,34 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |Trabajos de entrenamiento del modelo de Machine Learning|2 trabajos, una vez a la semana||
 |Lenguajes de programación|Python, Scala, Java||
 |Scripting|Shell, Python||
-|**Tema**: **Data**|||
+|**Tema** : **Data**|||
 |Orígenes de datos|Archivos sin formato, Json, Kafka, RDBMS||
 |Orquestación de datos|Flujos de trabajo de Oozie, flujo de aire||
 |Búsquedas en memoria|Apache Ignite, Redis||
 |Destinos de datos|HDFS, RDBMS, Kafka, MPP ||
-|**Tema**: **Metadatos**|||
+|**Tema** : **Metadatos**|||
 |Tipo de base de datos de Hive|Mysql, Postgres||
 |Número de metastores de Hive|2||
 |Número de tablas de Hive|100||
 |Número de directivas de Ranger|20||
 |Número de flujos de trabajo de Oozie|100||
-|**Tema**: **Escala**|||
+|**Tema** : **Escala**|||
 |Volumen de datos, incluida la replicación|100 TB||
 |Volumen diario de ingesta|50 GB||
 |Tasa de crecimiento de datos|10 % al año||
 |Tasa de crecimiento de los nodos de clúster|5 % al año
-|**Tema**: **utilización del clúster**|||
+|**Tema** : **utilización del clúster**|||
 |% medio de CPU usada|60%||
 |% medio de memoria usada|75 %||
 |Espacio en disco usado|75 %||
 |% medio de red usada|25 %
-|**Tema**: **personal**|||
+|**Tema** : **personal**|||
 |Número de administradores|2||
 |Número de desarrolladores|10||
 |Número de usuarios finales|100||
 |Aptitudes|Hadoop, Spark||
 |Número de recursos disponibles para los esfuerzos de migración|2||
-|**Tema**: **Limitaciones**|||
+|**Tema** : **Limitaciones**|||
 |Limitaciones actuales|La latencia es alta||
 |Desafíos actuales|Problema de simultaneidad||
 
@@ -165,18 +165,18 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 
 |**Pregunta**|**Ejemplo**|**Respuesta**|
 |---|---|---|
-|**Tema**: **Infraestructura** |||
+|**Tema** : **Infraestructura** |||
 | Región preferida|Este de EE. UU.||
 |¿Red virtual preferida?|Sí||
 |¿Es necesaria alta disponibilidad o recuperación ante desastres?|Sí||
 |¿Integración con otros servicios en la nube?|ADF, CosmosDB||
-|**Tema**:   **Movimiento de datos**  |||
+|**Tema** :   **Movimiento de datos**  |||
 |Preferencia de carga inicial|DistCp, Data box, ADF, WANDisco||
 |Transferencia de datos delta|DistCp, AzCopy||
 |Transferencia de datos incremental en curso|DistCp, Sqoop||
-|**Tema**:   **supervisión y alertas** |||
+|**Tema** :   **supervisión y alertas** |||
 |Usar la supervisión y las alertas de Azure en lugar de supervisión de terceros|Usar supervisión y alertas de Azure||
-|**Tema**:   **preferencias de seguridad** |||
+|**Tema** :   **preferencias de seguridad** |||
 |¿Canalización de datos privada y protegida?|Sí||
 |¿Un clúster unido a un dominio (ESP)?|     Sí||
 |¿Sincronización de AD local en la nube?|     Sí||
@@ -185,11 +185,11 @@ En este sección se proporcionan plantillas de cuestionarios para ayudar a reuni
 |¿Solo usuarios en la nube?|                 Sí||
 |¿MFA necesario?|                       No|| 
 |¿Requisitos de autorización de datos?|  Sí||
-|¿Control de acceso basado en roles?|        Sí||
+|¿Control de acceso basado en rol?|        Sí||
 |¿Auditoría necesaria?|                  Sí||
 |¿Cifrado de datos en reposo?|          Sí||
 |¿Cifrado de datos en tránsito?|       Sí||
-|**Tema**:   **preferencias reestructuración de la arquitectura** |||
+|**Tema** :   **preferencias reestructuración de la arquitectura** |||
 |Clúster único frente a determinados tipos de clúster|Tipos de clústeres específicos||
 |¿Almacenamiento remoto frente almacenamiento colocado?|Almacenamiento remoto||
 |¿Tamaño de clúster más pequeño ya que los datos se almacenan de forma remota?|Tamaño de clúster más pequeño||

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/07/2020
-ms.author: cherylmc
-ms.openlocfilehash: 9ee5959c124636e64ef73b901fbc461f36cd27f9
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/15/2020
+ms.author: alzam
+ms.openlocfilehash: 451323b8ea4006ba6e2b63d12cc54b2b7c0b60c6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91817294"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109041"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Creación de un inquilino de Azure Active Directory para conexiones del protocolo P2S OpenVPN
 
@@ -48,7 +48,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 
 2. Copie el ID. del directorio.
 
-3. Inicie sesión en el Azure Portal como un usuario al que se le ha asignado el rol de **administrador global**.
+3. Inicie sesión en el Azure Portal como un usuario al que se le ha asignado el rol de **administrador global** .
 
 4. Después, ceda el consentimiento del administrador. Copie y pegue la dirección URL que pertenece a la ubicación de implementación en la barra de direcciones del explorador:
 
@@ -75,6 +75,9 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
     ```
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
+> [!NOTE]
+> Si utiliza una cuenta de administrador global que no sea nativa del inquilino de Azure AD para dar su consentimiento, reemplace "common" por el identificador de directorio de Azure AD en la dirección URL. Es posible que también tenga que reemplazar "common" por el identificador de directorio en algunos otros casos.
+>
 
 5. Seleccione la cuenta del **Administrador global** si se le solicita.
 
@@ -84,7 +87,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
 
     ![Captura de pantalla que muestra el mensaje de aceptación de los permisos solicitados para su organización con detalles y la opción Aceptar.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
-7. En el Azure AD, en **Aplicaciones empresariales**, verá la **VPN de Azure** en la lista.
+7. En el Azure AD, en **Aplicaciones empresariales** , verá la **VPN de Azure** en la lista.
 
     ![Captura de pantalla que muestra la página "Todas las aplicaciones".](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
     
@@ -93,7 +96,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
     > [!IMPORTANT]
     > La SKU de nivel Básico no es compatible con OpenVPN.
 
-9. Habilite la autenticación de Azure AD en la puerta de enlace de VPN. Para ello, navegue hasta **Configuración de punto a sitio** y seleccione **OpenVPN (SSL)** como **Tipo de túnel**. Seleccione **Azure Active Directory** como **Tipo de autenticación**, a continuación, rellene la información de la sección **Azure Active Directory**.
+9. Habilite la autenticación de Azure AD en la puerta de enlace de VPN. Para ello, navegue hasta **Configuración de punto a sitio** y seleccione **OpenVPN (SSL)** como **Tipo de túnel** . Seleccione **Azure Active Directory** como **Tipo de autenticación** , a continuación, rellene la información de la sección **Azure Active Directory** .
 
     ![VPN de Azure](./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png)
 
@@ -101,7 +104,7 @@ Siga los pasos descritos en [este artículo](../active-directory/fundamentals/ad
    > [!NOTE]
    > Asegúrese de incluir la barra diagonal al final del valor `AadIssuerUri`. De lo contrario, se puede producir un error en la conexión.
 
-10. Para crear y descargar el perfil, haga clic en el vínculo **Descargar cliente VPN**.
+10. Para crear y descargar el perfil, haga clic en el vínculo **Descargar cliente VPN** .
 
 11. Extraiga el archivo zip descargado.
 

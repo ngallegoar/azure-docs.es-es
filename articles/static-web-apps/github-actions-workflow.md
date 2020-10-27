@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0d4a455458812bef1d79aba583a6317c08b65863
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 3518935991409d87917582558a34ad7c54841e23
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948381"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173659"
 ---
 # <a name="github-actions-workflows-for-azure-static-web-apps-preview"></a>Flujos de trabajo de acciones de GitHub para la versión preliminar de Azure Static Web Apps
 
@@ -27,7 +27,7 @@ Cuando vincula el repositorio de GitHub a Azure Static Web Apps, se agrega un ar
 Siga los pasos a continuación para ver el archivo de flujo de trabajo generado.
 
 1. Abra el repositorio de la aplicación en GitHub.
-1. En la pestaña _Código_, haga clic en la carpeta `.github/workflows`.
+1. En la pestaña _Código_ , haga clic en la carpeta `.github/workflows`.
 1. Haga clic en el archivo con un nombre similar a `azure-static-web-apps-<RANDOM_NAME>.yml`.
 
 El archivo YAML del repositorio será similar al ejemplo siguiente:
@@ -96,7 +96,7 @@ on:
 
 Mediante la configuración asociada a la propiedad `on`, puede definir qué ramas desencadenan un trabajo y establecer desencadenadores para que se activen con diferentes estados de solicitud de incorporación de cambios ("pull request").
 
-En este ejemplo, se inicia un flujo de trabajo a medida que cambia la rama _master_. Entre los cambios que inician el flujo de trabajo se incluyen la inserción ("push") de confirmaciones y la apertura de solicitudes de incorporación de cambios ("pull request") en la rama elegida.
+En este ejemplo, se inicia un flujo de trabajo a medida que cambia la rama _master_ . Entre los cambios que inician el flujo de trabajo se incluyen la inserción ("push") de confirmaciones y la apertura de solicitudes de incorporación de cambios ("pull request") en la rama elegida.
 
 ## <a name="jobs"></a>Trabajos
 
@@ -161,9 +161,39 @@ Puede personalizar el flujo de trabajo para que busque el archivo [routes.json](
 
 | Propiedad            | Descripción |
 |---------------------|-------------|
-| `routes_location` | Define la ubicación del directorio en el que se encuentra el archivo _routes.json_. Esta ubicación es relativa a la raíz del repositorio. |
+| `routes_location` | Define la ubicación del directorio en el que se encuentra el archivo _routes.json_ . Esta ubicación es relativa a la raíz del repositorio. |
 
  Es especialmente importante escribir de forma explícita la ubicación del archivo _routes.json_ si el paso de compilación del marco de trabajo front-end no mueve este archivo a `app_artifact_location` de forma predeterminada.
+
+## <a name="environment-variables"></a>Variables de entorno
+
+Puede establecer variables de entorno para la compilación a través de la sección `env` de la configuración de un trabajo.
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: "upload"
+          ###### Repository/Build Configurations
+          app_location: "/"
+          api_location: "api"
+          app_artifact_location: "public"
+          ###### End of Repository/Build Configurations ######
+        env: # Add environment variables here
+          HUGO_VERSION: 0.58.0
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

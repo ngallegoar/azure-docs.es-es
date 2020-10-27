@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/27/2020
-ms.openlocfilehash: 06d70012756694dca1fad8fa90db0293bb106bf9
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/15/2020
+ms.openlocfilehash: 81ce3fae74a14c91db23c991ab0b53accd6568a6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828140"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107715"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformación de receptor en el flujo de datos de asignación
 
@@ -32,7 +32,7 @@ Cuando un formato se admite tanto en la opción insertada como en un objeto de c
 
 Se recomiendan los conjuntos de datos insertados cuando se usan esquemas flexibles, instancias de origen único u receptores con parámetros. Si el receptor contiene muchos parámetros, los conjuntos de datos insertados permiten no crear un objeto "ficticio". Los conjuntos de datos insertados se basan en Spark y sus propiedades son nativas para el flujo de datos.
 
-Para usar un conjunto de datos insertado, seleccione el formato deseado en el selector **Tipo de receptor**. En lugar de seleccionar un conjunto de datos de receptor, seleccione el servicio vinculado al que desee conectarse.
+Para usar un conjunto de datos insertado, seleccione el formato deseado en el selector **Tipo de receptor** . En lugar de seleccionar un conjunto de datos de receptor, seleccione el servicio vinculado al que desee conectarse.
 
 ![Conjunto de datos insertado](media/data-flow/inline-selector.png "Conjunto de datos insertado")
 
@@ -47,16 +47,17 @@ Mapping Data Flow sigue un enfoque de extracción, carga y transformación (ELT)
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Texto delimitado](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (versión preliminar)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (versión preliminar)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- <br> -/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Managed Instance (versión preliminar)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-La configuración específica de estos conectores se encuentra en la pestaña **Configuración**. La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector. 
+La configuración específica de estos conectores se encuentra en la pestaña **Configuración** . La información y algunos ejemplos de script de flujo de datos sobre esta configuración se encuentran en la documentación del conector. 
 
 Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-overview.md). Para escribir datos en esos otros orígenes desde el flujo de datos, use la actividad de copia para cargar los datos desde un receptor compatible.
 
 ## <a name="sink-settings"></a>Configuración del receptor
 
-Una vez que haya agregado un receptor, configúrelo a través de la pestaña **Receptor**. Aquí puede elegir o crear el conjunto de datos en el que escribe el receptor. Los valores de desarrollo de los parámetros del conjunto de datos se pueden configurar en [Configuración de depuración](concepts-data-flow-debug-mode.md) (requiere que esté activado el modo Depuración).
+Una vez que haya agregado un receptor, configúrelo a través de la pestaña **Receptor** . Aquí puede elegir o crear el conjunto de datos en el que escribe el receptor. Los valores de desarrollo de los parámetros del conjunto de datos se pueden configurar en [Configuración de depuración](concepts-data-flow-debug-mode.md) (requiere que esté activado el modo Depuración).
 
 A continuación, se muestra un vídeo en el que se explican varias opciones de receptor diferentes para los tipos de archivo delimitados de texto:
 
@@ -70,7 +71,7 @@ A continuación, se muestra un vídeo en el que se explican varias opciones de r
 
 ## <a name="field-mapping"></a>Asignación de campos
 
-De forma similar a la transformación Selección, en la pestaña **Asignación** del receptor, puede decidir qué columnas de entrada se escribirán. De forma predeterminada, se asignan todas las columnas de entrada, incluidas las columnas desfasadas. Esto se conoce como **registro automático**.
+De forma similar a la transformación Selección, en la pestaña **Asignación** del receptor, puede decidir qué columnas de entrada se escribirán. De forma predeterminada, se asignan todas las columnas de entrada, incluidas las columnas desfasadas. Esto se conoce como **registro automático** .
 
 Cuando desactive la asignación automática, tendrá la opción de agregar asignaciones basadas en columnas o basadas en reglas. Las asignaciones basada en reglas le permiten escribir expresiones con coincidencia de patrones, mientras que la asignación fija asignará nombres de columna lógicos y físicos. Para más información sobre la asignación basada en reglas, consulte [Patrones de columna en flujos de datos de asignación](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 

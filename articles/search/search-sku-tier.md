@@ -1,23 +1,23 @@
 ---
-title: Selección de un plan de tarifa o SKU
+title: Elija un plan de tarifa.
 titleSuffix: Azure Cognitive Search
-description: 'Azure Cognitive Search puede aprovisionarse en estas SKU: Gratis, Básico o Estándar; este último está disponible en varias configuraciones de recursos y niveles de capacidad.'
+description: 'Azure Cognitive Search puede aprovisionarse en estos niveles: Gratis, Básico o Estándar; este último está disponible en varias configuraciones de recursos y niveles de capacidad.'
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948092"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101280"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
-Al crear un servicio Azure Cognitive Search, [se crea un recurso](search-create-service-portal.md) en el plan de tarifa (o SKU) que se ha fijado para el período de vigencia del servicio. Los niveles incluyen Gratis, Básico, Estándar y Almacenamiento optimizado. Estándar y Almacenamiento optimizado están disponibles con varias configuraciones y capacidades.
+Al crear un servicio de Azure Cognitive Search, [se crea un recurso](search-create-service-portal.md) en el plan de tarifa que se ha fijado para el período de vigencia del servicio. Los niveles incluyen Gratis, Básico, Estándar y Almacenamiento optimizado. Estándar y Almacenamiento optimizado están disponibles con varias configuraciones y capacidades.
 
 La mayoría de los clientes empiezan con el nivel Gratis para poder evaluar el servicio. Después de la evaluación, es habitual crear un segundo servicio en uno de los niveles más altos para las implementaciones de desarrollo y producción.
 
@@ -27,26 +27,26 @@ En la tabla siguiente se describen las restricciones de características relacio
 
 | Característica | Limitaciones |
 |---------|-------------|
-| [Indizadores](search-indexer-overview.md) | Los indizadores no están disponibles en S3 HD. |
+| [Indizadores](search-indexer-overview.md) | Los indizadores no están disponibles en S3 HD.  |
 | [Enriquecimiento con IA](search-security-manage-encryption-keys.md) | Se ejecuta en el nivel Gratis, pero no se recomienda. |
 | [Claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) | No disponibles en el nivel Gratis. |
 | [Acceso al firewall de IP](service-configure-firewall.md) | No disponibles en el nivel Gratis. |
-| [Integración con Azure Private Link](service-create-private-endpoint.md) | No disponibles en el nivel Gratis. |
+| [Punto de conexión privado (integración con Azure Private Link)](service-create-private-endpoint.md) | En el caso de las conexiones entrantes a un servicio de búsqueda, no está disponible en el nivel Gratis. En el caso de las conexiones salientes de indexadores a otros recursos de Azure, no es´ta disponible en el nivel Gratis ni S3 HD. Para los indexadores que usan conjuntos de aptitudes, no está disponible en los niveles Gratis, Básico, S1 o S3 HD.|
 
 La mayoría de las características están disponibles en todos los niveles, incluido el nivel Gratis, pero es posible que las características que usen muchos recursos no funcionen bien, a menos que se les proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento con IA](cognitive-search-concept-intro.md) contiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio Gratis, a menos que el conjunto de datos sea pequeño.
 
-## <a name="tiers-skus"></a>Niveles (SKU)
+## <a name="tiers"></a>Niveles
 
 Los niveles se diferencian por:
 
 + Cantidad de índices e indizadores (límites máximos)
 + Tamaño y velocidad de particiones (almacenamiento físico)
 
-El nivel que se seleccione determina la tasa facturable. En la siguiente captura de pantalla de Azure Portal se muestran los niveles disponibles, menos los precios (que puede encontrar en el portal y en la [página de precios](https://azure.microsoft.com/pricing/details/search/). **Gratis**, **Básico** y **Estándar** son los niveles más comunes.
+El nivel que se seleccione determina la tasa facturable. En la siguiente captura de pantalla de Azure Portal se muestran los niveles disponibles, menos los precios (que puede encontrar en el portal y en la [página de precios](https://azure.microsoft.com/pricing/details/search/). **Gratis** , **Básico** y **Estándar** son los niveles más comunes.
 
 El nivel **Gratis** crea un servicio de búsqueda limitado para proyectos más pequeños, que incluye los inicios rápidos y los tutoriales. Internamente, las réplicas y las particiones se comparten entre varios suscriptores. No se puede escalar el servicio gratis, ni se pueden ejecutar grandes cargas de trabajo.
 
-**Básico** y **Estándar** son los niveles facturables usados con mayor frecuencia, mientras que el valor predeterminado es **Estándar**. Con recursos dedicados bajo su control, puede implementar proyectos más grandes, optimizar el rendimiento y configurar la capacidad.
+**Básico** y **Estándar** son los niveles facturables usados con mayor frecuencia, mientras que el valor predeterminado es **Estándar** . Con recursos dedicados bajo su control, puede implementar proyectos más grandes, optimizar el rendimiento y configurar la capacidad.
 
 ![Planes de tarifa de Azure Cognitive Search](media/search-sku-tier/tiers.png "Planes de tarifa de Azure Cognitive Search")
 
@@ -138,7 +138,7 @@ En lo que respecta al propio servicio, la única manera de reducir la factura es
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Cómo evaluar los requisitos de capacidad
 
-En Azure Cognitive Search, la capacidad se estructura como *réplicas* y *particiones*.
+En Azure Cognitive Search, la capacidad se estructura como *réplicas* y *particiones* .
 
 + Las réplicas son instancias del servicio de búsqueda. Cada réplica hospeda una copia de carga equilibrada de un índice. Por ejemplo, un servicio con seis réplicas tiene seis copias de todos los índices cargados en el servicio.
 
@@ -158,7 +158,7 @@ Para determinar el tamaño de un índice, tendrá que [crear uno](search-what-is
 Para la búsqueda de texto completo, la estructura de datos principal es una estructura de [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tiene características diferentes de los datos de origen. Para un índice invertido, el tamaño y la complejidad vienen determinados por el contenido, y no necesariamente por la cantidad de datos que se incorporan. Un origen de datos de gran tamaño con mucha redundancia podría dar lugar a un índice más pequeño que un conjunto de datos más pequeño que incluya contenido muy variable. Así que es poco probable deducir el tamaño del índice en función del tamaño del conjunto de datos original.
 
 > [!NOTE] 
-> Aunque el cálculo de las necesidades futuras de índices y almacenamiento se hace a partir de suposiciones, vale la pena hacerlo. Si la capacidad de un nivel resulta demasiado baja, tendrá que aprovisionar un nuevo servicio en un nivel superior y luego [volver a cargar los índices](search-howto-reindex.md). No existe ninguna actualización local de un servicio de una SKU a otra.
+> Aunque el cálculo de las necesidades futuras de índices y almacenamiento se hace a partir de suposiciones, vale la pena hacerlo. Si la capacidad de un nivel resulta demasiado baja, tendrá que aprovisionar un nuevo servicio en un nivel superior y luego [volver a cargar los índices](search-howto-reindex.md). No existe ninguna actualización local de un servicio de un nivel a otro.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>Estimación con el nivel Gratis

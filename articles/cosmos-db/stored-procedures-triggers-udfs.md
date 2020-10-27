@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509676"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279904"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimientos almacenados, desencadenadores y funciones definidas por el usuario
 
-Azure Cosmos DB proporciona la ejecución transaccional integrada en lenguaje JavaScript. Cuando se usa la API de SQL en Azure Cosmos DB, puede escribir los **procedimientos almacenados**, los **desencadenadores** y las **funciones definidas por el usuario (UDF)** en el lenguaje JavaScript. Puede escribir su lógica en JavaScript, que se ejecuta dentro del motor de base de datos. Puede crear y ejecutar desencadenadores, procedimientos almacenados y UDF mediante [Azure Portal](https://portal.azure.com/), la [API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md) o los [SDK del cliente de la API de SQL de Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+Azure Cosmos DB proporciona la ejecución transaccional integrada en lenguaje JavaScript. Cuando se usa la API de SQL en Azure Cosmos DB, puede escribir los **procedimientos almacenados** , los **desencadenadores** y las **funciones definidas por el usuario (UDF)** en el lenguaje JavaScript. Puede escribir su lógica en JavaScript, que se ejecuta dentro del motor de base de datos. Puede crear y ejecutar desencadenadores, procedimientos almacenados y UDF mediante [Azure Portal](https://portal.azure.com/), la [API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md) o los [SDK del cliente de la API de SQL de Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Ventajas del uso de la programación en el lado servidor
 
@@ -24,7 +24,7 @@ La escritura de procedimientos almacenados, desencadenadores y funciones definid
 
 * **Lógica de procedimientos:** JavaScript como un lenguaje de programación de alto nivel que proporciona una interfaz completa y familiar para expresar la lógica empresarial. Puede realizar una secuencia de operaciones complejas en los datos.
 
-* **Transacciones atómicas:** Cosmos DB garantiza que las operaciones de base de datos realizadas dentro de un único procedimiento almacenado o desencadenador sean atómicas. Esta funcionalidad atómica permite a una aplicación combinar operaciones relacionadas en un único lote para que todas se realicen correctamente o no lo haga ninguna.
+* **Transacciones atómicas:** las operaciones de base de datos de Azure Cosmos DB realizadas dentro de un único procedimiento almacenado o desencadenador son atómicas. Esta funcionalidad atómica permite a una aplicación combinar operaciones relacionadas en un único lote para que todas se realicen correctamente o no lo haga ninguna.
 
 * **Rendimiento:** Los datos de JSON se asignan intrínsecamente al sistema de tipos de lenguaje JavaScript. Esta asignación permite diversas optimizaciones, como la materialización diferida de documentos JSON en el grupo de búferes, y las pone a disposición a petición para el código en ejecución. Hay otras ventajas de rendimiento asociadas con el envío de la lógica empresarial a la base de datos, que incluyen:
 
@@ -41,7 +41,7 @@ La escritura de procedimientos almacenados, desencadenadores y funciones definid
 
 ## <a name="transactions"></a>Transacciones
 
-Una transacción en una base de datos típica se puede definir como una secuencia de operaciones realizadas como una única unidad lógica de trabajo. Cada transacción proporciona **garantías de propiedad ACID**. ACID es un acrónimo conocido que hacer referencia a: **A**tomicidad, **C**oherencia, a**I**slamiento y **D**urabilidad. 
+Una transacción en una base de datos típica se puede definir como una secuencia de operaciones realizadas como una única unidad lógica de trabajo. Cada transacción proporciona **garantías de propiedad ACID** . ACID es un acrónimo conocido que hacer referencia a: **A** tomicidad, **C** oherencia, a **I** slamiento y **D** urabilidad. 
 
 * La atomicidad garantiza que todas las operaciones realizadas dentro de una transacción se lean como una única unidad donde se confirman todas o ninguna. 
 
@@ -55,7 +55,7 @@ En Azure Cosmos DB, el entorno en tiempo de ejecución de JavaScript está hospe
 
 ### <a name="scope-of-a-transaction"></a>Ámbito de una transacción
 
-Los procedimientos almacenados se asocian a un contenedor de Azure Cosmos y la ejecución del procedimiento almacenado se incluye en el ámbito de una clave de partición lógica. Los procedimientos almacenados deben incluir un valor de clave de partición lógica durante la ejecución que defina la partición lógica del ámbito de la transacción. Para más información, consulte el artículo [Creación de particiones de Azure Cosmos DB](partition-data.md).
+Los procedimientos almacenados se asocian a un contenedor de Azure Cosmos y la ejecución del procedimiento almacenado se incluye en el ámbito de una clave de partición lógica. Los procedimientos almacenados deben incluir un valor de clave de partición lógica durante la ejecución que defina la partición lógica del ámbito de la transacción. Para más información, consulte el artículo [Creación de particiones de Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="commit-and-rollback"></a>Confirmación y reversión
 

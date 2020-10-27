@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978176"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144197"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Alta disponibilidad del escalado vertical de SAP HANA con Azure NetApp Files en Red Hat Enterprise Linux
 
@@ -51,7 +51,7 @@ ms.locfileid: "91978176"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-En este artículo se describe cómo configurar la replicación del sistema de SAP HANA en una implementación de escalado vertical, cuando los sistemas de archivos de HANA se montan mediante NFS con Azure NetApp Files (ANF). En las configuraciones de ejemplo y comandos de instalación, se utiliza el número de instancia **03** y el identificador del sistema de HANA **HN1**. La replicación de SAP HANA se realiza con un nodo principal y al menos uno secundario.
+En este artículo se describe cómo configurar la replicación del sistema de SAP HANA en una implementación de escalado vertical, cuando los sistemas de archivos de HANA se montan mediante NFS con Azure NetApp Files (ANF). En las configuraciones de ejemplo y comandos de instalación, se utiliza el número de instancia **03** y el identificador del sistema de HANA **HN1** . La replicación de SAP HANA se realiza con un nodo principal y al menos uno secundario.
 
 Si los pasos de este documento se marcan con los siguientes prefijos, el significado es el siguiente:
 
@@ -101,17 +101,17 @@ Para lograr la alta disponibilidad de SAP HANA del sistema de escalado vertical 
 
 Los sistemas de archivos de SAP HANA se montan en recursos compartidos de NFS con Azure NetApp Files en cada nodo. Los sistemas de archivos /hana/data, /hana/log y /hana/shared son únicos para cada nodo. 
 
-Montado en el nodo 1 (**hanadb1**)
+Montado en el nodo 1 ( **hanadb1** )
 
-- 10.32.2.4:/**hanadb1**-data-mnt00001 en /hana/data
-- 10.32.2.4:/**hanadb1**-log-mnt00001 en /hana/log
-- 10.32.2.4:/**hanadb1**-shared-mnt00001 en /hana/shared
+- 10.32.2.4:/ **hanadb1** -data-mnt00001 en /hana/data
+- 10.32.2.4:/ **hanadb1** -log-mnt00001 en /hana/log
+- 10.32.2.4:/ **hanadb1** -shared-mnt00001 en /hana/shared
 
-Montado en el nodo 2 (**hanadb2**)
+Montado en el nodo 2 ( **hanadb2** )
 
-- 10.32.2.4:/**hanadb2**-data-mnt00001 en /hana/data
-- 10.32.2.4:/**hanadb2**-log-mnt00001 en /hana/log
-- 10.32.2.4:/**hanadb2**-shared-mnt00001 en /hana/shared
+- 10.32.2.4:/ **hanadb2** -data-mnt00001 en /hana/data
+- 10.32.2.4:/ **hanadb2** -log-mnt00001 en /hana/log
+- 10.32.2.4:/ **hanadb2** -shared-mnt00001 en /hana/shared
 
 > [!NOTE]
 > Los sistemas de archivos /hana/shared, /hana/data y /hana/log no se comparten entre los dos nodos. Cada nodo del clúster tiene sus propios sistemas de archivos independientes.   
@@ -143,7 +143,7 @@ En las siguientes instrucciones se supone que ya ha implementado la [red virtual
 
 3.  Configure el grupo de capacidad de Azure NetApp Files según disponibles en [Configuración en un grupo de capacidad de Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-    La arquitectura de HANA que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de servicio *Ultra*. Para las cargas de trabajo HANA en Azure, se recomienda usar el [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) *Ultra* o *Premium* de Azure NetApp Files.
+    La arquitectura de HANA que se presenta en este artículo utiliza un único grupo de capacidad de Azure NetApp Files, el nivel de servicio *Ultra* . Para las cargas de trabajo HANA en Azure, se recomienda usar el [nivel de servicio](../../../azure-netapp-files/azure-netapp-files-service-levels.md) *Ultra* o *Premium* de Azure NetApp Files.
 
 4.  Delegue una subred en Azure NetApp Files tal como se describe en las instrucciones de [Delegación de una subred en Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
@@ -224,91 +224,96 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Luego, siga estos pa
 3.  Cree un conjunto de disponibilidad. Establezca el dominio máximo de actualización.
 4.  Cree un equilibrador de carga (interno). Se recomienda que sea un equilibrador de carga estándar.
     Seleccione la red virtual que creó en el paso 2.
-5.  Cree la máquina virtual 1 (**hanadb1**). 
-6.  Cree la máquina virtual 2 (**hanadb2**).  
+5.  Cree la máquina virtual 1 ( **hanadb1** ). 
+6.  Cree la máquina virtual 2 ( **hanadb2** ).  
 7.  Al crear la máquina virtual, no agregaremos ningún disco, ya que todos nuestros puntos de montaje estarán en los recursos compartidos de NFS de Azure NetApp Files. 
-8.  Si usa Standard Load Balancer, siga estos pasos de configuración:
-    1.  Primero, cree un grupo de direcciones IP de front-end:
-        1.  Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar**.
-        1.  Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **hana-front-end**).
-        1.  Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.32.0.10**).
-        1.  Seleccione **Aceptar**.
-        1.  Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
-    1.  A continuación, cree un grupo de back-end:
-        1.  Abra el equilibrador de carga, seleccione **Grupos de back-end** y haga clic en **Agregar**.
-        1.  Escriba el nombre del nuevo grupo de back-end (por ejemplo, **hana-backend**).
-        1.  Seleccione **Agregar una máquina virtual**.
-        1.  Seleccione **Máquina virtual**.
-        1.  Seleccione las máquinas virtuales del clúster de SAP HANA y sus direcciones IP.
-        1.  Seleccione **Agregar**.
-    1.  A continuación, cree un sondeo de estado:
-        1.  Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar**.
-        1.  Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-hp**).
-        1.  Seleccione TCP como protocolo y el puerto 625**03**. Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
-        1.  Seleccione **Aceptar**.
-    1.  Luego cree las reglas de equilibrio de carga:
-        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
-        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **hana-lb**).
-        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que ha creado anteriormente (por ejemplo, **hana-frontend**, **hana-backend** y **hana-hp**).
-        1.  Seleccione **Puertos HA**.
-        1.  Aumente el **tiempo de espera de inactividad** a 30 minutos.
-        1.  Asegúrese de **habilitar la dirección IP flotante**.
-        1.  Seleccione **Aceptar**.
+
+> [!IMPORTANT]
+> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC en escenarios de equilibrio de carga. Para ver detalles, consulte [Limitaciones de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.    
 
 > [!NOTE] 
 > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-9. Como alternativa, si el escenario dicta el uso de Basic Load Balancer, siga estos pasos de configuración:
-    1.  Configure el equilibrador de carga. Primero, cree un grupo de direcciones IP de front-end:
-        1.  Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar**.
-        1.  Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **hana-front-end**).
-        1.  Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.32.0.10**).
-        1.  Seleccione **Aceptar**.
+8.  Si usa Standard Load Balancer, siga estos pasos de configuración:
+    1.  Primero, cree un grupo de direcciones IP de front-end:
+        1.  Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar** .
+        1.  Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **hana-front-end** ).
+        1.  Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.32.0.10** ).
+        1.  Seleccione **Aceptar** .
         1.  Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
     1.  A continuación, cree un grupo de back-end:
-        1.  Abra el equilibrador de carga, seleccione **Grupos de back-end** y haga clic en **Agregar**.
-        1.  Escriba el nombre del nuevo grupo de back-end (por ejemplo, **hana-backend**).
-        1.  Seleccione **Agregar una máquina virtual**.
+        1.  Abra el equilibrador de carga, seleccione **Grupos de back-end** y haga clic en **Agregar** .
+        1.  Escriba el nombre del nuevo grupo de back-end (por ejemplo, **hana-backend** ).
+        1.  Seleccione **Agregar una máquina virtual** .
+        1.  Seleccione **Máquina virtual**.
+        1.  Seleccione las máquinas virtuales del clúster de SAP HANA y sus direcciones IP.
+        1.  Seleccione **Agregar** .
+    1.  A continuación, cree un sondeo de estado:
+        1.  Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar** .
+        1.  Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-hp** ).
+        1.  Seleccione TCP como protocolo y el puerto 625 **03** . Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
+        1.  Seleccione **Aceptar** .
+    1.  Luego cree las reglas de equilibrio de carga:
+        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar** .
+        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **hana-lb** ).
+        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que ha creado anteriormente (por ejemplo, **hana-frontend** , **hana-backend** y **hana-hp** ).
+        1.  Seleccione **Puertos HA** .
+        1.  Aumente el **tiempo de espera de inactividad** a 30 minutos.
+        1.  Asegúrese de **habilitar la dirección IP flotante** .
+        1.  Seleccione **Aceptar** .
+
+
+9. Como alternativa, si el escenario dicta el uso de Basic Load Balancer, siga estos pasos de configuración:
+    1.  Configure el equilibrador de carga. Primero, cree un grupo de direcciones IP de front-end:
+        1.  Abra el equilibrador de carga, seleccione **frontend IP pool** (Grupo de direcciones IP de front-end) y haga clic en **Agregar** .
+        1.  Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **hana-front-end** ).
+        1.  Establezca **Asignación** en **Estática** y escriba la dirección IP (por ejemplo, **10.32.0.10** ).
+        1.  Seleccione **Aceptar** .
+        1.  Una vez creado el nuevo grupo de direcciones IP de front-end, anote la dirección IP del grupo.
+    1.  A continuación, cree un grupo de back-end:
+        1.  Abra el equilibrador de carga, seleccione **Grupos de back-end** y haga clic en **Agregar** .
+        1.  Escriba el nombre del nuevo grupo de back-end (por ejemplo, **hana-backend** ).
+        1.  Seleccione **Agregar una máquina virtual** .
         1.  Seleccione el conjunto de disponibilidad creado en el paso 3.
         1.  Seleccione las máquinas virtuales del clúster de SAP HANA
-        1.  Seleccione **Aceptar**.
+        1.  Seleccione **Aceptar** .
     1.  A continuación, cree un sondeo de estado:
-        1.  Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar**.
-        1.  Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-hp**).
-        1.  Seleccione **TCP** como protocolo y el puerto 625**03**. Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
-        1.  Seleccione **Aceptar**.
+        1.  Abra el equilibrador de carga, seleccione **Sondeos de estado** y haga clic en **Agregar** .
+        1.  Escriba el nombre del sondeo de estado nuevo (por ejemplo **hana-hp** ).
+        1.  Seleccione **TCP** como protocolo y el puerto 625 **03** . Mantenga el valor de **Intervalo** en 5 y el valor de **Umbral incorrecto** en 2.
+        1.  Seleccione **Aceptar** .
     1.  Para SAP HANA 1.0, cree las reglas de equilibrio de carga:
-        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
-        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**15).
-        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
-        1.  Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**15.
+        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar** .
+        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3 **03** 15).
+        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend** ).
+        1.  Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3 **03** 15.
         1.  Aumente el **tiempo de espera de inactividad** a 30 minutos.
-        1.  Asegúrese de **habilitar la dirección IP flotante**.
-        1.  Seleccione **Aceptar**.
-        1.  Repita estos pasos para el puerto 3**03**17.
+        1.  Asegúrese de **habilitar la dirección IP flotante** .
+        1.  Seleccione **Aceptar** .
+        1.  Repita estos pasos para el puerto 3 **03** 17.
     1.  Para SAP HANA 2.0, cree reglas de equilibrio de carga para la base de datos del sistema:
-        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
-        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**13).
-        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
-        1.  Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**13.
+        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar** .
+        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3 **03** 13).
+        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend** ).
+        1.  Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3 **03** 13.
         1.  Aumente el **tiempo de espera de inactividad** a 30 minutos.
-        1.  Asegúrese de **habilitar la dirección IP flotante**.
-        1.  Seleccione **Aceptar**.
-        1.  Repita estos pasos para el puerto 3**03**14.
+        1.  Asegúrese de **habilitar la dirección IP flotante** .
+        1.  Seleccione **Aceptar** .
+        1.  Repita estos pasos para el puerto 3 **03** 14.
     1.  Para SAP HANA 2.0, primero cree las reglas de equilibrio de carga para la base de datos de inquilino:
-        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar**.
-        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3**03**40).
-        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend**).
-        1.  Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3**03**40.
+        1.  Abra el equilibrador de carga, seleccione **Reglas de equilibrio de carga** y haga clic en **Agregar** .
+        1.  Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, hana-lb-3 **03** 40).
+        1.  Seleccione la dirección IP de front-end, el grupo de back-end y el sondeo de estado que creó anteriormente (por ejemplo, **hana-frontend** ).
+        1.  Mantenga el valor de **Protocolo** en **TCP** y escriba el puerto 3 **03** 40.
         1.  Aumente el **tiempo de espera de inactividad** a 30 minutos.
-        1.  Asegúrese de **habilitar la dirección IP flotante**.
-        1.  Seleccione **Aceptar**.
-        1.  Repita estos pasos para los puertos 3**03**41 y 3**03**42.
+        1.  Asegúrese de **habilitar la dirección IP flotante** .
+        1.  Seleccione **Aceptar** .
+        1.  Repita estos pasos para los puertos 3 **03** 41 y 3 **03** 42.
 
 Para más información sobre los puertos necesarios para SAP HANA, consulte el capítulo [Conexiones a las bases de datos de inquilino](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) de la guía [Bases de datos de inquilino de SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) o la nota de SAP [2388694](https://launchpad.support.sap.com/#/notes/2388694).
 
 > [!IMPORTANT]
-> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información. Consulte también la nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0** . Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información. Consulte también la nota de SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421).
 
 ## <a name="mount-the-azure-netapp-files-volume"></a>Montaje de los volúmenes de Azure NetApp Files
 
@@ -320,7 +325,7 @@ Para más información sobre los puertos necesarios para SAP HANA, consulte el c
     mkdir -p /hana/shared
     ```
 
-2. **[A]** Compruebe la configuración del dominio NFS. Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **defaultv4iddomain.com** y de que la asignación se haya establecido en **nobody**.
+2. **[A]** Compruebe la configuración del dominio NFS. Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **defaultv4iddomain.com** y de que la asignación se haya establecido en **nobody** .
 
     ```
     sudo cat /etc/idmapd.conf
@@ -333,10 +338,10 @@ Para más información sobre los puertos necesarios para SAP HANA, consulte el c
     ```
 
     > [!IMPORTANT]    
-    > Asegúrese de establecer el dominio NFS en /etc/idmapd.conf en la máquina virtual para que coincida con la configuración de dominio predeterminada en Azure NetApp Files: **defaultv4iddomain.com**. Si hay alguna discrepancia entre la configuración de dominio del cliente NFS (es decir, la máquina virtual) y el servidor NFS (es decir la configuración de Azure NetApp), los permisos de archivos en volúmenes de Azure NetApp que estén montados en las máquinas virtuales se mostrarán como "nobody".
+    > Asegúrese de establecer el dominio NFS en /etc/idmapd.conf en la máquina virtual para que coincida con la configuración de dominio predeterminada en Azure NetApp Files: **defaultv4iddomain.com** . Si hay alguna discrepancia entre la configuración de dominio del cliente NFS (es decir, la máquina virtual) y el servidor NFS (es decir la configuración de Azure NetApp), los permisos de archivos en volúmenes de Azure NetApp que estén montados en las máquinas virtuales se mostrarán como "nobody".
     
 
-3. **[1]** Monte los volúmenes específicos del nodo en el nodo 1 (**hanadb1**). 
+3. **[1]** Monte los volúmenes específicos del nodo en el nodo 1 ( **hanadb1** ). 
 
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared
@@ -344,7 +349,7 @@ Para más información sobre los puertos necesarios para SAP HANA, consulte el c
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb1-data-mnt00001 /hana/data
     ```
     
-4.  **[2]** Monte los volúmenes específicos del nodo en el nodo 2 (**hanadb2**).
+4.  **[2]** Monte los volúmenes específicos del nodo en el nodo 2 ( **hanadb2** ).
     
     ```
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.32.2.4:/hanadb2-shared-mnt00001 /hana/shared
@@ -368,7 +373,7 @@ Para más información sobre los puertos necesarios para SAP HANA, consulte el c
     Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.32.0.4,local_lock=none,addr=10.32.2.4
     ```
 
-6. **[A]** Compruebe **nfs4_disable_idmapping**. Debe establecerse en **S**. Para crear la estructura de directorio en la que se encuentra **nfs4_disable_idmapping**, ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.
+6. **[A]** Compruebe **nfs4_disable_idmapping** . Debe establecerse en **S** . Para crear la estructura de directorio en la que se encuentra **nfs4_disable_idmapping** , ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.
 
     ```
     # Check nfs4_disable_idmapping 
@@ -381,7 +386,7 @@ Para más información sobre los puertos necesarios para SAP HANA, consulte el c
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     ```
 
-   Para más información sobre cómo cambiar el parámetro **nfs_disable_idmapping**, consulte [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883). 
+   Para más información sobre cómo cambiar el parámetro **nfs_disable_idmapping** , consulte [https://access.redhat.com/solutions/1749883](https://access.redhat.com/solutions/1749883). 
 
 
 ## <a name="sap-hana-installation"></a>Instalación de SAP HANA
@@ -413,12 +418,12 @@ Para más información sobre los puertos necesarios para SAP HANA, consulte el c
 
     Ejecute el programa **hdblcm** del DVD de HANA. Escriba los siguientes valores en el símbolo del sistema:  
     Elija la instalación: Escriba **1** (para la instalación).  
-    Seleccione los componentes adicionales para la instalación: Especifique **1**.  
+    Seleccione los componentes adicionales para la instalación: Especifique **1** .  
     Escriba la ruta de acceso de instalación [/hana/shared]: presione Entrar para aceptar el valor predeterminado.  
     Enter Local Host Name [..]: Presione ENTRAR para aceptar el valor predeterminado.  
     ¿Desea agregar hosts adicionales al sistema? (s/n) [n]: **n**  
-    Escriba el identificador del sistema de SAP HANA: Escriba **HN1**.  
-    Escriba el número de instancia [00]: Escriba **03**.  
+    Escriba el identificador del sistema de SAP HANA: Escriba **HN1** .  
+    Escriba el número de instancia [00]: Escriba **03** .  
     Seleccione el modo de base de datos o escriba el índice [1]: presione Entrar para aceptar el valor predeterminado.  
     Seleccione el uso del sistema o especificar el índice [4]: escriba **4** (para personalizar).  
     Escriba la ubicación de los volúmenes de datos [/hana/data/HN1]: presione Entrar para aceptar el valor predeterminado.  
@@ -477,7 +482,7 @@ En este ejemplo, cada nodo de clúster tiene sus propios sistemas de archivos NF
    pcs property set maintenance-mode=true
    ```
 
-2. **[1]** Cree los recursos del sistema de archivos para los montajes **hanadb1**.
+2. **[1]** Cree los recursos del sistema de archivos para los montajes **hanadb1** .
 
     ```
     pcs resource create hana_data1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
@@ -485,7 +490,7 @@ En este ejemplo, cada nodo de clúster tiene sus propios sistemas de archivos NF
     pcs resource create hana_shared1 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb1-shared-mnt00001 directory=/hana/shared fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb1_nfs
     ```
 
-3. **[2]** Cree los recursos del sistema de archivos para los montajes **hanadb2**.
+3. **[2]** Cree los recursos del sistema de archivos para los montajes **hanadb2** .
 
     ```
     pcs resource create hana_data2 ocf:heartbeat:Filesystem device=10.32.2.4:/hanadb2-data-mnt00001 directory=/hana/data fstype=nfs options=rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys op monitor interval=20s on-fail=fence timeout=40s OCF_CHECK_LEVEL=20 --group hanadb2_nfs
@@ -558,7 +563,7 @@ En este ejemplo, cada nodo de clúster tiene sus propios sistemas de archivos NF
 
    Compruebe el estado del clúster y todos los recursos.
    > [!NOTE]
-   > Este artículo contiene referencias al término *esclavo*, un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
+   > Este artículo contiene referencias al término *esclavo* , un término que Microsoft ya no usa. Cuando se quite el término del software, se quitará también del artículo.
    
     ```
     sudo pcs status

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 4ef53b2249f8ce57255c13126c9310f1c889d64f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855062"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332032"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -28,7 +28,7 @@ Para ver una comparación completa de las opciones de creación de clústeres co
 Data Lake Storage Gen2 está disponible como opción de almacenamiento para casi todos los tipos de clúster de Azure HDInsight como una cuenta de almacenamiento predeterminada o adicional. Aun así, HBase solo puede tener una cuenta con Data Lake Storage Gen2.
 
 > [!Note]  
-> Una vez que selecciona Data Lake Storage Gen2 como el **tipo de almacenamiento principal**, no puede seleccionar Data Lake Storage Gen1 como almacenamiento adicional.
+> Una vez que selecciona Data Lake Storage Gen2 como el **tipo de almacenamiento principal** , no puede seleccionar Data Lake Storage Gen1 como almacenamiento adicional.
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>Creación de clústeres de HDInsight con Data Lake Storage Gen2
 
@@ -42,13 +42,13 @@ Use los vínculos siguientes para obtener instrucciones detalladas sobre cómo c
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>¿Qué tipos de permisos admite Data Lake Storage Gen2?
 
-Data Lake Storage Gen2 usa un modelo de control de acceso compatible con el control de acceso basado en rol (RBAC) y las listas de control de acceso (ACL) tipo POSIX. Data Lake Storage Gen1 admite las listas de control de acceso solo para controlar el acceso a los datos.
+Data Lake Storage Gen2 usa un modelo de control de acceso compatible con el control de acceso basado en roles de Azure (Azure RBAC) y las listas de control de acceso (ACL) de tipo POSIX. Data Lake Storage Gen1 admite las listas de control de acceso solo para controlar el acceso a los datos.
 
-RBAC usa las asignaciones de roles para aplicar de forma eficaz conjuntos de permisos a usuarios, grupos y entidades de servicio para los recursos de Azure. Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo, las cuentas de Azure Blob Storage). En el caso de Azure Blob Storage y también de Data Lake Storage Gen2, este mecanismo se ha ampliado al recurso del sistema de archivos.
+Azure RBAC usa las asignaciones de roles para aplicar de forma eficaz conjuntos de permisos a usuarios, grupos y entidades de servicio para los recursos de Azure. Normalmente, los recursos de Azure están limitados a los recursos de nivel superior (por ejemplo, las cuentas de Azure Blob Storage). En el caso de Azure Blob Storage y también de Data Lake Storage Gen2, este mecanismo se ha ampliado al recurso del sistema de archivos.
 
-Para más información sobre los permisos de archivo con RBAC, consulte [Control de acceso basado en rol de Azure (RBAC de Azure)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+Para obtener más información sobre los permisos de archivo con Azure RBAC, consulte el [Control de acceso basado en roles de Azure (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
-Para más información sobre los permisos de archivo con las listas de control de acceso, consulte [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+Para más información sobre los permisos de archivo con las listas de control de acceso, consulte [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md).
 
 ### <a name="how-do-i-control-access-to-my-data-in-data-lake-storage-gen2"></a>¿Cómo se controla el acceso a mis datos en Data Lake Storage Gen2?
 
@@ -66,19 +66,19 @@ Para establecer los permisos para que los usuarios consulten los datos, utilice 
 
 Existen varias maneras de acceder a los archivos de Data Lake Storage Gen2 desde un clúster de HDInsight.
 
-* **Con el nombre completo**. Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
+* **Con el nombre completo** . Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
+* **Con el formato abreviado de la ruta de acceso** . Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Con la ruta de acceso relativa**. Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
+* **Con la ruta de acceso relativa** . Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
 
     ```
     /<file.path>/

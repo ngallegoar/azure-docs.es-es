@@ -4,27 +4,27 @@ description: Aprenda a identificar, diagnosticar y solucionar problemas de consu
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089996"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277162"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Solución de problemas de consulta al usar Azure Cosmos DB
 
-Este artículo le guía por un enfoque recomendado general para la solución de problemas con las consultas en Azure Cosmos DB. Aunque no debe tener en cuenta los pasos descritos en este artículo como una defensa completa contra posibles problemas de consulta, hemos incluido aquí las sugerencias de rendimiento más comunes. Use este artículo como punto de partida para la solución de problemas con las consultas lentas o costosas en Core (SQL) API de Azure Cosmos DB. También puede usar los [registros de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar las consultas lentas o que reducen considerablemente el rendimiento.
+Este artículo le guía por un enfoque recomendado general para la solución de problemas con las consultas en Azure Cosmos DB. Aunque no debe tener en cuenta los pasos descritos en este artículo como una defensa completa contra posibles problemas de consulta, hemos incluido aquí las sugerencias de rendimiento más comunes. Use este artículo como punto de partida para la solución de problemas con las consultas lentas o costosas en Core (SQL) API de Azure Cosmos DB. También puede usar los [registros de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar las consultas lentas o que reducen considerablemente el rendimiento. Si usa la API de Azure Cosmos DB para MongoDB, debe usar la [guía de solución de problemas de la API de Azure Cosmos DB para MongoDB](mongodb-troubleshoot-query.md).
 
-En Azure Cosmos DB existen amplias categorías de optimización de consulta:
+Las categorías de las optimizaciones de consulta en Azure Cosmos DB son las siguientes:
 
 - Optimizaciones que reducen el cargo por unidades de solicitud (RU) de la consulta
 - Optimizaciones que solo reducen la latencia
 
-Al reducir el cargo por RU de una consulta, seguramente también reduzca la latencia.
+Al reducir el cargo por RU de una consulta, normalmente se reducirá la latencia.
 
 En este artículo se ofrecen ejemplos que se pueden volver a crear mediante el conjunto de datos [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -44,13 +44,13 @@ Antes de leer esta guía, es útil tener en cuenta los problemas comunes del SDK
 
 ## <a name="get-query-metrics"></a>Obtención de las métricas de consulta
 
-Al optimizar una consulta en Azure Cosmos DB, el primer paso es siempre [obtener las métricas](profile-sql-api-query.md) de la consulta. Estas métricas también están disponibles en Azure Portal. Una vez que ejecute la consulta en el Explorador de datos, las métricas de consulta estarán visibles junto a la pestaña **Resultados**:
+Al optimizar una consulta en Azure Cosmos DB, el primer paso es siempre [obtener las métricas](profile-sql-api-query.md) de la consulta. Estas métricas también están disponibles en Azure Portal. Una vez que ejecute la consulta en el Explorador de datos, las métricas de consulta estarán visibles junto a la pestaña **Resultados** :
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Obtención de las métricas de consulta" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
 Después de obtener las métricas de consulta, compare el **recuento de documentos recuperados** con el de **documentos de salida** de la consulta. Use esta comparación para identificar las secciones pertinentes a las que se hará referencia en este artículo.
 
-El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos necesarios para los resultados de la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida**, habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
+El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos necesarios para los resultados de la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida** , habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
 
 Consulte las secciones siguientes para entender las optimizaciones de consulta pertinentes para su escenario.
 
@@ -92,7 +92,7 @@ Consulte las secciones siguientes para entender las optimizaciones de consulta p
 
 ## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Consultas en las que el recuento de documentos recuperados supera el de documentos de salida
 
- El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos que devuelve la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida**, habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
+ El **recuento de documentos recuperado** es el número de documentos que el motor de consulta necesitaba cargar. El **recuento de documentos de salida** es el número de documentos que devuelve la consulta. Si el **recuento de documentos recuperados** es significativamente mayor que el de **documentos de salida** , habrá al menos una parte de la consulta que no haya podido usar el índice y haya tenido que realizar un examen.
 
 A continuación se muestra un ejemplo de consulta de examen que el índice no sirvió completamente:
 
@@ -191,7 +191,7 @@ Directiva de indexación actualizada:
 
 **Cargo por RU:** 2,98 RU
 
-Puede agregar propiedades a la directiva de indexación en cualquier momento, sin que ello afecte a la disponibilidad o el rendimiento de la escritura. Si agrega una nueva propiedad al índice, las consultas que usen esta propiedad utilizarán inmediatamente el nuevo índice disponible. La consulta utilizará el nuevo índice mientras se está generando. Por lo tanto, los resultados de la consulta podrían ser incoherentes mientras la regeneración del índice está en curso. Si se indexa una nueva propiedad, las consultas que solo utilicen índices que ya existan no se verán afectadas durante la recompilación del índice. Puede [realizar el seguimiento del progreso de transformación del índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Puede agregar propiedades a la directiva de indexación en cualquier momento, sin que ello afecte a la disponibilidad de la escritura o la lectura. Puede [realizar el seguimiento del progreso de transformación del índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Conocimiento de las funciones del sistema que usan el índice
 
@@ -384,7 +384,7 @@ Se supone que solo un elemento de la matriz tags coincide con el filtro, y hay c
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Consultas en las que el recuento de documentos recuperados es igual que el de documentos de salida
 
-Si el **recuento de los documentos recuperados** es aproximadamente igual al de los **documentos de salida**, significa que el motor de consulta no tuvo que examinar muchos documentos innecesarios. Para muchas consultas, como las que usan la palabra clave `TOP`, el **recuento de documentos recuperados** puede superar el de **documentos de salida** en una unidad. No es necesario preocuparse por ello.
+Si el **recuento de los documentos recuperados** es aproximadamente igual al de los **documentos de salida** , significa que el motor de consulta no tuvo que examinar muchos documentos innecesarios. Para muchas consultas, como las que usan la palabra clave `TOP`, el **recuento de documentos recuperados** puede superar el de **documentos de salida** en una unidad. No es necesario preocuparse por ello.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimización de las consultas con particiones cruzadas
 
@@ -469,7 +469,7 @@ Este es el índice compuesto pertinente:
 
 ## <a name="optimizations-that-reduce-query-latency"></a>Optimizaciones que reducen la latencia de las consultas
 
-En muchos casos, el cargo por RU podría ser aceptable cuando la latencia de consulta sigue siendo demasiado alta. En las secciones siguientes se ofrece información general con sugerencias para reducir la latencia de las consultas. Si ejecuta la misma consulta varias veces en el mismo conjunto de datos, tendrá el mismo cargo por RU cada vez. Sin embargo, la latencia de las consultas podría variar entre una ejecución y otra.
+En muchos casos, el cargo por RU podría ser aceptable cuando la latencia de consulta sigue siendo demasiado alta. En las secciones siguientes se ofrece información general con sugerencias para reducir la latencia de las consultas. Si ejecuta la misma consulta varias veces en el mismo conjunto de datos, normalmente tendrá el mismo cargo por RU cada vez. Sin embargo, la latencia de las consultas podría variar entre una ejecución y otra.
 
 ### <a name="improve-proximity"></a>Mejora de la proximidad
 

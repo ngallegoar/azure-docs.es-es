@@ -3,12 +3,12 @@ title: Dominios de eventos de Azure Event Grid
 description: En este artículo se describe cómo usar dominios de eventos para administrar el flujo de eventos personalizados a sus diversas organizaciones empresariales, clientes o aplicaciones.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86114370"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328834"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Dominios de eventos para administrar temas de Event Grid
 
@@ -37,13 +37,13 @@ También le ofrece un punto de conexión único, en el que puede publicar todos 
 
 ## <a name="access-management"></a>Administración de acceso
 
-Con un dominio, obtendrá un mayor control de la autenticación y la autorización sobre cada tema a través del Control de acceso basado en rol (RBAC) de Azure. Estos roles pueden usarse para restringir cada arrendatario de la aplicación únicamente a los temas a los que desea concederle acceso.
+Con un dominio se logra un control de autenticación y autorización específico sobre cada tema por medio del control de acceso basado en rol de Azure (RBAC de Azure). Estos roles pueden usarse para restringir cada arrendatario de la aplicación únicamente a los temas a los que desea concederle acceso.
 
-RBAC en dominios de eventos funciona del mismo modo que lo hace el [control de acceso administrado](security-authorization.md) en el resto de Event Grid y Azure. Use RBAC para crear y aplicar definiciones de roles personalizados en dominios de eventos.
+RBAC de Azure en dominios de eventos funciona del mismo modo que el [control de acceso administrado](security-authorization.md) en el resto de Event Grid y Azure. Use RBAC de Azure para crear y aplicar definiciones de roles personalizadas en dominios de eventos.
 
 ### <a name="built-in-roles"></a>Roles integrados
 
-Event Grid tiene dos definiciones de roles integradas que facilitan el trabajo de RBAC con dominios de eventos. Estos roles son los de **colaborador de EventGrid EventSubscription (versión preliminar)** y **lector de EventGrid EventSubscription (versión preliminar)** . Estos roles se asignan a los usuarios que necesitan suscribirse a temas en el dominio de eventos. El ámbito de la asignación de roles se limita a solo el tema al que necesitan suscribirse los usuarios.
+Event Grid tiene dos definiciones de roles integradas que facilitan el trabajo de RBAC de Azure con dominios de eventos. Estos roles son los de **colaborador de EventGrid EventSubscription (versión preliminar)** y **lector de EventGrid EventSubscription (versión preliminar)** . Estos roles se asignan a los usuarios que necesitan suscribirse a temas en el dominio de eventos. El ámbito de la asignación de roles se limita a solo el tema al que necesitan suscribirse los usuarios.
 
 Para información sobre estos roles, consulte [Roles integrados para Event Grid](security-authorization.md#built-in-roles).
 

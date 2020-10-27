@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978499"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167345"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparación de la infraestructura de Azure para alta disponibilidad de SAP con un clúster de conmutación por error de Windows y un disco compartido para ASCS/SCS de SAP
 
@@ -163,7 +163,7 @@ ms.locfileid: "91978499"
 
 
 Este artículo describe los pasos que debe seguir para preparar la infraestructura de Azure para instalar y configurar una instancia de ASCS/SCS de SAP de alta disponibilidad en un clúster de conmutación por error de Windows mediante el uso de un *disco compartido de clúster* como una opción de agrupación en clústeres de una instancia de ASCS de SAP.
-En la documentación se presentan dos alternativas para el *disco compartido de clúster*:
+En la documentación se presentan dos alternativas para el *disco compartido de clúster* :
 
 - [Discos compartidos de Azure](../../windows/disks-shared.md)
 - Uso de [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para crear un almacenamiento reflejado, que simulará el disco compartido en clúster 
@@ -192,14 +192,17 @@ Los nombres de host y las direcciones IP para el escenario presentado son:
 | --- | --- | --- |---| ---|
 | Primer clúster ASCS/SCS de nodo de clúster |pr1-ascs-10 |10.0.0.4 |pr1-ascs-avset |PR1PPG |
 | Segundo clúster ASCS/SCS de nodo de clúster |pr1-ascs-11 |10.0.0.5 |pr1-ascs-avset |PR1PPG |
-| Nombre de red del clúster | pr1clust |10.0.0.42 (**solo** para el clúster de Win 2016) | N/D | N/D |
+| Nombre de red del clúster | pr1clust |10.0.0.42 ( **solo** para el clúster de Win 2016) | N/D | N/D |
 | Nombre de red del clúster de ASCS | pr1-ascscl |10.0.0.43 | N/D | N/D |
-| Nombre de red del clúster de ERS (**solo** para ERS2) | pr1-erscl |10.0.0.44 | N/D | N/D |
+| Nombre de red del clúster de ERS ( **solo** para ERS2) | pr1-erscl |10.0.0.44 | N/D | N/D |
 
 
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Creación de un equilibrador de carga interno de Azure
 
 ASCS de SAP, SCS de SAP y el nuevo ERS2 de SAP usan direcciones IP virtuales y un nombre de host virtual. En Azure, se requiere un [equilibrador de carga](../../../load-balancer/load-balancer-overview.md) para usar una dirección IP virtual. Se recomienda encarecidamente usar [Standard Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+
+> [!IMPORTANT]
+> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC en escenarios de equilibrio de carga. Para ver detalles, consulte [Limitaciones de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.    
 
 
 En la lista siguiente se muestra la configuración del equilibrador de carga (A)SCS/ERS. La configuración de ASCS de SAP y ERS2 se realiza en el mismo equilibrador de carga de Azure.  
@@ -208,19 +211,19 @@ En la lista siguiente se muestra la configuración del equilibrador de carga (A)
 - Configuración de front-end
     - Dirección IP estática de ASCS/SCS **10.0.0.43**
 - Configuración de back-end  
-    Agregue todas las máquinas virtuales que deben formar parte del clúster de (A)SCS/ERS. En este ejemplo, las máquinas virtuales **pr1-ascs-10** y **pr1-ascs-11**.
+    Agregue todas las máquinas virtuales que deben formar parte del clúster de (A)SCS/ERS. En este ejemplo, las máquinas virtuales **pr1-ascs-10** y **pr1-ascs-11** .
 - Puerto de sondeo
-    - Puerto 620**nr** Deje la opción predeterminada para Protocolo (TCP), Intervalo (5), Umbral incorrecto (2)
+    - Puerto 620 **nr** Deje la opción predeterminada para Protocolo (TCP), Intervalo (5), Umbral incorrecto (2)
 - Reglas de equilibrio de carga.
     - Si usa Standard Load Balancer, seleccione Puertos HA
     - Si usa Basic Load Balancer, cree reglas de equilibrio de carga para los puertos siguientes
-        - 32**nr** TCP
-        - 36**nr** TCP
-        - 39**nr** TCP
-        - 81**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 36 **nr** TCP
+        - 39 **nr** TCP
+        - 81 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Asegúrese de que el tiempo de expiración de inactividad (minutos) esté establecido en el valor máximo de 30, y que la dirección IP flotante (Direct Server Return) esté habilitada.
 
@@ -234,17 +237,17 @@ Como Enqueue Replication Server 2 (ERS2) también es un clúster, la dirección 
   Las máquinas virtuales ya se han agregado al grupo de back-end de ILB.  
 
 - Segundo puerto de sondeo
-    - Puerto 621**nr**  
+    - Puerto 621 **nr**  
     Deje la opción predeterminada para Protocolo (TCP), Intervalo (5), Umbral incorrecto (2)
 
 - Segundas reglas de equilibrio de carga
     - Si usa Standard Load Balancer, seleccione Puertos HA
     - Si usa Basic Load Balancer, cree reglas de equilibrio de carga para los puertos siguientes
-        - 32**nr** TCP
-        - 33**nr** TCP
-        - 5**nr**13 TCP
-        - 5**nr**14 TCP
-        - 5**nr**16 TCP
+        - 32 **nr** TCP
+        - 33 **nr** TCP
+        - 5 **nr** 13 TCP
+        - 5 **nr** 14 TCP
+        - 5 **nr** 16 TCP
 
     - Asegúrese de que el tiempo de expiración de inactividad (minutos) esté establecido en el valor máximo de 30, por ejemplo, y que la dirección IP flotante (Direct Server Return) esté habilitada.
 
@@ -463,13 +466,13 @@ Antes de instalar el software de SIOS, cree el usuario de dominio DataKeeperSvc.
 
    _Primera página de la instalación de SIOS DataKeeper_
 
-2. En el cuadro de diálogo, seleccione **Sí**.
+2. En el cuadro de diálogo, seleccione **Sí** .
 
    ![Figura 32: DataKeeper le informa que se deshabilitará un servicio][sap-ha-guide-figure-3032]
 
    _Información de DataKeeper de la próxima deshabilitación de un servicio_
 
-3. En el cuadro de diálogo, se recomienda seleccionar **Cuenta de dominio o de servidor**.
+3. En el cuadro de diálogo, se recomienda seleccionar **Cuenta de dominio o de servidor** .
 
    ![Figura 33: Selección del usuario para SIOS DataKeeper][sap-ha-guide-figure-3033]
 
@@ -492,7 +495,7 @@ Antes de instalar el software de SIOS, cree el usuario de dominio DataKeeperSvc.
 ### <a name="configure-sios-datakeeper"></a>Configuración de SIOS DataKeeper
 Después de instalar SIOS DataKeeper en ambos nodos, inicie la configuración. El objetivo de la configuración es conseguir la replicación sincrónica de datos entre los discos adicionales conectados a cada una de las máquinas virtuales.
 
-1. Inicie la herramienta de configuración y administración de DataKeeper y, luego, seleccione **Servidor de conexión**.
+1. Inicie la herramienta de configuración y administración de DataKeeper y, luego, seleccione **Servidor de conexión** .
 
    ![Figura 36: Herramienta de configuración y administración de SIOS DataKeeper][sap-ha-guide-figure-3036]
 
@@ -502,7 +505,7 @@ Después de instalar SIOS DataKeeper en ambos nodos, inicie la configuración. E
 
    ![Figura 37: Inserte el nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo][sap-ha-guide-figure-3037]
 
-   _Inserción del nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo_.
+   _Inserción del nombre o la dirección TCP/IP del primer nodo al que se debe conectar la herramienta de configuración y administración y, en un segundo paso, el segundo nodo_ .
 
 3. Cree el trabajo de replicación entre los dos nodos.
 

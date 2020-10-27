@@ -3,12 +3,12 @@ title: Conceptos de DevTest Labs | Microsoft Docs
 description: Aprenda los conceptos básicos de DevTest Labs y cómo puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b184f835ee99d47ddb843e5b02136299c26bfcdc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283850"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327865"
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
 ## <a name="overview"></a>Información general
@@ -23,7 +23,7 @@ Una máquina virtual de Azure es uno de los distintos tipos de [recursos inform�
 [Información general sobre las máquinas virtuales Windows en Azure](../virtual-machines/windows/overview.md) proporciona información sobre lo que se debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
 
 ## <a name="claimable-vm"></a>Creación de máquinas virtuales reclamables
-Una máquina virtual reclamable de Azure Claimable es una que está disponible para que pueda usarla cualquier usuario de laboratorio con permisos. Un administrador de laboratorio puede preparar las máquinas virtuales con los artefactos y las imágenes base específicas y guardarlas en un grupo compartido. Luego, un usuario de laboratorio puede solicitar una máquina virtual de trabajo del grupo cuando necesite una con esa configuración concreta.
+Una máquina virtual reclamable de Azure Claimable es una que está disponible para que pueda usarla cualquier usuario de laboratorio con permisos. Un administrador de laboratorio puede preparar las máquinas virtuales con los artefactos y las imágenes base específicas, y guardarlas en un grupo compartido. Luego, un usuario de laboratorio puede solicitar una máquina virtual de trabajo del grupo cuando necesite una con esa configuración concreta.
 
 Una máquina virtual reclamable no se asigna inicialmente a ningún usuario concreto, pero se mostrará en la lista de todos los usuarios en "Claimable virtual machines" (Máquinas virtuales reclamables). Después de que un usuario reclame una máquina virtual, se mueve hasta su área "Mis máquinas virtuales" y ya no podrá reclamarla otro usuario.
 
@@ -56,7 +56,7 @@ Las directivas ayudan a controlar los costos en su laboratorio. Por ejemplo, pue
 Los límites son un mecanismo que sirve para minimizar la pérdida en el laboratorio. Por ejemplo, puede establecer un límite para restringir el número de máquinas virtuales que se pueden crear por usuario o en un laboratorio.
 
 ## <a name="security-levels"></a>Niveles de seguridad
-El acceso de seguridad lo determina el control de acceso basado en roles de Azure (Azure RBAC). Para entender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en RBAC.
+El acceso de seguridad lo determina el control de acceso basado en roles de Azure (Azure RBAC). Para entender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en Azure RBAC.
 
 * Permiso: un permiso es un acceso definido para una acción específica (por ejemplo, acceso de lectura a todas las máquinas virtuales).
 * Rol: un rol es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, el rol de *propietario de la suscripción* tiene acceso a todos los recursos dentro de una suscripción.

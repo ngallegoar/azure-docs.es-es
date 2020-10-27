@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207157"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168195"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Solución de preguntas o problemas comunes del controlador de entrada
 
@@ -85,15 +85,15 @@ Después de una implementación correcta de la aplicación en su clúster de AKS
 Obtenga la lista de pods con [Cloud Shell](https://shell.azure.com/): `kubectl get pods -o wide`.
 Esperamos que se haya creado un pod llamado "test-agic-app-pod". Tendrá una dirección IP. Esta dirección debe estar dentro de la red virtual de Application Gateway, que se usa con AKS.
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Captura de pantalla de la ventana de Bash en Azure Cloud Shell que muestra una lista de pods que incluye test-agic-app-pod en la lista.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Obtenga la lista de servicios: `kubectl get services -o wide`. Esperamos ver un servicio llamado "test-agic-app-service".
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![Captura de pantalla de la ventana de Bash en Azure Cloud Shell que muestra una lista de servicios que incluye test-agic-app-pod en la lista.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Obtenga la lista de las entradas: `kubectl get ingress`. Esperamos que se haya creado un recurso de entrada llamado "test-agic-app-ingress". El recurso tendrá el nombre de host "test.agic.contoso.com".
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![Captura de pantalla de la ventana de Bash en Azure Cloud Shell que muestra una lista de entradas que incluye test-agic-app-ingress en la lista.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 Uno de los pods será AGIC. `kubectl get pods` mostrará una lista de pods, uno de los cuales comenzará con "ingress-azure". Obtenga todos los registros de ese pod con `kubectl logs <name-of-ingress-controller-pod>` para comprobar que se ha realizado correctamente la implementación. Una implementación correcta agregará las siguientes líneas al registro:
 ```
@@ -120,7 +120,7 @@ Por último, podemos usar el comando `cURL` desde [Cloud Shell](https://shell.az
 1. Use `kubectl get ingress` para obtener la dirección IP pública de Application Gateway
 2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![Captura de pantalla de la ventana de Bash en Azure Cloud Shell que muestra un comando cURL que establece correctamente una conexión HTTP a la aplicación de prueba.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 El resultado de `HTTP/1.1 200 OK` indica que el sistema de Application Gateway + AKS + AGIC funciona según lo esperado.
 
@@ -150,7 +150,7 @@ Para que AGIC funcione según lo esperado, es necesario que:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. La **entrada**, anotada con `kubernetes.io/ingress.class: azure/application-gateway`, haga referencia al servicio anterior. Compruébelo desde [Cloud Shell](https://shell.azure.com/) con `kubectl get ingress -o wide --show-labels`
+  3. La **entrada** , anotada con `kubernetes.io/ingress.class: azure/application-gateway`, haga referencia al servicio anterior. Compruébelo desde [Cloud Shell](https://shell.azure.com/) con `kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 

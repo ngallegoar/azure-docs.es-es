@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714218"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170058"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -87,7 +87,7 @@ Un [grupo de inscripción](../../iot-dps/concepts-service.md#enrollment) es un g
 - En un grupo de inscripción X.509, todos los dispositivos que se conectan a IoT Central utilizan certificados X.509 de hoja generados a partir del certificado raíz o intermedio en el grupo de inscripción.
 - En un grupo de inscripción SAS, todos los dispositivos que se conectan a IoT Central utilizan un token SAS generado a partir del token SAS en el grupo de inscripción.
 
-Los dos grupos de inscripción predeterminados de cada aplicación de IoT Central son grupos de inscripción SAS: uno para dispositivos IoT y otro para dispositivos Azure IoT Edge. Para crear un grupo de inscripción X.509, vaya a la página **Conexión del dispositivo** y seleccione **+ Agregar grupo de inscripciones**:
+Los dos grupos de inscripción predeterminados de cada aplicación de IoT Central son grupos de inscripción SAS: uno para dispositivos IoT y otro para dispositivos Azure IoT Edge. Para crear un grupo de inscripción X.509, vaya a la página **Conexión del dispositivo** y seleccione **+ Agregar grupo de inscripciones** :
 
 :::image type="content" source="media/concepts-get-connected/add-enrollment-group.png" alt-text="Captura de pantalla de adición de un grupo de inscripción X.509":::
 
@@ -95,9 +95,9 @@ Los dos grupos de inscripción predeterminados de cada aplicación de IoT Centra
 
 Para agregar y verificar un certificado raíz o intermedio en su grupo de inscripción, haga lo siguiente:
 
-1. Vaya al grupo de inscripción X.509 que acaba de crear. Tiene la opción de agregar certificados X.509 principales y secundarios. Seleccione **+ Administrar principal**.
+1. Vaya al grupo de inscripción X.509 que acaba de crear. Tiene la opción de agregar certificados X.509 principales y secundarios. Seleccione **+ Administrar principal** .
 
-1. En la página **Certificado principal**, cargue el certificado X.509 principal. Este es su certificado raíz o intermedio:
+1. En la página **Certificado principal** , cargue el certificado X.509 principal. Este es su certificado raíz o intermedio:
 
     :::image type="content" source="media/concepts-get-connected/upload-primary-certificate.png" alt-text="Captura de pantalla de adición de un grupo de inscripción X.509":::
 
@@ -113,7 +113,7 @@ Si sufre una infracción de seguridad o si el certificado principal está config
 
 ### <a name="register-and-connect-devices"></a>Registro y conexión de dispositivos
 
-Para conectar dispositivos de forma masiva mediante certificados X.509, registre primero los dispositivos en la aplicación mediante un archivo CSV para [importar los identificadores y los nombres de los dispositivos](howto-manage-devices.md#import-devices). Todos los identificadores de dispositivo deben estar en minúsculas.
+Para conectar dispositivos de forma masiva mediante certificados X.509, registre primero los dispositivos en la aplicación mediante un archivo CSV para [importar los identificadores y los nombres de los dispositivos](howto-manage-devices.md#import-devices). Un identificador de dispositivo puede contener letras, números y el carácter `-`.
 
 Genere certificados X.509 de hoja para los dispositivos con el certificado raíz o intermedio que cargó en el grupo de inscripción X.509. Use el valor de **Device ID** (Id. de dispositivo) como valor `CNAME` en los certificados de hoja. El código del dispositivo necesita el valor de **ID scope** (Id. de ámbito) de la aplicación, el valor de **device ID** (Id. de dispositivo) y el certificado de dispositivo correspondiente.
 
@@ -145,11 +145,11 @@ El flujo es ligeramente diferente en función de si los dispositivos usan tokens
 
 ### <a name="connect-devices-that-use-sas-tokens-without-registering"></a>Conexión de los dispositivos que usan tokens de SAS sin registrarse
 
-1. Copie la clave principal del grupo desde el grupo de inscripción **SAS-IoT-Devices**:
+1. Copie la clave principal del grupo desde el grupo de inscripción **SAS-IoT-Devices** :
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Captura de pantalla de adición de un grupo de inscripción X.509":::
 
-1. Use el comando `az iot central device compute-device-key` para generar las claves SAS del dispositivo. Use la clave principal del grupo del paso anterior. El identificador del dispositivo debe estar en minúsculas:
+1. Use el comando `az iot central device compute-device-key` para generar las claves SAS del dispositivo. Use la clave principal del grupo del paso anterior. El identificador de dispositivo puede contener letras, números y el carácter `-`:
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -170,7 +170,7 @@ El flujo es ligeramente diferente en función de si los dispositivos usan tokens
 
 1. [Cree un grupo de inscripción](#create-an-enrollment-group) y, luego, [agregue y verifique un certificado X.509 raíz o intermedio](#add-and-verify-a-root-or-intermediate-x509-certificate) a la aplicación de IoT Central.
 
-1. genere los certificados de hoja para sus dispositivos mediante el certificado raíz o intermedio que agregó a la aplicación de IoT Central. Use los identificadores de dispositivo en minúsculas como `CNAME` en los certificados de hoja.
+1. genere los certificados de hoja para sus dispositivos mediante el certificado raíz o intermedio que agregó a la aplicación de IoT Central. Use los identificadores de dispositivo como `CNAME` en los certificados de hoja. Un identificador de dispositivo puede contener letras, números y el carácter `-`.
 
 1. El OEM carga cada dispositivo con un identificador de dispositivo, un certificado X.509 de hoja generado y el valor de **ID scope** (Ámbito de id.) de la aplicación.
 
@@ -185,7 +185,7 @@ El flujo es ligeramente diferente en función de si los dispositivos usan tokens
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Conectividad de dispositivos basada en inscripciones individuales
 
-Para los clientes que conectan dispositivos que tienen sus propias credenciales de autenticación, use inscripciones individuales. Una inscripción individual es una entrada para un único dispositivo que tiene permiso para conectarse. Las inscripciones individuales pueden usar certificados X.509 de hoja o tokens de SAS (de un módulo de plataforma segura físico o virtual) como mecanismos de atestación. El identidad del dispositivo (también conocido como identificador de registro) de una inscripción individual está formado por caracteres alfanuméricos y en minúscula, y puede contener guiones. Para más información, consulte [Inscripción individual de DPS](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+Para los clientes que conectan dispositivos que tienen sus propias credenciales de autenticación, use inscripciones individuales. Una inscripción individual es una entrada para un único dispositivo que tiene permiso para conectarse. Las inscripciones individuales pueden usar certificados X.509 de hoja o tokens de SAS (de un módulo de plataforma segura físico o virtual) como mecanismos de atestación. El identificador de dispositivo (también conocido como identificador de registro) de una inscripción individual. Un identificador de dispositivo puede contener letras, números y el carácter `-`. Para más información, consulte [Inscripción individual de DPS](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > Cuando se crea una inscripción individual para un dispositivo, tiene prioridad sobre las opciones de inscripción de grupo predeterminadas de la aplicación de IoT Central.
@@ -204,7 +204,7 @@ IoT Central admite los siguientes mecanismos de atestación para las inscripcion
     > [!TIP]
     > Con fines de prueba, puede usar las [herramientas para el SDK de dispositivo de Azure IoT Device Provisioning para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) para generar un certificado autofirmado: `node create_test_cert.js device "mytestdevice"`
 
-- **Atestación del Módulo de plataforma segura (TPM):** Un [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) es un tipo de módulo de seguridad de hardware. El uso de un TPM es una de las formas más seguras de conectar un dispositivo. En este artículo se supone que usa un TPM discreto, de firmware o integrado. Los TPM emulados por software son adecuados para prototipos o pruebas, pero no brindan el mismo nivel de seguridad que los TPM discretos, de firmware o integrados. No use TPM de software en producción. Para crear una inscripción individual que use un TPM, abra la página **Device Connection** (Conexión de dispositivos), seleccione **Individual enrollment** (Inscripción individual) como método de conexión y **TPM** como mecanismo. Escriba la clave de aprobación de TPM y guarde la información de conexión del dispositivo.
+- **Atestación del Módulo de plataforma segura (TPM):** Un [TPM](../../iot-dps/concepts-tpm-attestation.md) es un tipo de módulo de seguridad de hardware. El uso de un TPM es una de las formas más seguras de conectar un dispositivo. En este artículo se supone que usa un TPM discreto, de firmware o integrado. Los TPM emulados por software son adecuados para prototipos o pruebas, pero no brindan el mismo nivel de seguridad que los TPM discretos, de firmware o integrados. No use TPM de software en producción. Para crear una inscripción individual que use un TPM, abra la página **Device Connection** (Conexión de dispositivos), seleccione **Individual enrollment** (Inscripción individual) como método de conexión y **TPM** como mecanismo. Escriba la clave de aprobación de TPM y guarde la información de conexión del dispositivo.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Asociación automática a una plantilla de dispositivo
 
@@ -236,15 +236,15 @@ Este es el formato de los dispositivos que usan el SDK de dispositivo de versió
 
 Cuando un dispositivo real se conecta a la aplicación de IoT Central, su estado de dispositivo cambia como sigue:
 
-1. Primero, el estado del dispositivo es **Registrado**. Este estado significa que el dispositivo se ha creado en IoT Central y tiene un identificador. El dispositivo está registrado cuando:
-    - Se agrega un nuevo dispositivo real en la página **Dispositivos**.
-    - Se agrega un conjunto de dispositivos mediante **Importar** en la página **Dispositivos**.
+1. Primero, el estado del dispositivo es **Registrado** . Este estado significa que el dispositivo se ha creado en IoT Central y tiene un identificador. El dispositivo está registrado cuando:
+    - Se agrega un nuevo dispositivo real en la página **Dispositivos** .
+    - Se agrega un conjunto de dispositivos mediante **Importar** en la página **Dispositivos** .
 
 1. El estado del dispositivo cambia a **Aprovisionado** cuando el dispositivo conectado a la aplicación de IoT Central con credenciales válidas completa el paso de aprovisionamiento. En este paso, el dispositivo usa DPS para recuperar automáticamente una cadena de conexión de IoT Hub que usa la aplicación de IoT Central. El dispositivo puede conectarse ahora a IoT Hub y empezar a enviar datos.
 
-1. Los dispositivos los puede bloquear un operador. Cuando están bloqueados, no pueden enviar datos a la aplicación de IoT Central. Los dispositivos bloqueados tienen un estado de **Bloqueado**. Un operador debe restablecer el dispositivo para que pueda volver a enviar datos. Cuando un operador desbloquea un dispositivo, el estado vuelve a su valor anterior, **Registrado** o **Aprovisionado**.
+1. Los dispositivos los puede bloquear un operador. Cuando están bloqueados, no pueden enviar datos a la aplicación de IoT Central. Los dispositivos bloqueados tienen un estado de **Bloqueado** . Un operador debe restablecer el dispositivo para que pueda volver a enviar datos. Cuando un operador desbloquea un dispositivo, el estado vuelve a su valor anterior, **Registrado** o **Aprovisionado** .
 
-1. Si el estado del dispositivo es **Waiting for Approval** (Esperando aprobación), significa que la opción **Auto approve** (Aprobación automática) está deshabilitada. Un operador debe aprobar explícitamente un dispositivo antes de que empiece a enviar datos. Los dispositivos no registrados manualmente en la página **Dispositivos**, pero conectados con credenciales válidas, tendrán el estado del dispositivo **En espera de aprobación**. Los operadores pueden aprobar estos dispositivos desde la página **Dispositivos** mediante el botón **Aprobar**.
+1. Si el estado del dispositivo es **Waiting for Approval** (Esperando aprobación), significa que la opción **Auto approve** (Aprobación automática) está deshabilitada. Un operador debe aprobar explícitamente un dispositivo antes de que empiece a enviar datos. Los dispositivos no registrados manualmente en la página **Dispositivos** , pero conectados con credenciales válidas, tendrán el estado del dispositivo **En espera de aprobación** . Los operadores pueden aprobar estos dispositivos desde la página **Dispositivos** mediante el botón **Aprobar** .
 
 1. Si el estado del dispositivo es **Unassociated** (No asociado), significa que el dispositivo que se conecta a IoT Central no tiene una plantilla de dispositivo asociada. Esta situación suele darse en los escenarios siguientes:
 

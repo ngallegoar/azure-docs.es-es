@@ -1,18 +1,18 @@
 ---
 title: Descripción de los conceptos del repositorio de modelos de dispositivo | Microsoft Docs
-description: La finalidad de este artículo es que los profesionales de TI o los desarrolladores de soluciones conozcan los conceptos básicos del repositorio de modelos de dispositivo.
+description: La finalidad de este artículo es que tanto los profesionales de TI como los desarrolladores de soluciones conozcan los conceptos básicos del repositorio de modelos de dispositivo.
 author: rido-min
 ms.author: rmpablos
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042888"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131367"
 ---
 # <a name="device-model-repository"></a>Repositorio de modelos de dispositivo
 
@@ -24,20 +24,20 @@ DMR define un patrón para almacenar interfaces de DTDL en una estructura de car
 
 Microsoft hospeda un DMR público con estas características:
 
-- Modelos seleccionados. Microsoft revisa y aprueba todas las interfaces disponibles mediante un flujo de trabajo de validación de PR de GitHub abierto.
+- Modelos seleccionados. Microsoft revisa y aprueba todas las interfaces disponibles mediante un flujo de trabajo de validación de la solicitud de incorporación de cambios de GitHub (PR).
 - Inmutabilidad.  Una vez publicada, una interfaz no se puede actualizar.
-- Hiperescala Microsoft proporciona toda la infraestructura necesaria para crear un punto de conexión seguro y altamente escalable.
+- Hiperescala Microsoft proporciona la infraestructura necesaria para crear un punto de conexión seguro y escalable en el que pueda publicar y consumir modelos de dispositivos.
 
 ## <a name="custom-device-model-repository"></a>Repositorio de modelos de dispositivo personalizados
 
-Puede usar el mismo patrón de DMR en cualquier medio de almacenamiento, como el sistema de archivos local o servidores web HTTP personalizados, para crear un DMR personalizado. Puede recuperar modelos del DMR personalizados de la misma manera que desde el DMR público. Solo tiene que cambiar la dirección URL base que se usa para acceder al DMR.
+Puede usar el mismo patrón de DMR en cualquier medio de almacenamiento, como el sistema de archivos local o servidores web HTTP personalizados, para crear un DMR personalizado. Los modelos de dispositivos se pueden recuperar del DMR personalizado de la misma manera que desde el DMR público, solo hay que cambiar la dirección URL base que se usa para acceder al DMR.
 
 > [!NOTE]
-> Las herramientas que se usan para validar los modelos en el DMR público se pueden reutilizar en repositorios personalizados.
+> Microsoft proporciona las herramientas necesarias para validar modelos de dispositivos en el DMR público. Estas herramientas se pueden usar también en repositorios personalizados.
 
 ## <a name="public-models"></a>Modelos públicos
 
-Los modelos de gemelos digitales públicos almacenados en el repositorio de modelos están disponibles para que todos los usuarios los consuman e integren en sus aplicaciones. Los modelos públicos permiten un ecosistema abierto donde creadores de dispositivos y desarrolladores de soluciones puedan compartir y reutilizar sus modelos de dispositivo IoT Plug and Play.
+Los modelos de dispositivos públicos almacenados en el repositorio de modelos están disponibles para que todos los usuarios los consuman e integren en sus aplicaciones. Los modelos de dispositivos públicos permiten un ecosistema abierto donde creadores de dispositivos y desarrolladores de soluciones puedan compartir y reutilizar sus modelos de dispositivo IoT Plug and Play.
 
 Consulte la sección [Publicación de modelos](#publish-a-model) para obtener instrucciones sobre cómo publicar un modelo en el repositorio de modelos para que sea público.
 
@@ -47,7 +47,7 @@ Todas las interfaces de las carpetas `dtmi` también están disponibles en el pu
 
 ### <a name="resolve-models"></a>Resolver modelos
 
-Para acceder mediante programación a estas interfaces, debe convertir un DTMI en una ruta de acceso relativa que pueda usar para consultar el punto de conexión público. En el ejemplo de código siguiente se muestra cómo hacerlo:
+Para acceder a estas interfaces mediante programación, es preciso convertir un DTMI en una ruta de acceso relativa que se pueda usar para consultar el punto de conexión público. En el ejemplo de código siguiente se muestra cómo hacerlo:
 
 Para convertir un DTMI en una ruta de acceso absoluta, usamos la función `DtmiToPath` con `IsValidDtmi`:
 
@@ -88,14 +88,14 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Bifurque el repositorio de GitHub público: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models).
 1. Clone el repositorio bifurcado. Opcionalmente, puede crear una nueva rama para mantener los cambios aislados de la rama `main`.
 1. Agregue las nuevas interfaces a la carpeta `dtmi` con la convención carpeta/nombre de archivo. Consulte la herramienta [add-model](#add-model).
-1. Valide los modelos localmente mediante la sección [scripts para validar cambios](#validate-files).
+1. Valide los modelos de dispositivos localmente mediante la sección [scripts para validar cambios](#validate-files).
 1. Confirme los cambios de forma local y envíelos a la bifurcación.
-1. Desde la bifurcación, cree una PR que tenga como destino la rama `main`. Consulte la documentación para [Crear una incidencia o una solicitud de incorporación de cambios](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request).
-1. Revise los [Requisitos de PR](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
+1. Desde la bifurcación, cree una solicitud de incorporación de cambios que tenga como destino la rama `main`. Consulte la documentación para [Crear una incidencia o una solicitud de incorporación de cambios](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request).
+1. Revise los [requisitos de solicitud de incorporación de cambios](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-La PR desencadena una serie de acciones de GitHub que validarán las nuevas interfaces enviadas y se asegurará de que la PR supera todas las comprobaciones.
+La solicitud de incorporación de cambios desencadena una serie de acciones de GitHub que validarán las nuevas interfaces enviadas y se asegurará de que dicha solicitud supera todas las comprobaciones.
 
-Microsoft responderá a una PR con todas las comprobaciones en tres días laborables.
+Microsoft responderá a las solicitudes de incorporación de cambios con todas las comprobaciones en tres días laborables.
 
 ### <a name="add-model"></a>add-model
 
@@ -109,7 +109,7 @@ Observe si en la salida de la consola hay algún mensaje de error.
 
 ### <a name="local-validation"></a>Validación local
 
-Puede ejecutar las mismas comprobaciones de validación localmente antes de enviar la PR para ayudar a diagnosticar problemas de antemano.
+Puede ejecutar las mismas comprobaciones de validación localmente antes de enviar la solicitud de incorporación de cambios para ayudar a diagnosticar problemas de antemano.
 
 #### <a name="validate-files"></a>validate-files
 
@@ -125,7 +125,7 @@ Puede ejecutar las mismas comprobaciones de validación localmente antes de envi
 
 #### <a name="validate-models"></a>validate-models
 
-Puede ejecutar la [muestra de validación de DTDL](https://github.com/Azure-Samples/DTDL-Validator) para validar los modelos localmente.
+Puede ejecutar la [muestra de validación de DTDL](https://github.com/Azure-Samples/DTDL-Validator) para validar los modelos de dispositivos localmente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

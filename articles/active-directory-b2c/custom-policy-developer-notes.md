@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 23e443a542ed22906abb237e402834b707e623a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88852032"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214913"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas para desarrolladores sobre directivas personalizadas en Azure Active Directory B2C
 
@@ -66,7 +66,7 @@ Las directivas personalizadas y las funcionalidades de Identity Experience Frame
 | Característica | Desarrollo | Vista previa | GA | Notas |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | [Código de autorización OAuth2](authorization-code-flow.md) |  |  | X |  |
-| Código de autorización OAuth2 con PKCE |  |  | X | Solo aplicaciones móviles  |
+| Código de autorización OAuth2 con PKCE |  |  | X | [Clientes públicos y aplicaciones de una sola página](authorization-code-flow.md)  |
 | [Flujo implícito de OAuth2](implicit-flow-single-page-application.md) |  |  | X |  |
 | [Credenciales de contraseña del propietario del recurso OAuth2](ropc-custom.md) |  | X |  |  |
 | [Conexión OIDC](openid-connect.md) |  |  | X |  |

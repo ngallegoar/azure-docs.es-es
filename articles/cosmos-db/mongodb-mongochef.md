@@ -8,12 +8,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 18a9f97d2cee9dd17345a1c8c0ae0efe442d79a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c9ea401a4a62f617b5acf6f96c60532d929ff1c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85799401"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167975"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Conexión a una cuenta de Azure Cosmos mediante Studio 3T
 
@@ -39,7 +39,7 @@ Para agregar la cuenta de Azure Cosmos al administrador de conexiones de Studio 
 4. En la ventana **New Connection** (Nueva conexión), en la pestaña **Authentication** (Autenticación), elija el modo de autenticación **Basic (MONGODB-CR or SCARM-SHA-1)** [Básico (MONGODB-CR o SCARM-SHA-1)] y escriba el NOMBRE DE USUARIO y la CONTRASEÑA.  Acepte la base de datos de autenticación predeterminada (admin) o proporcione su propio valor.
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png" alt-text="Captura de pantalla de la página Cadena de conexión.":::
-5. En la ventana **New Connection** (Nueva conexión), en la pestaña **SSL**, active la casilla **Use SSL protocol to connect** (Usar protocolo SSL para conectar) y el botón de radio **Accept server self-signed SSL certificates** (Aceptar certificados SSL autofirmados del servidor).
+5. En la ventana **New Connection** (Nueva conexión), en la pestaña **SSL** , active la casilla **Use SSL protocol to connect** (Usar protocolo SSL para conectar) y el botón de radio **Accept server self-signed SSL certificates** (Aceptar certificados SSL autofirmados del servidor).
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerSSLTab.png" alt-text="Captura de pantalla de la página Cadena de conexión.":::
 6. Haga clic en el botón **Test Connection** (Probar conexión) para validar la información de conexión, haga clic en **OK** (Aceptar) para volver a la ventana de la nueva conexión y, finalmente, haga clic en **Save** (Guardar).
@@ -52,10 +52,10 @@ Para crear una base de datos, una colección y unos documentos con Studio 3T, re
 1. En **Connection Manager** (Administrador de conexiones), resalte la conexión y haga clic en **Connect** (Conectar).
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectToAccount.png" alt-text="Captura de pantalla de la página Cadena de conexión.":::
-2. Haga clic con el botón derecho en el host y elija **Add Database** (Agregar base de datos).  Especifique un nombre de base de datos y haga clic en **OK**(Aceptar).
+2. Haga clic con el botón derecho en el host y elija **Add Database** (Agregar base de datos).  Especifique un nombre de base de datos y haga clic en **OK** (Aceptar).
 
     :::image type="content" source="./media/mongodb-mongochef/AddDatabase1.png" alt-text="Captura de pantalla de la página Cadena de conexión.":::
-3. Haga clic con el botón derecho en la base de datos y elija **Add Collection** (Agregar colección).  Especifique un nombre para la colección y haga clic en **Create**(Create).
+3. Haga clic con el botón derecho en la base de datos y elija **Add Collection** (Agregar colección).  Especifique un nombre para la colección y haga clic en **Create** (Create).
 
     :::image type="content" source="./media/mongodb-mongochef/AddCollection.png" alt-text="Captura de pantalla de la página Cadena de conexión.":::
 4. Haga clic en el elemento de menú **Collection** (Colección) y en **Add Document** (Agregar documento).

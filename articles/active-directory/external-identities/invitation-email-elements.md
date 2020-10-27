@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439834"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340640"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
 Los correos electrónicos de invitación son un componente fundamental para incorporar a los asociados como usuarios de colaboración B2B en Azure AD. Si bien [no es necesario que envíe un correo electrónico para invitar a alguien a usar la colaboración B2B](add-user-without-invite.md), al hacerlo, se le proporciona al usuario toda la información que necesita para tomar una decisión sobre si aceptar la invitación. También le proporciona un vínculo al que siempre puede hacer referencia en el futuro cuando necesiten volver a los recursos.
 
 ![Captura de pantalla que muestra el correo electrónico de invitación de B2B](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> Esta plantilla de correo electrónico nueva todavía se está implementando en todos los inquilinos, por lo que algunos inquilinos siguen usando un diseño anterior. A fines de mayo de 2020, las invitaciones de todos los inquilinos utilizarán esta plantilla.
 
 ## <a name="explaining-the-email"></a>Explicación del correo electrónico
 
@@ -52,17 +49,11 @@ El correo electrónico comienza con una breve advertencia para el usuario sobre 
 
 ![Imagen de la advertencia de suplantación de identidad (phishing) en el correo electrónico](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Información sobre el invitador
+### <a name="inviters-information-and-invitation-message"></a>Información del invitador y mensaje de invitación
 
-El correo electrónico incluye información sobre el invitador y la organización de la que está enviando la invitación. Esto incluye el nombre y la dirección de correo electrónico del remitente, así como el nombre y el dominio principal asociados con la organización. Toda esta información debe ayudar al invitado a tomar una decisión informada sobre si aceptar la invitación.
+El correo electrónico incluye el nombre y el dominio principal asociados a la organización que envía la invitación. Esta información debe ayudar al invitado a tomar una decisión fundamentada sobre la aceptación de la invitación. Si el invitador incluye un mensaje como parte de su invitación cuando [invita a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o cuando [usa la API de invitación](customize-invitation-api.md), el mensaje aparece resaltado en la sección principal del correo electrónico. También se incluye el nombre y la imagen de perfil del invitador, si se estableció. El mensaje mismo es un área de texto por lo que, por motivos de seguridad, no procesa etiquetas HTML.
 
-![Imagen de la información del invitador en el correo electrónico](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Mensaje de invitación
-
-Si el invitador incluye un mensaje como parte de su invitación cuando [invita a un usuario invitado al directorio, grupo o aplicación](add-users-administrator.md) o cuando [usa la API de invitación](customize-invitation-api.md), el mensaje aparece resaltado en la sección principal del correo electrónico. También se incluye el nombre y la imagen de perfil del invitador, si se estableció. El mensaje mismo es un área de texto por lo que, por motivos de seguridad, no procesa etiquetas HTML.
-
-![Imagen del mensaje de invitación en el correo electrónico](media/invitation-email-elements/invitation-message.png)
+![Imagen del mensaje de invitación en el correo electrónico](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Botón Aceptar y URL de redireccionamiento
 
@@ -78,7 +69,7 @@ El pie de página contiene más información sobre la invitación que se envía.
 
 ### <a name="blocking-an-organization-unsubscribing"></a>Bloqueo de una organización (cancelación de suscripción)
 
-En la invitación de una organización, el pie de página contiene una opción para **bloquear las invitaciones futuras**. Un usuario invitado puede seleccionar este vínculo para bloquear cualquier invitación futura de la organización. Esta acción también agrega la organización a la lista de suscripciones canceladas del usuario en [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
+En la invitación de una organización, el pie de página contiene una opción para **bloquear las invitaciones futuras** . Un usuario invitado puede seleccionar este vínculo para bloquear cualquier invitación futura de la organización. Esta acción también agrega la organización a la lista de suscripciones canceladas del usuario en [https://invitations.microsoft.com/unsubscribe/manage](https://invitations.microsoft.com/unsubscribe/manage).
 
 ### <a name="viewing-organizations-youve-blocked"></a>Visualización de las organizaciones que ha bloqueado
 
@@ -88,7 +79,7 @@ Un usuario invitado puede seguir estos pasos para ver o exportar las organizacio
 2. Escriba su correo electrónico y siga los pasos de inicio de sesión para la autenticación de código de acceso de un solo uso de correo electrónico.
 3. Puede ver las organizaciones que ha bloqueado o exportar los nombres mediante copiar y pegar.
    > [!NOTE]
-   > Si desea permitir que una organización que ha bloqueado le invite de nuevo, puede elegir la organización y seleccionar **Siguiente**.
+   > Si desea permitir que una organización que ha bloqueado le invite de nuevo, puede elegir la organización y seleccionar **Siguiente** .
 
 ## <a name="how-the-language-is-determined"></a>Cómo se determina el idioma
 

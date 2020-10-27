@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256763"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103159"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la Plataforma de identidad de Microsoft
 
@@ -46,7 +46,7 @@ Muchas aplicaciones modernas tienen un front-end de aplicación de página únic
 
 En el diagrama de flujo siguiente se muestra la concesión de código de autorización de OAuth 2.0 (con los detalles sobre PKCE omitidos), donde la aplicación recibe un código del punto de conexión `authorize` de la plataforma de identidad de Microsoft y lo canjea por tokens y tokens de actualización mediante solicitudes web entre sitios. El token de actualización expira cada 24 horas, y la aplicación debe solicitar otro código. Además del token de acceso, normalmente también se solicita un valor de `id_token` que representa el usuario que ha iniciado sesión en la aplicación cliente a través del mismo flujo o de una solicitud OpenID Connect independiente (no se muestra aquí).
 
-![Flujo de código para aplicaciones SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagrama que muestra el flujo del código de autorización de OAuth 2 entre una aplicación de una página y el punto de conexión del servicio de token de seguridad." border="false":::
 
 Para ver este escenario en acción, consulte nuestro [Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única (SPA) de JavaScript mediante un flujo de código de autorización](tutorial-v2-javascript-auth-code.md).
 
@@ -108,7 +108,7 @@ Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, i
 
 Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en la sección de [introducción a la Plataforma de identidad de Microsoft](v2-overview.md#getting-started).
 
-En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por la Plataforma de identidad de Microsoft. Para ello, las API web pueden aprovechar las ventajas del flujo **con derechos delegados**, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. Para más información, consulte [Plataforma de identidad de Microsoft y flujo con derechos delegados de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
+En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por la Plataforma de identidad de Microsoft. Para ello, las API web pueden aprovechar las ventajas del flujo **con derechos delegados** , que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. Para más información, consulte [Plataforma de identidad de Microsoft y flujo con derechos delegados de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
 

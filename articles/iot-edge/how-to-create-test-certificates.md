@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84430665"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147882"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creación de certificados de demostración para probar las características de dispositivo IoT Edge
 
@@ -32,9 +32,9 @@ Siga estos pasos para crear certificados de demostración para probar el escenar
 1. [Configure scripts](#set-up-scripts) para la generación de certificados en el dispositivo.
 2. [Cree el certificado de CA raíz](#create-root-ca-certificate) que usa para firmar todos los demás certificados del escenario.
 3. Genere los certificados que necesita para el escenario que desea probar:
-   * [Cree certificados de identidad de dispositivo IoT Edge](#create-iot-edge-device-identity-certificates) para probar el aprovisionamiento automático con IoT Hub Device Provisioning Service.
-   * [Cree certificados de CA de dispositivo de IoT Edge](#create-iot-edge-device-ca-certificates) para probar escenarios de producción o escenarios de puerta de enlace.
-   * [Cree certificados de dispositivo de bajada](#create-downstream-device-certificates) para probar la autenticación de dispositivos de bajada para IoT Hub en un escenario de puerta de enlace.
+   * [Cree certificados de identidad de dispositivo IoT Edge](#create-iot-edge-device-identity-certificates) para el aprovisionamiento automático con IoT Hub Device Provisioning Service.
+   * [Cree certificados de CA de dispositivo IoT Edge](#create-iot-edge-device-ca-certificates) para los dispositivos IoT Edge en escenarios de puerta de enlace.
+   * [Cree certificados de dispositivo de bajada](#create-downstream-device-certificates) para la autenticación de dispositivos de bajada en un escenario de puerta de enlace.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -53,7 +53,7 @@ Para crear certificados de demostración en un dispositivo Windows, debe instala
 #### <a name="install-openssl"></a>Instalación de OpenSSL
 
 Instale OpenSSL para Windows en el equipo que usa para generar los certificados.
-Si ya ha instalado OpenSSL en el dispositivo Windows, puede omitir este paso, pero asegúrese de que openssl.exe está disponible en la variable de entorno PATH.
+Si ya ha instalado OpenSSL en el dispositivo Windows, asegúrese de que openssl.exe está disponible en la variable de entorno PATH.
 
 Hay varias maneras de instalar OpenSSL, como las siguientes:
 
@@ -163,7 +163,7 @@ Antes de continuar con los pasos de esta sección, siga los descritos en la secc
    New-CACertsCertChain rsa
    ```
 
-   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz**, use el siguiente archivo:
+   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz** , use el siguiente archivo:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,13 +177,13 @@ Antes de continuar con los pasos de esta sección, siga los descritos en la secc
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz**, use el siguiente archivo:
+   Este comando de script crea varios archivos de certificado y clave, pero cuando los artículos solicitan el **certificado de CA raíz** , use el siguiente archivo:
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>Creación de certificados de identidad de dispositivo IoT Edge
 
-Los certificados de identidad de dispositivo se usan para aprovisionar dispositivos IoT Hub a través de [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml).
+Los certificados de identidad de dispositivo se usan para aprovisionar dispositivos IoT Hub a través de Azure IoT Hub Device Provisioning Service (DPS).
 
 Los certificados de identidad de dispositivo van en la sección **Aprovisionamiento** del archivo config.yaml en el dispositivo IoT Edge.
 
@@ -247,8 +247,6 @@ Antes de continuar con los pasos de esta sección, siga los descritos en las sec
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
 El nombre que se pasa al comando **New-CACertsEdgeDevice** no debe coincidir con el parámetro hostname en config.yaml o el identificador de dispositivo en IoT Hub.
-Los scripts le ayudan a evitar cualquier problema mediante el anexo de una cadena ".ca" al nombre de certificado para impedir que se produzca un conflicto de nombres en caso de que el usuario configure IoT Edge con el mismo nombre en ambos lugares.
-Sin embargo, es conveniente evitar usar el mismo nombre.
 
 ### <a name="linux"></a>Linux
 
@@ -266,8 +264,6 @@ Sin embargo, es conveniente evitar usar el mismo nombre.
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
 El nombre que se pasa al comando **create_edge_device_certificate** no debe coincidir con el parámetro hostname en config.yaml o el identificador de dispositivo en IoT Hub.
-Los scripts le ayudan a evitar cualquier problema mediante el anexo de una cadena ".ca" al nombre de certificado para impedir que se produzca un conflicto de nombres en caso de que el usuario configure IoT Edge con el mismo nombre en ambos lugares.
-Sin embargo, es conveniente evitar usar el mismo nombre.
 
 ## <a name="create-downstream-device-certificates"></a>Creación de certificados de dispositivo de bajada
 

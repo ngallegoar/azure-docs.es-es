@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847485"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167940"
 ---
 # <a name="manage-farms"></a>Administración de granjas
 
@@ -25,7 +25,7 @@ Siga estos pasos:
 
     Este es la imagen de ejemplo:
 
-    ![Proyecto de FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Captura de pantalla que muestra la página Farms (Granjas).](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Seleccione **Create Farm** (Crear granja) y proporcione valores para **Name** (Nombre), **Crops** (Cultivos) y **Address** (Dirección).
@@ -33,14 +33,14 @@ Siga estos pasos:
 
 Estas son las dos formas de definir un límite de granja:
 
-1. **Mark on Map** (Marcar en mapa): Use la herramienta de control de mapa para dibujar y marcar el límite de la granja. Para marcar los límites, use el icono ![Proyecto de FarmBeats](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) y marque los límites exactos.
+1. **Mark on Map** (Marcar en mapa): Use la herramienta de control de mapa para dibujar y marcar el límite de la granja. Para marcar los límites, ![Captura de pantalla que muestra el icono de lápiz para dibujar los límites en el mapa](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) y marque los límites exactos.
 
-    ![Proyecto de FarmBeats](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Captura de pantalla que muestra los límites dibujados en un mapa.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Paste GeoJSON Code** (Pegar código GeoJSON): GeoJSON es un formato de codificación de estructuras de datos geográficos mediante notación de objetos JavaScript (JSON). Con esta opción se muestra un cuadro de texto en el que se puede escribir una cadena GeoJSON para marcar los límites de la granja. También puede crear código GeoJSON desde GeoJSON.io.
 Utilice la información sobre herramientas como ayuda para rellenar la información.
 
-    ![Proyecto de FarmBeats](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Captura de pantalla que resalta la opción para pegar código GeoJson en la pantalla Create Farm (Crear granja).](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  Seleccione **Submit** (Enviar) para crear la granja. Se creará una granja y se mostrará en la página **Farms** (Granjas).
 
@@ -71,7 +71,7 @@ En la página **Farms** (Granjas) se muestra una lista de las granjas que se han
 1.  Selecciónela en la lista para eliminar sus detalles.
 2.  Seleccione **Delete Farm** (Eliminar granja) para eliminar la granja.
 
-    ![Proyecto de FarmBeats](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Captura de pantalla que muestra la pantalla Delete Farm (Eliminar granja) y resalta el botón Delete (Eliminar).](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > Al eliminar una granja, los dispositivos y los mapas asociados a la granja no se eliminan. Cualquier información de la granja asociada con el dispositivo y los mapas no será pertinente. Los dispositivos, la telemetría y los mapas se seguirán viendo desde el servicio FarmBeats.

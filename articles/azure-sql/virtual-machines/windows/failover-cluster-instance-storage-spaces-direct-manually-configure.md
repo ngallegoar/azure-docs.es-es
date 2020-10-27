@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3cc579615a69b659bc1a4736984f0b3dcd6edb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272538"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165271"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ En el diagrama siguiente se muestra la solución completa, que usa Espacios de a
 
 En el diagrama anterior se muestran los siguientes recursos en el mismo grupo de recursos:
 
-- Dos máquinas virtuales en un clúster de conmutación por error de Windows Server. Cuando una máquina virtual está en un clúster de conmutación por error también se denomina un *nodo de clúster* o *nodos*.
+- Dos máquinas virtuales en un clúster de conmutación por error de Windows Server. Cuando una máquina virtual está en un clúster de conmutación por error también se denomina un *nodo de clúster* o *nodos* .
 - Cada máquina virtual tiene dos, o más, discos de datos.
 - Espacios de almacenamiento directo sincroniza los datos del disco de datos y presenta el almacenamiento sincronizado como grupo de almacenamiento.
 - El grupo de almacenamiento presenta un volumen compartido de clúster (CSV) al clúster de conmutación por error.
@@ -57,7 +57,7 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 - Suscripción a Azure. Comience de forma [gratuita](https://azure.microsoft.com/free/). 
 - [Dos o más máquinas virtuales de Windows Azure preparadas](failover-cluster-instance-prepare-vm.md) en un [conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 - Una cuenta que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
-- La versión más reciente de [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- La versión más reciente de [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-the-windows-cluster-feature"></a>Incorporación de la característica de clúster de Windows
@@ -68,10 +68,10 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 
    Para instalar clústeres de conmutación por error desde la interfaz de usuario, realice los pasos siguientes en las dos máquinas virtuales.
 
-   1. En el **Administrador del servidor**, seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características**.
-   1. En el **Asistente para agregar roles y características**, seleccione **Siguiente** hasta llegar a **Seleccionar características**.
-   1. En **Seleccionar características**, seleccione **Clúster de conmutación por error**. Incluya todas las características y herramientas de administración requeridas. 
-   1. Seleccione **Agregar características**.
+   1. En el **Administrador del servidor** , seleccione **Administrar** y, a continuación, seleccione **Agregar roles y características** .
+   1. En el **Asistente para agregar roles y características** , seleccione **Siguiente** hasta llegar a **Seleccionar características** .
+   1. En **Seleccionar características** , seleccione **Clúster de conmutación por error** . Incluya todas las características y herramientas de administración requeridas. 
+   1. Seleccione **Agregar características** .
    1. Seleccione **Siguiente** y, después, **Finalizar** para instalar las características.
 
    Para instalar clústeres de conmutación por error con PowerShell, ejecute el siguiente script en una sesión de PowerShell de administrador en una de las máquinas virtuales:
@@ -90,18 +90,18 @@ Valide el clúster en la interfaz de usuario o con PowerShell.
 
 Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
 
-1. En **Administrador del servidor**, seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
-1. En **Administrador de clústeres de conmutación por error**, seleccione **Acción**y, a continuación, seleccione **Validar configuración**.
+1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error** .
+1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración** .
 1. Seleccione **Next** (Siguiente).
-1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas**, seleccione **Ejecutar solo las pruebas que seleccione**. 
+1. En **Seleccionar servidores o un clúster** , escriba el nombre de ambas máquinas virtuales.
+1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione** . 
 1. Seleccione **Next** (Siguiente).
-1. En **Selección de pruebas**, seleccione todas las pruebas excepto **Almacenamiento**, como se muestra aquí:
+1. En **Selección de pruebas** , seleccione todas las pruebas excepto **Almacenamiento** , como se muestra aquí:
 
    ![Seleccionar pruebas de validación de clústeres](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
 1. Seleccione **Next** (Siguiente).
-1. En **Confirmación**, seleccione **Siguiente**.
+1. En **Confirmación** , seleccione **Siguiente** .
 
     El **Asistente para validar una configuración** ejecuta las pruebas de validación.
 
@@ -160,11 +160,11 @@ Los discos Premium para Espacios de almacenamiento directo deben estar vacíos. 
    Enable-ClusterS2D
    ```
 
-   En **Administrador de clústeres de conmutación por error**, puede ver el grupo de almacenamiento.
+   En **Administrador de clústeres de conmutación por error** , puede ver el grupo de almacenamiento.
 
 1. [Cree un volumen](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   Espacios de almacenamiento directo crea automáticamente un grupo de almacenamiento cuando se habilita. Ya está listo para crear un volumen. El cmdlet de PowerShell `New-Volume` automatiza el proceso de creación de volúmenes. Este proceso incluye el formato, la incorporación del volumen al clúster y la creación de un Volumen compartido de clúster (CSV). En el ejemplo se crea un CSV de 800 gigabytes (GB):
+   Espacios de almacenamiento directo crea automáticamente un grupo de almacenamiento cuando se habilita. Ya está listo para crear un volumen. El cmdlet de PowerShell `New-Volume` automatiza el proceso de creación de volúmenes. Este proceso incluye el formato, la incorporación del volumen al clúster y la creación de un Volumen compartido de clúster (CSV). En el ejemplo se crea un CSV de 800 gigabytes (GB):
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -180,7 +180,7 @@ Los discos Premium para Espacios de almacenamiento directo deben estar vacíos. 
 
 ## <a name="test-cluster-failover"></a>Conmutación por error del clúster de prueba
 
-Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error**, haga clic con el botón derecho en el clúster y seleccione **Más acciones** > **Mover principales recursos de clúster** > **Seleccionar nodo** y, después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
+Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error** , haga clic con el botón derecho en el clúster y seleccione **Más acciones** > **Mover principales recursos de clúster** > **Seleccionar nodo** y, después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Prueba de la conmutación por error del clúster moviendo el recurso principal a los demás nodos":::
 
@@ -190,13 +190,13 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 1. Conéctese a la primera máquina virtual con RDP.
 
-1. En **Administrador de clústeres de conmutación por error**, asegúrese de que todos los recursos principales de clúster estén en la primera máquina virtual. Si es necesario, mueva todos los recursos a esa máquina virtual.
+1. En **Administrador de clústeres de conmutación por error** , asegúrese de que todos los recursos principales de clúster estén en la primera máquina virtual. Si es necesario, mueva todos los recursos a esa máquina virtual.
 
 1. Localice los medios de instalación. Si la máquina virtual usa una de las imágenes de Azure Marketplace, los medios se encuentran en `C:\SQLServer_<version number>_Full`. Seleccione **Setup** (Configuración).
 
-1. En **Centro de instalación de SQL Server**, seleccione **Instalación**.
+1. En **Centro de instalación de SQL Server** , seleccione **Instalación** .
 
-1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar la FCI de SQL Server.
+1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
    Es preciso que los directorios de datos de FCI estén en el almacenamiento en clúster. Con Espacios de almacenamiento directo, no es un disco compartido, sino un punto de montaje para un volumen en cada servidor. Espacios de almacenamiento directo sincroniza el volumen entre ambos nodos. El volumen se presenta al clúster como un CSV. Utilice el punto de montaje de CSV para los directorios de datos.
 
@@ -206,9 +206,9 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 1. Una vez que el programa de instalación instale la FCI en el primer nodo, conéctese al segundo nodo con RDP.
 
-1. Abra **Centro de instalación de SQL Server**. Seleccione **Instalación**.
+1. Abra **Centro de instalación de SQL Server** . Seleccione **Instalación** .
 
-1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
+1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
    >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -233,7 +233,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configuración de la conectividad 
 
-Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear un [equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 y Windows Server 2016 (o posterior), puede obtener una versión preliminar de la característica [nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md) en su lugar. 
+Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear una instancia de [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 CU2 (o posterior) y Windows Server 2016 (o posterior), puede usar en su lugar la característica [Nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -243,12 +243,12 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no lo ha hecho, configure la conectividad a su FCI con un [nombre de red virtual y un equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o un [nombre de red distribuida (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Si aún no lo ha hecho, configure la conectividad a su FCI con un [nombre de red virtual y un equilibrador de carga de Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [nombre de red distribuida (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 Si Espacios de almacenamiento directo no es la solución de almacenamiento de FCI adecuada en su caso, considere la posibilidad de crear su FCI mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) o [recursos compartidos de archivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md) en su lugar. 
 
 Para más información, consulte la introducción a [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y [procedimientos recomendados de configuración de clúster](hadr-cluster-best-practices.md). 
 
-Para información adicional, consulte: 
+Para más información, consulte: 
 - [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

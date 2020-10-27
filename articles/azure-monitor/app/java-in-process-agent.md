@@ -3,12 +3,12 @@ title: 'Supervisión de aplicaciones Java en cualquier entorno: Application Insi
 description: Supervisión del rendimiento de aplicaciones para aplicaciones Java que se ejecutan en cualquier entorno sin instrumentar la aplicación. Seguimiento distribuido y mapa de aplicación.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 08e5b68ea5e5ec63531bb4f9c6b4483e9afbb9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1182813c0b79d43c2c264482629ad97f23683a49
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370041"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215287"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights: versión preliminar pública
 
@@ -114,8 +114,8 @@ Consulte los detalles en [Versión preliminar pública 3.0: opciones de configur
 ### <a name="logs"></a>Registros
 
 * java.util.logging
-* Log4j
-* SLF4J/Logback
+* Log4j (incluidas las propiedades de MDC)
+* SLF4J/Logback (incluidas las propiedades de MDC)
 
 ### <a name="metrics"></a>Métricas
 

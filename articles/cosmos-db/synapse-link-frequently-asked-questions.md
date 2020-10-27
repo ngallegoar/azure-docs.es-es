@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014569"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104111"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Preguntas frecuentes sobre Azure Synapse Link para Azure Cosmos DB
 
@@ -97,6 +97,10 @@ Las particiones de los datos del almacén analítico se crean en función de las
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>¿Puedo personalizar o invalidar la manera en que los datos transaccionales se transforman al formato de columnas en el almacén analítico?
 
 Actualmente no se pueden transformar los elementos de datos cuando se propagan de forma automática del almacén transaccional al almacén analítico. Si tiene escenarios bloqueados por esta limitación, envíe un correo electrónico al [equipo de Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+### <a name="is-analytical-store-supported-by-terraform"></a>¿Es compatible el almacén analítico con Terraform?
+
+Actualmente, Terraform no admite contenedores de almacenes analíticos. Consulte [problemas de GitHub de Terraform](https://github.com/hashicorp/terraform/issues) para más información.
 
 ## <a name="analytical-time-to-live-ttl"></a>Período de vida (TTL) analítico
 

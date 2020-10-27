@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
-ms.openlocfilehash: 6174d108fd80df9725ca5ef0fb9296dfffaf4a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10de2a4a00b716656626082a24ecbd56d0fcc3a4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89301032"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127308"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-powershell"></a>Inicio rápido: Creación de una dirección IP pública mediante Azure PowerShell
 
@@ -36,7 +36,7 @@ Si decide instalar y usar PowerShell de forma local, para realizar los pasos de 
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Cree un grupo de recursos con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) con el nombre **myResourceGroup** en la ubicación **eastus2**.
+Cree un grupo de recursos con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) con el nombre **myResourceGroup** en la ubicación **eastus2** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 >[!NOTE]
 >El siguiente comando funciona con la versión de API 2020-08-01 o posterior.  Para más información sobre la versión de API que se usa actualmente, consulte [Tipos y proveedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para crear una dirección IP pública estándar con redundancia de zona llamada **myStandardZRPublicIP** en **myResourceGroup**.
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para crear una dirección IP pública estándar con redundancia de zona llamada **myStandardZRPublicIP** en **myResourceGroup** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -68,7 +68,7 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -Alloca
 > En el caso de versiones de la API anteriores a 2020-08-01, ejecute el comando anterior sin especificar un parámetro de zona para crear una dirección IP con redundancia de zona. 
 >
 
-Para crear una dirección IP pública estándar de zona en la Zona 2 llamada **myStandardZonalPublicIP** en **myResourceGroup**, use el siguiente comando:
+Para crear una dirección IP pública estándar de zona en la Zona 2 llamada **myStandardZonalPublicIP** en **myResourceGroup** , use el siguiente comando:
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -89,7 +89,7 @@ Tenga en cuenta que las opciones anteriores para zonas son solo selecciones vál
 >[!NOTE]
 >El siguiente comando funciona con la versión de API 2020-08-01 o posterior.  Para más información sobre la versión de API que se usa actualmente, consulte [Tipos y proveedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para crear una dirección IP pública estándar como un recurso no de zona llamada **myStandardPublicIP** en **myResourceGroup**.
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para crear una dirección IP pública estándar como un recurso no de zona llamada **myStandardPublicIP** en **myResourceGroup** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -106,7 +106,7 @@ Esta selección es válida en todas las regiones y es la selección predetermina
 
 # <a name="basic-sku"></a>[**SKU básica**](#tab/option-create-public-ip-basic)
 
-Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para crear una dirección IP pública estática básica llamada **myStandardZRPublicIP** en **myResourceGroup**.  Las direcciones IP públicas básicas no tienen el concepto de zonas de disponibilidad.
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) para crear una dirección IP pública estática básica llamada **myBasicPublicIP** en **myResourceGroup** .  Las direcciones IP públicas básicas no tienen el concepto de zonas de disponibilidad.
 
 ```azurepowershell-interactive
 ## Variables for the command ##

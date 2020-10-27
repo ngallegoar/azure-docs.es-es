@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848864"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103006"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 |**SLA de tiempo de actividad**|99,99%|99,99%|99,99%|
 |**Retención de copia de seguridad máxima**|7 días|35 días|35 días|
 |**CPU**|Bajo|Bajo, medio, alto|Medio, alto|
-|**IOPS (aproximado)** \* |1 a 5 IOPS por DTU| 1 a 5 IOPS por DTU | 25 IOPS por DTU|
+|**IOPS (aproximado)** \* |1-4 IOPS por DTU| 1-4 IOPS por DTU | 25 IOPS por DTU|
 |**Latencia de E/S (aproximada)**|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
 |**Índice de almacén de columnas** |N/D|S3 y versiones posteriores|Compatible|
 |**OLTP en memoria**|N/D|N/D|Compatible|

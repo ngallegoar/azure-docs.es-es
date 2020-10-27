@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82983081"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131843"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Solución de problemas del firewall de aplicaciones web (WAF) de Azure Application Gateway
 
@@ -137,7 +137,7 @@ En las dos últimas entradas del registro se muestra que la solicitud se ha bloq
 
 ## <a name="fixing-false-positives"></a>Corrección de falsos positivos
 
-Con esta información y sabiendo que la regla 942130 es la que coincide con la cadena *1=1*, puede hacer algunas cosas para evitar que esto bloquee el tráfico:
+Con esta información y sabiendo que la regla 942130 es la que coincide con la cadena *1=1* , puede hacer algunas cosas para evitar que esto bloquee el tráfico:
 
 - Uso de una lista de exclusión
 
@@ -150,11 +150,11 @@ Para tomar una decisión informada sobre el control de un falso positivo, es imp
 
 Una ventaja de usar una lista de exclusión es que solo se deshabilita una parte específica de una solicitud. Pero esto significa que una exclusión específica es aplicable a todo el tráfico que pasa a través del firewall de aplicaciones web porque es una configuración global. Por ejemplo, esto podría provocar un problema si *1=1* es una solicitud válida en el cuerpo de una aplicación concreta, pero no para otras. Otra ventaja es que puede elegir entre la exclusión de las cookies, los encabezados y el cuerpo si se cumple una condición concreta, frente a la exclusión de toda la solicitud.
 
-En ocasiones, hay casos en los que parámetros específicos se pasan al firewall de aplicaciones web de una forma que puede no ser intuitiva. Por ejemplo, hay un token que se pasa al autenticarse con Azure Active Directory. Este token, *__RequestVerificationToken*, normalmente se pasa como una cookie de solicitud. Pero en algunos casos en los que las cookies están deshabilitadas, este token también se pasa como un atributo de solicitud o "arg". En ese caso, tendrá que asegurarse de que *__RequestVerificationToken* también se agregue a la lista de exclusión como un **nombre de atributo de solicitud**.
+En ocasiones, hay casos en los que parámetros específicos se pasan al firewall de aplicaciones web de una forma que puede no ser intuitiva. Por ejemplo, hay un token que se pasa al autenticarse con Azure Active Directory. Este token, *__RequestVerificationToken* , normalmente se pasa como una cookie de solicitud. Pero en algunos casos en los que las cookies están deshabilitadas, este token también se pasa como un atributo de solicitud o "arg". En ese caso, tendrá que asegurarse de que *__RequestVerificationToken* también se agregue a la lista de exclusión como un **nombre de atributo de solicitud** .
 
 ![Exclusiones](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 
-En este ejemplo, quiere excluir el **nombre de atributo de solicitud** que es igual a *text1*. Esto es evidente, ya que puede ver el nombre del atributo en los registros del firewall: **data: Matched Data: 1=1 found within ARGS:text1: 1=1**. El atributo es **text1**. También puede encontrar este nombre de atributo de otras formas; vea [Búsqueda de nombres de atributo de solicitud](#finding-request-attribute-names).
+En este ejemplo, quiere excluir el **nombre de atributo de solicitud** que es igual a *text1* . Esto es evidente, ya que puede ver el nombre del atributo en los registros del firewall: **data: Matched Data: 1=1 found within ARGS:text1: 1=1** . El atributo es **text1** . También puede encontrar este nombre de atributo de otras formas; vea [Búsqueda de nombres de atributo de solicitud](#finding-request-attribute-names).
 
 ![Listas de exclusión del WAF](../media/web-application-firewall-troubleshoot/waf-config.png)
 
@@ -172,9 +172,9 @@ Si quiere usar Azure PowerShell, vea [Personalización de reglas de firewall de 
 
 Con la ayuda de [Fiddler](https://www.telerik.com/fiddler), puede inspeccionar solicitudes individuales y determinar a qué campos específicos de una página web se llama. Esto puede ayudar a excluir determinados campos de la inspección mediante listas de exclusión.
 
-En este ejemplo, puede ver que el campo donde se ha escrito la cadena *1=1* se denomina **text1**.
+En este ejemplo, puede ver que el campo donde se ha escrito la cadena *1=1* se denomina **text1** .
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Captura de pantalla de Progress Telerik Fiddler Web Debugger. En la pestaña Raw, 1 = 1 es visible después del nombre text1." border="false":::
 
 Es un campo que se puede excluir. Para más información sobre las lista de exclusión, vea [Listas de exclusión y límites de tamaño de solicitud del firewall de aplicaciones web](application-gateway-waf-configuration.md#waf-exclusion-lists). En este caso puede excluir la evaluación mediante la configuración de la exclusión siguiente:
 
@@ -293,13 +293,13 @@ Con sus conocimientos sobre cómo funciona la regla de CRS y que el conjunto de 
 
 La primera entrada se registra porque el usuario ha utilizado una dirección IP numérica para navegar a la instancia de Application Gateway, lo que en este caso se puede ignorar.
 
-La segunda (la regla 942130) es la interesante. En los detalles puede ver que ha coincidido con un patrón (1=1) y que el campo se denomina **text1**. Siga los mismos pasos anteriores para excluir el **nombre de atributo de solicitud** que es **igual** a **1=1**.
+La segunda (la regla 942130) es la interesante. En los detalles puede ver que ha coincidido con un patrón (1=1) y que el campo se denomina **text1** . Siga los mismos pasos anteriores para excluir el **nombre de atributo de solicitud** que es **igual** a **1=1** .
 
 ## <a name="finding-request-header-names"></a>Búsqueda de nombres de encabezado de solicitud
 
-Fiddler vuelve a ser una herramienta útil para buscar nombres de encabezado de solicitud. En la captura de pantalla siguiente puede ver los encabezados para esta solicitud GET, que incluyen *Content-Type*, *User-Agent*, etc.
+Fiddler vuelve a ser una herramienta útil para buscar nombres de encabezado de solicitud. En la captura de pantalla siguiente puede ver los encabezados para esta solicitud GET, que incluyen *Content-Type* , *User-Agent* , etc.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Captura de pantalla de Progress Telerik Fiddler Web Debugger. En la pestaña Raw se muestran detalles del encabezado de solicitud como la conexión, el tipo de contenido y el agente del usuario." border="false":::
 
 Otra manera de ver los encabezados de solicitud y respuesta consiste en buscar dentro de las herramientas de desarrollo de Chrome. Puede presionar F12 o hacer clic con el botón derecho -> **Inspeccionar** -> **Herramientas de desarrollo** y seleccionar la pestaña **Network** (Red). Cargue una página web y haga clic en la solicitud que quiera inspeccionar.
 

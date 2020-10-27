@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 089976f6e97e303dd8faaf854e453a558b9eba84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 453cec1bbb1f9dd61b840457e93cc2c49b956509
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89067593"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166002"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad de SAP NetWeaver en VM de Azure en SUSE Linux Enterprise Server con Azure NetApp Files para las aplicaciones de SAP
 
@@ -204,7 +204,7 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
 
 Las instrucciones de esta sección solo se aplican si se usan volúmenes de Azure NetApp Files con el protocolo NFSv4.1. Realice la configuración en todas las máquinas virtuales donde se montarán los volúmenes NFSv4.1 de Azure NetApp Files.  
 
-1. Compruebe la configuración del dominio NFS. Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **`defaultv4iddomain.com`** y que la asignación se haya establecido en **nobody**.  
+1. Compruebe la configuración del dominio NFS. Asegúrese de que el dominio esté configurado como dominio predeterminado de Azure NetApp Files, es decir, **`defaultv4iddomain.com`** y que la asignación se haya establecido en **nobody** .  
 
     > [!IMPORTANT]
     > Asegúrese de establecer el dominio NFS de `/etc/idmapd.conf` en la máquina virtual para que coincida con la configuración de dominio predeterminada en Azure NetApp Files: **`defaultv4iddomain.com`** . Si hay alguna discrepancia entre la configuración de dominio del cliente NFS (es decir, la máquina virtual) y el servidor NFS (es decir la configuración de Azure NetApp), los permisos de archivos en volúmenes de Azure NetApp que estén montados en las máquinas virtuales se mostrarán como `nobody`.  
@@ -221,7 +221,7 @@ Las instrucciones de esta sección solo se aplican si se usan volúmenes de Azur
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** Compruebe `nfs4_disable_idmapping`. Debe establecerse en **S**. Para crear la estructura de directorio en la que se encuentra `nfs4_disable_idmapping`, ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.  
+4. **[A]** Compruebe `nfs4_disable_idmapping`. Debe establecerse en **S** . Para crear la estructura de directorio en la que se encuentra `nfs4_disable_idmapping`, ejecute el comando mount. No podrá crear manualmente el directorio en /sys/modules, ya que el acceso está reservado para el kernel o los controladores.  
 
     <pre><code>
     # Check nfs4_disable_idmapping 
@@ -248,79 +248,83 @@ Primero deberá crear los volúmenes de Azure NetApp Files. Implemente las VM. D
    1. Creación de las direcciones IP de front-end
       1. Dirección IP 10.1.1.20 de ASCS.
          1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **frontend.QAS.ASCS**).
-         1. 2\.Establezca Asignación en Estática y escriba la dirección IP (por ejemplo, **10.1.1.20**).
+         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **frontend.QAS.ASCS** ).
+         1. 2\.Establezca Asignación en Estática y escriba la dirección IP (por ejemplo, **10.1.1.20** ).
          1. Haga clic en Aceptar
       1. Dirección IP 10.1.1.21 para ASCS ERS.
-         * Repita los pasos anteriores a partir de "a" para crear una dirección IP para el ERS (por ejemplo, **10.1.1.21** y **frontend.QAS.ERS**).
+         * Repita los pasos anteriores a partir de "a" para crear una dirección IP para el ERS (por ejemplo, **10.1.1.21** y **frontend.QAS.ERS** ).
    1. Creación del grupo de servidores back-end
       1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS**).
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS** ).
       1. Haga clic en Agregar una máquina virtual.
       1. Seleccione Máquina virtual.
       1. Seleccione las máquinas virtuales del clúster de (A)SCS y sus direcciones IP.
       1. Haga clic en Agregar
    1. Creación de los sondeos de estado
-      1. Puerto 620**00** para ASCS
+      1. Puerto 620 **00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
-         1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **health.QAS.ASCS**).
-         1. Seleccione TCP como protocolo, puerto 620**00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
+         1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **health.QAS.ASCS** ).
+         1. Seleccione TCP como protocolo, puerto 620 **00** , y mantenga el intervalo de 5 y el umbral incorrecto 2.
          1. Haga clic en Aceptar
-      1. Puerto 621**01** para ASCS ERS.
-            * Repita los pasos anteriores a partir de "c" para crear un sondeo de estado para ERS (por ejemplo 621**01** y **health.QAS.ERS**).
+      1. Puerto 621 **01** para ASCS ERS.
+            * Repita los pasos anteriores a partir de "c" para crear un sondeo de estado para ERS (por ejemplo 621 **01** y **health.QAS.ERS** ).
    1. Reglas de equilibrio de carga.
       1. Creación de un grupo de servidores back-end para ASCS
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
-         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **lb.QAS.ASCS**)
-         1. Seleccione la dirección IP de front-end para ASCS, el grupo de back-end y el sondeo de estado creados anteriormente (por ejemplo, **frontend.QAS.ASCS**, **backend.QAS** y **health.QAS.ASCS**)
+         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **lb.QAS.ASCS** )
+         1. Seleccione la dirección IP de front-end para ASCS, el grupo de back-end y el sondeo de estado creados anteriormente (por ejemplo, **frontend.QAS.ASCS** , **backend.QAS** y **health.QAS.ASCS** )
          1. Seleccione **Puertos HA**
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
-         * Repita los pasos anteriores para crear reglas de equilibrio de carga para ERS (por ejemplo **lb.QAS.ERS**)
+         * Repita los pasos anteriores para crear reglas de equilibrio de carga para ERS (por ejemplo **lb.QAS.ERS** )
 1. Como alternativa, si el escenario requiere un equilibrador de carga básico (interno), siga estos pasos:  
    1. Creación de las direcciones IP de front-end
       1. Dirección IP 10.1.1.20 de ASCS.
          1. Abra el equilibrador de carga, seleccione el grupo de direcciones IP de front-end y haga clic en Agregar
-         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **frontend.QAS.ASCS**).
-         1. 2\.Establezca Asignación en Estática y escriba la dirección IP (por ejemplo, **10.1.1.20**).
+         1. Escriba el nombre del nuevo grupo de direcciones IP de front-end (por ejemplo, **frontend.QAS.ASCS** ).
+         1. 2\.Establezca Asignación en Estática y escriba la dirección IP (por ejemplo, **10.1.1.20** ).
          1. Haga clic en Aceptar
       1. Dirección IP 10.1.1.21 para ASCS ERS.
-         * Repita los pasos anteriores a partir de "a" para crear una dirección IP para el ERS (por ejemplo, **10.1.1.21** y **frontend.QAS.ERS**).
+         * Repita los pasos anteriores a partir de "a" para crear una dirección IP para el ERS (por ejemplo, **10.1.1.21** y **frontend.QAS.ERS** ).
    1. Creación del grupo de servidores back-end
       1. Abra el equilibrador de carga, seleccione los grupos de back-end y haga clic en Agregar
-      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS**).
+      1. Escriba el nombre del nuevo grupo de servidores back-end (por ejemplo, **backend.QAS** ).
       1. Haga clic en Agregar una máquina virtual.
       1. Seleccione el conjunto de disponibilidad que creó anteriormente para ASCS. 
       1. Seleccione las máquinas virtuales del clúster (A)SCS.
       1. Haga clic en Aceptar
    1. Creación de los sondeos de estado
-      1. Puerto 620**00** para ASCS
+      1. Puerto 620 **00** para ASCS
          1. Abra el equilibrador de carga, seleccione los sondeos de estado y haga clic en Agregar
-         1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **health.QAS.ASCS**).
-         1. Seleccione TCP como protocolo, puerto 620**00**, y mantenga el intervalo de 5 y el umbral incorrecto 2.
+         1. Escriba el nombre del sondeo de estado nuevo (por ejemplo **health.QAS.ASCS** ).
+         1. Seleccione TCP como protocolo, puerto 620 **00** , y mantenga el intervalo de 5 y el umbral incorrecto 2.
          1. Haga clic en Aceptar
-      1. Puerto 621**01** para ASCS ERS.
-            * Repita los pasos anteriores a partir de "c" para crear un sondeo de estado para ERS (por ejemplo 621**01** y **health.QAS.ERS**).
+      1. Puerto 621 **01** para ASCS ERS.
+            * Repita los pasos anteriores a partir de "c" para crear un sondeo de estado para ERS (por ejemplo 621 **01** y **health.QAS.ERS** ).
    1. Reglas de equilibrio de carga.
-      1. TCP 32**00** para ASCS
+      1. TCP 32 **00** para ASCS
          1. Abra el equilibrador de carga, seleccione las reglas de equilibrio de carga y haga clic en Agregar.
-         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **lb.QAS.ASCS.3200**).
-         1. Seleccione la dirección IP de front-end para ASCS, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **frontend.QAS.ASCS**).
-         1. Conserve el protocolo **TCP** y escriba el puerto **3200**.
+         1. Escriba el nombre de la nueva regla del equilibrador de carga (por ejemplo, **lb.QAS.ASCS.3200** ).
+         1. Seleccione la dirección IP de front-end para ASCS, el grupo de servidores back-end y el sondeo de estado que creó anteriormente (por ejemplo, **frontend.QAS.ASCS** ).
+         1. Conserve el protocolo **TCP** y escriba el puerto **3200** .
          1. Aumente el tiempo de espera de inactividad a 30 minutos
          1. **Asegúrese de habilitar la dirección IP flotante**
          1. Haga clic en Aceptar
       1. Puertos adicionales para ASCS
-         * Repita los pasos anteriores para los puertos 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 y TCP para ASCS.
+         * Repita los pasos anteriores para los puertos 36 **00** , 39 **00** , 81 **00** , 5 **00** 13, 5 **00** 14, 5 **00** 16 y TCP para ASCS.
       1. Puertos adicionales para ASCS ERS
-         * Repita los pasos anteriores a partir de "d" para los puertos 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 y TCP para ASCS ERS
+         * Repita los pasos anteriores a partir de "d" para los puertos 32 **01** , 33 **01** , 5 **01** 13, 5 **01** 14, 5 **01** 16 y TCP para ASCS ERS
+
+      
+      > [!IMPORTANT]
+      > La dirección IP flotante no se admite en una configuración de IP secundaria de NIC para los escenarios de equilibrio de carga. Para obtener más información, consulte [Limitaciones de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
 
       > [!Note]
       > Cuando las máquinas virtuales sin direcciones IP públicas se colocan en el grupo de back-end de Standard Load Balancer interno (sin dirección IP pública), no hay conectividad saliente de Internet, a menos que se realice una configuración adicional para permitir el enrutamiento a puntos de conexión públicos. Para obtener más información sobre cómo obtener conectividad saliente, vea [Conectividad de punto de conexión público para máquinas virtuales con Azure Standard Load Balancer en escenarios de alta disponibilidad de SAP](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
       > [!IMPORTANT]
-      > No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0**. Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
+      > No habilite las marcas de tiempo TCP en VM de Azure que se encuentren detrás de Azure Load Balancer. Si habilita las marcas de tiempo TCP provocará un error en los sondeos de estado. Establezca el parámetro **net.ipv4.tcp_timestamps** a **0** . Consulte [Sondeos de estado de Load Balancer](../../../load-balancer/load-balancer-custom-probe-overview.md) para obtener más información.
 
 ### <a name="create-pacemaker-cluster"></a>Creación del clúster de Pacemaker
 
@@ -336,9 +340,9 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    </code></pre>
 
    > [!NOTE]
-   > El problema conocido con el uso de un guion en los nombres de host se ha corregido con la versión **3.1.1** del paquete **sap-suse-cluster-connector**. Si utiliza nodos de clúster con un guion en el nombre de host, asegúrese de usar al menos la versión 3.1.1 del paquete sap-suse-cluster-connector. Si lo hace, el clúster no funcionará. 
+   > El problema conocido con el uso de un guion en los nombres de host se ha corregido con la versión **3.1.1** del paquete **sap-suse-cluster-connector** . Si utiliza nodos de clúster con un guion en el nombre de host, asegúrese de usar al menos la versión 3.1.1 del paquete sap-suse-cluster-connector. Si lo hace, el clúster no funcionará. 
 
-   Asegúrese de que instaló la nueva versión del conector de clúster SUSE SAP. La antigua se llamaba sap_suse_cluster_connector y la nueva se llama **sap-suse-cluster-connector**.
+   Asegúrese de que instaló la nueva versión del conector de clúster SUSE SAP. La antigua se llamaba sap_suse_cluster_connector y la nueva se llama **sap-suse-cluster-connector** .
 
    <pre><code>sudo zypper info sap-suse-cluster-connector
    
@@ -556,7 +560,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
 
-   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/**QAS**/ASCS**00**, pruebe a establecer el propietario y el grupo de la carpeta ASCS**00** e inténtelo de nuevo. 
+   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/ **QAS** /ASCS **00** , pruebe a establecer el propietario y el grupo de la carpeta ASCS **00** e inténtelo de nuevo. 
 
    <pre><code>
    chown <b>qas</b>adm /usr/sap/<b>QAS</b>/ASCS<b>00</b>
@@ -621,7 +625,7 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
    > [!NOTE]
    > Use SWPM SP 20 PL 05 o superior. Las versiones inferiores no establecen correctamente los permisos y se producirá un error de instalación.
 
-   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/**QAS**/ERS**01**, pruebe a establecer el propietario y el grupo de la carpeta ERS**01** e inténtelo de nuevo.
+   Si se produce un error en la instalación para crear una subcarpeta en /usr/sap/ **QAS** /ERS **01** , pruebe a establecer el propietario y el grupo de la carpeta ERS **01** e inténtelo de nuevo.
 
    <pre><code>
    chown qasadm /usr/sap/<b>QAS</b>/ERS<b>01</b>
@@ -970,7 +974,7 @@ Siga estos pasos para instalar un servidor de aplicaciones de SAP.
      DATABASE: <b>QAS</b>
    </code></pre>
 
-   El resultado muestra que la dirección IP de la entrada predeterminada apunta a la máquina virtual y no a la dirección IP del equilibrador de carga. Esta entrada debe modificarse para que apunte al nombre de host virtual del equilibrador de carga. Asegúrese de usar el mismo puerto (**30313** en la salida anterior) y el mismo nombre de base de datos (**QAS** en la salida anterior).
+   El resultado muestra que la dirección IP de la entrada predeterminada apunta a la máquina virtual y no a la dirección IP del equilibrador de carga. Esta entrada debe modificarse para que apunte al nombre de host virtual del equilibrador de carga. Asegúrese de usar el mismo puerto ( **30313** en la salida anterior) y el mismo nombre de base de datos ( **QAS** en la salida anterior).
 
    <pre><code>
    su - <b>qas</b>adm

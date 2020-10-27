@@ -7,16 +7,16 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b2e94bfe1bef9ecdeaa4b2b84224967bb1c7741
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84431596"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281592"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Fuente de cambios de la API de Azure Cosmos DB para Cassandra
 
-La [compatibilidad de la fuente de cambios](change-feed.md) de la API de Azure Cosmos DB con Cassandra está disponible mediante los predicados de consulta del lenguaje de consulta de Cassandra (CQL). Con estas condiciones de predicado, puede consultar la API de la fuente de cambios. Las aplicaciones pueden obtener los cambios realizados en una tabla mediante la clave principal (también conocida como clave de partición), tal y como se requiere en CQL. Más adelante, puede realizar otras acciones en función de los resultados. Los cambios en las filas de la tabla se capturan por orden según su hora de modificación y el criterio de ordenación se garantiza por clave de partición.
+La [compatibilidad de la fuente de cambios](change-feed.md) de la API de Azure Cosmos DB con Cassandra está disponible mediante los predicados de consulta del lenguaje de consulta de Cassandra (CQL). Con estas condiciones de predicado, puede consultar la API de la fuente de cambios. Las aplicaciones pueden obtener los cambios realizados en una tabla mediante la clave principal (también conocida como clave de partición), tal y como se requiere en CQL. Más adelante, puede realizar otras acciones en función de los resultados. Los cambios en las filas de la tabla se capturan por orden según su hora de modificación y el criterio de ordenación por clave de partición.
 
 En el ejemplo siguiente se muestra cómo obtener una fuente de cambios en todas las filas de una tabla de espacio de claves de Cassandra API mediante .NET. El predicado COSMOS_CHANGEFEED_START_TIME() se utiliza directamente en CQL para consultar elementos en la fuente de cambios a partir de una hora de inicio especificada (en este caso la fecha y hora actuales). Puede descargar [aquí](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) el ejemplo completo de C# y [aquí](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java) el de Java.
 
@@ -142,7 +142,7 @@ Se aplican las siguientes limitaciones al usar la fuente de cambios con Cassandr
 
 Se admiten los siguientes mensajes y códigos de error cuando se utiliza la fuente de cambios de Cassandra API:
 
-* **Código de error HTTP 429**: cuando se limita la frecuencia de la fuente de cambios, devuelve una página vacía.
+* **Código de error HTTP 429** : cuando se limita la frecuencia de la fuente de cambios, devuelve una página vacía.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

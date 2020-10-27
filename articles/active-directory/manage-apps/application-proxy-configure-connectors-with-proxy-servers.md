@@ -1,6 +1,6 @@
 ---
-title: Trabajo con servidores proxy locales existentes y Azure AD | Microsoft Docs
-description: Se explica cómo trabajar con servidores proxy locales existentes.
+title: Trabajo con servidores proxy locales existentes y Azure Active Directory
+description: Aquí se habla de cómo trabajar con servidores proxy locales existentes con Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88077516"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208012"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -114,15 +113,15 @@ Permita el acceso a las siguientes direcciones URL:
 | URL | Cómo se usa |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicación entre el conector y el servicio en la nube del proxy de aplicación |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | El conector utiliza estas direcciones URL para comprobar los certificados. |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | El conector utiliza estas direcciones URL para comprobar los certificados. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | El conector utiliza estas direcciones URL durante el proceso de registro. |
 
-Si el firewall o proxy le permite configurar listas de DNS permitidos, puede permitir conexiones a \*.msappproxy.net y \*.servicebus.windows.net. Si no, deberá permitir el acceso a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Los intervalos IP se actualizan cada semana.
+Si el firewall o proxy le permite configurar listas de DNS permitidos, puede permitir conexiones a \*.msappproxy.net y \*.servicebus.windows.net.
 
 Si no puede permitir la conectividad mediante el FQDN y debe especificar intervalos de direcciones IP en su lugar, use estas opciones:
 
 * Permitir el acceso de salida del conector a todos los destinos.
-* Permitir el acceso de salida del conector a todos los [rangos de direcciones IP del centro de datos de Azure](https://www.microsoft.com//download/details.aspx?id=41653). El desafío de usar la lista de intervalos IP del centro de datos de Azure es que se actualiza semanalmente. Es necesario colocar un proceso para garantizar que las reglas de acceso se actualizan en consecuencia. Si se utiliza solo un subconjunto de las direcciones IP, se puede producir una interrupción de la configuración.
+* Permitir el acceso de salida del conector a todos los rangos de direcciones IP del centro de datos de Azure. El desafío de usar la lista de intervalos IP del centro de datos de Azure es que se actualiza semanalmente. Es necesario colocar un proceso para garantizar que las reglas de acceso se actualizan en consecuencia. Si se utiliza solo un subconjunto de las direcciones IP, se puede producir una interrupción de la configuración. Para descargar los intervalos de direcciones IP más recientes del centro de datos de Azure, vaya a [https://download.microsoft.com](https://download.microsoft.com) y busque "Intervalos IP y etiquetas de servicio de Azure". Asegúrese de seleccionar la nube correspondiente. Por ejemplo, los intervalos de direcciones IP de la nube pública se pueden encontrar con "Intervalos IP y etiquetas de servicio de Azure: nube pública". Para encontrar la nube del Gobierno de los EE. UU., busque "Intervalos IP y etiquetas de servicio de Azure: nube de US Gov".
 
 #### <a name="proxy-authentication"></a>La autenticación del proxy
 

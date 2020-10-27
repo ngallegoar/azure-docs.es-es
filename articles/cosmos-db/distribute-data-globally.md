@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 29917b0911fbab36fbb30a587ee7cac223b993f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ea5ee2dfe89b36fce78c369100224718eb5864f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570178"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278770"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribución de los datos globalmente con Azure Cosmos DB
 
 Las aplicaciones actuales deben estar siempre en línea y tener una alta capacidad de respuesta. Para lograr baja latencia y alta disponibilidad, las instancias de estas aplicaciones deben implementarse en centros de datos que están cerca de sus usuarios. Estas aplicaciones se implementan normalmente en varios centros de datos y se denominan "distribuidas globalmente". Las aplicaciones distribuidas globalmente necesitan una base de datos distribuida globalmente que puede replicar de forma transparente los datos en cualquier lugar del mundo para permitir que las aplicaciones funcionen en una copia de los datos que están cerca de los usuarios. 
 
-Azure Cosmos DB es un servicio de base de datos distribuida globalmente que está diseñado para proporcionar baja latencia, escalabilidad elástica del rendimiento, semántica bien definida para la coherencia de datos y alta disponibilidad. En resumen, si la aplicación necesita un tiempo de respuesta rápido garantizado en cualquier parte del mundo, si necesita estar siempre en línea y precisa escalabilidad elástica e ilimitada de rendimiento y almacenamiento, considere la posibilidad de crear aplicaciones con Azure Cosmos DB.
+Azure Cosmos DB es un servicio de base de datos distribuida globalmente que está diseñado para proporcionar baja latencia, escalabilidad elástica del rendimiento, semántica bien definida para la coherencia de datos y alta disponibilidad. En resumen, si la aplicación necesita un tiempo de respuesta rápido en cualquier parte del mundo, si necesita estar siempre en línea y precisa escalabilidad elástica e ilimitada de rendimiento y almacenamiento, considere la posibilidad de crear aplicaciones con Azure Cosmos DB.
 
 Puede configurar sus bases de datos para que se distribuyan de manera global y estén disponibles en cualquiera de las regiones de Azure. Para reducir la latencia, coloque los datos en la ubicación más cercana a la de los usuarios. Elegir las regiones requeridas depende del alcance global de la aplicación y de dónde se encuentran los usuarios. Cosmos DB replica los datos con transparencia en todas las regiones asociadas a su cuenta de Cosmos. Proporciona una sola imagen de sistema de los contenedores y la base de datos de Azure Cosmos globalmente distribuida, para que la aplicación pueda leer y escribir de manera local. 
 
@@ -29,7 +29,7 @@ Con Azure Cosmos DB, puede agregar o quitar las regiones asociadas con su cuenta
 
 **Compilación de aplicaciones globales activo/activo.** Con el novedoso protocolo de replicación de escrituras en varias regiones, cada región admite lecturas y escrituras. La capacidad de escrituras en varias regiones también permite:
 
-- Escalabilidad de escritura y lectura elásticas ilimitada. 
+- Escalabilidad de escritura y lectura elásticas ilimitada.
 - 99,999 % de disponibilidad de lectura y escritura en todo el mundo.
 - Garantía de lecturas y escrituras atendidas en menos de 10 milisegundos en el percentil 99.
 
@@ -41,7 +41,7 @@ Con las API de hospedaje múltiple de Azure Cosmos DB, la aplicación sabe cuá
 
 **Mantenimiento de la continuidad empresarial durante interrupciones regionales.** Azure Cosmos DB admite [conmutación por error automática](how-to-manage-database-account.md#automatic-failover) durante una interrupción regional. Durante una interrupción regional, Azure Cosmos DB sigue manteniendo sus SLA de rendimiento, coherencia, disponibilidad y latencia. Para ayudar a garantizar que toda la aplicación tiene una alta disponibilidad, Cosmos DB ofrece la API de conmutación por error manual para simular una interrupción regional. Con esta API, puede realizar maniobras de continuidad empresarial regulares.
 
-**Escalabilidad global del rendimiento de lectura y escritura.** Puede permitir que todas las regiones sean de escritura y que escale lecturas y escrituras en todo el mundo. El rendimiento que la aplicación configura en un contenedor o una base de datos de Azure Cosmos DB se entrega en todas las regiones asociadas a su cuenta de Azure Cosmos DB. El rendimiento aprovisionado se garantiza por [Acuerdo de Nivel de Servicio con respaldo financiero](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
+**Escalabilidad global del rendimiento de lectura y escritura.** Puede permitir que todas las regiones sean de escritura y que escale lecturas y escrituras en todo el mundo. El rendimiento que la aplicación configura en un contenedor o una base de datos de Azure Cosmos DB se aprovisiona en todas las regiones asociadas con su cuenta de Azure Cosmos DB. El rendimiento aprovisionado se garantiza por [Acuerdo de Nivel de Servicio con respaldo financiero](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
 **Elección entre varios modelos de coherencia bien definidos.** El protocolo de replicación de Azure Cosmos DB ofrece cinco modelos de coherencia prácticos, intuitivos y bien definidos. Cada modelo tiene un equilibrio entre coherencia y rendimiento. Use estos modelos de coherencia para compilar con facilidad las aplicaciones distribuidas globalmente.
 

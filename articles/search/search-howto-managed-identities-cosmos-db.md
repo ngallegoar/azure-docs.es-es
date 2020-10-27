@@ -9,18 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275292"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102700"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configuración de una conexión de indexador a una base de datos de Cosmos DB mediante una identidad administrada
 
 En esta página se describe cómo configurar una conexión de indexador a una base de datos de Azure Cosmos DB mediante una identidad administrada en lugar de proporcionar credenciales en la cadena de conexión del objeto de origen de datos.
 
 Antes de obtener más información acerca de esta característica, se recomienda comprender qué es un indexador y cómo configurar un indexador para el origen de datos. Se puede encontrar más información en los vínculos siguientes:
+
 * [Información general del indexador](search-indexer-overview.md)
 * [Indexador de Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -32,7 +33,7 @@ Cuando se habilita una identidad administrada asignada por el sistema, Azure cre
 
 ![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activar la identidad administrada asignada por el sistema")
 
-Después de seleccionar **Guardar**, verá un identificador de objeto que se ha asignado al servicio de búsqueda.
+Después de seleccionar **Guardar** , verá un identificador de objeto que se ha asignado al servicio de búsqueda.
 
 ![Id. de objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "Id. de objeto")
  
@@ -42,13 +43,13 @@ En este paso, concederá permiso a su servicio de Azure Cognitive Search para le
 
 1. En Azure Portal, navegue hasta la cuenta de Cosmos DB que contiene los datos que quiere indexar.
 2. Seleccione **Access Control (IAM)**
-3. Seleccione **Agregar** y, a continuación, **Agregar asignación de roles**.
+3. Seleccione **Agregar** y, a continuación, **Agregar asignación de roles** .
 
     ![Agregar asignación de roles](./media/search-managed-identities/add-role-assignment-cosmos-db.png "Agregar asignación de roles")
 
-4. Seleccione el **Rol de lector de cuentas de Cosmos DB**.
-5. Deje **Asignar acceso a** como **Usuario, grupo o entidad de servicio de Azure AD**.
-6. Busque el servicio de búsqueda, selecciónelo y elija **Guardar**.
+4. Seleccione el **Rol de lector de cuentas de Cosmos DB** .
+5. Deje **Asignar acceso a** como **Usuario, grupo o entidad de servicio de Azure AD** .
+6. Busque el servicio de búsqueda, selecciónelo y elija **Guardar** .
 
     ![Agregue la asignación del rol Lector y acceso a datos](./media/search-managed-identities/add-role-assignment-cosmos-db-account-reader-role.png "Agregar la asignación del rol Lector y acceso a datos").
 
@@ -83,8 +84,8 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 |---------|-------------|
 | **name** | Necesario. Elija un nombre para representar el objeto de origen de datos. |
 |**type**| Necesario. Debe ser `cosmosdb`. |
-|**credentials** | Necesario. <br/><br/>Al conectarse mediante una identidad administrada, el formato de las **credenciales** debe ser: *Database=[nombre-base-de-datos];ResourceId=[cadena-id-recurso];(ApiKind=[clase-api];)*<br/> <br/>Formato de ResourceId: *ResourceId=/subscriptions/**id. de la suscripción**/resourceGroups/**nombre del grupo de recursos**/providers/Microsoft.DocumentDB/databaseAccounts/**nombre de la cuenta de Cosmos DB**/;*<br/><br/>En las colecciones de SQL, la cadena de conexión no requiere un elemento ApiKind.<br/><br/>Para las colecciones de MongoDB, agregue **ApiKind=MongoDb** a la cadena de conexión. <br/><br/>En el caso de los gráficos de Gremlin y las tablas de Cassandra, regístrese para la [versión preliminar del indexador validada](https://aka.ms/azure-cognitive-search/indexer-preview) para obtener acceso a la versión preliminar e información sobre cómo dar formato a las credenciales.<br/>|
-| **container** | Contiene los siguientes elementos: <br/>**name**: Necesario. Especifique el identificador de la colección de la base de datos que se va a indexar.<br/>**query**: Opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Azure Cognitive Search pueda indizar.<br/>En MongoDB API, Gremlin API y Cassandra API, no se admiten consultas. |
+|**credentials** | Necesario. <br/><br/>Al conectarse mediante una identidad administrada, el formato de las **credenciales** debe ser: *Database=[nombre-base-de-datos];ResourceId=[cadena-id-recurso];(ApiKind=[clase-api];)*<br/> <br/>Formato de ResourceId: *ResourceId=/subscriptions/ **id. de la suscripción** /resourceGroups/ **nombre del grupo de recursos** /providers/Microsoft.DocumentDB/databaseAccounts/ **nombre de la cuenta de Cosmos DB** /;*<br/><br/>En las colecciones de SQL, la cadena de conexión no requiere un elemento ApiKind.<br/><br/>Para las colecciones de MongoDB, agregue **ApiKind=MongoDb** a la cadena de conexión. <br/><br/>En el caso de los gráficos de Gremlin y las tablas de Cassandra, regístrese para la [versión preliminar del indexador validada](https://aka.ms/azure-cognitive-search/indexer-preview) para obtener acceso a la versión preliminar e información sobre cómo dar formato a las credenciales.<br/>|
+| **container** | Contiene los siguientes elementos: <br/>**name** : Necesario. Especifique el identificador de la colección de la base de datos que se va a indexar.<br/>**query** : Opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Azure Cognitive Search pueda indizar.<br/>En MongoDB API, Gremlin API y Cassandra API, no se admiten consultas. |
 | **dataChangeDetectionPolicy** | Recomendado |
 |**dataDeletionDetectionPolicy** | Opcional |
 
@@ -143,9 +144,8 @@ Si no puede indexar los datos de Cosmos DB, tenga en cuenta lo siguiente:
 
 1. Si ha rotado recientemente las claves de la cuenta de Cosmos DB, tendrá que esperar hasta 15 minutos para que la cadena de conexión de la identidad administrada funcione.
 
-1. Compruebe si la cuenta de Cosmos DB tiene acceso restringido a las redes seleccionadas. En su caso, vea [Acceso del indexador a orígenes de datos mediante las características de seguridad de red de Azure](search-indexer-securing-resources.md).
+1. Compruebe si la cuenta de Cosmos DB tiene acceso restringido a las redes seleccionadas. Si es así, vea [Acceso del indexador a orígenes de datos mediante las características de seguridad de red de Azure](search-indexer-securing-resources.md).
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre los indexadores de Cosmos DB:
 * [Indexador de Azure Cosmos DB](search-howto-index-cosmosdb.md)

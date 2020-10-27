@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261081"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340094"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas con umbrales dinámicos en Azure Monitor
 
@@ -22,11 +22,11 @@ Agradecemos sus comentarios, así que puede enviarlos a <azurealertsfeedback@mic
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>¿Por qué y cuándo se recomienda el uso de un tipo de condición dinámica?
 
-1. **Alertas escalables**: las reglas de alertas de umbral dinámico pueden crear umbrales a medida para cientos de series de métricas a la vez con la misma facilidad de definición que si se tratara de una regla de alertas para una sola métrica. Le proporcionan menos alertas para crear y administrar. Puede usar Azure Portal o la API de Azure Resource Manager para crearlas. El enfoque escalable es especialmente útil cuando se trabaja con dimensiones de métricas o cuando se aplican a varios recursos como, por ejemplo, a todos los recursos de la suscripción.  [Obtenga más información acerca de cómo configurar alertas de métricas con umbrales dinámicos mediante plantillas](alerts-metric-create-templates.md).
+1. **Alertas escalables** : las reglas de alertas de umbral dinámico pueden crear umbrales a medida para cientos de series de métricas a la vez con la misma facilidad de definición que si se tratara de una regla de alertas para una sola métrica. Le proporcionan menos alertas para crear y administrar. Puede usar Azure Portal o la API de Azure Resource Manager para crearlas. El enfoque escalable es especialmente útil cuando se trabaja con dimensiones de métricas o cuando se aplican a varios recursos como, por ejemplo, a todos los recursos de la suscripción.  [Obtenga más información acerca de cómo configurar alertas de métricas con umbrales dinámicos mediante plantillas](alerts-metric-create-templates.md).
 
-1. **Reconocimiento de patrones de métricas inteligentes**: mediante la tecnología Machine Learning podemos detectar automáticamente patrones de métricas y adaptarlos a los cambios que se producen en las métricas con el tiempo, lo que a menudo puede incluir estacionalidad (cada hora, cada día o cada semana). La adaptación al comportamiento de las métricas con el paso del tiempo y la generación de alertas en función de las desviaciones de su patrón permite que no sea imprescindible conocer el umbral "correcto" de cada métrica. El algoritmo de Machine Learning que se usa en umbrales dinámicos está diseñado para evitar umbrales con ruido (poca precisión) o amplios (poco recuerdo) que no tengan un patrón esperado.
+1. **Reconocimiento de patrones de métricas inteligentes** : mediante la tecnología Machine Learning podemos detectar automáticamente patrones de métricas y adaptarlos a los cambios que se producen en las métricas con el tiempo, lo que a menudo puede incluir estacionalidad (cada hora, cada día o cada semana). La adaptación al comportamiento de las métricas con el paso del tiempo y la generación de alertas en función de las desviaciones de su patrón permite que no sea imprescindible conocer el umbral "correcto" de cada métrica. El algoritmo de Machine Learning que se usa en umbrales dinámicos está diseñado para evitar umbrales con ruido (poca precisión) o amplios (poco recuerdo) que no tengan un patrón esperado.
 
-1. **Configuración intuitiva**: los umbrales dinámicos permiten configurar alertas de métricas mediante conceptos de alto nivel, lo que mitiga la necesidad de poseer un amplio conocimiento acerca de la métrica.
+1. **Configuración intuitiva** : los umbrales dinámicos permiten configurar alertas de métricas mediante conceptos de alto nivel, lo que mitiga la necesidad de poseer un amplio conocimiento acerca de la métrica.
 
 ## <a name="how-to-configure-alerts-rules-with-dynamic-thresholds"></a>¿Cómo se configuran reglas de alertas con umbrales dinámicos?
 
@@ -61,7 +61,7 @@ Puede elegir que la alerta que se va a desencadenar en una de las tres condicion
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>¿Qué significa la configuración avanzada de los umbrales dinámicos?
 
-**Períodos de error**: los umbrales dinámicos también permiten configurar el número de infracciones necesarias para que se desencadene la alerta, que es el número mínimo de desviaciones requeridas en un período concreto para que el sistema genere una alerta (el valor predeterminado es cuatro desviaciones en 20 minutos). El usuario puede configurar los períodos de error y elegir los motivos por los que va a recibir alertas. Para ello solo debe cambiar los períodos de error y el período de tiempo. Esta capacidad reduce el ruido de las alertas que generan los picos transitorios. Por ejemplo:
+**Períodos de error** : los umbrales dinámicos también permiten configurar el número de infracciones necesarias para que se desencadene la alerta, que es el número mínimo de desviaciones requeridas en un período concreto para que el sistema genere una alerta (el valor predeterminado es cuatro desviaciones en 20 minutos). El usuario puede configurar los períodos de error y elegir los motivos por los que va a recibir alertas. Para ello solo debe cambiar los períodos de error y el período de tiempo. Esta capacidad reduce el ruido de las alertas que generan los picos transitorios. Por ejemplo:
 
 Para desencadenar una alerta cuando el problema es continuo durante 20 minutos, 4 veces consecutivas en un período dado de 5 minutos, utilice la siguiente configuración:
 
@@ -71,7 +71,7 @@ Para desencadenar una alerta cuando se ha producido una infracción de un umbral
 
 ![La configuración de los períodos de error en un problema que se da durante 20 minutos, de los últimos 30, con una agrupación de períodos de 5 minutos](media/alerts-dynamic-thresholds/0009.png)
 
-**Omitir los datos anteriores a**: los usuarios también tienen la opción de definir la fecha a partir de la que el sistema debe comenzar a calcular los umbrales. Un caso de uso típico puede producirse cuando un recurso se ejecutaba en modo de prueba y ahora se ha promocionado a servir una carga de trabajo de producción y, por lo tanto, no debe tenerse en cuenta el comportamiento de las métrica durante la fase de pruebas.
+**Omitir los datos anteriores a** : los usuarios también tienen la opción de definir la fecha a partir de la que el sistema debe comenzar a calcular los umbrales. Un caso de uso típico puede producirse cuando un recurso se ejecutaba en modo de prueba y ahora se ha promocionado a servir una carga de trabajo de producción y, por lo tanto, no debe tenerse en cuenta el comportamiento de las métrica durante la fase de pruebas.
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>¿Cómo averiguar por qué se ha desencadenado una alerta de umbrales dinámicos?
 
@@ -98,38 +98,38 @@ En el caso de los recursos existentes con datos de métrica suficientes, los umb
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedimientos recomendados para umbrales dinámicos
 
-Los umbrales dinámicos se puede aplicar a cualquier plataforma o métrica personalizada de Azure Monitor y también se ha optimizado para las métricas comunes de aplicaciones y de infraestructura.
+Los umbrales dinámicos se puede aplicar a la mayoría de las plataformas o métricas personalizadas de Azure Monitor y también se ha optimizado para las métricas comunes de aplicaciones y de infraestructura.
 Los elementos siguientes son procedimientos recomendados sobre cómo configurar alertas en algunas de estas métricas con umbrales dinámicos.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Umbrales dinámicos en las métricas de porcentaje de CPU de máquina virtual
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. La vista Monitor consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor** . La vista Monitor consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
 
-2. Haga clic en **Alertas** y, a continuación, en **+ Nueva regla de alertas**.
+2. Haga clic en **Alertas** y, a continuación, en **+ Nueva regla de alertas** .
 
     > [!TIP]
-    > La mayoría de las hojas de recursos también tienen la opción **Alertas** en el menú de recursos de la sección **Supervisión**, de modo que también podría crear alertas desde allí.
+    > La mayoría de las hojas de recursos también tienen la opción **Alertas** en el menú de recursos de la sección **Supervisión** , de modo que también podría crear alertas desde allí.
 
-3. Haga clic en **Seleccionar destino**, en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso "Máquinas virtuales"** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
+3. Haga clic en **Seleccionar destino** , en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso "Máquinas virtuales"** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
 
-4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
+4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición** .
 
 5. Seleccione **"Porcentaje de CPU"** .
 
-6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
+6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación** . No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
 
 7. Verá un gráfico para la métrica de las últimas 6 horas. Defina los parámetros de la alerta:
-    1. **Tipo de condición**: elija la opción "Dinámico".
-    1. **Sensibilidad**: elija una sensibilidad media o baja para reducir el ruido de las alertas.
-    1. **Operador**: elija "mayor que" excepto si el comportamiento representa el uso de la aplicación.
-    1. **Frecuencia**: considere la posibilidad de reducirla según el impacto empresarial de la alerta.
+    1. **Tipo de condición** : elija la opción "Dinámico".
+    1. **Sensibilidad** : elija una sensibilidad media o baja para reducir el ruido de las alertas.
+    1. **Operador** : elija "mayor que" excepto si el comportamiento representa el uso de la aplicación.
+    1. **Frecuencia** : considere la posibilidad de reducirla según el impacto empresarial de la alerta.
     1. **Períodos de error** (Opción avanzada) la ventana temporal debe ser al menos de 15 minutos. Por ejemplo, si se establece el período en cinco minutos, los períodos de error deben ser tres como mínimo.
 
 8. El gráfico de métricas mostrará los umbrales calculados según los datos recientes.
 
-9. Haga clic en **Done**(Listo).
+9. Haga clic en **Done** (Listo).
 
-10. Rellene los **Detalles de alertas** como **Nombre de la regla de alertas**, **Descripción** y **Gravedad**.
+10. Rellene los **Detalles de alertas** como **Nombre de la regla de alertas** , **Descripción** y **Gravedad** .
 
 11. Agregue un grupo de acciones a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
 
@@ -140,31 +140,31 @@ Los elementos siguientes son procedimientos recomendados sobre cómo configurar 
 
 ### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Umbrales dinámicos en el tiempo de ejecución de solicitudes HTTP de Application Insights
 
-1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor**. La vista Monitor consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
+1. En [Azure Portal](https://portal.azure.com), haga clic en **Monitor** . La vista Monitor consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
 
-2. Haga clic en **Alertas** y, a continuación, en **+ Nueva regla de alertas**.
+2. Haga clic en **Alertas** y, a continuación, en **+ Nueva regla de alertas** .
 
     > [!TIP]
-    > La mayoría de las hojas de recursos también tienen la opción **Alertas** en el menú de recursos de la sección **Supervisión**, de modo que también podría crear alertas desde allí.
+    > La mayoría de las hojas de recursos también tienen la opción **Alertas** en el menú de recursos de la sección **Supervisión** , de modo que también podría crear alertas desde allí.
 
-3. Haga clic en **Seleccionar destino**, en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso "Application Insights"** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
+3. Haga clic en **Seleccionar destino** , en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso "Application Insights"** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
 
-4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
+4. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición** .
 
 5. Seleccione la opción **"Tiempo de ejecución de solicitud HTTP"** .
 
-6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación**. No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
+6. De manera opcional, puede restringir la métrica ajustando **Período** y **Agregación** . No se recomienda usar el tipo de agregación "máxima" para este tipo de métrica ya que es menos representativo del comportamiento. Para el tipo de agregación "máxima", el umbral estático puede ser más adecuado.
 
 7. Verá un gráfico para la métrica de las últimas 6 horas. Defina los parámetros de la alerta:
-    1. **Tipo de condición**: elija la opción "Dinámico".
-    1. **Operador**: elija "mayor que" para reducir el número de alertas que se desencadenan con una mejora de la duración.
-    1. **Frecuencia**: considere la posibilidad de reducirla según el impacto empresarial de la alerta.
+    1. **Tipo de condición** : elija la opción "Dinámico".
+    1. **Operador** : elija "mayor que" para reducir el número de alertas que se desencadenan con una mejora de la duración.
+    1. **Frecuencia** : considere la posibilidad de reducirla según el impacto empresarial de la alerta.
 
 8. El gráfico de métricas mostrará los umbrales calculados según los datos recientes.
 
-9. Haga clic en **Done**(Listo).
+9. Haga clic en **Done** (Listo).
 
-10. Rellene los **Detalles de alertas** como **Nombre de la regla de alertas**, **Descripción** y **Gravedad**.
+10. Rellene los **Detalles de alertas** como **Nombre de la regla de alertas** , **Descripción** y **Gravedad** .
 
 11. Agregue un grupo de acciones a la alerta, ya sea seleccionando un grupo de acciones existente o creando uno nuevo.
 
@@ -181,11 +181,11 @@ A continuación aparece un gráfico que muestra una métrica, sus límites de um
 
 Utilice la siguiente información para interpretar el gráfico anterior.
 
-- **Línea azul**: la métrica medida real a lo largo del tiempo.
-- **Área azul sombreada**: muestra el intervalo permitido para la métrica. Siempre que los valores de la métrica permanezcan dentro de este intervalo, no se producirá ninguna alerta.
-- **Puntos azules**: si hace clic en cualquier parte del gráfico y, a continuación, mantiene el mouse sobre la línea azul, verá un punto azul debajo del cursor que muestra un valor de métrica agregado individual.
-- **Elemento emergente con un punto azul**: muestra el valor de la métrica medida (el punto azul) y los valores superior e inferior del intervalo permitido.  
-- **Punto rojo con un círculo negro**: muestra el primer valor de la métrica fuera del intervalo permitido. Este es el valor que activa una alerta de métrica y la pone en estado activo.
-- **Puntos rojos**: indican valores medidos adicionales fuera del intervalo permitido. No activarán alertas de métricas adicionales, pero la alerta permanecerá activa.
-- **Área roja**: muestra la hora en que el valor de la métrica estaba fuera del intervalo permitido. La alerta permanecerá en estado activo siempre que los valores medidos posteriores estén fuera del intervalo permitido, pero no se activarán nuevas alertas.
-- **Final del área roja**: cuando la línea azul vuelve dentro de los valores permitidos, el área roja se detiene y la línea del valor medido se vuelve azul. El estado de la alerta de la métrica desencadenada en el momento que indica el punto rojo con el contorno negro se establece en resuelto. 
+- **Línea azul** : la métrica medida real a lo largo del tiempo.
+- **Área azul sombreada** : muestra el intervalo permitido para la métrica. Siempre que los valores de la métrica permanezcan dentro de este intervalo, no se producirá ninguna alerta.
+- **Puntos azules** : si hace clic en cualquier parte del gráfico y, a continuación, mantiene el mouse sobre la línea azul, verá un punto azul debajo del cursor que muestra un valor de métrica agregado individual.
+- **Elemento emergente con un punto azul** : muestra el valor de la métrica medida (el punto azul) y los valores superior e inferior del intervalo permitido.  
+- **Punto rojo con un círculo negro** : muestra el primer valor de la métrica fuera del intervalo permitido. Este es el valor que activa una alerta de métrica y la pone en estado activo.
+- **Puntos rojos** : indican valores medidos adicionales fuera del intervalo permitido. No activarán alertas de métricas adicionales, pero la alerta permanecerá activa.
+- **Área roja** : muestra la hora en que el valor de la métrica estaba fuera del intervalo permitido. La alerta permanecerá en estado activo siempre que los valores medidos posteriores estén fuera del intervalo permitido, pero no se activarán nuevas alertas.
+- **Final del área roja** : cuando la línea azul vuelve dentro de los valores permitidos, el área roja se detiene y la línea del valor medido se vuelve azul. El estado de la alerta de la métrica desencadenada en el momento que indica el punto rojo con el contorno negro se establece en resuelto. 

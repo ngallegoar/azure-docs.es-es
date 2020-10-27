@@ -4,12 +4,12 @@ description: Aprenda a usar el escalado automático de clústeres para escalar a
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88257517"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103873"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Escalar automáticamente un clúster para satisfacer las necesidades de la aplicación en Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ Horizontal Pod Autoscaler y Cluster Autoscaler pueden funcionar juntos y a menud
 
 ## <a name="create-an-aks-cluster-and-enable-the-cluster-autoscaler"></a>Crear un clúster de AKS y habilitar el escalado automático de clústeres
 
-Si necesita crear un clúster de AKS, use el comando [az aks create][az-aks-create]. Para habilitar y configurar el escalado automático de clústeres en el grupo de nodos del clúster, use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count*.
+Si necesita crear un clúster de AKS, use el comando [az aks create][az-aks-create]. Para habilitar y configurar el escalado automático de clústeres en el grupo de nodos del clúster, use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count* .
 
 > [!IMPORTANT]
 > El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos del nodo?][aks-faq-node-resource-group]
@@ -74,7 +74,7 @@ Tardará unos minutos en crear el clúster y configurar las opciones del escalad
 
 ## <a name="update-an-existing-aks-cluster-to-enable-the-cluster-autoscaler"></a>Actualización de un clúster de AKS existente para habilitar el escalador automático de clústeres
 
-Use el comando [az aks update][az-aks-update] para habilitar y configurar el escalador automático de clústeres en el grupo de nodos para el clúster existente. Use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count*.
+Use el comando [az aks update][az-aks-update] para habilitar y configurar el escalador automático de clústeres en el grupo de nodos para el clúster existente. Use el parámetro *--enable-cluster-autoscaler* y especifique un nodo *--min-count* y *--max-count* .
 
 > [!IMPORTANT]
 > El escalador automático del clúster es un componente de Kubernetes. Aunque el clúster de AKS usa un conjunto de escalado de máquinas virtuales para los nodos, no habilite ni edite manualmente la configuración de escalado automático del conjunto de escalado en Azure Portal o mediante la CLI de Azure. Permita que el escalador automático del clúster de Kubernetes administre la configuración del escalado necesaria. Para más información, consulte [¿Puedo modificar los recursos de AKS en el grupo de recursos del nodo?][aks-faq-node-resource-group]
@@ -97,7 +97,7 @@ Tardará unos minutos en actualizar el clúster y configurar las opciones del es
 > [!IMPORTANT]
 > Si tiene varios grupos de nodos en el clúster de AKS, vaya a la sección de [escalado automático con varios grupos de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Los clústeres con varios grupos de agentes habilitados requieren el uso del conjunto de comandos `az aks nodepool` para cambiar las propiedades específicas del grupo de nodos en lugar de `az aks`.
 
-En el paso anterior para crear un clúster de AKS o actualizar un grupo de nodos existente, el número mínimo de nodos del escalado automático de clústeres se estableció en *1*, y el número máximo de nodos se estableció en *3*. Como las necesidades de la aplicación van cambiando, es posible que deba ajustar el número de nodos del escalado automático de clústeres.
+En el paso anterior para crear un clúster de AKS o actualizar un grupo de nodos existente, el número mínimo de nodos del escalado automático de clústeres se estableció en *1* , y el número máximo de nodos se estableció en *3* . Como las necesidades de la aplicación van cambiando, es posible que deba ajustar el número de nodos del escalado automático de clústeres.
 
 Para cambiar el número de nodos, use el comando [az aks update][az-aks-update].
 
@@ -135,18 +135,8 @@ También puede configurar detalles más pormenorizados del escalador automático
 
 > [!IMPORTANT]
 > El perfil del escalador automático del clúster afecta a todos los grupos de nodos que usan el escalador automático del clúster. No se puede establecer un perfil del escalador automático por grupo de nodos.
-
-### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
-
-Para establecer el perfil de configuración del escalador automático del clúster, necesitará la versión 0.4.30 de la extensión de la CLI *aks-preview* o una versión posterior. Instale la extensión de la CLI de Azure *aks-preview* con el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles con el comando [az extension update][az-extension-update]:
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> El perfil de escalabilidad automática del clúster requiere la versión *2.11.1* o superior de la CLI de Azure. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Establecimiento del perfil del escalador automático del clúster en un clúster de AKS existente
 
@@ -204,7 +194,7 @@ az aks update \
 
 ## <a name="disable-the-cluster-autoscaler"></a>Deshabilitar el escalado automático de clústeres
 
-Si ya no quiere usar el escalado automático de clústeres, puede deshabilitarlo mediante el comando [az aks update][az-aks-update-preview], especificando el parámetro *--disable-cluster-autoscaler*. Los nodos no se quitan cuando se deshabilita el escalado automático de clústeres.
+Si ya no quiere usar el escalado automático de clústeres, puede deshabilitarlo mediante el comando [az aks update][az-aks-update-preview], especificando el parámetro *--disable-cluster-autoscaler* . Los nodos no se quitan cuando se deshabilita el escalado automático de clústeres.
 
 ```azurecli-interactive
 az aks update \
@@ -217,7 +207,7 @@ Puede escalar manualmente el clúster después de deshabilitar el escalado autom
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>Volver a habilitar un escalado automático de clústeres deshabilitado
 
-Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks update][az-aks-update-preview], especificando los parámetros *--enable-cluster-autoscaler*, *--min-count* y *--max-count*.
+Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks update][az-aks-update-preview], especificando los parámetros *--enable-cluster-autoscaler* , *--min-count* y *--max-count* .
 
 ## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>Recuperación de registros y estado del escalador automático del clúster
 
@@ -252,7 +242,7 @@ Para más información sobre lo que se registra del escalador automático, consu
 
 El escalado automático de clústeres también se puede usar con [varios grupos de nodos][aks-multiple-node-pools] habilitados. Siga este documento para aprender a habilitar varios grupos de nodos y agregar grupos de nodos adicionales a un clúster existente. Cuando se utilizan ambas características juntas, se activa el escalado automático de clústeres en cada grupo de nodos individuales del clúster y se pueden pasar reglas de escalado automático únicas a cada uno de ellos.
 
-En el comando siguiente se supone que ha seguido las [instrucciones iniciales](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) anteriores de este documento y desea actualizar el número máximo de grupos de nodos existentes de *3* a *5*. Use el comando [az aks nodepool update][az-aks-nodepool-update] para actualizar la configuración de un grupo de nodos existente.
+En el comando siguiente se supone que ha seguido las [instrucciones iniciales](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) anteriores de este documento y desea actualizar el número máximo de grupos de nodos existentes de *3* a *5* . Use el comando [az aks nodepool update][az-aks-nodepool-update] para actualizar la configuración de un grupo de nodos existente.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -274,7 +264,7 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks nodepool update][az-aks-nodepool-update], especificando los parámetros *--enable-cluster-autoscaler*, *--min-count* y *--max-count*.
+Si quiere volver a habilitar el escalado automático de clústeres en un clúster existente, puede volver a habilitarlo mediante el comando [az aks nodepool update][az-aks-nodepool-update], especificando los parámetros *--enable-cluster-autoscaler* , *--min-count* y *--max-count* .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

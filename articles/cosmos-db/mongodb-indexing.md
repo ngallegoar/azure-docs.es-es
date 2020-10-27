@@ -9,12 +9,12 @@ ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: abd6d6379fba1efac20255ca97e66e6b2d7e72ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324415"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282376"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 
@@ -118,7 +118,7 @@ El siguiente comando crea un índice de caracteres comodín en cualquier propied
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**A diferencia de MongoDB, los índices de caracteres comodín pueden admitir varios campos en predicados de consulta**. No habrá ninguna diferencia en el rendimiento de las consultas si se usa un solo índice de caracteres comodín en lugar de crear un índice independiente para cada propiedad.
+**A diferencia de MongoDB, los índices de caracteres comodín pueden admitir varios campos en predicados de consulta** . No habrá ninguna diferencia en el rendimiento de las consultas si se usa un solo índice de caracteres comodín en lugar de crear un índice independiente para cada propiedad.
 
 Puede crear los siguientes tipos de índice mediante la sintaxis de caracteres comodín:
 
@@ -141,7 +141,7 @@ Los índices de caracteres comodín no admiten ninguno de los siguientes tipos o
 - TTL
 - Único
 
-**A diferencia de MongoDB**, en la API de Azure Cosmos DB para MongoDB, **no puede** usar índices de caracteres comodín para:
+**A diferencia de MongoDB** , en la API de Azure Cosmos DB para MongoDB, **no puede** usar índices de caracteres comodín para:
 
 - Crear un índice de caracteres comodín que incluya varios campos específicos
 
@@ -324,7 +324,7 @@ Independientemente del valor especificado para la propiedad **Background** del �
 
 No afecta a la disponibilidad de lectura al agregar un índice nuevo. Las consultas solo utilizarán nuevos índices una vez completada la transformación del índice. Durante la transformación del índice, el motor de consulta seguirá usando los índices existentes, por lo que observará un rendimiento de lectura similar durante la transformación de indexación al que observó antes de iniciar el cambio de indexación. Al agregar índices nuevos, tampoco hay riesgo de resultados de consulta incompletos o incoherentes.
 
-Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los índices quitados, es posible que los resultados sean incoherentes e incompletos hasta que finalice la transformación del índice. Si quita los índices, el motor de consultas no garantiza resultados coherentes o completos cuando las consultas filtran los índices recién quitados. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que los usan de inmediato, por lo que, en la práctica, esta situación es poco probable.
+Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los índices quitados, es posible que los resultados sean incoherentes e incompletos hasta que finalice la transformación del índice. Si quita los índices, el motor de consultas no proporciona resultados coherentes o completos cuando las consultas filtran los índices recién quitados. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que los usan de inmediato, por lo que, en la práctica, esta situación es poco probable.
 
 > [!NOTE]
 > Puede [hacer un seguimiento del progreso del índice](#track-index-progress).

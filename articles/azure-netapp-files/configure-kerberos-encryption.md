@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461485"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217055"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configuración del cifrado Kerberos de NFSv4.1 para Azure NetApp Files
 
@@ -40,7 +40,7 @@ Los siguientes requisitos se aplican al cifrado de cliente de NFSv4.1:
 
 1.  Siga los pasos de [Creación de un volumen de NFS para Azure NetApp Files](azure-netapp-files-create-volumes.md) para crear el volumen de NFSv4.1.   
 
-    En la página Crear un volumen, establezca la versión de NFS en **NFSv4.1** y establezca Kerberos en **Habilitado**.
+    En la página Crear un volumen, establezca la versión de NFS en **NFSv4.1** y establezca Kerberos en **Habilitado** .
 
     > [!IMPORTANT] 
     > No se puede modificar la selección de habilitación de Kerberos una vez creado el volumen.
@@ -61,7 +61,7 @@ Los siguientes requisitos se aplican al cifrado de cliente de NFSv4.1:
 
     Kerberos requiere la creación de al menos una cuenta de equipo en Active Directory. La información de la cuenta que proporcione se usa para crear las cuentas de los volúmenes de Kerberos SMB *y* NFSv4.1. Esta máquina se crea automáticamente durante la creación del volumen.
 
-2.  En **Dominio Kerberos**, escriba el **Nombre del servidor de AD** y la dirección **IP de KDC**.
+2.  En **Dominio Kerberos** , escriba el **Nombre del servidor de AD** y la dirección **IP de KDC** .
 
     El servidor de AD y la dirección IP del KDC pueden ser el mismo servidor. Esta información se usa para crear la cuenta de la máquina del SPN usada por Azure NetApp Files. Una vez creada la cuenta de equipo, Azure NetApp Files usará los registros del servidor DNS para buscar servidores KDC adicionales según sea necesario. 
 
@@ -75,7 +75,7 @@ La configuración de NFSv4.1 de Kerberos crea dos cuentas de equipo en Active Di
 * Una cuenta de equipo para los recursos compartidos SMB.
 * Una cuenta de equipo para NFSv4.1: puede identificar esta cuenta mediante el prefijo `NFS-`. 
 
-Una vez creado el primer volumen de NFSv4.1 de Kerberos, establezca el tipo de cifrado o la cuenta de equipo mediante el siguiente comando de PowerShell:
+Una vez creado el primer volumen Kerberos NFSv4.1, establezca el tipo de cifrado de la cuenta de equipo mediante el siguiente comando de PowerShell:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -85,7 +85,7 @@ Siga las instrucciones de [Configuración de un cliente NFS para Azure NetApp Fi
 
 ## <a name="mount-the-nfs-kerberos-volume"></a><a name="kerberos_mount"></a>Montaje del volumen Kerberos de NFS
 
-1. En la página **Volúmenes**, seleccione el volumen NFS que desea montar.
+1. En la página **Volúmenes** , seleccione el volumen NFS que desea montar.
 
 2. Seleccione **Instrucciones de montaje** en el volumen para mostrar las instrucciones.
 
@@ -96,11 +96,11 @@ Siga las instrucciones de [Configuración de un cliente NFS para Azure NetApp Fi
 3. Cree el directorio (punto de montaje) para el nuevo volumen.  
 
 4. Establezca el tipo de cifrado predeterminado en AES 256 para la cuenta de equipo:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * Solo tiene que ejecutar este comando una vez para cada cuenta de equipo.
     * Puede ejecutar este comando desde un controlador de dominio o desde un equipo con [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) instalado. 
-    * La variable `$COMPUTERACCOUNT` es la cuenta de equipo creada en Active Directory al implementar el volumen de Kerberos. Se trata de la cuenta que tiene el prefijo `NFS-`. 
+    * La variable `$NFSCOMPUTERACCOUNT` es la cuenta de equipo creada en Active Directory al implementar el volumen de Kerberos. Se trata de la cuenta que tiene el prefijo `NFS-`. 
     * La variable `$ANFSERVICEACCOUNT` es una cuenta de usuario de Active Directory sin privilegios con controles delegados en la unidad organizativa en la que se ha creado la cuenta de equipo. 
 
 5. Monte el volumen en el host: 

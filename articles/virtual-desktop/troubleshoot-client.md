@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88134486"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108973"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solución de problemas del cliente de Escritorio remoto
 
@@ -83,6 +83,20 @@ Si el cliente web sigue solicitando las credenciales, siga estas instrucciones:
 3. Borre las cookies del explorador. Para más información, consulte [Cómo eliminar archivos de cookies en Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Borre la memoria caché del explorador Para más información, consulte [Borrar la memoria caché del explorador](https://binged.it/2RKyfdU).
 5. Abra el explorador en modo privado.
+
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>El cliente de Windows bloquea la fuente de Windows Virtual Desktop (clásico)
+
+Si la fuente de cliente de Windows no va a mostrar las aplicaciones de Windows Virtual Desktop (clásico), siga estas instrucciones:
+
+1. Compruebe si la Directiva de acceso condicional incluye los identificadores de aplicación asociados al escritorio virtual de Windows (clásico).
+2. Compruebe si la directiva de acceso condicional bloquea todo el acceso excepto los identificadores de aplicación de Windows Virtual Desktop (clásico). Si es así, deberá agregar el id. de la aplicación **9cdead84-A844-4324-93f2-b2e6bb768d07** a la directiva para permitir que el cliente detecte las fuentes.
+
+Si no encuentra el id. de la aplicación 9cdead84-A844-4324-93f2-b2e6bb768d07 en la lista, deberá registrar el proveedor de recursos de Windows Virtual Desktop. Para registrar el proveedor de recursos:
+
+1. Inicie sesión en Azure Portal.
+2. Vaya a **Suscripción** y seleccione la suscripción.
+3. En el menú de la izquierda de la página, seleccione **Proveedor de recursos** .
+4. Busque y seleccione **Microsoft.DesktopVirtualization** y, a continuación, seleccione **Volver a registrar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

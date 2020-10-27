@@ -4,12 +4,12 @@ description: Supervisión del rendimiento de aplicaciones sin código para aplic
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91537664"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215270"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opciones de configuración: agente independiente de Java para Application Insights de Azure Monitor
 
@@ -164,9 +164,10 @@ Si tiene alguna métrica de JMX que le interese capturar, use lo siguiente:
 }
 ```
 
-También puede establecer las métricas de JMX mediante la variable de entorno `APPLICATIONINSIGHTS_JMX_METRICS`.
+Se admiten los valores de métrica JMX numéricos y booleanos. Las métricas JMX booleanas se asignan a `0` para false y `1` para true.
 
-El contenido de esta variable de entorno debe ser datos JSON que coincidan con la estructura anterior; por ejemplo, `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
+[//]: # "NOTA: No se documenta APPLICATIONINSIGHTS_JMX_METRICS aquí"
+[//]: # "JSON insertado en env var es confuso y solo debe documentarse para el escenario de conexión sin código"
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (incluidas las métricas del actuador de Spring Boot)
 
@@ -216,7 +217,7 @@ Este se realiza como una función en el id. de operación (también conocido com
 
 Por ejemplo, si establece el muestreo en 10 %, solo verá el 10 % de sus transacciones, pero cada una de ese 10 % tendrá los detalles completos de las transacciones de un extremo a otro.
 
-El siguiente es un ejemplo de cómo establecer el muestreo en **10 % de todas las transacciones**. Asegúrese de establecer la velocidad de muestreo correcta para su caso de uso:
+El siguiente es un ejemplo de cómo establecer el muestreo en **10 % de todas las transacciones** . Asegúrese de establecer la velocidad de muestreo correcta para su caso de uso:
 
 ```json
 {

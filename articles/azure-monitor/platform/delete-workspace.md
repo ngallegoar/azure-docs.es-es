@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448537"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174165"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Eliminación y recuperación de un área de trabajo de Azure Log Analytics
 
@@ -46,9 +46,9 @@ Las áreas de trabajo se pueden eliminar un mediante [PowerShell](/powershell/mo
 ### <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**.
+2. En Azure Portal, seleccione **Todos los servicios** . En la lista de recursos, escriba **Log Analytics** . Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics** .
 3. En la lista de áreas de trabajo de Log Analytics, seleccione un área de trabajo y, a continuación, haga clic en **Eliminar** en la parte superior del panel intermedio.
-4. Aparece una página de confirmación que muestra la ingesta de datos en el área de trabajo durante la semana pasada. Escriba el nombre del área de trabajo que desea confirmar y, a continuación, haga clic en **Eliminar**.
+4. Aparece una página de confirmación que muestra la ingesta de datos en el área de trabajo durante la semana pasada. Escriba el nombre del área de trabajo que desea confirmar y, a continuación, haga clic en **Eliminar** .
 
    ![Confirmación de la eliminación del área de trabajo](media/delete-workspace/workspace-delete.png)
 
@@ -83,7 +83,7 @@ Puede recuperar el área de trabajo durante el período de eliminación temporal
 ### <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-2. En Azure Portal, seleccione **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics**. Verá la lista de áreas de trabajo que tiene en el ámbito seleccionado.
+2. En Azure Portal, seleccione **Todos los servicios** . En la lista de recursos, escriba **Log Analytics** . Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Áreas de trabajo de Log Analytics** . Verá la lista de áreas de trabajo que tiene en el ámbito seleccionado.
 3. Haga clic en **Recuperar** en el menú superior izquierdo para abrir una página con áreas de trabajo en estado de eliminación temporal que se puedan recuperar.
 
    ![Captura de la pantalla de áreas de trabajo de Log Analytics en Azure Portal con la opción Recuperar resaltada en la barra de menús.](media/delete-workspace/recover-menu.png)
@@ -112,6 +112,9 @@ Debe tener al menos permisos de *Colaborador de Log Analytics* para eliminar un 
 * Si recibe el mensaje de error *El nombre del área de trabajo ya está en uso* o se produce un *conflicto* al crear un área de trabajo, puede deberse a:
   * el nombre del área de trabajo no está disponible y lo está usando alguien de su organización u otro cliente.
   * El área de trabajo se ha eliminado en los últimos 14 días y su nombre se mantiene reservado durante el período de eliminación temporal. Para invalidar la eliminación temporal y eliminar inmediatamente el área de trabajo y crear una con el mismo nombre, siga estos pasos para recuperar el área de trabajo primero y realizar una eliminación permanente:<br>
-     1. [Recuperar](#recover-workspace) el área de trabajo.
-     2. [Eliminar permanentemente](#permanent-workspace-delete) el área de trabajo.
-     3. Crear una nueva área de trabajo con el mismo nombre.
+    1. [Recuperar](#recover-workspace) el área de trabajo.
+    2. [Eliminar permanentemente](#permanent-workspace-delete) el área de trabajo.
+    3. Crear una nueva área de trabajo con el mismo nombre.
+* Si ve un código de respuesta 204 con el mensaje *No se encuentra el recurso* , es posible que la causa sea que se han realizado intentos consecutivos para usar la operación de eliminación del área de trabajo. 204 es una respuesta vacía, lo que normalmente significa que el recurso no existe y que la eliminación se completó sin hacer nada.
+  Después de que la llamada de eliminación se haya completado correctamente en el back-end, puede restaurar el área de trabajo y completar la operación de eliminación permanente en uno de los métodos sugeridos anteriormente.
+

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 10beee563e4a93332cd817ee04c1e74bda6e9c51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54985cbd874f6a8a3dd0db08df3ceb4b53c72cac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210347"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093283"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.
@@ -178,7 +178,7 @@ El primer paso para crear el recurso del panel es configurar una nueva operació
 ### <a name="making-the-requests"></a>Realización de las solicitudes
 Una vez creada la operación,puede configurar una directiva para esa operación en concreto. 
 
-![Operación del panel](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
+![Captura de pantalla que muestra la pantalla Ámbito de la directiva.](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
 El primer paso consiste en extraer los parámetros de consulta de la solicitud entrante, de modo que pueda reenviarlos al back-end. En este ejemplo, el panel muestra información basada en un período de tiempo y, por tanto, tiene los parámetros `fromDate` y `toDate`. Puede usar la directiva `set-variable` para extraer la información de la dirección URL de la solicitud.
 

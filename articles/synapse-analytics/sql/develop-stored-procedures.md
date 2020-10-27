@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288926"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279068"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Uso de procedimientos almacenados en Synapse SQL
 
-Sugerencias para implementar procedimientos almacenados en un grupo de SQL de Synapse (almacenamiento de datos) para el desarrollo de soluciones.
+Sugerencias para implementar procedimientos almacenados en un grupo de Synapse SQL para desarrollar soluciones.
 
 ## <a name="what-to-expect"></a>Qué esperar
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Synapse SQL no permite utilizar el conjunto de resultados de un procedimiento almacenado con una instrucción INSERT. Sin embargo, se puede utilizar un enfoque alternativo. Para ver un ejemplo, consulte el artículo sobre [tablas temporales](develop-tables-temporary.md).
+Synapse SQL no permite utilizar el conjunto de resultados de un procedimiento almacenado con una instrucción INSERT. Sin embargo, se puede utilizar un enfoque alternativo. Para obtener un ejemplo, vea el artículo sobre [tablas temporales](develop-tables-temporary.md) de un grupo aprovisionado de Synapse SQL.
 
 ## <a name="limitations"></a>Limitaciones
 

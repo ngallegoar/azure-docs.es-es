@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperfq2
-ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850105"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170335"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Administración de dispositivos en la aplicación de Azure IoT Central
 
@@ -48,11 +48,11 @@ Para agregar un dispositivo real a una aplicación de Azure IoT Central:
 
 1. Elija la plantilla de dispositivo desde la que va a crear un dispositivo.
 
-1. Elija + **Nuevo**.
+1. Elija + **Nuevo** .
 
 1. Cambie el botón de alternancia **Simulated** **On** (Activado) u **Off** (Desactivado). Un dispositivo real hace referencia a un dispositivo físico que se conecta a la aplicación de Azure IoT Central. Un dispositivo simulado tiene datos de ejemplo generados por Azure IoT Central, que los pone a su disposición.
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
 1. El dispositivo aparece ahora en la lista de dispositivos de esta plantilla. Selecciónelo para ver su página de detalles, que contiene todas las vistas del dispositivo.
 
@@ -60,8 +60,8 @@ Para agregar un dispositivo real a una aplicación de Azure IoT Central:
 
 Para conectar un gran número de dispositivos a la aplicación, puede importar dispositivos en bloque desde un archivo CSV. El archivo CSV debe tener las siguientes columnas y encabezados:
 
-* **IOTC_DeviceID**: el identificador de dispositivo debe estar en minúscula.
-* **IOTC_DeviceName**: esta columna es opcional.
+* **IOTC_DeviceID** : el identificador de dispositivo puede contener letras, números y el carácter `-`.
+* **IOTC_DeviceName** : esta columna es opcional.
 
 Para registrar dispositivos en la aplicación en bloque:
 
@@ -119,7 +119,7 @@ Para realizar la exportación masiva de dispositivos desde la aplicación:
 
 1. En el panel izquierdo, elija la plantilla de dispositivo desde la que desea exportar los dispositivos.
 
-1. Seleccione los dispositivos que desea exportar y la acción **Exportar**.
+1. Seleccione los dispositivos que desea exportar y la acción **Exportar** .
 
     ![Exportación](./media/howto-manage-devices/export1a.png)
 
@@ -152,11 +152,11 @@ Para eliminar ya sea un dispositivo real o simulado de la aplicación de Azure I
 
 1. Use las herramientas de filtro para filtrar y buscar los dispositivos. Active la casilla situada junto al dispositivo que desea eliminar.
 
-1. Elija **Eliminar**. Puede realizar un seguimiento del estado de la eliminación en el panel Device Operations (Operaciones de dispositivo).
+1. Elija **Eliminar** . Puede realizar un seguimiento del estado de la eliminación en el panel Device Operations (Operaciones de dispositivo).
 
 ## <a name="change-a-property"></a>Cambio de una propiedad
 
-Las propiedades de la nube son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Las propiedades de la nube solo existen en la aplicación IoT Central y no se sincronizan con sus dispositivos. Las propiedades que se pueden escribir controlan el comportamiento de un dispositivo y permiten establecer el estado de un dispositivo de forma remota, por ejemplo, estableciendo la temperatura objetivo de un dispositivo termostato.  Las propiedades del dispositivo las establece el dispositivo y son de solo lectura en IoT Central. Puede ver y actualizar las propiedades en las vistas de **Detalles del dispositivo**.
+Las propiedades de la nube son los metadatos de dispositivo asociados al dispositivo, como la ciudad y el número de serie. Las propiedades de la nube solo existen en la aplicación IoT Central y no se sincronizan con sus dispositivos. Las propiedades que se pueden escribir controlan el comportamiento de un dispositivo y permiten establecer el estado de un dispositivo de forma remota, por ejemplo, estableciendo la temperatura objetivo de un dispositivo termostato.  Las propiedades del dispositivo las establece el dispositivo y son de solo lectura en IoT Central. Puede ver y actualizar las propiedades en las vistas de **Detalles del dispositivo** .
 
 1. Elija **Dispositivos** en el panel izquierdo.
 
@@ -166,7 +166,7 @@ Las propiedades de la nube son los metadatos de dispositivo asociados al disposi
 
 1. Modifique las propiedades con los valores que necesite. Puede modificar varias propiedades a la vez y actualizarlas todas al mismo tiempo.
 
-1. Elija **Guardar**. Si guardó las propiedades que se pueden escribir, los valores se envían al dispositivo. Cuando el dispositivo confirma el cambio de la propiedad que se puede escribir, el estado vuelve a **synced**(sincronizado). Si guardó una propiedad de la nube, el valor se actualiza.
+1. Elija **Guardar** . Si guardó las propiedades que se pueden escribir, los valores se envían al dispositivo. Cuando el dispositivo confirma el cambio de la propiedad que se puede escribir, el estado vuelve a **synced** (sincronizado). Si guardó una propiedad de la nube, el valor se actualiza.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

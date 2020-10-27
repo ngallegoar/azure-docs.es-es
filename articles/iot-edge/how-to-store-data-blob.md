@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048158"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219741"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Almacenamiento de datos en el perímetro con Azure Blob Storage en IoT Edge
 
@@ -29,7 +29,7 @@ Este módulo es útil en los siguientes escenarios:
 Consulte el vídeo para ver una introducción breve.
 > [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
-En este módulo se proporcionan los elementos **deviceToCloudUpload** y **deviceAutoDelete**.
+En este módulo se proporcionan los elementos **deviceToCloudUpload** y **deviceAutoDelete** .
 
 **deviceToCloudUpload** es una funcionalidad configurable. Esta función le permite cargar automáticamente los datos de la instancia local de Blob Storage a Azure con compatibilidad para una conectividad de Internet intermitente. Eso le permite lo siguiente:
 
@@ -71,7 +71,7 @@ Una instancia de [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) de nivel
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>propiedades deviceToCloudUpload y deviceAutoDelete
 
-Use las propiedades necesarias del módulo para establecer **deviceToCloudUploadProperties** y **deviceAutoDeleteProperties**. Las propiedades necesarias pueden configurarse durante la implementación o modificarse más adelante editando el módulo gemelo sin necesidad de volver a implementarlas. Le recomendamos seleccionar el "Módulo gemelo" para `reported configuration` y `configurationValidation`, y que así pueda asegurarse de que los valores se propagan correctamente.
+Use las propiedades necesarias del módulo para establecer **deviceToCloudUploadProperties** y **deviceAutoDeleteProperties** . Las propiedades necesarias pueden configurarse durante la implementación o modificarse más adelante editando el módulo gemelo sin necesidad de volver a implementarlas. Le recomendamos seleccionar el "Módulo gemelo" para `reported configuration` y `configurationValidation`, y que así pueda asegurarse de que los valores se propagan correctamente.
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
@@ -83,7 +83,7 @@ El nombre de este valor es `deviceToCloudUploadProperties`. Si usa el simulador 
 | uploadOrder | NewestFirst, OldestFirst | Le permite elegir el orden en que se copiarán los datos a Azure. Se establece en `OldestFirst` de forma predeterminada. El orden está determinado en función de la última hora de modificación del blob. <br><br> Variable de entorno: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` es una cadena de conexión que le permite especificar la cuenta de almacenamiento en la que desea cargar los datos. Especificar `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Agregue el valor de EndpointSuffix adecuado de Azure donde se cargarán los datos; recuerde que varía según Global Azure, Government Azure y Microsoft Azure Stack. <br><br> Aquí puede elegir especificar una cadena de conexión de SAS de Azure Storage. Pero tiene que actualizar esta propiedad cuando expire. <br><br> Variable de entorno: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Le permite especificar los nombres de los contenedores que desea cargar en Azure. Este módulo le permite especificar los nombres de los contenedores de origen y destino. Si no especifica el nombre del contenedor de destino, se asignará automáticamente el nombre del contenedor como `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. Puede crear cadenas de plantillas para el nombre del contenedor de destino, así que compruebe la columna de valores posibles. <br>* %h -> nombre de IoT Hub (entre 3 y 50 caracteres). <br>* %d -> id. de dispositivo de IoT Edge (entre 1 y 129 caracteres). <br>* %m -> nombre del módulo (entre 1 y 64 caracteres). <br>* %c -> nombre del contenedor de origen (entre 3 y 63 caracteres). <br><br>El tamaño máximo del nombre del contenedor es de 63 caracteres; se asigna automáticamente el nombre del contenedor de destino si el tamaño del contenedor supera los 63 caracteres y se recortará cada sección (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) a 15 caracteres. <br><br> Variable de entorno: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
-| deleteAfterUpload | true, false | Se establece en `false` de forma predeterminada. Cuando se establece en `true`, se eliminarán automáticamente los datos cuando finalice la carga al almacenamiento en la nube. <br><br> **PRECAUCIÓN**: Si usa blobs en anexos, esta configuración eliminará los blobs en anexos del almacenamiento local después de una carga correcta y se producirá un error en cualquier operación posterior de anexión de bloques en esos blobs. Use esta configuración con precaución, no habilite esta opción si la aplicación realiza operaciones de anexión con poca frecuencia o no admite operaciones de anexión continuas.<br><br> Variable de entorno: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
+| deleteAfterUpload | true, false | Se establece en `false` de forma predeterminada. Cuando se establece en `true`, se eliminarán automáticamente los datos cuando finalice la carga al almacenamiento en la nube. <br><br> **PRECAUCIÓN** : Si usa blobs en anexos, esta configuración eliminará los blobs en anexos del almacenamiento local después de una carga correcta y se producirá un error en cualquier operación posterior de anexión de bloques en esos blobs. Use esta configuración con precaución, no habilite esta opción si la aplicación realiza operaciones de anexión con poca frecuencia o no admite operaciones de anexión continuas.<br><br> Variable de entorno: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
@@ -92,8 +92,8 @@ El nombre de este valor es `deviceAutoDeleteProperties`. Si usa el simulador de 
 | Propiedad | Valores posibles | Explicación |
 | ----- | ----- | ---- |
 | deleteOn | true, false | Se establece en `false` de forma predeterminada. Si quiere activar la característica, establezca este campo en `true`. <br><br> Variable de entorno: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Especifique el tiempo en minutos. El módulo eliminará automáticamente los blobs del almacenamiento local cuando este valor expire. <br><br> Variable de entorno: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | true, false | De forma predeterminada, se establece en `true`, y mantendrá el blob mientras se está cargando en el almacenamiento en la nube si expira deleteAfterMinutes. Puede configurarlo en `false` y eliminará los datos tan pronto como expire deleteAfterMinutes. Nota: Para que esta propiedad funcione, uploadOn se debe establecer en true.  <br><br> **PRECAUCIÓN**: Si usa blobs en anexos, esta configuración eliminará los blobs en anexos del almacenamiento local cuando el valor expira y se producirá un error en cualquier operación posterior de anexión de bloques en esos blobs. Es posible que desee asegurarse de que el valor de expiración es lo suficientemente grande para la frecuencia esperada de las operaciones de anexión realizadas por la aplicación.<br><br> Variable de entorno: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| deleteAfterMinutes | `<minutes>` | Especifique el tiempo en minutos. El módulo eliminará automáticamente los blobs del almacenamiento local cuando este valor expire. Los minutos actuales máximos permitidos son 35 791. <br><br> Variable de entorno: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| retainWhileUploading | true, false | De forma predeterminada, se establece en `true`, y mantendrá el blob mientras se está cargando en el almacenamiento en la nube si expira deleteAfterMinutes. Puede configurarlo en `false` y eliminará los datos tan pronto como expire deleteAfterMinutes. Nota: Para que esta propiedad funcione, uploadOn se debe establecer en true.  <br><br> **PRECAUCIÓN** : Si usa blobs en anexos, esta configuración eliminará los blobs en anexos del almacenamiento local cuando el valor expira y se producirá un error en cualquier operación posterior de anexión de bloques en esos blobs. Es posible que desee asegurarse de que el valor de expiración es lo suficientemente grande para la frecuencia esperada de las operaciones de anexión realizadas por la aplicación.<br><br> Variable de entorno: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Uso de un recurso compartido de SMB como almacenamiento local
 
@@ -121,13 +121,13 @@ Este comando usará las credenciales para autenticarse con el servidor de SMB re
 
 Asegúrese de que el usuario en el dispositivo IoT puede leer y escribir en el recurso compartido de SMB remoto.
 
-Para su implementación, el valor de `<storage mount>` puede ser **G:/ContainerData: C:/BlobRoot**.
+Para su implementación, el valor de `<storage mount>` puede ser **G:/ContainerData: C:/BlobRoot** .
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Concesión de acceso al directorio al usuario del contenedor en Linux
 
 Si ha usado el [montaje de volúmenes](https://docs.docker.com/storage/volumes/) para el almacenamiento en sus opciones de creación para contenedores de Linux, no tiene que realizar ningún paso adicional, pero si ha usado el [montaje de enlace](https://docs.docker.com/storage/bind-mounts/), estos pasos son necesarios para ejecutar el servicio correctamente.
 
-Siguiendo el principio de privilegios mínimos para limitar los derechos de acceso de los usuarios a los permisos mínimos que necesitan para realizar su trabajo, este módulo incluye un usuario (nombre: absie, ID: 11000) y un grupo de usuarios (nombre: absie, ID: 11000). Si el contenedor se inicia como **raíz** (el usuario predeterminado es **raíz**), el servicio se iniciará como el usuario **absie** con privilegios bajos.
+Siguiendo el principio de privilegios mínimos para limitar los derechos de acceso de los usuarios a los permisos mínimos que necesitan para realizar su trabajo, este módulo incluye un usuario (nombre: absie, ID: 11000) y un grupo de usuarios (nombre: absie, ID: 11000). Si el contenedor se inicia como **raíz** (el usuario predeterminado es **raíz** ), el servicio se iniciará como el usuario **absie** con privilegios bajos.
 
 Este comportamiento hace que la configuración de los permisos en la ruta de acceso de host sea crucial para que el servicio funcione correctamente, ya que, de lo contrario, el servicio se bloqueará con errores de acceso denegado. La ruta de acceso que se usa en el enlace de directorio debe ser accesible para el usuario del contenedor (por ejemplo, absie 11000). Puede conceder al usuario del contenedor acceso al directorio ejecutando los comandos siguientes en el host:
 
@@ -143,7 +143,7 @@ sudo chown -R 11000:11000 /srv/containerdata
 sudo chmod -R 700 /srv/containerdata
 ```
 
-Si necesita ejecutar el servicio como un usuario distinto de **absie**, puede especificar el identificador de usuario personalizado en createOptions en la propiedad "User" del manifiesto de implementación. En tal caso, debe usar el identificador `0` predeterminado o de grupo raíz.
+Si necesita ejecutar el servicio como un usuario distinto de **absie** , puede especificar el identificador de usuario personalizado en createOptions en la propiedad "User" del manifiesto de implementación. En tal caso, debe usar el identificador `0` predeterminado o de grupo raíz.
 
 ```json
 "createOptions": {
@@ -175,7 +175,7 @@ Especifique el dispositivo de IoT Edge como el punto de conexión del blob para 
   * `http://<fully qualified domain name>:11002/<account name>`
  
  > [!IMPORTANT]
- > Azure IoT Edge distingue mayúsculas y minúsculas al realizar llamadas a los módulos y el SDK de Storage también toma como valor predeterminado la minúsculas. Aunque el nombre del módulo en [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) es **AzureBlobStorageonIoTEdge**, cambiar el nombre a minúsculas ayuda a garantizar que las conexiones al módulo Azure Blob Storage en IoT Edge no se interrumpan.
+ > Azure IoT Edge distingue mayúsculas y minúsculas al realizar llamadas a los módulos y el SDK de Storage también toma como valor predeterminado la minúsculas. Aunque el nombre del módulo en [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) es **AzureBlobStorageonIoTEdge** , cambiar el nombre a minúsculas ayuda a garantizar que las conexiones al módulo Azure Blob Storage en IoT Edge no se interrumpan.
  
 ## <a name="azure-blob-storage-quickstart-samples"></a>Ejemplos de inicio rápido de Azure Blob Storage
 
@@ -195,7 +195,7 @@ En las siguientes guías de inicio rápido se usan lenguajes que también son co
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Conectarse al almacenamiento local con el Explorador de Azure Storage
 
-Puede usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para conectarse a su cuenta de almacenamiento local.
+Puede usar el [Explorador de Azure Storage](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) para conectarse a su cuenta de almacenamiento local.
 
 1. Descargue e instale el Explorador de Azure Storage.
 

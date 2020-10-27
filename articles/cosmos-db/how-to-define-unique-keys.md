@@ -1,18 +1,18 @@
 ---
 title: Definición de claves únicas para un contenedor de Azure Cosmos
-description: Aprenda a definir claves únicas para un contenedor de Azure Cosmos mediante Azure Portal, PowerShell, .Net, Java y otros SDK.
+description: Aprenda a definir claves únicas para un contenedor de Azure Cosmos mediante Azure Portal, PowerShell, .NET, Java y otros SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b275703e0f5952be9ab052a789b64d2ea171922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330543"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279555"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definición de claves únicas para un contenedor de Azure Cosmos
 
@@ -26,9 +26,9 @@ En este artículo se presentan las distintas formas de definir [claves únicas](
 
 1. Abra el panel **Data Explorer** y seleccione el contenedor en el que quiere trabajar.
 
-1. Haga clic en **Nuevo contenedor**.
+1. Haga clic en **Nuevo contenedor** .
 
-1. En el cuadro de diálogo **Agregar contenedor**, haga clic en **+ Add unique key** (+ Agregar clave única) para agregar una única entrada de clave.
+1. En el cuadro de diálogo **Agregar contenedor** , haga clic en **+ Add unique key** (+ Agregar clave única) para agregar una única entrada de clave.
 
 1. Escriba la ruta o rutas de la restricción de clave única
 
@@ -151,5 +151,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [creación de particiones](partition-data.md).
+- Más información sobre la [creación de particiones](partitioning-overview.md).
 - Explore [cómo funciona la indexación](index-overview.md).

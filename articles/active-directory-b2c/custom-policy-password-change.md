@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2018
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116370"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131758"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del cambio de contraseñas con directivas personalizadas en Azure Active Directory B2C
 
@@ -38,14 +38,14 @@ Siga los pasos de [Introducción a las directivas personalizadas en Active Direc
         <ClaimType Id="oldPassword">
           <DisplayName>Old Password</DisplayName>
           <DataType>string</DataType>
-          <UserHelpText>Enter password</UserHelpText>
+          <UserHelpText>Enter your old password</UserHelpText>
           <UserInputType>Password</UserInputType>
         </ClaimType>
       </ClaimsSchema>
     </BuildingBlocks>
     ```
 
-2. Un elemento [ClaimsProvider](claimsproviders.md) contiene el perfil técnico que autentica al usuario. Agregue los siguientes proveedores de notificaciones al elemento **ClaimsProviders**:
+2. Un elemento [ClaimsProvider](claimsproviders.md) contiene el perfil técnico que autentica al usuario. Agregue los siguientes proveedores de notificaciones al elemento **ClaimsProviders** :
 
     ```xml
     <ClaimsProviders>
@@ -124,7 +124,7 @@ Siga los pasos de [Introducción a las directivas personalizadas en Active Direc
 
     Reemplace `IdentityExperienceFrameworkAppId` por el identificador de aplicación de la aplicación IdentityExperienceFramework que creó en el tutorial de requisitos previos. Reemplace `ProxyIdentityExperienceFrameworkAppId` por el identificador de aplicación de la aplicación ProxyIdentityExperienceFramework que creó anteriormente.
 
-3. El elemento [UserJourney](userjourneys.md) define la ruta de acceso que el usuario toma al interactuar con la aplicación. Agregue el elemento **UserJourneys**, si no existe, con el elemento **UserJourney** identificado como `PasswordChange`:
+3. El elemento [UserJourney](userjourneys.md) define la ruta de acceso que el usuario toma al interactuar con la aplicación. Agregue el elemento **UserJourneys** , si no existe, con el elemento **UserJourney** identificado como `PasswordChange`:
 
     ```xml
     <UserJourneys>
@@ -152,10 +152,10 @@ Siga los pasos de [Introducción a las directivas personalizadas en Active Direc
     </UserJourneys>
     ```
 
-4. Guarde el archivo de directiva *TrustFrameworkExtensions.xml*.
-5. Copie el archivo *ProfileEdit.xml* que descargó con el paquete de inicio y asígnele el nombre de archivo *ProfileEditPasswordChange.xml*.
-6. Abra el archivo nuevo y actualice el atributo **PolicyId** con un valor único. Este valor es el nombre de la directiva. Por ejemplo, *B2C_1A_profile_edit_password_change*.
-7. Modifique el atributo **ReferenceId** de `<DefaultUserJourney>` para que coincida con el identificador del nuevo recorrido del usuario que ha creado. Por ejemplo, *PasswordChange*.
+4. Guarde el archivo de directiva *TrustFrameworkExtensions.xml* .
+5. Copie el archivo *ProfileEdit.xml* que descargó con el paquete de inicio y asígnele el nombre de archivo *ProfileEditPasswordChange.xml* .
+6. Abra el archivo nuevo y actualice el atributo **PolicyId** con un valor único. Este valor es el nombre de la directiva. Por ejemplo, *B2C_1A_profile_edit_password_change* .
+7. Modifique el atributo **ReferenceId** de `<DefaultUserJourney>` para que coincida con el identificador del nuevo recorrido del usuario que ha creado. Por ejemplo, *PasswordChange* .
 8. Guarde los cambios.
 
 Puede encontrar la directiva de ejemplo [aquí](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
@@ -168,18 +168,18 @@ Al probar las aplicaciones en Azure AD B2C, puede ser útil que el token de Azur
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de usar el directorio que contiene el inquilino de Azure AD B2C. Para ello, seleccione el filtro **Directorio y suscripción** en el menú superior y luego el directorio que contiene el inquilino.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. Seleccione **Marco de experiencia de identidad**.
-5. En la página Directivas personalizadas, haga clic en **Cargar directiva**.
-6. Seleccione **Sobrescribir la directiva, si existe** y busque y seleccione el archivo *TrustframeworkExtensions.xml*.
-7. Haga clic en **Cargar**.
-8. Repita los pasos 5 a 7 para el archivo del usuario de confianza, como *ProfileEditPasswordChange.xml*.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C** .
+4. Seleccione **Marco de experiencia de identidad** .
+5. En la página Directivas personalizadas, haga clic en **Cargar directiva** .
+6. Seleccione **Sobrescribir la directiva, si existe** y busque y seleccione el archivo *TrustframeworkExtensions.xml* .
+7. Haga clic en **Cargar** .
+8. Repita los pasos 5 a 7 para el archivo del usuario de confianza, como *ProfileEditPasswordChange.xml* .
 
 ### <a name="run-the-policy"></a>Ejecución de la directiva
 
-1. Abra la directiva que ha cambiado. Por ejemplo, *B2C_1A_profile_edit_password_change*.
-2. En **Aplicación**, seleccione la aplicación que registró anteriormente. Para ver el token, **URL de respuesta** debe mostrar `https://jwt.ms`.
-3. Haga clic en **Ejecutar ahora**. Inicie sesión con la cuenta que creó anteriormente. Ahora debería tener la oportunidad de cambiar la contraseña.
+1. Abra la directiva que ha cambiado. Por ejemplo, *B2C_1A_profile_edit_password_change* .
+2. En **Aplicación** , seleccione la aplicación que registró anteriormente. Para ver el token, **URL de respuesta** debe mostrar `https://jwt.ms`.
+3. Haga clic en **Ejecutar ahora** . Inicie sesión con la cuenta que creó anteriormente. Ahora debería tener la oportunidad de cambiar la contraseña.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

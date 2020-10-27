@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949857"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107834"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Límites de servicio en Azure Cognitive Search
 
-Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico**, **Estándar** u **Optimizado para almacenamiento**.
+Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantidades de índices y otros objetos dependen de si se [aprovisiona Azure Cognitive Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis** , **Básico** , **Estándar** u **Optimizado para almacenamiento** .
 
 + **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure. 
 
@@ -25,7 +25,7 @@ Los límites máximos sobre el almacenamiento, las cargas de trabajo, las cantid
 
 + **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel. Estándar incluye cuatro niveles: S1, S2, S3 y S3 HD. S3 High Density (S3 HD) está diseñado para [multiinquilinato](search-modeling-multitenant-saas-applications.md) y grandes cantidades de índices pequeños (tres mil índices por servicio). S3 HD no proporciona la [característica de indexador](search-indexer-overview.md) y la ingesta de datos debe aprovechar las API que envían datos del origen al índice. 
 
-+ El plan de tarifa **Almacenamiento optimizado** se ejecuta en máquinas dedicadas con más almacenamiento total, ancho de banda de almacenamiento y memoria que el plan **Estándar**. Este nivel tiene como objetivo índices grandes que cambian con lentitud. Dicho plan se ofrece en dos niveles: L1 y L2.
++ El plan de tarifa **Almacenamiento optimizado** se ejecuta en máquinas dedicadas con más almacenamiento total, ancho de banda de almacenamiento y memoria que el plan **Estándar** . Este nivel tiene como objetivo índices grandes que cambian con lentitud. Dicho plan se ofrece en dos niveles: L1 y L2.
 
 ## <a name="subscription-limits"></a>Límites de suscripción
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -101,10 +101,9 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 > [!NOTE]
 > Como se indica en el apartado [Límites de índice](#index-limits), los indexadores también aplicarán el límite superior de 3000 elementos en todas las colecciones complejas por documento a partir de la versión de la API de disponibilidad general más reciente que admita tipos complejos (`2019-05-06`) en adelante, lo que significa que si ha creado un indexador con una versión anterior de la API, no estará sujeto a ese límite. Para conservar la máxima compatibilidad, los indexadores que se crearon con una versión anterior de la API y, después, se actualizaron con una versión de la API `2019-05-06`, o posterior, seguirá estando **excluido** de los límites. Los clientes deben ser conscientes del impacto negativo de tener colecciones muy complejas (como se ha indicado anteriormente) y recomendamos encarecidamente que se creen todos los indexadores con la versión de la API de disponibilidad general más reciente.
 
-### <a name="shared-private-link-resource-limits"></a>Límites de recursos compartidos de Private Link
+## <a name="shared-private-link-resource-limits"></a>Límites de recursos compartidos de Private Link
 
-> [!NOTE]
-> Los indexadores pueden acceder a los recursos de forma segura mediante puntos de conexión privados administrados con la [API de recursos compartidos de Private Link](/rest/api/searchmanagement/sharedprivatelinkresources), como se describe en esta [guía de procedimientos](search-indexer-howto-access-private.md).
+Los indexadores pueden acceder a otros recursos de Azure mediante [puntos de conexión privados](search-indexer-howto-access-private.md) administrados con la [API de recursos compartidos de Private Link](/rest/api/searchmanagement/sharedprivatelinkresources). En esta sección se describen los límites asociados a esta funcionalidad.
 
 | Resource | Gratuito | Básica | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +112,7 @@ Los tiempos de ejecución máximos existen para proporcionar equilibrio y estabi
 | Número máximo de puntos de conexión privados | N/D | 10 o 30 | 100 | 400 | 400 | N/D | 20 | 20 |
 | Número máximo de tipos de recursos distintos<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
 
-<sup>1</sup> El enriquecimiento con IA y el análisis de imágenes consumen son procesos de computación intensiva que consumen cantidades desproporcionadas de la capacidad de procesamiento disponible. Si para reducir los niveles de servicio de la búsqueda se establece su ejecución en el entorno privado, el rendimiento y la estabilidad del servicio de búsqueda se podrían ver afectados negativamente.
+<sup>1</sup> El análisis de imágenes y el enriquecimiento con IA consumen muchos recursos informáticos y una cantidad desproporcionada de la potencia de procesamiento disponible. Por este motivo, las conexiones privadas están deshabilitadas en los niveles inferiores para evitar un impacto adverso en el rendimiento y la estabilidad del propio servicio de búsqueda.
 
 <sup>2</sup> El número de tipos de recursos distintos se calcula como el número de valores de `groupId` únicos utilizados en todos los recursos compartidos de Private Link para un servicio de búsqueda determinado, independientemente del estado del recurso.
 

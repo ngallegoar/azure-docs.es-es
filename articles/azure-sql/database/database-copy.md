@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443787"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124402"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database proporciona varios métodos para crear una copia de una [bas
 Una copia de base de datos es una instantánea coherente con las transacciones de la base de datos de origen a partir de un momento dado después de iniciarse la solicitud de copia. Puede seleccionar el mismo servidor u otro distinto para la copia. También puede optar por conservar la redundancia de copia de seguridad , el nivel de servicio y el tamaño de proceso de la base de datos de origen, o usar una redundancia de almacenamiento de copia de seguridad o tamaño de proceso diferentes dentro del mismo nivel de servicio o uno diferente. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, los usuarios y los permisos de la base de datos copiada se administran independientemente de la base de datos de origen. La copia se crea mediante la tecnología de replicación geográfica. Una vez completada la propagación de réplicas, el vínculo de replicación geográfica finaliza automáticamente. Todos los requisitos para usar la replicación geográfica se aplican a la operación de copia de la base de datos. Consulte [Información general de la replicación geográfica activa](active-geo-replication-overview.md) para obtener más información.
 
 > [!NOTE]
-> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente como versión preliminar pública en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de copia de seguridad de zona, no se admitirá la copia de una base de datos en un servidor de una región de Azure distinta. 
+> La redundancia de almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente con carácter general en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de copia de seguridad de zona, no se admitirá la copia de una base de datos en un servidor de una región de Azure distinta. 
 
 ## <a name="logins-in-the-database-copy"></a>Inicios de sesión en la copia de la base de datos
 
@@ -43,7 +43,7 @@ Si utiliza inicios de sesión de nivel de servidor para el acceso a datos y copi
 
 ## <a name="copy-using-the-azure-portal"></a>Copia con Azure Portal
 
-Para copiar una base de datos mediante Azure Portal, abra la página de la base de datos y haga clic en **Copiar**.
+Para copiar una base de datos mediante Azure Portal, abra la página de la base de datos y haga clic en **Copiar** .
 
    ![Copia de base de datos](./media/database-copy/database-copy.png)
 
@@ -128,10 +128,10 @@ Puede seguir los pasos descritos en la sección [Copiar una base de datos SQL e
 
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Supervisión del progreso de la operación de copia
 
-Para supervisar el proceso de copia, consulte las vistas [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) y [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Mientras que la copia esté en curso, la columna **state_desc** de la vista sys.databases para la nueva base de datos se establece en **COPYING**.
+Para supervisar el proceso de copia, consulte las vistas [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) y [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Mientras que la copia esté en curso, la columna **state_desc** de la vista sys.databases para la nueva base de datos se establece en **COPYING** .
 
-* Si se produce un error en el proceso de copia, la columna **state_desc** de la vista sys.databases para la nueva base de datos se establece en **SUSPECT**. Ejecute la instrucción DROP en la nueva base de datos e inténtelo de nuevo más tarde.
-* Si el proceso de copia es correcto, la columna **state_desc** de la vista sys.databases para la nueva base de datos se establece en **ONLINE**. Se completa la copia y la nueva base de datos es una base de datos normal, que se puede modificar independientemente de la base de datos de origen.
+* Si se produce un error en el proceso de copia, la columna **state_desc** de la vista sys.databases para la nueva base de datos se establece en **SUSPECT** . Ejecute la instrucción DROP en la nueva base de datos e inténtelo de nuevo más tarde.
+* Si el proceso de copia es correcto, la columna **state_desc** de la vista sys.databases para la nueva base de datos se establece en **ONLINE** . Se completa la copia y la nueva base de datos es una base de datos normal, que se puede modificar independientemente de la base de datos de origen.
 
 > [!NOTE]
 > Si decide cancelar la copia mientras está en curso, ejecute la instrucción [DROP DATABASE](https://docs.microsoft.com/sql/t-sql/statements/drop-database-transact-sql) en la nueva base de datos.

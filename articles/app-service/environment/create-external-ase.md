@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 03bc41a0159253359b4f87fd35d4de055b294cc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961795"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164608"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment
 
@@ -47,9 +47,9 @@ Después de crear la instancia de ASE, no puede cambiar los siguientes parámetr
 
 Hay tres formas de crear una instancia de ASE:
 
-- **Al crear un plan de App Service**. Este método crea la instancia de ASE y el plan de App Service en un solo paso.
-- **Como una acción independiente**. Este método crea una instancia de ASE independiente, es decir, que no contiene nada. Se trata de un proceso más avanzado de creación de una instancia de ASE. Úselo para crear una instancia de ASE con un ILB.
-- **A partir de una plantilla de Azure Resource Manager**. Este método es para usuarios avanzados. Para más información, consulte [Creación de una instancia de ASE mediante el uso de una plantilla][MakeASEfromTemplate].
+- **Al crear un plan de App Service** . Este método crea la instancia de ASE y el plan de App Service en un solo paso.
+- **Como una acción independiente** . Este método crea una instancia de ASE independiente, es decir, que no contiene nada. Se trata de un proceso más avanzado de creación de una instancia de ASE. Úselo para crear una instancia de ASE con un ILB.
+- **A partir de una plantilla de Azure Resource Manager** . Este método es para usuarios avanzados. Para más información, consulte [Creación de una instancia de ASE mediante el uso de una plantilla][MakeASEfromTemplate].
 
 Una instancia externa de ASE tiene una dirección VIP pública, lo que significa que todo el tráfico HTTP/HTTPS dirigido a las aplicaciones de ASE visita una dirección IP a la que se puede acceder a través de Internet. Una instancia de ASE con un ILB tiene una dirección IP de la subred utilizada por el entorno de ASE. Las aplicaciones hospedadas en una instancia de ASE con un ILB no se exponen directamente a Internet.
 
@@ -59,9 +59,9 @@ El plan de App Service es un contenedor de aplicaciones. Cuando se crea una apli
 
 Para compilar una instancia de ASE al crear un plan de App Service:
 
-1. En [Azure Portal](https://portal.azure.com/), seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web**.
+1. En [Azure Portal](https://portal.azure.com/), seleccione **Crear un recurso** > **Web y móvil** > **Aplicación web** .
 
-    ![Creación de la aplicación web][1]
+    ![Captura de pantalla de Azure Portal que muestra Web y móvil seleccionado en Azure Marketplace, y la pantalla para crear una nueva aplicación web abierta a la derecha.][1]
 
 2. Seleccione su suscripción. La aplicación y la instancia de ASE se crean en las mismas suscripciones.
 
@@ -69,21 +69,21 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 4. Seleccione el sistema operativo (Windows, Linux o Docker). 
 
-5. Seleccione el plan de App Service y después seleccione **Crear nuevo**. Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
+5. Seleccione el plan de App Service y después seleccione **Crear nuevo** . Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
 
-    ![Nuevo plan de App Service][2]
+    ![Captura de pantalla de Azure Portal que muestra el panel Aplicación web, el panel Plan de App Service y el panel Nuevo plan de App Service abiertos.][2]
 
-6. En la lista desplegable **Ubicación**, seleccione la región donde desea crear la instancia de ASE. Si selecciona una instancia de ASE existente, entonces no se crea ninguna. El plan de App Service se crea en la instancia de ASE seleccionada. 
+6. En la lista desplegable **Ubicación** , seleccione la región donde desea crear la instancia de ASE. Si selecciona una instancia de ASE existente, entonces no se crea ninguna. El plan de App Service se crea en la instancia de ASE seleccionada. 
 
-7. Seleccione **Plan de tarifa** y elija una de las SKU de precios **aisladas**. Si elige una tarjeta de SKU **aislada** y una ubicación que no sea una instancia de ASE, significa que se va a crear una instancia de ASE en dicha ubicación. Para iniciar el proceso de creación de una instancia de ASE, haga clic en **Seleccionar**. La SKU **aislada** está disponible solo junto con una instancia de ASE. Tampoco puede utilizar cualquier otra SKU de precios en una instancia de ASE distinta de la **aislada**. 
+7. Seleccione **Plan de tarifa** y elija una de las SKU de precios **aisladas** . Si elige una tarjeta de SKU **aislada** y una ubicación que no sea una instancia de ASE, significa que se va a crear una instancia de ASE en dicha ubicación. Para iniciar el proceso de creación de una instancia de ASE, haga clic en **Seleccionar** . La SKU **aislada** está disponible solo junto con una instancia de ASE. Tampoco puede utilizar cualquier otra SKU de precios en una instancia de ASE distinta de la **aislada** . 
 
     ![Selección del plan de tarifa][3]
 
-8. Escriba el nombre del ASE. Este nombre se utiliza en el nombre direccionable de las aplicaciones. Si el nombre de la instancia de ASE es _appsvcenvdemo_, el nombre de dominio es *.appsvcenvdemo.p.azurewebsites.net*. Si crea una aplicación con nombre *mytestapp*, esta es direccionable a mytestapp.appsvcenvdemo.p.azurewebsites.net. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas, el nombre de dominio es la versión en minúsculas total de ese nombre.
+8. Escriba el nombre del ASE. Este nombre se utiliza en el nombre direccionable de las aplicaciones. Si el nombre de la instancia de ASE es _appsvcenvdemo_ , el nombre de dominio es *.appsvcenvdemo.p.azurewebsites.net* . Si crea una aplicación con nombre *mytestapp* , esta es direccionable a mytestapp.appsvcenvdemo.p.azurewebsites.net. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas, el nombre de dominio es la versión en minúsculas total de ese nombre.
 
     ![Nombre del nuevo plan de App Service][4]
 
-9. Especifique los detalles de redes virtuales de Azure. Seleccione **Crear nuevo** o **Seleccionar existente**. La opción para seleccionar una red virtual existente está disponible solo si tiene una red virtual en la región seleccionada. Si selecciona **Crear nuevo**, escriba un nombre para la red virtual. Se crea una red virtual de Resource Manager con dicho nombre. Utiliza el espacio de direcciones `192.168.250.0/23` en la región seleccionada. Si selecciona **Seleccionar existente**, tiene que:
+9. Especifique los detalles de redes virtuales de Azure. Seleccione **Crear nuevo** o **Seleccionar existente** . La opción para seleccionar una red virtual existente está disponible solo si tiene una red virtual en la región seleccionada. Si selecciona **Crear nuevo** , escriba un nombre para la red virtual. Se crea una red virtual de Resource Manager con dicho nombre. Utiliza el espacio de direcciones `192.168.250.0/23` en la región seleccionada. Si selecciona **Seleccionar existente** , tiene que:
 
     a. Seleccionar el bloque de direcciones de red virtual si tiene más de uno.
 
@@ -99,27 +99,27 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 1. En [Azure Portal](https://portal.azure.com/), **Crear un recurso** > **Web y móvil** > **Web App for Containers.** 
 
-    ![Creación de la aplicación web][7]
+    ![Captura de pantalla de Azure Portal que muestra Web y móvil seleccionado en Azure Marketplace, y el panel Web App for Containers abierto a la derecha.][7]
 
 1. Seleccione su suscripción. La aplicación y la instancia de ASE se crean en las mismas suscripciones.
 
 1. Seleccione o cree un grupo de recursos. Con los grupos de recursos, puede administrar recursos de Azure relacionados como una unidad. Los grupos de recursos también son útiles cuando establece reglas de control de acceso basado en rol para las aplicaciones. Para más información, consulte [Información general de Azure Resource Manager][ARMOverview].
 
-1. Seleccione el plan de App Service y después seleccione **Crear nuevo**. Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
+1. Seleccione el plan de App Service y después seleccione **Crear nuevo** . Las aplicaciones web Windows y Linux no pueden estar en el mismo plan de App Service, pero sí que pueden estar en el mismo entorno de App Service. 
 
-    ![Nuevo plan de App Service][8]
+    ![Captura de pantalla de Azure Portal que muestra el panel Web App for Containers, el panel Plan de App Service y el panel Nuevo plan de App Service abiertos.][8]
 
-1. En la lista desplegable **Ubicación**, seleccione la región donde desea crear la instancia de ASE. Si selecciona una instancia de ASE existente, entonces no se crea ninguna. El plan de App Service se crea en la instancia de ASE seleccionada. 
+1. En la lista desplegable **Ubicación** , seleccione la región donde desea crear la instancia de ASE. Si selecciona una instancia de ASE existente, entonces no se crea ninguna. El plan de App Service se crea en la instancia de ASE seleccionada. 
 
-1. Seleccione **Plan de tarifa** y elija una de las SKU de precios **aisladas**. Si elige una tarjeta de SKU **aislada** y una ubicación que no sea una instancia de ASE, significa que se va a crear una instancia de ASE en dicha ubicación. Para iniciar el proceso de creación de una instancia de ASE, haga clic en **Seleccionar**. La SKU **aislada** está disponible solo junto con una instancia de ASE. Tampoco puede utilizar cualquier otra SKU de precios en una instancia de ASE distinta de la **aislada**. 
+1. Seleccione **Plan de tarifa** y elija una de las SKU de precios **aisladas** . Si elige una tarjeta de SKU **aislada** y una ubicación que no sea una instancia de ASE, significa que se va a crear una instancia de ASE en dicha ubicación. Para iniciar el proceso de creación de una instancia de ASE, haga clic en **Seleccionar** . La SKU **aislada** está disponible solo junto con una instancia de ASE. Tampoco puede utilizar cualquier otra SKU de precios en una instancia de ASE distinta de la **aislada** . 
 
     ![Selección del plan de tarifa][3]
 
-1. Escriba el nombre del ASE. Este nombre se utiliza en el nombre direccionable de las aplicaciones. Si el nombre de la instancia de ASE es _appsvcenvdemo_, el nombre de dominio es *.appsvcenvdemo.p.azurewebsites.net*. Si crea una aplicación con nombre *mytestapp*, esta es direccionable a mytestapp.appsvcenvdemo.p.azurewebsites.net. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas, el nombre de dominio es la versión en minúsculas total de ese nombre.
+1. Escriba el nombre del ASE. Este nombre se utiliza en el nombre direccionable de las aplicaciones. Si el nombre de la instancia de ASE es _appsvcenvdemo_ , el nombre de dominio es *.appsvcenvdemo.p.azurewebsites.net* . Si crea una aplicación con nombre *mytestapp* , esta es direccionable a mytestapp.appsvcenvdemo.p.azurewebsites.net. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas, el nombre de dominio es la versión en minúsculas total de ese nombre.
 
     ![Nombre del nuevo plan de App Service][4]
 
-1. Especifique los detalles de redes virtuales de Azure. Seleccione **Crear nuevo** o **Seleccionar existente**. La opción para seleccionar una red virtual existente está disponible solo si tiene una red virtual en la región seleccionada. Si selecciona **Crear nuevo**, escriba un nombre para la red virtual. Se crea una red virtual de Resource Manager con dicho nombre. Utiliza el espacio de direcciones `192.168.250.0/23` en la región seleccionada. Si selecciona **Seleccionar existente**, tiene que:
+1. Especifique los detalles de redes virtuales de Azure. Seleccione **Crear nuevo** o **Seleccionar existente** . La opción para seleccionar una red virtual existente está disponible solo si tiene una red virtual en la región seleccionada. Si selecciona **Crear nuevo** , escriba un nombre para la red virtual. Se crea una red virtual de Resource Manager con dicho nombre. Utiliza el espacio de direcciones `192.168.250.0/23` en la región seleccionada. Si selecciona **Seleccionar existente** , tiene que:
 
     a. Seleccionar el bloque de direcciones de red virtual si tiene más de uno.
 
@@ -141,9 +141,9 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 
 Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la instancia de ASE esté vacía, seguirá generando un cargo mensual para la infraestructura. Siga estos pasos para crear una instancia de ASE con un ILB o crear una instancia de ASE en su propio grupo de recursos. Después de crear la instancia de ASE, puede crear aplicaciones en ella con el método habitual. Seleccione la nueva instancia de ASE como ubicación.
 
-1. Busque **App Service Environment** en Azure Marketplace o seleccione **Crear un recurso** > **Web y móvil** > **App Service Environment**. 
+1. Busque **App Service Environment** en Azure Marketplace o seleccione **Crear un recurso** > **Web y móvil** > **App Service Environment** . 
 
-1. Escriba el nombre de la instancia de ASE. Este nombre se utiliza para las aplicaciones que se crean en la instancia de ASE. Si el nombre es *mynewdemoase*, el nombre del subdominio es *.mynewdemoase.p.azurewebsites.net*. Si crea una aplicación con nombre *mytestapp*, esta es direccionable a mytestapp.mynewdemoase.p.azurewebsites.net. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas, el nombre de dominio es la versión en minúsculas total del nombre. Si usa un ILB, el nombre la instancia de ASE no se usa en su subdominio pero, en su lugar, se indica explícitamente durante la creación de la instancia de ASE.
+1. Escriba el nombre de la instancia de ASE. Este nombre se utiliza para las aplicaciones que se crean en la instancia de ASE. Si el nombre es *mynewdemoase* , el nombre del subdominio es *.mynewdemoase.p.azurewebsites.net* . Si crea una aplicación con nombre *mytestapp* , esta es direccionable a mytestapp.mynewdemoase.p.azurewebsites.net. No puede usar espacios en blanco en el nombre. Si utiliza caracteres en mayúsculas, el nombre de dominio es la versión en minúsculas total del nombre. Si usa un ILB, el nombre la instancia de ASE no se usa en su subdominio pero, en su lugar, se indica explícitamente durante la creación de la instancia de ASE.
 
     ![Nomenclatura de ASE][5]
 
@@ -159,9 +159,9 @@ Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la i
     
     * La nueva red virtual tiene el intervalo de direcciones 192.168.250.0/23 y una subred con nombre predeterminado. La subred se define como 192.168.250.0/24. Solo se puede seleccionar una red virtual de Resource Manager. La selección del **tipo de VIP** determina si es posible acceder directamente a la instancia de ASE desde Internet (externa) o si usa un ILB. Para más información sobre estas opciones, vea [Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer][MakeILBASE]. 
 
-      * Si selecciona **Externo** en **Tipo de VIP**, puede seleccionar la cantidad de direcciones IP externas que crea el sistema con fines de SSL basados en IP. 
+      * Si selecciona **Externo** en **Tipo de VIP** , puede seleccionar la cantidad de direcciones IP externas que crea el sistema con fines de SSL basados en IP. 
     
-      * Si selecciona **Interno** en **Tipo de VIP**, debe especificar el dominio que la instancia de ASE utiliza. Puede implementar una instancia de ASE en una red virtual que utiliza intervalos de direcciones públicas o privadas. Para usar una red virtual con un intervalo de direcciones públicas, necesita crear la red virtual con antelación. 
+      * Si selecciona **Interno** en **Tipo de VIP** , debe especificar el dominio que la instancia de ASE utiliza. Puede implementar una instancia de ASE en una red virtual que utiliza intervalos de direcciones públicas o privadas. Para usar una red virtual con un intervalo de direcciones públicas, necesita crear la red virtual con antelación. 
     
     * Si selecciona una red virtual existente, se crea una subred al crear la instancia de ASE. *No puede usar una subred creada previamente en el portal. Puede crear una instancia de ASE con una subred existente si usa una plantilla de Resource Manager.* Para crear una instancia de ASE a partir de una plantilla, vea [Creación de una instancia de ASE mediante el uso de una plantilla][MakeASEfromTemplate].
 
@@ -192,7 +192,7 @@ Para más información sobre ASEv1, consulte [Introducción a App Service Enviro
 [ASENetwork]: ./network-info.md
 [UsingASE]: ./using-an-ase.md
 [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/security-overview.md
+[NSGs]: ../../virtual-network/network-security-groups-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md

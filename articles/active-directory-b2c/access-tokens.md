@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115541"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309009"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Solicitud de token de acceso en Azure Active Directory B2C
 
@@ -50,10 +50,15 @@ El ejemplo siguiente muestra ámbitos codificados en una dirección URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Si solicita más ámbitos que los que se conceden para la aplicación cliente, la llamada se realiza correctamente si se concede al menos un permiso. La notificación **scp** del token de acceso resultante se rellena solo con los permisos que se concedieron correctamente. El estándar OpenID Connect especifica varios valores de ámbito especiales. Los ámbitos siguientes representan el permiso para acceder al perfil del usuario:
+Si solicita más ámbitos que los que se conceden para la aplicación cliente, la llamada se realiza correctamente si se concede al menos un permiso. La notificación **scp** del token de acceso resultante se rellena solo con los permisos que se concedieron correctamente. 
 
-- **openid**: solicita un token de identificador.
-- **offline_access**: solicita un token de actualización con [flujos de código de autenticación](authorization-code-flow.md).
+### <a name="openid-connect-scopes"></a>Ámbitos de OpenID Connect
+
+El estándar OpenID Connect especifica varios valores de ámbito especiales. Los ámbitos siguientes representan el permiso para acceder al perfil del usuario:
+
+- **openid** : solicita un token de identificador.
+- **offline_access** : solicita un token de actualización con [flujos de código de autenticación](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000** : el uso del identificador de cliente como ámbito indica que la aplicación necesita un token de acceso que se puede usar con su propio servicio o API web, representado por el mismo identificador de cliente.
 
 Si el parámetro **response_type** de una solicitud de `/authorize` incluye `token`, el parámetro **scope** debe incluir al menos un ámbito de recurso (distinto de `openid` y `offline_access`) para su concesión. En caso contrario, se produce un error en la solicitud `/authorize`.
 

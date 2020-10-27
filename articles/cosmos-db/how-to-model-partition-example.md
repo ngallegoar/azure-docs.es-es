@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 7274627ccf0aaab29f3ca569568e0085d53f1dea
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818095"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277987"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
 
@@ -22,10 +22,10 @@ Si suele trabajar con bases de datos relacionales, es probable que haya desarrol
 
 ## <a name="the-scenario"></a>El escenario
 
-Para este ejercicio, vamos a tener en cuenta el dominio de una plataforma de blogs en las que los *usuarios* puede crear *publicaciones*. Los usuarios también pueden indicar que dichas publicaciones les *gustan* y agregarles *comentarios*.
+Para este ejercicio, vamos a tener en cuenta el dominio de una plataforma de blogs en las que los *usuarios* puede crear *publicaciones* . Los usuarios también pueden indicar que dichas publicaciones les *gustan* y agregarles *comentarios* .
 
 > [!TIP]
-> Hemos resaltado algunas palabras en *cursiva*; dichas palabras identifican el tipo de "cosas" que nuestro modelo va a tener que manipular.
+> Hemos resaltado algunas palabras en *cursiva* ; dichas palabras identifican el tipo de "cosas" que nuestro modelo va a tener que manipular.
 
 Incorporación de más requisitos a la especificación:
 
@@ -327,7 +327,7 @@ Este procedimiento almacenado toma el identificador de la publicación y el cuer
 - reemplaza la publicación
 - agrega el nuevo comentario
 
-Dado que los procedimientos almacenados se ejecutan como transacciones atómicas, se garantiza que el valor de `commentCount` y el número real de comentarios siempre estarán sincronizados.
+Dado que los procedimientos almacenados se ejecutan como transacciones atómicas, el valor de `commentCount` y el número real de comentarios siempre están sincronizados.
 
 Obviamente llamamos a un procedimiento almacenado similar al agregar nuevos "Me gusta" para incrementar `likeCount`.
 
@@ -586,6 +586,6 @@ La fuente de cambios que usamos para distribuir las actualizaciones a otros cont
 
 Después de esta introducción práctica al modelado de datos y a la creación de particiones, es posible que desee consultar los artículos siguientes para revisar los conceptos que hemos tratado:
 
-- [Uso de bases de datos, contenedores y elementos](databases-containers-items.md)
+- [Uso de bases de datos, contenedores y elementos](account-databases-containers-items.md)
 - [Creación de particiones en Azure Cosmos DB](partitioning-overview.md)
 - [Fuente de cambios en Azure Cosmos DB](change-feed.md)

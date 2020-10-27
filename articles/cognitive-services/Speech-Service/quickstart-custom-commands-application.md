@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289422"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329158"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creación de un asistente de voz mediante comandos personalizados
 
@@ -50,8 +50,8 @@ En este momento, los Comandos personalizados admiten suscripciones de Voz creada
    > [!NOTE]
    > Si no ve la página para seleccionar una suscripción, puede navegar a ella al seleccionar "Recursos de voz" en el menú de configuración de la barra superior.
 
-1. Seleccione su suscripción a voz y, a continuación, seleccione **Ir a Studio**.
-1. Seleccione **Comandos personalizados**.
+1. Seleccione su suscripción a voz y, a continuación, seleccione **Ir a Studio** .
+1. Seleccione **Comandos personalizados** .
 
    La vista predeterminada es una lista de las aplicaciones de comandos personalizados de la suscripción seleccionada.
 
@@ -59,27 +59,27 @@ En este momento, los Comandos personalizados admiten suscripciones de Voz creada
 
 1. Seleccione **Nuevo proyecto** para crear un proyecto.
 
-1. En el cuadro **Nombre**, escriba el nombre del proyecto `Smart-Room-Lite` (u otro de su elección).
-1. En la lista **Idioma**, seleccione **Inglés (Estados Unidos)** .
-1. Seleccione **Examinar archivos** y, en la ventana Examinar, seleccione el archivo **SmartRoomLite.json**.
+1. En el cuadro **Nombre** , escriba el nombre del proyecto `Smart-Room-Lite` (u otro de su elección).
+1. En la lista **Idioma** , seleccione **Inglés (Estados Unidos)** .
+1. Seleccione **Examinar archivos** y, en la ventana Examinar, seleccione el archivo **SmartRoomLite.json** .
 
     > [!div class="mx-imgBorder"]
     > ![Creación de un proyecto](media/custom-commands/import-project.png)
 
-1.  En la lista **Recurso de creación de LUIS**, seleccione un recurso de creación. Si no hay ninguno válido, créelo. Para ello, seleccione **Create new LUIS authoring resource** (crear nuevo recurso de creación LUIS).
+1.  En la lista **Recurso de creación de LUIS** , seleccione un recurso de creación. Si no hay ninguno válido, créelo. Para ello, seleccione **Create new LUIS authoring resource** (crear nuevo recurso de creación LUIS).
 
     > [!div class="mx-imgBorder"]
     > ![Creación de un recurso](media/custom-commands/create-new-luis-resource.png)
     
     
-    1. En el cuadro **Nombre de recurso**, escriba el nombre del recurso.
-    1. En la lista **Grupo de recursos**, seleccione uno.
-    1. En la lista desplegable **Ubicación**, seleccione una.
-    1. En la lista **Plan de tarifa**, seleccione un nivel.
+    1. En el cuadro **Nombre de recurso** , escriba el nombre del recurso.
+    1. En la lista **Grupo de recursos** , seleccione uno.
+    1. En la lista desplegable **Ubicación** , seleccione una.
+    1. En la lista **Plan de tarifa** , seleccione un nivel.
     
     
     > [!NOTE]
-    > Para crear grupos de recursos, escriba el nombre del grupo de recursos deseado en el campo "Grupo de recursos". El grupo de recursos se creará cuando se seleccione **Crear**.
+    > Para crear grupos de recursos, escriba el nombre del grupo de recursos deseado en el campo "Grupo de recursos". El grupo de recursos se creará cuando se seleccione **Crear** .
 
 
 1. A continuación, seleccione **Crear** para crear el proyecto.
@@ -102,8 +102,8 @@ Para acceder a esta aplicación desde fuera de Speech Studio, debe publicarla. P
 
 
 1. Seleccione **Configuración** en el panel izquierdo y **LUIS resources** (recursos de LUIS) en el panel central.
-1. Seleccione un recurso de predicción o cree uno seleccionando **Crear nuevo recurso**.
-1. Seleccione **Guardar**.
+1. Seleccione un recurso de predicción o cree uno seleccionando **Crear nuevo recurso** .
+1. Seleccione **Guardar** .
     
     > [!div class="mx-imgBorder"]
     > ![Establecimiento de recursos de LUIS](media/custom-commands/set-luis-resources.png)
@@ -113,17 +113,17 @@ Para acceder a esta aplicación desde fuera de Speech Studio, debe publicarla. P
 
 ### <a name="publish-the-application"></a>Publicación de la aplicación
 
-Seleccione **Publicar** en la parte superior del panel derecho. Una vez completada la publicación, se abrirá una nueva ventana. Anote el valor del **Id. de la aplicación** y la **Clave de recurso de voz**. Necesitará estos dos valores para acceder a la aplicación desde fuera de Speech Studio.
+Seleccione **Publicar** en la parte superior del panel derecho. Una vez completada la publicación, se abrirá una nueva ventana. Anote el valor del **Id. de la aplicación** y la **Clave de recurso de voz** . Necesitará estos dos valores para acceder a la aplicación desde fuera de Speech Studio.
 
-También puede obtener estos valores al seleccionar la sección **Configuración** > **General**.
+También puede obtener estos valores al seleccionar la sección **Configuración** > **General** .
 
 ### <a name="access-application-from-client"></a>Acceso a la aplicación desde el cliente
 
 En este artículo, se usará el cliente del asistente de voz de Windows que descargó como parte de los requisitos previos. Descomprima la carpeta.
-1. Inicie **VoiceAssistantClient.exe**.
-1. Cree un nuevo perfil de publicación y especifique el valor de **Perfil de conexión**. En la sección **General Settings** (Configuración general), escriba los valores de **Subscription Key** (Clave de suscripción), que es el mismo que el valor de **Speech resource key** (Clave del recurso de Voz) que guardó al publicar la aplicación; **Subscription key region** (Región de clave de suscripción) y **Custom commands app ID** (Id. de la aplicación de comandos personalizados).
+1. Inicie **VoiceAssistantClient.exe** .
+1. Cree un nuevo perfil de publicación y especifique el valor de **Perfil de conexión** . En la sección **General Settings** (Configuración general), escriba los valores de **Subscription Key** (Clave de suscripción), que es el mismo que el valor de **Speech resource key** (Clave del recurso de Voz) que guardó al publicar la aplicación; **Subscription key region** (Región de clave de suscripción) y **Custom commands app ID** (Id. de la aplicación de comandos personalizados).
     > [!div class="mx-imgBorder"]
-    > ![Creación de perfil de WVAC](media/custom-commands/create-profile.png)
+    > ![Captura de pantalla que resalta la sección Configuración general para crear un perfil de WVAC.](media/custom-commands/create-profile.png)
 1. Seleccione **Save and Apply Profile** (guardar y aplicar perfil).
 1. Ahora pruebe las siguientes entradas mediante voz o texto.
     > [!div class="mx-imgBorder"]

@@ -1,39 +1,39 @@
 ---
-title: Aprovisionamiento del rendimiento de base de datos en Azure Cosmos DB
-description: Aprenda a aprovisionar el rendimiento en el nivel de base de datos en Azure Cosmos DB mediante Azure Portal, la CLI, PowerShell y otros SDK.
+title: Aprovisionamiento del rendimiento de base de datos en SQL API de Azure Cosmos DB
+description: Aprenda a aprovisionar el rendimiento en el nivel de base de datos en SQL API de Azure Cosmos DB mediante Azure Portal, la CLI, PowerShell y otros SDK.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/28/2019
+ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 668aa51bdb57dc4bcde0e3a95c481bb60e3d8ed3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997377"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278608"
 ---
-# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento estándar (manual) en Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Aprovisionamiento del rendimiento estándar (manual) en una base de datos de Azure Cosmos DB: SQL API
 
-En este artículo se explica cómo aprovisionar el rendimiento en una base de datos de Azure Cosmos DB. Puede aprovisionar el rendimiento de un único [contenedor](how-to-provision-container-throughput.md), o bien de una base de datos y compartir el rendimiento entre los contenedores que se incluyen en ella. Para saber cuándo se debe usar el rendimiento de nivel de contenedor y de nivel de base de datos, consulte el artículo [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). Para aprovisionar el rendimiento en el nivel de base de datos, se puede usar Azure Portal o los SDK de Azure Cosmos DB.
+En este artículo se explica cómo aprovisionar el rendimiento estándar (manual) en una base de datos en SQL API de Azure Cosmos DB. Puede aprovisionar el rendimiento de un único [contenedor](how-to-provision-container-throughput.md), o bien de una base de datos y compartir el rendimiento entre los contenedores que se incluyen en ella. Para saber cuándo se debe usar el rendimiento de nivel de contenedor y de nivel de base de datos, consulte el artículo [Aprovisionar rendimiento en contenedores y bases de datos](set-throughput.md). Para aprovisionar el rendimiento en el nivel de base de datos, se puede usar Azure Portal o los SDK de Azure Cosmos DB.
+
+Si va a usar otra API, vea los artículos [MongoDB API](how-to-provision-throughput-mongodb.md), [Cassandra API](how-to-provision-throughput-cassandra.md) y [Gremlin API](how-to-provision-throughput-gremlin.md) para aprovisionar el rendimiento.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Aprovisionamiento del rendimiento mediante Azure Portal
-
-### <a name="sql-core-api"></a><a id="portal-sql"></a>SQL API (Core)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 1. [Cree una cuenta de Azure Cosmos](create-sql-api-dotnet.md#create-account) o seleccione una ya existente.
 
-1. Abra el panel de **Data Explorer** y seleccione **Nueva base de datos**. Especifique los detalles siguientes:
+1. Abra el panel de **Data Explorer** y seleccione **Nueva base de datos** . Especifique los detalles siguientes:
 
    * Escriba un identificador de base de datos.
-   * Seleccione **Aprovisionar rendimiento**.
+   * Seleccione la opción **Provision database throughput** (Aprovisionar rendimiento de base de datos).
    * Escriba un rendimiento, por ejemplo 1000 RU.
-   * Seleccione **Aceptar**.
+   * Seleccione **Aceptar** .
 
-    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png" alt-text="Captura de pantalla del cuadro de diálogo Nueva base de datos":::
+    :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Captura de pantalla del cuadro de diálogo Nueva base de datos":::
 
 ## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Aprovisionamiento de la capacidad de procesamiento mediante la CLI de Azure o PowerShell
 
@@ -45,11 +45,9 @@ Para crear una base de datos con capacidad de procesamiento compartida, consulte
 ## <a name="provision-throughput-using-net-sdk"></a>Aprovisionamiento del rendimiento mediante el SDK para .NET
 
 > [!Note]
-> Puede usar los SDK de Cosmos para SQL API para aprovisionar el rendimiento de todas las API. También puede usar el ejemplo siguiente para Cassandra API.
+> Puede usar los SDK de Azure Cosmos para SQL API para aprovisionar el rendimiento de todas las API. También puede usar el ejemplo siguiente para Cassandra API.
 
-### <a name="all-apis"></a><a id="dotnet-all"></a>Todas las API
-
-# <a name="net-sdk-v2"></a>[SDK para .NET V2](#tab/dotnetv2)
+# <a name="net-sdk-v2"></a>[SDK de .NET V2](#tab/dotnetv2)
 
 ```csharp
 //set the throughput for the database
@@ -70,15 +68,6 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ---
 
-### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Cassandra API
-
-Se pueden ejecutar comandos similares a través de cualquier controlador compatible con CQL.
-
-```csharp
-// Create a Cassandra keyspace and provision throughput of 400 RU/s
-session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
-```
- 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte los siguientes artículos para obtener más información sobre el rendimiento aprovisionado en Azure Cosmos DB:

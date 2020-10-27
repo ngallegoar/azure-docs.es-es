@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470143"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152265"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Persistencia de archivos en Azure Cloud Shell
 Cloud Shell utiliza Azure File Storage para conservar los archivos entre sesiones. En el primer inicio, Cloud Shell le pedirá que asocie un recurso compartido de archivos nuevo o existente para conservar los archivos entre sesiones.
@@ -55,7 +55,7 @@ Cuando aparezca el mensaje del programa de instalación, seleccione **Mostrar co
 ![La configuración de grupo de recursos](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>Protección del acceso al almacenamiento
-Por motivos de seguridad, cada usuario debe aprovisionar su propia cuenta de almacenamiento.  En el control de acceso basado en roles (RBAC), los usuarios deben tener acceso como colaboradores, o un rol superior, en el nivel de la cuenta de almacenamiento.
+Por motivos de seguridad, cada usuario debe aprovisionar su propia cuenta de almacenamiento.  En el control de acceso basado en rol de Azure (RBAC de Azure), los usuarios deben tener acceso de colaborador o superior en el nivel de la cuenta de almacenamiento.
 
 Cloud Shell usa un recurso compartido de archivos de Azure en una cuenta de almacenamiento, dentro de una suscripción especificada. Debido a los permisos heredados, los usuarios con derechos de acceso suficientes en la suscripción podrán acceder a todas las cuentas de almacenamiento y a los recursos compartidos de archivos contenidos en la suscripción.
 

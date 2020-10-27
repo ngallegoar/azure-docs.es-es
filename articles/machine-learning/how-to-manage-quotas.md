@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019399"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275548"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 
@@ -48,7 +48,7 @@ En esta sección, obtendrá información acerca de los límites de cuota predete
 + Proceso de Azure Machine Learning
 + Canalizaciones de Azure Machine Learning
 + Container Instances
-+ Almacenamiento
++ Storage
 
 > [!IMPORTANT]
 > Los límites están sujetos a cambios. El más reciente siempre se puede encontrar en el [documento](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) de la cuota de nivel de servicio para todo Azure.
@@ -101,7 +101,7 @@ Las [canalizaciones de Azure Machine Learning](concept-ml-pipelines.md) tienen l
 
 Para más información, consulte [Límites de Container Instances](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
 
-### <a name="storage"></a>Almacenamiento
+### <a name="storage"></a>Storage
 Las cuentas de almacenamiento de Azure tienen un límite de 250 cuentas de almacenamiento por región y suscripción. Esto incluye las cuentas de almacenamiento Estándar y Premium.
 
 En el caso de que quisiera aumentar el límite, envíe una solicitud a través del [Soporte técnico de Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). El equipo de Azure Storage revisará su caso y podría aprobar hasta 250 cuentas de almacenamiento por región.
@@ -114,7 +114,7 @@ Utilice las cuotas de nivel de área de trabajo para administrar la asignación 
 De manera predeterminada, todas las áreas de trabajo tienen la misma cuota que la cuota de nivel de suscripción de familias de máquinas virtuales. Sin embargo, puede establecer una cuota máxima para familias de máquinas virtuales individuales en áreas de trabajo de una suscripción. Esto le permite compartir la capacidad y evitar problemas de contención de recursos:
 
 1. Vaya a cualquier área de trabajo de la suscripción.
-1. En el panel izquierdo, seleccione **Uso y cuotas**.
+1. En el panel izquierdo, seleccione **Uso y cuotas** .
 1. Seleccione la pestaña **Configurar cuotas** para ver las cuotas.
 1. Expanda una familia de máquinas virtuales.
 1. Establezca un límite de cuota en cualquier área de trabajo que aparezca en esa familia de máquinas virtuales.
@@ -138,9 +138,9 @@ Para ver la cuota de varios recursos de Azure Portal, como las máquinas virtual
 
 La cuota de Proceso de Azure Machine Learning de la suscripción se administra de forma independiente de otras cuotas de Azure. 
 
-1. En **Azure Portal**, vaya al área de trabajo de Azure Machine Learning.
+1. En **Azure Portal** , vaya al área de trabajo de Azure Machine Learning.
 
-2. En el panel izquierdo, en la **sección Soporte técnico y solución de problemas**, seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
+2. En el panel izquierdo, en la **sección Soporte técnico y solución de problemas** , seleccione **Uso y cuotas** para ver el uso y los límites de cuota actuales.
 
 3. Seleccione una suscripción para ver los límites de cuota. No olvide filtrar por la región en que esté interesado.
 
@@ -167,22 +167,24 @@ Aunque Azure Machine Learning crea recursos en su suscripción (cliente), existe
 
 * __Área de trabajo habilitada para Private Link con una clave administrada por el cliente (CMK)__
 * __Azure Container Registry para el área de trabajo detrás de la red virtual__
-* __Adjunte un clúster de Azure Kubernetes Service habilitado por un vínculo privado en el área de trabajo__.
+* __Adjunte un clúster de Azure Kubernetes Service habilitado por un vínculo privado en el área de trabajo__ .
 
 Para solicitar una asignación para dichos casos, siga estos pasos:
 
-1. [Cree una solicitud de soporte técnico de Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) y seleccione las siguientes opciones en la sección __Básicos__:
+1. [Cree una solicitud de soporte técnico de Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) y seleccione las siguientes opciones en la sección __Básicos__ :
 
-    | Campo | Número de selección |
+    | Campo | Selección |
     | ----- | ----- |
     | Tipo de problema | Técnicos |
     | Servicio | Mis servicios. Seleccione __Machine Learning__ en la lista desplegable. |
-    | Tipo de problema | Configuración del área de trabajo, SDK y CLI |
-    | Subtipo de problema | Problemas al aprovisionar o administrar las áreas de trabajo |
+    | Tipo de problema | Seguridad y configuración del área de trabajo |
+    | Subtipo de problema | Solicitud de concesión de punto de conexión privado y de zona DNS privada |
 
 2. En la sección __Detalles__ y utilice el campo __Descripción__ para proporcionar la región de Azure que quiere utilizar y el escenario que planea utilizar. Si necesita solicitar aumentos de cuota para varias suscripciones, enumere también los id. de suscripción de este campo.
 
-3. Para crear la solicitud, seleccione __Crear__.
+3. Para crear la solicitud, seleccione __Crear__ .
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Captura de pantalla de un punto de conexión privado y de la solicitud de aumento de la cuota de DNS privada":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930499"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205853"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Uso de referencias de Key Vault para App Service y Azure Functions
 
@@ -30,8 +30,8 @@ Para leer secretos desde Key Vault, debe tener creado un almacén y proporcionar
 
 1. Cree una [directiva de acceso en Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) para la identidad de aplicación que creó anteriormente. Habilite el permiso secreto "Get" en esta directiva. No configure la "aplicación autorizada" o la configuración `applicationId`, ya que no es compatible con una identidad administrada.
 
-    > [!IMPORTANT]
-    > Actualmente, las referencias de Key Vault no pueden resolver los secretos almacenados en un almacén de claves con [restricciones de red](../key-vault/general/overview-vnet-service-endpoints.md).
+   > [!IMPORTANT]
+   > Actualmente, las referencias de Key Vault no pueden resolver los secretos almacenados en un almacén de claves con [restricciones de red](../key-vault/general/overview-vnet-service-endpoints.md), a menos que la aplicación se hospede en una instancia de [App Service Environment](./environment/intro.md).
 
 ## <a name="reference-syntax"></a>Sintaxis de referencia
 
@@ -40,13 +40,13 @@ Una referencia de Key Vault tiene el formato `@Microsoft.KeyVault({referenceStri
 > [!div class="mx-tdBreakAll"]
 > | Cadena de referencia                                                            | Descripción                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri** debe ser el URI completo del plano de datos de un secreto en Key Vault, incluida una versión, por ejemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931.  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** debe ser el nombre del recurso de Key Vault. **SecretName** debe ser el nombre del secreto de destino. **SecretVersion** debe ser la versión del secreto que se va a usar. |
+> | SecretUri= _secretUri_                                                       | **SecretUri** debe ser el URI completo del plano de datos de un secreto en Key Vault, incluida una versión, por ejemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931.  |
+> | VaultName= _vaultName_ ;SecretName= _secretName_ ;SecretVersion= _secretVersion_ | **VaultName** debe ser el nombre del recurso de Key Vault. **SecretName** debe ser el nombre del secreto de destino. **SecretVersion** debe ser la versión del secreto que se va a usar. |
 
 > [!NOTE] 
 > Las versiones son obligatorias actualmente. Al rotar secretos, deberá actualizar la versión en la configuración de la aplicación.
-
 Por ejemplo, una referencia completa se parecería a la siguiente:
+
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
@@ -191,15 +191,15 @@ También puede usar uno de los detectores integrados para obtener información a
 ### <a name="using-the-detector-for-app-service"></a>Uso del detector en App Service
 
 1. En el portal, vaya a la aplicación.
-2. Seleccione **Diagnóstico y solución de problemas**.
+2. Seleccione **Diagnóstico y solución de problemas** .
 3. Elija **Availability and Performance** (Disponibilidad y rendimiento) y seleccione **Web app down** (La aplicación web no funciona).
-4. Busque **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault) y haga clic en **Más información**.
+4. Busque **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault) y haga clic en **Más información** .
 
 
 ### <a name="using-the-detector-for-azure-functions"></a>Uso del detector en Azure Functions
 
 1. En el portal, vaya a la aplicación.
-2. Seleccione **Características de la plataforma**.
-3. Seleccione **Diagnóstico y solución de problemas**.
+2. Seleccione **Características de la plataforma** .
+3. Seleccione **Diagnóstico y solución de problemas** .
 4. Elija **Disponibilidad y rendimiento** y seleccione **Function app down or reporting errors** (La aplicación de funciones no funciona o presenta errores).
 5. Haga clic en **Key Vault Application Settings Diagnostics** (Diagnóstico de configuración de la aplicación Key Vault).

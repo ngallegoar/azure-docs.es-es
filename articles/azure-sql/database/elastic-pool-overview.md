@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330797"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107902"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Los grupos elásticos ayudan a administrar y escalar varias bases de datos de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ La siguiente ilustración muestra un ejemplo de una base de datos que está much
 
    ![una base de datos única adecuada para un grupo](./media/elastic-pool-overview/one-database.png)
 
-En el período de cinco minutos de la ilustración, DB1 llega a las 90 DTU, pero su uso medio es inferior a cinco DTU. Se requiere un tamaño de proceso S3 para ejecutar esta carga de trabajo en una base de datos única, pero esto deja a la mayoría de los recursos sin usar durante los períodos de baja actividad.
+El gráfico muestra el uso de DTU durante un período de una hora de 12:00 a 1:00, donde cada punto de datos tiene una granularidad de 1 minuto. A las 12:10, DB1 llega a las 90 DTU, pero su uso medio general es inferior a cinco DTU. Se requiere un tamaño de proceso S3 para ejecutar esta carga de trabajo en una base de datos única, pero esto deja a la mayoría de los recursos sin usar durante los períodos de baja actividad.
 
 Con un grupo, estas DTU sin usar pueden compartirse entre varias bases de datos, lo que permite reducir el número total de DTU necesarias y el costo general.
 
@@ -74,7 +74,7 @@ Este ejemplo es ideal por las siguientes razones:
 - La utilización de picos para cada base de dato se produce en puntos de tiempo distintos.
 - Las eDTU se comparten entre varias bases de datos.
 
-El precio de un grupo es una función de las eDTU del grupo. Aunque el precio unitario de una eDTU para un grupo es 1,5 veces mayor que el de una DTU para una base de datos única, **las eDTU de grupo pueden compartirse entre muchas bases de datos, por lo que el número total de eDTU que se necesitan es menor**. Estas distinciones de precio y uso compartido de la eDTU son la base de la posibilidad de ahorro en el precio que pueden proporcionar los grupos.
+El precio de un grupo es una función de las eDTU del grupo. Aunque el precio unitario de una eDTU para un grupo es 1,5 veces mayor que el de una DTU para una base de datos única, **las eDTU de grupo pueden compartirse entre muchas bases de datos, por lo que el número total de eDTU que se necesitan es menor** . Estas distinciones de precio y uso compartido de la eDTU son la base de la posibilidad de ahorro en el precio que pueden proporcionar los grupos.
 
 Las siguientes reglas generales relacionadas con el recuento de base de datos y la utilización de las bases de datos ayudan a garantizar que un grupo permite una reducción de los costos en comparación con el uso de tamaños de proceso para bases de datos únicas.
 
@@ -113,11 +113,11 @@ Los siguientes pasos pueden ayudarle a calcular si un grupo es más rentable que
 
 Para el modelo de compra basado en DTU:
 
-MAX(<*Número total de bases de datos* X *promedio de uso de DTU por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos*>)
+MAX(< *Número total de bases de datos* X *promedio de uso de DTU por base de datos* >, < *Número de bases de datos con picos simultáneos* X *Uso de picos de DTU por base de datos* >)
 
 Para el modelo de compra basado en núcleo virtual:
 
-MAX(<*Número total de bases de datos* X *promedio de uso de núcleo virtual por base de datos*>, <*Número de bases de datos con picos simultáneos* X *Uso de picos de núcleo virtual por base de datos*>)
+MAX(< *Número total de bases de datos* X *promedio de uso de núcleo virtual por base de datos* >, < *Número de bases de datos con picos simultáneos* X *Uso de picos de núcleo virtual por base de datos* >)
 
 2. Calcule el espacio de almacenamiento necesario para el grupo agregando el número de bytes necesarios para todas las bases de datos del grupo. A continuación, determine el tamaño del grupo de eDTU que proporciona esta cantidad de almacenamiento.
 3. El modelo de compra basado en DTU toma las estimaciones de eDTU más grandes del paso 1 y el paso 2. El modelo de compra basado en núcleo virtual toma la estimación de núcleos virtuales del paso 1.
@@ -155,9 +155,9 @@ Las bases de datos agrupadas suelen ser compatibles con las mismas [característ
 
 Hay dos maneras de crear un grupo elástico en Azure Portal.
 
-1. Vaya a [Azure Portal](https://portal.azure.com) para crear un grupo elástico. Busque y seleccione **Azure SQL**.
-2. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información acerca de los grupos elásticos, seleccione **Mostrar detalles** en el icono **Bases de datos**.
-3. En el icono **Bases de datos**, seleccione **Grupo elástico** en la lista desplegable **Tipo de recurso** y, después, seleccione **Crear**:
+1. Vaya a [Azure Portal](https://portal.azure.com) para crear un grupo elástico. Busque y seleccione **Azure SQL** .
+2. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver más información acerca de los grupos elásticos, seleccione **Mostrar detalles** en el icono **Bases de datos** .
+3. En el icono **Bases de datos** , seleccione **Grupo elástico** en la lista desplegable **Tipo de recurso** y, después, seleccione **Crear** :
 
    ![Creación de un grupo elástico](./media/elastic-pool-overview/create-elastic-pool.png)
 
@@ -168,7 +168,7 @@ Hay dos maneras de crear un grupo elástico en Azure Portal.
 
 El nivel de servicio del grupo determina las características disponibles para las bases de datos elásticas del grupo y la cantidad máxima de recursos disponibles para cada base de datos. Para más información, consulte los límites de recursos para los grupos elásticos en el [modelo de DTU](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). Para conocer los límites de recursos basados en núcleos virtuales, consulte [Límites de recursos basados en núcleos virtuales para grupos elásticos](resource-limits-vcore-elastic-pools.md).
 
-Para configurar los recursos y fijar el precio del grupo, haga clic en **Configurar grupo**. A continuación, seleccione un nivel de servicio, agregue las bases de datos al grupo y configure los límites de recursos para el grupo y sus bases de datos.
+Para configurar los recursos y fijar el precio del grupo, haga clic en **Configurar grupo** . A continuación, seleccione un nivel de servicio, agregue las bases de datos al grupo y configure los límites de recursos para el grupo y sus bases de datos.
 
 Después de terminar de configurar el grupo, puede hacer clic en "Aplicar", asignar un nombre al grupo y hacer clic en "Aceptar" para crear el grupo.
 
@@ -185,7 +185,7 @@ El siguiente gráfico muestra un grupo elástico de ejemplo:
 
 ![Vista Grupo](./media/elastic-pool-overview/basic.png)
 
-Si quiere más información sobre el grupo, puede hacer clic en cualquiera de la información disponible en esta información general. Al hacer clic en el gráfico **Utilización de recursos**, irá a la vista de supervisión de Azure donde puede personalizar la ventana de métricas y tiempo mostrada en el gráfico. Al hacer clic en las notificaciones disponibles, irá a una hoja que muestra los detalles completos de esa recomendación o alerta.
+Si quiere más información sobre el grupo, puede hacer clic en cualquiera de la información disponible en esta información general. Al hacer clic en el gráfico **Utilización de recursos** , irá a la vista de supervisión de Azure donde puede personalizar la ventana de métricas y tiempo mostrada en el gráfico. Al hacer clic en las notificaciones disponibles, irá a una hoja que muestra los detalles completos de esa recomendación o alerta.
 
 Si desea supervisar las bases de datos dentro de su grupo, puede hacer clic en **Uso de recursos de base de datos** en la sección **Supervisión** del menú de recursos de la izquierda.
 
@@ -195,7 +195,7 @@ Si desea supervisar las bases de datos dentro de su grupo, puede hacer clic en *
 
 Puede editar el gráfico y la página de métricas para mostrar otras métricas, como el porcentaje de CPU, el porcentaje de E/S de datos y el porcentaje de E/S de registro usados.
 
-En el formulario **Editar gráfico**, puede seleccionar un intervalo de tiempo fijo o hacer clic en **personalizado** para seleccionar cualquier ventana de 24 horas en las dos últimas semanas y, a continuación, seleccionar los recursos para supervisar.
+En el formulario **Editar gráfico** , puede seleccionar un intervalo de tiempo fijo o hacer clic en **personalizado** para seleccionar cualquier ventana de 24 horas en las dos últimas semanas y, a continuación, seleccionar los recursos para supervisar.
 
 ### <a name="to-select-databases-to-monitor"></a>Selección de las bases de datos que se supervisarán
 

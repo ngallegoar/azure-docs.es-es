@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0842efe304faa9a0d94fbf71075f1bc16ff34014
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299427"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217565"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de registro mediante Azure Monitor
 
@@ -34,7 +34,7 @@ También puede crear reglas de alertas de registro mediante plantillas de Azure 
 A continuación se indican los pasos para empezar a escribir consultas para las alertas:
 
 1. Vaya al recurso para el que le gustaría crear la alerta.
-1. En **Supervisar**, seleccione **Registros**.
+1. En **Supervisar** , seleccione **Registros** .
 1. Consulte los datos de registro que pueden indicar el problema. Puede usar el [tema de ejemplos de consultas de alertas](../log-query/saved-queries.md) para comprender qué puede detectar, o bien puede [empezar a escribir su propia consulta](../log-query/get-started-portal.md). Además, [aprenda a crear consultas de alertas optimizadas](alerts-log-query.md).
 1. Presione el botón "+ Nueva regla de alertas" para iniciar el flujo de creación de alerta.
 
@@ -65,7 +65,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
     | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
     ```
 
-1. En la lógica de alerta de unidades métricas, puede especificar cómo [dividir las alertas por dimensiones](alerts-unified-log.md#split-by-alert-dimensions) mediante la opción **Agregado en**. La expresión de agrupación de filas debe ser única y estar ordenada.
+1. En la lógica de alerta de unidades métricas, puede especificar cómo [dividir las alertas por dimensiones](alerts-unified-log.md#split-by-alert-dimensions) mediante la opción **Agregado en** . La expresión de agrupación de filas debe ser única y estar ordenada.
 
     > [!NOTE]
     > Como [bin()](/azure/kusto/query/binfunction) puede generar intervalos de tiempo distintos, el servicio de alerta convertirá automáticamente la función [bin()](/azure/kusto/query/binfunction) en la función [bin_at()](/azure/kusto/query/binatfunction) con el valor adecuado en tiempo de ejecución para garantizar resultados con un punto fijo.
@@ -75,13 +75,13 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 
     ![agregar una opción](media/alerts-log/aggregate-on.png)
 
-1. A continuación, basándose en los datos de la vista previa, establezca los valores de [**Operador**, **Valor de umbral**](alerts-unified-log.md#threshold-and-operator) y [**Frecuencia**](alerts-unified-log.md#frequency).
+1. A continuación, basándose en los datos de la vista previa, establezca los valores de [**Operador** , **Valor de umbral**](alerts-unified-log.md#threshold-and-operator) y [**Frecuencia**](alerts-unified-log.md#frequency).
 
-1. Si lo desea, puede establecer un valor en [Número de infracciones que desencadenarán la alerta](alerts-unified-log.md#number-of-violations-to-trigger-alert) mediante **Infracciones totales o consecutivas**.
+1. Si lo desea, puede establecer un valor en [Número de infracciones que desencadenarán la alerta](alerts-unified-log.md#number-of-violations-to-trigger-alert) mediante **Infracciones totales o consecutivas** .
 
-1. Seleccione **Listo**. 
+1. Seleccione **Listo** . 
 
-1. Defina los valores de **Nombre de la regla de alertas** y **Descripción**, y seleccione el valor de **Gravedad** de la alerta. Estos detalles se usan en todas las acciones de alerta. Además, puede elegir activar la regla de alertas al crearla si selecciona **Habilitar regla tras la creación**.
+1. Defina los valores de **Nombre de la regla de alertas** y **Descripción** , y seleccione el valor de **Gravedad** de la alerta. Estos detalles se usan en todas las acciones de alerta. Además, puede elegir activar la regla de alertas al crearla si selecciona **Habilitar regla tras la creación** .
 
 1. Elija si desea suprimir las acciones de la regla durante un tiempo después de que se active una alerta con la opción [**Desactivar alertas**](alerts-unified-log.md#state-and-resolving-alerts). La regla seguirá ejecutándose y creará alertas, pero no se desencadenarán las acciones para evitar ruido. El valor de silenciar acciones debe ser mayor que la frecuencia de la alerta para que resulte efectivo.
 
@@ -94,8 +94,8 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 
 1. Si lo desea, puede personalizar las acciones de las reglas de alertas de registro:
 
-    - **Asunto del correo electrónico personalizado**: invalida el *asunto del correo electrónico* de las acciones de correo electrónico. No se puede modificar el cuerpo del mensaje de correo y este campo **no es para la dirección de correo electrónico**.
-    - **Incluir carga de JSON personalizada**: invalida el JSON de webhook que usan los grupos de acciones, suponiendo que el grupo de acciones contenga una acción de webhook. Obtenga más información sobre las [acciones del webhook para las alertas de registro](./alerts-log-webhook.md).
+    - **Asunto del correo electrónico personalizado** : invalida el *asunto del correo electrónico* de las acciones de correo electrónico. No se puede modificar el cuerpo del mensaje de correo y este campo **no es para la dirección de correo electrónico** .
+    - **Incluir carga de JSON personalizada** : invalida el JSON de webhook que usan los grupos de acciones, suponiendo que el grupo de acciones contenga una acción de webhook. Obtenga más información sobre las [acciones del webhook para las alertas de registro](./alerts-log-webhook.md).
 
     ![Invalidaciones de acciones para alertas de registro](media/alerts-log/AlertsPreviewOverrideLog.png)
 
@@ -110,15 +110,15 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 > [!NOTE]
 > Actualmente no se admite la creación desde la administración de alertas para los registros orientados a recursos.
 
-1. En el [portal](https://portal.azure.com/), seleccione **Monitor** y, a continuación, **Alertas**.
+1. En el [portal](https://portal.azure.com/), seleccione **Monitor** y, a continuación, **Alertas** .
 
     ![Supervisión](media/alerts-log/AlertsPreviewMenu.png)
 
-1. Seleccione **Nueva regla de alertas**. 
+1. Seleccione **Nueva regla de alertas** . 
 
     ![Agregar alerta](media/alerts-log/AlertsPreviewOption.png)
 
-1. Aparece el panel **Crear alerta**. Tiene cuatro partes: 
+1. Aparece el panel **Crear alerta** . Tiene cuatro partes: 
     - el recurso al que se aplica la alerta,
     - la condición que se va a comprobar,
     - la acción que se realizará si la condición es verdadera,
@@ -126,7 +126,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 
     ![Creación de una regla](media/alerts-log/AlertsPreviewAdd.png)
 
-1. Presione el botón **Seleccionar recurso**. Para filtrar, elija los valores de *Suscripción* y *Tipo de recurso*, y seleccione un recurso. Asegúrese de que el recurso tiene registros disponibles.
+1. Presione el botón **Seleccionar recurso** . Para filtrar, elija los valores de *Suscripción* y *Tipo de recurso* , y seleccione un recurso. Asegúrese de que el recurso tiene registros disponibles.
 
    ![Seleccionar recurso](media/alerts-log/Alert-SelectResourceLog.png)
 
@@ -137,7 +137,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
    > [!NOTE]
    > En el portal de alertas se enumeran las consultas guardadas desde Log Analytics y Application Insights, que se pueden usar como consultas de alertas de plantilla.
 
-1. Una vez seleccionada la consulta de alerta, escríbala, péguela o edítela en el campo **Consulta de búsqueda**.
+1. Una vez seleccionada la consulta de alerta, escríbala, péguela o edítela en el campo **Consulta de búsqueda** .
 
 1. Continúe con los siguientes pasos descritos en la [última sección](#log-alert-for-log-analytics-and-application-insights).
 
@@ -146,7 +146,7 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 > [!NOTE]
 > Actualmente no hay cargos adicionales por la versión `2020-05-01-preview` de la API y las alertas de registro orientadas a los recursos.  Los precios de las características en versión preliminar se anunciarán en el futuro y se avisará antes del inicio de la facturación. Si decide seguir usando la nueva versión de la API y las alertas de registro orientadas a los recursos después del período de aviso, se le facturará según la tarifa aplicable.
 
-1. Comience en la pestaña **Condición**:
+1. Comience en la pestaña **Condición** :
 
     1. Compruebe que los valores de [**Medida**](alerts-unified-log.md#measure), [**Tipo de agregación**](alerts-unified-log.md#aggregation-type) y [**Granularidad de agregación**](alerts-unified-log.md#aggregation-granularity) son correctos. 
         1. De forma predeterminada, la regla cuenta el número de resultados de los últimos cinco minutos.
@@ -164,44 +164,44 @@ A continuación se indican los pasos para empezar a escribir consultas para las 
 
         ![Gráfico de vista previa](media/alerts-log/preview-chart.png)
 
-    1. A continuación, basándose en los datos de la vista previa, establezca los valores de **Lógica de alerta**: [**Operador**, **Valor de umbral**](alerts-unified-log.md#threshold-and-operator) y [**Frecuencia**](alerts-unified-log.md#frequency).
+    1. A continuación, basándose en los datos de la vista previa, establezca los valores de **Lógica de alerta** : [**Operador** , **Valor de umbral**](alerts-unified-log.md#threshold-and-operator) y [**Frecuencia**](alerts-unified-log.md#frequency).
 
         ![Gráfico de vista previa con umbral y lógica de alerta](media/alerts-log/chart-and-alert-logic.png)
 
-    1. Si lo desea, puede establecer un valor en [**Número de infracciones que desencadenarán la alerta**](alerts-unified-log.md#number-of-violations-to-trigger-alert), en la sección **Opciones avanzadas**.
+    1. Si lo desea, puede establecer un valor en [**Número de infracciones que desencadenarán la alerta**](alerts-unified-log.md#number-of-violations-to-trigger-alert), en la sección **Opciones avanzadas** .
     
         ![Opciones avanzadas](media/alerts-log/advanced-options.png)
 
-1. En la pestaña **Acciones**, seleccione o cree los [grupos de acciones](action-groups.md) necesarios.
+1. En la pestaña **Acciones** , seleccione o cree los [grupos de acciones](action-groups.md) necesarios.
 
     ![Pestaña Acciones](media/alerts-log/actions-tab.png)
 
-1. En la pestaña **Detalles**, defina los valores de **Detalles de la regla de alertas** y **Detalles del proyecto**. Si lo desea, puede activar o desactivar las opciones **Start running now** (Empezar a ejecutar ahora) o [**Silenciar acciones**](alerts-unified-log.md#state-and-resolving-alerts) y definir el período durante el que se silenciarán las acciones después de que se active la regla de alertas.
+1. En la pestaña **Detalles** , defina los valores de **Detalles de la regla de alertas** y **Detalles del proyecto** . Si lo desea, puede activar o desactivar las opciones **Start running now** (Empezar a ejecutar ahora) o [**Silenciar acciones**](alerts-unified-log.md#state-and-resolving-alerts) y definir el período durante el que se silenciarán las acciones después de que se active la regla de alertas.
 
     > [!NOTE]
     > Las reglas de alertas de registro actualmente no tienen estado y activan una acción cada vez que se crea una alerta, a menos que se hayan silenciado.
 
     ![Pestaña Detalles](media/alerts-log/details-tab.png)
 
-1. En la pestaña **Etiquetas**, configure las etiquetas necesarias en el recurso de la regla de alertas.
+1. En la pestaña **Etiquetas** , configure las etiquetas necesarias en el recurso de la regla de alertas.
 
     ![Pestaña Etiquetas](media/alerts-log/tags-tab.png)
 
-1. En la pestaña **Revisar y crear**, se ejecutará una validación y se informará de cualquier problema. Revise y apruebe la definición de la regla.
+1. En la pestaña **Revisar y crear** , se ejecutará una validación y se informará de cualquier problema. Revise y apruebe la definición de la regla.
 1. Si todos los campos son correctos, seleccione el botón **Crear** y complete la creación de la regla de alertas. Todas las alertas pueden verse en la administración de alertas.
  
     ![Pestaña Revisar y crear](media/alerts-log/review-and-create-tab.png)
 
 ## <a name="view--manage-log-alerts-in-azure-portal"></a>Visualización y administración de las alertas de registro en Azure Portal
 
-1. En el [portal](https://portal.azure.com/), seleccione el recurso pertinente o el servicio **Monitor**. Seleccione **Alertas** en la sección Supervisión.
+1. En el [portal](https://portal.azure.com/), seleccione el recurso pertinente o el servicio **Monitor** . Seleccione **Alertas** en la sección Supervisión.
 
 1. La administración de alertas muestra todas las alertas que se han activado. [Obtenga más información sobre la administración de alertas](alerts-managing-alert-instances.md).
 
     > [!NOTE]
     > Actualmente, las reglas de alertas de registro [no tienen estado y no se resuelven](alerts-unified-log.md#state-and-resolving-alerts).
 
-1. Seleccione el botón **Administrar reglas** en la barra superior para editar reglas:
+1. Seleccione el botón **Administrar reglas de alertas** en la barra superior para editar reglas:
 
     ![ administración de reglas de alerta](media/alerts-log/manage-alert-rules.png)
 
@@ -265,7 +265,7 @@ New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceG
 
 En las secciones anteriores se describía cómo crear, ver y administrar las reglas de alertas de registro mediante Azure Portal. En esta sección se describe cómo hacer lo mismo con la multiplataforma [CLI de Azure](/cli/azure/get-started-with-azure-cli). La forma más rápida de comenzar a utilizar la CLI de Azure es a través de [Azure Cloud Shell](../../cloud-shell/overview.md). En este artículo, usaremos Cloud Shell.
 
-1. En Azure Portal, seleccione **Cloud Shell**.
+1. En Azure Portal, seleccione **Cloud Shell** .
 
 1. En el símbolo del sistema, puede usar los comandos con la opción ``--help`` para obtener más información sobre el comando y cómo usarlo. Por ejemplo, el comando siguiente muestra la lista de comandos disponibles para crear, ver y administrar alertas de registro:
 

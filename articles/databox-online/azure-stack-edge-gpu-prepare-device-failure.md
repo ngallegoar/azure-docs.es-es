@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 0d36a09b67e110551470f3908800e77c35b1e3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c7caf6c01c2e7ea9aaf141a2597ef338735d3d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843665"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173601"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Preparación para un error en un dispositivo GPU de Azure Stack Edge Pro
 
@@ -66,7 +66,8 @@ Las siguientes soluciones de protección de datos de terceros pueden proporciona
 | Software de terceros           | Referencia a la solución                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | https://www.cohesity.com/solution/cloud/azure/ <br> Para obtener más información, póngase en contacto con Cohesity.          |
-| Veritas                        | Para obtener más información, póngase en contacto con Veritas.   |
+| Commvault                      | https://www.commvault.com/azure <br> Para obtener más información, póngase en contacto con Commvault.          |
+| Veritas                        | http://veritas.com/azure <br> Para obtener más información, póngase en contacto con Veritas.   |
 
 
 ## <a name="protect-files-and-folders-on-vms"></a>Protección de archivos y carpetas en máquinas virtuales
@@ -78,7 +79,8 @@ Azure Stack Edge funciona con Azure Backup y otras soluciones de protección de 
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Agente de Microsoft Azure Recovery Services (MARS) para Azure Backup | Windows        | [Acerca del agente de MARS](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Breve descripción de la solución de integración, copia de seguridad y recuperación Microsoft Azure](https://www.cohesity.com/solution/cloud/azure) <br>Para obtener más información, póngase en contacto con Cohesity.                          |
-| Veritas                 | Windows, Linux | Para obtener más información, póngase en contacto con Veritas.                    |
+| Commvault               | Windows, Linux | https://www.commvault.com/azure <br>Para obtener más información, póngase en contacto con Commvault.                          |
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> Para obtener más información, póngase en contacto con Veritas.                    |
 
 
 

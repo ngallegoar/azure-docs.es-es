@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 69096e5f650a131c5af7ec4da60b7cbca225a56f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e328caa80a0e63f68f2563bc91a6405341ad064e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116613"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102075"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -29,24 +29,18 @@ Esta característica ayuda a las aplicaciones a tratar escenarios como los sigui
 
 ## <a name="set-multi-factor-authentication"></a>Configuración de la autenticación multifactor
 
-Cuando se crea un nuevo flujo de usuario, tiene la opción de habilitar la autenticación multifactor.
-
-![Configuración de la autenticación multifactor](./media/custom-policy-multi-factor-authentication/add-policy.png)
-
-Configure **Autenticación multifactor** en **Habilitado**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Use el filtro **Directorio y suscripción** del menú superior para seleccionar el directorio que contiene el inquilino de Azure AD B2C.
+1. En el menú de la izquierda, seleccione **Azure AD B2C** . O bien, seleccione **Todos los servicios** y busque y seleccione **Azure AD B2C** .
+1. Seleccione **Flujos de usuario** .
+1. Seleccione el flujo de usuario para el que quiere habilitar MFA. Por ejemplo, *B2C_1_signinsignup* .
+1. Seleccione **Propiedades** .
+1. En la sección **Autenticación multifactor** , seleccione el valor de **MFA method** (Método de MFA) deseado y, a continuación, en **MFA enforcement** (Aplicación de MFA), seleccione **Always On** o **[Condicional](conditional-access-user-flow.md) (recomendado)** . Para Condicional, cree una [directiva de acceso condicional](conditional-access-identity-protection-setup.md) y especifique las aplicaciones a las que desea que se aplique. 
+1. Seleccione Guardar. MFA ahora está habilitado para este flujo de usuario.
 
 Puede usar **Ejecutar flujo de usuario** para comprobar la experiencia. Considere el siguiente escenario:
 
 Se crea una cuenta de cliente en el inquilino antes de que se produzca el paso de autenticación multifactor. Durante el paso, se pide al cliente que proporcione un número de teléfono y que lo compruebe. Si la comprobación es satisfactoria, el número de teléfono se asocia a la cuenta para usarlo más adelante. Incluso si el cliente cancela o abandona, se le puede pedir que compruebe de nuevo un número de teléfono durante el siguiente inicio de sesión con la autenticación multifactor habilitada.
 
-## <a name="add-multi-factor-authentication"></a>Incorporación de la autenticación multifactor
-
-Es posible habilitar la autenticación multifactor en un flujo de usuario que creó anteriormente.
-
-Para habilitar la autenticación multifactor:
-
-1. Abra el flujo de usuario y, a continuación, seleccione **Propiedades**.
-2. Junto a **Autenticación multifactor**, seleccione **Habilitado**.
-3. Haga clic en **Guardar** en la parte superior de la página.
 
 

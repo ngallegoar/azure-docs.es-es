@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78184255"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102024"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operaciones de Microsoft Graph disponibles para Azure AD B2C
 
@@ -33,6 +33,15 @@ Cada vínculo de las secciones siguientes se dirige a la página correspondiente
 - [Eliminar un usuario](https://docs.microsoft.com/graph/api/user-delete)
 
 Para más información sobre la administración de cuentas de usuario de Azure AD B2C, consulte [Azure AD B2C: Usar Graph API de Azure AD](manage-user-accounts-graph-api.md).
+
+## <a name="user-phone-number-management"></a>Administración de números de teléfono del usuario
+
+- [Add (Agregar)](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [Get](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [Actualizar](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [Eliminar](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+Para obtener más información sobre cómo administrar el número de teléfono de inicio de sesión del usuario con la API de Microsoft Graph, consulte [Métodos de autenticación B2C](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## <a name="identity-providers-user-flow"></a>Proveedores de identidades (flujo de usuarios)
 
@@ -65,9 +74,9 @@ Las siguientes operaciones permiten administrar las directivas del marco de conf
 
 ## <a name="policy-keys"></a>Claves de directiva
 
-Identity Experience Framework almacena los secretos a los que se hace referencia en una directiva personalizada para establecer la confianza entre los componentes. Estos secretos pueden ser claves/valores simétricos o asimétricos. En Azure Portal, estas entidades se muestran como **claves de directiva**.
+Identity Experience Framework almacena los secretos a los que se hace referencia en una directiva personalizada para establecer la confianza entre los componentes. Estos secretos pueden ser claves/valores simétricos o asimétricos. En Azure Portal, estas entidades se muestran como **claves de directiva** .
 
-El recurso de nivel superior para las claves de directiva de Microsoft Graph API es el [conjunto de claves del marco de confianza](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Cada **conjunto de claves** contiene al menos una **clave**. Para crear una clave, primero debe crear un conjunto de claves vacío y, a continuación, generar una clave en el conjunto de claves. Puede crear un secreto manual, cargar un certificado o una clave PKCS12. La clave puede ser un secreto generado, una cadena que defina (como el secreto de aplicación de Facebook) o un certificado que cargue. Si un conjunto de claves tiene varias claves, solo una de las claves está activa.
+El recurso de nivel superior para las claves de directiva de Microsoft Graph API es el [conjunto de claves del marco de confianza](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset). Cada **conjunto de claves** contiene al menos una **clave** . Para crear una clave, primero debe crear un conjunto de claves vacío y, a continuación, generar una clave en el conjunto de claves. Puede crear un secreto manual, cargar un certificado o una clave PKCS12. La clave puede ser un secreto generado, una cadena que defina (como el secreto de aplicación de Facebook) o un certificado que cargue. Si un conjunto de claves tiene varias claves, solo una de las claves está activa.
 
 ### <a name="trust-framework-policy-keyset"></a>Conjunto de claves de directiva de marco de confianza
 

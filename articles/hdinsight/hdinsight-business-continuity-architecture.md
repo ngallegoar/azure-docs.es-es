@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidad
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856439"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207587"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Arquitecturas de continuidad empresarial de Azure HDInsight
 
@@ -24,7 +24,7 @@ En este artículo se ofrecen algunos ejemplos de arquitecturas de continuidad em
 
 ## <a name="apache-hive-and-interactive-query"></a>Apache Hive e Interactive Query
 
-[La versión 2 de Hive Replication](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) es la recomendada para la continuidad empresarial en los clústeres de Hive e Interactive Query de HDInsight. Las secciones persistentes de un clúster de Hive independiente que deben replicarse son la Capa de almacenamiento y el metastore de Hive. Los clústeres de Hive en un escenario de varios usuarios con Enterprise Security Package necesitan Azure Active Directory Domain Services y el metastore de Ranger.
+[Hive Replication V2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development#HiveReplicationv2Development-REPLSTATUS) es la versión recomendada para la continuidad empresarial en los clústeres de Hive e Interactive Query de HDInsight. Las secciones persistentes de un clúster de Hive independiente que deben replicarse son la Capa de almacenamiento y el metastore de Hive. Los clústeres de Hive en un escenario de varios usuarios con Enterprise Security Package necesitan Azure Active Directory Domain Services y el metastore de Ranger.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hive-interactive-query.png" alt-text="Arquitectura de Hive e Interactive Query":::
 
@@ -48,15 +48,17 @@ El clúster secundario normalmente es de solo lectura. Puede hacer que el clúst
 
 #### <a name="hive-active-primary-with-on-demand-secondary"></a>Primaria activa con secundaria a petición de Hive
 
-En una arquitectura *primaria activa con secundaria a petición*, las aplicaciones escriben en la región primaria activa mientras no se aprovisiona ningún clúster en la región secundaria durante las operaciones normales. El metastore y el almacenamiento de SQL de la región secundaria son persistentes, mientras que el clúster de HDInsight se genera mediante script y se implementa a petición solo antes de que se ejecute la replicación de Hive programada.
+En una arquitectura *primaria activa con secundaria a petición* , las aplicaciones escriben en la región primaria activa mientras no se aprovisiona ningún clúster en la región secundaria durante las operaciones normales. El metastore y el almacenamiento de SQL de la región secundaria son persistentes, mientras que el clúster de HDInsight se genera mediante script y se implementa a petición solo antes de que se ejecute la replicación de Hive programada.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-on-demand-secondary.png" alt-text="Arquitectura de Hive e Interactive Query":::
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Primaria activa con secundaria en espera de Hive
 
-En una arquitectura *primaria activa con secundaria en espera*, las aplicaciones escriben en la región primaria activa mientras que un clúster secundario reducido verticalmente en espera en modo de solo lectura se ejecuta durante las operaciones normales. En el transcurso de estas operaciones, puede optar por descargar las operaciones de lectura específicas de la región en la secundaria.
+En una arquitectura *primaria activa con secundaria en espera* , las aplicaciones escriben en la región primaria activa mientras que un clúster secundario reducido verticalmente en espera en modo de solo lectura se ejecuta durante las operaciones normales. En el transcurso de estas operaciones, puede optar por descargar las operaciones de lectura específicas de la región en la secundaria.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Arquitectura de Hive e Interactive Query":::
+
+Para obtener más información sobre la replicación de Hive y observar ejemplos de código, vea [Uso de la replicación de Apache Hive en clústeres de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication).
 
 ## <a name="apache-spark"></a>Spark de Apache
 

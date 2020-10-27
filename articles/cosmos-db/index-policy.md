@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089520"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277804"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
 En Azure Cosmos DB, cada contenedor tiene una directiva de indexación que determina cómo se deben indexar los elementos del contenedor. La directiva de indexación predeterminada para los contenedores recién creados indexa cada propiedad de cada elemento y exige que se usen índices de intervalo para todas las cadenas o números. Esto permite obtener un rendimiento elevado de consultas sin tener que pensar en la indexación y administración de índices por adelantado.
 
-En algunas situaciones, puede que quiera invalidar este comportamiento automático para ajustarse mejor a sus requerimientos. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación* e incluir o excluir las *rutas de acceso de propiedad*.
+En algunas situaciones, puede que quiera invalidar este comportamiento automático para ajustarse mejor a sus requerimientos. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación* e incluir o excluir las *rutas de acceso de propiedad* .
 
 > [!NOTE]
 > El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga más información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
@@ -26,11 +26,11 @@ En algunas situaciones, puede que quiera invalidar este comportamiento automáti
 
 Azure Cosmos DB admite dos modos de indexación:
 
-- **Coherente**: El índice se actualiza de forma sincrónica al crear, actualizar o eliminar elementos. Esto significa que la coherencia de las consultas de lectura será la [coherencia configurada para la cuenta](consistency-levels.md).
-- **Ninguna**: La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
+- **Coherente** : El índice se actualiza de forma sincrónica al crear, actualizar o eliminar elementos. Esto significa que la coherencia de las consultas de lectura será la [coherencia configurada para la cuenta](consistency-levels.md).
+- **Ninguna** : La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
 
 > [!NOTE]
-> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. En junio de 2020, se incluyó un cambio que ya no permite que los nuevos contenedores se establezcan en el modo de indexación diferida. Si la cuenta de Azure Cosmos DB ya contiene al menos un contenedor con indexación diferida, esta cuenta se excluye automáticamente del cambio. También puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md) que no admite la indexación diferida).
+> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos** . Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. En junio de 2020, se incluyó un cambio que ya no permite que los nuevos contenedores se establezcan en el modo de indexación diferida. Si la cuenta de Azure Cosmos DB ya contiene al menos un contenedor con indexación diferida, esta cuenta se excluye automáticamente del cambio. También puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md) que no admite la indexación diferida).
 
 De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
 
@@ -77,7 +77,7 @@ Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*
 
 - De forma predeterminada, la propiedad del sistema `_etag` se excluye de la indexación, a menos que la ETag se agregue a la ruta de acceso incluida para la indexación.
 
-- Si el modo de indexación se establece en **Coherente**, las propiedades del sistema `id` y `_ts` se indexan automáticamente.
+- Si el modo de indexación se establece en **Coherente** , las propiedades del sistema `id` y `_ts` se indexan automáticamente.
 
 Al incluir y excluir las rutas de acceso, puede encontrar los atributos siguientes:
 
@@ -103,9 +103,9 @@ Si las rutas de acceso incluidas y las rutas de acceso excluidas tienen un confl
 
 Este es un ejemplo:
 
-**Ruta de acceso incluida**: `/food/ingredients/nutrition/*`
+**Ruta de acceso incluida** : `/food/ingredients/nutrition/*`
 
-**Ruta de acceso excluida**: `/food/ingredients/*`
+**Ruta de acceso excluida** : `/food/ingredients/*`
 
 En este caso, la ruta de acceso incluida tiene prioridad sobre la ruta de acceso excluida porque es más precisa. En función de estas rutas de acceso, los datos de la ruta de acceso `food/ingredients` o anidados dentro de ella se excluirán del índice. La excepción serían los datos dentro de la ruta de acceso incluida: `/food/ingredients/nutrition/*`, que se indexaría.
 
@@ -271,7 +271,7 @@ No afecta a la disponibilidad de escritura durante las transformaciones del índ
 
 No afecta a la disponibilidad de lectura al agregar un índice nuevo. Las consultas solo utilizarán nuevos índices una vez completada la transformación del índice. Durante la transformación del índice, el motor de consulta seguirá usando los índices existentes, por lo que observará un rendimiento de lectura similar durante la transformación de indexación al que observó antes de iniciar el cambio de indexación. Al agregar índices nuevos, tampoco hay riesgo de resultados de consulta incompletos o incoherentes.
 
-Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los índices quitados, es posible que los resultados sean incoherentes e incompletos hasta que finalice la transformación del índice. Si quita varios índices y lo hace en un único cambio de directiva de indexación, el motor de consulta garantiza resultados coherentes y completos durante la transformación del índice. Sin embargo, si elimina los índices a través de varios cambios de directiva de indexación, el motor de consulta no garantiza resultados coherentes o completos hasta que se completen todas las transformaciones del índice. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que usan esos índices de inmediato, por lo que, en la práctica, esta situación es poco probable.
+Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los índices quitados, es posible que los resultados sean incoherentes e incompletos hasta que finalice la transformación del índice. Si quita varios índices y lo hace en un único cambio de directiva de indexación, el motor de consulta proporciona resultados coherentes y completos durante la transformación del índice. Sin embargo, si elimina los índices a través de varios cambios de directiva de indexación, el motor de consulta no proporcionará resultados coherentes o completos hasta que se completen todas las transformaciones del índice. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que usan esos índices de inmediato, por lo que, en la práctica, esta situación es poco probable.
 
 > [!NOTE]
 > Siempre que sea posible, debe intentar agrupar varios cambios de indexación en una única modificación de directiva de indexación.

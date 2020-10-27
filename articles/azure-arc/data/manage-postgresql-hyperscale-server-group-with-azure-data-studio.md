@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dcc0f916a15598060e034dcf62536ee13e2672e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932604"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320233"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Uso de Azure Data Studio para administrar el grupo de servidores de Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -28,7 +28,7 @@ En este artículo se describe cómo:
 ## <a name="prerequisites"></a>Requisitos previos
 
 - [Instalación de azdata, Azure Data Studio y la CLI de Azure](install-client-tools.md)
-- Instalación en Azure Data Studio de las extensiones de la **CLI de datos de Azure**, **Azure Arc** y **PostgreSQL**
+- Instalación en Azure Data Studio de las extensiones de **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** , **Azure Arc** y **PostgreSQL**
 - Creación del [controlador de datos de Azure Arc](create-data-controller-using-azdata.md)
 - Inicio de Azure Data Studio
 
@@ -61,9 +61,8 @@ Vista del panel de PostgreSQL:
 
 Incluye varios paneles que aparecen en el lado izquierdo de ese panel:
 
-- **Información general:** muestra información de resumen sobre la instancia, como el nombre, el identificador de suscripción de Azure, la configuración, la versión del motor de base de datos, los puntos de conexión de Grafana y Kibana...
+- **Información general:** muestra información de resumen sobre la instancia, como el nombre, el nombre del usuario administrador de PostgreSQL, el identificador de suscripción de Azure, la configuración, la versión del motor de base de datos, los puntos de conexión de Grafana y Kibana...
 - **Connection Strings (Cadenas de conexión):** muestra varias cadenas de conexión que puede que necesite para conectarse a la instancia de PostgreSQL, como psql, Node.js, PHP, Ruby...
-- **Propiedades:** muestra varias propiedades, como el nombre del usuario administrador de PostgreSQL, el grupo de recursos asociado para el recurso de instantáneas...
 - **Diagnose and solve problems (Diagnóstico y solución de problemas)** : página de aterrizaje en la que encontrará varios recursos que le ayudarán a solucionar problemas de la instancia a medida que se expanden los cuadernos de solución de problemas.
 - **New support request (Nueva solicitud de soporte técnico):** página de aterrizaje desde la que podrá solicitar asistencia de nuestros servicios de soporte técnico a partir del anuncio de la versión preliminar pública.
 

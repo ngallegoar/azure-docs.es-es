@@ -1,20 +1,19 @@
 ---
 title: Uso del analizador de modelos de Digital Twins | Microsoft Docs
-description: La finalidad de este artículo es que los desarrolladores aprendan a usar el analizador de DTDL para validar los modelos.
+description: La finalidad de este artículo es que los desarrolladores aprendan a usar el analizador de DTDL para validar modelos.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87352050"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331794"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Uso del analizador de modelos de Digital Twins
 
@@ -28,9 +27,12 @@ El analizador está disponible en NuGet.org con el identificador: [Microsoft.Azu
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> En el momento de escribir este documento, la versión del analizador es la `3.12.5`.
+
 ## <a name="use-the-parser-to-validate-a-model"></a>Uso del analizador para validar un modelo
 
-El modelo que quiere validar puede estar formado por una o varias interfaces descritas en archivos JSON. Puede usar el analizador para cargar todos los archivos de una carpeta determinada y validar todos los archivos en su totalidad, incluidas las referencias entre ellos:
+Un modelo puede estar formado por una o varias interfaces descritas en archivos JSON. Puede usar el analizador para cargar todos los archivos de una carpeta determinada y validar todos los archivos en su totalidad, incluidas las referencias entre ellos:
 
 1. Cree un elemento `IEnumerable<string>` con una lista de todo el contenido del modelo:
 
@@ -57,18 +59,20 @@ El modelo que quiere validar puede estar formado por una o varias interfaces des
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Compruebe si hay errores de validación. Si el analizador encuentra algún error, inicia una excepción `AggregateException` con una lista de mensajes de error detallados:
+1. Compruebe si hay errores de validación. Si el analizador encuentra algún error, inicia una excepción `ParsingException` con una lista de errores:
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ El modelo que quiere validar puede estar formado por una o varias interfaces des
 1. Inspeccione el elemento `Model`. Si la validación se realiza correctamente, puede usar la API del analizador de modelos para inspeccionar el modelo. En el fragmento de código siguiente se muestra cómo recorrer en iteración todos los modelos analizados y se muestran las propiedades existentes:
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 

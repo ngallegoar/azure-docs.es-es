@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201861"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215491"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Inicio de sesión de página única mediante el flujo implícito de OAuth 2.0 con Azure Active Directory B2C
 
@@ -26,7 +26,9 @@ Muchas aplicaciones modernas tienen un front-end de aplicación de página únic
 - Muchos proveedores de identidades y servidores de autorización no admiten solicitudes de uso compartido de recursos entre orígenes (CORS).
 - Los redireccionamientos del explorador a una página completa fuera de la aplicación pueden ser invasivos para la experiencia del usuario.
 
-Para admitir estas aplicaciones, Azure Active Directory B2C (Azure AD B2C) usa el flujo implícito de OAuth 2.0. El flujo de concesión implícito de autorización de OAuth 2.0 se describe en la [sección 4.2 de la especificación de este protocolo](https://tools.ietf.org/html/rfc6749). En el flujo implícito, la aplicación recibe tokens directamente del punto de conexión de autorización de Azure Active Directory (Azure AD), sin ningún intercambio de servidor a servidor. La lógica de autenticación y el control de sesiones tienen lugar por completo en el cliente de JavaScript con un redireccionamiento de página o un cuadro emergente.
+La forma recomendada de admitir aplicaciones de página única es el [Flujo de código de autorización de OAuth 2.0 (con PKCE)](./authorization-code-flow.md).
+
+Algunos marcos, como [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), solo admiten el flujo de concesión implícita. En estos casos, Azure Active Directory B2C (Azure AD B2C) admite el flujo de concesión implícita de autorización de OAuth 2.0. El flujo se describe en la [sección 4.2 de la especificación de OAuth 2.0](https://tools.ietf.org/html/rfc6749). En el flujo implícito, la aplicación recibe tokens directamente del punto de conexión de autorización de Azure Active Directory (Azure AD), sin ningún intercambio de servidor a servidor. La lógica de autenticación y el control de sesiones tienen lugar por completo en el cliente de JavaScript con un redireccionamiento de página o un cuadro emergente.
 
 Azure AD B2C extiende el flujo implícito de OAuth 2.0 estándar para realizar algo más que una autorización y autenticación simples. Azure AD B2C presenta el [parámetro de directiva](user-flow-overview.md). Con el parámetro de directiva, puede usar OAuth 2.0 para agregar políticas a su aplicación, como registro, inicio de sesión y flujos de usuario de administración de perfiles. En las solicitudes HTTP de ejemplo de este artículo se usa **{tenant}.onmicrosoft.com** como ejemplo. Reemplace `{tenant}` por el nombre de su inquilino si tiene uno y también ha creado un flujo de usuario.
 

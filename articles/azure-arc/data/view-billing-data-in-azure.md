@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760313"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206459"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Carga de datos de facturación en Azure y visualización en Azure Portal
 
@@ -27,10 +27,10 @@ ms.locfileid: "91760313"
 
 En el futuro, habrá dos modos de ejecución de los servicios de datos habilitados para Azure Arc:
 
-- **Conexión indirecta**: no hay ninguna conexión directa con Azure. Los datos solo se envían a Azure a través de un proceso de exportación y carga. Actualmente, todas las implementaciones de servicios de datos de Azure Arc funcionan en este modo en versión preliminar.
-- **Conexión directa**: en este modo, habrá una dependencia del servicio Kubernetes habilitado para Azure Arc a fin de proporcionar una conexión directa entre Azure y el clúster de Kubernetes en el que se ejecutan los servicios de datos habilitados para Azure Arc. Esto habilitará más funcionalidades y también le permitirá usar Azure Portal y la CLI de Azure para administrar los servicios de datos habilitados para Azure Arc igual que los servicios de datos en PaaS de Azure.  Este modo de conectividad todavía no está disponible en versión preliminar, pero lo estará próximamente.
+- **Conexión indirecta** : no hay ninguna conexión directa con Azure. Los datos solo se envían a Azure a través de un proceso de exportación y carga. Actualmente, todas las implementaciones de servicios de datos de Azure Arc funcionan en este modo en versión preliminar.
+- **Conexión directa** : en este modo, habrá una dependencia del servicio Kubernetes habilitado para Azure Arc a fin de proporcionar una conexión directa entre Azure y el clúster de Kubernetes en el que se ejecutan los servicios de datos habilitados para Azure Arc. Esto habilitará más funcionalidades y también le permitirá usar Azure Portal y la CLI de Azure para administrar los servicios de datos habilitados para Azure Arc igual que los servicios de datos en PaaS de Azure.  Este modo de conectividad todavía no está disponible en versión preliminar, pero lo estará próximamente.
 
-Puede obtener más información sobre la diferencia entre los [modos de conectividad](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
+Puede obtener más información sobre la diferencia entre los [modos de conectividad](./connectivity.md).
 
 En el modo de conexión indirecta, los datos de facturación se exportan periódicamente desde el controlador de datos de Azure Arc a un archivo seguro y, después, se cargan en Azure y se procesan.  En el próximo modo de conexión directa, los datos de facturación se enviarán automáticamente a Azure aproximadamente cada hora para ofrecer una visión casi en tiempo real de los costes de los servicios. El proceso de exportación y carga de los datos en el modo de conexión indirecta también se puede automatizar mediante scripts, o bien se puede crear un servicio que lo haga automáticamente.
 
@@ -117,7 +117,7 @@ Siga estos pasos para ver los datos de facturación en Azure Portal:
 1. Haga clic en el botón **Coste por recurso** de la parte superior de la vista.
 1. Asegúrese de que el ámbito está establecido en la suscripción en la que se hayan creado los recursos del servicio de datos.
 1. Seleccione **Coste por recurso** en el menú desplegable Vista situado junto al selector de ámbito cerca de la parte superior de la vista.
-1. Asegúrese de que el filtro de fecha está establecido en **Este mes** o en algún otro intervalo de tiempo que tenga sentido en función del momento en el que haya creado los recursos del servicio de datos.
+1. Asegúrese de que el filtro de fecha está establecido en **Este mes** o en algún otro intervalo de tiempo que tenga sentido en función del momento en el que hayan creado los recursos del servicio de datos.
 1. Haga clic en **Agregar filtro** para agregar un filtro por **Tipo de recurso** = `microsoft.azuredata/<data service type>` si solo quiere filtrar por un tipo de servicio de datos habilitado para Azure Arc.
 1. Ahora verá una lista de todos los recursos que se han creado y cargado en Azure. Como el medidor de facturación es 0 USD, verá que el coste siempre es 0 USD.
 
@@ -126,7 +126,7 @@ Siga estos pasos para ver los datos de facturación en Azure Portal:
 Puede descargar los datos de resumen de facturación directamente desde Azure Portal.
 
 1. En la misma vista **Análisis de costos > Ver por tipo de recurso** a la que ha llegado después de seguir las instrucciones anteriores, haga clic en el botón Descargar situado junto a la parte superior.
-1. Elija el tipo de archivo de descarga, Excel o CSV, y haga clic en el botón **Descargar datos**.
+1. Elija el tipo de archivo de descarga, Excel o CSV, y haga clic en el botón **Descargar datos** .
 1. Abra el archivo en un editor adecuado para el tipo de archivo seleccionado.
 
 ## <a name="export-billing-data"></a>Exportación de los datos de facturación
@@ -135,11 +135,11 @@ También puede exportar de forma periódica datos de facturación y uso **detall
 
 Siga estos pasos para configurar un trabajo de exportación de facturación:
 
-1. Haga clic en Exportaciones en la parte izquierda.
-1. Haga clic en Agregar.
+1. Haga clic en **Exportaciones** en la parte izquierda.
+1. Haga clic en **Agregar** .
 1. Escriba un nombre y una frecuencia de exportación, y haga clic en Siguiente.
-1. Elija entre crear una cuenta de almacenamiento, o bien crearla y rellenar el formulario para especificar la cuenta de almacenamiento, el contenedor y la ruta de acceso al directorio para exportar los archivos de datos de facturación y haga clic en Siguiente.
-1. Haga clic en Crear.
+1. Elija entre crear una nueva cuenta de almacenamiento o bien usar una existente, y rellene el formulario para especificar la cuenta de almacenamiento, el contenedor y la ruta de acceso del directorio al que se van a exportar los archivos de datos de facturación y haga clic en Siguiente.
+1. Haga clic en **Crear** .
 
 Los archivos de exportación de datos de facturación estarán disponibles aproximadamente en cuatro horas y se exportarán según la programación que haya especificado al crear el trabajo de exportación de facturación.
 
@@ -150,13 +150,13 @@ Puede validar los archivos de datos de facturación en Azure Portal.
 > [!IMPORTANT]
 > Después de crear el trabajo de exportación de facturación, espere cuatro horas antes de continuar con los pasos siguientes.
 
-1. En el cuadro de búsqueda de la parte superior del portal, escriba **Cuentas de almacenamiento** y haga clic en **Cuentas de almacenamiento**.
+1. En el cuadro de búsqueda de la parte superior del portal, escriba **Cuentas de almacenamiento** y haga clic en **Cuentas de almacenamiento** .
 3. Haga clic en la cuenta de almacenamiento que haya especificado al crear el trabajo de exportación de facturación anterior.
 4. Haga clic en Contenedores en la parte izquierda.
 5. Haga clic en el contenedor que haya especificado al crear el trabajo de exportación de facturación anterior.
 6. Haga clic en la carpeta que haya especificado al crear el trabajo de exportación de facturación anterior.
 7. Explore en profundidad los archivos y carpetas generados. y haga clic en uno de los archivos .csv generados.
-8. Haga clic en el botón Descargar, para guardar el archivo en la carpeta Descargas local.
+8. Haga clic en el botón **Descargar** , para guardar el archivo en la carpeta Descargas local.
 9. Abra el archivo con un visor de archivos .csv como Excel.
 10. Filtre los resultados para mostrar solo las filas con el **Tipo de recurso** = `Microsoft.AzureData/<data service resource type`.
 11. En la columna UsageQuantity verá el número de horas que se ha usado la instancia en el período de 24 horas actual.

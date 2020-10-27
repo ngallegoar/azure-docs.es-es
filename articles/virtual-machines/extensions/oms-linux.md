@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1193bfe74e8b5e20d2189c143f6ca0cb09abfd49
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307456"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329651"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Log Analytics para Linux
 
@@ -43,6 +43,7 @@ En la tabla siguiente se proporciona una asignación de la versión de la extens
 
 | Versión de extensión de máquina virtual Linux de Log Analytics | Versión del paquete del agente de Log Analytics | 
 |--------------------------------|--------------------------|
+| 1.13.27 | [1.13.27](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.27-0) |
 | 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
@@ -172,7 +173,7 @@ Al colocar la plantilla JSON de la extensión en la raíz de la plantilla, el no
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
 
-La CLI de Azure puede utilizarse para implementar la extensión de máquina virtual del agente de Log Analytics en una máquina virtual. Reemplace el valor *myWorkspaceKey* siguiente por la clave del área de trabajo y el valor *myWorkspaceId* por el identificador del área de trabajo. Estos valores se pueden encontrar en el área de trabajo de Log Analytics en Azure Portal en *Configuración avanzada*. 
+La CLI de Azure puede utilizarse para implementar la extensión de máquina virtual del agente de Log Analytics en una máquina virtual. Reemplace el valor *myWorkspaceKey* siguiente por la clave del área de trabajo y el valor *myWorkspaceId* por el identificador del área de trabajo. Estos valores se pueden encontrar en el área de trabajo de Log Analytics en Azure Portal en *Configuración avanzada* . 
 
 ```azurecli
 az vm extension set \

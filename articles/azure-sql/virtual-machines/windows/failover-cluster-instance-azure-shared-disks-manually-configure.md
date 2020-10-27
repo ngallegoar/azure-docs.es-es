@@ -1,5 +1,5 @@
 ---
-title: Creación de una FCI con discos compartidos de Azure (versión preliminar)
+title: Creación de una FCI con discos compartidos de Azure
 description: Use discos compartidos de Azure para crear una instancia de clúster de conmutación por error (FCI) con SQL Server en Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272657"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168246"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
 - Suscripción a Azure. Comience a usarla [gratis](https://azure.microsoft.com/free/). 
 - [Dos o más máquinas virtuales de Azure con Windows](failover-cluster-instance-prepare-vm.md). Se admiten [conjuntos de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md) y [grupos con ubicación por proximidad](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPG). Si utiliza un PPG, todos los nodos deben encontrarse en el mismo grupo.
 - Una cuenta que tenga permisos para crear objetos en máquinas virtuales de Azure y en Active Directory.
-- La versión más reciente de [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- La versión más reciente de [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-azure-shared-disk"></a>Adición de un disco compartido de Azure
@@ -44,7 +44,7 @@ Implemente un disco SSD Premium administrado con la característica de disco com
 Agregue un disco compartido de Azure mediante el procedimiento siguiente: 
 
 
-1. Guarde el siguiente script como *SharedDiskConfig.json*: 
+1. Guarde el siguiente script como *SharedDiskConfig.json* : 
 
    ```JSON
    { 
@@ -151,17 +151,17 @@ Valide el clúster en la interfaz de usuario o con PowerShell.
 
 Para validar el clúster con la interfaz de usuario, realice los pasos siguientes en una de las máquinas virtuales:
 
-1. En **Administrador del servidor**, seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error**.
-1. En **Administrador de clústeres de conmutación por error**, seleccione **Acción**y, a continuación, seleccione **Validar configuración**.
+1. En **Administrador del servidor** , seleccione **Herramientas** y, después, seleccione **Administrador de clústeres de conmutación por error** .
+1. En **Administrador de clústeres de conmutación por error** , seleccione **Acción** y, a continuación, seleccione **Validar configuración** .
 1. Seleccione **Next** (Siguiente).
-1. En **Seleccionar servidores o un clúster**, escriba el nombre de ambas máquinas virtuales.
-1. En **Opciones de pruebas**, seleccione **Ejecutar solo las pruebas que seleccione**. 
+1. En **Seleccionar servidores o un clúster** , escriba el nombre de ambas máquinas virtuales.
+1. En **Opciones de pruebas** , seleccione **Ejecutar solo las pruebas que seleccione** . 
 1. Seleccione **Next** (Siguiente).
-1. En **Selección de pruebas**, elija todas las pruebas, *excepto* **Almacenamiento**.
+1. En **Selección de pruebas** , elija todas las pruebas, *excepto* **Almacenamiento** .
 
 ## <a name="test-cluster-failover"></a>Conmutación por error del clúster de prueba
 
-Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error**, haga clic con el botón derecho en el clúster y seleccione **Más acciones** > **Mover principales recursos de clúster** > **Seleccionar nodo** y, después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
+Pruebe la conmutación por error del clúster. En **Administrador de clústeres de conmutación por error** , haga clic con el botón derecho en el clúster y seleccione **Más acciones** > **Mover principales recursos de clúster** > **Seleccionar nodo** y, después, seleccione el otro nodo del clúster. Mueva el recurso de clúster principal a cada nodo del clúster y, después, devuélvalo al nodo principal. Si puede mover correctamente el clúster a cada nodo, está listo para instalar SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Prueba de la conmutación por error del clúster moviendo el recurso principal a los demás nodos":::
 
@@ -171,15 +171,15 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 
 1. Establezca la conexión a la primera máquina virtual mediante el Protocolo de escritorio remoto (RDP).
 
-1. En **Administrador de clústeres de conmutación por error**, asegúrese de que todos los recursos principales de clúster estén en la primera máquina virtual. Si es necesario, mueva todos los recursos a esa máquina virtual.
+1. En **Administrador de clústeres de conmutación por error** , asegúrese de que todos los recursos principales de clúster estén en la primera máquina virtual. Si es necesario, mueva todos los recursos a esa máquina virtual.
 
 1. Localice los medios de instalación. Si la máquina virtual usa una de las imágenes de Azure Marketplace, los medios se encuentran en `C:\SQLServer_<version number>_Full`. 
 
 1. Seleccione **Setup** (Configuración).
 
-1. En **Centro de instalación de SQL Server**, seleccione **Instalación**.
+1. En **Centro de instalación de SQL Server** , seleccione **Instalación** .
 
-1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar la FCI de SQL Server.
+1. Seleccione **Nueva instalación de clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar la FCI de SQL Server.
 
 Es preciso que los directorios de datos de FCI estén en los discos compartidos de Azure. 
 
@@ -187,9 +187,9 @@ Es preciso que los directorios de datos de FCI estén en los discos compartidos 
 
 1. Una vez que el programa de instalación instale la FCI en el primer nodo, conéctese al segundo nodo con RDP.
 
-1. Abra el **Centro de instalación de SQL Server** y, a continuación, seleccione **Instalación**.
+1. Abra el **Centro de instalación de SQL Server** y, a continuación, seleccione **Instalación** .
 
-1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server**. Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
+1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
    >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configuración de la conectividad 
 
-Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear un [equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 CU2 y Windows Server 2016 (o posterior), puede obtener en su lugar una versión preliminar de la característica [Nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md). 
+Para enrutar el tráfico de forma adecuada al nodo principal actual, configure la opción de conectividad apropiada para su entorno. Puede crear una instancia de [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o bien, si usa SQL Server 2019 CU2 (o posterior) y Windows Server 2016 (o posterior), puede usar en su lugar la característica [Nombre de red distribuida](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -221,12 +221,13 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si aún no lo ha hecho, configure la conectividad a su FCI con un [nombre de red virtual y un equilibrador de carga de Azure](hadr-vnn-azure-load-balancer-configure.md) o un [nombre de red distribuida (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Si aún no lo ha hecho, configure la conectividad a su FCI con un [nombre de red virtual y un equilibrador de carga de Azure](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [nombre de red distribuida (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Si los discos compartidos de Azure no son la solución de almacenamiento de la FCI adecuada para usted, considere la posibilidad de crear la FCI mediante [recursos compartidos de archivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md) o [Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md) en su lugar. 
 
 Para más información, consulte la introducción a [FCI con SQL Server en VM de Azure](failover-cluster-instance-overview.md) y los [procedimientos recomendados de configuración de clúster](hadr-cluster-best-practices.md).
 
-Para obtener más información, consulte: 
+Para más información, consulte: 
 - [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

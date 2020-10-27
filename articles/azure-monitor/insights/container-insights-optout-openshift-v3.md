@@ -3,16 +3,25 @@ title: Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure 
 description: En este artículo se describe cómo puede detener la supervisión del clúster de Red Hat OpenShift en Azure con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815443"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216545"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure v3 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Cómo detener la supervisión del clúster de Red Hat OpenShift en Azure v3
 
-Después de habilitar la supervisión del clúster de Red Hat OpenShift en Azure versión 3.x, puede detener la supervisión del clúster con Azure Monitor para contenedores si decide que ya no desea continuar haciéndolo. En este artículo se muestra cómo realizar esta tarea mediante la plantilla de Azure Resource Manager proporcionada. 
+>[!IMPORTANT]
+> Red Hat OpenShift en Azure 3.11 se retirará en junio de 2022.
+>
+> A partir de octubre de 2020, ya no podrá crear nuevos clústeres de 3.11.
+> Los clústeres existentes de 3.11 seguirán funcionando hasta junio de 2022, pero dejarán de admitirse después de esa fecha.
+>
+> Siga esta guía para [crear un clúster de la versión 4 de Red Hat OpenShift en Azure](../../openshift/tutorial-create-cluster.md).
+> Si tiene alguna pregunta específica, [póngase en contacto con nosotros](mailto:aro-feedback@microsoft.com).
+
+Después de habilitar la supervisión del clúster de Red Hat OpenShift en Azure versión 3.x, puede detener la supervisión del clúster con Azure Monitor para contenedores si decide que ya no desea continuar haciéndolo. En este artículo se muestra cómo realizar esta tarea mediante la plantilla de Azure Resource Manager proporcionada.  
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408867"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123739"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Supervisión de conectividad de red con el Monitor de conexión (versión preliminar)
 
@@ -63,7 +63,7 @@ El Monitor de conexión se basa en archivos ejecutables ligeros para ejecutar la
 
 ### <a name="agents-for-azure-virtual-machines"></a>Agentes para máquinas virtuales de Azure
 
-Para que el Monitor de conexión reconozca las máquinas virtuales de Azure como orígenes de supervisión, instale en ellas la extensión de máquina virtual del agente de Network Watcher. Esta extensión también se conoce como la *extensión Network Watcher*. Las máquinas virtuales de Azure requieren la extensión para desencadenar la supervisión de un extremo a otro y otras funcionalidades avanzadas. 
+Para que el Monitor de conexión reconozca las máquinas virtuales de Azure como orígenes de supervisión, instale en ellas la extensión de máquina virtual del agente de Network Watcher. Esta extensión también se conoce como la *extensión Network Watcher* . Las máquinas virtuales de Azure requieren la extensión para desencadenar la supervisión de un extremo a otro y otras funcionalidades avanzadas. 
 
 Puede instalar la extensión Network Watcher cuando [cree una máquina virtual](https://docs.microsoft.com/azure/network-watcher/connection-monitor#create-the-first-vm). También puede instalar, configurar y solucionar problemas de la extensión de Network Watcher para [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-linux) y [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/network-watcher-windows) por separado.
 
@@ -91,9 +91,9 @@ Los orígenes pueden ser máquinas virtuales de Azure o máquinas locales que te
 
 ### <a name="access-connection-monitor-preview"></a>Acceso al Monitor de conexión (versión preliminar)
 
-1. En la página principal de Azure Portal, vaya a **Network Watcher**.
-1. A la izquierda, en la sección **Supervisión**, seleccione **Monitor de conexión (versión preliminar)** .
-1. Verá todos los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar). Para ver los monitores de conexión que se crearon en la experiencia clásica del Monitor de conexión, vaya a la pestaña **Monitor de conexión**.
+1. En la página principal de Azure Portal, vaya a **Network Watcher** .
+1. A la izquierda, en la sección **Supervisión** , seleccione **Monitor de conexión (versión preliminar)** .
+1. Verá todos los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar). Para ver los monitores de conexión que se crearon en la experiencia clásica del Monitor de conexión, vaya a la pestaña **Monitor de conexión** .
     
   :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
@@ -103,11 +103,11 @@ En los monitores de conexión que crea en el Monitor de conexión (versión prel
 
 El Monitor de conexión (versión preliminar) incluye estas entidades:
 
-* **Recurso de monitor de conexión**: un recurso de Azure específico de la región. Todas las entidades siguientes son propiedades de un recurso de monitor de conexión.
-* **Punto de conexión**: un origen o destino que participa en las comprobaciones de conectividad. Algunos ejemplos de puntos de conexión son las máquinas virtuales de Azure, los agentes locales, las direcciones URL y las direcciones IP.
-* **Configuración de prueba**: la configuración de una prueba específica para el protocolo. En función del protocolo elegido, puede definir el puerto, los umbrales, la frecuencia de las pruebas y otros parámetros.
-* **Grupo de prueba**: el grupo que contiene puntos de conexión de origen, puntos de conexión de destino y configuraciones de prueba. Un monitor de conexión puede contener más de un grupo de prueba.
-* **Prueba**: la combinación de un punto de conexión de origen, un punto de conexión de destino y una configuración de prueba. Una prueba es el nivel más granular en el que están disponibles los datos de supervisión. Los datos de supervisión incluyen el porcentaje de comprobaciones con errores y el tiempo de ida y vuelta (RTT).
+* **Recurso de monitor de conexión** : un recurso de Azure específico de la región. Todas las entidades siguientes son propiedades de un recurso de monitor de conexión.
+* **Punto de conexión** : un origen o destino que participa en las comprobaciones de conectividad. Algunos ejemplos de puntos de conexión son las máquinas virtuales de Azure, los agentes locales, las direcciones URL y las direcciones IP.
+* **Configuración de prueba** : la configuración de una prueba específica para el protocolo. En función del protocolo elegido, puede definir el puerto, los umbrales, la frecuencia de las pruebas y otros parámetros.
+* **Grupo de prueba** : el grupo que contiene puntos de conexión de origen, puntos de conexión de destino y configuraciones de prueba. Un monitor de conexión puede contener más de un grupo de prueba.
+* **Prueba** : la combinación de un punto de conexión de origen, un punto de conexión de destino y una configuración de prueba. Una prueba es el nivel más granular en el que están disponibles los datos de supervisión. Los datos de supervisión incluyen el porcentaje de comprobaciones con errores y el tiempo de ida y vuelta (RTT).
 
  ![Diagrama que muestra un monitor de conexión y donde se define la relación entre los grupos de prueba y las pruebas](./media/connection-monitor-2-preview/cm-tg-2.png)
 
@@ -143,9 +143,7 @@ Los monitores de conexión tienen los límites de escala siguientes:
 * Máximo de monitores de conexión por suscripción por región: 100
 * Máximo de grupos de prueba por monitor de conexión: 20
 * Máximo de orígenes y destinos por monitor de conexión: 100
-* Máximo de configuraciones de prueba por monitor de conexión: 
-    * 20 a través de ARMClient
-    * 2 a través de Azure Portal
+* Máximo de configuraciones de prueba por monitor de conexión: 20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>Análisis de los datos de supervisión y establecimiento de alertas
 
@@ -185,9 +183,9 @@ En los paneles de supervisión, verá una lista de los monitores de conexión a 
 
 Al ir al Monitor de conexión (versión preliminar) desde Network Watcher, puede ver los datos por:
 
-* **Monitor de conexión**: lista de todos los monitores de conexión creados para las suscripciones, regiones, marcas de tiempo, orígenes y tipos de destino. Esta es la vista predeterminada.
-* **Grupos de prueba**: lista de todos los grupos de prueba creados para las suscripciones, regiones, marcas de tiempo, orígenes y tipos de destino. Estos grupos de prueba no se filtran por monitores de conexión.
-* **Prueba**: lista de todas las pruebas que se ejecutan para las suscripciones, regiones, marcas de tiempo, orígenes y tipos de destino. Estas pruebas no se filtran por monitores de conexión ni grupos de prueba.
+* **Monitor de conexión** : lista de todos los monitores de conexión creados para las suscripciones, regiones, marcas de tiempo, orígenes y tipos de destino. Esta es la vista predeterminada.
+* **Grupos de prueba** : lista de todos los grupos de prueba creados para las suscripciones, regiones, marcas de tiempo, orígenes y tipos de destino. Estos grupos de prueba no se filtran por monitores de conexión.
+* **Prueba** : lista de todas las pruebas que se ejecutan para las suscripciones, regiones, marcas de tiempo, orígenes y tipos de destino. Estas pruebas no se filtran por monitores de conexión ni grupos de prueba.
 
 En la imagen siguiente, las tres vistas de datos se indican con la flecha 1.
 
@@ -196,27 +194,27 @@ En el panel, puede expandir cada monitor de conexión para ver sus grupos de pru
 Puede filtrar esta lista en función de lo siguiente:
 
 * **Top-level filters** (Filtros de nivel superior): lista de búsqueda por texto, tipo de entidad (Connection Monitor, grupo de prueba o prueba) marca de tiempo y ámbito. El ámbito incluye suscripciones, regiones, orígenes y tipos de destino. Consulte el cuadro 1 en la imagen siguiente.
-* **Filtros basados en estado**: filtre por el estado del monitor de conexión, el grupo de prueba o la prueba. Vea el cuadro 2 en la imagen siguiente.
-* **Filtro basado en alertas**: filtre por las alertas que se desencadenan en el recurso de Connection Monitor. Consulte el cuadro 3 en la imagen siguiente.
+* **Filtros basados en estado** : filtre por el estado del monitor de conexión, el grupo de prueba o la prueba. Vea el cuadro 2 en la imagen siguiente.
+* **Filtro basado en alertas** : filtre por las alertas que se desencadenan en el recurso de Connection Monitor. Consulte el cuadro 3 en la imagen siguiente.
 
   :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
     
 Por ejemplo, para ver todas las pruebas del Monitor de conexión (versión preliminar) donde la dirección IP de origen es 10.192.64.56:
-1. Cambie la vista a **Prueba**.
-1. En el campo de búsqueda, escriba *10.192.64.56*.
-1. En **Ámbito** en el filtro de nivel superior, seleccione **Orígenes**.
+1. Cambie la vista a **Prueba** .
+1. En el campo de búsqueda, escriba *10.192.64.56* .
+1. En **Ámbito** en el filtro de nivel superior, seleccione **Orígenes** .
 
 Para mostrar solo las pruebas con error en el Monitor de conexión (versión preliminar) donde la dirección IP de origen es 10.192.64.56:
-1. Cambie la vista a **Prueba**.
+1. Cambie la vista a **Prueba** .
 1. En el caso del filtro basado en estado, seleccione **Fail** (Con errores).
-1. En el campo de búsqueda, escriba *10.192.64.56*.
-1. En **Ámbito** en el filtro de nivel superior, seleccione **Orígenes**.
+1. En el campo de búsqueda, escriba *10.192.64.56* .
+1. En **Ámbito** en el filtro de nivel superior, seleccione **Orígenes** .
 
 Para mostrar solo las pruebas con error en el Monitor de conexión (versión preliminar) donde el destino es outlook.office365.com:
-1. Cambie la vista a **Prueba**.
+1. Cambie la vista a **Prueba** .
 1. En el caso del filtro basado en estado, seleccione **Fail** (Con errores).
-1. En el campo de búsqueda, escriba *outlook.office365.com*.
-1. En **Ámbito** en el filtro de nivel superior, seleccione **Destinos**.
+1. En el campo de búsqueda, escriba *outlook.office365.com* .
+1. En **Ámbito** en el filtro de nivel superior, seleccione **Destinos** .
   
   :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Captura de pantalla que muestra los monitores de conexión que se crearon en el Monitor de conexión (versión preliminar)" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
@@ -289,14 +287,14 @@ Puede crear alertas de métricas en monitores de conexión mediante los métodos
 1. Desde Azure Monitor: para crear una alerta en Azure Monitor: 
     1. Elija el recurso de monitor de conexión que creó en el Monitor de conexión (versión preliminar).
     1. Asegúrese de que la **Métrica** se muestra como un tipo de señal para el monitor de conexión.
-    1. En **Agregar conexión**, para el **Nombre de señal**, seleccione **ChecksFailedPercent(Preview)** o **RoundTripTimeMs(Preview)** .
-    1. En **Tipo de señal**, elija **Métricas**. Por ejemplo, seleccione **ChecksFailedPercent(Preview)** .
+    1. En **Agregar conexión** , para el **Nombre de señal** , seleccione **ChecksFailedPercent(Preview)** o **RoundTripTimeMs(Preview)** .
+    1. En **Tipo de señal** , elija **Métricas** . Por ejemplo, seleccione **ChecksFailedPercent(Preview)** .
     1. Se muestran todas las dimensiones de la métrica. Elija el nombre de la dimensión y el valor de la dimensión. Por ejemplo, seleccione **Dirección de origen** y escriba la dirección IP de cualquier origen en el monitor de conexión.
-    1. En **Lógica de alerta**, rellene estos detalles:
-        * **Tipo de condición**: **Estática**.
-        * **Condición** y **Umbral**.
-        * **Granularidad de agregación y frecuencia de evaluación**: el Monitor de conexión (versión preliminar) actualiza los datos cada minuto.
-    1. En **Acciones**, elija el grupo de acciones.
+    1. En **Lógica de alerta** , rellene estos detalles:
+        * **Tipo de condición** : **Estática** .
+        * **Condición** y **Umbral** .
+        * **Granularidad de agregación y frecuencia de evaluación** : el Monitor de conexión (versión preliminar) actualiza los datos cada minuto.
+    1. En **Acciones** , elija el grupo de acciones.
     1. Proporcione los detalles de la alerta.
     1. Cree la regla de alertas.
 

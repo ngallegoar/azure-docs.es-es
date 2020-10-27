@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948171"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144998"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Procedimientos: Uso obligatorio de MFA para el acceso desde redes que no son de confianza con el acceso condicional   
 
@@ -26,10 +26,7 @@ En este artículo se proporciona la información necesaria para configurar una d
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-En este artículo se asume que está familiarizado con: 
-
-- Los [conceptos básicos](overview.md) del acceso condicional de Azure AD 
-- Los [procedimientos recomendados](best-practices.md) para configurar directivas de acceso condicional en Azure Portal
+En este artículo se da por hecho que está familiarizado con los [conceptos básicos](overview.md) del acceso condicional. 
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -65,7 +62,7 @@ En lugar de intentar definir cuáles son todas las ubicaciones que no son de con
 
 ## <a name="policy-deployment"></a>Implementación de directivas
 
-Con el enfoque descrito en este artículo, ahora puede configurar una directiva de acceso condicional para las ubicaciones que no son de confianza. Para asegurarse de que la directiva funciona según lo esperado, el procedimiento recomendado es probarla antes de implementarla en producción. Lo ideal es usar un inquilino de prueba para comprobar si la nueva directiva funciona según lo previsto. Para más información, consulte [Implementación de una nueva directiva](best-practices.md#how-should-you-deploy-a-new-policy). 
+Con el enfoque descrito en este artículo, ahora puede configurar una directiva de acceso condicional para las ubicaciones que no son de confianza. Para asegurarse de que la directiva funciona según lo esperado, el procedimiento recomendado es probarla antes de implementarla en producción. Lo ideal es usar un inquilino de prueba para comprobar si la nueva directiva funciona según lo previsto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

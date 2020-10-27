@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057899"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173570"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -44,9 +44,9 @@ Data Sync usa una topología de concentrador y radio para sincronizar los datos.
 Un grupo de sincronización tiene las siguientes propiedades:
 
 - En el **esquema de sincronización** se describen qué datos se están sincronizando.
-- La **dirección de sincronización** puede ser bidireccional o puede fluir solo en una dirección. Es decir, la dirección de sincronización puede ser de la *base de datos central al miembro* o del *miembro a la base de datos central*, o ambas.
+- La **dirección de sincronización** puede ser bidireccional o puede fluir solo en una dirección. Es decir, la dirección de sincronización puede ser de la *base de datos central al miembro* o del *miembro a la base de datos central* , o ambas.
 - El **intervalo de sincronización** describe la frecuencia con la que se produce la sincronización.
-- El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
+- El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente* .
 
 ## <a name="when-to-use"></a>Cuándo se usa
 
@@ -72,9 +72,9 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 
 - **Seguimiento de cambios de datos:** Data Sync realiza un seguimiento de cambios mediante los desencadenadores de inserción, actualización y eliminación. Los cambios se registran en una tabla en la base de datos de usuario. Tenga en cuenta que BULK INSERT no activa los desencadenadores de forma predeterminada. Si no se especifica FIRE_TRIGGERS, no se ejecutará ningún desencadenador de inserción. Agregue la opción FIRE_TRIGGERS para que Data Sync pueda realizar un seguimiento de esas inserciones. 
 - **Sincronización de datos:** La Sincronización de datos está diseñada en un modelo de concentrador y radio. La base de datos central se sincronizada con cada cliente individualmente. Los cambios de la base de datos central se descargan en el cliente y, después, los cambios del cliente se cargan en la base de datos central.
-- **Resolución de conflictos:** Data Sync proporciona dos opciones para la resolución de conflictos, *Prevalece la base de datos central* o *Prevalece el cliente*.
-  - Si selecciona *Prevalece la base de datos central*, los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
-  - Si selecciona *Prevalece el cliente*, los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
+- **Resolución de conflictos:** Data Sync proporciona dos opciones para la resolución de conflictos, *Prevalece la base de datos central* o *Prevalece el cliente* .
+  - Si selecciona *Prevalece la base de datos central* , los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
+  - Si selecciona *Prevalece el cliente* , los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
 
 ## <a name="compare-with-transactional-replication"></a>Comparación con la replicación transaccional
 
@@ -137,6 +137,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
 - No se admite la autenticación de Azure Active Directory.
 - Si hay tablas con el mismo nombre pero distinto esquema (por ejemplo, dbo.customers y sales.customers), solo se puede agregar una de las tablas a la sincronización.
+- Un nombre de tabla no puede tener caracteres que tengan un valor ASCII menor o igual que "-".
 - No se admiten columnas con tipos de datos definidos por el usuario
 - No se admite el traslado de servidores entre diferentes suscripciones. 
 
@@ -174,8 +175,8 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 
 Cuando se establece el grupo de sincronización, el servicio Data Sync debe conectarse a la base de datos central. En el momento en que establece el grupo de sincronización, el servidor Azure SQL debe tener los siguientes valores en la configuración de `Firewalls and virtual networks`:
 
- * *Denegar acceso desde red pública* debe establecerse en *Desactivado*.
- * *Permitir que los servicios y recursos de Azure accedan a este servidor* debe establecerse en *Sí*, o bien debe crear reglas de IP para las [direcciones IP que usa el servicio Data Sync](network-access-controls-overview.md#data-sync).
+ * *Denegar acceso desde red pública* debe establecerse en *Desactivado* .
+ * *Permitir que los servicios y recursos de Azure accedan a este servidor* debe establecerse en *Sí* , o bien debe crear reglas de IP para las [direcciones IP que usa el servicio Data Sync](network-access-controls-overview.md#data-sync).
 
 Una vez creado y aprovisionado el grupo de sincronización, puede deshabilitar estos valores. El agente de sincronización se conectará directamente a la base de datos central y entonces se podrán usar las [reglas de IP del firewall](firewall-configure.md) del servidor o [puntos de conexión privados](private-endpoint-overview.md) para permitir que el agente acceda al servidor central.
 
@@ -239,7 +240,7 @@ La base de datos raíz de federación puede utilizarse en el servicio SQL Data S
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>¿Puedo usar Data Sync para sincronizar datos exportados desde Dynamics 365 con la característica traiga su propia base de datos (BYOD)?
 
-La característica de Dynamics 365 traiga su propia base de datos permite a los administradores exportar entidades de datos de la aplicación a su propia base de datos de Microsoft Azure SQL. La sincronización de datos se puede usar para sincronizar estos datos en otras bases de datos si los datos se exportan usando **inserción incremental** (la inserción completa no es compatible) y la **habilitación los desencadenadores en la base de datos de destino** se establece en **sí**.
+La característica de Dynamics 365 traiga su propia base de datos permite a los administradores exportar entidades de datos de la aplicación a su propia base de datos de Microsoft Azure SQL. La sincronización de datos se puede usar para sincronizar estos datos en otras bases de datos si los datos se exportan usando **inserción incremental** (la inserción completa no es compatible) y la **habilitación los desencadenadores en la base de datos de destino** se establece en **sí** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612989"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344022"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Requisitos previos para Azure HPC Cache
 
@@ -65,7 +65,7 @@ Si solo necesita acceder a Blob Storage, puede usar el servidor DNS predetermina
 
 También se puede usar un servidor DNS sencillo para equilibrar la carga de las conexiones de cliente entre todos los puntos de montaje de caché disponibles.
 
-Más información sobre las configuraciones de servidor DNS y redes virtuales de Azure en [Resolución de nombres de recursos en redes virtuales de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Más información sobre las configuraciones de servidor DNS y redes virtuales de Azure en [Resolución de nombres de recursos en redes virtuales de Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Permisos
 
@@ -73,7 +73,7 @@ Antes de empezar a crear la caché, compruebe estos requisitos previos relaciona
 
 * La instancia de caché necesita poder crear interfaces de red virtual (NIC). El usuario que crea la caché debe tener privilegios suficientes en la suscripción para crear las NIC.
 
-* Si usa Blob Storage, Azure HPC Cache necesita autorización para acceder a la cuenta de almacenamiento. Use el control de acceso basado en rol (RBAC) para conceder a la caché acceso al almacenamiento de blobs. Se requieren dos roles: Colaborador de la cuenta de almacenamiento y Colaborador de datos de Storage Blob.
+* Si usa Blob Storage, Azure HPC Cache necesita autorización para acceder a la cuenta de almacenamiento. Use el control de acceso basado en roles de Azure (Azure RBAC) para conceder a la caché acceso a la instancia de Blob Storage. Se requieren dos roles: Colaborador de la cuenta de almacenamiento y Colaborador de datos de Storage Blob.
 
   Siga las instrucciones que se indican en [Incorporación de destinos de almacenamiento](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) para agregar los roles.
 
@@ -110,7 +110,7 @@ Si usa un sistema de almacenamiento NFS (por ejemplo, un sistema NAS de hardware
 
 Se puede encontrar más información en [Solución de problemas de configuración de NAS y destinos de almacenamiento de NFS](troubleshoot-nas.md).
 
-* **Conectividad de red:** Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes. Lea [Restricciones de tamaño de paquetes de VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) como ayuda adicional para solucionar problemas de configuración de VPN.
+* **Conectividad de red:** Azure HPC Cache necesita un acceso de red de alto ancho de banda entre la subred de la memoria caché y el centro de datos del sistema NFS. Se recomienda el acceso [ExpressRoute](../expressroute/index.yml) o similar. Si usa una VPN, es posible que deba configurarla para fijar TCP MSS en 1350 para asegurarse de que no se bloqueen los paquetes grandes. Lea [Restricciones de tamaño de paquetes de VPN](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) como ayuda adicional para solucionar problemas de configuración de VPN.
 
 * **Acceso a puertos:** La memoria caché necesita acceso a determinados puertos TCP/UDP en el sistema de almacenamiento. Los distintos tipos de almacenamiento tienen distintos requisitos de puertos.
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265942"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145270"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -100,7 +100,7 @@ El acceso condicional es una funcionalidad de Azure AD Premium y requiere una l
    > [!NOTE]
    > Se recomienda establecer la misma frecuencia de autenticación para las aplicaciones clave de Microsoft Office, como Exchange Online y SharePoint Online, para una mejor experiencia del usuario.
 
-1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Frecuencia de inicio de sesión**.
+1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Frecuencia de inicio de sesión** .
 1. Escriba el valor requerido de los días y horas en el primer cuadro de texto.
 1. Seleccione un valor para las **horas** o **días** en la lista desplegable.
 1. Guarde la directiva.
@@ -117,7 +117,7 @@ En los dispositivos de Windows registrados en Azure AD, el inicio de sesión en
    > [!NOTE]
    > Tenga en cuenta que este control requiere elegir "Todas las aplicaciones en la nube" como una condición. La persistencia de la sesión del explorador se controla mediante el token de la sesión de autenticación. Todas las pestañas de una sesión del explorador comparten un único token de sesión y, por tanto, todas ellas deben compartir el estado de persistencia.
 
-1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Sesión del explorador persistente**.
+1. Vaya a **Controles de acceso** > **Sesión** y haga clic en **Sesión del explorador persistente** .
 1. Seleccione un valor en la lista desplegable.
 1. Guarde la directiva.
 
@@ -134,9 +134,8 @@ Utilice la herramienta What-If para simular un inicio de sesión del usuario en 
 
 ## <a name="policy-deployment"></a>Implementación de directivas
 
-Para asegurarse de que la directiva funciona según lo esperado, el procedimiento recomendado es probarla antes de implementarla en producción. Lo ideal es usar un inquilino de prueba para comprobar si la nueva directiva funciona según lo previsto. Para más información, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+Para asegurarse de que la directiva funciona según lo esperado, el procedimiento recomendado es probarla antes de implementarla en producción. Lo ideal es usar un inquilino de prueba para comprobar si la nueva directiva funciona según lo previsto. Para obtener más información, vea el artículo [Planeamiento de la implementación del acceso condicional](plan-conditional-access.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si quiere saber cómo configurar una directiva de acceso condicional, consulte el artículo [Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
-* Si está listo para configurar directivas de acceso condicional para su entorno, consulte [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+* Si está listo para configurar directivas de acceso condicional en el entorno, vea el artículo [Planeamiento de la implementación del acceso condicional](plan-conditional-access.md).

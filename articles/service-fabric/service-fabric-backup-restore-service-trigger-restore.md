@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246697"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207400"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauración de una copia de seguridad en Azure Service Fabric
 
@@ -18,10 +18,10 @@ En Azure Service Fabric, los servicios de confianza con estado y Reliable Actors
 
 Por ejemplo, puede configurar un servicio para realizar una copia de seguridad de sus datos a fin de protegerse frente a los siguientes casos:
 
-- **Caso de recuperación ante desastres**: En caso de que se produzca una pérdida permanente de todo un clúster de Service Fabric.
-- **Caso de pérdida de datos**: Pérdida permanente de la mayoría de las réplicas de una partición del servicio.
-- **Caso de pérdida de datos**: eliminación accidental o daños del servicio. Por ejemplo, un administrador elimina por error el servicio.
-- **Caso de datos dañados**: Los errores en el servicio provocan daños en los datos. Por ejemplo, se pueden producir daños en los datos cuando una actualización del código de servicio escribe datos defectuosos en una colección de confianza. En tal caso, puede que tenga que restaurar el código y los datos a un estado anterior.
+- **Caso de recuperación ante desastres** : En caso de que se produzca una pérdida permanente de todo un clúster de Service Fabric.
+- **Caso de pérdida de datos** : Pérdida permanente de la mayoría de las réplicas de una partición del servicio.
+- **Caso de pérdida de datos** : eliminación accidental o daños del servicio. Por ejemplo, un administrador elimina por error el servicio.
+- **Caso de datos dañados** : Los errores en el servicio provocan daños en los datos. Por ejemplo, se pueden producir daños en los datos cuando una actualización del código de servicio escribe datos defectuosos en una colección de confianza. En tal caso, puede que tenga que restaurar el código y los datos a un estado anterior.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -47,8 +47,8 @@ Por ejemplo, puede configurar un servicio para realizar una copia de seguridad d
 
 Una restauración se puede desencadenar en cualquiera de los siguientes casos:
 
-- Restauración de datos en una _recuperación ante desastres_.
-- Restauración de datos ante _pérdida de datos o daños en los datos_.
+- Restauración de datos en una _recuperación ante desastres_ .
+- Restauración de datos ante _pérdida de datos o daños en los datos_ .
 
 ### <a name="data-restore-in-the-case-of-disaster-recovery"></a>Restauración de datos en caso de recuperación ante desastres
 
@@ -148,13 +148,13 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Para la API de restauración, debe proporcionar los detalles _BackupId_ y _BackupLocation_.
+Para la API de restauración, debe proporcionar los detalles _BackupId_ y _BackupLocation_ .
 
 También debe elegir una partición de destino en el clúster alternativo, como se detalla en el [esquema de partición](service-fabric-concepts-partitioning.md#get-started-with-partitioning). La copia de seguridad del clúster alternativo se restaura en la partición especificada en el esquema de partición del clúster perdido original.
 
 Si el identificador de partición del clúster alternativo es `1c42c47f-439e-4e09-98b9-88b8f60800c6`, puede asignarlo al identificador de partición del clúster original `974bd92a-b395-4631-8a7f-53bd4ae9cf22`; simplemente compare la clave superior e inferior para la _creación de particiones por rango (UniformInt64Partition)_ .
 
-Para la _creación de particiones con nombre_, el valor de nombre se compara para identificar la partición de destino en el clúster alternativo.
+Para la _creación de particiones con nombre_ , el valor de nombre se compara para identificar la partición de destino en el clúster alternativo.
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
 
@@ -190,6 +190,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Puede realizar un seguimiento del progreso de una restauración con TrackRestoreProgress.
 
+> [!NOTE]
+> Al usar PowerShell para restaurar la partición, si backuplocation tiene "$", aplíquele escape mediante "~".
+>
+
 ### <a name="using-service-fabric-explorer"></a>Uso de Service Fabric Explorer
 Puede desencadenar una restauración desde Service Fabric Explorer. Asegúrese de que se ha habilitado el modo avanzado en la configuración de Service Fabric Explorer.
 1. Seleccione las particiones deseadas y haga clic en Acciones. 
@@ -203,7 +207,7 @@ Puede desencadenar una restauración desde Service Fabric Explorer. Asegúrese d
 
 ### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauración de datos ante _daños dañados_/_pérdida de datos_
 
-En el caso de _pérdida de datos_ o _datos dañados_, las particiones en copia de seguridad de las particiones del servicio de confianza con estado y Reliable Actors se pueden restaurar a cualquiera de las copias de seguridad elegidas.
+En el caso de _pérdida de datos_ o _datos dañados_ , las particiones en copia de seguridad de las particiones del servicio de confianza con estado y Reliable Actors se pueden restaurar a cualquiera de las copias de seguridad elegidas.
 
 El siguiente ejemplo es una continuación del escenario de [Habilitación de la copia de seguridad periódica del servicio de confianza con estado y Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). En este ejemplo, una directiva de copia de seguridad está habilitada para la partición y el servicio está realizando copias de seguridad con una frecuencia deseada en Azure Storage.
 
@@ -225,7 +229,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            :
 ```
 
-Para la API de restauración, proporcione los detalles _BackupId_ y _BackupLocation_. Dado que el clúster tiene la copia de seguridad habilitada, el _servicio de restauración de copia de seguridad (BRS)_ de Service Fabric identifica la ubicación de almacenamiento correcta a partir de la directiva de copia de seguridad asociada.
+Para la API de restauración, proporcione los detalles _BackupId_ y _BackupLocation_ . Dado que el clúster tiene la copia de seguridad habilitada, el _servicio de restauración de copia de seguridad (BRS)_ de Service Fabric identifica la ubicación de almacenamiento correcta a partir de la directiva de copia de seguridad asociada.
 
 
 #### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell con el módulo Microsoft.ServiceFabric.Powershell.Http
@@ -250,6 +254,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 Puede realizar un seguimiento del progreso de la restauración mediante TrackRestoreProgress.
+
+> [!NOTE]
+> Al usar PowerShell para restaurar la partición, si backuplocation tiene "$", aplíquele escape mediante "~".
+>
 
 ## <a name="track-restore-progress"></a>Seguimiento del progreso de la restauración
 
@@ -281,7 +289,7 @@ La solicitud de restauración progresa en el orden siguiente:
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
-2. **InProgress**: el estado de restauración _InProgress_ indica que se está produciendo una restauración en la partición con la copia de seguridad mencionado en la solicitud. La partición notifica el estado _dataloss_.
+2. **InProgress** : el estado de restauración _InProgress_ indica que se está produciendo una restauración en la partición con la copia de seguridad mencionado en la solicitud. La partición notifica el estado _dataloss_ .
     ```
     RestoreState  : RestoreInProgress
     TimeStampUtc  : 0001-01-01T00:00:00Z
@@ -289,8 +297,8 @@ La solicitud de restauración progresa en el orden siguiente:
     RestoredLsn   : 3552
     ```
     
-3. **Success**, **Failure** o **Timeout**: la restauración solicitada se puede realizar en cualquiera de los siguientes estados. Cada estado tiene los siguientes detalles de importancia y respuesta:
-    - **Correcto**: el estado de restauración _Success_ indica un estado de partición recuperado. La partición notifica los estados _RestoredEpoch_ y _RestoredLSN_ junto con la hora en UTC.
+3. **Success** , **Failure** o **Timeout** : la restauración solicitada se puede realizar en cualquiera de los siguientes estados. Cada estado tiene los siguientes detalles de importancia y respuesta:
+    - **Correcto** : el estado de restauración _Success_ indica un estado de partición recuperado. La partición notifica los estados _RestoredEpoch_ y _RestoredLSN_ junto con la hora en UTC.
 
         ```
         RestoreState  : Success
@@ -298,7 +306,7 @@ La solicitud de restauración progresa en el orden siguiente:
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
         ```        
-    - **Error**: el estado de restauración _Failure_ indica el error de la solicitud de restauración. Se notifica la causa del error.
+    - **Error** : el estado de restauración _Failure_ indica el error de la solicitud de restauración. Se notifica la causa del error.
 
         ```
         RestoreState  : Failure
@@ -306,7 +314,7 @@ La solicitud de restauración progresa en el orden siguiente:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout**: el estado de restauración _Timeout_ indica que la solicitud tiene tiempo de espera. Cree una solicitud de restauración con un valor mayor de [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). El tiempo de espera predeterminado es de 10 minutos. Antes de volver a solicitar la restauración, asegúrese de que la partición esté fuera del estado de pérdida de datos.
+    - **Timeout** : el estado de restauración _Timeout_ indica que la solicitud tiene tiempo de espera. Cree una solicitud de restauración con un valor mayor de [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). El tiempo de espera predeterminado es de 10 minutos. Antes de volver a solicitar la restauración, asegúrese de que la partición esté fuera del estado de pérdida de datos.
      
         ```
         RestoreState  : Timeout
@@ -317,7 +325,7 @@ La solicitud de restauración progresa en el orden siguiente:
 
 ## <a name="automatic-restore"></a>Restauración automática
 
-Puede configurar las particiones del servicio de confianza con estado y Reliable Actors en el clúster de Service Fabric para la _restauración automática_. En la directiva de copia de seguridad, establezca `AutoRestore` en _true_. Ah habilitar la _restauración automática_ se restauran automáticamente los datos de la copia de seguridad más reciente de la partición cuando se notifica la pérdida de datos. Para más información, consulte:
+Puede configurar las particiones del servicio de confianza con estado y Reliable Actors en el clúster de Service Fabric para la _restauración automática_ . En la directiva de copia de seguridad, establezca `AutoRestore` en _true_ . Ah habilitar la _restauración automática_ se restauran automáticamente los datos de la copia de seguridad más reciente de la partición cuando se notifica la pérdida de datos. Para más información, consulte:
 
 - [Habilitación de la restauración automática en la directiva de copia de seguridad](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 - [Referencia de API RestorePartition](/rest/api/servicefabric/sfclient-api-restorepartition)

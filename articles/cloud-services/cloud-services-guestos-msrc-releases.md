@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ms.author: yohaddad
-ms.openlocfilehash: 6ceba8e81c4700963e0d147c10085760b9308319
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3f088d248037ecf552bf7130e3fe4c86d7430695
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076664"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207995"
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
 En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se realizan para la [familia][family-explain] determinada en la que se introdujeron.
+
+## <a name="october-2020-guest-os"></a>SO invitado de octubre de 2020
+>[!NOTE] 
+
+>El sistema operativo invitado de octubre se está implementando actualmente en las máquinas virtuales del servicio en la nube que están configuradas para las actualizaciones automáticas. Una vez completada la implementación, esta versión estará disponible para las actualizaciones manuales mediante Azure Portal y los archivos de configuración. Las revisiones siguientes se incluyen en el sistema operativo invitado de octubre. Esta lista está sujeta a cambios. 
+
+| Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+|  Versión 20-10 |  [4577010]  |  Actualización acumulativa de IE | 2.103, 3.90, 4.83 | 8 de septiembre de 2020 |
+|  Versión 20-10 |  [4580325]  |  Actualización de Flash | 3.90, 4.83, 5.48, 6.24 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4577668]  |  Actualización acumulativa más reciente | 6.24 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4580346]  |  Actualización acumulativa más reciente | 5.48 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4580970]  |  Actualización de la pila de servicio | 2.103 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4580345]  |  Acumulación mensual | 2.103 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578952]  |  Acumulación de seguridad y calidad de .NET Framework 3.5.1 | 2.103 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578955]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 2.103 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4566426]  |  Actualización de la pila de servicio | 3,90 | 14 de julio de 2020 |
+|  Versión 20-10 |  [4580382]  |  Acumulación mensual | 3,90 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578950]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 3,90 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578954]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 3,90 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4566425]  |  Actualización de la pila de servicio | 4.83 | 14 de julio de 2020 |
+|  Versión 20-10 |  [4580347]  |  Acumulación mensual | 4.83 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578953]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | 4.83 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578956]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | 4.83 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578013]  |  Actualización de seguridad independiente | 4.83 | 19 de agosto de 2020 |
+|  Versión 20-10 |  [4576750]  |  Actualización de la pila de servicio | 5.48 | 8 de septiembre de 2020 |
+|  Versión 20-10 |  [4494175]  |  Microcódigo | 5.48 | 1 de septiembre de 2020 |
+|  Versión 20-10 |  [4577667]  |  Actualización de la pila de servicio | 6.24 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4578966]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | 6.24 | 13 de octubre de 2020 |
+|  Versión 20-10 |  [4494174]  |  Microcódigo | 6.24 | 3 de septiembre de 2020 |
+
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4580325]: https://support.microsoft.com/kb/4580325
+[4577668]: https://support.microsoft.com/kb/4577668
+[4580346]: https://support.microsoft.com/kb/4580346
+[4580970]: https://support.microsoft.com/kb/4580970
+[4580345]: https://support.microsoft.com/kb/4580345
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4566426]: https://support.microsoft.com/kb/4566426
+[4580382]: https://support.microsoft.com/kb/4580382
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4566425]: https://support.microsoft.com/kb/4566425
+[4580347]: https://support.microsoft.com/kb/4580347
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4577667]: https://support.microsoft.com/kb/4577667
+[4578966]: https://support.microsoft.com/kb/4578966
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="september-2020-guest-os"></a>SO invitado de septiembre de 2020
 
@@ -30,24 +85,24 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 |  Versión 20-09 |  [4561600]  |  Actualización de Flash | [3.89], [4.82], [5.47], [6.23] | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4577015]  |  Actualización acumulativa más reciente (LCU) | [5,47] | 8 de septiembre de 2020 |
 |  Versión 20-09 |  [4570333]  |  Actualización acumulativa más reciente (LCU) | [6.23] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4570673]  |  Actualización de la pila de servicio | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4577051]  |  Acumulación mensual | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4569767]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4569780]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4566426]  |  Actualización de la pila de servicio | [3.89] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4577038]  |  Acumulación mensual | [3.89] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4569765]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [3.89] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4569779]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [3.89] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4566425]  |  Actualización de la pila de servicio | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4577066]  |  Acumulación mensual | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4569768]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4569778]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4578013]  |  Actualización de seguridad | [2.102] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4576750]  |  Actualización de la pila de servicio | [5,47] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4494175]  |  Microcódigo | [5,47] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4570332]  |  Actualización de la pila de servicio | [6.23] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4570720]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | [6.23] | 8 de septiembre de 2020 |
-|  Versión 20-09 |  [4494174]  |  Microcódigo | [6.23] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4570673]  |  Actualización de la pila de servicio | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4577051]  |  Acumulación mensual | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569767]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569780]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4566426]  |  Actualización de la pila de servicio | [3.89] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4577038]  |  Acumulación mensual | [3.89] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569765]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [3.89] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569779]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [3.89] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4566425]  |  Actualización de la pila de servicio | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4577066]  |  Acumulación mensual | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569768]  |  Acumulación de seguridad y calidad de .NET Framework 3.5 | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4569778]  |  Acumulación de seguridad y calidad de .NET Framework 4.5.2 | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4578013]  |  Actualización de seguridad | [2.102] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4576750]  |  Actualización de la pila de servicio | [5,47] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4494175]  |  Microcódigo | [5,47] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4570332]  |  Actualización de la pila de servicio | [6.23] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4570720]  |  Actualización acumulativa de .NET Framework 3.5 y 4.7.2 | [6.23] | 8 de septiembre de 2020 |
+|  Versión 20-09 |  [4494174]  |  Microcódigo | [6.23] | 8 de septiembre de 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -230,22 +285,22 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-05  |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4556813]  |  Actualización acumulativa más reciente (LCU)   |  [5.43]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4551853]  |  Actualización acumulativa más reciente (LCU)   |  [6.19]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4552940]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4556836]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4555449]  |  Actualización de la pila de servicio   |  [2.98]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4552920]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4552979]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4556840]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4552947]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4552982]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4552946]  |  Acumulación mensual   |  [4.78]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4556846]  |  Acumulación mensual   |  [4.78]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4550994]  |  Actualización de la pila de servicio   |  [5.43]  |  14 de abril de 2020  |
-|  Versión 20-05  |  [4552924]  |  Acumulación mensual   |  [6.19]  |  12 de mayo de 2020  |
-|  Versión 20-05  |  [4549947]  |  Actualización de la pila de servicio   |  [6.19]  |  14 de abril de 2020  |
+|  Versión 20-05  |  [4556798]  |  Internet Explorer   |  [2.98], [3.85], [4.78]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556813]  |  Actualización acumulativa más reciente (LCU)   |  [5.43]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4551853]  |  Actualización acumulativa más reciente (LCU)   |  [6.19]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552940]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556836]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4555449]  |  Actualización de la pila de servicio   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552920]  |  Acumulación mensual   |  [2.98]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552979]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556840]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552947]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552982]  |  Acumulación mensual   |  [3.85]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4552946]  |  Acumulación mensual   |  [4.78]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4556846]  |  Acumulación mensual   |  [4.78]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4550994]  |  Actualización de la pila de servicio   |  [5.43]  |  14 de abril de 2020  |
+|  Versión 20-05  |  [4552924]  |  Acumulación mensual   |  [6.19]  |  12 de mayo de 2020  |
+|  Versión 20-05  |  [4549947]  |  Actualización de la pila de servicio   |  [6.19]  |  14 de abril de 2020  |
 
 
 [4556798]: https://support.microsoft.com/kb/4556798
@@ -276,20 +331,20 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-04   |  [4550965]  |  Seguridad de Windows   |  [2.97]  |  14 de abril de 2020  |
-|  Versión 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  14 de abril de 2020  |
-|  Versión 20-04   |  [4550971]  |  Seguridad de Windows   |  [3.84]  |  14 de abril de 2020  |
-|  Versión 20-04   |  [4550970]  |  Seguridad de Windows   |  [4.77]  |  14 de abril de 2020  |
-|  Versión 20-04   |  [4550929]  |  Actualización acumulativa más reciente (LCU)   |  [5.42]  |  14 de abril de 2020  |
-|  Versión 20-04   |  [4549949]  |  Actualización acumulativa más reciente (LCU)   |  [6.18]  |  14 de abril de 2020  |
-|  Versión 20-04   |  [4540688]  |  Acumulación mensual   |  [2.97]  |  10 de marzo de 2020  |
-|  Versión 20-04   |  [4550735]  |  Actualización de la pila de servicio   |  [2.97]  |  10 de marzo de 2020  |
-|  Versión 20-04   |  [4540726]  |  Actualización de la pila de servicio   |  [3.84]  |  10 de marzo de 2020  |
-|  Versión 20-04   |  [4541510]  |  Acumulación mensual   |  [3.84]  |  10 de marzo de 2020  |
-|  Versión 20-04   |  [4541509]  |  Acumulación mensual   |  [4.77]  |  10 de marzo de 2020  |
-|  Versión 20-04   |  [4540725]  |  Actualización de la pila de servicio   |  [4.77]  |  10 de marzo de 2020  |
-|  Versión 20-04   |  [4540723]  |  Actualización de la pila de servicio   |  [5.42]  |  10 de marzo de 2020  |
-|  Versión 20-04   |  [4539571]  |  Actualización de la pila de servicio   |  [6.18]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4550965]  |  Seguridad de Windows   |  [2.97]  |  14 de abril de 2020  |
+|  Versión 20-04   |  [4550905]  |  Internet Explorer   |  [2.97], [3.84], [4.77]  |  14 de abril de 2020  |
+|  Versión 20-04   |  [4550971]  |  Seguridad de Windows   |  [3.84]  |  14 de abril de 2020  |
+|  Versión 20-04   |  [4550970]  |  Seguridad de Windows   |  [4.77]  |  14 de abril de 2020  |
+|  Versión 20-04   |  [4550929]  |  Actualización acumulativa más reciente (LCU)   |  [5.42]  |  14 de abril de 2020  |
+|  Versión 20-04   |  [4549949]  |  Actualización acumulativa más reciente (LCU)   |  [6.18]  |  14 de abril de 2020  |
+|  Versión 20-04   |  [4540688]  |  Acumulación mensual   |  [2.97]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4550735]  |  Actualización de la pila de servicio   |  [2.97]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4540726]  |  Actualización de la pila de servicio   |  [3.84]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4541510]  |  Acumulación mensual   |  [3.84]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4541509]  |  Acumulación mensual   |  [4.77]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4540725]  |  Actualización de la pila de servicio   |  [4.77]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4540723]  |  Actualización de la pila de servicio   |  [5.42]  |  10 de marzo de 2020  |
+|  Versión 20-04   |  [4539571]  |  Actualización de la pila de servicio   |  [6.18]  |  10 de marzo de 2020  |
 
 
 [4550965]: https://support.microsoft.com/kb/4550965
@@ -391,25 +446,25 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 20-01  |  [4532960]  |  Seguridad de Windows  | [2.94] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534314]  |  Seguridad de Windows  | [2.94] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532958]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532963]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534288]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532961]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4532962]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534309]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4494175]  |  Microcódigo v3  | [5.39] | 29 de agosto de 2019 |
-|  Versión 20-01  |  [4534271]  |  LCU  | [5.39] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4494174]  |  Microcódigo v4  | [6.15] | 29 de agosto de 2019 |
-|  Versión 20-01  |  [4532947]  |  Seguridad de Windows  | [6.15] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4534273]  |  LCU  | [6.15] | 14 de enero de 2020 |
-|  Versión 20-01  |  [4530734]  |  Acumulación mensual  | [2.94] | 10 de diciembre de 2019 |
-|  Versión 20-01  |  [4530691]  |  Acumulación mensual   | [3.81] | 10 de diciembre de 2019 |
-|  Versión 20-01  |  [4530702]  |  Acumulación mensual  | [4.74] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4532960]  |  Seguridad de Windows  | [2.94] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [2.94] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534314]  |  Seguridad de Windows  | [2.94] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532958]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532963]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534288]  |  Seguridad de Windows  | [3.81] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532961]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4532962]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534251]  |  Internet Explorer  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534309]  |  Seguridad de Windows  | [4.74] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4494175]  |  Microcódigo v3  | [5.39] | 29 de agosto de 2019 |
+|  Versión 20-01  |  [4534271]  |  LCU  | [5.39] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4494174]  |  Microcódigo v4  | [6.15] | 29 de agosto de 2019 |
+|  Versión 20-01  |  [4532947]  |  Seguridad de Windows  | [6.15] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4534273]  |  LCU  | [6.15] | 14 de enero de 2020 |
+|  Versión 20-01  |  [4530734]  |  Acumulación mensual  | [2.94] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4530691]  |  Acumulación mensual   | [3.81] | 10 de diciembre de 2019 |
+|  Versión 20-01  |  [4530702]  |  Acumulación mensual  | [4.74] | 10 de diciembre de 2019 |
 
 [4532960]: https://support.microsoft.com/kb/4532960
 [4534251]: https://support.microsoft.com/kb/4534251
@@ -441,22 +496,22 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-12  |  [4530692]  |  Seguridad de Windows  | [2.93] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4530698]  |  Seguridad de Windows  | [3.80] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4530730]  |  Seguridad de Windows  | [4.73] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4530689]  |  Actualización acumulativa más reciente  | [5.38] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4530715]  |  Actualización acumulativa más reciente  | [6.14] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4525235]  |  No relacionada con la seguridad  | [2.93] | 12 de noviembre de 2019 |
-|  Versión 19-12  |  [4531786]  |  Actualización de la pila de servicio  | [2.93] | 10 de diciembre de 2019 |
-|  Versión 19-12  |  [4525246]  |  No relacionada con la seguridad  | [3.80] | 12 de noviembre de 2019 |
-|  Versión 19-12  |  [4523208]  |  Actualización de la pila de servicio  | [3.80] | 12 de noviembre de 2019 |
-|  Versión 19-12  |  [4525243]  |  No relacionada con la seguridad  | [4.73] | 12 de noviembre de 2019 |
-|  Versión 19-12  |  [4524445]  |  Actualización de la pila de servicio  | [4.73] | 12 de noviembre de 2019 |
-|  Versión 19-12  |  [4520724]  |  Actualización de la pila de servicio  | [5.38] | 12 de noviembre de 2019 |
-|  Versión 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4530692]  |  Seguridad de Windows  | [2.93] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530677]  |  Internet Explorer  | [2.93] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530677]  |  Internet Explorer  | [3.80] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530698]  |  Seguridad de Windows  | [3.80] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530730]  |  Seguridad de Windows  | [4.73] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530677]  |  Internet Explorer  | [4.73] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530689]  |  Actualización acumulativa más reciente  | [5.38] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4530715]  |  Actualización acumulativa más reciente  | [6.14] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4525235]  |  No relacionada con la seguridad  | [2.93] | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4531786]  |  Actualización de la pila de servicio  | [2.93] | 10 de diciembre de 2019 |
+|  Versión 19-12  |  [4525246]  |  No relacionada con la seguridad  | [3.80] | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4523208]  |  Actualización de la pila de servicio  | [3.80] | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4525243]  |  No relacionada con la seguridad  | [4.73] | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4524445]  |  Actualización de la pila de servicio  | [4.73] | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4520724]  |  Actualización de la pila de servicio  | [5.38] | 12 de noviembre de 2019 |
+|  Versión 19-12  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 12 de noviembre de 2019 |
 
 [4530692]: https://support.microsoft.com/kb/4530692
 [4530677]: https://support.microsoft.com/kb/4530677
@@ -486,21 +541,21 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4525233]  |  Seguridad de Windows   |  [2.92]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4525253]  |  Seguridad de Windows   |  [3.79]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4525250]  |  Seguridad de Windows   |  [4.72]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4525236]  |  Actualización acumulativa más reciente   |  [5.37]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4523205]  |  Actualización acumulativa más reciente   |  [6.13]  |  12 de noviembre de 2019  |
-|  Versión 19-11   |  [4519976]  |  No relacionada con la seguridad   |  [2.92]  |  8 de octubre de 2019  |
-|  Versión 19-11   |  [4520007]  |  No relacionada con la seguridad   |  [3.79]  |  8 de octubre de 2019  |
-|  Versión 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  8 de octubre de 2019  |
-|  Versión 19-11   |  [4520005]  |  No relacionada con la seguridad   |  [4.72]  |  8 de octubre de 2019  |
-|  Versión 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  8 de octubre de 2019  |
-|  Versión 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  8 de octubre de 2019  |
-|  Versión 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  8 de octubre de 2019  |
+|  Versión 19-11   |  [4525106]  |  Internet Explorer   |  [2.92]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4525233]  |  Seguridad de Windows   |  [2.92]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4525106]  |  Internet Explorer   |  [3.79]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4525253]  |  Seguridad de Windows   |  [3.79]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4525106]  |  Internet Explorer   |  [4.72]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4525250]  |  Seguridad de Windows   |  [4.72]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4525236]  |  Actualización acumulativa más reciente   |  [5.37]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4523205]  |  Actualización acumulativa más reciente   |  [6.13]  |  12 de noviembre de 2019  |
+|  Versión 19-11   |  [4519976]  |  No relacionada con la seguridad   |  [2.92]  |  8 de octubre de 2019  |
+|  Versión 19-11   |  [4520007]  |  No relacionada con la seguridad   |  [3.79]  |  8 de octubre de 2019  |
+|  Versión 19-11   |  [4521857]  |  ServicingStackUpdate   |  [3.79]  |  8 de octubre de 2019  |
+|  Versión 19-11   |  [4520005]  |  No relacionada con la seguridad   |  [4.72]  |  8 de octubre de 2019  |
+|  Versión 19-11   |  [4521864]  |  ServicingStackUpdate   |  [4.72]  |  8 de octubre de 2019  |
+|  Versión 19-11   |  [4521858]  |  ServicingStackUpdate   |  [5.37]  |  8 de octubre de 2019  |
+|  Versión 19-11   |  [4521862]  |  ServicingStackUpdate   |  [6.13]  |  8 de octubre de 2019  |
 
 [4525106]: https://support.microsoft.com/kb/4525106
 [4525233]: https://support.microsoft.com/kb/4525233
@@ -528,24 +583,24 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-10   |  [4520003]  |  Seguridad de Windows   |  [2.91]  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519985]  |  Seguridad de Windows   |  [3.78]  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519990]  |  Seguridad de Windows   |  [4.71]  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519998]  |  Actualización acumulativa más reciente   |  [5.36]  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519338]  |  Actualización acumulativa más reciente   |  [6.12]  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  8 de octubre de 2019  |
-|  Versión 19-10   |  [4516065]  |  No relacionada con la seguridad   |  [2.91]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4516655]  |  SSU   |  [2.91]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4516055]  |  No relacionada con la seguridad   |  [3.78]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512939]  |  SSU   |  [3.78]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4516067]  |  Sin seguridad   |  [4.71]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512938]  |  SSU   |  [4.71]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512574]  |  SSU   |  [5.36]  |  10 de septiembre de 2019  |
-|  Versión 19-10   |  [4512577]  |  SSU   |  [6.12]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4520003]  |  Seguridad de Windows   |  [2.91]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519985]  |  Seguridad de Windows   |  [3.78]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519990]  |  Seguridad de Windows   |  [4.71]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519998]  |  Actualización acumulativa más reciente   |  [5.36]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519338]  |  Actualización acumulativa más reciente   |  [6.12]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  8 de octubre de 2019  |
+|  Versión 19-10   |  [4516065]  |  No relacionada con la seguridad   |  [2.91]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4516655]  |  SSU   |  [2.91]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4516055]  |  No relacionada con la seguridad   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512939]  |  SSU   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4516067]  |  Sin seguridad   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512938]  |  SSU   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512574]  |  SSU   |  [5.36]  |  10 de septiembre de 2019  |
+|  Versión 19-10   |  [4512577]  |  SSU   |  [6.12]  |  10 de septiembre de 2019  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -577,21 +632,21 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4516115]  |  Intermitente   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4512578]  |  Actualización acumulativa más reciente   |  [6.11]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4514366]  |  .NET Framework 3.5 y 4.7.2   |  [6.11]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4516044]  |  Actualización acumulativa más reciente   |  [5.35]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4516064]  |  Seguridad de Windows   |  [4.70]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4516062]  |  Seguridad de Windows   |  [3.77]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  10 de septiembre de 2019  |
-|  Versión 19-09   |  [4516033]  |  Seguridad de Windows   |  [2.90]  |  12 de septiembre de 2019  |
-|  Versión 19-09   |  [4512488]  |  No relacionada con la seguridad   |  [4.70]  |  13 de agosto de 2019  |
-|  Versión 19-09   |  [4512518]  |  No relacionada con la seguridad   |  [3.77]  |  13 de agosto de 2019  |
-|  Versión 19-09   |  [4512506]  |  No relacionada con la seguridad   |  [2.90]  |  13 de agosto de 2019  |
+|  Versión 19-09   |  [4516046]  |  Internet Explorer   |  [2.90], [3.77], [4.70]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4516115]  |  Intermitente   |  [2.90], [3.77], [4.70], [5.35], [6.11]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4512578]  |  Actualización acumulativa más reciente   |  [6.11]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4514366]  |  .NET Framework 3.5 y 4.7.2   |  [6.11]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4516044]  |  Actualización acumulativa más reciente   |  [5.35]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4516064]  |  Seguridad de Windows   |  [4.70]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4514350]  |  .NET Framework 3.5   |  [4.70]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4.70]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4516062]  |  Seguridad de Windows   |  [3.77]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4514349]  |  .NET Framework 3.5   |  [3.77]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3.77]  |  10 de septiembre de 2019  |
+|  Versión 19-09   |  [4516033]  |  Seguridad de Windows   |  [2.90]  |  12 de septiembre de 2019  |
+|  Versión 19-09   |  [4512488]  |  No relacionada con la seguridad   |  [4.70]  |  13 de agosto de 2019  |
+|  Versión 19-09   |  [4512518]  |  No relacionada con la seguridad   |  [3.77]  |  13 de agosto de 2019  |
+|  Versión 19-09   |  [4512506]  |  No relacionada con la seguridad   |  [2.90]  |  13 de agosto de 2019  |
 
 [4516046]: https://support.microsoft.com/kb/4516046
 [4516115]: https://support.microsoft.com/kb/4516115
@@ -619,28 +674,28 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-08   |  [4512482]  |  Seguridad de Windows   |  [3.76]  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4494175]  |  Actualización de microcódigo   |  [5.34]  |  18 de junio de 2019  |
-|  Versión 19-08   |  [4512517]  |  Actualización acumulativa más reciente   |  [5.34]  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4494174]  |  Actualización de microcódigo   |  [6.1]  |  18 de junio de 2019  |
-|  Versión 19-08   |  [4511553]  |  Actualización acumulativa más reciente   |  [6.1]  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4512486]  |  Seguridad de Windows   |  [2.89]  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4512489]  |  Seguridad de Windows   |  [4.69]  |  13 de agosto de 2019  |
-|  Versión 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  15 de agosto de 2019  |
-|  Versión 19-08   |  [4507449]  |  No relacionada con la seguridad   |  [2.89]  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4507000]  |  .NET 4.5.2, no relacionada con la seguridad   |  [3.76]  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507002]  |  .NET 3.5, no relacionada con la seguridad   |  [3.76]  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507462]  |  No relacionada con la seguridad   |  [3.76]  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4506999]  |  .NET 4.5.2, no relacionada con la seguridad    |  [4.69]  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507005]  |  .NET 3.5, no relacionada con la seguridad    |  [4.69]  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507448]  |  No relacionada con la seguridad   |  [4.69]  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4509091]  |  Actualización de la pila de servicio   |  [5.34]  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4509095]  |  Actualización de la pila de servicio   |  [6.1]  |  9 de julio de 2019  |
-|  Versión 19-08   |  [4512937]  |  Actualización de la pila de servicio   |  [6.1]  |  29 de julio de 2019  |
-|  Versión 19-08   |  [4507004]  |  .NET 3.5.1, no relacionada con la seguridad    |  [2.89]  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4504418]  |  Actualización de la pila de servicio   |  [3.76], [4.69]  |  11 de julio de 2019  |
-|  Versión 19-08   |  [4507001]  |  .NET 4.5.2, no relacionada con la seguridad   |  [2.89]  |  12 de agosto de 2019  |
-|  Versión 19-08   |  [4507704]  |  Configuración de DST de Windows para Brasil y Marruecos   |  [2.89], [3.76], [4.69], [5.34]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4512482]  |  Seguridad de Windows   |  [3.76]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4494175]  |  Actualización de microcódigo   |  [5.34]  |  18 de junio de 2019  |
+|  Versión 19-08   |  [4512517]  |  Actualización acumulativa más reciente   |  [5.34]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4494174]  |  Actualización de microcódigo   |  [6.1]  |  18 de junio de 2019  |
+|  Versión 19-08   |  [4511553]  |  Actualización acumulativa más reciente   |  [6.1]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4512486]  |  Seguridad de Windows   |  [2.89]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4512489]  |  Seguridad de Windows   |  [4.69]  |  13 de agosto de 2019  |
+|  Versión 19-08   |  [4511872]  |  Internet Explorer    |  [2.89], [3.76], [4.69]  |  15 de agosto de 2019  |
+|  Versión 19-08   |  [4507449]  |  No relacionada con la seguridad   |  [2.89]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4507000]  |  .NET 4.5.2, no relacionada con la seguridad   |  [3.76]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507002]  |  .NET 3.5, no relacionada con la seguridad   |  [3.76]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507462]  |  No relacionada con la seguridad   |  [3.76]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4506999]  |  .NET 4.5.2, no relacionada con la seguridad    |  [4.69]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507005]  |  .NET 3.5, no relacionada con la seguridad    |  [4.69]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507448]  |  No relacionada con la seguridad   |  [4.69]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4509091]  |  Actualización de la pila de servicio   |  [5.34]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4509095]  |  Actualización de la pila de servicio   |  [6.1]  |  9 de julio de 2019  |
+|  Versión 19-08   |  [4512937]  |  Actualización de la pila de servicio   |  [6.1]  |  29 de julio de 2019  |
+|  Versión 19-08   |  [4507004]  |  .NET 3.5.1, no relacionada con la seguridad    |  [2.89]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4504418]  |  Actualización de la pila de servicio   |  [3.76], [4.69]  |  11 de julio de 2019  |
+|  Versión 19-08   |  [4507001]  |  .NET 4.5.2, no relacionada con la seguridad   |  [2.89]  |  12 de agosto de 2019  |
+|  Versión 19-08   |  [4507704]  |  Configuración de DST de Windows para Brasil y Marruecos   |  [2.89], [3.76], [4.69], [5.34]  |  13 de agosto de 2019  |
 
 [4512482]: https://support.microsoft.com/kb/4512482
 [4494175]: https://support.microsoft.com/kb/4494175
@@ -676,19 +731,19 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4506966]  |  Seguridad de .NET 4.5.2   |  2,88  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4506976]  |  Seguridad de .NET 3.5.1   |  2,88  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4507456]  |  Seguridad de Windows   |  2,88  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4506965]  |  Seguridad de .NET 4.5.2   |  3,75  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4506974]  |  Seguridad de .NET 3.5   |  3,75  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4507464]  |  Seguridad de Windows   |  3,75  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4506964]  |  Seguridad de .NET 4.5.2   |  4.68  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4506977]  |  Seguridad de .NET 3.5   |  4.68  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4507457]  |  Seguridad de Windows   |  4.68  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4507460]  |  Seguridad de Windows   |  5.33  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4506998]  |  Seguridad de .NET 3.5 y 4.7.2   |  6.9  |  9 de julio de 2019  |
-|  Versión 19-07   |  [4507469]  |  Seguridad de Windows   |  6.9  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506966]  |  Seguridad de .NET 4.5.2   |  2,88  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506976]  |  Seguridad de .NET 3.5.1   |  2,88  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507456]  |  Seguridad de Windows   |  2,88  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506965]  |  Seguridad de .NET 4.5.2   |  3,75  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506974]  |  Seguridad de .NET 3.5   |  3,75  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507464]  |  Seguridad de Windows   |  3,75  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506964]  |  Seguridad de .NET 4.5.2   |  4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506977]  |  Seguridad de .NET 3.5   |  4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507457]  |  Seguridad de Windows   |  4.68  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507460]  |  Seguridad de Windows   |  5.33  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4506998]  |  Seguridad de .NET 3.5 y 4.7.2   |  6.9  |  9 de julio de 2019  |
+|  Versión 19-07   |  [4507469]  |  Seguridad de Windows   |  6.9  |  9 de julio de 2019  |
 |  N/D  |  [4503537]  |  Actualización de la pila de servicios de junio de 2019 (Server 2016)   |  5.33  |  14 de mayo de 2019  |
 |  N/D  |  [4504369]  |  Actualización de la pila de servicios de junio de 2019 (Server 2019)   |  6.9  |  14 de mayo de 2019  |
 |  N/D  |  [4503292]  |  No seguridad de junio de 2019 (Server 2008 R2)   |  2,88  |  20 de mayo de 2019  |
@@ -720,15 +775,15 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-06   |  [4503327]  |  Seguridad de Windows 10   |  6,8  |  11 de junio de 2019  |
-|  Versión 19-06   |  [4503267]  |  Seguridad de Windows 10   |  5.32  |  11 de junio de 2019  |
-|  Versión 19-06   |  [4503290]  |  Seguridad de Windows   |  4.67  |  11 de junio de 2019  |
-|  Versión 19-06   |  [4503263]  |  Seguridad de Windows   |  3.74  |  11 de junio de 2019  |
-|  Versión 19-06   |  [4503269]  |  Seguridad de Windows   |  2.87  |  11 de junio de 2019  |
-|  Versión 19-06   |  [4494174]  |  Actualización de microcódigo   |  6,8  |  11 de junio de 2019  |
-|  Versión 19-06   |  [4494175]  |  Actualización de microcódigo   |  5.32  |  3 de junio de 2019  |
-|  Versión 19-06   |  [4503308]  |  Intermitente   |  3.74, 4.67, 5.32, 6.8  |  11 de junio de 2019  |
-|  Versión 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 de junio de 2019  |
+|  Versión 19-06   |  [4503327]  |  Seguridad de Windows 10   |  6,8  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503267]  |  Seguridad de Windows 10   |  5.32  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503290]  |  Seguridad de Windows   |  4.67  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503263]  |  Seguridad de Windows   |  3.74  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503269]  |  Seguridad de Windows   |  2.87  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4494174]  |  Actualización de microcódigo   |  6,8  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4494175]  |  Actualización de microcódigo   |  5.32  |  3 de junio de 2019  |
+|  Versión 19-06   |  [4503308]  |  Intermitente   |  3.74, 4.67, 5.32, 6.8  |  11 de junio de 2019  |
+|  Versión 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 de junio de 2019  |
 |  N/D  |  [4499164]  |  Mayo de 2019, no de seguridad  |  2.87  |  14 de mayo de 2019  |
 |  N/D  |  [4495606]  |  Mayo de 2019, .NET 3.5, no de seguridad  |  2.87  |  14 de mayo de 2019  |
 |  N/D  |  [4495596]  |  Mayo de 2019, .NET 4.5, no de seguridad  |  2.87  |  20 de mayo de 2019  |
@@ -766,26 +821,26 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 | Categoría de productos | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
 | --- | --- | --- | --- | --- |
-|  Versión 19-05   |  [4498206]  |  Paquete acumulativo de actualizaciones de Internet Explorer de mayo   |  2.86, 3.73, 4.66  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4505050]  |  Paquete acumulativo de actualizaciones de Internet Explorer de mayo   |  2.86, 3.73, 4.66  |  18 de mayo de 2019  |
-|  Versión 19-05   |  [4497932]  |  Actualización de Flash de mayo   |  3,73, 4,66, 5,31  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4499175]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  2,86  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4495612]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  2,86  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4495593]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  2,86  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4499158]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  3.73  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4495607]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  3.73  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4495591]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  3.73  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4492872]  |  Paquete acumulativo de actualizaciones de Internet Explorer   |  3.73  |  16 de abril de 2019  |
-|  Versión 19-05   |  [4499165]  |  Paquete acumulativo de actualizaciones de seguridad, marzo   |  4.66  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4495615]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  4.66  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4495589]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  4.66  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4498947]  |  SSU de mayo   |  5,31  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4494175]  |  Actualización de microcódigo de mayo   |  5,31  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4505052]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  5,31  |  19 de mayo de 2019  |
-|  Versión 19-05   |  [4499728]  |  SSU de mayo   |  6.7  |  19 de mayo de 2019  |
-|  Versión 19-05   |  [4505056]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  6.7  |  19 de mayo de 2019  |
-|  Versión 19-05   |  [4494174]  |  Actualización de microcódigo de mayo   |  6.7  |  14 de mayo de 2019  |
-|  Versión 19-05   |  [4495590]  |  Paquete acumulativo de actualizaciones de seguridad para .NET, mayo   |  6.7  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4498206]  |  Paquete acumulativo de actualizaciones de Internet Explorer de mayo   |  2.86, 3.73, 4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4505050]  |  Paquete acumulativo de actualizaciones de Internet Explorer de mayo   |  2.86, 3.73, 4.66  |  18 de mayo de 2019  |
+|  Versión 19-05   |  [4497932]  |  Actualización de Flash de mayo   |  3,73, 4,66, 5,31  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4499175]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  2,86  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495612]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  2,86  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495593]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  2,86  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4499158]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  3.73  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495607]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  3.73  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495591]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  3.73  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4492872]  |  Paquete acumulativo de actualizaciones de Internet Explorer   |  3.73  |  16 de abril de 2019  |
+|  Versión 19-05   |  [4499165]  |  Paquete acumulativo de actualizaciones de seguridad, marzo   |  4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495615]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 3.5, mayo   |  4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495589]  |  Paquete acumulativo de actualizaciones de seguridad para .NET 4.5.2, mayo   |  4.66  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4498947]  |  SSU de mayo   |  5,31  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4494175]  |  Actualización de microcódigo de mayo   |  5,31  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4505052]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  5,31  |  19 de mayo de 2019  |
+|  Versión 19-05   |  [4499728]  |  SSU de mayo   |  6.7  |  19 de mayo de 2019  |
+|  Versión 19-05   |  [4505056]  |  Paquete acumulativo de actualizaciones de seguridad, mayo   |  6.7  |  19 de mayo de 2019  |
+|  Versión 19-05   |  [4494174]  |  Actualización de microcódigo de mayo   |  6.7  |  14 de mayo de 2019  |
+|  Versión 19-05   |  [4495590]  |  Paquete acumulativo de actualizaciones de seguridad para .NET, mayo   |  6.7  |  14 de mayo de 2019  |
 
 [4498206]: https://support.microsoft.com/kb/4498206
 [4505050]: https://support.microsoft.com/kb/4505050
@@ -1775,7 +1830,7 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | MS15-014 |[3004361] |Una vulnerabilidad de SMB podría permitir la omisión de la característica de seguridad |4,17; 3,24; 2,36 |N/D |
 | MS15-015 |[3031432] |Una vulnerabilidad de Microsoft Windows podría permitir la elevación de privilegios |4,17; 3,24; 2,36 |N/D |
 | MS15-016 |[3029944] |Una vulnerabilidad del componente de gráficos de Microsoft podría permitir la divulgación de información |4,17; 3,24; 2,36 |N/D |
-| N/D |[3004375] |Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota**: Se instala pero la clave del registro para habilitarlo está desactivada |4,17; 3,24; 2,36 |N/D |
+| N/D |[3004375] |Actualización para mejorar la auditoría de línea de comandos de Windows<p/>**Nota** : Se instala pero la clave del registro para habilitarlo está desactivada |4,17; 3,24; 2,36 |N/D |
 
 ## <a name="january-2015-guest-os"></a>SO invitado de enero de 2015
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |

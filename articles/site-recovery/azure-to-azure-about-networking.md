@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: f0a3ac0c81291a1231ef660481d8e31b38c0e212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631348"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332049"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ Obtenga información sobre cómo Site Recovery proporciona recuperación ante de
 
 El siguiente diagrama representa el entorno de Azure típico para aplicaciones que se ejecutan en máquinas virtuales de Azure:
 
-![Entorno de cliente](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
+![El diagrama representa el entorno de Azure típico para aplicaciones que se ejecutan en máquinas virtuales de Azure.](./media/site-recovery-azure-to-azure-architecture/source-environment.png)
 
 Si usa Azure ExpressRoute o una conexión VPN desde su red local a Azure, el entorno tendrá este aspecto:
 
@@ -40,13 +40,13 @@ Normalmente, los clientes protegen sus redes mediante firewalls y grupos de segu
 >[!IMPORTANT]
 > Site Recovery no admite el uso de un proxy autenticado para controlar la conectividad de red y la replicación no se podrá habilitar.
 
+>[!NOTE]
+>- El filtrado basado en direcciones IP no se debe utilizar para controlar la conectividad saliente.
+>- Las direcciones IP de Azure Site Recovery no deben agregarse en la tabla de enrutamiento de Azure para controlar la conectividad saliente.
 
 ## <a name="outbound-connectivity-for-urls"></a>Conectividad de salida para las direcciones URL
 
 Si usa un proxy de firewall basado en la dirección URL para controlar la conectividad de salida, admita estas direcciones URL de Site Recovery:
-
->[!NOTE]
-> El filtrado basado en direcciones IP no se debe utilizar para controlar la conectividad saliente.
 
 **URL** | **Detalles**
 --- | ---
@@ -59,7 +59,7 @@ login.microsoftonline.com | Se requiere para la autorización y la autenticació
 
 ## <a name="outbound-connectivity-using-service-tags"></a>Conectividad saliente mediante etiquetas de servicio
 
-Si utiliza un grupo de seguridad de red para controlar la conectividad de salida, deben permitirse estas etiquetas de servicio.
+Cuando utiliza un grupo de seguridad de red para controlar la conectividad de salida, deben permitirse estas etiquetas de servicio.
 
 - Para las cuentas de almacenamiento en la región de origen:
     - Cree una regla de NSG basada en la [etiqueta del servicio Storage](../virtual-network/security-overview.md#service-tags) para la región de origen.

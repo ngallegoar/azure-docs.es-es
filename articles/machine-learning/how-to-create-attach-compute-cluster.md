@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d33af7a9c2d48ded84bd675364469dab09a79d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711092"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207128"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Creación de un clúster de proceso de Azure Machine Learning
 
@@ -48,9 +48,11 @@ Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entor
 
     Si quiere volver a adjuntar un destino de proceso, por ejemplo, para cambiar la configuración del clúster, primero debe eliminar los datos adjuntos existentes.
 
-* Algunos de los escenarios que se enumeran en este documento se marcan como __versión preliminar__. La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Algunos de los escenarios que se enumeran en este documento se marcan como __versión preliminar__ . La funcionalidad de versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Proceso de Azure Machine Learning tiene límites predeterminados, como el número de núcleos que se pueden asignar. Para más información, consulte [Administración y solicitud de cuotas para recursos de Azure](how-to-manage-quotas.md).
+
+* Azure permite colocar _bloqueos_ en los recursos, de modo que no se puedan eliminar o sean de solo lectura. __No aplique bloqueos de recursos al grupo de recursos que contiene el área de trabajo__ . Al aplicar un bloqueo al grupo de recursos que contiene el área de trabajo se evitan las operaciones de escalado de los clústeres de proceso de Azure ML. Para obtener más información sobre el bloqueo de recursos, vea [Bloqueo de recursos para impedir cambios inesperados](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
 > Por lo general, los clústeres pueden escalar verticalmente hasta 100 nodos, siempre y cuando tenga la cuota suficiente para el número de núcleos necesarios. De forma predeterminada, los clústeres se configuran con la comunicación entre nodos del clúster habilitada para, por ejemplo, permitir trabajos de MPI. No obstante, puede escalar los clústeres a miles de nodos simplemente [generando una incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) y solicitando la inclusión en la lista de permitidos de su suscripción, área de trabajo o un clúster específico para deshabilitar la comunicación entre nodos. 
@@ -58,7 +60,7 @@ Los clústeres de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 ## <a name="create"></a>Crear
 
-**Tiempo estimado**: Aproximadamente 5 minutos.
+**Tiempo estimado** : Aproximadamente 5 minutos.
 
 Se puede reutilizar una instancia de Proceso de Azure Machine Learning entre trabajos. El proceso puede compartirse con otros usuarios del área de trabajo y se conserva entre ejecuciones, escalando o reduciendo automáticamente los nodos verticalmente según el número de ejecuciones enviadas y el valor de max_nodes establecido en el clúster. La configuración min_nodes controla los nodos mínimos disponibles.
 
@@ -70,10 +72,10 @@ El proceso se reduce verticalmente a cero nodos cuando no se utiliza.   Se crean
     
 # <a name="python"></a>[Python](#tab/python)
 
-para crear un recurso de Proceso de Azure Machine Learning persistente en Python, especifique las propiedades **vm_size** y **max_nodes**. Azure Machine Learning usará valores predeterminados inteligentes para las demás propiedades. 
+para crear un recurso de Proceso de Azure Machine Learning persistente en Python, especifique las propiedades **vm_size** y **max_nodes** . Azure Machine Learning usará valores predeterminados inteligentes para las demás propiedades. 
     
-* **vm_size**: la familia máquina virtual de los nodos creados por el Proceso de Azure Machine Learning.
-* **max_nodes**: el número máximo de nodos hasta los que se aumenta automáticamente cuando ejecuta un trabajo en Proceso de Azure Machine Learning.
+* **vm_size** : la familia máquina virtual de los nodos creados por el Proceso de Azure Machine Learning.
+* **max_nodes** : el número máximo de nodos hasta los que se aumenta automáticamente cuando ejecuta un trabajo en Proceso de Azure Machine Learning.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]

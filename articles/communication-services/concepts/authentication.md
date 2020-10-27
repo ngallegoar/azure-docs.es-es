@@ -9,18 +9,18 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932324"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202963"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticación en Azure Communication Services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-En este artículo se proporciona información sobre la autenticación de clientes en Azure Communication Services mediante *claves de acceso* y *tokens de acceso de usuario*. Se debe autenticar cada interacción del cliente con Azure Communication Services.
+En este artículo se proporciona información sobre la autenticación de clientes en Azure Communication Services mediante *claves de acceso* y *tokens de acceso de usuario* . Se debe autenticar cada interacción del cliente con Azure Communication Services.
 
 En la tabla siguiente se describen las opciones de autenticación que son compatibles con las bibliotecas cliente de Azure Communication Services:
 
@@ -33,7 +33,7 @@ En la tabla siguiente se describen las opciones de autenticación que son compat
 
 Cada opción de autorización se describe brevemente a continuación:
 
-- Autenticación con **clave de acceso** para operaciones de SMS y administración. La autenticación con clave de acceso es adecuada para las aplicaciones que se ejecutan en un entorno de servicio de confianza. Para autenticar con una clave de acceso, un cliente genera un [código de autenticación de método basado en hash (HMAC)](https://en.wikipedia.org/wiki/HMAC) e incluye en el encabezado `Authorization` de cada solicitud HTTP. Para obtener más información, vea [Autenticación con una clave de acceso](#authenticate-with-an-access-key).
+- Autenticación con **clave de acceso** para operaciones de SMS y administración. La autenticación con clave de acceso es adecuada para las aplicaciones que se ejecutan en un entorno de servicio de confianza. Para autenticar con una clave de acceso, un cliente genera un [código de autenticación de mensaje basado en hash (HMAC)](https://en.wikipedia.org/wiki/HMAC) e incluye en el encabezado `Authorization` de cada solicitud HTTP. Para obtener más información, vea [Autenticación con una clave de acceso](#authenticate-with-an-access-key).
 - Autenticación con **token de acceso de usuario** para chat y llamadas. Los tokens de acceso de usuario permiten que las aplicaciones cliente se autentiquen directamente en Azure Communication Services. Estos tokens se generan en un servicio de aprovisionamiento de token del lado servidor que cree. A continuación, se proporcionan a los dispositivos cliente que usan el token para inicializar las bibliotecas cliente de chat y llamadas. Para obtener más información, vea [Autenticación con un token de acceso de usuario](#authenticate-with-a-user-access-token).
 
 ## <a name="authenticate-with-an-access-key"></a>Autenticación con una clave de acceso

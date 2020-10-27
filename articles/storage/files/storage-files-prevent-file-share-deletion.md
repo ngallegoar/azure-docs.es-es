@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527819"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122422"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar la eliminación accidental de recursos compartidos de archivos de Azure
 
@@ -37,7 +37,7 @@ La eliminación temporal de los recursos compartidos de archivos de Azure (versi
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Habilitación o deshabilitación de la eliminación temporal
 
-La eliminación temporal de recursos compartidos de archivos está habilitada en el nivel de cuenta de almacenamiento, a causa de ello, la configuración de eliminación temporal se aplica a todos los recursos compartidos de archivos de una cuenta de almacenamiento. La eliminación temporal se puede habilitar o deshabilitar en cualquier momento. Cuando se crea una cuenta de almacenamiento, la eliminación temporal en los recursos compartidos de archivos está desactivada de forma predeterminada. La eliminación temporal también está deshabilitada de forma predeterminada en las cuentas de almacenamiento existentes. Si ha configurado la [copia de seguridad de recursos compartidos de archivos de Azure ](../../backup/azure-file-share-backup-overview.md) para un recurso compartido de archivos de Azure, la eliminación temporal de recursos compartidos de archivos de Azure se habilitará automáticamente en la cuenta de almacenamiento del recurso compartido.
+La eliminación temporal de recursos compartidos de archivos está habilitada en el nivel de cuenta de almacenamiento, a causa de ello, la configuración de eliminación temporal se aplica a todos los recursos compartidos de archivos de una cuenta de almacenamiento. La eliminación temporal se puede habilitar o deshabilitar en cualquier momento. Cuando cree una cuenta de almacenamiento, la eliminación temporal de recursos compartidos de archivos está deshabilitada de manera predeterminada mientras la característica está en versión preliminar pública. Una vez que la eliminación temporal esté disponible con carácter general, se habilitará de manera predeterminada. La eliminación temporal seguirá deshabilitada de manera predeterminada en las cuentas de almacenamiento existentes. Si ha configurado la [copia de seguridad de recursos compartidos de archivos de Azure ](../../backup/azure-file-share-backup-overview.md) para un recurso compartido de archivos de Azure, la eliminación temporal de recursos compartidos de archivos de Azure se habilitará automáticamente en la cuenta de almacenamiento del recurso compartido.
 
 Si habilita la eliminación temporal para recursos compartidos de archivos, elimina algunos y, después, deshabilita la eliminación temporal, si durante ese período se han guardado los recursos compartidos, todavía podrá acceder a ellos y recuperarlos. Al habilitar la eliminación temporal, también debe configurar el período de retención.
 

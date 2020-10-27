@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
-ms.openlocfilehash: e71ed9655c7b195fea8a2eeeaa76d8a28717637f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c8cf84aa697512b6d1147bf853d30761792370b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318563"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207315"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Comparación de Azure Directory y Azure Active Directory
 
@@ -39,7 +39,7 @@ La mayoría de los administradores de TI están familiarizados con los conceptos
 | Aplicaciones tradicionales y heredadas| La mayoría de las aplicaciones locales usan LDAP, la autenticación integrada de Windows (NTLM y Kerberos) o la autenticación basada en encabezados para controlar el acceso a los usuarios.| Azure AD puede proporcionar acceso a estos tipos de aplicaciones locales con los agentes de [Azure AD Application Proxy](../manage-apps/application-proxy.md) que se ejecutan de forma local. Con este método, Azure AD puede autenticar los usuarios de Active Directory de forma local mediante Kerberos mientras migra o debe coexistir con aplicaciones heredadas. |
 | Aplicaciones SaaS|Active Directory no es compatible de forma nativa con aplicaciones SaaS y requiere un sistema de federación, como AD FS.|Las aplicaciones SaaS que admiten la autenticación de OAuth2, SAML y WS-\* se pueden integrar para usar Azure AD para la autenticación. |
 | Aplicaciones de línea de negocio (LOB) con autenticación moderna|Las organizaciones pueden usar AD FS con Active Directory para admitir aplicaciones LOB que requieran autenticación moderna.| Las aplicaciones LOB que requieran autenticación moderna se pueden configurar para utilizar Azure AD para la autenticación. |
-| Servicios de nivel medio/demonio|Los servicios que se ejecutan en entornos locales suelen usar cuentas de servicio de AD o cuentas de servicio administradas de grupo (gMSA) para ejecutarse. Estas aplicaciones heredarán los permisos de la cuenta de servicio.| Azure AD proporciona [identidades administradas](../managed-identities-azure-resources/index.yml) para ejecutar otras cargas de trabajo en la nube. El ciclo de vida de estas identidades, que se administra mediante Azure AD y está asociado al proveedor de recursos, no se puede usar con otros fines para obtener acceso de puerta trasera.|
+| Servicios de nivel medio/demonio|Los servicios que se ejecutan en entornos locales suelen usar cuentas de servicio de AD o cuentas de servicio administradas de grupo (gMSA) para ejecutarse. Estas aplicaciones heredarán los permisos de la cuenta de servicio.| Azure AD proporciona [identidades administradas](../managed-identities-azure-resources/index.yml) para ejecutar otras cargas de trabajo en la nube. El ciclo de vida de estas identidades se administra mediante Azure AD y está asociado al proveedor de recursos, por lo que no se puede usar con otros fines para obtener acceso de puerta trasera.|
 | **Dispositivos**|||
 | Móvil|Active Directory no es compatible de forma nativa con dispositivos móviles sin soluciones de terceros.| La solución de administración de dispositivos móviles de Microsoft, Microsoft Intune, está integrado en Azure AD. Microsoft Intune proporciona información sobre el estado del dispositivo al sistema de identidades que se va a evaluar durante la autenticación. |
 | Escritorios de Windows|Active Directory proporciona la capacidad de unir a un dominio dispositivos Windows para administrarlos mediante directiva de grupo, System Center Configuration Manager u otras soluciones de terceros.|Los dispositivos Windows pueden estar [unidos a Azure AD](../devices/index.yml). El acceso condicional puede comprobar si un dispositivo está unido a Azure AD como parte del proceso de autenticación. Los dispositivos Windows también se pueden administrar con [Microsoft Intune](/intune/what-is-intune). En este caso, el acceso condicional tendrá en cuenta si un dispositivo es compatible (por ejemplo, revisiones de seguridad y firmas de virus actualizadas) antes de permitir el acceso a las aplicaciones.|

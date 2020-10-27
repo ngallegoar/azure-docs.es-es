@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058087"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096630"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -57,6 +57,10 @@ Si ya ha configurado la copia de seguridad y debe pasar de GRS a LRS, consulte [
 
 - ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md)
 - ILR no se admite para puntos de recuperación en línea de máquinas virtuales locales cuya copia de seguridad se realice mediante Azure Backup Server (MABS) o System Center DPM.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>¿Cómo puedo transferir datos del almacén de Recovery Services a un entorno local?
+
+No se admite la exportación de datos directamente desde el almacén de Recovery Services al entorno local mediante Data Box. Los datos se deben restaurar a una cuenta de almacenamiento y, a continuación, se pueden mover al entorno local a través de [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) o [Importación/Exportación](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
 

@@ -4,12 +4,12 @@ description: Aprenda a crear un clúster privado de Azure Kubernetes Service (AK
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 825e97bfc80695180195fde07eaa1a25ac74b49b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078160"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143088"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Creación de un clúster privado de Azure Kubernetes Service
 
@@ -21,9 +21,10 @@ El plano de control o el servidor de la API están en una suscripción de Azure 
 
 El clúster privado está disponible en las regiones públicas en las que [se admite AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-Actualmente no se admite US Gov Texas debido a la falta de compatibilidad con Private Link.
+> [!NOTE]
+> Se admiten sitios de Azure Government, aunque en este momento no se admite US Gov Texas debido a la falta de compatibilidad con Private Link.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * CLI de Azure, versión 2.2.0 o cualquier versión posterior
 
@@ -79,13 +80,13 @@ Tal y como se ha dicho, el emparejamiento de red virtual es un mecanismo para ac
     
 1. Vaya al grupo de recursos del nodo en Azure Portal.  
 2. Seleccione la zona DNS privada.   
-3. En el panel izquierdo, seleccione el vínculo **red virtual**.  
+3. En el panel izquierdo, seleccione el vínculo **red virtual** .  
 4. Cree un nuevo vínculo para agregar la red virtual de la máquina virtual a la zona DNS privada. El vínculo de la zona DNS puede tardar unos minutos en estar disponible.  
 5. En Azure Portal, vaya al grupo de recursos que contiene la red virtual del clúster.  
 6. En el panel derecho, seleccione la red virtual. El nombre de la red virtual tiene el formato *aks-vnet-\** .  
-7. En el panel izquierdo, seleccione **Emparejamientos**.  
-8. Seleccione **Agregar**, agregue la red virtual de la máquina virtual y, después, cree el emparejamiento.  
-9. Vaya a la red virtual en la que tiene la máquina virtual, seleccione **Emparejamientos**, seleccione la red virtual de AKS y, después, cree el emparejamiento. Si los intervalos de direcciones de la red virtual de AKS y de la red virtual de la máquina virtual entran en conflicto, se produce un error de emparejamiento. Para más información, vea el artículo [Emparejamiento de redes virtuales][virtual-network-peering].
+7. En el panel izquierdo, seleccione **Emparejamientos** .  
+8. Seleccione **Agregar** , agregue la red virtual de la máquina virtual y, después, cree el emparejamiento.  
+9. Vaya a la red virtual en la que tiene la máquina virtual, seleccione **Emparejamientos** , seleccione la red virtual de AKS y, después, cree el emparejamiento. Si los intervalos de direcciones de la red virtual de AKS y de la red virtual de la máquina virtual entran en conflicto, se produce un error de emparejamiento. Para más información, vea el artículo [Emparejamiento de redes virtuales][virtual-network-peering].
 
 ## <a name="hub-and-spoke-with-custom-dns"></a>Concentrador y radio con DNS personalizado
 

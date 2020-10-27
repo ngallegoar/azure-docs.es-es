@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046815"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131690"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Preguntas más frecuentes sobre Metrics Advisor
 
@@ -31,7 +31,7 @@ El [sitio web de demostración](https://anomaly-detector.azurewebsites.net/) est
 
 :::image type="content" source="media/pricing.png" alt-text="Mensaje cuando ya existe un recurso F0":::
 
-Durante la versión preliminar pública, solo se permite crear una instancia de Metrics Advisor en una suscripción, en una región.
+Durante la versión preliminar pública, solo se puede crear una instancia de Metrics Advisor por región en una suscripción.
 
 Si ya tiene una instancia creada en la misma región con la misma suscripción, puede probar una región diferente o una suscripción diferente para crear una nueva instancia. También puede eliminar una instancia existente para crear una nueva.
 
@@ -108,6 +108,40 @@ La "detección inteligente" es capaz de aprender el patrón de los datos, inclui
 
 Si los datos suelen ser bastante inestables y fluctúan mucho, y desea recibir una alerta cuando pasen a ser demasiado estables o incluso se conviertan en una línea plana, el "umbral de cambio" puede configurarse para detectar dichos puntos de datos cuando el cambio sea demasiado pequeño.
 Consulte las [configuraciones de detección de anomalías](how-tos/configure-metrics.md#anomaly-detection-methods) para obtener detalles.
+
+## <a name="advanced-concepts"></a>Conceptos avanzados
+
+### <a name="how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics"></a>¿Cómo crea Metric Advisor un árbol de incidentes para métricas multidimensionales?
+
+Una métrica se puede dividir en varias series temporales mediante dimensiones. Por ejemplo, la métrica `Response latency` se supervisa en todos los servicios que posee el equipo. La categoría `Service` se podría usar como dimensión para enriquecer la métrica, por lo que se obtiene `Response latency` dividido por `Service1`, `Service2`, y así sucesivamente. Cada servicio se puede implementar en distintas máquinas de varios centros de datos, por lo que la métrica se podría dividir aún más por `Machine` y `Data center`.
+
+|Servicio| Centro de datos| Máquina  | 
+|----|------|----------------   |
+| S1 |  DC1 |   M1 |
+| S1 |  DC1 |   M2 |
+| S1 |  DC2 |   M3 |
+| S1 |  DC2 |   M4 |
+| S2 |  DC1 |   M1 |
+| S2 |  DC1 |   M2 |
+| S2 |  DC2 |   M5 |
+| S2 |  DC2 |   M6 |
+| ...|      |      |
+
+A partir del valor total de `Response latency`, se puede explorar en profundidad la métrica por `Service`, `Data center` y `Machine`. Sin embargo, puede que para los propietarios de servicios tenga más sentido usar la ruta `Service` -> `Data center` -> `Machine`, o para los ingenieros de infraestructura la ruta `Data Center` -> `Machine` -> `Service`. Todo depende de los requisitos empresariales individuales de los usuarios. 
+
+En Metric Advisor, los usuarios pueden especificar cualquier ruta que quieran explorar en profundidad o consolidar de un nodo de la topología jerárquica. Más concretamente, la topología jerárquica es un grafo acíclico dirigido en lugar de una estructura de árbol. Hay una topología jerárquica completa que consta de todas las combinaciones posibles de dimensiones, como esta: 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="Mensaje cuando ya existe un recurso F0" lightbox="media/dimension-combinations-view.png":::
+
+En teoría, si la dimensión `Service` tiene `Ls` valores distintos, la dimensión `Data center` tiene `Ldc` valores distintos y la dimensión `Machine` tiene `Lm` valores distintos, podría haber entonces combinaciones de las dimensiones `(Ls + 1) * (Ldc + 1) * (Lm + 1)` en la topología jerárquica. 
+
+Sin embargo, normalmente no todas las combinaciones de dimensiones son válidas, lo que puede reducir de forma considerable la complejidad. Actualmente, si los usuarios agregan la métrica por su cuenta, no se limita el número de dimensiones. Si necesita usar la funcionalidad de consolidación que ofrece Metrics Advisor, el número de dimensiones no debería ser superior a 6. Sin embargo, se limita el número de series temporales expandidas por las dimensiones de una métrica a menos de 10 000.
+
+La herramienta de **árbol de incidentes** de la página de diagnósticos solo muestra los nodos en los que se ha detectado una anomalía, no toda la topología. De esta manera, puede centrarse en el problema actual. También puede que no se muestren todas las anomalías dentro de la métrica, sino aquellas más importantes en función de la contribución. Así, se puede averiguar rápidamente el efecto, el ámbito y la ruta de propagación de los datos anómalos. Esto reduce de forma considerable el número de anomalías en las que debemos centrarnos y ayuda a los usuarios a comprender y localizar sus problemas principales. 
+ 
+Por ejemplo, cuando se produce una anomalía en `Service = S2 | Data Center = DC2 | Machine = M5`, la desviación de esta afecta al nodo primario `Service= S2` que también la ha detectado, pero no afecta a todo el centro de datos en `DC2` ni a todos los servicios de `M5`. El árbol de incidentes se crearía como en la siguiente captura de pantalla: la anomalía principal se captura en `Service = S2` y la causa principal podría analizarse en dos rutas que conducen a `Service = S2 | Data Center = DC2 | Machine = M5`.
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 vértices etiquetados con dos rutas distintas conectadas mediante bordes con un nodo común con la etiqueta S2. La anomalía principal se captura en el servicio = S2 y la causa principal se puede analizar mediante las dos rutas que conducen al servicio = S2 | Centro de datos = DC2 | Máquina = M5" lightbox="media/root-cause-paths.png":::.
 
 ## <a name="next-steps"></a>Pasos a seguir
 - [Introducción a Metrics Advisor](overview.md)

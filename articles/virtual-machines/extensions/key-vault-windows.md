@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072295"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201688"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Key Vault para Windows
 
@@ -79,7 +79,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 > Esto se debe a que la ruta de acceso `/secrets` devuelve el certificado completo, incluida la clave privada, mientras que la ruta de acceso `/certificates` no. Se puede encontrar más información sobre los certificados aquí: [Certificados de Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!IMPORTANT]
-> La propiedad "authenticationSettings" es **necesaria** solo para máquinas virtuales con **identidades asignadas por el usuario**.
+> La propiedad "authenticationSettings" es **necesaria** solo para máquinas virtuales con **identidades asignadas por el usuario** .
 > Especifica la identidad que se usará para la autenticación en Key Vault.
 
 
@@ -222,6 +222,11 @@ Tenga en cuenta las restricciones y los requisitos siguientes:
 ### <a name="troubleshoot"></a>Solución de problemas
 
 Los datos sobre el estado de las implementaciones de extensiones pueden recuperarse desde Azure Portal y mediante Azure PowerShell. Para ver el estado de implementación de las extensiones de una máquina virtual determinada, ejecute el comando siguiente con Azure PowerShell.
+
+### <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+
+* ¿Hay un límite en el número de observedCertificates que se pueden configurar?
+  No, la extensión de VM de Key Vault no tiene un límite en cuanto al número de observedCertificates.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell

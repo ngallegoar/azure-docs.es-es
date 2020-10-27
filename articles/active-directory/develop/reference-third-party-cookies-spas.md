@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87311762"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104587"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Control de ITP en Safari y otros exploradores donde se han bloqueado las cookies de terceros
 
@@ -26,7 +26,7 @@ Hoy en día, muchos exploradores bloquean las cookies de terceros: cookies en la
 
 ## <a name="what-is-intelligent-tracking-protection-itp"></a>¿Qué es Intelligent Tracking Protection (ITP)?
 
-Apple Safari cuenta con una característica de protección de la privacidad predeterminada denominada [Intelligent Tracking Protection](https://webkit.org/tracking-prevention-policy/) o *ITP*. ITP bloquea las cookies de "terceros", cookies en solicitudes que cruzan dominios.
+Apple Safari cuenta con una característica de protección de la privacidad predeterminada denominada [Intelligent Tracking Protection](https://webkit.org/tracking-prevention-policy/) o *ITP* . ITP bloquea las cookies de "terceros", cookies en solicitudes que cruzan dominios.
 
 Una forma común de seguimiento de usuarios es mediante la carga de un iframe en un sitio de un tercero en segundo plano y el uso de cookies para correlacionar al usuario a través de Internet. Desafortunadamente, este patrón también es la forma estándar de implementar el [flujo implícito](v2-oauth2-implicit-grant-flow.md) en las aplicaciones de página única (SPA). Cuando un explorador bloquea las cookies de terceros para impedir el seguimiento del usuario, también se interrumpen las SPA.
 
@@ -49,7 +49,7 @@ Las SPA tienen dos restricciones adicionales:
 * [El URI de redirección debe estar marcado con el tipo `spa`](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) para habilitar CORS en los puntos de conexión de inicio de sesión.
 * Los tokens de actualización emitidos a través del flujo de código de autorización para los URI de redirección `spa` tienen una vigencia de 24 horas en lugar de una vigencia de 90 días.
 
-![Flujo de código para aplicaciones SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagrama que muestra el flujo del código de autorización de OAuth 2 entre una aplicación de una página y el punto de conexión del servicio de token de seguridad." border="false":::
 
 ## <a name="performance-and-ux-implications"></a>Consecuencias en el rendimiento y la experiencia de usuario
 

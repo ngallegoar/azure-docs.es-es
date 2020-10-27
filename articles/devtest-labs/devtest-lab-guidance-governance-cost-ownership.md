@@ -4,12 +4,12 @@ description: En este artículo se proporciona información que ayudará a optimi
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476264"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328273"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gobernanza de la infraestructura de Azure DevTest Labs: administrar costo y propiedad
 El costo y la propiedad son las principales preocupaciones cuando considere la posibilidad de crear los entornos de desarrollo y pruebas. En esta sección, encontrará información que le ayudará a optimizar el costo y alinear la propiedad en su entorno.
@@ -34,9 +34,9 @@ Solo los suscriptores activos de Visual Studio (suscripciones estándar, suscrip
 
 Si decide usar la oferta de DevTest, tenga en cuenta que este beneficio es únicamente para desarrollo y pruebas de sus aplicaciones. El uso en el marco de la suscripción no incluye un Acuerdo de Nivel de Servicio con respaldo financiero, salvo para la utilización de Azure DevOps y HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Definir un acceso basado en roles en toda la organización
+## <a name="define-role-based-access-across-your-organization"></a>Definición de acceso basado en rol en la organización
 ### <a name="question"></a>Pregunta
-¿Cómo puedo definir el control de acceso basado en roles para mis entornos DevTest Labs para asegurarme de que el departamento de TI puede regir al mismo tiempo que los desarrolladores y probadores pueden hacer su trabajo? 
+¿Cómo defino el control de acceso basado en rol de Azure para mis entornos de DevTest Labs a fin de asegurarme de que TI puede conservar el control mientras los desarrolladores o evaluadores hacen su trabajo? 
 
 ### <a name="answer"></a>Respuesta
 Hay un amplio modelo, sin embargo, habrá detalles específicos que dependerán de su organización.
