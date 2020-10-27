@@ -37,7 +37,7 @@ La ubicación de red viene determinada por la dirección IP pública que proporc
 
 ## <a name="named-locations"></a>Ubicaciones con nombre
 
-Las ubicaciones se designan en Azure Portal en **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre**. Estas ubicaciones de red con nombre pueden incluir ubicaciones, como intervalos de redes de la sede central de una organización, intervalos de redes VPN o intervalos que desea bloquear. 
+Las ubicaciones se designan en Azure Portal en **Azure Active Directory** > **Seguridad** > **Acceso condicional** > **Ubicaciones con nombre** . Estas ubicaciones de red con nombre pueden incluir ubicaciones, como intervalos de redes de la sede central de una organización, intervalos de redes VPN o intervalos que desea bloquear. 
 
 ![Ubicación con nombre en Azure Portal](./media/location-condition/new-named-location.png)
 
@@ -80,7 +80,7 @@ Si se han configurado IP de confianza, se mostrarán como **IP de confianza de M
 
 ### <a name="skipping-multi-factor-authentication"></a>Omisión de la autenticación multifactor
 
-En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet**. Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, vea [Habilitar la función de direcciones IP de confianza mediante el acceso condicional](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+En la página de configuración del servicio de la autenticación multifactor, podrá identificar a los usuarios de la intranet corporativa seleccionando **Omitir la autenticación multifactor para solicitudes de usuarios federados en mi intranet** . Esta configuración indica que la notificación interna de la red corporativa, la cual emiten los Servicios de federación de Active Directory (AD FS), es de confianza y se utiliza para identificar al usuario como si estuviera en la red corporativa. Para obtener más información, vea [Habilitar la función de direcciones IP de confianza mediante el acceso condicional](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
 
 Tras activar esta opción, incluida la ubicación con nombre, las **IP de confianza de MFA** se aplicarán a todas las directivas que tengan esta opción seleccionada.
 
@@ -128,7 +128,7 @@ Al configurar la condición de ubicación, puede distinguir entre:
 
 ### <a name="any-location"></a>Cualquier ubicación
 
-De manera predeterminada, al seleccionar **Cualquier ubicación**, se aplicará una directiva a todas las direcciones IP, lo que incluye cualquier dirección de Internet. Esta configuración no está limitada a las direcciones IP que haya configurado como ubicación con nombre. Al seleccionar **Cualquier ubicación**, todavía puede excluir determinadas ubicaciones de una directiva. Por ejemplo, puede aplicar una directiva en todas las ubicaciones (excepto en aquellas que sean de confianza) para establecer el ámbito en todas las ubicaciones menos en la red corporativa.
+De manera predeterminada, al seleccionar **Cualquier ubicación** , se aplicará una directiva a todas las direcciones IP, lo que incluye cualquier dirección de Internet. Esta configuración no está limitada a las direcciones IP que haya configurado como ubicación con nombre. Al seleccionar **Cualquier ubicación** , todavía puede excluir determinadas ubicaciones de una directiva. Por ejemplo, puede aplicar una directiva en todas las ubicaciones (excepto en aquellas que sean de confianza) para establecer el ámbito en todas las ubicaciones menos en la red corporativa.
 
 ### <a name="all-trusted-locations"></a>Todas las ubicaciones de confianza
 
@@ -139,7 +139,7 @@ Esta opción se aplica a:
 
 ### <a name="selected-locations"></a>Ubicaciones seleccionadas
 
-Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para una directiva a la que se aplicará esta configuración, el usuario debe conectarse desde cualquiera de las ubicaciones seleccionadas. Al hacer clic en **Seleccionar**, se abrirá el control de selección de red con nombre que muestra la lista de redes con nombre. En la lista también se muestra si la ubicación de red se ha marcado como de confianza. La ubicación con nombre llamada **IP de confianza de MFA** se utiliza para incluir los valores de IP que pueden configurarse en la página de configuración del servicio de la autenticación multifactor.
+Con esta opción, puede seleccionar una o varias ubicaciones con nombre. Para una directiva a la que se aplicará esta configuración, el usuario debe conectarse desde cualquiera de las ubicaciones seleccionadas. Al hacer clic en **Seleccionar** , se abrirá el control de selección de red con nombre que muestra la lista de redes con nombre. En la lista también se muestra si la ubicación de red se ha marcado como de confianza. La ubicación con nombre llamada **IP de confianza de MFA** se utiliza para incluir los valores de IP que pueden configurarse en la página de configuración del servicio de la autenticación multifactor.
 
 ## <a name="ipv6-traffic"></a>Tráfico de IPv6
 

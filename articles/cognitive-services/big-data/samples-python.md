@@ -33,7 +33,7 @@ En los ejemplos de este artículo se usan estos servicios de Cognitive Services:
 1. Después de crear un nuevo cuaderno en Azure Databricks, copie el siguiente **código compartido** y péguelo en una nueva celda del cuaderno.
 1. Elija un ejemplo de servicio de entre los que se muestran a continuación y cópielo y péguelo en una segunda celda nueva del cuaderno.
 1. Reemplace cualquiera de los marcadores de posición de la clave de suscripción del servicio por su propia clave.
-1. Elija el botón Ejecutar (icono de triángulo) en la esquina superior derecha de la celda y, a continuación, seleccione **Ejecutar celda**.
+1. Elija el botón Ejecutar (icono de triángulo) en la esquina superior derecha de la celda y, a continuación, seleccione **Ejecutar celda** .
 1. Puede ver los resultados en una tabla debajo de la celda.
 
 ## <a name="shared-code"></a>Código compartido
