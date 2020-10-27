@@ -38,10 +38,10 @@ La participación en este programa requiere que revise y acepte el [anexo de Bus
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder firmar contratos legales con su cuenta.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
-1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador**.
-1. Seleccione **Acuerdos**.
+1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador** .
+1. Seleccione **Acuerdos** .
 1. Seleccione el vínculo de la versión y consulte el contrato.
-1. Para aceptar el acuerdo, seleccione **Aceptar el Contrato**.
+1. Para aceptar el acuerdo, seleccione **Aceptar el Contrato** .
 
 ## <a name="set-up-your-billing-information"></a>Configurar su información de facturación
 
@@ -51,11 +51,11 @@ Configure la información de facturación para el programa Connect para ISV de B
 > Este paso requiere un rol de *Propietario* o *Administrador* en el Centro de partners para poder actualizar la información de facturación con su cuenta.
 
 1. Inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard).
-1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador**.
-1. En **Cuenta**, seleccione **Perfil de facturación**.
+1. Seleccione **Configuración** (icono de engranaje) y, a continuación, **Configuración de desarrollador** .
+1. En **Cuenta** , seleccione **Perfil de facturación** .
 1. Revise la información del contacto principal y la de facturación completadas desde la entidad legal y realice las actualizaciones necesarias.
 1. Si procede, proporcione la configuración del código o número de identificación fiscal.
-1. Para guardar los cambios, haga clic en **Guardar**.
+1. Para guardar los cambios, haga clic en **Guardar** .
 
 > [!NOTE]
 > Puede actualizar el perfil de facturación en cualquier momento. Sin embargo, el *Nombre de la empresa* y el *País* de la dirección de facturación no se pueden cambiar más adelante.

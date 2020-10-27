@@ -32,13 +32,13 @@ Si la página del explorador de Internet se bloquea, pruebe cada uno de los sigu
 - Use un explorador de Internet diferente.
 - Use el modo de exploración privado en el explorador:
 
-   - **Edge:** abra **Configuración** (los tres puntos que están al lado de la imagen del perfil), seleccione **Ventana InPrivate nueva**y, después, busque e inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** elija el modo**Incógnito**.
+   - **Microsoft Edge:** abra **Configuración** (los tres puntos que están al lado de la imagen del perfil), seleccione **Ventana InPrivate nueva** y, después, busque e inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). 
+   - **Chrome:** elija el modo **Incógnito** .
    - **Safari:** Elija **File** (Archivo) y, después, **New Private Window** (Nueva ventana privada).
 
 - Borre la memoria caché y elimine las cookies de Internet:
 
-   - **Edge:** abra **Configuración** y seleccione **Privacidad y servicios**. Siga los pasos descritos en **Borrar datos de exploración**. Compruebe que las casillas **Historial de exploración**, **Historial de descargas**e **Imágenes y archivos en caché** están seleccionadas y, después, seleccione **Eliminar**.
+   - **Microsoft Edge:** abra **Configuración** y seleccione **Privacidad y servicios** . Siga los pasos descritos en **Borrar datos de exploración** . Compruebe que las casillas **Historial de exploración** , **Historial de descargas** e **Imágenes y archivos en caché** están seleccionadas y, después, seleccione **Eliminar** .
    - **Chrome:** Elija **Settings** (Configuración) y seleccione **Clear browsing data** (Borrar datos de exploración) en **Privacy and Security** (Privacidad y seguridad).
 
 ## <a name="you-are-automatically-signed-in-as-a-different-user"></a>Inicia sesión automáticamente con un usuario diferente
@@ -49,12 +49,12 @@ Para solucionar este problema, pruebe uno de los métodos siguientes:
 
 - Borre la memoria caché y elimine las cookies de Internet.
 
-   - **Edge:** abra **Configuración** y seleccione **Privacidad y servicios**. Siga los pasos descritos en **Borrar datos de exploración**. Compruebe que las casillas **Historial de exploración**, **Historial de descargas**, **Cookies** e **Imágenes y archivos en caché** están seleccionadas y, después, seleccione **Eliminar**.
+   - **Microsoft Edge:** abra **Configuración** y seleccione **Privacidad y servicios** . Siga los pasos descritos en **Borrar datos de exploración** . Compruebe que las casillas **Historial de exploración** , **Historial de descargas** , **Cookies** e **Imágenes y archivos en caché** están seleccionadas y, después, seleccione **Eliminar** .
    - **Chrome:** elija **Settings** (Configuración) y seleccione **Clear browsing data** (Borrar datos de exploración) en **Privacy and Security** (Privacidad y seguridad).
 - Restablezca los valores predeterminados de la configuración del explorador.
 - Use el modo de exploración privado para el explorador. 
-   - **Edge:** abra **Configuración** (los tres puntos que están al lado de la imagen del perfil), seleccione **Ventana InPrivate nueva**y, después, busque e inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). 
-   - **Chrome:** elija el modo**Incógnito**.
+   - **Microsoft Edge:** abra **Configuración** (los tres puntos que están al lado de la imagen del perfil), seleccione **Ventana InPrivate nueva** y, después, busque e inicie sesión en [Azure Portal](https://portal.azure.com/) o en el [Centro de cuentas de Azure](https://account.azure.com/Subscriptions). 
+   - **Chrome:** elija el modo **Incógnito** .
    - **Safari:** elija **File** (Archivo) y, después, **New Private Window** (Nueva ventana privada).
 
 ## <a name="i-can-sign-in-but-i-see-the-error-no-subscriptions-found"></a>Puedo iniciar sesión, pero veo el error No se encontraron suscripciones
@@ -73,8 +73,8 @@ Para corregir este problema:
 Compruebe si la cuenta que ha usado es el administrador de cuentas. Para comprobar quién es el administrador de cuentas, siga estos pasos:
 
 1.  Inicie sesión en la [vista de suscripciones de Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.  Seleccione la suscripción que quiera comprobar y, a continuación, seleccione **Configuración**.
-1.  Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
+1.  Seleccione la suscripción que quiera comprobar y, a continuación, seleccione **Configuración** .
+1.  Seleccione **Propiedades** . El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
 
 ## <a name="additional-help-resources"></a>Más recursos de ayuda
 

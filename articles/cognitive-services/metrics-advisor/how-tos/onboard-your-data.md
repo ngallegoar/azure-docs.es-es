@@ -95,7 +95,7 @@ Si *Country* (País) es una dimensión y *Language* (Idioma) se establece como *
 ### <a name="automatic-roll-up-settings"></a>Configuración de la acumulación automática
 
 > [!IMPORTANT]
-> Si desea habilitar el análisis de la causa principal y otras funcionalidades de diagnóstico, es necesario configurar los **valores de acumulación automática**. Una vez habilitado, no se puede cambiar la configuración de la acumulación automática.
+> Si desea habilitar el análisis de la causa principal y otras funcionalidades de diagnóstico, es necesario configurar los **valores de acumulación automática** . Una vez habilitado, no se puede cambiar la configuración de la acumulación automática.
 
 Metrics Advisor puede realizar automáticamente la agregación (por ejemplo, SUM, MAX y MIN) en cada dimensión durante la ingesta y, a continuación, crear una jerarquía que se usará en el análisis de la causa principal y en otras características de diagnóstico. 
 
@@ -107,7 +107,7 @@ Considere los siguientes escenarios:
 
 * *Mis datos ya se han acumulado y el valor de dimensión se representa mediante NULL o Empty (NULL o Vacío), que es el valor predeterminado, NULL only (Solo NULL) y Others (Otros).*
 
-    Esta opción significa que Metrics Advisor no necesita acumular los datos porque las filas ya se han sumado. Por ejemplo, si selecciona *NULL only* (Solo NULL), la segunda fila de datos del ejemplo siguiente se verá como una agregación de todos los países y del idioma *EN-US*; la cuarta fila de datos que tiene un valor vacío para *Country* (País) se considerará, sin embargo, una fila normal que podría indicar datos incompletos.
+    Esta opción significa que Metrics Advisor no necesita acumular los datos porque las filas ya se han sumado. Por ejemplo, si selecciona *NULL only* (Solo NULL), la segunda fila de datos del ejemplo siguiente se verá como una agregación de todos los países y del idioma *EN-US* ; la cuarta fila de datos que tiene un valor vacío para *Country* (País) se considerará, sin embargo, una fila normal que podría indicar datos incompletos.
     
     | Country (País) | Lenguaje | Income |
     |---------|----------|--------|
@@ -118,7 +118,7 @@ Considere los siguientes escenarios:
 
 * *Necesito que Metrics Advisor acumule los datos calculando Sum, Max, Min, Avg y Count, y que los represente mediante <some string>* .
 
-    Algunos orígenes de datos, como Cosmos DB o Azure Blob Storage, no admiten ciertos cálculos como *agrupar por* o *cubo*. Metrics Advisor proporciona la opción de acumulación para generar automáticamente un cubo de datos durante la ingesta.
+    Algunos orígenes de datos, como Cosmos DB o Azure Blob Storage, no admiten ciertos cálculos como *agrupar por* o *cubo* . Metrics Advisor proporciona la opción de acumulación para generar automáticamente un cubo de datos durante la ingesta.
     Esta opción significa que necesita Metrics Advisor para calcular la acumulación mediante el algoritmo que ha seleccionado y usar la cadena especificada para representar la acumulación en Metrics Advisor. Esto no cambiará ningún dato en el origen de datos.
     Por ejemplo, supongamos que tiene un conjunto de series temporales que representa las métricas Sales con la dimensión (Country, Region) (País, Región). Para una marca de tiempo determinada, podría ser similar a lo siguiente:
 
@@ -130,7 +130,7 @@ Considere los siguientes escenarios:
     | Estados Unidos | Montana          | 100   |
 
 
-    Después de habilitar la acumulación automática con *SUM*, Metrics Advisor calculará las combinaciones de dimensiones y sumará las métricas durante la ingesta de datos. El resultado podría ser el siguiente:
+    Después de habilitar la acumulación automática con *SUM* , Metrics Advisor calculará las combinaciones de dimensiones y sumará las métricas durante la ingesta de datos. El resultado podría ser el siguiente:
 
     | Country (País)       | Region           | Sales |
     | ------------ | --------------- | ---- |
@@ -166,7 +166,7 @@ Considere los siguientes escenarios:
 
     Tenga en cuenta lo siguiente antes de usar la característica de acumulación automática.
 
-    * Si desea usar *SUM* para agregar los datos, asegúrese de que las métricas se suman en cada dimensión. Estos son algunos ejemplos de métricas *no aditivas*.
+    * Si desea usar *SUM* para agregar los datos, asegúrese de que las métricas se suman en cada dimensión. Estos son algunos ejemplos de métricas *no aditivas* .
       * Métricas basadas en fracciones. Se incluyen la proporción, el porcentaje, etc. Por ejemplo, en EE. UU., no debe agregar la tasa de desempleo de cada estado para calcular la tasa de desempleo de todo el país.
       * Superposición en una dimensión. Por ejemplo, no debe agregar el número de personas de cada deporte para calcular el número de personas a las que les gusta el deporte, ya que hay una superposición entre ellas: a una persona le pueden gustar varios deportes.
     * Para garantizar el buen estado de todo el sistema, el tamaño del cubo es limitado. Actualmente, el límite es 1 000 000. Si los datos superan ese límite, se producirá un error en la ingesta en esa marca de tiempo.
@@ -185,7 +185,7 @@ Proporcione un nombre personalizado a la fuente de distribución de datos, que s
 Para comprobar los detalles del error de la ingesta: 
 
 1. Haga clic en **Show Details** (Mostrar detalles).
-2. Haga clic en **Status** (Estado) y seleccione **Failed** (Fallida) o **Error**.
+2. Haga clic en **Status** (Estado) y seleccione **Failed** (Fallida) o **Error** .
 3. Mantenga el mouse sobre una ingesta fallida y vea el mensaje de detalles que aparece.
 
 :::image type="content" source="../media/datafeeds/check-failed-ingestion.png" alt-text="Barra de progreso de la ingesta":::

@@ -56,27 +56,27 @@ Para agregar su propia información de consentimiento, personalice el ejemplo si
 
 ### <a name="phone-sign-up-experience"></a>Experiencia de registro por teléfono
 
-Si el usuario aún no tiene una cuenta para la aplicación, puede crear una con el vínculo **Registrarse ahora**. Aparece una página de registro, donde el usuario selecciona su **país**, escribe su número de teléfono y selecciona **Enviar código**.
+Si el usuario aún no tiene una cuenta para la aplicación, puede crear una con el vínculo **Registrarse ahora** . Aparece una página de registro, donde el usuario selecciona su **país** , escribe su número de teléfono y selecciona **Enviar código** .
 
 ![El usuario inicia el registro por teléfono](media/phone-authentication/phone-signup-start.png)
 
-Se envía un código de verificación de un solo uso al número de teléfono del usuario. El usuario escribe el **código de verificación** en la página de registro y, luego, selecciona **Comprobar el código**. (Si el usuario no puede recuperar el código, puede seleccionar **Enviar nuevo código**).
+Se envía un código de verificación de un solo uso al número de teléfono del usuario. El usuario escribe el **código de verificación** en la página de registro y, luego, selecciona **Comprobar el código** . (Si el usuario no puede recuperar el código, puede seleccionar **Enviar nuevo código** ).
 
 ![El usuario verifica el código durante el registro por teléfono](media/phone-authentication/phone-signup-verify-code.png)
 
- El usuario escribe cualquier otra información solicitada en la página de registro, por ejemplo, **Nombre para mostrar**, **Nombre dado** y **Apellido** (el país y el número de teléfono permanecen rellenados). Si el usuario quiere usar un número de teléfono diferente, puede elegir **Cambiar número** para reiniciar el registro. Cuando termine, el usuario selecciona **Continuar**.
+ El usuario escribe cualquier otra información solicitada en la página de registro, por ejemplo, **Nombre para mostrar** , **Nombre dado** y **Apellido** (el país y el número de teléfono permanecen rellenados). Si el usuario quiere usar un número de teléfono diferente, puede elegir **Cambiar número** para reiniciar el registro. Cuando termine, el usuario selecciona **Continuar** .
 
 ![El usuario proporciona información adicional](media/phone-authentication/phone-signup-additional-info.png)
 
-A continuación, se pide al usuario que proporcione un correo electrónico de recuperación. El usuario escribe su dirección de correo electrónico y, luego, selecciona **Enviar código de comprobación**. Se envía un código a la bandeja de entrada de correo electrónico del usuario, que puede recuperar y escribir en el cuadro **Código de verificación**. A continuación, el usuario selecciona **Comprobar código**. 
+A continuación, se pide al usuario que proporcione un correo electrónico de recuperación. El usuario escribe su dirección de correo electrónico y, luego, selecciona **Enviar código de comprobación** . Se envía un código a la bandeja de entrada de correo electrónico del usuario, que puede recuperar y escribir en el cuadro **Código de verificación** . A continuación, el usuario selecciona **Comprobar código** . 
 
-Una vez que se comprueba el código, el usuario selecciona **Crear** para crear su cuenta. O bien, si el usuario quiere usar una dirección de correo electrónico diferente, puede elegir **Cambiar correo electrónico**.
+Una vez que se comprueba el código, el usuario selecciona **Crear** para crear su cuenta. O bien, si el usuario quiere usar una dirección de correo electrónico diferente, puede elegir **Cambiar correo electrónico** .
 
 ![El usuario crea una cuenta](media/phone-authentication/email-verification.png)
 
 ### <a name="phone-sign-in-experience"></a>Experiencia de inicio de sesión por teléfono
 
-Si el usuario tiene una cuenta con el número de teléfono como identificador, escribe su número de teléfono y selecciona **Continuar**. Confirma el país y el número de teléfono seleccionando **Continuar** y se envía un código de verificación de un solo uso a su teléfono. El usuario escribe el código de verificación y selecciona **Continuar** para iniciar sesión.
+Si el usuario tiene una cuenta con el número de teléfono como identificador, escribe su número de teléfono y selecciona **Continuar** . Confirma el país y el número de teléfono seleccionando **Continuar** y se envía un código de verificación de un solo uso a su teléfono. El usuario escribe el código de verificación y selecciona **Continuar** para iniciar sesión.
 
 ![Experiencia de usuario de inicio de sesión por teléfono](media/phone-authentication/phone-signin-screens.png)
 
@@ -106,15 +106,15 @@ En los siguientes pasos se da por supuesto que ha completado los [requisitos pre
 
     `active-directory-b2c-custom-policy-starterpack/scenarios/`**`phone-number-passwordless`**
 
-1. En cada archivo, reemplace la cadena `yourtenant` por el nombre del inquilino de Azure AD B2C. Por ejemplo, si el nombre del inquilino de B2C es *contosob2c*, todas las instancias de `yourtenant.onmicrosoft.com` se convierten en `contosob2c.onmicrosoft.com`.
+1. En cada archivo, reemplace la cadena `yourtenant` por el nombre del inquilino de Azure AD B2C. Por ejemplo, si el nombre del inquilino de B2C es *contosob2c* , todas las instancias de `yourtenant.onmicrosoft.com` se convierten en `contosob2c.onmicrosoft.com`.
 
-1. Complete los pasos de la sección [Agregar identificadores de aplicación a la directiva personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md). En este caso, actualice `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con los valores de **Id. de aplicación (cliente)** de las dos aplicaciones que registró al completar los requisitos previos, *IdentityExperienceFramework* y *ProxyIdentityExperienceFramework*.
+1. Complete los pasos de la sección [Agregar identificadores de aplicación a la directiva personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de [Introducción a las directivas personalizadas en Azure Active Directory B2C](custom-policy-get-started.md). En este caso, actualice `/phone-number-passwordless/` **`Phone_Email_Base.xml`** con los valores de **Id. de aplicación (cliente)** de las dos aplicaciones que registró al completar los requisitos previos, *IdentityExperienceFramework* y *ProxyIdentityExperienceFramework* .
 
 ## <a name="upload-the-policy-files"></a>Carga de los archivos de directivas
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya al inquilino de Azure AD B2C.
-1. En **Directivas**, seleccione **Identity Experience Framework**.
-1. Seleccione **Cargar directiva personalizada**.
+1. En **Directivas** , seleccione **Identity Experience Framework** .
+1. Seleccione **Cargar directiva personalizada** .
 1. Cargue los archivos de directivas en el siguiente orden:
     1. *Phone_Email_Base.xml*
     1. *SignUpOrSignInWithPhone.xml*
@@ -128,9 +128,9 @@ A medida que carga cada archivo, Azure agrega el prefijo `B2C_1A_`.
 
 ## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
 
-1. En **Directivas personalizadas**, seleccione **B2C_1A_SignUpOrSignInWithPhone**.
-1. En **Seleccionar aplicación**, seleccione la aplicación *webapp1* que registró al completar los requisitos previos.
-1. En **Seleccionar dirección URL de respuesta**, elija `https://jwt.ms`.
+1. En **Directivas personalizadas** , seleccione **B2C_1A_SignUpOrSignInWithPhone** .
+1. En **Seleccionar aplicación** , seleccione la aplicación *webapp1* que registró al completar los requisitos previos.
+1. En **Seleccionar dirección URL de respuesta** , elija `https://jwt.ms`.
 1. Seleccione **Ejecutar ahora** y regístrese con una dirección de correo electrónico o un número de teléfono.
 1. Seleccione **Ejecutar ahora** de nuevo e inicie sesión con la misma cuenta para confirmar que tiene la configuración correcta.
 

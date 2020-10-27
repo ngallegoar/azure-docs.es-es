@@ -47,7 +47,7 @@ En este tutorial, aprenderá sobre temas como:
 Antes de comenzar, asegúrese de que:
 
 * Ha completado el [Tutorial: Copia de datos a Azure Data Box y comprobación de](data-box-deploy-copy-data.md).
-* Los trabajos de copia se han completado y no aparece ningún error en la página **Conectar y copiar**. Preparación para el envío no se pueden ejecutar si los trabajos de copia están en curso o hay errores en la página **Conectar y copiar**.
+* Los trabajos de copia se han completado y no aparece ningún error en la página **Conectar y copiar** . Preparación para el envío no se pueden ejecutar si los trabajos de copia están en curso o hay errores en la página **Conectar y copiar** .
 
 ## <a name="prepare-to-ship"></a>Preparación para el envío
 
@@ -273,7 +273,7 @@ Una vez que se completa la carga en Azure, Data Box elimina los datos de los dis
 
 1. Empaquete el dispositivo para el envío de devolución en la caja original.
 2. Enrolle y coloque de forma segura el cable de alimentación que se suministró junto con el dispositivo en la parte posterior del mismo.
-3. Llame a la línea directa de **Quantium Solutions**, al número **(852) 2318 1213**, en horario de oficina (de 9 a 18 horas de lunes a viernes).  
+3. Llame a la línea directa de **Quantium Solutions** , al número **(852) 2318 1213** , en horario de oficina (de 9 a 18 horas de lunes a viernes).  
 4. Indique Recogida de Microsoft Azure, el número de referencia y el número de seguimiento (encima de código de barras) en la etiqueta de envío de devolución para concertar la recogida.
 5. Recibirá una confirmación verbal para la organización de la recogida. Si el mensajero no realiza la recogida, llame a la línea directa de Quantium Solutions para buscar otra fecha.
 6. Después de reservar una recogida con Quantium, comparta la confirmación con [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) con la siguiente plantilla:

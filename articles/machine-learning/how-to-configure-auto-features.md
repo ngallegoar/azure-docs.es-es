@@ -27,7 +27,7 @@ En esta guía obtendrá información sobre:
 - Valores de caracterización que ofrece Azure Machine Learning.
 - Procedimientos para personalizar esas características para los [experimentos de aprendizaje automático automatizado](concept-automated-ml.md).
 
-La *ingeniería de características* es el proceso de usar el conocimiento de dominio de los datos para crear características que permitan mejorar los algoritmos de aprendizaje automático (ML). En Azure Machine Learning, se aplican técnicas de escalado de datos y normalización para facilitar la ingeniería de características. El conjunto de estas técnicas y la ingeniería de características se conoce como *caracterización* en el área de aprendizaje automático automatizado o *AutoML*, y experimentos.
+La *ingeniería de características* es el proceso de usar el conocimiento de dominio de los datos para crear características que permitan mejorar los algoritmos de aprendizaje automático (ML). En Azure Machine Learning, se aplican técnicas de escalado de datos y normalización para facilitar la ingeniería de características. El conjunto de estas técnicas y la ingeniería de características se conoce como *caracterización* en el área de aprendizaje automático automatizado o *AutoML* , y experimentos.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -38,7 +38,7 @@ En este artículo se da por supuesto que ya sabe cómo configurar un experimento
 
 ## <a name="configure-featurization"></a>Configuración de la caracterización
 
-En todos los experimentos de aprendizaje automático automatizado se aplican [técnicas de escalado automático y normalización](#featurization) a los datos de forma predeterminada. Estas técnicas son tipos de caracterización que ayudan a *ciertos* algoritmos que son sensibles a las características a diferentes escalas. Sin embargo, también puede habilitar una caracterización adicional, como la *atribución de los valores que faltan*, la *codificación* y las *transformaciones*.
+En todos los experimentos de aprendizaje automático automatizado se aplican [técnicas de escalado automático y normalización](#featurization) a los datos de forma predeterminada. Estas técnicas son tipos de caracterización que ayudan a *ciertos* algoritmos que son sensibles a las características a diferentes escalas. Sin embargo, también puede habilitar una caracterización adicional, como la *atribución de los valores que faltan* , la *codificación* y las *transformaciones* .
 
 > [!NOTE]
 > Los pasos de la caracterización del aprendizaje automático automatizado (tales como la normalización de características, el control de los datos que faltan o la conversión de valores de texto a numéricos) se convierten en parte del modelo subyacente. Cuando se usa el modelo para realizar predicciones, se aplican automáticamente a los datos de entrada los mismos pasos de caracterización que se aplican durante el entrenamiento.
@@ -66,7 +66,7 @@ En la tabla siguiente se resumen las técnicas que se aplican automáticamente a
 | ------------- | ------------- |
 |**Eliminación de las características de cardinalidad alta o sin variación*** |Permite eliminar estas características de los conjuntos de entrenamiento y validación. Se aplican a características en las que faltan todos los valores, que tienen el mismo valor en todas las filas o que tienen una cardinalidad alta (por ejemplo, hashes, id. o GUID).|
 |**Atribución de los valores que faltan*** |Para las características numéricas, se atribuyen con el promedio de los valores de la columna.<br/><br/>Para las características de categorías, se atribuyen con el valor más frecuente.|
-|**Generación de características adicionales*** |Para las características de fecha y hora: año, mes, día, día de la semana, día del año, trimestre, semana del año, hora, minuto, segundo.<br><br> *En el caso de las tareas de previsión*, se crean estas características adicionales de fecha y hora: año ISO, semestre, mes natural como cadena, semana, día de la semana como cadena, día del trimestre, día del año, AM/PM (0 si la hora es antes de mediodía (12 p. m.); 1, en caso contrario), AM/PM como cadena, hora del día (formato de 12 h)<br/><br/>Para las características de texto: Frecuencia de término basada en unigramas, bigramas y trigramas. Más información sobre [cómo se hace esto con BERT.](#bert-integration)|
+|**Generación de características adicionales*** |Para las características de fecha y hora: año, mes, día, día de la semana, día del año, trimestre, semana del año, hora, minuto, segundo.<br><br> *En el caso de las tareas de previsión* , se crean estas características adicionales de fecha y hora: año ISO, semestre, mes natural como cadena, semana, día de la semana como cadena, día del trimestre, día del año, AM/PM (0 si la hora es antes de mediodía (12 p. m.); 1, en caso contrario), AM/PM como cadena, hora del día (formato de 12 h)<br/><br/>Para las características de texto: Frecuencia de término basada en unigramas, bigramas y trigramas. Más información sobre [cómo se hace esto con BERT.](#bert-integration)|
 |**Transformación y codificación***|Permite transformar las características numéricas con pocos valores únicos en características de categorías.<br/><br/>La codificación "one-hot" se utiliza para las características de categoría de cardinalidad baja. La codificación "one-hot-hash" se utiliza para las características de categorías de cardinalidad alta.|
 |**Inserciones de palabras**|Caracterizador de texto que convierte los vectores de tokens de texto en vectores de oración mediante un modelo previamente entrenado. El vector de inserción de cada palabra en un documento se agrega con el resto para producir un vector de característica de documento.|
 |**Codificaciones de destino**|En el caso de las características de categorías, este paso se asigna a cada categoría con un valor de destino promedio para los problemas de regresión, y a la probabilidad de clase para cada clase para problemas de clasificación. La ponderación basada en la frecuencia y la validación cruzada de k iteraciones se aplican para reducir el ajuste excesivo de la asignación y el ruido que provocan las categorías de datos dispersos.|
@@ -80,8 +80,8 @@ Los *límites de protección de datos* permiten identificar posibles incidencias
 
 Se aplican límites de protección de datos:
 
-- **En el caso de los experimentos de SDK**: cuando se especifican los parámetros `"featurization": 'auto'` o `validation=auto` en el objeto `AutoMLConfig`.
-- **En el caso de experimentos de Studio**: cuando se habilita la caracterización automática.
+- **En el caso de los experimentos de SDK** : cuando se especifican los parámetros `"featurization": 'auto'` o `validation=auto` en el objeto `AutoMLConfig`.
+- **En el caso de experimentos de Studio** : cuando se habilita la caracterización automática.
 
 Puede revisar los límites de protección de datos del experimento:
 
@@ -107,7 +107,7 @@ Límite de protección|Estado|Condición&nbsp;para&nbsp;el desencadenador
 ---|---|---
 **Atribución de los valores de características que faltan** |Superado <br><br><br> ¡Listo!| No se ha detectado que falten valores de característica en los datos de entrenamiento. Obtenga más información sobre la [imputación de valores que faltan](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options). <br><br> Se han detectado valores de característica que faltan en los datos de entrenamiento y se han imputado.
 **Control de características de cardinalidad alta** |Superado <br><br><br> ¡Listo!| Se han analizado las entradas y no se han detectado características de cardinalidad alta. <br><br> Se han detectado características de cardinalidad alta en las entradas y se han controlado.
-**Control de división de validación** |¡Listo!| La configuración de validación se ha establecido en `'auto'` y los datos de entrenamiento contenían *menos de 20 000 filas*. <br> Todas las iteraciones del modelo entrenado se han validado mediante validación cruzada. Obtenga más información sobre la [validación de datos](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> La configuración de validación se ha establecido en `'auto'` y los datos de entrenamiento contenían *más de 20 000 filas*. <br> Los datos de entrada se han dividido en un conjunto de datos de entrenamiento y un conjunto de datos de validación para comprobar el modelo.
+**Control de división de validación** |¡Listo!| La configuración de validación se ha establecido en `'auto'` y los datos de entrenamiento contenían *menos de 20 000 filas* . <br> Todas las iteraciones del modelo entrenado se han validado mediante validación cruzada. Obtenga más información sobre la [validación de datos](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> La configuración de validación se ha establecido en `'auto'` y los datos de entrenamiento contenían *más de 20 000 filas* . <br> Los datos de entrada se han dividido en un conjunto de datos de entrenamiento y un conjunto de datos de validación para comprobar el modelo.
 **Detección de equilibrio de clases** |Superado <br><br><br><br>Con alertas <br><br><br>¡Listo! | Se analizaron las entradas y todas las clases están equilibradas en los datos de entrenamiento. Se considera que un conjunto de datos está equilibrado si todas las clases tienen una representación adecuada en el conjunto de datos según el número y proporción de las muestras. <br><br> Se han detectado clases desequilibradas en las entradas. Para corregir el sesgo del modelo, corrija el problema de equilibrio. Obtenga más información sobre [datos desequilibrados](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Se detectaron clases desequilibradas en las entradas, y la lógica de barrido ha determinado aplicar el equilibrio.
 **Detección de problemas de memoria** |Superado <br><br><br><br> ¡Listo! |<br> Se han analizado los valores seleccionados (horizonte, retardo y ventana con desplazamiento) sin que se hayan detectado incidencias potenciales de memoria insuficiente. Obtenga más información sobre las [configuraciones de previsión](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) de series temporales. <br><br><br>Se han analizado los valores seleccionados (horizonte, retardo y ventana con desplazamiento) y pueden provocar que el experimento se quede sin memoria. Se han desactivado las configuraciones de ventana con desplazamiento o retardo.
 **Detección de frecuencias** |Superado <br><br><br><br> ¡Listo! |<br> Se ha analizado la serie temporal y todos los puntos de datos están alineados con la frecuencia detectada. <br> <br> Se ha analizado la serie temporal y se han detectado puntos de datos que no están alineados con la frecuencia detectada. Estos puntos de datos se quitaron del conjunto de datos. Obtenga más información sobre la [preparación de datos para las previsiones de serie temporal](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
@@ -123,7 +123,7 @@ Las personalizaciones compatibles incluyen:
 |Personalización|Definición|
 |--|--|
 |**Actualización del propósito de la columna**|Invalida el tipo de característica detectado automáticamente para la columna especificada.|
-|**Actualización de parámetros del transformador** |Actualizar los parámetros para el transformador especificado. Actualmente admite *Imputer* (media, más frecuente y mediana) y *HashOneHotEncoder*.|
+|**Actualización de parámetros del transformador** |Actualizar los parámetros para el transformador especificado. Actualmente admite *Imputer* (media, más frecuente y mediana) y *HashOneHotEncoder* .|
 |**Quitar columnas** |Especifica las columnas que se van a eliminar de la caracterización.|
 |**Transformadores de bloque**| Especifica los transformadores de bloque que se van a usar en el proceso de características.|
 
@@ -316,9 +316,9 @@ Para invocar BERT, tiene que establecer `enable_dnn: True` en automl_settings y 
 
 AutoML realiza los siguientes pasos para BERT. 
 
-1. **El preprocesamiento y la tokenización de todas las columnas de texto**. Por ejemplo, el transformador "StringCast" se puede encontrar en el resumen de la caracterización del modelo final. Puede encontrar un ejemplo de cómo generar el resumen de caracterización del modelo en [este cuaderno](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
+1. **El preprocesamiento y la tokenización de todas las columnas de texto** . Por ejemplo, el transformador "StringCast" se puede encontrar en el resumen de la caracterización del modelo final. Puede encontrar un ejemplo de cómo generar el resumen de caracterización del modelo en [este cuaderno](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Concatene todas las columnas de texto en una sola columna de texto**, por lo tanto, `StringConcatTransformer` en el modelo final. 
+2. **Concatene todas las columnas de texto en una sola columna de texto** , por lo tanto, `StringConcatTransformer` en el modelo final. 
 
     Nuestra implementación de BERT limita la longitud total del texto de un ejemplo de entrenamiento a 128 tokens. Esto significa que todas las columnas de texto, cuando se concatenan, deben tener una longitud máxima de 128 tokens. Si existen varias columnas, cada columna debe eliminarse de forma que se satisfaga esta condición. En caso contrario, en las columnas concatenadas de más de 128 tokens, la capa del tokenizador de BERT trunca esta entrada a 128 tokens.
 
@@ -359,4 +359,4 @@ automl_settings = {
 
 * Obtenga más información sobre [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
 
-* Obtenga más información sobre los [procedimientos para entrenar un modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md) o los [procedimientos pata entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md).
+* Obtenga más información sobre los [procedimientos para entrenar un modelo de regresión con aprendizaje automático automatizado](tutorial-auto-train-models.md) o los [procedimientos para entrenar con aprendizaje automático automatizado en un recurso remoto](how-to-auto-train-remote.md).
