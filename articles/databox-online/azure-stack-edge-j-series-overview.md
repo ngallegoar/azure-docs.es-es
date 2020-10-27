@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 09/23/2020
 ms.author: alkohli
 ms.openlocfilehash: 11ed87f8cf5aabb86f709d938acc4c31b737ca91
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/05/2020
 ms.locfileid: "91318606"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>¿Qué es Azure Stack Edge Pro R?
@@ -36,7 +36,7 @@ Azure Stack Edge Pro R presenta las siguientes funcionalidades:
 |Modo desconectado| El dispositivo y el servicio se pueden administrar a través de Azure Stack Hub. Implemente, ejecute y administre aplicaciones en modo sin conexión. <br> El modo sin conexión es compatible con escenarios de carga sin conexión.|
 |Protocolos de transferencia de archivos compatibles     |Compatibilidad con los protocolos estándar SMB, NFS y REST para la ingesta de datos. <br> Para obtener más información sobre las versiones compatibles, vaya a [Requisitos del sistema de Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
 |Actualización de datos     | Capacidad para actualizar los archivos locales con la versión más reciente de la nube.|
-|Cifrado doble    | El uso de unidades de cifrado automático proporciona la primera capa de cifrado. VPN proporciona la segunda capa de cifrado. Compatibilidad con BitLocker para cifrar los datos localmente y proteger las transferencias de datos en la nube mediante *HTTPS*.|
+|Cifrado doble    | El uso de unidades de cifrado automático proporciona la primera capa de cifrado. VPN proporciona la segunda capa de cifrado. Compatibilidad con BitLocker para cifrar los datos localmente y proteger las transferencias de datos en la nube mediante *HTTPS* .|
 |Límite de ancho de banda| Limite el uso de ancho de banda durante las horas punta.|
 
 <!--|Scale out file server| Available as 1-node and 4-node cluster configurations|-->
@@ -45,39 +45,39 @@ Azure Stack Edge Pro R presenta las siguientes funcionalidades:
 
 Estos son los distintos escenarios en los que se puede usar Azure Stack Edge Pro R para la inferencia rápida de Machine Learning (ML) perimetral y el preprocesamiento de datos antes de enviarlos a Azure.
 
-- **Inferencia con Azure Machine Learning**: con Azure Stack Edge Pro R, puede ejecutar modelos de ML para obtener resultados rápidos sobre los que se puede actuar antes de que los datos se envíen a la nube. El conjunto de datos completo se puede transferir opcionalmente para continuar entrenando y mejorando los modelos de Machine Learning. Para obtener más información sobre cómo usar los modelos acelerados por hardware de Azure ML en el dispositivo de Azure Stack Edge Pro R, consulte [Implementación de modelos acelerados por hardware de Azure ML en Azure Stack Edge Pro R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
+- **Inferencia con Azure Machine Learning** : con Azure Stack Edge Pro R, puede ejecutar modelos de ML para obtener resultados rápidos sobre los que se puede actuar antes de que los datos se envíen a la nube. El conjunto de datos completo se puede transferir opcionalmente para continuar entrenando y mejorando los modelos de Machine Learning. Para obtener más información sobre cómo usar los modelos acelerados por hardware de Azure ML en el dispositivo de Azure Stack Edge Pro R, consulte [Implementación de modelos acelerados por hardware de Azure ML en Azure Stack Edge Pro R](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
-- **Preprocesamiento de datos**: transforme datos antes de enviarlos a Azure para crear un conjunto de datos más accionable. El preprocesamiento se puede usar para:
+- **Preprocesamiento de datos** : transforme datos antes de enviarlos a Azure para crear un conjunto de datos más accionable. El preprocesamiento se puede usar para:
 
     - Agregar datos.
     - Modificar datos, por ejemplo, para quitar los datos personales.
     - Subconjuntos de datos para optimizar el almacenamiento y el ancho de banda, o para un análisis más exhaustivo.
     - Analizar y reaccionar a los eventos de IoT.
 
-- **Transferencia de datos a través de la red a Azure**: use Azure Stack Edge Pro R para transferir datos a Azure de forma rápida y sencilla a fin de poder realizar más procesos y análisis, o para fines de archivado.
+- **Transferencia de datos a través de la red a Azure** : use Azure Stack Edge Pro R para transferir datos a Azure de forma rápida y sencilla a fin de poder realizar más procesos y análisis, o para fines de archivado.
 
 ## <a name="components"></a>Componentes
 
 La solución Azure Stack Edge Pro R consta de un recurso Azure Stack Edge, un dispositivo físico Azure Stack Edge Pro R y una interfaz de usuario web local.
 
-- **Dispositivo físico Azure Stack Edge Pro R**: un dispositivo de almacenamiento y proceso de un nodo incluido en una caja de transporte resistente. También está disponible un sistema de alimentación ininterrumpida (SAI) opcional.
+- **Dispositivo físico Azure Stack Edge Pro R** : un dispositivo de almacenamiento y proceso de un nodo incluido en una caja de transporte resistente. También está disponible un sistema de alimentación ininterrumpida (SAI) opcional.
 
     ![Para el dispositivo de un nodo Azure Stack Edge Pro R](media/azure-stack-edge-j-series-overview/device-image-1.png)
 
-- **Recurso Azure Stack Edge**: recurso de Azure Portal que le permite administrar un dispositivo Azure Stack Edge Pro R resistente desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el recurso Azure Stack Edge para crear y administrar recursos, ver y administrar dispositivos y alertas y administrar recursos compartidos.  
+- **Recurso Azure Stack Edge** : recurso de Azure Portal que le permite administrar un dispositivo Azure Stack Edge Pro R resistente desde una interfaz web a la cual puede acceder desde diferentes ubicaciones geográficas. Use el recurso Azure Stack Edge para crear y administrar recursos, ver y administrar dispositivos y alertas y administrar recursos compartidos.  
 
-- **Interfaz de usuario web local de Azure Stack Edge Pro R**: una interfaz de usuario web local basada en explorador que se encuentra en su dispositivo Azure Stack Edge Pro R y cuya finalidad principal es la configuración inicial del dispositivo. Además, use la interfaz de usuario web local para ejecutar diagnósticos, apagar y reiniciar el dispositivo de Azure Stack Edge Pro, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft para realizar una solicitud de servicio.
+- **Interfaz de usuario web local de Azure Stack Edge Pro R** : una interfaz de usuario web local basada en explorador que se encuentra en su dispositivo Azure Stack Edge Pro R y cuya finalidad principal es la configuración inicial del dispositivo. Además, use la interfaz de usuario web local para ejecutar diagnósticos, apagar y reiniciar el dispositivo de Azure Stack Edge Pro, ver registros de copia y ponerse en contacto con el Soporte técnico de Microsoft para realizar una solicitud de servicio.
 
 
 ## <a name="region-availability"></a>Disponibilidad en regiones
 
 El dispositivo físico Azure Stack Edge Pro R, el recurso de Azure y la cuenta de almacenamiento de destino a la que transferirá los datos no tienen que estar en la misma región.
 
-- **Disponibilidad de recursos**: para obtener una lista de todas las regiones en que está disponible el recurso de Azure Stack Edge, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
+- **Disponibilidad de recursos** : para obtener una lista de todas las regiones en que está disponible el recurso de Azure Stack Edge, vaya a [Productos de Azure disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). 
 
-- **Disponibilidad del dispositivo**: para ver una lista de todos los países en los que el dispositivo Azure Stack Edge Pro R está disponible, vaya a la sección **Availability** (Disponibilidad) de la pestaña **Azure Stack Edge Pro R** para conocer los [precios de Azure Stack Edge Pro R](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR).
+- **Disponibilidad del dispositivo** : para ver una lista de todos los países en los que el dispositivo Azure Stack Edge Pro R está disponible, vaya a la sección **Availability** (Disponibilidad) de la pestaña **Azure Stack Edge Pro R** para conocer los [precios de Azure Stack Edge Pro R](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgeProR).
 
-- **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Pro R deben estar ubicadas cerca de la ubicación del dispositivo a fin de obtener un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
+- **Cuentas de almacenamiento de destino** : las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. Las regiones en las que las cuentas de almacenamiento almacenan los datos de Azure Stack Edge Pro R deben estar ubicadas cerca de la ubicación del dispositivo a fin de obtener un rendimiento óptimo. Una cuenta de almacenamiento que se encuentra lejos del dispositivo causa latencias largas y un rendimiento más lento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -25,13 +25,13 @@ Una vez que obtenga el nombre de host (que termina en `mixedreality.azure.com`) 
 Si la aplicación que llama a `ConnectToArrInspectorAsync` ya se está ejecutando en un equipo:
 
 * Si usa la integración de Unity, puede que se inicie automáticamente.
-* De lo contrario, encontrará el archivo en *Carpetas de usuarios\\LocalAppData\\[su_aplicación]\\AC\\Temp*.
+* De lo contrario, encontrará el archivo en *Carpetas de usuarios\\LocalAppData\\[su_aplicación]\\AC\\Temp* .
 
 Si la aplicación se ejecuta en un dispositivo HoloLens:
 
 1. Acceda al dispositivo HoloLens mediante el [Portal de dispositivos Windows](/windows/mixed-reality/using-the-windows-device-portal).
-1. Vaya a *Sistema > Explorador de archivos*.
-1. Vaya a *Carpetas de usuarios\\LocalAppData\\[su_aplicación]\\AC\\Temp*.
+1. Vaya a *Sistema > Explorador de archivos* .
+1. Vaya a *Carpetas de usuarios\\LocalAppData\\[su_aplicación]\\AC\\Temp* .
 1. Guarde el archivo *StartArrInspector.html* en el equipo.
 1. Abra *StartArrInspector.html* para cargar la instancia de ArrInspector de la sesión.
 
@@ -41,7 +41,7 @@ Si la aplicación se ejecuta en un dispositivo HoloLens:
 
 Este panel muestra gráficos de todos los valores de rendimiento por fotograma que muestra el servidor. Actualmente, se incluyen los valores de hora del fotograma, FPS, uso de CPU y memoria, estadísticas de memoria como el uso general de la RAM, recuentos de objetos, etc.
 
-Para visualizar uno de estos parámetros, haga clic en el botón **Agregar nuevo** y seleccione uno de los valores disponibles que se muestran en el cuadro de diálogo. Esta acción agrega un nuevo gráfico de desplazamiento al panel y realiza un seguimiento de los valores en tiempo real. En el lado derecho puede ver los valores *mínimo*, *máximo* y *actual*.
+Para visualizar uno de estos parámetros, haga clic en el botón **Agregar nuevo** y seleccione uno de los valores disponibles que se muestran en el cuadro de diálogo. Esta acción agrega un nuevo gráfico de desplazamiento al panel y realiza un seguimiento de los valores en tiempo real. En el lado derecho puede ver los valores *mínimo* , *máximo* y *actual* .
 
 Para desplazar lateralmente el gráfico, puede arrastrar su contenido con el mouse; sin embargo, el movimiento panorámico horizontal solo es posible cuando ArrInspector está en estado de pausa.
 
@@ -90,7 +90,7 @@ El botón **Collect Debug Information for VM** (Recopilar información de depura
 
 La información de depuración ayuda al equipo de Azure Remote Rendering a analizar los problemas que se producen en una instancia de ARR en ejecución. El cuadro de diálogo tiene un campo de texto para proporcionar detalles adicionales, por ejemplo, los pasos para reproducir un problema.
 
-Después de hacer clic en el botón **Iniciar la recopilación**, el cuadro de diálogo se cerrará y se iniciará el proceso de recopilación. La recopilación de la información en la VM puede tardar unos minutos.
+Después de hacer clic en el botón **Iniciar la recopilación** , el cuadro de diálogo se cerrará y se iniciará el proceso de recopilación. La recopilación de la información en la VM puede tardar unos minutos.
 
 ![Recopilación de información de depuración de VM en curso](./media/state-debugger-panel-in-progress.png)
 
@@ -113,7 +113,7 @@ Al volver a habilitar la actualización directa, se restablecen todos los panele
 
 De forma predeterminada, la herramienta se conecta al servidor de ARR que se está ejecutando en el mismo host que atiende a ArrInspector. Sin embargo, se puede configurar para inspeccionar otro servidor, suponiendo que ejecuta una instancia de ARR con el puerto de herramientas abierto.
 
-Para ello, acceda al menú principal de la izquierda de la barra de encabezado y seleccione *Configuración de host*. Haga clic en **Add new host** (Agregar un nuevo host) y escriba el nombre y el nombre de host. Para el *nombre de host* use solo el nombre de host que termina en `.mixedreality.azure.com`, no incluya `http://` ni un puerto.
+Para ello, acceda al menú principal de la izquierda de la barra de encabezado y seleccione *Configuración de host* . Haga clic en **Add new host** (Agregar un nuevo host) y escriba el nombre y el nombre de host. Para el *nombre de host* use solo el nombre de host que termina en `.mixedreality.azure.com`, no incluya `http://` ni un puerto.
 
 ![Configuración de host](./media/host-configuration.png)
 

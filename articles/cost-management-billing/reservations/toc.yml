@@ -1,6 +1,6 @@
 - name: Documentación sobre Azure Reservations
   href: index.yml?toc=/azure/cost-management-billing/reservations/toc.json
-- name: Introducción
+- name: Información general
   expanded: true
   items:
     - name: ¿Qué es Azure Reservations?
@@ -124,6 +124,8 @@
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: Solución de problemas de utilización de reservas
           href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Solución de problemas de recomendaciones de reservas
+          href: troubleshoot-reservation-recommendation.md??toc=/azure/cost-management-billing/reservations/toc.json
 - name: Referencia
   items:
     - name: API REST de reservas

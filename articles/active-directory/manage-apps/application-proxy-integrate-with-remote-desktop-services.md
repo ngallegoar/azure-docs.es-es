@@ -53,7 +53,7 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 
 - Si usa el cliente web de Escritorio remoto, deberá utilizar la [versión del conector 1.5.1975 o posterior](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history) de Application Proxy.
 
-- Para el flujo de autenticación previa de Azure AD, los usuarios solo pueden conectarse a los recursos publicados para ellos en el panel **RemoteApp y escritorios**. Los usuarios no se pueden conectar a un escritorio mediante el panel **Conectarse a un equipo remoto**.
+- Para el flujo de autenticación previa de Azure AD, los usuarios solo pueden conectarse a los recursos publicados para ellos en el panel **RemoteApp y escritorios** . Los usuarios no se pueden conectar a un escritorio mediante el panel **Conectarse a un equipo remoto** .
 
 ## <a name="deploy-the-joint-rds-and-application-proxy-scenario"></a>Implementar el escenario conjunto de RDS y el proxy de aplicación
 
@@ -67,13 +67,13 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
    - Método de autenticación previa: Azure Active Directory
    - Traducir URL en encabezados: No
 2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
-3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**.
+3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD** .
 
    >[!Note]
    >Se solicita a los usuarios que se autentiquen una vez en Azure AD y otra en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto.
 
-4. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Elija la aplicación en la lista.
-5. En **Administrar**, seleccione **Personalización de marca**.
+4. Seleccione **Azure Active Directory** y **Registros de aplicaciones** . Elija la aplicación en la lista.
+5. En **Administrar** , seleccione **Personalización de marca** .
 6. Actualice el campo **Dirección URL de la página principal** para que apunte al punto de conexión web de Escritorio remoto (por ejemplo, `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Dirigir el tráfico RDS al proxy de aplicación
@@ -81,12 +81,12 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
 Conéctese a la implementación de RDS como administrador y cambie el nombre del servidor de Puerta de enlace de Escritorio remoto para la implementación. Esta configuración garantiza que las conexiones pasen por el servicio del proxy de aplicación de Azure AD.
 
 1. Conéctese al servidor RDS que ejecuta el rol Agente de conexión a Escritorio remoto.
-2. Inicie **Administrador del servidor**.
+2. Inicie **Administrador del servidor** .
 3. Seleccione **Servicios de Escritorio remoto** en el panel de la izquierda.
-4. Seleccione **Información general**.
-5. En la sección Descripción general de la implementación, seleccione el menú desplegable y elija **Editar propiedades de implementación**.
+4. Seleccione **Información general** .
+5. En la sección Descripción general de la implementación, seleccione el menú desplegable y elija **Editar propiedades de implementación** .
 6. En la pestaña Puerta de enlace de Escritorio remoto, cambie el campo **Nombre del servidor** por la dirección URL externa que ha establecido para el punto de conexión del host de RD en el proxy de aplicación.
-7. Cambie el campo **Método de inicio de sesión** por **Autenticación de contraseña**.
+7. Cambie el campo **Método de inicio de sesión** por **Autenticación de contraseña** .
 
    ![Pantalla Propiedades de implementación de RDS](./media/application-proxy-integrate-with-remote-desktop-services/rds-deployment-properties.png)
 
@@ -137,7 +137,7 @@ La configuración descrita en este artículo es para el acceso a RDS a través d
 El flujo de autenticación previa ofrece más ventajas de seguridad que el flujo de acceso directo. Con la autenticación previa, puede utilizar características de autenticación de Azure AD como el inicio de sesión único, el acceso condicional y la verificación en dos pasos para recursos locales. También garantiza que solo el tráfico autenticado alcance la red.
 
 Para usar la autenticación de acceso directo, solo es necesario realizar dos modificaciones en los pasos indicados en este artículo:
-1. En el paso 1 [Publicar el punto de conexión del host de RD](#publish-the-rd-host-endpoint), establezca el método de autenticación previa en **Acceso directo**.
+1. En el paso 1 [Publicar el punto de conexión del host de RD](#publish-the-rd-host-endpoint), establezca el método de autenticación previa en **Acceso directo** .
 2. Omita completamente el paso 8, [Dirigir el tráfico RDS al proxy de aplicación](#direct-rds-traffic-to-application-proxy).
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -286,7 +286,7 @@
               href: platform/design-logs-deployment.md
             - name: Crear un área de trabajo
               items:
-                - name: Azure portal
+                - name: Azure Portal
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -1026,6 +1026,8 @@
           href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: Supervisión de implementaciones y HPA
           href: insights/container-insights-deployment-hpa-metrics.md
+        - name: Supervisión de volúmenes persistentes (PV)
+          href: insights/container-insights-persistent-volumes.md
         - name: Visualización de datos en directo
           items:
             - name: Introducción a los datos en directo (versión preliminar)

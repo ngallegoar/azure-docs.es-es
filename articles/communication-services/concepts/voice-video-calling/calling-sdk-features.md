@@ -20,7 +20,7 @@ ms.locfileid: "91977874"
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Hay dos familias independientes de bibliotecas cliente de llamadas, la de *clientes* y la de *servicios*. Las bibliotecas cliente disponibles actualmente están pensadas para experiencias de usuario final: sitios web y aplicaciones nativas.
+Hay dos familias independientes de bibliotecas cliente de llamadas, la de *clientes* y la de *servicios* . Las bibliotecas cliente disponibles actualmente están pensadas para experiencias de usuario final: sitios web y aplicaciones nativas.
 
 Las bibliotecas cliente de servicio aún no están disponibles. Estas proporcionan acceso a los planos de datos de vídeo y de voz sin procesar, que son adecuados para la integración con bots y otros servicios.
 

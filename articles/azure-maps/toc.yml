@@ -95,6 +95,8 @@
   items:
     - name: Administración de cuentas de Maps
       items:
+        - name: Creación de una cuenta con una plantilla de Resource Manager
+          href: how-to-create-template.md
         - name: Administrar cuentas
           href: how-to-manage-account-keys.md
         - name: Administración de la autenticación

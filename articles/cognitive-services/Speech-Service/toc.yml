@@ -297,17 +297,15 @@
           href: index-conversation-scenarios.yml
         - name: Transcripción de conversaciones
           items:
-            - name: Información general
-              items:
-                - name: ¿Qué es la transcripción de conversaciones?
-                  href: conversation-transcription.md
+            - name: Introducción a la transcripción de conversaciones
+              href: conversation-transcription.md
+            - name: Inicio rápido de la transcripción de conversaciones en tiempo real
+              href: how-to-use-conversation-transcription.md
             - name: Guías paso a paso
               items:
                 - name: Control de escenarios de centro de llamadas
                   displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
                   href: call-center-transcription.md
-                - name: Transcripción de conversaciones en tiempo real
-                  href: how-to-use-conversation-transcription.md
                 - name: Transcripción de conversaciones asincrónicas
                   href: how-to-async-conversation-transcription.md
             - name: Referencia
@@ -341,14 +339,10 @@
                       href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
         - name: Conversación entre varios dispositivos
           items:
-            - name: Información general
-              items:
-                - name: ¿Qué es la conversación entre varios dispositivos?
-                  href: multi-device-conversation.md
-            - name: Guía de inicio rápido
-              items:
-                - name: Inicio y unión a una conversación
-                  href: quickstarts/multi-device-conversation.md
+            - name: Introducción a la conversación entre varios dispositivos
+              href: multi-device-conversation.md
+            - name: Inicio rápido de la conversación entre varios dispositivos
+              href: quickstarts/multi-device-conversation.md
             - name: Referencia
               items:
                 - name: SDK de voz
@@ -363,12 +357,8 @@
       items:
         - name: Documentación de asistentes de voz
           href: index-voice-assistants.yml
-        - name: Información general
-          items:
-            - name: ¿Qué es un asistente de voz?
-              href: voice-assistants.md
-            - name: Ejemplos del asistente de voz (GitHub)
-              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: Introducción a los asistentes de voz
+          href: voice-assistants.md
         - name: Comandos personalizados
           items:
             - name: ¿Qué es Comandos personalizados?
