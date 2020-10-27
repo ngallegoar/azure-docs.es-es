@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: cc50e49d4bc59235a147d114d86ecdff95dca797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9b27a432776635290c7e8e796e84d8c1e0e8675
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87474349"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168348"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.DropDown
 
@@ -87,7 +87,7 @@ Cuando el filtrado está habilitado, el control incluye un cuadro de texto para 
 - De forma predeterminada, `selectAll` es `true` cuando la selección múltiple está habilitada.
 - La propiedad `filter` permite a los usuarios buscar en una larga lista de opciones.
 - La etiqueta de `constraints.allowedValues` es el texto para mostrar de un elemento, y su valor es el valor de salida del elemento cuando se selecciona.
-- Si se especifica, el valor predeterminado debe ser una etiqueta presente en `constraints.allowedValues`. Si no se especifica, se selecciona el primer elemento de `constraints.allowedValues`. El valor predeterminado es **null**.
+- Si se especifica, el valor predeterminado debe ser una etiqueta presente en `constraints.allowedValues`. Si no se especifica, se selecciona el primer elemento de `constraints.allowedValues`. El valor predeterminado es **null** .
 - `constraints.allowedValues` debe tener al menos un elemento.
 - Para emular un valor que no es obligatorio, agregue un elemento con una etiqueta y el valor `""` (cadena vacía) a `constraints.allowedValues`.
 - La propiedad `defaultDescription` se usa para los elementos que no tienen una descripción.

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 26f635525afea289e2e791b802478040a7851eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87486517"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277673"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Escalado elástico de una cuenta de Cassandra API de Azure Cosmos DB
 
@@ -62,7 +62,7 @@ La ventaja de este enfoque es que permite responder a las necesidades de escalad
 
 Además de aprovisionar el rendimiento de forma estándar (manual) o mediante programación, puede configurar contenedores de Azure Cosmos en el rendimiento aprovisionado de escalabilidad automática. La escalabilidad automática escalará el sistema de forma automática e instantánea en función de las necesidades de consumo dentro de los intervalos de RU especificados sin poner en peligro los Acuerdos de Nivel de Servicio. Para más información, consulte este artículo sobre la [creación de contenedores y bases de datos de Azure Cosmos en escalabilidad automática](provision-throughput-autoscale.md).
 
-La ventaja de este enfoque es que es la forma más fácil de administrar las necesidades de escalado del sistema. Garantiza que no se aplica limitación de frecuencia **dentro de los intervalos de RU configurados**. El inconveniente es que, si las necesidades de escalado del sistema son predecibles, la escalabilidad automática puede resultar menos rentable a la hora de administrar las necesidades de escalado que el uso del plano de control o el nivel de SDK mencionados anteriormente.
+La ventaja de este enfoque es que es la forma más fácil de administrar las necesidades de escalado del sistema. No se aplicará la limitación de velocidad **dentro de los intervalos de RU configurados** . El inconveniente es que, si las necesidades de escalado del sistema son predecibles, la escalabilidad automática puede resultar menos rentable a la hora de administrar las necesidades de escalado que el uso del plano de control o el nivel de SDK mencionados anteriormente.
 
 Para establecer o modificar el rendimiento máximo (RU) para el escalado automático con CQL, use lo siguiente (reemplazando el nombre de Keyspace o tabla según corresponda):
 

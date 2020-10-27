@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273014"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310898"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Creación de Hiperescala de PostgreSQL habilitada para Azure Arc mediante Azure Data Studio
 
@@ -62,7 +62,7 @@ Ahora puede implementar el paso siguiente.
 1. En la pestaña Conexiones, haga clic en los tres puntos de la parte superior izquierda y elija "Nueva implementación".
 1. En las opciones de implementación, seleccione **Grupo de servidores Hiperescala de PostgreSQL: Azure Arc**
     >[!NOTE]
-    > Es posible que se le pida que instale la CLI de `azdata` si no lo está actualmente.
+    > Es posible que se le pida que instale [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] si no lo está actualmente.
 1. Acepte los términos de privacidad y de licencia, y haga clic en **Seleccionar** en la parte inferior.
 1. En la hoja Implementar grupo de servidores Hiperescala de PostgreSQL: Azure Arc, escriba la información siguiente:
    - Escriba un nombre para el grupo de servidores

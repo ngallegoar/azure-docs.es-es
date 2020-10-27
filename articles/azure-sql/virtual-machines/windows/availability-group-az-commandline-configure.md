@@ -13,19 +13,21 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c591bfa911663503b3e8a9101910034c91a8251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78414e26836d1547fe195a0a7844b6a98bb0dfc8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298786"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168263"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Configuración de un grupo de disponibilidad para una máquina virtual con SQL Server en Azure (PowerShell y CLI de Azure)
+# <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de PowerShell o la CLI de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-En este artículo se describe cómo usar [PowerShell](/powershell/scripting/install/installing-powershell) o la [CLI de Azure](/cli/azure/sql/vm?view=azure-cli-latest/) para implementar un clúster de conmutación por error de Windows, agregarle máquinas virtuales con SQL Server, así como crear el equilibrador de carga interno y el cliente de escucha de un grupo de disponibilidad Always On. 
+En este artículo se describe cómo usar [PowerShell](/powershell/scripting/install/installing-powershell) o la [CLI de Azure](/cli/azure/sql/vm) para implementar un clúster de conmutación por error de Windows, agregarle máquinas virtuales con SQL Server, así como crear el equilibrador de carga interno y el cliente de escucha de un grupo de disponibilidad Always On. 
 
 La implementación del grupo de disponibilidad se sigue realizando manualmente con SQL Server Management Studio (SSMS) o Transact-SQL (T-SQL). 
+
+Si bien en este artículo se usa PowerShell y la CLI de Azure para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [Azure Portal](availability-group-azure-portal-configure.md), [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-tutorial.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -62,7 +64,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> Puede aparecer el error `az sql: 'vm' is not in the 'az sql' command group` si usa una versión obsoleta de la CLI de Azure. Descargue la [versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) para solucionar este error.
+> Puede aparecer el error `az sql: 'vm' is not in the 'az sql' command group` si usa una versión obsoleta de la CLI de Azure. Descargue la [versión más reciente de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli-windows) para solucionar este error.
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -82,7 +84,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## <a name="define-cluster-metadata"></a>Definición de metadatos de clúster
 
-El grupo de comandos [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) de la CLI de Azure administra los metadatos del servicio Clúster de conmutación por error de Windows Server (WSFC) que hospeda el grupo de disponibilidad. Los metadatos del clúster engloban el dominio de Active Directory, las cuentas de clúster, las cuentas de almacenamiento que se van a usar como testigo en la nube y la versión de SQL Server. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) para definir los metadatos del WSFC de forma que, cuando se agregue la primera máquina virtual con SQL Server, el clúster se cree tal y como esté definido. 
+El grupo de comandos [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group) de la CLI de Azure administra los metadatos del servicio Clúster de conmutación por error de Windows Server (WSFC) que hospeda el grupo de disponibilidad. Los metadatos del clúster engloban el dominio de Active Directory, las cuentas de clúster, las cuentas de almacenamiento que se van a usar como testigo en la nube y la versión de SQL Server. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group#az-sql-vm-group-create) para definir los metadatos del WSFC de forma que, cuando se agregue la primera máquina virtual con SQL Server, el clúster se cree tal y como esté definido. 
 
 Con el siguiente fragmento de código se definen los metadatos del clúster:
 
@@ -127,7 +129,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>Adición de máquinas virtuales al clúster
 
-Al agregar la primera máquina virtual de SQL Server al clúster, se crea el clúster. El comando [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) crea el clúster con el nombre que se le haya dado, instala el rol de clúster en las máquinas virtuales de SQL Server y las agrega al clúster. Los usos posteriores del comando `az sql vm add-to-group` hacen que se agreguen más máquinas virtuales con SQL Server al clúster recién creado. 
+Al agregar la primera máquina virtual de SQL Server al clúster, se crea el clúster. El comando [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm#az-sql-vm-add-to-group) crea el clúster con el nombre que se le haya dado, instala el rol de clúster en las máquinas virtuales de SQL Server y las agrega al clúster. Los usos posteriores del comando `az sql vm add-to-group` hacen que se agreguen más máquinas virtuales con SQL Server al clúster recién creado. 
 
 Con el siguiente fragmento de código se crea el clúster y se agrega a él la primera máquina virtual de SQL Server: 
 
@@ -187,7 +189,7 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 
 ## <a name="validate-cluster"></a>Validar el clúster 
 
-Para que un clúster de conmutación por error sea compatible con Microsoft, debe superar la validación del clúster. Conéctese a la máquina virtual mediante el método que prefiera, por ejemplo, Protocolo de escritorio remoto (RDP), y asegúrese de que el clúster supera la validación antes de continuar. Si no lo hace, el clúster quedará en un estado no admitido. 
+Para que un clúster de conmutación por error sea compatible con Microsoft, debe pasar la validación del clúster. Conéctese a la máquina virtual mediante el método que prefiera, por ejemplo, Protocolo de escritorio remoto (RDP), y compruebe que el clúster pasa la validación antes de continuar. Si no lo hace, el clúster queda en un estado no admitido. 
 
 Puede validar el clúster mediante el Administrador de clústeres de conmutación por error (FCM) o el siguiente comando de PowerShell:
 
@@ -203,6 +205,8 @@ Cree el grupo de disponibilidad manualmente del modo habitual, ya sea mediante [
 > *No* cree un cliente de escucha en este momento, ya que esto se realiza mediante la CLI de Azure en las secciones siguientes.  
 
 ## <a name="create-internal-load-balancer"></a>Creación del equilibrador de carga interno
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
 
 El cliente de escucha de grupo de disponibilidad Always On requiere una instancia interna de Azure Load Balancer. El equilibrador de carga interno proporciona una dirección IP "flotante" para el cliente de escucha de grupo de disponibilidad, que permite conmutar por error y volver a conectarse de manera más rápida. Si las máquinas virtuales con SQL Server de un grupo de disponibilidad forman parte del mismo conjunto de disponibilidad, puede usar un equilibrador de carga básico. De lo contrario, debe usar uno estándar.  
 
@@ -236,16 +240,16 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 ---
 
 >[!IMPORTANT]
-> El recurso de IP pública de cada máquina virtual con SQL Server debe tener una SKU estándar para que sea compatible con el equilibrador de carga estándar. Para determinar la SKU del recurso de IP pública de la máquina virtual, vaya a **Grupo de recursos**, seleccione su recurso **Dirección IP pública** para la máquina virtual con SQL Server que desee y busque el valor que aparece debajo de **SKU** en el panel **Información general**.  
+> El recurso de IP pública de cada máquina virtual con SQL Server debe tener una SKU estándar para que sea compatible con el equilibrador de carga estándar. Para determinar la SKU del recurso de IP pública de la máquina virtual, vaya a **Grupo de recursos** , seleccione su recurso **Dirección IP pública** para la máquina virtual con SQL Server que desee y busque el valor que aparece debajo de **SKU** en el panel **Información general** .  
 
 ## <a name="create-listener"></a>Eliminar el agente de escucha
 
-Después de haber creado el grupo de disponibilidad manualmente, puede crear el cliente de escucha mediante [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
+Después de haber creado el grupo de disponibilidad manualmente, puede crear el cliente de escucha mediante [az sql vm ag-listener](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-create). 
 
 El *identificador de recurso de subred* es el valor de `/subnets/<subnetname>` anexado al identificador de recurso del recurso de red virtual. Para detectar el identificador de recurso de subred:
    1. Vaya al grupo de recursos en [Azure Portal](https://portal.azure.com). 
    1. Seleccione el recurso de red virtual. 
-   1. Seleccione **Propiedades** en el panel **Configuración**. 
+   1. Seleccione **Propiedades** en el panel **Configuración** . 
    1. Encuentre el identificador de recurso de la red virtual y anéxele `/subnets/<subnetname>` al final para crear el identificador de recurso de subred. Por ejemplo:
       - Su identificador de recurso de red virtual es `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
       - Su nombre de subred es `default`
@@ -294,7 +298,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 ---
 
 ## <a name="modify-number-of-replicas"></a>Modificación del número de réplicas 
-Hay una capa de complejidad agregada al implementar un grupo de disponibilidad en máquinas virtuales con SQL Server hospedadas en Azure. El proveedor de recursos y el grupo de máquinas virtuales ahora administran los recursos. En este sentido, al agregar o quitar réplicas en el grupo de disponibilidad, hay un paso más que consiste en actualizar los metadatos del cliente de escucha con información relativa a las máquinas virtuales con SQL Server. Cuando se modifica el número de réplicas del grupo de disponibilidad, hay que usar también el comando [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) para actualizar el cliente de escucha con los metadatos de las máquinas virtuales con SQL Server. 
+Hay una capa de complejidad agregada al implementar un grupo de disponibilidad en máquinas virtuales con SQL Server hospedadas en Azure. El proveedor de recursos y el grupo de máquinas virtuales ahora administran los recursos. En este sentido, al agregar o quitar réplicas en el grupo de disponibilidad, hay un paso más que consiste en actualizar los metadatos del cliente de escucha con información relativa a las máquinas virtuales con SQL Server. Cuando se modifica el número de réplicas del grupo de disponibilidad, hay que usar también el comando [az sql vm group ag-listener update](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-update) para actualizar el cliente de escucha con los metadatos de las máquinas virtuales con SQL Server. 
 
 
 ### <a name="add-a-replica"></a>Adición de una réplica

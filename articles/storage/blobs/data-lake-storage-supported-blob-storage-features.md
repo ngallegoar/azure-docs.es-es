@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: a0cba1c3a7a3b713fa5f0603ad9e116068d8df66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2c7953ea7b85eca3628329b427f960f9466fd6b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618478"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316041"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ En esta tabla se enumeran las características de Blob Storage que puede usar co
 |Eliminación temporal de blobs|Todavía no se admite|Todavía no se admite|[Eliminación temporal para blobs](storage-blob-soft-delete.md)|
 |Blobfuse|Versión preliminar|Todavía no se admite|[Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md)|
 |Conmutación por error de cuenta|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|ACL del contenedor de blobs|Todavía no se admite<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Todavía no se admite<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Establecer lista de control de acceso de contenedor](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|ACL del contenedor de blobs|No compatible<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|No compatible<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Consulte la nota relacionada que aparece debajo de esta tabla.|
 |Claves proporcionadas por el cliente|Todavía no se admite|Todavía no se admite|[Especificación de una clave de cifrado en una solicitud a Blob Storage](encryption-customer-provided-keys.md)|
 |Dominios personalizados|Todavía no se admite|Todavía no se admite|[Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)|
 |Ámbitos de cifrado|Todavía no se admite|Todavía no se admite|[Creación y administración de ámbitos de cifrado (versión preliminar)](encryption-scope-manage.md)|

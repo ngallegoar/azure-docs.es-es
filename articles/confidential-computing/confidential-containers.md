@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: 528b843e24e1d63e4822c253b3636ef490e8fe8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35518a90ff3db2b951e0310970afd6d78dd25807
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993845"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122210"
 ---
 # <a name="confidential-containers"></a>Contenedores confidenciales
 
@@ -32,7 +32,7 @@ Los contenedores confidenciales ayudan a:
 
 Un entorno de ejecución de confianza (TEE) basado en hardware es un componente importante que se usa para proporcionar garantías sólidas mediante medidas de hardware y software de componentes de la base informática de confianza (TCB). Las comprobaciones de estas medidas ayudan en la validación del cálculo esperado y confirman las posibles manipulaciones de las aplicaciones de contenedor.
 
-Los contenedores confidenciales admiten la ejecución de aplicaciones personalizadas desarrolladas con **Python, Java, Node.js, etc. o paquetes de aplicaciones de software, como NGINX, Redis Cache, MemCache**, etc., sin modificar en AKS.
+Los contenedores confidenciales admiten la ejecución de aplicaciones personalizadas desarrolladas con **Python, Java, Node.js, etc. o paquetes de aplicaciones de software, como NGINX, Redis Cache, MemCache** , etc., sin modificar en AKS.
 
 Son el camino más rápido a la confidencialidad de los contenedores, lo que incluye la protección del contenedor mediante cifrado, al permitir la migración mediante lift-and-shift sin cambios o con cambios mínimos en la lógica de negocios.
 
@@ -67,7 +67,7 @@ Las implementaciones de Scone en nodos de informática confidencial con AKS se a
 
 ### <a name="anjuna"></a>Anjuna
 
-[Anjuna](https://www.anjuna.io/) proporciona software de plataforma SGX que permite ejecutar contenedores sin modificar en AKS. Puede encontrar más información sobre la **próxima** funcionalidad y el flujo de usuario [aquí](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
+[Anjuna](https://www.anjuna.io/) proporciona software de plataforma SGX que permite ejecutar contenedores sin modificar en AKS. Obtenga más información sobre la funcionalidad y consulte las aplicaciones de ejemplo [aquí](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
 
 Puede comenzar con un ejemplo de Redis Cache y de una aplicación personalizada de Python [aquí](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
 

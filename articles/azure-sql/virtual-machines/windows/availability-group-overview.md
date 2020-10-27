@@ -11,71 +11,95 @@ ms.service: virtual-machines-sql
 ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/13/2017
+ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 34d76d7c85a478b5e31a692e653752aa1653884c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293669"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166546"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introducción a los grupos de disponibilidad Always On de SQL Server en Azure Virtual Machines
-
+# <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-En este artículo se describen los grupos de disponibilidad de SQL Server en Azure Virtual Machines. 
+En este artículo se describen los grupos de disponibilidad AlwaysOn de SQL Server en Azure Virtual Machines (VM). 
 
-Los grupos de disponibilidad AlwaysOn en Azure Virtual Machines son similares a los grupos de disponibilidad AlwaysOn locales. Para obtener más información, consulte [Grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
+## <a name="overview"></a>Información general
 
-El diagrama muestra las partes de un grupo de disponibilidad de SQL Server completo en Azure Virtual Machines.
+Los grupos de disponibilidad AlwaysOn en Azure Virtual Machines son similares a los [grupos de disponibilidad AlwaysOn locales](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Sin embargo, dado que las máquinas virtuales se hospedan en Azure, existen algunas consideraciones adicionales, como la redundancia de máquinas virtuales y el enrutamiento del tráfico en la red de Azure. 
+
+En el diagrama siguiente se muestra un grupo de disponibilidad para SQL Server en Azure Virtual Machines:
 
 ![Grupo de disponibilidad](./media/availability-group-overview/00-EndstateSampleNoELB.png)
 
-La diferencia clave para un grupo de disponibilidad en Azure Virtual Machines es que las máquinas virtuales requieren un [equilibrador de carga](../../../load-balancer/load-balancer-overview.md). El equilibrador de carga almacena las direcciones IP del agente de escucha del grupo de disponibilidad. Si tiene más de un grupo de disponibilidad, necesita un cliente de escucha por cada grupo. Un equilibrador de carga puede admitir varios agentes de escucha.
 
-Además, en un clúster de conmutación por error invitado de VM de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure. 
+## <a name="vm-redundancy"></a>Redundancia de máquina virtual 
 
-Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales de SQL Server deben estar en el mismo [conjunto de disponibilidad](availability-group-manually-configure-prerequisites-tutorial.md#create-availability-sets) o en distintas [zonas de disponibilidad](/azure/availability-zones/az-overview). 
+Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales de SQL Server deben estar en el mismo [conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o en distintas [zonas de disponibilidad](/azure/availability-zones/az-overview).
 
-|  | Versión de Windows Server | SQL Server Version | Edición de SQL Server | Configuración de quórum WSFC | Recuperación ante desastres con varias regiones | Compatibilidad con varias subredes | Compatibilidad con un dominio de aplicación existente | Recuperación ante desastres con la misma región multizona | Compatibilidad de Dist-AG sin ningún dominio de AD | Compatibilidad de Dist-AG sin ningún clúster |  
-| :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[Azure Portal](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
-| **[CLI de Azure/PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
-| **[Plantillas de inicio rápido](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Ent | Testigo en la nube | No | Sí | Sí | Sí | No | No |
-| **[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | All | All | All | All | Sí | Sí | Sí | Sí | Sí | Sí |
-
-La plantilla **SQL Server AlwaysOn Cluster (preview)** se ha quitado de Azure Marketplace y ya no está disponible. 
-
-Cuando esté listo para crear un grupo de disponibilidad de SQL Server en Azure Virtual Machines, consulte estos tutoriales.
-
-## <a name="manually-with-azure-cli"></a>Manualmente con la CLI de Azure
-
-Se recomienda usar la CLI de Azure para configurar e implementar un grupo de disponibilidad porque tiene la implementación más rápida y sencilla. Con la CLI de Azure, tanto la creación del clúster de conmutación por error de Windows, que une máquinas virtuales de SQL Server al clúster, como la creación del agente de escucha y de Load Balancer interno pueden lograrse en menos de 30 minutos. Esta opción sigue requiriendo la creación manual del grupo de disponibilidad, pero automatiza todos los demás pasos de configuración necesarios. 
-
-Para obtener más información, consulte [Usar la CLI de máquina virtual de Azure SQL para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure](availability-group-az-cli-configure.md). 
-
-## <a name="automatically-with-azure-quickstart-templates"></a>Automáticamente con plantillas de inicio rápido de Azure
-
-Las plantillas de inicio rápido de Azure usan el proveedor de recursos de VM con SQL para implementar el clúster de conmutación por error de Windows, unir máquinas virtuales de SQL Server a este, crear el agente de escucha y configurar Load Balancer interno. Esta opción sigue necesitando que se creen manualmente el grupo de disponibilidad y el equilibrador de carga interno. Sin embargo, automatiza y simplifica todos los demás pasos de configuración necesarios, incluida la configuración del equilibrado de carga interno. 
-
-Para obtener más información, consulte [Usar la plantilla de inicio rápido de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure](availability-group-quickstart-template-configure.md).
+Un conjunto de disponibilidad es una agrupación de recursos que se configuran de tal forma que no haya dos en la misma zona de disponibilidad. Esto evita que varios recursos del grupo se vean afectados durante las implementaciones. 
 
 
-## <a name="automatically-with-an-azure-portal-template"></a>Automáticamente con una plantilla de Azure Portal
+## <a name="connectivity"></a>Conectividad 
 
-[Configure Always On availability group in Azure VM automatically - Resource Manager](availability-group-azure-marketplace-template-configure.md) (Configuración automática de grupos de disponibilidad Always On de máquinas virtuales de Azure - Resource Manager)
+En una implementación local tradicional, los clientes se conectan al agente de escucha de grupo de disponibilidad con el nombre de red virtual (VNN) y el agente de escucha enruta el tráfico a la réplica de SQL Server adecuada del grupo de disponibilidad. Sin embargo, hay un requisito adicional para enrutar el tráfico en la red de Azure. 
+
+Con SQL Server en Azure Virtual Machines, configure un [equilibrador de carga](availability-group-vnn-azure-load-balancer-configure.md) para enrutar el tráfico a su agente de escucha de grupo de disponibilidad, o bien, con SQL Server 2019 CU8 y versiones posteriores, puede configurar un [agente de escucha de nombre de red distribuida (DNN)](availability-group-distributed-network-name-dnn-listener-configure.md) para reemplazar el agente de escucha de grupo de disponibilidad de VNN tradicional. 
 
 
-## <a name="manually-in-the-azure-portal"></a>Manualmente en Azure Portal
+### <a name="vnn-listener"></a>Cliente de escucha de VNN 
 
-También puede crear las máquinas virtuales sin la plantilla. En primer lugar, complete los requisitos previos y después cree el grupo de disponibilidad. Vea los siguientes temas: 
+Use una instancia de [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) para enrutar el tráfico del cliente al agente de escucha del nombre de red virtual (VNN) del grupo de disponibilidad tradicional en la red de Azure. 
 
-- [Configure prerequisites for SQL Server Always On availability groups on Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md) (Configuración de requisitos previos para grupos de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines)///
+El equilibrador de carga almacena las direcciones IP del agente de escucha de VNN. Si tiene más de un grupo de disponibilidad, cada grupo requiere un agente de escucha de VNN. Un equilibrador de carga puede admitir varios agentes de escucha.
 
-- [Creación de un grupo de disponibilidad AlwaysOn para mejorar la disponibilidad y recuperación ante desastres](availability-group-manually-configure-tutorial.md)
+Para empezar, consulte [Configuración de un equilibrador de carga](availability-group-vnn-azure-load-balancer-configure.md). 
+
+### <a name="dnn-listener"></a>Cliente de escucha de DNN
+
+SQL Server 2019 CU8 incluye compatibilidad con el agente de escucha de nombre de red distribuida (DNN). El agente de escucha de DNN reemplaza al agente de escucha de grupo de disponibilidad tradicional, con lo que ya no es necesario que una instancia de Azure Load Balancer enrute el tráfico en la red de Azure. 
+
+El agente de escucha de DNN es la solución de conectividad HADR recomendada en Azure, ya que simplifica la implementación, reduce el mantenimiento y el costo y reduce el tiempo de conmutación por error en caso de que se produzca un error. 
+
+Use el cliente de escucha de DNN para reemplazar un cliente de escucha de VNN existente o, como alternativa, úselo junto con un agente de escucha de VNN existente para que el grupo de disponibilidad tenga dos puntos de conexión distintos: uno que use el nombre del cliente de escucha de VNN (y el puerto si no es el predeterminado), y otro que use el nombre y el puerto del cliente de escucha de DNN. Esto podría ser útil para los clientes que quieren evitar la latencia de conmutación por error del equilibrador de carga al tiempo que desean seguir aprovechando las características de SQL Server que dependen del agente de escucha de VNN, como los grupos de disponibilidad distribuidos, Service Broker o la secuencia de archivos. Para más información, consulte [Interoperabilidad de características entre el agente de escucha de DNN y SQL Server](availability-group-dnn-interoperability.md).
+
+Para empezar, consulte [Configuración de un agente de escucha de DNN](availability-group-distributed-network-name-dnn-listener-configure.md).
+
+
+## <a name="deployment"></a>Implementación 
+
+Hay varias opciones para implementar un grupo de disponibilidad en SQL Server en Azure Virtual Machines, algunas con más automatización que otras. 
+
+En la tabla siguiente se proporciona una comparación de las opciones disponibles: 
+
+| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[CLI de Azure/PowerShell](availability-group-az-cli-configure.md)**|**[Plantillas de inicio rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+|---------|---------|---------|--------- |---------|
+|**Versión de SQL Server** |2016 + |2016 +|2016 +|2012 +|
+|**Edición de SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
+|**Versión de Windows Server**| 2016 + | 2016 + | 2016 + | All| 
+|**Crea el clúster automáticamente**|Sí|Sí | Sí |No|
+|**Crea el grupo de disponibilidad automáticamente** |Sí |No|No|No|
+|**Crea el agente de escucha y el equilibrador de carga de forma independiente** |No|No|No|Sí|
+|**¿Se puede crear el agente de escucha de DNN con este método?**|No|No|No|Sí|
+|**Configuración de quórum de WSFC**|Testigo en la nube|Testigo en la nube|Testigo en la nube|All|
+|**Recuperación ante desastres con varias regiones** |No|No|No|Sí|
+|**Compatibilidad con múltiples subredes** |Sí|Sí|Sí|Sí|
+|**Compatibilidad con un dominio de aplicación existente**|Sí|Sí|Sí|Sí|
+|**Recuperación ante desastres con varias zonas en la misma región**|Sí|Sí|Sí|Sí|
+|**Grupo de disponibilidad distribuido sin AD**|No|No|No|Sí|
+|**Grupo de disponibilidad distribuido sin clúster** |No|No|No|Sí|
+||||||
+
+
+
+## <a name="considerations"></a>Consideraciones 
+
+En un clúster de conmutación por error invitado de máquinas virtuales de IaaS de Azure, se recomienda una sola NIC por servidor (nodo de clúster) y una sola subred. La red de Azure tiene redundancia física, que hace que las NIC y subredes adicionales sean innecesarias en un clúster invitado de VM de IaaS de Azure. Aunque el informe de validación del clúster emita una advertencia acerca de que los nodos solo son accesibles en una única red, esta advertencia puede omitirse en los clústeres de conmutación por error invitados de VM de IaaS de Azure. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de un grupo de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines en regiones distintas](availability-group-manually-configure-multiple-regions.md)
+Revise los [procedimientos recomendados de HADR](hadr-cluster-best-practices.md) y, a continuación, comience a implementar el grupo de disponibilidad con [Azure Portal](availability-group-azure-portal-configure.md), la [CLI de Azure/PowerShell](availability-group-az-cli-configure.md), [plantillas de inicio rápido](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
+
+Como alternativa, puede implementar un [grupo de disponibilidad sin clúster](availability-group-clusterless-workgroup-configure.md) o un grupo de disponibilidad en [varias regiones](availability-group-manually-configure-multiple-regions.md). 

@@ -8,14 +8,20 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abc086553f5e903a71bcfd0b6322bcee56d2d8b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816446"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216936"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Administración de proyectos, plantillas y secuencias de imágenes en un clúster de Red Hat OpenShift en Azure
+
+> [!IMPORTANT]
+> Red Hat OpenShift en Azure 3.11 se retirará el 30 de junio de 2022. La compatibilidad con la creación de nuevos clústeres de Red Hat OpenShift en Azure 3.11 continúa hasta el 30 de noviembre de 2020. Después de la retirada, los clústeres de Red Hat OpenShift en Azure 3.11 que queden se cerrarán para evitar vulnerabilidades de seguridad.
+> 
+> Siga esta guía para [crear un clúster de la versión 4 de Red Hat OpenShift en Azure](tutorial-create-cluster.md).
+> Si tiene alguna pregunta específica, póngase en [contacto con nosotros](mailto:arofeedback@microsoft.com).
 
 En una plataforma de contenedores de OpenShift, se usan proyectos para agrupar y aislar los objetos relacionados. Como administrador, puede proporcionar a los desarrolladores acceso a proyectos específicos, permitirles crear sus propios proyectos y concederles derechos administrativos a proyectos individuales.
 

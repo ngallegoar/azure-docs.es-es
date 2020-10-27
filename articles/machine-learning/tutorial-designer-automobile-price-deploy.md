@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896630"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311512"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementación de un modelo de Machine Learning con el diseñador
 
@@ -61,9 +61,9 @@ Para implementar la canalización, antes debe convertir la canalización de entr
 
 1. Seleccione **Enviar** y use el mismo destino de proceso y el mismo experimento que usó en la parte 1.
 
-    Si es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
+    Si esta es la primera ejecución, la canalización puede tardar hasta 20 minutos en finalizar la ejecución. La configuración del proceso predeterminada tiene un tamaño de nodo mínimo de 0, lo que significa que el diseñador debe asignar recursos después de estar inactivo. Las ejecuciones de canalización repetidas tardarán menos en terminar, dado que los recursos del proceso ya están asignados. Además, el diseñador usa resultados almacenados en la caché en cada módulo para mejorar aún más la eficiencia.
 
-1. Seleccione **Implementar**.
+1. Seleccione **Implementar** .
 
 ## <a name="create-an-inferencing-cluster"></a>Creación de un clúster de inferencia
 
@@ -71,7 +71,7 @@ En el cuadro de diálogo que aparece, puede seleccionar entre los clústeres de 
 
 1. Seleccione **Compute** (Proceso) en el cuadro de diálogo que aparece, para ir a la página **Compute** (Proceso).
 
-1. En la cinta de opciones de navegación, seleccione **Inference Clusters** (Clústeres de inferencia) >  **+ Nuevo**.
+1. En la cinta de opciones de navegación, seleccione **Inference Clusters** (Clústeres de inferencia) >  **+ Nuevo** .
 
     ![Captura de pantalla que muestra cómo ir al panel del nuevo clúster de inferencia](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
    
@@ -79,9 +79,9 @@ En el cuadro de diálogo que aparece, puede seleccionar entre los clústeres de 
 
 1. Escriba *aks-compute* en **Compute name** (Nombre de proceso).
     
-1. Seleccione una región cercana que esté disponible para la **región**.
+1. Seleccione una región cercana que esté disponible para la **región** .
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
     > [!NOTE]
     > La creación de un servicio AKS tarda unos 15 minutos. Puede comprobar el estado de aprovisionamiento en la página **Inference Clusters** (Clústeres de inferencia).
@@ -97,27 +97,23 @@ Después de que el servicio AKS haya terminado de aprovisionarse, vuelva a la ca
 
 1. Seleccione el clúster de AKS que ha creado.
 
-1. Seleccione **Implementar**.
+1. Seleccione **Implementar** .
     
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de pantalla que muestra dónde encontrar el botón Crear canalización":::
 
     Aparece una notificación de finalización correcta en la parte superior del lienzo una vez que termina la implementación. Esto puede llevar unos minutos.
 
-## <a name="test-the-real-time-endpoint"></a>Prueba del punto de conexión en tiempo real
+## <a name="view-the-real-time-endpoint"></a>Visualización del punto de conexión en tiempo real
 
-Una vez finalizada la implementación, puede probar el punto de conexión en tiempo real. Para ello, vaya a la página **Endpoints** (Puntos de conexión).
+Una vez finalizada la implementación, puede ver el punto de conexión en tiempo real; para ello, vaya a la página **Endpoints** (Puntos de conexión).
 
-1. En la página **Puntos de conexión**, seleccione el punto de conexión que implementó.
+1. En la página **Puntos de conexión** , seleccione el punto de conexión que implementó.
 
-    ![Captura de pantalla que muestra la pestaña de puntos de conexión en tiempo real con el punto de conexión creado recientemente resaltado](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+1. En la pestaña **Details** (Detalles), puede ver más información, como el identificador URI de REST, el estado y las etiquetas.
 
-1. Seleccione **Probar**.
+1. En la pestaña **Consume** (Consumir), puede encontrar las claves de seguridad y establecer los métodos de autenticación.
 
-1. Puede escribir los datos de prueba o usar los datos de ejemplo que se rellenan automáticamente; después, seleccione **Test** (Probar).
-
-    El portal envía una solicitud de prueba al punto de conexión y muestra los resultados. Aunque se genera un valor de precio para los datos de entrada, este no se usa para generar el valor de predicción.
-
-    ![Captura de pantalla que muestra cómo probar el punto de conexión en tiempo real con la etiqueta puntuada del precio resaltada](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+Para más información sobre cómo utilizar el servicio web, consulte [Consumo de un modelo implementado como servicio web](how-to-consume-web-service.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

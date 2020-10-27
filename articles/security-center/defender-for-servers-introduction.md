@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448294"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275243"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introducción a Azure Defender para servidores
 
@@ -20,18 +20,25 @@ Azure Defender para servidores agrega la detección de amenazas y defensas avanz
 
 Para Windows, Azure Defender se integra con servicios de Azure para supervisar y proteger las máquinas Windows. Security Center presenta las alertas y las sugerencias de corrección de todos estos servicios en un formato fácil de usar.
 
-Para Linux, Azure Defender recopila registros de auditoría de máquinas Linux mediante **auditd**, uno de los marcos de trabajo de Linux más comunes. auditd se encuentra en el kernel de línea principal. 
+Para Linux, Azure Defender recopila registros de auditoría de máquinas Linux mediante **auditd** , uno de los marcos de trabajo de Linux más comunes. auditd se encuentra en el kernel de línea principal. 
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-servers"></a>¿Cuáles son las ventajas de Azure Defender para servidores?
 
 Las funcionalidades de detección de amenazas y protección que se proporcionan con Azure Defender para servidores incluyen:
 
-- **Análisis de la evaluación de vulnerabilidades en máquinas virtuales**: el detector de vulnerabilidades incluido con Azure Security Center cuenta con la tecnología de Qualys. 
+- **Licencia integrada para Microsoft Defender for Endpoint (solo Windows)** : Azure Defender para servidores incluye [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Esta integración ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. [Más información](security-center-wdatp.md).
+
+    Cuando Defender for Endpoint detecta una amenaza, desencadena una alerta. La alerta se muestra en Security Center. En Security Center, también puede dinamizar hasta la consola de Defender for Endpoint para realizar una investigación detallada y descubrir el alcance del ataque. Obtenga más información acerca de Microsoft Defender for Endpoint.
+
+    > [!IMPORTANT]
+    > El sensor de **Microsoft Defender for Endpoint** se habilita automáticamente en los servidores Windows que usan Security Center.
+
+- **Análisis de la evaluación de vulnerabilidades en máquinas virtuales** : el detector de vulnerabilidades incluido con Azure Security Center cuenta con la tecnología de Qualys. 
 
     El detector de Qualys es una de las herramientas líderes para identificar en tiempo real las vulnerabilidades en Azure Virtual Machines. No se necesita ninguna licencia ni cuenta de Qualys, ya que todo se administra sin problemas en Security Center. [Más información](deploy-vulnerability-assessment-vm.md).
 
-- **Acceso Just-In-Time (JIT) a máquinas virtuales**: los agentes de amenazas buscan activamente máquinas accesibles con puertos de administración abiertos, como RDP o SSH. Todas las máquinas virtuales son objetivos potenciales para un ataque. Cuando se consigue poner en peligro a una máquina virtual, se usa como punto de entrada para atacar más recursos dentro de su entorno.
+- **Acceso Just-In-Time (JIT) a máquinas virtuales** : los agentes de amenazas buscan activamente máquinas accesibles con puertos de administración abiertos, como RDP o SSH. Todas las máquinas virtuales son objetivos potenciales para un ataque. Cuando se consigue poner en peligro a una máquina virtual, se usa como punto de entrada para atacar más recursos dentro de su entorno.
 
     Una vez habilitado Azure Defender para servidores, puede usar el acceso Just-In-Time a máquinas virtuales ara bloquear el tráfico entrante a las máquinas virtuales, lo que reduce la exposición a ataques al mismo tiempo que proporciona un acceso sencillo para conectarse a las máquinas virtuales cuando sea necesario. [Más información](just-in-time-explained.md).
 
@@ -47,14 +54,7 @@ Las funcionalidades de detección de amenazas y protección que se proporcionan 
 
     La protección de red adaptable proporciona recomendaciones para proteger mejor las reglas de NSG. Usa un algoritmo de aprendizaje automático que tiene en cuenta el tráfico real, la configuración de confianza conocida, la inteligencia de amenazas y otros indicadores de riesgo, y luego proporciona recomendaciones para permitir el tráfico solo desde tuplas IP y puerto específicas. [Más información](security-center-adaptive-network-hardening.md).
 
-- **Integración con la Protección de amenazas avanzada de Microsoft Defender (ATP) (solo Windows)** : Azure Defender se integra con la Protección contra amenazas avanzada de Microsoft Defender (ATP). Esta integración ofrece funcionalidades completas de detección y respuesta (EDR) de puntos de conexión. [Más información](security-center-wdatp.md).
-
-    > [!IMPORTANT]
-    > El sensor de Microsoft Defender ATP se habilita automáticamente en los servidores Windows que usan Security Center.
-
-    Cuando Microsoft Defender ATP detecta una amenaza, desencadena una alerta. La alerta se muestra en Security Center. En Security Center, también puede dinamizar hasta la consola de Microsoft Defender ATP para realizar una investigación detallada y descubrir el alcance del ataque. Para más información sobre Microsoft Defender ATP, consulte [Incorporación de servidores al servicio Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
-
-- **Protección de host de Docker**: Azure Security Center identifica contenedores no administrados y que están hospedados en VM de IaaS Linux u otras máquinas Linux que ejecutan contenedores de Docker. Security Center evalúa continuamente las configuraciones de estos contenedores. A continuación, las compara con el Banco de prueba para Docker del Centro de seguridad de Internet (CIS). Security Center incluye todo el conjunto de reglas del banco de prueba de Docker de CIS y le avisa si los contenedores no cumplen ninguno de los controles. [Más información](harden-docker-hosts.md).
+- **Protección de host de Docker** : Azure Security Center identifica contenedores no administrados y que están hospedados en VM de IaaS Linux u otras máquinas Linux que ejecutan contenedores de Docker. Security Center evalúa continuamente las configuraciones de estos contenedores. A continuación, las compara con el Banco de prueba para Docker del Centro de seguridad de Internet (CIS). Security Center incluye todo el conjunto de reglas del banco de prueba de Docker de CIS y le avisa si los contenedores no cumplen ninguno de los controles. [Más información](harden-docker-hosts.md).
 
 - **Detección de ataques sin archivos (solo Windows)** : los ataques sin archivos inyectan cargas malintencionadas en la memoria para evitar la detección mediante técnicas de detección basadas en disco. Luego, la carga del atacante se conserva dentro de la memoria de los procesos en peligro y realiza una amplia variedad de actividades malintencionadas.
 

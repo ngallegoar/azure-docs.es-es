@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 69ec30a14d4c04e1f47c909e829f7388132e64d6
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6f502374996f01363ad27ff10dff3b34964a3474
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018222"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220761"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 
@@ -103,7 +103,7 @@ Configure la red virtual para que cumpla estos requisitos:
 
 Este diagrama muestra las conexiones necesarias para Azure-SSIS Integration Runtime:
 
-![Integration Runtime de SSIS de Azure](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
+![Diagrama que muestra las conexiones necesarias para Azure-SSIS IR.](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="set-up-permissions"></a><a name="perms"></a> Configuración de permisos
 
@@ -170,8 +170,8 @@ Si tiene que implementar grupos de seguridad de red para la subred que usa Azure
 |---|---|---|---|---|---|---|
 | Salida | TCP | VirtualNetwork | * | AzureCloud | 443 | Los nodos de Azure-SSIS Integration Runtime en la red virtual usan este puerto para acceder a servicios de Azure, como Azure Storage y Azure Event Hubs. |
 | Salida | TCP | VirtualNetwork | * | Internet | 80 | (Opcional). Los nodos de Azure-SSIS Integration Runtime en la red virtual usan este puerto para descargar una lista de revocación de certificados de Internet. Si bloquea este tráfico, puede experimentar una degradación del rendimiento al iniciar el entorno de ejecución de integración y perder capacidad para comprobar el uso de certificados en la lista de revocación de certificados. Si desea restringir aún más el destino a determinados FQDN, consulte la sección **Uso de Azure ExpressRoute o de una ruta definida por el usuario**|
-| Salida | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | (Opcional). Esta regla es necesaria solamente cuando los nodos de Azure-SSIS Integration Runtime en la red virtual acceden a una base de datos de SSISDB hospedada en el servidor. Si la directiva de conexión del servidor está establecida en **Proxy**, en lugar de **Redirigir**, solo se necesita el puerto 1433. <br/><br/> Esta regla de seguridad de salida no es aplicable a las bases de datos de SSISDB hospedadas por su Instancia administrada de SQL en la red virtual o a una instancia de SQL Database configurada con un punto de conexión privado. |
-| Salida | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Opcional). Esta regla solo es necesaria cuando los nodos de Azure-SSIS Integration Runtime en la red virtual acceden a una base de datos de SSISDB hospedada por la Instancia administrada de SQL en la red virtual o una instancia de SQL Database configurada con un punto de conexión privado. Si la directiva de conexión del servidor está establecida en **Proxy**, en lugar de **Redirigir**, solo se necesita el puerto 1433. |
+| Salida | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | (Opcional). Esta regla es necesaria solamente cuando los nodos de Azure-SSIS Integration Runtime en la red virtual acceden a una base de datos de SSISDB hospedada en el servidor. Si la directiva de conexión del servidor está establecida en **Proxy** , en lugar de **Redirigir** , solo se necesita el puerto 1433. <br/><br/> Esta regla de seguridad de salida no es aplicable a las bases de datos de SSISDB hospedadas por su Instancia administrada de SQL en la red virtual o a una instancia de SQL Database configurada con un punto de conexión privado. |
+| Salida | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Opcional). Esta regla solo es necesaria cuando los nodos de Azure-SSIS Integration Runtime en la red virtual acceden a una base de datos de SSISDB hospedada por la Instancia administrada de SQL en la red virtual o una instancia de SQL Database configurada con un punto de conexión privado. Si la directiva de conexión del servidor está establecida en **Proxy** , en lugar de **Redirigir** , solo se necesita el puerto 1433. |
 | Salida | TCP | VirtualNetwork | * | Storage | 445 | (Opcional). Esta regla solo es necesaria cuando quiera ejecutar un paquete SSIS almacenado en Azure Files. |
 ||||||||
 
@@ -184,9 +184,9 @@ Tiene que hacer lo siguiente para que el escenario completo funcione
    -   No puede enrutar el tráfico entrante entre los servicios de administración de Azure Batch y Azure-SSIS Integration Runtime a través del dispositivo de firewall.
    -   El dispositivo de firewall debe permitir el tráfico saliente que requiera Azure-SSIS Integration Runtime.
 
-No puede enrutar el tráfico entrante entre los servicios de administración de Azure Batch y Azure-SSIS Integration Runtime al dispositivo de firewall, de lo contrario, el tráfico se interrumpirá debido un problema de enrutamiento asimétrico. Tiene que definir las rutas para el tráfico entrante de modo que el tráfico pueda responder por la misma vía por la que entró. Puede definir las UDR específicas para que enruten el tráfico entre servicios de administración de Azure Batch y Azure-SSIS Integration Runtime con el tipo de próximo salto como **Internet**.
+No puede enrutar el tráfico entrante entre los servicios de administración de Azure Batch y Azure-SSIS Integration Runtime al dispositivo de firewall, de lo contrario, el tráfico se interrumpirá debido un problema de enrutamiento asimétrico. Tiene que definir las rutas para el tráfico entrante de modo que el tráfico pueda responder por la misma vía por la que entró. Puede definir las UDR específicas para que enruten el tráfico entre servicios de administración de Azure Batch y Azure-SSIS Integration Runtime con el tipo de próximo salto como **Internet** .
 
-Por ejemplo, si Azure-SSIS Integration Runtime se encuentra en `UK South` y desea inspeccionar el tráfico de salida mediante Azure Firewall, primero tendría que obtener una lista de intervalos IP de la etiqueta de servicio `BatchNodeManagement.UKSouth` desde el [vínculo de descarga de intervalos IP y etiquetas de servicio](https://www.microsoft.com/download/details.aspx?id=56519), o mediante [Service Tag Discovery API](https://aka.ms/discoveryapi). A continuación, aplique las siguientes UDR de rutas de intervalo IP relacionadas con el tipo de próximo salto como **Internet**, junto con la ruta 0.0.0.0/0 con el tipo de salto siguiente como **aplicación virtual**.
+Por ejemplo, si Azure-SSIS Integration Runtime se encuentra en `UK South` y desea inspeccionar el tráfico de salida mediante Azure Firewall, primero tendría que obtener una lista de intervalos IP de la etiqueta de servicio `BatchNodeManagement.UKSouth` desde el [vínculo de descarga de intervalos IP y etiquetas de servicio](https://www.microsoft.com/download/details.aspx?id=56519), o mediante [Service Tag Discovery API](https://aka.ms/discoveryapi). A continuación, aplique las siguientes UDR de rutas de intervalo IP relacionadas con el tipo de próximo salto como **Internet** , junto con la ruta 0.0.0.0/0 con el tipo de salto siguiente como **aplicación virtual** .
 
 ![Configuración de UDR de Azure Batch](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
@@ -269,10 +269,10 @@ Para que el dispositivo de firewall permita el tráfico saliente, tiene que perm
 > [!NOTE]
 > Para Azure SQL y Storage, si configura los puntos de conexión de servicio de red virtual en la subred, el tráfico entre Azure-SSIS Integration Runtime y Azure SQL en la misma región o Azure Storage en la misma región o región emparejada, se enrutará directamente a la red troncal de Microsoft Azure en lugar de al dispositivo de firewall.
 
-Si no necesita la funcionalidad de inspección del tráfico saliente de Azure-SSIS Integration Runtime, puede aplicar simplemente la ruta para forzar todo el tráfico al tipo de próximo salto como **Internet**:
+Si no necesita la funcionalidad de inspección del tráfico saliente de Azure-SSIS Integration Runtime, puede aplicar simplemente la ruta para forzar todo el tráfico al tipo de próximo salto como **Internet** :
 
 -   En un escenario de Azure ExpressRoute puede aplicar una ruta 0.0.0.0/0 con el tipo de próximo salto como **Internet** en la subred que hospeda Azure-SSIS Integration Runtime. 
--   En un escenario de NVA, puede modificar la ruta 0.0.0.0/0 existente aplicada en la subred que hospeda a Azure-SSIS Integration Runtime de tipo de próximo salto como **aplicación virtual** a tipo de próximo salto como **Internet**.
+-   En un escenario de NVA, puede modificar la ruta 0.0.0.0/0 existente aplicada en la subred que hospeda a Azure-SSIS Integration Runtime de tipo de próximo salto como **aplicación virtual** a tipo de próximo salto como **Internet** .
 
 ![Agregar una ruta](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
@@ -282,9 +282,9 @@ Si no necesita la funcionalidad de inspección del tráfico saliente de Azure-SS
 ### <a name="set-up-the-resource-group"></a><a name="resource-group"></a> Configuración del grupo de recursos
 
 La instancia de Integration Runtime para la integración de SSIS en Azure necesita crear determinados recursos de red en el mismo grupo de recursos de la red virtual. Estos recursos incluyen:
-- Una instancia de Azure Load Balancer, con el nombre *\<Guid>-azurebatch-cloudserviceloadbalancer*.
-- Una dirección IP pública de Azure llamada *\<Guid>-azurebatch-cloudservicepublicip*.
-- Un grupo de seguridad de red llamado *\<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
+- Una instancia de Azure Load Balancer, con el nombre *\<Guid>-azurebatch-cloudserviceloadbalancer* .
+- Una dirección IP pública de Azure llamada *\<Guid>-azurebatch-cloudservicepublicip* .
+- Un grupo de seguridad de red llamado *\<Guid>-azurebatch-cloudservicenetworksecuritygroup* . 
 
 > [!NOTE]
 > Ahora puede traer sus propias direcciones IP públicas estáticas de Azure-SSIS IR. En este escenario solo se creará el equilibrador de carga de Azure y el grupo de seguridad de red en el mismo grupo de recursos que las direcciones IP públicas estáticas, en lugar de la red virtual.
@@ -340,19 +340,19 @@ Use el portal para configurar una red virtual de Azure Resource Manager antes co
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
-1. Seleccione **Más servicios**. Filtre y seleccione **Redes virtuales**. 
+1. Seleccione **Más servicios** . Filtre y seleccione **Redes virtuales** . 
 
 1. Filtre y seleccione su red virtual en la lista. 
 
-1. En la página **Red virtual**, seleccione **Propiedades**. 
+1. En la página **Red virtual** , seleccione **Propiedades** . 
 
 1. Seleccione el botón de copia en **ID. DE RECURSO** para copiar el identificador de recurso de la red virtual en el Portapapeles. Guarde el identificador del Portapapeles en OneNote o en un archivo. 
 
-1. En el menú de la izquierda, seleccione **Subredes**. Asegúrese de que el número de direcciones disponibles es mayor que el número de nodos de Azure-SSIS Integration Runtime. 
+1. En el menú de la izquierda, seleccione **Subredes** . Asegúrese de que el número de direcciones disponibles es mayor que el número de nodos de Azure-SSIS Integration Runtime. 
 
 1. Compruebe que el proveedor de Azure Batch está registrado en la suscripción de Azure que tiene la red virtual. O bien, registre el proveedor de Azure Batch. Si ya tiene una cuenta de Azure Batch en su suscripción, significa que la suscripción está registrada para Azure Batch. Si crea la instancia de Integration Runtime para la integración de SSIS en Azure en el portal de Data Factory, el proveedor de Azure Batch se registrará automáticamente. 
 
-   1. En Azure Portal, en el menú de la izquierda, seleccione **Suscripciones**. 
+   1. En Azure Portal, en el menú de la izquierda, seleccione **Suscripciones** . 
 
    1. Seleccione su suscripción. 
 
@@ -370,29 +370,29 @@ Use el portal para configurar una red virtual clásica antes conectar Azure-SSIS
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
-1. Seleccione **Más servicios**. Filtre y seleccione **Redes virtuales (clásicas)** . 
+1. Seleccione **Más servicios** . Filtre y seleccione **Redes virtuales (clásicas)** . 
 
 1. Filtre y seleccione su red virtual en la lista. 
 
-1. En la página **Red virtual (clásica)** , seleccione **Propiedades**. 
+1. En la página **Red virtual (clásica)** , seleccione **Propiedades** . 
 
    ![Identificador de recurso de red virtual clásica](media/join-azure-ssis-integration-runtime-virtual-network/classic-vnet-resource-id.png)
 
 1. Seleccione el botón de copia en **ID. DE RECURSO** para copiar el identificador de recurso de la red clásica en el Portapapeles. Guarde el identificador del Portapapeles en OneNote o en un archivo. 
 
-1. En el menú de la izquierda, seleccione **Subredes**. Asegúrese de que el número de direcciones disponibles es mayor que el número de nodos de Azure-SSIS Integration Runtime. 
+1. En el menú de la izquierda, seleccione **Subredes** . Asegúrese de que el número de direcciones disponibles es mayor que el número de nodos de Azure-SSIS Integration Runtime. 
 
    ![Número de direcciones disponibles en la red virtual](media/join-azure-ssis-integration-runtime-virtual-network/number-of-available-addresses.png)
 
 1. Una **MicrosoftAzureBatch** al rol **Colaborador de la máquina virtual clásica** de la red virtual. 
 
-   1. En el menú de la izquierda, seleccione **Control de acceso (IAM)** y, después, la pestaña **Asignaciones de roles**. 
+   1. En el menú de la izquierda, seleccione **Control de acceso (IAM)** y, después, la pestaña **Asignaciones de roles** . 
 
        ![Botones "Control de acceso" y "Agregar"](media/join-azure-ssis-integration-runtime-virtual-network/access-control-add.png)
 
-   1. Seleccione **Agregar asignación de roles**.
+   1. Seleccione **Agregar asignación de roles** .
 
-   1. En la página **Agregar asignación de roles**, en **Rol**, seleccione **Colaborador de la máquina virtual clásica**. En el cuadro **Seleccionar**, pegue **ddbf3205-c6bd-46ae-8127-60eb93363864** y seleccione **Microsoft Azure Batch** en la lista de resultados de la búsqueda. 
+   1. En la página **Agregar asignación de roles** , en **Rol** , seleccione **Colaborador de la máquina virtual clásica** . En el cuadro **Seleccionar** , pegue **ddbf3205-c6bd-46ae-8127-60eb93363864** y seleccione **Microsoft Azure Batch** en la lista de resultados de la búsqueda. 
 
        ![Resultados de la búsqueda en la página "Agregar asignación de roles"](media/join-azure-ssis-integration-runtime-virtual-network/azure-batch-to-vm-contributor.png)
 
@@ -406,7 +406,7 @@ Use el portal para configurar una red virtual clásica antes conectar Azure-SSIS
 
 1. Compruebe que el proveedor de Azure Batch está registrado en la suscripción de Azure que tiene la red virtual. O bien, registre el proveedor de Azure Batch. Si ya tiene una cuenta de Azure Batch en su suscripción, significa que la suscripción está registrada para Azure Batch. Si crea la instancia de Integration Runtime para la integración de SSIS en Azure en el portal de Data Factory, el proveedor de Azure Batch se registrará automáticamente. 
 
-   1. En Azure Portal, en el menú de la izquierda, seleccione **Suscripciones**. 
+   1. En Azure Portal, en el menú de la izquierda, seleccione **Suscripciones** . 
 
    1. Seleccione su suscripción. 
 
@@ -422,19 +422,19 @@ Después de configurar la red virtual de Azure Resource Manager o la red virtual
 
 1. Inicie Microsoft Edge o Google Chrome. Actualmente, estos exploradores web son los únicos que admiten la interfaz de usuario de Data Factory. 
 
-1. En [Azure Portal](https://portal.azure.com), en el menú izquierdo, seleccione **Factorías de datos**. Si no ve **Factorías de datos** en el menú, seleccione **Más servicios** y luego, en la sección **INTELIGENCIA Y ANÁLISIS**, seleccione **Factorías de datos**. 
+1. En [Azure Portal](https://portal.azure.com), en el menú izquierdo, seleccione **Factorías de datos** . Si no ve **Factorías de datos** en el menú, seleccione **Más servicios** y luego, en la sección **INTELIGENCIA Y ANÁLISIS** , seleccione **Factorías de datos** . 
 
    ![Lista de factorías de datos](media/join-azure-ssis-integration-runtime-virtual-network/data-factories-list.png)
 
-1. Seleccione su factoría de datos con Azure-SSIS Integration Runtime en la lista. Verá la página principal de la factoría de datos. Seleccione el icono **Crear y supervisar**. Verá la interfaz de usuario de Data Factory en una pestaña independiente. 
+1. Seleccione su factoría de datos con Azure-SSIS Integration Runtime en la lista. Verá la página principal de la factoría de datos. Seleccione el icono **Crear y supervisar** . Verá la interfaz de usuario de Data Factory en una pestaña independiente. 
 
    ![Página principal Factoría de datos](media/join-azure-ssis-integration-runtime-virtual-network/data-factory-home-page.png)
 
-1. En la interfaz de usuario de Data Factory, vaya a la pestaña **Editar**, seleccione **Conexiones** y vaya a la pestaña **Integration Runtimes** (Entornos de ejecución de integración). 
+1. En la interfaz de usuario de Data Factory, vaya a la pestaña **Editar** , seleccione **Conexiones** y vaya a la pestaña **Integration Runtimes** (Entornos de ejecución de integración). 
 
    ![Pestañas "Integration runtimes" (Entornos de ejecución de integración)](media/join-azure-ssis-integration-runtime-virtual-network/integration-runtimes-tab.png)
 
-1. Si Azure-SSIS Integration Runtime está en funcionamiento, en la lista **Integration Runtimes** (Entornos de ejecución de integración), en la columna **Acciones**, seleccione el botón **Detener** de Azure-SSIS Integration Runtime. No puede editar la instancia de Azure-SSIS IR hasta que la detenga. 
+1. Si Azure-SSIS Integration Runtime está en funcionamiento, en la lista **Integration Runtimes** (Entornos de ejecución de integración), en la columna **Acciones** , seleccione el botón **Detener** de Azure-SSIS Integration Runtime. No puede editar la instancia de Azure-SSIS IR hasta que la detenga. 
 
    ![Detención de Integration Runtime](media/join-azure-ssis-integration-runtime-virtual-network/stop-ir-button.png)
 
@@ -466,11 +466,11 @@ Después de configurar la red virtual de Azure Resource Manager o la red virtual
       
       1. En **Second static public IP address** (Segunda dirección IP pública estática), seleccione la primera dirección IP pública estática que [cumpla los requisitos](#publicIP) de su instancia de Azure-SSIS IR. Si no tiene ninguna, haga clic en el vínculo **Crear nueva** para crear direcciones IP públicas estáticas en Azure Portal y, a continuación, haga clic en el botón actualizar aquí para poder seleccionarlas.
 
-   1. Seleccione **VNet Validation** (Validación de red virtual). Si la validación es correcta, seleccione **Continuar**. 
+   1. Seleccione **VNet Validation** (Validación de red virtual). Si la validación es correcta, seleccione **Continuar** . 
 
    ![Configuración avanzada con una red virtual](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-vnet.png)
 
-1. En la página **Resumen**, revise toda la configuración de Azure-SSIS Integration Runtime. Después, seleccione **Actualizar**.
+1. En la página **Resumen** , revise toda la configuración de Azure-SSIS Integration Runtime. Después, seleccione **Actualizar** .
 
 1. Inicie Azure-SSIS Integration Runtime mediante la selección del botón **Iniciar** de la columna **Acciones** de Azure-SSIS IR. Se tarda aproximadamente entre 20 y 30 minutos en iniciar la instancia de Azure-SSIS IR que se conecta a una red virtual. 
 

@@ -7,28 +7,28 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015011"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331760"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
-Por seguridad, Azure Digital Twins permite el control de acceso preciso sobre datos, recursos y acciones específicos en su implementación. Para ello, se usa una estrategia pormenorizada de roles y permisos que se conoce como **control de acceso basado en rol** (RBAC). Puede obtener más información sobre los principios generales de RBAC para Azure [aquí](../role-based-access-control/overview.md).
+Por seguridad, Azure Digital Twins permite el control de acceso preciso sobre datos, recursos y acciones específicos en su implementación. Para ello, se usa una estrategia pormenorizada de roles y permisos que se conoce como **Control de acceso basado en roles de Azure (Azure RBAC)** . Puede leer sobre los principios generales de Azure RBAC [aquí](../role-based-access-control/overview.md).
 
 Azure Digital Twins también admite el cifrado de datos en reposo.
 
-## <a name="granting-permissions-with-rbac"></a>Concesión de permisos con RBAC
+## <a name="granting-permissions-with-azure-rbac"></a>Concesión de permisos con Azure RBAC
 
-RBAC se proporciona en Azure Digital Twins mediante la integración con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Azure RBAC se proporciona en Azure Digital Twins mediante la integración con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Puede usar RBAC para conceder permisos a una *entidad de seguridad*, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad y recibe un token de OAuth 2.0 a cambio. Este token se puede usar para autorizar una solicitud de acceso a una instancia de Azure Digital Twins.
+Puede usar Azure RBAC para conceder permisos a una *entidad de seguridad* , que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Azure AD autentica la entidad de seguridad y recibe un token de OAuth 2.0 a cambio. Este token se puede usar para autorizar una solicitud de acceso a una instancia de Azure Digital Twins.
 
 ### <a name="authentication-and-authorization"></a>Autenticación y autorización
 
-Con Azure AD, el acceso es un proceso de dos pasos. Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta acceder a Azure Digital Twins, la solicitud se debe *autenticar* y *autorizar*. 
+Con Azure AD, el acceso es un proceso de dos pasos. Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta acceder a Azure Digital Twins, la solicitud se debe *autenticar* y *autorizar* . 
 
 1. En primer lugar, se *autentica* la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0.
 2. Luego, el token se pasa como parte de una solicitud al servicio Azure Digital Twins para *autorizar* el acceso al recurso especificado.
@@ -57,7 +57,7 @@ Azure proporciona los siguientes roles de Azure integrados para autorizar el acc
 Para más información sobre cómo se definen los roles integrados, consulte [*Descripción de definiciones de roles*](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para más información acerca de la creación de roles personalizados de Azure, consulte [*Roles personalizados en los recursos de Azure*](../role-based-access-control/custom-roles.md).
 
 Puede asignar roles de dos maneras:
-* mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [*Incorporación o eliminación de asignaciones de roles mediante RBAC de Azure y Azure Portal*](../role-based-access-control/role-assignments-portal.md))
+* mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [*Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * mediante comandos de la CLI para agregar o quitar un rol
 
 Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
@@ -75,7 +75,7 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 
 ### <a name="troubleshooting-permissions"></a>Solución de problemas de permisos
 
-Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [*Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)* ](troubleshoot-error-403.md).
+Si un usuario intenta realizar una acción no permitida por su rol, es posible que reciba el siguiente error de la solicitud de servicio: `403 (Forbidden)`. Para obtener más información y pasos para solucionar problemas, vea [*Solución de problemas: Error en la solicitud de Azure Digital Twins con el estado: 403 (Prohibido)*](troubleshoot-error-403.md).
 
 ## <a name="encryption-of-data-at-rest"></a>Cifrado de datos en reposo
 
@@ -95,4 +95,4 @@ Para resolver este error, realice una de las siguientes acciones:
 
 * Vea cómo interactuar con estos conceptos del código de la aplicación cliente en [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md).
 
-* Obtenga más información sobre [RBAC para Azure](../role-based-access-control/overview.md).
+* Obtenga más información sobre [Azure RBAC](../role-based-access-control/overview.md).

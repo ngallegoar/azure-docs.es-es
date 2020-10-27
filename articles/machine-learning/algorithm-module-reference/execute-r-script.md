@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542295"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330400"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -147,13 +147,13 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
 
 1. Conecte cualquier entrada que necesite el script. Las entradas son opcionales y pueden incluir datos y código de R adicional.
 
-    * **Dataset1**: haga referencia a la primera entrada como `dataframe1`. El conjunto de datos de entrada tiene que tener el formato de un archivo CSV, TSV o ARFF. O bien, puede conectar un conjunto de datos de Azure Machine Learning.
+    * **Dataset1** : haga referencia a la primera entrada como `dataframe1`. El conjunto de datos de entrada tiene que tener el formato de un archivo CSV, TSV o ARFF. O bien, puede conectar un conjunto de datos de Azure Machine Learning.
 
-    * **Dataset2**: haga referencia a la segunda entrada como `dataframe2`. Este conjunto de datos también tiene que tener un formato de archivo CSV, TSV o ARFF, o de conjunto de datos de Azure Machine Learning.
+    * **Dataset2** : haga referencia a la segunda entrada como `dataframe2`. Este conjunto de datos también tiene que tener un formato de archivo CSV, TSV o ARFF, o de conjunto de datos de Azure Machine Learning.
 
-    * **Conjunto de scripts**: la tercera entrada acepta archivos ZIP. Un archivo ZIP puede contener varios archivos y varios tipos de archivo.
+    * **Conjunto de scripts** : la tercera entrada acepta archivos ZIP. Un archivo ZIP puede contener varios archivos y varios tipos de archivo.
 
-1. En el cuadro de texto **Script de R**, escriba o pegue el script de R válido.
+1. En el cuadro de texto **Script de R** , escriba o pegue el script de R válido.
 
     > [!NOTE]
     > Escriba el script con cuidado. Asegúrese de que no hay errores de sintaxis, como el uso de variables no declaradas o de funciones o módulos no importados. Preste especial atención a la lista de paquetes preinstalados al final de este artículo. Para usar paquetes que no aparecen en la lista, instálelos en el script. Un ejemplo es `install.packages("zoo",repos = "http://cran.us.r-project.org")`.
@@ -194,12 +194,12 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
     > [!NOTE]
     > Puede que el código R existente necesite pequeños cambios para ejecutarse en una canalización de diseñador. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en el diseñador.
 
-    Si el script tiene más de 16 KB, use el puerto **Agrupación de scripts** para evitar errores parecidos a *CommandLine supera el límite de 16 597 caracteres*. 
+1. Si el script tiene más de 16 KB, use el puerto **Agrupación de scripts** para evitar errores parecidos a *CommandLine supera el límite de 16 597 caracteres* . 
     
     1. Agrupe el script y otros recursos personalizados en un archivo zip.
     1. Cargue el archivo zip como un **Conjunto de datos de archivo** en Studio. 
-    1. Arrastre el módulo del conjunto de datos de la lista *My datasets* (Mis conjuntos de datos) del panel de módulos de la izquierda a la página de creación del diseñador. 
-    1. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R**.
+    1. Arrastre el módulo del conjunto de datos de la lista de *Conjunto de datos* del panel de módulos de la izquierda a la página de creación del diseñador. 
+    1. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R** .
     
     A continuación, se muestra el código de ejemplo para consumir el script en el conjunto de scripts:
 
@@ -226,7 +226,7 @@ Los módulos Execute R Script (Ejecutar script R) pueden devolver varias sali
 
 Los mensajes estándar y los errores de R se devuelven al registro del módulo.
 
-Si necesita imprimir los resultados del script de R, puede buscar los resultados impresos en **70_driver_log**, en la pestaña **Outputs+logs** (Salidas y registros) del panel derecho del módulo.
+Si necesita imprimir los resultados del script de R, puede buscar los resultados impresos en **70_driver_log** , en la pestaña **Outputs+logs** (Salidas y registros) del panel derecho del módulo.
 
 ## <a name="sample-scripts"></a>Muestras de scripts
 
@@ -241,7 +241,7 @@ El módulo Execute R Script (Ejecutar script R) admite archivos de script de�
 
 1. Compruebe que el archivo zip aparece en la lista **My Datasets** (Mis conjuntos de datos) de la categoría **Datasets** (Conjuntos de datos) del árbol de módulos de la izquierda.
 
-1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts**.
+1.  Conecte el conjunto de datos al puerto de entrada del **conjunto de scripts** .
 
 1. Todos los archivos del archivo ZIP están disponibles durante el tiempo de ejecución de la canalización. 
 
@@ -289,10 +289,10 @@ azureml_main <- function(dataframe1, dataframe2){
 
 En este ejemplo se muestra cómo usar un conjunto de datos en un archivo ZIP como entrada para el módulo Execute R Script (Ejecutar script R).
 
-1. Cree el archivo de datos en formato CSV y asígnele el nombre **mydatafile.csv**.
+1. Cree el archivo de datos en formato CSV y asígnele el nombre **mydatafile.csv** .
 1. Cree un archivo ZIP y agregue el archivo CSV al archivo.
 1. Cargue el archivo comprimido en su área de trabajo de Azure Machine Learning. 
-1. Conecte el conjunto de datos resultante en la entrada **ScriptBundle** del módulo **Ejecutar script R**.
+1. Conecte el conjunto de datos resultante en la entrada **ScriptBundle** del módulo **Ejecutar script R** .
 1. Use el código siguiente para leer los datos en formato CSV del archivo comprimido.
 
 ```R

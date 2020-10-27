@@ -7,16 +7,16 @@ ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 911f819343f675ebe0a2604d912e6e26aa646eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e06c79b9cbd5643d119974a4ed8628ea1b1cd4f
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90533019"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096766"
 ---
 # <a name="x509-certificate-attestation"></a>Atestación de certificados de cliente X.509
 
-En este artículo se proporciona información general sobre los conceptos implicados en el aprovisionamiento de dispositivos mediante la atestación del certificado X.509. Este artículo es apropiado para todas las personas implicadas en la preparación de un dispositivo para la implementación.
+En este artículo se proporciona información general sobre conceptos relativos al servicio Device Provisioning durante el aprovisionamiento de dispositivos mediante la atestación de certificados X.509. Este artículo es apropiado para todas las personas implicadas en la preparación de un dispositivo para la implementación.
 
 Los certificados X.509 se pueden almacenar en un HSM de módulo de seguridad de hardware.
 
@@ -44,22 +44,58 @@ Un certificado raíz es un certificado X.509 autofirmado que representa una enti
 
 Un certificado intermedio es un certificado X.509 que ha sido firmado por el certificado raíz (o por otro certificado que actúa como certificado intermedio en la cadena hasta el certificado raíz). El último certificado intermedio en una cadena se usa para firmar el certificado de hoja. También se puede hacer referencia a un certificado intermedio como un certificado de CA intermedio.
 
+##### <a name="why-are-intermediate-certs-useful"></a>¿Por qué son útiles los certificados intermedios?
+Los certificados intermedios se utilizan de varias maneras. Por ejemplo, se pueden usar para agrupar dispositivos en función de líneas de producto, clientes que adquieran dispositivos, divisiones de la empresa o fábricas. 
+
+Supongamos que Contoso es una gran corporación con su propia infraestructura de clave pública (PKI) que usa el certificado raíz denominado *ContosoRootCert* . Cada subsidiaria de Contoso tiene su propio certificado intermedio que está firmado por *ContosoRootCert* . Posteriormente, cada subsidiaria usará su certificado intermedio para firmar sus certificados de hoja para cada dispositivo. En este escenario, Contoso puede usar una única instancia de DPS en la que *ContosoRootCert* se ha comprobado mediante una [prueba de posesión](./how-to-verify-certificates.md). Puede haber un grupo de inscripción para cada subsidiaria. De esta forma, cada subsidiaria individual no tendrá que ocuparse de comprobar los certificados.
+
+
 ### <a name="end-entity-leaf-certificate"></a>Certificado de entidad final "de hoja"
 
 El certificado de hoja, o certificado de entidad final, identifica al titular del certificado. Tiene el certificado raíz en su cadena de certificados, así como cero o más certificados intermedios. El certificado de hoja no se usa para firmar otros certificados. Identifica de forma exclusiva al dispositivo ante el servicio de aprovisionamiento, y a veces se conoce como certificado del dispositivo. Durante la autenticación, el dispositivo usa la clave privada asociada con este certificado para responder a una prueba de desafío de posesión del servicio.
 
-Los certificados de hoja usados con una entrada de [inscripción Individual](./concepts-service.md#individual-enrollment) requieren que el **nombre del sujeto** se establezca en el identificador de registro de la entrada de la inscripción individual. Los certificados de hoja utilizados con una entrada de [grupo de inscripción](./concepts-service.md#enrollment-group) deben tener el **nombre del sujeto** configurado en el identificador del dispositivo deseado que se mostrará en **Entradas de registro** para el dispositivo autenticado en el grupo de inscripción.
+Los certificados de hoja usados con una entrada de [inscripción Individual](./concepts-service.md#individual-enrollment) requieren que el **nombre del sujeto** se establezca en el identificador de registro de la entrada de la inscripción individual. Los certificados de hoja utilizados con una entrada de [grupo de inscripción](./concepts-service.md#enrollment-group) deben tener configurado como **nombre del firmante** el identificador del dispositivo deseado que se mostrará en **Entradas de registro** para el dispositivo autenticado en el grupo de inscripción.
 
 Para más información consulte [Autenticación de dispositivos firmados con certificados de entidad de certificación X.509](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509
 
-El servicio de aprovisionamiento expone dos tipos de entrada de inscripción que puede usar para controlar el acceso de los dispositivos que usan el mecanismo de atestación de X.509:  
+El servicio de aprovisionamiento expone dos tipos de inscripción que se puede usar para controlar el acceso a dispositivos mediante el mecanismo de atestación X.509:  
 
 - Las entradas de [inscripción individual](./concepts-service.md#individual-enrollment) se configuran con el certificado de dispositivo asociado a un dispositivo específico. Estas entradas controlan las inscripciones para dispositivos específicos.
 - Las entradas de [grupo de inscripción](./concepts-service.md#enrollment-group) están asociadas con un certificado de CA raíz o intermedio específico. Estas entradas controlan las inscripciones para todos los dispositivos que tienen ese certificado intermedio o raíz en su cadena de certificados. 
 
-Cuando un dispositivo se conecta al servicio de aprovisionamiento, el servicio da prioridad a las entradas de inscripción más específicas sobre las entradas de inscripción menos específicas. Es decir, si existe una inscripción individual para el dispositivo, el servicio de aprovisionamiento aplica a esa entrada. Si no hay ninguna inscripción individual para el dispositivo y existe un grupo de inscripción para el primer certificado intermedio en la cadena de certificados del dispositivo, el servicio aplica a esa entrada, y así sucesivamente hacia arriba en la cadena hasta la raíz. El servicio aplica la primera entrada aplicable que encuentra de forma que:
+#### <a name="dps-device-chain-requirements"></a>Requisitos de la cadena de dispositivo de DPS
+
+Cuando un dispositivo está intentando registrarse a través de DPS mediante un grupo de inscripción, debe enviar la cadena de certificados desde el certificado de hoja a un certificado comprobado mediante una [prueba de posesión](how-to-verify-certificates.md). En caso contrario, se producirá un error de autenticación.
+
+Por ejemplo, si únicamente se comprueba el certificado raíz y se carga un certificado intermedio en el grupo de inscripción, el dispositivo debe presentar la cadena de certificados, desde el certificado de hoja al certificado raíz comprobado. Esta cadena de certificados incluiría cualquier certificado intermedio. Si el servicio DPS no puede atravesar la cadena de certificados hasta llegar a un certificado comprobado, se producirá un error de autenticación.
+
+Por ejemplo, imagine que una corporación usa la siguiente cadena para un dispositivo.
+
+![Ejemplo de cadena de certificados de dispositivo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+Solo se comprueba el certificado raíz, y el certificado *intermediate2* se carga en el grupo de inscripción.
+
+![Ejemplo de certificado raíz comprobado](./media/concepts-x509-attestation/example-root-verified.png) 
+
+Si el dispositivo solo envía la siguiente cadena de dispositivo durante el aprovisionamiento, se producirá un error de autenticación. Esto se debe a que el servicio DPS no puede intentar la autenticación basándose en la supuesta validez del certificado *intermediate1* .
+
+![Ejemplo de cadena de certificados que genera error](./media/concepts-x509-attestation/example-fail-cert-chain.png) 
+
+Si el dispositivo envía la cadena de dispositivo completa durante el aprovisionamiento, como se indica a continuación, DPS puede intentar la autenticación del dispositivo.
+
+![Ejemplo de cadena de certificados de dispositivo](./media/concepts-x509-attestation/example-device-cert-chain.png) 
+
+
+
+
+> [!NOTE]
+> Los certificados intermedios también se pueden comprobar mediante una [prueba de posesión](how-to-verify-certificates.md).
+
+
+#### <a name="dps-order-of-operations-with-certificates"></a>Orden de las operaciones de DPS con certificados
+Cuando un dispositivo se conecta al servicio de aprovisionamiento, el servicio da prioridad a las entradas de inscripción más específicas sobre las entradas de inscripción menos específicas. Es decir, si existe una inscripción individual para el dispositivo, el servicio de aprovisionamiento aplica a esa entrada. Si no hay ninguna inscripción individual para el dispositivo y existe un grupo de inscripción para el primer certificado intermedio en la cadena de certificados del dispositivo, el servicio aplica esa entrada, y así sucesivamente a lo largo de la cadena hasta la raíz. El servicio aplica la primera entrada aplicable que encuentra de forma que:
 
 - Si la primera entrada de inscripción que se encuentra está habilitada, el servicio aprovisiona el dispositivo.
 - Si la primera entrada de inscripción que se encuentra está deshabilitada, el servicio no aprovisiona el dispositivo.  
@@ -67,10 +103,10 @@ Cuando un dispositivo se conecta al servicio de aprovisionamiento, el servicio d
 
 Este mecanismo y la estructura jerárquica de las cadenas de certificados proporciona una flexibilidad eficaz en la forma de controlar el acceso de dispositivos individuales, así como el de grupos de dispositivos. Por ejemplo, imagine cinco dispositivos con las siguientes cadenas de certificado: 
 
-- *Dispositivo 1*: certificado raíz -> certificado A -> certificado de dispositivo 1
-- *Dispositivo 2*: certificado raíz -> certificado A -> certificado de dispositivo 2
-- *Dispositivo 3*: certificado raíz -> certificado A -> certificado de dispositivo 3
-- *Dispositivo 4*: certificado raíz -> certificado B -> certificado de dispositivo 4
-- *Dispositivo 5*: certificado raíz -> certificado B -> certificado de dispositivo 5
+- *Dispositivo 1* : certificado raíz -> certificado A -> certificado de dispositivo 1
+- *Dispositivo 2* : certificado raíz -> certificado A -> certificado de dispositivo 2
+- *Dispositivo 3* : certificado raíz -> certificado A -> certificado de dispositivo 3
+- *Dispositivo 4* : certificado raíz -> certificado B -> certificado de dispositivo 4
+- *Dispositivo 5* : certificado raíz -> certificado B -> certificado de dispositivo 5
 
-En principio, puede crear una única entrada de inscripción de grupo habilitada para el certificado raíz para habilitar el acceso para los cinco dispositivos. Si más adelante el certificado B se pone en peligro, puede crear una entrada de grupo de inscripción deshabilitada para el certificado B para evitar que el *Dispositivo 4* y el *Dispositivo 5* se inscriban. Si después el *Dispositivo 3* se pone en peligro, puede crear una entrada de inscripción individual deshabilitada para su certificado. Esto revoca el acceso del *Dispositivo 3*, pero sigue permitiendo que el *Dispositivo 1* y el *Dispositivo 2* se inscriban.
+En principio, puede crear una única entrada de inscripción de grupo habilitada para el certificado raíz para habilitar el acceso para los cinco dispositivos. Si más adelante el certificado B se pone en peligro, puede crear una entrada de grupo de inscripción deshabilitada para el certificado B para evitar que el *Dispositivo 4* y el *Dispositivo 5* se inscriban. Si después el *Dispositivo 3* se pone en peligro, puede crear una entrada de inscripción individual deshabilitada para su certificado. Esto revoca el acceso del *Dispositivo 3* , pero sigue permitiendo que el *Dispositivo 1* y el *Dispositivo 2* se inscriban.

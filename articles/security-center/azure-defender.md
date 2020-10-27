@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576868"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331692"
 ---
 # <a name="introduction-to-azure-defender"></a>Introducción a Azure Defender
 
@@ -20,7 +20,7 @@ Las características de Azure Security Center abarcan los dos extensos pilares d
 
 - **Administración de la posición de seguridad en la nube (CSPM)** : Security Center está disponible de forma **gratuita** para todos los usuarios de Azure. La experiencia gratuita incluye características de CSPM, como la puntuación segura, la detección de configuraciones incorrectas de seguridad en las máquinas de Azure, el inventario de recursos, etc. Use estas características de CSPM para fortalecer la posición en la nube híbrida y realizar un seguimiento del cumplimiento con las directivas integradas.
 
-- **Protección de la carga de trabajo en la nube (CWP)** : la plataforma integrada de protección de cargas de trabajo en la nube (CWP) de Security Center, **Azure Defender**, ofrece la protección avanzada e inteligente de los recursos y las cargas de trabajo híbridas de Azure. La habilitación de Azure Defender aporta diversas características de seguridad adicionales, como se describe en esta página. Además de las directivas integradas, cuando haya habilitado un plan de Azure Defender, puede agregar directivas e iniciativas personalizadas. Puede agregar estándares normativos, como NIST y Azure CIS, así como pruebas comparativas de la seguridad de Azure para obtener una vista realmente personalizada de su cumplimiento.
+- **Protección de la carga de trabajo en la nube (CWP)** : la plataforma integrada de protección de cargas de trabajo en la nube (CWP) de Security Center, **Azure Defender** , ofrece la protección avanzada e inteligente de los recursos y las cargas de trabajo híbridas de Azure. La habilitación de Azure Defender aporta diversas características de seguridad adicionales, como se describe en esta página. Además de las directivas integradas, cuando haya habilitado un plan de Azure Defender, puede agregar directivas e iniciativas personalizadas. Puede agregar estándares normativos, como NIST y Azure CIS, así como pruebas comparativas de la seguridad de Azure para obtener una vista realmente personalizada de su cumplimiento.
 
 El panel de Azure Defender en Security Center permite la visibilidad y el control de las características de CWP en un entorno:
 
@@ -36,13 +36,14 @@ Al habilitar Azure Defender en el área **Precios y configuración** de Azure Se
 - [Azure Defender para App Service](defender-for-app-service-introduction.md)
 - [Azure Defender para Storage](defender-for-storage-introduction.md)
 - [Azure Defender para SQL](defender-for-sql-introduction.md)
-- [Azure Defender para IoT](defender-for-iot-introduction.md)
 - [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender para registros de contenedor](defender-for-container-registries-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
 
 Cada uno de estos planes se explica por separado en la documentación de Security Center.
 
+> [!TIP]
+> Azure Defender para IoT (versión preliminar) es un producto independiente. Encontrará todos los detalles en [Presentación de la versión preliminar de Azure Defender para IoT](../defender-for-iot/overview.md). 
 
 ## <a name="hybrid-cloud-protection"></a>Protección de la nube híbrida
 
@@ -50,7 +51,6 @@ Además de defender su entorno de Azure, puede agregar funcionalidades de Azure 
 
 - Protección de los servidores que no son de Azure
 - Proteja sus máquinas virtuales de otras nubes (como AWS y GCP)
-- Protección de los dispositivos IoT
 
 Obtenga inteligencia personalizada sobre las amenazas y alertas prioritarias según su entorno específico para que pueda centrarse en lo que más le importa.
 

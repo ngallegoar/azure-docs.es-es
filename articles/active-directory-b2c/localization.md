@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005385"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095907"
 ---
 # <a name="localization-element"></a>Elemento Localization
 
@@ -114,7 +114,7 @@ El elemento **Item** contiene los atributos siguientes:
 | Value | Sí | Valor de notificación de cadena asociado a la selección de esta opción. |
 | SelectByDefault | No | Indica si esta opción se puede seleccionar o no de forma predeterminada en la interfaz de usuario. Valores posibles: True o False. |
 
-En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections**. Contiene dos elementos **LocalizedCollection**, uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
+En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections** . Contiene dos elementos **LocalizedCollection** , uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
 
 ```xml
 <LocalizedResources Id="api.selfasserted.en">
@@ -163,6 +163,7 @@ Referencia de ElementType a un tipo de notificación, una transformación de not
 |Mensaje de usuario de predicado|`Predicate`|Nombre del predicado| Atributo del predicado que se va a localizar. Valores posibles: `HelpText`.|
 |Mensaje de usuario del grupo de predicados|`InputValidation`|Identificador del elemento PredicateValidation.|Identificador del elemento PredicateGroup. El grupo de predicados debe ser un elemento secundario del elemento de validación de predicado, tal como se define en ElementId.|
 |Elementos de la interfaz de usuario |`UxElement` | | Identificador del elemento de la interfaz de usuario que se va a localizar.|
+|[Control de visualización](display-controls.md) |`DisplayControl` |El identificador del control de visualización. | Identificador del elemento de la interfaz de usuario que se va a localizar.|
 
 ## <a name="examples"></a>Ejemplos
 
@@ -330,6 +331,23 @@ El valor de UxElement se usa para localizar uno de los elementos de la interfaz 
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### <a name="displaycontrol"></a>DisplayControl
+
+El valor DisplayControl se usa para localizar uno de los elementos de la interfaz de usuario del [control de visualización](display-controls.md). En el ejemplo siguiente se muestra cómo localizar los botones Enviar y Comprobar. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+En la sección Metadatos de un perfil técnico autoafirmado, el elemento ContentDefinition al que se hace referencia debe tener DataUri establecido en la [versión 2.1.0 o superior del diseño de página](page-layout.md). Por ejemplo:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

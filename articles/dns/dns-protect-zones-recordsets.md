@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
-ms.openlocfilehash: b06ae396ae15c8572cf8160ce576651f47001add
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52cb1f144608202739dc46f2053950b38d810631
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87920507"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330162"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Cómo proteger registros y zonas DNS
 
@@ -22,9 +22,9 @@ Los registros y las zonas DNS son recursos críticos. La eliminación de una zon
 
 En este artículo se explica cómo Azure DNS le permite proteger las zonas y los registros DNS privados de dichos cambios.  Se aplican dos características de seguridad eficaces que proporciona Azure Resource Manager: [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) y [bloqueos de recursos](../azure-resource-manager/management/lock-resources.md).
 
-## <a name="role-based-access-control"></a>Control de acceso basado en rol
+## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
-El control de acceso basado en rol de Azure (Azure RBAC) permite realizar una administración detallada del acceso de usuarios, grupos y recursos de Azure. Con RBAC, puede conceder el nivel de acceso que necesitan los usuarios. Para más información sobre cómo RBAC ayuda a administrar el acceso, vea [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../role-based-access-control/overview.md).
+El control de acceso basado en rol de Azure (Azure RBAC) permite realizar una administración detallada del acceso de usuarios, grupos y recursos de Azure. Con RBAC de Azure, puede conceder el nivel de acceso que necesitan los usuarios. Para obtener más información sobre cómo Azure RBAC le ayuda a administrar el acceso, consulte [¿Qué es el control de acceso basado en roles de Azure (Azure RBAC)?](../role-based-access-control/overview.md)
 
 ### <a name="the-dns-zone-contributor-role"></a>Rol Colaborador de zona DNS
 
@@ -32,11 +32,11 @@ El rol de colaborador de zona DNS es un rol integrado para administrar recursos 
 
 El grupo de recursos *myResourceGroup* contiene cinco zonas de Contoso Corporation. Cuando se conceden permisos de Colaborador de zona DNS de administrador de DNS a ese grupo de recursos, se permite el control total sobre esas zonas DNS. Se evita la concesión de permisos innecesarios. El administrador de DNS no puede crear ni detener máquinas virtuales.
 
-La manera más sencilla de asignar permisos RBAC es [a través de Azure Portal](../role-based-access-control/role-assignments-portal.md).  
+La manera más sencilla de asignar permisos de Azure RBAC es [a través de Azure Portal](../role-based-access-control/role-assignments-portal.md).  
 
-Abra **Control de acceso (IAM)** del grupo de recursos, seleccione **Agregar** y, luego, seleccione el rol **Colaborador de zona DNS**. Seleccione los usuarios o grupos necesarios para conceder permisos.
+Abra **Control de acceso (IAM)** del grupo de recursos, seleccione **Agregar** y, luego, seleccione el rol **Colaborador de zona DNS** . Seleccione los usuarios o grupos necesarios para conceder permisos.
 
-![RBAC de nivel de grupo de recursos a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac1.png)
+![Permiso de Azure RBAC de nivel de grupo de recursos a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac1.png)
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -61,15 +61,15 @@ az role assignment create \
 --resource-group "<resource group name>"
 ```
 
-### <a name="zone-level-rbac"></a>RBAC de nivel de zona
+### <a name="zone-level-azure-rbac"></a>Permiso de Azure RBAC de nivel de zona
 
 Las reglas de RBAC de Azure pueden aplicarse a una suscripción, a un grupo de recursos o a un recurso individual. Ese recurso puede ser una zona DNS individual o un conjunto de registros individual.
 
-Por ejemplo, el grupo de recursos *myResourceGroup* contiene la zona *contoso.com* y una subzona *customers.contoso.com*. Para cada cuenta de cliente se crean registros CNAME. La cuenta de administrador que se usa para administrar los registros CNAME recibe permisos para crear registros en la zona *customers.contoso.com*. La cuenta solo puede administrar *customers.contoso.com*.
+Por ejemplo, el grupo de recursos *myResourceGroup* contiene la zona *contoso.com* y una subzona *customers.contoso.com* . Para cada cuenta de cliente se crean registros CNAME. La cuenta de administrador que se usa para administrar los registros CNAME recibe permisos para crear registros en la zona *customers.contoso.com* . La cuenta solo puede administrar *customers.contoso.com* .
 
-Los permisos RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra **Control de acceso (IAM)** para la zona, seleccione **Agregar** y, a continuación, seleccione el rol **Colaborador de zona DNS** y los usuarios o grupos a los que necesita conceder permisos.
+Los permisos de Azure RBAC de nivel de zona se pueden conceder a través de Azure Portal.  Abra **Control de acceso (IAM)** para la zona, seleccione **Agregar** y, a continuación, seleccione el rol **Colaborador de zona DNS** y los usuarios o grupos a los que necesita conceder permisos.
 
-![RBAC de nivel de zona DNS a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac2.png)
+![Permiso de Azure RBAC de nivel de zona DNS a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac2.png)
 
 Los permisos también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -96,15 +96,15 @@ az role assignment create \
 --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/DnsZones/<zone name>/"
 ```
 
-### <a name="record-set-level-rbac"></a>RBAC de nivel de conjunto de registros
+### <a name="record-set-level-azure-rbac"></a>Permiso de Azure RBAC de nivel de conjunto de registros
 
 Los permisos se aplican en el nivel de conjunto de registros.  Se concede al usuario control sobre las entradas que necesita y no puede realizar ningún otro cambio.
 
-Los permisos RBAC de nivel de conjunto de registros pueden configurarse mediante Azure Portal, con el botón **Control de acceso (IAM)** de la página del conjunto de registros:
+Los permisos de Azure RBAC de nivel de conjunto de registros se pueden configurar a través de Azure Portal. Para ello, use el botón **Control de acceso (IAM)** de la página del conjunto de registros:
 
-![RBAC de nivel de conjunto de registros a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac3.png)
+![Permiso de Azure RBAC de nivel de conjunto de registros a través de Azure Portal](./media/dns-protect-zones-recordsets/rbac3.png)
 
-Los permisos RBAC de nivel de conjunto de registros también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Los permisos de Azure RBAC de nivel de conjunto de registros también se pueden [conceder mediante Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```azurepowershell
 # Grant permissions to a specific record set
@@ -186,19 +186,19 @@ az role create -inputfile <file path>
 
 El rol se puede asignar después del mismo modo que los roles integrados, tal cual se describe anteriormente en este artículo.
 
-Para obtener más información sobre cómo crear, administrar y asignar roles personalizados, vea [Roles personalizados en RBAC de Azure](../role-based-access-control/custom-roles.md).
+Para obtener más información sobre cómo crear, administrar y asignar roles personalizados, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
 ## <a name="resource-locks"></a>Bloqueos de recursos
 
 Azure Resource Manager admite otro tipo de control de seguridad: la posibilidad de bloquear recursos. Los bloqueos de recursos se aplican al recurso y están en vigor en todos los usuarios y roles. Para obtener más información, consulte [Bloqueo de recursos con el Administrador de recursos de Azure](../azure-resource-manager/management/lock-resources.md).
 
-Existen dos tipos de bloqueos de recursos: **CanNotDelete** y **ReadOnly**. Estos tipos de bloqueos pueden aplicarse a una zona DNS privada o a un conjunto de registros individual. En las secciones siguientes se describen varios escenarios comunes y cómo mantenerlos con bloqueos de recursos.
+Existen dos tipos de bloqueos de recursos: **CanNotDelete** y **ReadOnly** . Estos tipos de bloqueos pueden aplicarse a una zona DNS privada o a un conjunto de registros individual. En las secciones siguientes se describen varios escenarios comunes y cómo mantenerlos con bloqueos de recursos.
 
 ### <a name="protecting-against-all-changes"></a>Protección contra todos los cambios
 
 Para evitar que se realicen cambios, aplique un bloqueo ReadOnly a la zona. Este bloqueo impide que se creen otros conjuntos de registros y que se modifiquen o eliminen conjuntos de registros existentes.
 
-Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la página de la zona DNS, seleccione **Bloqueos** y después seleccione **+ Agregar**:
+Pueden crearse bloqueos de recursos de nivel de zona a través de Azure Portal.  En la página de la zona DNS, seleccione **Bloqueos** y después seleccione **+ Agregar** :
 
 ![Bloqueos de recursos de nivel de zona a través de Azure Portal](./media/dns-protect-zones-recordsets/locks1.png)
 
@@ -286,5 +286,5 @@ Es posible usar ambos enfoques (bloqueos de recursos y roles personalizados) al 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre cómo trabajar con RBAC, vea [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md).
+* Para obtener más información acerca de cómo trabajar con Azure RBAC, consulte [¿Qué es el control de acceso basado en roles de Azure (Azure RBAC)?](../role-based-access-control/overview.md)
 * Para más información sobre cómo trabajar con bloqueos de recursos, vea [Bloqueo de recursos con Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

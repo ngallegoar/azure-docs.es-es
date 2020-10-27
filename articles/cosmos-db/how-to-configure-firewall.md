@@ -4,17 +4,27 @@ description: Aprenda a configurar directivas de control de acceso por IP para la
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814185"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279750"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configuración del firewall de IP en Azure Cosmos DB
+
+Para proteger los datos almacenados en su cuenta, Azure Cosmos DB admite un modelo de autorización basado en secretos que usa código de autentificación de mensajes basado en hash (HMAC). Además, Azure Cosmos DB admite controles de acceso basado en IP para la compatibilidad con el firewall de entrada. Este modelo es muy parecido a las reglas de firewall de un sistema de base de datos tradicional y proporciona un nivel de seguridad adicional a la cuenta. Con los firewalls, puede configurar su cuenta de Azure Cosmos para que sea accesible solo desde un conjunto aprobado de máquinas o servicios en la nube. Para acceder a los datos almacenados en la base de datos de Azure Cosmos DB desde estos conjuntos aprobados de máquinas y servicios, seguirá siendo necesario que el autor de la llamada presente un token de autorización válido.
+
+## <a name="ip-access-control"></a><a id="ip-access-control-overview"></a> Control de acceso de IP
+
+De forma predeterminada, la cuenta de Azure Cosmos DB es accesible desde Internet siempre y cuando la solicitud vaya acompañada de un token de autorización válido. Para configurar el control de acceso basado en directivas IP, el usuario debe proporcionar el conjunto de direcciones IP o intervalos de direcciones IP en formato CIDR (Enrutamiento de interdominios sin clases) para incluirlos en la lista de direcciones IP permitidas de cliente para acceder a una cuenta de Azure Cosmos dada. Una vez que se aplica esta configuración, todas las solicitudes que se originan en máquinas que están fuera de esta lista de permitidos reciben la respuesta 403 (Prohibido). Cuando se usa el firewall de IP, se recomienda permitir que Azure Portal acceda a su cuenta. Este acceso es necesario para permitir el uso del explorador de datos, y para recuperar las métricas de la cuenta que se muestran en Azure Portal. Cuando se usa el explorador de datos, además de permitir que Azure Portal acceda a su cuenta, también deberá actualizar la configuración del firewall para agregar la dirección IP actual a las reglas de firewall. Tenga en cuenta que los cambios en el firewall pueden tardar hasta 15 minutos en propagarse.
+
+Puede combinar el firewall basado en IP con el control de acceso de red virtual y subred. Al combinarlos, puede limitar el acceso a cualquier origen que tenga una dirección IP pública o desde una subred específica dentro de la red virtual. Para más información sobre el control de acceso de red virtual y subred, consulte [Acceso a los recursos de Azure Cosmos DB desde redes virtuales](vnet-service-endpoint.md).
+
+En resumen, siempre se necesita el token de autorización para acceder a una cuenta de Azure Cosmos. Si el firewall de IP y la lista de control de acceso (ACL) de red virtual no se han configurado, se puede acceder a la cuenta de Azure Cosmos con el token de autorización. Una vez que el firewall de IP o las listas ACL de red virtual, o ambos, están configurados en la cuenta de Azure Cosmos, solo las solicitudes que se originan en los orígenes especificados (y con el token de autorización) obtienen respuestas válidas. 
 
 Puede proteger los datos almacenados en su cuenta de Azure Cosmos DB mediante el uso de firewalls de dirección IP. Azure Cosmos DB admite controles de acceso basado en IP para la compatibilidad con el firewall de entrada. Puede establecer un firewall de dirección IP en la cuenta de Azure Cosmos DB mediante una de las maneras siguientes:
 
@@ -24,7 +34,7 @@ Puede proteger los datos almacenados en su cuenta de Azure Cosmos DB mediante el
 
 ## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configuración de un firewall de dirección IP mediante Azure Portal
 
-Para establecer la directiva de control de acceso de IP en Azure Portal, vaya a la página de la cuenta de Azure Cosmos DB y seleccione **Firewall y redes virtuales** en el menú de navegación. Cambie el valor **Permitir acceso desde** por **Redes seleccionadas** y, a continuación, seleccione **Guardar**.
+Para establecer la directiva de control de acceso de IP en Azure Portal, vaya a la página de la cuenta de Azure Cosmos DB y seleccione **Firewall y redes virtuales** en el menú de navegación. Cambie el valor **Permitir acceso desde** por **Redes seleccionadas** y, a continuación, seleccione **Guardar** .
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
@@ -44,13 +54,13 @@ Cuando se habilita una directiva de control de acceso de IP mediante programaci�
 |US Gov|52.244.48.71|
 |Todas las demás regiones|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-Para habilitar las solicitudes para acceder a Azure Portal, seleccione la opción **Permitir el acceso desde Azure Portal**, tal como se muestra en la captura de pantalla siguiente:
+Para habilitar las solicitudes para acceder a Azure Portal, seleccione la opción **Permitir el acceso desde Azure Portal** , tal como se muestra en la captura de pantalla siguiente:
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
 ### <a name="allow-requests-from-global-azure-datacenters-or-other-sources-within-azure"></a>Permitir las solicitudes de los centros de datos globales de Azure u otros orígenes dentro de Azure
 
-Si tiene acceso a su cuenta de Azure Cosmos DB desde los servicios que no proporcionan un IP estático (por ejemplo, Azure Stream Analytics y Azure Functions), aún podrá usar el firewall de dirección IP para limitar el acceso. Para habilitar el acceso desde otros orígenes dentro de Azure, seleccione la opción **Aceptar conexiones desde centros de datos de Azure**, tal como se muestra en la captura de pantalla siguiente:
+Si tiene acceso a su cuenta de Azure Cosmos DB desde los servicios que no proporcionan un IP estático (por ejemplo, Azure Stream Analytics y Azure Functions), aún podrá usar el firewall de dirección IP para limitar el acceso. Para habilitar el acceso desde otros orígenes dentro de Azure, seleccione la opción **Aceptar conexiones desde centros de datos de Azure** , tal como se muestra en la captura de pantalla siguiente:
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
@@ -65,7 +75,7 @@ Para simplificar el desarrollo, Azure Portal le ayuda a identificar y agregar la
 
 El portal detecta automáticamente la dirección IP del cliente. Puede que sea la dirección IP cliente de la máquina, pero también la dirección IP de la puerta de enlace de red. Asegúrese de quitar esta dirección IP antes de llevar las cargas de trabajo a producción.
 
-Para agregar su dirección IP actual a la lista de direcciones IP, seleccione **Agregar mi IP actual**. Después, seleccione **Guardar**.
+Para agregar su dirección IP actual a la lista de direcciones IP, seleccione **Agregar mi IP actual** . Después, seleccione **Guardar** .
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Captura de pantalla que muestra cómo abrir la página Firewall en Azure Portal":::
 
@@ -98,7 +108,7 @@ Cuando se obtiene acceso a la cuenta de Azure Cosmos DB desde un equipo de Inter
 Para configurar el control de acceso a su cuenta de Azure Cosmos DB, asegúrese de que la plantilla de Resource Manager especifica la propiedad **ipRules** con una matriz de intervalos IP permitidos. Si configura el Firewall de IP en una cuenta de Cosmos ya implementada, asegúrese de que la matriz `locations` coincida con la que está implementada actualmente. No se puede modificar simultáneamente la matriz `locations` y otras propiedades. Para más información y ejemplos sobre las plantillas de Azure Resource Manager para Azure Cosmos DB, consulte [Plantillas de Azure Resource Manager para Azure Cosmos DB](resource-manager-samples.md).
 
 > [!IMPORTANT]
-> La propiedad **ipRules** se introdujo con la versión 2020-04-01 de la API. En su lugar, las versiones anteriores exponían una propiedad **ipRangeFilter**, que es una lista de direcciones IP separadas por comas.
+> La propiedad **ipRules** se introdujo con la versión 2020-04-01 de la API. En su lugar, las versiones anteriores exponían una propiedad **ipRangeFilter** , que es una lista de direcciones IP separadas por comas.
 
 En el ejemplo siguiente se muestra cómo la propiedad **ipRules** se expone en la versión 2020-04-01 o posterior de la API:
 
@@ -207,7 +217,7 @@ Al habilitar una directiva de control de acceso por IP para su cuenta de Azure C
 
 ### <a name="sdks"></a>SDK
 
-Cuando tenga acceso a recursos de Azure Cosmos DB mediante SDK desde máquinas que no están en la lista de permitidos, se devolverá una respuesta genérica**403 Prohibido** sin más detalles. Compruebe la lista de direcciones IP permitidas para su cuenta y asegúrese de que se aplique la configuración de directiva correcta a su cuenta de Azure Cosmos DB.
+Cuando tenga acceso a recursos de Azure Cosmos DB mediante SDK desde máquinas que no están en la lista de permitidos, se devolverá una respuesta genérica **403 Prohibido** sin más detalles. Compruebe la lista de direcciones IP permitidas para su cuenta y asegúrese de que se aplique la configuración de directiva correcta a su cuenta de Azure Cosmos DB.
 
 ### <a name="source-ips-in-blocked-requests"></a>Direcciones IP de origen en solicitudes bloqueadas
 
@@ -225,5 +235,5 @@ Se producirá un error al crear o actualizar una cuenta de Azure Cosmos con una 
 
 Para configurar un punto de conexión de servicio de red virtual para la cuenta de Azure Cosmos DB, consulte los artículos siguientes:
 
-* [Control de acceso a una red virtual y subred para la cuenta de Azure Cosmos DB](vnet-service-endpoint.md)
+* [Control de acceso a una red virtual y subred para la cuenta de Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
 * [Configuración del acceso basado en red virtual y subred para la cuenta de Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)

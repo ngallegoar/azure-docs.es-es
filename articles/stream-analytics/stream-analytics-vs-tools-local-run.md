@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
-ms.openlocfilehash: aa1d8ff0743399d96436f33426ebc4c4ab4a29f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f016fd37efa2bd821b5ad2286a921bf29bbedfbd
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045644"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221271"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>Prueba de las consultas de Stream Analytics localmente con Visual Studio
 
@@ -30,9 +30,9 @@ En el proyecto de Azure Stream Analytics, haga doble clic en **Script.asaql** pa
 
 Para validar la consulta con datos estáticos locales, haga clic con el botón derecho en la entrada y seleccione **Add local input** (Agregar entrada local).
    
-![Agregar entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
+![Captura de pantalla que resalta la opción de menú Agregar entrada local.](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-01.png)
    
-En la ventana emergente, seleccione los datos de ejemplo de la ruta de acceso local y haga clic en **Guardar**.
+En la ventana emergente, seleccione los datos de ejemplo de la ruta de acceso local y haga clic en **Guardar** .
    
 ![Agregar entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-02.png)
    
@@ -40,7 +40,7 @@ Un archivo denominado **local_EntryStream.json** se agrega automáticamente a la
    
 ![Lista de archivos de la carpeta de entrada local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-add-local-input-03.png)
    
-En el editor de consultas, haga clic en **Ejecutar localmente**. O bien, puede presionar F5.
+En el editor de consultas, haga clic en **Ejecutar localmente** . O bien, puede presionar F5.
    
 ![Ejecución en modo local](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-local-run-01.png)
    
@@ -58,15 +58,15 @@ Compruebe los resultados en la carpeta local.
    
 
 ### <a name="sample-input"></a>Entrada de ejemplo
-También puede recopilar datos de entrada de ejemplo de orígenes de entrada a un archivo local. Haga clic con el botón derecho en el archivo de configuración de entrada y seleccione **Datos de ejemplo**. 
+También puede recopilar datos de entrada de ejemplo de orígenes de entrada a un archivo local. Haga clic con el botón derecho en el archivo de configuración de entrada y seleccione **Datos de ejemplo** . 
 
 ![Datos de ejemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-01.png)
 
-Solo se pueden muestrear los datos que se transmiten desde Event Hubs o IoT Hubs. No se admiten otros orígenes de entrada. En el cuadro de diálogo emergente, escriba la ruta de acceso local para guardar los datos de ejemplo y seleccione **Muestra**.
+Solo se pueden muestrear los datos que se transmiten desde Event Hubs o IoT Hubs. No se admiten otros orígenes de entrada. En el cuadro de diálogo emergente, escriba la ruta de acceso local para guardar los datos de ejemplo y seleccione **Muestra** .
 
 ![Configuración de los datos de ejemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-02.png)
  
-Puede ver el progreso en la ventana **Salida**. 
+Puede ver el progreso en la ventana **Salida** . 
 
 ![Salida de los datos de ejemplo](./media/stream-analytics-vs-tools-local-run/stream-analytics-tools-for-vs-sample-data-03.png)
 

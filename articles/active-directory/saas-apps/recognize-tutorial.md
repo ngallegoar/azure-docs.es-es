@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e415cbec3b2e8c834ee02630d7f849ccf3e1e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548903"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integración de Azure Active Directory con Recognize
 
@@ -49,11 +49,11 @@ Para configurar la integración de Recognize en Azure AD, deberá agregar Recogn
 
 **Para agregar Recognize desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar la integración de Recognize en Azure AD, deberá agregar Recogn
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Recognize**, seleccione **Recognize** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Recognize** , seleccione **Recognize** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Recognize en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Recognize con un usuario de prueba llamado **Britta Simon**.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Recognize con un usuario de prueba llamado **Britta Simon** .
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Recognize.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Recognize, es preciso completar los siguientes bloques de creación:
@@ -85,28 +85,28 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Recognize, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Recognize**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Recognize** , seleccione **Inicio de sesión único** .
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, lleve a cabo los siguientes pasos:
+4. En la sección **Configuración básica de SAML** , si tiene el **archivo de metadatos del proveedor de servicios** , lleve a cabo los siguientes pasos:
 
     >[!NOTE]
     >Puede obtener el **archivo de metadatos del proveedor de servicios** en la sección **Configuración del inicio de sesión único de Recognize** del tutorial.
 
-    a. Haga clic en **Cargar el archivo de metadatos**.
+    a. Haga clic en **Cargar el archivo de metadatos** .
 
     ![Carga del archivo de metadatos](common/upload-metadata.png)
 
-    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar**.
+    b. Haga clic en el **logotipo de la carpeta** para seleccionar el archivo de metadatos y luego en **Cargar** .
 
     ![Elección del archivo de metadatos](common/browse-upload-metadata.png)
 
@@ -114,16 +114,16 @@ Para configurar el inicio de sesión único de Azure AD con Recognize, siga esto
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Recognize](common/sp-identifier.png)
 
-     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/sso`
+     En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://recognizeapp.com/<your-domain>/saml/sso`
 
     > [!Note]
     > Si el valor de **Identificador** no se rellena automáticamente, puede obtenerlo abriendo la dirección URL de metadatos del proveedor de servicios en la sección de configuración del inicio de sesión único como se explica más adelante en la sección **Configuración del inicio de sesión único de Recognize** de este tutorial. El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de Recognize](mailto:support@recognizeapp.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En la sección **Configurar Recognize**, copie las direcciones URL adecuadas según sus necesidades.
+6. En la sección **Configurar Recognize** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -137,17 +137,17 @@ Para configurar el inicio de sesión único de Azure AD con Recognize, siga esto
 
 1. En otra ventana del explorador web, inicie sesión en el inquilino de Recognize como administrador.
 
-2. En la esquina superior derecha, haga clic en **Menú**. Vaya a **Company Admin** (Administrador de empresa).
+2. En la esquina superior derecha, haga clic en **Menú** . Vaya a **Company Admin** (Administrador de empresa).
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![Captura de pantalla que muestra la opción de administrador de empresa seleccionada en el menú de configuración.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
-3. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración).
+3. En la barra de navegación de la izquierda, haga clic en **Settings** (Configuración).
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![Captura de pantalla con la opción de configuración seleccionada en la página de navegación.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. Siga estos pasos en la sección **SSO Settings** (Configuración de SSO).
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![Captura de pantalla que muestra la configuración de S S O, donde puede especificar los valores descritos.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
     a. En **Enable SSO** (Habilitar SSO), seleccione **ON** (Activado).
 
@@ -157,23 +157,23 @@ Para configurar el inicio de sesión único de Azure AD con Recognize, siga esto
     
     d. En el cuadro de texto **SSO Target URL** (Dirección URL de destino de SSO), pegue el valor de **URL de cierre de sesión** que ha copiado de Azure Portal. 
     
-    e. Abra el archivo descargado **Certificado (Base64)** en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado**.
+    e. Abra el archivo descargado **Certificado (Base64)** en el Bloc de notas, copie su contenido en el Portapapeles y luego péguelo en el cuadro de texto **Certificado** .
     
-    f. Haga clic en el botón **Guardar configuración**. 
+    f. Haga clic en el botón **Guardar configuración** . 
 
-5. Junto a la sección de **configuración de SSO**, copie la dirección URL en **Service Provider Metadata url** (Dirección URL de metadatos del proveedor de servicio).
+5. Junto a la sección de **configuración de SSO** , copie la dirección URL en **Service Provider Metadata url** (Dirección URL de metadatos del proveedor de servicio).
    
-    ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![Captura de pantalla que muestra el bloc de notas, donde puede copiar los metadatos del proveedor de servicios.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
 6. Abra el vínculo **Dirección URL de metadatos** en un explorador en blanco para descargar el documento de metadatos. Después, copie el valor de EntityDescriptor (entityID) del archivo y péguelo en el cuadro de texto **Identificador** en **Configuración básica de SAML** en Azure Portal.
     
-    ![Configuración del inicio de sesión único en la aplicación](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![Captura de pantalla que muestra un cuadro de texto con texto X M L sin formato, donde puede obtener el identificador de la entidad.](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -185,39 +185,39 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon** .
   
-    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario** , escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, concederá acceso a Britta Simon a Recognize para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Recognize**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** , **Recognize** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Recognize**.
+2. En la lista de aplicaciones, seleccione **Recognize** .
 
     ![Vínculo a Recognize en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ### <a name="create-recognize-test-user"></a>Creación de un usuario de prueba de Recognize
 
@@ -229,9 +229,9 @@ Esta aplicación no admite el aprovisionamiento SCIM, pero tiene una sincronizac
 
 1. Inicie sesión en su sitio de la compañía de Recognize como administrador.
 
-2. En la esquina superior derecha, haga clic en **Menú**. Vaya a **Company Admin** (Administrador de empresa).
+2. En la esquina superior derecha, haga clic en **Menú** . Vaya a **Company Admin** (Administrador de empresa).
 
-3. En la barra de navegación de la izquierda, haga clic en **Settings**(Configuración).
+3. En la barra de navegación de la izquierda, haga clic en **Settings** (Configuración).
 
 4. En la sección **User Sync** (Sincronización de usuario), siga estos pasos.
    
@@ -239,7 +239,7 @@ Esta aplicación no admite el aprovisionamiento SCIM, pero tiene una sincronizac
    
     a. En **Sync Enabled** (Sincronización habilitada), seleccione **ON** (Activado).
    
-    b. En **Choose sync provider** (Elegir proveedor de sincronización), seleccione **Microsoft/Office 365**.
+    b. En **Choose sync provider** (Elegir proveedor de sincronización), seleccione **Microsoft/Office 365** .
    
     c. Haga clic en **Run User Sync** (Ejecutar sincronización de usuario).
 

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445067"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124765"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creación y uso de la replicación geográfica activa: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -64,8 +64,8 @@ Debido a que las bases de datos secundarias son legibles, se pueden usar para de
 
 Además de para la recuperación ante desastres, la replicación geográfica activa se puede usar en los escenarios siguientes:
 
-- **Migración de base de datos**: puede usar la replicación geográfica activa para migrar una base de datos de un servidor a otro en línea con un tiempo de inactividad mínimo.
-- **Actualizaciones de aplicaciones**: puede crear una base de datos secundaria adicional como copia de conmutación por recuperación durante las actualizaciones de aplicaciones.
+- **Migración de base de datos** : puede usar la replicación geográfica activa para migrar una base de datos de un servidor a otro en línea con un tiempo de inactividad mínimo.
+- **Actualizaciones de aplicaciones** : puede crear una base de datos secundaria adicional como copia de conmutación por recuperación durante las actualizaciones de aplicaciones.
 
 Para lograr una verdadera continuidad empresarial, agregar redundancia de base de datos entre centros de datos es solo parte de la solución. Para recuperar una aplicación (un servicio) de un extremo a otro tras un error catastrófico, es necesario recuperar todos los componentes que constituyen el servicio y cualquier servicio dependiente. Algunos ejemplos de estos componentes son el software cliente (por ejemplo, un explorador con JavaScript personalizado), los front-end web, el almacenamiento y DNS. Es fundamental que todos los componentes sean resistentes a los mismos errores y que estén disponibles en el plazo del objetivo de tiempo de recuperación (RTO) de la aplicación. Por lo tanto, debe identificar todos los servicios dependientes y comprender las garantías y capacidades que ofrecen. A continuación, debe seguir los pasos adecuados para asegurarse de que el servicio funcione durante la conmutación por error de los servicios de los que depende. Para más información sobre el diseño de soluciones para la recuperación ante desastres, consulte [Diseño de soluciones de nube para la continuidad empresarial mediante la replicación geográfica activa](designing-cloud-solutions-for-disaster-recovery.md).
 
@@ -132,7 +132,7 @@ De forma predeterminada, la redundancia del almacenamiento de copia de seguridad
 > La velocidad del registro de transacciones de la base de datos principal puede estar limitada por motivos no relacionados con el tamaño de proceso inferior de una base de datos secundaria. Este tipo de limitación puede producirse aunque la base de datos secundaria tenga el mismo tamaño de proceso que la principal o uno superior. Para obtener más información, incluidos los tipos de espera para diferentes tipos de limitaciones de velocidad de registro, vea [Gobernanza de la velocidad del registro de transacciones](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> La redundancia del almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente como versión preliminar pública en la región Sudeste de Asia de Azure. En la versión preliminar, si la base de datos de origen se crea con redundancia de copia de seguridad local o con redundancia de copia de seguridad de zona, no se admitirá la creación de una base de datos secundaria en una región de Azure distinta. 
+> La redundancia de almacenamiento de copia de seguridad configurable de Azure SQL Database solo está disponible actualmente con carácter general en la región de Azure Sudeste de Asia. Cuando la base de datos de origen se crea con redundancia de almacenamiento de copia de seguridad local o de zona, no se admite la creación de una base de datos secundaria en otra región de Azure. 
 
 Para más información sobre los tamaños de proceso de SQL Database, consulte [¿Qué son los niveles de servicio de SQL Database?](purchasing-models.md)
 

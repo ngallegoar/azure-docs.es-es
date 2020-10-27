@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 332c81c8502dac6f057c6ea41c7662e1edde1599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf306fd5675e07fb4eb6c9fd56760aaebd960b7b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855188"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167379"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>Alta disponibilidad con varios identificadores de seguridad de instancia de ASCS/SCS de SAP para los clústeres de conmutación por error de Windows Server y el disco compartido en Azure
 
@@ -42,11 +42,14 @@ En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/S
 
 Para más información sobre los límites del equilibrador de carga, consulte la sección sobre la dirección IP privada de front-end por equilibrador de carga en [Límites de redes: Azure Resource Manager][networking-limits-azure-resource-manager].
 
+> [!IMPORTANT]
+> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC en escenarios de equilibrio de carga. Para ver detalles, consulte [Limitaciones de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
+
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos**, tal y como se muestra en este diagrama.
+Ya ha configurado un clúster de WSFC que se utiliza para una instancia de ASCS/SCS de SAP con un **recurso compartido de archivos** , tal y como se muestra en este diagrama.
 
 ![Instancia de ASCS/SCS de SAP de alta disponibilidad][sap-ha-guide-figure-6001]
 

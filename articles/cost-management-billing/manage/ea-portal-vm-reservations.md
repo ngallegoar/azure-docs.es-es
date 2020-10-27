@@ -3,17 +3,17 @@ title: Instancias reservadas de máquinas virtuales de Azure EA
 description: En este artículo se resume la forma en que las reservas de Azure para las instancias reservadas de máquinas virtuales pueden ayudarle a ahorrar dinero en la inscripción de su empresa.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4970852634039bddfb14be579db5dd355fff9740
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442452"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132540"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Instancias reservadas de máquinas virtuales de Azure EA
 
@@ -22,6 +22,12 @@ En este artículo se resume la forma en que las reservas de Azure para las insta
 ## <a name="reservation-exchanges-and-refunds"></a>Cambios de reserva y reembolsos
 
 Puede intercambiar una reserva por otra del mismo tipo. También puede reembolsar una reserva, hasta 50 000 USD al año, si ya no la necesita. Puede usar Azure Portal para intercambiar o reembolsar una reserva. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../reservations/exchange-and-refund-azure-reservations.md).
+
+### <a name="partial-refunds"></a>Reembolsos parciales
+
+Se emitirá un reembolso parcial cuando los clientes de EA devuelvan las reservas que compraron mediante las modalidades de uso por encima del objetivo y no compromiso monetario.
+
+El reembolso se mostrará en el portal de EA como un ajuste negativo en el mes anterior y un ajuste positivo en el mes actual. Se mostrará de forma similar a un intercambio de reservas. El abono hará referencia al número de factura original; por lo tanto, para conciliar la compra inicial con el abono, consulte el número de factura original.
 
 ## <a name="reservation-costs-and-usage"></a>Costos y uso de las reservas
 
@@ -59,7 +65,7 @@ Las instancias reservadas pueden reducir los costos de las máquinas virtuales h
 
 Para comprar una instancia reservada de máquina virtual de Azure, un administrador de inscripciones de Azure Enterprise debe habilitar la opción de compra _Reserve Instance_ (Reservar instancia). La opción se encuentra en la sección _Enrollment Detail_ (Detalles de la inscripción) de la pestaña _Enrollment_ (Inscripción) de [Azure Enterprise Portal](https://ea.azure.com/).
 
-Una vez que la inscripción de Contrato Enterprise está habilitada para agregar instancias reservadas, cualquier propietario de la cuenta con una suscripción activa asociada a esta inscripción puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte [Pago por adelantado de máquinas virtuales para ahorrar dinero con instancias reservadas de máquina virtual](https://go.microsoft.com/fwlink/?linkid=861721).
+Una vez que la inscripción de Contrato Enterprise está habilitada para agregar instancias reservadas, cualquier propietario de la cuenta con una suscripción activa asociada a esta inscripción puede comprar una instancia reservada de máquina virtual en [Azure Portal](https://aka.ms/reservations). Para obtener más información, consulte [Pago por adelantado de máquinas virtuales para ahorrar dinero con instancias reservadas de máquina virtual](../../virtual-machines/windows/prepay-reserved-vm-instances.md).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Visualización de los detalles de la compra de instancias reservadas
 

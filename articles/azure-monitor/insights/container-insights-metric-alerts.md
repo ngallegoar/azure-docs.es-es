@@ -2,13 +2,13 @@
 title: Alertas de métricas de Azure Monitor para contenedores
 description: En este artículo se revisan las alertas de métricas recomendadas disponibles en Azure Monitor para contenedores en la versión preliminar pública.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619957"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308642"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Alertas de métricas recomendadas (versión preliminar) de Azure Monitor para contenedores
 
@@ -29,11 +29,11 @@ Antes de empezar, confirme lo siguiente:
     Para comprobar que el clúster ejecuta la versión más reciente del agente, puede realizar alguna de las acciones siguientes:
 
     * Ejecute el comando: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. En el estado devuelto, observe el valor de **Imagen** para omsagent en la sección *Contenedores* de la salida. 
-    * En la pestaña **Nodos**, seleccione el nodo de clúster y, en el panel **Propiedades** de la derecha, observe el valor de **Etiqueta de imagen del agente**.
+    * En la pestaña **Nodos** , seleccione el nodo de clúster y, en el panel **Propiedades** de la derecha, observe el valor de **Etiqueta de imagen del agente** .
 
     El valor que se muestra para AKS debe ser la versión **ciprod05262020** o posterior. El valor que se muestra para el clúster de Kubernetes habilitado para Azure Arc debe ser la versión **ciprod09252020** o posterior. Si el clúster tiene una versión anterior, consulte [Actualización del agente de Azure Monitor para contenedores](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) para conocer los pasos necesarios para obtener la versión más reciente.
 
-    Para obtener más información relacionada con la versión del agente, consulte el [historial de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para comprobar que se están recopilando métricas, puede usar el explorador de métricas de Azure Monitor y comprobar que, en **Espacio de nombres de métrica**, se muestra **Conclusiones**. Si es así, puede empezar a configurar las alertas. Si no ve ninguna métrica recopilada, significa que la entidad de servicio de clúster o MSI no tiene los permisos necesarios. Para comprobar que SPN o MSI es miembro del rol de **publicador de métricas de supervisión**, siga los pasos descritos en la sección [Actualización por clúster con la CLI de Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar y establecer la asignación de roles.
+    Para obtener más información relacionada con la versión del agente, consulte el [historial de versiones del agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). Para comprobar que se están recopilando métricas, puede usar el explorador de métricas de Azure Monitor y comprobar que, en **Espacio de nombres de métrica** , se muestra **Conclusiones** . Si es así, puede empezar a configurar las alertas. Si no ve ninguna métrica recopilada, significa que la entidad de servicio de clúster o MSI no tiene los permisos necesarios. Para comprobar que SPN o MSI es miembro del rol de **publicador de métricas de supervisión** , siga los pasos descritos en la sección [Actualización por clúster con la CLI de Azure](container-insights-update-metrics.md#upgrade-per-cluster-using-azure-cli) para confirmar y establecer la asignación de roles.
 
 ## <a name="alert-rules-overview"></a>Introducción a las reglas de alertas
 
@@ -45,6 +45,7 @@ Para enviar alertas sobre lo que importa, Azure Monitor para contenedores incluy
 |Average container working set memory % (% medio de memoria del espacio de trabajo del contenedor) |Calcula el promedio de memoria del espacio de trabajo usado por contenedor.|Cuando el uso medio de memoria del espacio de trabajo por contenedor es superior al 95 %. |
 |% uso medio de CPU |Calcula el promedio de CPU usado por nodo. |Cuando el uso medio de CPU de nodo es superior al 80 %. |
 |Average Disk Usage % (% uso medio de disco) |Calcula el uso medio de disco de un nodo.|Cuando el uso de disco de un nodo es superior al 80 %. |
+|Porcentaje medio de uso de volumen persistente |Calcula el uso medio de volumen persistente por pod. |Cuando el uso medio de volumen por pod es superior al 80 %.|
 |Average Working set memory % (% medio de memoria del espacio de trabajo) |Calcula el promedio de memoria del espacio de trabajo de un nodo. |Cuando el promedio de memoria del espacio de trabajo de un nodo es superior al 80 %. |
 |Restarting container count (Reiniciando recuento de contenedores) |Calcula el número de contenedores restantes. | Cuando los reinicios de contenedor son más de 0. |
 |Recuentos de pod con errores |Calcula si algún pod tiene un estado de error.|Cuando el número de pods con estado de error es mayor que 0. |
@@ -73,7 +74,9 @@ Las siguientes métricas basadas en alertas tienen características de comportam
 
 * La métrica *oomKilledContainerCount* solo se envía cuando hay contenedores de eliminados con memoria insuficiente.
 
-* Las métricas *cpuExceededPercentage*, *memoryRssExceededPercentage* y *memoryWorkingSetExceededPercentage* se envían cuando los valores de CPU, memoria RSS y espacio de trabajo de memoria superan el umbral configurado (el umbral predeterminado es 95 %). Estos umbrales son exclusivos del umbral de condición de alerta especificado para la regla de alertas correspondiente. Es decir, si quiere recopilar estas métricas y analizarlas desde el [Explorador de métricas](../platform/metrics-getting-started.md), se recomienda que configure el umbral en un valor inferior al umbral de alerta. La configuración relacionada con la configuración de recopilación para los umbrales de uso de recursos de contenedor se puede invalidar en el archivo ConfigMaps en la sección `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. Vea la sección [Configuración de métricas que generan alertas en ConfigMaps](#configure-alertable-metrics-in-configmaps) para obtener más información relacionada con la configuración del archivo de configuración ConfigMaps.
+* Las métricas *cpuExceededPercentage* , *memoryRssExceededPercentage* y *memoryWorkingSetExceededPercentage* se envían cuando los valores de CPU, memoria RSS y espacio de trabajo de memoria superan el umbral configurado (el umbral predeterminado es 95 %). Estos umbrales son exclusivos del umbral de condición de alerta especificado para la regla de alertas correspondiente. Es decir, si quiere recopilar estas métricas y analizarlas desde el [Explorador de métricas](../platform/metrics-getting-started.md), se recomienda que configure el umbral en un valor inferior al umbral de alerta. La configuración relacionada con la configuración de recopilación para los umbrales de uso de recursos de contenedor se puede invalidar en el archivo ConfigMaps en la sección `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`. Vea la sección [Configuración de métricas que generan alertas en ConfigMaps](#configure-alertable-metrics-in-configmaps) para obtener más información relacionada con la configuración del archivo de configuración ConfigMaps.
+
+* La métrica *pvUsageExceededPercentage* se envía cuando el porcentaje de uso del volumen persistente supera el umbral configurado (el umbral predeterminado es 60 %). Este umbral es exclusivo del umbral de condición de alerta especificado para la regla de alertas correspondiente. Es decir, si quiere recopilar estas métricas y analizarlas desde el [Explorador de métricas](../platform/metrics-getting-started.md), se recomienda que configure el umbral en un valor inferior al umbral de alerta. La configuración relacionada con la configuración de recopilación para los umbrales de uso de volúmenes persistentes se puede invalidar en el archivo ConfigMaps, en la sección `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`. Vea la sección [Configuración de métricas que generan alertas en ConfigMaps](#configure-alertable-metrics-in-configmaps) para obtener más información relacionada con la configuración del archivo de configuración ConfigMaps. La colección de métricas de volumen persistentes con notificaciones en el espacio de nombres *kube-system* se excluye de forma predeterminada. Para habilitar la recopilación en este espacio de nombres, use la sección `[metric_collection_settings.collect_kube_system_pv_metrics]` en el archivo ConfigMap. Consulte [Configuración de la colección de métricas](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) para obtener más información.
 
 ## <a name="metrics-collected"></a>Métricas recopiladas
 
@@ -97,6 +100,7 @@ Las siguientes métricas se habilitan y recopilan, a menos que se especifique lo
 |Insights.container/containers |cpuExceededPercentage |Porcentaje de uso de CPU para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del pod.<br> Recopilados  |
 |Insights.container/containers |memoryRssExceededPercentage |Porcentaje de RSS de memoria para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres de Kubernetes, nombre del Pod.|
 |Insights.container/containers |memoryRssExceededPercentage |Porcentaje de espacio de trabajo de memoria para contenedores que superan el umbral configurable por el usuario (el valor predeterminado es 95,0) por nombre de contenedor, nombre de controlador, espacio de nombres Kubernetes, nombre del pod.|
+|Insights.container/persistentvolumes |pvUsageExceededPercentage |Porcentaje de uso de volumen persistente para volúmenes persistentes que superan el umbral configurable por el usuario (el valor predeterminado es 60,0) por nombre de notificación, espacio de nombres de Kubernetes, nombre de volumen, nombre de pod y nombre de nodo.
 
 ## <a name="enable-alert-rules"></a>Habilitar reglas de alertas
 
@@ -110,11 +114,11 @@ En esta sección se explica cómo habilitar la alerta de métricas de Azure Moni
 
 2. El acceso a la característica Alerta de métricas de Azure Monitor para contenedores (versión preliminar) está disponible directamente desde un clúster de AKS al seleccionar la opción **Conclusiones** del panel izquierdo de Azure Portal.
 
-3. En la barra de comandos, seleccione **Alertas recomendadas**.
+3. En la barra de comandos, seleccione **Alertas recomendadas** .
 
     ![Opción Alertas recomendadas en Azure Monitor para contenedores](./media/container-insights-metric-alerts/command-bar-recommended-alerts.png)
 
-4. El panel de propiedades de **Alertas recomendadas** se muestra automáticamente en el lado derecho de la página. De forma predeterminada, todas las reglas de alertas de la lista están deshabilitadas. Después de seleccionar **Habilitar**, se crea la regla de alertas y el nombre de la regla se actualiza para incluir un vínculo al recurso de alerta.
+4. El panel de propiedades de **Alertas recomendadas** se muestra automáticamente en el lado derecho de la página. De forma predeterminada, todas las reglas de alertas de la lista están deshabilitadas. Después de seleccionar **Habilitar** , se crea la regla de alertas y el nombre de la regla se actualiza para incluir un vínculo al recurso de alerta.
 
     ![Panel de propiedades de Alertas recomendadas](./media/container-insights-metric-alerts/recommended-alerts-pane.png)
 
@@ -122,7 +126,7 @@ En esta sección se explica cómo habilitar la alerta de métricas de Azure Moni
 
     ![Habilitar regla de alertas](./media/container-insights-metric-alerts/recommended-alerts-pane-enable.png)
 
-5. Las alertas no están asociadas a un [grupo de acciones](../platform/action-groups.md) para notificar a los usuarios que se ha desencadenado una alerta. Seleccione **No se asignó ningún grupo de acciones** y, en la página **Grupos de acciones**, especifique un grupo de acciones o especifique uno existente mediante **Agregar** o **Crear**.
+5. Las alertas no están asociadas a un [grupo de acciones](../platform/action-groups.md) para notificar a los usuarios que se ha desencadenado una alerta. Seleccione **No se asignó ningún grupo de acciones** y, en la página **Grupos de acciones** , especifique un grupo de acciones o especifique uno existente mediante **Agregar** o **Crear** .
 
     ![Seleccionar un grupo de acciones](./media/container-insights-metric-alerts/select-action-group.png)
 
@@ -144,17 +148,17 @@ Los pasos básicos son los siguientes:
 
 2. Para implementar una plantilla personalizada mediante el portal, seleccione **Crear un recurso** en [Azure Portal](https://portal.azure.com).
 
-3. Busque **plantilla** y, después, seleccione **Template Deployment**.
+3. Busque **plantilla** y, después, seleccione **Template Deployment** .
 
-4. Seleccione **Crear**.
+4. Seleccione **Crear** .
 
-5. Verá varias opciones para crear una plantilla; seleccione **Cree su propia plantilla en el editor**.
+5. Verá varias opciones para crear una plantilla; seleccione **Cree su propia plantilla en el editor** .
 
-6. En **Editar plantilla de página**, seleccione **Cargar archivo** y, a continuación, seleccione el archivo de plantilla.
+6. En **Editar plantilla de página** , seleccione **Cargar archivo** y, a continuación, seleccione el archivo de plantilla.
 
-7. En la página **Editar plantilla**, seleccione **Guardar**.
+7. En la página **Editar plantilla** , seleccione **Guardar** .
 
-8. En la página **Implementación personalizada**, especifique lo siguiente y, después, cuando finalice, seleccione **Comprar** para implementar la plantilla y crear la regla de alertas.
+8. En la página **Implementación personalizada** , especifique lo siguiente y, después, cuando finalice, seleccione **Comprar** para implementar la plantilla y crear la regla de alertas.
 
     * Resource group
     * Location
@@ -196,40 +200,51 @@ Los pasos básicos son los siguientes:
 
 Puede ver y administrar reglas de alertas de Azure Monitor para contenedores, editar su umbral o configurar un [grupo de acciones](../platform/action-groups.md) para el clúster de AKS. Aunque puede realizar estas acciones desde Azure Portal y la CLI de Azure, también se puede hacer directamente desde el clúster de AKS en Azure Monitor para contenedores.
 
-1. En la barra de comandos, seleccione **Alertas recomendadas**.
+1. En la barra de comandos, seleccione **Alertas recomendadas** .
 
-2. Para modificar el umbral, en el panel **Alertas recomendadas**, seleccione la alerta habilitada. En **Editar regla**, seleccione la opción de **Criterios de alerta** que quiera editar.
+2. Para modificar el umbral, en el panel **Alertas recomendadas** , seleccione la alerta habilitada. En **Editar regla** , seleccione la opción de **Criterios de alerta** que quiera editar.
 
-    * Para modificar el umbral de la regla de alertas, seleccione la opción de **Condición**.
-    * Para crear un grupo de acciones o especificar uno existente, seleccione **Agregar** o **Crear** en **Grupo de acciones**.
+    * Para modificar el umbral de la regla de alertas, seleccione la opción de **Condición** .
+    * Para crear un grupo de acciones o especificar uno existente, seleccione **Agregar** o **Crear** en **Grupo de acciones** .
 
-Para ver las alertas creadas para las reglas habilitadas, en el panel **Alertas recomendadas**, seleccione **Ver en las alertas**. Se le redirigirá al menú de alertas del clúster de AKS, donde podrá ver todas las alertas creadas actualmente para el clúster.
+Para ver las alertas creadas para las reglas habilitadas, en el panel **Alertas recomendadas** , seleccione **Ver en las alertas** . Se le redirigirá al menú de alertas del clúster de AKS, donde podrá ver todas las alertas creadas actualmente para el clúster.
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Configuración de métricas que generan alertas en ConfigMaps
 
-Realice los pasos siguientes para configurar el archivo de configuración ConfigMap para invalidar los umbrales de uso de recursos de contenedor predeterminados. Estos pasos solo se aplican a las siguientes métricas que generan alertas.
+Realice los pasos siguientes para configurar el archivo de configuración ConfigMap para invalidar los umbrales de uso predeterminados. Estos pasos solo se aplican a las siguientes métricas que generan alertas:
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
+* *pvUsageExceededPercentage*
 
-1. Edite el archivo YAML ConfigMap en la sección `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]`.
+1. Edite el archivo YAML de ConfigMap en la sección `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` o `[alertable_metrics_configuration_settings.pv_utilization_thresholds]`.
 
-2. Para modificar el umbral de *cpuExceededPercentage* al 90 % y comenzar la recopilación de esta métrica cuando se alcance y se supere ese umbral, configure el archivo ConfigMap mediante el ejemplo siguiente.
+   - Para modificar el umbral de *cpuExceededPercentage* al 90 % y comenzar la recopilación de esta métrica cuando se alcance y se supere ese umbral, configure el archivo ConfigMap mediante el ejemplo siguiente:
 
-    ```
-    container_cpu_threshold_percentage = 90.0
-    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-    container_memory_rss_threshold_percentage = 95.0
-    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-    container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-3. Ejecute el siguiente comando de kubectl: `kubectl apply -f <configmap_yaml_file.yaml>`.
+   - Para modificar el umbral de *pvUsageExceededPercentage* al 80 % y comenzar la recopilación de esta métrica cuando se alcance y se supere ese umbral, configure el archivo ConfigMap mediante el ejemplo siguiente:
+
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
+
+2. Ejecute el siguiente comando de kubectl: `kubectl apply -f <configmap_yaml_file.yaml>`.
 
     Ejemplo: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-El cambio de configuración puede tardar unos minutos en finalizar antes de que surta efecto, y todos los pods de omsagent del clúster se reiniciarán. El reinicio es un reinicio gradual para todos los pods de omsagent; no todos se reinician al mismo tiempo. Cuando los reinicios finalizan, se muestra un mensaje similar a lo siguiente e incluye el resultado: `configmap "container-azm-ms-agentconfig" created`.
+El cambio de configuración puede tardar unos minutos en finalizar antes de que surta efecto, y todos los pods de omsagent del clúster se reiniciarán. El reinicio es un reinicio gradual para todos los pods de omsagent; no todos se reinician al mismo tiempo. Cuando los reinicios finalizan, se muestra un mensaje similar al siguiente ejemplo e incluye el resultado: `configmap "container-azm-ms-agentconfig" created`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

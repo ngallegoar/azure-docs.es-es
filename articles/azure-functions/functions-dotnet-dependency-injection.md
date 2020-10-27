@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715933"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167702"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Uso de la inserción de dependencias en Azure Functions con .NET
 
@@ -66,9 +66,9 @@ En este ejemplo se usa el paquete [Microsoft.Extensions.Http](https://www.nuget.
 
 Una serie de pasos de registro se ejecuta antes y después de que el entorno de ejecución procese la clase de inicio. Por lo tanto, tenga en cuenta los elementos siguientes:
 
-- *La clase de inicio está pensada únicamente para la instalación y el registro*. Evite el uso de servicios registrados en el inicio durante el proceso de inicio. Por ejemplo, no intente registrar un mensaje en un registrador que se está registrando durante el inicio. Este punto del proceso de registro es demasiado pronto para que los servicios estén disponibles para su uso. Una vez que se ejecuta el método `Configure`, el entorno de ejecución de Functions continúa registrando las dependencias adicionales, lo que puede afectar el funcionamiento de los servicios.
+- *La clase de inicio está pensada únicamente para la instalación y el registro* . Evite el uso de servicios registrados en el inicio durante el proceso de inicio. Por ejemplo, no intente registrar un mensaje en un registrador que se está registrando durante el inicio. Este punto del proceso de registro es demasiado pronto para que los servicios estén disponibles para su uso. Una vez que se ejecuta el método `Configure`, el entorno de ejecución de Functions continúa registrando las dependencias adicionales, lo que puede afectar el funcionamiento de los servicios.
 
-- *El contenedor de inserción de dependencias solo contiene tipos registrados explícitamente*. Los únicos servicios disponibles como tipos insertables son lo que se configuran en el método `Configure`. Como resultado, los tipos específicos de Functions como `BindingContext` y `ExecutionContext` no están disponibles durante la instalación ni como tipos insertables.
+- *El contenedor de inserción de dependencias solo contiene tipos registrados explícitamente* . Los únicos servicios disponibles como tipos insertables son lo que se configuran en el método `Configure`. Como resultado, los tipos específicos de Functions como `BindingContext` y `ExecutionContext` no están disponibles durante la instalación ni como tipos insertables.
 
 ## <a name="use-injected-dependencies"></a>Uso de dependencias insertadas
 
@@ -118,9 +118,9 @@ En este ejemplo se usa el paquete [Microsoft.Extensions.Http](https://www.nuget.
 
 Las aplicaciones de Azure Functions proporcionan la misma vigencia de servicio que la [inserción de dependencias de ASP.NET](/aspnet/core/fundamentals/dependency-injection#service-lifetimes). En el caso de una aplicación de Functions, las distintas vigencias del servicio se comportan de la manera siguiente:
 
-- **Transitorio**: los servicios transitorios se crean en cada solicitud del servicio.
-- **De ámbito**: una vigencia de servicio de ámbito coincide con una vigencia de ejecución de la función. Los servicios de ámbito se crean una vez por cada ejecución. Las solicitudes posteriores para ese servicio durante la ejecución vuelven a usar la instancia de servicio existente.
-- **Singleton**: la vigencia singleton del servicio coincide con la vigencia del host y se reutiliza en ejecuciones de la función en esa instancia. Los servicios de vigencia singleton se recomiendan para conexiones y clientes, por ejemplo, para instancias `DocumentClient` o `HttpClient`.
+- **Transitorio** : los servicios transitorios se crean en cada solicitud del servicio.
+- **De ámbito** : una vigencia de servicio de ámbito coincide con una vigencia de ejecución de la función. Los servicios de ámbito se crean una vez por cada ejecución. Las solicitudes posteriores para ese servicio durante la ejecución vuelven a usar la instancia de servicio existente.
+- **Singleton** : la vigencia singleton del servicio coincide con la vigencia del host y se reutiliza en ejecuciones de la función en esa instancia. Los servicios de vigencia singleton se recomiendan para conexiones y clientes, por ejemplo, para instancias `DocumentClient` o `HttpClient`.
 
 Consulte o descargue un [ejemplo de vigencia de servicio diferente](https://github.com/Azure/azure-functions-dotnet-extensions/tree/main/src/samples/DependencyInjection/Scopes) en GitHub.
 
@@ -131,8 +131,8 @@ Si necesita su propio proveedor de registro, registre un tipo personalizado como
 Azure Functions agrega Application Insights automáticamente.
 
 > [!WARNING]
-> - No agregue `AddApplicationInsightsTelemetry()` a la colección de servicios, ya que registra los servicios que entran en conflicto con los servicios proporcionados por el entorno.
-> - No registre su propio `TelemetryConfiguration` o `TelemetryClient` si usa la funcionalidad de Application Insights integrada. Si tiene que configurar su propia instancia de `TelemetryClient`, cree una a través de la `TelemetryConfiguration` insertada, tal como se muestra en [Monitor Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+> - No agregue `AddApplicationInsightsTelemetry()` a la colección de servicios, lo que registra los servicios que entran en conflicto con los servicios proporcionados por el entorno.
+> - No registre su propio `TelemetryConfiguration` ni `TelemetryClient` si usa la funcionalidad de Application Insights integrada. Si tiene que configurar su propia instancia de `TelemetryClient`, cree una a través de la `TelemetryConfiguration` insertada, tal como se muestra en [Registrar telemetría personalizada en funciones de C#](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger<T> e ILoggerFactory
 
@@ -287,7 +287,7 @@ namespace MyNamespace
 }
 ```
 
-Añada proveedores de configuración a la propiedad `ConfigurationBuilder` de `IFunctionsConfigurationBuilder`. Para obtener más información sobre el uso de proveedores de configuración, consulte [Configuración en ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+Añada proveedores de configuración a la propiedad `ConfigurationBuilder` de `IFunctionsConfigurationBuilder`. Para obtener más información sobre el uso de proveedores de configuración, consulte [Configuración en ASP.NET Core](/aspnet/core/fundamentals/configuration/#configuration-providers).
 
 `FunctionsHostBuilderContext` se obtiene de `IFunctionsConfigurationBuilder.GetContext()`. Use este contexto para recuperar el nombre del entorno actual y resolver la ubicación de los archivos de configuración almacenados en la carpeta de su aplicación de funciones.
 

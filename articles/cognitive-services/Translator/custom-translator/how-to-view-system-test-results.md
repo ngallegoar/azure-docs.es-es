@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509692"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220863"
 ---
 # <a name="view-system-test-results"></a>Ver resultados de pruebas del sistema
 
@@ -70,12 +70,12 @@ Para solicitar una implementación, haga lo siguiente:
 
 2. Para cada modelo entrenado correctamente, se muestra un botón "Implementar" si aún no se implementa.
 
-    ![Implementación de un modelo](media/how-to/how-to-deploy-model.png)
+    ![Captura de pantalla que resalta el botón Implementar para implementar un modelo.](media/how-to/how-to-deploy-model.png)
 
 3.  Haga clic en Implementar.
 4.  Seleccione **Implementado** para las regiones donde quiere que se implemente el modelo y haga clic en Guardar. Puede seleccionar **Implementado** para varias regiones.
 
-    ![Implementación de un modelo](media/how-to/how-to-deploy-model-regions.png)
+    ![Captura de pantalla que muestra dónde puede implementar o anular la implementación de un modelo.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Puede ver el estado del modelo en la columna "Estado".
 
@@ -86,14 +86,14 @@ Para solicitar una implementación, haga lo siguiente:
 
 Para actualizar la configuración de implementación:
 
-1.  Seleccione un proyecto y vaya a la pestaña **Modelos**.
+1.  Seleccione un proyecto y vaya a la pestaña **Modelos** .
 
-2. En el caso de un modelo implementado correctamente, se muestra un botón **Actualizar**.
+2. En el caso de un modelo implementado correctamente, se muestra un botón **Actualizar** .
 
-    ![Implementación de un modelo](media/how-to/how-to-update-undeploy-model.png)
+    ![Captura de pantalla que resalta el botón Actualizar para actualizar la configuración de la implementación.](media/how-to/how-to-update-undeploy-model.png)
 
-3.  Seleccione **Actualizar**.
-4.  Seleccione **Implementado** o **No implementado** para las regiones donde quiere que se implemente el modelo o se anule su implementación y, a continuación, haga clic en **Guardar**.
+3.  Seleccione **Actualizar** .
+4.  Seleccione **Implementado** o **No implementado** para las regiones donde quiere que se implemente el modelo o se anule su implementación y, a continuación, haga clic en **Guardar** .
 
     ![Implementación de un modelo](media/how-to/how-to-undeploy-model.png)
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309207"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173964"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedimientos: Uso de Text Analytics para el estado (versión preliminar)
 
@@ -227,7 +227,11 @@ Para obtener más información, consulte la documentación de NGINX sobre la [Te
 
 
 ## <a name="example-api-request"></a>Solicitud de API de ejemplo
-El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST.
+El contenedor proporciona varias API de puntos de conexión de predicción de consultas basadas en REST.  También hemos proporcionado una herramienta de visualización en el contenedor a la que se puede acceder mediante la conexión de la **demo** al punto de conexión del contenedor, por ejemplo:
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 Use la siguiente solicitud de dirección de URL como ejemplo para enviar una consulta al contenedor que ha implementado reemplazando la variable `serverURL` por el valor adecuado.
 
@@ -395,7 +399,7 @@ Al usar la detección de negación, en algunos casos un solo término de negaci�
 
 ### <a name="relation-extraction-output"></a>Salida de la extracción de relaciones
 
-La salida de la extracción de relaciones contiene referencias de URI al *origen* de la relación y su *destino*. A las entidades con el rol de relación de `ENTITY` se les asigna el campo `target`. A las entidades con el rol de relación de `ATTRIBUTE` se les asigna el campo `source`. Las relaciones de abreviatura contienen campos bidireccionales `source` y `target`, y `bidirectional` se establecerá en `true`. 
+La salida de la extracción de relaciones contiene referencias de URI al *origen* de la relación y su *destino* . A las entidades con el rol de relación de `ENTITY` se les asigna el campo `target`. A las entidades con el rol de relación de `ATTRIBUTE` se les asigna el campo `source`. Las relaciones de abreviatura contienen campos bidireccionales `source` y `target`, y `bidirectional` se establecerá en `true`. 
 
 ```json
 "relations": [

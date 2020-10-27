@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543340"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168059"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -81,7 +81,7 @@ Los [registros de Azure Monitor](https://azure.microsoft.com/documentation/servi
 Este método permite consolidar los datos desde diversos orígenes, de forma que se pueden combinar datos de los servicios de Azure con el entorno local existente. También separa claramente la recopilación de los datos de la acción realizada en los datos, para que todas las acciones estén disponibles para todos los tipos de datos.
 
 
-![Registros de Azure Monitor](./media/operational-security/azure-operational-security-fig2.png)
+![Diagrama que muestra la consolidación de datos desde diversos orígenes, de forma que se pueden combinar datos de los servicios de Azure con el entorno local existente.](./media/operational-security/azure-operational-security-fig2.png)
 
 El servicio de Azure Monitor administra los datos basados en la nube de forma segura mediante los siguientes métodos:
 -   Segregación de datos
@@ -148,19 +148,19 @@ Security Center recopila datos de las máquinas virtuales (VM) para evaluar su e
 
 Para ayudar a los clientes a evitar, detectar y responder a las amenazas, Azure Security Center recopila y procesa datos relacionados con la seguridad, entre los que se incluyen la información de configuración, los metadatos, los registros de eventos y los archivos de volcado de memoria, entre otros. Microsoft se adhiere a instrucciones estrictas de seguridad y cumplimiento de normas, desde la codificación hasta la operación de un servicio.
 
--   **Segregación de datos**: los datos se mantienen separados de forma lógica en cada componente a lo largo de todo el servicio. Todos los datos se etiquetan por organización. Este etiquetado persiste a lo largo del ciclo de vida de los datos y se aplica en cada nivel del servicio.
+-   **Segregación de datos** : los datos se mantienen separados de forma lógica en cada componente a lo largo de todo el servicio. Todos los datos se etiquetan por organización. Este etiquetado persiste a lo largo del ciclo de vida de los datos y se aplica en cada nivel del servicio.
 
--   **Acceso a datos**: para proporcionar recomendaciones de seguridad e investigar las posibles amenazas de seguridad, el personal de Microsoft puede acceder a la información recopilada o analizada por los servicios de Azure, incluidos archivos de volcado de memoria, eventos de creación de proceso, artefactos e instantáneas de disco de máquina virtual, que de forma involuntaria pueden incluir datos de cliente o datos personales de sus máquinas virtuales. Cumplimos la [Declaración de privacidad y los Términos de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), en donde se estipula que Microsoft no usa los datos de los clientes ni información derivada de ellos con fines comerciales, publicitarios o similares.
+-   **Acceso a datos** : para proporcionar recomendaciones de seguridad e investigar las posibles amenazas de seguridad, el personal de Microsoft puede acceder a la información recopilada o analizada por los servicios de Azure, incluidos archivos de volcado de memoria, eventos de creación de proceso, artefactos e instantáneas de disco de máquina virtual, que de forma involuntaria pueden incluir datos de cliente o datos personales de sus máquinas virtuales. Cumplimos la [Declaración de privacidad y los Términos de Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), en donde se estipula que Microsoft no usa los datos de los clientes ni información derivada de ellos con fines comerciales, publicitarios o similares.
 
--   **Uso de datos**: Microsoft utiliza los patrones y la información sobre amenazas vistos en varios inquilinos para mejorar las funcionalidades de detección y prevención; esto se realiza según lo dispuesto en los compromisos de privacidad que se describen en nuestra [declaración de privacidad](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Uso de datos** : Microsoft utiliza los patrones y la información sobre amenazas vistos en varios inquilinos para mejorar las funcionalidades de detección y prevención; esto se realiza según lo dispuesto en los compromisos de privacidad que se describen en nuestra [declaración de privacidad](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Ubicación de los datos
 
 Azure Security Center recopila copias efímeras de los archivos de volcado de memoria y las analiza para buscar pruebas de intentos de vulnerabilidad y de riesgos ciertos. Azure Security Center realiza este análisis en la misma geoárea en la que se encuentra el área de trabajo y elimina las copias efímeras una vez que el análisis se completa. Los artefactos de la máquina se almacenan de forma centralizada en la misma región que la máquina virtual.
 
--   **Sus cuentas de almacenamiento**: se especifica una cuenta de almacenamiento para cada región en la que se ejecutan máquinas virtuales. Esto permite almacenar los datos en la misma región en que se encuentra la máquina virtual de la que se recopilan.
+-   **Sus cuentas de almacenamiento** : se especifica una cuenta de almacenamiento para cada región en la que se ejecutan máquinas virtuales. Esto permite almacenar los datos en la misma región en que se encuentra la máquina virtual de la que se recopilan.
 
--   **Azure Storage Security Center**: además, se guarda información acerca de las alertas de seguridad, incluidas las alertas de asociado, recomendaciones y estado de mantenimiento de seguridad en el almacenamiento centralizado, que actualmente se encuentra en Estados Unidos. Esta información puede incluir información de configuración relacionada y eventos de seguridad recopilados de las máquinas virtuales que son necesarios para proporcionarle la alerta de seguridad, la recomendación o el estado de mantenimiento de seguridad.
+-   **Azure Storage Security Center** : además, se guarda información acerca de las alertas de seguridad, incluidas las alertas de asociado, recomendaciones y estado de mantenimiento de seguridad en el almacenamiento centralizado, que actualmente se encuentra en Estados Unidos. Esta información puede incluir información de configuración relacionada y eventos de seguridad recopilados de las máquinas virtuales que son necesarios para proporcionarle la alerta de seguridad, la recomendación o el estado de mantenimiento de seguridad.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -205,7 +205,7 @@ Azure Monitor permite utilizar telemetría para obtener información sobre el re
 
 -   **Recibir una notificación de un problema** que afecta al rendimiento del recurso cuando una métrica cruza un umbral determinado.
 
--   **Configurar acciones automatizadas**, como escalar automáticamente un recurso o activar un runbook cuando una métrica cruza un umbral determinado.
+-   **Configurar acciones automatizadas** , como escalar automáticamente un recurso o activar un runbook cuando una métrica cruza un umbral determinado.
 
 -   **Realizar análisis avanzados** o elaborar informes de tendencias de rendimiento o de uso de los recursos.
 

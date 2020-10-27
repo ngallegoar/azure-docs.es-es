@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996748"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139363"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de la versión de Azure Machine Learning
 
@@ -27,38 +27,19 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
 ### <a name="azure-machine-learning-sdk-for-python-v1160"></a>SDK de Azure Machine Learning para Python v1.16.0
 + **Mejoras y correcciones de errores**
   + **azure-cli-ml**
-    + AKSWebservice y AKSEndpoints ahora admiten límites de recursos de CPU y memoria a nivel de pod. Estos límites opcionales se pueden definir al 1. establecer los parámetros `cpu_cores_limit` y `memory_gb_limit` en el `AKSEndpoint.deploy_configuration()` y `AKSWebservice.deploy_configuration()` método 2. establecer las marcas de `--cpu-cores-limit` y `--memory-gb-limit` en las llamadas de la CLI correspondientes 3. establecer `cpuLimit` y `memoryInGBLimit` en el `containerResourceRequirements` de los archivos de configuración de implementación .json/.yml. Puede encontrar más información sobre los límites y los recursos de Kubernetes en https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits.
-  + **azureml-contrib-interpret**
-    + Se han corregido las descripciones del paquete que provocaban un error de carga en pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret y azureml-tensorboard.
-  + **azureml-contrib-k8s**
-    + Se ha agregado compatibilidad para conectar el proceso ArcKubernetes.
-  + **azureml-contrib-mir**
-    + AKSWebservice y AKSEndpoints ahora admiten límites de recursos de CPU y memoria a nivel de pod. Estos límites opcionales se pueden definir al 1. establecer los parámetros `cpu_cores_limit` y `memory_gb_limit` en el `AKSEndpoint.deploy_configuration()` y `AKSWebservice.deploy_configuration()` método 2. establecer las marcas de `--cpu-cores-limit` y `--memory-gb-limit` en las llamadas de la CLI correspondientes 3. establecer `cpuLimit` y `memoryInGBLimit` en el `containerResourceRequirements` de los archivos de configuración de implementación .json/.yml. Puede encontrar más información sobre los límites y los recursos de Kubernetes en https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits.
-  + **azureml-contrib-server**
-    + AKSWebservice y AKSEndpoints ahora admiten límites de recursos de CPU y memoria a nivel de pod. Estos límites opcionales se pueden definir al 1. establecer los parámetros `cpu_cores_limit` y `memory_gb_limit` en el `AKSEndpoint.deploy_configuration()` y `AKSWebservice.deploy_configuration()` método 2. establecer las marcas de `--cpu-cores-limit` y `--memory-gb-limit` en las llamadas de la CLI correspondientes 3. establecer `cpuLimit` y `memoryInGBLimit` en el `containerResourceRequirements` de los archivos de configuración de implementación .json/.yml. Puede encontrar más información sobre los límites y los recursos de Kubernetes en https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits.
+    + AKSWebservice y AKSEndpoints ahora admiten límites de recursos de CPU y memoria a nivel de pod. Estos límites opcionales se pueden usar al establecer las marcas `--cpu-cores-limit` y `--memory-gb-limit` en las llamadas de la CLI aplicables
   + **azureml-core**
     + Anclaje de las versiones principales de las dependencias directas de azureml-core.
-    + AKSWebservice y AKSEndpoints ahora admiten límites de recursos de CPU y memoria a nivel de pod. Puede encontrar más información sobre los límites y los recursos de Kubernetes en https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits.
+    + AKSWebservice y AKSEndpoints ahora admiten límites de recursos de CPU y memoria a nivel de pod. Más información sobre los [límites y recursos de Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits).
     + Se ha actualizado run.log_table para permitir el registro de filas individuales.
-    + Se ha agregado un método estático `Run.get(workspace, run_id)` para recuperar una ejecución solo mediante un área de trabajo. - Se ha agregado el método de instancia `Workspace.get_run(run_id)` para recuperar una ejecución en el área de trabajo.
+    + Se ha agregado un método estático `Run.get(workspace, run_id)` para recuperar una ejecución solo mediante un área de trabajo. 
+    + Se ha agregado un método de instancia `Workspace.get_run(run_id)` para recuperar una ejecución dentro de un área de trabajo.
     + Introducción a la propiedad command en la configuración de ejecución que permitirá a los usuarios enviar el comando en lugar de los scripts y argumentos.
-  + **azureml-dataprep-native**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` admite oficialmente Python 3.8.
-  + **azureml-explain-model**
-    + Se han corregido las descripciones del paquete que provocaban un error de carga en pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret y azureml-tensorboard.
   + **azureml-interpret**
     + Se ha corregido el comportamiento de la marca is_raw del cliente de explicación en azureml-interpret.
-    + Se han corregido las descripciones del paquete que provocaban un error de carga en pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret y azureml-tensorboard.
-  + **azureml-pipeline-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` admite oficialmente Python 3.8.
   + **azureml-sdk**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` admite oficialmente Python 3.8.
-  + **azureml-tensorboard**
-    + Se han corregido las descripciones del paquete que provocaban un error de carga en pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret y azureml-tensorboard.
-  + **azureml-train**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` admite oficialmente Python 3.8.
+    + `azureml-sdk` admite oficialmente Python 3.8.
   + **azureml-train-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` admite oficialmente Python 3.8.
     + Adición del entorno mantenido TensorFlow 2.3.
     + Introducción a la propiedad command en la configuración de ejecución que permitirá a los usuarios enviar el comando en lugar de los scripts y argumentos.
   + **azureml-widgets**
@@ -366,7 +347,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
   + **azureml-pipeline-steps**
     + Documento actualizaciones de azureml-pipeline-steps.
     +  Se agregó soporte en ParallelRunConfig `load_yaml()` para que los usuarios definan entornos en línea con el resto de la configuración o en un archivo separado
-  + **azureml-train-automl-client**.
+  + **azureml-train-automl-client** .
     + Se quitó la capacidad de especificar `enable_cache` como parte de AutoMLConfig
   + **azureml-train-automl-runtime**
     + Se agregó la disponibilidad limitada de características distribuidos de varios nodos y varias GPU con BERT.
@@ -516,7 +497,7 @@ Para obtener información acerca de errores conocidos y soluciones alternativas,
     + AutoML Forecasting ahora admite la previsión de clientes más allá del horizonte máximo especificado previamente sin necesidad de reentrenar el modelo. Si el destino de la previsión es posterior al horizonte máximo especificado, la función forecast() realizará predicciones puntuales hasta la fecha más alejada mediante un modo de operación recursivo. Para ver cómo se ilustra la nueva característica, consulte la sección "Previsión posterior al horizonte máximo" del cuaderno "forecasting-forecast-function" de la [carpeta](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)".
   
   + **azureml-pipeline-steps**
-    + Se ha publicado ParallelRunStep y forma parte del paquete **azureml-pipeline-steps**. La funcionalidad ParallelRunStep del paquete **azureml-contrib-pipeline-steps** está en desuso. Cambios en la versión preliminar pública:
+    + Se ha publicado ParallelRunStep y forma parte del paquete **azureml-pipeline-steps** . La funcionalidad ParallelRunStep del paquete **azureml-contrib-pipeline-steps** está en desuso. Cambios en la versión preliminar pública:
       + Se ha agregado el parámetro configurable opcional `run_max_try` para controlar el número máximo de llamadas para ejecutar el método en un lote dado, el valor predeterminado es 3.
       + Ya no se generan PipelineParameters automáticamente. Los siguientes valores configurables se pueden establecer como PipelineParameter de forma explícita.
         + mini_batch_size
@@ -1899,7 +1880,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
   + **azureml-pipeline-steps**
     + El almacén de datos DBFS se admite ahora en las entradas y salidas de DatabricksStep.
     + Se actualiza la documentación para Azure Batch Step con respecto a las entradas y salidas.
-    + En AzureBatchStep, se cambió el valor predeterminado de *delete_batch_job_after_finish* a *true*.
+    + En AzureBatchStep, se cambió el valor predeterminado de *delete_batch_job_after_finish* a *true* .
   + **azureml-telemetry**
     +  Se mueve azureml-contrib-opendatasets a azureml-opendatasets.
     + Se permite que las clases del conjunto de datos abierto se registren en el área de trabajo de Azure Machine Learning y aprovechen sin problemas las funcionalidades del conjunto de datos de AML.
@@ -1931,7 +1912,7 @@ En el momento en que se publica este artículo, se admiten los siguientes explor
 
 + **Nuevas características:**
   + **azureml-opendatasets**
-    + **azureml-contrib-opendatasets** ahora está disponible como **azureml-opendatasets**. El paquete antiguo puede seguir funcionando, pero le recomendamos que use **azureml-opendatasets** de ahora en adelante para obtener mejoras y funcionalidades más avanzadas.
+    + **azureml-contrib-opendatasets** ahora está disponible como **azureml-opendatasets** . El paquete antiguo puede seguir funcionando, pero le recomendamos que use **azureml-opendatasets** de ahora en adelante para obtener mejoras y funcionalidades más avanzadas.
     + Este nuevo paquete le permite registrar conjuntos de datos abiertos como un conjunto de datos en el área de trabajo de Azure Machine Learning y aprovechar completamente las funcionalidades que ofrece dicho conjunto de datos.
     + También incluye funcionalidades existentes, por ejemplo, el consumo de conjuntos de datos abiertos como dataframes de SPARK o Pandas y combinaciones de ubicaciones para algún conjunto de datos como el tiempo.
 

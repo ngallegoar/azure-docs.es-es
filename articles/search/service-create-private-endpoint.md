@@ -1,19 +1,19 @@
 ---
 title: Creación de un punto de conexión privado para una conexión segura
 titleSuffix: Azure Cognitive Search
-description: Configuración de un punto de conexión privado en una red virtual para una conexión segura a un servicio Azure Cognitive Search
+description: Configure un punto de conexión privado en una red virtual para establecer una conexión segura con un servicio Azure Cognitive Search.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935762"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280404"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Creación de un punto de conexión privado para una conexión segura a Azure Cognitive Search
 
@@ -38,69 +38,69 @@ Los puntos de conexión privados para su servicio de búsqueda le permiten:
 
 En esta sección, va a crear una red virtual y una subred para hospedar la máquina virtual que se usará para obtener acceso al punto de conexión privado del servicio de búsqueda.
 
-1. En la pestaña Inicio de Azure Portal, seleccione **Crear un recurso** > **Redes** > **Red virtual**.
+1. En la pestaña Inicio de Azure Portal, seleccione **Crear un recurso** > **Redes** > **Red virtual** .
 
-1. En **Creación de una red virtual**, escriba o seleccione esta información:
+1. En **Creación de una red virtual** , escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
     | Suscripción | Seleccione su suscripción.|
-    | Resource group | Seleccione **Crear nuevo**, escriba *myResourceGroup* y, después, seleccione **Aceptar**. |
-    | Nombre | Escriba *MyVirtualNetwork*. |
+    | Resource group | Seleccione **Crear nuevo** , escriba *myResourceGroup* y, después, seleccione **Aceptar** . |
+    | Nombre | Escriba *MyVirtualNetwork* . |
     | Region | Seleccione la región que quiera. |
     |||
 
-1. En el resto de la configuración, deje los valores predeterminados. Haga clic en **Revisar y crear** y, a continuación, en **Crear**.
+1. En el resto de la configuración, deje los valores predeterminados. Haga clic en **Revisar y crear** y, a continuación, en **Crear** .
 
 ## <a name="create-a-search-service-with-a-private-endpoint"></a>Creación de un servicio de búsqueda con un punto de conexión privado
 
 En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto de conexión privado. 
 
-1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Web** > **Azure Cognitive Search**.
+1. En la parte superior izquierda de la pantalla en Azure Portal, seleccione **Crear un recurso** > **Web** > **Azure Cognitive Search** .
 
-1. En **Nuevo servicio de búsqueda: Conceptos básicos**, escriba o seleccione esta información:
+1. En **Nuevo servicio de búsqueda: Conceptos básicos** , escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Suscripción | Seleccione su suscripción. |
-    | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
+    | Resource group | Seleccione **myResourceGroup** . Lo creó en la sección anterior.|
     | **DETALLES DE INSTANCIA** |  |
     | URL | Escriba un nombre único. |
     | Location | Seleccione la región que quiera. |
-    | Plan de tarifa | Seleccione la opción para **cambiar el plan de tarifa** y elija el nivel de servicio que quiera. (No se admite en el nivel **gratuito**. Debe ser **básico** o posterior). |
+    | Plan de tarifa | Seleccione la opción para **cambiar el plan de tarifa** y elija el nivel de servicio que quiera. (No se admite en el nivel **gratuito** . Debe ser **básico** o posterior). |
     |||
   
-1. Seleccione **Siguiente: Escalado**.
+1. Seleccione **Siguiente: Escalado** .
 
-1. Deje los valores tal como están y seleccione **Siguiente: Redes**.
+1. Deje los valores tal como están y seleccione **Siguiente: Redes** .
 
-1. En **Nuevo servicio de búsqueda: Redes**, seleccione **Privado** para **Conectividad de punto de conexión (datos)** .
+1. En **Nuevo servicio de búsqueda: Redes** , seleccione **Privado** para **Conectividad de punto de conexión (datos)** .
 
-1. En **Nuevo servicio de búsqueda: Redes**, seleccione **+ Agrear** en **Punto de conexión privado**. 
+1. En **Nuevo servicio de búsqueda: Redes** , seleccione **+ Agrear** en **Punto de conexión privado** . 
 
-1. En **Crear un punto de conexión privado**, escriba o seleccione esta información:
+1. En **Crear un punto de conexión privado** , escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
     | Suscripción | Seleccione su suscripción. |
-    | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.|
+    | Resource group | Seleccione **myResourceGroup** . Lo creó en la sección anterior.|
     | Location | Seleccione **Oeste de EE. UU.**|
-    | Nombre | Escriba *myPrivateEndpoint*.  |
-    | Recurso secundario de destino | Deje el valor predeterminado **searchService**. |
+    | Nombre | Escriba *myPrivateEndpoint* .  |
+    | Recurso secundario de destino | Deje el valor predeterminado **searchService** . |
     | **REDES** |  |
-    | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup*. |
-    | Subnet | Seleccione *mySubnet*. |
+    | Virtual network  | Seleccione *MyVirtualNetwork* en el grupo de recursos *myResourceGroup* . |
+    | Subnet | Seleccione *mySubnet* . |
     | **INTEGRACIÓN DE DNS PRIVADO** |  |
-    | Integración con una zona DNS privada  | Deje el valor predeterminado **Sí**. |
+    | Integración con una zona DNS privada  | Deje el valor predeterminado **Sí** . |
     | Zona DNS privada  | Deje el valor predeterminado ** (New) privatelink.blob.core.windows.net**. |
     |||
 
-1. Seleccione **Aceptar**. 
+1. Seleccione **Aceptar** . 
 
-1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración. 
+1. Seleccione **Revisar + crear** . Se le remitirá a la página **Revisar y crear** , donde Azure validará la configuración. 
 
-1. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
+1. Cuando reciba el mensaje **Validación superada** , seleccione **Crear** . 
 
 1. Una vez completado del aprovisionamiento de su nuevo servicio, vaya al recurso que acaba de crear.
 
@@ -110,78 +110,83 @@ En esta sección, creará un nuevo servicio Azure Cognitive Search con un punto 
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
-1. En la parte superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual**.
+1. En la parte superior izquierda de Azure Portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual** .
 
-1. En **Creación de una máquina virtual: conceptos básicos**, escriba o seleccione esta información:
+1. En **Creación de una máquina virtual: conceptos básicos** , escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
     | **DETALLES DEL PROYECTO** | |
     | Suscripción | Seleccione su suscripción. |
-    | Resource group | Seleccione **myResourceGroup**. Lo creó en la sección anterior.  |
+    | Resource group | Seleccione **myResourceGroup** . Lo creó en la sección anterior.  |
     | **DETALLES DE INSTANCIA** |  |
-    | Nombre de la máquina virtual | Escriba *myVm*. |
+    | Nombre de la máquina virtual | Escriba *myVm* . |
     | Region | Seleccione **Oeste de EE. UU.** o la región que esté usando. |
-    | Opciones de disponibilidad | Deje el valor predeterminado **No se requiere redundancia de la infraestructura**. |
-    | Imagen | Seleccione **Windows Server 2019 Datacenter**. |
-    | Size | Deje el valor predeterminado **Estándar DS1 v2**. |
+    | Opciones de disponibilidad | Deje el valor predeterminado **No se requiere redundancia de la infraestructura** . |
+    | Imagen | Seleccione **Windows Server 2019 Datacenter** . |
+    | Size | Deje el valor predeterminado **Estándar DS1 v2** . |
     | **CUENTA DE ADMINISTRADOR** |  |
     | Nombre de usuario | Escriba un nombre de usuario de su elección. |
     | Contraseña | Escriba una contraseña de su elección. La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Vuelva a escribir la contraseña. |
     | **REGLAS DE PUERTO DE ENTRADA** |  |
-    | Puertos de entrada públicos | Deje el valor predeterminado **Permitir los puertos seleccionados**. |
+    | Puertos de entrada públicos | Deje el valor predeterminado **Permitir los puertos seleccionados** . |
     | Selección de puertos de entrada | Deje el valor predeterminado **RDP (3389)** . |
     | **AHORRE DINERO** |  |
-    | ¿Ya tiene una licencia de Windows? | Deje el valor predeterminado **No**. |
+    | ¿Ya tiene una licencia de Windows? | Deje el valor predeterminado **No** . |
     |||
 
-1. Seleccione **Siguiente: Discos**.
+1. Seleccione **Siguiente: Discos** .
 
-1. En **Creación de una máquina virtual: Discos**, deje los valores predeterminados y seleccione **Siguiente: Redes**.
+1. En **Creación de una máquina virtual: Discos** , deje los valores predeterminados y seleccione **Siguiente: Redes** .
 
-1. En **Creación de una máquina virtual: Redes**, escriba o seleccione esta información:
+1. En **Creación de una máquina virtual: Redes** , escriba o seleccione esta información:
 
     | Configuración | Value |
     | ------- | ----- |
-    | Virtual network | Deje el valor predeterminado **MyVirtualNetwork**.  |
-    | Espacio de direcciones | Deje el valor predeterminado **10.1.0.0/24**.|
+    | Virtual network | Deje el valor predeterminado **MyVirtualNetwork** .  |
+    | Espacio de direcciones | Deje el valor predeterminado **10.1.0.0/24** .|
     | Subnet | Deje el valor predeterminado **mySubnet (10.1.0.0/24)** .|
-    | Dirección IP pública | Deje el valor predeterminado **(new) myVm-ip**. |
-    | Puertos de entrada públicos | Seleccione **Permitir los puertos seleccionados**. |
-    | Selección de puertos de entrada | Seleccione **HTTP** y **RDP**.|
+    | Dirección IP pública | Deje el valor predeterminado **(new) myVm-ip** . |
+    | Puertos de entrada públicos | Seleccione **Permitir los puertos seleccionados** . |
+    | Selección de puertos de entrada | Seleccione **HTTP** y **RDP** .|
     ||
 
-1. Seleccione **Revisar + crear**. Se le remitirá a la página **Revisar y crear**, donde Azure validará la configuración.
+   > [!NOTE]
+   > Las direcciones IPv4 se pueden expresar en formato [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Recuerde evitar el intervalo IP reservado para las redes privadas, como se describe en [RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
 
-1. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**. 
+1. Seleccione **Revisar + crear** . Se le remitirá a la página **Revisar y crear** , donde Azure validará la configuración.
 
+1. Cuando reciba el mensaje **Validación superada** , seleccione **Crear** . 
 
 ## <a name="connect-to-the-vm"></a>Conexión a la máquina virtual
 
 Descargue y, a continuación, conéctese a la máquina virtual *myVm* de la siguiente manera:
 
-1. En la barra de búsqueda del portal, escriba *myVm*.
+1. En la barra de búsqueda del portal, escriba *myVm* .
 
-1. Seleccione el botón **Conectar**. Después de seleccionar el botón **Conectar**, se abre **Conectar a máquina virtual**.
+1. Seleccione el botón **Conectar** . Después de seleccionar el botón **Conectar** , se abre **Conectar a máquina virtual** .
 
-1. Seleccione **Descargar archivo RDP**. Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp*) y lo descarga en su equipo.
+1. Seleccione **Descargar archivo RDP** . Azure crea un archivo de Protocolo de Escritorio remoto ( *.rdp* ) y lo descarga en su equipo.
 
 1. Abra el archivo downloaded.rdp*.
 
-    1. Cuando se le pida, seleccione **Conectar**.
+    1. Cuando se le pida, seleccione **Conectar** .
 
     1. Escriba el nombre de usuario y la contraseña que especificó al crear la VM.
 
         > [!NOTE]
         > Es posible que tenga que seleccionar **Más opciones** > **Usar otra cuenta** para especificar las credenciales que escribió al crear la máquina virtual.
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
 
-1. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe una advertencia de certificado, seleccione **Sí** o **Continuar**.
+1. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Si recibe una advertencia de certificado, seleccione **Sí** o **Continuar** .
 
 1. Una vez que aparezca el escritorio de la máquina virtual, minimícelo para volver a su escritorio local.  
-
 
 ## <a name="test-connections"></a>Prueba de conexiones
 
@@ -189,7 +194,7 @@ En esta sección, comprobará el acceso de la red privada al servicio de búsque
 
 Cuando el punto de conexión del servicio de búsqueda es privado, se deshabilitan algunas características del portal. Podrá ver y administrar la configuración del nivel de servicio, pero, por motivos de seguridad, se ha restringido el acceso del portal a los datos del índice y de los distintos componentes de este servicio, como el índice, el indexador y las definiciones del conjunto de aptitudes.
 
-1. En el Escritorio remoto de *myVm*, abra PowerShell.
+1. En el Escritorio remoto de *myVm* , abra PowerShell.
 
 1. Escriba "nslookup [nombre del servicio de búsqueda].search.windows.net".
 
@@ -207,15 +212,15 @@ Cuando el punto de conexión del servicio de búsqueda es privado, se deshabilit
 
 1. La finalización del inicio rápido de la máquina virtual es su confirmación de que el servicio es totalmente operativo.
 
-1. Cierre la conexión de Escritorio remoto a *myVM*. 
+1. Cierre la conexión de Escritorio remoto a *myVM* . 
 
 1. Para comprobar que su servicio no es accesible en un punto de conexión público, abra Postman en su estación de trabajo local e intente realizar las primeras tareas del inicio rápido. Si recibe un error que indica que el servidor remoto no existe, habrá configurado correctamente un punto de conexión privado para su servicio de búsqueda.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 Cuando haya terminado mediante el punto de conexión privado, el servicio de búsqueda y la máquina virtual, elimine el grupo de recursos y todos los recursos que contiene:
-1. Escriba *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione *myResourceGroup* en los resultados de la búsqueda. 
-1. Seleccione **Eliminar grupo de recursos**. 
-1. Escriba *myResourceGroup* en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar**.
+1. Escriba  *myResourceGroup* en el cuadro **Buscar** de la parte superior del portal y seleccione  *myResourceGroup* en los resultados de la búsqueda. 
+1. Seleccione **Eliminar grupo de recursos** . 
+1. Escriba  *myResourceGroup* en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** y seleccione **Eliminar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, creó una máquina virtual en una red virtual y un servicio de búsqueda con un punto de conexión privado. Se conectó a la máquina virtual desde Internet y se comunicó de forma segura con el servicio de búsqueda mediante Private Link. Para más información sobre el punto de conexión privado, consulte  [¿Qué es un punto de conexión privado de Azure? ](../private-link/private-endpoint-overview.md).

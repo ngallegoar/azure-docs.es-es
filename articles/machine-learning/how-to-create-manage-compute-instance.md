@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 3b5698c782b691dd8ae91913115db184fc83a2eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca4ed58de030e372f97ebda87d12340a57a584d5
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756626"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207094"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creación y administración de una instancia de proceso de Azure Machine Learning
 
@@ -42,7 +42,7 @@ Las instancias de proceso pueden ejecutar trabajos de manera segura en un [entor
 
 ## <a name="create"></a>Crear
 
-**Tiempo estimado**: Aproximadamente 5 minutos.
+**Tiempo estimado** : Aproximadamente 5 minutos.
 
 La creación de una instancia de proceso es un proceso único en el área de trabajo. Puede volver a usar este proceso como una estación de trabajo de desarrollo o como un destino de proceso para el entrenamiento. Puede tener varias instancias de proceso asociadas al área de trabajo.
 
@@ -129,7 +129,7 @@ Inicie, detenga, reinicie y elimine una instancia de proceso. Una instancia de p
 
 # <a name="python"></a>[Python](#tab/python)
 
-En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance**.
+En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance** .
 
 * Obtener estado
 
@@ -170,7 +170,7 @@ En todos los siguientes ejemplos, el nombre de la instancia de proceso es **inst
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
-En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance**.
+En todos los siguientes ejemplos, el nombre de la instancia de proceso es **instance** .
 
 * Stop
 
@@ -241,7 +241,7 @@ RBAC puede controlar estas acciones:
 
 Abra la ventana de terminal de la instancia de proceso de cualquiera de estas maneras:
 
-* RStudio: seleccione la pestaña **Terminal**, situada en la parte superior izquierda.
+* RStudio: seleccione la pestaña **Terminal** , situada en la parte superior izquierda.
 * Jupyter Lab:  seleccione el icono **Terminal** en el encabezado **Otros** de la pestaña Iniciador.
 * Jupyter:  seleccione **Nuevo>Terminal** en la parte superior derecha de la pestaña Archivos.
 * SSH en la máquina, si habilitó el acceso SSH cuando se creó la instancia de proceso.
@@ -252,15 +252,16 @@ Use la ventana de terminal para instalar paquetes y crear más kernels.
 
 Puede instalar paquetes directamente en Jupyter Notebook o en RStudio:
 
-* RStudio: use la pestaña **Paquetes**, situada en la parte inferior derecha, o la pestaña **Consola**, situada en la parte superior izquierda.  
+* RStudio: use la pestaña **Paquetes** , situada en la parte inferior derecha, o la pestaña **Consola** , situada en la parte superior izquierda.  
 * Python: agregue el código de instalación y ejecútelo en una celda de Jupyter Notebook.
 
-O bien, puede realizar la instalación desde una ventana de terminal. Instale los paquetes de Python en el entorno de **Python 3.6: AzureML**.  Instale los paquetes de R en el entorno de **R**.
+O bien, puede realizar la instalación desde una ventana de terminal. Instale los paquetes de Python en el entorno de **Python 3.6: AzureML** .  Instale los paquetes de R en el entorno de **R** .
+Las funciones magic %pip y %conda instalan paquetes automáticamente en el kernel actualmente en ejecución en la sesión de Jupyter Notebook.
 
 ## <a name="add-new-kernels"></a>Incorporación de nuevos kernels
 
 > [!WARNING]
->  Durante la personalización de la instancia de proceso, asegúrese de no eliminar el entorno de Conda **azureml_py36** ni el kernel de **Python 3.6: AzureML**. Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
+>  Durante la personalización de la instancia de proceso, asegúrese de no eliminar el entorno de Conda **azureml_py36** ni el kernel de **Python 3.6: AzureML** . Esto es necesario para la funcionalidad de Jupyter/JupyterLab.
 
 Para agregar un kernel nuevo de Jupyter a la instancia de proceso:
 

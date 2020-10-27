@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076902"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107596"
 ---
 # <a name="api-management-policies"></a>Directivas de administración de API
 En esta sección se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](api-management-howto-policies.md).
@@ -79,7 +79,7 @@ En esta sección se proporciona una referencia para las siguientes directivas de
     -   [Transformar XML mediante una XSLT](api-management-transformation-policies.md#XSLTransform): aplica una transformación de XSL al XML del cuerpo de la solicitud o respuesta.
 - [Directivas de integración de Dapr](api-management-dapr-policies.md)
     - [Enviar una solicitud a un servicio](api-management-dapr-policies.md#invoke): utiliza el tiempo de ejecución de Dapr para localizar y comunicarse de forma confiable con un microservicio de Dapr.
-    -  [Enviar mensaje al tema de publicación/suscripción](api-management-dapr-policies.md#pubsub): utiliza el tiempo de ejecución de Dapr para publicar un mensaje en un tema de publicación/suscripción. Consulte el archivo LÉAME (topic.publish-subscribe-messaging/README.md) para obtener más información sobre la mensajería de publicación/suscripción en Dapr.
+    -  [Envío de un mensaje a un tema de publicación/suscripción](api-management-dapr-policies.md#pubsub): utiliza el entorno de ejecución de Dapr para publicar un mensaje en un tema de publicación/suscripción.
     -  [Desencadenar el enlace de salida](api-management-dapr-policies.md#bind): utiliza el tiempo de ejecución de Dapr para invocar un sistema externo a través del enlace de salida.
 
 ## <a name="next-steps"></a>Pasos siguientes

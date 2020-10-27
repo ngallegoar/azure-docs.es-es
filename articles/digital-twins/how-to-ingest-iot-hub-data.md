@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048056"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131503"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesta de telemetría de IoT Hub en Azure Digital Twins
 
@@ -25,7 +25,7 @@ Este documento de procedimientos le guía en el proceso de escritura de una func
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de continuar con este ejemplo, debe configurar los siguientes recursos como requisito previo:
-* **Una instancia de IoT Hub**. Para instrucciones, consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Una instancia de IoT Hub** . Para instrucciones, consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md).
 * **Una función de Azure** con los permisos correctos para llamar a la instancia de Digital Twins. Para instrucciones, consulte [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md). 
 * **Una instancia de Azure Digital Twins** que recibirá la telemetría del dispositivo. Para instrucciones, consulte [*Procedimiento: Configuración de una instancia de Azure Digital Twins y autenticación*](./how-to-set-up-instance-portal.md).
 
@@ -62,7 +62,7 @@ El modelo tiene este aspecto:
 }
 ```
 
-Para **cargar este modelo en la instancia de Digital Twins**, abra el CLI de Azure y ejecute el siguiente comando:
+Para **cargar este modelo en la instancia de Digital Twins** , abra el CLI de Azure y ejecute el siguiente comando:
 
 ```azurecli
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
@@ -70,7 +70,7 @@ az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
-A continuación, deberá **crear un gemelo con este modelo**. Use el comando siguiente para crear un gemelo y establezca 0,0 como valor de temperatura inicial.
+A continuación, deberá **crear un gemelo con este modelo** . Use el comando siguiente para crear un gemelo y establezca 0,0 como valor de temperatura inicial.
 
 ```azurecli
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -107,7 +107,7 @@ En los pasos siguientes, agregará código específico para procesar los eventos
     
 Los eventos de telemetría tienen el formato de mensajes del dispositivo. El primer paso para agregar el código de procesamiento de telemetría es extraer la parte pertinente de este mensaje del dispositivo del evento Event Grid. 
 
-Los distintos dispositivos pueden estructurar sus mensajes de forma diferente, por lo que el código de **este paso depende del dispositivo conectado**. 
+Los distintos dispositivos pueden estructurar sus mensajes de forma diferente, por lo que el código de **este paso depende del dispositivo conectado** . 
 
 En el código siguiente se muestra un ejemplo de un dispositivo simple que envía telemetría como JSON. Este ejemplo se explora completamente en [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md). El código siguiente extrae el identificador de dispositivo del dispositivo que envió el mensaje, así como el valor de temperatura.
 
@@ -214,27 +214,27 @@ También puede comprobar el estado del proceso de publicación en [Azure Portal]
 ## <a name="connect-your-function-to-iot-hub"></a>Conexión de la función a IoT Hub
 
 Configure un destino de evento para los datos del centro de conectividad.
-En [Azure Portal](https://portal.azure.com/), navegue a la instancia de IoT Hub que creó en la sección [*Requisitos previos*](#prerequisites). En **Eventos**, cree una suscripción para su función de Azure.
+En [Azure Portal](https://portal.azure.com/), navegue a la instancia de IoT Hub que creó en la sección [*Requisitos previos*](#prerequisites). En **Eventos** , cree una suscripción para su función de Azure.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagrama que muestra un gráfico de flujo. En el gráfico, un dispositivo de IoT Hub envía la telemetría de temperature con IoT Hub a una función de Azure, que actualiza una propiedad de temperatura de un gemelo en Azure Digital Twins.":::
 
-En la página **Crear suscripción de eventos**, rellene los campos como se indica a continuación:
-  1. En **Nombre**, asigne a la suscripción el nombre que desee.
-  2. En **Esquema de eventos**, elija _Esquema de Event Grid_.
-  3. En **Tipos de evento**, active la casilla _Telemetría de dispositivo_ y desactive otros tipos de eventos.
-  4. En **Tipo de punto de conexión**, seleccione _Función de Azure_.
-  5. En **Tipo de punto de conexión**, elija el vínculo _Seleccione un punto de conexión_ para crear un punto de conexión.
+En la página **Crear suscripción de eventos** , rellene los campos como se indica a continuación:
+  1. En **Nombre** , asigne a la suscripción el nombre que desee.
+  2. En **Esquema de eventos** , elija _Esquema de Event Grid_ .
+  3. En **Tipos de evento** , active la casilla _Telemetría de dispositivo_ y desactive otros tipos de eventos.
+  4. En **Tipo de punto de conexión** , seleccione _Función de Azure_ .
+  5. En **Tipo de punto de conexión** , elija el vínculo _Seleccione un punto de conexión_ para crear un punto de conexión.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagrama que muestra un gráfico de flujo. En el gráfico, un dispositivo de IoT Hub envía la telemetría de temperature con IoT Hub a una función de Azure, que actualiza una propiedad de temperatura de un gemelo en Azure Digital Twins.":::
 
 En la página _Seleccionar Azure Functions_ que se abre, compruebe los detalles siguientes.
- 1. **Suscripción**: suscripción de Azure
- 2. **Grupo de recursos**: Su grupo de recursos
- 3. **Aplicación de función**: Nombre de la aplicación de funciones
- 4. **Slot**: _Producción_
- 5. **Función**: Seleccione su función de Azure en el menú desplegable.
+ 1. **Suscripción** : suscripción de Azure
+ 2. **Grupo de recursos** : Su grupo de recursos
+ 3. **Aplicación de función** : Nombre de la aplicación de funciones
+ 4. **Slot** : _Producción_
+ 5. **Función** : Seleccione su función de Azure en el menú desplegable.
 
-Guarde los detalles seleccionando el botón _Confirmar selección_.            
+Guarde los detalles seleccionando el botón _Confirmar selección_ .            
       
 :::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Diagrama que muestra un gráfico de flujo. En el gráfico, un dispositivo de IoT Hub envía la telemetría de temperature con IoT Hub a una función de Azure, que actualiza una propiedad de temperatura de un gemelo en Azure Digital Twins.":::
 
@@ -242,7 +242,7 @@ Seleccione el botón _Crear_ para crear una suscripción a eventos.
 
 ## <a name="send-simulated-iot-data"></a>Envío de datos de IoT simulados
 
-Para probar la nueva función de entrada, use el simulador de dispositivos de [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md). El tutorial utiliza un proyecto de ejemplo escrito en C#. El código de ejemplo se encuentra aquí: [Ejemplos de Azure Digital Twins](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Usará el proyecto **DeviceSimulator** en ese repositorio.
+Para probar la nueva función de entrada, use el simulador de dispositivos de [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md). El tutorial utiliza un proyecto de ejemplo escrito en C#. El código de ejemplo se encuentra aquí: [Ejemplos de Azure Digital Twins de un extremo a otro](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Usará el proyecto **DeviceSimulator** en ese repositorio.
 
 En este tutorial integral, va a completar los siguientes pasos:
 1. [*Registro del dispositivo simulado en el centro de IoT*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

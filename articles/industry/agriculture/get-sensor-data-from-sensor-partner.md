@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57baa00f7f9b64212d0aee8b0a2efeca814abeb3
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88649166"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168535"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -46,17 +46,17 @@ Siga los pasos que se indican a continuación para generar la información anter
 
 2. **Si utiliza la versión 1.2.7 o posterior de FarmBeats, omita los pasos a, b y c, y vaya al paso 3.** Para comprobar la versión de FarmBeats, seleccione el icono **Configuración** en la esquina superior derecha de la interfaz de usuario de FarmBeats.
 
-      a.  Vaya a **Azure Active Directory** > **Registros de aplicaciones**.
+      a.  Vaya a **Azure Active Directory** > **Registros de aplicaciones** .
 
       b. Seleccione el **Registro de aplicación** que se ha creado como parte de la implementación de FarmBeats. Tendrá el mismo nombre que el centro de datos de FarmBeats.
 
-      c. Seleccione **Exponer una API** > **Agregar una aplicación cliente**, escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active **Autorizar ámbito**. De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes:
+      c. Seleccione **Exponer una API** > **Agregar una aplicación cliente** , escriba **04b07795-8ddb-461a-bbee-02f9e1bf7b46** y active **Autorizar ámbito** . De esta forma, se proporciona acceso a la CLI de Azure (Cloud Shell) para realizar los pasos siguientes:
 
 3. Abra Cloud Shell. Esta opción está disponible en la barra de herramientas de la esquina superior derecha de Azure Portal.
 
     ![Barra de herramientas de Azure Portal](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-4. Asegúrese de que el entorno esté establecido en **PowerShell**. De forma predeterminada, se establece en Bash.
+4. Asegúrese de que el entorno esté establecido en **PowerShell** . De forma predeterminada, se establece en Bash.
 
     ![Valor de la barra de herramientas de PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
@@ -80,7 +80,7 @@ Siga los pasos que se indican a continuación para generar la información anter
 
     ```
 
-8. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
+8. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general** .
 
     ```azurepowershell-interactive
 
@@ -92,7 +92,7 @@ Siga los pasos que se indican a continuación para generar la información anter
 > 1. El nombre del punto de conexión de API del centro de datos debe estar en minúsculas.
 > 2. Si está copiando la dirección URL del nombre del sitio web de FarmBeats para el punto de conexión de API del centro de datos, asegúrese de que no hay ninguna barra diagonal (/) al final.
 
-9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
+9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API** , el **identificador de inquilino** , el **identificador de cliente** , el **secreto de cliente** y la **cadena de conexión de EventHub** .
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integración de los datos de los dispositivos con las credenciales generadas
 
@@ -121,13 +121,13 @@ Use la sección siguiente para ver los dispositivos y sensores de la granja.
 
 Actualmente, FarmBeats admite los siguientes dispositivos:
 
-- **Nodo**: dispositivo al que se conectan uno o varios sensores.
-- **Puerta de enlace**: dispositivo al que están conectados uno o varios nodos.
+- **Nodo** : dispositivo al que se conectan uno o varios sensores.
+- **Puerta de enlace** : dispositivo al que están conectados uno o varios nodos.
 
 Siga estos pasos:
 
 1. En la página principal, seleccione **Devices** (Dispositivos) en el menú.
-  En la página **Devices** (Dispositivos) se muestra el tipo de dispositivo, el modelo, el estado, la granja en la que se encuentra y la fecha de la última actualización de los metadatos. De forma predeterminada, la columna de la granja está establecida en *NULL*. Puede elegir asignar un dispositivo a una granja. Para más información, consulte [Asignación de dispositivos](#assign-devices).
+  En la página **Devices** (Dispositivos) se muestra el tipo de dispositivo, el modelo, el estado, la granja en la que se encuentra y la fecha de la última actualización de los metadatos. De forma predeterminada, la columna de la granja está establecida en *NULL* . Puede elegir asignar un dispositivo a una granja. Para más información, consulte [Asignación de dispositivos](#assign-devices).
 2. Seleccione el dispositivo para ver sus propiedades, la telemetría y los dispositivos secundarios conectados a él.
 
     ![Página de dispositivos](./media/get-sensor-data-from-sensor-partner/view-devices-1.png)
@@ -178,7 +178,7 @@ Siga estos pasos:
 1. En la página `principal, seleccione **Sensors** (Sensores) en el menú para ver la página **Sensors** (Sensores).
 2. Seleccione el dispositivo que quiere eliminar y elija **Delete** (Eliminar) en la ventana de confirmación.
 
-    ![Botón Eliminar](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
+    ![Captura de pantalla que resalta la página de eliminación de sensores y el botón Eliminar.](./media/get-sensor-data-from-sensor-partner/delete-sensors-1.png)
 
 Un mensaje de confirmación muestra que el sensor se ha eliminado correctamente.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 517b70d798d8cdd1b361b244111a8b6781286207
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea674981036b4be292329a4b30b43180ed26d642
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851229"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092790"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management
 
@@ -26,8 +26,8 @@ En API Management, los grupos se usan para administrar la visibilidad de product
 
 API Management tiene los siguientes grupos invariables del sistema:
 
-* **Administradores**. Los administradores de suscripciones de Azure son miembros de este grupo. Los administradores controlan las instancias del servicio Administración de API y crean las API, las operaciones y los productos que usan los desarrolladores.
-* **Desarrolladores**. Los usuarios autenticados del portal para desarrolladores forman este grupo. Los desarrolladores son los clientes que compilan aplicaciones con sus API. Los desarrolladores, después de que se les concede acceso al portal para desarrolladores, crean aplicaciones que llaman a las operaciones de una API.
+* **Administradores** . Los administradores de suscripciones de Azure son miembros de este grupo. Los administradores controlan las instancias del servicio Administración de API y crean las API, las operaciones y los productos que usan los desarrolladores.
+* **Desarrolladores** . Los usuarios autenticados del portal para desarrolladores forman este grupo. Los desarrolladores son los clientes que compilan aplicaciones con sus API. Los desarrolladores, después de que se les concede acceso al portal para desarrolladores, crean aplicaciones que llaman a las operaciones de una API.
 * **Invitados** : a este grupo pertenecen los usuarios del portal para desarrolladores no autenticados como, por ejemplo, clientes potenciales que visitan el portal para desarrolladores de una instancia de API Management. Se les concede determinado acceso de solo lectura, como por ejemplo la posibilidad de ver API pero no llamarlas.
 
 Además de estos grupos del sistema, los administradores pueden crear grupos personalizados o [aprovechar los grupos externos en inquilinos de Azure Active Directory asociados][leverage external groups in associated Azure Active Directory tenants]. Los grupos personalizados y externos pueden usarse junto con grupos del sistema en la concesión a los desarrolladores de visibilidad y acceso a productos de la API. Por ejemplo, podría crear un grupo personalizado para los desarrolladores afiliados a una organización asociada específica y permitirles el acceso a las API a partir de un producto que contenga solo las API relevantes. Un usuario puede ser miembro de más de un grupo.
@@ -49,13 +49,13 @@ Complete las tareas de este artículo: [Creación de una instancia de Azure API 
 En esta sección se explica cómo agregar un nuevo grupo a la cuenta de API Management.
 
 1. Seleccione la pestaña **Grupos** a la izquierda de la pantalla.
-2. Haga clic en **+Agregar**.
+2. Haga clic en **+Agregar** .
 3. Especifique un nombre único para el grupo y una descripción opcional.
-4. Pulse **Crear**.
+4. Pulse **Crear** .
 
     ![Adición de un nuevo grupo](./media/api-management-howto-create-groups/groups001.png)
 
-Una vez creado el grupo, se agrega a la lista **Grupos**. <br/>Para editar el **Nombre** o la **Descripción** del grupo, haga clic en el nombre del grupo y en **Configuración**.<br/>Para eliminar el grupo, haga clic en el nombre del grupo y después en **Eliminar**.
+Una vez creado el grupo, se agrega a la lista **Grupos** . <br/>Para editar el **Nombre** o la **Descripción** del grupo, haga clic en el nombre del grupo y en **Configuración** .<br/>Para eliminar el grupo, haga clic en el nombre del grupo y después en **Eliminar** .
 
 Ahora que se ha creado el grupo, se puede asociar a productos y desarrolladores.
 
@@ -63,15 +63,15 @@ Ahora que se ha creado el grupo, se puede asociar a productos y desarrolladores.
 
 1. Seleccione la pestaña **Productos** a la izquierda.
 2. Haga clic en el nombre del producto deseado.
-3. Haga clic en **Control de acceso**.
-4. Haga clic en **+ Agregar grupo**.
+3. Haga clic en **Control de acceso** .
+4. Haga clic en **+ Agregar grupo** .
 
-    ![Asociación de un grupo a un producto](./media/api-management-howto-create-groups/groups002.png)
+    ![Captura de pantalla que resalta el botón Agregar grupo.](./media/api-management-howto-create-groups/groups002.png)
 5. Seleccione el grupo que desea agregar.
 
-    ![Asociación de un grupo a un producto](./media/api-management-howto-create-groups/groups003.png)
+    ![Captura de pantalla que muestra el grupo seleccionado y resalta el botón Seleccionar.](./media/api-management-howto-create-groups/groups003.png)
 
-    Para quitar un grupo del producto, haga clic en **Eliminar**.
+    Para quitar un grupo del producto, haga clic en **Eliminar** .
 
     ![Eliminar un grupo](./media/api-management-howto-create-groups/groups004.png)
 
@@ -85,13 +85,13 @@ Una vez asociado un producto a un grupo, los desarrolladores del grupo pueden ve
 En esta sección se explica cómo asociar grupos con miembros.
 
 1. Seleccione la pestaña **Grupos** a la izquierda de la pantalla.
-2. Seleccione **Miembros**.
+2. Seleccione **Miembros** .
 
     ![Agregar un miembro](./media/api-management-howto-create-groups/groups005.png)
 3. Haga clic en **+ Agregar** y seleccione un miembro.
 
-    ![Agregar un miembro](./media/api-management-howto-create-groups/groups006.png)
-4. Haga clic en **Seleccionar**.
+    ![Captura de pantalla que resalta el botón Agregar, el usuario seleccionado y el botón Seleccionar.](./media/api-management-howto-create-groups/groups006.png)
+4. Haga clic en **Seleccionar** .
 
 Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver en la pestaña **Usuarios** .
 

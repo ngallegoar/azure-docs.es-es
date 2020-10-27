@@ -5,25 +5,35 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 70077f8f0e7a951b6da8cf65c874b17eb98b416c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567210"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276387"
 ---
-# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>¿Qué son los niveles de coherencia de Azure Cosmos DB?
+# <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 
-Las bases de datos distribuidas que dependen de la replicación para su alta disponibilidad, su baja latencia o ambas, constituyen el compromiso fundamental entre la coherencia de lectura y la disponibilidad, la latencia y el rendimiento. La mayoría de las bases de datos distribuidas disponibles comercialmente solicitan a los desarrolladores que elijan entre los dos modelos de coherencia extrema: coherencia *alta* y *posible* coherencia. La linearización del modelo de coherencia fuerte es el estándar de oro de la programación de datos, pero obliga a pagar el precio de una latencia de escritura más alta (en estado estable) y una menor disponibilidad (durante los errores). Por otro lado, la posible coherencia ofrece una mayor disponibilidad y un mejor rendimiento, pero es difícil programar aplicaciones.
+Las bases de datos distribuidas que dependen de la replicación para alta disponibilidad, baja latencia o ambas, deben equilibrar la coherencia de lectura, la disponibilidad, la latencia y el rendimiento, tal como se define en el [teorema de PACLC](https://en.wikipedia.org/wiki/PACELC_theorem). La linearización del modelo de coherencia fuerte es el estándar de oro de la programación de datos, pero agrega un precio excesivo a las latencias de escritura mayores debido a que los datos tienen que replicarse y confirmarse entre grandes distancias. Una coherencia fuerte también puede verse afectada por una disponibilidad reducida (durante errores) porque los datos no se puedan replicar y confirmar en cada región. La coherencia posible ofrece una mayor disponibilidad y un mejor rendimiento, pero es más difícil programar aplicaciones porque es posible que los datos no sean totalmente coherentes en todas las regiones.
 
-Azure Cosmos DB se aproxima a la coherencia de datos como un espectro de opciones en lugar de como dos extremos. Los desarrolladores pueden usar estas opciones para elegir opciones precisas y compensaciones pormenorizadas con respecto a la alta disponibilidad y al rendimiento.
+La mayoría de las bases de datos NoSQL distribuidas disponibles comercialmente en el mercado hoy en día solo ofrecen coherencia fuerte y posible. Azure Cosmos DB ofrece cinco niveles bien definidos. De más fuerte a más débil, los niveles son:
 
-Con Azure Cosmos DB, los desarrolladores pueden elegir entre cinco niveles de coherencia bien definidos en el espectro de coherencia. Estos niveles incluyen *Alta*, *Obsolescencia limitada*, *Sesión*, *Prefijo coherente* y Coherencia *final*. Los niveles están bien definidos, son intuitivos y se pueden usar en escenarios reales específicos. Cada nivel proporciona [compensaciones entre la disponibilidad y el rendimiento](consistency-levels-tradeoffs.md) y cuenta con el respaldo de Acuerdos de Nivel de Servicio. En la imagen siguiente se muestran los distintos niveles de coherencia como un espectro.
+- *Fuerte*
+- *Obsolescencia limitada*
+- *De sesión*
+- *De prefijo coherente*
+- *Posible*
+
+Cada nivel proporciona equilibrio entre la disponibilidad y el rendimiento. En la imagen siguiente se muestran los distintos niveles de coherencia como un espectro.
 
 :::image type="content" source="./media/consistency-levels/five-consistency-levels.png" alt-text="Coherencia como espectro" border="false" :::
 
 Los niveles de coherencia son independientes de la región y están garantizados para todas las operaciones, independientemente de la región desde la que se realizan las operaciones de lectura y escritura, del número de regiones asociadas con la cuenta de Azure Cosmos o de si la cuenta está configurada para una o varias regiones de escritura.
+
+## <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Niveles de coherencia y API de Azure Cosmos DB
+
+Azure Cosmos DB también proporciona compatibilidad nativa con las API compatibles con el protocolo de conexión para bases de datos populares. Entre ellas se incluyen MongoDB, Apache Cassandra, Gremlin y Azure Table Storage. Al usar Gremlin API y Table API, se usa el nivel de coherencia predeterminado configurado en la cuenta de Azure Cosmos. Para más información sobre la asignación del nivel de coherencia entre Cassandra API o la API para MongoDB y los niveles de coherencia de Azure Cosmos DB, consulte [Asignación de coherencia de Cassandra API](cassandra-consistency.md) y [Asignación de coherencia de API para MongoDB](mongodb-consistency.md).
 
 ## <a name="scope-of-the-read-consistency"></a>Ámbito de la coherencia de lectura
 
@@ -35,20 +45,22 @@ Puede configurar el nivel de coherencia predeterminado de su cuenta de Azure Cos
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garantías asociadas a los niveles de coherencia
 
-Los Acuerdos de Nivel de Servicio que proporciona Azure Cosmos DB garantizan que el 100 por ciento de las solicitudes de lectura cumplan con la garantía de coherencia en cualquier nivel de coherencia que elija. Una solicitud de lectura cumple el Acuerdo de Nivel de Servicio de coherencia si se satisfacen todas las garantías de coherencia asociadas al nivel de coherencia. Las definiciones precisas de los cinco niveles de coherencia de Azure Cosmos DB que usan el lenguaje de especificación TLA+ se proporcionan en el repositorio [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) de GitHub.
+Azure Cosmos DB garantiza que el 100 por ciento de las solicitudes de lectura cumplan con la garantía de coherencia del nivel de coherencia que elija. Las definiciones precisas de los cinco niveles de coherencia de Azure Cosmos DB que usan el lenguaje de especificación TLA+ se proporcionan en el repositorio [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) de GitHub.
 
 Aquí se describe la semántica de los cinco niveles de coherencia:
 
-- **Alta**: La coherencia fuerte ofrece una garantía de linearización. La linearización hace referencia a la capacidad de servir solicitudes simultáneamente. Se garantiza que las lecturas devuelven la versión más reciente de un elemento. Un cliente nunca ve una escritura no confirmada ni parcial. Se garantiza que los usuarios siempre leerán la escritura confirmada más reciente.
+- **Alta** : La coherencia fuerte ofrece una garantía de linearización. La linearización hace referencia a la capacidad de servir solicitudes simultáneamente. Se garantiza que las lecturas devuelven la versión más reciente de un elemento. Un cliente nunca ve una escritura no confirmada ni parcial. Se garantiza que los usuarios siempre leerán la escritura confirmada más reciente.
 
   En el gráfico siguiente se ilustra la coherencia fuerte con notas musicales. Una vez que los datos se han escrito en la región "Oeste de EE. UU. 2", al leer los datos de otras regiones, obtiene el valor más reciente:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Coherencia como espectro" se puede configurar de dos maneras:
 
-- El número de versiones (*K*) del elemento
-- El intervalo de tiempo (*T*) que las lecturas pueden retrasarse con respecto a las escrituras
+- El número de versiones ( *K* ) del elemento
+- El intervalo de tiempo ( *T* ) que las lecturas pueden retrasarse con respecto a las escrituras
 
-La obsolescencia limitada ofrece un orden global total fuera de la "ventana de obsolescencia". Cuando un cliente realiza operaciones de lectura en una región que acepta las escrituras, las garantías que proporciona la obsolescencia limitada son idénticas a las garantías por la coherencia fuerte.
+En el caso de una cuenta de una sola región, el valor mínimo de *K* y *T* es de 10 operaciones de escritura o de 5 segundos. En el caso de cuentas de varias regiones, el valor mínimo de *K* y *T* es de 100 000 operaciones de escritura o de 300 segundos.
+
+La obsolescencia limitada ofrece un orden global total fuera de la "ventana de obsolescencia". Cuando un cliente realiza operaciones de lectura en una región que acepta las escrituras, las garantías que proporciona la obsolescencia limitada son idénticas a las garantías por la coherencia fuerte. A medida que la ventana de obsolescencia se aproxime al tiempo o la actualización, el más cercano, el servicio limitará las nuevas escrituras para permitir que la replicación se ponga al día y respete la garantía de coherencia.
 
 Dentro de la ventana de obsolescencia, Obsolescencia limitada proporciona las siguientes garantías de coherencia:
 
@@ -72,9 +84,9 @@ Los clientes que están fuera de la sesión que realiza escrituras verán las ga
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Coherencia como espectro":::
 
-- **De prefijo coherente**: Las actualizaciones que se devuelven contienen prefijos para todas las actualizaciones, sin espacios. El nivel de coherencia del prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas.
+- **De prefijo coherente** : Las actualizaciones que se devuelven contienen prefijos para todas las actualizaciones, sin espacios. El nivel de coherencia del prefijo coherente garantiza que las lecturas nunca vean escrituras desordenadas.
 
-Si se realizan escrituras en el orden `A, B, C`, un cliente ve `A`, `A,B` o `A,B,C`, pero nunca permutaciones fuera de servicio como `A,C` o `B,A,C`. El prefijo coherente proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de orden que se ajustan a las necesidades de escenarios en los que el orden es importante. 
+Si se realizan escrituras en el orden `A, B, C`, un cliente ve `A`, `A,B` o `A,B,C`, pero nunca permutaciones fuera de servicio como `A,C` o `B,A,C`. El prefijo coherente proporciona latencias de escritura, disponibilidad y rendimiento de lectura equiparables a los de la coherencia final, pero también proporciona las garantías de orden que se ajustan a las necesidades de escenarios en los que el orden es importante.
 
 A continuación se muestran las garantías de coherencia para Prefijo coherente:
 
@@ -87,10 +99,77 @@ En el gráfico siguiente se ilustra la coherencia del prefijo de coherencia con 
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Coherencia como espectro":::
 
-- **Ocasional**: No hay ninguna garantía de ordenación para las lecturas. En ausencia de escrituras adicionales, las réplicas terminarán por converger.  
+- **Ocasional** : No hay ninguna garantía de ordenación para las lecturas. En ausencia de escrituras adicionales, las réplicas terminarán por converger.  
 La coherencia final es la forma más débil de coherencia, ya que un cliente puede leer los valores que son más antiguos que los que había leído antes. La coherencia final es adecuada cuando la aplicación no requiere ninguna garantía de ordenación. Entre los ejemplos se incluye el recuento de retweets, Me gusta o comentarios no encadenados. En el gráfico siguiente se ilustra la coherencia final con notas musicales.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Coherencia como espectro":::
+
+## <a name="consistency-guarantees-in-practice"></a>Garantías de coherencia en la práctica
+
+En la práctica, es posible que obtenga mayores garantías de coherencia. Las garantías de coherencia para una operación de lectura se corresponden con la actualización y el orden del estado de la base de datos que solicita. La coherencia de lectura está asociada con la ordenación y la propagación de las operaciones de escritura/actualización.  
+
+Si no hay ninguna operación de escritura en la base de datos, una operación de lectura con los niveles de coherencia **posible** , **sesión** o **prefijo coherente** es probable que produzca los mismos resultados que una operación de lectura con el nivel de coherencia alto.
+
+Si la cuenta de Azure Cosmos está configurada con un nivel de coherencia que no es el de coherencia alta, puede averiguar la probabilidad de que los clientes obtengan lecturas de coherencia alta para sus cargas de trabajo consultando la métrica de *obsolescencia limitada de probabilidad* (PBS). Esta métrica se expone en Azure Portal; para obtener más información, consulte [Supervisión de la métrica de obsolescencia limitada de manera probabilística (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+
+La obsolescencia limitada de probabilidad muestra cómo de posible es la coherencia final. Esta métrica proporciona una visión general de la frecuencia con la que puede obtener una coherencia mayor que el nivel de coherencia que tiene configurado actualmente en su cuenta de Azure Cosmos. En otras palabras, puede ver la probabilidad (en milisegundos) de obtener lecturas con coherencia alta para una combinación de regiones de escritura y lectura.
+
+## <a name="consistency-levels-and-latency"></a>Latencia y niveles de coherencia
+
+Se garantiza que la latencia de lectura de todos los niveles de coherencia siempre es inferior a 10 milisegundos en el percentil 99. La latencia media de lectura (en el percentil 50) es normalmente de cuatro milisegundos o menos.
+
+Se garantiza que la latencia de escritura de todos los niveles de coherencia siempre sea inferior a 10 milisegundos en el percentil 99. La latencia media de escritura (en el percentil 50) es normalmente de cinco milisegundos o menos. Las cuentas de Azure Cosmos que abarcan varias regiones y están configuradas con una coherencia alta son una excepción a esta garantía.
+
+### <a name="write-latency-and-strong-consistency"></a>Latencia de escritura y coherencia fuerte
+
+Para las cuentas de Azure Cosmos configuradas con coherencia sólida con más de una región, la latencia de escritura es igual al doble del tiempo de ida y vuelta (RTT) entre cualquiera de las dos regiones más alejadas, más de diez milisegundos en el percentil 99. El RTT de red alto entre las regiones se traducirá a una latencia mayor para solicitudes de Cosmos DB, ya que la coherencia fuerte completa una operación solo después de asegurarse de que se ha confirmado en todas las regiones de una cuenta.
+
+La latencia de RTT exacta depende de la distancia a la velocidad de la luz y la topología de red de Azure. La red de Azure no proporciona ningún SLA de latencia para el RTT entre dos regiones de Azure, pero publica las [estadísticas de latencia de recorrido de ida y vuelta de red de Azure](../networking/azure-network-latency.md). Para la cuenta de Azure Cosmos, las latencias de replicación se muestran en Azure Portal. Puede usar Azure Portal (vaya a la hoja Métrica, seleccione la pestaña Coherencia) para supervisar las latencias de replicación entre diversas regiones asociadas con su cuenta de Azure Cosmos.
+
+> [!IMPORTANT]
+> La coherencia fuerte para las cuentas con regiones que abarcan más de 5000 millas (8000 kilómetros) se bloquea de forma predeterminada debido a una elevada latencia de escritura. Para habilitar esta funcionalidad, póngase en contacto con el soporte técnico.
+
+## <a name="consistency-levels-and-throughput"></a>Rendimiento y niveles de coherencia
+
+- En el caso de la obsolescencia fuerte y limitada, las lecturas se realizan en dos réplicas en un conjunto de cuatro réplicas (cuórum minoritario) para proporcionar garantías de coherencia. Los niveles de sesión, prefijo coherente y posible realizan lecturas de réplica única. El resultado es que, para el mismo número de unidades de solicitud, el rendimiento de lectura para la obsolescencia fuerte y limitada es la mitad de los demás niveles de coherencia.
+
+- Para un tipo determinado de operación de escritura (por ejemplo, Insert, Replace, Upsert o Delete), el rendimiento de escritura de las unidades de solicitud es idéntico para todos los niveles de coherencia.
+
+|**Nivel de coherencia**|**Lecturas de cuórum**|**Escrituras de cuórum**|
+|--|--|--|
+|**Fuerte**|Minoría local|Mayoría global|
+|**Obsolescencia limitada**|Minoría local|Mayoría local|
+|**De sesión**|Réplica única (con token de sesión)|Mayoría local|
+|**De prefijo coherente**|Réplica única|Mayoría local|
+|**Posible**|Réplica única|Mayoría local|
+
+> [!NOTE]
+> El costo de RU/s para lecturas minoritarias locales es el doble que el de los niveles de coherencia más débiles porque las lecturas se realizan en dos réplicas para proporcionar garantías de coherencia para la obsolescencia alta y limitada.
+
+## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Durabilidad de los datos y niveles de coherencia
+
+En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos se produce una interrupción en toda la región. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que una aplicación se recupere totalmente se conoce como **objetivo de tiempo de recuperación** ( **RTO** ). También debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como **objetivo de punto de recuperación** ( **RPO** ).
+
+En la tabla siguiente se define la relación entre el modelo de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región. Es importante tener en cuenta que, en un sistema distribuido, aunque la coherencia sea alta, no es posible tener una base de datos distribuida con un RPO y un RTO de cero debido al [teorema de CAP](https://en.wikipedia.org/wiki/CAP_theorem).
+
+|**Regiones**|**Modo de replicación**|**Nivel de coherencia**|**RPO**|**RTO**|
+|---------|---------|---------|---------|---------|
+|1|Una o varias regiones de escritura|Cualquier nivel de coherencia|< 240 minutos|<1 semana|
+|>1|Región de escritura única|Sesión, prefijo coherente, eventual|< 15 minutos|< 15 minutos|
+|>1|Una región de escritura|De obsolescencia entrelazada|*K* & *T*|< 15 minutos|
+|>1|Una región de escritura|Alta|0|< 15 minutos|
+|>1|Varias regiones de escritura|Sesión, prefijo coherente, eventual|< 15 minutos|0|
+|>1|Varias regiones de escritura|De obsolescencia entrelazada|*K* & *T*|0|
+
+*K* = número de versiones *"K"* (es decir, actualizaciones) de un elemento.
+
+*T* = intervalo de tiempo *"T"* desde la última actualización.
+
+En el caso de una cuenta de una sola región, el valor mínimo de *K* y *T* es de 10 operaciones de escritura o de 5 segundos. En el caso de cuentas de varias regiones, el valor mínimo de *K* y *T* es de 100 000 operaciones de escritura o de 300 segundos. Esto define el RPO mínimo para los datos cuando se usa la obsolescencia limitada.
+
+## <a name="strong-consistency-and-multiple-write-regions"></a>Coherencia fuerte y varias regiones de escritura
+
+Las cuentas de Cosmos configuradas con varias regiones de escritura no se pueden configurar para lograr una coherencia fuerte, ya que no es posible que un sistema distribuido proporcione un RPO de cero y un RTO de cero. Además, no existe ninguna ventaja en la latencia de escritura por usar la coherencia fuerte con varias regiones de escritura porque una escritura en cualquier región debe replicarse y confirmarse en todas las regiones configuradas dentro de la cuenta. Esto produce la misma latencia de escritura que una cuenta con una sola región de escritura.
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
@@ -110,6 +189,6 @@ Para más información sobre los niveles de coherencia de Azure Cosmos DB, lea l
 
 - [Elección del nivel de coherencia adecuado para la aplicación](consistency-levels-choosing.md)
 - [Niveles de coherencia en Azure Cosmos DB](consistency-levels-across-apis.md)
-- [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
 - [Configuración del nivel de coherencia predeterminado](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Invalidación del nivel de coherencia predeterminado](how-to-manage-consistency.md#override-the-default-consistency-level)
+- [Acuerdo de Nivel de Servicio de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91611255"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096256"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única de Angular
 
@@ -78,7 +78,7 @@ Registre el valor de **URI de redirección** como **http://localhost:4200/** y h
 
 ## <a name="configure-the-application"></a>Configuración de la aplicación
 
-1. En la carpeta *src/app*, edite *app.module.ts* y agregue la información de `MSALModule` a `imports`, así como la constante `isIE`:
+1. En la carpeta *src/app* , edite *app.module.ts* y agregue la información de `MSALModule` a `imports`, así como la constante `isIE`:
 
     ```javascript
     const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -124,7 +124,7 @@ Registre el valor de **URI de redirección** como **http://localhost:4200/** y h
     |---------|---------|
     |Enter_the_Application_Id_Here|En la página de **información general** del registro de la aplicación, corresponde al valor de **Id. de aplicación (cliente)** . |
     |Enter_the_Cloud_Instance_Id_Here|Esta es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba **https://login.microsoftonline.com** . Para las nubes nacionales (por ejemplo, China) consulte [Nubes nacionales](./authentication-national-cloud.md).|
-    |Enter_the_Tenant_Info_Here| Seleccione una de las siguientes opciones: Si la aplicación admite las *cuentas de este directorio organizativo*, reemplace este valor por el identificador del directorio (inquilino) o por el nombre del inquilino (por ejemplo, **contoso.microsoft.com**). Si la aplicación admite *cuentas en cualquier directorio organizativo*, reemplace este valor por **organizaciones**. Si la aplicación admite *cuentas en cualquier directorio organizativo y cuentas Microsoft personales*, reemplace este valor por **común**. Para restringir la compatibilidad a *Personal Microsoft accounts only* (Solo cuentas Microsoft personales), reemplace este valor por **consumidores**. |
+    |Enter_the_Tenant_Info_Here| Seleccione una de las siguientes opciones: Si la aplicación admite las *cuentas de este directorio organizativo* , reemplace este valor por el identificador del directorio (inquilino) o por el nombre del inquilino (por ejemplo, **contoso.microsoft.com** ). Si la aplicación admite *cuentas en cualquier directorio organizativo* , reemplace este valor por **organizaciones** . Si la aplicación admite *cuentas en cualquier directorio organizativo y cuentas Microsoft personales* , reemplace este valor por **común** . Para restringir la compatibilidad a *Personal Microsoft accounts only* (Solo cuentas Microsoft personales), reemplace este valor por **consumidores** . |
     |Enter_the_Redirect_Uri_Here|Reemplace este valor por **http://localhost:4200** .|
 
     Para más información acerca de las opciones configurables disponibles, consulte [Inicializar aplicaciones cliente](msal-js-initializing-client-applications.md).
@@ -194,7 +194,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-A continuación, proporcione un mapa de los recursos protegidos a `MsalModule.forRoot()` como `protectedResourceMap` e incluya dichos ámbitos en `consentScopes`:
+A continuación, proporcione un mapa de los recursos protegidos a `MsalModule.forRoot()` como `protectedResourceMap` e incluya esos ámbitos en `consentScopes`. Las direcciones URL que proporciona en la colección `protectedResourceMap` distinguen mayúsculas de minúsculas.
 
 ```javascript
 @NgModule({

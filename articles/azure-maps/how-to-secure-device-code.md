@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7e61a881470b206981b65e175c1f7f40b161ebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319765"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090444"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Protección de un dispositivo con restricciones de entrada con Azure AD y las API REST de Azure Maps
 
@@ -30,32 +30,32 @@ En esta guía se describe cómo proteger aplicaciones o dispositivos públicos q
 
 Cree la aplicación basada en el dispositivo en Azure AD para habilitar el inicio de sesión de Azure AD. A esta aplicación se le concederá acceso a las API REST de Azure Maps.
 
-1. En Azure Portal, en la lista de servicios de Azure, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro**.  
+1. En Azure Portal, en la lista de servicios de Azure, seleccione **Azure Active Directory** > **Registros de aplicaciones** > **Nuevo registro** .  
 
     > [!div class="mx-imgBorder"]
     > ![Registro de aplicaciones](./media/how-to-manage-authentication/app-registration.png)
 
-2. Escriba un **Nombre** y elija **Solo las cuentas de este directorio organizativo.** como **Tipo de cuenta admitido**. En **URI de redirección**, especifique **Cliente público/Nativo (móvil y escritorio)** y, a continuación, agregue `https://login.microsoftonline.com/common/oauth2/nativeclient` al valor. Para más información de Azure AD, consulte [Aplicación de escritorio que llama a las API web: registro de aplicación](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). A continuación, debe **Registrar** la aplicación.
+2. Escriba un **Nombre** y elija **Solo las cuentas de este directorio organizativo.** como **Tipo de cuenta admitido** . En **URI de redirección** , especifique **Cliente público/Nativo (móvil y escritorio)** y, a continuación, agregue `https://login.microsoftonline.com/common/oauth2/nativeclient` al valor. Para más información de Azure AD, consulte [Aplicación de escritorio que llama a las API web: registro de aplicación](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). A continuación, debe **Registrar** la aplicación.
 
     > [!div class="mx-imgBorder"]
     > ![Agregar detalles del registro de aplicación para el nombre y el identificador URI de redirección](./media/azure-maps-authentication/devicecode-app-registration.png)
 
-3. Vaya a **Autenticación** y habilite **Tratar la aplicación como un cliente público**. Esto habilitará la autenticación de código de dispositivo con Azure AD.
+3. Vaya a **Autenticación** y habilite **Tratar la aplicación como un cliente público** . Esto habilitará la autenticación de código de dispositivo con Azure AD.
     
     > [!div class="mx-imgBorder"]
     > ![Habilitación del registro de aplicación como cliente público](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, seleccione **Permisos de API** > **Agregar un permiso**. En **API usadas en mi organización**, busque y seleccione **Azure Maps**.
+4.  Para asignar permisos de API delegados a Azure Maps, vaya a la aplicación. A continuación, seleccione **Permisos de API** > **Agregar un permiso** . En **API usadas en mi organización** , busque y seleccione **Azure Maps** .
 
     > [!div class="mx-imgBorder"]
     > ![Adición de permisos de API a la aplicación](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Active la casilla situada junto a **Access Azure Maps** (Acceder a Azure Maps) y seleccione **Agregar permisos**.
+5. Active la casilla situada junto a **Access Azure Maps** (Acceder a Azure Maps) y seleccione **Agregar permisos** .
 
     > [!div class="mx-imgBorder"]
     > ![Selección de permisos de API de la aplicación](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Configure el control de acceso basado en roles de Azure para usuarios o grupos. Consulte [Concesión a Azure Maps del control de acceso basado en roles](#grant-role-based-access-for-users-to-azure-maps).
+6. Configure el control de acceso basado en roles de Azure (Azure RBAC) para usuarios o grupos. Consulte [Concesión de acceso basado en roles a Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Agregue el código del flujo de adquisición de tokens a la aplicación. Para obtener información detallada sobre la implementación, consulte [Flujo de código de dispositivo](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Al adquirir los tokens, haga referencia al ámbito: `user_impersonation`, que se seleccionó en los pasos anteriores.
 
@@ -110,7 +110,7 @@ Cuerpo:
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

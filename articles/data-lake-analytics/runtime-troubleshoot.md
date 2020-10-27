@@ -1,18 +1,16 @@
 ---
 title: Procedimientos para solucionar los errores de runtime de U-SQL de Azure Data Lake Analytics
 description: Obtenga información sobre cómo solucionar los errores de runtime de U-SQL.
-services: data-lake-analytics
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
-ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20333c83275edb90a266afec3ec3756ae1e0e7e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87475267"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216273"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Información sobre cómo solucionar errores de runtime de U-SQL debido a cambios en el runtime
 
@@ -31,16 +29,16 @@ En raras ocasiones, Soporte técnico de Microsoft puede anclar una versión dist
 
 ### <a name="monitoring-your-jobs-u-sql-runtime-version"></a>Supervisión de la versión de runtime de los trabajos de U-SQL
 
-Puede ver el historial de la versión de runtime que han usado los trabajos pasados en el historial de trabajos de su cuenta mediante el explorador de trabajos de Visual Studio o el historial de trabajos de Azure Portal.
+Puede ver el historial de la versión en tiempo de ejecución que han usado los trabajos pasados en el historial de trabajos de su cuenta mediante el explorador de trabajos de Visual Studio o el historial de trabajos de Azure Portal.
 
 1. En Azure Portal, vaya a la cuenta de Data Lake Analytics.
-2. Seleccione **Ver todos los trabajos**. Aparece una lista de todos los trabajos activos y finalizados recientemente en la cuenta.
-3. De forma opcional, haga clic en **Filtrar** para encontrar los trabajos por los valores **Intervalo de tiempo**, **Nombre del trabajo** y **Autor**.
+2. Seleccione **Ver todos los trabajos** . Aparece una lista de todos los trabajos activos y finalizados recientemente en la cuenta.
+3. De forma opcional, haga clic en **Filtrar** para encontrar los trabajos por los valores **Intervalo de tiempo** , **Nombre del trabajo** y **Autor** .
 4. Puede ver el runtime que se usa en los trabajos completados.
 
 ![Visualización de la versión de runtime de un trabajo anterior](./media/runtime-troubleshoot/prior-job-usql-runtime-version-.png)
 
-Las versiones disponibles de runtime cambian con el tiempo. El runtime predeterminado siempre se denomina "predeterminado" y mantenemos al menos el runtime anterior disponible durante algún tiempo, además de hacer que los runtimes especiales estén disponibles por varios motivos. Los runtimes con nombres explícitos suelen seguir el formato siguiente (las partes variables se ponen en cursiva y [] indica partes opcionales):
+Las versiones disponibles de runtime cambian con el tiempo. El tiempo de ejecución predeterminado siempre se denomina "predeterminado". El tiempo de ejecución anterior se mantiene disponible durante algún tiempo, junto con otros tiempos de ejecución especiales, por diversos motivos. Los runtimes con nombres explícitos suelen seguir el formato siguiente (las partes variables se ponen en cursiva y [] indica partes opcionales):
 
 release_YYYYMMDD_adl_buildno[_modifier]
 

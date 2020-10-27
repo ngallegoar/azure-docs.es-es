@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574286"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330009"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>Componentes de los modelos de IoT Plug and Play
 
@@ -69,7 +69,7 @@ El identificador de modelo se almacena en una propiedad de dispositivo gemelo, c
 Un modelo de DTDL sin componentes es una simplificación útil de un dispositivo o de un módulo de IoT Edge con un único conjunto de telemetría, propiedades y comandos. Un modelo de este tipo facilita la migración de los dispositivos o los módulos existentes a dispositivos o módulos IoT Plug and Play; se crea un modelo de DTDL que describe el dispositivo o el módulo reales sin necesidad de definir ningún componente.
 
 > [!TIP]
-> Un módulo puede ser un dispositivo [módulo](../iot-hub/iot-hub-devguide-module-twins.md o un [módulo de IoT Edge](../iot-edge/about-iot-edge.md).
+> Un [módulo](../iot-hub/iot-hub-devguide-module-twins.md) puede ser de dispositivo o de [IoT Edge](../iot-edge/about-iot-edge.md).
 
 ## <a name="multiple-components"></a>Varios componentes
 

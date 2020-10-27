@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619549"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331675"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -77,7 +77,7 @@ Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
 ### <a name="create-data-for-the-demo"></a>Creación de datos para la demostración
 
-En este tutorial, se realiza un análisis de los datos de ventas de entradas. En el paso actual, genera datos sobre las entradas para todos los inquilinos.  Más adelante, estos datos se extraen para los análisis. *Asegúrese de haber aprovisionado el lote de los inquilinos como se describió anteriormente, para que tenga una cantidad significativa de datos*. Una cantidad de datos lo suficientemente grande puede exponer un intervalo de patrones de compra de entradas distintos.
+En este tutorial, se realiza un análisis de los datos de ventas de entradas. En el paso actual, genera datos sobre las entradas para todos los inquilinos.  Más adelante, estos datos se extraen para los análisis. *Asegúrese de haber aprovisionado el lote de los inquilinos como se describió anteriormente, para que tenga una cantidad significativa de datos* . Una cantidad de datos lo suficientemente grande puede exponer un intervalo de patrones de compra de entradas distintos.
 
 1. En PowerShell ISE, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* y defina el siguiente valor:
     - **$DemoScenario** = **1** Purchase tickets for events at all venues
@@ -86,16 +86,16 @@ En este tutorial, se realiza un análisis de los datos de ventas de entradas. En
 ### <a name="deploy-the-analytics-store"></a>Implementación del almacén de análisis
 A menudo, hay numerosas bases de datos transaccionales que juntas contienen todos los datos de inquilino. Debe agregar los datos de inquilino de muchas bases de datos transaccionales en un solo almacén de análisis. La agregación permite realizar una consulta eficaz de los datos. En este tutorial, se usa una instancia de Azure SQL Database para almacenar los datos agregados.
 
-En los pasos siguientes, se implementa el almacén de análisis, que se denomina **tenantanalytics**. También va a implementar tablas predefinidas que se rellenan más adelante en el tutorial:
-1. En PowerShell ISE, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*. 
+En los pasos siguientes, se implementa el almacén de análisis, que se denomina **tenantanalytics** . También va a implementar tablas predefinidas que se rellenan más adelante en el tutorial:
+1. En PowerShell ISE, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* . 
 2. Establezca la variable $DemoScenario en el script para que coincida con el almacén de análisis elegido:
     - Para usar SQL Database sin almacenamiento de columnas, establezca **$DemoScenario** = **2**
     - Para usar SQL Database con almacenamiento de columnas, establezca **$DemoScenario** = **3**  
-3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics\<XX>.ps1*) que crea el almacén de análisis de inquilino. 
+3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics\<XX>.ps1* ) que crea el almacén de análisis de inquilino. 
 
-Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-dpt-&lt;Usuario&gt;** y **catalog-dpt-&lt;Usuario&gt;** con las credenciales Login = *developer* y Password = *P\@ssword1*. Consulte el [tutorial de introducción](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
+Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-dpt-&lt;Usuario&gt;** y **catalog-dpt-&lt;Usuario&gt;** con las credenciales Login = *developer* y Password = *P\@ssword1* . Consulte el [tutorial de introducción](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
+![Captura de pantalla que muestra la información necesaria para conectarse a SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 En el Explorador de objetos, siga estos pasos:
 
@@ -107,16 +107,16 @@ En el Explorador de objetos, siga estos pasos:
 Expanda el almacén de análisis para ver los siguientes elementos de la base de datos en el Explorador de objetos de SSMS:
 
 - Las tablas **TicketsRawData** y **EventsRawData** contienen datos sin procesar extraídos de las bases de datos de inquilino.
-- Las tablas del esquema de estrella son **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** y **dim_Dates**.
+- Las tablas del esquema de estrella son **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** y **dim_Dates** .
 - El procedimiento almacenado se usa para rellenar las tablas del esquema de estrella a partir de las tablas de datos sin procesar.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
+![Captura de pantalla de los elementos de base de datos que se muestran en el Explorador de objetos de SSMS.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Extracción de datos 
 
 ### <a name="create-target-groups"></a>Creación de grupos de destino 
 
-Antes de continuar, asegúrese de haber implementado la cuenta de trabajo y la base de datos jobaccount. En la siguiente serie de pasos, se usan trabajos elásticos para extraer datos de cada base de datos de inquilino y para almacenar los datos en el almacén de análisis. Después, el segundo trabajo desglosa los datos y los almacena en tablas en el esquema de estrella. Estos dos trabajos se ejecutan en dos grupos de destino distintos, denominados **TenantGroup** y **AnalyticsGroup**. El trabajo de extracción se ejecuta en el grupo TenantGroup, que contiene todas las bases de datos de inquilino. El trabajo de desglose se ejecuta en el grupo AnalyticsGroup, que contiene solo el almacén de análisis. Cree los grupos de destino mediante los pasos siguientes:
+Antes de continuar, asegúrese de haber implementado la cuenta de trabajo y la base de datos jobaccount. En la siguiente serie de pasos, se usan trabajos elásticos para extraer datos de cada base de datos de inquilino y para almacenar los datos en el almacén de análisis. Después, el segundo trabajo desglosa los datos y los almacena en tablas en el esquema de estrella. Estos dos trabajos se ejecutan en dos grupos de destino distintos, denominados **TenantGroup** y **AnalyticsGroup** . El trabajo de extracción se ejecuta en el grupo TenantGroup, que contiene todas las bases de datos de inquilino. El trabajo de desglose se ejecuta en el grupo AnalyticsGroup, que contiene solo el almacén de análisis. Cree los grupos de destino mediante los pasos siguientes:
 
 1. En SSMS, conéctese a la base de datos **jobaccount** en catalog-dpt-&lt;Usuario&gt;.
 2. En SSMS, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* 
@@ -125,7 +125,7 @@ Antes de continuar, asegúrese de haber implementado la cuenta de trabajo y la b
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Extracción de datos sin procesar de todos los inquilinos
 
-Las modificaciones de datos extensivas pueden ocurrir con más frecuencia para datos de *entradas y clientes* que para datos de *eventos y lugares*. Por tanto, considere la posibilidad de extraer los datos sobre las entradas y los clientes por separado y con más frecuencia de la que extrae los datos sobre eventos y lugares. En esta sección, se van a definir y programar dos trabajos independientes:
+Las modificaciones de datos extensivas pueden ocurrir con más frecuencia para datos de *entradas y clientes* que para datos de *eventos y lugares* . Por tanto, considere la posibilidad de extraer los datos sobre las entradas y los clientes por separado y con más frecuencia de la que extrae los datos sobre eventos y lugares. En esta sección, se van a definir y programar dos trabajos independientes:
 
 - Extraer los datos de las entradas y los clientes.
 - Extraer los datos de los eventos y los lugares.
@@ -133,7 +133,7 @@ Las modificaciones de datos extensivas pueden ocurrir con más frecuencia para d
 Cada trabajo extrae sus datos y los introduce en el almacén de análisis. Ahí, un trabajo independiente desglosa los datos extraídos en el esquema de estrella de análisis.
 
 1. En SSMS, conéctese a la base de datos **jobaccount** en el servidor catalog-dpt-&lt;Usuario&gt;.
-2. En SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
+2. En SSMS, abra *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql* .
 3. Modifique @User en la parte superior del script y reemplace `<User>` por el nombre de usuario utilizado cuando implementó la aplicación SaaS de Wingtip. 
 4. Presione F5 para ejecutar el script que crea y ejecuta el trabajo que extrae los datos de las entradas y los clientes de cada base de datos de inquilino. El trabajo guarda los datos en el almacén de análisis.
 5. Consulte la tabla TicketsRawData en la base de datos tenantanalytics, para asegurarse de que la tabla se rellena con la información de las entradas de todos los inquilinos.
@@ -153,7 +153,7 @@ El paso siguiente consiste en desglosar los datos sin procesar extraídos en un 
 En esta sección del tutorial, va a definir y ejecutar un trabajo que combina los datos sin procesar extraídos con los datos de las tablas de un esquema de estrella. Cuando finaliza el trabajo de combinación, se eliminan los datos sin procesar, dejando las tablas listas para que se rellenen con el próximo trabajo de extracción de datos de inquilino.
 
 1. En SSMS, conéctese a la base de datos **jobaccount** en catalog-dpt-&lt;Usuario&gt;.
-2. En SSMS, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
+2. En SSMS, abra *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql* .
 3. Presione **F5** para ejecutar el script con el que se define un trabajo que llama al procedimiento almacenado sp_ShredRawExtractedData en el almacén de análisis.
 4. Deje tiempo suficiente para que el trabajo se ejecute correctamente.
     - Consulte la columna **Lifecycle** de la tabla jobs.jobs_execution para comprobar el estado del trabajo. Asegúrese de que el trabajo se ha completado **correctamente** antes de continuar. Una ejecución satisfactoria muestra datos similares a los del siguiente gráfico:
@@ -170,16 +170,16 @@ Siga estos pasos para conectarse a Power BI e importar las vistas creadas anteri
 
 1. Lance Power BI Desktop.
 2. En la cinta de opciones de Inicio, seleccione **Obtener datos** y, después, seleccione **Más…** en el menú.
-3. En la ventana **Obtener datos**, seleccione Azure SQL Database.
+3. En la ventana **Obtener datos** , seleccione Azure SQL Database.
 4. En la ventana de inicio de sesión de la base de datos, escriba el nombre del servidor (catalog-dpt-&lt;Usuario&gt;.database.windows.net). Seleccione **Importar** en **Modo Conectividad de datos** y después haga clic en Aceptar. 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1*. Haga clic en **Conectar**.  
+5. Seleccione **Base de datos** en el panel izquierdo y escriba los valores de user name = *developer* y password = *P\@ssword1* . Haga clic en **Conectar** .  
 
     ![En la captura de pantalla se muestra el cuadro de diálogo de la base de datos de SQL Server, desde donde puede especificar un nombre de usuario y una contraseña.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
-6. En el panel **Navegador**, debajo de la base de datos de análisis, seleccione las tablas del esquema de estrella: fact_Tickets, dim_Events, dim_Venues, dim_Customers y dim_Dates. Después seleccione **Cargar**. 
+6. En el panel **Navegador** , debajo de la base de datos de análisis, seleccione las tablas del esquema de estrella: fact_Tickets, dim_Events, dim_Venues, dim_Customers y dim_Dates. Después seleccione **Cargar** . 
 
 Felicidades. Ha cargado los datos correctamente en Power BI. Ahora puede empezar a explorar visualizaciones interesantes para ayudar a obtener información sobre los inquilinos. Después, se ofrece orientación sobre cómo los análisis pueden permitirle proporcionar recomendaciones basadas en datos al equipo empresarial de Wingtip Tickets. Las recomendaciones pueden ayudarle a optimizar el modelo de negocio y la experiencia del cliente.
 
@@ -209,7 +209,7 @@ En el gráfico anterior de Contoso Concert Hall, se refleja que la desenfrenada 
 
 La información de los patrones de venta de entradas pueden permitir a Wingtip Tickets optimizar su modelo de negocio. En lugar de aplicar los mismos cargos a todos los inquilinos, quizá Wingtip debería introducir niveles de servicio con distintos tamaños de proceso. A los lugares más grandes que necesitan vender más entradas al día se les podría ofrecer un nivel superior con un contrato de nivel de servicio (SLA) de categoría superior. Estos lugares podrían tener sus bases de datos agrupadas con límites de recursos por base de datos más altos. Cada nivel de servicio podría tener una asignación de ventas por hora, con tarifas adicionales por exceder la asignación. Los lugares más grandes que tienen intensas actividades de ventas se beneficiarían de los niveles más altos, y Wingtip Tickets puede monetizar su servicio con mayor eficacia.
 
-Mientras tanto, algunos clientes de Wingtip Tickets se quejan de que tienen dificultades para vender las suficientes entradas como para cubrir el costo del servicio. Quizá en esta información se ofrece la oportunidad de impulsar las ventas de entradas para los lugares que presentan déficit de rendimiento. Un aumento de las ventas aumentaría el valor percibido del servicio. Haga clic con el botón derecho en fact_Tickets y seleccione **Nueva medida**. Escriba la siguiente expresión para la nueva medida denominada **AverageTicketsSold**:
+Mientras tanto, algunos clientes de Wingtip Tickets se quejan de que tienen dificultades para vender las suficientes entradas como para cubrir el costo del servicio. Quizá en esta información se ofrece la oportunidad de impulsar las ventas de entradas para los lugares que presentan déficit de rendimiento. Un aumento de las ventas aumentaría el valor percibido del servicio. Haga clic con el botón derecho en fact_Tickets y seleccione **Nueva medida** . Escriba la siguiente expresión para la nueva medida denominada **AverageTicketsSold** :
 
 ```
 AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CALCULATE( SUM(TableName[Tickets Sold] ) ) )

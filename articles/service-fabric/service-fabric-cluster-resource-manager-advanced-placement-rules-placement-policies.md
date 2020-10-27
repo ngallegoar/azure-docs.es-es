@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005758"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172799"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Directivas de colocación de servicios de Service Fabric
 Las directivas de colocación son reglas adicionales que pueden usarse para controlar la colocación del servicio en algunos escenarios específicos menos comunes. Algunos ejemplos de esos escenarios son:
@@ -20,6 +20,7 @@ Las directivas de colocación son reglas adicionales que pueden usarse para cont
 - El entorno abarca diversas áreas de control geopolítico o legal, o cualquier otro caso en el que haya límites de directiva que deba exigir.
 - Existen aspectos sobre el rendimiento o la latencia de las comunicaciones que se deben tener en cuenta debido a grandes distancias o al uso de vínculos de red más lentos o menos confiables
 - Hay que hacer lo posible por mantener colocadas determinadas cargas de trabajo, bien con otras cargas de trabajo o cerca de los clientes
+- Necesita varias instancias sin estado de una partición en un único nodo.
 
 La mayoría de estos requisitos guardan relación con el diseño físico del clúster, representado como los dominios de error del clúster. 
 
@@ -29,6 +30,7 @@ Las directivas de colocación avanzadas que ayudan a abordar estos escenarios so
 2. Dominios requeridos
 3. Dominios de preferencia
 4. No permitir el empaquetado de réplicas
+5. Permitir varias instancias sin estado en el nodo
 
 La mayoría de los controles siguientes pueden configurarse mediante propiedades de nodo y restricciones de colocación, pero otros son más complicados. Para simplificar las cosas, Cluster Resource Manager de Service Fabric proporciona estas directivas de colocación adicionales. Las directivas de colocación se configuran por instancia de servicio con nombre previo. También se pueden actualizar dinámicamente.
 
@@ -122,6 +124,42 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 Se preguntará si sería posible usar estas configuraciones para los servicios de un clúster que no esté distribuido geográficamente. Aunque podría, no hay razones de peso para hacerlo. Las configuraciones de dominio no válidas, obligatorias y preferidas se deben evitar a menos que así lo exijan los escenarios. No tiene sentido intentar forzar que una carga de trabajo determinada se ejecute en un solo bastidor o dar preferencia a algún segmento del clúster local sobre otro. Se deben distribuir diferentes configuraciones de hardware entre dominios de error y se deben controlar mediante propiedades de nodo y restricciones de colocación normales.
+
+## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>Colocación de varias instancias sin estado de una partición en un único nodo
+La directiva de colocación **AllowMultipleStatelessInstancesOnNode** permite la colocación de varias instancias sin estado de una partición en un único nodo. De manera predeterminada, no se pueden colocar en un nodo varias instancias de una única partición. Incluso con un servicio -1, no es posible escalar el número de instancias más allá del número de nodos del clúster para un servicio con nombre determinado. Esta directiva de colocación quita esta restricción y permite que InstanceCount se especifique en un valor más alto que el número de nodos.
+
+Si alguna vez vio un mensaje de estado como "`The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion`", es porque se topó con esta condición o algo parecido. 
+
+Al especificar la directiva `AllowMultipleStatelessInstancesOnNode` en el servicio, InstanceCount se puede establecer por encima del número de nodos del clúster.
+
+Código:
+
+```csharp
+ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription allowMultipleInstances = new ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription();
+serviceDescription.PlacementPolicies.Add(allowMultipleInstances);
+```
+
+PowerShell:
+
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
+```
+
+> [!NOTE]
+> La directiva de colocación se encuentra actualmente en versión preliminar y detrás de la configuración del clúster `EnableUnsupportedPreviewFeatures`. Puesto que se trata de una característica en versión preliminar, establecer la configuración en versión preliminar impide que el clúster se actualice como origen o destino. En otras palabras, tendrá que crear un nuevo clúster para probar la característica.
+>
+
+> [!NOTE]
+> Actualmente, la directiva solo se admite para servicios sin estado con el [modo de activación de paquetes de servicio](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet) ExclusiveProcess.
+>
+
+> [!WARNING]
+> La directiva no se admite cuando se usa con puntos de conexión de puertos estáticos. El uso de ambas en conjunción puede dar lugar a un clúster incorrecto, ya que varias instancias del mismo nodo intentan enlazar con el mismo puerto y no se pueden mostrar. 
+>
+
+> [!NOTE]
+> El uso de un valor alto de [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) con esta directiva de colocación puede provocar que se bloqueen las actualizaciones de la aplicación. Por ejemplo, si tiene un clúster de cinco nodos y establece InstanceCount=10, tendrá dos instancias en cada nodo. Si establece MinInstanceCount=9, un intento de actualización de la aplicación puede bloquearse; con MinInstanceCount=8, esto se puede evitar.
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información sobre la configuración de servicios, vaya a [este vínculo](service-fabric-cluster-resource-manager-configure-services.md).

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: ccdd7b16c7ec292b8f4f4c155a6f9497c606a489
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: e174a0539a75945cc0a2595e28a60d928e10acf4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371820"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166223"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Administración del acceso a la información de facturación de Azure
 
@@ -51,15 +51,15 @@ Una vez que un administrador de cuenta ha asignado los roles correspondientes a 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de cuenta.
 
-1. Busque en **Administración de costos + facturación**.
+1. Busque en **Administración de costos + facturación** .
 
-    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/manage-billing-access/billing-search-cost-management-billing.png)
+    ![Captura de pantalla que resalta Administración de costos + facturación en la sección Servicios.](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Seleccione **Suscripciones** en el panel izquierdo. Según el acceso, es posible que deba seleccionar un ámbito de facturación y, a continuación, seleccione **Suscripciones**.
+1. Seleccione **Suscripciones** en el panel izquierdo. Según el acceso, es posible que deba seleccionar un ámbito de facturación y, a continuación, seleccione **Suscripciones** .
 
     ![Captura de pantalla que muestra la selección de las suscripciones](./media/manage-billing-access/billing-select-subscriptions.png)
 
-1. Seleccione **Facturas** y, después, **Acceso a las facturas**.
+1. Seleccione **Facturas** y, después, **Acceso a las facturas** .
 
     ![Captura de pantalla muestra cómo delegar acceso a las facturas](./media/manage-billing-access/aa-optin01.png)
 
@@ -77,11 +77,11 @@ La característica Lector de facturación está en versión preliminar y aún no
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de cuenta.
 
-1. Busque en **Administración de costos + facturación**.
+1. Busque en **Administración de costos + facturación** .
 
     ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/manage-billing-access/billing-search-cost-management-billing.png)
 
-1. Seleccione **Suscripciones** en el panel izquierdo. Según el acceso, es posible que deba seleccionar un ámbito de facturación y, a continuación, seleccione **Suscripciones**.
+1. Seleccione **Suscripciones** en el panel izquierdo. Según el acceso, es posible que deba seleccionar un ámbito de facturación y, a continuación, seleccione **Suscripciones** .
 
     ![Captura de pantalla que muestra la selección de las suscripciones](./media/manage-billing-access/billing-select-subscriptions.png)
 
@@ -90,11 +90,11 @@ La característica Lector de facturación está en versión preliminar y aún no
 
     ![Captura de pantalla que muestra cuando se hace clic en Agregar asignación de roles](./media/manage-billing-access/billing-click-add-role-assignment.png)
 
-1. En la lista desplegable **Rol**, elija **Lector de facturación**.
-1. En el cuadro de texto **Seleccionar**, escriba el nombre o el correo electrónico del usuario que quiere agregar.
+1. En la lista desplegable **Rol** , elija **Lector de facturación** .
+1. En el cuadro de texto **Seleccionar** , escriba el nombre o el correo electrónico del usuario que quiere agregar.
 1. Seleccione el usuario.
-1. Seleccione **Guardar**.
-    ![Captura de pantalla que muestra cuando se hace clic en Agregar asignación de roles](./media/manage-billing-access/billing-save-role-assignment.png)
+1. Seleccione **Guardar** .
+    ![Captura de pantalla que resalta el botón Guardar](./media/manage-billing-access/billing-save-role-assignment.png).
 
 1. Transcurridos unos instantes, al usuario se le asigna el rol Lector de facturación para la suscripción.
 

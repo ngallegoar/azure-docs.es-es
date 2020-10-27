@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876862"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328886"
 ---
 # <a name="configure-device-redirections"></a>Configuración de redireccionamientos de dispositivos
 
@@ -50,7 +50,10 @@ Establezca la siguiente propiedad RDP para configurar el redireccionamiento de l
 - `camerastoredirect:s:*` redirige todas las cámaras.
 - `camerastoredirect:s:` deshabilita el redireccionamiento de la cámara.
 
-También puede redirigir cámaras específicas mediante una lista delimitada por signos de punto y coma de interfaces KSCATEGORY_VIDEO_CAMERA, como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`.
+>[!NOTE]
+>Aunque la propiedad `camerastoredirect:s:` esté deshabilitada, las cámaras locales se pueden redirigir a través de la propiedad `devicestoredirect:s:`. Para deshabilitar completamente la redirección de la cámara, configure `camerastoredirect:s:` y configure `devicestoredirect:s:` o defina algún subconjunto de dispositivos Plug and play que no incluya ninguna cámara.
+
+También puede redirigir cámaras específicas mediante una lista delimitada por signos de punto y coma de interfaces KSCATEGORY_VIDEO_CAMERA, como `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi`. 
 
 ### <a name="clipboard-redirection"></a>Redireccionamiento del portapapeles
 
@@ -75,10 +78,10 @@ En primer lugar, establezca la siguiente propiedad RDP para habilitar el redirec
 
 En segundo lugar, establezca la siguiente directiva de grupo en el dispositivo local del usuario:
 
-- Vaya a **Configuración del equipo** > **Directivas**> **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Cliente de conexión a Escritorio remoto** > **Redireccionamiento del dispositivo USB RemoteFX**.
-- Seleccione **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo**.
+- Vaya a **Configuración del equipo** > **Directivas**> **Plantillas administrativas** > **Componentes de Windows** > **Servicios de Escritorio remoto** > **Cliente de conexión a Escritorio remoto** > **Redireccionamiento del dispositivo USB RemoteFX** .
+- Seleccione **Permitir el redireccionamiento RDP de otros dispositivos USB RemoteFX compatibles desde este equipo** .
 - Seleccione la opción **Habilitado** y, a continuación, seleccione el cuadro **Administrators and Users in RemoteFX USB Redirection Access Rights** (Administradores y usuarios en los derechos de acceso del redireccionamiento de dispositivos USB RemoteFX).
-- Seleccione **Aceptar**.
+- Seleccione **Aceptar** .
 
 ### <a name="plug-and-play-device-redirection"></a>Redireccionamiento del dispositivo Plug and Play
 

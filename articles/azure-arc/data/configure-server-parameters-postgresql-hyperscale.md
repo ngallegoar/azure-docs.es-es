@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4e8813647211e0adbfe43a45ae0d19dc12a4a165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdbddfc84b3f71576cfd0299f2babec859b4ef1f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932246"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311060"
 ---
 # <a name="set-the-database-engine-settings-for-azure-arc-enabled-postgresql-hyperscale"></a>Establecimiento de la configuración del motor de base de datos para Hiperescala de PostgreSQL habilitada para Azure Arc
 
@@ -45,9 +45,9 @@ El formato general del comando para establecer la configuración del motor de ba
 azdata arc postgres server edit -n <server group name>, [{--engine-settings, -e}] [{--replace-engine-settings, --re}] {'<parameter name>=<parameter value>, ...'}
 ```
 
-## <a name="show-the-current-custom-values-of-the-parameters-settings"></a>Mostrar los valores personalizados actuales de la configuración de parámetros
+## <a name="show-current-custom-values"></a>Mostrar los valores personalizados actuales
 
-## <a name="with-azdata-cli-command"></a>Con el comando de la CLI azdata
+### <a name="with-azure-data-cli-azdata-command"></a>Con el comando [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 ```console
 azdata arc postgres server show -n <server group name>
@@ -74,77 +74,77 @@ engine": {
 ...
 ```
 
-## <a name="with-kubectl-command"></a>Con el comando kubectl
+### <a name="with-kubectl-command"></a>Con el comando kubectl
 
 Siga los pasos que se indican a continuación.
 
-### <a name="1-retrieve-the-kind-of-custom-resource-definition-for-your-server-group"></a>1. Recuperar el tipo de definición de recurso personalizado del grupo de servidores
+1. Recuperar el tipo de definición de recurso personalizado del grupo de servidores
 
-Ejecute:
+   Ejecute:
 
-```console
-azdata arc postgres server show -n <server group name>
-```
+   ```console
+   azdata arc postgres server show -n <server group name>
+   ```
 
-Por ejemplo:
+   Por ejemplo:
 
-```console
-azdata arc postgres server show -n postgres01
-```
+   ```console
+   azdata arc postgres server show -n postgres01
+   ```
 
-Este comando devuelve las especificaciones del grupo de servidores, en las que puede ver los parámetros que ha establecido. Si no existe la sección engine\settings, significa que todos los parámetros se ejecutan en su valor predeterminado:
+   Este comando devuelve las especificaciones del grupo de servidores, en las que puede ver los parámetros que ha establecido. Si no existe la sección engine\settings, significa que todos los parámetros se ejecutan en su valor predeterminado:
 
-```
-> {
-  >"apiVersion": "arcdata.microsoft.com/v1alpha1",
-  >"**kind**": "**postgresql-12**",
-  >"metadata": {
-    >"creationTimestamp": "2020-08-25T14:32:23Z",
-    >"generation": 1,
-    >"name": "postgres01",
-    >"namespace": "arc",
-```
+   ```output
+   > {
+     >"apiVersion": "arcdata.microsoft.com/v1alpha1",
+     >"**kind**": "**postgresql-12**",
+     >"metadata": {
+       >"creationTimestamp": "2020-08-25T14:32:23Z",
+       >"generation": 1,
+       >"name": "postgres01",
+       >"namespace": "arc",  
+   ```
 
-En ella, busque el campo "kind" (tipo) y anote el valor, por ejemplo: `postgresql-12`.
+   En los resultados de salida, busque el campo `kind` y reserve el valor; por ejemplo, `postgresql-12`.
 
-### <a name="2-describe-the-kubernetes-custom-resource-corresponding-to-your-server-group"></a>2. Describir el recurso personalizado de Kubernetes correspondiente al grupo de servidores 
+2. Describir el recurso personalizado de Kubernetes correspondiente al grupo de servidores 
 
-El formato general del comando es:
+   El formato general del comando es:
 
-```console
-kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
-```
+   ```console
+   kubectl describe <kind of the custom resource> <server group name> -n <namespace name>
+   ```
 
-Por ejemplo:
+   Por ejemplo:
 
-```console
-kubectl describe postgresql-12 postgres01
-```
+   ```console
+   kubectl describe postgresql-12 postgres01
+   ```
 
-Si hay valores personalizados establecidos para la configuración del motor, los devolverá. Por ejemplo:
+   Si existen valores personalizados establecidos para la configuración del motor, los devolverá. Por ejemplo:
 
-```console
-Engine:
-...
+   ```output
+   Engine:
+   ...
     Settings:
       Default:
         autovacuum_vacuum_threshold:  65
-```
+   ```
 
-Si no ha establecido valores personalizados para ninguno de los valores del motor, la sección de configuración del motor del conjunto de resultados estará vacía, como:
+   Si no ha establecido valores personalizados para ninguno de los valores del motor, la sección de Configuración del motor de `resultset` estará vacía, tal como se muestra aquí:
 
-```console
-Engine:
-...
-    Settings:
-      Default:
-```
+   ```output
+   Engine:
+   ...
+       Settings:
+         Default:
+   ```
 
-## <a name="set-custom-values-for-the-engine-settings"></a>Establecimiento de valores personalizados para la configuración del motor
+## <a name="set-custom-values-for-engine-settings"></a>Establecimiento de valores personalizados para la configuración del motor
 
 Los comandos siguientes establecen los parámetros del nodo de coordinación y los nodos de trabajo de Hiperescala de PostgreSQL en los mismos valores. Todavía no es posible establecer parámetros por rol en el grupo de servidores. Es decir, todavía no es posible configurar un parámetro determinado con un valor específico en el nodo de coordinación y con otro valor para los nodos de trabajo.
 
-## <a name="set-a-single-parameter"></a>Establecimiento de un único parámetro
+### <a name="set-a-single-parameter"></a>Establecimiento de un único parámetro
 
 ```console
 azdata arc server edit -n <server group name> -e <parameter name>=<parameter value>
@@ -156,7 +156,7 @@ Por ejemplo:
 azdata arc postgres server edit -n postgres01 -e shared_buffers=8MB
 ```
 
-## <a name="set-multiple-parameters-with-a-single-command"></a>Establecimiento de varios parámetros con un solo comando
+### <a name="set-multiple-parameters-with-a-single-command"></a>Establecimiento de varios parámetros con un solo comando
 
 ```console
 azdata arc postgres server edit -n <server group name> -e '<parameter name>=<parameter value>, <parameter name>=<parameter value>,...'
@@ -168,7 +168,7 @@ Por ejemplo:
 azdata arc postgres server edit -n postgres01 -e 'shared_buffers=8MB, max_connections=50'
 ```
 
-## <a name="reset-a-parameter-to-its-default-value"></a>Restablecimiento de un parámetro a su valor predeterminado
+### <a name="reset-a-parameter-to-its-default-value"></a>Restablecimiento de un parámetro a su valor predeterminado
 
 Para restablecer un parámetro a su valor predeterminado, establézcalo sin indicar un valor. 
 
@@ -178,7 +178,7 @@ Por ejemplo:
 azdata arc postgres server edit -n postgres01 -e shared_buffers=
 ```
 
-## <a name="reset-all-parameters-to-their-default-values"></a>Restablecimiento de todos los parámetros a sus valores predeterminados
+### <a name="reset-all-parameters-to-their-default-values"></a>Restablecimiento de todos los parámetros a sus valores predeterminados
 
 ```console
 azdata arc postgres server edit -n <server group name> -e '' -re
@@ -213,8 +213,6 @@ Por ejemplo:
 ```console
 azdata arc postgres server edit -n postgres01 -e 'search_path = "$user"'
 ```
-
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información sobre el [escalado horizontal (adición de nodos de trabajo)](scale-out-postgresql-hyperscale-server-group.md) del grupo de servidores.

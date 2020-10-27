@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84e92cbac064106ca95277288eb773e311798930
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817267414555ea0641e8fb8a8392976a4789c780
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85203459"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096222"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -53,7 +53,7 @@ En un perfil técnico autoafirmado, puede usar los elementos **InputClaims** y *
 
 ## <a name="display-claims"></a>Notificaciones de visualización
 
-La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar**.
+La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar** .
 
 El elemento **DisplayClaims** contiene una lista de las notificaciones que se van a presentar en la pantalla para recopilar datos del usuario. Para rellenar previamente los valores de las notificaciones de visualización, use las notificaciones de entrada descritas anteriormente. El elemento también puede incluir un valor predeterminado.
 
@@ -101,7 +101,7 @@ Considere el siguiente ejemplo en el que se define una notificación `age` como 
 </TechnicalProfile>
 ```
 
-Si una directiva de hoja que hereda esa base especifica posteriormente `officeNumber` como una notificación de **visualización**:
+Si una directiva de hoja que hereda esa base especifica posteriormente `officeNumber` como una notificación de **visualización** :
 
 ```xml
 <TechnicalProfile Id="id">
@@ -135,8 +135,8 @@ Use notificaciones de salida si:
 
 - **Las notificaciones se emiten mediante la transformación de notificaciones de salida**
 - **Establece un valor predeterminado en una notificación de salida** sin recopilar datos del usuario ni devolver los datos desde el perfil técnico de validación. El perfil técnico autoafirmado `LocalAccountSignUpWithLogonEmail` establece la notificación **executed-SelfAsserted-Input** en `true`.
-- **Un perfil técnico de validación devuelve las notificaciones de salida**: su perfil técnico puede llamar a un perfil técnico de validación que devuelve algunas notificaciones. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. Por ejemplo, al iniciar sesión con una cuenta local, el perfil técnico autoafirmado denominado `SelfAsserted-LocalAccountSignin-Email` llama al perfil técnico de validación denominado `login-NonInteractive`. Este perfil técnico valida las credenciales de usuario y también devuelve el perfil de usuario. Por ejemplo, “userPrincipalName”, “displayName”, “givenName” y “surName”.
-- **Un control de visualización devuelve las notificaciones de salida**: su perfil técnico puede tener una referencia a un [control de visualización](display-controls.md). El control de visualización devuelve algunas notificaciones, como la dirección de correo electrónico comprobada. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar**.
+- **Un perfil técnico de validación devuelve las notificaciones de salida** : su perfil técnico puede llamar a un perfil técnico de validación que devuelve algunas notificaciones. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. Por ejemplo, al iniciar sesión con una cuenta local, el perfil técnico autoafirmado denominado `SelfAsserted-LocalAccountSignin-Email` llama al perfil técnico de validación denominado `login-NonInteractive`. Este perfil técnico valida las credenciales de usuario y también devuelve el perfil de usuario. Por ejemplo, “userPrincipalName”, “displayName”, “givenName” y “surName”.
+- **Un control de visualización devuelve las notificaciones de salida** : su perfil técnico puede tener una referencia a un [control de visualización](display-controls.md). El control de visualización devuelve algunas notificaciones, como la dirección de correo electrónico comprobada. Es posible que desee propagar las notificaciones y devolverlas a los siguientes pasos de orquestación en el recorrido del usuario. La característica de notificaciones de visualización se encuentra actualmente en **versión preliminar** .
 
 En el ejemplo siguiente se muestra el uso de un perfil técnico autoafirmado que utiliza notificaciones de visualización y notificaciones de salida.
 
@@ -202,11 +202,13 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 | setting.showSignupLink <sup>2</sup>| No | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.forgotPasswordLinkLocation <sup>2</sup>| No| Muestra el vínculo de contraseña olvidada. Valores posibles: `AfterInput` (valor predeterminado) el vínculo se muestra en la parte inferior de la página o `None` quita el vínculo de contraseña olvidada.|
 | setting.enableRememberMe <sup>2</sup>| No| Muestra la casilla [Mantener la sesión iniciada](custom-policy-keep-me-signed-in.md). Valores posibles: `true` o `false` (valor predeterminado). |
-| IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
+| setting.inputVerificationDelayTimeInMilliseconds <sup>3</sup>| No| Mejora la experiencia del usuario, ya que espera a que el usuario deje de escribir y, a continuación, valida el valor. El valor predeterminado es 2000 milisegundos. |
+| IncludeClaimResolvingInClaimsHandling  | No | En el caso de las notificaciones de entrada y salida, especifica si se incluye la [resolución de notificaciones](claim-resolver-overview.md) en el perfil técnico. Valores posibles: `true` o `false`  (valor predeterminado). Si desea utilizar un solucionador de notificaciones en el perfil técnico, establézcalo en `true`. |
 
 Notas:
 1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp` o `unifiedssd`.
 1. Disponible para el tipo de definición de contenido [DataUri](contentdefinitions.md#datauri) de `unifiedssp` o `unifiedssd`. [Versión de diseño de página](page-layout.md) 1.1.0 y versiones posteriores.
+1. Disponible para la [versión de diseño de página](page-layout.md) 1.2.0 y versiones posteriores.
 
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 

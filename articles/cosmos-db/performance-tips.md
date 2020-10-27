@@ -4,15 +4,15 @@ description: Obtenga información sobre las opciones de configuración de client
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: efedfb9701d12548b80eccda9cd2aa29bc644ac2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3d6771f841d3a1d403c1c825da3b504b6896d9e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802147"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277222"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugerencias de rendimiento para Azure Cosmos DB y el SDK de .NET v2
 
@@ -42,16 +42,16 @@ Se publicó el [SDK de .NET v3](https://github.com/Azure/azure-cosmos-dotnet-v3
 
 Se recomienda el procesamiento de host de Windows de 64 bits para mejorar el rendimiento. El SDK de SQL incluye un archivo ServiceInterop.dll nativo para analizar y optimizar consultas localmente. ServiceInterop.dll solo se admite en la plataforma Windows x64. En el caso de Linux y otras plataformas no compatibles en las que ServiceInterop.dll no está disponible, se realiza una llamada de red adicional a la puerta de enlace para obtener la consulta optimizada. Los siguientes tipos de aplicaciones utilizan el procesamiento de host de 32 bits de forma predeterminada. Para cambiar el procesamiento de host al procesamiento de 64 bits, siga estos pasos según el tipo de la aplicación:
 
-- En el caso de las aplicaciones ejecutables, puede cambiar el procesamiento de host estableciendo el [destino de la plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) en **x64** en la ventana **Propiedades del proyecto**, en la pestaña **Compilar**.
+- En el caso de las aplicaciones ejecutables, puede cambiar el procesamiento de host estableciendo el [destino de la plataforma](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) en **x64** en la ventana **Propiedades del proyecto** , en la pestaña **Compilar** .
 
 - Para proyectos de prueba basados en VSTest, puede cambiar el procesamiento del host seleccionando **Prueba** >  **Configuración de prueba** >  **Arquitectura de procesador predeterminada como X64** en el menú de **Prueba** de Visual Studio.
 
-- En el caso de las aplicaciones Web de ASP.NET implementadas de forma local, puede cambiar el procesamiento de host seleccionando **Usar la versión de 64 bits de IIS Express para proyectos y sitios web** en **Herramientas** > **Opciones** > **Proyectos y Proyectos** > **de Soluciones Web**.
+- En el caso de las aplicaciones Web de ASP.NET implementadas de forma local, puede cambiar el procesamiento de host seleccionando **Usar la versión de 64 bits de IIS Express para proyectos y sitios web** en **Herramientas** > **Opciones** > **Proyectos y Proyectos** > **de Soluciones Web** .
 
 - En el caso de las aplicaciones Web de ASP.NET implementadas en Azure, puede cambiar el procesamiento de host seleccionando la plataforma de **64 bits** en **Configuración de la aplicación** en el Azure Portal.
 
 > [!NOTE] 
-> De forma predeterminada, los nuevos proyectos de Visual Studio se establecen en **cualquier CPU**. Se recomienda establecer el proyecto en **x64** para que no cambie a **x86**. Un proyecto establecido para **cualquier CPU** puede cambiar fácilmente a **x86** si se agrega una dependencia de solo x86.<br/>
+> De forma predeterminada, los nuevos proyectos de Visual Studio se establecen en **cualquier CPU** . Se recomienda establecer el proyecto en **x64** para que no cambie a **x86** . Un proyecto establecido para **cualquier CPU** puede cambiar fácilmente a **x86** si se agrega una dependencia de solo x86.<br/>
 > ServiceInterop.dll debe estar en la carpeta desde la que se ejecuta la DLL del SDK. Esto solo debe ser un problema si se copian manualmente los archivos DLL o los sistemas de compilación o implementación personalizados.
     
 **Activación de la recolección de elementos no utilizados (GC) del lado servidor**
@@ -69,28 +69,7 @@ Si va a realizar pruebas en niveles de alto rendimiento (más de 50 000 RU/s), 
 
 **Directiva de conexión: uso del modo de conexión directa**
 
-La forma en que un cliente se conecta a Azure Cosmos DB tiene importantes implicaciones de rendimiento, especialmente para la latencia observada en el cliente. Existen dos opciones de configuración clave disponibles para configurar la directiva de conexión del cliente: el *modo* de conexión y el *protocolo* de conexión.  Los dos modos disponibles son:
-
-  * Modo de puerta de enlace (predeterminado)
-      
-    El modo de puerta de enlace se admite en todas las plataformas de SDK y es el valor predeterminado configurado para el SDK de [Microsoft.Azure.DocumentDB](sql-api-sdk-dotnet.md). Si la aplicación se ejecuta dentro de una red corporativa con restricciones de firewall estrictas, el modo de puerta de enlace es la mejor opción, ya que utiliza el puerto HTTPS estándar y un único punto de conexión DNS. La desventaja para el rendimiento, sin embargo, es que el modo de puerta de enlace implica un salto de red adicional cada vez que se leen desde o se escriben datos a Azure Cosmos DB. Por tanto, el modo directo ofrece un mejor rendimiento porque hay menos saltos de red. También se recomienda el modo de conexión de puerta de enlace cuando se ejecutan aplicaciones en entornos que tienen un número limitado de conexiones de socket.
-
-    Cuando use el SDK de Azure Functions, especialmente en el [plan de consumo](../azure-functions/functions-scale.md#consumption-plan), tenga en cuenta los [límites actuales en las conexiones](../azure-functions/manage-connections.md). En ese caso, el modo de puerta de enlace podría ser mejor si también está trabajando con otros clientes basados en HTTP dentro de la aplicación Azure Functions.
-
-  * Modo directo
-
-    El modo directo es compatible con la conectividad a través del protocolo TCP.
-     
-Al utilizar TCP en modo directo, además de los puertos de puerta de enlace, debe asegurarse de que el intervalo de puertos entre 10000 y 20000 esté abierto porque Azure Cosmos DB utiliza puertos TCP dinámicos. Al usar el modo directo en [puntos de conexión privados](./how-to-configure-private-endpoints.md), el intervalo completo de puertos TCP (de 0 a 65535) debe estar abierto. Si estos puertos no están abiertos e intenta usar el protocolo TCP, recibirá un error 503 de servicio no disponible. En la tabla siguiente se muestran los modos de conectividad disponibles para varias API y los puertos de servicio que se usan para cada API:
-
-|Modo de conexión  |Protocolo admitido  |SDK admitidos  |API o puerto de servicio  |
-|---------|---------|---------|---------|
-|Puerta de enlace  |   HTTPS    |  Todos los SDK    |   SQL (443), MongoDB (10250, 10255, 10256), Tabla (443), Cassandra (10350), Graph (443) <br> El puerto 10250 se asigna a una instancia de API de Azure Cosmos DB para MongoDB predeterminada sin replicación geográfica. Mientras que los puertos 10255 y 10256 se asignan a la instancia que tiene replicación geográfica.   |
-|Directo    |     TCP    |  .NET SDK    | Al usar puntos de conexión de servicio o públicos: puertos en el intervalo de 10000 a 20000<br>Al usar puntos de conexión privados: puertos en el intervalo de 0 a 65535 |
-
-Azure Cosmos DB ofrece un modelo de programación RESTful sencillo y abierto sobre HTTPS. Además, ofrece un protocolo TCP eficaz que también es RESTful en su modelo de comunicación y está disponible a través del SDK de cliente de .NET. El protocolo TCP usa TLS para la autenticación inicial y el cifrado del tráfico. Para obtener el mejor rendimiento, utilice el protocolo TCP cuando sea posible.
-
-Para el SDK de Microsoft.Azure.DocumentDB, configure el modo de conexión durante la construcción de la instancia de `DocumentClient` mediante el parámetro `ConnectionPolicy`. Si usa el modo directo, también puede establecer el `Protocol` mediante el parámetro `ConnectionPolicy`.
+El modo de conexión predeterminado del SDK de .NET V2 es la puerta de enlace. El modo de conexión se configura durante la construcción de la instancia de `DocumentClient` mediante el parámetro `ConnectionPolicy`. Si usa el modo directo, también debe establecer `Protocol` mediante el parámetro `ConnectionPolicy`. Para obtener más información sobre las distintas opciones de conectividad, vea el artículo [Modos de conectividad](sql-sdk-connection-modes.md).
 
 ```csharp
 Uri serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -102,10 +81,6 @@ new ConnectionPolicy
    ConnectionProtocol = Protocol.Tcp
 });
 ```
-
-Debido a que TCP solo se admite en modo directo, si usa el modo de puerta de enlace, el protocolo HTTPS siempre se usa para comunicarse con la puerta de enlace y se omite el valor `Protocol` en `ConnectionPolicy`.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="La Directiva de conexión de Azure Cosmos DB" border="false":::
 
 **Agotamiento de puertos efímeros**
 
@@ -284,4 +259,4 @@ El cargo de la solicitud (es decir, el coste de procesamiento de solicitudes) de
 
 Para obtener una aplicación de ejemplo que se usa para evaluar Azure Cosmos DB en escenarios de alto rendimiento en algunos equipos del cliente, consulte [Rendimiento y pruebas de escalado con Azure Cosmos DB](performance-testing.md).
 
-Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure Cosmos DB](partition-data.md).
+Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure Cosmos DB](partitioning-overview.md).

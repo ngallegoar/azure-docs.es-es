@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91627772"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108140"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Tutorial: Transformación y protección de una API
 
@@ -51,21 +51,21 @@ En esta sección se muestra cómo ocultar los encabezados HTTP que no quiera mos
 
 Para ver la respuesta original, siga estos pasos:
 
-1. En la instancia de servicio de API Management, seleccione **API**.
+1. En la instancia de servicio de API Management, seleccione **API** .
 1. Seleccione **Demo Conference API** en la lista de API.
 1. Seleccione la pestaña **Prueba** en la parte superior de la pantalla.
-1. Seleccione la operación **GetSpeakers** y elija **Enviar**.
+1. Seleccione la operación **GetSpeakers** y elija **Enviar** .
 
 La respuesta original debe ser similar a la siguiente:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Directivas en el portal":::
 
-Como puede ver, la respuesta incluye los encabezados **X-AspNet-Version** y **X-Powered-By**.
+Como puede ver, la respuesta incluye los encabezados **X-AspNet-Version** y **X-Powered-By** .
 
 ### <a name="set-the-transformation-policy"></a>Establecimiento de la directiva de transformación
 
-1. Seleccione **Demo Conference API** > **Diseño** > **Todas las operaciones**.
-4. En la sección **Procesamiento de salida**, seleccione el icono del editor de código ( **</>** ).
+1. Seleccione **Demo Conference API** > **Diseño** > **Todas las operaciones** .
+4. En la sección **Procesamiento de salida** , seleccione el icono del editor de código ( **</>** ).
 
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Directivas en el portal" border="false":::
 
@@ -83,7 +83,7 @@ Como puede ver, la respuesta incluye los encabezados **X-AspNet-Version** y **X-
 
    :::image type="content" source="media/transform-api/set-policy.png" alt-text="Directivas en el portal":::
 
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Reemplazo de URL originales en el cuerpo de la respuesta de API con las URL de puerta de enlace de APIM
 
@@ -93,8 +93,8 @@ En esta sección se explica cómo ocultar las direcciones URL originales que apa
 
 Para ver la respuesta original, siga estos pasos:
 
-1. Seleccione **Demo Conference API** > **Probar**.
-1. Seleccione la operación **GetSpeakers** y elija **Enviar**.
+1. Seleccione **Demo Conference API** > **Probar** .
+1. Seleccione la operación **GetSpeakers** y elija **Enviar** .
 
     Como puede ver, la respuesta incluye las direcciones URL de back-end originales:
 
@@ -103,19 +103,19 @@ Para ver la respuesta original, siga estos pasos:
 
 ### <a name="set-the-transformation-policy"></a>Establecimiento de la directiva de transformación
 
-1.  Seleccione **Demo Conference API** > **Todas las operaciones** > **Diseño**.
-1.  En la sección **Procesamiento de salida**, seleccione el icono del editor de código ( **</>** ).
+1.  Seleccione **Demo Conference API** > **Todas las operaciones** > **Diseño** .
+1.  En la sección **Procesamiento de salida** , seleccione el icono del editor de código ( **</>** ).
 1.  Coloque el cursor dentro del elemento **&lt;outbound&gt;** y seleccione **Show snippets** (Mostrar fragmentos de código) en la esquina superior derecha.
 1.  En la ventana derecha, en **Transformation policies** (Directivas de transformación), haga clic en **Mask URLs in content** (Enmascarar direcciones URL en contenido). 
-1.  Seleccione **Guardar**.
+1.  Seleccione **Guardar** .
 
 ## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Protección de una API agregando la directiva de límite de frecuencia (limitación)
 
 En esta sección se explica cómo agregar protección para la API de back-end configurando límites de frecuencia. Por ejemplo, puede que quiera limitar la frecuencia de llamadas API para que los desarrolladores no las usen en exceso. En este ejemplo, el límite se establece en 3 llamadas cada 15 segundos para cada identificador de suscripción. Después de 15 segundos, un desarrollador puede volver a tratar de llamar a la API.
 
-1.  Seleccione **Demo Conference API** > **Todas las operaciones** > **Diseño**.
-1.  En la sección **Procesamiento de entrada**, seleccione el icono del editor de código ( **</>** ).
-1.  Coloque el cursor dentro del elemento **&lt;inbound&gt;** .
+1.  Seleccione **Demo Conference API** > **Todas las operaciones** > **Diseño** .
+1.  En la sección **Procesamiento de entrada** , seleccione el icono del editor de código ( **</>** ).
+1.  Coloque el cursor dentro del elemento **&lt;inbound&gt;** y seleccione **Show snippets** (Mostrar fragmentos de código) en la esquina superior derecha.
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Directivas en el portal" border="false":::
 
@@ -155,8 +155,8 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ### <a name="test-the-stripped-response-headers"></a>Prueba de los encabezados de respuesta eliminados
 
-1. Seleccione **Demo Conference API** > **Probar**.
-1. Seleccione la operación **GetSpeakers** y elija **Enviar**.
+1. Seleccione **Demo Conference API** > **Probar** .
+1. Seleccione la operación **GetSpeakers** y elija **Enviar** .
 
     Como puede ver, los encabezados se han eliminado:
 
@@ -164,8 +164,8 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ### <a name="test-the-replaced-url"></a>Prueba de la URL reemplazada
 
-1. Seleccione **Demo Conference API** > **Probar**.
-1. Seleccione la operación **GetSpeakers** y elija **Enviar**.
+1. Seleccione **Demo Conference API** > **Probar** .
+1. Seleccione la operación **GetSpeakers** y elija **Enviar** .
 
     Como puede ver, la dirección URL se ha reemplazado.
 
@@ -173,14 +173,14 @@ En el resto de esta sección se prueban transformaciones de directiva que establ
 
 ### <a name="test-the-rate-limit-throttling"></a>Prueba del límite de frecuencia (limitación)
 
-1. Seleccione **Demo Conference API** > **Probar**.
-1. Seleccione la operación **GetSpeakers**. Seleccione **Enviar** tres veces en una fila.
+1. Seleccione **Demo Conference API** > **Probar** .
+1. Seleccione la operación **GetSpeakers** . Seleccione **Enviar** tres veces en una fila.
 
-    Después de enviar la solicitud 3 veces, recibirá la respuesta **429 Demasiadas solicitudes**.
+    Después de enviar la solicitud 3 veces, recibirá la respuesta **429 Demasiadas solicitudes** .
 
     :::image type="content" source="media/transform-api/test-throttling.png" alt-text="Directivas en el portal":::
 
-1. Espere unos 15 segundos y seleccione de nuevo **Enviar**. Esta vez debería obtener una respuesta **200 OK**.
+1. Espere unos 15 segundos y seleccione de nuevo **Enviar** . Esta vez debería obtener una respuesta **200 OK** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

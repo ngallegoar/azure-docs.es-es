@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761233"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126197"
 ---
 # <a name="pricing-scenarios"></a>Escenarios de precios
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Los precios de Azure Communication Services se basan en un modelo de pago por uso sin tarifas iniciales. Solo se le facturará por su consumo y uso de los servicios.
+Los precios de Azure Communication Services se suelen basar en un modelo de pago por uso.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Llamadas de voz o vídeo y uso compartido de pantalla
 
@@ -51,7 +46,7 @@ Alice realizó una llamada grupal con sus compañeros de trabajo, Bob y Charlie.
 - 2 participantes x 60 minutos x 0,004 USD por participante por minuto = 0,48 USD [el vídeo y el audio se cobran a la misma tarifa]
 - 1 participante x 43 minutos x 0,004 USD por participante por minuto = 0,172 USD [el vídeo y el audio se cobran a la misma tarifa]
 
-**Costo total de la llamada grupal**: 0,48 USD + 0,172 USD = 0,652 USD
+**Costo total de la llamada grupal** : 0,48 USD + 0,172 USD = 0,652 USD
 
 ## <a name="chat"></a>Chat
 
@@ -84,6 +79,16 @@ Rose ve los mensajes y comienza a responder. Mientras tanto, Casey recibe una ll
 ## <a name="price"></a>Price 
 
 Los precios de los servicios de telefonía se calculan por minuto, mientras que el precio de los SMS se calcula por mensaje. Los precios vienen determinados por el tipo y la ubicación del número que usa, así como el destino de las llamadas y los mensajes SMS.
+
+### <a name="telephone-number-leasing"></a>Alquiler del número de teléfono
+
+Las tarifas de alquiler de números de teléfono se cobran por adelantado y, después, mes a mes:
+
+|Tipo de número   |Precio mensual   |
+|--------------|-----------|
+|Local (Estados Unidos)     |1 USD/mes        |
+|Gratuito (Estados Unidos) |2 USD/mes |
+
 
 ### <a name="telephone-calling"></a>Llamada telefónica
 

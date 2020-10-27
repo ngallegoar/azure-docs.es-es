@@ -4,16 +4,16 @@ description: Obtenga información sobre Azure Analysis Services, una plataforma 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 11ab4e0404b7ebc8620cd1eb54edae9bb861e46b
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a05da5fae748e799d7965c51415956c2e2a524b1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018804"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201518"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -35,7 +35,7 @@ Azure Analysis Services se integra con muchos servicios de Azure lo que le permi
 
 ## <a name="the-right-tier-when-you-need-it"></a>El nivel correcto cuando lo necesite
 
-Azure Analysis Services está disponible en los niveles **Developer**, **Basic** y **Standard**. Dentro de cada nivel, los costos del plan varían según la potencia de procesamiento, las unidades de procesamiento de consultas (QPU) y el tamaño de la memoria. Cuando cree un servidor, seleccione un plan dentro de un nivel. Puede subir o bajar de plan dentro del mismo nivel o realizar la actualización a un nivel superior, pero no se puede cambiar de un nivel superior a uno inferior.
+Azure Analysis Services está disponible en los niveles **Developer** , **Basic** y **Standard** . Dentro de cada nivel, los costos del plan varían según la potencia de procesamiento, las unidades de procesamiento de consultas (QPU) y el tamaño de la memoria. Cuando cree un servidor, seleccione un plan dentro de un nivel. Puede subir o bajar de plan dentro del mismo nivel o realizar la actualización a un nivel superior, pero no se puede cambiar de un nivel superior a uno inferior.
 
 ### <a name="developer-tier"></a>Nivel Developer
 
@@ -71,7 +71,7 @@ Este nivel es para aplicaciones de producción críticas que requieren concurren
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
 <a name="naar">1</a> - No está disponible en todas las regiones.   
-<a name="rec">2</a>: se recomienda v2.
+<a name="rec">2</a> - S8 y S9 han quedado [en desuso](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). Se recomienda v2. 
 
 ## <a name="availability-by-region"></a>Disponibilidad por región
 
@@ -85,7 +85,7 @@ Azure Analysis Services se admite en regiones de todo el mundo. Los planes admit
 |Centro de Canadá    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Este de EE. UU.     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |Este de EE. UU. 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Este de EE. UU. 2     |     S8, S9, S8v2, S9v2   |    1    |
+|Este de EE. UU. 2     |     S8v2, S9v2   |    1    |
 |Centro-Norte de EE. UU     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Norte de EE. UU     |     S8v2, S9v2    |    1     |
 |Centro de EE. UU.     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -93,9 +93,9 @@ Azure Analysis Services se admite en regiones de todo el mundo. Los planes admit
 |Centro-sur de EE. UU.     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centro-Oeste de EE. UU.   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Oeste de EE. UU.     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|Oeste de EE. UU.     |    S8, S9, S8v2, S9v2   |    2  |
+|Oeste de EE. UU.     |    S8v2, S9v2   |    2  |
 |Oeste de EE. UU. 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|Oeste de EE. UU. 2    |    S8, S9, S8v2, S9v2  |    1     |
+|Oeste de EE. UU. 2    |    S8v2, S9v2  |    1     |
 
 ### <a name="europe"></a>Europa
 
@@ -105,17 +105,18 @@ Azure Analysis Services se admite en regiones de todo el mundo. Los planes admit
 |Norte de Europa     |    S8v2, S9v2      |    3     |
 |Sur de Reino Unido     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |Oeste de Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Oeste de Europa    |   S8, S9, S8v2, S9v2  |  1  |
+|Oeste de Europa    |   S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asia Pacífico 
 
 |Region  | Planes admitidos | Réplicas de consultas (solo planes Estándar) |
 |---------|---------|:---------:|
 |Este de Australia     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Este de Australia     |    S8, S9, S8v2, S9v2    |    1     |
+|Este de Australia     |    S8v2, S9v2    |    1     |
 |Sudeste de Australia     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japón Oriental     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Sudeste de Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Sudeste de Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|Sudeste de Asia     |     S8v2, S9v2     |   1      |
 |Oeste de la India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Adaptación a sus necesidades
@@ -159,7 +160,7 @@ Nivel de compatibilidad hace referencia a los comportamientos específicos de la
 
 ## <a name="your-data-is-secure"></a>Los datos están seguros
 
-Azure Analysis Services proporciona seguridad a los datos confidenciales a varios niveles. Como servicio de Azure, Analysis Services proporciona un nivel **Básico**de ataques de denegación de servicio distribuido (DDoS) habilitados automáticamente como parte de la plataforma Azure. Para más información, consulte [Introducción a Azure DDoS Protection estándar](../virtual-network/ddos-protection-overview.md). 
+Azure Analysis Services proporciona seguridad a los datos confidenciales a varios niveles. Como servicio de Azure, Analysis Services proporciona un nivel **Básico** de ataques de denegación de servicio distribuido (DDoS) habilitados automáticamente como parte de la plataforma Azure. Para más información, consulte [Introducción a Azure DDoS Protection estándar](../virtual-network/ddos-protection-overview.md). 
 
 En el nivel de servidor, Analysis Services proporciona firewall, autenticación de Azure, roles del administrador de servidor y cifrado del lado del servidor. En el nivel de modelo de datos, los roles de usuario y la seguridad a nivel de fila y a nivel de objeto garantizan que los datos están seguros y los ver solo los usuarios que deben verlos.
 

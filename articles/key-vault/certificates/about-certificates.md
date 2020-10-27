@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923694"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126780"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca de los certificados de Azure Key Vault
 
@@ -57,14 +57,14 @@ Los atributos del certificado se reflejan en los atributos de la clave y el secr
 
 Un certificado de Key Vault tiene los siguientes atributos:  
 
--   *enabled*: booleano, opcional, el valor predeterminado es **true**. Se puede especificar para indicar si se pueden recuperar los datos del certificado como secreto o es operativo como una clave. Se usa también junto con *nbf* y *exp* cuando se produce una operación entre *nbf* y *exp*, solo se permitirá si enabled se establece en true. Las operaciones fuera de la franja entre *nbf* y *exp* se deniegan automáticamente.  
+-   *enabled* : booleano, opcional, el valor predeterminado es **true** . Se puede especificar para indicar si se pueden recuperar los datos del certificado como secreto o es operativo como una clave. Se usa también junto con *nbf* y *exp* cuando se produce una operación entre *nbf* y *exp* , solo se permitirá si enabled se establece en true. Las operaciones fuera de la franja entre *nbf* y *exp* se deniegan automáticamente.  
 
 Existen atributos de solo lectura adicionales que se incluyen en la respuesta:
 
--   *created*: tipo IntDate, indica cuándo se creó esta versión del certificado.  
--   *updated*: tipo IntDate, indica cuándo se modificó esta versión del certificado.  
--   *exp*: tipo IntDate, contiene el valor de la fecha de expiración del certificado X.509.  
--   *nbf*: tipo IntDate, contiene el valor de la fecha del certificado X.509.  
+-   *created* : tipo IntDate, indica cuándo se creó esta versión del certificado.  
+-   *updated* : tipo IntDate, indica cuándo se modificó esta versión del certificado.  
+-   *exp* : tipo IntDate, contiene el valor de la fecha de expiración del certificado X.509.  
+-   *nbf* : tipo IntDate, contiene el valor de la fecha del certificado X.509.  
 
 > [!Note] 
 > Si un certificado de Key Vault expira, la clave y el secreto direccionables dejan de funcionar.  
@@ -141,42 +141,11 @@ Los objetos de emisor se crean en el almacén y solo se pueden usar con certific
 
 ## <a name="certificate-contacts"></a>Contactos de certificados
 
-Los contactos de certificados contienen información de contacto para enviar notificaciones desencadenadas por los eventos de vigencia del certificado. La información de los contactos es compartida por todos los certificados del almacén de claves. Se envía una notificación a todos los contactos especificados para un evento de cualquier certificado del almacén de claves.  
-
-Si se establece la directiva de un certificado para la renovación automática, se envía una notificación en los siguientes eventos.  
-
-- Antes de la renovación del certificado
-- Tras la renovación del certificado, indicando si el certificado se renovó correctamente o si se produjo un error que exige la renovación manual del certificado.  
-
-  Si se establece una directiva de certificado en renovación manual (solo correo electrónico), cuando llega el momento de renovar el certificado se envía una notificación.  
+Los contactos de certificados contienen información de contacto para enviar notificaciones desencadenadas por los eventos de vigencia del certificado. La información de los contactos es compartida por todos los certificados del almacén de claves. Se envía una notificación a todos los contactos especificados para un evento de cualquier certificado del almacén de claves. Para información sobre cómo establecer el contacto del certificado, consulte [aquí](overview-renew-certificate.md#steps-to-set-certificate-notifications).  
 
 ## <a name="certificate-access-control"></a>Control de acceso al certificado
 
- El control de acceso para los certificados lo administra Key Vault y lo proporciona la instancia de Key Vault que contiene dichos certificados. La directiva de control de acceso para los certificados es distinta de la directiva de control de acceso para las claves y los secretos en la misma instancia de Key Vault. Los usuarios pueden crear uno o varios almacenes para almacenar los certificados, para mantener la segmentación adecuada del escenario y la administración de los certificados.  
-
- Los siguientes permisos se pueden utilizar, en una base por entidad, en la entrada de control de acceso de secretos en un almacén de claves y reflejan fielmente las operaciones permitidas en un objeto de secreto:  
-
-- Permisos para operaciones de administración de certificados
-  - *get*: obtener la versión actual del certificado o cualquier versión de un certificado 
-  - *list*: enumerar los certificados actuales o las versiones de un certificado  
-  - *update*: crear un certificado
-  - *create*: crear un certificado de Key Vault
-  - *import*: importar material del certificado en un certificado de Key Vault
-  - *delete*: eliminar un certificado, su directiva y todas sus versiones  
-  - *recover*: recuperar un certificado eliminado
-  - *backup*: copia de seguridad de un certificado de un almacén de claves
-  - *restore*: restaurar una copia de seguridad de un certificado a un almacén de claves
-  - *managecontacts*: administrar los contactos del certificado de Key Vault  
-  - *manageissuers*: administrar emisores y entidades de certificados de Key Vault
-  - *getissuers*: obtener emisores y entidades de un certificado
-  - *listissuers*: enumerar emisores y entidades de un certificado  
-  - *setissuers*: crear o actualizar emisores y entidades de un certificado de Key Vault  
-  - *deleteissuers*: eliminar emisores y entidades de un certificado de Key Vault  
- 
-- Permisos para las operaciones con privilegios
-  - *purge*: purgar (eliminar permanentemente) un certificado eliminado
-
-Para más información, consulte las [operaciones con certificados en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
+ El control de acceso para los certificados lo administra Key Vault y lo proporciona la instancia de Key Vault que contiene dichos certificados. La directiva de control de acceso para los certificados es distinta de la directiva de control de acceso para las claves y los secretos en la misma instancia de Key Vault. Los usuarios pueden crear uno o varios almacenes para almacenar los certificados, para mantener la segmentación adecuada del escenario y la administración de los certificados.  Para más información sobre el control de acceso a los certificados, consulte [aquí](certificate-access-control.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

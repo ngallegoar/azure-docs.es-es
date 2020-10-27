@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047648"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311672"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -19,7 +19,7 @@ En este artículo se proporciona información sobre los problemas conocidos asoc
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"400 Error de cliente: Solicitud incorrecta" en Cloud Shell
 
-Los comandos de Cloud Shell pueden producir intermitentemente el error "400 Error de cliente: Solicitud incorrecta de la dirección URL: http://localhost:50342/oauth2/token"seguida del seguimiento de la pila completa.
+Los comandos de Cloud Shell que se ejecutan en *https://shell.azure.com* pueden producir de forma intermitente el error "400 Error de cliente: Solicitud incorrecta de dirección URL: http://localhost:50342/oauth2/token", con seguimiento de la pila completa.
 
 En el caso de Azure Digital Twins, concretamente, esto afecta a los siguientes grupos de comandos:
 * `az dt route`
@@ -30,7 +30,11 @@ En el caso de Azure Digital Twins, concretamente, esto afecta a los siguientes g
 
 Esto puede resolverse si se vuelve a ejecutar el comando `az login` en Cloud Shell y se completan los pasos de inicio de sesión posteriores. Después de esto, debería poder ejecutar el comando nuevamente.
 
-Una solución alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en el equipo para poder ejecutar comandos de la CLI de Azure de forma local. La CLI local no experimenta este problema.
+Como alternativa, puede abrir el panel de Cloud Shell en Azure Portal y completar desde aquí su trabajo de Cloud Shell:
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista del Azure Portal con el icono de &quot;Cloud Shell&quot; resaltado; y Cloud Shell aparece indicado en la parte inferior de la ventana del portal.":::
+
+Otra alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en su máquina para poder ejecutar localmente comandos de la CLI de Azure. La CLI local no experimenta este problema.
 
 ### <a name="possible-causes"></a>Causas posibles
 
@@ -42,7 +46,7 @@ Esto no afecta a los comandos de Azure Digital Twins de los grupos de comandos `
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Asignación de roles que faltan después de la instalación con script
 
-Algunos usuarios pueden experimentar problemas con la parte de asignación de roles que se describe en el tutorial [*Procedimiento: Configuración de una instancia y autenticación (con scripts)* ](how-to-set-up-instance-scripted.md). El script no indica un error, pero el rol *Propietario de Azure Digital Twins (versión preliminar)* no se ha asignado correctamente al usuario, lo que afectará a la posibilidad de crear otros recursos más adelante.
+Algunos usuarios pueden experimentar problemas con la parte de asignación de roles que se describe en el tutorial [*Procedimiento: Configuración de una instancia y autenticación (con scripts)*](how-to-set-up-instance-scripted.md). El script no indica un error, pero el rol *Propietario de Azure Digital Twins (versión preliminar)* no se ha asignado correctamente al usuario, lo que afectará a la posibilidad de crear otros recursos más adelante.
 
 Para determinar si la asignación de roles se configuró correctamente después de ejecutar el script, siga las instrucciones de la sección [*Comprobación de la asignación de roles de usuario*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) del artículo de configuración. Si el usuario no se muestra con este rol, este problema le afecta.
 
@@ -62,7 +66,7 @@ En el caso de los usuarios que iniciaron sesión con una [cuenta Microsoft (MSA)
 
 Al escribir código de autenticación en las aplicaciones de Azure Digital Twins con la versión **1.2.0** de la biblioteca **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet)** , puede experimentar problemas con el método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
 
-Esta no es la versión más reciente de la biblioteca. La versión más reciente es **1.2.2**.
+Esta no es la versión más reciente de la biblioteca. La versión más reciente es **1.2.2** .
 
 El método afectado se usa en los artículos siguientes: 
 * [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
@@ -73,11 +77,11 @@ El problema incluye una respuesta de error de "Azure.Identity.AuthenticationFail
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
-Para resolver el problema, actualice las aplicaciones de modo que usen la versión de `Azure.Identity` **1.2.2**. Con esta versión de la biblioteca, el explorador se cargará y autenticará según lo previsto.
+Para resolver el problema, actualice las aplicaciones de modo que usen la versión de `Azure.Identity` **1.2.2** . Con esta versión de la biblioteca, el explorador se cargará y autenticará según lo previsto.
 
 ### <a name="possible-causes"></a>Causas posibles
 
-Está relacionado con un problema abierto de la versión más reciente de la biblioteca `Azure.Identity` (versión **1.2.0**): [*No se puede autenticar cuando se usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+Está relacionado con un problema abierto de la versión más reciente de la biblioteca `Azure.Identity` (versión **1.2.0** ): [*No se puede autenticar cuando se usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 Este problema se observa cuando se usa la versión **1.2.0** de la aplicación de Azure Digital Twins o si se agrega la biblioteca al proyecto sin especificar una versión (ya que, en este caso, también se toma como predeterminada esta versión más reciente).
 

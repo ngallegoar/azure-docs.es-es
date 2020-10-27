@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: 72eea7c46dd005cd16ae5b8f0022c1174dd28f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 42d2ac6cf6592f8e22b0a66aee84c3436d466572
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89667474"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329890"
 ---
 # <a name="orchestrate-with-pipelines"></a>Organización con canalizaciones
 
@@ -24,15 +25,15 @@ En este tutorial, aprenderá a organizar canalizaciones y actividades mediante S
 
 Puede organizar una gran variedad de tareas en Azure Synapse.
 
-1. En Synapse Studio, vaya al centro **Orchestrate** (Organización).
+1. En Synapse Studio, vaya al centro **Integrate** (Integración).
 1. Seleccione **+**  > **Canalización** para crear una canalización.
 1. Vaya al centro de conectividad **Develop** (Desarrollo) y seleccione uno de los cuadernos que creó anteriormente.
-1. Arrastre el cuaderno a la canalización.
-1. En la canalización, seleccione **Agregar desencadenador** > **Nuevo/editar**.
-1. En **Choose trigger** (Elegir desencadenador), seleccione **Nuevo** y, después, en el apartado en que se elige la **periodicidad**, configure el desencadenador para que se ejecute cada hora.
-1. Seleccione **Aceptar**.
-1. Seleccione **Publish All** (Publicar todo). La canalización se ejecuta cada hora.
-1. Para que la canalización se ejecute ahora sin esperar a la próxima hora, seleccione **Agregar desencadenador** > **Nuevo/editar**.
+1. Arrastre el cuaderno a la canalización ( **Nota** : Agregue el paso de módulos de importación en el cuaderno tal y como se especifica en este [documento](https://docs.microsoft.com/azure/synapse-analytics/spark/synapse-spark-sql-pool-import-export#transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace), son necesarios durante la ejecución desde la canalización).
+1. En la canalización, seleccione **Agregar desencadenador** > **Nuevo/editar** .
+1. En **Choose trigger** (Elegir desencadenador), seleccione **New** (Nuevo) y establezca el valor de **Recurrence** (Periodicidad) en "cada 1 hora".
+1. Seleccione **Aceptar** . 
+1. Seleccione **Publish All** (Publicar todo).
+1. Para que la canalización se ejecute inmediatamente sin esperar a la próxima hora, seleccione **Add trigger** > **Trigger now** (Agregar desencadenador > Desencadenar ahora).
 
 
 

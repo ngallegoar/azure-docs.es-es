@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514905"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168025"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
 
@@ -73,11 +73,11 @@ Consulte [Protección de Active Directory y DNS con Azure Site Recovery](../site
 Para llevar a cabo este paso, debe preparar el entorno del servidor de archivos local, crear y preparar un almacén de Azure Site Recovery y habilitar la protección de archivos de la máquina virtual.
 
 #### <a name="to-prepare-the-on-premises-file-server-environment"></a>Para preparar el entorno del servidor de archivos local
-1. Establezca el valor de **Control de cuentas de usuario** como **No notificarme nunca**. Esto resulta necesario a fin de que pueda usar scripts de automatización de Azure para conectar los destinos iSCSI tras la conmutación por error de Azure Site Recovery.
+1. Establezca el valor de **Control de cuentas de usuario** como **No notificarme nunca** . Esto resulta necesario a fin de que pueda usar scripts de automatización de Azure para conectar los destinos iSCSI tras la conmutación por error de Azure Site Recovery.
    
-   1. Presione la tecla Windows + Q y busque **UAC**.  
-   1. Seleccione **Cambiar configuración de Control de cuentas de usuario**.  
-   1. Arrastre la barra hacia la parte inferior, hacia **Never Notify**(No notificarme nunca).  
+   1. Presione la tecla Windows + Q y busque **UAC** .  
+   1. Seleccione **Cambiar configuración de Control de cuentas de usuario** .  
+   1. Arrastre la barra hacia la parte inferior, hacia **Never Notify** (No notificarme nunca).  
    1. Haga clic en **Aceptar** y, después, seleccione **Sí** cuando se le solicite.  
    
       ![Configuración de Control de cuentas de usuario](./media/storsimple-disaster-recovery-using-azure-site-recovery/image1.png) 
@@ -91,23 +91,23 @@ Para llevar a cabo este paso, debe preparar el entorno del servidor de archivos 
          > [!NOTE]
          > El nombre del archivo puede cambiar según la versión.
       
-1. Haga clic en **Next**.
-1. Acepte los **Terms of Agreement** (Términos del contrato) y, después, haga clic en **Siguiente**.
+1. Haga clic en **Next** .
+1. Acepte los **Terms of Agreement** (Términos del contrato) y, después, haga clic en **Siguiente** .
 1. Haga clic en **Finalizar**
 1. Cree recursos compartidos de archivos con volúmenes extraídos del almacenamiento de StorSimple. Para obtener más información, consulte [Uso del servicio StorSimple Manager para administrar volúmenes](storsimple-manage-volumes.md).
    
-   1. En las máquinas virtuales locales, presione la tecla Windows + Q y busque **iSCSI**.
-   1. Seleccione **iniciador iSCSI**.
+   1. En las máquinas virtuales locales, presione la tecla Windows + Q y busque **iSCSI** .
+   1. Seleccione **iniciador iSCSI** .
    1. Seleccione la pestaña **Configuración** y copie el nombre del iniciador.
    1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
    1. Seleccione la pestaña **StorSimple** y, después, seleccione el servicio StorSimple Manager que contiene el dispositivo físico.
    1. Cree contenedores de volumen y, luego, volúmenes. (Estos volúmenes son para los recursos compartidos de archivos de las máquinas virtuales de servidor de archivos). Copie el nombre del iniciador y asigne un nombre adecuado a los registros de control de acceso al crear los volúmenes.
    1. Seleccione la pestaña **Configurar** y apunte la dirección IP del dispositivo.
    1. En las máquinas virtuales locales, vaya a la opción **iniciador iSCSI** de nuevo y escriba la dirección IP en la sección Conexión rápida. Haga clic en **Conexión rápida** (ahora debe aparecer conectado el dispositivo).
-   1. Abra Azure Portal y seleccione la pestaña **Volúmenes y dispositivos** . Haga clic en **Autoconfigurar**. Debería aparecer el volumen que ha creado.
+   1. Abra Azure Portal y seleccione la pestaña **Volúmenes y dispositivos** . Haga clic en **Autoconfigurar** . Debería aparecer el volumen que ha creado.
    1. En el portal, seleccione la pestaña **Dispositivos** y, después, seleccione **Create a New Virtual Device** (Crear un nuevo dispositivo virtual). (Este dispositivo virtual se utilizará si se produce una conmutación por error). Este nuevo dispositivo virtual puede mantenerse en un estado sin conexión para evitar costos adicionales. Para desconectar el dispositivo virtual, vaya a la sección **Máquinas virtuales** en el Portal y apáguelo.
-   1. Vuelva a las máquinas virtuales locales y abra Administración de discos (presione la tecla Windows + X y seleccione **Administración de discos**).
-   1. Observará algunos discos adicionales (en función del número de volúmenes que haya creado). Haga clic con el botón derecho en el primero, seleccione **Inicializar disco** y, luego, **Aceptar**. Haga clic con el botón derecho en la sección **No asignado**, seleccione **Nuevo volumen simple**, asígnele una letra de unidad y finalice el asistente.
+   1. Vuelva a las máquinas virtuales locales y abra Administración de discos (presione la tecla Windows + X y seleccione **Administración de discos** ).
+   1. Observará algunos discos adicionales (en función del número de volúmenes que haya creado). Haga clic con el botón derecho en el primero, seleccione **Inicializar disco** y, luego, **Aceptar** . Haga clic con el botón derecho en la sección **No asignado** , seleccione **Nuevo volumen simple** , asígnele una letra de unidad y finalice el asistente.
    1. Repita el paso l para todos los discos. Ahora podrá ver todos los discos en **Este equipo** en el Explorador de Windows.
    1. Utilice el rol Servicios de archivos y almacenamiento para crear recursos compartidos de archivos en estos volúmenes.
 
@@ -117,16 +117,16 @@ Consulte la [documentación de Azure Site Recovery](../site-recovery/site-recove
 #### <a name="to-enable-protection"></a>Para habilitar la protección
 1. Desconecte los destinos iSCSI de las máquinas virtuales locales que desea proteger a través de Azure Site Recovery:
    
-   1. Presione la tecla Windows + Q y busque **iSCSI**.
-   1. Seleccione **Configurar iniciador iSCSI**.
+   1. Presione la tecla Windows + Q y busque **iSCSI** .
+   1. Seleccione **Configurar iniciador iSCSI** .
    1. Desconecte el dispositivo StorSimple que ha conectado anteriormente. También puede desactivar el servidor de archivos durante unos minutos mientras habilita la protección.
       
    > [!NOTE]
    > Esto provocará que los recursos compartidos de archivos no estén disponibles temporalmente.
    
 1. [Habilite la protección de la máquina virtual](../site-recovery/site-recovery-hyper-v-site-to-azure.md) de la máquina virtual de servidor de archivos desde el portal de Azure Site Recovery.
-1. Cuando comience la sincronización inicial, podrá volver a conectar el destino. Vaya al iniciador iSCSI, seleccione el dispositivo StorSimple y haga clic en **Conectar**.
-1. Cuando la sincronización se haya completado y el estado de la máquina virtual sea **Protegido**, seleccione la máquina virtual, seleccione la pestaña **Configurar** y actualice la red de la máquina virtual del mismo modo (esta es la red de la que formarán parte las máquinas virtuales conmutadas por error). Si la red no aparece, significa que la sincronización todavía está en curso.
+1. Cuando comience la sincronización inicial, podrá volver a conectar el destino. Vaya al iniciador iSCSI, seleccione el dispositivo StorSimple y haga clic en **Conectar** .
+1. Cuando la sincronización se haya completado y el estado de la máquina virtual sea **Protegido** , seleccione la máquina virtual, seleccione la pestaña **Configurar** y actualice la red de la máquina virtual del mismo modo (esta es la red de la que formarán parte las máquinas virtuales conmutadas por error). Si la red no aparece, significa que la sincronización todavía está en curso.
 
 ### <a name="enable-protection-of-storsimple-volumes"></a>Habilitación de la protección de volúmenes de StorSimple
 Si no ha seleccionado la opción **Habilitar una copia de seguridad predeterminada para este volumen** para los volúmenes de StorSimple, vaya a **Directivas de copia de seguridad** en el servicio StorSimple Manager y cree una directiva de copia de seguridad adecuada para todos los volúmenes. Se recomienda que establezca la frecuencia de las copias de seguridad en el objetivo de punto de recuperación (RPO) que le gustaría ver para la aplicación.
@@ -142,8 +142,8 @@ Puede seleccionar la VM en la pestaña **Elementos replicados** para configurar 
 Puede crear un plan de recuperación en ASR para automatizar el proceso de conmutación por error de los recursos compartidos de archivos. Si se produce una interrupción, puede poner los recursos compartidos de archivos en funcionamiento en minutos con un solo clic. Para habilitar esta automatización, necesitará una cuenta de Automatización de Azure.
 
 #### <a name="to-create-an-automation-account"></a>Para crear una cuenta de Automation
-1. Vaya a Azure Portal, sección &gt; **Automation**.
-1. Haga clic en el botón **+Agregar**, se abre la hoja siguiente.
+1. Vaya a Azure Portal, sección &gt; **Automation** .
+1. Haga clic en el botón **+Agregar** , se abre la hoja siguiente.
    
    ![Agregar cuenta de Automation](./media/storsimple-disaster-recovery-using-azure-site-recovery/image11.png)
    
@@ -151,7 +151,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    - Suscripción: elija la suscripción.
    - Grupo de recursos: seleccione un grupo de recursos existente o cree uno nuevo.
    - Ubicación: seleccione la ubicación y manténgala en la misma geoárea o región en la que se crearon las cuentas de almacenamiento y StorSimple Cloud Appliance.
-   - Crear cuenta de ejecución de Azure: seleccione la opción **Sí**.
+   - Crear cuenta de ejecución de Azure: seleccione la opción **Sí** .
    
 1. Vaya a la cuenta de Automation y haga clic en **Runbooks** &gt; **Examinar galería** para importar todos los runbooks necesarios en la cuenta de automatización.
 1. Agregue los siguientes runbooks buscando la etiqueta **Recuperación ante desastres** de la galería:
@@ -170,19 +170,19 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    
 1. En la cuenta de automatización, haga clic en **Variables** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación que creará en el paso siguiente se denomina TestPlan, las variables deben ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName y así sucesivamente.
 
-   - **BaseUrl**: Dirección URL de Resource Manager para la nube de Azure. Se obtiene mediante el cmdlet **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl**.
-   - _RecoveryPlanName_ **-ResourceGroupName**: El grupo de Resource Manager que tiene el recurso de StorSimple.
-   - _RecoveryPlanName_ **-ManagerName**: El recurso de StorSimple que tiene el dispositivo StorSimple.
-   - _RecoveryPlanName_ **-DeviceName**: El dispositivo StorSimple que debe conmutarse por error.
-   - _RecoveryPlanName_ **-DeviceIpAddress**: La dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS**).
-   - _RecoveryPlanName_ **-VolumeContainers**: Una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo: volcon1, volcon2, volcon3.
-   - _RecoveryPlanName_ **-TargetDeviceName**: Dispositivo de nube StorSimple en el que se deben conmutar por error los contenedores.
-   - _RecoveryPlanName_ **-TargetDeviceIpAddress**: La dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt;**Configuración** pestaña &gt;**Red**).
-   - _RecoveryPlanName_ **-StorageAccountName**: El nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la VM conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
-   - _RecoveryPlanName_ **-StorageAccountKey**: La clave de acceso para la cuenta de almacenamiento anterior.
-   - _RecoveryPlanName_ **-VMGUIDS**: Al proteger una VM, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la VM conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido** &gt; **Grupos de protección** &gt; **Máquinas** &gt; **Propiedades**. Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
+   - **BaseUrl** : Dirección URL de Resource Manager para la nube de Azure. Se obtiene mediante el cmdlet **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** .
+   - _RecoveryPlanName_ **-ResourceGroupName** : El grupo de Resource Manager que tiene el recurso de StorSimple.
+   - _RecoveryPlanName_ **-ManagerName** : El recurso de StorSimple que tiene el dispositivo StorSimple.
+   - _RecoveryPlanName_ **-DeviceName** : El dispositivo StorSimple que debe conmutarse por error.
+   - _RecoveryPlanName_ **-DeviceIpAddress** : La dirección IP del dispositivo (se puede encontrar en la pestaña **Dispositivos** de la sección Administrador de dispositivos de StorSimple &gt; **Configuración** &gt; **Red** &gt; **Configuración DNS** ).
+   - _RecoveryPlanName_ **-VolumeContainers** : Una cadena separada por comas de contenedores de volúmenes presentes en el dispositivo que deben conmutarse por error; por ejemplo: volcon1, volcon2, volcon3.
+   - _RecoveryPlanName_ **-TargetDeviceName** : Dispositivo de nube StorSimple en el que se deben conmutar por error los contenedores.
+   - _RecoveryPlanName_ **-TargetDeviceIpAddress** : La dirección IP del dispositivo de destino (se puede encontrar en la sección **Máquina virtual** grupo &gt;**Configuración** pestaña &gt;**Red** ).
+   - _RecoveryPlanName_ **-StorageAccountName** : El nombre de la cuenta de almacenamiento en la que se almacenará el script (que debe ejecutarse en la VM conmutada por error). Puede tratarse de cualquier cuenta de almacenamiento que tenga suficiente espacio como para almacenar temporalmente el script.
+   - _RecoveryPlanName_ **-StorageAccountKey** : La clave de acceso para la cuenta de almacenamiento anterior.
+   - _RecoveryPlanName_ **-VMGUIDS** : Al proteger una VM, Azure Site Recovery asigna a cada VM un identificador único que ofrece los detalles de la VM conmutada por error. Para obtener el VMGUID, seleccione la pestaña **Recovery Services** y haga clic en **Elemento protegido** &gt; **Grupos de protección** &gt; **Máquinas** &gt; **Propiedades** . Si tiene varias máquinas virtuales, después, agregue los GUID como una cadena separada por comas.
 
-     Por ejemplo, si el nombre del plan de recuperación es fileServerpredayRP, las pestañas **Variables**, **Conexiones** y **Certificados** deberían aparecer de la siguiente forma después de agregar todos los recursos.
+     Por ejemplo, si el nombre del plan de recuperación es fileServerpredayRP, las pestañas **Variables** , **Conexiones** y **Certificados** deberían aparecer de la siguiente forma después de agregar todos los recursos.
 
       ![Recursos](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
@@ -230,7 +230,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
             compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
       ```
          
-   1. Importe el archivo zip del módulo de Azure Automation (Microsoft.Azure.Management.StorSimple8000Series.zip) que creó en el paso anterior. Para ello, seleccione la cuenta de Automation, haga clic en **Módulos** en RECURSOS COMPARTIDOS y, a continuación, haga clic en **Agregar un módulo**.
+   1. Importe el archivo zip del módulo de Azure Automation (Microsoft.Azure.Management.StorSimple8000Series.zip) que creó en el paso anterior. Para ello, seleccione la cuenta de Automation, haga clic en **Módulos** en RECURSOS COMPARTIDOS y, a continuación, haga clic en **Agregar un módulo** .
    
    Después de importar el módulo de StorSimple serie 8000, debería aparecer la pestaña **Módulos** como se indica a continuación:
    
@@ -245,15 +245,15 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
       
    - Escriba un nombre de plan de recuperación, elija valores del modelo de origen, destino e implementación.
    
-   - Seleccione las VM del grupo de protección que desea incluir en el plan de recuperación y haga clic en el botón **Aceptar**.
+   - Seleccione las VM del grupo de protección que desea incluir en el plan de recuperación y haga clic en el botón **Aceptar** .
    
    - Seleccione el plan de recuperación que creó anteriormente y haga clic en el botón **Personalizar** para abrir la vista de personalización del plan de recuperación.
    
-   - Haga clic con el botón derecho en **Cierre de todos los grupos** y haga clic en **Agregar acción anterior**.
+   - Haga clic con el botón derecho en **Cierre de todos los grupos** y haga clic en **Agregar acción anterior** .
    
-   - Se abre la hoja Insertar acción, escriba un nombre, seleccione la opción **Lado principal** en donde ejecutar la opción, seleccione Cuenta de Automation (en la que se agregan los runbooks) y, a continuación, seleccione el runbook **Failover-StorSimple-Volume-Containers**.
+   - Se abre la hoja Insertar acción, escriba un nombre, seleccione la opción **Lado principal** en donde ejecutar la opción, seleccione Cuenta de Automation (en la que se agregan los runbooks) y, a continuación, seleccione el runbook **Failover-StorSimple-Volume-Containers** .
    
-   - Haga clic con el botón derecho en **Grupo 1: Iniciar** y haga clic en la opción **Agregar elementos protegidos**. Luego seleccione las VM que deban protegerse en el plan de recuperación y haga clic en el botón **Aceptar**. Opcional, si ya hay VM seleccionadas.
+   - Haga clic con el botón derecho en **Grupo 1: Iniciar** y haga clic en la opción **Agregar elementos protegidos** . Luego seleccione las VM que deban protegerse en el plan de recuperación y haga clic en el botón **Aceptar** . Opcional, si ya hay VM seleccionadas.
    
    - Haga clic con el botón derecho en **Grupo 1: Iniciar** y haga clic en **Acción posterior** y, luego, agregue todos los scripts siguientes:  
       
@@ -262,7 +262,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
       - Runbook Mount-volumes-after-failover  
       - Runbook Uninstall-custom-script-extension  
         
-   - Agregue una acción manual después de los 4 scripts anteriores en la misma sección **Grupo 1: Pasos posteriores**. Esta acción es el punto en el que puede comprobar que todo funciona correctamente. Debe agregarse solo como parte de la conmutación por error de prueba (por tanto, seleccione solo la casilla **Probar conmutación por error**).
+   - Agregue una acción manual después de los 4 scripts anteriores en la misma sección **Grupo 1: Pasos posteriores** . Esta acción es el punto en el que puede comprobar que todo funciona correctamente. Debe agregarse solo como parte de la conmutación por error de prueba (por tanto, seleccione solo la casilla **Probar conmutación por error** ).
     
    - Después de la acción manual, agregue el script de **limpieza** con el mismo procedimiento que usó para los otros runbooks. **Guarde** el plan de recuperación.
     
@@ -277,14 +277,14 @@ Consulte la guía complementaria [Protección de Active Directory y DNS con Azur
 #### <a name="to-perform-the-test-failover"></a>Para realizar la conmutación por error de prueba
 1. En Azure Portal, seleccione su almacén de Site Recovery.
 1. Haga clic en el plan de recuperación creado para la máquina virtual de servidor de archivos.
-1. Haga clic en **Probar conmutación por error**.
+1. Haga clic en **Probar conmutación por error** .
 1. Seleccione la instancia de Azure Virtual Network a la que se conectarán las máquinas virtuales de Azure después de la conmutación por error.
    
    ![Iniciar la conmutación por error](./media/storsimple-disaster-recovery-using-azure-site-recovery/image8.png)
    
-1. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede realizar un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo **Probar conmutación por error** en nombre de almacén &gt; **Trabajos** &gt; **Trabajos de Site Recovery**.
-1. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure Portal &gt; **Virtual Machines**. Puede realizar sus validaciones.
-1. Una vez completadas las validaciones, haga clic en **Validaciones completas**. Esto eliminará los volúmenes de StorSimple y cerrará StorSimple Cloud Appliance.
+1. Haga clic en **Aceptar** para iniciar la conmutación por error. Puede realizar un seguimiento del progreso haciendo clic en la máquina virtual para abrir sus propiedades o en el trabajo **Probar conmutación por error** en nombre de almacén &gt; **Trabajos** &gt; **Trabajos de Site Recovery** .
+1. Cuando se complete la conmutación por error, debería ver la máquina de réplica de Azure Portal &gt; **Virtual Machines** . Puede realizar sus validaciones.
+1. Una vez completadas las validaciones, haga clic en **Validaciones completas** . Esto eliminará los volúmenes de StorSimple y cerrará StorSimple Cloud Appliance.
 1. Una vez que haya terminado, haga clic en **Cleanup test failover** (Limpieza de conmutación por error de prueba) en el plan de recuperación. En Notas, anote y guarde todas las observaciones asociadas con la conmutación por error de prueba. Así se eliminará la máquina virtual que se creó durante la conmutación por error de prueba.
 
 ## <a name="perform-a-planned-failover"></a>Realización de una conmutación por error planeada
@@ -292,10 +292,10 @@ Consulte la guía complementaria [Protección de Active Directory y DNS con Azur
 
 #### <a name="to-perform-a-planned-failover"></a>Para realizar una conmutación por error planeada
 1. En Azure Portal, seleccione el almacén **Recovery Services** &gt; **Planes de recuperación (Site Recovery)** &gt; **recoveryplan_name** creado para la máquina virtual del servidor de archivos.
-1. En la hoja Plan de recuperación, haga clic en **Más** &gt; **Conmutación por error planeada**.
+1. En la hoja Plan de recuperación, haga clic en **Más** &gt; **Conmutación por error planeada** .
 
-   ![Plan de recuperación](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
-1. En la hoja **Confirmar conmutación por error planeada**, elija las ubicaciones de origen y de destino, seleccione la red de destino y haga clic en el icono de marca de verificación ✓ para iniciar el proceso de conmutación por error.
+   ![Captura de pantalla que resalta las opciones Conmutación por error planeada y Conmutación por error.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+1. En la hoja **Confirmar conmutación por error planeada** , elija las ubicaciones de origen y de destino, seleccione la red de destino y haga clic en el icono de marca de verificación ✓ para iniciar el proceso de conmutación por error.
 1. Una vez creadas las máquinas virtuales de réplica, pasan a estar en estado pendiente de confirmación. Haga clic en **Confirmar** para confirmar la conmutación por error.
 1. Cuando se ha completado la replicación, las máquinas virtuales se inician en la ubicación secundaria.
 
@@ -304,8 +304,8 @@ Durante una conmutación por error no planeada, los volúmenes de StorSimple se 
 
 #### <a name="to-perform-a-failover"></a>Para realizar una conmutación por error
 1. En Azure Portal, seleccione el almacén **Recovery Services** &gt; **Planes de recuperación (Site Recovery)** &gt; **recoveryplan_name** creado para la máquina virtual del servidor de archivos.
-1. En la hoja Plan de recuperación, haga clic en **Más** &gt; **Conmutación por error**.
-1. En la hoja **Confirmar conmutación por error**, elija las ubicaciones de origen y de destino.
+1. En la hoja Plan de recuperación, haga clic en **Más** &gt; **Conmutación por error** .
+1. En la hoja **Confirmar conmutación por error** , elija las ubicaciones de origen y de destino.
 1. Seleccione **Apagar máquinas virtuales y sincronizar los últimos datos** para especificar que Site Recovery debe intentar apagar la máquina virtual protegida y sincronizar los datos para que se realice la conmutación por error de la versión más reciente de los datos.
 1. Después de la conmutación por error, las máquinas virtuales se encontrarán en un estado de confirmación pendiente. Haga clic en **Confirmar** para confirmar la conmutación por error.
 
@@ -315,7 +315,7 @@ Durante una conmutación por recuperación, los contenedores de volúmenes de St
 
 #### <a name="to-perform-a-failback"></a>Para realizar una conmutación por recuperación
 1. En Azure Portal, seleccione el almacén **Recovery Services**&gt;**Planes de recuperación (Site Recovery)** &gt;**recoveryplan_name** creado para la VM del servidor de archivos.
-1. En la hoja Plan de recuperación, haga clic en **Más** &gt; **Conmutación por error planeada**.
+1. En la hoja Plan de recuperación, haga clic en **Más** &gt; **Conmutación por error planeada** .
 1. Elija las ubicaciones de origen y destino y seleccione la sincronización de datos adecuada y las opciones de creación de VM.
 1. Haga clic en el botón **Aceptar** para iniciar el proceso de conmutación por recuperación.
    

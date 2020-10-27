@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471863"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123534"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Preguntas más frecuentes (P+F) sobre Azure Network Watcher
 El servicio [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) proporciona un conjunto de herramientas para supervisar, diagnosticar, ver las métricas y habilitar o deshabilitar registros de recursos en una red virtual de Azure. En este artículo se responde a preguntas habituales sobre el servicio.
@@ -81,6 +81,14 @@ Network Watcher solo debe habilitarse una vez para que funcionen las caracterís
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>¿Cómo puedo administrar el recurso de Network Watcher? 
 El recurso de Network Watcher representa el servicio back-end para Network Watcher y está totalmente administrado por Azure. Los clientes no tienen que administrarlo. No se admiten operaciones como Move en el recurso. Sin embargo, [se puede eliminar el recurso](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
 
+## <a name="service-availability-and-redundancy"></a>Disponibilidad y redundancia del servicio 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>¿Es resistente a las zonas el servicio Network Watcher? 
+Sí. El servicio Network Watcher es resistente a las zonas de manera predeterminada. 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>¿Cómo se configura el servicio Network Watcher para que sea resistente a las zonas? 
+No es necesaria ninguna configuración de parte del cliente para habilitar la resistencia de zonas. La resistencia de zonas para los recursos de Network Watcher está disponible de manera predeterminada y la administra el propio servicio. 
+
 ## <a name="nsg-flow-logs"></a>Registro de flujo de NSG
 
 ### <a name="what-does-nsg-flow-logs-do"></a>¿Qué hace Registro de flujo de NSG?
@@ -91,8 +99,8 @@ Los recursos de red de Azure se pueden combinar y administrar mediante [grupos d
 Para usar una cuenta de Storage con un firewall, debe especificar una excepción para que los Servicios de Microsoft de confianza accedan a la cuenta de almacenamiento:
 
 * Para ir a la cuenta de almacenamiento, escriba el nombre de la misma en la búsqueda global del portal o en la [página de cuentas de almacenamiento](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-* En la sección **CONFIGURACIÓN**, seleccione **Firewalls y redes virtuales**.
-* En "Permitir el acceso desde", seleccione **Redes seleccionadas**. Después, en **Excepciones**, active la casilla situada junto a **"Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento"** 
+* En la sección **CONFIGURACIÓN** , seleccione **Firewalls y redes virtuales** .
+* En "Permitir el acceso desde", seleccione **Redes seleccionadas** . Después, en **Excepciones** , active la casilla situada junto a **"Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento"** 
 * Si ya está seleccionada, no hay que hacer ningún cambio.  
 * Busque el grupo de seguridad de red de destino en la [página de introducción a los registros de flujo de NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) y habilite los registros de flujo de NSG con la cuenta de almacenamiento anterior seleccionada.
 

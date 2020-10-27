@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91619044"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330111"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Uso de la restauración geográfica para recuperar una aplicación SaaS multiinquilino a partir de copias de seguridad de base de datos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -184,7 +184,7 @@ Suponga que hay una interrupción en la región en la que la aplicación se impl
 
 3. Supervise el estado del proceso de recuperación en la ventana de PowerShell.
 
-    ![Proceso de recuperación](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+    ![Captura de pantalla que muestra la ventana de PowerShell en la que puede supervisar el estado del proceso de recuperación.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > Para explorar el código para los trabajos de recuperación, revise los scripts de PowerShell en la carpeta ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\RecoveryJobs.
@@ -202,7 +202,7 @@ Mientras que el punto de conexión de la aplicación esté deshabilitado en Traf
 
   * Si abre directamente la página de eventos de un inquilino mientras el inquilino está sin conexión, la página muestra una notificación "inquilino sin conexión". Por ejemplo, si Contoso Concert Hall está desconectado, intente abrir http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/contosoconcerthall.
 
-    ![Proceso de recuperación](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+    ![Captura de pantalla que muestra una página de eventos sin conexión.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Aprovisionamiento de un nuevo inquilino en la región de recuperación
 Incluso antes de que se restauren las bases de datos de inquilino, puede aprovisionar nuevos inquilinos en la región de recuperación. Más adelante, las nuevas bases de datos de inquilinos de la región de recuperación se repatrian con las bases de datos recuperadas.   

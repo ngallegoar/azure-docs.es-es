@@ -1,20 +1,17 @@
 ---
-title: 'Script de PowerShell: Enumerar las invitaciones de Azure Data Share enviadas a un consumidor | Microsoft Docs'
+title: 'Script de PowerShell: Enumeración de las invitaciones de Azure Data Share enviadas a un consumidor'
 description: Obtenga información sobre cómo este script de PowerShell envía invitaciones a un consumidor y vea un ejemplo del script que puede usar.
-services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 3f0374ba5b98c145359d18143584e23fc543c552
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f75894094fa2a15dbc9e2809ed6c3631df96c3f
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985620"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221220"
 ---
 # <a name="use-powershell-to-get-a-data-share-invitation"></a>Uso de PowerShell para obtener una invitación de un recurso compartido de datos
 
@@ -40,11 +37,11 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation?view=azps-2.6.0) | Obtiene y enumera las invitaciones de recurso compartido de datos enviadas. |
+| [Get-AzDataShareInvitation](/powershell/module/az.datashare/get-azdatashareinvitation) | Obtiene y enumera las invitaciones de recurso compartido de datos enviadas. |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/).
 
 Encontrará más ejemplos de scripts de PowerShell para Azure Data Share en el artículo [Ejemplos de PowerShell para Azure Data Share](../../samples-powershell.md).

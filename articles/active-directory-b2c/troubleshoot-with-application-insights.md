@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993160"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132064"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recopilación de registros de Azure Active Directory B2C con Application Insights
 
@@ -26,7 +26,7 @@ En este artículo se proporcionan los pasos para recopilar registros de Active D
 Los registros de actividad detallados aquí **SOLO** deben estar habilitados durante el desarrollo de las directivas personalizadas.
 
 > [!WARNING]
-> No habilite el modo de desarrollo en producción. Los registros recopilan todas las notificaciones que se envían a los proveedores de identidad y se reciben de estos. Usted, como desarrollador, asume la responsabilidad de los datos personales recopilados en los registros de Application Insights. Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLADOR**.
+> No establezca `DeploymentMode` en `Developer` en entornos de producción. Los registros recopilan todas las notificaciones que se envían a los proveedores de identidad y se reciben de estos. Usted, como desarrollador, asume la responsabilidad de los datos personales recopilados en los registros de Application Insights. Estos registros detallados solo se recopilan cuando la directiva se coloca en **MODO DE DESARROLLADOR** .
 
 ## <a name="set-up-application-insights"></a>Configuración de Application Insights
 
@@ -35,15 +35,15 @@ Si aún no tiene una, cree una instancia de Application Insights en su suscripci
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el filtro **Directorio y suscripción** en el menú superior y, luego, elija el directorio que contiene la suscripción de Azure (no el directorio de Azure AD B2C).
 1. Seleccione **Crear un recurso** en el panel de navegación izquierdo.
-1. Busque y seleccione **Application Insights** y, luego, seleccione **Crear**.
-1. Complete el formulario, seleccione **Revisar y crear** y seleccione **Crear**.
-1. Cuando la implementación se haya completado, seleccione **Ir al recurso**.
-1. En **Configurar**, en el menú de Application Insights, seleccione **Propiedades**.
+1. Busque y seleccione **Application Insights** y, luego, seleccione **Crear** .
+1. Complete el formulario, seleccione **Revisar y crear** y seleccione **Crear** .
+1. Cuando la implementación se haya completado, seleccione **Ir al recurso** .
+1. En **Configurar** , en el menú de Application Insights, seleccione **Propiedades** .
 1. Registre la **CLAVE DE INSTRUMENTACIÓN** para su uso en un paso posterior.
 
 ## <a name="configure-the-custom-policy"></a>Configuración de la directiva personalizada
 
-1. Abra el archivo de usuario de confianza (RP), por ejemplo *SignUpOrSignin.xml*.
+1. Abra el archivo de usuario de confianza (RP), por ejemplo *SignUpOrSignin.xml* .
 1. Agregue los siguientes atributos al elemento `<TrustFrameworkPolicy>`:
 
    ```xml
@@ -58,7 +58,7 @@ Si aún no tiene una, cree una instancia de Application Insights en su suscripci
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"` indica a Application Insights que acelere la telemetría a través de la canalización de procesamiento. Es bueno para el desarrollo, pero está restringido en volúmenes elevados.
+    * `DeveloperMode="true"` indica a Application Insights que acelere la telemetría a través de la canalización de procesamiento. Es bueno para el desarrollo, pero está restringido en volúmenes elevados. En producción, establezca `DeveloperMode` en `false`.
     * `ClientEnabled="true"` envía el script del lado cliente de ApplicationInsights para realizar un seguimiento de la vista de página y de los errores del lado cliente. Puede verlos en la tabla **browserTimings** en el portal de Application Insights. Mediante el establecimiento de `ClientEnabled= "true"`, agrega Application Insights al script de la página y obtiene los intervalos de carga de página y de las llamadas AJAX, los recuentos, los detalles de las excepciones del explorador y los errores de AJAX, así como los recuentos de usuarios y sesiones. Este campo es **opcional** y está establecido en `false` de forma predeterminada.
     * `ServerEnabled="true"` envía el JSON UserJourneyRecorder como evento personalizado a Application Insights.
 
@@ -89,7 +89,7 @@ Si aún no tiene una, cree una instancia de Application Insights en su suscripci
 Hay un breve retraso, normalmente inferior a cinco minutos, antes de que pueda ver nuevos registros en Application Insights.
 
 1. Abra el recurso de Application Insights que ha creado en [Azure Portal](https://portal.azure.com).
-1. En la página **Información general**, seleccione **Registros**.
+1. En la página **Información general** , seleccione **Registros** .
 1. Abra una nueva pestaña en Application Insights.
 
 A continuación se muestra una lista de consultas que puede usar para ver los registros:
@@ -102,6 +102,31 @@ A continuación se muestra una lista de consultas que puede usar para ver los re
 Las entradas pueden ser largas. Exporte a un archivo CSV para realizar un examen más detallado.
 
 Para más información sobre las consultas, vea [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="configure-application-insights-in-production"></a>Configuración de Application Insights en producción
+
+Para mejorar el rendimiento del entorno de producción y mejorar la experiencia del usuario, es importante configurar la directiva para omitir los mensajes que no son importantes. Use la siguiente configuración para enviar solo los mensajes de error críticos a su instancia de Application Insights. 
+
+1. Establezca el atributo `DeploymentMode` de [TrustFrameworkPolicy](trustframeworkpolicy.md) en `Production`. 
+
+   ```xml
+   <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+   TenantId="yourtenant.onmicrosoft.com"
+   PolicyId="B2C_1A_signup_signin"
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin"
+   DeploymentMode="Production"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights">
+   ```
+
+1. Establezca `DeveloperMode` de [JourneyInsights](relyingparty.md#journeyinsights) en `false`.
+
+   ```xml
+   <UserJourneyBehaviors>
+     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   </UserJourneyBehaviors>
+   ```
+   
+1. Cargue y pruebe la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

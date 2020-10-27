@@ -3,17 +3,17 @@ title: Diagnóstico y solución de problemas de disponibilidad de los SDK de Azu
 description: Obtenga información sobre el comportamiento de la disponibilidad del SDK de Azure Cosmos cuando se trabaja en entornos de varias regiones.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743971"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319376"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnóstico y solución de problemas de disponibilidad de los SDK de Azure Cosmos en entornos de varias regiones
 
@@ -34,7 +34,7 @@ Cuando establezca las preferencias regionales, el cliente se conectará a una re
 | Una región de escritura | Región preferida | Región primaria  |
 | Varias regiones de escritura | Región preferida | Región preferida  |
 
-Si no establece una región preferida:
+Si **no establece una región preferida** , el cliente SDK utilizará la región primaria como el valor predeterminado:
 
 |Tipo de cuenta |Lecturas |Escrituras |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ Si no establece una región preferida:
 > [!NOTE]
 > La región primaria hace referencia a la primera región de la [lista de regiones de la cuenta de Azure Cosmos](distribute-data-globally.md).
 
-Cuando se produce cualquiera de los siguientes escenarios, el cliente que usa el SDK de Azure Cosmos expone los registros e incluye la información de reintentos como parte de la **información de diagnóstico de la operación**:
+En circunstancias normales, el cliente SDK se conectará a la región preferida (si se ha establecido una preferencia regional) o a la región primaria (si no se ha establecido una preferencia); y las operaciones se limitarán a esa región, a menos que se produzca alguno de estos escenarios.
+
+En estos casos, el cliente que usa el SDK de Azure Cosmos expone los registros e incluye la información de reintentos como parte de la **información de diagnóstico de operaciones** :
 
 * La propiedad *RequestDiagnosticsString* en las respuestas del SDK de .NET v2.
 * La propiedad *Diagnostics* en las respuestas y excepciones en el SDK de .NET v3.
@@ -66,7 +68,7 @@ Cuando se quita una región y más adelante se vuelve a agregar a la cuenta, si 
 
 Si configura el cliente para que se conecte preferiblemente a una región que no tiene la cuenta de Azure Cosmos, se omitirá la región preferida. Si agrega esa región más adelante, el cliente la detectará y cambiará de forma permanente a esa región.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Conmutación por error de la región de escritura en una cuenta de una sola región de escritura
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Conmutación por error de la región de escritura en una cuenta con una sola región de escritura
 
 Si inicia una conmutación por error de la región de escritura actual, la siguiente solicitud de escritura producirá un error con una respuesta de back-end conocida. Cuando se detecta esta respuesta, el cliente consultará la cuenta para obtener información sobre la nueva región de escritura y volverá a intentar la operación actual y enrutará permanentemente todas las operaciones de escritura futuras a la nueva región.
 
@@ -76,7 +78,7 @@ Si la cuenta es de una sola región de escritura y la interrupción regional se 
 
 ## <a name="session-consistency-guarantees"></a>Garantías de coherencia de la sesión
 
-Al utilizar la [coherencia de la sesión](consistency-levels.md#guarantees-associated-with-consistency-levels), el cliente debe garantizar que puede leer sus propias escrituras. En las cuentas de una sola región de escritura en las que la preferencia de región de lectura es diferente de la región de escritura, podría haber casos en los que el usuario emita una escritura y al realizar una lectura desde una región local, esta no haya recibido todavía la replicación de datos (restricción de velocidad de la luz). En tales casos, el SDK detecta el error específico en la operación de lectura y reintenta la lectura en la región del centro para garantizar la coherencia de la sesión.
+Al utilizar la [coherencia de la sesión](consistency-levels.md#guarantees-associated-with-consistency-levels), el cliente debe garantizar que puede leer sus propias escrituras. En las cuentas de una sola región de escritura en las que la preferencia de región de lectura es diferente de la región de escritura, podría haber casos en los que el usuario emita una escritura y al realizar una lectura desde una región local, esta no haya recibido todavía la replicación de datos (restricción de velocidad de la luz). En tales casos, el SDK detecta el error específico en la operación de lectura y reintenta la lectura en la región primaria para garantizar la coherencia de la sesión.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problemas de conectividad transitorios en el protocolo TCP
 

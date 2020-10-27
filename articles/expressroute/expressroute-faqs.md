@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077361"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202215"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -80,12 +80,12 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 
 ### <a name="microsoft-peering"></a>Emparejamiento de Microsoft
 
-Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft de Azure, puede acceder a los [intervalos de direcciones IP públicas que se usan en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) a través del circuito. El emparejamiento de Microsoft de Azure proporcionará acceso a los servicios hospedados actualmente en Azure (con restricciones geográficas en función de la SKU del circuito). Para validar la disponibilidad de un servicio específico, puede consultar la documentación de ese servicio a fin de comprobar si hay un intervalo reservado publicado para ese servicio. Después, busque los intervalos IP del servicio de destino y compárelos con los intervalos que se enumeran en [Etiquetas de servicio e intervalos IP de Azure: archivo XML de la nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, puede abrir una incidencia de soporte técnico para el servicio a fin de aclararlo.
+Si el circuito ExpressRoute está habilitado para el emparejamiento de Microsoft de Azure, puede acceder a los [intervalos de direcciones IP públicas que se usan en Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) a través del circuito. El emparejamiento de Microsoft de Azure proporcionará acceso a los servicios hospedados actualmente en Azure (con restricciones geográficas en función de la SKU del circuito). Para validar la disponibilidad de un servicio específico, puede consultar la documentación de ese servicio a fin de comprobar si hay un intervalo reservado publicado para ese servicio. Después, busque los intervalos IP del servicio de destino y compárelos con los intervalos que se enumeran en [Etiquetas de servicio e intervalos IP de Azure: archivo XML de la nube pública](https://www.microsoft.com/download/details.aspx?id=56519). Como alternativa, puede abrir una incidencia de soporte técnico para el servicio a fin de aclararlo.
 
 **Se admite:**
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* Power BI: disponible a través de una comunidad regional de Azure, consulte [aquí](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) información sobre la región de su inquilino de Power BI.
+* Power BI: disponible a través de una comunidad regional de Azure, consulte [aquí](/power-bi/service-admin-where-is-my-tenant-located) información sobre la región de su inquilino de Power BI.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidad de Servicios globales de Azure)
 * Direcciones IP públicas de Azure para IaaS (máquinas virtuales, puertas de enlace de red virtual, equilibradores de carga, etc.)  
@@ -118,7 +118,7 @@ Si ve el mensaje "Se necesita validación", recopile los documentos que muestren
 Los entornos de Dynamics 365 y Common Data Service (CDS) se hospedan en Azure y, por tanto, los clientes se benefician de la compatibilidad de ExpressRoute subyacente con los recursos de Azure. Puede conectarse a sus puntos de conexión de servicio si el filtro del enrutador incluye las regiones de Azure en las que se hospedan los entornos de Dynamics 365 o CDS.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) **no** es necesario para la conectividad con Dynamics 365 mediante Azure ExpressRoute si el circuito de ExpressRoute está implementado en la misma [región geopolítica](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations).
+> [ExpressRoute Premium](#expressroute-premium) **no** es necesario para la conectividad con Dynamics 365 mediante Azure ExpressRoute si el circuito de ExpressRoute está implementado en la misma [región geopolítica](./expressroute-locations-providers.md#expressroute-locations).
 
 ## <a name="data-and-connections"></a>Datos y conexiones
 
@@ -152,15 +152,15 @@ No perderá conectividad si se produce un error en una de las conexiones cruzada
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>¿Cómo se puede implementar redundancia en el emparejamiento privado?
 
-Se pueden conectar varios circuitos ExpressRoute desde distintas ubicaciones de emparejamiento o hasta cuatro conexiones de la misma ubicación de emparejamiento a la misma red virtual para proporcionar una alta disponibilidad en el caso de que un único circuito deje de estar disponible. A continuación, puede [asignar mayor peso](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a una de las conexiones locales para dar preferencia a un circuito concreto. Se recomienda encarecidamente que los clientes configuren al menos dos circuitos ExpressRoute para evitar puntos únicos de error. 
+Se pueden conectar varios circuitos ExpressRoute desde distintas ubicaciones de emparejamiento o hasta cuatro conexiones de la misma ubicación de emparejamiento a la misma red virtual para proporcionar una alta disponibilidad en el caso de que un único circuito deje de estar disponible. A continuación, puede [asignar mayor peso](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection) a una de las conexiones locales para dar preferencia a un circuito concreto. Se recomienda encarecidamente que los clientes configuren al menos dos circuitos ExpressRoute para evitar puntos únicos de error. 
 
-Consulte [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para diseñar para alta disponibilidad y [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) para diseñar para la recuperación ante desastres.  
+Consulte [aquí](./designing-for-high-availability-with-expressroute.md) para diseñar para alta disponibilidad y [aquí](./designing-for-disaster-recovery-with-expressroute-privatepeering.md) para diseñar para la recuperación ante desastres.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>¿Cómo implementar redundancia en el emparejamiento de Microsoft?
 
-Se recomienda encarecidamente cuando los clientes usan el emparejamiento de Microsoft para acceder a los servicios públicos de Azure como Azure Storage o Azure SQL, así como a los clientes que usan el emparejamiento de Microsoft para Microsoft 365, que implementen varios circuitos de emparejamiento en ubicaciones diferentes para evitar puntos únicos de error. Los clientes pueden anunciar el mismo prefijo en ambos circuitos y usar [la anteposición de AS PATH](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso del entorno local.
+Se recomienda encarecidamente cuando los clientes usan el emparejamiento de Microsoft para acceder a los servicios públicos de Azure como Azure Storage o Azure SQL, así como a los clientes que usan el emparejamiento de Microsoft para Microsoft 365, que implementen varios circuitos de emparejamiento en ubicaciones diferentes para evitar puntos únicos de error. Los clientes pueden anunciar el mismo prefijo en ambos circuitos y usar [la anteposición de AS PATH](./expressroute-optimize-routing.md#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso del entorno local.
 
-Consulte [aquí](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) para diseñar para lograr alta disponibilidad.
+Consulte [aquí](./designing-for-high-availability-with-expressroute.md) para diseñar para lograr alta disponibilidad.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
 
@@ -170,7 +170,7 @@ Se puede lograr la alta disponibilidad mediante la conexión de hasta cuatro cir
 
 Debe implementar el atributo *Preferencia local* en los enrutadores para asegurarse de que la ruta local a Azure siempre se prefiere en los circuitos de ExpressRoute.
 
-Consulte más detalles [aquí](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) relacionados con la selección de rutas de acceso de BGP y configuraciones de enrutador comunes. 
+Consulte más detalles [aquí](./expressroute-optimize-routing.md#path-selection-on-microsoft-and-public-peerings) relacionados con la selección de rutas de acceso de BGP y configuraciones de enrutador comunes. 
 
 ### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Si no estoy en una ubicación compartida en un intercambio en la nube y mi proveedor de servicios ofrece una conexión punto a punto, ¿necesito solicitar dos conexiones físicas entre mi red local y Microsoft?
 
@@ -384,7 +384,7 @@ Vea [Asociados de ExpressRoute y ubicaciones](expressroute-locations.md) para ob
 Sí. Es posible acceder a los puntos de conexión de servicio de Microsoft 365 a través de Internet a pesar de que se haya configurado ExpressRoute en su red. Compruebe con el equipo de red de su organización si la red de su ubicación está configurada para conectarse a servicios de Microsoft 365 a través de ExpressRoute.
 
 ### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>¿Cómo puedo planear la alta disponibilidad para el tráfico de red de Microsoft 365 en Azure ExpressRoute?
-Consulte la recomendación que aparece en [Alta disponibilidad y conmutación por error con Azure ExpressRoute](https://aka.ms/erhighavailability).
+Consulte la recomendación que aparece en [Alta disponibilidad y conmutación por error con Azure ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute).
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>¿Puedo acceder a servicios de Office 365 US Government Community (GCC) a través de un circuito de ExpressRoute de Azure Gobierno de EE. UU.?
 
@@ -417,3 +417,9 @@ El circuito existente continuará anunciando los prefijos para Microsoft 365. S
 ## <a name="global-reach"></a><a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
+
+## <a name="privacy"></a>Privacidad
+
+### <a name="does-the-expressroute-service-store-customer-data"></a>¿El servicio ExpressRoute almacena datos de los clientes?
+
+No.

@@ -3,12 +3,12 @@ title: Introducción a las características de seguridad
 description: Obtenga información sobre las funcionalidades de seguridad de Azure Backup que le ayudan a proteger los datos de copia de seguridad y a satisfacer las necesidades de seguridad de su negocio.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c4d3af9205df43c3596da64d7fcad2a9eb82500
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012558"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093351"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Introducción a las características de seguridad de Azure Backup
 
@@ -16,7 +16,7 @@ Una de las medidas más importantes que puede adoptar para proteger los datos es
 
 ## <a name="management-and-control-of-identity-and-user-access"></a>Administración y control de identidades y del acceso de usuarios
 
-Las cuentas de almacenamiento empleadas por los almacenes de Recovery Services están aisladas, y los usuarios no pueden acceder a ellas con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Azure Backup le permite controlar las operaciones administradas mediante acceso específico con [control de acceso basado en rol (RBAC) de Azure](./backup-rbac-rs-vault.md). RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
+Las cuentas de almacenamiento empleadas por los almacenes de Recovery Services están aisladas, y los usuarios no pueden acceder a ellas con fines malintencionados. Solo se permite el acceso mediante operaciones de administración de Azure Backup, como la restauración. Azure Backup le permite controlar las operaciones administradas mediante acceso específico con [control de acceso basado en rol (RBAC) de Azure](./backup-rbac-rs-vault.md). Azure RBAC permite repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo.
 
 Azure Backup proporciona tres [roles integrados](../role-based-access-control/built-in-roles.md) para controlar las operaciones de administración de copia de seguridad:
 
@@ -24,7 +24,7 @@ Azure Backup proporciona tres [roles integrados](../role-based-access-control/bu
 * Operador de copia de seguridad: hace todo lo que puede hacer un colaborador, excepto quitar copias de seguridad y administrar directivas de copia de seguridad.
 * Lector de copia de seguridad: tiene permisos para ver todas las operaciones de administración de copia de seguridad.
 
-Obtenga más información sobre el [uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup](./backup-rbac-rs-vault.md).
+Obtenga más información sobre el [control de acceso basado en roles de Azure para administrar puntos de recuperación de Azure Backup](./backup-rbac-rs-vault.md).
 
 Azure Backup tiene varios controles de seguridad integrados en el servicio para evitar, detectar y responder a los puntos vulnerables de seguridad. Obtenga más información sobre los [controles de seguridad para Azure Backup](./backup-security-controls.md).
 

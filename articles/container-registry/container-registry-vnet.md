@@ -3,12 +3,12 @@ title: Restricción del acceso mediante puntos de conexión de servicio
 description: Restricción del acceso a un registro de contenedor de Azure mediante un punto de conexión de servicio en una red virtual de Azure. El acceso de punto de conexión de servicio es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488681"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215508"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restricción del acceso a un registro de contenedor mediante un punto de conexión de servicio en una red virtual de Azure
 
@@ -49,13 +49,11 @@ La configuración de un punto de conexión de servicio de registro está disponi
 
 ## <a name="configure-network-access-for-registry"></a>Configuración el acceso de red al registro
 
-En esta sección se configura el registro de contenedor para permitir el acceso desde una subred de una red virtual de Azure. Se proporcionan los pasos equivalentes si se usa mediante la CLI de Azure y Azure Portal.
+En esta sección se configura el registro de contenedor para permitir el acceso desde una subred de una red virtual de Azure. Los pasos se proporcionan mediante la CLI de Azure.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>Concesión de acceso desde una red virtual: CLI
+### <a name="add-a-service-endpoint-to-a-subnet"></a>Incorporación de un punto de conexión de servicio a una subred
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>Incorporación de un punto de conexión de servicio a una subred
-
-Al crear una máquina virtual, Azure crea de manera predeterminada crea una red virtual en el mismo grupo de recursos. El nombre de dicha red virtual se basa en el nombre de la máquina virtual. Por ejemplo, si asigna a la máquina virtual el nombre *myDockerVM*, el nombre predeterminado de la red virtual es *myDockerVMVNET*, con una subred llamada *myDockerVMSubnet*. Compruébelo en Azure Portal o mediante el comando [az network vnet list][az-network-vnet-list]:
+Al crear una máquina virtual, Azure crea de manera predeterminada crea una red virtual en el mismo grupo de recursos. El nombre de dicha red virtual se basa en el nombre de la máquina virtual. Por ejemplo, si asigna a la máquina virtual el nombre *myDockerVM* , el nombre predeterminado de la red virtual es *myDockerVMVNET* , con una subred llamada *myDockerVMSubnet* . Compruébelo mediante el comando [az network vnet list][az-network-vnet-list]:
 
 ```azurecli
 az network vnet list \
@@ -101,7 +99,7 @@ Salida:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>Cambio del acceso de red predeterminado al registro
+### <a name="change-default-network-access-to-registry"></a>Cambio del acceso de red predeterminado al registro
 
 De manera predeterminada los registros de contenedor Azure permiten conexiones de hosts de cualquier red. Para limitar el acceso a una red seleccionada, cambie la acción predeterminada para denegar el acceso. Sustituya el nombre del registro en el siguiente comando [az acr update][az-acr-update]:
 
@@ -109,7 +107,7 @@ De manera predeterminada los registros de contenedor Azure permiten conexiones d
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Incorporación de una regla de red al registro
+### <a name="add-network-rule-to-registry"></a>Incorporación de una regla de red al registro
 
 Use el comando [az acr network-rule add][az-acr-network-rule-add] para agregar una regla de red al registro que permita el acceso desde la subred de la máquina virtual. Sustituya el nombre del registro de contenedor y el identificador de recurso de la subred en el siguiente comando: 
 
@@ -143,11 +141,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>Restauración del acceso al registro predeterminado
 
-Para restaurar el registro para permitir el acceso de forma predeterminada, quite todas las reglas de red configuradas. Luego, establezca la acción predeterminado en permitir el acceso. Se proporcionan los pasos equivalentes si se usa mediante la CLI de Azure y Azure Portal.
+Para restaurar el registro para permitir el acceso de forma predeterminada, quite todas las reglas de red configuradas. Luego, establezca la acción predeterminado en permitir el acceso. 
 
-### <a name="restore-default-registry-access---cli"></a>Restauración del acceso al registro predeterminado: CLI
-
-#### <a name="remove-network-rules"></a>Eliminación de reglas de red
+### <a name="remove-network-rules"></a>Eliminación de reglas de red
 
 Para ver una lista de reglas de red configuradas para el registro, ejecute el siguiente comando [az acr network-rule list][az-acr-network-rule-list]:
 
@@ -166,7 +162,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>Permitir acceso
+### <a name="allow-access"></a>Permitir acceso
 
 Sustituya el nombre del registro en el siguiente comando [az acr update][az-acr-update]:
 ```azurecli
@@ -180,8 +176,6 @@ Si ha creado todos los recursos de Azure en el mismo grupo de recursos y ya no l
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-Para limpiar los recursos en el portal, vaya al grupo de recursos myResourceGroup. Una vez que se ha cargado el grupo de recursos, haga clic en **Eliminar grupo de recursos** para quitar el grupo de recursos y los recursos almacenados en él.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 99c5ff39820b652a33ab670e63ca709f8747c4cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751278"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329430"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Prácticas recomendadas de DevOps y seguridad para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -116,9 +116,9 @@ Para obtener más información, consulte el artículo: [Aplicación de revisión
 
 ## <a name="post-migration"></a>Después de la migración
 
-1. **Corregir aplicaciones**: realice de forma iterativa los cambios necesarios en los trabajos, procesos y scripts.
+1. **Corregir aplicaciones** : realice de forma iterativa los cambios necesarios en los trabajos, procesos y scripts.
 2. **Realizar pruebas** : realice pruebas funcionales y de rendimiento de forma iterativa.
-3. **Optimizar**: aborde cualquier problema de rendimiento basándose en los resultados de las pruebas anteriores y luego vuelva a realizar la prueba para confirmar las mejoras de rendimiento.
+3. **Optimizar** : aborde cualquier problema de rendimiento basándose en los resultados de las pruebas anteriores y luego vuelva a realizar la prueba para confirmar las mejoras de rendimiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

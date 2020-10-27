@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003202"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167192"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -63,6 +63,12 @@ Para obtener más información sobre las versiones del ciclo de vida, vea [Versi
 AKS admite la creación de grupos de nodo habilitados para GPU. Azure proporciona actualmente única o varias máquinas virtuales habilitadas para GPU. Las máquinas virtuales habilitadas para GPU están diseñadas para cargas de trabajo de proceso intensivo, uso intensivo de gráficos y visualización.
 
 Para más información, consulte [Uso de GPU en AKS][aks-gpu].
+
+### <a name="confidential-computing-nodes-public-preview"></a>Nodos de computación confidencial (versión preliminar pública)
+
+AKS admite la creación de grupos de nodos de computación confidencial basados en Intel SGX (máquinas virtuales DCSv2). Los nodos de computación confidencial permiten que los contenedores se ejecuten en un entorno de ejecución aislado y de confianza basado en hardware (enclaves). El aislamiento entre contenedores en combinación con la integridad del código mediante la atestación puede contribuir a la estrategia de seguridad de contenedores de defensa en profundidad. Los nodos de computación confidencial admiten tanto contenedores confidenciales (aplicaciones de Docker existentes) como contenedores compatibles con enclave.
+
+Para más información, consulte [Nodos de computación confidencial en Azure Kubernetes Service][conf-com-node].
 
 ### <a name="storage-volume-support"></a>Compatibilidad con volúmenes de almacenamiento
 
@@ -143,3 +149,4 @@ Obtenga más información sobre la implementación y administración de AKS con 
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

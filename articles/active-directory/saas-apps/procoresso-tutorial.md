@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e0a8e6786dbce1015d587cf8015e3624c97a5817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea69f1e634c66bff98462d41f3eeef19f8e15eb0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553621"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integración de Azure Active Directory con Procore SSO
 
@@ -49,11 +49,11 @@ Para configurar la integración de Procore SSO en Azure AD, tiene que agregar Pr
 
 **Para agregar Procore SSO desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar la integración de Procore SSO en Azure AD, tiene que agregar Pr
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Procore SSO**, seleccione **Procore SSO** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Procore SSO** , seleccione **Procore SSO** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Procore SSO en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Procore SSO con un usuario de prueba llamado **Britta Simon**.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Procore SSO con un usuario de prueba llamado **Britta Simon** .
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Procore SSO.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Procore SSO, es preciso completar los siguientes bloques de creación:
@@ -85,23 +85,23 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Procore SSO, siga los pasos que se indican a continuación:
 
-1. En la página de integración de la aplicación **Procore SSO** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único**.
+1. En la página de integración de la aplicación **Procore SSO** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único** .
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
+4. En la sección **Configuración básica de SAML** , el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Procore SSO](common/preintegrated.png)
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -117,31 +117,31 @@ Para configurar el inicio de sesión único de Azure AD con Procore SSO, siga lo
 
 ### <a name="configure-procore-sso-single-sign-on"></a>Configuración del inicio de sesión único de Procore SSO
 
-1. Para configurar el inicio de sesión único en **Procore SSO**, inicie sesión como administrador en su sitio de la compañía de Procore.
+1. Para configurar el inicio de sesión único en **Procore SSO** , inicie sesión como administrador en su sitio de la compañía de Procore.
 
 2. En la lista desplegable del cuadro de herramientas, haga clic en **Administrador** para abrir la página de configuración del SSO.
 
-    ![Configurar inicio de sesión único](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![Captura de pantalla que muestra el sitio de la compañía Procore con la opción de directorio seleccionada.](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. Pegue los valores en los cuadros tal y como se describe a continuación:
 
-    ![Configurar inicio de sesión único](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![Captura de pantalla que muestra el cuadro de diálogo para agregar una persona.](./media/procoresso-tutorial/procore_setting_admin.png) 
 
-    a. En el cuadro de texto **Dirección URL del emisor de inicio de sesión único**, pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Dirección URL del emisor de inicio de sesión único** , pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal.
 
-    b. En el cuadro de texto **Dirección URL de destino de inicio de sesión único de SAML**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    b. En el cuadro de texto **Dirección URL de destino de inicio de sesión único de SAML** , pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    c. Abra ahora el **XML de metadatos de la federación** que descargó antes de Azure Portal y copie el certificado en el etiqueta denominada **X509Certificate**. Pegue el valor copiado en el cuadro **Single Sign On x509 Certificate** (Certificado x509 de inicio de sesión único).
+    c. Abra ahora el **XML de metadatos de la federación** que descargó antes de Azure Portal y copie el certificado en el etiqueta denominada **X509Certificate** . Pegue el valor copiado en el cuadro **Single Sign On x509 Certificate** (Certificado x509 de inicio de sesión único).
 
-4. Haga clic en **Guardar cambios**.
+4. Haga clic en **Guardar cambios** .
 
-5. Al finalizar esta configuración, tiene que enviar el **nombre de dominio** (por ejemplo, **contoso.com**) con el que inicia sesión en Procore al [equipo de soporte técnico de Procore](https://support.procore.com/) y ellos activarán el SSO federado para ese dominio.
+5. Al finalizar esta configuración, tiene que enviar el **nombre de dominio** (por ejemplo, **contoso.com** ) con el que inicia sesión en Procore al [equipo de soporte técnico de Procore](https://support.procore.com/) y ellos activarán el SSO federado para ese dominio.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -153,39 +153,39 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon** .
   
-    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario** , escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Procore SSO.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, después, **Procore SSO**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, después, **Procore SSO** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Procore SSO**.
+2. En la lista de aplicaciones, seleccione **Procore SSO** .
 
     ![Vínculo a Procore SSO en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ### <a name="create-procore-sso-test-user"></a>Creación de un usuario de prueba de Procore SSO
 
@@ -195,29 +195,29 @@ Siga estos pasos para crear un usuario de prueba en Procore del lado de Procore 
 
 2. En la lista desplegable del cuadro de herramientas, haga clic en **Directorio** para abrir la página de directorio de la compañía.
 
-    ![Configurar inicio de sesión único](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![Captura de pantalla que muestra el sitio de la compañía Procore con la opción de directorio seleccionada en el cuadro de herramientas.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Haga clic en la opción **Add a Person** (Agregar una persona) para abrir el formulario y especificar la ejecución de las opciones siguientes:
 
-    ![Configurar inicio de sesión único](./media/procoresso-tutorial/Procore_user_add.png)
+    ![En la captura de pantalla se muestra la sección para agregar una persona a Boylan Construction, donde puede especificar información de usuario.](./media/procoresso-tutorial/Procore_user_add.png)
 
-    a. En el cuadro de texto **Nombre**, escriba el nombre del usuario, por ejemplo, **Britta**.
+    a. En el cuadro de texto **Nombre** , escriba el nombre del usuario, por ejemplo, **Britta** .
 
-    b. En el cuadro de texto **Apellido**, escriba el apellido del usuario, por ejemplo, **Simon**.
+    b. En el cuadro de texto **Apellido** , escriba el apellido del usuario, por ejemplo, **Simon** .
 
-    c. En el cuadro de texto **Dirección de correo electrónico**, escriba la dirección de correo del usuario con el formato siguiente BrittaSimon@contoso.com.
+    c. En el cuadro de texto **Dirección de correo electrónico** , escriba la dirección de correo del usuario con el formato siguiente BrittaSimon@contoso.com.
 
     d. Seleccione **Permission Template** (Plantilla de permisos) como **Apply Permission Template Later** (Aplicar plantilla de permisos más tarde).
 
-    e. Haga clic en **Crear**.
+    e. Haga clic en **Crear** .
 
 4. Compruebe los datos del contacto recién agregado y actualícelos.
 
-    ![Configurar inicio de sesión único](./media/procoresso-tutorial/Procore_user_check.png)
+    ![Captura de pantalla que muestra una página de edición en la que puede comprobar la configuración de usuario.](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Haga clic en **Save and Send Invitiation** (Guardar y enviar invitación), si se requiere una invitación por correo electrónico, o en **Guardar** (guardar directamente) para completar el registro del usuario.
     
-    ![Configurar inicio de sesión único](./media/procoresso-tutorial/Procore_user_save.png)
+    ![Captura de pantalla que muestra la configuración del proyecto actual, donde puede guardar y enviar la invitación.](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 

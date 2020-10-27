@@ -4,12 +4,12 @@ description: En este artículo se proporciona información general sobre la comp
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938804"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330502"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Registro de esquema de Azure en Event Hubs (versión preliminar)
 En muchos escenarios de transmisión de eventos y de mensajería, la carga de eventos o mensajes contiene datos estructurados que se serializan o deserializan con un formato controlado por esquemas, como Apache Avro. Tal vez los remitentes y receptores quieran validar la integridad de los datos con un documento de esquema, como con el esquema JSON. En el caso de los formatos controlados por esquema, que el esquema esté disponible para el consumidor de mensajes es un requisito previo para que el consumidor pueda deserializar los datos. 
@@ -18,7 +18,7 @@ El **registro de esquema de Azure** es una característica de Event Hubs, que pr
 
 > [!NOTE]
 > - La característica de **registro de esquema** se encuentra actualmente en **versión preliminar** y no se recomienda para las cargas de trabajo de producción.
-> - La característica solo está disponible en los niveles **estándar** y **dedicado**, no en el nivel **básico**.
+> - La característica solo está disponible en los niveles **estándar** y **dedicado** , no en el nivel **básico** .
 
 Con marcos de serialización orientados a esquemas, como Apache Avro, la externalización de los metadatos de serialización en esquemas compartidos también puede ayudar a reducir drásticamente la sobrecarga por mensaje de información de tipo y nombres de campo incluidos con cada conjunto de datos, como es el caso de los formatos etiquetados como JSON. Al almacenar los esquemas junto con los eventos y dentro de la infraestructura de eventos se garantiza que los metadatos necesarios para la serialización o la deserialización estén siempre al alcance y los esquemas no se puedan perder. 
 
@@ -50,8 +50,8 @@ La siguiente imagen muestra el flujo de información del registro de esquema con
 ## <a name="standard-vs-dedicated-limits"></a>Límites de estándar frente a dedicado
 Para los límites (por ejemplo: el número de grupos de esquema en un espacio de nombres) que son iguales y distintos en los niveles estándar y dedicado de Event Hubs, consulte [Límites del registro de esquema](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
 
-## <a name="role-based-access-control"></a>Control de acceso basado en rol
-Al acceder al registro de esquema mediante programación, debe registrar una aplicación en Azure Active Directory (Azure AD) y agregar la entidad de seguridad de la aplicación a uno de los roles de control de acceso basado en rol (RBAC):
+## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
+Al acceder al registro de esquema mediante programación, debe registrar una aplicación en Azure Active Directory (Azure AD) y agregar la entidad de seguridad de la aplicación a uno de los roles de control de acceso basado en rol de Azure (Azure RBAC):
 
 | Role | Descripción | 
 | ---- | ----------- | 
@@ -65,7 +65,7 @@ Para obtener instrucciones sobre cómo crear el registro de una aplicación medi
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para información sobre cómo crear un registro de esquema mediante Azure Portal, vea [Creación de un registro de esquema de Event Hubs con Azure Portal](create-schema-registry.md).
-- Vea los siguientes ejemplos de la **biblioteca de cliente Avro del registro de esquema**.
+- Vea los siguientes ejemplos de la **biblioteca de cliente Avro del registro de esquema** .
     - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )

@@ -1,20 +1,17 @@
 ---
-title: 'Script de PowerShell: Supervisar el uso de Azure Data Share | Microsoft Docs'
+title: 'Script de PowerShell: supervisión del uso de Azure Data Share'
 description: Este script de PowerShell recupera las métricas de uso de un recurso compartido de datos enviado.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 0a4084d309dd0160970f1c03540705b310eb8e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9ff7a29cba9b8e9ca058bfe742f484c5b495cd7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307203"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221322"
 ---
 # <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Uso de PowerShell para supervisar el uso de un recurso compartido de datos enviado
 
@@ -44,12 +41,12 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | Enumere las sincronizaciones de un recurso compartido. |
-| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | Obtiene los detalles de una sincronización de un recurso compartido. |
+| [Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization) | Enumere las sincronizaciones de un recurso compartido. |
+| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail) | Obtiene los detalles de una sincronización de un recurso compartido. |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/).
 
 Encontrará más ejemplos de scripts de PowerShell para Azure Data Share en el artículo [Ejemplos de PowerShell para Azure Data Share](../../samples-powershell.md).

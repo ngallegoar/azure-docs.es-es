@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.custom: devx-track-python
-ms.openlocfilehash: fc99bc645b48739d6d6339111780047496c1984d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98a1fbf30e7b653598aac6b83c0d8155582e2051
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017122"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131486"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de Python para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
@@ -96,7 +96,7 @@ def initialize_storage_account_ad(storage_account_name, client_id, client_secret
 
 ## <a name="create-a-container"></a>Crear un contenedor
 
-Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno llamando al método **FileSystemDataLakeServiceClient.create_file_system**.
+Un contenedor actúa como sistema de archivos para sus archivos. Puede crear uno llamando al método **FileSystemDataLakeServiceClient.create_file_system** .
 
 En este ejemplo se crea un contenedor denominado `my-file-system`.
 
@@ -114,7 +114,7 @@ def create_file_system():
 
 ## <a name="create-a-directory"></a>Creación de un directorio
 
-Cree una referencia de directorio llamando al método **FileSystemClient.create_directory**.
+Cree una referencia de directorio llamando al método **FileSystemClient.create_directory** .
 
 En este ejemplo se agrega un directorio denominado `my-directory` a un contenedor. 
 
@@ -129,7 +129,7 @@ def create_directory():
 
 ## <a name="rename-or-move-a-directory"></a>Cambio de nombre o traslado de un directorio
 
-Cambie el nombre de un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename_directory**. Pase la ruta de acceso del directorio que busca a un parámetro. 
+Cambie el nombre de un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename_directory** . Pase la ruta de acceso del directorio que busca a un parámetro. 
 
 En este ejemplo se cambia el nombre de un subdirectorio a `my-subdirectory-renamed`.
 
@@ -149,7 +149,7 @@ def rename_directory():
 
 ## <a name="delete-a-directory"></a>Eliminación de un directorio
 
-Elimine un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename_directory**.
+Elimine un directorio o muévalo llamando al método **DataLakeDirectoryClient.rename_directory** .
 
 En este ejemplo se elimina un directorio denominado `my-directory`.  
 
@@ -164,9 +164,118 @@ def delete_directory():
      print(e) 
 ```
 
-## <a name="manage-directory-permissions"></a>Administración de permisos de directorio
 
-Obtenga la lista de control de acceso (ACL) de un directorio llamando al método **DataLakeDirectoryClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeDirectoryClient.set_access_control**.
+## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio 
+
+En primer lugar, cree una referencia de archivo en el directorio de destino creando una instancia de la clase **DataLakeFileClient** . Cargue un archivo llamando al método **DataLakeFileClient.append_data** . Asegúrese de completar la carga llamando al método **DataLakeFileClient.flush_data** .
+
+En este ejemplo se carga un archivo de texto en un directorio denominado `my-directory`.   
+
+```python
+def upload_file_to_directory():
+    try:
+
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        file_client = directory_client.create_file("uploaded-file.txt")
+        local_file = open("C:\\file-to-upload.txt",'rb')
+
+        file_contents = local_file.read()
+
+        file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
+
+        file_client.flush_data(len(file_contents))
+
+    except Exception as e:
+      print(e) 
+```
+
+> [!TIP]
+> Si el tamaño del archivo es grande, el código tendrá que realizar varias llamadas al método **DataLakeFileClient.append_data** . Considere la posibilidad de usar en su lugar el método **DataLakeFileClient.upload_data** . De este modo, puede cargar todo el archivo en una sola llamada. 
+
+## <a name="upload-a-large-file-to-a-directory"></a>Carga de un archivo de gran tamaño en un directorio
+
+Use el método **DataLakeFileClient.upload_data** para cargar archivos grandes sin tener que realizar varias llamadas al método **DataLakeFileClient.append_data** .
+
+```python
+def upload_file_to_directory_bulk():
+    try:
+
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        file_client = directory_client.get_file_client("uploaded-file.txt")
+
+        local_file = open("C:\\file-to-upload.txt",'rb')
+
+        file_contents = local_file.read()
+
+        file_client.upload_data(file_contents, overwrite=True)
+
+    except Exception as e:
+      print(e) 
+```
+
+## <a name="download-from-a-directory"></a>Descarga de un directorio 
+
+Abra un archivo local para escritura. Luego, cree una instancia de **DataLakeFileClient** que represente al archivo que quiere descargar. Llame a **DataLakeFileClient.read_file** para leer los bytes del archivo y, a continuación, escriba esos bytes en el archivo local. 
+
+```python
+def download_file_from_directory():
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        directory_client = file_system_client.get_directory_client("my-directory")
+        
+        local_file = open("C:\\file-to-download.txt",'wb')
+
+        file_client = directory_client.get_file_client("uploaded-file.txt")
+
+        download = file_client.download_file()
+
+        downloaded_bytes = download.readall()
+
+        local_file.write(downloaded_bytes)
+
+        local_file.close()
+
+    except Exception as e:
+     print(e)
+```
+## <a name="list-directory-contents"></a>Lista del contenido del directorio
+
+Muestre el contenido del directorio llamando al método **FileSystemClient.get_paths** , que luego enumera los resultados.
+
+En este ejemplo se imprime la ruta de acceso de cada uno de los subdirectorios y archivos que se encuentra en un directorio denominado `my-directory`.
+
+```python
+def list_directory_contents():
+    try:
+        
+        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
+
+        paths = file_system_client.get_paths(path="my-directory")
+
+        for path in paths:
+            print(path.name + '\n')
+
+    except Exception as e:
+     print(e) 
+```
+
+## <a name="manage-access-control-lists-acls"></a>Administración de listas de control de acceso (ACL)
+
+Puede obtener, establecer y actualizar los permisos de acceso de los directorios y archivos.
+
+> [!NOTE]
+> Si usa Azure Active Directory (Azure AD) para autorizar el acceso, asegúrese de que la entidad de seguridad tenga asignado el [rol Propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
+
+### <a name="manage-directory-acls"></a>Administración de ACL de directorios
+
+Obtenga la lista de control de acceso (ACL) de un directorio llamando al método **DataLakeDirectoryClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeDirectoryClient.set_access_control** .
 
 > [!NOTE]
 > Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para obtener más información acerca de cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -196,65 +305,11 @@ def manage_directory_permissions():
      print(e) 
 ```
 
-También puede obtener y establecer la ACL del directorio raíz de un contenedor. Para obtener el directorio raíz, llame al método **FileSystemClient._get_root_directory_client**.
+También puede obtener y establecer la ACL del directorio raíz de un contenedor. Para obtener el directorio raíz, llame al método **FileSystemClient._get_root_directory_client** .
 
-## <a name="upload-a-file-to-a-directory"></a>Carga de un archivo en un directorio 
+### <a name="manage-file-permissions"></a>Administración de permisos de archivo
 
-En primer lugar, cree una referencia de archivo en el directorio de destino creando una instancia de la clase **DataLakeFileClient**. Cargue un archivo llamando al método **DataLakeFileClient.append_data**. Asegúrese de completar la carga llamando al método **DataLakeFileClient.flush_data**.
-
-En este ejemplo se carga un archivo de texto en un directorio denominado `my-directory`.   
-
-```python
-def upload_file_to_directory():
-    try:
-
-        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
-
-        directory_client = file_system_client.get_directory_client("my-directory")
-        
-        file_client = directory_client.create_file("uploaded-file.txt")
-        local_file = open("C:\\file-to-upload.txt",'rb')
-
-        file_contents = local_file.read()
-
-        file_client.append_data(data=file_contents, offset=0, length=len(file_contents))
-
-        file_client.flush_data(len(file_contents))
-
-    except Exception as e:
-      print(e) 
-```
-
-> [!TIP]
-> Si el tamaño del archivo es grande, el código tendrá que realizar varias llamadas al método **DataLakeFileClient.append_data**. Considere la posibilidad de usar en su lugar el método **DataLakeFileClient.upload_data**. De este modo, puede cargar todo el archivo en una sola llamada. 
-
-## <a name="upload-a-large-file-to-a-directory"></a>Carga de un archivo de gran tamaño en un directorio
-
-Use el método **DataLakeFileClient.upload_data** para cargar archivos grandes sin tener que realizar varias llamadas al método **DataLakeFileClient.append_data**.
-
-```python
-def upload_file_to_directory_bulk():
-    try:
-
-        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
-
-        directory_client = file_system_client.get_directory_client("my-directory")
-        
-        file_client = directory_client.get_file_client("uploaded-file.txt")
-
-        local_file = open("C:\\file-to-upload.txt",'rb')
-
-        file_contents = local_file.read()
-
-        file_client.upload_data(file_contents, overwrite=True)
-
-    except Exception as e:
-      print(e) 
-```
-
-## <a name="manage-file-permissions"></a>Administración de permisos de archivo
-
-Obtenga la lista de control de acceso (ACL) de un archivo llamando al método **DataLakeFileClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeFileClient.set_access_control**.
+Obtenga la lista de control de acceso (ACL) de un archivo llamando al método **DataLakeFileClient.get_access_control** y establezca dicha lista con una llamada al método **DataLakeFileClient.set_access_control** .
 
 > [!NOTE]
 > Si la aplicación autoriza el acceso mediante Azure Active Directory (Azure AD), asegúrese de que la entidad de seguridad que la aplicación usa para autorizar el acceso tiene asignado el [rol de propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para obtener más información acerca de cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, consulte [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
@@ -286,54 +341,7 @@ def manage_file_permissions():
      print(e) 
 ```
 
-## <a name="download-from-a-directory"></a>Descarga de un directorio 
-
-Abra un archivo local para escritura. Luego, cree una instancia de **DataLakeFileClient** que represente al archivo que quiere descargar. Llame a **DataLakeFileClient.read_file** para leer los bytes del archivo y, a continuación, escriba esos bytes en el archivo local. 
-
-```python
-def download_file_from_directory():
-    try:
-        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
-
-        directory_client = file_system_client.get_directory_client("my-directory")
-        
-        local_file = open("C:\\file-to-download.txt",'wb')
-
-        file_client = directory_client.get_file_client("uploaded-file.txt")
-
-        download = file_client.download_file()
-
-        downloaded_bytes = download.readall()
-
-        local_file.write(downloaded_bytes)
-
-        local_file.close()
-
-    except Exception as e:
-     print(e)
-```
-## <a name="list-directory-contents"></a>Lista del contenido del directorio
-
-Muestre el contenido del directorio llamando al método **FileSystemClient.get_paths**, que luego enumera los resultados.
-
-En este ejemplo se imprime la ruta de acceso de cada uno de los subdirectorios y archivos que se encuentra en un directorio denominado `my-directory`.
-
-```python
-def list_directory_contents():
-    try:
-        
-        file_system_client = service_client.get_file_system_client(file_system="my-file-system")
-
-        paths = file_system_client.get_paths(path="my-directory")
-
-        for path in paths:
-            print(path.name + '\n')
-
-    except Exception as e:
-     print(e) 
-```
-
-## <a name="set-an-acl-recursively-preview"></a>Establecimiento de una ACL de forma recursiva (versión preliminar)
+### <a name="set-an-acl-recursively-preview"></a>Establecimiento de una ACL de forma recursiva (versión preliminar)
 
 Puede agregar, actualizar y quitar las ACL de forma recursiva para los elementos secundarios existentes de un directorio primario sin tener que realizar estos cambios individualmente para cada elemento secundario. Para obtener más información, consulte [Establecimiento de listas de control de acceso (ACL) de forma recursiva para Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 

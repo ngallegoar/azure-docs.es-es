@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 10/12/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970646"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315927"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -42,7 +42,7 @@ En la API REST de Azure, los comandos [Subscriptions - Get](/rest/api/resources/
 > [!NOTE]
 > Además de la información de inquilinos relacionada con Azure Lighthouse, los inquilinos que se muestran en estas API también pueden reflejar los inquilinos de asociados de Azure Databricks o de las aplicaciones administradas de Azure.
 
-También se proporcionan API específicas para realizar tareas de administración de Azure Lighthouse. Para obtener más información, consulte la sección **Referencia**.
+También se proporcionan API específicas para realizar tareas de administración de Azure Lighthouse. Para obtener más información, consulte la sección **Referencia** .
 
 ## <a name="enhanced-services-and-scenarios"></a>Servicios y escenarios mejorados
 
@@ -69,6 +69,10 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 - Realice una copia de seguridad de los datos de clientes y restáurelos [desde cargas de trabajo locales, máquinas virtuales de Azure, recursos compartidos de archivos de Azure y mucho más](../..//backup/backup-overview.md#what-can-i-back-up).
 - Use el [Explorador de copia de seguridad](../../backup/monitor-azure-backup-with-backup-explorer.md) para ayudar a ver la información operativa de los elementos de copia de seguridad (incluidos los recursos de Azure que todavía no están configurados para la copia de seguridad) y la información de supervisión (trabajos y alertas) de las suscripciones delegadas. El Explorador de Backup solo está disponible actualmente para los datos de máquinas virtuales de Azure.
 - Use [informes de copia de seguridad](../../backup/configure-reports.md) a través de suscripciones delegadas para realizar un seguimiento de tendencias históricas, analizar el consumo de almacenamiento de copia de seguridad y auditar copias de seguridad y restauraciones.
+
+[Azure Blueprints](../../governance/blueprints/index.yml).
+
+- Use Azure Blueprints para organizar la implementación de plantillas de recursos y otros artefactos (requiere [acceso adicional](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) para preparar la suscripción de cliente).
 
 [Azure Cost Management y facturación](../../cost-management-billing/index.yml):
 
@@ -163,4 +167,4 @@ Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Incorpore los clientes a Azure Lighthouse, ya sea [mediante plantillas de Azure Resource Manager](../how-to/onboard-customer.md) o [publicando una oferta de servicios administrados privada o pública en Azure Marketplace](../how-to/publish-managed-services-offers.md).
-- Puede [ver y administrar clientes](../how-to/view-manage-customers.md) desde **Mis clientes**, en Azure Portal.
+- Puede [ver y administrar clientes](../how-to/view-manage-customers.md) desde **Mis clientes** , en Azure Portal.

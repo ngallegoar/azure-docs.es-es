@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999323"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091158"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Protección de las cargas de trabajo de Kubernetes
 
@@ -45,59 +45,59 @@ Security Center ofrece más características de seguridad del contenedor si habi
 
 ## <a name="set-up-your-workload-protection"></a>Configuración de la protección de cargas de trabajo
 
-Azure Security Center incluye un conjunto de recomendaciones que están disponibles cuando ha instalado el **complemento de Azure Policy para Kubernetes**.
+Azure Security Center incluye un conjunto de recomendaciones que están disponibles cuando ha instalado el **complemento de Azure Policy para Kubernetes** .
 
 1. Para configurar las recomendaciones, primero debe instalar el complemento:
 
-    1. En la página de recomendaciones, busque la recomendación llamada **Debe tener el complemento de Azure Policy para Kubernetes instalado y habilitado en sus clústeres**.
+    1. En la página de recomendaciones, busque la recomendación llamada **Debe tener el complemento de Azure Policy para Kubernetes instalado y habilitado en sus clústeres** .
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
         > [!TIP]
         > La recomendación se incluye en cinco controles de seguridad diferentes y no importa cuál seleccione en el siguiente paso.
 
-    1. En cualquiera de los controles de seguridad, seleccione la recomendación para ver los recursos en los que puede instalar el complemento y seleccione **Corregir**. 
+    1. En cualquiera de los controles de seguridad, seleccione la recomendación para ver los recursos en los que puede instalar el complemento y seleccione **Corregir** . 
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
 1. Aproximadamente 30 minutos después de completarse la instalación del complemento, Security Center muestra el estado de mantenimiento de los clústeres de las siguientes recomendaciones, cada uno en el control de seguridad pertinente como se muestra a continuación:
 
     > [!TIP]
-    > Algunas recomendaciones tienen parámetros que deben personalizarse a través de Azure Policy para usarlos de forma eficaz. Por ejemplo, para beneficiarse de la recomendación **Las imágenes de contenedor solo deben implementarse desde registros de confianza**, tendrá que definir sus registros de confianza.
+    > Algunas recomendaciones tienen parámetros que deben personalizarse a través de Azure Policy para usarlos de forma eficaz. Por ejemplo, para beneficiarse de la recomendación **Las imágenes de contenedor solo deben implementarse desde registros de confianza** , tendrá que definir sus registros de confianza.
     > 
     > Si no especifica los parámetros necesarios para las recomendaciones que requieren configuración, las cargas de trabajo aparecerán como incorrectas.
 
-    | Nombre de la recomendación                                                                   | Control de seguridad                         | Configuración requerida |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Debe aplicar los límites de CPU y de memoria de los contenedores (versión preliminar)                          | Protección de aplicaciones contra ataques DDoS | No                     |
-    | Deben evitarse los contenedores con privilegios (versión preliminar)                                     | Administración de acceso y permisos            | No                     |
-    | El sistema de archivos raíz inmutable (de solo lectura) debe aplicarse para los contenedores (versión preliminar)     | Administración de acceso y permisos            | No                     |
-    | Debe evitar los contenedores con elevación de privilegios (versión preliminar)                       | Administración de acceso y permisos            | No                     |
-    | Debe evitar la ejecución de contenedores como usuario raíz (versión preliminar)                           | Administración de acceso y permisos            | No                     |
-    | Deben evitarse los contenedores que comparten espacios de nombres de host confidenciales (versión preliminar)              | Administración de acceso y permisos            | No                     |
-    | Deben aplicarse funcionalidades de Linux con privilegios mínimos para los contenedores (versión preliminar)       | Administración de acceso y permisos            | **Sí**                |
-    | El uso de montajes de volúmenes HostPath de pod debe estar restringido a una lista conocida (versión preliminar)    | Administración de acceso y permisos            | **Sí**                |
-    | Los contenedores solo deben escuchar en los puertos permitidos (versión preliminar)                              | Restricción de los accesos de red no autorizados     | **Sí**                |
-    | Los servicios solo deben escuchar en los puertos permitidos (versión preliminar)                                | Restricción de los accesos de red no autorizados     | **Sí**                |
-    | El uso de puertos y redes de hosts debe estar restringido (versión preliminar)                     | Restricción de los accesos de red no autorizados     | **Sí**                |
-    | La opción de reemplazar o deshabilitar el perfil de AppArmor de los contenedores debe estar restringida (versión preliminar) | Corrección de configuraciones de seguridad        | **Sí**                |
-    | Las imágenes de contenedor solo deben implementarse desde registros de confianza (versión preliminar)            | Corrección de vulnerabilidades                | **Sí**                |
+    | Nombre de la recomendación                                                         | Control de seguridad                         | Configuración requerida |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Debe aplicar los límites de CPU y memoria de los contenedores.                          | Protección de aplicaciones contra ataques DDoS | No                     |
+    | Deben evitarse los contenedores con privilegios.                                     | Administración de acceso y permisos            | No                     |
+    | El sistema de archivos raíz inmutable (de solo lectura) debe aplicarse para los contenedores.     | Administración de acceso y permisos            | No                     |
+    | Debe evitar los contenedores con elevación de privilegios.                       | Administración de acceso y permisos            | No                     |
+    | Debe evitar la ejecución de contenedores como usuario raíz.                           | Administración de acceso y permisos            | No                     |
+    | Deben evitarse los contenedores que comparten espacios de nombres de host confidenciales.              | Administración de acceso y permisos            | No                     |
+    | Deben aplicarse funcionalidades de Linux con privilegios mínimos para los contenedores.       | Administración de acceso y permisos            | **Sí**                |
+    | El uso de montajes de volúmenes HostPath de pod debe estar restringido a una lista conocida.    | Administración de acceso y permisos            | **Sí**                |
+    | Los contenedores solo deben escuchar en los puertos permitidos.                              | Restricción de los accesos de red no autorizados     | **Sí**                |
+    | Los servicios solo deben escuchar en los puertos permitidos.                                | Restricción de los accesos de red no autorizados     | **Sí**                |
+    | El uso de puertos y redes de hosts debe estar restringido.                     | Restricción de los accesos de red no autorizados     | **Sí**                |
+    | La opción de reemplazar o deshabilitar el perfil de AppArmor de los contenedores debe estar restringida. | Corrección de configuraciones de seguridad        | **Sí**                |
+    | Las imágenes de contenedor solo deben implementarse desde registros de confianza.            | Corrección de vulnerabilidades                | **Sí**                |
 
 
 1. Para las recomendaciones con parámetros que deben personalizarse, establezca los parámetros:
 
-    1. En el menú de Security Center, seleccione **Directiva de seguridad**.
+    1. En el menú de Security Center, seleccione **Directiva de seguridad** .
     1. Seleccione la suscripción correspondiente.
-    1. En la sección **Directiva predeterminada de Security Center**, seleccione **Ver directiva efectiva**.
+    1. En la sección **Directiva predeterminada de Security Center** , seleccione **Ver directiva efectiva** .
     1. Seleccione "Valor predeterminado de ASC".
     1. Abra la pestaña **Parámetros** y modifique los valores según sea necesario.
-    1. Seleccione **Revisar y guardar**.
-    1. Seleccione **Guardar**.
+    1. Seleccione **Revisar y guardar** .
+    1. Seleccione **Guardar** .
 
 
 1. Para aplicar cualquiera de las recomendaciones, 
 
-    1. abra la página de detalles de recomendaciones y haga clic en **Denegar**:
+    1. abra la página de detalles de recomendaciones y haga clic en **Denegar** :
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**":::
 
@@ -107,11 +107,11 @@ Azure Security Center incluye un conjunto de recomendaciones que están disponib
 
 1. Para ver qué recomendaciones se aplican a los clústeres:
 
-    1. Abra la página [Inventario de recursos](asset-inventory.md) de Security Center y use el filtro de tipo de recurso en **Servicios de Kubernetes**.
+    1. Abra la página [Inventario de recursos](asset-inventory.md) de Security Center y use el filtro de tipo de recurso en **Servicios de Kubernetes** .
 
     1. Seleccione un clúster para investigar y revise las recomendaciones disponibles para este. 
 
-1. Al ver una recomendación de la protección de cargas de trabajo establecida, verá el número de pods afectados ("componentes de Kubernetes") mostrados junto con el clúster. Para ver una lista de los pods específicos, seleccione el clúster y, a continuación, seleccione **Realizar acción**.
+1. Al ver una recomendación de la protección de cargas de trabajo establecida, verá el número de pods afectados ("componentes de Kubernetes") mostrados junto con el clúster. Para ver una lista de los pods específicos, seleccione el clúster y, a continuación, seleccione **Realizar acción** .
 
     :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recomendación **El complemento Azure Policy para Kubernetes debería estar instalado y habilitado en sus clústeres**"::: 
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 02fbe721f1bf5737ad1d10d656ea75ed1372b484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284887"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168484"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalación de controladores de GPU de NVIDIA en máquinas virtuales de la serie N con Linux
 
@@ -156,11 +156,11 @@ La conectividad de red RDMA puede habilitarse en las VM de la serie N que puedan
 
 Las máquinas virtuales de la serie N que puedan usar RDMA se implementan desde cualquiera de las imágenes de Azure Marketplace que admita la conectividad RDMA en máquinas virtuales de la serie N:
   
-* **Ubuntu 16.04 LTS**: configure controladores RDMA en la máquina virtual y regístrese en Intel para descargar Intel MPI:
+* **Ubuntu 16.04 LTS** : configure controladores RDMA en la máquina virtual y regístrese en Intel para descargar Intel MPI:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **HPC basada en CentOS 7.4**: los controladores RDMA e Intel MPI 5.1 están instalados en la máquina virtual.
+* **HPC basada en CentOS 7.4** : los controladores RDMA e Intel MPI 5.1 están instalados en la máquina virtual.
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instalación de controladores GRID en VM de la serie NV o NVv3
 
@@ -208,7 +208,7 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
 
-6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
+6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí** .
 
 7. Una vez completada la instalación, copie /etc/nvidia/gridd.conf.template en un nuevo archivo gridd.conf en la ubicación /etc/nvidia/
 
@@ -281,7 +281,7 @@ Para instalar los controladores NVIDIA GRID en VM de la serie NV o NVv3, estable
 
    sudo ./NVIDIA-Linux-x86_64-grid.run
    ``` 
-6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí**.
+6. Cuando se le pregunte si desea ejecutar la utilidad nvidia-xconfig para actualizar el archivo de configuración de X, seleccione **Sí** .
 
 7. Una vez completada la instalación, copie /etc/nvidia/gridd.conf.template en un nuevo archivo gridd.conf en la ubicación /etc/nvidia/
   
@@ -310,7 +310,7 @@ Para consultar el estado del dispositivo de GPU, acceda mediante SSH a la máqui
 
 Si el controlador está instalado, verá una salida parecida a la siguiente. Tenga en cuenta que **GPU-Util** muestra 0 %, salvo que se esté ejecutando una carga de trabajo de GPU en la máquina virtual. La versión del controlador y los detalles de GPU pueden ser diferentes de los que se muestran.
 
-![Estado del dispositivo de NVIDIA](./media/n-series-driver-setup/smi-nv.png)
+![Captura de pantalla que muestra la salida cuando se consulta el estado de un dispositivo GPU.](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>Servidor X11

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076936"
+ms.locfileid: "92092705"
 ---
 # <a name="edit-an-api"></a>Edición de una API
 
@@ -35,29 +35,29 @@ Los pasos descritos en este tutorial muestran cómo usar API Management (APIM) p
 
 ## <a name="edit-an-api-in-apim"></a>Edición de una API en APIM
 
-![Edición de una API](./media/edit-api/edit-api001.png)
+![Captura de pantalla que resalta el proceso de edición de una API en APIM.](./media/edit-api/edit-api001.png)
 
-1. Haga clic en la pestaña **API**.
+1. Haga clic en la pestaña **API** .
 2. Seleccione una de las API que haya importado previamente.
-3. Seleccione la pestaña **Diseño**.
+3. Seleccione la pestaña **Diseño** .
 4. Seleccione una operación que desee editar.
-5. Para cambiar el nombre de la operación, seleccione un **lápiz** en la ventana **Frontend**.
+5. Para cambiar el nombre de la operación, seleccione un **lápiz** en la ventana **Frontend** .
 
 ## <a name="update-the-swagger"></a>Actualización del swagger
 
 Puede actualizar su back-end API desde Azure Portal siguiendo estos pasos:
 
-1. Seleccione **Todas las operaciones**.
-2. Haga clic en lápiz en la ventana **front-end**.
+1. Seleccione **Todas las operaciones** .
+2. Haga clic en lápiz en la ventana **front-end** .
 
-    ![Edición de una API](./media/edit-api/edit-api002.png)
+    ![Captura de pantalla que resalta el icono de lápiz en la pantalla de front-end.](./media/edit-api/edit-api002.png)
 
     Aparece el swagger de la API.
 
     ![Edición de una API](./media/edit-api/edit-api003.png)
 
 3. Actualización del swagger.
-4. Presione **Save**(Guardar).
+4. Presione **Save** (Guardar).
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

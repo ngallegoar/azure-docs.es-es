@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 1.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 1.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757522"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167734"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referencia de host.json para Azure Functions 1.x
 
@@ -162,7 +162,7 @@ Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía signifi
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica la duración del tiempo de espera para todas las funciones. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos. En un plan de App Service, no hay ningún límite general y el valor predeterminado es _null_, lo que indica que no hay tiempo de espera.
+Indica la duración del tiempo de espera para todas las funciones. En un plan de consumo sin servidor, el intervalo válido es de 1 segundo a 10 minutos, y el valor predeterminado es 5 minutos. En un plan de App Service, no hay ningún límite general y el valor predeterminado es _null_ , lo que indica que no hay tiempo de espera.
 
 ```json
 {
@@ -230,7 +230,7 @@ Si comparte una cuenta de almacenamiento entre varias aplicaciones de función, 
 
 ## <a name="logger"></a>logger
 
-Controla el filtrado de los registros escritos por un [objeto ILogger](functions-monitoring.md#write-logs-in-c-functions) o [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
+Controla el filtrado de los registros escritos por un [objeto ILogger](functions-dotnet-class-library.md#ilogger) o [context.log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -340,7 +340,7 @@ Opciones de configuración para el comportamiento de bloqueo Singleton. Para má
 
 *Versión 1.x*
 
-Opciones de configuración para los registros que se crean mediante un objeto `TraceWriter`. Consulte [Registro de C#](functions-reference-csharp.md#logging) y [Registro de Node.js](functions-reference-node.md#writing-trace-output-to-the-console).
+Opciones de configuración para los registros que se crean mediante un objeto `TraceWriter`. Para más información, consulte [Registro de C#].
 
 ```json
 {

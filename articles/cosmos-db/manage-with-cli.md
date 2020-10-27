@@ -4,14 +4,14 @@ description: Administre recursos de API de Azure Cosmos DB Core (SQL) mediante 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: dce041a46f173216844322b5a8985acbdfb86f26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840598"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277766"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Administración de recursos de API de Azure Cosmos Core (SQL) mediante la CLI de Azure
 
@@ -20,6 +20,8 @@ En la siguiente guía, se describen los comandos comunes para automatizar la adm
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure, versión 2.12.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+
+Para obtener ejemplos de la CLI de Azure para otras API, consulte [Ejemplos de la CLI para Cassandra](cli-samples-cassandra.md), [Ejemplos de la CLI para MongoDB API](cli-samples-mongodb.md), [Ejemplos de la CLI para Gremlin](cli-samples-gremlin.md), [Ejemplos de la CLI para Table](cli-samples-table.md).
 
 > [!IMPORTANT]
 > No se puede cambiar el nombre de los recursos de Azure Cosmos DB, ya que esto infringe la forma de funcionar de Azure Resource Manager con los URI de recursos.

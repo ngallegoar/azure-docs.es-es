@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273303"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101773"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios
 
@@ -59,45 +59,45 @@ Esta sección le guía por los pasos necesarios para conectar la [API - v40 de a
 
 El objetivo de esta sección es describir cómo habilitar el aprovisionamiento de cuentas de usuario de Active Directory para Salesforce.
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
+1. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones** .
 
 2. Si ya ha configurado Salesforce para el inicio de sesión único, busque la instancia de Salesforce mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Salesforce** en la galería de aplicaciones. Seleccione Salesforce en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-3. Seleccione la instancia de Salesforce y, después, seleccione la pestaña **Aprovisionamiento**.
+3. Seleccione la instancia de Salesforce y, después, seleccione la pestaña **Aprovisionamiento** .
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático** .
 
     ![Captura de pantalla que muestra la página de aprovisionamiento de Salesforce, con Modo de aprovisionamiento establecido en Automático y otros valores que se pueden establecer.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
-5. En la sección **Credenciales de administrador**, proporcione los siguientes valores de configuración:
+5. En la sección **Credenciales de administrador** , proporcione los siguientes valores de configuración:
 
-    a. Como **nombre de usuario del administrador**, escriba un nombre de cuenta de espacio de Salesforce que tenga asignado el perfil **Administrador del sistema** en Salesforce.com.
+    a. Como **nombre de usuario del administrador** , escriba un nombre de cuenta de espacio de Salesforce que tenga asignado el perfil **Administrador del sistema** en Salesforce.com.
 
-    b. En el cuadro de texto **Contraseña de administrador**, escriba la contraseña de esta cuenta.
+    b. En el cuadro de texto **Contraseña de administrador** , escriba la contraseña de esta cuenta.
 
-6. Para obtener el token de seguridad de Salesforce, abra una nueva pestaña e inicie sesión en la misma cuenta de administrador de Salesforce. En la esquina superior derecha de la página, haga clic en su nombre y, a continuación, haga clic en **Configuración**.
+6. Para obtener el token de seguridad de Salesforce, abra una nueva pestaña e inicie sesión en la misma cuenta de administrador de Salesforce. En la esquina superior derecha de la página, haga clic en su nombre y, a continuación, haga clic en **Configuración** .
 
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar el aprovisionamiento automático de usuarios")
+    ![Captura de pantalla que muestra el vínculo Configuración seleccionado.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Habilitar el aprovisionamiento automático de usuarios")
 
 7. En el panel de navegación izquierdo, haga clic en **Mi información personal** para expandir la sección relacionada y haga clic en **Reset My Security Token** (Restablecer mi token de seguridad).
   
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar el aprovisionamiento automático de usuarios")
+    ![Captura de pantalla que muestra la opción Reset My Security Token (Restablecer mi token de seguridad) seleccionado en My Personal Information (Mi información personal).](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Habilitar el aprovisionamiento automático de usuarios")
 
 8. En la página **Reset Security Token** (Restablecer token de seguridad), haga clic en el botón **Reset Security Token** (Restablecer token de seguridad).
 
-    ![Habilitar el aprovisionamiento automático de usuarios](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar el aprovisionamiento automático de usuarios")
+    ![Captura de pantalla que muestra la página Reset Security Token (Restablecer token de seguridad), con texto explicativo y la opción para restablecer el token de seguridad.](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Habilitar el aprovisionamiento automático de usuarios")
 
 9. Compruebe la bandeja de entrada de correo electrónico asociada a esta cuenta de administrador. Busque un correo electrónico de Salesforce.com que contenga el nuevo token de seguridad.
 
-10. Copie el token, vaya a la ventana de Azure AD y péguelo en el campo **Token secreto**.
+10. Copie el token, vaya a la ventana de Azure AD y péguelo en el campo **Token secreto** .
 
-11. Si la instancia de Salesforce está en la nube de administración pública de Salesforce, es obligatorio especificar un valor en **URL de inquilino**. De lo contrario, este valor es opcional. Escriba la dirección URL del inquilino con el formato "https://\<your-instance\>.my.salesforce.com" y sustituya \<your-instance\> por el nombre de la instancia de Salesforce.
+11. Si la instancia de Salesforce está en la nube de administración pública de Salesforce, es obligatorio especificar un valor en **URL de inquilino** . De lo contrario, este valor es opcional. Escriba la dirección URL del inquilino con el formato "https://\<your-instance\>.my.salesforce.com" y sustituya \<your-instance\> por el nombre de la instancia de Salesforce.
 
 12. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación Salesforce.
 
 13. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-14. Haga clic en **Guardar**.  
+14. Haga clic en **Guardar** .  
 
 15. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to** (Sincronizar usuarios de Azure Active Directory con Salesforce).
 
@@ -105,7 +105,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 
 17. Para habilitar el servicio de aprovisionamiento de Azure AD para Salesforce, cambie el **estado de aprovisionamiento** a **Activado** en la sección Configuración.
 
-18. Haga clic en **Guardar**.
+18. Haga clic en **Guardar** .
 
 > [!NOTE]
 > Una vez que los usuarios están aprovisionados en la aplicación Salesforce, el administrador debe configurar los valores específicos del idioma para ellos. Consulte [este](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) artículo para obtener más detalles sobre la configuración del idioma.
