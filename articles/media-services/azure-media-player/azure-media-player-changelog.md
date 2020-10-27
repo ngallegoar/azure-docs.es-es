@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315089"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370583"
 ---
 # <a name="changelog"></a>Registro de cambios
 
@@ -198,7 +198,7 @@ Devolución de errores KeyDelivery significativos para llamar a aplicaciones
 
 ### <a name="changes"></a>Cambios ###
 
-- [Cambio][Subtítulos en vivo] Se ha cambiado el nombre de la API en los subtítulos de CEA de 608 a 708. Para más información, consulte [Configuración de subtítulos de CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- [Cambio][Subtítulos en vivo] Se ha cambiado el nombre de la API en los subtítulos de CEA de 608 a 708. Para más información, consulte [Configuración de subtítulos de CEA708](/javascript/api/azuremediaplayer/cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (versión oficial) ##
 
@@ -727,7 +727,7 @@ Devolución de errores KeyDelivery significativos para llamar a aplicaciones
 - [Corrección de errores] Se ha actualizado la experiencia de carga de la interfaz de usuario en el modo de reproducción automática.
 - [Corrección de errores] Problema con el cargador de AMD y conflictos del método de definición.
 - [Corrección de errores] Problema de carga de la aplicación Cordova en WP 8.1.
-- [Corrección de errores] La plataforma o la tecnología de consultas de contenido protegidas admitían ProtectionType para seleccionar la tecnología adecuada para la reproducción.  Corrige un problema ya conocido de "_El contenido de PlayReady en Chrome (escritorio)/Safari 8 (en OSX Yosemite) no utiliza el reproductor Silverlight como reserva_".
+- [Corrección de errores] La plataforma o la tecnología de consultas de contenido protegidas admitían ProtectionType para seleccionar la tecnología adecuada para la reproducción.  Corrige un problema ya conocido de " _El contenido de PlayReady en Chrome (escritorio)/Safari 8 (en OSX Yosemite) no utiliza el reproductor Silverlight como reserva_ ".
 - [Corrección de errores] Excepción no detectada en WinServer 2012 R2 debido a que Media Foundation no está instalado en esa máquina de forma predeterminada.  Al intentar usar de las API de etiquetas de vídeo HTML que no están implementadas, se produce un error. La mitigación actual es detectar el error y devolver false, en lugar de producir el error.
 - [Corrección de errores] Se obtiene siempre el segmento inicial después del error de búsqueda o de http para evitar problemas durante la reproducción.
 - [Corrección de errores] Se desactiva el proceso simulado del seguimiento y las actualizaciones del tiempo en caso de error.
