@@ -286,7 +286,7 @@
               href: platform/design-logs-deployment.md
             - name: Crear un área de trabajo
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -556,8 +556,6 @@
               href: platform/alerts-managing-smart-groups.md
             - name: Administración de estados de alertas y de grupos inteligentes
               href: platform/alerts-managing-alert-states.md
-            - name: Administración de alertas de otros servicios de supervisión
-              href: platform/alerts-managing-nagios-zabbix-scom.md
         - name: API de alerta
           href: platform/api-alerts.md
         - name: Alertas de solución de problemas
@@ -576,8 +574,6 @@
               href: platform/itsmc-service-manager-script.md
             - name: Solución de problemas de sincronización de ITSM de ServiceNow
               href: platform/itsmc-resync-servicenow.md
-        - name: Solución de Alert Management
-          href: platform/alert-management-solution.md
         - name: Migración de las reglas de alertas clásicas
           items:
             - name: Acerca de alertas clásicas
@@ -1138,6 +1134,8 @@
               href: insights/vmware.md
             - name: Solución Wire Data
               href: insights/wire-data.md
+            - name: Solución de Alert Management
+              href: platform/alert-management-solution.md
     - name: Workbooks
       items:
         - name: Información general
