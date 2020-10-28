@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 10/12/2020
 ms.reviewer: andalmia
 ms.author: banders
-ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 28397d36a611f26544fefb9f4fa7593a0fdf3f73
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014535"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748179"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Creación de suscripciones de Azure mediante programación con las API más recientes
 
@@ -183,7 +183,7 @@ Un estado en curso se devuelve como estado `Accepted` en `provisioningState`.
 
 Para instalar la versión más reciente del módulo que contiene el cmdlet `New-AzSubscriptionAlias`, ejecute `Install-Module Az.Subscription`. Para instalar una versión reciente de PowerShellGet, consulte [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) con el ámbito de facturación `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
+Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) con el ámbito de facturación `"/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/BillingAccounts/1234567/enrollmentAccounts/7654321" -Workload 'Production"
@@ -281,7 +281,7 @@ La respuesta de la API muestra las cuentas de facturación a las que tiene acces
 }
 ```
 
-Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement*. Copie el valor de `name` de la cuenta.  Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
+Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement* . Copie el valor de `name` de la cuenta.  Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
@@ -400,7 +400,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-a-subscription-for-an-invoice-section"></a>Creación de una suscripción para una sección de factura
 
-En el ejemplo siguiente se crea una suscripción llamada *Dev Team subscription* para la sección de factura *Development*. La suscripción se facturará al *perfil de facturación de Contoso* y aparecerá en la sección *Development* de su factura. Use el ámbito de facturación copiado del paso anterior: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+En el ejemplo siguiente se crea una suscripción llamada *Dev Team subscription* para la sección de factura *Development* . La suscripción se facturará al *perfil de facturación de Contoso* y aparecerá en la sección *Development* de su factura. Use el ámbito de facturación copiado del paso anterior: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
 ### <a name="rest"></a>[REST](#tab/rest-MCA)
 
@@ -463,7 +463,7 @@ Un estado en curso se devuelve como estado `Accepted` en `provisioningState`.
 
 Para instalar la versión más reciente del módulo que contiene el cmdlet `New-AzSubscriptionAlias`, ejecute `Install-Module Az.Subscription`. Para instalar una versión reciente de PowerShellGet, consulte [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) y el ámbito de facturación `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
+Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) y el ámbito de facturación `"/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx" -Workload 'Production"
@@ -553,7 +553,7 @@ La respuesta de la API muestra las cuentas de facturación.
 }
 ```
 
-Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftPartnerAgreement*. Copie el valor `name` de la cuenta. Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
+Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftPartnerAgreement* . Copie el valor `name` de la cuenta. Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts-MPA)
@@ -742,7 +742,7 @@ Pase el valor *resellerId* opcional copiado en el segundo paso en el cuerpo de l
 
 Para instalar la versión más reciente del módulo que contiene el cmdlet `New-AzSubscriptionAlias`, ejecute `Install-Module Az.Subscription`. Para instalar una versión reciente de PowerShellGet, consulte [Obtención del módulo PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
-Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/New-AzSubscriptionAlias) con el ámbito de facturación `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
+Ejecute el siguiente comando [New-AzSubscriptionAlias](/powershell/module/az.subscription/new-azsubscription) con el ámbito de facturación `"/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx"`. 
 
 ```azurepowershell-interactive
 New-AzSubscriptionAlias -AliasName "sampleAlias" -SubscriptionName "Dev Team Subscription" -BillingScope "/providers/Microsoft.Billing/billingAccounts/99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/customers/2281f543-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -Workload 'Production"
@@ -838,7 +838,7 @@ La respuesta de la API muestra las cuentas de facturación a las que tiene acces
 }
 ```
 
-Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement*. Copie el valor de `name` de la cuenta. Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
+Use la propiedad `displayName` para identificar la cuenta de facturación para la que desea crear suscripciones. Asegúrese de que el valor agreementType de la cuenta sea *MicrosoftCustomerAgreement* . Copie el valor de `name` de la cuenta. Por ejemplo, para crear una suscripción para la cuenta de facturación `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Pegue este valor en algún lugar para poder usarlo en el paso siguiente.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
@@ -958,7 +958,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### <a name="create-a-subscription-and-resource-group-with-a-template"></a>Creación de una suscripción y un grupo de recursos con una plantilla
 
-En la plantilla de Resource Manager siguiente se crea una suscripción llamada *Dev Team subscription* para la sección de factura *Development*. La suscripción se facturará al *perfil de facturación de Contoso* y aparecerá en la sección *Development* de su factura. Use el ámbito de facturación copiado del paso anterior: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+En la plantilla de Resource Manager siguiente se crea una suscripción llamada *Dev Team subscription* para la sección de factura *Development* . La suscripción se facturará al *perfil de facturación de Contoso* y aparecerá en la sección *Development* de su factura. Use el ámbito de facturación copiado del paso anterior: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
 #### <a name="request"></a>Solicitud
 

@@ -11,14 +11,15 @@ ms.custom:
 - mvc
 - mqtt
 - devx-track-java
+- devx-track-azurecli
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 5a077a325f29e38ce3647b2662c72aaad5adfc2b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ad9c64f2846b59fcc833ad56c4da378f7819dae3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150676"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747411"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Inicio rápido: Envío de datos de telemetría de IoT desde un dispositivo Android
 
@@ -58,9 +59,9 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 1. Ejecute los siguientes comandos en Azure Cloud Shell para crear la identidad del dispositivo.
 
-   **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+   **YourIoTHubName** : reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-   **MyAndroidDevice**: es el nombre del dispositivo que se va a registrar. Se recomienda usar **MyAndroidDevice** como se muestra. Si elige un nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   **MyAndroidDevice** : es el nombre del dispositivo que se va a registrar. Se recomienda usar **MyAndroidDevice** como se muestra. Si elige un nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyAndroidDevice
@@ -68,7 +69,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 2. Ejecute el siguiente comandos en Azure Cloud Shell para obtener la _cadena de conexión_ del dispositivo que acaba de registrar:
 
-    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+    **YourIoTHubName** : reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
@@ -82,7 +83,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 ## <a name="send-simulated-telemetry"></a>Envío de datos de telemetría simulados
 
-1. En Android Studio, abra el proyecto de Android de ejemplo de GitHub. El proyecto se encuentra en el siguiente directorio de la copia que ha clonado o descargado del repositorio [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java): *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample*.
+1. En Android Studio, abra el proyecto de Android de ejemplo de GitHub. El proyecto se encuentra en el siguiente directorio de la copia que ha clonado o descargado del repositorio [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java): *\azure-iot-samples-java\iot-hub\Samples\device\AndroidSample* .
 
 2. En Android Studio, abra *gradle.properties* para el proyecto de ejemplo y reemplace el marcador de posición **Device_Connection_String** por la cadena de conexión de dispositivo que anotó anteriormente.
 
@@ -90,7 +91,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
     DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}
     ```
 
-3. En Android Studio, haga clic en **File**(Archivo) > **Sync Project with Gradle Files** (Sincronizar proyecto con archivos de Gradle). Compruebe que la compilación se completa.
+3. En Android Studio, haga clic en **File** (Archivo) > **Sync Project with Gradle Files** (Sincronizar proyecto con archivos de Gradle). Compruebe que la compilación se completa.
 
    > [!NOTE]
    > Si se produce un error en la sincronización del proyecto, puede ser por uno de los siguientes motivos:
@@ -98,7 +99,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
    > * Las versiones del complemento Gradle para Android y Gradle al que se hace referencia en el proyecto están en desuso para su versión de Android Studio. Siga [estas instrucciones](https://developer.android.com/studio/releases/gradle-plugin) para hacer referencia a las versiones correctas del complemento y de Gradle e instalarlas.
    > * No se ha firmado el contrato de licencia de Android SDK. Siga las instrucciones de la salida de compilación para firmar el contrato de licencia y descargar el SDK.
 
-4. Una vez completada la compilación, haga clic en **Run**(Ejecutar) > **Run 'app'** (Ejecutar "aplicación"). Configure la aplicación para que se ejecute en un dispositivo Android físico o un emulador de Android. Para más información sobre la ejecución de una aplicación de Android en un dispositivo físico o en un emulador, consulte [Ejecutar la aplicación](https://developer.android.com/training/basics/firstapp/running-app).
+4. Una vez completada la compilación, haga clic en **Run** (Ejecutar) > **Run 'app'** (Ejecutar "aplicación"). Configure la aplicación para que se ejecute en un dispositivo Android físico o un emulador de Android. Para más información sobre la ejecución de una aplicación de Android en un dispositivo físico o en un emulador, consulte [Ejecutar la aplicación](https://developer.android.com/training/basics/firstapp/running-app).
 
 5. Cuando se cargue la aplicación, haga clic en el botón **Iniciar** para empezar a enviar datos de telemetría a IoT Hub:
 
@@ -111,7 +112,7 @@ En esta sección, usará Azure Cloud Shell con la [extensión de IoT](/cli/azure
 
 1. Mediante Azure Cloud Shell, ejecute el siguiente comando para conectarse y leer mensajes desde el centro de IoT:
 
-   **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+   **YourIoTHubName** : reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table

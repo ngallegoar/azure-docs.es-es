@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 97551ac63066f7064c16a001d9ce1f6bc31465ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e53937122b8721aff5db435ac447b686ea16643
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80586585"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748678"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Inicio rápido: Habilitar SSH y RDP mediante un flujo de dispositivo de IoT Hub con una aplicación proxy en C# (versión preliminar)
 
@@ -195,7 +195,7 @@ Salida de la consola en el lado del servicio (la aplicación de proxy local de s
 
 ![Salida de la aplicación de proxy local de servicio](./media/quickstart-device-streams-proxy-csharp/service-console-output.png)
 
-Salida de la consola en la aplicación de proxy local de dispositivo que conecta con el demonio de SSH en *IP_address:22*:
+Salida de la consola en la aplicación de proxy local de dispositivo que conecta con el demonio de SSH en *IP_address:22* :
 
 ![Salida de la aplicación de proxy local de dispositivo](./media/quickstart-device-streams-proxy-csharp/device-console-output.png)
 

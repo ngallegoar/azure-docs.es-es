@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecd7e847a91847db8f57c640a374dc329fce7ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450342"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782950"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,9 +64,9 @@ Los trabajos del Agente SQL son una serie especificada de scripts de T-SQL que s
 Un trabajo se puede ejecutar en un servidor local o en varios servidores remotos. Los trabajos del Agente SQL son un componente interno del motor de base de datos que se ejecuta dentro del servicio Instancia administrada.
 En los trabajos del Agente SQL, hay varios conceptos clave que conviene describir:
 
-- **Pasos del trabajo**: conjunto de uno o varios pasos que se deben ejecutar dentro del trabajo. Para cada paso de trabajo se puede definir la estrategia de reintento y la acción que tendrá lugar si el paso del trabajo se realiza correctamente o con errores.
-- **Programaciones**: definen cuándo se debe ejecutar el trabajo.
-- **Notificaciones**: le permiten definir las reglas que se usarán para notificar a los operadores la finalización del trabajo mediante un mensaje de correo electrónico.
+- **Pasos del trabajo** : conjunto de uno o varios pasos que se deben ejecutar dentro del trabajo. Para cada paso de trabajo se puede definir la estrategia de reintento y la acción que tendrá lugar si el paso del trabajo se realiza correctamente o con errores.
+- **Programaciones** : definen cuándo se debe ejecutar el trabajo.
+- **Notificaciones** : le permiten definir las reglas que se usarán para notificar a los operadores la finalización del trabajo mediante un mensaje de correo electrónico.
 
 ### <a name="job-steps"></a>Pasos de trabajo
 
@@ -173,13 +173,13 @@ Algunas de las características del Agente SQL que están disponibles en SQL Ser
 - No se admiten servidores proxy.
 - No se admite Eventlog.
 
-Para más información acerca del Agente SQL Server, consulte [Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
+Para más información acerca del Agente SQL Server, consulte [Agente SQL Server](/sql/ssms/agent/sql-server-agent).
 
 ## <a name="elastic-database-jobs-preview"></a>Trabajos de Elastic Database (versión preliminar)
 
 Los **trabajos de Elastic Database** proporcionan la posibilidad de ejecutar uno o varios scripts de T-SQL en paralelo, en un gran número de bases de datos, bajo una programación o a petición.
 
-**Ejecute trabajos en cualquier combinación de bases de datos**: una o más bases de datos individuales, todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o mapa de particiones, con la flexibilidad adicional de incluir o excluir cualquier base de datos específica. **Los trabajos se pueden ejecutar en varios servidores, en varios grupos e incluso en bases de datos de distintas suscripciones.** Los servidores y los grupos se enumeran dinámicamente en tiempo de ejecución, por lo que los trabajos se ejecutarán en todas las bases de datos que existan en el grupo de destino en el momento de la ejecución.
+**Ejecute trabajos en cualquier combinación de bases de datos** : una o más bases de datos individuales, todas las bases de datos de un servidor, todas las bases de datos de un grupo elástico o mapa de particiones, con la flexibilidad adicional de incluir o excluir cualquier base de datos específica. **Los trabajos se pueden ejecutar en varios servidores, en varios grupos e incluso en bases de datos de distintas suscripciones.** Los servidores y los grupos se enumeran dinámicamente en tiempo de ejecución, por lo que los trabajos se ejecutarán en todas las bases de datos que existan en el grupo de destino en el momento de la ejecución.
 
 La siguiente imagen muestra a un agente de trabajos que ejecuta los trabajos en los diferentes tipos de grupos de destino:
 
@@ -210,11 +210,11 @@ En la versión preliminar actual, es necesaria una base de datos existente de Az
 
 La *base de datos de trabajos* no necesita ser nueva literalmente, pero debe estar vacía y pertenecer al objetivo de servicio S0 o superior. El objetivo de servicio recomendado de la *base de datos de trabajos* es S1 o superior, pero la opción óptima depende de las necesidades de rendimiento de los trabajos: el número de pasos de los trabajos, el número de destinos de los trabajos y la frecuencia con que se ejecutan los trabajos. Por ejemplo, una base de datos S0 puede ser suficiente para un agente de trabajos que ejecute pocos trabajos a la hora y cuyo destino sea inferior a diez bases de datos, pero la ejecución de un trabajo cada minuto podría no ser suficientemente rápida con una base de datos S0 y quizás sea mejor un nivel de servicio superior.
 
-Si las operaciones realizadas en la base de datos de trabajos son más lentas de lo esperado, [supervise](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) el rendimiento de la base de datos y el uso de los recursos en la base de datos de trabajos durante los períodos de lentitud mediante Azure Portal o la vista de administración dinámica [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si la utilización de un recurso, como la CPU, la E/S de datos o el registro de escritura, se aproxima al 100 % y se correlaciona con períodos de lentitud, considere la posibilidad de escalar incrementalmente la base de datos a objetivos de servicio más altos (ya sea en el [modelo de DTU](service-tiers-dtu.md) o en el [modelo de núcleo virtual](service-tiers-vcore.md)) hasta que el rendimiento de la base de datos mejore lo suficiente.
+Si las operaciones realizadas en la base de datos de trabajos son más lentas de lo esperado, [supervise](monitor-tune-overview.md#azure-sql-database-and-azure-sql-managed-instance-resource-monitoring) el rendimiento de la base de datos y el uso de los recursos en la base de datos de trabajos durante los períodos de lentitud mediante Azure Portal o la vista de administración dinámica [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). Si la utilización de un recurso, como la CPU, la E/S de datos o el registro de escritura, se aproxima al 100 % y se correlaciona con períodos de lentitud, considere la posibilidad de escalar incrementalmente la base de datos a objetivos de servicio más altos (ya sea en el [modelo de DTU](service-tiers-dtu.md) o en el [modelo de núcleo virtual](service-tiers-vcore.md)) hasta que el rendimiento de la base de datos mejore lo suficiente.
 
 ##### <a name="job-database-permissions"></a>Permisos de la base de datos de trabajos
 
-Durante la creación del agente de trabajos, se crean un esquema, tablas y un rol llamado *jobs_reader* en la *base de datos de trabajos*. El rol se crea con los permisos siguientes y está diseñado para proporcionar a los administradores un mayor control de acceso para la supervisión de trabajos:
+Durante la creación del agente de trabajos, se crean un esquema, tablas y un rol llamado *jobs_reader* en la *base de datos de trabajos* . El rol se crea con los permisos siguientes y está diseñado para proporcionar a los administradores un mayor control de acceso para la supervisión de trabajos:
 
 |Nombre de rol |permisos del esquema "jobs" |permisos del esquema "jobs_internal" |
 |---------|---------|---------|
@@ -227,13 +227,13 @@ Durante la creación del agente de trabajos, se crean un esquema, tablas y un ro
 
 Un *grupo de destino* define el conjunto de bases de datos en las que se ejecutará un paso de trabajo. Un grupo de destino puede contener cualquier número y combinación de los siguientes elementos:
 
-- **Servidor SQL Server lógico**: si se especifica un servidor, todas las bases de datos que existen en él en el momento de la ejecución del trabajo forman parte del grupo. Se debe proporcionar la credencial de la base de datos maestra para que el grupo se pueda enumerar y actualizar antes de la ejecución del trabajo.
-- **Grupo elástico**: si se especifica un grupo elástico, todas las bases de datos que se encuentran en el grupo elástico en el momento de la ejecución del trabajo forman parte del grupo. Igual que para un servidor, se debe proporcionar la credencial de la base de datos maestra para que el grupo se pueda actualizar antes de la ejecución del trabajo.
-- **Base de datos individual**: especifique una o más bases de datos individuales que van a formar parte del grupo.
-- **Mapa de particiones**: bases de datos de un mapa de particiones.
+- **Servidor SQL Server lógico** : si se especifica un servidor, todas las bases de datos que existen en él en el momento de la ejecución del trabajo forman parte del grupo. Se debe proporcionar la credencial de la base de datos maestra para que el grupo se pueda enumerar y actualizar antes de la ejecución del trabajo.
+- **Grupo elástico** : si se especifica un grupo elástico, todas las bases de datos que se encuentran en el grupo elástico en el momento de la ejecución del trabajo forman parte del grupo. Igual que para un servidor, se debe proporcionar la credencial de la base de datos maestra para que el grupo se pueda actualizar antes de la ejecución del trabajo.
+- **Base de datos individual** : especifique una o más bases de datos individuales que van a formar parte del grupo.
+- **Mapa de particiones** : bases de datos de un mapa de particiones.
 
 > [!TIP]
-> En el momento de la ejecución del trabajo,la *enumeración dinámica* vuelve a evaluar el conjunto de bases de datos de los grupos de destino que incluyan servidores o grupos. La enumeración dinámica garantiza que los **trabajos se ejecutan en todas las bases de datos que existen en el servidor o grupo de servidores en el momento de la ejecución del trabajo**. Volver a evaluar la lista de bases de datos en tiempo de ejecución es específicamente útil en escenarios donde la pertenencia al grupo o servidor cambia con frecuencia.
+> En el momento de la ejecución del trabajo,la *enumeración dinámica* vuelve a evaluar el conjunto de bases de datos de los grupos de destino que incluyan servidores o grupos. La enumeración dinámica garantiza que los **trabajos se ejecutan en todas las bases de datos que existen en el servidor o grupo de servidores en el momento de la ejecución del trabajo** . Volver a evaluar la lista de bases de datos en tiempo de ejecución es específicamente útil en escenarios donde la pertenencia al grupo o servidor cambia con frecuencia.
 
 Los grupos y bases de datos individuales se pueden especificar como incluidas o excluidas del grupo. Esto permite crear un grupo de destino con cualquier combinación de bases de datos. Por ejemplo, puede agregar un servidor a un grupo de destino, pero excluir bases de datos específicas de un grupo elástico (o excluir un grupo completo).
 
@@ -245,8 +245,8 @@ Los ejemplos siguientes muestran cómo se enumeran dinámicamente distintas defi
 
 El **Ejemplo 1** muestra un grupo de destino que consta de una lista de bases de datos individuales. Cuando se ejecuta un paso de trabajo con este grupo de destino, la acción del paso de trabajo se ejecutará en cada una de esas bases de datos.<br>
 El **ejemplo 2** muestra un grupo de destino que contiene un servidor como destino. Cuando se ejecuta un paso de trabajo con este grupo de destino, el servidor se enumera de forma dinámica para determinar la lista de bases de datos que existen actualmente en el servidor. La acción del paso de trabajo se ejecutará en cada una de esas bases de datos.<br>
-El **Ejemplo 3** muestra un grupo de destino similar al del *Ejemplo 2*, pero se excluye específicamente una base de datos individual. La acción del paso de trabajo *no* se ejecutará en la base de datos excluida.<br>
-El **Ejemplo 4** muestra un grupo de destino que contiene un grupo elástico como destino. De forma similar al *Ejemplo 2*, el grupo se enumerará dinámicamente en tiempo de ejecución del trabajo para determinar la lista de bases de datos del grupo.
+El **Ejemplo 3** muestra un grupo de destino similar al del *Ejemplo 2* , pero se excluye específicamente una base de datos individual. La acción del paso de trabajo *no* se ejecutará en la base de datos excluida.<br>
+El **Ejemplo 4** muestra un grupo de destino que contiene un grupo elástico como destino. De forma similar al *Ejemplo 2* , el grupo se enumerará dinámicamente en tiempo de ejecución del trabajo para determinar la lista de bases de datos del grupo.
 <br><br>
 
 ![Ejemplos de grupo de destino adicionales](./media/job-automation-overview/targetgroup-examples2.png)
@@ -260,7 +260,7 @@ En el **Ejemplo 7** se muestra que las particiones de un mapa de particiones tam
 
 #### <a name="job"></a>Trabajo
 
-Un *trabajo* es una unidad de trabajo que se ejecuta según una programación o como un trabajo de una sola vez. Un trabajo consta de uno o varios *pasos de trabajo*.
+Un *trabajo* es una unidad de trabajo que se ejecuta según una programación o como un trabajo de una sola vez. Un trabajo consta de uno o varios *pasos de trabajo* .
 
 ##### <a name="job-step"></a>Paso de trabajo
 
@@ -272,7 +272,7 @@ El resultado de los pasos de un trabajo en cada base de datos de destino se regi
 
 #### <a name="job-history"></a>Historial de trabajos
 
-El historial de ejecución de los trabajos se almacena en la *base de datos de trabajos*. Un trabajo de limpieza del sistema purga el historial de ejecución anterior a 45 días. Para eliminar el historial de menos de 45 días de antigüedad, llame al procedimiento almacenado **sp_purge_history** de la *base de datos de trabajos*.
+El historial de ejecución de los trabajos se almacena en la *base de datos de trabajos* . Un trabajo de limpieza del sistema purga el historial de ejecución anterior a 45 días. Para eliminar el historial de menos de 45 días de antigüedad, llame al procedimiento almacenado **sp_purge_history** de la *base de datos de trabajos* .
 
 ### <a name="agent-performance-capacity-and-limitations"></a>Rendimiento, capacidad y limitaciones del agente
 
@@ -288,7 +288,7 @@ Para asegurarse de que los recursos no están sobrecargados al ejecutar trabajos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Qué es el Agente SQL Server](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
+- [Qué es el Agente SQL Server](/sql/ssms/agent/sql-server-agent)
 - [Creación y administración de trabajos elásticos](elastic-jobs-overview.md)
 - [Creación y administración de trabajos elásticos mediante PowerShell](elastic-jobs-powershell-create.md)
 - [Creación y administración de trabajos elásticos mediante Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

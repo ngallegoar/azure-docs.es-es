@@ -9,12 +9,12 @@ ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9aadf7d9cd27763cafb878d0b35d13a140a304
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f6e10d3e5b33a07c223a3913bba0b220df2ff64
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89008410"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787387"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de comprobación de rendimiento y escalabilidad para Queue Storage
 
@@ -52,7 +52,7 @@ En este artículo se organizan los procedimientos de eficacia probada a la hora 
 
 Si su aplicación se aproxima o supera cualquiera de estos objetivos de escalabilidad, puede encontrar un aumento en la limitación o latencias de transacción. Cuando Azure Storage limita su aplicación, el servicio comienza a devolver códigos de error 503 (Servidor ocupado) o 500 (Tiempo de espera de la operación). Evitar estos errores, mediante la permanencia en los límites de los objetivos de escalabilidad, es una parte importante de la mejora del rendimiento de la aplicación.
 
-Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](/azure/storage/queues/scalability-targets#scale-targets-for-queue-storage).
+Para más información acerca de los objetivos de escalabilidad de Queue service, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage en cuentas de almacenamiento](./scalability-targets.md#scale-targets-for-queue-storage).
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de cuentas de almacenamiento
 
@@ -128,7 +128,7 @@ Establezca el límite de conexiones antes de abrir cualquier conexión.
 
 En el caso de otros lenguajes de programación, consulte la documentación del lenguaje en cuestión para determinar cómo establecer el límite de conexiones.  
 
-Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para obtener más información, vea la entrada de blog [Servicios web: conexiones simultáneas](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumento del número mínimo de subprocesos
 
@@ -146,7 +146,7 @@ Aunque el paralelismo puede ser excelente para el rendimiento, tenga cuidado al 
 
 ## <a name="client-libraries-and-tools"></a>Herramientas y bibliotecas cliente
 
-Para obtener el mejor rendimiento posible, utilice siempre las herramientas y bibliotecas de cliente más recientes que proporciona Microsoft. Las bibliotecas de cliente de Azure Storage están disponibles para varios lenguajes. Azure Storage también admite PowerShell y la CLI de Azure. Microsoft desarrolla de forma activa estas herramientas y bibliotecas de cliente pensando en el rendimiento, las mantiene actualizadas con las versiones de servicio más recientes y se asegura de que controlan internamente muchos de los procedimientos de rendimiento de eficacia probada. Para más información, consulte la [documentación de referencia de Azure Storage](/azure/storage/#reference).
+Para obtener el mejor rendimiento posible, utilice siempre las herramientas y bibliotecas de cliente más recientes que proporciona Microsoft. Las bibliotecas de cliente de Azure Storage están disponibles para varios lenguajes. Azure Storage también admite PowerShell y la CLI de Azure. Microsoft desarrolla de forma activa estas herramientas y bibliotecas de cliente pensando en el rendimiento, las mantiene actualizadas con las versiones de servicio más recientes y se asegura de que controlan internamente muchos de los procedimientos de rendimiento de eficacia probada. Para más información, consulte la [documentación de referencia de Azure Storage](./reference.md).
 
 ## <a name="handle-service-errors"></a>Control de errores del servicio
 

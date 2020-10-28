@@ -5,13 +5,13 @@ description: Aprenda a crear rápidamente un clúster de Kubernetes, implementar
 services: container-service
 ms.topic: quickstart
 ms.date: 10/06/2020
-ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 9a666f257cf2616d540a70d145647fbc73350cbd
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.custom: mvc, seo-javascript-october2019, devx-track-azurecli
+ms.openlocfilehash: 30c00b1dfda3e30f047faf0deed7151aaf8c3fae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91850453"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745780"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service (AKS) mediante Azure Portal
 
@@ -31,25 +31,25 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 Para crear un clúster de AKS, realice los siguientes pasos:
 
-1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+1. En el menú de Azure Portal o en la **página principal** , seleccione **Crear un recurso** .
 
-2. Seleccione **Containers** >  **Kubernetes Service**.
+2. Seleccione **Containers** >  **Kubernetes Service** .
 
-3. En la página **Datos básicos**, configure las siguientes opciones:
-    - **Detalles del proyecto**: seleccione una **suscripción** de Azure y, a continuación, seleccione o cree un **grupo de recursos** de Azure, como *myResourceGroup*.
-    - **Detalles del clúster**: Escriba un **Nombre del clúster de Kubernetes**, como *myAKSCluster*. En **Región** y **Versión de Kubernetes**, seleccionelos valores adecuados para el clúster de AKS.
-    - **Grupo de nodos principal**: seleccione un **tamaño de nodo** de máquina virtual para los nodos de AKS. El tamaño de máquina virtual *no puede* cambiarse una vez que se ha implementado un clúster de AKS.
-            Seleccione el número de nodos que se van a implementar en el clúster. En esta guía de inicio rápido, establezca **Número de nodos** en *1*. El número de nodos *puede* ajustarse después de implementar el clúster.
+3. En la página **Datos básicos** , configure las siguientes opciones:
+    - **Detalles del proyecto** : seleccione una **suscripción** de Azure y, a continuación, seleccione o cree un **grupo de recursos** de Azure, como *myResourceGroup* .
+    - **Detalles del clúster** : Escriba un **Nombre del clúster de Kubernetes** , como *myAKSCluster* . En **Región** y **Versión de Kubernetes** , seleccionelos valores adecuados para el clúster de AKS.
+    - **Grupo de nodos principal** : seleccione un **tamaño de nodo** de máquina virtual para los nodos de AKS. El tamaño de máquina virtual *no puede* cambiarse una vez que se ha implementado un clúster de AKS.
+            Seleccione el número de nodos que se van a implementar en el clúster. En esta guía de inicio rápido, establezca **Número de nodos** en *1* . El número de nodos *puede* ajustarse después de implementar el clúster.
     
     ![Creación de un clúster de AKS: proporcionar información básica](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Seleccione **Siguiente: Grupos de nodos** cuando haya terminado.
 
-4. En la página **Grupos de nodos**, mantenga las opciones predeterminadas. En la parte inferior de la pantalla, haga clic en **Siguiente: Autenticación**.
+4. En la página **Grupos de nodos** , mantenga las opciones predeterminadas. En la parte inferior de la pantalla, haga clic en **Siguiente: Autenticación** .
     > [!CAUTION]
     > La creación de entidades de servicio de AAD puede tardar varios minutos en propagarse y estar disponible, lo que provoca errores de "no encontrado" en la entidad de servicio y de validación en Azure Portal. Si es el caso, consulte [este artículo](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) para resolverlos.
 
-5. En la página **Autenticación**, configure las siguientes opciones:
+5. En la página **Autenticación** , configure las siguientes opciones:
     - Cree una entidad de servicio; para ello, deje el campo **Entidad de servicio** con **Entidad de servicio predeterminada (nueva)** . También puede elegir *Configurar la entidad de servicio* para usar una existente. Si usa una existente, deberá proporcionar el identificador de cliente y el secreto de SPN.
     - Habilite la opción de control de acceso basado en rol (RBAC) de Kubernetes, Esta opción proporciona un control más pormenorizado sobre el acceso a los recursos de Kubernetes implementado en el clúster de AKS.
 
@@ -57,7 +57,7 @@ Para crear un clúster de AKS, realice los siguientes pasos:
 
 De forma predeterminada, se usa la red *Básica* y está habilitado Azure Monitor para contenedores. Haga clic en **Revisar y crear** y, luego, en **Crear** cuando finalice la validación.
 
-El clúster de AKS tarda unos minutos en crearse. Una vez finalizada la implementación, haga clic en **Ir al recurso**, o busque el grupo de recursos del clúster de AKS, como *myResourceGroup* y seleccione el recurso de AKS, por ejemplo, *myAKSCluster*. Se muestra el panel del clúster de AKS, como en este ejemplo:
+El clúster de AKS tarda unos minutos en crearse. Una vez finalizada la implementación, haga clic en **Ir al recurso** , o busque el grupo de recursos del clúster de AKS, como *myResourceGroup* y seleccione el recurso de AKS, por ejemplo, *myAKSCluster* . Se muestra el panel del clúster de AKS, como en este ejemplo:
 
 ![Panel de AKS de ejemplo en Azure Portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
@@ -69,7 +69,7 @@ Abra Cloud Shell mediante el botón `>_` de la parte superior de Azure Portal.
 
 ![Apertura de Azure Cloud Shell en el portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][az-aks-get-credentials]. Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas. En el ejemplo siguiente se obtienen credenciales para el nombre de clúster *myAKSCluster* del grupo de recursos denominado *myResourceGroup*:
+Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][az-aks-get-credentials]. Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas. En el ejemplo siguiente se obtienen credenciales para el nombre de clúster *myAKSCluster* del grupo de recursos denominado *myResourceGroup* :
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -81,7 +81,7 @@ Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-La salida del ejemplo siguiente muestra el nodo único creado en los pasos anteriores. Asegúrese de que el estado del nodo es *Listo*:
+La salida del ejemplo siguiente muestra el nodo único creado en los pasos anteriores. Asegúrese de que el estado del nodo es *Listo* :
 
 ```output
 NAME                       STATUS    ROLES     AGE       VERSION
@@ -207,7 +207,7 @@ Para supervisar el progreso, utilice el comando [kubectl get service][kubectl-ge
 kubectl get service azure-vote-front --watch
 ```
 
-En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente*.
+En un primer momento, el parámetro *EXTERNAL-IP* del servicio *azure-vote-front* se muestra como *pendiente* .
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
@@ -228,14 +228,14 @@ Para ver la aplicación Azure Vote en acción, abra un explorador web en la dire
 
 Cuando se creó el clúster, se habilitó Azure Monitor para contenedores. Esta característica de supervisión proporciona métricas de estado para el clúster de AKS y los pods que se ejecutan en el clúster.
 
-Estos datos pueden tardar unos minutos en rellenarse en Azure Portal. Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Voto de Azure, vaya al recurso de AKS en Azure Portal, como *myAKSCluster*. Luego puede acceder al estado de mantenimiento como se indica a continuación:
+Estos datos pueden tardar unos minutos en rellenarse en Azure Portal. Para ver el estado actual, el tiempo de actividad y el uso de recursos para los pods de Voto de Azure, vaya al recurso de AKS en Azure Portal, como *myAKSCluster* . Luego puede acceder al estado de mantenimiento como se indica a continuación:
 
-1. En la opción **Supervisión** de la izquierda, elija **Insights**.
+1. En la opción **Supervisión** de la izquierda, elija **Insights** .
 1. En la parte superior, elija **+ Agregar filtro**
 1. Seleccione *Espacio de nombre* como la propiedad y, después, elija *\<All but kube-system\>*
-1. Elija ver los **contenedores**.
+1. Elija ver los **contenedores** .
 
-Se muestran los contenedores *azure-vote-back* y *azure-vote-front*, como aparece en el ejemplo siguiente:
+Se muestran los contenedores *azure-vote-back* y *azure-vote-front* , como aparece en el ejemplo siguiente:
 
 ![Visualización del estado de ejecución de contenedores en AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 

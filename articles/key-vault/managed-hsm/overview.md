@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2d5d6ad23f5e6a2cac2dc97904154d5912573b0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320564"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787931"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>¿Qué es HSM administrado de Azure Key Vault (versión preliminar)?
 
-HSM administrado de Azure Key Vault es un servicio en la nube que cumple los estándares totalmente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de **FIPS 140-2 de nivel 3**.  
+HSM administrado de Azure Key Vault es un servicio en la nube que cumple los estándares totalmente administrado, de alta disponibilidad y de un solo inquilino que le permite proteger las claves criptográficas de las aplicaciones en la nube mediante HSM validados de **FIPS 140-2 de nivel 3** .  
 
 ## <a name="why-use-managed-hsm"></a>Motivos para usar Managed HSM
 
@@ -26,19 +26,19 @@ HSM administrado de Azure Key Vault es un servicio en la nube que cumple los est
 
 - **Totalmente administrado** El servicio controla el aprovisionamiento, la configuración, la revisión y el mantenimiento de HSM. 
 - **Alta disponibilidad y resistencia a la zona** (donde se admiten zonas de disponibilidad): Cada clúster de HSM consta de varias particiones de HSM que abarcan al menos dos zonas de disponibilidad. Si se produce un error de hardware, las particiones de miembro de su clúster de HSM se migrarán automáticamente a los nodos correctos.
-- **Inquilino único**: cada instancia de HSM administrada está dedicada a un solo cliente y consta de un clúster de varias particiones de HSM. Cada clúster de HSM usa un dominio de seguridad independiente específico del cliente que aísla de forma criptográfica el clúster de HSM de cada cliente.
+- **Inquilino único** : cada instancia de HSM administrada está dedicada a un solo cliente y consta de un clúster de varias particiones de HSM. Cada clúster de HSM usa un dominio de seguridad independiente específico del cliente que aísla de forma criptográfica el clúster de HSM de cada cliente.
 
 
 ### <a name="access-control-enhanced-data-protection--compliance"></a>Control de acceso, protección de datos mejorada y cumplimiento
 
-- **Administración de claves centralizada**: administre claves críticas y de alto valor en su organización en un solo lugar. Con permisos pormenorizados por clave, controle el acceso a todas las claves en base al principio de "acceso con menos privilegios".
-- **Control de acceso aislado**: El modelo de control de acceso "RBAC local" de HSM administrado permite a los administradores de clústeres de HSM designados tener un control completo sobre los HSM que ni siquiera los administradores de grupos de administración, de suscripciones o de grupos de recursos pueden invalidar.
-- **HSM validados con FIPS 140-2 nivel 3**: Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan adaptadores HSM de Marvell LiquidSecurity.
-- **Supervisión y auditoría**: completamente integrado con Azure Monitor. Obtenga registros completos de toda la actividad a través de Azure Monitor. Use Azure Log Analytics para los análisis y las alertas.
+- **Administración de claves centralizada** : administre claves críticas y de alto valor en su organización en un solo lugar. Con permisos pormenorizados por clave, controle el acceso a todas las claves en base al principio de "acceso con menos privilegios".
+- **Control de acceso aislado** : El modelo de control de acceso "RBAC local" de HSM administrado permite a los administradores de clústeres de HSM designados tener un control completo sobre los HSM que ni siquiera los administradores de grupos de administración, de suscripciones o de grupos de recursos pueden invalidar.
+- **HSM validados con FIPS 140-2 nivel 3** : Proteja sus datos y cumpla los requisitos de cumplimiento con los HSM validados con FIPS (Federal Information Protection Standard) 140-2 de nivel 3. Los HSM administrados usan adaptadores HSM de Marvell LiquidSecurity.
+- **Supervisión y auditoría** : completamente integrado con Azure Monitor. Obtenga registros completos de toda la actividad a través de Azure Monitor. Use Azure Log Analytics para los análisis y las alertas.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integración con los servicios PaaS y SaaS de Microsoft y Azure 
 
-- Genere (o importe mediante [BYOK](hsm-protected-keys-byok.md)) claves y úselas para cifrar los datos en reposo en servicios de Azure como [Azure Storage](../../storage/common/encryption-customer-managed-keys.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)y [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
+- Genere (o importe mediante [BYOK](hsm-protected-keys-byok.md)) claves y úselas para cifrar los datos en reposo en servicios de Azure como [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md)y [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
 
 ### <a name="uses-same-api-and-management-interfaces-as-key-vault"></a>Usa la misma API y las mismas interfaces de administración que Key Vault
 

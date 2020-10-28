@@ -9,15 +9,15 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 06/25/2020
 ms.author: allensu
-ms.openlocfilehash: aca3c9c52260d3ea2ab8def37566377fa67e712d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0612445d0a1bfa10182eb8ce827001d0856f4d9b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88705935"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777906"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint---arm-template"></a>Inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN: plantilla de ARM
 
@@ -25,7 +25,7 @@ Introducción a Azure Content Delivery Network (CDN) mediante una plantilla de A
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
 
@@ -46,7 +46,7 @@ Esta plantilla está configurada para crear lo siguiente:
 
 En la plantilla, se define un recurso de Azure:
 
-* **[Microsoft.Cdn/profiles](https://docs.microsoft.com/azure/templates/microsoft.cdn/profiles)**
+* **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -88,7 +88,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 2. Seleccione **Grupos de recursos** en el panel izquierdo.
 
-3. Seleccione el grupo de recursos que creó en la sección anterior. El nombre predeterminado del grupo de recursos es **myResourceGroupNAT**.
+3. Seleccione el grupo de recursos que creó en la sección anterior. El nombre predeterminado del grupo de recursos es **myResourceGroupNAT** .
 
 4. Compruebe que los recursos siguientes se han creado en el grupo de recursos:
 
@@ -107,7 +107,7 @@ Cuando ya no lo necesite, puede usar el comando [az group delete](/cli/azure/gro
 
 ### <a name="powershell"></a>PowerShell
 
-Cuando ya no lo necesite, puede usar el comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) para quitar el grupo de recursos y todos los recursos que contiene.
+Cuando ya no lo necesite, puede usar el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup?view=latest) para quitar el grupo de recursos y todos los recursos que contiene.
 
 ```azurepowershell-interactive 
 Remove-AzResourceGroup -Name myResourceGroupCDN
@@ -115,7 +115,7 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 ### <a name="portal"></a>Portal
 
-Cuando ya no los necesite, elimine el grupo de recursos, el perfil de red de CDN y todos los recursos relacionados. Seleccione el grupo de recursos **myResourceGroupCDN** que contiene el perfil y el punto de conexión de la red CDN y, después, seleccione **Eliminar**.
+Cuando ya no los necesite, elimine el grupo de recursos, el perfil de red de CDN y todos los recursos relacionados. Seleccione el grupo de recursos **myResourceGroupCDN** que contiene el perfil y el punto de conexión de la red CDN y, después, seleccione **Eliminar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

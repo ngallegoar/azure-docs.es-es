@@ -6,15 +6,15 @@ author: jocaplan
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: business-intelligence
-ms.date: 04/29/2020
+ms.date: 10/27/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52b6524bf9f21b7d61ac3907030ff08c7ac15256
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 36334142595d4a6bd4865a690f154279967a70d5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171839"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746300"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-workspace"></a>Inicio rápido: Vinculación de un área de trabajo de Power BI a un área de trabajo de Synapse
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
     ![Servicios vinculados resaltados.](media/quickstart-link-powerbi/manage-click-linked-services.png)
 
-3. Haga clic en **+ Nuevo**.
+3. Haga clic en **+ Nuevo** .
 
     ![+New (+Nuevo) está resaltado en Linked services (Servicios vinculados)](media/quickstart-link-powerbi/new-highlighted.png)
 
@@ -49,7 +49,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita antes de empezar
 
     ![Mostrar la instalación del servicio vinculado de Power BI.](media/quickstart-link-powerbi/workspace-link-dialog.png)
 
-6. Haga clic en **Crear**.
+6. Haga clic en **Crear** .
 
 ## <a name="view-power-bi-workspace-in-synapse-studio"></a>Visualización del área de trabajo de Power BI en Synapse Studio
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211ce85fdbf918171ecfc7964bbcdfa2ef245990
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618163"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790719"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,12 +44,12 @@ SQL Managed Instance combina las mejores características que están disponibles
 
 | **Ventajas de PaaS** | **Continuidad del negocio** |
 | --- | --- |
-|No hay compras de hardware ni administración <br>Ninguna sobrecarga de administración a la hora de administrar la infraestructura subyacente <br>Aprovisionamiento y escalado de servicio rápidos <br>Aplicación de revisiones y actualización de versiones automatizadas <br>Integración con otros servicios de datos de PaaS |Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %  <br>[Alta disponibilidad](../database/high-availability-sla.md) integrada <br>Datos protegidos con [copias de seguridad automatizadas](../database/automated-backups-overview.md) <br>Período de retención de copia de seguridad configurable por el cliente <br>[Copias de seguridad](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) que haya iniciado el usuario <br>Funcionalidad de [restauración de base de datos a un momento dado](../database/recovery-using-backups.md#point-in-time-restore) |
+|No hay compras de hardware ni administración <br>Ninguna sobrecarga de administración a la hora de administrar la infraestructura subyacente <br>Aprovisionamiento y escalado de servicio rápidos <br>Aplicación de revisiones y actualización de versiones automatizadas <br>Integración con otros servicios de datos de PaaS |Acuerdo de Nivel de Servicio de tiempo de actividad del 99,99 %  <br>[Alta disponibilidad](../database/high-availability-sla.md) integrada <br>Datos protegidos con [copias de seguridad automatizadas](../database/automated-backups-overview.md) <br>Período de retención de copia de seguridad configurable por el cliente <br>[Copias de seguridad](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) que haya iniciado el usuario <br>Funcionalidad de [restauración de base de datos a un momento dado](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Seguridad y cumplimiento normativo** | **Administración**|
-|Entorno aislado ([integración con red virtual](connectivity-architecture-overview.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a>  <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
+|Entorno aislado ([integración con red virtual](connectivity-architecture-overview.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure Active Directory (Azure AD)](../database/authentication-aad-overview.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a>  <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
 
 > [!IMPORTANT]
-> Instancia administrada de Azure SQL ha obtenido la certificación de diversas normas de cumplimiento. Para más información, consulte las [Ofertas de cumplimiento de Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Managed Instance, en **SQL Database**.
+> Instancia administrada de Azure SQL ha obtenido la certificación de diversas normas de cumplimiento. Para más información, consulte las [Ofertas de cumplimiento de Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), donde encontrará la lista más reciente de certificaciones de cumplimiento de SQL Managed Instance, en **SQL Database** .
 
 Las características principales de Instancia administrada de SQL se muestran en la tabla siguiente:
 
@@ -65,9 +65,9 @@ Las características principales de Instancia administrada de SQL se muestran en
 | Redes virtuales: implementación de Azure Resource Manager | Sí |
 | Redes virtuales: modelo de implementación clásica de Azure | No |
 | Soporte técnico del portal | Sí|
-| Integration Service (SSIS) integrado | No: SSIS es una parte de [PaaS de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
-| Analysis Service (SSAS) integrado | No: SSAS es un servicio [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) independiente. |
-| Reporting Service (SSRS) integrado | No: use [informes paginados de Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) en su lugar u hospede SSRS en una máquina virtual de Azure. Si bien SQL Managed Instance no puede ejecutar SSRS como servicio, sí puede hospedar las [bases de datos del catálogo de SSRS ](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para un servidor de informes instalado en una máquina virtual de Azure, mediante la autenticación de SQL Server. |
+| Integration Service (SSIS) integrado | No: SSIS es una parte de [PaaS de Azure Data Factory](../../data-factory/tutorial-deploy-ssis-packages-azure.md) |
+| Analysis Service (SSAS) integrado | No: SSAS es un servicio [PaaS](../../analysis-services/analysis-services-overview.md) independiente. |
+| Reporting Service (SSRS) integrado | No: use [informes paginados de Power BI](/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) en su lugar u hospede SSRS en una máquina virtual de Azure. Si bien SQL Managed Instance no puede ejecutar SSRS como servicio, sí puede hospedar las [bases de datos del catálogo de SSRS ](/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para un servidor de informes instalado en una máquina virtual de Azure, mediante la autenticación de SQL Server. |
 |||
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleo virtual
@@ -85,8 +85,8 @@ Encontrará más información sobre la diferencia entre las generaciones de hard
 
 Instancia administrada de SQL está disponible en dos niveles de servicio:
 
-- **Uso general**: diseñada para aplicaciones con rendimiento y requisitos de latencia de E/S comunes.
-- **Crítico para la empresa**: diseñada para aplicaciones con requisitos de latencia baja de E/S y un impacto mínimo subyacente de operaciones de mantenimiento en la carga de trabajo.
+- **Uso general** : diseñada para aplicaciones con rendimiento y requisitos de latencia de E/S comunes.
+- **Crítico para la empresa** : diseñada para aplicaciones con requisitos de latencia baja de E/S y un impacto mínimo subyacente de operaciones de mantenimiento en la carga de trabajo.
 
 Ambos niveles de servicio garantizan una disponibilidad del 99,99 % y le permiten seleccionar el tamaño de almacenamiento y la capacidad de proceso de forma independiente. Para obtener más información sobre la arquitectura de alta disponibilidad de Instancia administrada de Azure SQL, vea [Alta disponibilidad e Instancia administrada de Azure SQL](../database/high-availability-sla.md).
 
@@ -96,9 +96,9 @@ En la lista siguiente se describen las características principales del nivel de
 
 - Diseñado para la mayoría de las aplicaciones empresariales con requisitos típicos de alto rendimiento
 - Azure Blob Storage de alto rendimiento (8 TB)
-- [Alta disponibilidad](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) integrada basada en los servicios confiables Azure Blob Storage y [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- [Alta disponibilidad](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) integrada basada en los servicios confiables Azure Blob Storage y [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 
-Para más información, consulte [Capa de almacenamiento en el nivel de uso general](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) y [Procedimientos recomendados y consideraciones de rendimiento de almacenamiento para SQL Managed Instance (de uso general)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Para más información, consulte [Capa de almacenamiento en el nivel de uso general](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) y [Procedimientos recomendados y consideraciones de rendimiento de almacenamiento para SQL Managed Instance (de uso general)](/archive/blogs/sqlcat/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose).
 
 Encontrará más información sobre la diferencia entre los niveles de servicio en el artículo sobre los [límites de recursos de Instancia administrada de SQL](resource-limits.md#service-tier-characteristics).
 
@@ -110,7 +110,7 @@ La siguiente lista describe las principales características del nivel de servic
 
 - Diseñado para aplicaciones empresariales con mayor rendimiento y requisitos de alta disponibilidad
 - Incluye almacenamiento local SSD extremadamente rápido (hasta 1 TB en Gen 4 y hasta 4 TB en Gen 5)
-- [Alta disponibilidad](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) integrada basada en los [Grupos de disponibilidad Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) y [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- [Alta disponibilidad](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) integrada basada en los [Grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) y [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 - [Réplica de base de datos de solo lectura](../database/read-scale-out.md) adicional integrada que se puede usar para informes y otras cargas de trabajo de solo lectura.
 - [OLTP en memoria](../in-memory-oltp-overview.md), que se puede usar para la carga de trabajo con requisitos de alto rendimiento.  
 
@@ -156,9 +156,9 @@ Se admite la migración de una base de datos cifrada a SQL Managed Instance a tr
 
 ## <a name="azure-active-directory-integration"></a>Integración de Azure Active Directory
 
-SQL Managed Instance admite los inicios de sesión tradicionales del motor de base de datos de SQL Server, así como los inicios de sesión integrados con Azure AD. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD (**versión preliminar pública**) son una versión en la nube de Azure de los inicios de sesión de la base de datos local que está utilizando en su entorno local. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD le permiten especificar usuarios y grupos del inquilino de Azure AD como entidades de seguridad de la instancia con capacidad para llevar a cabo operaciones dentro del ámbito de la misma, incluidas consultas entre bases de datos dentro de la misma instancia administrada.
+SQL Managed Instance admite los inicios de sesión tradicionales del motor de base de datos de SQL Server, así como los inicios de sesión integrados con Azure AD. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD ( **versión preliminar pública** ) son una versión en la nube de Azure de los inicios de sesión de la base de datos local que está utilizando en su entorno local. Las entidades de seguridad (inicios de sesión) de un servidor de Azure AD le permiten especificar usuarios y grupos del inquilino de Azure AD como entidades de seguridad de la instancia con capacidad para llevar a cabo operaciones dentro del ámbito de la misma, incluidas consultas entre bases de datos dentro de la misma instancia administrada.
 
-Se ha incluido una nueva sintaxis para crear entidades de seguridad (inicios de sesión) de un servidor de Azure AD, **FROM EXTERNAL PROVIDER**. Para más información sobre la sintaxis, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> y revise el artículo [Aprovisionamiento de un administrador de Azure Active Directory para SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+Se ha incluido una nueva sintaxis para crear entidades de seguridad (inicios de sesión) de un servidor de Azure AD, **FROM EXTERNAL PROVIDER** . Para más información sobre la sintaxis, consulte <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> y revise el artículo [Aprovisionamiento de un administrador de Azure Active Directory para SQL Managed Instance](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integración de Azure Active Directory y autenticación multifactor
 
@@ -168,12 +168,12 @@ SQL Managed Instance permite administrar de forma centralizada las identidades d
 
 La autenticación de Instancia administrada de SQL indica la forma en que los usuarios prueban su identidad al conectarse a la base de datos. Instancia administrada de SQL admite dos tipos de autenticación:  
 
-- **Autenticación de SQL**:
+- **Autenticación de SQL** :
 
   Este método de autenticación utiliza un nombre de usuario y una contraseña.
-- **Autenticación con Azure Active Directory**:
+- **Autenticación con Azure Active Directory** :
 
-  Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
+  Este método de autenticación usa las identidades administradas por Azure Active Directory y es compatible con dominios administrados e integrados. Use la autenticación de Active Directory (seguridad integrada) [siempre que sea posible](/sql/relational-databases/security/choose-an-authentication-mode).
 
 ### <a name="authorization"></a>Authorization
 
@@ -185,7 +185,7 @@ Instancia administrada de SQL está diseñada para escenarios de usuario con mig
 
 ### <a name="backup-and-restore"></a>Copia de seguridad y restauración  
 
-El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en una instancia de Azure Storage Blob se pueden restaurar directamente en una instancia administrada mediante el [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
+El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob Storage. Las copias de seguridad almacenadas en una instancia de Azure Storage Blob se pueden restaurar directamente en una instancia administrada mediante el [comando T-SQL RESTORE](/sql/t-sql/statements/restore-statements-transact-sql?preserve-view=true&view=azuresqldb-mi-current).
 
 - Para ver una guía rápida que muestra cómo restaurar el archivo de copia de seguridad de base de datos de Wide World Importers - Standard, vea [Restore a backup file to a Managed Instance](restore-sample-database-quickstart.md) (Restauración de un archivo de copia de seguridad a una instancia administrada). En esta guía rápida se muestra cómo cargar un archivo de copia de seguridad en una instancia de Azure Blob Storage y protegerlo mediante una clave de Firma de acceso compartido (SAS).
 - Para obtener información sobre la restauración desde una URL, vea [Restauración de copias de seguridad nativas desde la dirección URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
@@ -195,7 +195,7 @@ El enfoque de migración aprovecha las copias de seguridad de SQL en Azure Blob 
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover bases de datos existentes de SQL Server y de terceros a Azure SQL Database, a Azure SQL Managed Instance y a SQL Server en las máquinas virtuales de Azure. Vea cómo [migrar su base de datos local a Instancia administrada de SQL mediante Database Migration Service](https://aka.ms/migratetoMIusingDMS).
+Azure Database Migration Service es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover bases de datos existentes de SQL Server y de terceros a Azure SQL Database, a Azure SQL Managed Instance y a SQL Server en las máquinas virtuales de Azure. Vea cómo [migrar su base de datos local a Instancia administrada de SQL mediante Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="sql-features-supported"></a>Características de SQL admitidas
 
@@ -213,12 +213,12 @@ SQL Managed Instance tiene la ventaja de estar siempre actualizada en la nube, l
 
 Algunas diferencias clave:
 
-- La alta disponibilidad está integrada y preconfigurada con tecnología similar a los [Grupos de disponibilidad Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
+- La alta disponibilidad está integrada y preconfigurada con tecnología similar a los [Grupos de disponibilidad Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Solo hay copias de seguridad automatizadas y restauración a un momento dado. Los clientes pueden iniciar copias de seguridad `copy-only` que no interfieren con la cadena de copias de seguridad automáticas.
 - No se permite especificar rutas de acceso físicas completas, por lo que todos los escenarios correspondientes tienen que ser compatibles de manera diferente: RESTORE DB no es compatible con WITH MOVE, CREATE DB no permite rutas de acceso físicas, BULK INSERT funciona solo con Azure Blobs, etc.
 - SQL Managed Instance admite la [autenticación de Azure AD](../database/authentication-aad-overview.md) como alternativa en la nube a la autenticación de Windows.
 - SQL Managed Instance administra automáticamente el grupo de archivos XTP y los archivos de bases de datos que contienen objetos OLTP en memoria.
-- SQL Managed Instance es compatible con SQL Server Integration Services (SSIS) y puede hospedar un catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero se ejecutan en una instancia administrada de Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF). Consulte [Creación de una instancia de Azure-SSIS IR en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Para comparar las características de SSIS, vea una [comparación entre SQL Database con Instancia administrada de SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
+- SQL Managed Instance es compatible con SQL Server Integration Services (SSIS) y puede hospedar un catálogo de SSIS (SSISDB) que almacena paquetes SSIS, pero se ejecutan en una instancia administrada de Azure-SSIS Integration Runtime (IR) en Azure Data Factory (ADF). Consulte [Creación de una instancia de Azure-SSIS IR en Azure Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md). Para comparar las características de SSIS, vea una [comparación entre SQL Database con Instancia administrada de SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).
 
 ### <a name="administration-features"></a>Características de administración
 

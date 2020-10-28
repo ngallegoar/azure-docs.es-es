@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 5af929991e96d1307c32d219a9807c6e6a58387c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7b2a302d491ee7985207943f08e8a47afd1d7f3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253384"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747270"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Inicio rápido: Migración de una aplicación web actual Node.js de MongoDB a Azure Cosmos DB 
 
@@ -94,7 +94,7 @@ Cree un [grupo de recursos](../azure-resource-manager/management/overview.md) co
 
 En el ejemplo siguiente se crea un grupo de recursos en la región de Oeste de Europa. Elija un nombre único para el grupo de recursos.
 
-Si usa Azure Cloud Shell, seleccione **Probarlo**, siga las indicaciones de la pantalla para iniciar sesión y, a continuación, copie el comando en el símbolo del sistema.
+Si usa Azure Cloud Shell, seleccione **Probarlo** , siga las indicaciones de la pantalla para iniciar sesión y, a continuación, copie el comando en el símbolo del sistema.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "West Europe"
@@ -115,7 +115,7 @@ El parámetro `--kind MongoDB` habilita las conexiones de cliente de MongoDB.
 Cuando se crea la cuenta de Azure Cosmos DB, la CLI de Azure muestra información similar a la del ejemplo siguiente. 
 
 > [!NOTE]
-> Este ejemplo usa JSON como el formato de salida de la CLI de Azure, que es el valor predeterminado. Para usar otro formato de salida, consulte [Formatos de salida para los comandos de la CLI de Azure](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> Este ejemplo usa JSON como el formato de salida de la CLI de Azure, que es el valor predeterminado. Para usar otro formato de salida, consulte [Formatos de salida para los comandos de la CLI de Azure](/cli/azure/format-output-azure-cli).
 
 ```json
 {
@@ -210,7 +210,7 @@ Los datos almacenados en una base de datos de Cosmos se pueden ver y consultar e
 
 Para ver y consultar los datos de usuario creados en el paso anterior y trabajar con ellos, inicie sesión en [Azure Portal](https://portal.azure.com) en el explorador web.
 
-En el cuadro de búsqueda superior, escriba **Azure Cosmos DB**. Cuando se abra la hoja de la cuenta de Cosmos, seleccione su cuenta de Cosmos. En el panel de navegación izquierdo, seleccione **Explorador de datos**. Expanda la colección en el panel Colecciones. Ahora puede ver los documentos de la colección, consultar los datos e incluso crear y ejecutar procedimientos almacenados, desencadenadores y UDF. 
+En el cuadro de búsqueda superior, escriba **Azure Cosmos DB** . Cuando se abra la hoja de la cuenta de Cosmos, seleccione su cuenta de Cosmos. En el panel de navegación izquierdo, seleccione **Explorador de datos** . Expanda la colección en el panel Colecciones. Ahora puede ver los documentos de la colección, consultar los datos e incluso crear y ejecutar procedimientos almacenados, desencadenadores y UDF. 
 
 :::image type="content" source="./media/create-mongodb-nodejs/cosmosdb-connect-mongodb-data-explorer.png" alt-text="MEAN.js se conecta correctamente a MongoDB":::
 
@@ -249,4 +249,4 @@ git commit -m "configured MongoDB connection string"
 En este inicio rápido, ha aprendido a crear una cuenta de Azure Cosmos DB para MongoDB API mediante Azure Cloud Shell, y a crear y ejecutar una aplicación MEAN.js para agregar usuarios a la cuenta. Ahora puede importar datos adicionales en la cuenta de Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Importación de datos de MongoDB a Azure Cosmos DB](mongodb-migrate.md)
+> [Importación de datos de MongoDB a Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: e9ab4f2639569537b7c5967235a926c567aca0d5
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 2342577fdd7e42f4b21d1f47348c39e3ed4a46e3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91576139"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747245"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-to-iot-hub-nodejs"></a>Inicio rápido: Conexión de una aplicación de dispositivo IoT Plug and Play de ejemplo a IoT Hub (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Para compilar el código de ejemplo incluido, se usa el SDK del dispositivo. La aplicación que se compila simula un dispositivo que se conecta a un centro de IoT. La aplicación envía datos de telemetría y propiedades, y recibe comandos.
 
-1. En una ventana del terminal local, vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-node/device/samples/pnp*. Después, ejecute el siguiente comando para instalar las bibliotecas necesarias:
+1. En una ventana del terminal local, vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-node/device/samples/pnp* . Después, ejecute el siguiente comando para instalar las bibliotecas necesarias:
 
     ```cmd/sh
     npm install
@@ -63,7 +63,7 @@ Para compilar el código de ejemplo incluido, se usa el SDK del dispositivo. La 
 
 En este ejemplo se implementa un dispositivo termostato de IoT Plug and Play sencillo. El modelo que se implementa en este ejemplo no usa los [componentes](concepts-components.md) de IoT Plug and Play. El [archivo de modelo DTDL del dispositivo termostato](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) define la telemetría, las propiedades y los comandos que implementa el dispositivo.
 
-Abra el archivo _simple_thermostat.js_. En este archivo, puede ver cómo:
+Abra el archivo _simple_thermostat.js_ . En este archivo, puede ver cómo:
 
 1. Importar las interfaces necesarias.
 1. Escribir un controlador de actualización de propiedades y un controlador de comandos.

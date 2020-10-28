@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 26d4080e20fb8d00ec4d276e56e09170001d2b8e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166546"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789920"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Grupos de disponibilidad Always On para SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ En el diagrama siguiente se muestra un grupo de disponibilidad para SQL Server 
 
 ## <a name="vm-redundancy"></a>Redundancia de máquina virtual 
 
-Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales de SQL Server deben estar en el mismo [conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o en distintas [zonas de disponibilidad](/azure/availability-zones/az-overview).
+Para aumentar la redundancia y la alta disponibilidad, las máquinas virtuales de SQL Server deben estar en el mismo [conjunto de disponibilidad](../../../virtual-machines/windows/tutorial-availability-sets.md#availability-set-overview) o en distintas [zonas de disponibilidad](../../../availability-zones/az-overview.md).
 
 Un conjunto de disponibilidad es una agrupación de recursos que se configuran de tal forma que no haya dos en la misma zona de disponibilidad. Esto evita que varios recursos del grupo se vean afectados durante las implementaciones. 
 
@@ -74,7 +74,7 @@ Hay varias opciones para implementar un grupo de disponibilidad en SQL Server e
 
 En la tabla siguiente se proporciona una comparación de las opciones disponibles: 
 
-| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[CLI de Azure/PowerShell](availability-group-az-cli-configure.md)**|**[Plantillas de inicio rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
+| |**[Azure Portal](availability-group-azure-portal-configure.md)**|**[CLI de Azure/PowerShell](./availability-group-az-commandline-configure.md)**|**[Plantillas de inicio rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
 |---------|---------|---------|--------- |---------|
 |**Versión de SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edición de SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
@@ -100,6 +100,6 @@ En un clúster de conmutación por error invitado de máquinas virtuales de IaaS
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Revise los [procedimientos recomendados de HADR](hadr-cluster-best-practices.md) y, a continuación, comience a implementar el grupo de disponibilidad con [Azure Portal](availability-group-azure-portal-configure.md), la [CLI de Azure/PowerShell](availability-group-az-cli-configure.md), [plantillas de inicio rápido](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
+Revise los [procedimientos recomendados de HADR](hadr-cluster-best-practices.md) y, a continuación, comience a implementar el grupo de disponibilidad con [Azure Portal](availability-group-azure-portal-configure.md), la [CLI de Azure/PowerShell](./availability-group-az-commandline-configure.md), [plantillas de inicio rápido](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-prerequisites-tutorial.md).
 
-Como alternativa, puede implementar un [grupo de disponibilidad sin clúster](availability-group-clusterless-workgroup-configure.md) o un grupo de disponibilidad en [varias regiones](availability-group-manually-configure-multiple-regions.md). 
+Como alternativa, puede implementar un [grupo de disponibilidad sin clúster](availability-group-clusterless-workgroup-configure.md) o un grupo de disponibilidad en [varias regiones](availability-group-manually-configure-multiple-regions.md).

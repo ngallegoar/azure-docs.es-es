@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 09/26/2019
-ms.openlocfilehash: 2f2e8c6be128e5004769dca2f42a6c8013510cde
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bf606af0425c04873dadcf47932c806a1099942a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91325239"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788713"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Inicio rápido: Creación de una instancia administrada de SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -36,8 +36,8 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 1. Seleccione **Azure SQL** en el menú de la izquierda de Azure Portal. Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba **Azure SQL** en el cuadro de búsqueda.
-1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver información adicional acerca de una instancia administrada de Azure SQL Managed Instance, seleccione **Mostrar detalles** en el icono **SQL Managed Instance**.
-1. Seleccione **Crear**.
+1. Seleccione **+ Agregar** para abrir la página **Select SQL deployment option** (Seleccionar la opción de implementación de SQL). Para ver información adicional acerca de una instancia administrada de Azure SQL Managed Instance, seleccione **Mostrar detalles** en el icono **SQL Managed Instance** .
+1. Seleccione **Crear** .
 
    ![Creación de una instancia administrada](./media/instance-create-quickstart/create-managed-instance.png)
 
@@ -45,7 +45,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
 ### <a name="basics-tab"></a>Pestaña Aspectos básicos
 
-- Rellene la información obligatoria necesaria en la pestaña **Aspectos básicos**. Es un conjunto mínimo de información para aprovisionar una instancia administrada.
+- Rellene la información obligatoria necesaria en la pestaña **Aspectos básicos** . Es un conjunto mínimo de información para aprovisionar una instancia administrada.
 
    ![Pestaña "Aspectos básicos" para crear una instancia administrada](./media/instance-create-quickstart/mi-create-tab-basics.png)
 
@@ -64,11 +64,11 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
    ![Formulario de instancia administrada](./media/instance-create-quickstart/mi-create-tab-configure-performance.png)
 
-- Para examinar las opciones antes de crear una instancia administrada de SQL, puede seleccionar **Revisar y crear**. O bien, configure las opciones de red seleccionando **Siguiente: Redes**.
+- Para examinar las opciones antes de crear una instancia administrada de SQL, puede seleccionar **Revisar y crear** . O bien, configure las opciones de red seleccionando **Siguiente: Redes** .
 
 ### <a name="networking-tab"></a>Pestaña Redes
 
-- Rellene la información opcional de la pestaña **Redes**. Si omite esta información, el portal aplicará la configuración predeterminada.
+- Rellene la información opcional de la pestaña **Redes** . Si omite esta información, el portal aplicará la configuración predeterminada.
 
    ![Pestaña "Redes" para crear una instancia administrada](./media/instance-create-quickstart/mi-create-tab-networking.png)
 
@@ -78,14 +78,14 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
    | ------ | --------------- | ----------- |
    | **Red virtual** | Seleccione **Crear una nueva red virtual** o una subred y red virtual válidas.| Si hay una red o subred que no esté disponible, se debe [modificar para cumplir los requisitos de la red](vnet-existing-add-subnet.md) antes de seleccionarla como destino de la nueva instancia administrada. Para más información acerca de los requisitos necesarios para configurar el entorno de red de una instancia administrada de SQL, consulte el artículo en el que se indica cómo [configurar una red virtual para una instancia administrada de Azure SQL](connectivity-architecture-overview.md). |
    | **Tipo de conexión** | Elija entre los tipos de conexión proxy y redirigir.|Para más información acerca de los tipos de conexión, consulte el artículo sobre el [tipo de conexión de Instancia administrada de Azure SQL](../database/connectivity-architecture.md#connection-policy).|
-   | **Punto de conexión público**  | Seleccione **Habilitar**. | Para que se pueda acceder a una instancia administrada mediante el punto de conexión de datos público, es preciso habilitar esta opción. | 
-   | **Permitir acceso desde** (si la opción **Punto de conexión público**  está habilitada) | Seleccione una de las opciones.   |La experiencia del portal permite configurar un grupo de seguridad con un punto de conexión público. </br> </br> En función del escenario, seleccione una de las siguientes opciones: </br> <ul> <li>**Servicios de Azure**: esta opción es aconsejable cuando se establece conexión desde Power BI u otro servicio multiinquilino. </li> <li> **Internet**: se usa para realizar pruebas cuando se desee poner en marcha rápidamente una instancia administrada. No es aconsejable para entornos de producción. </li> <li> **Sin acceso**: esta opción crea una regla de seguridad **Denegar**. Modifique esta regla para que se pueda acceder a la instancia administrada mediante un punto de conexión público. </li> </ul> </br> Para más información acerca de la seguridad de los puntos de conexión públicos, consulte el artículo sobre el [uso de Instancia administrada de Azure SQL de forma segura con puntos de conexión públicos](public-endpoint-overview.md).|
+   | **Punto de conexión público**  | Seleccione **Habilitar** . | Para que se pueda acceder a una instancia administrada mediante el punto de conexión de datos público, es preciso habilitar esta opción. | 
+   | **Permitir acceso desde** (si la opción **Punto de conexión público**  está habilitada) | Seleccione una de las opciones.   |La experiencia del portal permite configurar un grupo de seguridad con un punto de conexión público. </br> </br> En función del escenario, seleccione una de las siguientes opciones: </br> <ul> <li>**Servicios de Azure** : esta opción es aconsejable cuando se establece conexión desde Power BI u otro servicio multiinquilino. </li> <li> **Internet** : se usa para realizar pruebas cuando se desee poner en marcha rápidamente una instancia administrada. No es aconsejable para entornos de producción. </li> <li> **Sin acceso** : esta opción crea una regla de seguridad **Denegar** . Modifique esta regla para que se pueda acceder a la instancia administrada mediante un punto de conexión público. </li> </ul> </br> Para más información acerca de la seguridad de los puntos de conexión públicos, consulte el artículo sobre el [uso de Instancia administrada de Azure SQL de forma segura con puntos de conexión públicos](public-endpoint-overview.md).|
 
-- Para revisar las opciones antes de crear una instancia administrada, seleccione **Revisar y crear**. O bien, configure más opciones personalizadas, para lo que debe seleccionar **Siguiente: Configuración adicional**.
+- Para revisar las opciones antes de crear una instancia administrada, seleccione **Revisar y crear** . O bien, configure más opciones personalizadas, para lo que debe seleccionar **Siguiente: Configuración adicional** .
 
 ### <a name="additional-settings"></a>Configuración adicional
 
-- Rellene la información opcional de la pestaña **Configuración adicional**. Si omite esta información, el portal aplicará la configuración predeterminada.
+- Rellene la información opcional de la pestaña **Configuración adicional** . Si omite esta información, el portal aplicará la configuración predeterminada.
 
    ![Pestaña "Configuración adicional" para crear una instancia administrada](./media/instance-create-quickstart/mi-create-tab-additional-settings.png)
 
@@ -93,14 +93,14 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
    | Configuración| Valor sugerido | Descripción |
    | ------ | --------------- | ----------- |
-   | **Intercalación** | Elija la intercalación que desea usar para la instancia administrada. Si migra bases de datos desde SQL Server, compruebe la intercalación de origen mediante `SELECT SERVERPROPERTY(N'Collation')` y use ese valor.| Para obtener información acerca de las intercalaciones, consulte [Configurar o cambiar la intercalación del servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Intercalación** | Elija la intercalación que desea usar para la instancia administrada. Si migra bases de datos desde SQL Server, compruebe la intercalación de origen mediante `SELECT SERVERPROPERTY(N'Collation')` y use ese valor.| Para obtener información acerca de las intercalaciones, consulte [Configurar o cambiar la intercalación del servidor](/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Zona horaria** | Seleccione la zona horaria que la instancia administrada observará.|Para más información, consulte las [zonas horarias](timezones-overview.md).|
-   | **Use as failover secondary** (Usar como secundaria de conmutación por error) | Seleccione **Sí**. | Habilite esta opción para usar la instancia administrada como secundaria del grupo de conmutación por error.|
-   | **Instancia administrada de SQL principal** (si en **Usar como secundario de conmutación por error** se ha seleccionado **Sí**) | Elija la instancia administrada principal existente que se unirá en la misma zona DNS con la instancia administrada que está creando. | Este paso habilitará la configuración posterior a la creación del grupo de conmutación por error. Para más información, consulte el [Tutorial: Adición de una instancia administrada a un grupo de conmutación por error](failover-group-add-instance-tutorial.md).|
+   | **Use as failover secondary** (Usar como secundaria de conmutación por error) | Seleccione **Sí** . | Habilite esta opción para usar la instancia administrada como secundaria del grupo de conmutación por error.|
+   | **Instancia administrada de SQL principal** (si en **Usar como secundario de conmutación por error** se ha seleccionado **Sí** ) | Elija la instancia administrada principal existente que se unirá en la misma zona DNS con la instancia administrada que está creando. | Este paso habilitará la configuración posterior a la creación del grupo de conmutación por error. Para más información, consulte el [Tutorial: Adición de una instancia administrada a un grupo de conmutación por error](failover-group-add-instance-tutorial.md).|
 
 ## <a name="review--create"></a>Revisar y crear
 
-1. Para revisar las opciones antes de crear una instancia administrada, seleccione la pestaña **Revisar y crear**.
+1. Para revisar las opciones antes de crear una instancia administrada, seleccione la pestaña **Revisar y crear** .
 
    ![Pestaña para examinar y crear una instancia administrada](./media/instance-create-quickstart/mi-create-tab-review-create.png)
 
@@ -119,8 +119,8 @@ Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.m
 
 > [!TIP]
 > Si ha cerrado el explorador web o ya no está en la pantalla de progreso de la implementación, siga estos pasos para buscar esa pantalla:
-> 1. En Azure Portal, abra el grupo de recursos (en la pestaña **Aspectos básicos**) en el que va a implementar SQL Managed Instance.
-> 2. Seleccione **Implementaciones**.
+> 1. En Azure Portal, abra el grupo de recursos (en la pestaña **Aspectos básicos** ) en el que va a implementar SQL Managed Instance.
+> 2. Seleccione **Implementaciones** .
 > 3. Seleccione la operación de implementación de la instancia administrada de SQL en curso.
 
 > [!IMPORTANT]
@@ -169,11 +169,11 @@ Para conectarse a SQL Managed Instance, siga estos pasos para recuperar el nombr
 
    ![Instancia administrada del grupo de recursos](./media/instance-create-quickstart/managed-instance.png)
 
-2. En la pestaña **Información general**, busque la propiedad **Host**. Copie el nombre de host de la instancia administrada para usarla en el siguiente inicio rápido.
+2. En la pestaña **Información general** , busque la propiedad **Host** . Copie el nombre de host de la instancia administrada para usarla en el siguiente inicio rápido.
 
    ![Nombre de host](./media/instance-create-quickstart/host-name.png)
 
-   El valor copiado representa un nombre de dominio completo (FQDN) que se puede usar para conectarse a una instancia administrada de SQL. Es similar al siguiente ejemplo de dirección: *your_host_name.a1b2c3d4e5f6.database.windows.net*.
+   El valor copiado representa un nombre de dominio completo (FQDN) que se puede usar para conectarse a una instancia administrada de SQL. Es similar al siguiente ejemplo de dirección: *your_host_name.a1b2c3d4e5f6.database.windows.net* .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

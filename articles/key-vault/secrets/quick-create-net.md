@@ -7,13 +7,13 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d60c604ecde8607c0da8a125108e13683bdf6c8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 20974367b9d4b75bb9746cd065bc7490011f37ad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058546"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786163"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Inicio rápido: Biblioteca cliente de secretos de Azure Key Vault para .NET (SDK v4)
 
@@ -31,7 +31,7 @@ En este inicio rápido se usa `dotnet` y la CLI de Azure.
 
 ## <a name="setup"></a>Configurar
 
-En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI de Azure para autenticar al usuario en los servicios de Azure. Los desarrolladores también pueden usar Visual Studio o Visual Studio Code para autenticar sus llamadas. Para más información, consulte [Autenticación del cliente mediante la biblioteca cliente Azure Identity](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?#authenticate-the-client&preserve-view=true).
+En este inicio rápido se usa la biblioteca de identidades de Azure con la CLI de Azure para autenticar al usuario en los servicios de Azure. Los desarrolladores también pueden usar Visual Studio o Visual Studio Code para autenticar sus llamadas. Para más información, consulte [Autenticación del cliente mediante la biblioteca cliente Azure Identity](/dotnet/api/overview/azure/identity-readme#authenticate-the-client&preserve-view=true).
 
 ### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -122,7 +122,7 @@ La biblioteca cliente de secretos de Azure Key Vault para .NET permite administr
 
 ### <a name="add-directives"></a>Adición de directivas
 
-Agregue las directivas siguientes al principio de *Program.cs*:
+Agregue las directivas siguientes al principio de *Program.cs* :
 
 [!code-csharp[](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
 
@@ -149,7 +149,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 ### <a name="retrieve-a-secret"></a>Recuperación de un secreto
@@ -177,7 +177,7 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValueText
+(Get-AzKeyVaultSecret -VaultName <your-unique-keyvault-name> -Name mySecret).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

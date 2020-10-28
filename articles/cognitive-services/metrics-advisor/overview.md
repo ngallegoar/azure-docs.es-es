@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 858bf042593045059c988ae1b2796b063b33bb6e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 1a57660733b7257b224c38a55059f1bf069495a0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047580"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890262"
 ---
 # <a name="what-is-metrics-advisor-preview"></a>¿Qué es Metrics Advisor (versión preliminar)? 
 
@@ -53,16 +53,14 @@ Analice las anomalías detectadas en las métricas multidimensionales y genere [
 El flujo de trabajo es sencillo: después de incorporar los datos, puede ajustar la detección de anomalías y crear configuraciones para que se adapten a su escenario.
 
 1. [Cree un recurso de Azure](../cognitive-services-apis-create-account.md) para Metrics Advisor. 
-2. Pruebe el sitio de demostración para ver una instancia de Metrics Advisor con datos de ejemplo preconfigurados. 
-3. Cree su primer monitor con el portal web.
+2. Cree su primer monitor con el portal web.
     1. Incorporación de los datos
     2. Ajuste de la detección de anomalías
     3. Suscripción a alertas
     4. Visualización de la Información de diagnóstico
-1. Use la API de REST para personalizar la instancia.
+3. Use la API de REST para personalizar la instancia.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Prueba el [sitio de demostración](quickstarts/explore-demo.md).
 * Explore una guía de inicio rápido: [Supervisión de la primera métrica en la web](quickstarts/web-portal.md).
 * Explore una guía de inicio rápido: [Uso de las API de REST para personalizar su solución](quickstarts/rest-api.md).

@@ -3,25 +3,25 @@ title: Activación de suscripciones y cuentas de Azure
 description: Habilite el acceso mediante las API de Azure Resource Manager tanto en las cuentas nuevas como en las existentes y resuelva los problemas comunes de las cuentas.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 52ac239369f2998a3a8eac9c400512ac845a0c49
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: b1b7ea7467be107bd1af9daf0869c77ff0b94c70
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131435"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537359"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activación de suscripciones y cuentas de Azure con Cloudyn
 
 La adición o actualización de las credenciales de Azure Resource Manager permiten a Cloudyn detectar todas las cuentas y suscripciones dentro de su inquilino de Azure. Si también está habilitada la extensión de Azure Diagnostics en las máquinas virtuales, Cloudyn podrá recopilar más métricas, como la CPU y la memoria. En este artículo se describe cómo habilitar el acceso mediante las API de Azure Resource Manager tanto en las cuentas nuevas como en las existentes. También se describe cómo resolver los problemas comunes de las cuentas.
 
-Cuando la suscripción a Azure _no está activada_, Cloudyn no puede acceder a la mayor parte de los datos de la misma. Para que Cloudyn pueda acceder a las cuentas _sin activar_ es preciso editarlas.
+Cuando la suscripción a Azure _no está activada_ , Cloudyn no puede acceder a la mayor parte de los datos de la misma. Para que Cloudyn pueda acceder a las cuentas _sin activar_ es preciso editarlas.
 
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
@@ -34,17 +34,17 @@ Para completar los procedimientos de este artículo se requieren determinados pe
 
 En las suscripciones a Azure, las cuentas deben tener acceso `Microsoft.Authorization/*/Write` para asignar la aplicación CloudynCollector. Esta acción se concede mediante el rol [Propietario](../../role-based-access-control/built-in-roles.md#owner) o el rol [Administrador de acceso de usuario](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-Si a la cuenta se le ha asignado el rol **Colaborador**, no tiene los permisos adecuados para asignar la aplicación. Recibe un error al intentar asignar la aplicación CloudynCollector a su suscripción a Azure.
+Si a la cuenta se le ha asignado el rol **Colaborador** , no tiene los permisos adecuados para asignar la aplicación. Recibe un error al intentar asignar la aplicación CloudynCollector a su suscripción a Azure.
 
 ### <a name="check-azure-active-directory-permissions"></a>Comprobación de los permisos de Azure Active Directory
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En Azure Portal, seleccione **Azure Active Directory**.
-3. En su instancia de Azure Active Directory, seleccione **Configuración de usuario**.
-4. Compruebe la opción **Registros de aplicaciones**.
-    - Si está seleccionado **Sí**, incluso los usuarios que no sean administradores pueden registrar aplicaciones de AD. Esta configuración significa que ningún usuario en el inquilino de Azure Active Directory puede registrar una aplicación.  
+2. En Azure Portal, seleccione **Azure Active Directory** .
+3. En su instancia de Azure Active Directory, seleccione **Configuración de usuario** .
+4. Compruebe la opción **Registros de aplicaciones** .
+    - Si está seleccionado **Sí** , incluso los usuarios que no sean administradores pueden registrar aplicaciones de AD. Esta configuración significa que ningún usuario en el inquilino de Azure Active Directory puede registrar una aplicación.  
     ![Selección de registros de aplicaciones en la configuración de usuario](./media/activate-subs-accounts/app-register.png)
-    - Si en **Registros de aplicaciones** está seleccionada la opción **No**, los usuarios administradores de inquilinos serán los únicos que puedan registrar aplicaciones de Azure Active Directory. El Administrador de inquilinos debe registrar la aplicación CloudynCollector.
+    - Si en **Registros de aplicaciones** está seleccionada la opción **No** , los usuarios administradores de inquilinos serán los únicos que puedan registrar aplicaciones de Azure Active Directory. El Administrador de inquilinos debe registrar la aplicación CloudynCollector.
 
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Adición de una cuenta o actualización de una suscripción
@@ -63,19 +63,19 @@ Cuando se agrega una cuenta o se actualiza una suscripción, se conceder a Cloud
     ![Selección del identificador de inquilino en el cuadro Rediscover subscriptions (Volver a detectar suscripciones)](./media/activate-subs-accounts/existing-sub.png)
 2. Si es necesario, escriba el identificador del inquilino. Si no conoce el identificador del inquilino, siga estos pasos para encontrarlo:
     1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-    2. En Azure Portal, seleccione **Azure Active Directory**.
+    2. En Azure Portal, seleccione **Azure Active Directory** .
     3. Para obtener el identificador de inquilino, seleccione **Propiedades** en el inquilino de Azure AD.
     4. Copie el GUID del identificador del directorio. Este valor es el id. de inquilino.
     Para más información, consulte [Obtención del identificador de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Si es necesario, seleccione su identificador de tasa. Si no lo conoce, siga estos pasos para encontrarlo.
-    1. En la parte superior derecha de Azure Portal, haga clic en la información de su usuario y, luego, en **Ver mi factura**.
-    2. En **Cuenta de facturación**, haga clic en **Suscripciones**.
-    3. En **Mis suscripciones**, seleccione la suscripción.
-    4. El identificador de tasa se muestra debajo de **Id. de oferta**. Copie el id. de oferta de la suscripción.
+    1. En la parte superior derecha de Azure Portal, haga clic en la información de su usuario y, luego, en **Ver mi factura** .
+    2. En **Cuenta de facturación** , haga clic en **Suscripciones** .
+    3. En **Mis suscripciones** , seleccione la suscripción.
+    4. El identificador de tasa se muestra debajo de **Id. de oferta** . Copie el id. de oferta de la suscripción.
 4. En los cuadros Add new account (Agregar nueva cuenta) o Edit Subscription (Editar suscripción), haga clic en **Save** (Guardar), o en **Next** (Siguiente). Se le redirigirá a Azure Portal.
 5. Inicie sesión en el portal. Haga clic en **Aceptar** para autorizar que Cloudyn Collector acceda a su cuenta de Azure.
 
-    A continuación, se le redirige a la página de administración de cuentas de Cloudyn, la suscripción se actualiza y la cuenta pasa a estar estado **activa**. Debe mostrar una marca de verificación verde en la columna Resource Manager.
+    A continuación, se le redirige a la página de administración de cuentas de Cloudyn, la suscripción se actualiza y la cuenta pasa a estar estado **activa** . Debe mostrar una marca de verificación verde en la columna Resource Manager.
 
     Si no ve dicha marca en una o varias suscripciones, significa que no tiene permisos para crear ninguna aplicación de lectura (CloudynCollector) de la suscripción. Los usuarios con permisos superiores en la suscripción deben repetir este proceso.
 
@@ -87,7 +87,7 @@ En el vídeo [Connecting to Azure Resource Manager with Cloudyn](https://youtu.b
 
 La primera vez que use el portal de Cloudyn, podría ver los siguientes mensajes si es usuario de Contrato Enterprise o Proveedor de soluciones en la nube (CSP):
 
-- *The specified API key is not a top level enrollment key (La clave de API especificada no es una clave de inscripción de nivel superior)* se muestra en el **Asistente para configuración de Cloudyn**.
+- *The specified API key is not a top level enrollment key (La clave de API especificada no es una clave de inscripción de nivel superior)* se muestra en el **Asistente para configuración de Cloudyn** .
 - *Direct Enrollment – No* (Inscripción directa: no) se muestra en el portal de Contrato Enterprise.
 - *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account*  (No se encontraron datos de uso de los últimos 30 días. Póngase en contacto con su distribuidor para asegurarse de que se habilitó el margen de beneficio para su cuenta de Azure) aparece en el portal de Cloudyn.
 
@@ -96,7 +96,7 @@ Los mensajes anteriores indican que adquirió un Contrato Enterprise de Azure a 
 Aquí se muestra cómo corregir los problemas:
 
 1. El revendedor debe habilitar el _margen de beneficio_ para su cuenta. Para ver las instrucciones, consulte la [guía de incorporación para clientes indirectos ](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) (en inglés).
-2. Debe generar la clave de Contrato Enterprise de Azure para su uso con Cloudyn. Para ver las instrucciones, consulte [Registrar un Contrato Enterprise de Azure y ver datos de costo](./quick-register-ea.md).
+2. Debe generar la clave de Contrato Enterprise de Azure para su uso con Cloudyn.
 
 Para poder generar la clave de API de Contrato Enterprise de Azure para configurar Cloudyn, debe habilitar la API de facturación de Azure siguiendo las instrucciones que aparecen en:
 
@@ -105,7 +105,7 @@ Para poder generar la clave de API de Contrato Enterprise de Azure para configur
 
 Es posible que también deba conceder permisos a administradores de departamento, propietarios de cuentas y administradores de empresa para _ver cargos_ con la API de facturación.
 
-Solo un administrador de servicios de Azure puede habilitar Cloudyn. Los permisos de coadministrador son insuficientes. Sin embargo, puede evitar el requisito de administrador. Puede solicitar que el administrador de Azure Active Directory conceda permiso para autorizar **CloudynAzureCollector** con un script de PowerShell. El siguiente script concede permiso para registrar la entidad de servicio de Azure Active Directory **CloudynAzureCollector**.
+Solo un administrador de servicios de Azure puede habilitar Cloudyn. Los permisos de coadministrador son insuficientes. Sin embargo, puede evitar el requisito de administrador. Puede solicitar que el administrador de Azure Active Directory conceda permiso para autorizar **CloudynAzureCollector** con un script de PowerShell. El siguiente script concede permiso para registrar la entidad de servicio de Azure Active Directory **CloudynAzureCollector** .
 
 
 ```powershell

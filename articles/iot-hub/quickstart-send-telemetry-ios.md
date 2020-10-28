@@ -10,13 +10,14 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
+- devx-track-azurecli
 ms.date: 04/03/2019
-ms.openlocfilehash: c5df389d9bb22fca72f2ff3b65c417f592208d58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 728218959c385c768804f8890157a8b2ec794170
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87061572"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748614"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT (iOS)
 
@@ -59,9 +60,9 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 1. Ejecute los siguientes comandos en Azure Cloud Shell para crear la identidad del dispositivo.
 
-   **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+   **YourIoTHubName** : reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-   **myiOSdevice**: es el nombre del dispositivo que se va a registrar. Se recomienda usar **myiOSdevice** como se muestra. Si elige un nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+   **myiOSdevice** : es el nombre del dispositivo que se va a registrar. Se recomienda usar **myiOSdevice** como se muestra. Si elige un nombre distinto para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
    ```azurecli-interactive
    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
@@ -69,7 +70,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 1. Ejecute el siguiente comandos en Azure Cloud Shell para obtener la _cadena de conexión_ del dispositivo que acaba de registrar:
 
-   **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
+   **YourIoTHubName** : reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
@@ -95,7 +96,7 @@ En una ventana del terminal local, vaya a la carpeta Azure-IoT-Samples-iOS que d
 cd quickstart/sample-device
 ```
 
-Asegúrese de que XCode está cerrado y ejecute el comando siguiente para instalar los pods de CocoaPods que se declararon en el archivo **podfile**:
+Asegúrese de que XCode está cerrado y ejecute el comando siguiente para instalar los pods de CocoaPods que se declararon en el archivo **podfile** :
 
 ```sh
 pod install
@@ -115,7 +116,7 @@ Junto con la instalación de los pods necesarios para el proyecto, el comando de
 3. Abra **ViewController.swift** para editar en XCode. 
 4. Busque la variable **connectionString** y actualice su valor con la cadena de conexión del dispositivo que anotó anteriormente.
 5. Guarde los cambios. 
-6. Ejecute el proyecto en el emulador de dispositivos con el botón **Build and run** (Compilar y ejecutar) o la combinación de teclas **comando + r**. 
+6. Ejecute el proyecto en el emulador de dispositivos con el botón **Build and run** (Compilar y ejecutar) o la combinación de teclas **comando + r** . 
 
    ![Ejecución del proyecto](media/quickstart-send-telemetry-ios/run-sample.png)
 

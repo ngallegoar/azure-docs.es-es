@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165266"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792487"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,8 +30,8 @@ SQL Server en VM de Azure usa la funcionalidad de clústeres de conmutación por
 
 El resto del artículo se centra en las diferencias de las instancias de clúster de conmutación por error cuando se usan con SQL Server en VM de Azure. Para más información acerca de la tecnología de clústeres de conmutación por error, consulte: 
 
-- [Tecnologías de clúster de Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [Instancias del clúster de conmutación por error de SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)
+- [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
 ## <a name="quorum"></a>Quorum
 
@@ -60,8 +60,8 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 
 [Los discos compartidos de Azure](../../../virtual-machines/windows/disks-shared.md) son una característica de [Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Los clústeres de conmutación por error de Windows Server admiten el uso de discos compartidos de Azure con una instancia de clúster de conmutación por error. 
 
-**Sistema operativo compatible**: All   
-**Versión de SQL compatible**: All     
+**Sistema operativo compatible** : All   
+**Versión de SQL compatible** : All     
 
 **Ventajas** 
 - Resulta útil para las aplicaciones que desean migrar a Azure al tiempo que mantienen su arquitectura de alta disponibilidad y recuperación ante desastres (HADR) tal cual. 
@@ -71,7 +71,7 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 - Admite FileStream.
 
 
-**Limitaciones**: 
+**Limitaciones** : 
 - Las máquinas virtuales se deben colocar en el mismo conjunto de disponibilidad y grupo de ubicación de proximidad.
 - Availability Zones no se admite.
 - El almacenamiento en caché de disco SSD Premium no se admite.
@@ -82,8 +82,8 @@ Para empezar, consulte [Creación de una FCI con discos compartidos de Azure (SQ
 
 [Espacios de almacenamiento directo](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) es una característica de Windows Server compatible con los clústeres de conmutación por error en Azure Virtual Machines. Proporciona una SAN virtual basada en software.
 
-**Sistema operativo compatible**: Windows Server 2016 y posteriores   
-**Versión de SQL compatible**: SQL Server 2016 y posterior   
+**Sistema operativo compatible** : Windows Server 2016 y posteriores   
+**Versión de SQL compatible** : SQL Server 2016 y posterior   
 
 
 **Ventajas:** 
@@ -104,8 +104,8 @@ Para empezar, consulte [Instancia de clúster de conmutación por error de SQL S
 
 [Los recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) son una característica de [Azure Files](../../../storage/files/index.yml). Los recursos compartidos de archivos Premium están respaldados por SSD y tienen una latencia baja constante. Son totalmente compatibles con las instancias de clúster de conmutación por error para SQL Server 2012 o posterior en Windows Server 2012 o posterior. Los recursos compartidos de archivos Premium ofrecen mayor flexibilidad, lo que le permite cambiar el tamaño y escalar un recurso compartido de archivos sin tiempo de inactividad.
 
-**Sistema operativo compatible**: Windows Server 2012 y posteriores   
-**Versión de SQL compatible**: SQL Server 2012 y posterior   
+**Sistema operativo compatible** : Windows Server 2012 y posteriores   
+**Versión de SQL compatible** : SQL Server 2012 y posterior   
 
 **Ventajas:** 
 - Solo una solución de almacenamiento compartido para las máquinas virtuales distribuidas en varias zonas de disponibilidad. 
@@ -122,8 +122,8 @@ Para empezar, consulte [Instancia de clúster de conmutación por error de SQL S
 
 Hay soluciones de agrupación en clústeres de asociados con almacenamiento compatible. 
 
-**Sistema operativo compatible**: All   
-**Versión de SQL compatible**: All   
+**Sistema operativo compatible** : All   
+**Versión de SQL compatible** : All   
 
 En un ejemplo se usa SIOS DataKeeper como almacenamiento. Para más información, consulte la entrada del blog [Clúster de conmutación por error y SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ En un ejemplo se usa SIOS DataKeeper como almacenamiento. Para más información
 
 También puede exponer un almacenamiento en bloque compartido de destino iSCSI a través de Azure ExpressRoute. 
 
-**Sistema operativo compatible**: All   
-**Versión de SQL compatible**: All   
+**Sistema operativo compatible** : All   
+**Versión de SQL compatible** : All   
 
 Por ejemplo, NetApp Private Storage (NPS) expone un destino iSCSI a través de ExpressRoute con Equinix a las máquinas virtuales de Azure.
 
@@ -155,7 +155,7 @@ La extensión completa admite características como la copia de seguridad automa
 
 ### <a name="msdtc"></a>MSDTC 
 
-Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en Volúmenes compartidos en clúster (CSV) y [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) o en VM con SQL Server que usan discos compartidos de Azure. 
+Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en Volúmenes compartidos en clúster (CSV) y [Azure Standard Load Balancer](../../../load-balancer/load-balancer-overview.md) o en VM con SQL Server que usan discos compartidos de Azure. 
 
 En Azure Virtual Machines, MSDTC no se admite para Windows Server 2016 ni versiones anteriores con Volúmenes compartidos en clúster porque:
 
@@ -171,4 +171,3 @@ Para más información, consulte:
 
 - [Tecnologías de clúster de Windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [Instancias del clúster de conmutación por error de SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-

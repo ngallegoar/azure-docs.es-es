@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: c879b890f9527ea0eee3d702db6f04a38432aa00
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2af9608006eac37ccdfe76d66e619d5a64cad9f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093063"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746643"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Inicio rápido: supervisión de aplicaciones de Azure Spring Cloud con registros, métricas y seguimiento
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Registros** en la sección **Supervisión**. Seleccione **Ejecutar** en una de las consultas de ejemplo de Azure Spring Cloud.
+1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Registros** en la sección **Supervisión** . Seleccione **Ejecutar** en una de las consultas de ejemplo de Azure Spring Cloud.
 
    [ ![Entrada de Log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,11 +75,11 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>Métricas
 
-1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Métricas** en la sección **Supervisión**. Para agregar la primera métrica, seleccione una de las métricas de .NET en **Rendimiento (.NET)** o **Solicitud (.NET)** , en la lista desplegable **Métrica** y `Avg` en **Agregación** para ver la línea de tiempo de esa métrica.
+1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Métricas** en la sección **Supervisión** . Para agregar la primera métrica, seleccione una de las métricas de .NET en **Rendimiento (.NET)** o **Solicitud (.NET)** , en la lista desplegable **Métrica** y `Avg` en **Agregación** para ver la línea de tiempo de esa métrica.
 
    [ ![Entrada de métricas: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     
-1. Haga clic en **Agregar filtro** en la barra de herramientas y seleccione `App=solar-system-weather` para ver el uso de la CPU solo para la aplicación **solar-system-weather**.
+1. Haga clic en **Agregar filtro** en la barra de herramientas y seleccione `App=solar-system-weather` para ver el uso de la CPU solo para la aplicación **solar-system-weather** .
 
    [ ![Usar un filtro en métricas: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
 
@@ -89,7 +89,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="distributed-tracing"></a>Seguimiento distribuido
 
-1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Seguimiento distribuido** en la sección **Supervisión**. Luego, seleccione la pestaña **View application map** (Ver mapa de la aplicación) de la derecha.
+1. En Azure Portal, vaya a la página **Servicio | Información general** y seleccione **Seguimiento distribuido** en la sección **Supervisión** . Luego, seleccione la pestaña **View application map** (Ver mapa de la aplicación) de la derecha.
 
    [ ![Entrada de Seguimiento distribuido: Steeltoe](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 
@@ -142,7 +142,7 @@ Verá registros como este:
 
 Para obtener los registros mediante Azure Toolkit for IntelliJ:
 
-1. Seleccione **Azure Explorer** (Explorador de Azure) y, luego, **Spring Cloud**.
+1. Seleccione **Azure Explorer** (Explorador de Azure) y, luego, **Spring Cloud** .
 
 1. Haga clic con el botón derecho en la aplicación en ejecución.
 
@@ -150,7 +150,7 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 
    ![Selección de los registros de streaming](media/spring-cloud-intellij-howto/streaming-logs.png)
     
-1. Seleccione **Instancia**.
+1. Seleccione **Instancia** .
 
    ![Selección de la instancia](media/spring-cloud-intellij-howto/select-instance.png)
     
@@ -161,7 +161,7 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 ---
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Vaya a la página **servicio | Información general** y seleccione **Registros** en la sección **Supervisión**. Haga clic en **Ejecutar** en una de las consultas de ejemplo de Azure Spring Cloud. 
+1. Vaya a la página **servicio | Información general** y seleccione **Registros** en la sección **Supervisión** . Haga clic en **Ejecutar** en una de las consultas de ejemplo de Azure Spring Cloud. 
 
    [ ![Entrada de Log Analytics](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -171,11 +171,11 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 
 ## <a name="metrics"></a>Métricas
 
-1. Vaya a la página **servicio | Información general** y seleccione **Métricas** en la sección **Supervisión**. Agregue la primera métrica, para lo que debe seleccionar `system.cpu.usage` en **Metric** (Métrica) y `Avg` en **Aggregation** (Agregación), con el fin de ver la escala de tiempo de la utilización general de la CPU.
+1. Vaya a la página **servicio | Información general** y seleccione **Métricas** en la sección **Supervisión** . Agregue la primera métrica, para lo que debe seleccionar `system.cpu.usage` en **Metric** (Métrica) y `Avg` en **Aggregation** (Agregación), con el fin de ver la escala de tiempo de la utilización general de la CPU.
 
    [ ![Entrada de Métricas](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu.png#lightbox)
     
-1. Haga clic en **Agregar filtro** en la barra de herramientas superior y seleccione `App=Gateway` para ver la utilización de la CPU solo para la aplicación **gateway**.
+1. Haga clic en **Agregar filtro** en la barra de herramientas superior y seleccione `App=Gateway` para ver la utilización de la CPU solo para la aplicación **gateway** .
 
    [ ![Usar un filtro en métricas](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter.png#lightbox)
 
@@ -185,7 +185,7 @@ Para obtener los registros mediante Azure Toolkit for IntelliJ:
 
 ## <a name="distributed-tracing"></a>Seguimiento distribuido
 
-1. Vaya a la página **servicio | Información general** y seleccione **Seguimiento distribuido** en la sección **Supervisión**. Luego, haga clic en la pestaña **View application map** (Ver mapa de la aplicación) de la derecha.
+1. Vaya a la página **servicio | Información general** y seleccione **Seguimiento distribuido** en la sección **Supervisión** . Luego, haga clic en la pestaña **View application map** (Ver mapa de la aplicación) de la derecha.
 
    [ ![Entrada de Seguimiento distribuido](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
 

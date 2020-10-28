@@ -10,16 +10,16 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ed44431af6d99daa5549d019f42efda4bbf9912b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 336f58635465f77c60d04c53bb1893cb60f5f35f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540360"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791229"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Inicio rápido: Creación de un índice de Azure Cognitive Search en Java mediante las API REST
 > [!div class="op_single_selector"]
-> * [JavaScript](search-get-started-nodejs.md)
+> * [JavaScript](search-get-started-javascript.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portal](search-get-started-portal.md)
@@ -49,11 +49,11 @@ Las llamadas al servicio requieren un punto de conexión de URL y una clave de a
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
-2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+2. En **Configuración** > **Claves** , obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
    Además, cree una clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obtención del nombre del servicio y las claves de consulta y administrador" border="false":::
+:::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Obtención del nombre del servicio y las claves de consulta y administrador" border="false":::
 
 Todas las solicitudes enviadas a un servicio requieren una clave de API. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -64,7 +64,7 @@ Para comenzar, abra IntelliJ IDEA y configure un nuevo proyecto.
 ### <a name="create-the-project"></a>Creación del proyecto
 
 1. Abra IntelliJ IDEA y seleccione **Create New Project** (Crear nuevo proyecto).
-1. Seleccione **Maven**.
+1. Seleccione **Maven** .
 1. En la lista **Project SDK** (SDK del proyecto), seleccione el SDK de Java 11.
 
     :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Obtención del nombre del servicio y las claves de consulta y administrador" border="false":::

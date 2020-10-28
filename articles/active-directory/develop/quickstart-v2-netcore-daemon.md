@@ -11,13 +11,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
+ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: e1df230a49ca5483d0ab091da11530786c829ca8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042650"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896521"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API mediante la identidad de la consola de aplicación
 
@@ -37,7 +38,7 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
 > 1. Vaya al nuevo panel de [Azure Portal: Registros de aplicaciones](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
-> 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
+> 1. Escriba un nombre para la aplicación y seleccione **Registrar** .
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opción 2: registrar y configurar manualmente la aplicación y el código de ejemplo
@@ -49,14 +50,14 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 > 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
 > 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores. Para ello, escriba **Registros de aplicaciones** en la barra de búsqueda de Azure Portal.
-> 1. Seleccione **Nuevo registro**.
-> 1. Cuando aparezca la página **Registrar una aplicación**, escriba la información de registro de la aplicación.
-> 1. En la sección **Nombre**, escriba un nombre de aplicación significativo que se mostrará a los usuarios de la aplicación, por ejemplo, `Daemon-console`; luego, seleccione **Registrarse** para crear la aplicación.
+> 1. Seleccione **Nuevo registro** .
+> 1. Cuando aparezca la página **Registrar una aplicación** , escriba la información de registro de la aplicación.
+> 1. En la sección **Nombre** , escriba un nombre de aplicación significativo que se mostrará a los usuarios de la aplicación, por ejemplo, `Daemon-console`; luego, seleccione **Registrarse** para crear la aplicación.
 > 1. Una vez registrado, seleccione el menú **Certificates & secrets** (Certificados y secretos).
-> 1. En **Secretos de cliente**, seleccione **+Nuevo secreto de cliente**. Asígnele un nombre y seleccione **Agregar**. Copie el secreto en una ubicación segura. Tendrá que usarlo en el código y no se volverá a mostrar en el portal.
-> 1. Ahora, seleccione el menú **Permisos de API**, haga clic en el botón **+ Agregar un permiso** y seleccione **Microsoft Graph**.
-> 1. Seleccione **Permisos de aplicación**.
-> 1. En el nodo **Usuario**, seleccione **User.Read.All** y, luego, **Agregar permisos**
+> 1. En **Secretos de cliente** , seleccione **+Nuevo secreto de cliente** . Asígnele un nombre y seleccione **Agregar** . Copie el secreto en una ubicación segura. Tendrá que usarlo en el código y no se volverá a mostrar en el portal.
+> 1. Ahora, seleccione el menú **Permisos de API** , haga clic en el botón **+ Agregar un permiso** y seleccione **Microsoft Graph** .
+> 1. Seleccione **Permisos de aplicación** .
+> 1. En el nodo **Usuario** , seleccione **User.Read.All** y, luego, **Agregar permisos**
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="download-and-configure-your-quickstart-app"></a>Descarga y configuración de la aplicación de inicio rápido
@@ -89,7 +90,7 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio
 >
-> 1. Extraiga el archivo ZIP en una carpeta local próxima a la raíz del disco, por ejemplo, **C:\Azure-Samples**.
+> 1. Extraiga el archivo ZIP en una carpeta local próxima a la raíz del disco, por ejemplo, **C:\Azure-Samples** .
 > 1. Abra la solución en Visual Studio, **1-Call-MSGraph\daemon-console.sln** (opcional).
 > 1. Edite **appsettings.json** y sustituya los valores de los campos `ClientId`, `Tenant` y `ClientSecret` por lo siguiente:
 >
@@ -113,15 +114,15 @@ Este inicio rápido requiere [.NET Core 3.1](https://www.microsoft.com/net/down
 > [!div renderon="docs"]
 > #### <a name="step-4-admin-consent"></a>Paso 4: Consentimiento de administrador
 
-Si intenta ejecutar la aplicación en este momento, recibirá un error *HTTP 403 - Prohibido*: `Insufficient privileges to complete the operation`. Esto sucede porque cualquier *permiso de solo aplicación* requiere el consentimiento del administrador, lo que significa que necesita que un administrador global del directorio otorgue su consentimiento a la aplicación. Seleccione una de las opciones siguientes según el rol:
+Si intenta ejecutar la aplicación en este momento, recibirá un error *HTTP 403 - Prohibido* : `Insufficient privileges to complete the operation`. Esto sucede porque cualquier *permiso de solo aplicación* requiere el consentimiento del administrador, lo que significa que necesita que un administrador global del directorio otorgue su consentimiento a la aplicación. Seleccione una de las opciones siguientes según el rol:
 
 ##### <a name="global-tenant-administrator"></a>Administrador de inquilinos global
 
 > [!div renderon="docs"]
-> Si es un administrador de inquilinos global, en Azure Portal, vaya a **Aplicaciones empresariales**, haga clic en el registro de la aplicación y seleccione **Permisos** en la sección de seguridad del panel de navegación izquierdo. Haga clic en el botón grande denominado **Conceder consentimiento de administrador para {Tenant Name}** , donde {Tenant Name} se corresponde con el nombre de su directorio.
+> Si es un administrador de inquilinos global, en Azure Portal, vaya a **Aplicaciones empresariales** , haga clic en el registro de la aplicación y seleccione **Permisos** en la sección de seguridad del panel de navegación izquierdo. Haga clic en el botón grande denominado **Conceder consentimiento de administrador para {Tenant Name}** , donde {Tenant Name} se corresponde con el nombre de su directorio.
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Si es administrador global, vaya a la página **Permisos de API**, seleccione **Grant admin consent for Enter_the_Tenant_Name_Here** (Conceder consentimiento del administrador para _escribir_aquí_el_nombre_del_inquilino).
+> Si es administrador global, vaya a la página **Permisos de API** , seleccione **Grant admin consent for Enter_the_Tenant_Name_Here** (Conceder consentimiento del administrador para _escribir_aquí_el_nombre_del_inquilino).
 > > [!div id="apipermissionspage"]
 > > [Ir a la página Permisos de API]()
 
@@ -149,7 +150,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 Si usa Visual Studio o Visual Studio para Mac, presione **F5** para ejecutar la aplicación. Como alternativa, puede ejecutar la aplicación desde la consola, el símbolo del sistema o la ventana de terminal:
 
-```console
+```dotnetcli
 cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
@@ -173,8 +174,7 @@ MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Ident
 
  Puede instalar MSAL mediante la ejecución del siguiente comando en la **Consola del Administrador de paquetes** de Visual Studio:
 
-```powershell twhitney
-```console
+```dotnetcli
 dotnet add package Microsoft.Identity.Client
 ```
 

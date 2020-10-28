@@ -9,20 +9,20 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 088300d4b6f92886310315b67763536e39cbb019
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319476"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789529"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Private Link permite conectarse a varios servicios PaaS en Azure mediante un **punto de conexión privado**. Para obtener una lista de los servicios PaaS que admiten la funcionalidad Private Link, vaya a la página de la [documentación de Private Link](../../private-link/index.yml). Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md) y una subred específicas.
+Private Link permite conectarse a varios servicios PaaS en Azure mediante un **punto de conexión privado** . Para obtener una lista de los servicios PaaS que admiten la funcionalidad Private Link, vaya a la página de la [documentación de Private Link](../../private-link/index.yml). Un punto de conexión privado es una dirección IP privada dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md) y una subred específicas.
 
 > [!IMPORTANT]
-> Este tema se aplica tanto a Azure SQL Database como a Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics. Este artículo *no* se aplica a **Instancia administrada de Azure SQL**.
+> Este tema se aplica tanto a Azure SQL Database como a Azure Synapse Analytics (anteriormente SQL Data Warehouse). Para simplificar, el término "base de datos" hace referencia a las bases de datos de Azure SQL Database y a las de Azure Synapse Analytics. Del mismo modo, todas las referencias a "servidor" indican el [servidor de SQL Server lógico](logical-servers.md) que hospeda Azure SQL Database y Azure Synapse Analytics. Este artículo *no* se aplica a **Instancia administrada de Azure SQL** .
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Configuración de Private Link para Azure SQL Database 
 
@@ -75,7 +75,7 @@ Para este escenario, suponga que ha creado una máquina virtual de Azure en la q
 
 ### <a name="check-connectivity-using-telnet"></a>Comprobación de la conectividad mediante Telnet
 
-El [cliente Telnet](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) es una característica de Windows que se puede usar para probar la conectividad. En función de la versión del sistema operativo Windows, es posible que tenga que habilitar esta característica de forma explícita. 
+El [cliente Telnet](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) es una característica de Windows que se puede usar para probar la conectividad. En función de la versión del sistema operativo Windows, es posible que tenga que habilitar esta característica de forma explícita. 
 
 Tras instalar Telnet, abra una ventana del símbolo del sistema. Ejecute el comando de Telnet y especifique la dirección IP y el punto de conexión privado de la base de datos SQL Database.
 
@@ -149,14 +149,14 @@ Piense en un escenario en el que un usuario ejecuta SQL Server Management Studio
 1. Solo se permite el tráfico a la base de datos de SQL Database mediante la dirección IP privada de la VM. Para más información, consulte los artículos sobre el [punto de conexión de servicio](vnet-service-endpoint-rule-overview.md) y las [reglas de firewall de la red virtual](firewall-configure.md).
 1. En la máquina virtual de Azure, restrinja el ámbito de la conexión saliente mediante el uso de [grupos de seguridad de red (NSG)](../../virtual-network/manage-network-security-group.md) y etiquetas de servicio, como se indica a continuación
     - Especifique una regla de NSG para permitir el tráfico en Service Tag = SQL.WestUs (solo se permite la conexión a una base de datos SQL en Oeste de EE. UU.)
-    - Especifique una regla de NSG (con una **prioridad mayor**) para denegar el tráfico a Service Tag = SQL (se deniegan las conexiones a una base de datos SQL en todas las regiones)
+    - Especifique una regla de NSG (con una **prioridad mayor** ) para denegar el tráfico a Service Tag = SQL (se deniegan las conexiones a una base de datos SQL en todas las regiones)
 
 Al final de esta configuración, la VM de Azure solo puede conectarse a una base de datos de SQL Database de la región Oeste de EE. UU. Sin embargo, la conectividad no está restringida a una sola base de datos en SQL Database. La VM puede conectarse a cualquier base de datos de la región Oeste de EE. UU., incluidas las bases de datos que no forman parte de la suscripción. Aunque en el escenario anterior se ha reducido el ámbito de la filtración de datos a una región concreta, no se ha eliminado por completo.
 
 Con Private Link, los clientes pueden configurar controles de acceso a la red como grupos de seguridad de red para restringir el acceso al punto de conexión privado. Los recursos PaaS de Azure individuales se asignan a puntos de conexión privados concretos. Un usuario interno malintencionado solo puede acceder al recurso PaaS asignado (por ejemplo, una base de datos en SQL Database), pero no a los demás recursos. 
 
 ## <a name="limitations"></a>Limitaciones 
-Las conexiones a un punto de conexión privado solo admiten**Proxy** como [directiva de conexión](connectivity-architecture.md#connection-policy)
+Las conexiones a un punto de conexión privado solo admiten **Proxy** como [directiva de conexión](connectivity-architecture.md#connection-policy)
 
 
 ## <a name="connecting-from-an-azure-vm-in-peered-virtual-network"></a>Conexión desde una VM de Azure en una red virtual emparejada 

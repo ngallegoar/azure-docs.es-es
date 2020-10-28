@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 37f0b890cd4942e5dcb47b496d661eb7c54db94d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7521344a2bb6aae67724c8bfbb9131e2ff1e6b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093521"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789733"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Inicio rápido: Creación de un circuito ExpressRoute con emparejamiento privado mediante una plantilla de Resource Manager
 
@@ -22,7 +22,7 @@ En este inicio rápido se describe cómo usar una plantilla de Azure Resource Ma
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-expressroute-private-peering-vnet%2Fazuredeploy.json)
 
@@ -34,16 +34,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-expressroute-private-peering-vnet).
 
-En este inicio rápido va a crear un circuito de ExpressRoute con *Equinix* como proveedor de servicios. El circuito usará una *SKU Premium* con un ancho de banda de *50 Mbps*y la ubicación de emparejamiento de *Washington DC*. El emparejamiento privado se habilitará con una subred principal y secundaria de *192.168.10.16/30* y *192.168.10.20/30*respectivamente. También se creará una red virtual,junto con una puerta de enlace de *ExpressRoute de alto rendimiento*.
+En este inicio rápido va a crear un circuito de ExpressRoute con *Equinix* como proveedor de servicios. El circuito usará una *SKU Premium* con un ancho de banda de *50 Mbps* y la ubicación de emparejamiento de *Washington DC* . El emparejamiento privado se habilitará con una subred principal y secundaria de  *192.168.10.16/30* y  *192.168.10.20/30* respectivamente. También se creará una red virtual,junto con una puerta de enlace de *ExpressRoute de alto rendimiento* .
 
-:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json" range="001-351" highlight="183-219":::
+:::code language="json" source="~/quickstart-templates/101-expressroute-private-peering-vnet/azuredeploy.json":::
 
 En la plantilla se han definido varios recursos de Azure:
 
 * [**Microsoft.Network/expressRouteCircuits**](/azure/templates/microsoft.network/expressRouteCircuits)
 * [**Microsoft.Network/expressRouteCircuits/Peers**](/azure/templates/microsoft.network/expressRouteCircuits/peerings) (se usa para habilitar el emparejamiento privado en el circuito)
 * [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networkSecurityGroups) (el grupo de seguridad de red se aplica a las subredes de la red virtual)
-* [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks) 
+* [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualNetworks)
 * [**Microsoft.Network/publicIPAddresses**](/azure/templates/microsoft.network/publicIPAddresses) (la dirección IP pública que usa la puerta de enlace de ExpressRoute)
 * [**Microsoft.Network/virtualNetworkGateways**](/azure/templates/microsoft.network/virtualNetworkGateways) (puerta de enlace de ExpressRoute se usa para vincular la red virtual al circuito)
 
@@ -51,7 +51,7 @@ Para encontrar más plantillas relacionadas con ExpressRoute, consulte [Plantill
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Seleccione **Try It** (Probarlo) en el bloque de código siguiente para abrir Azure Cloud Shell y siga las instrucciones para iniciar sesión en Azure. 
+1. Seleccione **Try It** (Probarlo) en el bloque de código siguiente para abrir Azure Cloud Shell y siga las instrucciones para iniciar sesión en Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -70,7 +70,7 @@ Para encontrar más plantillas relacionadas con ExpressRoute, consulte [Plantill
 
 1. Seleccione **Copiar** en el bloque de código anterior para copiar el script de PowerShell.
 
-1. Haga clic con el botón derecho en el panel de consola del shell y, a continuación, seleccione **Pegar**.
+1. Haga clic con el botón derecho en el panel de consola del shell y, a continuación, seleccione **Pegar** .
 
 1. Escriba los valores.
 
@@ -94,7 +94,7 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
 
      :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-resource-group.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
 
-1. Seleccione el circuito ExpressRoute **er-ck01** para comprobar que su estado es **Habilitado**, que el estado del proveedor es **No aprovisionado** y que el emparejamiento privado tiene el estado **Aprovisionado**.
+1. Seleccione el circuito ExpressRoute **er-ck01** para comprobar que su estado es **Habilitado** , que el estado del proveedor es **No aprovisionado** y que el emparejamiento privado tiene el estado **Aprovisionado** .
 
     :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-circuit.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de ExpressRoute":::
 
@@ -114,6 +114,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha creado lo siguiente:
+
 * Circuito ExpressRoute
 * Virtual Network
 * VPN Gateway

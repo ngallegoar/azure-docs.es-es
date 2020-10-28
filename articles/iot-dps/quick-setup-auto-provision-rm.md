@@ -7,13 +7,13 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
-ms.openlocfilehash: e1ca3d7270fb0858bb2512e5b9e285eb8d4555c6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 91e4e7de73d820c345b2973896d07d3479e49f9e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297154"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748089"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Inicio rápido: Configuración del servicio IoT Hub Device Provisioning con una plantilla de Azure Resource Manager
 
@@ -65,7 +65,7 @@ Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
 Utilice una plantilla JSON para crear un servicio de aprovisionamiento y un centro de IoT vinculado en su grupo de recursos. También puede usar una plantilla de Azure Resource Manager para realizar cambios en un servicio de aprovisionamiento o en un centro de IoT existente.
 
-1. Use un editor de texto para crear una plantilla de Azure Resource Manager llamada **template.json**, con el siguiente contenido de esquema. 
+1. Use un editor de texto para crear una plantilla de Azure Resource Manager llamada **template.json** , con el siguiente contenido de esquema. 
 
    ```json
    {
@@ -113,7 +113,7 @@ Utilice una plantilla JSON para crear un servicio de aprovisionamiento y un cent
 
    ```
 
-4. Para crear un centro de IoT, agregue las líneas siguientes a la colección **resources**. JSON especifica las propiedades mínimas necesarias para crear un centro de IoT. Los valores **name** y **location** se pasarán como parámetros de otro archivo. Para más información sobre las propiedades que se pueden especificar para un centro de IoT en una plantilla, consulte la [referencia de la plantilla Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
+4. Para crear un centro de IoT, agregue las líneas siguientes a la colección **resources** . JSON especifica las propiedades mínimas necesarias para crear un centro de IoT. Los valores **name** y **location** se pasarán como parámetros de otro archivo. Para más información sobre las propiedades que se pueden especificar para un centro de IoT en una plantilla, consulte la [referencia de la plantilla Microsoft.Devices/IotHubs](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs).
 
    ```json
         {
@@ -133,7 +133,7 @@ Utilice una plantilla JSON para crear un servicio de aprovisionamiento y un cent
 
    ``` 
 
-5. Para crear el servicio de aprovisionamiento, agregue las siguientes líneas después de la especificación del centro de IoT en la colección **Resources**. Las propiedades **name** y **location** del servicio de aprovisionamiento se pasarán como parámetros. La colección **iotHubs** especifica los centros de IoT que se van a vincular al servicio de aprovisionamiento. Como mínimo, debe especificar las propiedades **connectionString** y **location** para cada centro de IoT vinculado. También puede establecer propiedades como **allocationWeight** y **applyAllocationPolicy** en cada centro de IoT, así como propiedades, como **allocationPolicy** y **authorizationPolicies** en el mismo servicio de aprovisionamiento. Para más información, consulte [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Referencia de plantilla Microsoft.Devices/provisioningServices).
+5. Para crear el servicio de aprovisionamiento, agregue las siguientes líneas después de la especificación del centro de IoT en la colección **Resources** . Las propiedades **name** y **location** del servicio de aprovisionamiento se pasarán como parámetros. La colección **iotHubs** especifica los centros de IoT que se van a vincular al servicio de aprovisionamiento. Como mínimo, debe especificar las propiedades **connectionString** y **location** para cada centro de IoT vinculado. También puede establecer propiedades como **allocationWeight** y **applyAllocationPolicy** en cada centro de IoT, así como propiedades, como **allocationPolicy** y **authorizationPolicies** en el mismo servicio de aprovisionamiento. Para más información, consulte [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices) (Referencia de plantilla Microsoft.Devices/provisioningServices).
 
    La propiedad **dependsOn** se utiliza para asegurarse de que Resource Manager crea el centro de IoT antes de crear el servicio de aprovisionamiento. La plantilla requiere la cadena de conexión del centro de IoT para especificar su vinculación con el servicio de aprovisionamiento, por lo que primero debe crearse el centro y sus claves. La plantilla utiliza funciones como **concat** y **listKeys** para crear la cadena de conexión a partir de variables parametrizadas. Para más información, consulte [Funciones de la plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions).
 

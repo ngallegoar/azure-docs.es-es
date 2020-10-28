@@ -4,19 +4,19 @@ description: Cree una base de datos única en Azure SQL Database con Azure Porta
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: contperfq1
+ms.custom: contperfq1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 6a0d81cc9954f934395bc275785bda34c55c35bd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab920a05f255e38905f9ff79f08f2bfa0c6540b6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91263409"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791518"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Inicio rápido: Creación de una base de datos única de Azure SQL Database
 
@@ -37,24 +37,24 @@ En este inicio rápido se crea una base de datos única en el [nivel de proceso 
 Para crear una base de datos única en Azure Portal, este inicio rápido se inicia en la página Azure SQL.
 
 1. Vaya a la página [Seleccione una opción de implementación de SQL](https://portal.azure.com/#create/Microsoft.AzureSQL).
-1. En **Bases de datos SQL**, deje **Tipo de recurso** establecido en **Base de datos única** y seleccione **Crear**.
+1. En **Bases de datos SQL** , deje **Tipo de recurso** establecido en **Base de datos única** y seleccione **Crear** .
 
    ![Incorporación a Azure SQL](./media/single-database-create-quickstart/select-deployment.png)
 
-1. En la pestaña **Básico** del formulario **Create SQL Database**, en **Detalles del proyecto**, seleccione la **suscripción** de Azure correcta.
-1. En **Grupo de recursos**, seleccione **Crear nuevo**, escriba *miGrupoDeRecursos* y seleccione **Aceptar**.
-1. En **Nombre de la base de datos**, escriba *miBaseDeDatosDeEjemplo*.
-1. En **Servidor**, seleccione **Crear nuevo** y rellene el formulario **Nuevo servidor** con los valores siguientes:
-   - **Nombre del servidor**: Escriba *miServidorSql* y agregue algunos caracteres para que el nombre sea único. No se puede proporcionar un nombre de servidor exacto para usar porque los nombres de los servidores deben ser globalmente únicos para todos los servidores en Azure, no solo únicos dentro de una suscripción. Por lo tanto, escriba algo como mysqlserver12345 y el portal le permite saber si está disponible o no.
-   - **Inicio de sesión del administrador del servidor**: escriba *usuarioazure*.
-   - **Contraseña**: escriba una contraseña que cumpla los requisitos y escríbala de nuevo en el campo **Confirmar contraseña**.
-   - **Ubicación**: Seleccione una ubicación en la lista desplegable.
+1. En la pestaña **Básico** del formulario **Create SQL Database** , en **Detalles del proyecto** , seleccione la **suscripción** de Azure correcta.
+1. En **Grupo de recursos** , seleccione **Crear nuevo** , escriba *miGrupoDeRecursos* y seleccione **Aceptar** .
+1. En **Nombre de la base de datos** , escriba *miBaseDeDatosDeEjemplo* .
+1. En **Servidor** , seleccione **Crear nuevo** y rellene el formulario **Nuevo servidor** con los valores siguientes:
+   - **Nombre del servidor** : Escriba *miServidorSql* y agregue algunos caracteres para que el nombre sea único. No se puede proporcionar un nombre de servidor exacto para usar porque los nombres de los servidores deben ser globalmente únicos para todos los servidores en Azure, no solo únicos dentro de una suscripción. Por lo tanto, escriba algo como mysqlserver12345 y el portal le permite saber si está disponible o no.
+   - **Inicio de sesión del administrador del servidor** : escriba *usuarioazure* .
+   - **Contraseña** : escriba una contraseña que cumpla los requisitos y escríbala de nuevo en el campo **Confirmar contraseña** .
+   - **Ubicación** : Seleccione una ubicación en la lista desplegable.
 
-   Seleccione **Aceptar**.
+   Seleccione **Aceptar** .
 
-1. Deje **¿Quiere usar un grupo elástico de SQL?** establecido en **No**.
-1. En **Proceso y almacenamiento**, seleccione **Configurar base de datos**.
-1. En este inicio rápido se usa una base de datos sin servidor, por lo que debe seleccionar **Sin servidor** y, después, seleccionar **Aplicar**. 
+1. Deje **¿Quiere usar un grupo elástico de SQL?** establecido en **No** .
+1. En **Proceso y almacenamiento** , seleccione **Configurar base de datos** .
+1. En este inicio rápido se usa una base de datos sin servidor, por lo que debe seleccionar **Sin servidor** y, después, seleccionar **Aplicar** . 
 
       ![configuración de una base de datos sin servidor](./media/single-database-create-quickstart/configure-database.png)
 
@@ -62,19 +62,19 @@ Para crear una base de datos única en Azure Portal, este inicio rápido se inic
 
    ![Nueva base de datos SQL (pestaña Básico)](./media/single-database-create-quickstart/new-sql-database-basics.png)
 
-1. En la pestaña **Redes**, en **Método de conectividad**, seleccione **Punto de conexión público**.
-1. En **Reglas de firewall**, establezca **Agregar dirección IP del cliente actual** en **Sí**. Deje la opción **Permitir que los servicios y recursos de Azure accedan a este grupo de servidores** establecida en **No**.
+1. En la pestaña **Redes** , en **Método de conectividad** , seleccione **Punto de conexión público** .
+1. En **Reglas de firewall** , establezca **Agregar dirección IP del cliente actual** en **Sí** . Deje la opción **Permitir que los servicios y recursos de Azure accedan a este grupo de servidores** establecida en **No** .
 1. Seleccione **Siguiente: Configuración adicional** en la parte inferior de la página.
 
    ![Pestaña Redes](./media/single-database-create-quickstart/networking.png)
   
 
-1. En la pestaña **Configuración adicional**, en la sección **Orígenes de datos**, en **Usar datos existentes**, seleccione **Ejemplo**. Esto crea una base de datos de ejemplo AdventureWorksLT, por lo que hay algunas tablas y datos para consultar y experimentar, en lugar de una base de datos vacía.
-1. En la parte inferior de la página, seleccione **Revisar y crear**.
+1. En la pestaña **Configuración adicional** , en la sección **Orígenes de datos** , en **Usar datos existentes** , seleccione **Ejemplo** . Esto crea una base de datos de ejemplo AdventureWorksLT, por lo que hay algunas tablas y datos para consultar y experimentar, en lugar de una base de datos vacía.
+1. En la parte inferior de la página, seleccione **Revisar y crear** .
 
    ![Pestaña Configuración adicional](./media/single-database-create-quickstart/additional-settings.png)
 
-1. En la página **Revisar y crear**, después de revisar, seleccione **Crear**.
+1. En la página **Revisar y crear** , después de revisar, seleccione **Crear** .
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -107,7 +107,7 @@ endip=0.0.0.0
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* :
 
 ```azurecli-interactive
 az group create --name $resourceGroupName --location $location
@@ -258,11 +258,11 @@ Una vez que haya creado la base de datos, use el **editor de consultas (versión
 
 1. En el portal, busque y seleccione **Bases de datos SQL** y, a continuación, seleccione su base de datos en la lista.
 1. En la página de su base de datos, seleccione **Editor de consultas (versión preliminar)** en el menú de la izquierda.
-1. Escriba la información de inicio de sesión del administrador del servidor y seleccione **Aceptar**.
+1. Escriba la información de inicio de sesión del administrador del servidor y seleccione **Aceptar** .
 
    ![Inicio de sesión en el Editor de consultas](./media/single-database-create-quickstart/query-editor-login.png)
 
-1. Escriba la siguiente consulta en el panel del **Editor de consultas**.
+1. Escriba la siguiente consulta en el panel del **Editor de consultas** .
 
    ```sql
    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
@@ -271,7 +271,7 @@ Una vez que haya creado la base de datos, use el **editor de consultas (versión
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-1. Seleccione **Ejecutar** y examine los resultados de la consulta en el panel **Resultados**.
+1. Seleccione **Ejecutar** y examine los resultados de la consulta en el panel **Resultados** .
 
    ![Resultados del Editor de consultas](./media/single-database-create-quickstart/query-editor-results.png)
 
@@ -288,8 +288,8 @@ Cuando haya terminado de usar estos recursos, puede eliminar el grupo de recurso
 Para eliminar **myResourceGroup** y todos sus recursos con Azure Portal:
 
 1. En el portal, busque y seleccione **Grupos de recursos** y, después, seleccione **myResourceGroup** en la lista.
-1. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos**.
-1. En **Escriba el nombre del grupo de recursos** escriba *myResourceGroup* y luego seleccione **Eliminar**.
+1. En la página del grupo de recursos, seleccione **Eliminar grupo de recursos** .
+1. En **Escriba el nombre del grupo de recursos** escriba *myResourceGroup* y luego seleccione **Eliminar** .
 
 ### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -320,4 +320,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ¿Quiere optimizar y ahorrar en el gasto en la nube?
 
 > [!div class="nextstepaction"]
-> [Comience a analizar los costos con Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comience a analizar los costos con Cost Management](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

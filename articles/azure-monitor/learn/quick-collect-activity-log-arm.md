@@ -3,16 +3,16 @@ title: Envío del registro de actividad de Azure al área de trabajo de Log Anal
 description: Use plantillas de Resource Manager para crear un área de trabajo de Log Analytics y una configuración de diagnóstico para enviar el registro de actividad a los registros de Azure Monitor.
 ms.subservice: logs
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 552df72901b9fde7acedd554b429f3a2ce0f671b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: abcaee8cffd36e22c918b9d82f37370df1d61c26
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631858"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747028"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Inicio rápido: Envío del registro de actividad de Azure al área de trabajo de Log Analytics mediante una plantilla de Resource Manager
 
@@ -29,7 +29,7 @@ El registro de actividad es un registro de la plataforma de Azure que proporcion
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La siguiente plantilla permite crear una área de trabajo de Log Analytics vacía. Guarde esta plantilla como *CreateWorkspace.json*.
+La siguiente plantilla permite crear una área de trabajo de Log Analytics vacía. Guarde esta plantilla como *CreateWorkspace.json* .
 
 ```json
 {
@@ -134,7 +134,7 @@ Esta plantilla define un recurso:
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Implemente la plantilla mediante cualquier método estándar de [implementación de una plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-portal.md) como en los ejemplos siguientes con la CLI y PowerShell. Reemplace los valores de ejemplo del **grupo de recursos**, **nombre del área de trabajo** y **ubicación** por los valores adecuados para su entorno. El nombre del área de trabajo debe ser único entre todas las suscripciones de Azure.
+Implemente la plantilla mediante cualquier método estándar de [implementación de una plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-portal.md) como en los ejemplos siguientes con la CLI y PowerShell. Reemplace los valores de ejemplo del **grupo de recursos** , **nombre del área de trabajo** y **ubicación** por los valores adecuados para su entorno. El nombre del área de trabajo debe ser único entre todas las suscripciones de Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -180,7 +180,7 @@ Get-AzOperationalInsightsWorkspace -Name my-workspace-01 -ResourceGroupName my-r
 
 ### <a name="review-the-template"></a>Revisión de la plantilla
 
-La siguiente plantilla crea una configuración de diagnóstico que envía el registro de actividad a un área de trabajo de Log Analytics. Guarde esta plantilla como *CreateDiagnosticSetting.json*.
+La siguiente plantilla crea una configuración de diagnóstico que envía el registro de actividad a un área de trabajo de Log Analytics. Guarde esta plantilla como *CreateDiagnosticSetting.json* .
 
 ```json
 {
@@ -248,7 +248,7 @@ Esta plantilla define un recurso:
 
 ### <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Implemente la plantilla mediante cualquier método estándar de [implementación de una plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-portal.md) como en los ejemplos siguientes con la CLI y PowerShell. Reemplace los valores de ejemplo del **grupo de recursos**, **nombre del área de trabajo** y **ubicación** por los valores adecuados para su entorno. El nombre del área de trabajo debe ser único entre todas las suscripciones de Azure.
+Implemente la plantilla mediante cualquier método estándar de [implementación de una plantilla de Resource Manager](../../azure-resource-manager/templates/deploy-portal.md) como en los ejemplos siguientes con la CLI y PowerShell. Reemplace los valores de ejemplo del **grupo de recursos** , **nombre del área de trabajo** y **ubicación** por los valores adecuados para su entorno. El nombre del área de trabajo debe ser único entre todas las suscripciones de Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -281,15 +281,15 @@ Solo se enviarán las nuevas entradas del registro de actividad al área de trab
 
 ## <a name="retrieve-data-with-a-log-query"></a>Recuperación de datos con una consulta de registro
 
-Use Azure Portal para que utilice Log Analytics para recuperar datos del área de trabajo. En Azure Portal, busque y seleccione **Monitor**.
+Use Azure Portal para que utilice Log Analytics para recuperar datos del área de trabajo. En Azure Portal, busque y seleccione **Monitor** .
 
 ![Azure portal](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Seleccione **Registros** en el menú **Azure Monitor**. Cierre la página **Consultas de ejemplo**. Si el ámbito no está establecido en el área de trabajo que ha creado, haga clic en **Seleccionar ámbito** y búsquelo.
+Seleccione **Registros** en el menú **Azure Monitor** . Cierre la página **Consultas de ejemplo** . Si el ámbito no está establecido en el área de trabajo que ha creado, haga clic en **Seleccionar ámbito** y búsquelo.
 
 ![Ámbito de Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-En la ventana de consulta, escriba `AzureActivity` y haga clic en **Ejecutar**. Se trata de una consulta simple que devuelve todos los registros de la tabla *AzureActivity*, que contiene todos los registros enviados desde el registro de actividad.
+En la ventana de consulta, escriba `AzureActivity` y haga clic en **Ejecutar** . Se trata de una consulta simple que devuelve todos los registros de la tabla *AzureActivity* , que contiene todos los registros enviados desde el registro de actividad.
 
 ![Consulta sencilla](media/quick-collect-activity-log/query-01.png)
 

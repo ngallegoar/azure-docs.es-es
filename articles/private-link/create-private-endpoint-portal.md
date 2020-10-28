@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 395912ae70c5a01bd7de9a80cf8a507dd516028e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327519"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895208"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Inicio rápido: Creación de un punto de conexión privado mediante Azure Portal
 
@@ -50,13 +50,13 @@ El host bastión se utilizará para conectarse de forma segura a la máquina vir
     | Grupo de recursos   | Seleccione **CreatePrivateEndpointQS-rg** . |
     | **Detalles de instancia** |                                                                 |
     | Nombre             | Escriba **myVNet** .                                    |
-    | Region           | Seleccione **\<your-web-app-region>** . </br> Seleccione la región en la está implementada la aplicación web.|
+    | Region           | Seleccione **Oeste de Europa** .|
 
 3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
 4. En la pestaña **Direcciones IP** , especifique esta información:
 
-    | Parámetro            | Value                      |
+    | Configuración            | Value                      |
     |--------------------|----------------------------|
     | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16** . |
 
@@ -94,14 +94,14 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
    
 2. En **Crear una máquina virtual** , escriba o seleccione los valores en la pestaña **Básico** :
 
-    | Parámetro | Value                                          |
+    | Configuración | Value                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
     | Grupo de recursos | Seleccione **CreatePrivateEndpointQS-rg** . |
     | **Detalles de instancia** |  |
     | Nombre de la máquina virtual | Escriba **myVM** . |
-    | Region | Seleccione **\<your-web-app-region>** . </br> Seleccione la región en la está implementada la aplicación web. |
+    | Region | Seleccione **Oeste de Europa** . |
     | Opciones de disponibilidad | Seleccione **No se requiere redundancia de la infraestructura** |
     | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen1** . |
     | Instancia de Azure Spot | Seleccione **No** . |
@@ -115,7 +115,7 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Parámetro | Value |
+    | Configuración | Value |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
@@ -149,7 +149,7 @@ En esta sección, creará un punto de conexión privado para la aplicación web 
     | Resource group | Seleccione **CreatePrivateEndpointQS-rg** . Ha creado este grupo de recursos en la sección anterior.|
     | **Detalles de instancia** |  |
     | Nombre  | Escriba **myPrivateEndpoint** . |
-    | Region | Seleccione **\<your-web-app-region>** . </br> Seleccione la región en la está implementada la aplicación web. |
+    | Region | Seleccione **Oeste de Europa** . |
 
 6. Seleccione la pestaña **Recurso** o el botón **Siguiente: Recurso** en la parte inferior de la página.
     

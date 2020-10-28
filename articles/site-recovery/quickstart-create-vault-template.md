@@ -2,14 +2,14 @@
 title: Inicio rápido para crear un almacén de Azure Recovery Services mediante una plantilla de Azure Resource Manager.
 description: En este inicio rápido, aprenderá a crear un almacén de Azure Recovery Services mediante una plantilla de Azure Resource Manager.
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/29/2020
-ms.openlocfilehash: 62bfe71c397367282c696eecdf55ab9c900c69a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c1c6d625c67130a4e3608cee6134b8c81404c01b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88684123"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745884"
 ---
 # <a name="quickstart-create-a-recovery-services-vault-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Recovery Services mediante una plantilla de Resource Manager
 
@@ -17,7 +17,7 @@ En este inicio rápido, se describe cómo instalar un almacén de Recovery Servi
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -42,9 +42,9 @@ Para ver más plantillas de Azure Recovery Services, consulte [Plantillas de ini
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Para implementar la plantilla, se requieren los valores de **Suscripción**, **Grupo de recursos** y **Nombre de almacén**.
+Para implementar la plantilla, se requieren los valores de **Suscripción** , **Grupo de recursos** y **Nombre de almacén** .
 
-1. Para iniciar sesión en Azure y abrir la plantilla, seleccione la imagen **Implementar en Azure**.
+1. Para iniciar sesión en Azure y abrir la plantilla, seleccione la imagen **Implementar en Azure** .
 
    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-recovery-services-vault-create%2Fazuredeploy.json)
 
@@ -52,16 +52,16 @@ Para implementar la plantilla, se requieren los valores de **Suscripción**, **G
 
    :::image type="content" source="media/quickstart-create-vault-template/create-vault-template.png" alt-text="Plantilla para crear un almacén de Recovery Services.":::
 
-   - **Suscripción**: seleccione su suscripción de Azure.
-   - **Grupo de recursos**: seleccione un grupo existente, o bien seleccione **Crear nuevo** para agregar un grupo.
-   - **Ubicación**: el valor predeterminado es la ubicación del grupo de recursos y deja de estar disponible cuando se selecciona un grupo de recursos.
-   - **Nombre del almacén**: escriba el nombre del almacén.
-   - **Change Storage Type** (Cambiar tipo de almacenamiento): El valor predeterminado es **false**. Seleccione **true** solo si necesita cambiar el tipo de almacenamiento del almacén.
-   - **Vault Storage Type** (Tipo de almacenamiento del almacén): el valor predeterminado es **GloballyRedundant**. Si el tipo de almacenamiento se ha establecido en **true**, seleccione **LocallyRedundant**.
-   - **Location** (Ubicación): el valor predeterminado de la función `[resourceGroup().location]` es la ubicación del grupo de recursos. Para cambiar la ubicación, escriba un valor como **westus**.
-   - Seleccione la casilla **Acepto los términos y condiciones indicados anteriormente**.
+   - **Suscripción** : seleccione su suscripción de Azure.
+   - **Grupo de recursos** : seleccione un grupo existente, o bien seleccione **Crear nuevo** para agregar un grupo.
+   - **Ubicación** : el valor predeterminado es la ubicación del grupo de recursos y deja de estar disponible cuando se selecciona un grupo de recursos.
+   - **Nombre del almacén** : escriba el nombre del almacén.
+   - **Change Storage Type** (Cambiar tipo de almacenamiento): El valor predeterminado es **false** . Seleccione **true** solo si necesita cambiar el tipo de almacenamiento del almacén.
+   - **Vault Storage Type** (Tipo de almacenamiento del almacén): el valor predeterminado es **GloballyRedundant** . Si el tipo de almacenamiento se ha establecido en **true** , seleccione **LocallyRedundant** .
+   - **Location** (Ubicación): el valor predeterminado de la función `[resourceGroup().location]` es la ubicación del grupo de recursos. Para cambiar la ubicación, escriba un valor como **westus** .
+   - Seleccione la casilla **Acepto los términos y condiciones indicados anteriormente** .
 
-1. Para comenzar la implementación del almacén, seleccione el botón **Comprar**. Después de que la implementación haya finalizado correctamente, se muestra una notificación.
+1. Para comenzar la implementación del almacén, seleccione el botón **Comprar** . Después de que la implementación haya finalizado correctamente, se muestra una notificación.
 
    :::image type="content" source="media/quickstart-create-vault-template/deployment-success.png" alt-text="Plantilla para crear un almacén de Recovery Services.":::
 

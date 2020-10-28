@@ -12,19 +12,19 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d10eb3334154f4915aa0bddd488ddc78bde06805
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87926729"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897269"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>¿Qué es el acceso de usuarios invitados en Azure Active Directory B2B?
 
 La colaboración de negocio a negocio (B2B) de Azure Active Directory (Azure AD) es una característica de External Identities que le permite invitar a los usuarios invitados a colaborar con una organización. La colaboración B2B le permite compartir de forma segura las aplicaciones y los servicios de una empresa con los usuarios invitados de cualquier otra organización, al tiempo que mantiene el control sobre sus propios datos corporativos. Trabaje de forma segura con asociados externos, grandes o pequeños, incluso si no tienen Azure AD o un departamento de TI. Un proceso de invitación y canje sencillo permite a los asociados usar sus propias credenciales para acceder a los recursos de su empresa. Los desarrolladores pueden usar las API de negocio a negocio de Azure AD para personalizar el proceso de invitación o escribir aplicaciones como los portales de suscripción de autoservicio. Para obtener información sobre las licencias y los precios relacionados con los usuarios invitados, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).  
 
    > [!IMPORTANT]
-   > **A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
+   > **A partir del 31 de marzo de 2021** , Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>Colaboración con cualquier asociado mediante sus identidades
 
@@ -74,8 +74,8 @@ Puede delegar la administración de usuarios invitados a los propietarios de apl
 
 Incorpore a los asociados externos de manera personalizada según las necesidades de su organización.
 
-- Use la [administración de derechos de Azure AD](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) para configurar directivas que [administren el acceso para los usuarios externos](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- Use la [API de invitación de colaboración B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) para personalizar las experiencias de incorporación.
+- Use la [administración de derechos de Azure AD](../governance/entitlement-management-overview.md) para configurar directivas que [administren el acceso para los usuarios externos](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+- Use la [API de invitación de colaboración B2B](/graph/api/resources/invitation) para personalizar las experiencias de incorporación.
 
 ## <a name="integrate-with-identity-providers"></a>Integración con proveedores de identidades
 
@@ -95,6 +95,6 @@ También puede usar [conectores de API](api-connectors-overview.md) para integra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Guía sobre concesión de licencias de colaboración de Azure AD B2B](licensing-guidance.md)
+- [Precios de identidades externas](external-identities-pricing.md)
 - [Agregar usuarios invitados de colaboración B2B en el portal](add-users-administrator.md)
 - [Información sobre el proceso de canje de invitaciones](redemption-experience.md)

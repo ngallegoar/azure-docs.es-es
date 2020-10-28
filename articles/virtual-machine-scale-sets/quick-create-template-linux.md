@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs
-ms.openlocfilehash: f6ab030b7f807a884b5d05487724fc9c66a6de87
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mimckitt, subject-armqs, devx-track-azurecli
+ms.openlocfilehash: d040215968b0ebb433edba03e4839ffe7add0e5c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88648639"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745864"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-arm-template"></a>Inicio rápido: Creación de un conjunto de escalado de máquinas virtuales Linux con una plantilla de Resource Manager
 
@@ -24,7 +24,7 @@ El conjunto de escalado de máquinas virtuales le permite implementar y administ
 
 Las plantillas de Resource Manager permiten implementar grupos de recursos relacionados. En una única plantilla, puede crear el conjunto de escalado de máquinas virtuales, instalar aplicaciones y configurar reglas de escalado automático. Con el uso de variables y parámetros, esta plantilla se puede reutilizar para actualizar los conjuntos de escalado existentes o crear más. Puede implementar plantillas mediante Azure Portal, la CLI de Azure o Azure PowerShell, o bien desde las canalizaciones de integración continua o entrega continua (CI/CD).
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -77,11 +77,11 @@ Para probar el conjunto de escalado, instale una aplicación web básica. Cuando
 
 La plantilla usa la extensión de script personalizada para instalar [Bottle](https://bottlepy.org/docs/dev/), una plataforma web de Python y un servidor HTTP sencillo.
 
-Se definen dos scripts en **fileUris** - *installserver.sh* y *workserver.py*. Estos archivos se descargan desde GitHub y, a continuación, *commandToExecute* ejecuta `bash installserver.sh` para instalar y configurar la aplicación.
+Se definen dos scripts en **fileUris** - *installserver.sh* y *workserver.py* . Estos archivos se descargan desde GitHub y, a continuación, *commandToExecute* ejecuta `bash installserver.sh` para instalar y configurar la aplicación.
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-Puede implementar la plantilla si selecciona el botón siguiente **Implementar en Azure**. Este botón abre Azure Portal, carga la plantilla completa y pide algunos parámetros, como un nombre para el conjunto de escalado, el recuento de instancias y las credenciales de administrador.
+Puede implementar la plantilla si selecciona el botón siguiente **Implementar en Azure** . Este botón abre Azure Portal, carga la plantilla completa y pide algunos parámetros, como un nombre para el conjunto de escalado, el recuento de instancias y las credenciales de administrador.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-bottle-autoscale%2Fazuredeploy.json)
 
@@ -109,7 +109,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Escriba la dirección IP pública del equilibrador de carga en un explorador web con el formato *http:\//publicIpAddress:9000/do_work*. El equilibrador de carga distribuye el tráfico a una de las instancias de VM, como se muestra en el ejemplo siguiente:
+Escriba la dirección IP pública del equilibrador de carga en un explorador web con el formato *http:\//publicIpAddress:9000/do_work* . El equilibrador de carga distribuye el tráfico a una de las instancias de VM, como se muestra en el ejemplo siguiente:
 
 ![Página web predeterminada de NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

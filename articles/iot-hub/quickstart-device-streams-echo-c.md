@@ -6,15 +6,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 57baa06803e9d8c23c04170626b38c47542a4c2f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: ad31eb04f53197c4c3ccdd173cd57564c65d5a35
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150691"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747454"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con una aplicación de dispositivo en C mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
@@ -82,7 +82,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
 
     Esta operación puede tardar algunos minutos.
 
-1. Cree el subdirectorio *cmake* en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio *azure-iot-sdk-c*:
+1. Cree el subdirectorio *cmake* en el directorio raíz del repositorio de Git y vaya a esa carpeta. Ejecute los siguientes comandos desde el directorio  *azure-iot-sdk-c* :
 
     ```cmd/sh
     mkdir cmake
@@ -98,7 +98,7 @@ En este inicio rápido, va a usar el [SDK de dispositivo IoT de Azure para C](io
       make -j
       ```
 
-   * En Windows, abra un [Símbolo del sistema para desarrolladores para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Ejecute el comando para su versión de Visual Studio. En este inicio rápido se utiliza Visual Studio 2019. Estos comandos crean una solución de Visual Studio para el dispositivo simulado en el directorio *cmake*.
+   * En Windows, abra un [Símbolo del sistema para desarrolladores para Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). Ejecute el comando para su versión de Visual Studio. En este inicio rápido se utiliza Visual Studio 2019. Estos comandos crean una solución de Visual Studio para el dispositivo simulado en el directorio *cmake* .
 
       ```cmd
       rem For VS2015

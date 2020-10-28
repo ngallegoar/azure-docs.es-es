@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 7c7268aa361c77f1d466ab7a58b74aa91090dc4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ae2f2b8b9b6f3bc934321b13dcefeff46e43b089
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84708576"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788169"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Introducción a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,16 +44,16 @@ Como primer paso, tendría que crear su primera instancia administrada de SQL co
   > - También puede usar ExpressRoute o una conexión de sitio a sitio desde la red local, pero estos métodos están fuera del ámbito de estos inicios rápidos.
   > - Si cambia el período de retención de 0 (retención ilimitada) a cualquier otro valor, tenga en cuenta que la retención solo se aplicará a los registros escritos una vez cambiado el valor de retención (los registros escritos durante el período en el que la retención se estableció en ilimitada se conservan, incluso después de habilitarse la retención).
 
-Como alternativa a la creación manual de una instancia administrada de SQL, puede usar [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con una plantilla de Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) para crear scripts y automatizar este proceso.
+Como alternativa a la creación manual de una instancia administrada de SQL, puede usar [PowerShell](scripts/create-configure-managed-instance-powershell.md), [PowerShell con una plantilla de Resource Manager](scripts/create-powershell-azure-resource-manager-template.md) o la [CLI de Azure](/cli/azure/sql/mi#az-sql-mi-create) para crear scripts y automatizar este proceso.
 
 ### <a name="migrate-your-databases"></a>Migración de las bases de datos
 
-Después de crear una instancia administrada de SQL y configurar el acceso, es posible empezar a migrar las bases de datos de SQL Server. La migración puede generar un error si hay características no admitidas en la base de datos de origen que desee migrar. Para evitar errores y comprobar la compatibilidad, puede usar [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) para analizar las bases de datos en SQL Server y detectar cualquier problema que pudiera bloquear la migración a una instancia administrada de SQL, como la existencia de secuencias de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) o varios archivos de registro. Si resuelve estos problemas, las bases de datos estarán preparadas para su migración a Instancia administrada de SQL. El [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview) es otra herramienta útil para registrar una carga de trabajo en SQL Server y reproducirla en una instancia administrada de SQL, con el fin de que pueda determinar si va a haber problemas de rendimiento si se realiza la migración a una instancia administrada de SQL.
+Después de crear una instancia administrada de SQL y configurar el acceso, es posible empezar a migrar las bases de datos de SQL Server. La migración puede generar un error si hay características no admitidas en la base de datos de origen que desee migrar. Para evitar errores y comprobar la compatibilidad, puede usar [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) para analizar las bases de datos en SQL Server y detectar cualquier problema que pudiera bloquear la migración a una instancia administrada de SQL, como la existencia de secuencias de [FileStream](/sql/relational-databases/blob/filestream-sql-server) o varios archivos de registro. Si resuelve estos problemas, las bases de datos estarán preparadas para su migración a Instancia administrada de SQL. El [Asistente para experimentación con bases de datos](/sql/dea/database-experimentation-assistant-overview) es otra herramienta útil para registrar una carga de trabajo en SQL Server y reproducirla en una instancia administrada de SQL, con el fin de que pueda determinar si va a haber problemas de rendimiento si se realiza la migración a una instancia administrada de SQL.
 
 Una vez que esté seguro de que puede migrar la base de datos a una instancia administrada de SQL, puede usar las funcionalidades nativas de restauración de SQL Server para restaurar una base de datos en una instancia administrada de SQL desde un archivo `.bak`. Este método se puede usar para migrar bases de datos desde el motor de base de datos de SQL Server instalado localmente o Azure Virtual Machines. Para ver un inicio rápido, consulte el artículo sobre la [restauración desde una copia de seguridad en una instancia administrada de SQL](restore-sample-database-quickstart.md). En este inicio rápido, puede restaurar a partir de un archivo `.bak` almacenado en Azure Blob Storage mediante el comando `RESTORE` de Transact-SQL.
 
 > [!TIP]
-> Para usar el comando `BACKUP` de Transact-SQL para crear una copia de seguridad de la base de datos en Azure Blob Storage, consulte [Copia de seguridad en URL de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+> Para usar el comando `BACKUP` de Transact-SQL para crear una copia de seguridad de la base de datos en Azure Blob Storage, consulte [Copia de seguridad en URL de SQL Server](/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 Estos inicios rápidos permiten crear, configurar y restaurar una copia de seguridad de la base de datos en una instancia administrada de SQL. En algunos escenarios, puede que tenga que personalizar o automatizar la implementación de Instancia administrada de SQL y el entorno de red necesario. Estos escenarios se describen a continuación.
 
@@ -72,7 +72,7 @@ Los inicios rápidos mencionados permiten configurar rápidamente una instancia 
 Sin embargo, para migrar la base de datos de producción o incluso las bases de datos de desarrollo y pruebas que quiera usar en alguna prueba de rendimiento, deberá considerar la posibilidad de usar algunas técnicas adicionales, como:
 
 - Pruebas de rendimiento: debe medir las métricas de rendimiento de línea de base en la instancia de SQL Server de origen y compararlas con las de rendimiento de la instancia administrada de destino a la que ha migrado la base de datos. Más información sobre los [procedimientos recomendados de comparación de rendimiento](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migración en línea: con la funcionalidad `RESTORE` nativa que se describen en este artículo, tendrá que esperar a que las bases de datos se restauren (y se copien en Azure Blob Storage si aún no están almacenadas allí). Esto produce un tiempo de inactividad de la aplicación especialmente en el caso de bases de datos grandes. Para mover la base de datos de producción, use [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) para migrar la base de datos con el menor tiempo de inactividad posible. Para ello, DMS inserta los cambios realizados en la base de datos de origen y en la base de datos de la instancia administrada de SQL que se está restaurando. De este modo, puede cambiar rápidamente la aplicación de la base de datos de origen a la de destino con un tiempo de inactividad mínimo.
+- Migración en línea: con la funcionalidad `RESTORE` nativa que se describen en este artículo, tendrá que esperar a que las bases de datos se restauren (y se copien en Azure Blob Storage si aún no están almacenadas allí). Esto produce un tiempo de inactividad de la aplicación especialmente en el caso de bases de datos grandes. Para mover la base de datos de producción, use [Data Migration Service (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md?toc=%252fazure%252fsql-database%252ftoc.json) para migrar la base de datos con el menor tiempo de inactividad posible. Para ello, DMS inserta los cambios realizados en la base de datos de origen y en la base de datos de la instancia administrada de SQL que se está restaurando. De este modo, puede cambiar rápidamente la aplicación de la base de datos de origen a la de destino con un tiempo de inactividad mínimo.
 
 Más información acerca del [proceso de migración recomendado](migrate-to-instance-from-sql-server.md).
 

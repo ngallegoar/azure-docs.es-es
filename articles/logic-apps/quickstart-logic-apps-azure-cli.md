@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.date: 07/30/2020
-ms.openlocfilehash: e492a5f0afdfc2087e5719df65221d08db0a2e77
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e6e53755d9231008d0f48c755ff9da297d7305d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87499558"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747179"
 ---
 # <a name="quickstart-create-and-manage-logic-apps-using-the-azure-cli"></a>Inicio rápido: Creación y administración de aplicaciones lógicas mediante la CLI de Azure
 
 En este inicio rápido se muestra cómo crear y administrar aplicaciones lógicas mediante la [extensión Logic Apps de la CLI de Azure](/cli/azure/ext/logic/logic?view=azure-cli-latest) (`az logic`). Desde la línea de comandos, puede crear una aplicación lógica mediante el archivo JSON en una definición del flujo de trabajo de una aplicación lógica. Después, para administrar la aplicación lógica, es preciso ejecutar operaciones como `list`, `show` (`get`), `update` y `delete` también desde la línea de comandos.
 
 > [!WARNING]
-> Actualmente, la extensión Logic Apps de la CLI de Azure se encuentra en fase *experimental* y *no está incluida en el soporte al cliente*. Use esta extensión de la CLI con precaución, sobre todo en entornos de producción.
+> Actualmente, la extensión Logic Apps de la CLI de Azure se encuentra en fase *experimental* y *no está incluida en el soporte al cliente* . Use esta extensión de la CLI con precaución, sobre todo en entornos de producción.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -61,7 +61,7 @@ La salida muestra `provisioningState` como `Succeeded` cuando el grupo de recurs
 
 ## <a name="workflow-definition"></a>Definición del flujo de trabajo
 
-Antes de [crear una aplicación lógica](#create-logic-apps-from-cli) o [actualizar una aplicación lógica ya existente](#update-logic-apps-from-cli) mediante la CLI de Azure, se necesita una definición del flujo de trabajo de la misma. En Azure Portal, para ver la definición del flujo de trabajo subyacente de una aplicación lógica en formato JSON es preciso cambiar de la vista **Diseñador** a la **vista Código**.
+Antes de [crear una aplicación lógica](#create-logic-apps-from-cli) o [actualizar una aplicación lógica ya existente](#update-logic-apps-from-cli) mediante la CLI de Azure, se necesita una definición del flujo de trabajo de la misma. En Azure Portal, para ver la definición del flujo de trabajo subyacente de una aplicación lógica en formato JSON es preciso cambiar de la vista **Diseñador** a la **vista Código** .
 
 Cuando se ejecutan los comandos para crear o actualizar una aplicación lógica, la definición del flujo de trabajo se carga como un parámetro requerido (`--definition`). La definición del flujo de trabajo se debe crear en forma de archivo JSON que siga el [esquema del lenguaje de definición de flujo de trabajo](./logic-apps-workflow-definition-language.md).
 

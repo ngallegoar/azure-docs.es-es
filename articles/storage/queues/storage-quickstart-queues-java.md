@@ -8,12 +8,12 @@ ms.date: 09/10/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 9b9f68737ca714c0661ffb008347149235886c68
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6be3c0f3b7ff8e44bd9dda089c803a27e883383
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90015031"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783443"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java
 
@@ -33,14 +33,14 @@ Recursos adicionales:
 * [Documentación de referencia de API](/java/api/overview/azure/storage-queue-readme)
 * [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
 * [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
-* [Muestras](/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Muestras](../common/storage-samples-java.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * [Kit de desarrollo de Java (JDK)](/java/azure/jdk/), versión 8 o posterior
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
-* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](/azure/storage/common/storage-quickstart-create-account)
+* Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](../common/storage-account-create.md)
 
 ## <a name="setting-up"></a>Instalación
 
@@ -48,9 +48,9 @@ En esta sección se explica cómo preparar un proyecto para que funcione con la 
 
 ### <a name="create-the-project"></a>Creación del proyecto
 
-Cree una aplicación Java llamada *queues-quickstart-v12*.
+Cree una aplicación Java llamada *queues-quickstart-v12* .
 
-1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use Maven para crear una nueva aplicación de consola con el nombre *queues-quickstart-v12*. Escriba el siguiente comando **mvn** para crear un proyecto "Hola mundo" sencillo de Java.
+1. En una ventana de consola (por ejemplo, cmd, PowerShell o Bash), use Maven para crear una nueva aplicación de consola con el nombre *queues-quickstart-v12* . Escriba el siguiente comando **mvn** para crear un proyecto "Hola mundo" sencillo de Java.
 
    ```console
    mvn archetype:generate -DgroupId=com.queues.quickstart \
@@ -119,7 +119,7 @@ Abra el archivo *pom.xml* en el editor de texto. Agregue el siguiente elemento d
 
 Desde el directorio del proyecto:
 
-1. Vaya al directorio */src/main/java/com/blobs/quickstart*.
+1. Vaya al directorio */src/main/java/com/blobs/quickstart* .
 1. Abra el archivo *App.java* en el editor.
 1. Eliminar la instrucción `System.out.println("Hello world!");`.
 1. Agregue directivas `import`.
