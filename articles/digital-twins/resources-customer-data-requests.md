@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047699"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461766"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Características de las solicitudes de datos de clientes para Azure Digital Twins
 
@@ -25,7 +25,7 @@ Las representaciones digitales llamadas *gemelos digitales* en Azure Digital Twi
 
 Muchos de los gemelos digitales de Azure Digital Twins no representan directamente entidades personales: los objetos típicos que se representan pueden ser una sala de reuniones de oficina o una planta de fábrica. Sin embargo, los clientes pueden considerar que algunas entidades se pueden identificar a nivel personal y, a su entera discreción, pueden mantener sus propios métodos de seguimiento de activos o de inventario que vinculan gemelos digitales a personas. Azure Digital Twins administra y almacena todos los datos asociados con gemelos digitales como si fueran datos personales.
 
-Para ver, exportar y eliminar datos personales a los que se puede hacer referencia en una solicitud del titular de los datos, un administrador de Azure Digital Twins puede usar [**Azure Portal**](https://portal.azure.com/) para usuarios y roles, o la [**API REST de Azure Digital Twins**](how-to-use-apis-sdks.md) para gemelos digitales. Las API de Azure Portal y REST proporcionan diferentes métodos para que los usuarios puedan atender dichas solicitudes del titular de los datos.
+Para ver, exportar y eliminar datos personales a los que se puede hacer referencia en una solicitud del titular de los datos, un administrador de Azure Digital Twins puede usar [**Azure Portal**](https://portal.azure.com/) para usuarios y roles, o la [**API REST de Azure Digital Twins**](/rest/api/azure-digitaltwins/) para gemelos digitales. Las API de Azure Portal y REST proporcionan diferentes métodos para que los usuarios puedan atender dichas solicitudes del titular de los datos.
 
 ## <a name="identifying-customer-data"></a>Identificación de los datos del cliente
 

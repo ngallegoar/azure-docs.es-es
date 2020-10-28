@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282300"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669633"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Compatibilidad de idiomas y regiones con la traducción de texto y voz
 
@@ -165,8 +165,7 @@ Translator detecta los siguientes idiomas para traducción y transliteración.
 |Pastún|    `ps`    |
 |Persa|   `fa`    |
 |Polaco|    `pl`    |
-|Portugués (Brasil)|   `pt-br` |
-|Portugués (Portugal)| `pt-pt` |
+|Portugués|    `pt`    |
 |Rumano|  `ro`    |
 |Ruso|   `ru`    |
 |Serbio (cirílico)|    `sr-Cyrl`|

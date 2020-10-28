@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 3ab5462cc2b368bd1518606b03c8ec1027bc31c3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: a441f677687789729b96011f8bf98606418ca659
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397202"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677200"
 ---
 > [!NOTE]
 > Los requisitos y las recomendaciones se basan en pruebas comparativas con una única solicitud por segundo, con una imagen de 8 MB de una carta comercial digitalizada que contiene 29 líneas y un total de 803 caracteres.
@@ -23,7 +23,6 @@ En la tabla siguiente se describe la asignación mínima y recomendada de recurs
 | Contenedor | Mínima | Recomendado |
 |-----------|---------|-------------|
 | Versión preliminar de Read 2.0 | 1 núcleo, 8 GB de memoria |  8 núcleos, 16 GB de memoria |
-| Read 3.0: versión preliminar | 8 núcleos, 16 GB de memoria | 8 núcleos, 24 GB de memoria |
 | Read 3.1: versión preliminar | 8 núcleos, 16 GB de memoria | 8 núcleos, 24 GB de memoria |
 
 * Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.

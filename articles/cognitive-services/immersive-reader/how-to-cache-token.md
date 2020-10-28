@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 250fe6279288002fad1b6c12b158ffae3d83c264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd92de3bc5f306cd5ebbcd80b9f1d92af3a9e45d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318864"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633322"
 ---
 # <a name="how-to-cache-the-authentication-token"></a>Cómo almacenar en caché el token de autenticación
 
@@ -23,7 +23,7 @@ En este artículo se muestra cómo almacenar en caché el token de autenticació
 
 ## <a name="using-aspnet"></a>Uso de ASP.NET
 
-Importe el paquete NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory**, que se usa para adquirir un token. A continuación, use el siguiente código para adquirir un `AuthenticationResult`, mediante los valores de autenticación obtenidos cuando [creó el recurso del Lector inmersivo](./how-to-create-immersive-reader.md).
+Importe el paquete NuGet **Microsoft.IdentityModel.Clients.ActiveDirectory** , que se usa para adquirir un token. A continuación, use el siguiente código para adquirir un `AuthenticationResult`, mediante los valores de autenticación obtenidos cuando [creó el recurso del Lector inmersivo](./how-to-create-immersive-reader.md).
 
 ```csharp
 private async Task<AuthenticationResult> GetTokenAsync()

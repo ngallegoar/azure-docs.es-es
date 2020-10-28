@@ -748,8 +748,6 @@
           href: connector-troubleshoot-guide.md
         - name: Flujos de datos
           href: data-flow-troubleshoot-guide.md
-        - name: Herramienta Copiar datos
-          href: copy-data-tool-troubleshoot-guide.md
         - name: Entornos de ejecución de integración autohospedados
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Integration Runtime de SSIS de Azure
@@ -783,7 +781,7 @@
     - name: Blog
       href: 'https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog#'
     - name: 'Formulación de una pregunta: página de preguntas y respuestas de Microsoft'
-      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+      href: /answers/topics/azure-data-factory.html
     - name: 'Formule una pregunta: Stack Overflow'
       href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
     - name: Solicitud de una característica

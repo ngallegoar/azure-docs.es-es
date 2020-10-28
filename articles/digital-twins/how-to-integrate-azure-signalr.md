@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 4b0e0bd38c8bb9ea1d2331a65fc891e157971eef
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131554"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495852"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integración de Azure Digital Twins con Azure SignalR Service
 
@@ -147,7 +147,7 @@ A continuación, publique la función en Azure, siguiendo los pasos descritos en
 
 1. Por último, agregue la **cadena de conexión** de Azure SignalR anterior a la configuración de la aplicación de función con el siguiente comando de la CLI de Azure. El comando se puede ejecutar en [Azure Cloud Shell](https://shell.azure.com), o localmente si tiene la [CLI de Azure instalada en la máquina](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -242,14 +242,8 @@ Con Azure Cloud Shell o la CLI de Azure local, puede eliminar todos los recursos
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
-```
-
-Si va a eliminar la instancia de Azure Digital Twins, también puede eliminar el registro de la aplicación de Azure AD que creó para ella en el tutorial de un extremo a otro mediante este comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Finalmente, elimine las carpetas de ejemplo del proyecto que descargó en la máquina local ( *Azure_Digital_Twins_end_to_end_samples.zip* y *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip* ).

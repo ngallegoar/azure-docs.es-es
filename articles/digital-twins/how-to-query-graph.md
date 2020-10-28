@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea12b3eb72ce05f2672f6ca0912cc67345413c3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078483"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461284"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta del grafo gemelo de Azure Digital Twins
 
-En este artículo se ofrecen ejemplos y más detalles sobre el uso del [lenguaje de consultas de Azure Digital Twins](concepts-query-language.md) para consultar el [grafo de gemelos](concepts-twins-graph.md) y obtener información. Las consultas se ejecutan en el grafo con las [**API de consulta**](how-to-use-apis-sdks.md) de Azure Digital Twins.
+En este artículo se ofrecen ejemplos y más detalles sobre el uso del [lenguaje de consultas de Azure Digital Twins](concepts-query-language.md) para consultar el [grafo de gemelos](concepts-twins-graph.md) y obtener información. Las consultas se ejecutan en el grafo con las [**API de consulta**](/rest/api/digital-twins/dataplane/query) de Azure Digital Twins.
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -84,7 +84,7 @@ Con las proyecciones, puede elegir las columnas que devolverá una consulta.
 >[!NOTE]
 >En este momento, no se admiten las propiedades complejas. Para asegurarse de que las propiedades de proyección son válidas, combine las proyecciones con una comprobación de `IS_PRIMITIVE`. 
 
-Este es un ejemplo de una consulta que usa una proyección para devolver gemelos y relaciones. La siguiente consulta proyecta los valores *Consumidor*, *Fábrica* y *Perimetral* de un escenario en el que una *Fábrica* con un identificador de *ABC* está relacionado con el *Consumidor* mediante una relación de *Factory.customer*, y esa relación se presenta como *Perimetral*.
+Este es un ejemplo de una consulta que usa una proyección para devolver gemelos y relaciones. La siguiente consulta proyecta los valores *Consumidor* , *Fábrica* y *Perimetral* de un escenario en el que una *Fábrica* con un identificador de *ABC* está relacionado con el *Consumidor* mediante una relación de *Factory.customer* , y esa relación se presenta como *Perimetral* .
 
 ```sql
 SELECT Consumer, Factory, Edge 
@@ -93,7 +93,7 @@ JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC' 
 ```
 
-También puede usar la proyección para devolver una propiedad de un gemelo. La siguiente consulta proyecta la propiedad *Nombre* de los *Consumidores* que están relacionados con la *Fábrica* con un identificador de *ABC* mediante una relación de *Factory.customer*. 
+También puede usar la proyección para devolver una propiedad de un gemelo. La siguiente consulta proyecta la propiedad *Nombre* de los *Consumidores* que están relacionados con la *Fábrica* con un identificador de *ABC* mediante una relación de *Factory.customer* . 
 
 ```sql
 SELECT Consumer.name 
@@ -103,7 +103,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-También puede usar la proyección para devolver una propiedad de una relación. Al igual que en el ejemplo anterior, la siguiente consulta proyecta la propiedad *Nombre* de los *Consumidores* relacionados con la *Fábrica* con un identificador de *ABC* mediante una relación de *Factory.customer*; pero ahora también devuelve dos propiedades de esa relación, *Prop1* y *prop2*. Para ello, se asigna un nombre a la relación *Perimetral* y se recopilan sus propiedades.  
+También puede usar la proyección para devolver una propiedad de una relación. Al igual que en el ejemplo anterior, la siguiente consulta proyecta la propiedad *Nombre* de los *Consumidores* relacionados con la *Fábrica* con un identificador de *ABC* mediante una relación de *Factory.customer* ; pero ahora también devuelve dos propiedades de esa relación, *Prop1* y *prop2* . Para ello, se asigna un nombre a la relación *Perimetral* y se recopilan sus propiedades.  
 
 ```sql
 SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
@@ -149,20 +149,20 @@ AND T.Temperature = 70
 > [!TIP]
 > El identificador de un gemelo digital se consulta con el campo de metadatos `$dtId`.
 
-También puede obtener instancias de Digital Twins en función de **si una propiedad determinada está definida**. Esta es una consulta que obtiene instancias de Digital Twins que tienen una propiedad *Location* definida:
+También puede obtener instancias de Digital Twins en función de **si una propiedad determinada está definida** . Esta es una consulta que obtiene instancias de Digital Twins que tienen una propiedad *Location* definida:
 
 ```sql
 SELECT *
 FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 ```
 
-Esto le puede ayudar a obtener instancias de Digital Twins por sus propiedades de *etiqueta*, como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md). Esta es una consulta que obtiene todas las instancias de Digital Twins etiquetadas con *red*:
+Esto le puede ayudar a obtener instancias de Digital Twins por sus propiedades de *etiqueta* , como se describe en [Incorporación de etiquetas a gemelos digitales](how-to-use-tags.md). Esta es una consulta que obtiene todas las instancias de Digital Twins etiquetadas con *red* :
 
 ```sql
 select * from digitaltwins where is_defined(tags.red) 
 ```
 
-También puede obtener instancias de Digital Twins en función del **tipo de una propiedad**. Esta es una consulta que obtiene instancias de Digital Twins cuya propiedad *Temperature* es un número:
+También puede obtener instancias de Digital Twins en función del **tipo de una propiedad** . Esta es una consulta que obtiene instancias de Digital Twins cuya propiedad *Temperature* es un número:
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -219,7 +219,7 @@ En la siguiente sección se proporcionan varios ejemplos de lo que se ve a conti
 
 Para obtener un conjunto de resultados que incluya relaciones, use una única instrucción `FROM` seguida de N instrucciones `JOIN`, donde las instrucciones `JOIN` expresan relaciones en el resultado de una instrucción `FROM` o `JOIN` anterior.
 
-A continuación se muestra un ejemplo de consulta basada en relaciones. Este fragmento de código selecciona todos los gemelos digitales con una propiedad *ID* "ABC" y todos los gemelos digitales relacionados con estos gemelos digitales a través de una relación *contains*. 
+A continuación se muestra un ejemplo de consulta basada en relaciones. Este fragmento de código selecciona todos los gemelos digitales con una propiedad *ID* "ABC" y todos los gemelos digitales relacionados con estos gemelos digitales a través de una relación *contains* . 
 
 ```sql
 SELECT T, CT
@@ -233,10 +233,10 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Consulta de las propiedades de una relación
 
-Del mismo modo que los gemelos digitales tienen propiedades que se describen a través de DTDL, las relaciones también pueden tener propiedades. Puede consultar instancias de Digital Twins **en función de las propiedades de sus relaciones**.
+Del mismo modo que los gemelos digitales tienen propiedades que se describen a través de DTDL, las relaciones también pueden tener propiedades. Puede consultar instancias de Digital Twins **en función de las propiedades de sus relaciones** .
 El lenguaje de consultas de Azure Digital Twins permite filtrar y proyectar relaciones mediante la asignación de un alias a la relación dentro de la cláusula `JOIN`. 
 
-Como ejemplo, considere una relación *servicedBy* que tiene una propiedad *reportedCondition*. En la consulta siguiente, a esta relación se le asigna el alias "R" para hacer referencia a su propiedad.
+Como ejemplo, considere una relación *servicedBy* que tiene una propiedad *reportedCondition* . En la consulta siguiente, a esta relación se le asigna el alias "R" para hacer referencia a su propiedad.
 
 ```sql
 SELECT T, SBT, R
@@ -246,7 +246,7 @@ WHERE T.$dtId = 'ABC'
 AND R.reportedCondition = 'clean'
 ```
 
-En el ejemplo anterior, observe cómo *reportedCondition* es una propiedad de la propia relación *servicedBy* (NO de un gemelo digital que tiene una relación *servicedBy*).
+En el ejemplo anterior, observe cómo *reportedCondition* es una propiedad de la propia relación *servicedBy* (NO de un gemelo digital que tiene una relación *servicedBy* ).
 
 ### <a name="query-with-multiple-joins"></a>Consulta con varias combinaciones JOIN
 
@@ -270,7 +270,7 @@ Puede **combinar** cualquiera de los tipos de consulta anteriores mediante opera
 
 | Descripción | Consultar |
 | --- | --- |
-| De entre los dispositivos que tiene *Room 123*, se devuelven los dispositivos MxChip que tienen el rol de operador. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
+| De entre los dispositivos que tiene *Room 123* , se devuelven los dispositivos MxChip que tienen el rol de operador. | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Se obtienen las instancias de Digital Twins que tienen una relación denominada *Contains* con otra instancia que tiene un identificador *id1* | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
 | Se obtienen todas las salas de este modelo de sala contenidos en *floor11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
 
@@ -312,7 +312,7 @@ Se admiten las siguientes funciones de cadena:
 
 ## <a name="run-queries-with-an-api-call"></a>Ejecución de consultas con una llamada a la API
 
-Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a la **API de consulta**.
+Una vez que haya decidido una cadena de consulta, puede ejecutarla realizando una llamada a la **API de consulta** .
 En el fragmento de código siguiente se muestra esta llamada desde la aplicación cliente:
 
 ```csharp
@@ -360,7 +360,7 @@ A continuación se muestran algunas sugerencias para realizar consultas con Azur
 
 * Considere el patrón de consulta durante la fase de diseño del modelo. Intente asegurarse de que las relaciones que deben responderse en una sola consulta se modelan como una relación de un solo nivel.
 * Diseñe las propiedades de forma que se eviten grandes conjuntos de resultados del recorrido del grafo.
-* Puede reducir significativamente el número de consultas que necesita si crea una matriz de gemelos y consulta con el operador `IN`. Por ejemplo, considere un escenario en el que *Buildings* contenga a *Floors* y *Floors* contenga a *Rooms*. Para buscar las habitaciones que estén activas dentro de un edificio, puede:
+* Puede reducir significativamente el número de consultas que necesita si crea una matriz de gemelos y consulta con el operador `IN`. Por ejemplo, considere un escenario en el que *Buildings* contenga a *Floors* y *Floors* contenga a *Rooms* . Para buscar las habitaciones que estén activas dentro de un edificio, puede:
 
     1. Buscar pisos en el edificio en función de la relación `contains`
         ```sql

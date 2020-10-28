@@ -6,17 +6,17 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: d486b5e8486d2c3c1c343701e0f3f4d474738063
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "87809055"
 ---
 ## <a name="monitor-event-routes"></a>Supervisión de rutas de eventos
 
 Las métricas de enrutamiento, como el recuento, la latencia y la tasa de errores, se pueden ver en [Azure Portal](https://portal.azure.com/). 
 
-En la página principal del portal, busque la instancia de Azure Digital Twins para ver sus detalles. Seleccione la opción **Métricas** en el menú de navegación de la instancia de Azure Digital Twins para abrir la página *Métricas*.
+En la página principal del portal, busque la instancia de Azure Digital Twins para ver sus detalles. Seleccione la opción **Métricas** en el menú de navegación de la instancia de Azure Digital Twins para abrir la página *Métricas* .
 
 :::image type="content" source="../articles/digital-twins/media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
 

@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
-ms.author: metan
-ms.openlocfilehash: dbd5724797fdaf44d147d2f29362b1e5092728dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: metang
+ms.openlocfilehash: f2f5c8193454a3b7fa6be1cea7a1236b613d6c8f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761556"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636534"
 ---
 # <a name="immersive-reader-javascript-sdk-reference-v11"></a>Referencia del SDK de JavaScript de Lector inmersivo (v 1.1)
 
@@ -314,7 +314,7 @@ Contiene propiedades que configuran ciertos comportamientos del Lector inmersivo
 | onExit | Función | Se ejecuta cuando se cierra el Lector inmersivo. |
 | allowFullscreen | Boolean | La capacidad de alternar a la pantalla completa (el valor predeterminado es true). |
 | hideExitButton | Boolean | Indica si se va a ocultar o no la flecha del botón de salida del Lector inmersivo (el valor predeterminado es false). Solo debe ser true si hay un mecanismo alternativo proporcionado para salir del Lector inmersivo (por ejemplo, la flecha atrás de la barra de herramientas móvil). |
-| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Configuración para el uso de cookies del Lector inmersivo (el valor predeterminado es *CookiePolicy.Disable*). Es responsabilidad de la aplicación host obtener cualquier consentimiento del usuario necesario según la directiva de cumplimiento de cookies de Europa. Consulte [Opciones de la directiva de cookies](#cookiepolicy-options). |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Configuración para el uso de cookies del Lector inmersivo (el valor predeterminado es *CookiePolicy.Disable* ). Es responsabilidad de la aplicación host obtener cualquier consentimiento del usuario necesario según la directiva de cumplimiento de cookies de Europa. Consulte [Opciones de la directiva de cookies](#cookiepolicy-options). |
 | disableFirstRun | Boolean | Deshabilita la experiencia de primera ejecución. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Opciones para configurar la lectura en voz alta. |
 | translationOptions | [TranslationOptions](#translationoptions) | Opciones para configurar la traducción. |
@@ -487,7 +487,7 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**La configuración que se muestra a continuación solo es informativa**. El Lector inmersivo almacena su configuración, o preferencias de usuario, en cookies. La opción *cookiePolicy* **deshabilita** el uso de cookies de manera predeterminada para cumplir con las leyes de cumplimiento de cookies de Europa. Si desea volver a habilitar las cookies y restaurar la funcionalidad predeterminada para las preferencias de usuario del Lector inmersivo, deberá asegurarse de que el sitio web o la aplicación obtienen el consentimiento adecuado del usuario para habilitar las cookies. Después, para volver a habilitar las cookies en el Lector inmersivo, debe establecer explícitamente la opción *cookiePolicy* en *CookiePolicy.Enable* al iniciar el Lector inmersivo. En la tabla siguiente se describe qué configuración almacena el Lector inmersivo en su cookie cuando está habilitada la opción *cookiePolicy*.
+**La configuración que se muestra a continuación solo es informativa** . El Lector inmersivo almacena su configuración, o preferencias de usuario, en cookies. La opción *cookiePolicy* **deshabilita** el uso de cookies de manera predeterminada para cumplir con las leyes de cumplimiento de cookies de Europa. Si desea volver a habilitar las cookies y restaurar la funcionalidad predeterminada para las preferencias de usuario del Lector inmersivo, deberá asegurarse de que el sitio web o la aplicación obtienen el consentimiento adecuado del usuario para habilitar las cookies. Después, para volver a habilitar las cookies en el Lector inmersivo, debe establecer explícitamente la opción *cookiePolicy* en *CookiePolicy.Enable* al iniciar el Lector inmersivo. En la tabla siguiente se describe qué configuración almacena el Lector inmersivo en su cookie cuando está habilitada la opción *cookiePolicy* .
 
 #### <a name="settings-parameters"></a>Parámetros de configuración
 

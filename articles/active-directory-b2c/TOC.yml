@@ -1,6 +1,6 @@
 - name: Documentación de Azure AD B2C
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de Azure AD B2C
       expanded: true
@@ -252,7 +252,7 @@
                   href: identity-provider-twitter-custom.md
             - name: Proveedores de SAML
               items:
-                - name: ADFS
+                - name: AD FS
                   href: identity-provider-adfs2016-custom.md
                   displayName: SAML
                 - name: Salesforce

@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dc325fdf68c5afbb122f9e77c5509a6a8053a12e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202725"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427466"
 ---
 # <a name="configure-authentication"></a>Configurar la autenticación
 
 Azure Remote Rendering usa el mismo mecanismo de autenticación que [Azure Spatial Anchors (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Los clientes deben establecer *una* de las siguientes para llamar a las API de REST correctamente:
 
-* **AccountKey**: se puede obtener en la pestaña "Claves" de la cuenta de Remote Rendering de Azure Portal. Las claves de cuenta solo se recomiendan para el desarrollo o la creación de prototipos.
+* **AccountKey** : se puede obtener en la pestaña "Claves" de la cuenta de Remote Rendering de Azure Portal. Las claves de cuenta solo se recomiendan para el desarrollo o la creación de prototipos.
     ![Id. de cuenta](./media/azure-account-primary-key.png)
 
 * **AuthenticationToken** es un token de Azure AD, que se puede obtener mediante la [biblioteca MSAL](../../active-directory/develop/msal-overview.md). Hay varios flujos diferentes disponibles para aceptar las credenciales de usuario y usar esas credenciales para obtener un token de acceso.
@@ -48,12 +48,12 @@ Se recomiendan las claves de cuenta para la creación rápida de prototipos solo
 
  Para más información, consulte [Tutorial: Protección de Azure Remote Rendering y el almacenamiento de modelos: Autenticación con Azure Active Directory](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 
-## <a name="role-based-access-control"></a>Control de acceso basado en rol
+## <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
 Para ayudar a controlar el nivel de acceso concedido al servicio, use los siguientes roles al conceder el acceso basado en roles:
 
-* **Administrador de Remote Rendering**: proporciona al usuario funcionalidades de conversión, administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
-* **Cliente de Remote Rendering**: proporciona al usuario funcionalidades de administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
+* **Administrador de Remote Rendering** : proporciona al usuario funcionalidades de conversión, administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
+* **Cliente de Remote Rendering** : proporciona al usuario funcionalidades de administración de sesiones, representación y diagnóstico para Azure Remote Rendering.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
