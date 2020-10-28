@@ -13,35 +13,55 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: aaed6cd789ca6178410c05b940a8f498e2c067a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3de253ee6f45f9296d6b09189fe4bc488be36ad
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932653"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090070"
 ---
-# <a name="get-started-with-defender-for-iot"></a>Introducción a Defender for IoT
+# <a name="getting-started-with-azure-defender-for-iot"></a>Introducción a Azure Defender para IoT
 
-En este artículo se proporciona una explicación de los diferentes componentes del servicio Defender for IoT y se explica cómo empezar a usar el servicio con dos posibles opciones de implementación.
+En este artículo se describen los procesos de implementación e incorporación necesarios para poner en funcionamiento Azure Defender para IoT. No es necesario efectuar pasos adicionales. Se recomienda que lea estos pasos y se familiarice con la información de la documentación complementaria.
 
-¿Quiere empezar a trabajar con el módulo de seguridad para Azure RTOS? Vaya a la sección [Inicio rápido del módulo de seguridad para Azure RTOS](quickstart-azure-rtos-security-module.md). 
+Una vez completados todos los pasos, los sensores de Azure Defender para IoT supervisarán la red. En función de cómo se configure la solución, también se pueden transferir detecciones a la consola de administración local o al centro de IoT.
 
-## <a name="deployment-options"></a>Opciones de implementación
+Complete los pasos siguientes para poner en funcionamiento Azure Defender para IoT.
 
-Elija el escenario del servicio que mejor encaje con sus requisitos de entorno y de dispositivo IoT.
+## <a name="1-set-up-azure"></a>1. Configuración de Azure
 
-### <a name="built-in-deployment"></a>Implementación integrada
+- Configure una cuenta de Azure. Para más información, consulte [Creación de una cuenta de Azure](https://docs.microsoft.com/learn/modules/create-an-azure-account/).
 
-Con la opción de la implementación integrada completa, Defender for IoT se puede integrar rápidamente en IoT Hub y proporcionar análisis de seguridad de la configuración de IoT Hub, identidad y administración de dispositivos y patrones de comunicación entre el centro y el dispositivo.
+- Firewall o proxy: Si tiene un firewall o un dispositivo de red similar que esté configurado para permitir conexiones específicas, compruebe que *.azure-devices.net:443 está abierto en el firewall o el proxy. Si no se admiten comodines o desea tener más control, el nombre de dominio completo específico del centro IoT se debería abrir en el firewall o el proxy. Para obtener más información, consulte [Referencia: Puntos de conexión de IoT Hub](/azure/iot-hub/iot-hub-devguide-endpoints).
 
-Inicie una [implementación integrada](iot-hub-integration.md) que ofrezca recomendaciones y supervisión de IoT Hub.
-    <br>
+## <a name="2-deploy-hardware-software-and-onboard-to-sensor"></a>2. Implementar hardware, software e incorporar el sensor
 
-### <a name="enhanced-deployment"></a>Implementación mejorada
+- Compre el hardware del sensor e instale el software. Siga los pasos que se describen aquí. Para obtener más información, consulte este artículo, la [guía de hardware de Defender para IoT](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) y la [guía de instalación](https://aka.ms/AzureDefenderforIoTInstallSensorISO).
 
-Para mejorar las funcionalidades de seguridad, la implementación de los agentes de Defender for IoT además de habilitar la seguridad de IoT Hub ofrece recopilación de eventos basada en el agente, análisis y detección de amenazas de los principales datos de seguridad de sus dispositivos IoT, así como funcionalidades completas de administración de la posición de seguridad.
+  - Después de instalar el sensor, guarde de forma segura las credenciales de inicio de sesión del sensor. Necesitará las credenciales para cargar el archivo de activación en el sensor.
 
-Inicie una [implementación mejorada](security-agents.md) que incluya una solución de administración de la posición de seguridad y la protección total de amenazas basada en un agente.
+  - Si trabaja con sensores administrados de forma local, guarde de forma segura la dirección IP del sensor o el nombre del sensor definido en la instalación. Puede que desee usarlo al crear un nombre de sensor durante el registro del sensor en el portal de Defender para IoT. Puede usarlo más adelante para facilitar el seguimiento y usar una nomenclatura coherente para el nombre de registro en el portal de Azure Defender para IoT y la dirección IP del sensor implementado que se muestra en la consola del sensor.
+
+- Registre el sensor con el portal de Defender para IoT y descargue un archivo de activación del sensor.
+
+- Cargue el archivo de activación en el sensor.
+
+## <a name="3-perform-network-setup-for-sensor-monitoring-and-management"></a>3. Configurar la red para la supervisión y administración del sensor
+
+- Conecte el sensor a la red. Este paso se describe en la [guía de configuración de red](https://aka.ms/AzureDefenderForIoTNetworkSetup).
+
+## <a name="4-start-discovering-your-network"></a>4. Iniciar la detección de la red
+
+- Ajuste la configuración del sistema en la consola del sensor.
+
+- Conecte los sensores a una consola de administración local.
+
+Para obtener más información, consulte el [manual del usuario del sensor de Azure Defender para IoT](https://aka.ms/AzureDefenderforIoTUserGuide) y el [manual del usuario de la consola de administración de Defender para IoT](https://aka.ms/DefenderForIoTManagementConsole).
+
+## <a name="5-populate-azure-sentinel-with-alert-information"></a>5. Rellenar Azure Sentinel con la información de alertas
+
+- Para enviar información de alertas a Azure Sentinel, configure la solución: [Conexión de los datos de Defender para IoT con Azure Sentinel (versión preliminar)](how-to-configure-with-sentinel.md)
+ 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

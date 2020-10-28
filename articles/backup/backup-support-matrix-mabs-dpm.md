@@ -3,12 +3,12 @@ title: Matriz de compatibilidad de MABS y System Center DPM
 description: En este artículo se resume la compatibilidad de Azure Backup al usar Microsoft Azure Backup Server (MABS) o System Center DPM para realizar copias de seguridad de recursos locales y de VM de Azure.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332702"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276966"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de compatibilidad para copia de seguridad con Microsoft Azure Backup Server o System Center DPM
 
@@ -60,7 +60,7 @@ DPM/MABS puede implementarse como se resume en la siguiente tabla.
 
 **Implementación** | **Soporte técnico** | **Detalles**
 --- | --- | ---
-**Implementación local** | Servidor físico<br/><br/>Máquina virtual de Hyper-V<br/><br/> Máquina virtual de VMware | Si DPM/MABS está instalado como una máquina virtual de VMware, solo realiza una copia de seguridad de las máquinas virtuales de VMware y las cargas de trabajo que se ejecutan en dichas máquinas virtuales.
+**Implementación local** | Servidor físico<br/><br/>Máquina virtual de Hyper-V<br/><br/> Máquina virtual de VMware | Para más información, consulte la [matriz de protección](backup-mabs-protection-matrix.md). 
 **Implementación como una máquina virtual de Azure Stack** | Solo MABS | DPM no puede utilizarse para realizar una copia de seguridad de máquinas virtuales de Azure Stack.
 **Implementación como una máquina virtual de Azure** | Protege máquinas virtuales de Azure y las cargas de trabajo que se ejecutan en esas máquinas virtuales. | DPM/MABS en Azure no puede realizar una copia de seguridad de las máquinas locales.
 

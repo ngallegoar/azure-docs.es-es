@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16c0b3e6dc4bd9097312e3a8c43618e66781ef85
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430786"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092892"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Cómo personalizar el portal para desarrolladores de Azure API Management mediante plantillas
 
@@ -39,15 +39,15 @@ Las plantillas se usan para personalizar el contenido de las páginas del portal
 
 La edición de las reglas de estilo se realiza en el **portal para desarrolladores** durante el inicio de sesión como administrador. Para llegar hasta allí, primero abra Azure Portal y haga clic en **Portal para desarrolladores** en la barra de herramientas de servicios de su instancia de API Management.
 
-Para acceder a las plantillas del portal para desarrolladores, haga clic en el icono de personalización de la izquierda para mostrar el menú de personalización y haga clic en **Plantillas**.
+Para acceder a las plantillas del portal para desarrolladores, haga clic en el icono de personalización de la izquierda para mostrar el menú de personalización y haga clic en **Plantillas** .
 
-![Plantillas del portal para desarrolladores][api-management-customize-menu]
+![Captura de pantalla que resalta el icono Personalizar para mostrar el menú de personalización.][api-management-customize-menu]
 
 La lista de plantillas muestra varias categorías de plantillas que abarcan las distintas páginas del portal para desarrolladores. Cada plantilla es diferente, pero los pasos para editarlas y publicar los cambios son los mismos. Para editar una plantilla, haga clic en el nombre.
 
 ![Plantillas del portal para desarrolladores][api-management-templates-menu]
 
-Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos**. La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo.
+Cuando hace clic en una plantilla, se abre la página del portal para desarrolladores que se puede personalizar con esa plantilla. En este ejemplo se muestra la plantilla **Lista de productos** . La plantilla **Lista de productos** controla el área de la pantalla que se indica con un rectángulo rojo.
 
 ![Plantilla de lista de productos][api-management-developer-portal-templates-overview]
 
@@ -145,9 +145,9 @@ Las plantillas guardadas se pueden publicar individualmente o todas juntas. Para
 
 Haga clic en **Sí** para confirmar y hacer que la plantilla se active en el portal para desarrolladores.
 
-![Confirmar publicación][api-management-publish-template-confirm]
+![Captura de pantalla que muestra dónde debe seleccionar Sí para activar la plantilla.][api-management-publish-template-confirm]
 
-Para publicar todas las versiones de plantillas actualmente sin publicar, haga clic en **Publicar** en la lista de plantillas. Las plantillas no publicadas se indican con un asterisco después del nombre de la plantilla. En este ejemplo, se van a publicar las plantillas **Lista de productos** y **Producto**.
+Para publicar todas las versiones de plantillas actualmente sin publicar, haga clic en **Publicar** en la lista de plantillas. Las plantillas no publicadas se indican con un asterisco después del nombre de la plantilla. En este ejemplo, se van a publicar las plantillas **Lista de productos** y **Producto** .
 
 ![Publicar plantillas][api-management-publish-templates]
 
@@ -160,11 +160,11 @@ Las plantillas recién publicadas entran en vigor de inmediato en el portal para
 ## <a name="to-revert-a-template-to-the-previous-version"></a>Para revertir una plantilla a la versión anterior
 Para revertir una plantilla a la versión publicada anterior, haga clic en revertir en el editor de plantillas.
 
-![Revertir plantilla][api-management-revert-template]
+![Captura de pantalla que resalta el icono que se usa para revertir una plantilla.][api-management-revert-template]
 
 Haga clic en **Sí** para continuar.
 
-![Confirm][api-management-revert-template-confirm]
+![Captura de pantalla que muestra dónde debe seleccionar Sí para confirmar los cambios.][api-management-revert-template-confirm]
 
 La versión de una plantilla publicada anteriormente estará activa en el portal para desarrolladores en cuanto se complete la operación de reversión.
 

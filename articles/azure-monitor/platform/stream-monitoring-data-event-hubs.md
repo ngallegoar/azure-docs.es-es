@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: f6272e3d976c7c3b04d5b1332e2d7b3410c3045c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 784ecd5c0539ee0dc84c8afd6b85dbc10a154982
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318885"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206890"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Transmisión de datos de supervisión de Azure a un centro de eventos o asociado externo
 
@@ -26,7 +26,7 @@ Antes de configurar la transmisión de cualquier origen de datos, debe [crear un
 * El número de particiones permite paralelizar el consumo entre muchos consumidores. Una sola partición puede admitir hasta 20 MBps o, aproximadamente, 20 000 mensajes por segundo. Dependiendo de la herramienta que consume los datos, puede o no puede admitir el consumo de varias particiones. Es razonable comenzar con cuatro particiones si no está seguro acerca de la cantidad de particiones que debe configurar.
 * Igualmente, debe establecer la retención de mensajes en el centro de eventos durante al menos 7 días. Si la herramienta de consumo deja de funcionar durante más de un día, esta opción garantiza que dicha herramienta pueda continuar desde donde se quedó (en cuanto a los eventos de hasta 7 días de antigüedad).
 * Debe usar el grupo de consumidores predeterminado en el centro de eventos. No es necesario para crear otros grupos de consumidores o usar un grupo de consumidores independientes a menos que piense disponer de dos herramientas diferentes que consuman los mismos datos del mismo centro de eventos.
-* En cuanto al registro de actividad de Azure, se elige un espacio de nombres de Event Hubs, y Azure Monitor crea un centro de eventos dentro de ese espacio de nombres llamado _insights-logs-operational-logs_. Para otros tipos de registro, puede elegir un centro de eventos existente o hacer que Azure Monitor cree un centro de eventos en función de la categoría de registro.
+* En cuanto al registro de actividad de Azure, se elige un espacio de nombres de Event Hubs, y Azure Monitor crea un centro de eventos dentro de ese espacio de nombres llamado _insights-logs-operational-logs_ . Para otros tipos de registro, puede elegir un centro de eventos existente o hacer que Azure Monitor cree un centro de eventos en función de la categoría de registro.
 * Los puertos de salida 5671 y 5672 deben estar abiertos en el equipo o red virtual que consume datos del centro de eventos.
 
 ## <a name="monitoring-data-available"></a>Datos de supervisión disponibles
@@ -51,7 +51,7 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure M
 | Herramienta | Hospedado en Azure | Descripción |
 |:---|:---| :---|
 |  IBM QRadar | No | Los protocolos Microsoft Azure DSM y Microsoft Azure Even Hub se pueden descargar en el sitio web de [el sitio web de soporte técnico de IBM](https://www.ibm.com/support). Encontrará más información acerca de la integración con Azure en [Configuración de QRadar DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | No | [El complemento Azure Monitor para Splunk](https://splunkbase.splunk.com/app/3534/) está disponible en Splunkbase y es un proyecto de código abierto. La documentación está disponible en [Complemento de Azure Monitor para Splunk](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).<br><br> Si no puede instalar un complemento en la instancia de Splunk (por ejemplo, si usa un proxy o si se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función de Azure para Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS) que desencadenan los nuevos mensajes del centro de eventos. |
+| Splunk | No | El [complemento de Microsoft Azure para Splunk](https://splunkbase.splunk.com/app/3757/) está disponible en Splunkbase y es un proyecto de código abierto. <br><br> Si no puede instalar un complemento en la instancia de Splunk (por ejemplo, si usa un proxy o si se ejecuta en Splunk Cloud), puede reenviar estos eventos al recopilador de eventos de HTTP de Splunk mediante [esta función de Azure para Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS) que desencadenan los nuevos mensajes del centro de eventos. |
 | sumologic | No | Las instrucciones para configurar SumoLogic para consumir datos de un centro de eventos están disponibles en [Recopilar registros para la aplicación Azure Audit desde el centro de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
 | ArcSight | No | El conector inteligente ArcSight de Azure Event Hubs está disponible como parte de [esta colección de conectores inteligentes de ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
 | Servidor de Syslog | No | Si quiere transmitir datos de Azure Monitor directamente a un servidor syslog, puede usar una solución [basada en una función de Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).

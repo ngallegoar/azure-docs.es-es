@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9660aa3923964392f1789570d26dd825e0fef350
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71827897"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143184"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Habilitación del registro de diagnóstico para Azure Cognitive Services
 
@@ -24,7 +24,7 @@ Esta guía proporciona instrucciones paso a paso para habilitar el registro de d
 
 Para habilitar el registro de diagnóstico, necesitará un lugar donde almacenar los datos de registro. En este tutorial se utiliza Azure Storage y Log Analytics.
 
-* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs): conserva los registros de diagnóstico para auditorías de directivas, análisis estáticos o copias de seguridad. La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
+* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs): conserva los registros de diagnóstico para auditorías de directivas, análisis estáticos o copias de seguridad. La cuenta de almacenamiento no tiene que estar en la misma suscripción que la del recurso que emite los registros, siempre que el usuario que define la configuración tenga acceso de Azure RBAC adecuado a ambas suscripciones.
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics): una herramienta flexible de búsqueda y de análisis de registros que permite el análisis de los registros sin procesar que genera un recurso de Azure.
 
 > [!NOTE]
@@ -41,9 +41,9 @@ Comencemos por habilitar el registro de diagnóstico mediante Azure Portal.
 2. A continuación, en el menú de navegación izquierdo, busque **Monitoring** (Supervisión) y seleccione **Diagnostic settings** (Configuración de diagnóstico). Esta pantalla contiene todas las configuraciones de diagnóstico creadas anteriormente para este recurso.
 3. Si hay un recurso creado previamente que le gustaría utilizar, puede seleccionarlo. En caso contrario, seleccione **+ Add diagnostic setting** (+ Agregar configuración de diagnóstico).
 4. Escriba un nombre para la configuración. Seleccione **Archive to a storage account** (Archivar en una cuenta de almacenamiento) y luego seleccione **Send to log Analytics** (Enviar a Log Analytics).
-5. Cuando se le solicite configurarla, seleccione la cuenta de almacenamiento y el área de trabajo de OMS que le gustaría usar para almacenar los registros de diagnóstico. **Nota**: Si no tiene una cuenta de almacenamiento o un área de trabajo de OMS, siga las indicaciones para crear una.
-6. Seleccione **Audit**, **RequestResponse** y **AllMetrics**. Después, establezca el período de retención para los datos de registro de diagnóstico. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente.
-7. Haga clic en **Save**(Guardar).
+5. Cuando se le solicite configurarla, seleccione la cuenta de almacenamiento y el área de trabajo de OMS que le gustaría usar para almacenar los registros de diagnóstico. **Nota** : Si no tiene una cuenta de almacenamiento o un área de trabajo de OMS, siga las indicaciones para crear una.
+6. Seleccione **Audit** , **RequestResponse** y **AllMetrics** . Después, establezca el período de retención para los datos de registro de diagnóstico. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente.
+7. Haga clic en **Save** (Guardar).
 
 Pueden pasar hasta dos horas antes de que los datos de registro estén disponibles para su consulta y análisis. Así que no se preocupe si no ve nada de inmediato.
 
@@ -64,7 +64,7 @@ Siga estas instrucciones para explorar los datos de análisis de registros para 
 
 1. En Azure Portal, localice y seleccione **Log Analytics** en el menú de navegación izquierdo.
 2. Busque y seleccione el recurso que ha creado cuando se habilita el diagnóstico.
-3. En **General**, busque y seleccione **Logs** (Registros). Desde esta página, puede realizar las consultas en los registros.
+3. En **General** , busque y seleccione **Logs** (Registros). Desde esta página, puede realizar las consultas en los registros.
 
 ### <a name="sample-queries"></a>Consultas de ejemplo
 
@@ -85,7 +85,7 @@ AzureDiagnostics
 | take 10
 ```
 
-Ejecute esta consulta para agrupar las operaciones por **recurso**:
+Ejecute esta consulta para agrupar las operaciones por **recurso** :
 
 ```kusto
 AzureDiagnostics

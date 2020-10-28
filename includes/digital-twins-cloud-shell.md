@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: b664303d86f8588fc210b11b363b21d523d63295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3efc9ba8fc8ffd8c0eca4340e1948c388c0a13
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507393"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494964"
 ---
 Para empezar a trabajar con Azure Digital Twins en una ventana abierta de [Azure Cloud Shell](https://shell.azure.com), primero es necesario iniciar sesión y establecer el contexto de Shell en su suscripción para esta sesión. En Cloud Shell, ejecute estos comandos:
 
-```azurecli
+```azurecli-interactive
 az login
 az account set --subscription "<your-Azure-subscription-ID>"
 ```
@@ -23,11 +23,11 @@ az account set --subscription "<your-Azure-subscription-ID>"
 
 Si esta es la primera vez que usa esta suscripción con Azure Digital Twins, ejecute este comando para registrarse con el espacio de nombres de Azure Digital Twins. (Si no está seguro, es correcto volver a ejecutarlo aunque lo haya hecho en algún momento del pasado).
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace 'Microsoft.DigitalTwins'
 ```
 
-A continuación, agregará la [**Extensión de Microsoft Azure IoT para la CLI de Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) a la instancia de Cloud Shell, para habilitar los comandos para interactuar con Azure Digital Twins y otros servicios IoT. 
+A continuación, agregará la [**Extensión de Microsoft Azure IoT para la CLI de Azure**](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest&preserve-view=true) a la instancia de Cloud Shell, para habilitar los comandos para interactuar con Azure Digital Twins y otros servicios IoT. 
 
 [!INCLUDE [digital-twins-cloud-shell-extensions.md](digital-twins-cloud-shell-extensions.md)]
 

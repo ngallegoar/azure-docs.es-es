@@ -1,20 +1,18 @@
 ---
-title: 'Script de PowerShell: Lista de recursos compartidos existentes en Azure Data Share | Microsoft Docs'
+title: 'Script de PowerShell: Enumeración de los recursos compartidos existentes en Azure Data Share'
 description: Este script de PowerShell enumera y muestra los detalles de los recursos compartidos.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 6314bd348c22c901001b88eda6875181a2f69df4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54b4b6cedc2dc09e4a9d5c4b7b937e80750e17c6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307138"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220829"
 ---
 # <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>Usar PowerShell para ver los detalles de un recurso compartido de datos enviado
 
@@ -45,11 +43,11 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare?view=azps-2.6.0) | Obtiene y enumera las listas de recursos compartidos de una cuenta. |
+| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare) | Obtiene y enumera las listas de recursos compartidos de una cuenta. |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/).
 
 Encontrará más ejemplos de scripts de PowerShell para Azure Data Share en el artículo [Ejemplos de PowerShell para Azure Data Share](../../samples-powershell.md).

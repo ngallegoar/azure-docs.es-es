@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079560"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168569"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del Explorador de métricas de Azure
 
@@ -46,26 +46,26 @@ Haga clic en **Agregar gráfico** y cree otro gráfico con una métrica diferent
 
 ### <a name="order-or-delete-multiple-charts"></a>Ordenación o eliminación de varios gráficos
 
-Para ordenar o eliminar varios gráficos, haga clic en el símbolo de puntos suspensivos ( **...** ) para abrir el menú del gráfico y elija el elemento de menú adecuado de **Subir**, **Bajar** o **Eliminar**.
+Para ordenar o eliminar varios gráficos, haga clic en el símbolo de puntos suspensivos ( **...** ) para abrir el menú del gráfico y elija el elemento de menú adecuado de **Subir** , **Bajar** o **Eliminar** .
 
 ## <a name="changing-aggregation"></a>Cambio de la agregación
 
 Al agregar una métrica a un gráfico, el Explorador de métricas preselecciona automáticamente la agregación predeterminada. El valor predeterminado tiene sentido en escenarios básicos, pero puede usar una agregación diferente para obtener información adicional sobre la métrica. Para ver diferentes agregaciones en un gráfico, es necesario comprender cómo las administra el Explorador de métricas. 
 
-Las métricas son la serie de medidas (o "valores de métricas") capturadas durante el período de tiempo. Al trazar un gráfico, los valores de la métrica seleccionada se agregan por separado en el *intervalo de agregación*. Puede seleccionar el tamaño del intervalo de agregación [mediante el panel selector de tiempo del Explorador de métricas](metrics-getting-started.md#select-a-time-range). Si no realiza una selección explícita del intervalo de agregación, la granularidad del tiempo se selecciona automáticamente en función del intervalo de tiempo seleccionado actualmente. Una vez que se determina el intervalo de agregación, los valores de métricas que se capturaron durante cada intervalo de agregación se agregan y se colocan en el gráfico: un punto de bits por cada intervalo de agregación.
+Las métricas son la serie de medidas (o "valores de métricas") capturadas durante el período de tiempo. Al trazar un gráfico, los valores de la métrica seleccionada se agregan por separado en el *intervalo de agregación* . Puede seleccionar el tamaño del intervalo de agregación [mediante el panel selector de tiempo del Explorador de métricas](metrics-getting-started.md#select-a-time-range). Si no realiza una selección explícita del intervalo de agregación, la granularidad del tiempo se selecciona automáticamente en función del intervalo de tiempo seleccionado actualmente. Una vez que se determina el intervalo de agregación, los valores de métricas que se capturaron durante cada intervalo de agregación se agregan y se colocan en el gráfico: un punto de bits por cada intervalo de agregación.
 
-Por ejemplo, supongamos que el gráfico muestra la métrica **Tiempo de respuesta del servidor** con la agregación **Media** en el intervalo de tiempo **últimas 24 horas**:
+Por ejemplo, supongamos que el gráfico muestra la métrica **Tiempo de respuesta del servidor** con la agregación **Media** en el intervalo de tiempo **últimas 24 horas** :
 
 - Si la granularidad del tiempo se establece en 30 minutos, el gráfico se dibuja a partir de 48 puntos de datos agregados (por ejemplo, el gráfico de líneas conecta 48 puntos en el área de trazado del gráfico). Es decir, 24 horas x 2 puntos de datos cada hora. Cada punto de datos representa la *media* de todos los tiempos de respuesta capturados para las solicitudes de servidor que se produjeron durante cada uno de los períodos de tiempo de 30 minutos correspondientes.
 - Si cambia la granularidad del tiempo a 15 minutos, obtendrá 96 puntos de datos agregados.  Es decir, 24 horas x 4 puntos de datos cada hora.
 
-Hay cinco tipos de agregaciones estadísticas básicas disponibles en el Explorador de métricas: **Suma**, **Recuento**, **Min**, **Max** y **Media**. A veces, se hace referencia a la agregación **Suma** como agregación **Total**. En el caso de muchas métricas, el Explorador de métricas ocultará las agregaciones que no son pertinentes y no se pueden usar.
+Hay cinco tipos de agregaciones estadísticas básicas disponibles en el Explorador de métricas: **Suma** , **Recuento** , **Min** , **Max** y **Media** . A veces, se hace referencia a la agregación **Suma** como agregación **Total** . En el caso de muchas métricas, el Explorador de métricas ocultará las agregaciones que no son pertinentes y no se pueden usar.
 
-- **Suma**: suma de todos los valores capturados en el intervalo de agregación.
-- **Recuento**: número de medidas capturadas en el intervalo de agregación. Tenga en cuenta que **Recuento** será igual a **Suma** en el caso de que la métrica siempre se capture con el valor 1. Esto es habitual cuando la métrica realiza un seguimiento del recuento de distintos eventos y cada medida representa un evento (es decir, el código activa un registro de métricas cada vez que entra una nueva solicitud).
-- **Media**: media de los valores de la métrica capturados en el intervalo de agregación.
-- **Min**: el menor valor capturado en el intervalo de agregación.
-- **Max**: el mayor valor capturado en el intervalo de agregación.
+- **Suma** : suma de todos los valores capturados en el intervalo de agregación.
+- **Recuento** : número de medidas capturadas en el intervalo de agregación. Tenga en cuenta que **Recuento** será igual a **Suma** en el caso de que la métrica siempre se capture con el valor 1. Esto es habitual cuando la métrica realiza un seguimiento del recuento de distintos eventos y cada medida representa un evento (es decir, el código activa un registro de métricas cada vez que entra una nueva solicitud).
+- **Media** : media de los valores de la métrica capturados en el intervalo de agregación.
+- **Min** : el menor valor capturado en el intervalo de agregación.
+- **Max** : el mayor valor capturado en el intervalo de agregación.
 
 ## <a name="apply-filters-to-charts"></a>Aplicación de filtros a gráficos
 
@@ -77,15 +77,15 @@ Puede aplicar filtros a los gráficos que muestran métricas con dimensiones. Po
 
 2. Seleccione qué dimensión (propiedad) quiere filtrar.
 
-   ![imagen de métrica](./media/metrics-charts/00006.png)
+   ![Captura de pantalla que muestra las dimensiones (propiedades) que se pueden filtrar.](./media/metrics-charts/00006.png)
 
 3. Seleccione qué valores de dimensión quiere incluir al trazar el gráfico (en este ejemplo se muestra el filtrado excluyente de las transacciones de almacenamiento correctas):
 
-   ![imagen de métrica](./media/metrics-charts/00007.png)
+   ![Captura de pantalla que muestra el filtrado de las transacciones de almacenamiento correctas.](./media/metrics-charts/00007.png)
 
 4. Después de seleccionar los valores de filtro, haga clic fuera del Selector de filtro para cerrarlo. Ahora el gráfico muestra cuántas transacciones de almacenamiento han tenido error:
 
-   ![imagen de métrica](./media/metrics-charts/00008.png)
+   ![Captura de pantalla que muestra cuántas transacciones de almacenamiento han tenido error.](./media/metrics-charts/00008.png)
 
 5. Puede repetir los pasos del 1 al 4 para aplicar varios filtros a los gráficos mismos.
 
@@ -104,11 +104,11 @@ Puede dividir una métrica por dimensión para visualizar cómo se comparan entr
 
 2. Elija una dimensión por la que quiera segmentar el gráfico:
 
-   ![imagen de métrica](./media/metrics-charts/00010.png)
+   ![Captura de pantalla que muestra la dimensión seleccionada en la que se segmenta el gráfico.](./media/metrics-charts/00010.png)
 
    Ahora el gráfico muestra varias líneas, una para cada segmento de dimensión:
 
-   ![imagen de métrica](./media/metrics-charts/00012.png)
+   ![Captura de pantalla que muestra varias líneas, una para cada segmento de dimensión.](./media/metrics-charts/00012.png)
 
 3. Haga clic fuera del **Selector de agrupación** para cerrarlo.
 
@@ -125,7 +125,7 @@ Otro ejemplo es una fluctuación en la memoria disponible, donde el valor técni
 
 Para controlar el intervalo del eje y, use el menú "..." del gráfico y seleccione **Editar gráfico** para acceder a la configuración avanzada del gráfico. Modifique los valores en la sección Intervalo del eje Y o utilice el botón **Auto** para volver a los valores predeterminados.
 
-![imagen de métrica](./media/metrics-charts/00014-manually-set-granularity.png)
+![Captura de pantalla que resalta la opción Editar gráfico.](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > El bloqueo de los límites del eje Y de los gráficos que realizan el seguimiento de varios recuentos o sumas durante un período (y, por tanto, use recuento de uso, suma y agregaciones mínima o máxima) normalmente requiere que se especifique una granularidad de tiempo fijo, en lugar de usar los valores predeterminados automáticos. Esto es necesario porque los valores de los gráficos cambian cuando la granularidad de tiempo se modifica automáticamente cuando el usuario cambia el tamaño de la ventana del explorador o pasa de una resolución de pantalla a otro. El cambio resultante en la granularidad de tiempo afecta al aspecto del gráfico, lo que invalida la selección actual del eje Y.
@@ -138,7 +138,7 @@ Para cambiar el color de una línea del gráfico, haga clic en la barra coloread
 
 Una vez configurados los colores del gráfico, permanecerán de este modo al anclar el gráfico a un panel. En la sección siguiente se muestra cómo anclar un gráfico.
 
-![imagen de métrica](./media/metrics-charts/018.png)
+![Captura de pantalla que muestra cómo anclar un gráfico.](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Anclaje de gráficos a paneles
 
@@ -146,7 +146,7 @@ Después de configurar un gráfico, puede que quiera agregarlo a los paneles par
 
 Para anclar un gráfico configurado a un panel:
 
-Después de configurar el gráfico, haga clic en el menú **Chart Actions** (Acciones del gráfico) en la esquina superior derecha del gráfico y haga clic en **Anclar al panel**.
+Después de configurar el gráfico, haga clic en el menú **Chart Actions** (Acciones del gráfico) en la esquina superior derecha del gráfico y haga clic en **Anclar al panel** .
 
 ![imagen de métrica](./media/metrics-charts/00013.png)
 
@@ -154,7 +154,7 @@ Después de configurar el gráfico, haga clic en el menú **Chart Actions** (Acc
 
 También puede usar los criterios que ha establecido para visualizar las métricas como la base de una regla de alerta basada en la métrica. La nueva regla de alerta incluirá su recurso de destino, métrica, división y dimensiones de filtro del gráfico. Podrá modificar esta configuración más adelante en el panel de creación de la regla de alerta.
 
-### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Para crear una nueva regla de alertas, haga clic en **Nueva regla de alertas**.
+### <a name="to-create-a-new-alert-rule-click-new-alert-rule"></a>Para crear una nueva regla de alertas, haga clic en **Nueva regla de alertas** .
 
 ![Botón de nueva regla de alertas resaltado en rojo](./media/metrics-charts/015.png)
 

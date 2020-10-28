@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77658513"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168517"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guía de referencia de los iconos del Diseñador de vistas en Azure Monitor
 Con el uso del Diseñador de vistas en Azure Monitor, puede crear una variedad de vistas personalizadas en Azure Portal que pueden ayudarle a visualizar datos en el área de trabajo de Log Analytics. Este artículo es una guía de referencia para la configuración de los iconos que están disponibles en las vistas personalizadas.
@@ -53,7 +53,7 @@ El icono de **Número** muestra tanto el número de registros de una consulta de
 | **Avanzadas** |**&gt; Comprobación del flujo de datos** |
 | habilitado |Seleccione este vínculo si debe habilitarse la comprobación del flujo de datos en el icono. Este enfoque proporciona un mensaje alternativo si no hay datos disponibles. Normalmente, este enfoque se utiliza para ofrecer un mensaje durante el período temporal en el que se instala la vista y los datos están disponibles. |
 | Consultar |Consulta que se ejecuta para determinar si los datos están disponibles para la vista. Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
-| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación*. |
+| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación* . |
 
 
 ## <a name="two-numbers-tile"></a>Icono de Dos números
@@ -74,7 +74,7 @@ El icono muestra el número de registros de dos consultas de registro diferentes
 | **Avanzadas** |**&gt; Comprobación del flujo de datos** |
 | habilitado |Seleccione este vínculo si debe habilitarse la comprobación del flujo de datos en el icono. Este enfoque proporciona un mensaje alternativo si no hay datos disponibles. Normalmente, este enfoque se utiliza para ofrecer un mensaje durante el período temporal en el que se instala la vista y los datos están disponibles. |
 | Consultar |Consulta que se ejecuta para determinar si los datos están disponibles para la vista. Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
-| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación*. |
+| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación* . |
 
 
 ## <a name="donut-tile"></a>Icono Anillo
@@ -98,53 +98,53 @@ El icono **Anillo** muestra un solo número que resume una columna de valor de u
 | **Avanzadas** |**&gt; Comprobación del flujo de datos** |
 | habilitado |Seleccione este vínculo si debe habilitarse la comprobación del flujo de datos en el icono. Este enfoque proporciona un mensaje alternativo si no hay datos disponibles. Normalmente, este enfoque se utiliza para ofrecer un mensaje durante el período temporal en el que se instala la vista y los datos están disponibles. |
 | Consultar |Consulta que se ejecuta para determinar si los datos están disponibles para la vista. Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
-| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación*. |
+| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación* . |
 
 
 ## <a name="line-chart-tile"></a>Icono de Gráfico de líneas
 El icono es un gráfico de líneas que muestra varias series de una consulta de registro en un período. 
 
-![Icono de gráfico de líneas y llamada](media/view-designer-tiles/tile-line-chart.png)
+![Captura de pantalla de un icono de gráfico de líneas en el diseñador de vistas de Azure Monitor.](media/view-designer-tiles/tile-line-chart.png)
 
 | Configuración | Descripción |
 |:--- |:--- |
 | Nombre |Texto que se muestra en la parte superior del icono. |
 | Descripción |Texto que se muestra en la parte inferior del nombre del icono. |
 | **Gráfico de líneas** | |
-| Consultar |Consulta que se ejecuta en el gráfico de líneas. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. Si la consulta utiliza la palabra clave *interval*, el eje X emplea este intervalo de tiempo. Si la consulta no utiliza la palabra clave *interval*, el eje X emplea intervalos horarios. |
+| Consultar |Consulta que se ejecuta en el gráfico de líneas. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. Si la consulta utiliza la palabra clave *interval* , el eje X emplea este intervalo de tiempo. Si la consulta no utiliza la palabra clave *interval* , el eje X emplea intervalos horarios. |
 | **Gráfico de líneas** |**> Eje Y** |
 | Usar escala logarítmica |Seleccione este vínculo para usar una escala logarítmica en el eje Y. |
-| Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas en el gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. **Tipo de unidad** especifica la categoría de la unidad y define los valores disponibles del **tipo de unidad actual**. Si selecciona un valor en **Convertir en**, los valores numéricos se convertirán del tipo **Unidad actual** a **Convertir en**. |
-| Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo *Unidad*. Si no se especifica ninguna etiqueta, solo se mostrará el tipo *Unidad*. |
+| Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas en el gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. **Tipo de unidad** especifica la categoría de la unidad y define los valores disponibles del **tipo de unidad actual** . Si selecciona un valor en **Convertir en** , los valores numéricos se convertirán del tipo **Unidad actual** a **Convertir en** . |
+| Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo *Unidad* . Si no se especifica ninguna etiqueta, solo se mostrará el tipo *Unidad* . |
 | **Avanzadas** |**&gt; Comprobación del flujo de datos** |
 | habilitado |Seleccione este vínculo si debe habilitarse la comprobación del flujo de datos en el icono. Este enfoque proporciona un mensaje alternativo si no hay datos disponibles. Normalmente, este enfoque se utiliza para ofrecer un mensaje durante el período temporal en el que se instala la vista y los datos están disponibles. |
 | Consultar |Consulta que se ejecuta para determinar si los datos están disponibles para la vista. Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
-| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación*. |
+| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación* . |
 
 
 ## <a name="line-chart-and-callout-tile"></a>Icono de gráfico de líneas y llamada
 Este icono tiene tanto un gráfico de líneas que muestra varias series de una consulta de registro en un período como una llamada con un valor resumido. 
 
-![Icono de gráfico de líneas y llamada](media/view-designer-tiles/tile-line-chart-callout.png)
+![Captura de pantalla de un icono de gráfico de líneas y una leyenda en el diseñador de vistas de Azure Monitor. La leyenda mejora el gráfico de líneas al mostrar un valor resumido.](media/view-designer-tiles/tile-line-chart-callout.png)
 
 | Configuración | Descripción |
 |:--- |:--- |
 | Nombre |Texto que se muestra en la parte superior del icono. |
 | Descripción |Texto que se muestra en la parte inferior del nombre del icono. |
 | **Gráfico de líneas** | |
-| Consultar |Consulta que se ejecuta en el gráfico de líneas. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. Si la consulta utiliza la palabra clave *interval*, el eje X emplea este intervalo de tiempo. Si la consulta no utiliza la palabra clave *interval*, el eje X emplea intervalos horarios. |
+| Consultar |Consulta que se ejecuta en el gráfico de líneas. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. Si la consulta utiliza la palabra clave *interval* , el eje X emplea este intervalo de tiempo. Si la consulta no utiliza la palabra clave *interval* , el eje X emplea intervalos horarios. |
 | **Gráfico de líneas** |**&gt; Llamada** |
 | Título de la llamada | Texto que se muestra en la parte superior del valor de la llamada. |
 | Nombre de la serie |Valor de propiedad de la serie que se usará como valor de la llamada. Si no se proporciona ninguna serie, se utilizarán todos los registros de la consulta. |
 | Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Average: promedio de los valores de todos los registros.</li><li>Count: número de todos los registros devueltos por la consulta.</li><li>Last Sample: valor del último intervalo incluido en el gráfico.</li><li>Max: valor máximo de los intervalos incluidos en el gráfico.</li><li>Min: valor mínimo de los intervalos incluidos en el gráfico.</li><li>Sum: suma de los valores de todos los registros.</li></ul> |
 | **Gráfico de líneas** |**> Eje Y** |
 | Usar escala logarítmica |Seleccione este vínculo para usar una escala logarítmica en el eje Y. |
-| Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas de gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. El tipo *Unidad* especifica la categoría de la unidad y define los valores disponibles del tipo *Unidad actual*. Si selecciona un valor en *Convertir a*, los valores numéricos se convertirán del tipo *Unidad actual* al tipo *Convertir a*. |
-| Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo *Unidad*. Si no se especifica ninguna etiqueta, solo se mostrará el tipo *Unidad*. |
+| Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas de gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. El tipo *Unidad* especifica la categoría de la unidad y define los valores disponibles del tipo *Unidad actual* . Si selecciona un valor en *Convertir a* , los valores numéricos se convertirán del tipo *Unidad actual* al tipo *Convertir a* . |
+| Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo *Unidad* . Si no se especifica ninguna etiqueta, solo se mostrará el tipo *Unidad* . |
 | **Avanzadas** |**&gt; Comprobación del flujo de datos** |
 | habilitado |Seleccione este vínculo si debe habilitarse la comprobación del flujo de datos en el icono. Este enfoque proporciona un mensaje alternativo si no hay datos disponibles. Normalmente, este enfoque se utiliza para ofrecer un mensaje durante el período temporal en el que se instala la vista y los datos están disponibles. |
 | Consultar |Consulta que se ejecuta para determinar si los datos están disponibles para la vista. Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
-| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación*. |
+| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación* . |
 
 
 ## <a name="two-timelines-tile"></a>Icono de Dos escalas de tiempo
@@ -169,7 +169,7 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 | **Avanzadas** |**&gt; Comprobación del flujo de datos** |
 | habilitado |Seleccione este vínculo si debe habilitarse la comprobación del flujo de datos en el icono. Este enfoque proporciona un mensaje alternativo si no hay datos disponibles. Normalmente, este enfoque se utiliza para ofrecer un mensaje durante el período temporal en el que se instala la vista y los datos están disponibles. |
 | Consultar |Consulta que se ejecuta para determinar si los datos están disponibles para la vista. Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
-| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación*. |
+| Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos. Si no proporciona ningún mensaje, se muestra el mensaje de estado *Realizando evaluación* . |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

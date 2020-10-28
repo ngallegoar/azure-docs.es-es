@@ -2,13 +2,13 @@
 title: Configuración de la recopilación de datos del agente de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo puede configurar el agente de Azure Monitor para contenedores para controlar la recopilación de registros de stdout y stderr y de las variables de entorno.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994618"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320408"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configuración de la recopilación de datos del agente para Azure Monitor para contenedores
 
@@ -17,7 +17,7 @@ Azure Monitor para contenedores recopila stdout, stderr y las variables de entor
 En este artículo se muestra cómo crear ConfigMap y configurar la recopilación de datos en función de sus requisitos.
 
 >[!NOTE]
->Para Red Hat OpenShift en Azure, se crea un archivo ConfigMap de plantilla en el espacio de nombres *openshift-azure-logging*. 
+>Para Red Hat OpenShift en Azure, se crea un archivo ConfigMap de plantilla en el espacio de nombres *openshift-azure-logging* . 
 >
 
 ## <a name="configmap-file-settings-overview"></a>Información general de la configuración del archivo ConfigMap
@@ -25,11 +25,11 @@ En este artículo se muestra cómo crear ConfigMap y configurar la recopilación
 Se proporciona un archivo ConfigMap de plantilla que le permite editarlo fácilmente con sus personalizaciones sin tener que crearlo desde cero. Antes de comenzar, debe revisar la documentación de Kubernetes sobre [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) y familiarizarse con la forma de crear, configurar e implementar ConfigMaps. Esto le permitirá filtrar stderr y stdout por espacio de nombres o a través de todo el clúster, y las variables de entorno para cualquier contenedor que se ejecute en todos los pods o nodos del clúster.
 
 >[!IMPORTANT]
->La versión de agente mínima admitida para recopilar los registros stdout, stderr y las variables de entorno de las cargas de trabajo de contenedor es ciprod06142019 o posterior. Para comprobar la versión del agente, en la pestaña **Nodo** seleccione un nodo y, en el panel de propiedades, anote el valor de la propiedad **Etiqueta de imagen del agente**. Para más información sobre las versiones del agente y lo que se incluye en cada versión, vea las [notas de la versión del agente](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
+>La versión de agente mínima admitida para recopilar los registros stdout, stderr y las variables de entorno de las cargas de trabajo de contenedor es ciprod06142019 o posterior. Para comprobar la versión del agente, en la pestaña **Nodo** seleccione un nodo y, en el panel de propiedades, anote el valor de la propiedad **Etiqueta de imagen del agente** . Para más información sobre las versiones del agente y lo que se incluye en cada versión, vea las [notas de la versión del agente](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
 ### <a name="data-collection-settings"></a>Configuración de la colección de datos
 
-A continuación figura la configuración que puede definir para controlar la recolección de datos.
+En la tabla siguiente se describen los valores que puede configurar para controlar la recopilación de datos:
 
 | Clave | Tipo de datos | Value | Descripción |
 |--|--|--|--|
@@ -41,7 +41,15 @@ A continuación figura la configuración que puede definir para controlar la rec
 | `[log_collection_settings.stderr] exclude_namespaces =` | String | Matriz separada por comas | Matriz de espacios de nombres de Kubernetes para la que no se recopilarán los registros de stderr.<br> Esta configuración es efectiva únicamente<br> `log_collection_settings.stdout.enabled` se establece en `true`.<br> Si no se especifica en ConfigMap, el valor predeterminado es<br> `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` | Boolean | true o false | Esta configuración controla la colección de variables de entorno<br> en todos los pods/nodos del clúster<br> y el valor predeterminado es `enabled = true` cuando no se especifica<br> en ConfigMaps.<br> Si la colección de variables de entorno está habilitada globalmente, puede deshabilitarla para un contenedor específico<br> al establecer la variable de entorno<br> `AZMON_COLLECT_ENV` en **False** con un valor de Dockerfile o en el [archivo de configuración para el Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) en la sección **env:** .<br> Si la colección de variables de entorno está deshabilitada globalmente, no puede habilitar la colección para un contenedor específico (es decir, la única invalidación que se puede aplicar en el nivel de contenedor es deshabilitar la colección si ya está habilitada globalmente). |
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolean | true o false | Esta configuración controla el enriquecimiento de los registros de contenedor para rellenar los valores de propiedad de nombre e imagen<br> de cada entrada de registro escrita en la tabla ContainerLog de todos los registros de contenedor del clúster.<br> El valor predeterminado es `enabled = false` cuando no se especifica en ConfigMap. |
-| `[log_collection_settings.collect_all_kube_events]` | Boolean | true o false | Esta configuración permite la recopilación de eventos de Kube de todos los tipos.<br> De forma predeterminada, no se recopilan los eventos de Kube con el tipo *Normal*. Cuando esta opción se establece en `true`, ya no se filtran los eventos con el tipo *Normal* y se recopilan todos los eventos.<br> De manera predeterminada, se establece en `false`. |
+| `[log_collection_settings.collect_all_kube_events]` | Boolean | true o false | Esta configuración permite la recopilación de eventos de Kube de todos los tipos.<br> De forma predeterminada, no se recopilan los eventos de Kube con el tipo *Normal* . Cuando esta opción se establece en `true`, ya no se filtran los eventos con el tipo *Normal* y se recopilan todos los eventos.<br> De manera predeterminada, se establece en `false`. |
+
+### <a name="metric-collection-settings"></a>Configuración de la recopilación de métricas
+
+En la tabla siguiente se describen los valores que puede configurar para controlar la recopilación de métricas:
+
+| Clave | Tipo de datos | Value | Descripción |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true o false | Esta configuración permite recopilar métricas de uso de volumen persistente en el espacio de nombres kube-system. De forma predeterminada, no se recopilan las métricas de uso de los volúmenes persistentes con notificaciones de volumen persistentes en el espacio de nombres kube-system. Si esta opción se establece en `true`, se recopilarán las métricas de uso de volumen persistente para todos los espacios de nombres. De manera predeterminada, se establece en `false`. |
 
 ConfigMaps es una lista global y solo puede haber una instancia de ConfigMap aplicada al agente. No puede tener otra instancia de ConfigMaps que anule las colecciones.
 
@@ -49,10 +57,10 @@ ConfigMaps es una lista global y solo puede haber una instancia de ConfigMap apl
 
 Realice los pasos siguientes para configurar e implementar el archivo de configuración ConfigMap en el clúster.
 
-1. [Descargue](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) el archivo YAML ConfigMap de plantilla y guárdelo como container-azm-ms-agentconfig.yaml. 
+1. Descargue el [archivo YAML ConfigMap de plantilla](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) y guárdelo como container-azm-ms-agentconfig.yaml. 
 
-   >[!NOTE]
-   >Este paso no es necesario cuando se trabaja con Red Hat OpenShift en Azure porque la plantilla ConfigMap ya existe en el clúster.
+   > [!NOTE]
+   > Este paso no es necesario cuando se trabaja con Red Hat OpenShift en Azure porque la plantilla ConfigMap ya existe en el clúster.
 
 2. Edite el archivo yaml ConfigMap con sus personalizaciones para recopilar variables de entorno, stderr o stdout. Si va a editar el archivo yaml de ConfigMap para Red Hat OpenShift en Azure, ejecute primero el comando `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` para abrir el archivo en un editor de texto.
 
@@ -93,7 +101,7 @@ Los errores relacionados con la aplicación de cambios de configuración tambié
     config::error::Exception while parsing config map for log collection/env variable settings: \nparse error on value \"$\" ($end), using defaults, please check config map for errors
     ```
 
-- Desde la tabla **KubeMonAgentEvents** en el área de trabajo de Log Analytics. Los datos se envían cada hora con la gravedad *Error* para los errores de configuración. Si no hay ningún error, la entrada de la tabla tendrá datos con gravedad *Info*, que no notifica errores. La propiedad **Tags** contiene más información sobre el pod y el identificador de contenedor en el que se produjo el error, así como la primera aparición, la última aparición y la cantidad en la última hora.
+- Desde la tabla **KubeMonAgentEvents** en el área de trabajo de Log Analytics. Los datos se envían cada hora con la gravedad *Error* para los errores de configuración. Si no hay ningún error, la entrada de la tabla tendrá datos con gravedad *Info* , que no notifica errores. La propiedad **Tags** contiene más información sobre el pod y el identificador de contenedor en el que se produjo el error, así como la primera aparición, la última aparición y la cantidad en la última hora.
 
 - En el caso de Red Hat OpenShift en Azure, compruebe los registros de omsagent; para ello, busque en la tabla **ContainerLog** para comprobar si está habilitada la recopilación de registros de openshift-azure-logging.
 

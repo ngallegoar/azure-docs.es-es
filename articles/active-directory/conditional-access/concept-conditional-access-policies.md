@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016134"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145361"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-Como se explica en el artículo [¿Qué es el acceso condicional?](overview.md), una directiva de acceso condicional es una instrucción if-then, de **asignaciones** y **controles de acceso**. Una directiva de acceso condicional reúne las señales para tomar decisiones y aplicar las directivas de la organización.
+Como se explica en el artículo [¿Qué es el acceso condicional?](overview.md), una directiva de acceso condicional es una instrucción if-then, de **asignaciones** y **controles de acceso** . Una directiva de acceso condicional reúne las señales para tomar decisiones y aplicar las directivas de la organización.
 
-¿Cómo una organización crea estas directivas? ¿Qué se necesita?
+¿Cómo una organización crea estas directivas? ¿Qué se necesita? ¿Cómo se aplican?
 
 ![Acceso condicional (señales + decisiones + aplicación = directivas)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+Se pueden aplicar varias directivas de acceso condicional a un usuario individual en cualquier momento. En este caso, se tienen que satisfacer todas las directivas que se aplican. Por ejemplo, si una directiva exige la autenticación multifactor (MFA) y otra requiere un dispositivo compatible, tendrá que completar la MFA y usar un dispositivo compatible. A todas las asignaciones se les asigna **la operación lógica AND** . Si tiene más de una asignación configurada, se deben satisfacer todas las asignaciones para desencadenar una directiva.
+
+Todas las directivas se aplican en dos fases:
+
+- Fase 1: Recopilación de detalles de la sesión 
+   - Recopile los detalles de la sesión, como la ubicación de red y la identidad del dispositivo, que serán necesarios para la evaluación de la directiva. 
+   - La fase 1 de la evaluación de la directiva se produce para todas las directivas habilitadas, así como para las directivas en [modo de solo informe](concept-conditional-access-report-only.md).
+- Fase 2: Cumplimiento 
+   - Use los detalles de la sesión recopilados en la fase 1 para identificar los requisitos que no se han cumplido. 
+   - Si hay una directiva que está configurada para bloquear el acceso, con el control de concesión de bloqueo, la aplicación se detendrá aquí y se bloqueará al usuario. 
+   - Se le pedirá al usuario que complete los requisitos de control de concesión adicionales que no se cumplieron durante la fase 1 en el orden siguiente, hasta que se satisfaga la directiva:  
+      - Multi-Factor Authentication 
+      - Directiva de protección de aplicaciones/aplicaciones cliente aprobada 
+      - Dispositivo administrado (combinación de Azure AD compatible o híbrido) 
+      - Términos de uso 
+      - Controles personalizados  
+   - Una vez satisfechos todos los controles de concesión, aplique controles de sesión (aplicación forzada, Microsoft Cloud App Security y duración del token). 
+   - La fase 2 de la evaluación de directivas se realiza para todas las directivas habilitadas. 
 
 ## <a name="assignments"></a>Assignments
 
@@ -115,7 +134,7 @@ Los administradores pueden elegir si requerir uno de los controles anteriores o 
 Una directiva de acceso condicional debe contener, como mínimo, lo siguiente para que se aplique:
 
 - El **nombre** de la directiva.
-- **Asignaciones**
+- **Assignments**
    - Los **usuarios o grupos** a los que se les va a aplicar la directiva.
    - Las **aplicaciones o acciones en la nube** a las que se les va a aplicar la directiva.
 - **Controles de acceso**

@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
-ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78271378"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218874"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Ejecución de contenedores con privilegios en un clúster de Red Hat OpenShift en Azure
+
+> [!IMPORTANT]
+> Red Hat OpenShift en Azure 3.11 se retirará el 30 de junio de 2022. La compatibilidad con la creación de nuevos clústeres de Red Hat OpenShift en Azure 3.11 continúa hasta el 30 de noviembre de 2020. Después de la retirada, los clústeres de Red Hat OpenShift en Azure 3.11 que queden se cerrarán para evitar puntos vulnerables de seguridad.
+> 
+> Siga esta guía para [crear un clúster de la versión 4 de Red Hat OpenShift en Azure](tutorial-create-cluster.md).
+> Si tiene alguna pregunta específica, póngase en [contacto con nosotros](mailto:arofeedback@microsoft.com).
 
 No puede ejecutar contenedores con privilegios arbitrarios en clústeres de Red Hat OpenShift de Azure.
 Se permite que dos soluciones de cumplimiento y supervisión de la seguridad se ejecuten en clústeres de ARO.
@@ -53,7 +59,7 @@ oc annotate scc hostaccess openshift.io/reconcile-protect=true
 oc annotate scc privileged openshift.io/reconcile-protect=true
 ```
 
-### <a name="step-1-prepare-prerequisites"></a>Paso 1: Preparación de los requisitos previos
+### <a name="step-1-prepare-prerequisites"></a>Paso 1: Preparación de los requisitos previos
 Recuerde iniciar sesión en el clúster con el rol de administrador de clientes de ARO en lugar de administrador de clústeres.
 
 Cree el proyecto y la cuenta de servicio.
@@ -115,7 +121,7 @@ Al implementar los ejecutores, establezca los campos siguientes:
 | -------------- | ------------- |
 | Orquestador   | OpenShift     |
 | ServiceAccount | aqua-account  |
-| proyecto        | aqua-security |
+| Project        | aqua-security |
 
 ## <a name="product-specific-steps-for-prisma-cloud--twistlock"></a>Pasos específicos del producto para Prisma Cloud/Twistlock
 

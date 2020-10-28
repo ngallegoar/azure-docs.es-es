@@ -3,18 +3,18 @@ title: Preguntas más frecuentes sobre Azure DevTest Labs | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289369"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328392"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
 
 ## <a name="blog-post"></a>Entrada de blog
-Nuestro blog del equipo de DevTest Labs lleva retirado desde el 20 de marzo de 2019. 
+Nuestro blog del equipo de DevTest Labs lleva retirado desde el 20 de marzo de 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>¿Dónde puedo realizar un seguimiento de las actualizaciones de características a partir de ahora?
 De ahora en adelante, publicaremos las actualizaciones de características y las entradas de blog informativas en el blog de Azure y en las actualizaciones de Azure. Estas entradas de blog también se vincularán a nuestra documentación siempre que sea necesario.
@@ -22,7 +22,7 @@ De ahora en adelante, publicaremos las actualizaciones de características y las
 Suscríbase al [blog de Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) y a las [actualizaciones de Azure DevTest Labs](https://azure.microsoft.com/updates/?product=devtest-lab) para estar al tanto de las nuevas características de DevTest Labs.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>¿Qué ocurre con las entradas de blog existentes?
-Actualmente trabajamos en la migración de las entradas de blog existentes (excepto las actualizaciones de interrupciones) a nuestra [documentación de DevTest Labs](devtest-lab-overview.md). Si el blog de MSDN está en desuso, se redirigirá a la información general sobre la documentación para DevTest Labs. Una vez redirigido, podrá buscar el artículo deseado en el título "Filtrar por". Aún no hemos migrado todas las publicaciones, pero debemos hacerlo antes de finalizar este mes. 
+Actualmente trabajamos en la migración de las entradas de blog existentes (excepto las actualizaciones de interrupciones) a nuestra [documentación de DevTest Labs](devtest-lab-overview.md). Si el blog de MSDN está en desuso, se redirigirá a la información general sobre la documentación para DevTest Labs. Una vez redirigido, podrá buscar el artículo deseado en el título "Filtrar por". Aún no hemos migrado todas las publicaciones, pero debemos hacerlo antes de finalizar este mes. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>¿Dónde se pueden ver las actualizaciones de interrupciones?
@@ -68,22 +68,22 @@ DevTest Labs es un servicio gratuito. Crear laboratorios y configurar las direct
 ## <a name="security"></a>Seguridad
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>¿Cuáles son los diferentes niveles de seguridad en DevTest Labs?
-El acceso de seguridad viene determinado por el Control de acceso basado en rol (RBAC). Para aprender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en RBAC.
+El acceso de seguridad lo determina el control de acceso basado en roles de Azure (Azure RBAC). Para aprender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según la definición de Azure RBAC.
 
-- **Permiso**: un permiso es un acceso definido para una acción específica. Por ejemplo, un permiso podría ser el acceso de lectura a todas las máquinas virtuales.
-- **Rol**: un rol es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, un usuario con el rol de propietario de la suscripción tiene acceso a todos los recursos dentro de una suscripción.
-- **Ámbito**: un ámbito es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un único laboratorio o toda la suscripción.
+- **Permiso** : un permiso es un acceso definido para una acción específica. Por ejemplo, un permiso podría ser el acceso de lectura a todas las máquinas virtuales.
+- **Rol** : un rol es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, un usuario con el rol de propietario de la suscripción tiene acceso a todos los recursos dentro de una suscripción.
+- **Ámbito** : un ámbito es un nivel dentro de la jerarquía de recursos de Azure. Por ejemplo, un ámbito puede ser un grupo de recursos, un único laboratorio o toda la suscripción.
 
 Dentro del ámbito de DevTest Labs, hay dos tipos de roles para definir los permisos de usuario:
 
-- **Propietario de laboratorio**: tiene acceso a todos los recursos del laboratorio. El propietario de un laboratorio puede modificar las directivas, leer y escribir en todas las máquinas virtuales, cambiar la red virtual, etc.
-- **Usuario de laboratorio**: puede ver todos los recursos del laboratorio, como las máquinas virtuales, las directivas y las redes virtuales. Sin embargo, un usuario de laboratorio no puede modificar las directivas ni ninguna máquina virtual creada por otros usuarios.
+- **Propietario de laboratorio** : tiene acceso a todos los recursos del laboratorio. El propietario de un laboratorio puede modificar las directivas, leer y escribir en todas las máquinas virtuales, cambiar la red virtual, etc.
+- **Usuario de laboratorio** : puede ver todos los recursos del laboratorio, como las máquinas virtuales, las directivas y las redes virtuales. Sin embargo, un usuario de laboratorio no puede modificar las directivas ni ninguna máquina virtual creada por otros usuarios.
 
 También puede crear roles personalizados en DevTest Labs. Para aprender a crear roles personalizados en DevTest Labs, consulte [Concesión de permisos de usuario a directivas específicas de laboratorio](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
 Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un ámbito determinado, también se le conceden automáticamente en cada ámbito de nivel inferior. Por ejemplo, si un usuario está asignado al rol de propietario de la suscripción, tiene acceso a todos los recursos de una suscripción. Estos recursos incluyen máquinas virtuales, redes virtuales y laboratorios. El propietario de una suscripción hereda automáticamente el rol de propietario de laboratorio. Sin embargo, lo contrario no es cierto. El propietario de un laboratorio tiene acceso a un laboratorio, que es un ámbito inferior al del nivel de suscripción. Por lo tanto, no puede ver las máquinas virtuales, las redes virtuales ni ningún otro recurso que esté fuera del laboratorio.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>¿Cómo puedo definir el control de acceso basado en roles para mis entornos DevTest Labs para asegurarme de que el departamento de TI puede regir al mismo tiempo que los desarrolladores y probadores pueden hacer su trabajo?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>¿Cómo puedo definir el control de acceso basado en roles de Azure para mis entornos de DevTest Labs con el fin de asegurarme de que el departamento de TI pueda conservar el control, al mismo tiempo que los desarrolladores y evaluadores hacen su trabajo?
 Hay un amplio modelo, sin embargo, habrá detalles específicos que dependerán de su organización.
 
 El departamento de TI central debe poseer solo lo que es necesario y permitir que los equipos del proyecto y la aplicación tengan el nivel necesario de control. Normalmente, esto significa que esa departamento de TI central posee la suscripción y las controla las funciones de TI básicas, como las configuraciones de redes. El conjunto de **propietarios** para una suscripción debe ser pequeño. Estos propietarios pueden designar a propietarios adicionales cuando sea necesario, o aplicar directivas de nivel de suscripción, por ejemplo “sin dirección IP pública”.
@@ -92,13 +92,13 @@ Puede haber un subconjunto de usuarios que requieren acceso a través de una sus
 
 Los propietarios del recurso de DevTest Labs deben estar cerca del equipo de proyecto o aplicación. De esta forma entenderán sus requisitos para las máquinas y el software necesario. En la mayoría de las organizaciones, el propietario de este recurso de DevTest Labs suele ser el responsable de desarrollo o del proyecto. Este propietario puede administrar los usuarios y las directivas en el entorno de laboratorio y puede administrar todas las máquinas virtuales en el entorno de DevTest Labs.
 
-Los miembros del equipo de proyecto o aplicación se deben agregar al rol de **usuarios de DevTest Labs**. Estos usuarios pueden crear máquinas virtuales (en línea con las directivas de nivel de suscripción y de laboratorio). También pueden administrar sus propias máquinas virtuales. No pueden administrar las máquinas virtuales que pertenecen a otros usuarios.
+Los miembros del equipo de proyecto o aplicación se deben agregar al rol **Usuario de DevTest Labs** . Estos usuarios pueden crear máquinas virtuales (en línea con las directivas de nivel de suscripción y de laboratorio). También pueden administrar sus propias máquinas virtuales. No pueden administrar las máquinas virtuales que pertenecen a otros usuarios.
 
 Para obtener más información vea [la documentación de Scaffold empresarial de Azure: gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 
 ### <a name="how-do-i-create-a-role-to-allow-users-to-do-a-specific-task"></a>¿Cómo se crea un rol para permitir que los usuarios realicen una tarea específica?
-Para un artículo completo sobre cómo crear roles personalizados y asignar permisos a un rol, consulte [Concesión de permisos de usuario para directivas específicas de laboratorio](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Este es un ejemplo de script que crea el rol **Usuario avanzado de DevTest Labs**, que tiene permiso para iniciar y detener todas las máquinas virtuales del laboratorio:
+Para un artículo completo sobre cómo crear roles personalizados y asignar permisos a un rol, consulte [Concesión de permisos de usuario para directivas específicas de laboratorio](devtest-lab-grant-user-permissions-to-specific-lab-policies.md). Este es un ejemplo de script que crea el rol **Usuario avanzado de DevTest Labs** , que tiene permiso para iniciar y detener todas las máquinas virtuales del laboratorio:
 
 
 ```powershell
@@ -145,7 +145,7 @@ Escenario del grupo de recursos independiente:
 -   DevTest Labs crea un grupo de recursos para máquinas de IP compartida que pertenecen al mismo tamaño.
 
 Escenario del grupo de recursos común:
--   Todas las máquinas virtuales se establecen en el grupo de recursos común que especifique. Obtenga más información en el artículo sobre la [asignación del grupo de recursos para el laboratorio](https://aka.ms/RGControl).
+-   Todas las máquinas virtuales se establecen en el grupo de recursos común que especifique. Obtenga más información en el artículo sobre la [asignación del grupo de recursos para el laboratorio](./resource-group-control.md).
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>¿Cómo se puede mantener una convención de nomenclatura en un entorno de DevTest Labs?
 Es posible que desee ampliar las convenciones de nomenclatura empresariales actuales para las operaciones de Azure y que sean coherentes en todo el entorno de DevTest Labs. Al implementar DevTest Labs, se recomienda que tenga directivas específicas de partida. Implemente estas directivas mediante plantillas JSON y un script central para garantizar la coherencia. Las directivas de nomenclatura se pueden implementar mediante directivas de Azure aplicadas a nivel de suscripción. Para consultar ejemplos de JSON para Azure Policy, vea [Ejemplos de Azure Policy](../governance/policy/samples/index.md).
@@ -165,7 +165,7 @@ También debe tener en cuenta los límites geográficos. Por ejemplo, los desarr
 También puede usar un laboratorio para un proyecto específico en los proyectos de Azure DevOps. A continuación, aplique seguridad en un grupo específico de Azure Active Directory, lo que permite acceder a ambos conjuntos de recursos. La red virtual asignada al laboratorio puede ser otro límite para consolidar a los usuarios.
 
 ### <a name="how-can-we-prevent-the-deletion-of-resources-within-a-lab"></a>¿Cómo se puede evitar la eliminación de recursos de un laboratorio?
-Se recomienda establecer los permisos adecuados a nivel de laboratorio para que solo los usuarios autorizados puedan eliminar los recursos o cambiar las directivas del laboratorio. Los desarrolladores deben incorporarse al grupo de **usuarios de DevTest Labs**. El jefe de desarrollo o el responsable de la infraestructura debe ser el **propietario de DevTest Labs**. Se recomienda que haya solo dos propietarios del laboratorio. Esta directiva se extiende al repositorio de código para evitar daños. Los usuarios del laboratorio tienen derechos para usar los recursos, pero no pueden actualizar las directivas del laboratorio. Consulte el artículo siguiente en el que se enumeran los roles y derechos que cada grupo integrado tiene dentro de un laboratorio: [Adición de propietarios y usuarios en Azure DevTest Labs](devtest-lab-add-devtest-user.md).
+Se recomienda establecer los permisos adecuados a nivel de laboratorio para que solo los usuarios autorizados puedan eliminar los recursos o cambiar las directivas del laboratorio. Los desarrolladores deben incorporarse al grupo de **usuarios de DevTest Labs** . El jefe de desarrollo o el responsable de la infraestructura debe ser el **propietario de DevTest Labs** . Se recomienda que haya solo dos propietarios del laboratorio. Esta directiva se extiende al repositorio de código para evitar daños. Los usuarios del laboratorio tienen derechos para usar los recursos, pero no pueden actualizar las directivas del laboratorio. Consulte el artículo siguiente en el que se enumeran los roles y derechos que cada grupo integrado tiene dentro de un laboratorio: [Adición de propietarios y usuarios en Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
 ### <a name="how-do-i-share-a-direct-link-to-my-lab"></a>¿Cómo se puede compartir un vínculo directo a mi laboratorio?
 
@@ -178,7 +178,7 @@ Se recomienda establecer los permisos adecuados a nivel de laboratorio para que 
 ## <a name="virtual-machines"></a>Máquinas virtuales
 
 ### <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>¿Por qué no se pueden ver las máquinas virtuales en la página Máquinas virtuales que se ven en DevTest Labs?
-Cuando crea una máquina virtual en DevTest Labs, se le otorgan permisos para acceder a dicha máquina virtual. Puede ver la máquina virtual tanto en la página de laboratorios como en la página **Máquinas virtuales**. Los usuarios asignados al rol de **propietario de DevTest Labs** pueden ver todas las máquinas virtuales creadas en el laboratorio en la página **Todas las máquinas virtuales** de este. No obstante, a los usuarios que tengan el rol de **usuario de DevTest Labs** no se les concede automáticamente acceso de lectura a los recursos de máquina virtual creados por otros usuarios. Por lo tanto, esas máquinas virtuales no se muestran en la página **Máquinas virtuales**.
+Cuando crea una máquina virtual en DevTest Labs, se le otorgan permisos para acceder a dicha máquina virtual. Puede ver la máquina virtual tanto en la página de laboratorios como en la página **Máquinas virtuales** . Los usuarios asignados al rol de **propietario de DevTest Labs** pueden ver todas las máquinas virtuales creadas en el laboratorio en la página **Todas las máquinas virtuales** de este. No obstante, a los usuarios que tengan el rol de **usuario de DevTest Labs** no se les concede automáticamente acceso de lectura a los recursos de máquina virtual creados por otros usuarios. Por lo tanto, esas máquinas virtuales no se muestran en la página **Máquinas virtuales** .
 
 
 ### <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>¿Cómo se crean varias máquinas virtuales desde la misma plantilla a la vez?
@@ -200,7 +200,7 @@ Para copiar las máquinas virtuales existentes a los laboratorios de DevTest Lab
 Sí, puede adjuntar varios discos a sus máquinas virtuales.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>¿Admite DevTest Labs imágenes de Gen 2?
-Sí. El servicio DevTest Labs admite [imágenes de Gen 2](../virtual-machines/windows/generation-2.md). Sin embargo, si hay versiones de Gen 1 y Gen 2 disponibles para una imagen, DevTest Labs solo muestra la versión de Gen 1 de la imagen al crear una máquina virtual. Verá la imagen si solo está disponible su versión de Gen 2. 
+Sí. El servicio DevTest Labs admite [imágenes de Gen 2](../virtual-machines/generation-2.md). Sin embargo, si hay versiones de Gen 1 y Gen 2 disponibles para una imagen, DevTest Labs solo muestra la versión de Gen 1 de la imagen al crear una máquina virtual. Verá la imagen si solo está disponible su versión de Gen 2. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si quiero usar una imagen de sistema operativo Windows para mi prueba, ¿tengo que comprar una suscripción a MSDN?
 Para usar imágenes de sistema operativo cliente de Windows (Windows 7 o una versión posterior) para el desarrollo o las pruebas en Azure, siga uno de los siguientes pasos:
@@ -278,10 +278,10 @@ Para automatizar la carga de archivos VHD para crear imágenes personalizadas, d
 Para buscar la cuenta de almacenamiento de destino asociada al laboratorio:
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com).
-2.  En el menú de la izquierda, seleccione **Grupos de recursos**.
+2.  En el menú de la izquierda, seleccione **Grupos de recursos** .
 3.  Busque y seleccione el grupo de recursos asociado al laboratorio.
-4.  En **Información general**, seleccione una de las cuentas de almacenamiento.
-5.  Seleccione **Blobs**.
+4.  En **Información general** , seleccione una de las cuentas de almacenamiento.
+5.  Seleccione **Blobs** .
 6.  Busque cargas en la lista. Si no existe ninguna, vuelva al paso 4 y pruebe con otra cuenta de almacenamiento.
 7.  Use la **dirección URL** como destino del comando AzCopy.
 
@@ -359,8 +359,8 @@ Si se usan direcciones IP compartidas, las máquinas virtuales del laboratorio c
 
 Sí. Hay dos aspectos que se deben tener en cuenta: el tráfico entrante y saliente.
 
-- **Tráfico entrante**: si la máquina virtual no tiene una dirección IP pública, no se puede acceder a ella a través de Internet. Un enfoque común consiste en asegurarse de que se establece una directiva de nivel de suscripción, para que ningún usuario pueda crear una dirección IP pública.
-- **Tráfico saliente**: si desea evitar que las máquinas virtuales tengan acceso directamente a la red pública de Internet y forzar el tráfico a través de un firewall corporativo, puede enrutar el tráfico local a través de ExpressRoute o VPN, mediante el uso del enrutamiento forzado.
+- **Tráfico entrante** : si la máquina virtual no tiene una dirección IP pública, no se puede acceder a ella a través de Internet. Un enfoque común consiste en asegurarse de que se establece una directiva de nivel de suscripción, para que ningún usuario pueda crear una dirección IP pública.
+- **Tráfico saliente** : si desea evitar que las máquinas virtuales tengan acceso directamente a la red pública de Internet y forzar el tráfico a través de un firewall corporativo, puede enrutar el tráfico local a través de ExpressRoute o VPN, mediante el uso del enrutamiento forzado.
 
 > [!NOTE]
 > Si tiene un servidor proxy que bloquea el tráfico sin configuración del proxy, no olvide agregar excepciones a la cuenta de almacenamiento de artefactos del laboratorio.
@@ -373,14 +373,14 @@ También puede usar grupos de seguridad de red para máquinas virtuales o subred
 Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, intente quitar los puntos o reemplazarlos con guiones. A continuación, vuelva a intentar guardar la red virtual.
 
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>¿Por qué aparece el error "No se encuentra el recurso primario" al aprovisionar una máquina virtual desde PowerShell?
-Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si el recurso primario no existe, verá un mensaje **ParentResourceNotFound**. Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
+Cuando un recurso es un elemento primario de otro recurso, el primario debe existir antes de crear el secundario. Si el recurso primario no existe, verá un mensaje **ParentResourceNotFound** . Si no se especifica una dependencia del recurso primario, es posible que el recurso secundario se implemente antes que el primario.
 
 Las máquinas virtuales son recursos secundarios en un laboratorio en un grupo de recursos. Cuando se usan plantillas de Resource Manager para la implementación de máquinas virtuales con PowerShell, el nombre del grupo de recursos proporcionado en el script de PowerShell debe ser el del grupo de recursos del laboratorio. Para más información, vea, [Solución de errores comunes de implementación de Azure](../azure-resource-manager/templates/common-deployment-errors.md).
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>¿Dónde puedo encontrar más información sobre errores relativos a la implementación de VM?
 Los errores de implementación de máquinas virtuales se capturan en los registros de actividad. Puede encontrar los registros de actividad de las máquinas virtuales de laboratorio en **Registros de auditoría** o **Diagnóstico de máquina virtual** en el menú de recursos de la página de máquina virtual del laboratorio (la página se muestra una vez que selecciona la máquina virtual en la lista Mis máquinas virtuales).
 
-En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas**. Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/management/view-activity-logs.md).
+En ocasiones, el error de implementación se produce antes de que comience la implementación de la máquina virtual. Un ejemplo es cuando se supera el límite de suscripciones para un recurso que se creó con la máquina virtual. En este caso, los detalles del error se capturan en los registros de actividad de nivel de laboratorio. Los registros de actividad se encuentran en la parte inferior de las opciones de **Configuración y directivas** . Para obtener más información sobre el uso de los registros de actividad en Azure, consulte [Visualización de registros de actividad para auditar las acciones sobre los recursos](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>¿Por qué aparece el error "la ubicación no está disponible para el tipo de recurso" al intentar crear un laboratorio?
 Es posible que vea un mensaje de error similar al siguiente al intentar crear un laboratorio:

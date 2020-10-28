@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metan
+ms.author: metang
 ms.custom: devx-track-js
-ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac7bca305b0c23cceb00f97f426b3f68fbea91b3
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262287"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636449"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Inicio del Lector inmersivo (Node.js)
 
@@ -86,7 +86,7 @@ Después, abra el archivo _app.js_ y agregue lo siente en la parte superior. Est
 require('dotenv').config();
 ```
 
-Abra el archivo _routes\index.js_y reemplace su contenido por el código siguiente.
+Abra el archivo _routes\index.js_ y reemplace su contenido por el código siguiente.
 
 Este código crea un punto de conexión de la API que adquiere un token de autenticación de Azure AD mediante la contraseña de la entidad de servicio. También recupera el subdominio. Luego, devuelve un objeto que contiene el token y el subdominio.
 
@@ -211,13 +211,13 @@ El Lector inmersivo es compatible con numerosos lenguajes diferentes. Para espec
     });
     ```
 
-3. Vaya de nuevo a _http://localhost:3000_ . Debería ver el texto en español en la página y, al hacer clic en **Lector inmersivo**, se mostrará en el Lector inmersivo también.
+3. Vaya de nuevo a _http://localhost:3000_ . Debería ver el texto en español en la página y, al hacer clic en **Lector inmersivo** , se mostrará en el Lector inmersivo también.
 
 ## <a name="specify-the-language-of-the-immersive-reader-interface"></a>Especificar el idioma de la interfaz del Lector inmersivo
 
 De forma predeterminada, el idioma de la interfaz del Lector inmersivo coincide con la configuración de idioma del explorador. También puede especificar el idioma de la interfaz del Lector inmersivo con el código siguiente.
 
-1. En _views\index.pug_, reemplace la llamada a `ImmersiveReader.launchAsync(token, subdomain, content)` por el código siguiente.
+1. En _views\index.pug_ , reemplace la llamada a `ImmersiveReader.launchAsync(token, subdomain, content)` por el código siguiente.
 
     ```javascript
     const options = {

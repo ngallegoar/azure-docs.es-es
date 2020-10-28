@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa03e9a9bbbc7f8eefc1e0ba57a0a8b18da6e29
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77121723"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328766"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 
@@ -24,7 +24,7 @@ El Sistema de nombres de dominio (DNS) traduce, o resuelve, el nombre de un siti
 
 Los dominios DNS de Azure DNS se hospedan en la red global de servidores de nombres DNS de Azure. Este sistema usa redes de difusión por proximidad, con el fin de que cada consulta de DNS la responda el servidor DNS disponible más cercano disponible. Azure DNS ofrece un rendimiento rápido y alta disponibilidad para su dominio.
 
-Azure DNS se basa en Azure Resource Manager. Azure DNS se beneficia de características de Resource Manager, como control de acceso basado en rol, registros de auditoría y bloqueo de recursos. Puede administrar los dominios y registros a través de Azure Portal, cmdlets de Azure PowerShell y la CLI de Azure multiplataforma. Las aplicaciones que requieren la administración automática de DNS pueden integrarse con el servicio a través de los SDK y API REST.
+Azure DNS se basa en Azure Resource Manager. Azure DNS se beneficia de características de Resource Manager, como control de acceso basado en roles de Azure, los registros de auditoría y el bloqueo de recursos. Puede administrar los dominios y registros a través de Azure Portal, cmdlets de Azure PowerShell y la CLI de Azure multiplataforma. Las aplicaciones que requieren la administración automática de DNS pueden integrarse con el servicio a través de los SDK y API REST.
 
 ### <a name="how-much-does-azure-dns-cost"></a>¿Cuánto cuesta DNS de Azure?
 
@@ -44,7 +44,7 @@ Un dominio es un nombre único en el sistema de nombres de dominio. Un ejemplo e
 
 Una zona DNS se usa para hospedar los registros DNS de un dominio concreto. Por ejemplo, el dominio contoso.com puede contener varios registros de DNS. Los registros pueden incluir mail.contoso.com para un servidor de correo y www\.contoso.com para un sitio web. Estos registros se hospedan en la zona DNS contoso.com.
 
-Un nombre de dominio es *solo un nombre*. Una zona DNS es un recurso de datos que contiene los registros de DNS para un nombre de dominio. Puede usar Azure DNS para hospedar una zona DNS y administrar los registros DNS de un dominio en Azure. También proporciona servidores de nombres DNS para responder a consultas de DNS de Internet.
+Un nombre de dominio es *solo un nombre* . Una zona DNS es un recurso de datos que contiene los registros de DNS para un nombre de dominio. Puede usar Azure DNS para hospedar una zona DNS y administrar los registros DNS de un dominio en Azure. También proporciona servidores de nombres DNS para responder a consultas de DNS de Internet.
 
 ### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>¿Tengo que adquirir un nombre de dominio DNS para usar Azure DNS? 
 
@@ -116,10 +116,10 @@ Los conjuntos de registros de alias se admiten para los siguientes tipos de regi
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>¿Qué recursos se admiten como destinos para los conjuntos de registros de alias?
 
-- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
+- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS** . Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
 - **Apuntar a un perfil de Traffic Manager desde un conjunto de registros D/AAAA/CNAME de DNS.** Puede apuntar al CNAME de un perfil de Traffic Manager desde un conjunto de registros CNAME de DNS. Un ejemplo es contoso.trafficmanager.net. Ahora, también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos desde un registro D o AAAA establecido en su zona DNS.
 - **Apunte a un punto de conexión de Azure Content Delivery Network (CDN)** . Esto es útil al crear los sitios web estáticos mediante Azure Storage y Azure CDN.
-- **Apuntar a otro conjunto de registros de DNS dentro de la misma zona**. Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
+- **Apuntar a otro conjunto de registros de DNS dentro de la misma zona** . Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>¿Puedo crear y actualizar registros de alias desde Azure Portal?
 
@@ -177,7 +177,7 @@ Los cambios en los registros de DNS existentes pueden tardar un poco más. Por l
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>¿Cómo puedo proteger mis zonas DNS contra una eliminación accidental?
 
-Azure DNS se administra mediante Azure Resource Manager. Azure DNS se beneficia de las características de control de acceso que proporciona Azure Resource Manager. El control de acceso basado en rol controla qué usuarios tienen acceso de lectura o escritura a conjuntos de registros y zonas DNS. Los bloqueos de recursos evitan la modificación o eliminación accidental de conjuntos de registros y zonas DNS.
+Azure DNS se administra mediante Azure Resource Manager. Azure DNS se beneficia de las características de control de acceso que proporciona Azure Resource Manager. El control de acceso basado en roles de Azure se puede usar para controlar qué usuarios tienen acceso de lectura o escritura a conjuntos de registros y zonas DNS. Los bloqueos de recursos evitan la modificación o eliminación accidental de conjuntos de registros y zonas DNS.
 
 Para más información, consulte [Protección de zonas y registros DNS](dns-protect-zones-recordsets.md).
 
