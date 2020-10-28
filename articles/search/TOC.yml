@@ -32,8 +32,8 @@
       href: search-get-started-dotnet.md
     - name: Java
       href: search-get-started-java.md
-    - name: Node.js
-      href: search-get-started-nodejs.md
+    - name: JavaScript
+      href: search-get-started-javascript.md
     - name: postman
       href: search-get-started-postman.md
     - name: PowerShell
@@ -174,7 +174,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: Azure Cosmos DB
+            - name: "Azure Cosmos\_DB"
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -200,7 +200,7 @@
               href: search-howto-index-encrypted-blobs.md
         - name: Azure Tables
           href: search-howto-indexing-azure-tables.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           href: search-howto-index-cosmosdb.md
         - name: Azure Data Lake Storage Gen2
           href: search-howto-index-azure-data-lake-storage.md
@@ -320,9 +320,11 @@
           href: search-api-preview.md
         - name: Desarrollo en .NET
           items:
-            - name: Uso de Microsoft.Azure.Search (v10)
+            - name: Uso de Azure.Search.Documents
               href: search-howto-dotnet-sdk.md
-            - name: Primeros pasos (v10)
+            - name: Uso de Microsoft.Azure.Search
+              href: search-howto-dotnet-sdk-v10.md
+            - name: Inicio rápido heredado (Microsoft.Azure.Search)
               href: search-get-started-dotnet-v10.md
         - name: Actualización del SDK
           items:

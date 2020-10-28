@@ -47,7 +47,7 @@
           items:
             - name: Información general
               href: nat-overview.md
-            - name: Resource
+            - name: Recurso
               href: nat-gateway-resource.md
             - name: Métricas y alertas
               href: nat-metrics.md
@@ -240,6 +240,8 @@
               href: virtual-network-public-ip-address.md
             - name: Administración de un prefijo de IP pública
               href: manage-public-ip-address-prefix.md
+            - name: "Actualización de direcciones\_IP públicas"
+              href: virtual-network-public-ip-address-upgrade.md
             - name: Incorporación o eliminación de direcciones IP de tarjetas de interfaz de red
               href: virtual-network-network-interface-addresses.md
             - name: Preferencia de enrutamiento

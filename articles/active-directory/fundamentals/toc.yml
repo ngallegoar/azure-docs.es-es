@@ -79,6 +79,8 @@
               href: sync-ldap.md
             - name: Sincronización SCIM
               href: sync-scim.md
+        - name: Certificación de las autoridades usadas en Azure
+          href: certificate-authorities.md
     - name: Guía de implementación
       items:
         - name: 'Implementación de 30, 90 y más'

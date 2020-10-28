@@ -59,13 +59,13 @@
         - name: Control de acceso basado en rol
           displayName: rbac
           href: role-based-access-control.md
+        - name: Compatibilidad con Azure Policy
+          href: policy.md
         - name: Controles de seguridad de Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
-        - name: Compatibilidad con Azure Policy
-          href: policy.md
     - name: Análisis con Azure Synapse Link
       items:
         - name: "Azure Synapse Link para Cosmos\_DB"
@@ -123,7 +123,7 @@
         - name: Recursos de Cosmos DB
           expanded: true
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: create-cosmosdb-resources-portal.md
             - name: Plantilla ARM
               displayName: Resource Manager
@@ -202,11 +202,14 @@
           href: templates-samples-sql.md
     - name: Conceptos
       items:
-        - name: Datos del documento de modelo
-          displayName: document
-          href: modeling-data.md
-        - name: Creación de particiones
+        - name: Modelado y creación de particiones
           items:
+            - name: Datos del documento de modelo
+              displayName: document
+              href: modeling-data.md
+            - name: 'Modelado y creación de particiones: un ejemplo del mundo real'
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
             - name: Clave de partición sintética
               href: synthetic-partition-keys.md
         - name: Consulta SQL
@@ -631,13 +634,13 @@
           items:
             - name: Rendimiento aprovisionado
               items:
-                - name: Aprovisionamiento de la capacidad de proceso estándar (manual) en un contenedor
+                - name: 'Aprovisionamiento de rendimiento estándar (manual): contenedor'
                   displayName: 'request units, RUs, RU, collection level'
                   href: how-to-provision-container-throughput.md
-                - name: Aprovisionamiento de la capacidad de proceso estándar (manual) en una base de datos
+                - name: 'Aprovisionamiento de rendimiento estándar (manual): base de datos'
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: how-to-provision-database-throughput.md
-                - name: Aprovisionamiento de la capacidad de proceso de la escalabilidad automática en una base de datos o en un contenedor
+                - name: 'Aprovisionamiento del rendimiento de la escalabilidad automática: base de datos o contenedor'
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
                 - name: Cálculo de RU/s con Cosmos Capacity Planner
@@ -657,9 +660,6 @@
               href: large-partition-keys.md
             - name: Consultar un contenedor
               href: how-to-query-container.md
-            - name: 'Modelado de datos y creación de particiones: un ejemplo del mundo real'
-              displayName: 'model, partition, example'
-              href: how-to-model-partition-example.md
             - name: Migración a contenedores con particiones
               href: migrate-containers-partitioned-to-nonpartitioned.md
             - name: Configuración del período de vida
@@ -1179,8 +1179,6 @@
       items:
         - name: Encabezados de respuesta
           href: gremlin-headers.md
-        - name: Límites
-          href: gremlin-limits.md
         - name: Proveedor de recursos de REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Plantilla de Resource Manager

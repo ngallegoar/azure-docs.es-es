@@ -110,7 +110,7 @@
         - name: Plantilla del Administrador de recursos de Azure
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Configuración del tiempo de espera de inactividad TCP del equilibrador de carga
+    - name: Configuración del tiempo de espera de inactividad y restablecimiento de TCP
       href: load-balancer-tcp-idle-timeout.md
     - name: Configuración del modo de distribución de Load Balancer
       href: load-balancer-distribution-mode.md

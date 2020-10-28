@@ -9,7 +9,7 @@
           href: azure-stack-edge-gpu-overview.md
     - name: Guías de inicio rápido
       items:
-        - name: Primeros pasos
+        - name: Introducción
           href: azure-stack-edge-gpu-quickstart.md
     - name: Tutoriales
       items:
@@ -183,6 +183,8 @@
           href: azure-stack-edge-gpu-2008-release-notes.md
     - name: Referencia
       items:
+        - name: 'Rol de IoT Edge mediante API, SDK y PowerShell'
+          href: azure-stack-edge-gpu-iot-edge-api-update.md
         - name: Azure PowerShell
           href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
         - name: API DE REST

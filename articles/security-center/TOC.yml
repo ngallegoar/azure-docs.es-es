@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Cobertura de características para los recursos de PaaS de Azure
           href: features-paas.md
-    - name: Novedades de Security Center
-      displayName: release notes
-      href: release-notes.md
+    - name: Novedades
+      items:
+        - name: Notas de la versión
+          displayName: changelog
+          href: release-notes.md
+        - name: Próximos cambios importantes
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: Notas de la versión archivadas (más de seis meses)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Aspectos básicos de Security Center
       items:
         - name: Página de información general de Security Center
@@ -217,8 +225,13 @@
         - name: Personalización de la directiva de protección de la información
           href: security-center-info-protection-policy.md
     - name: Uso de Azure Defender para registros de contenedor
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: Búsqueda de vulnerabilidades en las imágenes del registro
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: Deshabilitación de resultados sobre las vulnerabilidades de imágenes concretas
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Exportación de alertas y recomendaciones
       items:
         - name: 'Exportación a SIEM, SOAR o ITSM'
@@ -272,8 +285,6 @@
           href: faq-vms.md
         - name: Usuarios de Azure Log Analytics existentes
           href: faq-azure-monitor-logs.md
-    - name: Archivo de novedades de Security Center
-      href: release-notes-archive.md
     - name: Blog de Azure Roadmap
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Valoración y recomendaciones sobre la protección de puntos de conexión
