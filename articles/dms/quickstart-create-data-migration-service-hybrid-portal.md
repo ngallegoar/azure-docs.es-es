@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 39f893e9375970ff4bb6e3cfa2c93ceea48ec896
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84195685"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331811"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Inicio rápido: Creación de una instancia en modo híbrido con Azure Portal y Azure Database Migration Service
 
@@ -51,33 +51,33 @@ La vista predeterminada es el panel del servicio.
 
 Registre el proveedor de recursos Microsoft.DataMigration antes de crear su primera instancia de Azure Database Migration Service.
 
-1. En Azure Portal, seleccione **Suscripciones**, seleccione la suscripción en la que quiere crear la instancia de Azure Database Migration Service y después seleccione **Proveedores de recursos**.
+1. En Azure Portal, seleccione **Suscripciones** , seleccione la suscripción en la que quiere crear la instancia de Azure Database Migration Service y después seleccione **Proveedores de recursos** .
 
     ![Búsqueda del proveedor de recursos](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-search-resource-provider.png)
 
-2. Busque la migración y después, a la derecha de **Microsoft.DataMigration**, seleccione **Registrar**.
+2. Busque la migración y después, a la derecha de **Microsoft.DataMigration** , seleccione **Registrar** .
 
     ![Registro del proveedor de recursos](media/quickstart-create-data-migration-service-hybrid-portal/dms-portal-register-resource-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Creación de una instancia del servicio
 
-1. Seleccione +**Crear un recurso** para crear una instancia de Azure Database Migration Service.
+1. Seleccione + **Crear un recurso** para crear una instancia de Azure Database Migration Service.
 
-2. Busque "migration" en Marketplace, seleccione **Azure Database Migration Service** y, luego, en la pantalla **Azure Database Migration Service**, seleccione **Crear**.
+2. Busque "migration" en Marketplace, seleccione **Azure Database Migration Service** y, luego, en la pantalla **Azure Database Migration Service** , seleccione **Crear** .
 
-3. En la pantalla **Crear el servicio de migración**:
+3. En la pantalla **Crear el servicio de migración** :
 
     - Elija un **nombre del servicio** que sea fácil de recordar y único para identificar la instancia de Azure Database Migration Service.
     - Seleccione la **suscripción** de Azure donde desea crear la instancia.
     - Seleccione un **Grupo de recursos** existente o cree uno.
     - Elija la **ubicación** más cercana a su servidor de origen o de destino.
-    - Para el **Modo de servicio**, seleccione **Hybrid (versión preliminar)** .
+    - Para el **Modo de servicio** , seleccione **Hybrid (versión preliminar)** .
 
          ![Creación del servicio de migración: aspectos básicos](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
-4. Seleccione **Revisar + crear**.
+4. Seleccione **Revisar + crear** .
 
-5. En la pestaña **Revisar + crear**, revise los términos, compruebe la información que se proporciona y, a continuación, seleccione **Crear**.
+5. En la pestaña **Revisar + crear** , revise los términos, compruebe la información que se proporciona y, a continuación, seleccione **Crear** .
 
     ![Creación del servicio de migración: Revisar + crear](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-review-and-create.png)
 
@@ -85,7 +85,7 @@ Registre el proveedor de recursos Microsoft.DataMigration antes de crear su prim
 
     ![Instancia del modo híbrido de Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-instance-hybrid-mode.png)
 
-6. Después de crear el servicio, seleccione **Propiedades** y, después, copie el valor que se muestra en el cuadro **Id. de recurso**, que usará para instalar el trabajo híbrido de Azure Database Migration Service.
+6. Después de crear el servicio, seleccione **Propiedades** y, después, copie el valor que se muestra en el cuadro **Id. de recurso** , que usará para instalar el trabajo híbrido de Azure Database Migration Service.
 
     ![Propiedades del modo híbrido de Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-copy-resource-id.png)
 
@@ -93,12 +93,12 @@ Registre el proveedor de recursos Microsoft.DataMigration antes de crear su prim
 
 Debe crear un Id. de registro de aplicación de Azure que Hybrid Worker local pueda usar para comunicarse con Azure Database Migration Service en la nube.
 
-1. En Azure Portal, seleccione **Azure Active Directory**, **Registros de aplicaciones** y **Nuevo registro**.
-2. Especifique un nombre para la aplicación y, a continuación, en **Tipos de cuenta admitidos**, seleccione el tipo de cuentas que quiere admitir para especificar quién puede usar la aplicación.
+1. En Azure Portal, seleccione **Azure Active Directory** , **Registros de aplicaciones** y **Nuevo registro** .
+2. Especifique un nombre para la aplicación y, a continuación, en **Tipos de cuenta admitidos** , seleccione el tipo de cuentas que quiere admitir para especificar quién puede usar la aplicación.
 
     ![Registro de aplicación del modo híbrido de Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-register-application.png)
 
-3. Use los valores predeterminados para los campos de **URI de redireccionamiento (opcional)** y, a continuación, seleccione **Registrar**.
+3. Use los valores predeterminados para los campos de **URI de redireccionamiento (opcional)** y, a continuación, seleccione **Registrar** .
 
 4. Una vez completado el registro del Id. de la aplicación, tome nota del **Id. de la aplicación (cliente)** , que usará al instalar Hybrid Worker.
 
@@ -116,7 +116,7 @@ Debe crear un Id. de registro de aplicación de Azure que Hybrid Worker local pu
 
 1. En Azure Portal, vaya a su instancia de Azure Database Migration Service
 
-2. En **Configuración**, seleccione **Hybrid** y, a continuación, seleccione **Descarga del instalador** para descargar e instalar Hybrid Worker.
+2. En **Configuración** , seleccione **Hybrid** y, a continuación, seleccione **Descarga del instalador** para descargar e instalar Hybrid Worker.
 
     ![Descarga de Hybrid Worker de Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-installer-download.png)
 
@@ -125,7 +125,7 @@ Debe crear un Id. de registro de aplicación de Azure que Hybrid Worker local pu
     > [!IMPORTANT]
     > El instalador híbrido de Azure Database Migration Service requiere .NET 4.7.2, o cualquier versión posterior. Para encontrar las versiones más recientes de .NET, consulte la página de [descarga de .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
 
-4. En la carpeta de instalación, busque y abra el archivo **dmsSettings.json**, especifique los valores de **ApplicationId** y **resourceId**, y guarde el archivo.
+4. En la carpeta de instalación, busque y abra el archivo **dmsSettings.json** , especifique los valores de **ApplicationId** y **resourceId** , y guarde el archivo.
 
     ![Configuración de Hybrid Worker de Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-settings.png)
 
@@ -139,7 +139,7 @@ Debe crear un Id. de registro de aplicación de Azure que Hybrid Worker local pu
 
     ![Certificado de Hybrid Worker de Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-certificate.png)
 
-6. En Azure Portal, vaya al Id. de la aplicación; en **Administrar**, seleccione **Certificados y secretos** y, después, seleccione **Cargar certificado** para seleccionar el certificado público que ha generado.
+6. En Azure Portal, vaya al Id. de la aplicación; en **Administrar** , seleccione **Certificados y secretos** y, después, seleccione **Cargar certificado** para seleccionar el certificado público que ha generado.
 
     ![Carga de certificado de Hybrid Worker de Azure Database Migration Service](media/quickstart-create-data-migration-service-hybrid-portal/dms-app-upload-certificate.png)
 
@@ -152,7 +152,7 @@ Debe crear un Id. de registro de aplicación de Azure que Hybrid Worker local pu
     > [!NOTE]
     > Al ejecutar el comando de instalación, también puede usar los siguientes parámetros:
     >
-    > - **-TelemetryOptOut**: detiene el envío de telemetría por parte del trabajo, pero continúa el registro de un entorno local de forma local mínima.  El instalador sigue enviando datos de telemetría.
+    > - **-TelemetryOptOut** : detiene el envío de telemetría por parte del trabajo, pero continúa el registro de un entorno local de forma local mínima.  El instalador sigue enviando datos de telemetría.
     > - **-p {InstallLocation}** . Permite cambiar la ruta de instalación, que de forma predeterminada es "C:\Archivos de Files\DatabaseMigrationServiceHybrid".
 
 8. Si el instalador se ejecuta sin errores, el servicio mostrará un estado en línea en Azure Database Migration Service y estará listo para migrar las bases de datos.
@@ -184,7 +184,7 @@ Además de instalar el trabajo híbrido de Azure Database Migration Service a tr
 Este script está diseñado para crear un prototipo de forma rápida cuando el usuario ya tiene todos los permisos necesarios en el entorno. Tenga en cuenta que en su entorno de producción, AdApp y Cert pueden tener requisitos diferentes, por lo que se podría producir un error en el script.
 
 > [!IMPORTANT]
-> En este script se supone que hay una instancia existente de Azure Database Migration Service en modo híbrido y que la cuenta de Azure usada tiene permisos para crear AdApps en el inquilino y para modificar RBAC en la suscripción.
+> En este script se supone que hay una instancia de Azure Database Migration Service en modo híbrido y que la cuenta de Azure usada tiene permisos para crear AdApps en el inquilino y para modificar Azure RBAC en la suscripción.
 
 Rellene los parámetros del principio del script y, después, ejecute el script desde una instancia de Administrator PowerShell.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91567543"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328205"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parámetros globales en Azure Data Factory
 
@@ -23,7 +23,7 @@ Los parámetros globales son constantes en una factoría de datos que una canali
 
 ## <a name="creating-global-parameters"></a>Creación de parámetros globales
 
-Para crear un parámetro global, vaya a la pestaña *Parámetros globales* de la sección *Administrar*. Seleccione **Nuevo** para abrir el panel de navegación lateral de creación.
+Para crear un parámetro global, vaya a la pestaña *Parámetros globales* de la sección *Administrar* . Seleccione **Nuevo** para abrir el panel de navegación lateral de creación.
 
 ![Captura de pantalla en la que se resalta el botón Nuevo que ha seleccionado para crear los parámetros globales.](media/author-global-parameters/create-global-parameter-1.png)
 
@@ -31,7 +31,7 @@ En el panel de navegación lateral, escriba un nombre, seleccione un tipo de dat
 
 ![Captura de pantalla que muestra dónde se agrega el nombre, el tipo de datos y el valor del nuevo parámetro global.](media/author-global-parameters/create-global-parameter-2.png)
 
-Una vez creado un parámetro global, puede editarlo con un clic en el nombre del parámetro. Para modificar varios parámetros a la vez, seleccione **Editar todo**.
+Una vez creado un parámetro global, puede editarlo con un clic en el nombre del parámetro. Para modificar varios parámetros a la vez, seleccione **Editar todo** .
 
 ![Creación de parámetros globales](media/author-global-parameters/create-global-parameter-3.png)
 
@@ -52,19 +52,19 @@ Para la mayoría de los casos de uso, se recomienda incluir parámetros globales
 
 ![Inclusión en la plantilla de Resource Manager](media/author-global-parameters/include-arm-template.png)
 
-El hecho de agregar parámetros globales a la plantilla de Resource Manager, agrega una configuración de nivel de fábrica que puede invalidar otras opciones de configuración de nivel de fábrica como, por ejemplo, una clave administrada por el cliente o una configuración de Git en otros entornos. Si tiene esta configuración habilitada en un entorno con privilegios elevados como UAT o PROD, es mejor implementar parámetros globales mediante un script de PowerShell en los pasos que se indican a continuación.
+El hecho de agregar parámetros globales a la plantilla de Resource Manager, agrega una configuración de nivel de fábrica que invalidará otras opciones de configuración de nivel de fábrica como, por ejemplo, una clave administrada por el cliente o una configuración de Git en otros entornos. Si tiene esta configuración habilitada en un entorno con privilegios elevados como UAT o PROD, es mejor implementar parámetros globales mediante un script de PowerShell en los pasos que se indican a continuación.
 
 ### <a name="deploying-using-powershell"></a>Implementación con PowerShell
 
 En los pasos siguientes se describe cómo implementar parámetros globales a través de PowerShell. Esto resulta útil cuando el generador de destino tiene una configuración de nivel de fábrica como, por ejemplo, una clave administrada por el cliente.
 
-Al publicar una factoría o exportar una plantilla de Resource Manager con parámetros globales, se crea una carpeta llamada *globalParameters* con un archivo denominado *nombre-de-su-factoría.json*. Este archivo es un objeto JSON que contiene cada tipo y valor de parámetro global en la factoría publicada.
+Al publicar una factoría o exportar una plantilla de Resource Manager con parámetros globales, se crea una carpeta llamada *globalParameters* con un archivo denominado *nombre-de-su-factoría.json* . Este archivo es un objeto JSON que contiene cada tipo y valor de parámetro global en la factoría publicada.
 
 ![Publicación de parámetros globales](media/author-global-parameters/global-parameters-adf-publish.png)
 
 Si va a realizar la implementación en un entorno nuevo como TEST o PROD, se recomienda crear una copia de este archivo de parámetros globales y sobrescribir los valores específicos del entorno. Cuando vuelva a realizar la publicación, el archivo de parámetros globales original se sobrescribirá, pero la copia del otro entorno no se modificará.
 
-Por ejemplo, si tiene una factoría denominada "ADF-DEV" y un parámetro global de tipo cadena denominado "environment" con un valor "dev", cuando publique un archivo denominado *ADF-DEV_GlobalParameters.json*, se generará. Si realiza la implementación en una factoría de prueba denominada "ADF_TEST", cree una copia del archivo JSON (por ejemplo, con el nombre ADF-TEST_GlobalParameters.json) y reemplace los valores de parámetro por los valores específicos del entorno. El parámetro "environment" ahora puede tener un valor "test". 
+Por ejemplo, si tiene una factoría denominada "ADF-DEV" y un parámetro global de tipo cadena denominado "environment" con un valor "dev", cuando publique un archivo denominado *ADF-DEV_GlobalParameters.json* , se generará. Si realiza la implementación en una factoría de prueba denominada "ADF_TEST", cree una copia del archivo JSON (por ejemplo, con el nombre ADF-TEST_GlobalParameters.json) y reemplace los valores de parámetro por los valores específicos del entorno. El parámetro "environment" ahora puede tener un valor "test". 
 
 ![Implementación de parámetros globales](media/author-global-parameters/powershell-task.png)
 

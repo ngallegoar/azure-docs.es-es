@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619466"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332202"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar y catalogar nuevos inquilinos mediante el patrón SaaS de aplicación por inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,13 +39,13 @@ Al implementar una aplicación por inquilino, tanto la aplicación como la base 
 
 Mientras que la aplicación y la base de datos de cada inquilino estén totalmente aisladas, es posible que varios escenarios de administración y análisis operen entre estos inquilinos.  Por ejemplo, si se aplica un cambio de esquema en una nueva versión de la aplicación, es necesario realizar cambios en el esquema de cada base de datos del inquilino. Asimismo, los escenarios de creación de informes y de análisis deben obtener acceso a todas las bases de datos de inquilino sin importar dónde se hayan implementado.
 
-   ![patrón de aplicación por inquilino](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
+   ![Diagrama que muestra cómo usar un catálogo de inquilinos con el patrón de aplicación por inquilino.](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
 
 El catálogo de inquilinos contiene una asignación entre un identificador de inquilino y una base de datos de inquilino, lo que permite resolver un identificador en un nombre de servidor y de base de datos.  En la aplicación SaaS de Wingtip, el identificador del inquilino se calcula como un hash del nombre de inquilino, aunque se podrían usar otros esquemas.  Como las aplicaciones independientes no necesitan el catálogo para administrar las conexiones, el catálogo se puede usar para agregar otras acciones a un conjunto de bases de datos de inquilino. Por ejemplo, la consulta Elastic puede usar el catálogo para determinar el conjunto de bases de datos en las que se distribuyen las consultas de los informes entre inquilinos.
 
 ## <a name="elastic-database-client-library"></a>Biblioteca de cliente de Elastic Database
 
-En la aplicación de ejemplo de Wingtip, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca cliente de Elastic Database](elastic-database-client-library.md) (EDCL).  La biblioteca permite que una aplicación pueda crear, administrar y usar un mapa de particiones que se almacena en una base de datos. En el ejemplo de Wingtip Tickets, el catálogo se almacena en la base de datos del *catálogo de inquilinos*.  Igualmente, la partición asigna una clave de inquilino a la partición (base de datos) en la que se almacenan los datos de ese inquilino.  Las funciones de EDCL se encargan de administrar un *mapa de particiones global* que se almacena en tablas de la base de datos del *catálogo de inquilinos* y en un *mapa de particiones local* almacenado en cada partición.
+En la aplicación de ejemplo de Wingtip, el catálogo se implementa mediante las características de administración de particiones de la [biblioteca cliente de Elastic Database](elastic-database-client-library.md) (EDCL).  La biblioteca permite que una aplicación pueda crear, administrar y usar un mapa de particiones que se almacena en una base de datos. En el ejemplo de Wingtip Tickets, el catálogo se almacena en la base de datos del *catálogo de inquilinos* .  Igualmente, la partición asigna una clave de inquilino a la partición (base de datos) en la que se almacenan los datos de ese inquilino.  Las funciones de EDCL se encargan de administrar un *mapa de particiones global* que se almacena en tablas de la base de datos del *catálogo de inquilinos* y en un *mapa de particiones local* almacenado en cada partición.
 
 Asimismo, se pueden usar las funciones de EDCL desde aplicaciones o scripts de PowerShell para crear y administrar las entradas del mapa de particiones. Por otro lado, se pueden usar otras funciones de EDCL para recuperar el conjunto de particiones o para conectarse a la base de datos correspondiente a la clave de inquilino.
 
@@ -82,14 +82,14 @@ En esta tarea, aprenderá a aprovisionar el catálogo que se usa para registrar 
 * **Aprovisionar la base de datos del catálogo** mediante una plantilla de administración de recursos de Azure. La base de datos se inicializa al importar un archivo bacpac.
 * **Registrar las aplicaciones de inquilino de ejemplo** que implementó anteriormente.  Cada inquilino se registra mediante una clave que se creó a partir de un valor hash del nombre de inquilino.  Asimismo, el nombre del inquilino también se almacena en una tabla de extensión del catálogo.
 
-1. En PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* y actualice el valor **\<user\>** con el valor que usó al implementar las tres aplicaciones de ejemplo.  **Guarde el archivo**.
-1. En PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* y establezca **$Scenario = 1**. Implemente el catálogo de inquilinos y registre a los inquilinos predefinidos.
+1. En PowerShell ISE, abra *...\Learning Modules\UserConfig.psm* y actualice el valor **\<user\>** con el valor que usó al implementar las tres aplicaciones de ejemplo.  **Guarde el archivo** .
+1. En PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* y establezca **$Scenario = 1** . Implemente el catálogo de inquilinos y registre a los inquilinos predefinidos.
 
-1. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea que dice "`& $PSScriptRoot\New-Catalog.ps1`" y presione **F9**.
+1. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea que dice "`& $PSScriptRoot\New-Catalog.ps1`" y presione **F9** .
 
     ![establecer un punto de interrupción para el seguimiento](./media/saas-standaloneapp-provision-and-catalog/breakpoint.png)
 
-1. Para ejecutar los scripts, presione **F5**.
+1. Para ejecutar los scripts, presione **F5** .
 1.  Después de que la ejecución del script se detenga en el punto de interrupción, presione **F11** para ir al script New-Catalog.ps1.
 1.  Siga paso a paso la ejecución del script mediante las opciones del menú Depurar (F10 y F11) para omitir las funciones llamadas o acceder a ellas.
     *   Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
@@ -99,10 +99,10 @@ Una vez completado el script, se creará el catálogo y todos los inquilinos de 
 Ahora examinemos los recursos que ha creado.
 
 1. Abra [Azure Portal](https://portal.azure.com/) y vaya a los grupos de recursos.  Abra el grupo de recursos **wingtip-sa-catalog-\<user\>** y compruebe el servidor del catálogo y la base de datos.
-1. Abra la base de datos del portal y seleccione *Explorador de datos* en el menú izquierdo.  Haga clic en el comando de inicio de sesión y, a continuación, escriba la contraseña = **P\@ssword1**.
+1. Abra la base de datos del portal y seleccione *Explorador de datos* en el menú izquierdo.  Haga clic en el comando de inicio de sesión y, a continuación, escriba la contraseña = **P\@ssword1** .
 
 
-1. Explore el esquema de la base de datos *tenantcatalog*.
+1. Explore el esquema de la base de datos *tenantcatalog* .
    * Los objetos del esquema `__ShardManagement` los proporciona la biblioteca de cliente Elastic Database.
    * La tabla `Tenants` y la vista `TenantsExtended` son extensiones que se agregaron en el ejemplo y que indican la manera de ampliar el catálogo para proporcionar un valor adicional.
 1. Ejecute la consulta, `SELECT * FROM dbo.TenantsExtended`.
@@ -120,13 +120,13 @@ En esta tarea, aprenderá a aprovisionar una aplicación de un solo inquilino. P
 
 * **Crear un grupo de recursos** para el inquilino.
 * **Aprovisionar la aplicación y la base de datos** en el nuevo grupo de recursos mediante una plantilla de administración de recursos de Azure.  Esta acción incluye la inicialización de la base de datos con el esquema común y los datos de referencia, mediante la importación de un archivo bacpac.
-* **Inicializar la base de datos con información básica del inquilino**. En esta acción tendrá que especificar el tipo de ubicación que se encargará de determinar la fotografía que se usará como fondo en el sitio web de eventos.
-* **Registrar la base de datos en la base de datos del catálogo**.
+* **Inicializar la base de datos con información básica del inquilino** . En esta acción tendrá que especificar el tipo de ubicación que se encargará de determinar la fotografía que se usará como fondo en el sitio web de eventos.
+* **Registrar la base de datos en la base de datos del catálogo** .
 
-1. En PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* y establezca **$Scenario = 2**. Implemente el catálogo de inquilinos y registre a los inquilinos predefinidos.
+1. En PowerShell ISE, abra *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* y establezca **$Scenario = 2** . Implemente el catálogo de inquilinos y registre a los inquilinos predefinidos.
 
-1. Agregue un punto de interrupción en el script colocando el cursor en cualquier lugar de la línea 49 que dice "`& $PSScriptRoot\New-TenantApp.ps1`" y presione **F9**.
-1. Para ejecutar los scripts, presione **F5**.
+1. Agregue un punto de interrupción en el script colocando el cursor en cualquier lugar de la línea 49 que dice "`& $PSScriptRoot\New-TenantApp.ps1`" y presione **F9** .
+1. Para ejecutar los scripts, presione **F5** .
 1.  Después de que la ejecución del script se detenga en el punto de interrupción, presione **F11** para ir al script New-Catalog.ps1.
 1.  Siga paso a paso la ejecución del script mediante las opciones del menú Depurar (F10 y F11) para omitir las funciones llamadas o acceder a ellas.
 

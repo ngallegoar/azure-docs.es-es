@@ -5,40 +5,36 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff44e4ae45f8b7c6bff3685522440ca7118f337e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292747"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92347127"
 ---
 ## <a name="configure-the-sample-project"></a>Configuración del proyecto de ejemplo
 
 A continuación, configure una aplicación cliente de ejemplo que interactuará con su instancia de Azure Digital Twins.
 
-Navegue en la máquina hasta el archivo que descargó anteriormente desde [*Ejemplos de Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (y descomprímalo si aún no lo ha hecho).
+Vaya en la máquina hasta el archivo que descargó anteriormente desde [*Ejemplos de un extremo a otro de Azure Digital Twins*](/samples/azure-samples/digital-twins-samples/digital-twins-samples) (y descomprímalo si aún no lo ha hecho).
 
-Una vez que esté dentro de la carpeta, vaya a _AdtSampleApp_. Abra _**AdtE2ESample.sln**_ en Visual Studio 2019. 
+Una vez que esté dentro de la carpeta, vaya a _AdtSampleApp_ . Abra _**AdtE2ESample.sln**_ en Visual Studio 2019. 
 
-En Visual Studio, use el panel *Explorador de soluciones* para crear una copia del archivo _SampleClientApp > **serviceConfig.json.TEMPLATE**_ (puede usar los menús contextuales para copiar y pegar). Cambie el nombre a la copia de *serviceConfig.json*. Este servirá como archivo JSON predefinido con las variables de configuración necesarias para ejecutar el proyecto.
+En Visual Studio, seleccione el archivo _SampleClientApp > **appsettings.json**_ para abrirlo en la ventana de edición. Este servirá como archivo JSON predefinido con las variables de configuración necesarias para ejecutar el proyecto.
 
-Seleccione el archivo *serviceConfig.json* para abrirlo en la ventana de edición. Cambie `tenantId` al *identificador de directorio*, `clientId` al *identificador de aplicación* y `instanceUrl` a la dirección URL (con *https://* delante como se muestra a continuación) de *hostName* de su instancia de Azure Digital Twins.
+En el cuerpo del archivo, cambie el valor de `instanceUrl` a la dirección URL del *nombre de host* de la instancia de Azure Digital Twins (con *https://* al principio, como se muestra a continuación).
 
 ```json
 {
-  "tenantId": "<your-directory-ID>",
-  "clientId": "<your-application-ID>",
   "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
 }
 ```
 
-
-
 Guarde y cierre el archivo. 
 
-Después, configure el archivo *serviceConfig.json* para que se copie al directorio de salida cuando cree *SampleClientApp*. Para ello, seleccione el archivo *serviceConfig.json* con el botón derecho y elija *Propiedades.* En el inspector *Propiedades*, cambie el valor de la propiedad *Copiar en el directorio de resultados* a *Copiar si es posterior*.
+Después, configure el archivo *appsettings.json* para que se copie al directorio de salida cuando compile *SampleClientApp* . Para ello, seleccione el archivo *appsettings.json* con el botón derecho y elija *Propiedades.* . En el inspector *Propiedades* , cambie el valor de la propiedad *Copiar en el directorio de resultados* a *Copiar si es posterior* .
 
-:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Extracto de la ventana de Visual Studio que muestra el panel Explorador de soluciones con serviceConfig.JSON resaltado y el panel Propiedades con la propiedad Copiar en el directorio de resultados establecida en Copiar si es posterior" border="false":::
+:::image type="content" source="../articles/digital-twins/media/includes/copy-config.png" alt-text="Extracto de la ventana de Visual Studio que muestra el panel Explorador de soluciones con appsettings.json resaltado y el panel Propiedades con la propiedad Copiar en el directorio de salida establecida en Copiar si es posterior" border="false":::
 
 Mantenga el _**AdtE2ESample**_ proyecto abierto en Visual Studio para seguir utilizándolo en el tutorial.
 

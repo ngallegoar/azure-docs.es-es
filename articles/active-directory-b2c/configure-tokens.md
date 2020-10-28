@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 49a5ff61e5f7a17005561e0729a9b0fcb0f954d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67bc9d6b35d4841999721a00592a6bbe23bff10f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85389571"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340230"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -31,26 +31,40 @@ Puede configurar la duración de los tokens en cualquier flujo de usuario.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Seleccione el filtro **Directorio y suscripción** del menú superior y el directorio que contiene el inquilino de Azure AD B2C.
-3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
+3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C** .
 4. Seleccione **Flujos de usuario (directivas)** .
 5. Abra el flujo de usuario que creó anteriormente.
-6. Seleccione **Propiedades**.
-7. En **Vigencia del token**, ajuste las propiedades siguientes para satisfacer las necesidades de su aplicación:
+6. Seleccione **Propiedades** .
+7. En **Vigencia del token** , ajuste las propiedades siguientes para satisfacer las necesidades de su aplicación:
 
     ![Configuración de la propiedad de duración del token en Azure Portal](./media/configure-tokens/token-lifetime.png)
 
-8. Haga clic en **Save**(Guardar).
+8. Haga clic en **Save** (Guardar).
+
+> [!NOTE]
+> Las aplicaciones de página única que usan el flujo de código de autorización con PKCE siempre tienen una duración de token de actualización de 24 horas. [Más información sobre las consecuencias de seguridad de los tokens de actualización en el explorador](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
 
 ## <a name="configure-jwt-token-compatibility"></a>Configuración de compatibilidad de tokens de JWT
 
 1. Seleccione **Flujos de usuario (directivas)** .
 2. Abra el flujo de usuario que creó anteriormente.
-3. Seleccione **Propiedades**.
-4. En **Configuración de compatibilidad del token**, ajuste las propiedades siguientes para satisfacer las necesidades de su aplicación:
+3. Seleccione **Propiedades** .
+4. En **Configuración de compatibilidad del token** , ajuste las propiedades siguientes para satisfacer las necesidades de su aplicación:
 
     ![Configuración de la propiedad de compatibilidad del token en Azure Portal](./media/configure-tokens/token-compatibility.png)
 
-5. Haga clic en **Save**(Guardar).
+5. Haga clic en **Save** (Guardar).
+
+## <a name="provide-optional-claims-to-your-app"></a>Proporcionar notificaciones opcionales a la aplicación
+
+Las notificaciones de aplicación son valores que se devuelven a la aplicación. Actualice el flujo de usuario para que contenga las notificaciones que necesite.
+
+1. Seleccione **Flujos de usuario (directivas)** .
+1. Abra el flujo de usuario que creó anteriormente.
+1. Seleccione **Notificaciones de aplicación** .
+1. Elija las notificaciones y los atributos que quiera enviar de nuevo a la aplicación.
+1. Haga clic en **Save** (Guardar).
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

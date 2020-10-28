@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311536"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320310"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Creación de instancia administrada de SQL: Azure Arc con Azure Data Studio
 
@@ -47,9 +47,9 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 
 - Inicio de Azure Data Studio
 - En la pestaña Conexiones, haga clic en los tres puntos de la parte superior izquierda y elija "Nueva implementación".
-- En las opciones de implementación, seleccione **Instancia administrada de Azure SQL: Azure Arc**. 
+- En las opciones de implementación, seleccione **Instancia administrada de Azure SQL: Azure Arc** . 
   > [!NOTE]
-  > Es posible que aquí se le pida que instale la CLI de azdata si no lo está actualmente.
+  > Es posible que se le pida que instale [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] si no lo está actualmente.
 - Acepte los términos de privacidad y de licencia, y haga clic en **Seleccionar** en la parte inferior.
 
 
@@ -88,8 +88,8 @@ Name          Replicas    ServerEndpoint     State
 sqlinstance1  1/1         25.51.65.109:1433  Ready
 ```
 
-- En Azure Data Studio, en la pestaña **Conexiones**, haga clic en **Nueva conexión** en la vista **Servidores**
-- En la hoja **Conexión**, pegue el valor ServerEndpoint en el cuadro de texto Servidor
+- En Azure Data Studio, en la pestaña **Conexiones** , haga clic en **Nueva conexión** en la vista **Servidores**
+- En la hoja **Conexión** , pegue el valor ServerEndpoint en el cuadro de texto Servidor
 - Seleccione **Inicio de sesión SQL** como tipo de autenticación.
 - Escriba *sa* como nombre de usuario.
 - Especifique la contraseña de la cuenta `sa`.

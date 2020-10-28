@@ -1,29 +1,29 @@
 ---
-title: Diseño de flujos de trabajo de directiva como código
+title: Diseño de flujos de trabajo de Azure Policy as Code
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598220"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320605"
 ---
-# <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
+# <a name="design-azure-policy-as-code-workflows"></a>Diseño de flujos de trabajo de Azure Policy as Code
 
 A medida que avanza en el recorrido con el gobierno en la nube, querrá cambiar de la administración manual de definición de cada directiva en Azure Portal o a través de los distintos SDK a algo más fácil de administrar y repetir a escala empresarial. Dos de los enfoques predominantes para administrar sistemas a escala en la nube son:
 
 - Infraestructura como código: Práctica de tratar el contenido que define los entornos, desde plantillas de Azure Resource Manager (plantillas de ARM), pasando por definiciones de Azure Policy, hasta Azure Blueprints, como código fuente.
 - DevOps: Unión de personas, procesos y productos para hacer posible la entrega continua de valor a los usuarios finales.
 
-La directiva como código es la combinación de estas ideas. Básicamente, mantenga las definiciones de directivas en el control de código fuente y, cada vez que se realice un cambio, pruebe y valide ese cambio. Sin embargo, eso no debe ser el alcance de la implicación de las directivas con la infraestructura como código ni DevOps.
+Azure Policy as Code es la combinación de estas ideas. Básicamente, mantenga las definiciones de directivas en el control de código fuente y, cada vez que se realice un cambio, pruebe y valide ese cambio. Sin embargo, eso no debe ser el alcance de la implicación de las directivas con la infraestructura como código ni DevOps.
 
 El paso de validación también debe ser un componente de otros flujos de trabajo de integración continua o implementación continua. Entre los ejemplos se incluye la implementación de un entorno de aplicación o una infraestructura virtual. Al hacer que la validación de Azure Policy sea un componente temprano del proceso de compilación e implementación, los equipos de operaciones y de aplicaciones detectan si sus cambios cumplen o no, mucho antes de que sea demasiado tarde y estén intentando implementar en producción.
 
 ## <a name="definitions-and-foundational-information"></a>Definiciones e información básica
 
-Antes de entrar en los detalles del flujo de trabajo de directiva como código, revise las siguientes definiciones y ejemplos:
+Antes de entrar en los detalles del flujo de trabajo de Azure Policy as Code, revise las siguientes definiciones y ejemplos:
 
 - [Definición de directiva](./definition-structure.md)
 - [Definición de iniciativa](./initiative-definition-structure.md)
@@ -43,10 +43,10 @@ Además, revise [Exportación de recursos de Azure Policy](../how-to/export-reso
 
 ## <a name="workflow-overview"></a>Introducción al flujo de trabajo
 
-El flujo de trabajo general recomendado de la directiva como código es similar al de este diagrama:
+El flujo de trabajo general recomendado de Azure Policy as Code es similar al de este diagrama:
 
-:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama que muestra los cuadros del flujo de trabajo de directiva como código en las fases de creación, pruebas e implementación." border="false":::
-   El diagrama muestra los cuadros del flujo de trabajo de directiva como código. La fase de creación abarca la creación de las definiciones de directiva e iniciativa. La fase de pruebas abarca la asignación con el modo de cumplimiento deshabilitado. Después de comprobar el estado de cumplimiento, se otorgan asignaciones de permisos MSI y se corrigen los recursos.  La fase de implementación abarca la asignación con el modo de cumplimiento habilitado.
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagrama que muestra los cuadros del flujo de trabajo de Azure Policy as Code, que abarcan las fases de creación, pruebas e implementación." border="false":::
+   El diagrama muestra los cuadros del flujo de trabajo de Azure Policy as Code. La fase de creación abarca la creación de las definiciones de directiva e iniciativa. La fase de pruebas abarca la asignación con el modo de cumplimiento deshabilitado. Después de comprobar el estado de cumplimiento, se otorgan asignaciones de permisos MSI y se corrigen los recursos.  La fase de implementación abarca la asignación con el modo de cumplimiento habilitado.
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Crear y actualizar definiciones de directivas
@@ -56,22 +56,19 @@ Las definiciones de directiva se crean mediante JSON y se almacenan en el contro
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
@@ -89,17 +86,15 @@ Del mismo modo, las iniciativas tienen su propio archivo JSON y archivos relacio
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -107,14 +102,14 @@ Al igual que las definiciones de directiva, al agregar o actualizar una iniciati
 
 ### <a name="test-and-validate-the-updated-definition"></a>Prueba y validación de la definición actualizada
 
-Una vez que la automatización ha tomado las definiciones de directivas o de iniciativas recién creadas o actualizadas, y ha realizado la actualización del objeto en Azure, es el momento de probar los cambios realizados. La directiva o las iniciativas a las que pertenece deben asignarse a los recursos del entorno más alejado de producción. Este entorno suele ser _Dev_.
+Una vez que la automatización ha tomado las definiciones de directivas o de iniciativas recién creadas o actualizadas, y ha realizado la actualización del objeto en Azure, es el momento de probar los cambios realizados. La directiva o las iniciativas a las que pertenece deben asignarse a los recursos del entorno más alejado de producción. Este entorno suele ser _Dev_ .
 
 La asignación debe utilizar [enforcementMode](./assignment-structure.md#enforcement-mode) en _disabled_ para que la creación de recursos y las actualizaciones no se bloqueen, pero que los recursos existentes sigan siendo auditados para el cumplimiento de la definición de directiva actualizada. Incluso con enforcementMode, se recomienda que el ámbito de asignación sea un grupo de recursos o una suscripción específica para validar directivas.
 
 > [!NOTE]
 > Aunque el modo de cumplimiento es útil, no es un sustituto para probar exhaustivamente la definición de una directiva en varias condiciones. La definición de la directiva se debe probar con las llamadas API de REST `PUT` y `PATCH`, recursos compatibles y no compatibles, y casos extremos, como una propiedad que falte en el recurso.
 
-Una vez implementada la asignación, use el SDK de directiva o la [acción de GitHub de examen de cumplimiento de Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan) para [obtener datos de cumplimiento](../how-to/get-compliance-data.md) para la nueva asignación. El entorno que se usa para probar las directivas y asignaciones debe tener recursos compatibles y no compatibles.
+Una vez implementada la asignación, use el SDK de Azure Policy, la [acción de GitHub de examen de cumplimiento de Azure Policy](https://github.com/marketplace/actions/azure-policy-compliance-scan) o la [tarea de evaluación de seguridad y cumplimiento de Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-policy) para [obtener datos de cumplimiento](../how-to/get-compliance-data.md) para la nueva asignación. El entorno que se usa para probar las directivas y asignaciones debe tener recursos compatibles y no compatibles.
 Al igual que una buena prueba unitaria del código, desea probar que los recursos son los esperados y que tampoco tiene falsos positivos ni falsos negativos. Si prueba y valida solo lo que espera, puede haber un impacto inesperado y no identificado de la directiva. Para obtener más información, consulte [Evaluación del efecto de una nueva definición de Azure Policy](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Habilitación de tareas de corrección
@@ -134,17 +129,17 @@ Probar los resultados de la evaluación de la directiva actualizada y el entorno
 
 ### <a name="update-to-enforced-assignments"></a>Actualizar a asignaciones aplicadas
 
-Una vez completadas todas las validaciones, actualice la asignación para utilizar **enforcementMode** en _enabled_. Se recomienda realizar este cambio inicialmente en el mismo entorno alejado de producción. Una vez que se valida que ese entorno funciona según lo previsto, se debe definir el ámbito del cambio para que incluya el siguiente entorno, y así sucesivamente, hasta que la directiva se implemente en los recursos de producción.
+Una vez completadas todas las validaciones, actualice la asignación para utilizar **enforcementMode** en _enabled_ . Se recomienda realizar este cambio inicialmente en el mismo entorno alejado de producción. Una vez que se valida que ese entorno funciona según lo previsto, se debe definir el ámbito del cambio para que incluya el siguiente entorno, y así sucesivamente, hasta que la directiva se implemente en los recursos de producción.
 
 ## <a name="process-integrated-evaluations"></a>Procesamiento de evaluaciones integradas
 
-El flujo de trabajo general de la directiva como código es desarrollar e implementar directivas e iniciativas en un entorno a escala. Sin embargo, la evaluación de directivas debe formar parte del proceso de implementación de cualquier flujo de trabajo que implemente o cree recursos en Azure, como la implementación de aplicaciones o la ejecución de plantillas de ARM para crear la infraestructura.
+El flujo de trabajo general de Azure Policy as Code tiene como finalidad desarrollar e implementar directivas e iniciativas en un entorno a gran escala. Sin embargo, la evaluación de directivas debe formar parte del proceso de implementación de cualquier flujo de trabajo que implemente o cree recursos en Azure, como la implementación de aplicaciones o la ejecución de plantillas de ARM para crear la infraestructura.
 
 En estos casos, una vez que la implementación de la aplicación o infraestructura se ha completado para una suscripción o grupo de recursos de prueba, se debe realizar la evaluación de la directiva para ese ámbito mediante la comprobación de la validación de todas las directivas e iniciativas existentes. Aunque es posible que se configuren como **enforcementMode** _disabled_ en este entorno, es útil saber pronto si la implementación de una aplicación o infraestructura infringe las definiciones de directivas en un principio. Por lo tanto, esta evaluación de directivas debe ser un paso en esos flujos de trabajo, y hacer fracasar las implementaciones que crean recursos no compatibles.
 
 ## <a name="review"></a>Revisar
 
-En este artículo se describe el flujo de trabajo general de la directiva como código, así como la evaluación de la directiva que debe formar parte de otros flujos de trabajo de implementación. Este flujo de trabajo se puede usar en cualquier entorno que admita pasos con scripts y automatización basada en desencadenadores.
+En este artículo se describe el flujo de trabajo general de Azure Policy as Code, así como los casos en los que la evaluación de la directiva debe formar parte de otros flujos de trabajo de implementación. Este flujo de trabajo se puede usar en cualquier entorno que admita pasos con scripts y automatización basada en desencadenadores. Para ver un tutorial sobre el uso de este flujo de trabajo en GitHub, consulte: [Tutorial: Implementación de Azure Policy as Code mediante GitHub](../tutorials/policy-as-code-github.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

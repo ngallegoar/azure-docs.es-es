@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
-ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395169"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331556"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
 En este artículo se ofrece información general de lo que significa mover un circuito Azure ExpressRoute del modelo de implementación clásica al de Azure Resource Manager.
@@ -85,7 +85,7 @@ En esta sección se describe lo que se admite para los circuitos ExpressRoute:
 En esta sección se describe lo que no se admite para los circuitos ExpressRoute:
 
 * Administrar el ciclo de vida de un circuito ExpressRoute desde el modelo de implementación clásica.
-* Compatibilidad de control de acceso basado en rol (RBAC) para el modelo de implementación clásica. No puede realizar RBAC para un circuito del modelo de implementación clásica. Cualquier administrador o coadministrador de la suscripción puede vincular o desvincular redes virtuales al/del circuito.
+* Compatibilidad del control de acceso basado en roles de Azure (Azure RBAC) para el modelo de implementación clásica. No puede usar los controles de Azure RBAC en un circuito del modelo de implementación clásica. Cualquier administrador o coadministrador de la suscripción puede vincular o desvincular redes virtuales al/del circuito.
 
 ## <a name="configuration"></a>Configuración
 Revise las instrucciones que se ofrecen en [Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager](expressroute-howto-move-arm.md).

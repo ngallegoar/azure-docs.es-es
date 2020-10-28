@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 92dcb1e75d43a946b9b6a238aaa360ec3d84dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619632"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331947"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una instancia de Azure SQL Database multiinquilino con particiones
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En este artículo se describe el aprovisionamiento y la catalogación de nuevos inquilinos en un modelo o patrón de *base de datos multiinquilino con particiones*.
+En este artículo se describe el aprovisionamiento y la catalogación de nuevos inquilinos en un modelo o patrón de *base de datos multiinquilino con particiones* .
 
 Este artículo se divide en dos partes principales:
 
@@ -70,7 +70,7 @@ El catálogo también se puede usar para habilitar la generación de informes en
 
 ### <a name="elastic-database-client-library"></a>Biblioteca de cliente de Elastic Database
 
-En Wingtip, el catálogo se implementa en la base de datos *tenantcatalog*. La base de datos *tenantcatalog* se crea mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](elastic-database-client-library.md). La biblioteca permite que una aplicación pueda crear, administrar y usar un *mapa de particiones* que se almacena en una base de datos. Un mapa de particiones crea referencias cruzadas de la clave de inquilino con su partición, es decir, su base de datos con particiones.
+En Wingtip, el catálogo se implementa en la base de datos *tenantcatalog* . La base de datos *tenantcatalog* se crea mediante las características de administración de particiones de la [biblioteca de cliente de Elastic Database (EDCL)](elastic-database-client-library.md). La biblioteca permite que una aplicación pueda crear, administrar y usar un *mapa de particiones* que se almacena en una base de datos. Un mapa de particiones crea referencias cruzadas de la clave de inquilino con su partición, es decir, su base de datos con particiones.
 
 Durante el aprovisionamiento del inquilino, se pueden usar las funciones de EDCL desde aplicaciones o scripts de PowerShell para crear las entradas en el mapa de particiones. Posteriormente, estas funciones se pueden usar para conectarse a la base de datos correcta. La biblioteca EDCL almacena en caché la información de conexión para reducir el tráfico en la base de datos de catálogo y acelerar el proceso de conexión.
 
@@ -109,7 +109,7 @@ Los scripts de aprovisionamiento de inquilinos de este tutorial admiten los sigu
 - Aprovisionamiento de un inquilino en una base de datos existente compartida con otros inquilinos.
 - Aprovisionamiento de un inquilino en su propia base de datos.
 
-Luego, los datos de inquilino se inicializan y registran en el mapa de particiones del catálogo. En la aplicación de ejemplo, las bases de datos que contienen varios inquilinos reciben un nombre genérico, como *tenants1* o *tenants2*. Las bases de datos que contienen un único inquilino reciben el nombre del inquilino. Las convenciones de nomenclatura específicas que se usan en el ejemplo no son una parte fundamental del patrón, porque el uso de un catálogo permite asignar cualquier nombre a la base de datos.
+Luego, los datos de inquilino se inicializan y registran en el mapa de particiones del catálogo. En la aplicación de ejemplo, las bases de datos que contienen varios inquilinos reciben un nombre genérico, como *tenants1* o *tenants2* . Las bases de datos que contienen un único inquilino reciben el nombre del inquilino. Las convenciones de nomenclatura específicas que se usan en el ejemplo no son una parte fundamental del patrón, porque el uso de un catálogo permite asignar cualquier nombre a la base de datos.
 
 <a name="goto_1_tutorial"></a>
 
@@ -143,35 +143,35 @@ En esta sección, verá una lista de las acciones principales de aprovisionamien
 
 A continuación se muestran los elementos clave del flujo de trabajo de aprovisionamiento que recorre:
 
-- **Cálculo de la nueva clave de inquilino**: Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
-- **Comprobación de si ya existe la clave de inquilino**: El catálogo se comprueba para garantizar que todavía no se registró la clave.
-- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
-- **Registro del inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos tenants1 existente se agrega al catálogo.
-- **Incorporación del nombre del inquilino a una tabla de extensión de catálogo**: El nombre de la ubicación se agrega a la tabla Inquilinos del catálogo.  Esta adición muestra cómo la base de datos de catálogo puede ampliarse para admitir datos adicionales específicos de la aplicación.
-- **Apertura de la página Eventos para el inquilino nuevo**: La página de eventos de *Bushwillow Blues* se abre en el explorador.
+- **Cálculo de la nueva clave de inquilino** : Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
+- **Comprobación de si ya existe la clave de inquilino** : El catálogo se comprueba para garantizar que todavía no se registró la clave.
+- **Inicialización del inquilino en la base de datos de inquilino predeterminada** : La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
+- **Registro del inquilino en el catálogo** : la asignación entre la clave de inquilino nueva y la base de datos tenants1 existente se agrega al catálogo.
+- **Incorporación del nombre del inquilino a una tabla de extensión de catálogo** : El nombre de la ubicación se agrega a la tabla Inquilinos del catálogo.  Esta adición muestra cómo la base de datos de catálogo puede ampliarse para admitir datos adicionales específicos de la aplicación.
+- **Apertura de la página Eventos para el inquilino nuevo** : La página de eventos de *Bushwillow Blues* se abre en el explorador.
 
-   ![events](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Captura de pantalla que muestra la página de eventos de un nuevo inquilino.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>Pasos del depurador
 
 Para comprender cómo la aplicación Wingtip implementa el aprovisionamiento de un inquilino nuevo en una base de datos compartida, agregue un punto de interrupción y recorra el flujo de trabajo:
 
-1. En *PowerShell ISE*, abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* y establezca los parámetros siguientes:
-   - **$TenantName** = **Bushwillow Blues**, el nombre de la ubicación nueva.
-   - **$VenueType** = **blues**, uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacios).
-   - **$DemoScenario** = **1**, para aprovisionar un inquilino en una base de datos compartida con otros inquilinos.
+1. En *PowerShell ISE* , abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* y establezca los parámetros siguientes:
+   - **$TenantName** = **Bushwillow Blues** , el nombre de la ubicación nueva.
+   - **$VenueType** = **blues** , uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacios).
+   - **$DemoScenario** = **1** , para aprovisionar un inquilino en una base de datos compartida con otros inquilinos.
 
-2. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea 38, que dice: *Nuevo inquilino '* y, a continuación, presione **F9**.
+2. Agregue un punto de interrupción colocando el cursor en cualquier lugar de la línea 38, que dice: *Nuevo inquilino '* y, a continuación, presione **F9** .
 
-   ![punto de interrupción](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Captura de pantalla que resalta la línea que incluye el nuevo inquilino.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
-3. Para ejecutar los scripts, presione **F5**.
+3. Para ejecutar los scripts, presione **F5** .
 
 4. Después de que la ejecución del script se detiene en el punto de interrupción, presione **F11** para depurar paso a paso el código por instrucciones.
 
    ![Captura de pantalla que muestra Windows PowerShell ISE con el menú Depurar abierto y la opción Depurar paso a paso por instrucciones seleccionada.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
-5. Siga paso a paso la ejecución del script mediante las opciones del menú **Depurar**, **F10** y **F11**, para omitir las funciones llamadas o acceder a ellas.
+5. Siga paso a paso la ejecución del script mediante las opciones del menú **Depurar** , **F10** y **F11** , para omitir las funciones llamadas o acceder a ellas.
 
 Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
@@ -181,14 +181,14 @@ Para obtener más información sobre cómo depurar scripts de PowerShell, consul
 
 A continuación se muestran los elementos clave del flujo de trabajo que recorre mientras se hace seguimiento del script:
 
-- **Cálculo de la nueva clave de inquilino**: Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
-- **Comprobación de si ya existe la clave de inquilino**: El catálogo se comprueba para garantizar que todavía no se registró la clave.
-- **Creación de una base de datos de inquilino nueva**: La base de datos se crea al copiar la base de datos *basetenantdb* con una plantilla de Resource Manager.  El nombre de la base de datos nueva se basa en el nombre del inquilino.
-- **Incorporación de la base de datos al catálogo**: La base de datos de inquilino nueva se registra como una partición en el catálogo.
-- **Inicialización del inquilino en la base de datos de inquilino predeterminada**: La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
-- **Registro del inquilino en el catálogo**: la asignación entre la clave de inquilino nueva y la base de datos *sequoiasoccer* existente se agrega al catálogo.
-- **El nombre del inquilino se agrega al catálogo**: El nombre de la ubicación se agrega a la tabla de extensión Inquilinos del catálogo.
-- **Apertura de la página Eventos para el inquilino nuevo**: La página de eventos de *Sequoia Soccer* se abre en el explorador.
+- **Cálculo de la nueva clave de inquilino** : Para crear la clave de inquilino a partir del nombre del inquilino se utiliza una función hash.
+- **Comprobación de si ya existe la clave de inquilino** : El catálogo se comprueba para garantizar que todavía no se registró la clave.
+- **Creación de una base de datos de inquilino nueva** : La base de datos se crea al copiar la base de datos *basetenantdb* con una plantilla de Resource Manager.  El nombre de la base de datos nueva se basa en el nombre del inquilino.
+- **Incorporación de la base de datos al catálogo** : La base de datos de inquilino nueva se registra como una partición en el catálogo.
+- **Inicialización del inquilino en la base de datos de inquilino predeterminada** : La base de datos de inquilino se actualiza para agregar la información del inquilino nuevo.
+- **Registro del inquilino en el catálogo** : la asignación entre la clave de inquilino nueva y la base de datos *sequoiasoccer* existente se agrega al catálogo.
+- **El nombre del inquilino se agrega al catálogo** : El nombre de la ubicación se agrega a la tabla de extensión Inquilinos del catálogo.
+- **Apertura de la página Eventos para el inquilino nuevo** : La página de eventos de *Sequoia Soccer* se abre en el explorador.
 
    ![events](./media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
@@ -196,16 +196,16 @@ A continuación se muestran los elementos clave del flujo de trabajo que recorre
 
 Ahora, recorra el proceso de script al crear un inquilino en su propia base de datos:
 
-1. Todavía en ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, establezca los parámetros siguientes:
-   - **$TenantName** = **Sequoia Soccer**, el nombre de la ubicación nueva.
-   - **$VenueType** = **soccer**, uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacio).
+1. Todavía en ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* , establezca los parámetros siguientes:
+   - **$TenantName** = **Sequoia Soccer** , el nombre de la ubicación nueva.
+   - **$VenueType** = **soccer** , uno de los tipos de ubicación predefinidos: blues, classicalmusic, dance, jazz, judo, motorracing, multipurpose, opera, rockmusic, soccer (en minúsculas, sin espacio).
    - **$DemoScenario** = **2** para aprovisionar un inquilino en su propia base de datos.
 
-2. Agregue un punto de interrupción nuevo colocando el cursor en cualquier lugar de la línea 57, que dice: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* , y presione **F9**.
+2. Agregue un punto de interrupción nuevo colocando el cursor en cualquier lugar de la línea 57, que dice: *&&nbsp;$PSScriptRoot\New-TenantAndDatabase `* , y presione **F9** .
 
    ![punto de interrupción](./media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
-3. Para ejecutar los scripts, presione **F5**.
+3. Para ejecutar los scripts, presione **F5** .
 
 4. Después de que la ejecución del script se detiene el punto de interrupción, presione **F11** para depurar paso a paso el código por instrucciones.  Use **F10** y **F11** para omitir las funciones para hacer seguimiento de la ejecución o acceder a ellas.
 
@@ -213,8 +213,8 @@ Ahora, recorra el proceso de script al crear un inquilino en su propia base de d
 
 Este ejercicio aprovisiona un lote de 17 inquilinos. Se recomienda que aprovisione este lote de inquilinos antes de comenzar con otros tutoriales de Wingtip Tickets, de manera que haya más bases de datos con las cuales trabajar.
 
-1. En *PowerShell ISE*, abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* y cambie el parámetro *$DemoScenario* a 4:
-   - **$DemoScenario** = **4**, para aprovisionar un lote de inquilinos en una base de datos compartida.
+1. En *PowerShell ISE* , abra ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1* y cambie el parámetro *$DemoScenario* a 4:
+   - **$DemoScenario** = **4** , para aprovisionar un lote de inquilinos en una base de datos compartida.
 
 2. Presione **F5** y ejecute el script.
 
@@ -237,11 +237,11 @@ La lista completa de inquilinos y su base de datos correspondiente están dispon
 - El nombre del inquilino se almacena en la tabla de inquilinos.
 - El nombre de la base de datos se almacena en las tablas de administración de particiones.
 
-1. En SQL Server Management Studio (SSMS), conéctese al servidor de inquilinos en **catalog-mt.\<USER\>.database.windows.net**, con el inicio de sesión = **developer**, y la contraseña = **P\@ssword1**.
+1. En SQL Server Management Studio (SSMS), conéctese al servidor de inquilinos en **catalog-mt.\<USER\>.database.windows.net** , con el inicio de sesión = **developer** , y la contraseña = **P\@ssword1** .
 
     ![Cuadro de diálogo de conexión SSMS](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
-2. En el Explorador de objetos de SSMS, examine las vistas de la base de datos *tenantcatalog*.
+2. En el Explorador de objetos de SSMS, examine las vistas de la base de datos *tenantcatalog* .
 
 3. Haga clic con el botón derecho en la vista *TenantsExtended* y elija **Select Top 1000 Rows** (Seleccionar las 1000 primeras filas). Observe la asignación entre el nombre de inquilino y la base de datos para los distintos inquilinos.
 

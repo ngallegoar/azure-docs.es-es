@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 69a2bc002b2ccccba90bde5b6c92d162b6e78815
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952257"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320162"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carga de datos de uso, métricas y registros en Azure Monitor
 
@@ -25,7 +25,7 @@ Puede exportar periódicamente la información de uso con fines de facturación,
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesitará tener instaladas la CLI de Azure (az) y la CLI de datos de Azure (azdata).  [Instale las herramientas](./install-client-tools.md).
+Necesitará tener instaladas la CLI de Azure y [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].  [Instale las herramientas](./install-client-tools.md).
 
 Antes de cargar los datos en Azure, debe asegurarse de que su suscripción de Azure tiene registrado el proveedor de recursos Microsoft.AzureData.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 La información de uso, como el inventario y el uso de recursos, se puede cargar en Azure con el siguiente método de dos pasos:
 
-1. Exporte los datos de uso mediante comando ```azdata export```, como se indica a continuación:
+1. Exporte los datos de uso mediante comando `azdata export`, como se indica a continuación:
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ La información de uso, como el inventario y el uso de recursos, se puede cargar
    ```
    Este comando crea un archivo `usage.json` con todos los recursos de datos habilitados para Azure Arc, como las instancias administradas de SQL y las instancias de Hiperescala de PostgreSQL, etc., que se crean en el controlador de datos.
 
-2. Cargue los datos de uso mediante el comando ```azdata upload```.
+2. Cargue los datos de uso mediante el comando `azdata upload`.
 
    > [!NOTE]
    > Espere al menos 24 horas después de crear el controlador de datos de Azure Arc antes de ejecutar la carga.
@@ -95,7 +95,7 @@ Siga estos comandos para crear la entidad de servicio de carga de métricas y as
 Para crear una entidad de servicio, ejecute este comando:
 
 > [!NOTE]
-> Para crear una entidad de servicio se necesitan [determinados permisos en Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> Para crear una entidad de servicio se necesitan [determinados permisos en Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>

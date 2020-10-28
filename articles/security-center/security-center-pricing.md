@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a01d4137217aa594d4636f3338d3f33dc03cc836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01d7d29e9fffff3be2c98c0ec52c01774439e3f7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713749"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341195"
 ---
 # <a name="pricing-of-azure-security-center"></a>Precios de Azure Security Center
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
@@ -30,13 +30,14 @@ Security Center se ofrece en dos modos:
 
 - **Azure Defender DESACTIVADO** (Gratis): Security Center sin Azure Defender está habilitado en todas las suscripciones de Azure la primera vez que visite el panel de Azure Security Center en Azure Portal, o si se habilitó mediante programación a través de una API. Este modo gratis proporciona recomendaciones de directivas de seguridad, de evaluación continua de la seguridad y de seguridad que requieren acción para que pueda proteger sus recursos de Azure.
 
-- **Azure Defender ACTIVADO**: la habilitación de Azure Defender amplía las capacidades del nivel Gratis a las cargas de trabajo que se ejecutan en nubes privadas y otras nubes públicas, lo que ofrece una administración de seguridad unificada y protección contra amenazas en todas sus cargas de trabajo de nube híbrida. Algunas de las principales características de Azure Defender:
+- **Azure Defender ACTIVADO** : la habilitación de Azure Defender amplía las capacidades del nivel Gratis a las cargas de trabajo que se ejecutan en nubes privadas y otras nubes públicas, lo que ofrece una administración de seguridad unificada y protección contra amenazas en todas sus cargas de trabajo de nube híbrida. Algunas de las principales características de Azure Defender:
 
-    - **Seguridad híbrida**: Obtenga una vista unificada de la seguridad de todas sus cargas de trabajo locales y en la nube. Aplique directivas de seguridad y evalúe constantemente la seguridad de las cargas de trabajo de nube híbrida para garantizar el cumplimiento normativo con los estándares de seguridad. Recopile, busque y analice datos de seguridad de varios orígenes, incluidos firewalls y otras soluciones de partners.
-    - **Alertas de protección contra amenazas**: el análisis de comportamiento avanzado y Microsoft Intelligent Security Graph proporcionan una ventaja frente a los ataques cibernéticos en evolución. Aproveche la funcionalidad integrada de análisis del comportamiento y aprendizaje automático para identificar ataques y vulnerabilidades de seguridad de día cero. Supervise las redes, las máquinas y los servicios en la nube para detectar ataques entrantes y actividad posterior a una infracción de seguridad. Optimice la investigación con herramientas interactivas e inteligencia de amenazas contextual.
-    - **Detección de vulnerabilidades de máquinas virtuales y registros de contenedor**: implemente fácilmente un escáner en todas las máquinas virtuales que proporciona la solución más avanzada del sector para la administración de vulnerabilidades. Vea, investigue y corrija los hallazgos directamente dentro de Security Center. 
-    - **Controles de acceso y de aplicación**: bloquee el malware y otras aplicaciones no deseadas aplicando recomendaciones de basadas en el aprendizaje automático, adaptadas a sus cargas de trabajo específicas, para crear listas de permitidos y denegados. Reduzca la superficie de la red que está expuesta a ataques mediante un acceso Just-In-Time controlado a los puertos de administración de las VM de Azure. Esto reduce drásticamente la exposición a ataques por fuerza bruta y otros tipos de ataque de red.
-    - **Características de seguridad de contenedor**: Aproveche la administración de vulnerabilidades y la protección contra amenazas en tiempo real en los entornos en contenedores. Al habilitar **Azure Defender para registros de contenedor**, pueden pasar hasta 12 horas para que se habiliten todas las características. Los cargos se basan en el número de imágenes de contenedor únicas insertadas en el registro conectado. Una vez que se haya analizado una imagen, no se le cobrará de nuevo a menos que se modifique e inserte una vez más. 
+    - **Microsoft Defender for Endpoint** : Azure Defender para servidores incluye [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) para una completa detección y respuesta de puntos de conexión (EDR). Obtenga más información sobre las ventajas de usar Microsoft Defender for Endpoint junto con Azure Defender en [Uso de la solución EDR integrada de Security Center](security-center-wdatp.md).
+    - **Detección de vulnerabilidades de máquinas virtuales y registros de contenedor** : implemente fácilmente un escáner en todas las máquinas virtuales que proporciona la solución más avanzada del sector para la administración de vulnerabilidades. Vea, investigue y corrija los hallazgos directamente dentro de Security Center. 
+    - **Seguridad híbrida** : Obtenga una vista unificada de la seguridad de todas sus cargas de trabajo locales y en la nube. Aplique directivas de seguridad y evalúe constantemente la seguridad de las cargas de trabajo de nube híbrida para garantizar el cumplimiento normativo con los estándares de seguridad. Recopile, busque y analice datos de seguridad de varios orígenes, incluidos firewalls y otras soluciones de partners.
+    - **Alertas de protección contra amenazas** : el análisis de comportamiento avanzado y Microsoft Intelligent Security Graph proporcionan una ventaja frente a los ataques cibernéticos en evolución. Aproveche la funcionalidad integrada de análisis del comportamiento y aprendizaje automático para identificar ataques y vulnerabilidades de seguridad de día cero. Supervise las redes, las máquinas y los servicios en la nube para detectar ataques entrantes y actividad posterior a una infracción de seguridad. Optimice la investigación con herramientas interactivas e inteligencia de amenazas contextual.
+    - **Controles de acceso y de aplicación** : bloquee el malware y otras aplicaciones no deseadas aplicando recomendaciones de basadas en el aprendizaje automático, adaptadas a sus cargas de trabajo específicas, para crear listas de permitidos y denegados. Reduzca la superficie de la red que está expuesta a ataques mediante un acceso Just-In-Time controlado a los puertos de administración de las VM de Azure. Esto reduce drásticamente la exposición a ataques por fuerza bruta y otros tipos de ataque de red.
+    - **Características de seguridad de contenedor** : Aproveche la administración de vulnerabilidades y la protección contra amenazas en tiempo real en los entornos en contenedores. Al habilitar **Azure Defender para registros de contenedor** , pueden pasar hasta 12 horas para que se habiliten todas las características. Los cargos se basan en el número de imágenes de contenedor únicas insertadas en el registro conectado. Una vez que se haya analizado una imagen, no se le cobrará de nuevo a menos que se modifique e inserte una vez más. 
 
 ## <a name="try-azure-defender-free-for-30-days"></a>Prueba de Azure Defender gratis durante 30 días
 
@@ -48,10 +49,10 @@ Puede proteger toda una suscripción de Azure con Azure Defender y todos los rec
 
 Para habilitar Azure Defender:
 
-1. En el menú principal de Security Center, seleccione **Precios y configuración**.
+1. En el menú principal de Security Center, seleccione **Precios y configuración** .
 1. Seleccione la suscripción que quiere actualizar.
 1. Seleccione **Azure Defender está activado** para actualizar.
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 A continuación se muestra la página de precios de una suscripción de ejemplo. Observará que cada plan de Azure Defender tiene un precio independiente y se puede activar o desactivar de forma independiente.
 
@@ -70,4 +71,4 @@ En este artículo se han presentado los precios de Security Center. Para obtener
 
 - [Optimización de los costos de la carga de trabajo de Azure](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [Detalles de precios en la moneda de su elección y según su región](https://azure.microsoft.com/pricing/details/security-center/)
-- Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes. La [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) permite aplicar un ámbito a la solución y tener como destino un subconjunto de equipos en el área de trabajo. Si usa la selección de destino de solución, Security Center muestra el área de trabajo como si no tuviera una solución.
+- Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes. La [selección de destino de solución](../azure-monitor/insights/solution-targeting.md) permite aplicar un ámbito a la solución y tener como destino un subconjunto de equipos en el área de trabajo. Si usa la selección de destino de solución, Security Center muestra el área de trabajo como si no tuviera una solución.

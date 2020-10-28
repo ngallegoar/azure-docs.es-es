@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: eb5e5cc97b13d8eb8e671501e9b16479ba59642a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 098cfa1784571856cbd80d55fec4e6232e882d17
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999306"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339856"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novedades de Azure Security Center
 
@@ -28,6 +28,136 @@ Esta página se actualiza con frecuencia, por lo que se recomienda visitarla a m
 > [!TIP]
 > Si busca elementos de más de 6 meses, puede encontrarlos en las [Novedades de Azure Security Center](release-notes-archive.md).
 
+
+## <a name="october-2020"></a>Octubre de 2020
+
+- [Evaluación de vulnerabilidades para máquinas locales y en varias nubes (versión preliminar)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Recomendación sobre Azure Firewall agregada (versión preliminar)](#azure-firewall-recommendation-added-preview)
+- [Tabla Microsoft.Security/securityStatuses quitada de Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Evaluación de vulnerabilidades para máquinas locales y en varias nubes (versión preliminar)
+
+El analizador de evaluación de vulnerabilidades integrado de [Azure Defender para servidores](defender-for-servers-introduction.md) (con tecnología de Qualys) ahora analiza los servidores habilitados para Azure Arc.
+
+Al habilitar Azure Arc en máquinas que no son de Azure, Security Center le ofrecerá la opción de implementar en ellas el analizador de vulnerabilidades integrado, manualmente y a escala.
+
+Con esta actualización, puede aprovechar toda la capacidad de **Azure Defender para servidores** para consolidar su programa de administración de vulnerabilidades en todos sus recursos, tanto si son de Azure como si no.
+
+Principales funcionalidades:
+
+- Supervisión del estado de aprovisionamiento del analizador de evaluación de vulnerabilidades en máquinas de Azure Arc.
+- Aprovisionamiento del agente de evaluación de vulnerabilidades integrado en máquinas de Azure Arc Windows y Linux (manualmente y a escala).
+- Recepción y análisis de vulnerabilidades detectadas por agentes implementados (manualmente y a escala).
+- Experiencia unificada para máquinas virtuales de Azure y máquinas de Azure Arc.
+
+[Obtenga más información sobre la implementación del analizador de vulnerabilidades integrado en las máquinas híbridas](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Obtenga más información sobre los servidores habilitados para Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/).
+
+
+### <a name="azure-firewall-recommendation-added-preview"></a>Recomendación sobre Azure Firewall agregada (versión preliminar)
+
+Se ha agregado una nueva recomendación para proteger todas las redes virtuales con Azure Firewall.
+
+La recomendación **Azure Firewall debe proteger las redes virtuales** le aconseja restringir el acceso a las redes virtuales y evitar posibles amenazas mediante el uso de Azure Firewall.
+
+Más información acerca de [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
+
+
+### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Tabla Microsoft.Security/securityStatuses quitada de Azure Resource Graph (ARG)
+
+Azure Resource Graph es un servicio de Azure diseñado para proporcionar una exploración de recursos eficaz con la capacidad de consultar a escala a través de un conjunto especificado de suscripciones para que pueda controlar eficazmente el entorno. 
+
+Para Azure Security Center, puede usar ARG y el [lenguaje de consulta Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) para consultar una amplia variedad de datos de posición de seguridad. Por ejemplo:
+
+- El inventario de recursos utiliza ARG.
+- Hemos documentado una consulta de ARG de ejemplo sobre la [Identificación de cuentas sin Multi-Factor Authentication (MFA) habilitado](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled).
+
+Dentro de ARG hay tablas de datos que se pueden usar en las consultas.
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Explorador de Azure Resource Graph y tablas disponibles&quot;:::
+
+> [!TIP]
+> La documentación de ARG muestra todas las tablas disponibles en la [tabla de Azure Resource Graph y la referencia de tipo de recurso](../governance/resource-graph/reference/supported-tables-resources.md).
+
+A partir de esta actualización, se ha quitado la tabla **Microsoft.Security/securityStatuses** . La API securityStatuses sigue estando disponible.
+
+La tabla Microsoft.Security/Assessments puede usar sustitución de datos.
+
+La diferencia principal entre Microsoft.Security/securityStatuses y Microsoft.Security/Assessments es que, mientras que la primera muestra la agregación de las evaluaciones, la segunda contienen un único registro para cada una.
+
+Por ejemplo, Microsoft.Security/securityStatuses devolvería un resultado con una matriz de dos policyAssessments:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High"
+}
+```
+Por su parte, Microsoft.Security/Assessments contendrá un registro para cada una de estas evaluaciones de directivas como se indica a continuación:
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**Ejemplo de conversión de una consulta de ARG existente usando securityStatuses para usar ahora la tabla Assessments:**
+
+Consulta que hace referencia a SecurityStatuses:
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Consulta de sustitución para la tabla Assessments:
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+Para más información, consulte los siguientes vínculos:
+- [Creación de consultas con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Lenguaje de consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Septiembre de 2020
@@ -42,7 +172,6 @@ Las actualizaciones de septiembre incluyen:
 - [Exclusión de un recurso de una recomendación](#exempt-a-resource-from-a-recommendation)
 - [Los conectores de AWS y GCP de Security Center aportan una experiencia multinube](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
 - [Conjunto de recomendaciones de protección de cargas de trabajo de Kubernetes](#kubernetes-workload-protection-recommendation-bundle)
-- [Mejoras de la protección contra amenazas de IoT en Azure Defender para IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Los resultados de la evaluación de vulnerabilidades ahora están disponibles en la exportación continua](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Imponer recomendaciones al crear recursos para prevenir errores de configuración de seguridad](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Mejoras de las recomendaciones del grupo de seguridad de red](#network-security-group-recommendations-improved)
@@ -71,7 +200,6 @@ Al habilitar Azure Defender en el área **Precios y configuración** de Azure Se
 - [Azure Defender para App Service](defender-for-app-service-introduction.md)
 - [Azure Defender para Storage](defender-for-storage-introduction.md)
 - [Azure Defender para SQL](defender-for-sql-introduction.md)
-- [Azure Defender para IoT](defender-for-iot-introduction.md)
 - [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
 - [Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender para registros de contenedor](defender-for-container-registries-introduction.md)
@@ -90,7 +218,7 @@ Azure Key Vault es un servicio en la nube que protege las claves de cifrado y lo
 
 El plan opcional ahora está en disponibilidad general. Esta característica se encontraba en versión preliminar como "protección contra amenazas avanzada para Azure Key Vault".
 
-Además, las páginas de Key Vault de Azure Portal ahora incluyen una página de **Seguridad** dedicada para las recomendaciones y las alertas de **Security Center**.
+Además, las páginas de Key Vault de Azure Portal ahora incluyen una página de **Seguridad** dedicada para las recomendaciones y las alertas de **Security Center** .
 
 Más información en [Azure Defender para Key Vault](defender-for-key-vault-introduction.md)
 
@@ -99,7 +227,7 @@ Más información en [Azure Defender para Key Vault](defender-for-key-vault-intr
 
 **Azure Defender para Storage** detecta actividades potencialmente dañinas en las cuentas de Azure Storage. Los datos se pueden proteger tanto si se almacenan como contenedores de blobs, recursos compartidos de archivos o lagos de datos.
 
-La compatibilidad con [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) y [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) ahora está disponible con carácter general.
+La compatibilidad con [Azure Files](../storage/files/storage-files-introduction.md) y [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) ahora está disponible con carácter general.
 
 Desde el 1 de octubre de 2020, comenzaremos a cobrar por la protección de los recursos en estos servicios.
 
@@ -165,13 +293,6 @@ Por ejemplo, puede exigir que no se creen los contenedores con privilegios y que
 Más información en [Procedimientos recomendados de protección de cargas de trabajo con el control de admisión de Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 
-### <a name="iot-threat-protection-enhancements-in-azure-defender-for-iot"></a>Mejoras de la protección contra amenazas de IoT en Azure Defender para IoT
-
-Azure Defender para IoT aporta más funcionalidades de protección contra amenazas gracias a la inclusión de la tecnología sin agente de CyberX. Aporta protecciones de seguridad para los dispositivos Brownfield no administrados utilizados en entornos de tecnología operativa (TO), como fabricación, creación de sistemas de administración (BMS), ciencias biológicas, servicios de energía y agua, petróleo y gas y logística.
-
-Más inforación en [Introducción a Azure Defender para IoT](defender-for-iot-introduction.md)
-
-
 ### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>Los resultados de la evaluación de vulnerabilidades ahora están disponibles en la exportación continua
 
 Use la exportación continua para transmitir sus alertas y recomendaciones en tiempo real a Azure Event Hubs, áreas de trabajo de Log Analytics o Azure Monitor. A partir de ahí, puede integrar estos datos con SIEM (como Azure Sentinel, Power BI, Azure Data Explorer y mucho más).
@@ -180,7 +301,33 @@ Las herramientas de evaluación de vulnerabilidades integradas en Security Cente
 
 Los resultados de seguridad ahora están disponibles para la exportación mediante la exportación continua al seleccionar recomendaciones y habilitar la opción **include security findings** (Incluir resultados de seguridad).
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir la alternancia de los resultados de seguridad en la configuración de la exportación continua" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Explorador de Azure Resource Graph y tablas disponibles&quot;:::
+
+> [!TIP]
+> La documentación de ARG muestra todas las tablas disponibles en la [tabla de Azure Resource Graph y la referencia de tipo de recurso](../governance/resource-graph/reference/supported-tables-resources.md).
+
+A partir de esta actualización, se ha quitado la tabla **Microsoft.Security/securityStatuses** . La API securityStatuses sigue estando disponible.
+
+La tabla Microsoft.Security/Assessments puede usar sustitución de datos.
+
+La diferencia principal entre Microsoft.Security/securityStatuses y Microsoft.Security/Assessments es que, mientras que la primera muestra la agregación de las evaluaciones, la segunda contienen un único registro para cada una.
+
+Por ejemplo, Microsoft.Security/securityStatuses devolvería un resultado con una matriz de dos policyAssessments:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High" :::
 
 Páginas relacionadas:
 
@@ -198,7 +345,7 @@ La aplicación de una configuración segura, basada en una recomendación espec�
 
 - Con el efecto **Denegar** de Azure Policy, puede impedir que se creen recursos incorrectos.
 
-- Con la opción **Exigir**, puede sacar partido del efecto de **DeployIfNotExist** de Azure Policy y corregir automáticamente los recursos no compatibles tras la creación.
+- Con la opción **Exigir** , puede sacar partido del efecto de **DeployIfNotExist** de Azure Policy y corregir automáticamente los recursos no compatibles tras la creación.
  
 Está disponible para las recomendaciones de seguridad seleccionadas y puede encontrarse en la parte superior de la página de detalles del recurso.
 
@@ -216,7 +363,7 @@ Se han mejorado las siguientes recomendaciones de seguridad relacionadas con los
 
 ### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>La recomendación de AKS en versión preliminar "Se deben definir las directivas de seguridad de pod en los servicios de Kubernetes" está en desuso
 
-La recomendación en versión preliminar "Las directivas de seguridad de pod deben definirse en los servicios de Kubernetes" está en desuso, tal y como se describe en la documentación de [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-pod-security-policies).
+La recomendación en versión preliminar "Las directivas de seguridad de pod deben definirse en los servicios de Kubernetes" está en desuso, tal y como se describe en la documentación de [Azure Kubernetes Service](../aks/use-pod-security-policies.md).
 
 La característica de la directiva de seguridad de pod (versión preliminar), está programada para quedar en desuso y dejará de estar disponible a partir del 15 de octubre de 2020 en favor de Azure Policy para AKS.
 
@@ -245,7 +392,33 @@ Además, las recomendaciones en **Versión preliminar** no representan un recurs
 
 Un ejemplo de una recomendación en versión preliminar:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Incluir la alternancia de los resultados de seguridad en la configuración de la exportación continua":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Explorador de Azure Resource Graph y tablas disponibles&quot;:::
+
+> [!TIP]
+> La documentación de ARG muestra todas las tablas disponibles en la [tabla de Azure Resource Graph y la referencia de tipo de recurso](../governance/resource-graph/reference/supported-tables-resources.md).
+
+A partir de esta actualización, se ha quitado la tabla **Microsoft.Security/securityStatuses** . La API securityStatuses sigue estando disponible.
+
+La tabla Microsoft.Security/Assessments puede usar sustitución de datos.
+
+La diferencia principal entre Microsoft.Security/securityStatuses y Microsoft.Security/Assessments es que, mientras que la primera muestra la agregación de las evaluaciones, la segunda contienen un único registro para cada una.
+
+Por ejemplo, Microsoft.Security/securityStatuses devolvería un resultado con una matriz de dos policyAssessments:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High":::
 
 [Más información sobre la puntuación de seguridad](secure-score-security-controls.md)
 
@@ -254,7 +427,33 @@ Un ejemplo de una recomendación en versión preliminar:
 
 La página de detalles de las recomendaciones incluye ahora un indicador del intervalo de actualización (siempre que sea pertinente) y una visualización clara de la gravedad de la recomendación.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Incluir la alternancia de los resultados de seguridad en la configuración de la exportación continua":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Explorador de Azure Resource Graph y tablas disponibles&quot;:::
+
+> [!TIP]
+> La documentación de ARG muestra todas las tablas disponibles en la [tabla de Azure Resource Graph y la referencia de tipo de recurso](../governance/resource-graph/reference/supported-tables-resources.md).
+
+A partir de esta actualización, se ha quitado la tabla **Microsoft.Security/securityStatuses** . La API securityStatuses sigue estando disponible.
+
+La tabla Microsoft.Security/Assessments puede usar sustitución de datos.
+
+La diferencia principal entre Microsoft.Security/securityStatuses y Microsoft.Security/Assessments es que, mientras que la primera muestra la agregación de las evaluaciones, la segunda contienen un único registro para cada una.
+
+Por ejemplo, Microsoft.Security/securityStatuses devolvería un resultado con una matriz de dos policyAssessments:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High":::
 
 
 
@@ -282,7 +481,7 @@ Obtenga más información sobre el [inventario de recursos](asset-inventory.md).
 
 ### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Compatibilidad agregada con los valores predeterminados de seguridad de Azure Active Directory (para la autenticación multifactor)
 
-Security Center ha agregado compatibilidad total con los [valores predeterminados de seguridad](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), las protecciones de seguridad de la identidad gratuitas de Microsoft.
+Security Center ha agregado compatibilidad total con los [valores predeterminados de seguridad](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), las protecciones de seguridad de la identidad gratuitas de Microsoft.
 
 Los valores predeterminados de seguridad proporcionan una configuración de seguridad de la identidad preconfigurada para proteger su organización frente a ataques habituales relacionados con la identidad. Los valores predeterminados de seguridad ya protegen más de 5 millones de inquilinos en total; 50 000 inquilinos también reciben la protección de Security Center.
 
@@ -290,16 +489,16 @@ Security Center ahora proporciona una recomendación de seguridad cada vez que i
 
 Nuestro objetivo es animar a más clientes a proteger sus entornos en la nube con MFA y mitigar uno de los mayores riesgos que también es el que tiene más impacto en su [puntuación de seguridad](secure-score-security-controls.md).
 
-Obtenga más información sobre los [valores predeterminados de seguridad](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+Obtenga más información sobre los [valores predeterminados de seguridad](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 
 ### <a name="service-principals-recommendation-added"></a>Recomendación de entidades de servicio agregada
 
 Se ha agregado una nueva recomendación para recomendar que los clientes de Security Center que usan certificados de administración para administrar sus suscripciones cambien a las entidades de servicio.
 
-La recomendación, **Para proteger las suscripciones,deben usarse entidades de servicio en lugar de certificados de administración**, le aconseja usar entidades de servicio o Azure Resource Manager para administrar de forma más segura sus suscripciones. 
+La recomendación, **Para proteger las suscripciones,deben usarse entidades de servicio en lugar de certificados de administración** , le aconseja usar entidades de servicio o Azure Resource Manager para administrar de forma más segura sus suscripciones. 
 
-Obtenga más información sobre [Objetos de aplicación y de entidad de servicio de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+Obtenga más información sobre [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Evaluación de vulnerabilidades en máquinas virtuales: recomendaciones y directivas consolidadas
@@ -364,8 +563,8 @@ La fase temprana de este proyecto incluye una versión preliminar privada y la a
 
 Puede omitir estas directivas con seguridad y no habrá ningún impacto en el entorno. Si desea habilitarlas, regístrese para obtener la versión preliminar en https://aka.ms/SecurityPrP y seleccione una de las opciones siguientes:
 
-1. **Versión preliminar única**: para unirse solo a esta versión preliminar privada. Mencione explícitamente "ASC Continuous SCAN" como la versión preliminar a la que le gustaría unirse.
-1. **Programa continuo**: para agregarse a esta y a futuras versiones preliminares privadas. Deberá completar un perfil y un contrato de privacidad.
+1. **Versión preliminar única** : para unirse solo a esta versión preliminar privada. Mencione explícitamente "ASC Continuous SCAN" como la versión preliminar a la que le gustaría unirse.
+1. **Programa continuo** : para agregarse a esta y a futuras versiones preliminares privadas. Deberá completar un perfil y un contrato de privacidad.
 
 
 ## <a name="july-2020"></a>Julio de 2020
@@ -418,7 +617,7 @@ Las nuevas recomendaciones son:
 - **Advanced Threat Protection debe estar habilitado en las cuentas de almacenamiento de Azure**
 - **Advanced Threat Protection debe estar habilitado en Virtual Machines**
 
-Estas nuevas recomendaciones pertenecen al control de seguridad **Activar Protección contra amenazas avanzada**.
+Estas nuevas recomendaciones pertenecen al control de seguridad **Activar Protección contra amenazas avanzada** .
 
 Las recomendaciones también incluyen la funcionalidad de corrección rápida. 
 
@@ -456,7 +655,7 @@ Más información sobre la seguridad de los contenedores de Security Center en l
 
 La característica de controles de aplicaciones adaptables ha recibido dos actualizaciones importantes:
 
-* Una nueva recomendación identifica un comportamiento potencialmente legítimo que no se ha permitido previamente. La nueva recomendación, **Se deben actualizar las reglas de la lista de permitidos de la directiva de controles de aplicaciones adaptables**, le pedirá que agregue nuevas reglas a la directiva existente para reducir el número de falsos positivos en las alertas de infracción de controles de aplicaciones adaptables.
+* Una nueva recomendación identifica un comportamiento potencialmente legítimo que no se ha permitido previamente. La nueva recomendación, **Se deben actualizar las reglas de la lista de permitidos de la directiva de controles de aplicaciones adaptables** , le pedirá que agregue nuevas reglas a la directiva existente para reducir el número de falsos positivos en las alertas de infracción de controles de aplicaciones adaptables.
 
 * Las reglas de ruta de acceso ahora admiten caracteres comodín. A partir de esta actualización, puede configurar las reglas de ruta de acceso permitidas mediante caracteres comodín. Se admiten dos escenarios:
 
@@ -480,7 +679,7 @@ Seis directivas relacionadas con la seguridad avanzada de datos para máquinas S
 - Las notificaciones a los administradores y a los propietarios de la suscripción deben estar habilitadas en la configuración de seguridad avanzada de datos de la instancia administrada de SQL
 - Las notificaciones por correo electrónico para administradores y propietarios de suscripciones deben estar habilitadas en la configuración de seguridad avanzada de datos de SQL Server
 
-Obtenga más información sobre las [directivas integradas](security-center-policy-definitions.md).
+Obtenga más información sobre las [directivas integradas](./policy-reference.md).
 
 
 
@@ -500,7 +699,7 @@ Las actualizaciones de junio incluyen:
 
 ### <a name="secure-score-api-preview"></a>API de puntuación segura (versión preliminar)
 
-Ahora puede acceder a la puntuación a través de la [API de puntuación segura](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (actualmente en versión preliminar). Los métodos de API proporcionan la flexibilidad necesaria para consultar los datos y crear su propio mecanismo de creación de informes de las puntuaciones seguras a lo largo del tiempo. Por ejemplo, puede usar la API **Secure Scores** para obtener la puntuación de una suscripción específica. Además, puede usar la API **Secure Score Controls** para mostrar los controles de seguridad y la puntuación actual de las suscripciones.
+Ahora puede acceder a la puntuación a través de la [API de puntuación segura](/rest/api/securitycenter/securescores/) (actualmente en versión preliminar). Los métodos de API proporcionan la flexibilidad necesaria para consultar los datos y crear su propio mecanismo de creación de informes de las puntuaciones seguras a lo largo del tiempo. Por ejemplo, puede usar la API **Secure Scores** para obtener la puntuación de una suscripción específica. Además, puede usar la API **Secure Score Controls** para mostrar los controles de seguridad y la puntuación actual de las suscripciones.
 
 Para ver ejemplos de herramientas externas que son posibles gracias a la API de puntuación segura, vea el [área de puntuación segura de la comunidad de GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
@@ -526,12 +725,12 @@ Obtenga más información sobre [Advanced Data Security para máquinas SQL](defe
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Dos nuevas recomendaciones para implementar el agente de Log Analytics en máquinas de Azure Arc (versión preliminar)
 
-Se han agregado dos nuevas recomendaciones para ayudar a implementar el [agente de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) en las máquinas de Azure Arc y asegurarse de que están protegidas por Azure Security Center:
+Se han agregado dos nuevas recomendaciones para ayudar a implementar el [agente de Log Analytics](../azure-monitor/platform/log-analytics-agent.md) en las máquinas de Azure Arc y asegurarse de que están protegidas por Azure Security Center:
 
 - **El agente de Log Analytics debe estar instalado en las máquinas de Azure Arc basadas en Windows (versión preliminar)** .
 - **El agente de Log Analytics debe estar instalado en las máquinas de Azure Arc basadas en Linux (versión preliminar)** .
 
-Estas nuevas recomendaciones aparecerán en los mismos cuatro controles de seguridad que la recomendación existente (relacionada) **El agente de supervisión debe estar instalado en las máquinas**: corrija las configuraciones de seguridad, aplique el control de aplicaciones adaptativo, aplique actualizaciones del sistema y habilite Endpoint Protection.
+Estas nuevas recomendaciones aparecerán en los mismos cuatro controles de seguridad que la recomendación existente (relacionada) **El agente de supervisión debe estar instalado en las máquinas** : corrija las configuraciones de seguridad, aplique el control de aplicaciones adaptativo, aplique actualizaciones del sistema y habilite Endpoint Protection.
 
 Las recomendaciones también incluyen la función de corrección rápida para ayudar a acelerar el proceso de implementación. 
 
@@ -570,7 +769,7 @@ El control de seguridad "implementar prácticas recomendadas de seguridad" inclu
 
 - **Las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red**
 
-Una recomendación existente (**Las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red**) no distinguía entre las máquinas virtuales con y sin conexión a Internet. En ambos casos, se generaba una recomendación de alta gravedad si una máquina virtual no estaba asignada a un grupo de seguridad de red. Esta nueva recomendación separa las máquinas sin conexión a Internet para reducir los falsos positivos y evitar alertas innecesarias de alta gravedad.
+Una recomendación existente ( **Las máquinas virtuales sin conexión a Internet deben protegerse con grupos de seguridad de red** ) no distinguía entre las máquinas virtuales con y sin conexión a Internet. En ambos casos, se generaba una recomendación de alta gravedad si una máquina virtual no estaba asignada a un grupo de seguridad de red. Esta nueva recomendación separa las máquinas sin conexión a Internet para reducir los falsos positivos y evitar alertas innecesarias de alta gravedad.
 
 Obtenga más información en la tabla [Recomendaciones de red](recommendations-reference.md#recs-network).
 
@@ -678,7 +877,33 @@ Los controles de seguridad y esta alternancia forman parte de la nueva experienc
 
 Más información sobre los controles de seguridad en [puntuación de seguridad mejorada (versión preliminar) de Azure Security Center](secure-score-security-controls.md).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Incluir la alternancia de los resultados de seguridad en la configuración de la exportación continua":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Explorador de Azure Resource Graph y tablas disponibles&quot;:::
+
+> [!TIP]
+> La documentación de ARG muestra todas las tablas disponibles en la [tabla de Azure Resource Graph y la referencia de tipo de recurso](../governance/resource-graph/reference/supported-tables-resources.md).
+
+A partir de esta actualización, se ha quitado la tabla **Microsoft.Security/securityStatuses** . La API securityStatuses sigue estando disponible.
+
+La tabla Microsoft.Security/Assessments puede usar sustitución de datos.
+
+La diferencia principal entre Microsoft.Security/securityStatuses y Microsoft.Security/Assessments es que, mientras que la primera muestra la agregación de las evaluaciones, la segunda contienen un único registro para cada una.
+
+Por ejemplo, Microsoft.Security/securityStatuses devolvería un resultado con una matriz de dos policyAssessments:
+
+```
+{
+id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
+name: &quot;mico-rg-vnet&quot;,
+type: &quot;Microsoft.Security/securityStatuses&quot;,
+properties:  {
+    policyAssessments: [
+        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
+        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
+    ],
+    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
+    name: &quot;GenericResourceHealthProperties&quot;,
+    type: &quot;VirtualNetwork&quot;,
+    securitystate: &quot;High":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Control de seguridad expandido "implementar prácticas recomendadas de seguridad" 
 
@@ -696,11 +921,11 @@ Las tres recomendaciones que se movieron son:
 
 Las dos nuevas recomendaciones que se han agregado al control son:
 
-- **La extensión de configuración de invitado debe instalarse en máquinas virtuales Windows (versión preliminar):** el uso de la [configuración de invitado de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) proporciona visibilidad dentro de las máquinas virtuales a la configuración de servidor y de aplicación (solo Windows).
+- **La extensión de configuración de invitado debe instalarse en máquinas virtuales Windows (versión preliminar):** el uso de la [configuración de invitado de Azure Policy](../governance/policy/concepts/guest-configuration.md) proporciona visibilidad dentro de las máquinas virtuales a la configuración de servidor y de aplicación (solo Windows).
 
 - **Protección contra vulnerabilidades de seguridad de Windows Defender debe estar habilitada en las máquinas (versión preliminar)** : Protección contra vulnerabilidades de seguridad de Windows Defender aprovecha el agente de configuración de invitado de Azure Policy. La protección contra vulnerabilidades de seguridad tiene cuatro componentes diseñados para bloquear dispositivos en una amplia variedad de vectores de ataque y comportamientos de bloque utilizados habitualmente en ataques de malware, al tiempo que permiten a las empresas equilibrar los requisitos de productividad y riesgo de seguridad (solo Windows).
 
-Más información sobre la protección contra vulnerabilidades de seguridad de Windows Defender en [Crear e implementar una directiva de protección contra vulnerabilidades](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+Más información sobre la protección contra vulnerabilidades de seguridad de Windows Defender en [Crear e implementar una directiva de protección contra vulnerabilidades](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Obtenga más información sobre los controles de seguridad en [Puntuación de seguridad mejorada (versión preliminar)](secure-score-security-controls.md).
 
@@ -724,54 +949,10 @@ Estamos integrando las capacidades de detección del análisis de volcado de mem
 
 Algunas de las ventajas de esta transición son:
 
-- **Detección de malware proactiva y oportuna**: el enfoque de CDA implicaba esperar a que se produjera un bloqueo y, después, ejecutar el análisis para encontrar artefactos malintencionados. El uso de la detección de ataques sin archivos proporciona una identificación proactiva de las amenazas en memoria mientras se ejecutan. 
+- **Detección de malware proactiva y oportuna** : el enfoque de CDA implicaba esperar a que se produjera un bloqueo y, después, ejecutar el análisis para encontrar artefactos malintencionados. El uso de la detección de ataques sin archivos proporciona una identificación proactiva de las amenazas en memoria mientras se ejecutan. 
 
-- **Alertas enriquecidas**: las alertas de seguridad de la detección de ataques sin archivos no están disponibles en CDA, como la información de las conexiones de red activas. 
+- **Alertas enriquecidas** : las alertas de seguridad de la detección de ataques sin archivos no están disponibles en CDA, como la información de las conexiones de red activas. 
 
-- **Agregación de alertas**: cuando CDA detectó varios patrones de ataque en un solo volcado de memoria, desencadenó varias alertas de seguridad. Detección de ataques sin archivos combina todos los patrones de ataque identificados del mismo proceso en una única alerta, lo que elimina la necesidad de poner en correlación varias alertas.
+- **Agregación de alertas** : cuando CDA detectó varios patrones de ataque en un solo volcado de memoria, desencadenó varias alertas de seguridad. Detección de ataques sin archivos combina todos los patrones de ataque identificados del mismo proceso en una única alerta, lo que elimina la necesidad de poner en correlación varias alertas.
 
-- **Requisitos reducidos en el área de trabajo de Log Analytics**: los volcados que contienen datos potencialmente confidenciales ya no se cargarán en el área de trabajo de Log Analytics.
-
-
-
-## <a name="april-2020"></a>Abril de 2020
-
-Las actualizaciones de abril incluyen:
-- [Los paquetes de cumplimiento dinámico ya están disponibles con carácter general](#dynamic-compliance-packages-are-now-generally-available)
-- [Las recomendaciones de identidad ahora están incluidas en el nivel gratuito de Azure Security Center](#identity-recommendations-now-included-in-azure-security-center-free-tier)
-
-
-### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Los paquetes de cumplimiento dinámico ya están disponibles con carácter general
-
-El panel de cumplimiento normativo de Azure Security Center ahora incluye **paquetes de cumplimiento dinámico** (ya disponible con carácter general) para realizar un seguimiento de los estándares de la industria y normativas adicionales.
-
-Los paquetes de cumplimiento dinámico se pueden agregar a su suscripción o grupo de administración desde la página de la directiva de seguridad de Security Center. Cuando haya incorporado un estándar o una prueba comparativa, el estándar aparece en el panel de cumplimiento normativo con todos los datos de cumplimiento asociados asignados como evaluaciones. Podrá descargar un informe de resumen para cualquiera de los estándares que se hayan incorporado.
-
-Ahora, puede agregar estándares como:
-
-- **NIST SP 800-53 R4**
-- **SWIFT CSP CSCF-v2020**
-- **UK Official y UK NHS**
-- **Canada Federal PBMM**
-- **Azure CIS 1.1.0 (nuevo)** (que es una representación más completa de Azure CIS 1.1.0)
-
-Además, recientemente hemos agregado el **Azure Security Benchmark**, las instrucciones específicas de Azure creadas por Microsoft para las prácticas recomendadas de seguridad y cumplimiento basadas en los marcos de cumplimiento comunes. Se admitirán estándares adicionales en el panel a medida que estén disponibles.  
- 
-Más información sobre [cómo personalizar el conjunto de estándares en el panel de cumplimiento normativo](update-regulatory-compliance-packages.md).
-
-
-### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Recomendaciones de identidad ahora incluidas en el nivel gratuito de Azure Security Center
-
-Las recomendaciones de seguridad para la identidad y el acceso en el nivel gratuito de Azure Security Center ya están disponibles con carácter general. Esto forma parte del esfuerzo de hacer que las características de la administración de posturas de seguridad en la nube (CSPM) sean gratuitas. Hasta ahora, estas recomendaciones solo estaban disponibles en el plan de tarifa estándar.
-
-Los ejemplos de recomendaciones de identidad y acceso incluyen:
-
-- "La autenticación multifactor debe estar habilitada en las cuentas con permisos de propietario en la suscripción".
-- "Debe designar un máximo de tres propietarios para la suscripción".
-- "Las cuentas en desuso deben quitarse de la suscripción".
-
-Si tiene suscripciones en el plan de tarifa gratuito, su puntuación de seguridad se verá afectada por este cambio ya que nunca se evaluó su identidad y seguridad de acceso.
-
-Más información sobre [recomendaciones de identidad y acceso](recommendations-reference.md#recs-identity).
-
-Más información acerca de la [supervisión de la identidad y el acceso](security-center-identity-access.md).
+- **Requisitos reducidos en el área de trabajo de Log Analytics** : los volcados que contienen datos potencialmente confidenciales ya no se cargarán en el área de trabajo de Log Analytics.

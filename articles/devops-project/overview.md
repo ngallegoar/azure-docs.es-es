@@ -1,6 +1,6 @@
 ---
-title: Introducción a Azure DevOps Starter | Microsoft Docs
-description: Obtenga información sobre la forma en que Azure DevOps Starter le ayuda a iniciar, implementar y administrar cualquier aplicación desde una vista individual en Azure Portal.
+title: Introducción a DevOps Starter para Azure | Microsoft Docs
+description: Conozca el valor de DevOps Starter.
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -14,30 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 3e6f28da37980717e15b05ab94c582aa5c77e9e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c36539ef5be503b2cb7e14047e596522ef8e962
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856869"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330655"
 ---
-# <a name="overview-of-azure-devops-starter"></a>Introducción a Azure DevOps Starter
+# <a name="overview-of-devops-starter"></a>Información general de DevOps Starter
 
- Azure DevOps Starter facilita la introducción a Azure. Le ayuda a iniciar su aplicación favorita en el servicio de Azure que elija en unos pocos pasos rápidos desde Azure Portal. 
+ DevOps Starter facilita el uso inicial de Azure mediante acciones de GitHub o Azure DevOps. Le ayuda a iniciar su aplicación favorita en el servicio de Azure que elija en unos pocos pasos rápidos desde Azure Portal. 
 
  DevOps Starter configura todo lo necesario para desarrollar, implementar y supervisar la aplicación. El panel de DevOps Starter se puede usar para supervisar confirmaciones de código, compilaciones e implementaciones, y todo ello, desde una sola vista en Azure Portal.
 
 ## <a name="advantages-of-using-devops-starter"></a>Ventajas del uso de DevOps Starter
 
-  DevOps Starter automatiza la configuración de toda una canalización de integración continua (CI) y de entrega continua (CD) en Azure.  Puede empezar con el código existente o usar una de las aplicaciones de ejemplo proporcionadas. Luego puede implementar rápidamente dicha aplicación en varios servicios de Azure como Virtual Machines, App Service, Azure Kubernetes Services (AKS), Azure SQL Database y Azure Service Fabric.  
+  DevOps Starter admite los dos proveedores siguientes de CI/CD para automatizar las implementaciones:
+  * [Acciones de GitHub](https://github.com/features/actions)
+  * [Azure DevOps](https://azure.microsoft.com/services/devops)
 
-  DevOps Starter realiza todo el trabajo de la configuración inicial de una canalización de DevOps, lo que incluye configurar el repositorio Git inicial y la canalización de CI/CD, crear un recurso de Application Insights para la supervisión y proporcionar una sola vista de toda la solución con la creación de un panel de DevOps Projects en Azure Portal.
+  DevOps Starter automatiza la configuración de una canalización completa de integración continua (CI) y entrega continua (CD) para una aplicación en Azure.  Puede empezar con el código existente o usar una de las aplicaciones de ejemplo proporcionadas. Luego puede implementar rápidamente dicha aplicación en varios servicios de Azure como Virtual Machines, App Service, Azure Kubernetes Services (AKS), Azure SQL Database y Azure Service Fabric.  
+
+  DevOps Starter realiza todo el trabajo de la configuración inicial de una canalización de DevOps, lo que incluye configurar el repositorio de Git inicial y la canalización de CI/CD, crear un recurso de Application Insights para la supervisión y proporcionar una sola vista de toda la solución con la creación de un panel de DevOps Starter en Azure Portal.
 
 Puede usar DevOps Starter para:
 
 * Implementar rápidamente la aplicación en Azure
-* Automatizar la configuración de una canalización de CI/CD
-* Ver cómo se configura correctamente una canalización de CI/CD y aprender a hacerlo
+* Automatizar la instalación de un flujo de trabajo o una canalización de CI/CD
+* Ver y comprender cómo se configura correctamente una canalización o un flujo de trabajo de CI/CD
 * Personalizar aún más las canalizaciones de versión en función de sus escenarios concretos
 
 ## <a name="how-to-use-devops-starter"></a>¿Cómo se usa DevOps Starter?
@@ -46,31 +50,37 @@ Puede usar DevOps Starter para:
 
 Elija varias opciones de configuración como parte de la instalación inicial. Entre estas opciones se incluyen:
 
-* El uso de la aplicación de ejemplo proporcionada o de su propio código
+* Selección del proveedor de CI/CD favorito
+* Uso de la aplicación de ejemplo proporcionada o de su propio código (solo para Azure DevOps)
 * Selección del lenguaje de una aplicación
 * Elección de un marco de aplicación en función del lenguaje
 * Selección de un servicio de Azure (destino de implementación)
-* Creación de una organización de Azure DevOps nueva o uso de una existente 
+* Selección de la organización de GitHub o Azure DevOps
 * Elección de una suscripción de Azure
 * Elección de la ubicación de los servicios de Azure
 * Elección entre varios planes de tarifa de servicios de Azure
 
+Después de crear la instancia de DevOps Starter, también puede:
+
+* Personalización del flujo de trabajo de GitHub o de la canalización de Azure DevOps
+* Usar solicitudes de incorporación de cambios para administrar el flujo de código y mantener un alto nivel de calidad
+* Probar y compilar cada confirmación antes de fusionar el código para elevar el listón de calidad
+
 Después de usar DevOps Starter también puede eliminar todos los recursos desde un mismo lugar desde el panel de DevOps Starter en Azure Portal.
+
+## <a name="devops-starter-and-github-integration"></a>Integración de DevOps Starter y GitHub
+
+DevOps Starter ahora admite acciones de GitHub como proveedor de CI/CD. Automatiza todo el trabajo necesario en GitHub para configurar un flujo de trabajo de CI/CD mediante Acciones de GitHub. Crea un repositorio de GitHub en una organización existente de GitHub y, luego, confirma una aplicación de ejemplo en el nuevo repositorio de GitHub.  
+
+La automatización también establece un desencadenador para el flujo de trabajo, de modo que cada nueva confirmación de código inicia un trabajo de compilación e implementación dentro del flujo de trabajo. La aplicación se implementa en el servicio de Azure de su elección. El flujo de trabajo de GitHub puede personalizarse para adaptarlo a otros escenarios. 
 
 ## <a name="devops-starter-and-azure-devops-integration"></a>Integración de DevOps Starter y Azure DevOps
 
-DevOps Starter cuenta con tecnología de Azure DevOps. DevOps Starter automatiza todo el trabajo que se necesita en Azure Pipelines para configurar una canalización de CI/CD. Crea un repositorio Git en una organización de Azure DevOps nueva o existente y, luego, confirma una aplicación de ejemplo o el código existente en un nuevo repositorio Git.  
+DevOps Starter con Azure DevOps automatiza todo el trabajo que se necesita en Azure Pipelines para configurar una canalización de CI/CD. Crea un repositorio Git en una organización de Azure DevOps nueva o existente y, luego, confirma una aplicación de ejemplo o el código existente en un nuevo repositorio Git.  
 
 La automatización también establece un desencadenador de integración continua para la compilación, con el fin de que cada confirmación de código inicie una compilación. DevOps Starter crea un desencadenador de implementación continua e implementa cada nueva compilación correcta en el servicio de Azure que elija.  
 
 Las canalizaciones de compilación y versión se pueden personalizar para otros escenarios. Además, puede clonar las canalizaciones de compilación y de versión para usarlas en otros proyectos.
-
-Después de crear la instancia de DevOps Starter, también puede:
-
-* Personalizar la canalización de compilación y versión
-* Usar solicitudes de incorporación de cambios para administrar el flujo de código y mantener un alto nivel de calidad
-* Probar y compilar cada confirmación antes de fusionar el código para elevar el listón de calidad
-* Realizar un seguimiento de los problemas y el trabajo pendiente junto con la aplicación
 
 ## <a name="getting-started-with-devops-starter"></a>Introducción a DevOps Starter
 

@@ -1,6 +1,6 @@
 - name: Documentación de Azure Cache for Redis
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de Azure Cache for Redis
       href: cache-overview.md
@@ -40,7 +40,7 @@
     - name: Java Spring
       items:
         - name: Uso de Spring Boot Initializer
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
+          href: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
     - name: Creación de tablas de clasificación
       href: cache-web-app-cache-aside-leaderboard.md
     - name: Implementación de un modelo de aprendizaje automático
@@ -67,7 +67,7 @@
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Arquitectura de almacenamiento en caché
-      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+      href: /azure/architecture/best-practices/caching?toc=%252fazure%252fredis-cache%252ftoc.json
 - name: Guías paso a paso
   items:
     - name: Plan
@@ -169,7 +169,7 @@
     - name: Azure CLI
       href: /cli/azure/redis
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/redis/'
+      href: /rest/api/redis/
     - name: Plantilla de Resource Manager
       href: /azure/templates/microsoft.cache/allversions
     - name: Elementos integrados de Azure Policy
@@ -184,7 +184,7 @@
     - name: Vídeos
       href: 'https://www.youtube.com/results?search_query=azure+redis+cache'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-cache-redis.html'
+      href: /answers/topics/azure-cache-redis.html
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Desarrollo de aptitudes con Microsoft Learn

@@ -3,12 +3,12 @@ title: Obtención de datos de cumplimiento de directiva
 description: Las evaluaciones y los efectos de Azure Policy determinan el cumplimiento. Obtenga información sobre cómo obtener los detalles de cumplimiento de los recursos de Azure.
 ms.date: 10/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 186312ae91c3545a7aac1a9c7a108e2197f3fa8a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 36645d5eb50aaf571c608fc51127b47ac885777d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873632"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320422"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtención de datos de cumplimiento de los recursos de Azure
 
@@ -22,7 +22,7 @@ Hay varias maneras de acceder a la información de cumplimiento generada por la 
 Antes de pasar a los métodos que informan sobre el cumplimiento, veamos cuándo se actualiza la información de cumplimiento y la frecuencia y eventos que desencadenan un ciclo de evaluación.
 
 > [!WARNING]
-> Si el estado de cumplimiento se notifica como **No registrado**, compruebe que el proveedor de recursos **Microsoft.PolicyInsights** esté registrado y que el usuario tenga los permisos de control de acceso basado en roles de Azure (Azure RBAC) adecuados, tal como se describe en los [permisos de Azure RBAC en Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
+> Si el estado de cumplimiento se notifica como **No registrado** , compruebe que el proveedor de recursos **Microsoft.PolicyInsights** esté registrado y que el usuario tenga los permisos de control de acceso basado en roles de Azure (Azure RBAC) adecuados, tal como se describe en los [permisos de Azure RBAC en Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Desencadenadores de evaluación
 
@@ -82,19 +82,19 @@ Para obtener más información y ejemplos del flujo de trabajo, consulte la [acc
 
 El examen de cumplimiento se inicia con el comando [az policy state trigger-scan](/cli/azure/policy/state#az-policy-state-trigger-scan).
 
-De forma predeterminada, `az policy state trigger-scan` inicia una evaluación de todos los recursos de la suscripción actual. Para iniciar una evaluación en un grupo de recursos específico, use el parámetro **resource-group**. En el ejemplo siguiente se inicia un examen de cumplimiento de la suscripción actual para el grupo de recursos _MyRG_:
+De forma predeterminada, `az policy state trigger-scan` inicia una evaluación de todos los recursos de la suscripción actual. Para iniciar una evaluación en un grupo de recursos específico, use el parámetro **resource-group** . En el ejemplo siguiente se inicia un examen de cumplimiento de la suscripción actual para el grupo de recursos _MyRG_ :
 
 ```azurecli-interactive
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-Puede no esperar a que el proceso asincrónico se complete antes de continuar con el parámetro **no-wait**.
+No es necesario que espere a que el proceso asincrónico se complete antes de continuar con el parámetro **no-wait** .
 
 #### <a name="on-demand-evaluation-scan---azure-powershell"></a>Análisis de evaluación a petición: Azure PowerShell
 
 El examen de cumplimiento se inicia con el cmdlet [Start-AzPolicyComplianceScan](/powershell/module/az.policyinsights/start-azpolicycompliancescan).
 
-De forma predeterminada, `Start-AzPolicyComplianceScan` inicia una evaluación de todos los recursos de la suscripción actual. Para iniciar una evaluación en un grupo de recursos específico, use el parámetro **ResourceGroupName**. En el ejemplo siguiente se inicia un examen de cumplimiento de la suscripción actual para el grupo de recursos _MyRG_:
+De forma predeterminada, `Start-AzPolicyComplianceScan` inicia una evaluación de todos los recursos de la suscripción actual. Para iniciar una evaluación en un grupo de recursos específico, use el parámetro **ResourceGroupName** . En el ejemplo siguiente se inicia un examen de cumplimiento de la suscripción actual para el grupo de recursos _MyRG_ :
 
 ```azurepowershell-interactive
 Start-AzPolicyComplianceScan -ResourceGroupName 'MyRG'
@@ -118,7 +118,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
 ```
 
-Una vez finalizada esta operación, la propiedad **Estado** cambia a _Completado_.
+Una vez finalizada esta operación, la propiedad **Estado** cambia a _Completado_ .
 
 #### <a name="on-demand-evaluation-scan---rest"></a>Examen de evaluación a petición: REST
 
@@ -143,13 +143,13 @@ El examen admite la evaluación de recursos de una suscripción o de un grupo de
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
-La llamada devuelve un estado **202 - Aceptado**. En el encabezado de la respuesta se incluye una propiedad **Location** con el formato siguiente:
+La llamada devuelve un estado **202 - Aceptado** . En el encabezado de la respuesta se incluye una propiedad **Location** con el formato siguiente:
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
-`{ResourceContainerGUID}` se genera estáticamente para el ámbito solicitado. Si un ámbito ya está ejecutando un examen a petición, no se iniciará un nuevo examen. En su lugar, se proporciona a la nueva solicitud el mismo URI de **ubicación** de `{ResourceContainerGUID}` para el estado. Un comando **GET** de API REST en el URI **Location** devolverá una respuesta **202 - Aceptado** mientras la evaluación esté en curso. Cuando haya finalizado el examen de evaluación, devolverá un estado **200 OK**. El cuerpo de un examen completo es una respuesta JSON con el estado:
+`{ResourceContainerGUID}` se genera estáticamente para el ámbito solicitado. Si un ámbito ya está ejecutando un examen a petición, no se iniciará un nuevo examen. En su lugar, se proporciona a la nueva solicitud el mismo URI de **ubicación** de `{ResourceContainerGUID}` para el estado. Un comando **GET** de API REST en el URI **Location** devolverá una respuesta **202 - Aceptado** mientras la evaluación esté en curso. Cuando haya finalizado el examen de evaluación, devolverá un estado **200 OK** . El cuerpo de un examen completo es una respuesta JSON con el estado:
 
 ```json
 {
@@ -157,9 +157,14 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 }
 ```
 
+#### <a name="on-demand-evaluation-scan---visual-studio-code"></a>Examen de evaluación a petición: Visual Studio Code
+
+La extensión de Azure Policy para Visual Studio Code es capaz de ejecutar un examen de evaluación para un recurso específico. Este examen es un proceso sincrónico, a diferencia de los métodos de Azure PowerShell y REST.
+Para obtener más información y conocer los pasos, consulte [Evaluación a petición con la extensión VS Code](./extension-for-vscode.md#on-demand-evaluation-scan).
+
 ## <a name="how-compliance-works"></a>Cómo funciona el cumplimiento
 
-En una asignación, un recurso es **No compatible** si no cumple las reglas de la iniciativa o la directiva y no está _exento_. En la tabla siguiente se muestra cómo funcionan los distintos efectos de directiva con la evaluación de condición para el estado de cumplimiento resultante:
+En una asignación, un recurso es **No compatible** si no cumple las reglas de la iniciativa o la directiva y no está _exento_ . En la tabla siguiente se muestra cómo funcionan los distintos efectos de directiva con la evaluación de condición para el estado de cumplimiento resultante:
 
 | Estado del recurso | Efecto | Evaluación de directiva | Estado de cumplimiento |
 | --- | --- | --- | --- |
@@ -177,22 +182,22 @@ Por ejemplo, suponga que tiene un grupo de recursos (ContosoRG) con varias cuent
    Diagrama que muestra imágenes de cinco cuentas de almacenamiento en el grupo de recursos Contoso R G.  Las cuentas de almacenamiento una y tres son azules, mientras que las cuentas de almacenamiento dos, cuatro y cinco son rojas.
 :::image-end:::
 
-En este ejemplo, debe tener cuidado con los riesgos de seguridad. Ahora que ha creado una asignación de directiva, se evalúa en todas las cuentas de almacenamiento incluidas y no exentas en el grupo de recursos ContosoRG. Se auditan las tres cuentas de almacenamiento no compatibles, con lo que sus estados cambian a **No compatible**.
+En este ejemplo, debe tener cuidado con los riesgos de seguridad. Ahora que ha creado una asignación de directiva, se evalúa en todas las cuentas de almacenamiento incluidas y no exentas en el grupo de recursos ContosoRG. Se auditan las tres cuentas de almacenamiento no compatibles, con lo que sus estados cambian a **No compatible** .
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagrama de cuentas de almacenamiento expuestas a redes públicas en el grupo de recursos Contoso R G." border="false":::
    Diagrama que muestra imágenes de cinco cuentas de almacenamiento en el grupo de recursos Contoso R G. Las cuentas de almacenamiento uno y tres ahora tienen marcas de verificación verdes debajo, mientras que las cuentas de almacenamiento dos, cuatro y cinco ahora tienen signos de advertencia rojos debajo.
 :::image-end:::
 
-Además de **Compatible** y **No compatible**, las directivas y los recursos tienen otros tres estados:
+Además de **Compatible** y **No compatible** , las directivas y los recursos tienen otros tres estados:
 
-- **Exento**: el recurso está en el ámbito de una asignación, pero tiene una [exención definida](../concepts/exemption-structure.md).
-- **En conflicto**: existen dos o más definiciones de directivas con reglas en conflicto. Por ejemplo, dos definiciones anexan la misma etiqueta con valores diferentes.
-- **No iniciado**: no se ha iniciado el ciclo de evaluación de la directiva o del recurso.
-- **No registrado**: no se ha registrado el proveedor de recursos de Azure Policy o la cuenta con que se ha iniciado sesión no tiene permiso para leer datos de cumplimiento.
+- **Exento** : el recurso está en el ámbito de una asignación, pero tiene una [exención definida](../concepts/exemption-structure.md).
+- **En conflicto** : existen dos o más definiciones de directivas con reglas en conflicto. Por ejemplo, dos definiciones anexan la misma etiqueta con valores diferentes.
+- **No iniciado** : no se ha iniciado el ciclo de evaluación de la directiva o del recurso.
+- **No registrado** : no se ha registrado el proveedor de recursos de Azure Policy o la cuenta con que se ha iniciado sesión no tiene permiso para leer datos de cumplimiento.
 
-Azure Policy usa los campos **type**, **name** o **kind** en la definición para determinar si un recurso coincide. Cuando el recurso coincide, se considera aplicable y tiene un estado de **Compatible**, **No compatible** o **Exento**. Si la única propiedad de la definición es **type**, **name** o **kind**, todos los recursos incluidos y exentos se consideran aplicables y se evalúan.
+Azure Policy usa los campos **type** , **name** o **kind** en la definición para determinar si un recurso coincide. Cuando el recurso coincide, se considera aplicable y tiene un estado de **Compatible** , **No compatible** o **Exento** . Si la única propiedad de la definición es **type** , **name** o **kind** , todos los recursos incluidos y exentos se consideran aplicables y se evalúan.
 
-El porcentaje de cumplimiento se determina dividiendo los recursos **compatibles** y **exentos** entre los _recursos totales_. Los _recursos totales_ se definen como la suma de los recursos **compatibles**, **no compatibles**, **exentos** y **en conflicto**. La cifra de cumplimiento general es la suma de los distintos recursos que son **compatibles** o **exentos** dividida entre la suma de todos los recursos distintos. En la imagen siguiente, hay 20 recursos diferentes que son aplicables y solo uno es **No compatible**.
+El porcentaje de cumplimiento se determina dividiendo los recursos **compatibles** y **exentos** entre los _recursos totales_ . Los _recursos totales_ se definen como la suma de los recursos **compatibles** , **no compatibles** , **exentos** y **en conflicto** . La cifra de cumplimiento general es la suma de los distintos recursos que son **compatibles** o **exentos** dividida entre la suma de todos los recursos distintos. En la imagen siguiente, hay 20 recursos diferentes que son aplicables y solo uno es **No compatible** .
 Por tanto, el cumplimiento general de los recursos es del 95 % (19 de 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Diagrama de cuentas de almacenamiento expuestas a redes públicas en el grupo de recursos Contoso R G." border="false":::
@@ -202,7 +207,7 @@ Por tanto, el cumplimiento general de los recursos es del 95 % (19 de 20).
 
 ## <a name="portal"></a>Portal
 
-Azure Portal presenta de forma gráfica la visualización y el reconocimiento del estado de cumplimiento de normas en su entorno. En la página **Directiva**, la opción **Información general** proporciona detalles sobre el cumplimiento de directivas e iniciativas por parte de los ámbitos disponibles. Junto con el recuento y el estado de cumplimiento por asignación, contiene un gráfico que muestra el cumplimiento durante los últimos siete días. La página **Cumplimiento** contiene gran parte de esta misma información (excepto el gráfico), pero ofrece más opciones de filtrado y ordenación.
+Azure Portal presenta de forma gráfica la visualización y el reconocimiento del estado de cumplimiento de normas en su entorno. En la página **Directiva** , la opción **Información general** proporciona detalles sobre el cumplimiento de directivas e iniciativas por parte de los ámbitos disponibles. Junto con el recuento y el estado de cumplimiento por asignación, contiene un gráfico que muestra el cumplimiento durante los últimos siete días. La página **Cumplimiento** contiene gran parte de esta misma información (excepto el gráfico), pero ofrece más opciones de filtrado y ordenación.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Diagrama de cuentas de almacenamiento expuestas a redes públicas en el grupo de recursos Contoso R G." border="false":::
 
@@ -210,8 +215,8 @@ Dado que una directiva o iniciativa se puede asignar a distintos ámbitos, la ta
 
 :::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Diagrama de cuentas de almacenamiento expuestas a redes públicas en el grupo de recursos Contoso R G." border="false":::
 
-La lista de recursos de la pestaña **Compatibilidad de recursos** muestra el estado de evaluación de los recursos existentes para la asignación actual. El valor predeterminado de la pestaña es **No compatible**, pero se puede filtrar.
-Los eventos (anexar, auditar, denegar, implementar, modificar) que desencadena la solicitud para crear un recurso se muestran en la pestaña **Eventos**.
+La lista de recursos de la pestaña **Compatibilidad de recursos** muestra el estado de evaluación de los recursos existentes para la asignación actual. El valor predeterminado de la pestaña es **No compatible** , pero se puede filtrar.
+Los eventos (anexar, auditar, denegar, implementar, modificar) que desencadena la solicitud para crear un recurso se muestran en la pestaña **Eventos** .
 
 > [!NOTE]
 > En el caso de una directiva del motor de AKS, el recurso que se muestra es el grupo de recursos.
@@ -228,7 +233,7 @@ De vuelta a la página de cumplimiento de recursos, haga clic con el botón dere
 
 ### <a name="understand-non-compliance"></a>Qué significa no cumplimiento
 
-Cuando se determina que un recurso **no es compatible**, hay muchas razones posibles para ello. Para determinar el motivo de que un recurso **no sea compatible** o para buscar el responsable del cambio, consulte [Determinación del incumplimiento](./determine-non-compliance.md).
+Cuando se determina que un recurso **no es compatible** , hay muchas razones posibles para ello. Para determinar el motivo de que un recurso **no sea compatible** o para buscar el responsable del cambio, consulte [Determinación del incumplimiento](./determine-non-compliance.md).
 
 ## <a name="command-line"></a>Línea de comandos
 
@@ -244,7 +249,7 @@ Con la API REST, el resumen se puede realizar por contenedor, definición o asig
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
 ```
 
-La salida resume la suscripción. En la salida de ejemplo siguiente, la compatibilidad resumida está en **value.results.nonCompliantResources** y **value.results.nonCompliantPolicies**. Esta solicitud proporciona más detalles, incluida cada asignación que compone los números no compatibles y la información de definición de cada asignación. Cada objeto de directiva de la jerarquía proporciona un **queryResultsUri** que puede utilizarse para obtener detalles adicionales en ese nivel.
+La salida resume la suscripción. En la salida de ejemplo siguiente, la compatibilidad resumida está en **value.results.nonCompliantResources** y **value.results.nonCompliantPolicies** . Esta solicitud proporciona más detalles, incluida cada asignación que compone los números no compatibles y la información de definición de cada asignación. Cada objeto de directiva de la jerarquía proporciona un **queryResultsUri** que puede utilizarse para obtener detalles adicionales en ese nivel.
 
 ```json
 {
@@ -282,7 +287,7 @@ La salida resume la suscripción. En la salida de ejemplo siguiente, la compatib
 
 ### <a name="query-for-resources"></a>Consulta de recursos
 
-En el ejemplo anterior, **value.policyAssignments.policyDefinitions.results.queryResultsUri** proporciona un URI de ejemplo para todos los recursos no compatibles de una definición de directiva específica. Al examinar el valor de **$filter**, ComplianceState es igual (eq) a "NonCompliant", se ha especificado PolicyAssignmentId para la definición de directiva y, después, se ha especificado el propio PolicyDefinitionId. La razón para incluir PolicyAssignmentId en el filtro es que PolicyDefinitionId podría existir en varias asignaciones de directivas o de iniciativas con diversos ámbitos. Al especificar PolicyAssignmentId y PolicyDefinitionId, podremos ser explícitos en los resultados que estamos buscando. Anteriormente, para PolicyStates usábamos **más reciente**, que establece automáticamente una ventana temporal **desde** y **hasta** de las últimas 24 horas.
+En el ejemplo anterior, **value.policyAssignments.policyDefinitions.results.queryResultsUri** proporciona un URI de ejemplo para todos los recursos no compatibles de una definición de directiva específica. Al examinar el valor de **$filter** , ComplianceState es igual (eq) a "NonCompliant", se ha especificado PolicyAssignmentId para la definición de directiva y, después, se ha especificado el propio PolicyDefinitionId. La razón para incluir PolicyAssignmentId en el filtro es que PolicyDefinitionId podría existir en varias asignaciones de directivas o de iniciativas con diversos ámbitos. Al especificar PolicyAssignmentId y PolicyDefinitionId, podremos ser explícitos en los resultados que estamos buscando. Anteriormente, para PolicyStates usábamos **más reciente** , que establece automáticamente una ventana temporal **desde** y **hasta** de las últimas 24 horas.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-10-01&$from=2018-05-18 04:28:22Z&$to=2018-05-19 04:28:22Z&$filter=ComplianceState eq 'NonCompliant' and PolicyAssignmentId eq '/subscriptions/{subscriptionId}/resourcegroups/rg-tags/providers/microsoft.authorization/policyassignments/37ce239ae4304622914f0c77' and PolicyDefinitionId eq '/providers/microsoft.authorization/policydefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62'
@@ -328,7 +333,7 @@ La respuesta del ejemplo siguiente se ha reducido a un único recurso no compati
 
 ### <a name="view-events"></a>Ver eventos
 
-Cuando se crea o actualiza un recurso, se genera un resultado de evaluación de directiva. Los resultados se denominan _eventos de directiva_. Utilice el siguiente Uri para ver eventos recientes de directiva asociados a la suscripción.
+Cuando se crea o actualiza un recurso, se genera un resultado de evaluación de directiva. Los resultados se denominan _eventos de directiva_ . Utilice el siguiente Uri para ver eventos recientes de directiva asociados a la suscripción.
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyEvents/default/queryResults?api-version=2019-10-01

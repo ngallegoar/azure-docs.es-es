@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91614169"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359006"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Evaluación de prioridades, investigación y respuesta a alertas de seguridad
-Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado e inteligencia de amenazas para alertarle de cualquier actividad malintencionada. También puede integrar alertas de otros servicios y productos de seguridad en Security Center, así como crear alertas personalizadas basadas en indicadores u orígenes de inteligencia propios. Una vez que se genera una alerta, es necesario investigarla y tomar las medidas correctoras de inmediato. 
+Security Center analiza continuamente las cargas de trabajo de la nube híbrida y usa el análisis avanzado y la inteligencia sobre amenazas para alertarle de cualquier actividad potencialmente malintencionada en los recursos en la nube. También puede integrar alertas de otros productos y servicios de seguridad en Security Center. Una vez que se genera una alerta, es necesario investigarla y corregir el posible problema de seguridad. 
 
 En este tutorial, aprenderá a:
 
@@ -40,7 +40,7 @@ Para recorrer las características descritas en este tutorial, debe tener habili
 ## <a name="triage-security-alerts"></a>Evaluación de las prioridades de las alertas de seguridad
 Security Center proporciona una vista unificada de todas las alertas de seguridad. Las alertas de seguridad se clasifican en función de la gravedad de la actividad detectada. 
 
-Evalúe la prioridad de las alertas en la página **Alertas de seguridad**:
+Evalúe la prioridad de las alertas en la página **Alertas de seguridad** :
 
 :::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Página Lista de alertas de seguridad" lightbox="./media/tutorial-security-incident/alerts-list.png":::
 
@@ -68,7 +68,7 @@ Cuando haya decidido qué alerta desea investigar primero:
     - Recursos afectados.
     - Intención de la cadena de eliminación de la actividad en la matriz de MITRE ATT & CK
 
-1. Para obtener información más detallada que pueda ayudarle a investigar la actividad sospechosa, examine la pestaña **Detalles de la alerta**.
+1. Para obtener información más detallada que pueda ayudarle a investigar la actividad sospechosa, examine la pestaña **Detalles de la alerta** .
 
 1. Cuando haya repasado la información de esta página, puede que sea suficiente para continuar con una respuesta. Si necesita más detalles:
 
@@ -83,18 +83,18 @@ Después de investigar una alerta y conocer su ámbito, puede responder a la ale
     :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Página Lista de alertas de seguridad" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Consulte la sección **Mitigación de la amenaza** para ver los pasos de investigación manual necesarios para mitigar el problema.
-1.  Para proteger los recursos y evitar futuros ataques de este tipo, lleve a cabo las recomendaciones de seguridad que se indican en la sección **Prevención ante futuros ataques**.
-1.  Para desencadenar una aplicación lógica con pasos de respuesta automatizados, use la sección **Desencadenamiento de respuesta automatizada**.
-1.  Si la actividad detectada *no es* malintencionada, puede suprimir las alertas futuras de este tipo mediante la sección **Supresión de alertas similares**.
+1.  Para proteger los recursos y evitar futuros ataques de este tipo, lleve a cabo las recomendaciones de seguridad que se indican en la sección **Prevención ante futuros ataques** .
+1.  Para desencadenar una aplicación lógica con pasos de respuesta automatizados, use la sección **Desencadenamiento de respuesta automatizada** .
+1.  Si la actividad detectada *no es* malintencionada, puede suprimir las alertas futuras de este tipo mediante la sección **Supresión de alertas similares** .
 
-1.  Cuando haya completado la investigación en la alerta y respondido de la manera adecuada, cambie el estado a **Descartado**.
+1.  Cuando haya completado la investigación en la alerta y respondido de la manera adecuada, cambie el estado a **Descartado** .
 
     :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Página Lista de alertas de seguridad":::
 
-    Así se elimina la alerta de la lista de alertas principales. Puede usar el filtro de la página de la lista de alertas para ver todas las alertas con el estado **Descartado**.
+    Así se elimina la alerta de la lista de alertas principales. Puede usar el filtro de la página de la lista de alertas para ver todas las alertas con el estado **Descartado** .
 
-1.  Opcionalmente, proporcione a Microsoft comentarios sobre una alerta:
-    1. Marcar la alerta como **Útil** o **No útil**.
+1.  Le recomendamos que proporcione comentarios sobre la alerta a Microsoft:
+    1. Marque la alerta como **Útil** o **No útil** .
     1. Seleccione un motivo y agregue un comentario.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Página Lista de alertas de seguridad":::
@@ -108,11 +108,11 @@ Otras guías de inicio rápido y tutoriales de esta colección se basan en los v
 
 Si no tiene previsto continuar o desea deshabilitar cualquiera de estas características:
 
-1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración**.
+1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración** .
 1. Seleccione la suscripción correspondiente.
 1. Para cambiar a una versión anterior, seleccione **Azure Defender off** (Azure Defender desactivado).
-1. Para deshabilitar el aprovisionamiento automático, abra la página **Recopilación de datos** y establezca **Aprovisionamiento automático** en **Desactivado**.
-4. Seleccione **Guardar**.
+1. Para deshabilitar el aprovisionamiento automático, abra la página **Recopilación de datos** y establezca **Aprovisionamiento automático** en **Desactivado** .
+4. Seleccione **Guardar** .
 
 >[!NOTE]
 > La deshabilitación del aprovisionamiento automático no quita el agente de Log Analytics de las máquinas virtuales de Azure que ya lo tienen. La deshabilitación del aprovisionamiento automático limita la supervisión de seguridad de los recursos.

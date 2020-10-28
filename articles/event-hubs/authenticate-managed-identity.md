@@ -4,12 +4,12 @@ description: En este artículo se proporciona información sobre cómo autentica
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23fc0a59f9accc70c69c1096c1a15f1313ee2e0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89010025"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332457"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs
 Azure Event Hubs admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas para recursos de Azure pueden autorizar el acceso a los recursos de Event Hubs con credenciales de Azure AD desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa identidades administradas para recursos de Azure junto con autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube.
@@ -26,7 +26,7 @@ Para poder usar identidades administradas para recursos de Azure a fin de autori
 - [Bibliotecas cliente de Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Concesión de permisos a una identidad administrada en Azure AD
-Para autorizar una solicitud al servicio Event Hubs desde una identidad administrada de la aplicación, primero configure los valores del control de acceso basado en roles (RBAC) de esa identidad administrada. Azure Event Hubs define los roles de Azure que abarcan los permisos para enviar y leer desde Event Hubs. Cuando el rol de Azure se asigna a una identidad administrada, a esta se le concede acceso a los datos de Event Hubs en el ámbito adecuado.
+Para autorizar una solicitud al servicio Event Hubs desde una identidad administrada de la aplicación, primero configure los valores del control de acceso basado en roles de Azure (Azure RBAC) de esa identidad administrada. Azure Event Hubs define los roles de Azure que abarcan los permisos para enviar y leer desde Event Hubs. Cuando el rol de Azure se asigna a una identidad administrada, a esta se le concede acceso a los datos de Event Hubs en el ámbito adecuado.
 
 Para más información sobre la asignación de roles de Azure, consulte [Autenticación con Azure Active Directory para el acceso a recursos de Event Hubs](authorize-access-azure-active-directory.md).
 
@@ -37,8 +37,8 @@ A continuación, usaremos una aplicación web de ejemplo hospedada en [Azure Ap
 
 Una vez creada la aplicación, siga estos pasos: 
 
-1. Vaya a **Configuración** y seleccione **Identidad**. 
-1. Seleccione el **Estado** que va a estar **Activado**. 
+1. Vaya a **Configuración** y seleccione **Identidad** . 
+1. Seleccione el **Estado** que va a estar **Activado** . 
 1. Seleccione **Guardar** para guardar la configuración. 
 
     ![Identidad administrada para una aplicación web](./media/authenticate-managed-identity/identity-web-app.png)
@@ -57,10 +57,10 @@ Para asignar un rol a los recursos de Event Hubs, vaya a ese recurso en Azure Po
 1. Seleccione **Access Control (IAM)** en el menú de la izquierda para mostrar la configuración de control de acceso para el centro de eventos.
 1.  Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
 3.  Seleccione **Agregar** para agregar un rol nuevo.
-4.  En la página **Agregar asignación de roles**, seleccione los roles de Event Hubs que quiere asignar. A continuación, busque la identidad del servicio que ha registrado para asignar el rol.
+4.  En la página **Agregar asignación de roles** , seleccione los roles de Event Hubs que quiere asignar. A continuación, busque la identidad del servicio que ha registrado para asignar el rol.
     
     ![Página Agregar asignación de roles](./media/authenticate-managed-identity/add-role-assignment-page.png)
-5.  Seleccione **Guardar**. La identidad a la que ha asignado el rol aparece enumerada debajo de ese rol. Por ejemplo, la siguiente imagen muestra que la identidad del servicio tiene al propietario de los datos de Event Hubs.
+5.  Seleccione **Guardar** . La identidad a la que ha asignado el rol aparece enumerada debajo de ese rol. Por ejemplo, la siguiente imagen muestra que la identidad del servicio tiene al propietario de los datos de Event Hubs.
     
     ![Identidad asignada a un rol](./media/authenticate-managed-identity/role-assigned.png)
 
@@ -72,12 +72,12 @@ Una vez que haya asignado el rol, la aplicación web tendrá acceso a los recurs
 3. Asegúrese de que SendReceive.aspx esté establecido como documento predeterminado de la aplicación web. 
 3. Habilite una **identidad** para la aplicación web. 
 4. Asigne esta identidad al rol **Propietario de datos de Event Hubs** en el nivel del espacio de nombres o en el del centro de eventos. 
-5. Ejecute la aplicación web, escriba los nombres del espacio de nombres y del centro de eventos y un mensaje y seleccione **Enviar**. Para recibir el evento, seleccione **Recibir**. 
+5. Ejecute la aplicación web, escriba los nombres del espacio de nombres y del centro de eventos y un mensaje y seleccione **Enviar** . Para recibir el evento, seleccione **Recibir** . 
 
 #### <a name="azuremessagingeventhubs-latest"></a>[Azure.Messaging.EventHubs (más reciente)](#tab/latest)
 Ahora puede iniciar la aplicación web y apuntar el explorador a la página aspx de ejemplo. Puede encontrar la aplicación web de ejemplo que envía y recibe datos de los recursos de Event Hubs en el [repositorio de GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
 
-Instale el paquete más reciente de [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) y empiece a enviar eventos a Event Hubs con **EventHubProducerClient** y a recibirlos con **EventHubConsumerClient**. 
+Instale el paquete más reciente de [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) y empiece a enviar eventos a Event Hubs con **EventHubProducerClient** y a recibirlos con **EventHubConsumerClient** . 
 
 > [!NOTE]
 > Para ver un ejemplo de Java que usa una identidad administrada para publicar eventos en un centro de eventos, consulte la [publicación de eventos con in ejemplo de identidad de Azure en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs).
@@ -144,7 +144,7 @@ Puede usar aplicaciones de Apache Kafka para enviar y recibir mensajes en Azure 
     - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [Ejemplos de Microsoft.Azure.EventHubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
-    En estos ejemplos se usa la biblioteca anterior **Microsoft.Azure.EventHubs**, pero se puede actualizar fácilmente para usar la biblioteca **Azure.Messaging.EventHubs** más reciente. Para que los ejemplos usen la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.EventHubs a Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
+    En estos ejemplos se usa la biblioteca anterior **Microsoft.Azure.EventHubs** , pero se puede actualizar fácilmente para usar la biblioteca **Azure.Messaging.EventHubs** más reciente. Para que los ejemplos usen la biblioteca nueva en lugar de la anterior, consulte la [Guía para migrar de Microsoft.Azure.EventHubs a Azure.Messaging.EventHubs](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md).
     Este ejemplo se ha actualizado para usar la biblioteca **Azure.Messaging.EventHubs** más reciente.
 - [Event Hubs para Kafka: envío y recepción de mensajes mediante la autorización OAuth de identidad administrada](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

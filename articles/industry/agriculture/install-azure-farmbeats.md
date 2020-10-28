@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479566"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330485"
 ---
 # <a name="install-azure-farmbeats"></a>Instalación de Azure FarmBeats
 
@@ -18,9 +18,9 @@ En este artículo se describe cómo instalar Azure FarmBeats en la suscripción 
 
 Azure FarmBeats es una oferta de negocio a negocio disponible en Azure Marketplace. Permite la agregación de conjuntos de datos de agricultura entre proveedores y la generación de información procesable. Azure FarmBeats permite crear modelos de inteligencia artificial (AI) o de aprendizaje automático (ML) basados en conjuntos de datos combinados. Los dos componentes principales de Azure FarmBeats son:
 
-- **Centro de datos**: Una capa de API que permite la agregación, normalización y contextualización de varios conjuntos de datos agrícolas entre distintos proveedores.
+- **Centro de datos** : Una capa de API que permite la agregación, normalización y contextualización de varios conjuntos de datos agrícolas entre distintos proveedores.
 
-- **Acelerador**: aplicación web que se basa en el centro de datos. Sirve de inicio en el desarrollo y visualización del modelo. El acelerador usa las API de Azure FarmBeats para mostrar la visualización de los datos ingeridos de los sensores como gráficos y la visualización de la salida del modelo como mapas.
+- **Acelerador** : aplicación web que se basa en el centro de datos. Sirve de inicio en el desarrollo y visualización del modelo. El acelerador usa las API de Azure FarmBeats para mostrar la visualización de los datos ingeridos de los sensores como gráficos y la visualización de la salida del modelo como mapas.
 
 ## <a name="general-information"></a>Información general
 
@@ -87,13 +87,13 @@ Los dos primeros permisos son necesarios para el paso [Creación de una aplicaci
 
 La persona que ejecuta la instalación de FarmBeats desde Marketplace debe ser propietario del grupo de recursos en el que se va a instalar FarmBeats. En el caso de los propietarios de suscripciones, esto se produce automáticamente cuando se crea el grupo de recursos. Para otros usuarios, cree previamente el grupo de recursos y solicite al propietario de la suscripción que le convierta en propietario del grupo de recursos.
 
-Puede comprobar los permisos de acceso en Azure Portal si sigue las instrucciones de [Control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+Puede comprobar los permisos de acceso en Azure Portal si sigue las instrucciones del [Control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Elección de la suscripción y la región
 
 Necesitará el identificador de suscripción de Azure y la región en la que desea instalar Azure FarmBeats. Elija una de las regiones que aparecen en la sección [Regiones admitidas](#regions-supported).
 
-Anote el **Identificador de suscripción de Azure** y la **Región de Azure**.
+Anote el **Identificador de suscripción de Azure** y la **Región de Azure** .
 
 ### <a name="create-an-aad-application"></a>Creación de una aplicación de AAD
 
@@ -124,11 +124,11 @@ Ejecute los pasos siguientes en una instancia de Cloud Shell mediante el entorno
 
 4. El script solicita las tres entradas siguientes:
 
-    - **Nombre del sitio web de FarmBeats**: este es el prefijo de dirección URL único para la aplicación web FarmBeats. En caso de que el prefijo ya se haya usado, el script generará un error. Una vez instalado, se podrá acceder a la implementación de FarmBeats desde https://\<FarmBeats-website-name>.azurewebsites.net y las API de Swagger estarán en https://\<FarmBeats-website-name>-api.azurewebsites.net
+    - **Nombre del sitio web de FarmBeats** : este es el prefijo de dirección URL único para la aplicación web FarmBeats. En caso de que el prefijo ya se haya usado, el script generará un error. Una vez instalado, se podrá acceder a la implementación de FarmBeats desde https://\<FarmBeats-website-name>.azurewebsites.net y las API de Swagger estarán en https://\<FarmBeats-website-name>-api.azurewebsites.net
 
-    - **Identificador de inicio de sesión de Azure**: proporcione el identificador de inicio de sesión de Azure del usuario que quiere agregar como administrador de FarmBeats. Luego, este usuario puede conceder a otros usuarios acceso a la aplicación web FarmBeats. El identificador de inicio de sesión suele tener el formato john.doe@domain.com. También se admite el UPN de Azure.
+    - **Identificador de inicio de sesión de Azure** : proporcione el identificador de inicio de sesión de Azure del usuario que quiere agregar como administrador de FarmBeats. Luego, este usuario puede conceder a otros usuarios acceso a la aplicación web FarmBeats. El identificador de inicio de sesión suele tener el formato john.doe@domain.com. También se admite el UPN de Azure.
 
-    - **Id. de suscripción**: este es el identificador de la suscripción en la que quiere instalar Azure FarmBeats.
+    - **Id. de suscripción** : este es el identificador de la suscripción en la que quiere instalar Azure FarmBeats.
 
 5. El script de AAD tarda unos 2 minutos en ejecutarse y presenta los valores en pantalla y en un archivo JSON en el mismo directorio. Si otra persona ejecuta el script, pídale que comparta esta salida con usted.
 
@@ -152,21 +152,21 @@ Ya está preparado para instalar FarmBeats. Siga los pasos siguientes para inici
 
 2. Vaya a Azure Marketplace en el portal y busque **Azure FarmBeats** en Marketplace.
 
-3. Aparece una nueva ventana con información general sobre Azure FarmBeats. Seleccione **Crear**.
+3. Aparece una nueva ventana con información general sobre Azure FarmBeats. Seleccione **Crear** .
 
 4. Aparece una nueva ventana. Complete el proceso de registro; para ello, elija la suscripción, el grupo de recursos y la ubicación correctos en los que desea instalar Azure FarmBeats.
 
-5. Proporcione la dirección de correo electrónico que debe recibir las alertas de servicio relacionadas con Azure FarmBeats en la sección **Alertas de servicio de FarmBeats**. Seleccione **Siguiente** en la parte inferior de la página para ir a la pestaña **Dependencias**.
+5. Proporcione la dirección de correo electrónico que debe recibir las alertas de servicio relacionadas con Azure FarmBeats en la sección **Alertas de servicio de FarmBeats** . Seleccione **Siguiente** en la parte inferior de la página para ir a la pestaña **Dependencias** .
 
     ![Pestaña Aspectos básicos](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
 
 6. Copie las entradas individuales de la salida de [Script de AAD](#create-an-aad-application) en las entradas de la sección de aplicación de AAD.
 
-7. Escriba el nombre de usuario y la contraseña de la [cuenta de Sentinel](#create-sentinel-account) en la sección Cuenta de Sentinel. Seleccione **Siguiente** para ir a la pestaña **Revisar y crear**.
+7. Escriba el nombre de usuario y la contraseña de la [cuenta de Sentinel](#create-sentinel-account) en la sección Cuenta de Sentinel. Seleccione **Siguiente** para ir a la pestaña **Revisar y crear** .
 
     ![Pestaña Dependencias](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
 
-8. Una vez validados los detalles especificados, seleccione **Aceptar**. Aparece la página Términos de uso. Revise los términos y seleccione **Crear** para iniciar la instalación. Se le redirige a la página en la que puede seguir el progreso de la instalación.
+8. Una vez validados los detalles especificados, seleccione **Aceptar** . Aparece la página Términos de uso. Revise los términos y seleccione **Crear** para iniciar la instalación. Se le redirige a la página en la que puede seguir el progreso de la instalación.
 
 Finalizada la instalación, puede comprobarla y empezar a usar el portal de FarmBeats. Para ello, vaya al nombre del sitio web proporcionado durante la instalación: https://\<FarmBeats-website-name>.azurewebsites.net. Debería ver la interfaz de usuario de FarmBeats con una opción para crear granjas.
 

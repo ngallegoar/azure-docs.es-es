@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: e64c5ddfafb8bc8e9041e6d6b3e473a9a20565ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8bdd911db82a07bfcdd1596b7a8203a19a6442
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843131"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341964"
 ---
 # <a name="set-up-web-endpoints"></a>Configuración de puntos de conexión web
 
@@ -54,14 +54,14 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
     > - Para asegurarnos de que el valor del encabezado es único en nuestro punto de conexión de ejemplo, tome los primeros 8 dígitos de applicationId.
     > - En realidad, el punto de conexión web puede ser el punto de conexión a la instancia de [IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) que administra los dispositivos.
 
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save** (Guardar).
 
 ## <a name="call-web-endpoints"></a>Llamada a los puntos de conexión web
 
-1. Diríjase al comando **TurnOnOff**, seleccione **ConfirmationResponse** en regla de finalización y, a continuación, seleccione **Agregar una acción.**
-1. En **Nuevo tipo de acción**, seleccione **Call web endpoint** (llamar a un punto de conexión web).
-1. En **Editar acción: puntos de conexión**, seleccione **UpdateDeviceState**, que es el punto de conexión web que hemos creado.  
-1. En **Configuración**, introduzca los siguientes valores: 
+1. Diríjase al comando **TurnOnOff** , seleccione **ConfirmationResponse** en regla de finalización y, a continuación, seleccione **Agregar una acción.**
+1. En **Nuevo tipo de acción** , seleccione **Call web endpoint** (llamar a un punto de conexión web).
+1. En **Editar acción: puntos de conexión** , seleccione **UpdateDeviceState** , que es el punto de conexión web que hemos creado.  
+1. En **Configuración** , introduzca los siguientes valores: 
    > [!div class="mx-imgBorder"]
    > ![Parámetros de la acción para llamar a puntos de conexión web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
@@ -74,7 +74,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
     > [!NOTE]
     > - Los parámetros de consulta sugeridos solo son necesarios para el punto de conexión de ejemplo.
 
-1. Desde **En caso de éxito: acción para ejecutar**, seleccione **Send speech response** (enviar respuesta de voz).
+1. Desde **En caso de éxito: acción para ejecutar** , seleccione **Send speech response** (enviar respuesta de voz).
     
     En **Simple editor** (Editor sencillo), escriba `{SubjectDevice} is {OnOff}`.
    
@@ -88,7 +88,7 @@ En este artículo, aprenderá a configurar los puntos de conexión web en una ap
    > [!NOTE]
    > - También puede acceder directamente a los campos de la respuesta HTTP mediante `{YourWebEndpointName.FieldName}`. Por ejemplo: `{UpdateDeviceState.TV}`
 
-1. Desde **En caso de error: acción para ejecutar**, seleccione **Send speech response** (enviar respuesta de voz).
+1. Desde **En caso de error: acción para ejecutar** , seleccione **Send speech response** (enviar respuesta de voz).
 
     En **Simple editor** (Editor sencillo), escriba `Sorry, {WebEndpointErrorMessage}`.
 
@@ -120,8 +120,8 @@ Sin embargo, en la mayoría de los casos solo querrá enviar la actividad a la a
 
 1. Elimine la acción **Send activity to client** (enviar una actividad al cliente) que agregó anteriormente.
 1. Edite la acción de llamada a un punto de conexión web: 
-    1. En **Configuración**, asegúrese de que **Parámetros de consulta** sea `item={SubjectDevice}&&value={OnOff}`
-    1. Desde **En caso de éxito**, cambie **Acción para ejecutar** por **Send activity to client** (enviar una actividad al cliente).
+    1. En **Configuración** , asegúrese de que **Parámetros de consulta** sea `item={SubjectDevice}&&value={OnOff}`
+    1. Desde **En caso de éxito** , cambie **Acción para ejecutar** por **Send activity to client** (enviar una actividad al cliente).
     1. Copie el código JSON siguiente en el campo **Activity content** (contenido de la actividad).
    ```json
    {
@@ -206,4 +206,4 @@ Si probó la aplicación con `turn on tv` en la sección anterior, notará que e
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Habilite un proceso de CI/CD para su aplicación de Comandos personalizados](./how-to-custom-commands-deploy-cicd.md)
+> [Exportación de la aplicación Comandos personalizados como una aptitud remota](./how-to-custom-commands-integrate-remote-skills.md)

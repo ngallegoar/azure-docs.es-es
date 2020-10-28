@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588932"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327423"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integración de Key Vault con la entidad de certificación DigiCert
 
@@ -51,17 +51,17 @@ Después de recopilar información sobre la cuenta CertCentral de DigiCert, ahor
 ### <a name="azure-portal"></a>Azure portal
 
 1.  Para agregar la entidad de certificación DigiCert, vaya al almacén de claves en el que desea agregar DigiCert. 
-2.  En las páginas de propiedades de Key Vault, seleccione **Certificados**.
-3.  Seleccione la pestaña **Entidades de certificación**. ![Propiedades del certificado](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.  Seleccione la opción **Agregar**.
- ![Propiedades del certificado](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
-5.  En la pantalla **Creación de una entidad de certificación**, elija los siguientes valores:
-    -   **Name**: Agregue un nombre de emisor identificable. Example DigicertCA
-    -   **Proveedor**: Seleccione DigiCert en el menú.
-    -   **Id. de cuenta**: Escriba el identificador de la cuenta CertCentral de DigiCert.
-    -   **Contraseña de cuenta**: Escriba la clave de API que generó en la cuenta CertCentral de DigiCert.
-    -   **Id. de la organización**: Escriba OrgID recopilado de la cuenta CertCentral de DigiCert. 
-    -   Haga clic en **Crear**.
+2.  En las páginas de propiedades de Key Vault, seleccione **Certificados** .
+3.  Seleccione la pestaña **Entidades de certificación** . ![Seleccione Entidades de certificación](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+4.  Seleccione la opción **Agregar** .
+ ![agregar entidades de certificación](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+5.  En la pantalla **Creación de una entidad de certificación** , elija los siguientes valores:
+    -   **Name** : Agregue un nombre de emisor identificable. Example DigicertCA
+    -   **Proveedor** : Seleccione DigiCert en el menú.
+    -   **Id. de cuenta** : Escriba el identificador de la cuenta CertCentral de DigiCert.
+    -   **Contraseña de cuenta** : Escriba la clave de API que generó en la cuenta CertCentral de DigiCert.
+    -   **Id. de la organización** : Escriba OrgID recopilado de la cuenta CertCentral de DigiCert. 
+    -   Haga clic en **Crear** .
    
 6.  Verá que DigicertCA se ha agregado ahora a la lista de entidades de certificación.
 
@@ -76,7 +76,7 @@ Si decide instalar y usar PowerShell de forma local, en este tutorial necesitar�
 Login-AzAccount
 ```
 
-1.  Cree un **grupo de recursos**.
+1.  Cree un **grupo de recursos** .
 
 Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. 
 
@@ -84,13 +84,13 @@ Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/
 New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
 ```
 
-2. Cree un **almacén de claves**.
+2. Cree un **almacén de claves** .
 
 Tiene que usar un nombre único para el almacén de claves. Aquí "Contoso-Vaultname" es el nombre del almacén de claves a lo largo de esta guía.
 
-- **Nombre del almacén**: Contoso-Vaultname.
-- **Nombre del grupo de recursos**: ContosoResourceGroup.
-- **Ubicación**: EastUS.
+- **Nombre del almacén** : Contoso-Vaultname.
+- **Nombre del grupo de recursos** : ContosoResourceGroup.
+- **Ubicación** : EastUS.
 
 ```azurepowershell-interactive
 New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGroup' -Location 'EastUS'
@@ -98,27 +98,25 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 
 3. Defina las variables para la información recopilada de la cuenta CertCentral de DigiCert.
 
-- Defina la variable **ID. de cuenta**.
+- Defina la variable **ID. de cuenta** .
 - Defina la variable **Id. org.**
-- Defina la variable **Clave de API**.
-- Defina la variable **Nombre del emisor**.
+- Defina la variable **Clave de API** .
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. Establezca el **Emisor**. Esto agregará a DigiCert como entidad de certificación en el almacén de claves.
+4. Establezca el **Emisor** . Esto agregará a DigiCert como entidad de certificación en el almacén de claves. Para más información sobre los parámetros, [consulte este artículo](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer).
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
 5. **Establecimiento de la directiva para el certificado y emisión del certificado** desde DigiCert directamente dentro de Key Vault.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -128,7 +126,7 @@ La entidad de certificación DigiCert ha emitido correctamente el certificado de
 
 Si el certificado emitido se encuentra en el estado "deshabilitado" en Azure Portal, continúe para ver la **Operación de certificados** y revisar el mensaje de error de DigiCert para ese certificado.
 
- ![Propiedades del certificado](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Operación de certificados](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Para más información, consulte las [operaciones con certificados en la referencia de la API REST de Key Vault](/rest/api/keyvault). Para obtener información sobre cómo establecer permisos, vea [Almacenes: crear o actualizar](/rest/api/keyvault/vaults/createorupdate) y [Almacenes: actualizar directiva de acceso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
@@ -136,8 +134,15 @@ Para más información, consulte las [operaciones con certificados en la referen
 
 - ¿Puedo generar un certificado comodín de DigiCert con KeyVault? 
    Sí. Dependería de cómo haya configurado la cuenta de DigiCert.
-- Si vamos a crear un certificado EV, ¿cómo lo especificamos? 
-   Al crear un certificado, haga clic en Configuración de directiva avanzada y, a continuación, especifique el tipo de certificado. Los valores admitidos son: OV-SSL, EV-SSL
+- ¿Cómo puedo crear un certificado **OV-SSL o EV-SSL** con DigiCert? 
+   Key Vault permite crear certificados SSL de OV y EV. Al crear un certificado, haga clic en Configuración de directiva avanzada y, a continuación, especifique el tipo de certificado. Los valores admitidos son: OV-SSL, EV-SSL
+   
+   Puede crear este tipo de certificado en el almacén de claves si la cuenta de DigiCert lo permite. Para este tipo de certificado, DigiCert realiza la validación. Si se produce un error en este proceso, su equipo de soporte técnico es quien mejor le puede ayudar a solucionarlo. Puede agregar información adicional al crear un certificado si la define en subjectName.
+
+Ejemplo
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - ¿Hay un retraso de tiempo en la creación de un certificado de DigiCert mediante la integración y la adquisición de un certificado con DigiCert directamente?
    No. Al crear un certificado, el proceso de comprobación es lo que puede tardar en realizarse y esa comprobación depende del proceso DigiCert siguiente.
 

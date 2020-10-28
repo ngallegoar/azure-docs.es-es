@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958368"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370328"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Uso de Apache HBase in Azure HDInsight
 
@@ -42,7 +42,7 @@ El siguiente procedimiento utiliza una plantilla de Azure Resource Manager para 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
-2. En el cuadro de diálogo **Implementación personalizada**, escriba los valores siguientes:
+2. En el cuadro de diálogo **Implementación personalizada** , escriba los valores siguientes:
 
     |Propiedad |Descripción |
     |---|---|
@@ -50,14 +50,14 @@ El siguiente procedimiento utiliza una plantilla de Azure Resource Manager para 
     |Resource group|cree un grupo de administración de recursos de Azure o use uno existente.|
     |Location|especifique la ubicación del grupo de recursos. |
     |ClusterName|escriba el nombre del clúster de HBase.|
-    |Nombre de inicio de sesión y contraseña del clúster|El nombre de inicio de sesión predeterminado es **admin**.|
-    |Nombre de usuario y contraseña de SSH|El nombre de usuario predeterminado es **sshuser**.|
+    |Nombre de inicio de sesión y contraseña del clúster|El nombre de inicio de sesión predeterminado es **admin** .|
+    |Nombre de usuario y contraseña de SSH|El nombre de usuario predeterminado es **sshuser** .|
 
     Otros parámetros son opcionales.  
 
     Cada clúster tiene una dependencia de cuenta de Azure Storage. Después de eliminar un clúster, los datos permanecen en la cuenta de almacenamiento. El nombre de cuenta de almacenamiento de clúster predeterminado es el nombre del clúster con "store" anexado. Está codificado de forma rígida en la sección de variables de plantilla.
 
-3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar**. Se tarda aproximadamente 20 minutos en crear un clúster.
+3. Seleccione **Acepto los términos y condiciones indicadas anteriormente** y, después, seleccione **Comprar** . Se tarda aproximadamente 20 minutos en crear un clúster.
 
 Después de que se elimine un clúster de HBase, puede crear otro clúster de HBase mediante el mismo contenedor de blobs predeterminado. El nuevo clúster selecciona las tablas de HBase que creó en el clúster original. Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
 
@@ -207,9 +207,51 @@ Puede consultar datos en las tablas de HBase mediante [Apache Hive](https://hive
 
 1. Para cerrar la conexión SSH, use `exit`.
 
+### <a name="separate-hive-and-hbase-clusters"></a>Clústeres de Hive y HBase independientes
+
+No es necesario ejecutar la consulta de Hive para acceder a los datos de HBase desde el clúster de HBase. Cualquier clúster que incluya Hive (incluidos Spark, Hadoop, HBase o Interactive Query) se puede usar para consultar datos de HBase, siempre que se hayan completado los siguientes pasos:
+
+1. Ambos clústeres deben estar conectados a la misma red virtual y subred.
+2. Copie `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` desde los nodos principales del clúster de HBase a los nodos principales del clúster de Hive.
+
+### <a name="secure-clusters"></a>Protección de los clústeres
+
+También se pueden consultar los datos de HBase desde Hive mediante HBase habilitado para ESP: 
+
+1. Cuando se sigue un patrón de varios clústeres, ambos clústeres deben estar habilitados para ESP. 
+2. Para permitir que Hive consulte los datos de HBase, asegúrese de que el usuario `hive` tiene permisos para acceder a los datos de HBase mediante el complemento Apache Ranger de HBase.
+3. Cuando se usan clústeres independientes habilitados para ESP, el contenido del archivo `/etc/hosts` de los nodos principales del clúster de HBase se debe anexar al archivo `/etc/hosts` de los nodos principales del clúster de Hive. 
+> [!NOTE]
+> Después de escalar los clústeres, se debe anexar de nuevo el archivo `/etc/hosts`.
+
 ## <a name="use-hbase-rest-apis-using-curl"></a>Usar las API de REST de HBase con Curl
 
 La API de REST se protege con la [autenticación básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Siempre debe crear solicitudes usando HTTP segura (HTTPS) para así garantizar que las credenciales se envían de manera segura al servidor.
+
+1. Para habilitar las API REST de HBase en el clúster de HDInsight, agregue el siguiente script de inicio personalizado a la sección **Script Action** (Acción de script). Puede agregar el script de inicio al crear el clúster o después de que se haya creado el clúster. En **Tipo de nodo** , seleccione **Servidores de regiones** para asegurarse de que el script se ejecuta solo en los servidores de regiones de HBase.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. Establezca la variable de entorno por facilidad de uso. Edite los comandos siguientes reemplazando `MYPASSWORD` por la contraseña de inicio de sesión del clúster. Reemplace `MYCLUSTERNAME` por el nombre del clúster de  HBase. Después, escriba los comandos.
 
@@ -307,10 +349,10 @@ HBase en HDInsight se incluye con una interfaz de usuario web para la supervisi�
 Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster. Puede usar el comando de HBase `disable 'Contacts'`. Si no va a seguir usando esta aplicación, puede eliminar el clúster HBase que creó mediante los siguientes pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**.
-1. Seleccione **Clústeres de HDInsight** en **Servicios**.
+1. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight** .
+1. Seleccione **Clústeres de HDInsight** en **Servicios** .
 1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial.
-1. Haga clic en **Eliminar**. Haga clic en **Sí**.
+1. Haga clic en **Eliminar** . Haga clic en **Sí** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

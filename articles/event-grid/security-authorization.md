@@ -3,16 +3,18 @@ title: Seguridad y autenticación de Azure Event Grid
 description: Describe Azure Event Grid y sus conceptos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 09317b310a5934d27b82d265ec7f9b276135f882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119096"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328732"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorización de acceso a recursos de Event Grid
-Azure Event Grid permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas operaciones de administración, como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en rol (RBAC) de Azure.
+Azure Event Grid le permite controlar el nivel de acceso dado a distintos usuarios para realizar diversas **operaciones de administración** , como enumerar las suscripciones a eventos, crear otras nuevas y generar claves. Event Grid usa el control de acceso basado en roles de Azure (Azure RBAC).
 
+> [!NOTE]
+> EventGrid no admite Azure RBAC para publicar eventos en los temas o dominios de Event Grid. Use una clave o un token de Firma de acceso compartido (SAS) para autenticar a los clientes que publican eventos. Para obtener más información, consulte [Autenticación de los clientes de publicación](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Tipos de operación
 
@@ -33,7 +35,7 @@ Event Grid proporciona dos roles integrados para administrar las suscripciones d
 
 También puede [asignar estos roles a un usuario o grupo](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**Colaborador de EventGrid EventSubscription**: administre las operaciones de suscripción de Event Grid.
+**Colaborador de EventGrid EventSubscription** : administre las operaciones de suscripción de Event Grid.
 
 ```json
 [
@@ -69,7 +71,7 @@ También puede [asignar estos roles a un usuario o grupo](../role-based-access-c
 ]
 ```
 
-**Lector de EventGrid EventSubscription**: lea las suscripciones de Event Grid.
+**Lector de EventGrid EventSubscription** : lea las suscripciones de Event Grid.
 
 ```json
 [
@@ -107,7 +109,7 @@ Si tiene que especificar permisos distintos a los de los roles integrados, puede
 
 Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a los usuarios realizar distintas acciones. Estos roles personalizados son diferentes de los roles integrados, ya que conceden acceso más amplio que las suscripciones a eventos.
 
-**EventGridReadOnlyRole.json**: Únicamente se permiten operaciones de solo lectura.
+**EventGridReadOnlyRole.json** : Únicamente se permiten operaciones de solo lectura.
 
 ```json
 {
@@ -126,7 +128,7 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: permitir acciones de publicación restringidas pero denegar acciones de eliminación.
+**EventGridNoDeleteListKeysRole.json** : permitir acciones de publicación restringidas pero denegar acciones de eliminación.
 
 ```json
 {
@@ -149,7 +151,7 @@ Las siguientes son definiciones de roles de Event Grid de ejemplo que permiten a
 }
 ```
 
-**EventGridContributorRole.json**: Permite todas las acciones de Event Grid.
+**EventGridContributorRole.json** : Permite todas las acciones de Event Grid.
 
 ```json
 {
@@ -187,12 +189,12 @@ Debe tener el permiso **Microsoft.EventGrid/EventSubscriptions/Write** en el rec
 ### <a name="system-topics-azure-service-publishers"></a>Temas del sistema (editores del servicio de Azure)
 Para temas del sistema, necesita permiso para escribir una nueva suscripción a eventos en el ámbito del recurso que publica el evento. El formato del recurso es: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
-Por ejemplo, para suscribirse a un evento en una cuenta de almacenamiento denominada **myacct**, necesita el permiso Microsoft.EventGrid/EventSubscriptions/Write en:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Por ejemplo, para suscribirse a un evento en una cuenta de almacenamiento denominada **myacct** , necesita el permiso Microsoft.EventGrid/EventSubscriptions/Write en:`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 
 ### <a name="custom-topics"></a>Temas personalizados
 Para temas personalizados, necesita permiso para escribir una nueva suscripción a eventos en el ámbito del tema de Event Grid. El formato del recurso es: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
 
-Por ejemplo, para suscribirse a un tema personalizado denominado **mytopic**, necesita el permiso Microsoft.EventGrid/EventSubscriptions/Write en: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+Por ejemplo, para suscribirse a un tema personalizado denominado **mytopic** , necesita el permiso Microsoft.EventGrid/EventSubscriptions/Write en: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 
 

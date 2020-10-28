@@ -4,16 +4,16 @@ description: Consulte, descargue y ejecute código de ejemplo y aplicaciones par
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322234"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359771"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Ejemplos de Azure Storage mediante las bibliotecas de cliente Java v12
 
@@ -453,4 +453,5 @@ Para información sobre ejemplos para otros lenguajes:
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md) (Ejemplos de Azure Storage con .NET)
 * Python: [Ejemplos de Azure Storage con Python](storage-samples-python.md)
 * JavaScript/Node.js: [Ejemplos de Azure Storage con JavaScript](storage-samples-javascript.md)
+* C++: [Ejemplos de Azure Storage con C++](storage-samples-c-plus-plus.md)
 * El resto de lenguajes: [Ejemplos de Azure Storage](storage-samples.md)

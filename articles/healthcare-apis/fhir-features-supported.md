@@ -7,13 +7,13 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
-ms.author: matjazl
-ms.openlocfilehash: afb4026a7865f2cc8f831d8d1d7b1d332014d310
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: cavoeg
+ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90007577"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339515"
 ---
 # <a name="features"></a>Características
 
@@ -37,6 +37,7 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | patch                          | No        | No        | No        |                                                     |
 | delete                         | Sí       | Sí       | Sí       |                                                     |
 | delete (conditional)           | No        | No        | No        |                                                     |
+| history                        | Sí       | Sí       | Sí       |                                                     |
 | create                         | Sí       | Sí       | Sí       | Admite POST y PUT                               |
 | create (conditional)           | Sí       | Sí       | Sí       |                                                     |
 | búsqueda                         | Parcial   | Parcial   | Parcial   | Consulte a continuación                                           |
@@ -45,7 +46,6 @@ Entre las versiones anteriores también admitidas actualmente se incluye: `3.0.2
 | capabilities                   | Sí       | Sí       | Sí       |                                                     |
 | proceso por lotes                          | Sí       | Sí       | Sí       |                                                     |
 | transaction                    | No        | Sí       | No        |                                                     |
-| history                        | Sí       | Sí       | Sí       |                                                     |
 | paging                         | Parcial   | Parcial   | Parcial   | `self` y `next` se admiten                     |
 | intermediaries                 | No        | No        | No        |                                                     |
 
@@ -94,28 +94,30 @@ Se admiten todos los tipos de parámetro de búsqueda.
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Sí       | Sí       | Sí       |         |
 | `_query`                | No        | No        | No        |         |
-
-| Operaciones de búsqueda       | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
-|-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
+
+| Parámetros de resultados de la búsqueda | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
+|-------------------------|-----------|-----------|-----------|---------|
 | `_sort`                 | Parcial        | Parcial   | Parcial        |   `_sort=_lastUpdated` se admite       |
-| `_score`                | No        | No        | No        |         |
-| `_count`                | Sí       | Sí       | Sí       |         |
-| `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` se admite |
+| `_count`                | Sí       | Sí       | Sí       | `_count` tiene un límite de 100 caracteres. Si se establece en un valor superior a 100, solo se devolverán 100 y una advertencia en el conjunto. |
 | `_include`              | No        | Sí       | No        |         |
 | `_revinclude`           | No        | Sí       | No        | Los elementos incluidos se limitan a 100. |
+| `_summary`              | Parcial   | Parcial   | Parcial   | `_summary=count` se admite |
+| `_total`                | Parcial   | Parcial   | Parcial   | _total=non y _total=accurate      |
+| `_elements`             | Sí       | Sí       | Sí       |         |
 | `_contained`            | No        | No        | No        |         |
-| `_elements`             | Sí        | Sí        | Sí        |         |
+| `containedType`         | No        | No        | No        |         |
+| `_score`                | No        | No        | No        |         |
 
 ## <a name="extended-operations"></a>Operaciones extendidas
 
 Todas las operaciones que se admiten y que extienden la API RESTful.
 
 | Tipo de parámetro de búsqueda | Admitida: PaaS | Admitida: OSS (SQL) | Admitida: OSS (Cosmos DB) | Comentario |
-|-----------------------|-----------|-----------|-----------|---------|
-| $export (todo el sistema)                | Sí       | Sí       | Sí       |         |
-| Patient/$export         | Sí       | Sí       | Sí       |         |
-| Group/$export               | Sí       | Sí       | Sí       |         |
+|------------------------|-----------|-----------|-----------|---------|
+| $export (todo el sistema) | Sí       | Sí       | Sí       |         |
+| Patient/$export        | Sí       | Sí       | Sí       |         |
+| Group/$export          | Sí       | Sí       | Sí       |         |
 
 ## <a name="persistence"></a>Persistencia
 

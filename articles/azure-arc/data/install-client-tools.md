@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3eb41b868aba7e7350f54594fa43f01eeeabebc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecf0f54913f980d879b562eb4aa8063acf6c4772
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932568"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320245"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Instalación de las herramientas de cliente para implementar y administrar los servicios de datos habilitados para Azure Arc
 
 > [!IMPORTANT]
-> Si va a actualizar la versión a una nueva mensual, actualice también la versión a la más reciente de Azure Data Studio, la herramienta de CLI de Azure Data (azdata) y las extensiones de la CLI de Azure Data y Azure Arc para Azure Data Studio.
+> Si va a actualizar la versión a una nueva mensual, actualice también a la versión más reciente de Azure Data Studio, la herramienta [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] y [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], y las extensiones de Azure Arc para Azure Data Studio.
 
-Este documento le guía por los pasos necesarios para instalar la CLI de Azure Data (azdata), Azure Data Studio, CLI de Azure (az) y la herramienta de la CLI de Kubernetes (kubectl) en el equipo cliente.
+Este documento le guía por los pasos necesarios para instalar [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], Azure Data Studio, la CLI de Azure (az) y la herramienta de la CLI de Kubernetes (kubectl) en la máquina cliente.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -31,10 +31,10 @@ En la siguiente tabla se enumeran las herramientas comunes necesarias para crear
 
 | Herramienta | Obligatorio | Descripción | Instalación |
 |---|---|---|---|
-| CLI de Azure Data (azdata) | Sí | Herramienta de línea de comandos para instalar y administrar un clúster de macrodatos. La CLI de Azure Data también incluye una utilidad de línea de comandos para conectarse y consultar instancias de Azure SQL y SQL Server y servidores Postgres mediante los comandos `azdata sql query` (ejecute una sola consulta desde la línea de comandos), `azdata sql shell` (un shell interactivo), `azdata postgres query` y `azdata postgres shell`. | [Instalación](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
-| Azure Data Studio | Sí | Herramienta de experiencia enriquecida para conectarse a una serie de bases de datos y consultarlas, como Azure SQL, SQL Server, PostrgreSQL y MySQL. Las extensiones para Azure Data Studio proporcionan una experiencia de administración para los servicios de datos habilitados para Azure Arc. | [Instalación](https://aka.ms/getazuredatastudio) |
-| Extensión de la CLI de Azure Data para Azure Data Studio | Sí | Extensión para Azure Data Studio que instalará la CLI de Azure Data si aún no la tiene.| Instalación desde la galería de extensiones en Azure Data Studio.|
-| Extensión de Azure Arc para Azure Data Studio | Sí | Extensión para Azure Data Studio que proporciona una experiencia de administración para los servicios de datos habilitados para Azure Arc. Existe una dependencia de la extensión de la CLI de Azure Data para Azure Data Studio. | Instalación desde la galería de extensiones en Azure Data Studio.|
+| [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] | Sí | Herramienta de línea de comandos para instalar y administrar un clúster de macrodatos. [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] también incluye una utilidad de línea de comandos para conectarse y consultar instancias de Azure SQL y SQL Server y servidores Postgres mediante los comandos `azdata sql query` (ejecute una sola consulta desde la línea de comandos), `azdata sql shell` (un shell interactivo), `azdata postgres query` y `azdata postgres shell`. | [Instalación](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
+| Azure Data Studio | Sí | Herramienta de experiencia enriquecida para conectarse a una serie de bases de datos y consultarlas, como Azure SQL, SQL Server, PostrgreSQL y MySQL. Las extensiones para Azure Data Studio proporcionan una experiencia de administración para los servicios de datos habilitados para Azure Arc. | [Instalación](/sql/azure-data-studio/download-azure-data-studio) |
+| Extensión de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] para Azure Data Studio | Sí | Extensión para Azure Data Studio que instalará [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] si aún no la tiene.| Instalación desde la galería de extensiones en Azure Data Studio.|
+| Extensión de Azure Arc para Azure Data Studio | Sí | Extensión para Azure Data Studio que proporciona una experiencia de administración para los servicios de datos habilitados para Azure Arc. Existe una dependencia de la extensión de [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] para Azure Data Studio. | Instalación desde la galería de extensiones en Azure Data Studio.|
 | Extensión de PostgreSQL en Azure Data Studio | No | Extensión de PostgreSQL para Azure Data Studio que proporciona capacidades de administración para PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Instalación desde la galería de extensiones en Azure Data Studio.|
 | CLI de Azure (az)<sup>1</sup> | Sí | Interfaz de línea de comandos moderna para administrar servicios de Azure. Se usa con las implementaciones de AKS y para cargar datos de facturación y de inventario de los servicios de datos habilitados para Azure Arc en Azure. ([Más información](/cli/azure/?view=azure-cli-latest&preserve-view=true)). | [Instalación](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) |
 | CLI de Kubernetes (kubectl)<sup>2</sup> | Sí | Herramienta de línea de comandos para supervisar el clúster de Kubernetes ([más información](https://kubernetes.io/docs/tasks/tools/install-kubectl/)). | [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |

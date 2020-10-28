@@ -3,12 +3,12 @@ title: Compatibilidad con la evaluación de Hyper-V en Azure Migrate
 description: Obtenga información sobre la compatibilidad con la evaluación de Hyper-V con la herramienta Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4c50bd2bdd0e5a0d68b545a914582352d7b34421
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318184"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331981"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de compatibilidad para la evaluación de Hyper-V
 
@@ -83,4 +83,4 @@ El [análisis de dependencias](concepts-dependency-visualization.md) le ayuda a 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Preparación de la evaluación de máquinas virtuales de Hyper-V](tutorial-prepare-hyper-v.md)
+[Preparación de la evaluación de máquinas virtuales de Hyper-V](./tutorial-discover-hyper-v.md)

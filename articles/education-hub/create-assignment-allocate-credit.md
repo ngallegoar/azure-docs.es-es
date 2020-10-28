@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87534097"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332474"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Creación de una asignación y asignación de un crédito
 
@@ -26,12 +26,12 @@ Una vez que haya configurado y creado un curso en el Centro de Education de Micr
 
 ### <a name="accounts"></a>Cuentas
 
-El Centro de Education de Azure acepta cualquier dirección de correo electrónico en _____@___.___ expresa como formato HH:MM:SS… Actualmente *no* comprueba que haya una cuenta válida en su organización, ni si la cuenta de Microsoft es actual o válida. Compruebe cuidadosamente todas las direcciones de correo electrónico antes de continuar.
+El Centro de Education de Azure acepta cualquier dirección de correo electrónico en _____@ ___.___ expresa como formato HH:MM:SS… Actualmente *no* comprueba que haya una cuenta válida en su organización, ni si la cuenta de Microsoft es actual o válida. Compruebe cuidadosamente todas las direcciones de correo electrónico antes de continuar.
 
 > [!IMPORTANT]
 > Las cuentas profesionales y educativas están sujetas a sus propias directivas, incluido si se permite una dirección de correo electrónico de un dominio distinto de la organización (por ejemplo, agregar student2@outlook.com al dominio @school.edu). Asegúrese de comprobar estas directivas antes de agregar nuevos usuarios.
 
-Cuando una cuenta profesional o educativa (por ejemplo, student1@school.edu) se agrega como control de acceso basado en rol (RBAC) en el portal del patrocinador de formador o en [Azure Portal](https://portal.azure.com), Azure envía automáticamente un correo electrónico al destinatario. Este correo electrónico requiere que el usuario acepte la nueva cuenta y el rol de Azure antes de recibir acceso a la suscripción. Si es un profesor o profesor ayudante en un curso, asegúrese de informar a los alumnos sobre este proceso para que su suscripción se muestre en Azure Portal según lo previsto. El correo debe tener un aspecto parecido a este:
+Cuando una cuenta profesional o educativa (por ejemplo, student1@school.edu) se agrega con control de acceso basado en rol de Azure (Azure RBAC) en el portal de patrocinadores de educadores o en [Azure Portal](https://portal.azure.com), Azure envía automáticamente un correo electrónico al destinatario. Este correo electrónico requiere que el usuario acepte la nueva cuenta y el rol de Azure antes de recibir acceso a la suscripción. Si es un profesor o profesor ayudante en un curso, asegúrese de informar a los alumnos sobre este proceso para que su suscripción se muestre en Azure Portal según lo previsto. El correo debe tener un aspecto parecido a este:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Empezar con Azure Active Directory" border="false":::
 
@@ -39,7 +39,7 @@ Cuando una cuenta profesional o educativa (por ejemplo, student1@school.edu) se 
 
 1. Elija la cantidad de fondos que se abonarán a la suscripción del alumno. Si no todos los alumnos recibirán la misma cantidad, puede seleccionar **Cambiar** y aplicar una cantidad personalizada a cada alumno o equipo de trabajo.
 
-1. Seleccione **Crear asignación**.
+1. Seleccione **Crear asignación** .
 1. (Opcional) También puede quitar a los alumnos existentes al hacer clic en **Quitar** junto al nombre del alumno.
 1. Seleccione el botón **Cerrar** cuando haya finalizado. Los permisos adicionales se muestran en la página Administración de créditos del patrocinador.
 
