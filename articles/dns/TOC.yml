@@ -18,6 +18,7 @@
         - name: 'Creación de una zona pública: CLI'
           href: dns-getstarted-cli.md
         - name: 'Creación de una zona pública: plantilla de Resource Manager'
+          displayName: Resource Manager
           href: dns-get-started-template.md
     - name: DNS privado
       items:

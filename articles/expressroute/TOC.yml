@@ -13,6 +13,7 @@
     - name: 'Creación de un circuito ExpressRoute: CLI'
       href: howto-circuit-cli.md
     - name: 'Creación de un circuito ExpressRoute: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: quickstart-create-expressroute-vnet-template.md
   expanded: true
 - name: Tutoriales
