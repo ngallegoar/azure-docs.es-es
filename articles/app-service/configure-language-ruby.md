@@ -4,13 +4,13 @@ description: Aprenda a configurar un contenedor de Ruby precompilado para la apl
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: c822dbdf9940db7b38d354fa32906c16977df0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88084278"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743694"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configuración de una aplicación de Ruby en Linux para Azure App Service
 
@@ -51,7 +51,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
-> Significa que la versión de Ruby configurada en el proyecto es distinta de la instalada en el contenedor que se está ejecutando (`2.3.3` en el ejemplo anterior). En el ejemplo anterior, compruebe *Gemfile* y *.ruby-version*, y que la versión de Ruby no está establecida o que es la que está instalada en el contenedor en ejecución (`2.3.3` en el ejemplo anterior).
+> Significa que la versión de Ruby configurada en el proyecto es distinta de la instalada en el contenedor que se está ejecutando (`2.3.3` en el ejemplo anterior). En el ejemplo anterior, compruebe *Gemfile* y *.ruby-version* , y que la versión de Ruby no está establecida o que es la que está instalada en el contenedor en ejecución (`2.3.3` en el ejemplo anterior).
 
 ## <a name="access-environment-variables"></a>Acceso a variables de entorno
 
@@ -65,7 +65,7 @@ ENV['WEBSITE_SITE_NAME']
 
 Al implementar un [repositorio de Git](deploy-local-git.md) o un [paquete comprimido](deploy-zip.md) con procesos compilados activados, el motor de implementación (Kudu) ejecuta los siguientes pasos después de la implementación de manera automática y predeterminada:
 
-1. Compruebe si un existe *Gemfile*.
+1. Compruebe si un existe *Gemfile* .
 1. Ejecute `bundle clean`. 
 1. Ejecute `bundle install --path "vendor/bundle"`.
 1. Ejecute `bundle package` para empaquetar los archivos gem en la carpeta vendor/cache.
@@ -97,7 +97,7 @@ De forma predeterminada, el contenedor de Ruby inicia el servidor de Rails en la
 1. Genere un valor de [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security), si aún no existe ninguno. Este valor es necesario para que la aplicación se ejecute en modo de producción.
 1. Establezca la variable de entorno `RAILS_ENV` en `production`.
 1. Elimine cualquier archivo *.pid* del directorio *tmp/PID* que haya dejado un servidor de Rails que se ejecutó previamente.
-1. Compruebe si están instaladas todas las dependencias. Si no, pruebe a instalar los archivos gem desde el directorio *vendor/cache*.
+1. Compruebe si están instaladas todas las dependencias. Si no, pruebe a instalar los archivos gem desde el directorio *vendor/cache* .
 1. Ejecute `rails server -e $RAILS_ENV`.
 
 Puede personalizar el proceso de inicio de las siguientes maneras:
@@ -111,7 +111,7 @@ Puede personalizar el proceso de inicio de las siguientes maneras:
 El servidor de Rails en el contenedor de Ruby se ejecuta en modo de producción de forma predeterminada y [da por supuesto que los recursos están precompilados y los sirve el servidor web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Para servir recursos estáticos desde el servidor de Rails, es preciso hacer dos cosas:
 
 - **Precompilar los recursos** - [precompile los recursos estáticos localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e impleméntelos de forma manual. O bien, permita que el motor de implementación lo haga en su lugar (consulte [Precompilación de los recursos](#precompile-assets).
-- **Habilitar el servicio de archivos estáticos**: para servir recursos estáticos desde el contenedor de Ruby, [establezca la opción de configuración de la aplicación `RAILS_SERVE_STATIC_FILES`](configure-common.md#configure-app-settings) en `true`. Por ejemplo:
+- **Habilitar el servicio de archivos estáticos** : para servir recursos estáticos desde el contenedor de Ruby, [establezca la opción de configuración de la aplicación `RAILS_SERVE_STATIC_FILES`](configure-common.md#configure-app-settings) en `true`. Por ejemplo:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true

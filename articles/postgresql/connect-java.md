@@ -4,28 +4,28 @@ description: Aprenda a usar Java y JDBC con una instancia de Azure Database for 
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 66a3b4919903f739ed5afef0a02b501f00ff248f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88545444"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734979"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Uso de Java y JDBC con Azure Database for PostgreSQL
 
-En este tema se muestra cómo crear una aplicación de ejemplo que utiliza Java y [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para almacenar y recuperar información de [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/).
+En este tema se muestra cómo crear una aplicación de ejemplo que utiliza Java y [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para almacenar y recuperar información de [Azure Database for PostgreSQL](./index.yml).
 
 JDBC es la API de Java estándar para conectarse a bases de datos relacionales tradicionales.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure. Si no tiene una, [obtenga la versión de evaluación gratuita](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) o la [CLI de Azure](/cli/azure/install-azure-cli). Se recomienda Azure Cloud Shell, ya que se iniciará sesión automáticamente y tendrá acceso a todas las herramientas que necesite.
-- Un [kit de desarrollo de Java](https://aka.ms/azure-jdks) compatible, versión 8 (incluido en Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) o la [CLI de Azure](/cli/azure/install-azure-cli). Se recomienda Azure Cloud Shell, ya que se iniciará sesión automáticamente y tendrá acceso a todas las herramientas que necesite.
+- Un [kit de desarrollo de Java](/azure/developer/java/fundamentals/java-jdk-long-term-support) compatible, versión 8 (incluido en Azure Cloud Shell).
 - La herramienta de compilación [Apache Maven](https://maven.apache.org/).
 
 ## <a name="prepare-the-working-environment"></a>Preparación del entorno de trabajo
@@ -67,7 +67,7 @@ az group create \
 Lo primero que crearemos es un servidor administrado de PostgreSQL.
 
 > [!NOTE]
-> Puede leer información más detallada sobre la creación de servidores de PostgreSQL en [Creación de un servidor de Azure Database for PostgreSQL mediante Azure Portal](/azure/postgresql/quickstart-create-server-database-portal).
+> Puede leer información más detallada sobre la creación de servidores de PostgreSQL en [Creación de un servidor de Azure Database for PostgreSQL mediante Azure Portal](./quickstart-create-server-database-portal.md).
 
 En [Azure Cloud Shell](https://shell.azure.com/), ejecute el siguiente comando:
 
@@ -179,7 +179,7 @@ CREATE TABLE todo (id SERIAL PRIMARY KEY, description VARCHAR(255), details VARC
 
 A continuación, agregue el código Java que usará JDBC para almacenar y recuperar datos del servidor de PostgreSQL.
 
-Cree un archivo *src/main/java/DemoApplication.java*, que contiene:
+Cree un archivo *src/main/java/DemoApplication.java* , que contiene:
 
 ```java
 package com.example.demo;
@@ -233,7 +233,7 @@ Este código Java usará los archivos *application.properties* y *schema.sql* qu
 En este archivo, puede ver que hemos comentado los métodos para insertar, leer, actualizar y eliminar datos: codificaremos esos métodos en el resto de este artículo y podrá quitar los comentarios uno tras otro.
 
 > [!NOTE]
-> Las credenciales de la base de datos se almacenan en las propiedades *user* (usuario) y *password* (contraseña) del archivo *application.properties*. Estas credenciales se usan al ejecutar `DriverManager.getConnection(properties.getProperty("url"), properties);`, ya que el archivo de propiedades se pasa como argumento.
+> Las credenciales de la base de datos se almacenan en las propiedades *user* (usuario) y *password* (contraseña) del archivo *application.properties* . Estas credenciales se usan al ejecutar `DriverManager.getConnection(properties.getProperty("url"), properties);`, ya que el archivo de propiedades se pasa como argumento.
 
 Ahora puede ejecutar esta clase principal con su herramienta favorita:
 
@@ -318,11 +318,11 @@ public class Todo {
 }
 ```
 
-Esta clase es un modelo de dominio asignado a la tabla `todo` que creó al ejecutar el script *schema.sql*.
+Esta clase es un modelo de dominio asignado a la tabla `todo` que creó al ejecutar el script *schema.sql* .
 
 ### <a name="insert-data-into-azure-database-for-postgresql"></a>Inserción de datos en Azure Database for PostgreSQL
 
-En el archivo *src/main/java/DemoApplication.java*, después del método main, agregue el método siguiente para insertar los datos en la base de datos:
+En el archivo *src/main/java/DemoApplication.java* , después del método main, agregue el método siguiente para insertar los datos en la base de datos:
 
 ```java
 private static void insertData(Todo todo, Connection connection) throws SQLException {
@@ -360,7 +360,7 @@ La ejecución de la clase main debería generar ahora la siguiente salida:
 
 Vamos a leer los datos que se insertaron previamente para validar que el código funciona correctamente.
 
-En el archivo *src/main/java/DemoApplication.java*, después del método `insertData`, agregue el método siguiente para leer los datos de la base de datos:
+En el archivo *src/main/java/DemoApplication.java* , después del método `insertData`, agregue el método siguiente para leer los datos de la base de datos:
 
 ```java
 private static Todo readData(Connection connection) throws SQLException {
@@ -404,7 +404,7 @@ La ejecución de la clase main debería generar ahora la siguiente salida:
 
 Vamos a actualizar los datos que se insertaron anteriormente.
 
-En el archivo *src/main/java/DemoApplication.java*, después del método `readData`, agregue el método siguiente para actualizar los datos de la base de datos:
+En el archivo *src/main/java/DemoApplication.java* , después del método `readData`, agregue el método siguiente para actualizar los datos de la base de datos:
 
 ```java
 private static void updateData(Todo todo, Connection connection) throws SQLException {
@@ -448,7 +448,7 @@ La ejecución de la clase main debería generar ahora la siguiente salida:
 
 Por último, vamos a eliminar los datos que se insertaron anteriormente.
 
-En el archivo *src/main/java/DemoApplication.java*, después del método `updateData`, agregue el método siguiente para eliminar los datos de la base de datos:
+En el archivo *src/main/java/DemoApplication.java* , después del método `updateData`, agregue el método siguiente para eliminar los datos de la base de datos:
 
 ```java
 private static void deleteData(Todo todo, Connection connection) throws SQLException {

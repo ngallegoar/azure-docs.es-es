@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a248699b47cf99980c9490bf16c10e7196ee6ecf
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 22abdb64a2349045923e148db57f683b4be87636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091090"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742703"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Inicio rápido: Aprovisionamiento del servicio Azure Spring Cloud
 
@@ -103,7 +103,7 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
 
 1. Abra [Azure Portal](https://ms.portal.azure.com/) en una pestaña ventana. 
 
-2. En el cuadro de búsqueda superior, busque **Azure Spring Cloud**.
+2. En el cuadro de búsqueda superior, busque **Azure Spring Cloud** .
 
 3. Seleccione **Azure Spring Cloud** en los resultados.
 
@@ -114,14 +114,14 @@ En el procedimiento siguiente se crea una instancia de Azure Spring Cloud desde 
     ![Icono de adición de ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Rellene el formulario en la página **Crear** de Azure Spring Cloud.  Tenga en cuenta las directrices siguientes:
-    - **Suscripción**: seleccione la suscripción a la que desea que se facture este recurso.
-    - **Grupo de recursos**: se recomienda crear grupos de recursos para los nuevos recursos. Tenga en cuenta que esto se usará en los pasos posteriores como **\<resource group name\>** .
-    - **Detalles o nombre del servicio**: Especifique **\<service instance name\>** .  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
-    - **Ubicación**: seleccione la ubicación de la instancia de servicio.
+    - **Suscripción** : seleccione la suscripción a la que desea que se facture este recurso.
+    - **Grupo de recursos** : se recomienda crear grupos de recursos para los nuevos recursos. Tenga en cuenta que esto se usará en los pasos posteriores como **\<resource group name\>** .
+    - **Detalles o nombre del servicio** : Especifique **\<service instance name\>** .  El nombre debe tener entre 4 y 32 caracteres, y solo puede contener números, letras minúsculas y guiones.  El primer carácter del nombre del servicio debe ser una letra y el último debe ser una letra o un número.
+    - **Ubicación** : seleccione la ubicación de la instancia de servicio.
 
     ![Inicio del portal de ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
-6. Haga clic en **Revisar y crear**.
+6. Haga clic en **Revisar y crear** .
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

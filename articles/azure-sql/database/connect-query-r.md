@@ -5,7 +5,7 @@ description: En este artículo se muestra cómo usar un script de R con Azure SQ
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2
 ms.devlang: python
 ms.topic: quickstart
 author: garyericson
@@ -14,12 +14,12 @@ ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a939c816cac44ed85802ecfa591564effc1ee73
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 62f1015bc945b5c01f719d7e96e6446c49ac8b8a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328843"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675161"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Inicio rápido: Uso de R con Azure SQL Database Machine Learning Services (versión preliminar) para consultar una base de datos 
 
@@ -33,11 +33,11 @@ En este inicio rápido, se utiliza R con Azure SQL Database Machine Learning Ser
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Una base de datos de [Azure SQL Database](single-database-create-quickstart.md)
-- [Machine Learning Services](machine-learning-services-overview.md) con R habilitado.
+- [Machine Learning Services](../managed-instance/machine-learning-services-overview.md) con R habilitado.
 - [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
 > [!IMPORTANT]
-> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works**.
+> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works** .
 
 Machine Learning Services con R es una característica de Azure SQL Database que se usa para ejecutar scripts de R en bases de datos. Para más información, consulte el [proyecto R](https://www.r-project.org/).
 
@@ -47,9 +47,9 @@ Obtenga la información de conexión necesaria para conectarse a la base de dato
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL**.
+2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL** .
 
-3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para una base de datos de Azure SQL Database o el nombre completo del servidor junto a **Host** para una instancia administrada de Instancia administrada de Azure SQL. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**.
+3. En la página **Información general** , revise el nombre completo del servidor junto a **Nombre del servidor** para una base de datos de Azure SQL Database o el nombre completo del servidor junto a **Host** para una instancia administrada de Instancia administrada de Azure SQL. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar** .
 
 ## <a name="create-code-to-query-your-database"></a>Creación de código para consultar la base de datos
 
@@ -57,7 +57,7 @@ Obtenga la información de conexión necesaria para conectarse a la base de dato
 
    Si necesita ayuda para conectarse, consulte [Inicio rápido: Uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella](connect-query-ssms.md).
 
-1. Pase el script de R completo al procedimiento almacenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
+1. Pase el script de R completo al procedimiento almacenado [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
    El script se pasa mediante el argumento `@script`. Todo lo que contenga el argumento `@script` tiene que ser código de R válido.
    
@@ -76,12 +76,12 @@ Obtenga la información de conexión necesaria para conectarse a la base de dato
 
 ## <a name="run-the-code"></a>Ejecución del código
 
-1. Ejecute el procedimiento almacenado [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
+1. Ejecute el procedimiento almacenado [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-1. Compruebe que se devuelven las 20 primeras filas de categoría o productos en la ventana de **mensajes**.
+1. Compruebe que se devuelven las 20 primeras filas de categoría o productos en la ventana de **mensajes** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Diseño de la primera base de datos en Azure SQL Database](design-first-database-tutorial.md)
-- [Machine Learning Services (con R) en Azure SQL Database](machine-learning-services-overview.md)
-- [Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)](r-script-create-quickstart.md)
+- [Machine Learning Services (con R) en Azure SQL Database](../managed-instance/machine-learning-services-overview.md)
+- [Crear y ejecutar scripts de R sencillos en Azure SQL Database Machine Learning Services (versión preliminar)](/sql/machine-learning/tutorials/quickstart-r-create-script?context=%252fazure%252fazure-sql%252fmanaged-instance%252fcontext%252fml-context)

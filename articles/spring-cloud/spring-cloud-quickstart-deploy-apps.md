@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092960"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735592"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Inicio rápido: Compilación e implementación de aplicaciones en Azure Spring Cloud
 
@@ -84,7 +84,7 @@ Si ha estado usando Azure Cloud Shell hasta este momento, cambie a un símbolo d
    ```
 
    > [!TIP]
-   > El archivo del proyecto contiene el siguiente código XML para empaquetar los archivos binarios en un archivo *.zip* después de escribirlos en la carpeta *./publish*:
+   > El archivo del proyecto contiene el siguiente código XML para empaquetar los archivos binarios en un archivo *.zip* después de escribirlos en la carpeta *./publish* :
    >
    > ```xml
    > <Target Name="Publish-Zip" AfterTargets="Publish">
@@ -100,7 +100,7 @@ Si ha estado usando Azure Cloud Shell hasta este momento, cambie a un símbolo d
    az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
    ```
 
-   La opción `--main-entry` especifica la ruta de acceso relativa de la carpeta raíz del archivo *.zip* al archivo *.dll* que contiene el punto de entrada de la aplicación. Una vez que el servicio carga el archivo *.zip*, extrae todos los archivos y carpetas e intenta ejecutar el punto de entrada en el archivo *.dll* especificado.
+   La opción `--main-entry` especifica la ruta de acceso relativa de la carpeta raíz del archivo *.zip* al archivo *.dll* que contiene el punto de entrada de la aplicación. Una vez que el servicio carga el archivo *.zip* , extrae todos los archivos y carpetas e intenta ejecutar el punto de entrada en el archivo *.dll* especificado.
 
    La ejecución de este comando puede llevar varios minutos.
 
@@ -222,7 +222,7 @@ La compilación del proyecto tarda aproximadamente 5 minutos. Una vez completado
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Cree microservicios de Azure Spring Cloud mediante los archivos JAR compilados en el paso anterior. Creará tres aplicaciones: **gateway**, **auth-service** y **account-service**.
+1. Cree microservicios de Azure Spring Cloud mediante los archivos JAR compilados en el paso anterior. Creará tres aplicaciones: **gateway** , **auth-service** y **account-service** .
 
     ```azurecli
     az spring-cloud app create --name gateway
@@ -282,7 +282,7 @@ Necesitamos una forma de acceder a la aplicación mediante un explorador web. La
     Se le pedirá que seleccione:
     * **Módulos:** Seleccione `gateway`, `auth-service` y `account-service`.
     * **Subscription** (Suscripción): se trata de la suscripción que se usa para crear una instancia de Azure Spring Cloud.
-    * **Instancia de servicio**: es el nombre de la instancia de Azure Spring Cloud.
+    * **Instancia de servicio** : es el nombre de la instancia de Azure Spring Cloud.
     * **Punto de conexión público:** en la lista de proyectos que se proporcionan, escriba el número correspondiente a `gateway`.  Esto le proporciona acceso público.
 
 1. El archivo POM ahora contiene las dependencias y configuraciones del complemento. Implemente las aplicaciones mediante el comando siguiente. 
@@ -310,19 +310,19 @@ Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de
 
     ![Implementación en Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
-1. En el campo **Nombre**, anexe *:gateway* al **Nombre** existente.
-1. En el cuadro de texto **Artefacto**, seleccione *com.piggymetrics:gateway:1.0-SNAPSHOT*.
-1. En el cuadro de texto **Suscripción**, compruebe su suscripción.
-1. En el cuadro de texto **Spring Cloud**, seleccione la instancia de Azure Spring Cloud que creó en el artículo sobre el [aprovisionamiento de una instancia de Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
-1. En **Punto de conexión público**, seleccione *Habilitar*.
+1. En el campo **Nombre** , anexe *:gateway* al **Nombre** existente.
+1. En el cuadro de texto **Artefacto** , seleccione *com.piggymetrics:gateway:1.0-SNAPSHOT* .
+1. En el cuadro de texto **Suscripción** , compruebe su suscripción.
+1. En el cuadro de texto **Spring Cloud** , seleccione la instancia de Azure Spring Cloud que creó en el artículo sobre el [aprovisionamiento de una instancia de Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
+1. En **Punto de conexión público** , seleccione *Habilitar* .
 1. En el cuadro de texto **Aplicación:** , seleccione **Crear aplicación...** .
-1. Escriba *gateway* y haga clic en **Aceptar**.
+1. Escriba *gateway* y haga clic en **Aceptar** .
 
     ![Implementación en Azure: OK (Aceptar)](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
 1. En la sección **Before launch** (Antes del inicio) del cuadro de diálogo, haga doble clic en *Run Maven Goal* (Ejecutar objetivo de Maven).
-1. En el cuadro de texto **Working directory** (Directorio de trabajo), vaya a la carpeta *piggymetrics/gateway*.
-1. En el cuadro de texto **Command line** (Línea de comandos), escriba *package -DskipTests*. Haga clic en **OK**.
+1. En el cuadro de texto **Working directory** (Directorio de trabajo), vaya a la carpeta *piggymetrics/gateway* .
+1. En el cuadro de texto **Command line** (Línea de comandos), escriba *package -DskipTests* . Haga clic en **OK** .
 1. Para iniciar la implementación haga clic en el botón **Run** (Ejecutar) en la parte inferior del cuadro de diálogo **Deploy Azure Spring Cloud app** (Implementar una aplicación de Azure Spring Cloud). El complemento ejecutará el comando `mvn package` en la aplicación `gateway` e implementará el archivo .jar que ha generado el comando `package`.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Implementación de las aplicaciones auth-service and account-service en Azure Spring Cloud
@@ -330,8 +330,8 @@ Puede repetir los pasos anteriores para implementar las aplicaciones `auth-servi
 
 1. Modifique los valores de **Nombre** y **Artefacto** para identificar la aplicación `auth-service`.
 1. En el cuadro de texto **Aplicación:** , seleccione **Crear aplicación...** para crear la aplicación `auth-service`.
-1. Compruebe que en la opción **Punto de conexión público** se ha seleccionado *Deshabilitado*.
-1. En la sección **Before launch** (Antes del inicio) del cuadro de diálogo, cambie el valor de **Working directory** (Directorio de trabajo) a la carpeta *piggymetrics/auth-service*.
+1. Compruebe que en la opción **Punto de conexión público** se ha seleccionado *Deshabilitado* .
+1. En la sección **Before launch** (Antes del inicio) del cuadro de diálogo, cambie el valor de **Working directory** (Directorio de trabajo) a la carpeta *piggymetrics/auth-service* .
 1. Para iniciar la implementación haga clic en el botón **Run** (Ejecutar) en la parte inferior del cuadro de diálogo **Deploy Azure Spring Cloud app** (Implementar una aplicación de Azure Spring Cloud). 
 1. Repita estos procedimientos para configurar e implementar `account-service`.
 ---
@@ -342,12 +342,12 @@ Vaya a la dirección URL que se proporciona en la salida de los pasos anteriores
 
 También puede navegar por el Azure Portal para buscar la dirección URL. 
 1. Vaya al servicio.
-2. Seleccione **Aplicaciones**.
-3. Seleccione **gateway**.
+2. Seleccione **Aplicaciones** .
+3. Seleccione **gateway** .
 
     ![Desplazamiento a la aplicación](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
     
-4. Busque la dirección URL en la página **puerta de enlace | Información general**.
+4. Busque la dirección URL en la página **puerta de enlace | Información general** .
 
     ![Desplazamiento a la segunda aplicación](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)
 

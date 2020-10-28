@@ -7,12 +7,12 @@ ms.service: azure-education
 ms.subservice: education-hub
 ms.topic: overview
 ms.date: 06/30/2020
-ms.openlocfilehash: d52dd19667da005de54bbf9b4d30207976511c7d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cb283380487310165c646c8615d10a545d1a923b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89567816"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675694"
 ---
 # <a name="frequently-asked-questions-about-the-education-hub"></a>Preguntas frecuentes sobre el Centro de Education
 
@@ -46,7 +46,7 @@ Su suscripción a Azure for Students le proporciona acceso a determinadas herram
 
 ### <a name="what-is-microsoft-learn"></a>¿Qué es Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) es una plataforma de aprendizaje en línea, gratuita, que le permite aprender las tecnologías de Azure a su ritmo. Las rutas de aprendizaje combinan módulos que permiten comenzar con los aspectos básicos y, a continuación, pasar a métodos avanzados que abordan los desafíos del mundo real.
+[Microsoft Learn](/learn/) es una plataforma de aprendizaje en línea, gratuita, que le permite aprender las tecnologías de Azure a su ritmo. Las rutas de aprendizaje combinan módulos que permiten comenzar con los aspectos básicos y, a continuación, pasar a métodos avanzados que abordan los desafíos del mundo real.
 
 ### <a name="can-azure-for-students-be-used-for-production-or-only-for-development"></a>¿Se puede usar Azure for Students en la producción o solo en el desarrollo?
 
@@ -97,7 +97,7 @@ Puede descargar este software del [Centro de Education](https://ms.portal.azure.
 
 ### <a name="what-is-microsoft-learn"></a>¿Qué es Microsoft Learn?
 
-[Microsoft Learn](https://docs.microsoft.com/learn/) es una plataforma de aprendizaje en línea, gratuita, que le permite aprender las tecnologías de Azure a su ritmo. Las rutas de aprendizaje combinan módulos que permiten comenzar con los aspectos básicos y, a continuación, pasar a métodos avanzados que abordan los desafíos del mundo real.
+[Microsoft Learn](/learn/) es una plataforma de aprendizaje en línea, gratuita, que le permite aprender las tecnologías de Azure a su ritmo. Las rutas de aprendizaje combinan módulos que permiten comenzar con los aspectos básicos y, a continuación, pasar a métodos avanzados que abordan los desafíos del mundo real.
 
 ## <a name="azure-academic-grant"></a>Concesión académica de Azure
 
@@ -149,7 +149,7 @@ Los créditos del curso de Azure solo cubren el uso desde el momento en que se a
 
 ### <a name="how-do-i-know-if-my-subscription-is-on-the-azure-course-credit-offer"></a>¿Cómo sé si mi suscripción se encuentra en la oferta de créditos del curso de Azure?
 
-Si mira una suscripción concreta de la hoja suscripciones de Azure Portal, verá el **nombre de la oferta** como una de las propiedades. En el nombre de la oferta aparecerá **Patrocinio de Azure** si está conectada a los créditos del curso. Si no aparece **Patrocinio de Azure**, póngase en contacto con el servicio de soporte técnico para convertirla.
+Si mira una suscripción concreta de la hoja suscripciones de Azure Portal, verá el **nombre de la oferta** como una de las propiedades. En el nombre de la oferta aparecerá **Patrocinio de Azure** si está conectada a los créditos del curso. Si no aparece **Patrocinio de Azure** , póngase en contacto con el servicio de soporte técnico para convertirla.
 
 ## <a name="azure-dev-tools-for-teaching"></a>Azure Dev Tools for Teaching
 
@@ -252,10 +252,10 @@ Si sigue sin poder iniciar sesión, póngase en contacto con el administrador de
 
 ### <a name="how-do-i-find-my-subscriber-id"></a>¿Cómo encuentro mi identificador de suscriptor?
 
-- **La primera vez que se inscribe en el programa**: El número del identificador de suscriptor está en el correo electrónico de bienvenida de la suscripción que recibe.
-- **Si ha renovado la suscripción**: El identificador de suscriptor está en el correo electrónico de renovación que recibió el administrador de la suscripción.
+- **La primera vez que se inscribe en el programa** : El número del identificador de suscriptor está en el correo electrónico de bienvenida de la suscripción que recibe.
+- **Si ha renovado la suscripción** : El identificador de suscriptor está en el correo electrónico de renovación que recibió el administrador de la suscripción.
 
-El identificador de suscriptor también se encuentra en el portal de Visual Studio Subscription. Después de iniciar sesión, mire en **Mi suscripción** en la página **Mi cuenta**.
+El identificador de suscriptor también se encuentra en el portal de Visual Studio Subscription. Después de iniciar sesión, mire en **Mi suscripción** en la página **Mi cuenta** .
 
 Si necesita ayuda para buscar el identificador de suscriptor, [póngase en contacto con nosotros](https://azureforeducation.microsoft.com/institutions/Contact).
 
@@ -282,7 +282,7 @@ Si no recibe estos correos electrónicos y le preocupa que la suscripción esté
 
 O bien, vaya a la [página de renovación de Azure Dev Tools for Teaching](https://portal.azureforeducation.microsoft.com/) y complete el proceso de renovación.
 
-Para comprobar la fecha de expiración de la suscripción, vaya al [portal de administración de Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) y consulte **Suscripciones**.
+Para comprobar la fecha de expiración de la suscripción, vaya al [portal de administración de Azure Dev Tools for Teaching](https://azureforeducation.microsoft.com/account/Subscriptions) y consulte **Suscripciones** .
 
 ### <a name="what-if-i-need-more-help"></a>¿Qué sucede si necesito más ayuda?
 

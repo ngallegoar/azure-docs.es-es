@@ -5,19 +5,19 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b08013e9d015d3c987c0032761bebccd4b57ec72
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331930"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678030"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Introducción a Azure FarmBeats (versión preliminar)
 
 Azure FarmBeats es una oferta de negocio a negocio disponible en Azure Marketplace. Permite la agregación de conjuntos de datos de agricultura entre proveedores. Azure FarmBeats permite crear modelos de inteligencia artificial (AI) o de aprendizaje automático (ML) basados en conjuntos de datos combinados. Mediante Azure FarmBeats, las empresas agrarias pueden centrarse en la agregación de valores principales, en lugar de la pesada sobrecarga no diferenciada de la ingeniería de datos.
 
 > [!NOTE]
-> Azure FarmBeats actualmente está en versión preliminar pública. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats se proporciona sin un acuerdo de nivel de servicio. Use el [foro de soporte técnico de Azure FarmBeats](https://aka.ms/farmbeatssupport) para obtener soporte.
+> Azure FarmBeats actualmente está en versión preliminar pública. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats se proporciona sin un acuerdo de nivel de servicio. Use el [foro de soporte técnico de Azure FarmBeats](/answers/topics/azure-farmbeats.html) para obtener soporte.
 
 ![Proyecto de FarmBeats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
@@ -66,7 +66,7 @@ Un administrador puede agregar varios asociados como proveedores de datos a Azur
 Azure FarmBeats se ofrece sin cargo adicional y solo se pagan los recursos de Azure que se usen. Puede usar los siguientes recursos para obtener más información sobre la oferta:
 
 - Manténgase informado sobre las últimas noticias de Azure FarmBeats en nuestro [blog de Azure FarmBeats](https://aka.ms/farmbeatsblog).
-- Para buscar ayuda, publique una pregunta en el [Foro de soporte técnico de Azure FarmBeats](https://aka.ms/farmbeatssupport).
+- Para buscar ayuda, publique una pregunta en el [Foro de soporte técnico de Azure FarmBeats](/answers/topics/azure-farmbeats.html).
 - Para enviar sus comentarios, publíquelos, o bien vote una idea de una característica en nuestro [Foro de comentarios de Azure FarmBeats](https://aka.ms/farmbeatsfeedback).
 
 ## <a name="next-steps"></a>Pasos siguientes

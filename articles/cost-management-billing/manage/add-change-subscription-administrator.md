@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372313"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369665"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Agregar o cambiar los administradores de la suscripción de Azure
 
@@ -39,8 +39,8 @@ Para que un usuario sea administrador de una suscripción a Azure, un administra
 Si no está seguro de quién es el administrador de cuenta de la suscripción, use los pasos siguientes para averiguarlo.
 
 1. Abra la [página Suscripciones en Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración**.
-1. Seleccione **Propiedades**. El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
+1. Seleccione la suscripción que desee comprobar y, luego, consulte **Configuración** .
+1. Seleccione **Propiedades** . El administrador de cuentas de la suscripción se muestra en el cuadro **Administrador de cuentas** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Para asignar un usuario como administrador
 
@@ -54,13 +54,13 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
 
     ![Captura de pantalla que muestra las asignaciones de roles](./media/add-change-subscription-administrator/role-assignments.png)
 
-1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel **Agregar asignación de roles**.
+1. Haga clic en **Agregar** > **Agregar asignación de roles** para abrir el panel **Agregar asignación de roles** .
 
     Si no tiene permisos para asignar roles, la opción se deshabilitará.
 
-1. En la lista desplegable **Rol**, seleccione el rol **Propietario**.
+1. En la lista desplegable **Rol** , seleccione el rol **Propietario** .
 
-1. En la lista **Seleccionar**, seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar y direcciones de correo electrónico en el directorio.
+1. En la lista **Seleccionar** , seleccione un usuario. Si no ve el usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar nombres para mostrar y direcciones de correo electrónico en el directorio.
 
     ![Captura de pantalla que muestra el rol de propietario seleccionado](./media/add-change-subscription-administrator/add-role.png)
 
@@ -73,7 +73,7 @@ Si no está seguro de quién es el administrador de cuenta de la suscripción, u
 * [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)
 * [Descripción de los distintos roles en Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Permisos de roles de administrador en Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+* [Permisos de roles de administrador en Azure Active Directory](../../active-directory/roles/permissions-reference.md)
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Ponerse en contacto con soporte técnico
 

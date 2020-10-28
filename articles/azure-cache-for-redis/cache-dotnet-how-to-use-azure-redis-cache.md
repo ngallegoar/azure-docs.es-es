@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b64fd82ab6050d6f4a9f0f91c2b8336ce03ab1d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88211354"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537072"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Inicio rápido: Uso de Azure Redis Cache con una aplicación .NET Framework
 
@@ -30,7 +30,7 @@ En este inicio rápido incorporará Azure Redis Cache en una aplicación .NET Fr
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Cree un archivo en el equipo llamado *CacheSecrets.config* y colóquelo en una ubicación donde no se vaya a insertar en el repositorio con el código fuente de la aplicación de ejemplo. En esta guía de inicio rápido, el archivo *CacheSecrets.config* se encuentra aquí, *C:\AppSecrets\CacheSecrets.config*.
+Cree un archivo en el equipo llamado *CacheSecrets.config* y colóquelo en una ubicación donde no se vaya a insertar en el repositorio con el código fuente de la aplicación de ejemplo. En esta guía de inicio rápido, el archivo *CacheSecrets.config* se encuentra aquí, *C:\AppSecrets\CacheSecrets.config* .
 
 Edite el archivo *CacheSecrets.config* y agregue el contenido siguiente:
 
@@ -47,7 +47,7 @@ Reemplace `<access-key>` por la clave principal de la caché.
 
 ## <a name="create-a-console-app"></a>Creación de una aplicación de consola
 
-En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto**.
+En Visual Studio, haga clic en **Archivo** > **Nuevo** > **proyecto** .
 
 Seleccione **Aplicación de consola (.NET Framework)** y **Siguiente** para configurar la aplicación. Escriba un **Nombre de proyecto** y haga clic en **Crear** para crear una nueva aplicación de consola.
 
@@ -68,7 +68,7 @@ Una vez completada la instalación, el cliente de caché *StackExchange.Redis* e
 
 ## <a name="connect-to-the-cache"></a>Conexión a la memoria caché
 
-En Visual Studio, abra el archivo *App.config* y actualícelo para incluir un atributo `appSettings` `file` que haga referencia al archivo *CacheSecrets.config*.
+En Visual Studio, abra el archivo *App.config* y actualícelo para incluir un atributo `appSettings` `file` que haga referencia al archivo *CacheSecrets.config* .
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -81,9 +81,9 @@ En Visual Studio, abra el archivo *App.config* y actualícelo para incluir un a
 </configuration>
 ```
 
-En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y haga clic en **Agregar una referencia**. Agregue una referencia al ensamblado **System.Configuration**.
+En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y haga clic en **Agregar una referencia** . Agregue una referencia al ensamblado **System.Configuration** .
 
-Agregue las siguientes instrucciones `using` a *Program.cs*:
+Agregue las siguientes instrucciones `using` a *Program.cs* :
 
 ```csharp
 using StackExchange.Redis;
@@ -92,9 +92,9 @@ using System.Configuration;
 
 La clase `ConnectionMultiplexer` administra la conexión con Azure Redis Cache. Esta clase debe compartirse y reutilizarse en toda la aplicación cliente. No cree una nueva conexión para cada operación. 
 
-Nunca almacene credenciales en el código fuente. Para simplificar este ejemplo, solo se usa un archivo de configuración externo llamado secrets. Un enfoque más adecuado sería utilizar [Azure Key Vault con certificados](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
+Nunca almacene credenciales en el código fuente. Para simplificar este ejemplo, solo se usa un archivo de configuración externo llamado secrets. Un enfoque más adecuado sería utilizar [Azure Key Vault con certificados](/rest/api/keyvault/certificate-scenarios).
 
-En *Program.cs*, agregue los siguientes miembros a la clase `Program` de la aplicación de consola:
+En *Program.cs* , agregue los siguientes miembros a la clase `Program` de la aplicación de consola:
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -192,13 +192,13 @@ En Visual Studio, haga clic en **Herramientas** > **Administrador de paquetes Nu
 Install-Package Newtonsoft.Json
 ```
 
-Agregue la siguiente instrucción `using` al principio del archivo *Program.cs*:
+Agregue la siguiente instrucción `using` al principio del archivo *Program.cs* :
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Agregue la siguiente definición de clase `Employee` a *Program.cs*:
+Agregue la siguiente definición de clase `Employee` a *Program.cs* :
 
 ```csharp
 class Employee
@@ -216,7 +216,7 @@ class Employee
 }
 ```
 
-En la parte inferior del procedimiento `Main()` de *Program.cs*, antes de llamar a `Dispose()`, agregue las siguientes líneas de código para almacenar en caché y recuperar un objeto .NET serializado:
+En la parte inferior del procedimiento `Main()` de *Program.cs* , antes de llamar a `Dispose()`, agregue las siguientes líneas de código para almacenar en caché y recuperar un objeto .NET serializado:
 
 ```csharp
     // Store .NET object to cache
@@ -247,13 +247,13 @@ En caso contrario, si ya ha terminado con la aplicación de ejemplo de la guía 
 > La eliminación de un grupo de recursos es irreversible y el grupo de recursos y todos los recursos que contiene se eliminarán de forma permanente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado los recursos para hospedar este ejemplo dentro de un grupo de recursos existente que contiene recursos que desea mantener, puede eliminar cada recurso individualmente de sus hojas respectivas, en lugar de eliminar el grupo de recursos.
 >
 
-Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos**.
+Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Grupos de recursos** .
 
-Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...** . En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources*. En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos**.
+Escriba el nombre del grupo de recursos en el cuadro de texto **Filtrar por nombre...** . En las instrucciones de este artículo se usa un grupo de recursos llamado *TestResources* . En el grupo de recursos de la lista de resultados, haga clic en **...** y, a continuación, en **Eliminar grupo de recursos** .
 
 ![Eliminar](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nombre del grupo de recursos para confirmar y haga clic en **Eliminar**.
+Se le pedirá que confirme la eliminación del grupo de recursos. Escriba el nombre del grupo de recursos para confirmar y haga clic en **Eliminar** .
 
 Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 
@@ -271,4 +271,4 @@ En este inicio rápido, ha aprendido a usar Azure Redis Cache desde una aplicaci
 ¿Quiere optimizar y ahorrar en el gasto en la nube?
 
 > [!div class="nextstepaction"]
-> [Comience a analizar los costos con Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Comience a analizar los costos con Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

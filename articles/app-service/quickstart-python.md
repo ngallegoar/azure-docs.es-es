@@ -3,14 +3,14 @@ title: 'Inicio rápido: Creación de una aplicación de Python'
 description: Para empezar a trabajar con Azure App Service, implemente su primera aplicación Python en un contenedor Linux en App Service.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8a0cce6dd68513380759319c378d15aeb0e029c3
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813192"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741101"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Inicio rápido: Creación de una aplicación de Python en Azure App Service en Linux
 
@@ -100,13 +100,13 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
 ## <a name="run-the-sample"></a>Ejecución del ejemplo
 
 ::: zone pivot="python-framework-flask"
-1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-world*. 
+1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-world* . 
 
 1. Cree un entorno virtual e instale las dependencias:
 
     [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-    Si encuentra "[Errno 2] No se encontró el archivo o directorio: 'requirements.txt'", asegúrese de que se encuentra en la carpeta *python-docs-hello-world*.
+    Si encuentra "[Errno 2] No se encontró el archivo o directorio: 'requirements.txt'", asegúrese de que se encuentra en la carpeta *python-docs-hello-world* .
 
 1. Ejecute el servidor de desarrollo.
 
@@ -114,9 +114,9 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
     flask run
     ```
     
-    De forma predeterminada, el servidor supone que el módulo de entrada de la aplicación está en *app.py*, como se usa en el ejemplo. (Si usa un nombre de módulo diferente, establezca la variable de entorno `FLASK_APP` en ese nombre).
+    De forma predeterminada, el servidor supone que el módulo de entrada de la aplicación está en *app.py* , como se usa en el ejemplo. (Si usa un nombre de módulo diferente, establezca la variable de entorno `FLASK_APP` en ese nombre).
 
-1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:5000/`. La aplicación muestra el mensaje **Hola mundo**.
+1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:5000/`. La aplicación muestra el mensaje **Hola mundo** .
 
     ![Ejecución de una aplicación de Python de ejemplo en el entorno local](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -124,13 +124,13 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-django*. 
+1. Asegúrese de que se encuentra en la carpeta *python-docs-hello-django* . 
 
 1. Cree un entorno virtual e instale las dependencias:
 
     [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-    Si encuentra "[Errno 2]: No se encontró el archivo o directorio: 'requirements.txt'", asegúrese de que se encuentra en la carpeta *python-docs-hello-django*.
+    Si encuentra "[Errno 2]: No se encontró el archivo o directorio: 'requirements.txt'", asegúrese de que se encuentra en la carpeta *python-docs-hello-django* .
     
 1. Ejecute el servidor de desarrollo.
 
@@ -138,7 +138,7 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
     python manage.py runserver
     ```
 
-1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:8000/`. La aplicación muestra el mensaje **Hola mundo**.
+1. Abra un explorador web y vaya a la aplicación de ejemplo en `http://localhost:8000/`. La aplicación muestra el mensaje **Hola mundo** .
 
     ![Ejecución de una aplicación de Python de ejemplo en el entorno local](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
     
@@ -149,7 +149,7 @@ El ejemplo contiene código específico del marco que Azure App Service reconoce
 
 ## <a name="deploy-the-sample"></a>Implementación del ejemplo
 
-Implemente el código en la carpeta local (*python-docs-hello-world*) mediante el comando `az webapp up`:
+Implemente el código en la carpeta local ( *python-docs-hello-world* ) mediante el comando `az webapp up`:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -157,10 +157,10 @@ az webapp up --sku F1 --name <app-name>
 
 - Si no se reconoce el comando `az`, asegúrese de que tiene instalada la CLI de Azure tal y como se describe en [Configuración del entorno inicial](#set-up-your-initial-environment).
 - Si no se reconoce el comando `webapp`, es porque la versión de la CLI de Azure es 2.0.80 o posterior. De lo contrario, [instale la versión más reciente](/cli/azure/install-azure-cli).
-- Reemplace `<app_name>` por un nombre que sea único en todo Azure (*los caracteres válidos son `a-z`, `0-9` y `-`* ). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
+- Reemplace `<app_name>` por un nombre que sea único en todo Azure ( *los caracteres válidos son `a-z`, `0-9` y `-`* ). Un buen patrón es usar una combinación del nombre de la empresa y un identificador de la aplicación.
 - El argumento `--sku F1` crea la aplicación web en el plan de tarifa Gratuito. Omita este argumento para usar un nivel Premium más rápido, lo que supondrá un costo por hora.
 - Opcionalmente, incluya el argumento `--location <location-name>`, donde `<location_name>` es una región de Azure disponible. Puede recuperar una lista de las regiones permitidas para su cuenta de Azure mediante la ejecución del comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
-- Si ve el error "No se pudo detectar automáticamente la pila en tiempo de ejecución de la aplicación", asegúrese de que ejecuta el comando en la carpeta *python-docs-hello-world* (Flask) o en la carpeta *python-docs-hello-django* (Django) que contiene el archivo *requirements.txt*. (Consulte [Solución de problemas de detección automática con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub)).
+- Si ve el error "No se pudo detectar automáticamente la pila en tiempo de ejecución de la aplicación", asegúrese de que ejecuta el comando en la carpeta *python-docs-hello-world* (Flask) o en la carpeta *python-docs-hello-django* (Django) que contiene el archivo *requirements.txt* . (Consulte [Solución de problemas de detección automática con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub)).
 
 El comando puede tardar varios minutos en completarse. Mientras se ejecuta, proporciona mensajes sobre cómo crear el grupo de recursos, el plan de App Service y la aplicación de hospedaje, configurar el registro y, a continuación, realizar la implementación del archivo ZIP. A continuación, se muestra el mensaje "Puede iniciar la aplicación en http://&lt;nombre_de_la_aplicación&gt;.azurewebsites.net", que es la dirección URL de la aplicación en Azure.
 
@@ -211,7 +211,7 @@ Guarde los cambios y vuelva a implementar la aplicación con el comando `az weba
 az webapp up
 ```
 
-Este comando utiliza valores que se almacenan en caché de forma local en el archivo *.azure/config*, incluidos el nombre de la aplicación, el grupo de recursos y el plan de App Service.
+Este comando utiliza valores que se almacenan en caché de forma local en el archivo *.azure/config* , incluidos el nombre de la aplicación, el grupo de recursos y el plan de App Service.
 
 Una vez completada la implementación, vuelva a la ventana del explorador abierta en `http://<app-name>.azurewebsites.net`. Actualice la página, lo que debería mostrar el mensaje modificado:
 
@@ -244,7 +244,7 @@ Para detener el streaming de registros en cualquier momento, presione **Ctrl**+*
 
 ## <a name="manage-the-azure-app"></a>Administración de la aplicación de Azure
 
-Vaya a <a href="https://portal.azure.com" target="_blank">Azure Portal</a> para administrar la aplicación que ha creado. Busque y seleccione **App Services**.
+Vaya a <a href="https://portal.azure.com" target="_blank">Azure Portal</a> para administrar la aplicación que ha creado. Busque y seleccione **App Services** .
 
 ![Ir a App Services en Azure Portal](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 
@@ -252,7 +252,7 @@ Seleccione el nombre de la aplicación de Azure.
 
 ![Aplicación de Python en App Services desde Azure Portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Al seleccionar la aplicación, se abre la página **Información general**, donde puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar.
+Al seleccionar la aplicación, se abre la página **Información general** , donde puede realizar tareas de administración básicas como examinar, detener, iniciar, reiniciar y eliminar.
 
 ![Administración de la aplicación de Python en la página de información general de Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
@@ -270,7 +270,7 @@ Si prevé que no necesitará estos recursos en el futuro, ejecute el siguiente c
 az group delete --no-wait
 ```
 
-Este comando usa el nombre del grupo de recursos almacenado en la memoria caché del archivo *.azure/config*.
+Este comando usa el nombre del grupo de recursos almacenado en la memoria caché del archivo *.azure/config* .
 
 El argumento `--no-wait` permite la devolución del comando antes de que se complete la operación.
 

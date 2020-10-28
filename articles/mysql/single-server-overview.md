@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564789"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543821"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Servidor único de Azure Database for MySQL
 
@@ -55,7 +55,7 @@ El servicio de servidor único crea automáticamente copias de seguridad del ser
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar el rendimiento y la escala en cuestión de segundos
 
-El servicio de servidor único está disponible en tres niveles de SKU: Básico, De uso general y Optimizado para memoria. El nivel Básico es el más adecuado para las cargas de trabajo de desarrollo que son de bajo costo y baja simultaneidad. Los niveles De uso general y Optimizado para memoria son los más adecuados para las cargas de trabajo de producción que requieren un alto nivel de simultaneidad, escala y rendimiento predecible. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. El escalado de almacenamiento se realiza en línea y admite el crecimiento automático del almacenamiento. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que consume. Para obtener más información, consulte los  [planes de tarifa](concepts-service-tiers.md).
+El servicio de servidor único está disponible en tres niveles de SKU: Básico, De uso general y Optimizado para memoria. El nivel Básico es el más adecuado para las cargas de trabajo de desarrollo que son de bajo costo y baja simultaneidad. Los niveles De uso general y Optimizado para memoria son los más adecuados para las cargas de trabajo de producción que requieren un alto nivel de simultaneidad, escala y rendimiento predecible. Puede compilar su primera aplicación en una base de datos pequeña por poco dinero al mes y, después, ajustar la escala para satisfacer las necesidades de la solución. El escalado de almacenamiento se realiza en línea y admite el crecimiento automático del almacenamiento. La escalabilidad dinámica permite a la base de datos responder de manera transparente a los cambiantes requisitos de recursos. Solo paga por los recursos que consume. Vea los [Planes de tarifa](./concepts-pricing-tiers.md) para obtener más información.
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Seguridad, cumplimiento y gobernanza empresarial
 
@@ -63,7 +63,7 @@ El servicio de servidor único usa el módulo criptográfico con validación FIP
 
 El servicio permite el acceso privado a los servidores mediante el [vínculo privado](concepts-data-access-security-private-link.md) y ofrece una característica de [protección contra amenazas avanzada](concepts-data-access-and-security-threat-protection.md). La protección contra amenazas avanzada detecta las actividades anómalas que indican intentos poco habituales y posiblemente dañinos de acceder a las bases de datos o aprovecharse de ellas.
 
-Además de la autenticación nativa, el servicio de servidor único admite la autenticación de [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). La autenticación de Azure AD es un mecanismo que permite conectar con los servidores de MySQL mediante identidades definidas y administradas en Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Azure en una ubicación central, lo que simplifica y centraliza el control de acceso.
+Además de la autenticación nativa, el servicio de servidor único admite la autenticación de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). La autenticación de Azure AD es un mecanismo que permite conectar con los servidores de MySQL mediante identidades definidas y administradas en Azure AD. Con la autenticación de Azure AD, puede administrar las identidades de los usuarios de la base de datos y otros servicios de Azure en una ubicación central, lo que simplifica y centraliza el control de acceso.
 
 Existe un [registro de auditoría](concepts-audit-logs.md) disponible para realizar un seguimiento de todas las actividades en el nivel de base de datos. 
 
@@ -79,9 +79,9 @@ El servicio de servidor único está equipado con características integradas de
 
 El servicio ejecuta la versión Community de MySQL. Esto ofrece una compatibilidad total con las aplicaciones y requiere un costo mínimo de refactorización para migrar la aplicación existente desarrollada en el motor de MySQL a un servicio de servidor único. La migración al servidor único se puede realizar mediante una de las siguientes opciones:
 
-- **Volcado y restauración**: en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte [Migración mediante volcado y restauración](concepts-migrate-dump-restore.md) para más información. 
-- **Azure Database Migration Service**: puede aprovechar [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
-- **Replicación de datos de entrada**: este servicio, que depende de la replicación basada en registros binarios, también se puede aprovechar para las migraciones con un tiempo de inactividad mínimo. Los expertos prácticos que buscan más control sobre la migración prefieren la replicación de datos de entrada para conseguir migraciones con un tiempo de inactividad mínimo. Consulte [Replicación de datos de entrada](concepts-data-in-replication.md) para obtener más información.
+- **Volcado y restauración** : en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte [Migración mediante volcado y restauración](concepts-migrate-dump-restore.md) para más información. 
+- **Azure Database Migration Service** : puede aprovechar [Azure Database Migration Service](../dms/tutorial-mysql-azure-mysql-online.md) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
+- **Replicación de datos de entrada** : este servicio, que depende de la replicación basada en registros binarios, también se puede aprovechar para las migraciones con un tiempo de inactividad mínimo. Los expertos prácticos que buscan más control sobre la migración prefieren la replicación de datos de entrada para conseguir migraciones con un tiempo de inactividad mínimo. Consulte [Replicación de datos de entrada](concepts-data-in-replication.md) para obtener más información.
 
 ## <a name="contacts"></a>Contactos
 Para cualquier pregunta o sugerencia que pueda tener con respecto al uso de Azure Database for MySQL, envíe un correo electrónico al equipo de Azure Database for MySQL ([@Ask Azure DB for MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Esta dirección de correo electrónico no es un alias de soporte técnico.
@@ -108,4 +108,3 @@ Ahora que ha leído la introducción al modo de implementación del servidor ún
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Go](./connect-go.md)
-  

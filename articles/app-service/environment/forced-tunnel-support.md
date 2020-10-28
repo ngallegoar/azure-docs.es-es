@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830866"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540982"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configuración de App Service Environment con tunelización forzada
 
@@ -73,7 +73,7 @@ Para enrutar todo el tráfico saliente desde el ASE, excepto el que va a SQL Azu
 
 2. Habilite puntos de conexión de servicio con Azure SQL y Azure Storage con la subred de ASE.  Tras completar este paso ya se puede configurar la red virtual con la tunelización forzada.
 
-Para crear su ASE en una red virtual que ya está configurada para enrutar todo el tráfico de forma local, debe utilizar una plantilla de Resource Manager.  No se pueden crear ASE con el portal en una subred preexistente.  Al implementar el ASE en una red virtual que ya esté configurada para enrutar el tráfico saliente local, es preciso crear un ASE mediante una plantilla de Resource Manager, lo que le permite especificar una subred preexistente. Para más información sobre la implementación de un ASE con una plantilla, lea [Creación de una instancia de App Service Environment mediante una plantilla][template].
+Para más información sobre la implementación de un ASE con una plantilla, lea [Creación de una instancia de App Service Environment mediante una plantilla][template].
 
 Los puntos de conexión de servicio le permiten restringir el acceso de los servicios multiinquilino a un conjunto de subredes y redes virtuales de Azure. Puede leer más acerca de los puntos de conexión de servicio en la documentación de los [puntos de conexión de servicio de red virtual][serviceendpoints]. 
 
@@ -95,7 +95,7 @@ Para enrutar a través del túnel todo el tráfico saliente desde el ASE, except
 
 3. Obtenga las direcciones que se usarán para todo el tráfico saliente desde App Service Environment a Internet. Si va a enrutar el tráfico de forma local, estas direcciones son las direcciones IP de la puerta de enlace o los dispositivos NAT. Si quiere enrutar el tráfico de salida de App Service Environment a través de una NVA, la dirección de salida sería la dirección IP pública de la NVA.
 
-4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment_: Vaya a resources.azure.com y, luego, a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura**. Seleccione **Editar**. Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
+4. _Para establecer las direcciones de salida en una instancia existente de App Service Environment_ : Vaya a resources.azure.com y, luego, a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. A continuación, puede ver el archivo JSON que describe su instancia de App Service Environment. Asegúrese de que, en la parte superior, indica **lectura/escritura** . Seleccione **Editar** . Desplácese hasta la parte inferior. Cambie el valor de **userWhitelistedIpRanges** de **null** a algo como lo siguiente. Use las direcciones que desea establecer como el intervalo de direcciones de salida. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
@@ -103,7 +103,7 @@ Para enrutar a través del túnel todo el tráfico saliente desde el ASE, except
 
    Seleccione **PUT** en la parte superior. Esta opción desencadena una operación de escalado en App Service Environment y ajusta el firewall.
 
-_Para crear su ASE con las direcciones de salida_: siga las instrucciones que se proporcionan en [Creación de una instancia de App Service Environment con una plantilla][template] y use la plantilla adecuada.  Modifique la sección "resources" en el archivo azuredeploy.json, pero no el bloque "properties" e incluya una línea para **userWhitelistedIpRanges** con sus valores.
+_Para crear su ASE con las direcciones de salida_ : siga las instrucciones que se proporcionan en [Creación de una instancia de App Service Environment con una plantilla][template] y use la plantilla adecuada.  Modifique la sección "resources" en el archivo azuredeploy.json, pero no el bloque "properties" e incluya una línea para **userWhitelistedIpRanges** con sus valores.
 
 ```json
 "resources": [

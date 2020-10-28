@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a3afb12ac831d87b03d0bb16d1b7ef553f1bb906
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90006826"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675982"
 ---
 # <a name="how-to-author-and-sign-an-attestation-policy"></a>Procedimiento para crear y firmar una directiva de atestación
 
@@ -36,7 +36,7 @@ issuancerules
  
 Un archivo de directiva tiene tres segmentos, como se ha indicado anteriormente:
 
-- **version**:  el número de versión de la gramática que se sigue. 
+- **version** :  el número de versión de la gramática que se sigue. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Un archivo de directiva tiene tres segmentos, como se ha indicado anteriormente:
 
     Actualmente, la única versión admitida es "1.0".
 
-- **authorizationrules**: una colección de las reglas de notificación que se comprobarán en primer lugar, para determinar si Azure Attestation debe continuar con **issuancerules**. Las reglas de notificación se aplican en el orden en el que se definan.
+- **authorizationrules** : una colección de las reglas de notificación que se comprobarán en primer lugar, para determinar si Azure Attestation debe continuar con **issuancerules** . Las reglas de notificación se aplican en el orden en el que se definan.
 
-- **issuancerules**: colección de las reglas de notificación que se evaluarán para agregar información adicional al resultado de la atestación tal y como se defina en la directiva. Las reglas de notificación se aplican en el orden en el que se definan y también son opcionales.
+- **issuancerules** : colección de las reglas de notificación que se evaluarán para agregar información adicional al resultado de la atestación tal y como se defina en la directiva. Las reglas de notificación se aplican en el orden en el que se definan y también son opcionales.
 
 Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.md) para más información.
    
@@ -54,7 +54,7 @@ Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.m
 
 1. Cree un archivo.
 1. Agregue la versión al archivo.
-1. Agregue secciones para **authorizationrules** e **issuancerules**.
+1. Agregue secciones para **authorizationrules** e **issuancerules** .
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Consulte las [notificaciones y las reglas de notificación](claim-rule-grammar.m
   };
   ```
 
-  Si el conjunto de notificaciones entrantes contiene una notificación que coincida con el tipo, el valor y el emisor, la acción permit() le indicará al motor de directivas que procese las **issuancerules**.
+  Si el conjunto de notificaciones entrantes contiene una notificación que coincida con el tipo, el valor y el emisor, la acción permit() le indicará al motor de directivas que procese las **issuancerules** .
   
-5. Agregue reglas de notificación a **issuancerules**.
+5. Agregue reglas de notificación a **issuancerules** .
 
   ```
   version=1.0;
@@ -128,8 +128,8 @@ Después de crear un archivo de directiva, para cargar una directiva en formato 
      ```
 
 2. (Opcional) Firme la directiva. Azure Attestation admite los siguientes algoritmos:
-     - **Ninguna**: no firme la carga de la directiva.
-     - **RS256**: algoritmo admitido para firmar la carga de la directiva.
+     - **Ninguna** : no firme la carga de la directiva.
+     - **RS256** : algoritmo admitido para firmar la carga de la directiva.
 
 3. Cargue el JWS y valide la directiva.
      - Si el archivo de directiva no tiene errores de sintaxis, el servicio lo acepta.
@@ -172,4 +172,4 @@ print(encoded.decode('utf-8'))
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de Azure Attestation con PowerShell](quickstart-powershell.md)
-- [Atestación de un enclave SGX con ejemplos de código](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Atestación de un enclave SGX con ejemplos de código](/samples/browse/?expanded=azure&terms=attestation)

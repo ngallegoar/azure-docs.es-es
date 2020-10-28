@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 4d0be745ef076ececbc5719a221f49b69d46c2ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cc345eda8a8d51fb61cbbbd5cf0bf84633ccf0b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443928"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676094"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artículos acerca de la consulta y la conexión a Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -29,7 +29,7 @@ En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran
 | Guía de inicio rápido | Descripción |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Este inicio rápido muestra cómo usar SSMS para conectarse a una base de datos y, posteriormente, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este inicio rápido muestra cómo usar Azure Data Studio para conectarse a una base de datos y luego usar instrucciones Transact-SQL (T-SQL) para crear el elemento TutorialDB empleado en los tutoriales de Azure Data Studio.|
+|[Azure Data Studio](/sql/azure-data-studio/quickstart-sql-database?toc=%252fazure%252fsql-database%252ftoc.json)|Este inicio rápido muestra cómo usar Azure Data Studio para conectarse a una base de datos y luego usar instrucciones Transact-SQL (T-SQL) para crear el elemento TutorialDB empleado en los tutoriales de Azure Data Studio.|
 |[Azure Portal](connect-query-portal.md)|Este inicio rápido muestra cómo usar el Editor de consultas para conectarse a una base de datos (solo Azure SQL Database) y, después, usar instrucciones Transact-SQL para realizar consultas en datos, insertarlos, actualizarlos y eliminarlos de la base de datos.|
 |[Visual Studio Code](connect-query-vscode.md)|Este inicio rápido muestra cómo usar Visual Studio Code para conectarse a una base de datos y después usar las instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
 |[.NET con Visual Studio](connect-query-dotnet-visual-studio.md)|Este inicio rápido muestra cómo usar .NET Framework para crear un programa en C# con Visual Studio que se conecte a una base de datos y que use instrucciones Transact-SQL para consultar los datos.|
@@ -64,9 +64,9 @@ En la siguiente tabla se enumeran las bibliotecas de conectividad o *controlador
 
 | Idioma | Plataforma | Recursos adicionales | Descargar | Introducción |
 | :-- | :-- | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](https://docs.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Descargar](https://www.microsoft.com/net/download/) | [Introducción](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
+| C# | Windows, Linux, macOS | [Microsoft ADO.NET para SQL Server](/sql/connect/ado-net/microsoft-ado-net-sql-server) | [Descargar](https://www.microsoft.com/net/download/) | [Introducción](https://www.microsoft.com/sql-server/developer-get-started/csharp/ubuntu)
 | Java | Windows, Linux, macOS | [Controlador JDBC de Microsoft para SQL Server](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server/) | [Descargar](https://go.microsoft.com/fwlink/?linkid=852460) |  [Introducción](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu)
-| PHP | Windows, Linux, macOS| [Controlador SQL de PHP para SQL Server](https://docs.microsoft.com/sql/connect/php/microsoft-php-driver-for-sql-server) | [Descargar](https://docs.microsoft.com/sql/connect/php/download-drivers-php-sql-server) | [Introducción](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
+| PHP | Windows, Linux, macOS| [Controlador SQL de PHP para SQL Server](/sql/connect/php/microsoft-php-driver-for-sql-server) | [Descargar](/sql/connect/php/download-drivers-php-sql-server) | [Introducción](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)
 | Node.js | Windows, Linux, macOS | [Controlador de Node.js para SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server/) | [Instalación](/sql/connect/node-js/step-1-configure-development-environment-for-node-js-development/) |  [Introducción](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu)
 | Python | Windows, Linux, macOS | [Controlador de Python para SQL Server](/sql/connect/python/python-driver-for-sql-server/) | Opciones de instalación: <br/> \* [pymssql](/sql/connect/python/pymssql/step-1-configure-development-environment-for-pymssql-python-development/) <br/> \* [pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development/) |  [Introducción](https://www.microsoft.com/sql-server/developer-get-started/python/ubuntu)
 | Ruby | Windows, Linux, macOS | [Controlador de Ruby para SQL Server](/sql/connect/ruby/ruby-driver-for-sql-server/) | [Instalación](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development/) | [Introducción](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu)
@@ -76,7 +76,7 @@ En la tabla siguiente se muestran ejemplos de marcos de asignación relacional d
 
 | Idioma | Plataforma | ORM |
 | :-- | :-- | :-- |
-| C# | Windows, Linux, macOS | [Entity Framework](https://docs.microsoft.com/ef)<br>[Entity Framework Core](https://docs.microsoft.com/ef/core/index) |
+| C# | Windows, Linux, macOS | [Entity Framework](/ef)<br>[Entity Framework Core](/ef/core/index) |
 | Java | Windows, Linux, macOS |[Hibernate ORM](https://hibernate.org/orm)|
 | PHP | Windows, Linux, macOS | [Laravel (Eloquent)](https://laravel.com/docs/eloquent)<br>[Doctrine](https://www.doctrine-project.org/projects/orm.html) |
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](https://sequelize.org/) |
@@ -101,6 +101,6 @@ En la tabla siguiente se muestran ejemplos de marcos de asignación relacional d
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+[step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php

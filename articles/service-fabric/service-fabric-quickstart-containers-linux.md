@@ -3,13 +3,13 @@ title: Creación de una aplicación contenedor de Linux de Service Fabric en Azu
 description: En este inicio rápido, compilará una imagen de Docker con la aplicación, insertará la imagen en un registro de contenedor y luego implementar el contenedor en un clúster de Service Fabric.
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 27a21a685d8dc4aa92585ce49b21d1986a54209f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 27d9c96643feb805a785e1e535cd8cac2602082b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91541516"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741913"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Inicio rápido: Implementar contenedores Linux en Service Fabric
 
@@ -89,7 +89,7 @@ Service Fabric proporciona varias herramientas que puede usar para administrar u
 
 En este inicio rápido, se usan la CLI de Service Fabric y Service Fabric Explorer (una herramienta basada en web). Para usar Service Fabric Explorer, deberá importar el archivo PFX del certificado en el explorador. De forma predeterminada, el archivo PFX no tiene contraseña.
 
-Mozilla Firefox es el explorador predeterminado en Ubuntu 16.04. Para importar el certificado en Firefox, haga clic en el botón de menú en la esquina superior derecha del explorador y, a continuación, haga clic en **Opciones**. En la página **Preferencias**, utilice el cuadro de búsqueda para buscar "certificados". Haga clic en **Ver certificados**, seleccione la pestaña **Sus certificados**, haga clic en **Importar** y siga las indicaciones para importar el certificado.
+Mozilla Firefox es el explorador predeterminado en Ubuntu 16.04. Para importar el certificado en Firefox, haga clic en el botón de menú en la esquina superior derecha del explorador y, a continuación, haga clic en **Opciones** . En la página **Preferencias** , utilice el cuadro de búsqueda para buscar "certificados". Haga clic en **Ver certificados** , seleccione la pestaña **Sus certificados** , haga clic en **Importar** y siga las indicaciones para importar el certificado.
 
    ![Instalación del certificado en Firefox](./media/service-fabric-quickstart-containers-linux/install-cert-firefox.png)
 
@@ -101,13 +101,13 @@ Mozilla Firefox es el explorador predeterminado en Ubuntu 16.04. Para importar e
     sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azure.com:19080 --pem containertestcluster22019013100.pem --no-verify
     ```
 
-2. Use el script de instalación para copiar la definición de la aplicación de votación en el clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.  El archivo de certificado PEM debe encontrarse en el mismo directorio que el archivo *install.sh*.
+2. Use el script de instalación para copiar la definición de la aplicación de votación en el clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.  El archivo de certificado PEM debe encontrarse en el mismo directorio que el archivo *install.sh* .
 
     ```bash
     ./install.sh
     ```
 
-3. Abra un explorador web y navegue hasta el punto de conexión de Service Fabric Explorer del clúster. El punto de conexión tiene el siguiente formato: **https://\<my-azure-service-fabric-cluster-url>: 19080/Explorer**; por ejemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
+3. Abra un explorador web y navegue hasta el punto de conexión de Service Fabric Explorer del clúster. El punto de conexión tiene el siguiente formato: **https://\<my-azure-service-fabric-cluster-url>: 19080/Explorer** ; por ejemplo, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expanda el nodo **Aplicaciones** para comprobar que ahora hay una entrada para el tipo de aplicación de votación y la instancia que ha creado.
 

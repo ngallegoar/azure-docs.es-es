@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078132"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739327"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Inicio rápido: Creación e implementación de un flujo de trabajo de aplicaciones lógicas mediante una plantilla de ARM
 
@@ -20,7 +20,7 @@ ms.locfileid: "87078132"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -62,7 +62,7 @@ Siga la opción que desea usar para implementar la plantilla de inicio rápido:
 
    [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
-1. En el portal, en la página **Creación de una aplicación lógica mediante una plantilla**, escriba o seleccione estos valores:
+1. En el portal, en la página **Creación de una aplicación lógica mediante una plantilla** , escriba o seleccione estos valores:
 
    | Propiedad | Value | Descripción |
    |----------|-------|-------------|
@@ -234,7 +234,7 @@ Para ver la aplicación lógica, puede usar Azure Portal, ejecutar un script que
 
 1. Cuando se abra el diseñador de aplicaciones lógicas, revise la aplicación lógica creada con la plantilla de inicio rápido.
 
-1. Para probar la aplicación lógica, en la barra de herramientas del diseñador, seleccione **Ejecutar**.
+1. Para probar la aplicación lógica, en la barra de herramientas del diseñador, seleccione **Ejecutar** .
 
 ### <a name="cli"></a>[CLI](#tab/azure-cli)
 
@@ -288,7 +288,7 @@ Si planea seguir trabajando en otros inicios rápidos y tutoriales, considere la
 
 1. En Azure Portal, busque y seleccione el grupo de recursos que quiere eliminar, que es `Check-Azure-Status-RG` en este ejemplo.
 
-1. En el menú del grupo de recursos, elija **Introducción**, si aún no está seleccionado. En la página de información general, elija **Eliminar grupo de recursos**.
+1. En el menú del grupo de recursos, elija **Introducción** , si aún no está seleccionado. En la página de información general, elija **Eliminar grupo de recursos** .
 
 1. Para confirmar la operación, escriba el nombre del grupo de recursos.
 

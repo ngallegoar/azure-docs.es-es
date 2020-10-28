@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 5257e8730830c6b51808d5d014bc3bdec6036bfe
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3cbda70fd836482448aa381f6e781ed15666f2c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87843987"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675181"
 ---
 # <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Inicio rápido: Uso de Python para consultar una base de datos de Azure SQL Database o Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -45,7 +45,7 @@ Para completar este inicio rápido necesita instalar:
 
   # <a name="macos"></a>[macOS](#tab/macos)
 
-  Para instalar Homebrew y Python, el controlador ODBC y SQLCMD, y el controlador de Python para SQL Server, use los pasos **1.2**, **1.3** y **2.1** en [Creación de aplicaciones de Python con SQL Server en macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
+  Para instalar Homebrew y Python, el controlador ODBC y SQLCMD, y el controlador de Python para SQL Server, use los pasos **1.2** , **1.3** y **2.1** en [Creación de aplicaciones de Python con SQL Server en macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/).
 
   Para más información, consulte [Microsoft ODBC Driver en macOS](/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
@@ -66,7 +66,7 @@ Para completar este inicio rápido necesita instalar:
 ---
 
 > [!IMPORTANT]
-> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works**.
+> Los scripts de este artículo se escriben para utilizar la base de datos **Adventure Works** .
 
 > [!NOTE]
 > También puede elegir una instancia administrada de Azure SQL.
@@ -83,16 +83,16 @@ Obtenga la información de conexión necesaria para conectarse a la base de dato
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL**.
+2. Vaya a las páginas **Bases de datos SQL** o **Instancias administradas de SQL** .
 
-3. En la página **Información general**, revise el nombre completo del servidor junto a **Nombre del servidor** para la base de datos de Azure SQL Database o el nombre completo (o la dirección IP) del servidor junto a **Host** para una instancia administrada de Azure SQL o SQL Server en la máquina virtual de Azure. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar**.
+3. En la página **Información general** , revise el nombre completo del servidor junto a **Nombre del servidor** para la base de datos de Azure SQL Database o el nombre completo (o la dirección IP) del servidor junto a **Host** para una instancia administrada de Azure SQL o SQL Server en la máquina virtual de Azure. Para copiar el nombre del servidor o nombre de host, mantenga el cursor sobre él y seleccione el icono **Copiar** .
 
 > [!NOTE]
 > Para obtener información de la conexión de SQL Server en una máquina virtual de Azure, consulte [Conexión a una instancia de SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
 ## <a name="create-code-to-query-your-database"></a>Creación de código para consultar la base de datos 
 
-1. En el editor de texto, cree un archivo llamado *sqltest.py*.  
+1. En el editor de texto, cree un archivo llamado *sqltest.py* .  
    
 1. Agregue el código siguiente: Sustituya \<server>, \<database>, \<username> y \<password> por sus propios valores.
    
@@ -130,6 +130,5 @@ Obtenga la información de conexión necesaria para conectarse a la base de dato
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Diseño de la primera base de datos en Azure SQL Database](design-first-database-tutorial.md)
-- [Controladores de Microsoft para Python para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Controladores de Microsoft para Python para SQL Server](/sql/connect/python/python-driver-for-sql-server/)
 - [Centro para desarrolladores de Python](https://azure.microsoft.com/develop/python/?v=17.23h)
-

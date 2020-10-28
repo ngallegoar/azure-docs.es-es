@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946083"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741488"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Inicio rápido: interacción con un dispositivo IoT Plug and Play que esté conectado a la solución (Python)
 
@@ -59,7 +59,7 @@ En este inicio rápido, se usa un dispositivo termostato de ejemplo, que se ha e
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
 
-1. Esta ventana de terminal se usa ahora como terminal del **dispositivo**. Vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-python/azure-iot-device/samples/pnp*.
+1. Esta ventana de terminal se usa ahora como terminal del **dispositivo** . Vaya a la carpeta del repositorio clonado y luego a la carpeta */azure-iot-sdk-python/azure-iot-device/samples/pnp* .
 
 1. Ejecute el dispositivo termostato de ejemplo con el siguiente comando:
 
@@ -73,21 +73,21 @@ En este inicio rápido, se usa un dispositivo termostato de ejemplo, que se ha e
 
 En este inicio rápido, se usa una solución de IoT de ejemplo en Python para interactuar con el dispositivo de ejemplo que acaba de configurar.
 
-1. Abra otra ventana de terminal para utilizarla como terminal de **servicio**.
+1. Abra otra ventana de terminal para utilizarla como terminal de **servicio** .
 
 1. Vaya a la carpeta */azure-iot-sdk-python/azure-iot-hub/samples* del repositorio del SDK de Python clonado.
 
 1. Abra el archivo *registry_manager_pnp_sample.py* y examine el código. En este ejemplo se muestra cómo usar la clase **IoTHubRegistryManager** para interactuar con un dispositivo IoT Plug and Play.
 
 > [!NOTE]
-> En estos ejemplos de servicio se usa la clase **IoTHubRegistryManager** del **cliente del servicio IoT Hub**. Para más información sobre las API, incluida la API de gemelos digitales, consulte la [guía para desarrolladores de servicios](concepts-developer-guide-service.md).
+> En estos ejemplos de servicio se usa la clase **IoTHubRegistryManager** del **cliente del servicio IoT Hub** . Para más información sobre las API, incluida la API de gemelos digitales, consulte la [guía para desarrolladores de servicios](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Obtención del dispositivo gemelo
 
 En el artículo sobre la [configuración del entorno para los inicios rápidos y tutoriales de IoT Plug and Play](set-up-environment.md) se crearon dos variables de entorno para configurar el ejemplo para conectarse a su instancia de IoT Hub y al dispositivo:
 
-* **IOTHUB_CONNECTION_STRING**: la cadena de conexión de IoT Hub que anotó anteriormente.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING** : la cadena de conexión de IoT Hub que anotó anteriormente.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
 
 Use el siguiente comando en el terminal de **servicio** para ejecutar este ejemplo:
 
@@ -107,7 +107,7 @@ The Model ID for this device is:
 dtmi:com:example:Thermostat;1
 ```
 
-En el fragmento de código siguiente se muestra el código de ejemplo de *registry_manager_pnp_sample.py*:
+En el fragmento de código siguiente se muestra el código de ejemplo de *registry_manager_pnp_sample.py* :
 
 ```python
     # Create IoTHubRegistryManager
@@ -165,7 +165,7 @@ El terminal de **servicio** muestra un mensaje de confirmación del dispositivo:
 The device method has been successfully invoked
 ```
 
-En el terminal del **dispositivo**, puede ver que el dispositivo recibe el comando:
+En el terminal del **dispositivo** , puede ver que el dispositivo recibe el comando:
 
 ```cmd/sh
 Command request received with payload

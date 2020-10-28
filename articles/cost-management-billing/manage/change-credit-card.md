@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
 ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "92131146"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Adición o actualización de una tarjeta de crédito para Azure
@@ -41,10 +41,10 @@ Puede cambiar el crédito predeterminado de la suscripción de Azure a una nueva
 Puede cambiar la tarjeta de crédito predeterminada de la suscripción a una nueva siguiendo estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
-1. Busque **Administración de costos + facturación**.  
+1. Busque **Administración de costos + facturación** .  
     ![Captura de pantalla que muestra la búsqueda.](./media/change-credit-card/search.png)
 1. Seleccione la suscripción a la que quiere agregar la tarjeta de crédito.
-1. Seleccione **Métodos de pago**.  
+1. Seleccione **Métodos de pago** .  
     ![Captura de pantalla que muestra la opción Administrar métodos de pago seleccionada](./media/change-credit-card/payment-methods-blade-x.png)
 1. En la esquina superior izquierda, seleccione "+" para agregar una tarjeta. Aparecerá un formulario de tarjeta de crédito a la derecha.
 1. Escriba los detalles de la tarjeta de crédito.  
@@ -57,13 +57,13 @@ Puede cambiar la tarjeta de crédito predeterminada de la suscripción a una nue
 También puede cambiar la tarjeta de crédito predeterminada de la suscripción a una que ya esté guardada en la cuenta siguiendo estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
-1. Busque **Administración de costos + facturación**.  
+1. Busque **Administración de costos + facturación** .  
     ![Captura de pantalla que muestra la búsqueda.](./media/change-credit-card/search.png)
 1. Seleccione la suscripción a la que quiere agregar la tarjeta de crédito.
-1. Seleccione **Métodos de pago**.
+1. Seleccione **Métodos de pago** .
     ![Captura de pantalla que muestra la opción Administrar métodos de pago seleccionada](./media/change-credit-card/payment-methods-blade-x.png)
 1. Seleccione la casilla junto a la tarjeta que quiere convertir en el método de pago activo.
-1. Seleccione **Establecer como activo**.
+1. Seleccione **Establecer como activo** .
     ![Captura de pantalla que muestra la tarjeta de crédito seleccionada y establecida como activa](./media/change-credit-card/sub-change-active-x.png)
 
 ### <a name="edit-credit-card-details"></a>Edición de los detalles de la tarjeta de crédito
@@ -71,14 +71,14 @@ También puede cambiar la tarjeta de crédito predeterminada de la suscripción 
 Si se renueva la tarjeta de crédito y el número sigue siendo el mismo, actualice la información de la tarjeta de crédito existente, como la fecha de expiración. Si su número de tarjeta de crédito cambia porque la tarjeta se pierda, se la roben o caduque, siga los pasos de la sección [Adición de una tarjeta de crédito como método de pago](#addcard). No es necesario actualizar el CVV.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de la cuenta.
-1. Busque **Administración de costos + facturación**.
+1. Busque **Administración de costos + facturación** .
     ![Captura de pantalla que muestra la búsqueda.](./media/change-credit-card/search.png)
-1. Seleccione **Métodos de pago**.
+1. Seleccione **Métodos de pago** .
     ![Captura de pantalla que muestra la opción Administrar métodos de pago seleccionada](./media/change-credit-card/payment-methods-blade-x.png)
 1. Seleccione la tarjeta de crédito que desea editar. Aparecerá un formulario de tarjeta de crédito a la derecha.
     ![Captura de pantalla que muestra la tarjeta de crédito seleccionada](./media/change-credit-card/edit-card-x.png)
 1. Actualice los detalles de la tarjeta de crédito.
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Administración de tarjetas de crédito para un Contrato de cliente de Microsoft
 
@@ -93,12 +93,12 @@ Si quiere cambiar el método de pago predeterminado del perfil de facturación a
 Para cambiar la tarjeta de crédito, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Busque en **Administración de costos + facturación**.
-1. En el menú de la izquierda, seleccione **Perfiles de facturación**.
+1. Busque en **Administración de costos + facturación** .
+1. En el menú de la izquierda, seleccione **Perfiles de facturación** .
 1. Seleccione un perfil de facturación.
-1. En el menú de la izquierda, seleccione **Métodos de pago**.  
+1. En el menú de la izquierda, seleccione **Métodos de pago** .  
    ![Captura de pantalla que muestra los métodos de pago del menú](./media/change-credit-card/payment-methods-tab-mca.png)
-1. En la sección **Método de pago predeterminado**, seleccione **Reemplazar**.  
+1. En la sección **Método de pago predeterminado** , seleccione **Reemplazar** .  
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Captura de pantalla que muestra la opción de reemplazar" :::
 1. En la nueva área de la derecha, seleccione una tarjeta existente en la lista desplegable o agregue una nueva seleccionando el vínculo azul **Add new payment method** (Agregar nuevo método de pago).
 
@@ -109,12 +109,12 @@ Puede editar los detalles de la tarjeta de crédito (como actualizar la fecha de
 Para editar una tarjeta de crédito, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Busque en **Administración de costos + facturación**.
-1. En el menú de la izquierda, seleccione **Perfiles de facturación**.
+1. Busque en **Administración de costos + facturación** .
+1. En el menú de la izquierda, seleccione **Perfiles de facturación** .
 1. Seleccione un perfil de facturación.
-1. En el menú de la izquierda, seleccione **Métodos de pago**.  
+1. En el menú de la izquierda, seleccione **Métodos de pago** .  
    ![Captura de pantalla que muestra los métodos de pago del menú](./media/change-credit-card/payment-methods-tab-mca.png)
-1. En la sección **Tarjetas de crédito del usuario**, busque la tarjeta que desea editar.
+1. En la sección **Tarjetas de crédito del usuario** , busque la tarjeta que desea editar.
 1. Seleccione los puntos suspensivos (`...`) al final de la fila.  
     :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Captura de pantalla que muestra la opción de reemplazar" :::
 1. Para editar los detalles de la tarjeta de crédito, seleccione **Editar** en el menú contextual.
@@ -143,7 +143,7 @@ Si desea [pagar con factura](pay-by-invoice.md), envíe el pago a la ubicación 
 
 ### <a name="how-do-i-change-the-tax-id"></a>¿Cómo se cambia el número de identificación tributaria?
 
-Para agregar o actualizar el número de identificación fiscal, actualice el perfil en [Azure Portal](https://portal.azure.com) y seleccione **Registro fiscal**. Este número de identificación tributaria se utiliza para los cálculos de exención fiscal y aparece en la factura.
+Para agregar o actualizar el número de identificación fiscal, actualice el perfil en [Azure Portal](https://portal.azure.com) y seleccione **Registro fiscal** . Este número de identificación tributaria se utiliza para los cálculos de exención fiscal y aparece en la factura.
 
 ## <a name="check-the-type-of-your-account"></a>Comprobación del tipo de la cuenta
 

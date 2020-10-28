@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f88960207188779949560218b298fd36d6a8f25e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90985232"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633729"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creación de una aplicación web de Node.js en Azure
 
@@ -22,6 +22,7 @@ Para empezar a trabajar con Azure App Service, cree una aplicación de Node.js o
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
 - [Node.js y npm](https://nodejs.org) Ejecute el comando `node --version` para comprobar que Node.js está instalado.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - La [extensión Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) para Visual Studio Code.
@@ -63,24 +64,24 @@ En esta sección, implementará la aplicación de Node.js en Azure con VS Code 
     code .
     ```
 
-1. En la barra de actividades de VS Code, seleccione el logotipo de Azure para mostrar el explorador de **AZURE APP SERVICE**. Seleccione **Iniciar sesión en Azure…** y siga las instrucciones. Si se producen errores, consulte [Solución de problemas de inicio de sesión en Azure](#troubleshooting-azure-sign-in) a continuación. Una vez que haya iniciado sesión, el explorador debe mostrar el nombre de la suscripción de Azure.
+1. En la barra de actividades de VS Code, seleccione el logotipo de Azure para mostrar el explorador de **AZURE APP SERVICE** . Seleccione **Iniciar sesión en Azure…** y siga las instrucciones. Si se producen errores, consulte [Solución de problemas de inicio de sesión en Azure](#troubleshooting-azure-sign-in) a continuación. Una vez que haya iniciado sesión, el explorador debe mostrar el nombre de la suscripción de Azure.
 
     ![Inicio de sesión en Azure](media/quickstart-nodejs/sign-in.png)
 
-1. En el explorador de **AZURE APP SERVICE** de VS Code, seleccione el icono de flecha arriba azul para implementar la aplicación en Azure. También puede invocar el mismo comando desde la **Paleta de comandos** (**Ctrl**+**Mayús**+**P**); para hacerlo, escriba "deploy to web app" y elija **Azure App Service: Deploy to Web App** (Azure App Service: Implementar en aplicación web).
+1. En el explorador de **AZURE APP SERVICE** de VS Code, seleccione el icono de flecha arriba azul para implementar la aplicación en Azure. También puede invocar el mismo comando desde la **Paleta de comandos** ( **Ctrl**+**Mayús**+**P** ); para hacerlo, escriba "deploy to web app" y elija **Azure App Service: Deploy to Web App** (Azure App Service: Implementar en aplicación web).
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Captura de pantalla del servicio Aplicación de Azure en VS Code que muestra el icono de flecha azul seleccionado.&quot;:::
         
-1. Elija la carpeta *nodejs-docs-hello-world*.
+1. Elija la carpeta *nodejs-docs-hello-world* .
 
 1. Elija una opción de creación basada en el sistema operativo en el que desea realizar la implementación:
 
     - Linux: seleccione la opción **Create new Web App** (Crear nueva aplicación web).
     - Windows: seleccione la opción **Create new Web App... Advanced** (Crear nueva aplicación web...Avanzado).
 
-1. Escriba un nombre único global para la aplicación web y presione **Intro**. El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
+1. Escriba un nombre único global para la aplicación web y presione **Intro** . El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
 
-1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS**.
+1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS** .
 
 1. Si el destino es Windows, siga las indicaciones adicionales:
     1. Seleccione **Create a new resource group** (Crear un grupo de recursos nuevo) y escriba un nombre para el grupo de recursos, como `AppServiceQS-rg`.
@@ -135,7 +136,7 @@ Puede implementar los cambios en esta aplicación si realiza modificaciones en V
 
 Puede ver la salida del registro (llamadas a `console.log`) desde la aplicación directamente en la ventana de salida de VS Code.
 
-1. En el explorador de **AZURE APP SERVICE**, haga clic con el botón derecho en el nodo de la aplicación y elija **Start Streaming Logs** (Iniciar transmisión de registros).
+1. En el explorador de **AZURE APP SERVICE** , haga clic con el botón derecho en el nodo de la aplicación y elija **Start Streaming Logs** (Iniciar transmisión de registros).
 
     ![Inicio de transmisión de registros](media/quickstart-nodejs/view-logs.png)
 
@@ -143,16 +144,16 @@ Puede ver la salida del registro (llamadas a `console.log`) desde la aplicación
 
     :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Captura de pantalla del servicio Aplicación de Azure en VS Code que muestra el icono de flecha azul seleccionado.&quot;:::
         
-1. Elija la carpeta *nodejs-docs-hello-world*.
+1. Elija la carpeta *nodejs-docs-hello-world* .
 
 1. Elija una opción de creación basada en el sistema operativo en el que desea realizar la implementación:
 
     - Linux: seleccione la opción **Create new Web App** (Crear nueva aplicación web).
     - Windows: seleccione la opción **Create new Web App... Advanced** (Crear nueva aplicación web...Avanzado).
 
-1. Escriba un nombre único global para la aplicación web y presione **Intro**. El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
+1. Escriba un nombre único global para la aplicación web y presione **Intro** . El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
 
-1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS**.
+1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS** .
 
 1. Si el destino es Windows, siga las indicaciones adicionales:
     1. Seleccione **Create a new resource group** (Crear un grupo de recursos nuevo) y escriba un nombre para el grupo de recursos, como `AppServiceQS-rg`.
@@ -214,7 +215,7 @@ También tendrá que instalar la [extensión Azure App Service](https://marketpl
 
 ### <a name="sign-in"></a>Iniciar sesión
 
-Después de instalar la extensión, inicie sesión en su cuenta de Azure. En la barra de actividades, seleccione el logotipo de Azure para mostrar el explorador de **AZURE APP SERVICE**. Seleccione **Iniciar sesión en Azure…** y siga las instrucciones.
+Después de instalar la extensión, inicie sesión en su cuenta de Azure. En la barra de actividades, seleccione el logotipo de Azure para mostrar el explorador de **AZURE APP SERVICE** . Seleccione **Iniciar sesión en Azure…** y siga las instrucciones.
 
 ![inicio de sesión en Azure](./media/quickstart-nodejs/sign-in.png)
 
@@ -233,7 +234,7 @@ Si el problema no se corrige después de configurar las variables de entorno, se
 
 Antes de continuar, asegúrese de haber instalado y configurado todos los requisitos previos.
 
-En VS Code, verá su dirección de correo electrónico de Azure en la barra de estado, y la suscripción en el explorador de **AZURE APP SERVICE**.
+En VS Code, verá su dirección de correo electrónico de Azure en la barra de estado, y la suscripción en el explorador de **AZURE APP SERVICE** .
 
 > [!div class="nextstepaction"]
 > [He tenido un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
@@ -289,20 +290,20 @@ Primero, abra la carpeta de la aplicación en VS Code.
 code .
 ```
 
-En el explorador de **AZURE APP SERVICE**, seleccione el icono de flecha arriba azul para implementar la aplicación en Azure.
+En el explorador de **AZURE APP SERVICE** , seleccione el icono de flecha arriba azul para implementar la aplicación en Azure.
 
 :::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Captura de pantalla del servicio Aplicación de Azure en VS Code que muestra el icono de flecha azul seleccionado.&quot;:::
         
-1. Elija la carpeta *nodejs-docs-hello-world*.
+1. Elija la carpeta *nodejs-docs-hello-world* .
 
 1. Elija una opción de creación basada en el sistema operativo en el que desea realizar la implementación:
 
     - Linux: seleccione la opción **Create new Web App** (Crear nueva aplicación web).
     - Windows: seleccione la opción **Create new Web App... Advanced** (Crear nueva aplicación web...Avanzado).
 
-1. Escriba un nombre único global para la aplicación web y presione **Intro**. El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
+1. Escriba un nombre único global para la aplicación web y presione **Intro** . El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
 
-1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS**.
+1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS** .
 
 1. Si el destino es Windows, siga las indicaciones adicionales:
     1. Seleccione **Create a new resource group** (Crear un grupo de recursos nuevo) y escriba un nombre para el grupo de recursos, como `AppServiceQS-rg`.
@@ -322,7 +323,7 @@ En el explorador de **AZURE APP SERVICE**, seleccione el icono de flecha arriba 
 1. Si implementa en Linux, seleccione **Browse Website** (Examinar sitio web) en el mensaje para ver la aplicación web recién implementada una vez finalizado el proceso. El explorador debe mostrar &quot;¡Hola mundo!":::
 
 > [!TIP]
-> También puede implementar desde la **Paleta de comandos** (CTRL + MAYÚS + P); para hacerlo, escriba “implementar en Web App” y ejecute el comando **Azure App Service: implementar en Web App**.
+> También puede implementar desde la **Paleta de comandos** (CTRL + MAYÚS + P); para hacerlo, escriba “implementar en Web App” y ejecute el comando **Azure App Service: implementar en Web App** .
 
 1. Seleccione el directorio que tenga abierto actualmente, `myExpressApp`.
 
@@ -338,16 +339,16 @@ En el explorador de **AZURE APP SERVICE**, seleccione el icono de flecha arriba 
 
     :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Captura de pantalla del servicio Aplicación de Azure en VS Code que muestra el icono de flecha azul seleccionado.&quot;:::
         
-1. Elija la carpeta *nodejs-docs-hello-world*.
+1. Elija la carpeta *nodejs-docs-hello-world* .
 
 1. Elija una opción de creación basada en el sistema operativo en el que desea realizar la implementación:
 
     - Linux: seleccione la opción **Create new Web App** (Crear nueva aplicación web).
     - Windows: seleccione la opción **Create new Web App... Advanced** (Crear nueva aplicación web...Avanzado).
 
-1. Escriba un nombre único global para la aplicación web y presione **Intro**. El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
+1. Escriba un nombre único global para la aplicación web y presione **Intro** . El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
 
-1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS**.
+1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS** .
 
 1. Si el destino es Windows, siga las indicaciones adicionales:
     1. Seleccione **Create a new resource group** (Crear un grupo de recursos nuevo) y escriba un nombre para el grupo de recursos, como `AppServiceQS-rg`.
@@ -370,16 +371,16 @@ En el explorador de **AZURE APP SERVICE**, seleccione el icono de flecha arriba 
 
     :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Captura de pantalla del servicio Aplicación de Azure en VS Code que muestra el icono de flecha azul seleccionado.&quot;:::
         
-1. Elija la carpeta *nodejs-docs-hello-world*.
+1. Elija la carpeta *nodejs-docs-hello-world* .
 
 1. Elija una opción de creación basada en el sistema operativo en el que desea realizar la implementación:
 
     - Linux: seleccione la opción **Create new Web App** (Crear nueva aplicación web).
     - Windows: seleccione la opción **Create new Web App... Advanced** (Crear nueva aplicación web...Avanzado).
 
-1. Escriba un nombre único global para la aplicación web y presione **Intro**. El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
+1. Escriba un nombre único global para la aplicación web y presione **Intro** . El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
 
-1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS**.
+1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS** .
 
 1. Si el destino es Windows, siga las indicaciones adicionales:
     1. Seleccione **Create a new resource group** (Crear un grupo de recursos nuevo) y escriba un nombre para el grupo de recursos, como `AppServiceQS-rg`.
@@ -420,7 +421,7 @@ Para implementar los cambios en esta aplicación, siga el mismo proceso y selecc
 
 En esta sección aprenderá a ver (o "copiar") los registros desde la aplicación de App Service en ejecución. Las llamadas realizadas a `console.log` en la aplicación se muestran en la ventana de salida en Visual Studio Code.
 
-Busque la aplicación en el explorador de **AZURE APP SERVICE**, haga clic con el botón derecho en la aplicación y seleccione **Ver registros de streaming**.
+Busque la aplicación en el explorador de **AZURE APP SERVICE** , haga clic con el botón derecho en la aplicación y seleccione **Ver registros de streaming** .
 
 La ventana de salida de VS Code se abre con una conexión a la transmisión de registros.
 
@@ -428,16 +429,16 @@ La ventana de salida de VS Code se abre con una conexión a la transmisión de r
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Captura de pantalla del servicio Aplicación de Azure en VS Code que muestra el icono de flecha azul seleccionado.&quot;:::
         
-1. Elija la carpeta *nodejs-docs-hello-world*.
+1. Elija la carpeta *nodejs-docs-hello-world* .
 
 1. Elija una opción de creación basada en el sistema operativo en el que desea realizar la implementación:
 
     - Linux: seleccione la opción **Create new Web App** (Crear nueva aplicación web).
     - Windows: seleccione la opción **Create new Web App... Advanced** (Crear nueva aplicación web...Avanzado).
 
-1. Escriba un nombre único global para la aplicación web y presione **Intro**. El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
+1. Escriba un nombre único global para la aplicación web y presione **Intro** . El nombre debe ser único en todo Azure y usar solo caracteres alfanuméricos (&quot;A-Z&quot;, &quot;a-z&quot; y &quot;0-9&quot;) y guiones (&quot;-&quot;).
 
-1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS**.
+1. Si el destino es Linux, seleccione una versión de Node.js cuando se le solicite. Se recomienda una versión **LTS** .
 
 1. Si el destino es Windows, siga las indicaciones adicionales:
     1. Seleccione **Create a new resource group** (Crear un grupo de recursos nuevo) y escriba un nombre para el grupo de recursos, como `AppServiceQS-rg`.

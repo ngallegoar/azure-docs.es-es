@@ -4,13 +4,13 @@ description: Aprenda a configurar el contenedor de Python en el que se ejecutan 
 ms.topic: quickstart
 ms.date: 10/06/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-python
-ms.openlocfilehash: b489f7daebc9232088020948752c3792dca65095
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018753"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743811"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configuración de una aplicación de Python en Linux para Azure App Service
 
@@ -22,9 +22,9 @@ En esta guía se incluyen conceptos clave e instrucciones para los desarrollador
 
 Puede usar [Azure Portal](https://portal.azure.com) o la CLI de Azure para la configuración:
 
-- **Azure Portal**, use la página **Configuración** > **Configuración** de la aplicación, como se describe en [Configurar una aplicación de App Service en Azure Portal](configure-common.md).
+- **Azure Portal** , use la página **Configuración** > **Configuración** de la aplicación, como se describe en [Configurar una aplicación de App Service en Azure Portal](configure-common.md).
 
-- **CLI de Azure**: tiene dos opciones.
+- **CLI de Azure** : tiene dos opciones.
 
     - Ejecute los comandos de [Azure Cloud Shell](../cloud-shell/overview.md), que puede abrir mediante el botón **Probar** de la parte superior derecha de los bloques de código.
     - Ejecute los comandos localmente instalando la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) y, luego, inicie sesión en Azure con [az login](/cli/azure/reference-index#az-login).
@@ -34,9 +34,9 @@ Puede usar [Azure Portal](https://portal.azure.com) o la CLI de Azure para la co
 
 ## <a name="configure-python-version"></a>Configuración de la versión de Python
 
-- **Azure Portal**: use la pestaña **Configuración general** de la página **Configuración**, como se describe en [Configurar las opciones generales](configure-common.md#configure-general-settings) para contenedores Linux.
+- **Azure Portal** : use la pestaña **Configuración general** de la página **Configuración** , como se describe en [Configurar las opciones generales](configure-common.md#configure-general-settings) para contenedores Linux.
 
-- **CLI de Azure**:
+- **CLI de Azure** :
 
     -  Muestre la versión actual de Python con [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
@@ -69,7 +69,7 @@ El sistema de compilación de App Service, denominado Oryx, realiza los pasos si
 
 1. Ejecute un script anterior a la compilación personalizado si lo especifica el valor `PRE_BUILD_COMMAND` .
 1. Ejecute `pip install -r requirements.txt`. El archivo *requirements.txt* debe estar dentro de la carpeta raíz del proyecto. De lo contrario, el proceso de compilación notifica el error: "Could not find setup.py or requirements.txt; Not running pip install" (No se pudo encontrar setup.py o requirements.txt; no se ejecutará la instalación de PIP).
-1. Si *manage.py* se encuentra en la raíz del repositorio (lo que indica una aplicación de Django), ejecute *manage.py collectstatic*. Sin embargo, si el valor `DISABLE_COLLECTSTATIC` es `true`, se omitirá este paso.
+1. Si *manage.py* se encuentra en la raíz del repositorio (lo que indica una aplicación de Django), ejecute *manage.py collectstatic* . Sin embargo, si el valor `DISABLE_COLLECTSTATIC` es `true`, se omitirá este paso.
 1. Ejecute el script posterior a la compilación personalizado si lo especifica el valor `POST_BUILD_COMMAND`.
 
 De forma predeterminada, los valores `PRE_BUILD_COMMAND`, `POST_BUILD_COMMAND` y `DISABLE_COLLECTSTATIC` están vacíos. 
@@ -90,7 +90,7 @@ Para más información sobre cómo App Service ejecuta y compila aplicaciones de
 > Un valor denominado `SCM_DO_BUILD_DURING_DEPLOYMENT`, si contiene `true` o 1, desencadena una compilación de Oryx durante la implementación. El valor es true cuando se implementa con Git, el comando `az webapp up` de la CLI de Azure y Visual Studio Code.
 
 > [!NOTE]
-> Use siempre rutas de acceso relativas en todos los scripts anteriores y posteriores a la compilación, ya que el contenedor de compilación en el que se ejecuta Oryx es diferente del contenedor en tiempo de ejecución en el que se ejecuta la aplicación. Nunca confíe en la ubicación exacta de la carpeta de proyecto de la aplicación dentro del contenedor (por ejemplo, si está ubicada en *site/wwwroot*).
+> Use siempre rutas de acceso relativas en todos los scripts anteriores y posteriores a la compilación, ya que el contenedor de compilación en el que se ejecuta Oryx es diferente del contenedor en tiempo de ejecución en el que se ejecuta la aplicación. Nunca confíe en la ubicación exacta de la carpeta de proyecto de la aplicación dentro del contenedor (por ejemplo, si está ubicada en *site/wwwroot* ).
 
 ## <a name="production-settings-for-django-apps"></a>Configuración de producción para aplicaciones de Django
 
@@ -102,7 +102,7 @@ En la tabla siguiente se describe la configuración de producción que es pertin
 | --- | --- |
 | `SECRET_KEY` | Almacene el valor en un valor de configuración de App Service, como se describe en [Acceso a la configuración de la aplicación como variables de entorno](#access-app-settings-as-environment-variables). Como alternativa, puede [almacenar el valor como un "secreto" en Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 | `DEBUG` | Cree un valor `DEBUG` en App Service con el valor 0 (false) y, luego, cargue el valor como una variable de entorno. En el entorno de desarrollo, cree una variable de entorno `DEBUG` con el valor 1 (true). |
-| `ALLOWED_HOSTS` | En producción, Django requiere que incluya la dirección URL de la aplicación en la matriz `ALLOWED_HOSTS` de *settings.py*. Puede recuperar esta dirección URL en tiempo de ejecución con el código `os.environ['WEBSITE_HOSTNAME']`. App Service establece automáticamente la variable de entorno `WEBSITE_HOSTNAME` en la dirección URL de la aplicación. |
+| `ALLOWED_HOSTS` | En producción, Django requiere que incluya la dirección URL de la aplicación en la matriz `ALLOWED_HOSTS` de *settings.py* . Puede recuperar esta dirección URL en tiempo de ejecución con el código `os.environ['WEBSITE_HOSTNAME']`. App Service establece automáticamente la variable de entorno `WEBSITE_HOSTNAME` en la dirección URL de la aplicación. |
 | `DATABASES` | Defina la configuración en App Service para la conexión de base de datos y cárguela como variables de entorno para rellenar el diccionario [`DATABASES`](https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-DATABASES). También puede almacenar los valores (especialmente el nombre de usuario y la contraseña) como [secretos de Azure Key Vault](/azure/key-vault/secrets/quick-create-python). |
 
 ## <a name="container-characteristics"></a>Características del contenedor
@@ -144,7 +144,7 @@ Para las aplicaciones de Django, App Service busca un archivo denominado `wsgi.p
 gunicorn --bind=0.0.0.0 --timeout 600 <module>.wsgi
 ```
 
-Si quiere un control más específico sobre el comando de inicio, use un [comando de inicio personalizado](#customize-startup-command), reemplace `<module>` por el nombre de la carpeta que contiene *wsgi.py*y agregue un argumento `--chdir` si ese módulo no está en la raíz del proyecto. Por ejemplo, si *wsgi.py* se encuentra en *knboard/backend/config* de la raíz del proyecto, use los argumentos `--chdir knboard/backend config.wsgi`.
+Si quiere un control más específico sobre el comando de inicio, use un [comando de inicio personalizado](#customize-startup-command), reemplace `<module>` por el nombre de la carpeta que contiene *wsgi.py* y agregue un argumento `--chdir` si ese módulo no está en la raíz del proyecto. Por ejemplo, si *wsgi.py* se encuentra en *knboard/backend/config* de la raíz del proyecto, use los argumentos `--chdir knboard/backend config.wsgi`.
 
 Para habilitar el registro de producción, agregue los parámetros `--access-logfile` y `--error-logfile` como se muestra en los ejemplos de los [comandos de inicio personalizados](#customize-startup-command).
 
@@ -164,7 +164,7 @@ Si el módulo de la aplicación principal está contenido en un archivo diferent
 
 ### <a name="default-behavior"></a>Comportamiento predeterminado
 
-Si el servicio de aplicación no encuentra un comando personalizado, una aplicación de Django o una aplicación de Flask, se ejecutará una aplicación predeterminada de solo lectura, ubicada en la carpeta _opt/defaultsite_. La aplicación predeterminada aparece como sigue:
+Si el servicio de aplicación no encuentra un comando personalizado, una aplicación de Django o una aplicación de Flask, se ejecutará una aplicación predeterminada de solo lectura, ubicada en la carpeta _opt/defaultsite_ . La aplicación predeterminada aparece como sigue:
 
 ![Instancia predeterminada de App Service en la página web de Linux](media/configure-language-python/default-python-app.png)
 
@@ -172,15 +172,15 @@ Si el servicio de aplicación no encuentra un comando personalizado, una aplicac
 
 Como se indicó anteriormente en este artículo, puede proporcionar valores de configuración para Gunicorn mediante un archivo *gunicorn.conf.py* en la raíz del proyecto, como se describe en [Introducción a la configuración de Gunicorn](https://docs.gunicorn.org/en/stable/configure.html#configuration-file).
 
-Si dicha configuración no es suficiente, puede controlar el comportamiento de inicio del contenedor proporcionando un comando de inicio personalizado o varios comandos en un archivo de comandos de inicio. Un archivo de comandos de inicio puede usar cualquier nombre que elija, por ejemplo, *startup.sh*, *startup.cmd*, *startup. txt*, etc.
+Si dicha configuración no es suficiente, puede controlar el comportamiento de inicio del contenedor proporcionando un comando de inicio personalizado o varios comandos en un archivo de comandos de inicio. Un archivo de comandos de inicio puede usar cualquier nombre que elija, por ejemplo, *startup.sh* , *startup.cmd* , *startup. txt* , etc.
 
 Todos los comandos deben usar rutas de acceso relativas a la carpeta raíz del proyecto.
 
 Para especificar un comando de inicio o un archivo de comandos:
 
-- **Azure Portal**: seleccione la página **Configuración** de la aplicación y, luego, elija **Configuración general**. En el campo **Comando de inicio**, coloque el texto completo del comando de inicio o el nombre del archivo de comandos de inicio. Luego, seleccione **Guardar** para aplicar los cambios. En el caso de contenedores Linux, consulte [Configuración general](configure-common.md#configure-general-settings).
+- **Azure Portal** : seleccione la página **Configuración** de la aplicación y, luego, elija **Configuración general** . En el campo **Comando de inicio** , coloque el texto completo del comando de inicio o el nombre del archivo de comandos de inicio. Luego, seleccione **Guardar** para aplicar los cambios. En el caso de contenedores Linux, consulte [Configuración general](configure-common.md#configure-general-settings).
 
-- **CLI de Azure**: use el comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) con el parámetro `--startup-file` para establecer el comando de inicio o el archivo de comandos de inicio:
+- **CLI de Azure** : use el comando [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) con el parámetro `--startup-file` para establecer el comando de inicio o el archivo de comandos de inicio:
 
     ```azurecli-interactive
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -192,7 +192,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
 
 ### <a name="example-startup-commands"></a>Comandos de inicio de ejemplo
 
-- **Argumentos de Gunicorn agregados**: en el ejemplo siguiente se agrega `--workers=4` a una línea de comandos de Gunicorn para iniciar una aplicación de Django: 
+- **Argumentos de Gunicorn agregados** : en el ejemplo siguiente se agrega `--workers=4` a una línea de comandos de Gunicorn para iniciar una aplicación de Django: 
 
     ```bash
     # <module-path> is the relative path to the folder that contains the module
@@ -202,7 +202,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
 
     Para más información, consulte [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (Ejecución de Gunicorn) (docs.gunicorn.org).
 
-- **Habilitar el registro de producción para Django**: agregue los argumentos `--access-logfile '-'` y `--error-logfile '-'` a la línea de comandos:
+- **Habilitar el registro de producción para Django** : agregue los argumentos `--access-logfile '-'` y `--error-logfile '-'` a la línea de comandos:
 
     ```bash    
     # '-' for the log files means stdout for --access-logfile and stderr for --error-logfile.
@@ -213,7 +213,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
 
     Para más información, consulte [Registro de Gunicorn](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Personalizar el módulo principal de Flask**: de forma predeterminada, App Service supone que el módulo principal de una aplicación de Flask es *application.py* o *app.py*. Si el módulo principal utiliza un nombre diferente, debe personalizar el comando de inicio. Por ejemplo, si tiene una aplicación de Flask cuyo módulo principal es *hello.py* y el objeto de aplicación de Flask en ese archivo se denomina `myapp`, el comando es de esta manera:
+- **Personalizar el módulo principal de Flask** : de forma predeterminada, App Service supone que el módulo principal de una aplicación de Flask es *application.py* o *app.py* . Si el módulo principal utiliza un nombre diferente, debe personalizar el comando de inicio. Por ejemplo, si tiene una aplicación de Flask cuyo módulo principal es *hello.py* y el objeto de aplicación de Flask en ese archivo se denomina `myapp`, el comando es de esta manera:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -225,7 +225,7 @@ App Service omite los errores que se producen al procesar un comando de inicio p
     gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
     ```
     
-- **Usar un servidor que no sea de Gunicorn**: para usar un servidor web diferente, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), utilice el comando adecuado como comando de inicio o en el archivo de comandos de inicio:
+- **Usar un servidor que no sea de Gunicorn** : para usar un servidor web diferente, como [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), utilice el comando adecuado como comando de inicio o en el archivo de comandos de inicio:
 
     ```bash
     python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
@@ -270,7 +270,7 @@ Para acceder a los registros mediante Azure Portal, seleccione **Supervisión** 
     
     - Asegúrese de que está utilizando App Service para Linux en lugar de una instancia basada en Windows. Desde la CLI de Azure, ejecute el comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, reemplazando `<resource-group-name>` y `<app-service-name>` en consecuencia. Debería ver `app,linux` como salida; en caso contrario, vuelva a crear la instancia de App Service y elija Linux.
     
-    - Use SSH o la consola de Kudu para conectarse directamente con App Service y compruebe que los archivos existen en *site/wwwroot*. Si no existen los archivos, revise el proceso de implementación y vuelva a implementar la aplicación.
+    - Use SSH o la consola de Kudu para conectarse directamente con App Service y compruebe que los archivos existen en *site/wwwroot* . Si no existen los archivos, revise el proceso de implementación y vuelva a implementar la aplicación.
     
     - Si existen los archivos, App Service no fue capaz de identificar el archivo de inicio específico. Compruebe que la aplicación está estructurada como espera App Service para [Django](#django-app) o [Flask](#flask-app), o use un [comando de inicio personalizado](#customize-startup-command).
 
@@ -282,9 +282,9 @@ Para acceder a los registros mediante Azure Portal, seleccione **Supervisión** 
 
     - Examine la [secuencia de registro](#access-diagnostic-logs) para ver si hay mensajes de error.
 
-- **La secuencia de registro muestra "Could not find setup.py or requirements.txt; Not running pip install" (No se pudo encontrar setup.py o requirements.txt; no se ejecutará la instalación de PIP).** : el proceso de compilación de Oryx no ha podido encontrar el archivo *requirements.txt*.
+- **La secuencia de registro muestra "Could not find setup.py or requirements.txt; Not running pip install" (No se pudo encontrar setup.py o requirements.txt; no se ejecutará la instalación de PIP).** : el proceso de compilación de Oryx no ha podido encontrar el archivo *requirements.txt* .
 
-    - Use SSH o la consola de Kudu para conectarse directamente a App Service y compruebe que *requirements.txt* existe en *site/wwwroot*. Si no existe, haga que el archivo exista en el repositorio y que esté incluido en la implementación. Si existe en una carpeta distinta, muévalo a la raíz.
+    - Use SSH o la consola de Kudu para conectarse directamente a App Service y compruebe que *requirements.txt* existe en *site/wwwroot* . Si no existe, haga que el archivo exista en el repositorio y que esté incluido en la implementación. Si existe en una carpeta distinta, muévalo a la raíz.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

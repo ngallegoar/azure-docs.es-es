@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167056"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537956"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Servidor flexible (versión preliminar) de Azure Database for MySQL
 
@@ -75,7 +75,7 @@ Tiene dos opciones de red para conectar su instancia de Servidor flexible de Azu
    * Uso de VPN o ExpressRoute para conectarse desde recursos que no son de Azure al servidor flexible
    * Ningún punto de conexión público
 
-* **Acceso público (direcciones IP permitidas)** : puede implementar el servidor flexible a con un punto de conexión público. El punto de conexión público es una dirección DNS que se puede resolver públicamente. La frase "direcciones IP permitidas" hace referencia a un intervalo de direcciones IP a las que decida conceder permiso para acceder al servidor. Estos permisos se denominan **reglas de firewall**.
+* **Acceso público (direcciones IP permitidas)** : puede implementar el servidor flexible a con un punto de conexión público. El punto de conexión público es una dirección DNS que se puede resolver públicamente. La frase "direcciones IP permitidas" hace referencia a un intervalo de direcciones IP a las que decida conceder permiso para acceder al servidor. Estos permisos se denominan **reglas de firewall** .
 
 Consulte los [conceptos de redes](concepts-networking.md) para obtener más información.
 
@@ -99,7 +99,7 @@ El servicio cifra los datos en movimiento con la seguridad de la capa de transpo
 
 Consulte el [Uso de conexiones cifradas para servidores flexibles](https://docs.mongodb.com/manual/tutorial/configure-ssl) para obtener más información.
 
-Los servidores flexibles permiten el acceso privado completo a los servidores mediante la integración con [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet). Solo puede acceder a los servidores de la red virtual de Azure y conectarse con ellos mediante las direcciones IP privadas. Con la integración con red virtual, se deniega el acceso público y no se puede acceder a los servidores mediante puntos de conexión públicos. 
+Los servidores flexibles permiten el acceso privado completo a los servidores mediante la integración con [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). Solo puede acceder a los servidores de la red virtual de Azure y conectarse con ellos mediante las direcciones IP privadas. Con la integración con red virtual, se deniega el acceso público y no se puede acceder a los servidores mediante puntos de conexión públicos. 
 
 Consulte los [conceptos de redes](concepts-networking.md) para obtener más información.
 
@@ -114,8 +114,8 @@ Consulte los [conceptos de supervisión](concepts-monitoring.md) para obtener m�
 
 El servicio ejecuta la versión Community de MySQL. Esto ofrece una compatibilidad total con las aplicaciones y requiere un costo mínimo de refactorización para migrar la aplicación existente desarrollada en el motor de MySQL a un servicio de servidor único. La migración al servidor único se puede realizar mediante una de las siguientes opciones:
 
-- **Volcado y restauración**: en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte Migración mediante volcado y restauración para más información. 
-- **Azure Database Migration Service**: puede aprovechar [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
+- **Volcado y restauración** : en el caso de las migraciones sin conexión en las que los usuarios pueden permitirse un tiempo de inactividad, el volcado y la restauración mediante herramientas de la comunidad como mysqldump/mydumper pueden proporcionar una manera más rápida de migrar. Consulte Migración mediante volcado y restauración para más información. 
+- **Azure Database Migration Service** : puede aprovechar [Azure Database Migration Service](../../dms/tutorial-mysql-azure-mysql-online.md) para las migraciones sin problemas y simplificadas a un servidor único con un tiempo de inactividad mínimo. 
 
 ## <a name="azure-regions"></a>Regiones de Azure
 

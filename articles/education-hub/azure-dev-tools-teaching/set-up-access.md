@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 83ae2fdea2ffe586a626f8a45cba74a22c07ae7b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87101127"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676537"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Configuración del acceso para Azure Dev Tools
 
@@ -30,7 +30,7 @@ Para solicitar acceso a Visual Studio Subscription, puede hacerlo a través del
 ## <a name="for-students-faculty-and-administrators"></a>Para alumnos, profesores y administradores
 Los alumnos acceden a Azure Dev Tools a través de [Centro de Education](https://aka.ms/devtoolsforteaching).
 
-Los alumnos y los profesores pueden acceder a todas las ventajas de la descarga de software a través del Centro de Education. El Centro de Education se crea en Azure Portal y proporciona a los alumnos acceso sencillo a todo el catálogo de software, así como acceso a todo el [catálogo de Microsoft Learn](https://docs.microsoft.com/learn/).
+Los alumnos y los profesores pueden acceder a todas las ventajas de la descarga de software a través del Centro de Education. El Centro de Education se crea en Azure Portal y proporciona a los alumnos acceso sencillo a todo el catálogo de software, así como acceso a todo el [catálogo de Microsoft Learn](/learn/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Administración de cuentas de los alumnos](manage-students.md)

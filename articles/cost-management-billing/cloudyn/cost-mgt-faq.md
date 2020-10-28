@@ -3,19 +3,19 @@ title: Preguntas frecuentes sobre Cloudyn en Azure
 description: Obtenga información sobre cómo usar el portal de Cloudyn para solucionar problemas comunes de la configuración indirecta de empresas, así como para responder a otras preguntas más frecuentes.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7b78d9d7bf725e3d82c88360c822455de1301ef6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 92a62de4223d2ec6d0441840b90fdce20c656d02
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688035"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546235"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Preguntas más frecuentes sobre Cloudyn
 
@@ -27,7 +27,7 @@ En este artículo se tratan algunas preguntas comunes sobre Cloudyn. Si tiene pr
 
 La primera vez que use el portal de Cloudyn, podría ver los siguientes mensajes si es usuario de Contrato Enterprise o Proveedor de soluciones en la nube (CSP):
 
-- "The specified API key is not a top level enrollment key" (La clave de API especificada no es una clave de inscripción de nivel superior) se muestra en el **Asistente para configuración de Cloudyn**.
+- "The specified API key is not a top level enrollment key" (La clave de API especificada no es una clave de inscripción de nivel superior) se muestra en el **Asistente para configuración de Cloudyn** .
 - "Direct Enrollment – No" (Inscripción directa: no) aparece en el portal de Contrato Enterprise.
 - "No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account" (No se encontraron datos de uso de los últimos 30 días. Póngase en contacto con su distribuidor para asegurarse de que se habilitó el margen de beneficio para su cuenta de Azure) aparece en el portal de Cloudyn.
 
@@ -37,7 +37,7 @@ Aquí se muestra cómo corregir los problemas:
 
 1. El revendedor debe habilitar el _margen de beneficio_ para su cuenta. Para ver las instrucciones, consulte la [guía de incorporación para clientes indirectos ](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) (en inglés).
 
-2. Debe generar la clave de Contrato Enterprise de Azure para su uso con Cloudyn. Para ver las instrucciones consulte [Adding Your Azure EA](quick-register-ea.md#register-with-cloudyn) (Agregar clave de Azure EA) o [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig) (Cómo buscar el identificador de inscripción de EA y la clave de API).
+2. Debe generar la clave de Contrato Enterprise de Azure para su uso con Cloudyn.
 
 Solo un administrador de servicios de Azure puede habilitar Cloudyn. Los permisos de coadministrador son insuficientes.
 
@@ -51,7 +51,7 @@ Es posible que también deba conceder permisos a administradores de departamento
 
 ## <a name="why-dont-i-see-optimizer-recommendations"></a>¿Por qué no veo las recomendaciones del optimizador?
 
-La información de las recomendaciones solo está disponible para las cuentas que están activadas. No verá información de las recomendaciones en las categorías de informes del **optimizador** de las cuentas que *no están activadas*, entre las que se incluyen:
+La información de las recomendaciones solo está disponible para las cuentas que están activadas. No verá información de las recomendaciones en las categorías de informes del **optimizador** de las cuentas que *no están activadas* , entre las que se incluyen:
 
 - Administrador de optimizaciones
 - Optimización de tamaño
@@ -62,11 +62,11 @@ Si no puede ver los datos de las recomendaciones del optimizador, es muy probabl
 Para activar una cuenta:
 
 1.    En el portal de Cloudyn, haga clic en **Settings** (Configuración) en la esquina superior derecha y seleccione **Cloud Accounts** (Cuentas en la nube).
-2.    En la ficha Microsoft Azure Accounts (Cuentas de Microsoft Azure), busque cuentas que tengan alguna suscripción **sin activar**.
-3.    A la derecha de la cuenta sin activar, haga clic en el símbolo de **editar**, que se parece a un lápiz.
-4.    Tanto el identificador de inquilino como el identificador de velocidad se detectan automáticamente. Haga clic en **Next**.
+2.    En la ficha Microsoft Azure Accounts (Cuentas de Microsoft Azure), busque cuentas que tengan alguna suscripción **sin activar** .
+3.    A la derecha de la cuenta sin activar, haga clic en el símbolo de **editar** , que se parece a un lápiz.
+4.    Tanto el identificador de inquilino como el identificador de velocidad se detectan automáticamente. Haga clic en **Next** .
 5.    Se le redirigirá a Azure Portal. Inicie sesión en el portal y autorice a Cloudyn Collector a acceder a sus datos de Azure.
-6.    A continuación, se le redirige a la página de administración de cuentas de Cloudyn, la suscripción se actualiza y la cuenta pasa al estado **activa**. Muestra una marca de verificación verde.
+6.    A continuación, se le redirige a la página de administración de cuentas de Cloudyn, la suscripción se actualiza y la cuenta pasa al estado **activa** . Muestra una marca de verificación verde.
 7.    Si no ve una marca de verificación verde en una o varias suscripciones, significa que no tiene permisos para crear ninguna aplicación de lectura (CloudynCollector) para la suscripción. Los usuarios con permisos superiores en la suscripción deben repetir los pasos 3 y 4.  
 
 Tras completar los pasos anteriores podrá ver las recomendaciones del optimizador en uno o dos días. Sin embargo, pueden pasar hasta cinco días estén disponibles todos los datos de las optimizaciones.
@@ -74,11 +74,11 @@ Tras completar los pasos anteriores podrá ver las recomendaciones del optimizad
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>¿Cómo se habilitan los usuarios suspendidos o bloqueados?
 
-En primer lugar, echemos un vistazo al escenario más común que hace que las cuentas de usuario obtengan el valor *initiallySuspended*.
+En primer lugar, echemos un vistazo al escenario más común que hace que las cuentas de usuario obtengan el valor *initiallySuspended* .
 
-> Admin1 podría ser un Proveedor de soluciones en la nube de Microsoft o un usuario con un Contrato Enterprise. Su organización está lista para comenzar a usar Cloudyn.  Se registra a través de Azure Portal e inicia sesión en el portal de Cloudyn. Como es la persona que registra el servicio de Cloudyn e inicia sesión en el portal de Cloudyn, Admin1 se convierte en el *administrador principal*. Admin1 no crea ninguna cuenta de usuario. Sin embargo, al usar el portal de Cloudyn, crea cuentas de Azure y establece una jerarquía de entidades. Admin1 informa a Admin2, un administrador de inquilinos, que necesita registrarse en Cloudyn e iniciar sesión en el portal de Cloudyn.
+> Admin1 podría ser un Proveedor de soluciones en la nube de Microsoft o un usuario con un Contrato Enterprise. Su organización está lista para comenzar a usar Cloudyn.  Se registra a través de Azure Portal e inicia sesión en el portal de Cloudyn. Como es la persona que registra el servicio de Cloudyn e inicia sesión en el portal de Cloudyn, Admin1 se convierte en el *administrador principal* . Admin1 no crea ninguna cuenta de usuario. Sin embargo, al usar el portal de Cloudyn, crea cuentas de Azure y establece una jerarquía de entidades. Admin1 informa a Admin2, un administrador de inquilinos, que necesita registrarse en Cloudyn e iniciar sesión en el portal de Cloudyn.
 >
-> Admin2 se registra mediante Azure Portal. Sin embargo, cuando intenta iniciar sesión en el portal de Cloudyn, recibe un error que le indica que su cuenta **está suspendida**. El administrador principal, Admin1, recibe una notificación de la suspensión de la cuenta. Debido a ello, Admin1 debe activar la cuenta de Admin2 y conceder *acceso de administrador de entidad* a las entidades adecuadas, así como permitir el acceso de administración de usuarios y activar la cuenta de usuario.
+> Admin2 se registra mediante Azure Portal. Sin embargo, cuando intenta iniciar sesión en el portal de Cloudyn, recibe un error que le indica que su cuenta **está suspendida** . El administrador principal, Admin1, recibe una notificación de la suspensión de la cuenta. Debido a ello, Admin1 debe activar la cuenta de Admin2 y conceder *acceso de administrador de entidad* a las entidades adecuadas, así como permitir el acceso de administración de usuarios y activar la cuenta de usuario.
 
 
 Si recibe una alerta con una solicitud para permitir el acceso para un usuario, debe activar la cuenta de usuario.
@@ -106,7 +106,7 @@ Tan pronto como Cloudyn detecte las cuentas de Azure, los datos de costos de pro
 
 Para agregar las credenciales de Azure de una cuenta, en el portal de Cloudyn, seleccione el símbolo de edición a la derecha del nombre de cuenta, no de la suscripción.
 
-Hasta que sus credenciales de Azure se agreguen a Cloudyn, la cuenta aparecerá como _inactiva_.
+Hasta que sus credenciales de Azure se agreguen a Cloudyn, la cuenta aparecerá como _inactiva_ .
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>¿Cómo agrego varias cuentas y entidades a una suscripción existente?
 
@@ -114,7 +114,7 @@ Las entidades adicionales se usan para agregar contratos Enterprise adicionales 
 
 Para los CSP:
 
-Para agregar cuentas de CSP adicionales a una entidad, seleccione **MSP Access** (Acceso de MSP) en lugar de **Enterprise** al crear la nueva entidad. Si su cuenta está registrada como un contrato Enterprise y desea agregar credenciales de CSP, es posible que el personal de soporte técnico de Cloudyn tenga que modificar la configuración de su cuenta. Si es un suscriptor de pago de Azure, puede crear una nueva solicitud de soporte técnico en Azure Portal. Seleccione **Ayuda y soporte técnico** y, a continuación, **Nueva solicitud de soporte técnico**.
+Para agregar cuentas de CSP adicionales a una entidad, seleccione **MSP Access** (Acceso de MSP) en lugar de **Enterprise** al crear la nueva entidad. Si su cuenta está registrada como un contrato Enterprise y desea agregar credenciales de CSP, es posible que el personal de soporte técnico de Cloudyn tenga que modificar la configuración de su cuenta. Si es un suscriptor de pago de Azure, puede crear una nueva solicitud de soporte técnico en Azure Portal. Seleccione **Ayuda y soporte técnico** y, a continuación, **Nueva solicitud de soporte técnico** .
 
 ## <a name="currency-symbols-in-cloudyn-reports"></a>Símbolos de divisa en los informes de Cloudyn
 
@@ -128,9 +128,9 @@ Cloudyn detecta automáticamente la moneda de la suscripción del Contrato Enter
 
 Cloudyn tiene las escalas de tiempo de actualización de datos siguientes:
 
-- **Inicial**: después de la configuración, se pueden tardar hasta 24 horas en ver los datos de costos en Cloudyn. Cloudyn puede tardar hasta 10 días en recopilar datos suficientes para mostrar recomendaciones de ajuste de tamaño.
-- **Diaria**: desde el décimo día hasta el final de cada mes, Cloudyn deben mostrar sus datos actualizados del día anterior después de UTC+3 aproximadamente al día siguiente.
-- **Mensual**: desde el primer día hasta el décimo de cada mes, es posible que Cloudyn solo muestre los datos hasta el final del mes anterior.
+- **Inicial** : después de la configuración, se pueden tardar hasta 24 horas en ver los datos de costos en Cloudyn. Cloudyn puede tardar hasta 10 días en recopilar datos suficientes para mostrar recomendaciones de ajuste de tamaño.
+- **Diaria** : desde el décimo día hasta el final de cada mes, Cloudyn deben mostrar sus datos actualizados del día anterior después de UTC+3 aproximadamente al día siguiente.
+- **Mensual** : desde el primer día hasta el décimo de cada mes, es posible que Cloudyn solo muestre los datos hasta el final del mes anterior.
 
 Cloudyn procesa los datos del día anterior cuando todos los datos del día anterior están disponibles. Los datos del día anterior están disponibles normalmente en Cloudyn hacia la hora UTC+3 cada día. Algunos datos, como las etiquetas, pueden tardar 24 horas más en procesarse.
 

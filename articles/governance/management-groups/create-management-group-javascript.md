@@ -3,13 +3,13 @@ title: 'Inicio rápido: Creación de un grupo de administración con JavaScript'
 description: En este inicio rápido, se usa JavaScript para crear un grupo de administración para organizar los recursos en una jerarquía de recursos.
 ms.date: 09/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a234a6619eafd650451ae5d6bce37388c824f33
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: devx-track-js
+ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91604559"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676228"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Inicio rápido: Creación de un grupo de administración con JavaScript
 
@@ -56,7 +56,7 @@ Para permitir que JavaScript consulte Azure Resource Graph, debe configurarse el
    ```
 
    > [!NOTE]
-   > Compruebe en _package.json_ que `@azure/arm-managementgroups` es de la versión **1.1.0** o posterior y `@azure/ms-rest-nodeauth` de la versión **3.0.5** o posterior.
+   > Compruebe en _package.json_ que `@azure/arm-managementgroups` es de la versión  **1.1.0** o posterior y `@azure/ms-rest-nodeauth` de la versión  **3.0.5** o posterior.
 
 ## <a name="create-the-management-group"></a>Creación del grupo de administración
 
@@ -90,7 +90,7 @@ Para permitir que JavaScript consulte Azure Resource Graph, debe configurarse el
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Asegúrese de reemplazar todos los marcadores de posición `<>` de token por el _id. de grupo de administración_ y el _nombre descriptivo del grupo de administración_, respectivamente.
+   Asegúrese de reemplazar todos los marcadores de posición `<>` de token por el _id. de grupo de administración_ y el _nombre descriptivo del grupo de administración_ , respectivamente.
 
    A medida que el script intenta autenticarse, se muestra un mensaje similar al siguiente en el terminal:
 
