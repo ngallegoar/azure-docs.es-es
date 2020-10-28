@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 7937b412b1eb3f311f0212f19c4eb9fc7782459d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327738"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104400"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. Las alertas de Azure Monitor y Service Health usan grupos de acciones para notificar a los usuarios que se ha desencadenado una alerta. Varias alertas pueden usar el mismo grupo de acciones o distintos grupos de acciones en función de los requisitos del usuario. Puede configurar un máximo de 2000 grupos de acciones en una suscripción.
@@ -20,17 +20,17 @@ En este artículo se muestra cómo crear y administrar grupos de acciones en el 
 
 Cada acción se compone de las siguientes propiedades:
 
-* **Tipo**: La notificación o acción realizada. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo.
-* **Name**: un identificador único dentro del grupo de acciones.
-* **Detalles**: detalles correspondientes que varían según el *tipo*.
+* **Tipo** : La notificación o acción realizada. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo.
+* **Name** : un identificador único dentro del grupo de acciones.
+* **Detalles** : detalles correspondientes que varían según el *tipo* .
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](./action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Creación de un grupo de acciones con Azure Portal
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Monitor**. El panel **Monitor** consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Monitor** . El panel **Monitor** consolida todas las opciones de configuración y todos los datos de supervisión en una vista.
 
-1. Seleccione **Alertas** y **Administrar acciones**.
+1. Seleccione **Alertas** y **Administrar acciones** .
 
     ![Botón Administrar acciones](./media/action-groups/manage-action-groups.png)
     
@@ -40,50 +40,50 @@ Para más información sobre el uso de plantillas de Azure Resource Manager para
 
 ### <a name="configure-basic-action-group-settings"></a>Configuración básica del grupo de acciones
 
-En **Detalles del proyecto**:
+En **Detalles del proyecto** :
 
 Seleccione la **Suscripción** y el **Grupo de recursos** donde está guardado el grupo de acciones.
 
-En **Detalles de instancia**:
+En **Detalles de instancia** :
 
-1. Escriba el **Nombre del grupo de acciones**.
+1. Escriba el **Nombre del grupo de acciones** .
 
-1. Escriba un **Nombre para mostrar**. El nombre para mostrar se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
+1. Escriba un **Nombre para mostrar** . El nombre para mostrar se utiliza en lugar del nombre completo del grupo de acciones cuando se envían notificaciones mediante este grupo.
 
       ![Cuadro de diálogo "Agregar grupo de acciones"](./media/action-groups/action-group-1-basics.png)
 
 
 ### <a name="configure-notifications"></a>Configuración de notificaciones
 
-1. Haga clic en el botón **Siguiente: Notificaciones >** para ir a la pestaña **Notificaciones**, o bien seleccione la pestaña **Notificaciones** en la parte superior de la pantalla.
+1. Haga clic en el botón **Siguiente: Notificaciones >** para ir a la pestaña **Notificaciones** , o bien seleccione la pestaña **Notificaciones** en la parte superior de la pantalla.
 
 1. Defina una lista de notificaciones que se enviarán cuando se desencadene una alerta. Proporcione lo siguiente para cada notificación:
 
-    a. **Tipo de notificación**: seleccione el tipo de notificación que desea enviar. Las opciones disponibles son:
+    a. **Tipo de notificación** : seleccione el tipo de notificación que desea enviar. Las opciones disponibles son:
       * Rol de Azure Resource Manager de correo electrónico: envíe un correo electrónico a los usuarios asignados a determinados roles de ARM en el nivel de suscripción.
       * Correo electrónico/SMS/Inserción/Voz: envíe estos tipos de notificación a destinatarios específicos.
     
-    b. **Name**: especifique un nombre único para la notificación.
+    b. **Name** : especifique un nombre único para la notificación.
 
-    c. **Detalles**: en función del tipo de notificación seleccionado, escriba una dirección de correo electrónico, un número de teléfono, etc.
+    c. **Detalles** : en función del tipo de notificación seleccionado, escriba una dirección de correo electrónico, un número de teléfono, etc.
     
-    d. **Esquema de alerta común**: puede optar por habilitar el [esquema de alerta común](https://aka.ms/commonAlertSchemaDocs), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
+    d. **Esquema de alerta común** : puede optar por habilitar el [esquema de alerta común](./alerts-common-schema.md), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
 
     ![Pestaña Notificaciones](./media/action-groups/action-group-2-notifications.png)
     
 ### <a name="configure-actions"></a>Configuración de acciones
 
-1. Haga clic en el botón **Siguiente: Acciones >** para ir a la pestaña **Acciones**, o bien seleccione la pestaña **Acciones** en la parte superior de la pantalla.
+1. Haga clic en el botón **Siguiente: Acciones >** para ir a la pestaña **Acciones** , o bien seleccione la pestaña **Acciones** en la parte superior de la pantalla.
 
 1. Defina una lista de acciones que se ejecutarán cuando se desencadene una alerta. Proporcione lo siguiente para cada acción:
 
-    a. **Tipo de acción**: seleccione Runbook de Automation, Función de Azure, ITSM, Aplicación lógica, Webhook seguro y webhook.
+    a. **Tipo de acción** : seleccione Runbook de Automation, Función de Azure, ITSM, Aplicación lógica, Webhook seguro y webhook.
     
-    b. **Name**: escriba un nombre único para la acción.
+    b. **Name** : escriba un nombre único para la acción.
 
-    c. **Detalles**: según el tipo de acción, proporcione un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
+    c. **Detalles** : según el tipo de acción, proporcione un identificador URI de webhook, una aplicación de Azure, una conexión de ITSM o un runbook de Automation. Para la acción de ITSM, especifique además **Elemento de trabajo** y otros campos que requiera la herramienta ITSM.
     
-    d. **Esquema de alerta común**: puede optar por habilitar el [esquema de alerta común](https://aka.ms/commonAlertSchemaDocs), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
+    d. **Esquema de alerta común** : puede optar por habilitar el [esquema de alerta común](./alerts-common-schema.md), que proporciona la ventaja de tener una sola carga de alertas, extensible y unificada, para todos los servicios de alerta de Azure Monitor.
     
     ![Pestaña Acciones](./media/action-groups/action-group-3-actions.png)
 
@@ -102,7 +102,7 @@ En **Detalles de instancia**:
 
 ## <a name="manage-your-action-groups"></a>Administración de los grupos de acciones
 
-Después de crear un grupo de acciones, puede ver los **grupos de acciones** seleccionando **Administrar acciones** en la página de aterrizaje **Alertas** del panel **Supervisión**. Seleccione el grupo de acciones que desea administrar para:
+Después de crear un grupo de acciones, puede ver los **grupos de acciones** seleccionando **Administrar acciones** en la página de aterrizaje **Alertas** del panel **Supervisión** . Seleccione el grupo de acciones que desea administrar para:
 
 * Agregar, editar o quitar acciones.
 * Eliminar el grupo de acciones.
@@ -131,7 +131,7 @@ En un grupo de acciones puede tener un número limitado de acciones de correo el
 ### <a name="email-azure-resource-manager-role"></a>Rol de Azure Resource Manager de correo electrónico
 Envíe un correo electrónico a los miembros del rol de la suscripción. El correo electrónico solo se enviará a los miembros **usuarios de Azure AD** del rol. No se enviará correo electrónico a grupos de Azure AD ni entidades de servicio.
 
-Solo se envía un correo electrónico de notificación a la dirección de *correo electrónico principal*.
+Solo se envía un correo electrónico de notificación a la dirección de *correo electrónico principal* .
 
 En un grupo de acciones puede tener un número limitado de acciones de correo electrónico. Consulte el artículo de [información sobre las limitaciones](./alerts-rate-limiting.md).
 
@@ -287,7 +287,32 @@ Para recibir actualizaciones sobre los cambios a estas direcciones IP, se recomi
 
 En un grupo de acciones puede tener un número limitado de acciones de webhook.
 
+### <a name="service-tag"></a>Etiqueta de servicio
+Una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red para un ActionGroup.
 
+1. En Azure Portal, en servicios de Azure, busque *Grupo de seguridad de red* .
+2. Haga clic en **Agregar** y cree un grupo de seguridad de red.
+
+   1. Agregue el nombre del grupo de recursos y escriba los *detalles de la instancia* .
+   1. Haga clic en **Revisar y crear** y, a continuación, en *Crear* .
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Ejemplo de creación de un grupo de seguridad de red"border="true":::.
+
+3. Vaya a Grupo de recursos y haga clic en el *grupo de seguridad de red* que ha creado.
+
+    1. Seleccione *Reglas de seguridad de entrada* .
+    1. Haga clic en **Agregar** .
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Ejemplo de incorporación de una etiqueta de servicio."border="true":::
+
+4. Se abrirá una nueva ventana en el panel derecho.
+    1.  Seleccione Origen: **Etiqueta de servicio**
+    1.  Etiqueta de servicio de origen: **ActionGroup**
+    1.  Haga clic en **Agregar** .
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Ejemplo de incorporación de una etiqueta de servicio."border="true":::
+
+El uso de **Etiqueta de servicio** para ActionGroup ayuda a minimizar la complejidad de las actualizaciones frecuentes de las direcciones IP.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre el [comportamiento de las alertas por SMS](./alerts-sms-behavior.md).  
@@ -296,4 +321,3 @@ En un grupo de acciones puede tener un número limitado de acciones de webhook.
 * Más información sobre la [limitación de velocidad](./alerts-rate-limiting.md) en las alertas.
 * Consulte la [introducción a las alertas del registro de actividad](./alerts-overview.md) y aprenda cómo puede recibir alertas.  
 * Aprenda a [configurar alertas siempre que se publique una notificación de mantenimiento de un servicio](../../service-health/alerts-activity-log-service-notifications-portal.md).
-
