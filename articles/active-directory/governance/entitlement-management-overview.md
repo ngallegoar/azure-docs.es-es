@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: f8bf2a1bb4892637ac504d5920754fc412691a4a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 24e514208683d540f08818020238090583a1bc42
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91597390"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362474"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>¿Qué es la administración de derechos de Azure AD?
 
@@ -66,7 +66,7 @@ También puede leer los [escenarios comunes](entitlement-management-scenarios.md
 
 ## <a name="what-are-access-packages-and-what-resources-can-i-manage-with-them"></a>¿Qué son los paquetes de acceso y qué recursos puedo administrar con ellos?
 
-La administración de derechos introduce en Azure AD el concepto de un *paquete de acceso*. Un paquete de acceso es una agrupación de todos los recursos con el acceso que necesita un usuario para trabajar en un proyecto o realizar su tarea. Los paquetes de acceso se utilizan para controlar el acceso de los empleados internos y también de los usuarios de fuera de la organización.
+La administración de derechos introduce en Azure AD el concepto de un *paquete de acceso* . Un paquete de acceso es una agrupación de todos los recursos con el acceso que necesita un usuario para trabajar en un proyecto o realizar su tarea. Los paquetes de acceso se utilizan para controlar el acceso de los empleados internos y también de los usuarios de fuera de la organización.
 
  Estos son los tipos de recursos para los que puede administrar el acceso del usuario con la administración de derechos:
 
@@ -77,15 +77,15 @@ La administración de derechos introduce en Azure AD el concepto de un *paquete
 
 También puede controlar el acceso a otros recursos que dependen de los grupos de seguridad de Azure AD o de Grupos de Microsoft 365.  Por ejemplo:
 
-- Puede conceder licencias a los usuarios para Microsoft 365 mediante un grupo de seguridad de Azure AD en un paquete de acceso y la configuración de [licencias basadas en grupos](../users-groups-roles/licensing-groups-assign.md) para ese grupo.
+- Puede conceder licencias a los usuarios para Microsoft 365 mediante un grupo de seguridad de Azure AD en un paquete de acceso y la configuración de [licencias basadas en grupos](../enterprise-users/licensing-groups-assign.md) para ese grupo.
 - Puede dar acceso a los usuarios para administrar los recursos de Azure mediante un grupo de seguridad de Azure AD en un paquete de acceso y la creación de una [asignación de roles de Azure](../../role-based-access-control/role-assignments-portal.md) para ese grupo.
-- Puede conceder a los usuarios acceso para administrar los roles de Azure AD mediante el uso de grupos asignables a roles de Azure AD en un paquete de acceso y la [asignación de un rol de Azure AD a ese grupo](../users-groups-roles/roles-groups-assign-role.md).
+- Puede conceder a los usuarios acceso para administrar los roles de Azure AD mediante el uso de grupos asignables a roles de Azure AD en un paquete de acceso y la [asignación de un rol de Azure AD a ese grupo](../roles/groups-assign-role.md).
 
 ## <a name="how-do-i-control-who-gets-access"></a>¿Cómo se controla quién tiene acceso?
 
 Con un paquete de acceso, un administrador o un administrador de paquetes de acceso delegado enumera los recursos (grupos, aplicaciones y sitios) y los roles que los usuarios necesitan para esos recursos.
 
-Los paquetes de acceso también incluyen una o varias *directivas*. Una directiva define las reglas o barreras para la asignación al paquete de acceso. Cada directiva puede usarse para garantizar que solo los usuarios adecuados puedan solicitar acceso, que haya aprobadores para su solicitud y que el acceso a esos recursos sea por tiempo limitado y expire si no se ha renovado.
+Los paquetes de acceso también incluyen una o varias *directivas* . Una directiva define las reglas o barreras para la asignación al paquete de acceso. Cada directiva puede usarse para garantizar que solo los usuarios adecuados puedan solicitar acceso, que haya aprobadores para su solicitud y que el acceso a esos recursos sea por tiempo limitado y expire si no se ha renovado.
 
 ![Paquete de acceso y directivas](./media/entitlement-management-overview/elm-overview-access-package.png)
 
@@ -113,7 +113,7 @@ Los paquetes de acceso no reemplazan a otros mecanismos de asignación de acceso
 
 ## <a name="how-do-i-delegate-access"></a>¿Cómo se delega el acceso?
 
- Los paquetes de acceso se definen en contenedores llamados *catálogos*.  Puede tener un único catálogo para todos los paquetes de acceso o puede designar a personas para que creen o posean sus propios catálogos. Un administrador puede agregar recursos a cualquier catálogo, pero una persona que no sea administrador solo puede agregar a un catálogo los recursos que posea. El propietario de un catálogo puede agregar a otros usuarios como copropietarios del catálogo o como administradores de paquetes de acceso.  Estos escenarios se describen con más detalle en el artículo [Delegación y roles en la administración de derechos de Azure AD](entitlement-management-delegate.md).
+ Los paquetes de acceso se definen en contenedores llamados *catálogos* .  Puede tener un único catálogo para todos los paquetes de acceso o puede designar a personas para que creen o posean sus propios catálogos. Un administrador puede agregar recursos a cualquier catálogo, pero una persona que no sea administrador solo puede agregar a un catálogo los recursos que posea. El propietario de un catálogo puede agregar a otros usuarios como copropietarios del catálogo o como administradores de paquetes de acceso.  Estos escenarios se describen con más detalle en el artículo [Delegación y roles en la administración de derechos de Azure AD](entitlement-management-delegate.md).
 
 ## <a name="summary-of-terminology"></a>Resumen de la terminología
 

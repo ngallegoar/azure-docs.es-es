@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b0939191a8029ef30f17500bbaaa7eb32b5a6d7e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278385"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486555"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Inicio rápido: Creación de una aplicación de Spring Data Azure Cosmos DB v3 para administrar los datos de SQL API de Azure Cosmos DB
 
@@ -36,9 +36,9 @@ En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para S
 > Spring Data Azure Cosmos DB solo admite la API de SQL.
 >
 > Consulte estos artículos para obtener información sobre Spring Data en otras API de Azure Cosmos DB:
-> * [Spring Data para Apache Cassandra con Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Spring Data MongoDB con Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Spring Data Gremlin con Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Spring Data para Apache Cassandra con Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Spring Data MongoDB con Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Spring Data Gremlin con Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -50,15 +50,15 @@ En este inicio rápido se crea y administra una cuenta de Azure Cosmos DB para S
 
 ## <a name="introductory-notes"></a>Notas de introducción
 
-*Estructura de una cuenta de Cosmos DB*: independientemente de la API o el lenguaje de programación, una *cuenta* de Cosmos DB contiene de cero o varias *bases de datos*; una *base de datos* contiene de cero a varios *contenedores* y un *contenedor* contiene de cero a varios elementos, como se muestra en el diagrama siguiente:
+*Estructura de una cuenta de Cosmos DB* : independientemente de la API o el lenguaje de programación, una *cuenta* de Cosmos DB contiene de cero o varias *bases de datos* ; una *base de datos* contiene de cero a varios *contenedores* y un *contenedor* contiene de cero a varios elementos, como se muestra en el diagrama siguiente:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de cuenta de Azure Cosmos" border="false":::
 
-Puede leer más información sobre las bases de datos, los contenedores y los elementos [aquí](account-databases-containers-items.md). Algunas propiedades importantes se definen en el nivel del contenedor, entre ellas la *capacidad de proceso aprovisionada* y la *clave de partición*. 
+Puede leer más información sobre las bases de datos, los contenedores y los elementos [aquí](account-databases-containers-items.md). Algunas propiedades importantes se definen en el nivel del contenedor, entre ellas la *capacidad de proceso aprovisionada* y la *clave de partición* . 
 
-La capacidad de proceso aprovisionada se mide en unidades de solicitud (*RU*) que tienen un precio monetario y son un factor determinante crucial en el costo operativo de la cuenta. La capacidad de proceso aprovisionada se puede seleccionar en una granularidad por contenedor o por base de datos; sin embargo, se suele preferir la especificación de capacidad de proceso a nivel de contenedor. Para más información sobre el aprovisionamiento de capacidad de proceso [aquí](set-throughput.md).
+La capacidad de proceso aprovisionada se mide en unidades de solicitud ( *RU* ) que tienen un precio monetario y son un factor determinante crucial en el costo operativo de la cuenta. La capacidad de proceso aprovisionada se puede seleccionar en una granularidad por contenedor o por base de datos; sin embargo, se suele preferir la especificación de capacidad de proceso a nivel de contenedor. Para más información sobre el aprovisionamiento de capacidad de proceso [aquí](set-throughput.md).
 
-A medida que los elementos se insertan en un contenedor de Cosmos DB, la base de datos crece horizontalmente al agregar más almacenamiento y procesos para controlar las solicitudes. La capacidad de almacenamiento y de proceso se agregan en unidades discontinuas conocidas como *particiones* y debe elegir un campo en los documentos para que sea la clave de partición para asignar cada documento a una partición. La forma de administración de las particiones es la asignación a cada partición de un segmento aproximadamente igual fuera del intervalo de valores de la clave de partición. Por lo tanto, se recomienda elegir una clave de partición relativamente aleatoria o distribuida uniformemente. De lo contrario, algunas particiones verán bastantes más solicitudes (*partición de uso frecuente*) mientras que otras verán muchas menos (*partición de uso esporádico*), comportamiento que se debe evitar. [Aquí](partitioning-overview.md) encontrará más información sobre la creación de particiones.
+A medida que los elementos se insertan en un contenedor de Cosmos DB, la base de datos crece horizontalmente al agregar más almacenamiento y procesos para controlar las solicitudes. La capacidad de almacenamiento y de proceso se agregan en unidades discontinuas conocidas como *particiones* y debe elegir un campo en los documentos para que sea la clave de partición para asignar cada documento a una partición. La forma de administración de las particiones es la asignación a cada partición de un segmento aproximadamente igual fuera del intervalo de valores de la clave de partición. Por lo tanto, se recomienda elegir una clave de partición relativamente aleatoria o distribuida uniformemente. De lo contrario, algunas particiones verán bastantes más solicitudes ( *partición de uso frecuente* ) mientras que otras verán muchas menos ( *partición de uso esporádico* ), comportamiento que se debe evitar. [Aquí](partitioning-overview.md) encontrará más información sobre la creación de particiones.
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -95,7 +95,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 
 ### <a name="application-configuration-file"></a>Archivo de configuración de la aplicación
 
-Aquí se muestra la forma en que Spring Boot y Spring Data mejoran la experiencia del usuario (el proceso de establecer un cliente de Cosmos y de conectarse a los recursos de Cosmos es ahora la configuración en lugar del código). En el inicio de la aplicación, Spring Boot controla todo este texto reutilizable mediante la configuración de **application.properties**:
+Aquí se muestra la forma en que Spring Boot y Spring Data mejoran la experiencia del usuario (el proceso de establecer un cliente de Cosmos y de conectarse a los recursos de Cosmos es ahora la configuración en lugar del código). En el inicio de la aplicación, Spring Boot controla todo este texto reutilizable mediante la configuración de **application.properties** :
 
 ```xml
 cosmos.uri=${ACCOUNT_HOST}
@@ -107,7 +107,7 @@ dynamic.collection.name=spel-property-collection
 cosmos.queryMetricsEnabled=true
 ```
 
-Una vez que crea una cuenta, una base de datos y un contenedor de Azure Cosmos DB, solo tiene que rellenar los espacios en blanco en el archivo de configuración y Spring Boot/Spring Data realizarán automáticamente las siguientes operaciones: (1) crear una instancia de `CosmosClient` de SDK de Java subyacente con el identificador URI y la clave, y (2) conectar a la base de datos y al contenedor. Ya está todo establecido: **no hace falta más código de administración de recursos**.
+Una vez que crea una cuenta, una base de datos y un contenedor de Azure Cosmos DB, solo tiene que rellenar los espacios en blanco en el archivo de configuración y Spring Boot/Spring Data realizarán automáticamente las siguientes operaciones: (1) crear una instancia de `CosmosClient` de SDK de Java subyacente con el identificador URI y la clave, y (2) conectar a la base de datos y al contenedor. Ya está todo establecido: **no hace falta más código de administración de recursos** .
 
 ### <a name="java-source"></a>Origen de Java
 

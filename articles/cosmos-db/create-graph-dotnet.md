@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 72b3f8a4e4a6da434ef20c8e505718ccd3e2deff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0b81bf951df6db0da7ed049c435a319f6ee33b8a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91578398"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479058"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Inicio rápido: Compilación de una aplicación .NET Framework o Core mediante la cuenta de Gremlin API de Azure Cosmos DB
 
@@ -72,7 +72,7 @@ Ahora, vamos a clonar una aplicación de Gremlin API desde GitHub, establecer la
 5. Restaure los paquetes de NuGet en el proyecto. Debe incluir el controlador Gremlin.Net, así como el paquete Newtonsoft.Json.
 
 
-6. También puede instalar manualmente el controlador Gremlin.Net mediante el administrador de paquetes NuGet o la [utilidad de línea de comandos de NuGet](https://docs.microsoft.com/nuget/install-nuget-client-tools): 
+6. También puede instalar manualmente el controlador Gremlin.Net mediante el administrador de paquetes NuGet o la [utilidad de línea de comandos de NuGet](/nuget/install-nuget-client-tools): 
 
     ```bash
     nuget install Gremlin.Net
@@ -104,11 +104,11 @@ Los fragmentos de código siguientes se han tomado del archivo Program.cs.
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación.
 
-1. En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de base de datos de grafos. En la pestaña **Información general**, puede ver dos puntos de conexión. 
+1. En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de base de datos de grafos. En la pestaña **Información general** , puede ver dos puntos de conexión. 
  
-   **URI del SDK de .NET**: este valor se usa al conectarse a la cuenta de grafos mediante la biblioteca de Microsoft.Azure.Graphs. 
+   **URI del SDK de .NET** : este valor se usa al conectarse a la cuenta de grafos mediante la biblioteca de Microsoft.Azure.Graphs. 
 
-   **Punto de conexión de Gremlin**: este valor se usa cuando se conecta a la cuenta de grafos mediante la biblioteca Gremlin.Net.
+   **Punto de conexión de Gremlin** : este valor se usa cuando se conecta a la cuenta de grafos mediante la biblioteca Gremlin.Net.
 
     :::image type="content" source="./media/create-graph-dotnet/endpoint.png" alt-text="Copiar el punto de conexión&quot;:::
 
@@ -141,7 +141,7 @@ Haga clic en CTRL + F5 para ejecutar la aplicación. La aplicación imprimirá l
 
 Ahora puede volver al Explorador de datos en Azure Portal para examinar y consultar los datos del nuevo grafo.
 
-1. En el Explorador de datos, la nueva base de datos aparece en el panel Grafos. Expanda los nodos del contenedor y de la base de datos y, a continuación, haga clic en **Grafo**.
+1. En el Explorador de datos, la nueva base de datos aparece en el panel Grafos. Expanda los nodos del contenedor y de la base de datos y, a continuación, haga clic en **Grafo** .
 
 2. Haga clic en el botón **Aplicar filtro** para usar la consulta predeterminada para visualizar todos los vértices del grafo. Los datos generados por la aplicación de ejemplo se muestran en el panel grafos.
 
@@ -176,4 +176,3 @@ En esta guía de inicio rápido, ha obtenido información sobre cómo crear una 
 
 > [!div class="nextstepaction"]
 > [Consulta mediante Gremlin](tutorial-query-graph.md)
-

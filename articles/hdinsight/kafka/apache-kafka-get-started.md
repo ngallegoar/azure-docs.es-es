@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/29/2020
-ms.openlocfilehash: 6198475025ff5222edeeb14cf25634ad2d916a1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f0b3da7d225e4b2adca3f2d4b08cff9b56e2520
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88651444"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534607"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Inicio rápido: Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal
 
@@ -37,13 +37,13 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el menú superior, seleccione **+ Crear un recurso**.
+1. En el menú superior, seleccione **+ Crear un recurso** .
 
     ![Creación de recursos de HDInsight en Azure Portal](./media/apache-kafka-get-started/azure-portal-create-resource.png)
 
-1. Seleccione **Analytics** > **Azure HDInsight** para ir a la página **Crear clúster de HDInsight**.
+1. Seleccione **Analytics** > **Azure HDInsight** para ir a la página **Crear clúster de HDInsight** .
 
-1. En la pestaña **Básico**, especifique la siguiente información:
+1. En la pestaña **Básico** , especifique la siguiente información:
 
     |Propiedad  |Descripción  |
     |---------|---------|
@@ -53,34 +53,34 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
     |Region    | En la lista desplegable, seleccione una región donde crear el clúster.  Elija la región más cercana para mejorar el rendimiento. |
     |Tipo de clúster| Seleccione **Seleccionar tipo de clúster** para abrir una lista. En ella, seleccione **Kafka** como tipo de clúster.|
     |Versión|Se especificará la versión predeterminada para el tipo de clúster. Seleccione en la lista desplegable si desea especificar una versión diferente.|
-    |Nombre de usuario y contraseña de inicio de sesión del clúster    | El nombre de inicio de sesión predeterminado es **admin**. La contraseña debe tener un mínimo de 10 caracteres y contener al menos un dígito, una letra mayúscula y una letra minúscula, y un carácter no alfanumérico (excepto los caracteres ' " y `\). Asegúrese de **no proporcionar** contraseñas comunes, como "Pass@word1".|
-    |Nombre de usuario de Secure Shell (SSH) | El nombre de usuario predeterminado es **sshuser**.  Puede proporcionar otro nombre para el nombre de usuario de SSH. |
+    |Nombre de usuario y contraseña de inicio de sesión del clúster    | El nombre de inicio de sesión predeterminado es **admin** . La contraseña debe tener un mínimo de 10 caracteres y contener al menos un dígito, una letra mayúscula y una letra minúscula, y un carácter no alfanumérico (excepto los caracteres ' " y `\). Asegúrese de **no proporcionar** contraseñas comunes, como "Pass@word1".|
+    |Nombre de usuario de Secure Shell (SSH) | El nombre de usuario predeterminado es **sshuser** .  Puede proporcionar otro nombre para el nombre de usuario de SSH. |
     |Uso de la contraseña de inicio de sesión del clúster para SSH| Seleccione esta casilla para que el usuario de SSH tenga la misma contraseña que la proporcionada para el usuario de inicio de sesión del clúster.|
 
    ![Conceptos básicos de creación de clústeres de Azure Portal](./media/apache-kafka-get-started/azure-portal-cluster-basics.png)
 
-    Cada región de Azure (ubicación) proporciona _dominios de error_. Un dominio de error es una agrupación lógica del hardware subyacente en un centro de datos de Azure. Todos los dominios de error comparten la fuente de energía y el conmutador de red. Las máquinas virtuales y los discos administrados que implementan los nodos en un clúster de HDInsight se distribuyen por estos dominios de error. Esta arquitectura limita el impacto potencial de errores del hardware físico.
+    Cada región de Azure (ubicación) proporciona _dominios de error_ . Un dominio de error es una agrupación lógica del hardware subyacente en un centro de datos de Azure. Todos los dominios de error comparten la fuente de energía y el conmutador de red. Las máquinas virtuales y los discos administrados que implementan los nodos en un clúster de HDInsight se distribuyen por estos dominios de error. Esta arquitectura limita el impacto potencial de errores del hardware físico.
 
-    Para lograr la alta disponibilidad de los datos, seleccione una ubicación (región) que contenga __tres dominios de error__. Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+    Para lograr la alta disponibilidad de los datos, seleccione una ubicación (región) que contenga __tres dominios de error__ . Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
     Seleccione el botón **Siguiente: Almacenamiento>>** para avanzar a la configuración de almacenamiento.
 
-1. En la pestaña **Almacenamiento**, proporcione los valores siguientes:
+1. En la pestaña **Almacenamiento** , proporcione los valores siguientes:
 
     |Propiedad  |Descripción  |
     |---------|---------|
-    |Tipo de almacenamiento principal|Use el valor predeterminado **Azure Storage**.|
-    |Método de selección|Use el valor predeterminado **Seleccionar de la lista**.|
-    |Cuenta de almacenamiento principal|Utilice la lista desplegable para seleccionar una cuenta de almacenamiento existente o bien elija **Crear nuevo**. Si crea una cuenta nueva, el nombre debe tener una longitud de entre 3 y 24 caracteres y solo puede contener números y letras minúsculas.|
+    |Tipo de almacenamiento principal|Use el valor predeterminado **Azure Storage** .|
+    |Método de selección|Use el valor predeterminado **Seleccionar de la lista** .|
+    |Cuenta de almacenamiento principal|Utilice la lista desplegable para seleccionar una cuenta de almacenamiento existente o bien elija **Crear nuevo** . Si crea una cuenta nueva, el nombre debe tener una longitud de entre 3 y 24 caracteres y solo puede contener números y letras minúsculas.|
     |Contenedor|Use el valor que se rellena automáticamente.|
 
     ![HDInsight Linux: introducción a la especificación de valores de almacenamiento en clúster](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Especificación de valores de almacenamiento para crear un clúster de HDInsight")
 
-    Seleccione la pestaña **Seguridad y redes**.
+    Seleccione la pestaña **Seguridad y redes** .
 
 1. En este inicio rápido, deje la configuración de seguridad predeterminada. Para más información acerca de Enterprise Security Package, visite [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para aprender a usar su propia clave para el Cifrado de disco de Apache Kafka, visite [Cifrado de disco mediante claves administradas por el cliente](../disk-encryption.md).
 
-   Si desea conectar su clúster a una red virtual, seleccione una red virtual desde la lista desplegable **Red virtual**.
+   Si desea conectar su clúster a una red virtual, seleccione una red virtual desde la lista desplegable **Red virtual** .
 
    ![Incorporación de un clúster a una red virtual](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
@@ -92,7 +92,7 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
 
    ![Establecimiento del tamaño de clúster de Apache Kafka](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
-    Seleccione la pestaña **Revisar y crear**.
+    Seleccione la pestaña **Revisar y crear** .
 
 1. Revise la configuración del clúster. Cambie la configuración que sea incorrecta. Por último, seleccione **Crear** para crear el clúster.
 
@@ -134,7 +134,7 @@ Para crear un clúster de Apache Kafka en HDInsight, siga estos pasos:
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Obtención de la información del host de Apache Zookeeper y del agente
 
-Cuando se trabaja con Kafka, debe conocer los hosts de *Apache Zookeeper* y del *agente*. Estos hosts se usan con la API de Apache Kafka y muchas de las utilidades que se incluyen con Kafka.
+Cuando se trabaja con Kafka, debe conocer los hosts de *Apache Zookeeper* y del *agente* . Estos hosts se usan con la API de Apache Kafka y muchas de las utilidades que se incluyen con Kafka.
 
 En esta sección, obtendrá la información de host de la API de REST de Apache Ambari en el clúster.
 
@@ -200,15 +200,15 @@ En esta sección, obtendrá la información de host de la API de REST de Apache 
 
 ## <a name="manage-apache-kafka-topics"></a>Administración de temas de Apache Kafka
 
-Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.sh` para administrar temas.
+Kafka almacena flujos de datos en *temas* . Puede usar la utilidad `kafka-topics.sh` para administrar temas.
 
-* **Para crear un tema**, use el comando siguiente en la conexión SSH:
+* **Para crear un tema** , use el comando siguiente en la conexión SSH:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`. Y, luego, crea un tema de Apache Kafka llamado **test**.
+    Este comando se conecta a Zookeeper mediante la información de host almacenada en `$KAFKAZKHOSTS`. Y, luego, crea un tema de Apache Kafka llamado **test** .
 
     * Los datos almacenados en este tema se dividen en ocho particiones.
 
@@ -218,7 +218,7 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
         
         * En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
         
-        * Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+        * Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
         * Apache Kafka no es compatible con dominios de error de Azure. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad.
 
@@ -230,7 +230,7 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
 
             * Escale verticalmente un clúster
 
-* **Para mostrar temas**, use el comando siguiente:
+* **Para mostrar temas** , use el comando siguiente:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -238,7 +238,7 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
 
     Este comando muestra los temas disponibles en el clúster de Apache Kafka.
 
-* **Para eliminar un tema**, use el comando siguiente:
+* **Para eliminar un tema** , use el comando siguiente:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -257,7 +257,7 @@ Para obtener más información acerca de los comandos disponibles con la utilida
 
 ## <a name="produce-and-consume-records"></a>Generación y consumo de registros
 
-Kafka almacena *registros* en temas. Los registros se generan mediante *productores* y se consumen mediante *consumidores*. Los productores y consumidores se comunican con el servicio de *agente de Kafka*. Cada nodo de trabajo del clúster de HDInsight es un host de agente de Apache Kafka.
+Kafka almacena *registros* en temas. Los registros se generan mediante *productores* y se consumen mediante *consumidores* . Los productores y consumidores se comunican con el servicio de *agente de Kafka* . Cada nodo de trabajo del clúster de HDInsight es un host de agente de Apache Kafka.
 
 Use los pasos siguientes para almacenar registros en el tema de prueba que creó anteriormente y luego leerlos mediante un consumidor:
 

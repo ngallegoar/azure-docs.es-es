@@ -8,19 +8,19 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707904"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481200"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Inicio rápido: Uso de Python para conectarse y consultar datos en un servidor único Azure Database for PostgreSQL
 
 En este inicio rápido se muestra cómo trabajar con una instancia de Azure Database for PostgreSQL mediante Python en macOS, Ubuntu Linux o Windows. En la guía de inicio rápido se muestra cómo conectarse a la base de datos y usar instrucciones SQL para consultar, insertar, actualizar y eliminar datos. En este artículo se da por hecho que está familiarizado con Python, pero que es nuevo para trabajar con Azure Database for PostgreSQL.
 
 > [!TIP]
-> Si está pensando en compilar una aplicación de Django con PostgreSQL, consulte el tutorial, [Implementación de una aplicación web de Django de Python con PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md) tutorial.
+> Si está pensando en compilar una aplicación de Django con PostgreSQL, consulte el tutorial, [Implementación de una aplicación web de Django de Python con PostgreSQL](../app-service/tutorial-python-postgresql-app.md) tutorial.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -42,7 +42,7 @@ Para instalar `psycopg2`, abra un símbolo del sistema o de terminal y ejecute e
 La conexión a una base de datos Azure Database for PostgreSQL requiere el nombre completo del servidor y las credenciales de inicio de sesión. Puede obtener esta información en el Azure Portal.
 
 1. En el [Azure Portal](https://portal.azure.com/), busque y seleccione el nombre del servidor de Azure Database for PostgreSQL. 
-1. En la página de**Información general** del servidor, copie el nombre completo del **Servidor** y el **Nombre del usuario administrador**. El **nombre completo del servidor** siempre tiene el formato *\<my-server-name>.postgres.database.azure.com* y el **nombre del usuario administrador** siempre tiene el formato *\<my-admin-username>@\<my-server-name>* . 
+1. En la página de **Información general** del servidor, copie el nombre completo del **Servidor** y el **Nombre del usuario administrador** . El **nombre completo del servidor** siempre tiene el formato *\<my-server-name>.postgres.database.azure.com* y el **nombre del usuario administrador** siempre tiene el formato *\<my-admin-username>@\<my-server-name>* . 
    
    También necesitará la contraseña de administrador. Si la olvida, puede restablecerla desde esta página. 
    
@@ -59,12 +59,12 @@ Para cada ejemplo de código de este artículo:
    - `<admin-password>` con la contraseña del servidor.
    - `<database-name>` con el nombre de la base de datos de Azure Database for PostgreSQL. Se creará automáticamente una base de datos predeterminada denominada *postgres* al crear el servidor. Puede cambiar el nombre de la base de datos o crear una nueva mediante comandos SQL. 
    
-1. Guarde el archivo en la carpeta del proyecto con una extensión *.py*, como *postgres-insert.py*. En Windows, asegúrese de que la codificación UTF-8 está seleccionada al guardar el archivo. 
+1. Guarde el archivo en la carpeta del proyecto con una extensión *.py* , como *postgres-insert.py* . En Windows, asegúrese de que la codificación UTF-8 está seleccionada al guardar el archivo. 
    
 1. Para ejecutar el archivo, cambie a la carpeta del proyecto en una interfaz de línea de comandos y escriba `python`seguido del nombre de archivo, por ejemplo`python postgres-insert.py`.
 
 ## <a name="create-a-table-and-insert-data"></a>Crear una tabla e insertar datos
-El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL mediante la función [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) y carga los datos con una instrucción SQL **INSERT**. La función [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) ejecuta la consulta SQL en la base de datos. 
+El siguiente ejemplo de código se conecta a la base de datos de Azure Database for PostgreSQL mediante la función [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) y carga los datos con una instrucción SQL **INSERT** . La función [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) ejecuta la consulta SQL en la base de datos. 
 
 ```Python
 import psycopg2

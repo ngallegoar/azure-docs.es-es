@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3c269f07c177d99e46dcc343b80979835b429b68
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87498929"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369359"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics"></a>Apache Spark en Azure Synapse Analytics
 
@@ -45,7 +45,7 @@ Los grupos de Spark en Azure Synapse ofrecen un servicio de Spark totalmente adm
 
 Los grupos de Spark en Azure Synapse incluyen los siguientes componentes que están disponibles en los grupos de forma predeterminada.
 
-- [Spark Core](https://spark.apache.org/docs/latest/). Incluye Spark Core, Spark SQL, GraphX y MLlib.
+- [Spark Core](https://spark.apache.org/docs/2.4.5/). Incluye Spark Core, Spark SQL, GraphX y MLlib.
 - [Anaconda](https://docs.continuum.io/anaconda/)
 - [Apache Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)
 - [Cuaderno de Nteract](https://nteract.io/)
@@ -81,7 +81,7 @@ Use los siguientes artículos para aprender más sobre Apache Spark en Synapse A
 - [Inicio rápido: Creación de un grupo de Spark en Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Inicio rápido: Creación de un cuaderno de Apache Spark](../quickstart-apache-spark-notebook.md)
 - [Tutorial: Aprendizaje automático con Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
-- [Documentación oficial de Apache Spark](https://spark.apache.org/docs/latest/)
+- [Documentación oficial de Apache Spark](https://spark.apache.org/docs/2.4.5/)
 
 > [!NOTE]
 > Parte de la documentación oficial de Apache Spark se basa en el uso de la consola de Spark, que no está disponible en Azure Synapse Spark; en su lugar, use las experiencias del cuaderno o de IntelliJ.

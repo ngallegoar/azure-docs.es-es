@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7fe68e7b1a56c22e8c0d9638408982518105888e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 198a8eee38da2738552bc5e2a2ba52e13a890122
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88185169"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424487"
 ---
 # <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante la CLI de Azure
 
@@ -33,7 +33,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
 
 En el ejemplo siguiente se crea un grupo de recursos denominado `myresourcegroup` en la ubicación `westus`:
 
@@ -49,14 +49,14 @@ Configuración | Valor de ejemplo | Descripción
 ---|---|---
 name | **mydemoserver** | Escriba un nombre único que identifique el servidor de Azure Database for MariaDB. El nombre del servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener entre 3 y 63 caracteres.
 resource-group | **myresourcegroup** | Escriba el nombre del grupo de recursos de Azure.
-sku-name | **GP_Gen5_2** | El nombre de la SKU. Sigue la convención *plan de tarifa*\_*generación de procesos*\_*núcleos virtuales* en forma abreviada. Para más información acerca del parámetro **sku-name**, consulte la sección que sigue a esta tabla.
+sku-name | **GP_Gen5_2** | El nombre de la SKU. Sigue la convención *plan de tarifa*\_*generación de procesos*\_*núcleos virtuales* en forma abreviada. Para más información acerca del parámetro **sku-name** , consulte la sección que sigue a esta tabla.
 backup-retention | **7** | Cuánto tiempo deben conservarse las copias de seguridad. La unidad es días. Intervalo: de 7 a 35. 
 geo-redundant-backup | **Deshabilitada** | Si se deben habilitar las copias de seguridad con redundancia geográfica en este servidor o no. Valores permitidos: **Enabled** (Habilitada), **Disabled** (Deshabilitada).
 ubicación | **westus** | La ubicación de Azure para el servidor.
 ssl-enforcement | **Enabled** | Si se debe habilitar SSL, o no, en este servidor. Valores permitidos: **Enabled** (Habilitada), **Disabled** (Deshabilitada).
 storage-size | **51200** | La capacidad de almacenamiento del servidor (la unidad es megabytes). Los tamaños válidos de almacenamiento son a partir de 5120 MB con aumentos de 1024 MB. Consulte los [planes de tarifa](./concepts-pricing-tiers.md) para más información acerca de los límites de tamaño de almacenamiento. 
 version | **10.2** | La versión del motor principal de MariaDB.
-admin-user | **myadmin** | El nombre del usuario del inicio de sesión del administrador. El parámetro **admin-user** no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.
+admin-user | **myadmin** | El nombre del usuario del inicio de sesión del administrador. El parámetro **admin-user** no puede ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ni **public** .
 admin-password | *La contraseña* | La contraseña del usuario administrador. Debe tener entre 8 y 128 caracteres. Debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números y caracteres no alfanuméricos.
 
 El valor del parámetro sku-name sigue la convención {plan de tarifa}\_{generación de proceso}\_{núcleos virtuales} como en los ejemplos siguientes:
@@ -66,7 +66,7 @@ El valor del parámetro sku-name sigue la convención {plan de tarifa}\_{generac
 
 Para más información acerca de los valores válidos por región y sobre los planes, consulte [planes de tarifa](./concepts-pricing-tiers.md).
 
-En el siguiente ejemplo, se crea un servidor denominado **mydemoserver** en la región Oeste de EE. UU. El servidor está en el grupo de recursos **myresourcegroup** y tiene el inicio de sesión de administrador del servidor **myadmin**. El servidor es un servidor Gen 5 del plan de tarifa de uso general y tiene 2 núcleos virtuales. Un nombre de servidor se asigna a un nombre DNS y debe ser único en todo el mundo en Azure. Sustituya `<server_admin_password>` por su propia contraseña de administrador del servidor.
+En el siguiente ejemplo, se crea un servidor denominado **mydemoserver** en la región Oeste de EE. UU. El servidor está en el grupo de recursos **myresourcegroup** y tiene el inicio de sesión de administrador del servidor **myadmin** . El servidor es un servidor Gen 5 del plan de tarifa de uso general y tiene 2 núcleos virtuales. Un nombre de servidor se asigna a un nombre DNS y debe ser único en todo el mundo en Azure. Sustituya `<server_admin_password>` por su propia contraseña de administrador del servidor.
 
 ```azurecli-interactive
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
@@ -106,7 +106,7 @@ Para conectarse al servidor, debe proporcionar las credenciales de acceso y la i
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**.
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin** .
 
 ```json
 {
@@ -139,7 +139,7 @@ El resultado está en formato JSON. Tome nota de los valores de **fullyQualified
 
 ## <a name="connect-to-the-server-by-using-the-mysql-command-line-tool"></a>Conexión al servidor mediante la herramienta mysql de la línea de comandos
 
-Conéctese al servidor mediante la herramienta mysql de la línea de comandos. Puede [descargar](https://dev.mysql.com/downloads/) la herramienta de la línea de comandos e instalarla en su equipo. También puede acceder a la herramienta de línea de comandos seleccionando el botón **Pruébelo** de un ejemplo de código de este artículo. Otra manera de acceder a la herramienta de línea de comandos consiste en seleccionar el botón **>_** en la barra de herramientas superior derecha de Azure Portal para abrir **Azure Cloud Shell**.
+Conéctese al servidor mediante la herramienta mysql de la línea de comandos. Puede [descargar](https://dev.mysql.com/downloads/) la herramienta de la línea de comandos e instalarla en su equipo. También puede acceder a la herramienta de línea de comandos seleccionando el botón **Pruébelo** de un ejemplo de código de este artículo. Otra manera de acceder a la herramienta de línea de comandos consiste en seleccionar el botón **>_** en la barra de herramientas superior derecha de Azure Portal para abrir **Azure Cloud Shell** .
 
 Para conectarse al servidor mediante la herramienta mysql de la línea de comandos:
 
@@ -240,4 +240,4 @@ az mariadb server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Diseño de una base de datos de MariaDB con la CLI de Azure](./tutorial-design-database-cli.md)
+> [Diseño de una base de datos de MariaDB con la CLI de Azure](tutorial-design-database-cli.md)

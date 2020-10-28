@@ -14,12 +14,12 @@ ms.date: 09/29/2020
 ms.author: curtand
 ms.custom: pim ; azuread-video-2020
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b7bcfa6569edd93373f493cfaa7deff2976d35
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: c3c7003ce3e8c65f6fdb7f3d847947114aee251f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91540836"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370192"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -47,7 +47,7 @@ Privileged Identity Management proporciona activación de rol basada en tiempo y
 
 ## <a name="what-can-i-do-with-it"></a>¿Qué se puede hacer con Privileged Identity Management (PIM)?
 
-Una vez que se haya configurado Privileged Identity Management, verá las opciones **Tareas**, **Administrar**, y **Actividad** en el menú de navegación izquierdo. Como administrador, tendrá que elegir entre distintas opciones, como administrar **roles de Azure AD**, administrar roles de **recursos de Azure** o grupos de acceso con privilegios. Cuando elija lo que desea administrar, verá el conjunto de opciones adecuado para esa opción.
+Una vez que se haya configurado Privileged Identity Management, verá las opciones **Tareas** , **Administrar** , y **Actividad** en el menú de navegación izquierdo. Como administrador, tendrá que elegir entre distintas opciones, como administrar **roles de Azure AD** , administrar roles de **recursos de Azure** o grupos de acceso con privilegios. Cuando elija lo que desea administrar, verá el conjunto de opciones adecuado para esa opción.
 
 ![Captura de pantalla de Privileged Identity Management en Azure Portal](./media/pim-configure/pim-quickstart.png)
 
@@ -106,5 +106,5 @@ Para más información sobre las licencias para usuarios, consulte [License requ
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md)
-- [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Implementación de Privileged Identity Management](pim-deployment-plan.md)

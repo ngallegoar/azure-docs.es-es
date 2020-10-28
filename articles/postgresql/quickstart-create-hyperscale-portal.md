@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d4925b8ecb7768f1f49b2c971f7234d58339c056
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268459"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481115"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Inicio rápido: Creación de un grupo de servidores Citus en Azure Portal
 
@@ -138,5 +138,5 @@ En los pasos anteriores, creó recursos de Azure en un grupo de servidores. Si n
 
 En este inicio rápido, aprendió a aprovisionar un grupo de servidores de Hiperescala (Citus). Se conectó a él con psql, creó un esquema y distribuyó datos.
 
-- Siga un tutorial para [crear aplicaciones escalables multiinquilino](https://aka.ms/hyperscale-tutorial-multi-tenant).
+- Siga un tutorial para [crear aplicaciones escalables multiinquilino](./tutorial-design-database-hyperscale-multi-tenant.md).
 - Determine el mejor [tamaño inicial](howto-hyperscale-scaling.md#picking-initial-size) para el grupo de servidores.

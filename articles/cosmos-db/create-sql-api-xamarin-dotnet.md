@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2d82b7f618757fbf77072bd7147595eec3083885
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108769"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487643"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Creación de una aplicación de lista de tareas con Xamarin mediante la cuenta de SQL API de Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribu
 > [!NOTE]
 > [Aquí](https://github.com/xamarinhq/app-geocontacts), en GitHub, se puede encontrar código de muestra para una aplicación completa de Xamarin de ejemplo canónico que ilustra varias ofertas de Azure, incluido CosmosDB. Esta aplicación muestra contactos de visualización dispersos geográficamente y permite que estos actualicen su ubicación.
 
-En esta guía de inicio rápido se muestra cómo crear una cuenta de SQL API de Azure Cosmos DB, una base de datos de documentos y un contenedor mediante Azure Portal. Luego, compilará e implementará una aplicación móvil de lista de tareas integrada en la [API de .NET de SQL](sql-api-sdk-dotnet.md) y [Xamarin](https://docs.microsoft.com/xamarin/) mediante [Xamarin.Forms](https://docs.microsoft.com/xamarin/) y el [modelo arquitectónico de MVVM ](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+En esta guía de inicio rápido se muestra cómo crear una cuenta de SQL API de Azure Cosmos DB, una base de datos de documentos y un contenedor mediante Azure Portal. Luego, compilará e implementará una aplicación móvil de lista de tareas integrada en la [API de .NET de SQL](sql-api-sdk-dotnet.md) y [Xamarin](/xamarin/) mediante [Xamarin.Forms](/xamarin/) y el [modelo arquitectónico de MVVM ](/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="Aplicación de lista de tareas de Xamarin Studio que se ejecuta en iOS":::
 
@@ -177,7 +177,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
 Los pasos siguientes mostrarán cómo se ejecuta la aplicación con el depurador de Visual Studio para Mac.
 
 > [!NOTE]
-> El uso de la aplicación de la versión de Android es exactamente el mismo, las diferencias se indicarán en los pasos siguientes. Si desea realizar la depuración con Visual Studio en Windows, la documentación para hacerlo se puede encontrar para [iOS aquí](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) y para [Android aquí](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/).
+> El uso de la aplicación de la versión de Android es exactamente el mismo, las diferencias se indicarán en los pasos siguientes. Si desea realizar la depuración con Visual Studio en Windows, la documentación para hacerlo se puede encontrar para [iOS aquí](/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) y para [Android aquí](/xamarin/android/deploy-test/debugging/).
 
 1. En primer lugar, seleccione la plataforma de destino, para lo que debe hacer clic en la lista desplegable resaltada y seleccionar ToDoItems.iOS para iOS o ToDoItems.Android para Android.
 

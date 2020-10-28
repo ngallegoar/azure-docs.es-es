@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 42871d4219424e3e46d6b2dccc5899b02dccc57e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0f53958f8d7b0c5c12d78940b30f88b49d667c1e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319000"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487541"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Inicio rápido: Compilación de una aplicación de Table API con Node.js y Azure Cosmos DB
 
@@ -22,7 +22,7 @@ ms.locfileid: "91319000"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 > 
 
 En este inicio rápido se crea una cuenta de Azure Cosmos DB para Table API y se utiliza Data Explorer y una aplicación de Node.js clonada desde GitHub para crear tablas y entidades. Azure Cosmos DB es un servicio de base de datos multimodelo que permite crear y consultar rápidamente bases de datos de documentos, tablas, claves-valores y grafos con funcionalidades de distribución global y escala horizontal.
@@ -137,7 +137,7 @@ Este paso es opcional. Si está interesado en aprender cómo se crean los recurs
 
 Ahora vuelva a Azure Portal para obtener la información de la cadena de conexión y cópiela en la aplicación. Esto permite que la aplicación se comunique con la base de datos hospedada. 
 
-1. En la cuenta de Azure Cosmos DB, en [Azure Portal](https://portal.azure.com/), seleccione **Cadena de conexión**. 
+1. En la cuenta de Azure Cosmos DB, en [Azure Portal](https://portal.azure.com/), seleccione **Cadena de conexión** . 
 
     :::image type="content" source="./media/create-table-nodejs/connection-string.png" alt-text="Visualizar y copiar la información necesaria de la cadena de conexión desde el panel Cadena de conexión":::
 
@@ -149,7 +149,7 @@ Ahora vuelva a Azure Portal para obtener la información de la cadena de conexi�
     > Si el punto de conexión utiliza documents.azure.com, significa que tiene una cuenta en versión preliminar y que deberá crear una [nueva cuenta de Table API](#create-a-database-account) para trabajar con el SDK de Table API disponible para el público general.
     >
 
-3. Guarde el archivo *app.config*.
+3. Guarde el archivo *app.config* .
 
 Ya ha actualizado la aplicación con toda la información que necesita para comunicarse con Azure Cosmos DB. 
 
@@ -161,7 +161,7 @@ Ya ha actualizado la aplicación con toda la información que necesita para comu
     cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Ejecute el comando siguiente para instalar los módulos [azure], [node-uuid], [nconf] y [async] localmente y para guardar una entrada para ellos en el archivo *package.json*.
+2. Ejecute el comando siguiente para instalar los módulos [azure], [node-uuid], [nconf] y [async] localmente y para guardar una entrada para ellos en el archivo *package.json* .
 
    ```
    npm install azure-storage node-uuid async nconf --save
