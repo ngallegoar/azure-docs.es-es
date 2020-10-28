@@ -4,15 +4,15 @@ description: Obtenga información sobre las características de red de Azure App
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 03/16/2020
+ms.date: 10/18/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: af4c333fb539ad533756c538cb3ecde1d9a91413
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 860b1ac1713ac7afb7db2643d68974b399b5236b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743053"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207071"
 ---
 # <a name="app-service-networking-features"></a>Características de redes de App Service
 
@@ -41,9 +41,9 @@ Para un caso de uso determinado, puede haber varias maneras de solucionar el pro
 | Compatibilidad con las necesidades de SSL basado en IP de la aplicación | direcciones asignadas a las aplicaciones |
 | Dirección entrante dedicada y no compartida para la aplicación | direcciones asignadas a las aplicaciones |
 | Restricción del acceso a la aplicación desde un conjunto de direcciones bien definidas | Restricciones de acceso |
-| Restricción del acceso a la aplicación desde los recursos de una red virtual | Puntos de conexión de servicio </br> ASE de ILB </br> Punto de conexión privado (versión preliminar) |
-| Exponer la aplicación en una dirección IP privada de mi red virtual | ASE de ILB </br> dirección IP privada para la entrada en una instancia de Application Gateway con puntos de conexión de servicio </br> Punto de conexión de servicio (versión preliminar) |
-| Proteger la aplicación con un WAF | Application Gateway + ASE de ILB </br> Application Gateway con puntos de conexión de servicio </br> Azure Front Door con restricciones de acceso |
+| Restricción del acceso a la aplicación desde los recursos de una red virtual | Puntos de conexión de servicio </br> ASE de ILB </br> Puntos de conexión privados |
+| Exponer la aplicación en una dirección IP privada de mi red virtual | ASE de ILB </br> Puntos de conexión privados </br> Dirección IP privada de entrada en una instancia de Application Gateway con puntos de conexión de servicio |
+| Protección de la aplicación con un firewall de aplicaciones web (WAF) | Application Gateway + ASE de ILB </br> Application Gateway con puntos de conexión privados </br> Application Gateway con puntos de conexión de servicio </br> Azure Front Door con restricciones de acceso |
 | Equilibrar la carga del tráfico a las aplicaciones en diferentes regiones | Azure Front Door con restricciones de acceso | 
 | Equilibrar la carga del tráfico en la misma región | [Application Gateway con puntos de conexión de servicio][appgwserviceendpoints] | 
 
@@ -62,11 +62,15 @@ Los siguientes casos de uso de salida sugieren cómo usar las características d
 
 ### <a name="default-networking-behavior"></a>Comportamiento predeterminado de la redes
 
-Las unidades de escalado de Azure App Service admiten muchos clientes en cada implementación. Los planes de SKU Gratis y Compartido hospedan cargas de trabajo de clientes en roles de trabajo multiinquilino. El plan Básico y los planes superiores hospedan cargas de trabajo que se dedican a un único plan de App Service (ASP). Si tuviera un plan de App Service Estándar, todas las aplicaciones de ese plan se ejecutarán en el mismo rol de trabajo. Si escala horizontalmente el rol de trabajo, todas las aplicaciones de ese ASP se replicarán en un rol de trabajo nuevo para cada instancia del ASP. Los roles de trabajo que se usan para planes PremiumV2 y PremiumV3 son diferentes de los roles de trabajo que se usan para los otros planes. Cada implementación de App Service tiene una dirección IP que se usa para todo el tráfico entrante a las aplicaciones de esa implementación de App Service. Sin embargo, hay de 4 a 11 direcciones utilizadas para realizar llamadas salientes. Estas direcciones se comparten para todas las aplicaciones de esa implementación de App Service. Las direcciones de salida son diferentes en función de los diferentes tipos de roles de trabajo. Esto significa que las direcciones usadas por los ASP Gratis, Compartido, Básico, Estándar y Premium son diferentes de las direcciones usadas para las llamadas salientes desde los ASP PremiumV2 y PremiumV3. Si observa en las propiedades de la aplicación, podrá ver las direcciones de entrada y de salida utilizadas por la aplicación. Si necesita bloquear una dependencia con una ACL de IP, utilice las direcciones de salida posibles. 
+Las unidades de escalado de Azure App Service admiten muchos clientes en cada implementación. Los planes de SKU Gratis y Compartido hospedan cargas de trabajo de clientes en roles de trabajo multiinquilino. El plan Básico y los planes superiores hospedan cargas de trabajo que se dedican a un único plan de App Service (ASP). Si tuviera un plan de App Service Estándar, todas las aplicaciones de ese plan se ejecutarán en el mismo rol de trabajo. Si escala horizontalmente el rol de trabajo, todas las aplicaciones de ese ASP se replicarán en un rol de trabajo nuevo para cada instancia del ASP. 
+
+#### <a name="outbound-addresses"></a>Direcciones de salida
+
+Las máquinas virtuales de trabajo se desglosan en gran medida por los planes de precios de App Service. Los tipos Gratis, Compartido, Básico, Estándar y Premium usan el mismo tipo de máquina virtual de trabajo. Premiumv2 está en otro tipo de máquina virtual. Premiumv3 está también en otro tipo de máquina virtual. Con cada cambio en la familia de máquinas virtuales, hay un conjunto diferente de direcciones de salida. Si realiza el escalado de Estándar a Premiumv2, las direcciones de salida cambian. Lo mismo sucede si escala de Premiumv2 a Premiumv3. Algunas unidades de escalado antiguas cambian las direcciones de entrada y salida al escalar de Estándar a Premiumv2. Hay varias direcciones que se usan para realizar llamadas salientes. Las direcciones de salida que usa la aplicación para realizar llamadas salientes se muestran en las propiedades de la aplicación. Todas las aplicaciones que se ejecutan en la misma familia de máquinas virtuales de trabajo de esa implementación de App Service comparten estas direcciones. Si quiere ver todas las direcciones posibles que puede usar la aplicación en esa unidad de escalado, hay otra propiedad denominada possibleOutboundAddresses que las enumerará. 
 
 ![Propiedades de la aplicación](media/networking-features/app-properties.png)
 
-App Service tiene varios puntos de conexión que se usan para administrar el servicio.  Dichas direcciones se publican en un documento independiente y también se encuentran en la etiqueta de servicio de direcciones IP AppServiceManagement. La etiqueta AppServiceManagement solo se usa con un entorno de App Service Environment (ASE) en el que se debe permitir este tráfico. En la etiqueta de servicio IP de App Service se realiza un seguimiento de las direcciones de entrada de App Service. No hay ninguna etiqueta de servicio IP que contiene las direcciones de salida usadas por App Service. 
+App Service tiene varios puntos de conexión que se usan para administrar el servicio.  Dichas direcciones se publican en un documento independiente y también se encuentran en la etiqueta de servicio de direcciones IP AppServiceManagement. La etiqueta AppServiceManagement solo se usa con una instancia de App Service Environment (ASE) en la que se deba permitir este tráfico. En la etiqueta de servicio IP de App Service se realiza un seguimiento de las direcciones de entrada de App Service. No hay ninguna etiqueta de servicio IP que contiene las direcciones de salida usadas por App Service. 
 
 ![Diagrama de entrada y salida de App Service](media/networking-features/default-behavior.png)
 
@@ -100,7 +104,7 @@ Si desea bloquear el acceso a la aplicación para que solo sea accesible desde l
 
 ### <a name="service-endpoints"></a>Puntos de conexión del servicio
 
-Los puntos de conexión de servicio le permite bloquear el acceso **entrante** a la aplicación de modo que la dirección de origen deba proceder de un conjunto de subredes que ha seleccionado. Esta característica funciona junto con la característica Restricciones de acceso IP. Los puntos de conexión de servicio se establecen en la misma experiencia de usuario que las restricciones de acceso IP. Puede crear una lista de reglas de acceso tipo permitir/denegar que incluya direcciones públicas, así como las subredes de sus redes virtuales. Esta característica admite escenarios como:
+Los puntos de conexión de servicio le permiten bloquear el acceso **entrante** a la aplicación de modo que la dirección de origen debe proceder de un conjunto de subredes que haya seleccionado. Esta característica funciona junto con la característica Restricciones de acceso IP. Los puntos de conexión de servicio no son compatibles con la depuración remota. Para usar la depuración remota con la aplicación, el cliente no puede estar en una subred con puntos de conexión de servicio habilitados. Los puntos de conexión de servicio se establecen en la misma experiencia de usuario que las restricciones de acceso IP. Puede crear una lista de reglas de acceso tipo permitir/denegar que incluya direcciones públicas, así como las subredes de sus redes virtuales. Esta característica admite escenarios como:
 
 ![puntos de conexión del servicio](media/networking-features/service-endpoints.png)
 
@@ -111,10 +115,18 @@ Los puntos de conexión de servicio le permite bloquear el acceso **entrante** a
 
 Más información sobre cómo configurar los puntos de conexión de servicio con la aplicación en el tutorial [Configuración de restricciones de acceso del punto de conexión de servicio][serviceendpoints].
 
-### <a name="private-endpoint-preview"></a>Punto de conexión privado (versión preliminar)
+### <a name="private-endpoints"></a>Puntos de conexión privados
 
 Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a la aplicación web con Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual y así coloca el la aplicación web de manera eficaz en la red virtual. Esta característica es solo para flujos **entrantes** en la aplicación web.
-[Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)][privateendpoints]
+[Uso de puntos de conexión privados para una aplicación web de Azure][privateendpoints]
+
+Los puntos de conexión privados permiten escenarios como los siguientes:
+
+* Restricción del acceso a la aplicación desde los recursos de una red virtual 
+* Exponer la aplicación en una dirección IP privada de mi red virtual 
+* Proteger la aplicación con un WAF 
+
+Los puntos de conexión privados impiden la filtración de datos, ya que lo único a lo que puede acceder a través del punto de conexión privado es a la aplicación con la que está configurado. 
  
 ### <a name="hybrid-connections"></a>conexiones híbridas
 
@@ -132,7 +144,7 @@ Esta característica se utiliza normalmente para:
 * Tratar escenarios no cubiertos por otros métodos de conectividad de salida
 * Realizar desarrollos en App Service en los que las aplicaciones pueden aprovechar fácilmente los recursos locales 
 
-Dado que la característica permite el acceso a los recursos locales sin un agujero en el firewall de entrada, es popular entre los desarrolladores. Las otras características de redes de App Service de salida están muy relacionadas con las redes virtuales de Azure. Conexiones híbridas no tiene la dependencia de pasar por una red virtual y se puede usar para una amplia variedad de necesidades de redes. Es importante tener en cuenta que la característica Conexiones híbridas de App Service no tiene conocimiento de lo que se hace sobre ella. Es decir, que se puede usar para acceder a una base de datos, un servicio web o un socket TCP arbitrario en un sistema central. La característica esencialmente tuneliza paquetes TCP. 
+Dado que la característica permite el acceso a los recursos locales sin un agujero en el firewall de entrada, es popular entre los desarrolladores. Las otras características de redes de App Service de salida están relacionadas con las redes virtuales de Azure. Conexiones híbridas no tiene la dependencia de pasar por una red virtual y se puede usar para una amplia variedad de necesidades de redes. Es importante tener en cuenta que la característica Conexiones híbridas de App Service no tiene conocimiento de lo que se hace sobre ella. Es decir, que se puede usar para acceder a una base de datos, un servicio web o un socket TCP arbitrario en un sistema central. La característica esencialmente tuneliza paquetes TCP. 
 
 Aunque Conexiones híbridas es popular para el desarrollo, también se utiliza en numerosas aplicaciones de producción. Es muy útil para acceder a un servicio web o una base de datos, pero no es adecuada para situaciones que implican crear muchas conexiones. 
 
@@ -152,7 +164,7 @@ Cuando esta característica está habilitada, la aplicación usará el servidor 
 
 ### <a name="vnet-integration"></a>Integración con red virtual
 
-La característica Integración con redes virtuales requerida por la puerta de enlace es muy útil, pero no resuelve el acceso a los recursos a través de ExpressRoute. Más allá de la necesidad de conexiones a través de ExpressRoute, las aplicaciones necesitan poder realizar llamadas a servicios protegidos por puntos de conexión de servicio. Para solucionar ambas necesidades adicionales, se ha agregado otra funcionalidad de Integración con red virtual. La nueva característica Integración con red virtual le permite colocar el back-end de la aplicación en una subred de una red virtual de Resource Manager de la misma región. Esta característica no está disponible desde un entorno de App Service Environment, que ya está en una red virtual. Esta característica permite:
+La característica de integración con red virtual requerida por la puerta de enlace es útil, pero no resuelve el acceso a los recursos a través de ExpressRoute. Más allá de la necesidad de conexiones a través de ExpressRoute, las aplicaciones necesitan poder realizar llamadas a servicios protegidos por puntos de conexión de servicio. Para solucionar ambas necesidades adicionales, se ha agregado otra funcionalidad de Integración con red virtual. La nueva característica Integración con red virtual le permite colocar el back-end de la aplicación en una subred de una red virtual de Resource Manager de la misma región. Esta característica no está disponible desde un entorno de App Service Environment, que ya está en una red virtual. Esta característica permite:
 
 * Acceso a recursos en redes virtuales de Resource Manager de la misma región
 * Acceso a los recursos que están protegidos por puntos de conexión de servicio 
@@ -213,22 +225,58 @@ Este estilo de implementación no le proporcionará una dirección dedicada para
 
 ### <a name="create-multi-tier-applications"></a>Creación de aplicaciones de varios niveles
 
-Una aplicación de varios niveles es una aplicación en la que solo se puede acceder a las aplicaciones de back-end de la API desde el nivel de front-end. Para crear una aplicación de varios niveles, puede:
+Una aplicación de varios niveles es una aplicación en la que solo se puede acceder a las aplicaciones de back-end de la API desde el nivel de front-end. Hay dos maneras de crear una aplicación de niveles múltiples. Ambas pasan por el uso de la integración con red virtual para conectar la aplicación web de front-end con una subred de una red virtual Esto permitirá a la aplicación web realizar llamadas a la red virtual. Una vez que la aplicación de front-end esté conectada a la red virtual, tendrá que decidir cómo bloquear el acceso a la aplicación de API.  Puede:
 
-* Usar la Integración con red virtual para conectar el back-end de la aplicación web de front-end con una subred de una red virtual
-* Usar puntos de conexión de servicio para proteger el tráfico entrante a la aplicación de API para que solo proceda de la subred usada por la aplicación web de front-end
+* Hospedar la aplicación de front-end y de API en el mismo ASE de ILB y exponer la aplicación de front-end a Internet con una puerta de enlace de aplicación
+* Hospedar el front-end en el servicio multiinquilino y el back-end en un ASE de ILB
+* Hospedar la aplicación de front-end y de API en el servicio multiinquilino
 
-![aplicación de varios niveles](media/networking-features/multi-tier-app.png)
+Si hospeda la aplicación de front-end y de API para una aplicación de niveles múltiples, puede:
 
-Puede hacer que varias aplicaciones de front-end usen la misma aplicación de API mediante la Integración con red virtual de las otras aplicaciones de front-end y puntos de conexión de servicio de la aplicación de API con sus subredes.  
+Exponer la aplicación de API con puntos de conexión privados en la red virtual
+
+![aplicación de dos niveles de puntos de conexión privados](media/networking-features/multi-tier-app-private-endpoint.png)
+
+Usar puntos de conexión de servicio para proteger el tráfico entrante a la aplicación de API para que solo proceda de la subred usada por la aplicación web de front-end
+
+![aplicaciones protegidas por puntos de conexión de servicio](media/networking-features/multi-tier-app.png)
+
+Los inconvenientes de las dos técnicas son:
+
+* Con los puntos de conexión de servicio, solo tiene que proteger el tráfico que va de la aplicación de API a la subred de integración. De esta forma, se protege la aplicación de API, pero sigue existiendo la posibilidad de filtración de datos de la aplicación de front-end a otras aplicaciones de App Service.
+* Con los puntos de conexión privados tiene dos subredes en juego. Esto aumenta la complejidad. Además, el punto de conexión privado es un recurso de nivel superior, lo que supone mayor carga administrativa. La ventaja de usar puntos de conexión privados es que no existe la posibilidad de filtración de datos. 
+
+Cualquiera de las técnicas funcionará con varias aplicaciones de front-end. A pequeña escala, los puntos de conexión de servicio son mucho más fáciles de usar porque solo hay que habilitarlos para la aplicación de API en la subred de integración de front-end. A medida que agregue más aplicaciones de front-end, tendrá que ajustar cada aplicación de API para que tenga puntos de conexión de servicio con la subred de integración. Con los puntos de conexión privados, la complejidad es mayor, pero no tiene que cambiar nada en las aplicaciones de API después de configurar un punto de conexión privado. 
+
+### <a name="line-of-business-applications"></a>Aplicaciones de línea de negocio
+
+Las aplicaciones de línea de negocio (LOB) son aplicaciones internas que normalmente no se exponen para el acceso desde Internet. Estas aplicaciones se invocan desde redes corporativas internas donde el acceso puede estar controlado de forma estricta. Si usa un ASE de ILB, es fácil hospedar las aplicaciones de línea de negocio. Si usa el servicio multiinquilino, puede emplear puntos de conexión privados o puntos de conexión de servicio combinados con una puerta de enlace de aplicación. Hay dos razones para usar una puerta de enlace de aplicación con puntos de conexión de servicio en lugar de puntos de conexión privados:
+
+* Necesita la protección de WAF en sus aplicaciones de línea de negocio
+* Quiere equilibrar la carga entre varias instancias de las aplicaciones de línea de negocio
+
+Si ninguno de estos es su caso, es mejor usar puntos de conexión privados. Con los puntos de conexión privados disponibles en App Service, puede exponer las aplicaciones de direcciones privadas de la red virtual. Se puede tener acceso al punto de conexión privado colocado en la red virtual a través de conexiones de ExpressRoute y VPN. La configuración de puntos de conexión privados expondrá las aplicaciones de una dirección privada, pero habrá que configurar DNS para llegar a esa dirección desde el entorno local. Para que esto funcione, debe reenviar la zona privada de Azure DNS que contiene los puntos de conexión privados a los servidores DNS locales. Las zonas privadas de Azure DNS no admiten el reenvío de zona, pero puede admitirlo usando un servidor DNS para ese fin. Esta plantilla, [Reenviador de DNS](https://azure.microsoft.com/resources/templates/301-dns-forwarder/), facilita el reenvío de la zona privada de Azure DNS a los servidores DNS locales.
+
+## <a name="app-service-ports"></a>Puertos de App Service
+
+Si examina App Service, encontrará varios puertos que se exponen para las conexiones entrantes. No hay ninguna manera de bloquear o controlar el acceso a estos puertos en el servicio multiinquilino. Los puertos que se exponen son los siguientes:
+
+| Uso | Puertos |
+|----------|-------------|
+|  HTTP/HTTPS  | 80, 443 |
+|  Administración | 454, 455 |
+|  FTP/FTPS    | 21, 990, 10001-10020 |
+|  Depuración remota en Visual Studio  |  4020, 4022, 4024 |
+|  Servicio Web Deploy | 8172 |
+|  Uso de la infraestructura | 7654, 1221 |
 
 <!--Links-->
-[appassignedaddress]: ./configure-ssl-certificate.md
-[iprestrictions]: ./app-service-ip-restrictions.md
-[serviceendpoints]: ./app-service-ip-restrictions.md
-[hybridconn]: ./app-service-hybrid-connections.md
-[vnetintegrationp2s]: ./web-sites-integrate-with-vnet.md
-[vnetintegration]: ./web-sites-integrate-with-vnet.md
-[networkinfo]: ./environment/network-info.md
-[appgwserviceendpoints]: ./networking/app-gateway-with-service-endpoints.md
-[privateendpoints]: ./networking/private-endpoint.md
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
+[iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
+[hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections
+[vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
+[networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints
+[privateendpoints]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

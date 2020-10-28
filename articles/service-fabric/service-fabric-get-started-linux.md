@@ -2,28 +2,26 @@
 title: Configuración de su entorno de desarrollo en Linux
 description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúster de desarrollo local en Linux. Después de completar esta instalación, estará listo para compilar aplicaciones.
 ms.topic: conceptual
-ms.date: 2/23/2018
+ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 211c2c80d0f701176dfcff02872d9f1e30635d94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250001"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168416"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [Mac OS X](service-fabric-get-started-mac.md)
 
-Para implementar y ejecutar [aplicaciones de Azure Service Fabric](service-fabric-application-model.md) en la máquina de desarrollo de Linux, instale el motor de tiempo de ejecución y el SDK común. También puede instalar SDK opcionales para el desarrollo con Java y .NET Core. 
+Para implementar y ejecutar (aplicaciones de Azure Service Fabric)[service-fabric-application-model.md] en la máquina de desarrollo de Linux, instale el runtime y el SDK común. También puede instalar SDK opcionales para el desarrollo con Java y .NET Core. 
 
-En los pasos descritos en este artículo se supone que va a instalar de forma nativa en Linux o que va a usar la imagen de contenedor de Service Fabric OneBox, `mcr.microsoft.com/service-fabric/onebox:latest`.
+En los pasos descritos en este artículo se supone que va a instalar de forma nativa en Linux o que va a usar la (imagen de contenedor de Service Fabric OneBox)[https://hub.docker.com/_/microsoft-service-fabric-onebox ], es decir, `mcr.microsoft.com/service-fabric/onebox:u18`.
 
-No se admite la instalación del SDK ni del entorno de tiempo de ejecución de Service Fabric en el subsistema Windows para Linux. Puede administrar las entidades de Service Fabric hospedadas en otra parte de la nube o del entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric, ya que está admitida. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
+Puede administrar las entidades de Service Fabric hospedadas en la nube o en el entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -42,9 +40,17 @@ Se admiten estas versiones de sistemas operativos para desarrollo.
 
 ## <a name="installation-methods"></a>Métodos de instalación
 
-### <a name="script-installation-ubuntu"></a>Instalación mediante script (Ubuntu)
+<!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD024 -->
 
-Para mayor comodidad, se proporciona un script para facilitar la instalación del sistema en tiempo de ejecución y el SDK común de Service Fabric junto con la CLI de **sfctl**. Ejecute los pasos de instalación manual de la siguiente sección. Puede ver lo que se está instalando y las licencias asociadas. Con la ejecución del script se da por supuesto que acepta las licencias para todo el software que se está instalando.
+# <a name="ubuntu"></a>[Ubuntu](#tab/sdksetupubuntu)
+
+## <a name="update-your-apt-sources"></a>Actualización de los orígenes de APT
+Para instalar el SDK y el paquete del sistema en tiempo de ejecución asociado mediante la herramienta de línea de comandos apt-get, primero debe actualizar los orígenes de Advanced Packaging Tool (APT).
+
+## <a name="script-installation"></a>Instalación mediante script
+
+Para mayor comodidad, se proporciona un script para facilitar la instalación del sistema en tiempo de ejecución y el SDK común de Service Fabric junto con la CLI de [**sfctl**](service-fabric-cli.md). Con la ejecución del script se da por supuesto que acepta las licencias para todo el software que se está instalando. Como alternativa, puede seguir los pasos de [instalación manual](#manual-installation) de la sección siguiente, que presentará las licencias asociadas, así como los componentes que se van a instalar.
 
 Una vez que el script se ejecuta correctamente, puede ir directamente a [Instalación de un clúster local](#set-up-a-local-cluster).
 
@@ -52,13 +58,8 @@ Una vez que el script se ejecuta correctamente, puede ir directamente a [Instala
 sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
 ```
 
-### <a name="manual-installation"></a>Instalación manual
+## <a name="manual-installation"></a>Instalación manual
 Para la instalación manual del sistema en tiempo de ejecución y el SDK común de Service Fabric, siga los pasos descritos más abajo en esta guía.
-
-## <a name="update-your-apt-sources-or-yum-repositories"></a>Actualización de los orígenes de APT o repositorios de Yum
-Para instalar el SDK y el paquete del sistema en tiempo de ejecución asociado mediante la herramienta de línea de comandos apt-get, primero debe actualizar los orígenes de Advanced Packaging Tool (APT).
-
-### <a name="ubuntu"></a>Ubuntu
 
 1. Abra un terminal.
 
@@ -100,8 +101,30 @@ Para instalar el SDK y el paquete del sistema en tiempo de ejecución asociado m
     sudo apt-get update
     ```
 
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster"></a>Instalación y configuración del SDK de Service Fabric para un clúster local
 
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (compatibilidad con la versión preliminar de Service Fabric)
+Una vez actualizados los orígenes, puede instalar el SDK. Instale el paquete del SDK de Service Fabric, confirme la instalación y acepte el contrato de licencia.
+
+### <a name="ubuntu"></a>Ubuntu
+
+```bash
+sudo apt-get install servicefabricsdkcommon
+```
+
+> [!TIP]
+>   Los siguientes comandos aceptan automáticamente la licencia para los paquetes de Service Fabric:
+>   ```bash
+>   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
+>   ```
+
+# <a name="red-hat-enterprise-linux-74"></a>[Red Hat Enterprise Linux 7.4](#tab/sdksetuprhel74)
+
+## <a name="update-your-yum-repositories"></a>Actualización de los repositorios de Yum
+Para instalar el SDK y el paquete del runtime asociado mediante la herramienta de línea de comandos yum, primero debe actualizar los orígenes del paquete.
+
+## <a name="manual-installation-rhel"></a>Instalación manual (RHEL)
+Para la instalación manual del sistema en tiempo de ejecución y el SDK común de Service Fabric, siga los pasos descritos más abajo en esta guía.
 
 1. Abra un terminal.
 2. Descargue e instale Extra Packages for Enterprise Linux (EPEL).
@@ -129,50 +152,69 @@ Para instalar el SDK y el paquete del sistema en tiempo de ejecución asociado m
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-6. Instalación del SDK de .NET.
-
-    ```bash
-    yum install rh-dotnet20 -y
-    ```
-
-## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster"></a>Instalación y configuración del SDK de Service Fabric para un clúster local
+## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster-rhel"></a>Instalación y configuración del SDK de Service Fabric para un clúster local (RHEL)
 
 Una vez actualizados los orígenes, puede instalar el SDK. Instale el paquete del SDK de Service Fabric, confirme la instalación y acepte el contrato de licencia.
-
-### <a name="ubuntu"></a>Ubuntu
-
-```bash
-sudo apt-get install servicefabricsdkcommon
-```
-
-> [!TIP]
->   Los siguientes comandos aceptan automáticamente la licencia para los paquetes de Service Fabric:
->   ```bash
->   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
->   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
->   ```
-
-### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4 (compatibilidad con la versión preliminar de Service Fabric)
 
 ```bash
 sudo yum install servicefabricsdkcommon
 ```
 
+---
+
+## <a name="included-packages"></a>Paquetes incluidos
 El sistema en tiempo de ejecución de Service Fabric que viene con la instalación del SDK incluye los paquetes de la tabla siguiente. 
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implícito de npm | latest |
+**Ubuntu** | 2.0.7 | AzulJDK 1.8 | Implícito de npm | latest |
 **RHEL** | - | 1\.8 OpenJDK | Implícito de npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Instalación de un clúster local
-Inicie un clúster local una vez finalizada la instalación.
+1. Inicie un clúster de Service Fabric local para desarrollo.
+
+# <a name="container-based-local-cluster"></a>[Clúster local basado en contenedores](#tab/localclusteroneboxcontainer)
+
+Iniciar un [clúster de Service Fabric todo en uno](https://hub.docker.com/r/microsoft/service-fabric-onebox/), basado en contenedores.
+
+1. Instale Moby para poder implementar contenedores de Docker.
+    ```bash
+    sudo apt-get install moby-engine moby-cli -y
+    ```
+2. Actualice la configuración del demonio de Docker en el host con las opciones siguientes y reinicie dicho demonio. Detalles: [Habilitación de la compatibilidad de IPv6](https://docs.docker.com/config/daemon/ipv6/)
+
+    ```json
+    {
+        "ipv6": true,
+        "fixed-cidr-v6": "fd00::/64"
+    }
+    ```
+
+3. Inicie el clúster.<br/>
+    <b>Ubuntu 18.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
+    ```
+
+    <b>Ubuntu 16.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > De forma predeterminada, se extraerá la imagen con la versión más reciente de Service Fabric. Para revisiones concretas, visite la página [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+
+# <a name="local-cluster"></a>[Clúster local](#tab/localcluster)
+
+Después de instalar el SDK según los pasos anteriores, inicie un clúster local.
 
 1. Ejecute el script de instalación del clúster.
 
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
+
+---
 
 2. Abra un explorador web y vaya a **Service Fabric Explorer** (`http://localhost:19080/Explorer`). Al iniciarse el clúster, debería ver el panel de Service Fabric Explorer. El clúster puede tardar varios minutos en configurarse totalmente. Si el explorador no abre la dirección URL o si Service Fabric Explorer no muestra que el sistema está listo, espere unos minutos y vuelva a intentarlo.
 
@@ -217,9 +259,9 @@ Service Fabric proporciona herramientas de scaffolding que le ayudarán a crear 
 
 Después de instalar los generadores, cree ejecutables invitados o servicios de contenedor mediante la ejecución de `yo azuresfguest` o `yo azuresfcontainer` respectivamente.
 
-## <a name="set-up-net-core-20-development"></a>Configuración del desarrollo con .NET Core 2.0
+## <a name="set-up-net-core-31-development"></a>Configuración del desarrollo con .NET Core 3.1
 
-Instale el [SDK de .NET Core 2.0 para Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). NuGet.org hospeda los paquetes de aplicaciones de Service Fabric en .NET Core 2.0, actualmente en versión preliminar.
+Instale el [SDK de .NET Core 3.1 para Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) para iniciar la [creación de aplicaciones de Service Fabric en C#](service-fabric-create-your-first-linux-application-with-csharp.md). Los paquetes de aplicaciones de Service Fabric en .NET Core se hospedan en NuGet.org.
 
 ## <a name="set-up-java-development"></a>Configuración del desarrollo de Java
 
@@ -260,13 +302,13 @@ El complemento de Eclipse para Service Fabric se puede instalar desde el IDE de 
 
 2. Para instalar el complemento de Service Fabric, seleccione **Help** > **Install New Software** (Ayuda > Instalar nuevo software).
 
-3. En el cuadro **Trabajar con**, escriba **https:\//dl.microsoft.com/eclipse**.
+3. En el cuadro **Trabajar con** , escriba **https:\//dl.microsoft.com/eclipse** .
 
-4. Seleccione **Agregar**.
+4. Seleccione **Agregar** .
 
     ![Página de software disponible][sf-eclipse-plugin]
 
-5. Seleccione el complemento **ServiceFabric** y, a continuación, seleccione **Siguiente**.
+5. Seleccione el complemento **ServiceFabric** y, a continuación, seleccione **Siguiente** .
 
 6. Realice los pasos de instalación. Después, acepte el contrato de licencia para el usuario final.
 

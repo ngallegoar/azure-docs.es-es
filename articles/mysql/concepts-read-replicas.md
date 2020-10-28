@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876556"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151176"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de lectura en Azure Database for MySQL
 
@@ -24,7 +24,7 @@ Para más información sobre los problemas y las características de replicació
 > [!NOTE]
 > Comunicación sin prejuicios
 >
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_ . En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
 >
 
 ## <a name="when-to-use-a-read-replica"></a>Casos en los que utilizar las réplicas de lectura
@@ -38,7 +38,7 @@ Dado que las réplicas son de solo lectura, no reducen directamente las cargas d
 Esta característica de réplica de lectura utiliza la replicación asincrónica de MySQL. La característica no está diseñada para escenarios de replicación sincrónica. Habrá un retraso medible entre el origen y la réplica. Los datos de la réplica se vuelven finalmente coherentes con los datos del servidor maestro. Use esta característica con cargas de trabajo que puedan admitir este retraso.
 
 > [!IMPORTANT]
-> Azure Database for MySQL utiliza el registro binario basado en **FILAS**. Si falta una clave principal en la tabla, se examinan todas las filas de la tabla para las operaciones DML. Esto provoca un aumento del intervalo de replicación. Para asegurar que la réplica es capaz de mantenerse al día con los cambios en el origen, generalmente recomendamos agregar una clave primaria en las tablas del servidor de origen antes de crear el servidor de la réplica o volver a crear el servidor de réplica si ya tiene uno.
+> Azure Database for MySQL utiliza el registro binario basado en **FILAS** . Si falta una clave principal en la tabla, se examinan todas las filas de la tabla para las operaciones DML. Esto provoca un aumento del intervalo de replicación. Para asegurar que la réplica es capaz de mantenerse al día con los cambios en el origen, generalmente recomendamos agregar una clave primaria en las tablas del servidor de origen antes de crear el servidor de la réplica o volver a crear el servidor de réplica si ya tiene uno.
 
 ## <a name="cross-region-replication"></a>Replicación entre regiones
 Puede crear una réplica de lectura en una región distinta a la del servidor de origen. La replicación entre regiones puede ser útil para escenarios como el planeamiento de la recuperación ante desastres o la incorporación de datos más cerca de los usuarios.
@@ -50,7 +50,7 @@ Puede tener un servidor de origen en cualquier [región de Azure Database for M
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
 Puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor de origen. Entre las regiones de réplica universales admitidas se incluyen:
 
-Este de Australia, Sudeste de Australia, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU.
+Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU.
 
 ### <a name="paired-regions"></a>Regiones emparejadas
 Además de las regiones de réplica universales, puede crear una réplica de lectura en la región emparejada de Azure del servidor de origen. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
@@ -83,7 +83,7 @@ Durante la creación, una réplica hereda las reglas de firewall del servidor de
 
 La réplica hereda la cuenta de administrador del servidor de origen. Todas las cuentas de usuario del servidor de origen se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura utilizando las cuentas de usuario disponibles en el servidor de origen.
 
-Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for MySQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin**, puede conectarse a la réplica mediante la CLI de mysql:
+Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for MySQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin** , puede conectarse a la réplica mediante la CLI de mysql:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
@@ -127,6 +127,26 @@ Cuando haya decidido que quiere conmutar por error a una réplica, realice estos
    Cada servidor tiene una cadena de conexión única. Actualice la aplicación para que apunte a la réplica (anterior) en lugar de al servidor maestro.
     
 Una vez que la aplicación procesa correctamente las lecturas y las escrituras, ya está completa la conmutación por error. La cantidad de tiempo de inactividad que experimente su aplicación dependerá del momento en que se detecte una incidencia y se realicen los pasos 1 y 2 anteriores.
+
+## <a name="global-transaction-identifier-gtid"></a>Identificador de transacción global (GTID)
+
+El identificador de transacción global (GTID) es un identificador único que se crea con cada transacción confirmada en un servidor de origen y que está desactivado de forma predeterminada en Azure Database for MySQL. GTID se admite en las versiones 5.7 y 8.0, y solo en los servidores que admiten almacenamiento de hasta 16 TB. Para más información sobre GTID y sobre cómo se usa en la replicación, consulte la documentación de la [replicación con GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) de MySQL.
+
+MySQL admite dos tipos de transacciones: Transacciones de GTID (identificadas con GTID) y transacciones anónimas (no tienen ningún GTID asignado)
+
+Los siguientes parámetros de servidor se pueden usar para configurar GTID: 
+
+|**Parámetros de servidor**|**Descripción**|**Valor predeterminado**|**Valores**|
+|--|--|--|--|
+|`gtid_mode`|Indica si se usan GTID para identificar transacciones. Los cambios de modo se deben realizar exclusivamente paso a paso y en orden ascendente (p. ej., `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Tanto las transacciones nuevas como las de replicación deben ser anónimas <br> `OFF_PERMISSIVE`: las transacciones nuevas son anónimas. Las transacciones replicadas pueden ser transacciones de GTID o anónimas. <br> `ON_PERMISSIVE`: las transacciones nuevas son transacciones de GTID. Las transacciones replicadas pueden ser transacciones de GTID o anónimas. <br> `ON`: tanto las transacciones nuevas como las replicadas deben ser transacciones de GTID.|
+|`enforce_gtid_consistency`|Aplica la coherencia de GTID, ya que solo permite que se ejecuten las instrucciones que se pueden registrar de una manera transaccionalmente segura. Este valor debe establecerse en `ON` antes de habilitar la replicación de GTID. |`OFF`|`OFF`: a todas las transacciones se les permite infringir la coherencia de GTID.  <br> `ON`: no se permite a ninguna transacción infringir la coherencia de GTID. <br> `WARN`: a todas las transacciones se les permite infringir la coherencia de GTID, pero se genera una advertencia. | 
+
+> [!NOTE]
+> Una vez que GTID está habilitado, no se puede volver a desactivar. Si necesita desactivar GTID, póngase en contacto con el servicio de soporte técnico. 
+
+Para habilitar GTID y configurar el comportamiento de la coherencia, actualice los parámetros de servidor `gtid_mode` y `enforce_gtid_consistency` mediante [Azure Portal](howto-server-parameters.md), la [CLI de Azure](howto-configure-server-parameters-using-cli.md) o [ PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+Si GTID está habilitado en un servidor de origen (`gtid_mode` = ON), las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación de GTID. Para que la replicación se realice de forma consistente, no puede actualizar `gtid_mode` en los servidores de origen ni de réplica.
 
 ## <a name="considerations-and-limitations"></a>Consideraciones y limitaciones
 
@@ -178,9 +198,18 @@ El parámetro [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server
 
 Para actualizar uno de los parámetros anteriores en el servidor de origen, elimine los servidores de réplica, actualice el valor del parámetro en el maestro y vuelva a crear las réplicas.
 
+### <a name="gtid"></a>GTID
+
+GTID se admite en:
+- Las versiones 5.7 y 8.0 de MySQL 
+- Servidores que admiten almacenamiento de hasta 16 TB. Consulte el artículo sobre el [plan de tarifa](concepts-pricing-tiers.md#storage) para ver la lista completa de las regiones que admiten el almacenamiento de 16 TB. 
+
+GTID está desactivado de forma predeterminada, pero una vez que se habilita, no se puede volver a desactivar. Si necesita desactivar GTID, póngase en contacto con el servicio de soporte técnico. 
+
+Si GTID está habilitado en un servidor de origen, las réplicas recién creadas también tendrán GTID habilitado y usarán la replicación de GTID. Para que la replicación se realice de forma consistente, no puede actualizar `gtid_mode` en los servidores de origen ni de réplica.
+
 ### <a name="other"></a>Otros
 
-- No se admiten identificadores de transacción global (GTID).
 - No permite crear réplicas de réplicas.
 - Las tablas en memoria pueden provocar que las réplicas dejen de sincronizarse. Esto es una limitación de la tecnología de replicación de MySQL. Puede obtener más información en la [documentación de referencia de MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html).
 - Asegúrese de que las tablas del servidor de origen tienen claves principales. La falta de claves principales puede generar una latencia en la replicación entre el origen y las réplicas.

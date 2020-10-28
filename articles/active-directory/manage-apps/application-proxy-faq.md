@@ -1,5 +1,5 @@
 ---
-title: Preguntas más frecuentes sobre Azure AD Application Proxy| Microsoft Docs
+title: Preguntas más frecuentes sobre Azure Active Directory Application Proxy
 description: Obtenga respuestas a las preguntas más frecuentes (p+f) sobre el uso de Azure AD Application Proxy para publicar aplicaciones internas y locales en usuarios remotos.
 services: active-directory
 author: kenwith
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589170"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104570"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -48,7 +48,7 @@ No, este escenario no se admite. La configuración predeterminada es la siguient
 
 No, actualmente no es posible. El intento de registro siempre se realiza en el inquilino principal del usuario.
 
-### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>La aplicación de back-end se hospeda en varios servidores web y requiere la persistencia de la sesión de usuario (permanencia). ¿Cómo puedo conseguir la persistencia de la sesión? 
+### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>La aplicación de back-end se hospeda en varios servidores web y requiere la persistencia de la sesión de usuario (permanencia). ¿Cómo puedo conseguir la persistencia de la sesión? 
 
 Para ver más recomendaciones, consulte [Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy](application-proxy-high-availability-load-balancing.md).
 
@@ -83,7 +83,6 @@ El proxy de aplicación requiere Windows Server 2012 R2 o versiones posteriores.
     ```
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```
-
 
 ## <a name="application-configuration"></a>Configuración de aplicaciones
 
@@ -124,6 +123,12 @@ Para obtener más información, consulte [Información sobre la delegación rest
 ### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>¿Funciona la autenticación NTLM con Azure AD Application Proxy?
 
 No se puede usar la autenticación NTLM como método de autenticación previa o de inicio de sesión único. La autenticación NTLM solo se puede usar cuando se puede negociar directamente entre el cliente y la aplicación web publicada. El uso de la autenticación NTLM normalmente hace que aparezca un mensaje de inicio de sesión en el explorador.
+
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>¿Puedo usar la identidad de inicio de sesión "Nombre principal de usuario local" o "Nombre de cuenta SAM local" en un escenario de inicio de sesión único de Autenticación integrada de Windows B2B?
+
+No, esto no funcionará, ya que un usuario invitado de Azure AD no tiene el atributo que requieren las identidades de inicio de sesión mencionadas anteriormente.
+
+En este caso, habrá una reserva para "Nombre principal de usuario". Para más información sobre el escenario B2B, consulte [Conceder a los usuarios de B2B en Azure AD acceso a las aplicaciones locales](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## <a name="pass-through-authentication"></a>Autenticación de paso a través
 
@@ -198,5 +203,5 @@ Este escenario no se admite directamente. Pero tiene varias opciones para el mis
 1. Puede publicar las direcciones URL HTTP y HTTPS como aplicaciones independientes con un carácter comodín, pero deberá asignarles un dominio personalizado diferente. Esta configuración funcionará porque tiene direcciones URL externas diferentes.
 
 2. Puede publicar la dirección URL HTTPS a través de una aplicación con caracteres comodín. Publique las aplicaciones HTTP por separado mediante estos cmdlets de PowerShell de Application Proxy:
-   - [Administración de aplicaciones de Application Proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Administración de conectores de Application Proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Administración de aplicaciones de Application Proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Administración de conectores de Application Proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)
