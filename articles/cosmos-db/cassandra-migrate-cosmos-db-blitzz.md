@@ -7,22 +7,22 @@ ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: d3eda4694decb74912cc125ef0a33de04838be2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66314155a8de5036009b8e42bf84a8ae8860d0ea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260634"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278956"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migración de los datos de Cassandra a una cuenta de Cassandra API de Azure Cosmos DB mediante Blitzz
 
 Cassandra API en Azure Cosmos DB se ha convertido en una excelente opción para cargas de trabajo empresariales que se ejecutan en Apache Cassandra por diversos motivos como, por ejemplo: 
 
-* **No hay sobrecarga de administración y supervisión**: evita la sobrecarga que supone administrar y supervisar innumerables configuraciones en el sistema operativo, JVM, los archivos yaml y sus interacciones.
+* **No hay sobrecarga de administración y supervisión** : evita la sobrecarga que supone administrar y supervisar innumerables configuraciones en el sistema operativo, JVM, los archivos yaml y sus interacciones.
 
-* **Importante ahorro de costos**: puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad. 
+* **Importante ahorro de costos** : puede ahorrar costos con Azure Cosmos DB, como en el costo de las máquinas virtuales, del ancho de banda y de las licencias aplicables. Además, no tiene que administrar los centros de datos, los servidores, el almacenamiento en SSD, las redes y los costos de electricidad. 
 
-* **Posibilidad de usar código y herramientas existentes**: Azure Cosmos DB proporciona compatibilidad de nivel de protocolo de conexión con SDK y herramientas existentes de Cassandra. Esta compatibilidad garantiza que pueda usar el código base existente con Cassandra API de Azure Cosmos DB con cambios triviales.
+* **Posibilidad de usar código y herramientas existentes** : Azure Cosmos DB proporciona compatibilidad de nivel de protocolo de conexión con SDK y herramientas existentes de Cassandra. Esta compatibilidad garantiza que pueda usar el código base existente con Cassandra API de Azure Cosmos DB con cambios triviales.
 
 Existen varias maneras de migrar las cargas de trabajo de base de datos de una plataforma a otra. [Blitzz](https://www.blitzz.io) es una herramienta que ofrece una forma segura y confiable de realizar una migración sin tiempo de inactividad desde una variedad de bases de datos a Azure Cosmos DB. En este artículo se describen los pasos necesarios para migrar datos de la base de datos de Apache Cassandra a Cassandra API de Azure Cosmos DB mediante Blitzz.
 
@@ -34,7 +34,7 @@ La solución de migración de Blitzz sigue un enfoque paso a paso para migrar ca
 
 * Blitzz ofrece una replicación de base de datos de gran volumen en paralelo. Permite que las plataformas de origen y de destino estén sincronizadas durante la migración mediante una técnica denominada captura de datos modificados (CDC). Mediante el uso de CDC, Blitzz extrae continuamente un flujo de cambios de la base de datos de origen (Apache Cassandra) y los aplica a la base de datos de destino (Azure Cosmos DB).
 
-* Es tolerante a errores y garantiza una entrega exacta de los datos, incluso durante un error de hardware o software en el sistema.
+* Es tolerante a errores y proporciona una entrega exacta de los datos, incluso durante un error de hardware o software en el sistema.
 
 * Protege los datos durante el tránsito mediante diversas metodologías de seguridad, como TLS o el cifrado.
 
@@ -112,11 +112,11 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
    max-connections: 30
    ```
 
-1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea**:
+1. A continuación, migre los datos mediante Blitzz. Puede ejecutar el replicante de Blizz en modo **completo** o **de instantánea** :
 
-   * **Modo completo**: en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Apache Cassandra de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
+   * **Modo completo** : en este modo, el replicante continúa ejecutándose después de la migración y escucha los cambios en el sistema Apache Cassandra de origen. Si detecta cambios, se replican en la cuenta de Azure Cosmos de destino en tiempo real.
 
-   * **Modo de instantánea**: en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
+   * **Modo de instantánea** : en este modo, puede realizar la migración de esquemas y una única replicación de datos. Esta opción no admite la replicación en tiempo real.
 
    Mediante el uso de los dos modos anteriores, la migración se puede realizar sin tiempo de inactividad. 
 
@@ -133,7 +133,7 @@ En esta sección se describen los pasos necesarios para configurar Blitzz y migr
 
 1. Dado que ha usado el modo completo para la migración, puede realizar operaciones como insertar, actualizar o eliminar datos en la base de datos de Apache Cassandra de origen. Después, asegúrese de que se replican en tiempo real en la base de datos de Azure Cosmos de destino. Tras la migración, asegúrese de reducir el rendimiento configurado para el contenedor de Azure Cosmos.
 
-1. Puede detener el replicante en cualquier momento y reiniciarlo con el modificador **--resume**. La replicación se reanuda en el punto en el que se detuvo sin poner en peligro la coherencia de los datos. El siguiente comando muestra cómo usar el modificador de reanudación.
+1. Puede detener el replicante en cualquier momento y reiniciarlo con el modificador **--resume** . La replicación se reanuda en el punto en el que se detuvo sin poner en peligro la coherencia de los datos. El siguiente comando muestra cómo usar el modificador de reanudación.
 
    ```bash
    ./bin/replicant full conf/conn/cassandra.yaml conf/conn/cosmosdb.yaml --filter filter/cassandra_filter.yaml --replace-existing --resume

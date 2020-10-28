@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564744"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132081"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de sugerencias de token de id. en una directiva personalizada de Azure Active Directory B2C
 
@@ -87,13 +87,13 @@ Los metadatos siguientes son relevantes cuando se usa una clave simétrica.
 | issuer | Sí | Identifica el servicio de token de seguridad (emisor del token). Este valor debe ser idéntico a la notificación `iss` dentro de la notificación del token JWT. | 
 | IdTokenAudience | Sí | Identifica al destinatario previsto del token. Debe ser idéntico a la notificación `aud` dentro de la notificación del token JWT. | 
 
-Los metadatos siguientes son relevantes cuando se usa una clave simétrica. 
+Los metadatos siguientes son pertinentes cuando se usa una clave asimétrica. 
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
 | METADATOS| Sí | Una dirección URL que apunta a un documento de configuración del emisor del token, que es un punto de conexión de configuración conocido de OpenID.   |
 | issuer | No | Identifica el servicio de token de seguridad (emisor del token). Este valor se puede usar para sobrescribir el valor configurado en los metadatos y debe ser idéntico a la notificación `iss` dentro de la notificación del token JWT. |  
-| IdTokenAudience | No | Identifica al destinatario previsto del token. Este valor se puede usar para sobrescribir el valor configurado en los metadatos y debe ser idéntico a la notificación `aud` dentro de la notificación del token JWT. |  
+| IdTokenAudience | No | Identifica al destinatario previsto del token. Debe ser idéntico a la notificación `aud` dentro de la notificación del token JWT. |  
 
 ## <a name="cryptographic-keys"></a>Claves criptográficas
 
@@ -129,15 +129,15 @@ Debe crearse la misma clave que usa el emisor del token, en las claves de la dir
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal y, luego, elija el directorio que contiene el inquilino de Azure AD B2C.
-1. En Azure Portal, busque y seleccione **Azure AD B2C**.
-1. En la página de información general, en **Directivas**, seleccione **Identity Experience Framework**.
-1. Seleccione **Claves de directiva**. 
-1. Seleccione **Manual**.
-1. En **Nombre**, use `IdTokenHintKey`.  
+1. En Azure Portal, busque y seleccione **Azure AD B2C** .
+1. En la página de información general, en **Directivas** , seleccione **Identity Experience Framework** .
+1. Seleccione **Claves de directiva** . 
+1. Seleccione **Manual** .
+1. En **Nombre** , use `IdTokenHintKey`.  
    Es posible que se agregue automáticamente el prefijo `B2C_1A_`.
-1. En el cuadro **Secreto**, escriba la clave de inicio de sesión que ha generado anteriormente.
-1. En **Uso de claves**, use **Cifrado**.
-1. Seleccione **Crear**.
+1. En el cuadro **Secreto** , escriba la clave de inicio de sesión que ha generado anteriormente.
+1. En **Uso de claves** , use **Cifrado** .
+1. Seleccione **Crear** .
 1. Confirme que ha creado la clave `B2C_1A_IdTokenHintKey`.
 
 
@@ -219,7 +219,7 @@ El siguiente perfil técnico valida el token y extrae las notificaciones. Cambie
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

@@ -1,7 +1,7 @@
 ---
-title: Control de acceso basado en roles de Custom Vision
+title: 'Control de acceso basado en roles de Azure: Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: En este artículo se muestra cómo configurar el control de acceso basado en roles para sus proyectos de Custom Vision.
+description: En este artículo se muestra cómo configurar el control de acceso basado en roles de Azure para sus proyectos de Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,29 +10,29 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826935"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146363"
 ---
-# <a name="role-based-access-control"></a>Control de acceso basado en roles.
+# <a name="azure-role-based-access-control"></a>Control de acceso basado en roles de Azure
 
-Custom Vision admite el control de acceso basado en roles de Azure (Azure RBAC), un sistema de autorización que permite administrar el acceso individual a los recursos de Azure. Con RBAC, se asignan diferentes miembros del equipo a distintos niveles de permisos para los proyectos de Custom Vision. Para más información sobre RBAC, consulte la [documentación de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/).
+Custom Vision admite el control de acceso basado en roles de Azure (Azure RBAC), un sistema de autorización que permite administrar el acceso individual a los recursos de Azure. Con Azure RBAC, se asignan diferentes miembros del equipo a distintos niveles de permisos para los proyectos de Custom Vision. Para obtener más información sobre Azure RBAC, consulte la [documentación de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Adición de asignaciones de roles a Custom Vision recurso
 
 Azure RBAC se puede asignar a un recurso de Custom Vision. Para conceder acceso a un recurso de Azure, se agrega una asignación de roles.
-1. En [Azure Portal](https://ms.portal.azure.com/), seleccione **Todos los servicios**. 
+1. En [Azure Portal](https://ms.portal.azure.com/), seleccione **Todos los servicios** . 
 1. A continuación, seleccione la opción **Cognitive Services** y navegue hasta el recurso de entrenamiento de Custom Vision específico.
    > [!NOTE]
-   > También puede configurar RBAC para grupos de recursos completos, suscripciones o grupos de administración. Para ello, seleccione el nivel de ámbito que quiera y navegue hasta el elemento deseado (por ejemplo, seleccione **Grupos de recursos** y, a continuación, haga clic en el grupo de recursos que quiera).
+   > También puede configurar Azure RBAC para grupos de recursos completos, suscripciones o grupos de administración. Para ello, seleccione el nivel de ámbito que quiera y navegue hasta el elemento deseado (por ejemplo, seleccione **Grupos de recursos** y, a continuación, haga clic en el grupo de recursos que quiera).
 1. Seleccione **Control de acceso (IAM)** en el panel de navegación izquierdo.
 1. Seleccione la pestaña **Asignaciones de roles** para ver todas las asignaciones de roles en este ámbito.
-1. Seleccione **Agregar** -> **Agregar asignación de roles**.
-1. En la lista desplegable **Rol**, seleccione el rol que quiere agregar.
-1. En la lista **Seleccionar**, seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro Seleccionar para buscar nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
+1. Seleccione **Agregar** -> **Agregar asignación de roles** .
+1. En la lista desplegable **Rol** , seleccione el rol que quiere agregar.
+1. En la lista **Seleccionar** , seleccione un usuario, grupo, entidad de servicio o identidad administrada. Si no ve la entidad de seguridad en la lista, puede escribir en el cuadro Seleccionar para buscar nombres para mostrar, direcciones de correo electrónico e identificadores de objeto en el directorio.
 1. Seleccione **Guardar** para asignar el rol.
 
 En cuestión de minutos, al destino se le asignará el rol seleccionado en el ámbito seleccionado.

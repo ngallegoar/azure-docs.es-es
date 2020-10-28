@@ -3,16 +3,16 @@ title: ¿Qué es el marketplace comercial de Microsoft?
 description: Información general de las ventajas y las opciones para los asociados de Microsoft que publican soluciones en el marketplace comercial de Microsoft.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dannyevers
+ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
-ms.date: 10/01/2020
-ms.openlocfilehash: 91ae1ce8cb61a0bbc4907c21f0e5e6b869cedb85
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/15/2020
+ms.openlocfilehash: 0b0f290a5f560fa8f6db109422c8790ecef9698e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654282"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107052"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>¿Qué es el marketplace comercial de Microsoft?
 
@@ -26,21 +26,41 @@ El marketplace comercial de Microsoft cuenta con dos tiendas en línea: [Microso
 
 Al crear una oferta del marketplace comercial en el Centro de partners, se publicará en cualquiera de las tiendas en línea (o en las dos), en función del tipo de oferta, las categorías y otras opciones que seleccione. En el caso excepcional de que la oferta sea pertinente para los usuarios de ambas tiendas en línea, puede aparecer en ambos. Para más información, consulte [Selección de una tienda en línea](determine-your-listing-type.md#selecting-an-online-store) y la [Guía del comprador para Microsoft AppSource y Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
-**Microsoft AppSource** es para soluciones empresariales, como las aplicaciones de software como servicio (SaaS), y también para aplicaciones que se integran directamente en Dynamics 365, Microsoft 365 y Microsoft Power Platform. Los servicios de consultoría de AppSource son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Dynamics 365 y Power BI o a acelerar su uso.
+### <a name="microsoft-appsource"></a>Microsoft AppSource
+
+[Microsoft AppSource](https://appsource.microsoft.com/) es para soluciones empresariales, como las aplicaciones de software como servicio (SaaS), y también para aplicaciones que se integran directamente en Dynamics 365, Microsoft 365 y Microsoft Power Platform. Los servicios de consultoría de AppSource son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Dynamics 365 y Power BI o a acelerar su uso.
 
 Este es un ejemplo de página de oferta en AppSource:
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Ilustra una página de oferta en Microsoft AppSource.":::
 
-**Azure Marketplace** es para las soluciones integradas o creadas para Azure y diseñadas para profesionales y desarrolladores de TI. Esto incluye los anuncios de consultoría y los servicios administrados. Los servicios de consultoría de Azure Marketplace son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Azure o a acelerar su uso.
+####  <a name="appsource-in-product-experience"></a>Experiencia dentro del producto de AppSource
+
+Los clientes también pueden acceder a las ofertas de AppSource mediante Microsoft 365, Dynamics 365, Power Platform y Azure. En el ejemplo siguiente se muestra cómo acceder a los complementos de AppSource desde el menú **Archivo** de Power BI.
+
+:::image type="content" source="media/overview/power-bi.png" alt-text="Ilustra una página de oferta en Microsoft AppSource."::: 
+
+Esta opción abre una ventana en la que el cliente puede buscar complementos de Power BI por nombre o categoría. 
+
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Ilustra una página de oferta en Microsoft AppSource."::: 
+
+### <a name="azure-marketplace"></a>Azure Marketplace
+
+[Azure Marketplace](https://azuremarketplace.microsoft.com/) es para las soluciones integradas o creadas para Azure y diseñadas para profesionales y desarrolladores de TI. Esto incluye los anuncios de consultoría y los servicios administrados. Los servicios de consultoría de Azure Marketplace son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Azure o a acelerar su uso.
 
 Este es un ejemplo de página de oferta en Azure Marketplace:
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Ilustra una página de oferta en Microsoft AppSource."::: 
 
-Dado que Azure Marketplace se basa en Azure, los clientes pueden acceder a las soluciones mediante la opción **Crear un recurso** de [Azure Portal](https://portal.azure.com/).
+#### <a name="azure-marketplace-in-the-azure-portal"></a>Azure Marketplace en Azure Portal
+
+Los clientes de Azure pueden descubrir e implementar soluciones de Azure Marketplace mediante la opción **Crear un recurso** en [Azure Portal](https://portal.azure.com/).
 
 :::image type="content" source="media/overview/create-resource.png" alt-text="Ilustra una página de oferta en Microsoft AppSource."::: 
+
+Esta opción abre Azure Marketplace en Azure Portal, donde se pueden buscar soluciones por nombre o categoría.
+
+:::image type="content" source="media/overview/search-portal.png" alt-text="Ilustra una página de oferta en Microsoft AppSource."::: 
 
 ## <a name="benefits-of-selling-with-microsoft"></a>Ventajas de vender con Microsoft
 

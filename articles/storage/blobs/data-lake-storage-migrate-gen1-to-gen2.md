@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716142"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102649"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migración de Azure Data Lake Storage de Gen1 a Gen2
 
@@ -114,15 +114,15 @@ Elija un patrón de migración y, después, modifíquelo tanto como sea necesari
 |||
 |---|---|
 |**Lift-and-shift**|El patrón más simple. Ideal si sus canalizaciones de datos pueden permitirse un tiempo de inactividad.|
-|**Copia incremental**|Similar a *lift-and-shift*, pero con menos tiempo de inactividad. Ideal para grandes cantidades de datos que tardan más tiempo en copiarse.|
+|**Copia incremental**|Similar a *lift-and-shift* , pero con menos tiempo de inactividad. Ideal para grandes cantidades de datos que tardan más tiempo en copiarse.|
 |**Canalización dual**|Ideal para canalizaciones que no pueden permitirse ningún tiempo de inactividad.|
-|**Sincronización bidireccional**|Es similar a la *canalización dual*, pero con un enfoque más escalonado, que es adecuado para canalizaciones más complicadas.|
+|**Sincronización bidireccional**|Es similar a la *canalización dual* , pero con un enfoque más escalonado, que es adecuado para canalizaciones más complicadas.|
 
 Examinemos más detenidamente cada patrón.
  
 ### <a name="lift-and-shift-pattern"></a>Patrón lift-and-shift
 
-Este es el patrón más sencillo.
+Este es el patrón más sencillo. 
 
 1. Detenga todas las escrituras en Gen1.
 
@@ -131,6 +131,8 @@ Este es el patrón más sencillo.
 3. Apunte las operaciones de ingesta y las cargas de trabajo a Gen2.
 
 4. Dé de baja Gen1.
+
+Consulte nuestro código de ejemplo para el patrón lift-and-shift en nuestro [ejemplo de migración mediante lift-and-shift](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Patrón lift-and-shift](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -153,6 +155,9 @@ Este es el patrón más sencillo.
 
 4. Dé de baja Gen1.
 
+Consulte nuestro código de ejemplo para obtener el patrón de copia incremental de nuestro [ejemplo de migración de copia incremental](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+
+
 > [!div class="mx-imgBorder"]
 > ![Patrón de copia incremental](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -174,6 +179,8 @@ Este es el patrón más sencillo.
 
 4. Detenga todas las escrituras en Gen1 y, después, dé de baja Gen1.
 
+Consulte nuestro código de ejemplo para obtener el patrón de canalización dual de nuestro [ejemplo de migración de canalización dual](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+
 > [!div class="mx-imgBorder"]
 > ![Patrón de canalización dual](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -192,6 +199,8 @@ Este es el patrón más sencillo.
 3. Cuando se hayan completado todos los movimientos, detenga todas las escrituras en Gen1 y desactive la replicación bidireccional.
 
 4. Dé de baja Gen1.
+
+Consulte nuestro código de ejemplo para obtener el patrón de sincronización bidireccional de nuestro [ejemplo de migración de sincronización bidireccional](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Patrón bidireccional](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

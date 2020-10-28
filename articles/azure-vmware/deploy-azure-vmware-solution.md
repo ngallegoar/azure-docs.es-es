@@ -4,12 +4,12 @@ description: Aprenda a usar la información recopilada en la fase de planeación
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776432"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152038"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementación y configuración de Azure VMware Solution
 
@@ -35,7 +35,7 @@ Use la información recopilada en el artículo [Planeación de la implementació
 ## <a name="create-the-jump-box"></a>Creación del jumpbox
 
 >[!IMPORTANT]
->Si dejó la opción **Virtual Network** en blanco durante el paso de aprovisionamiento inicial en la pantalla de **Creación de una nube privada**, complete el tutorial [Configuración de redes para la nube privada de VMware](tutorial-configure-networking.md) **antes** de continuar con esta sección.  
+>Si dejó la opción **Virtual Network** en blanco durante el paso de aprovisionamiento inicial en la pantalla de **Creación de una nube privada** , complete el tutorial [Configuración de redes para la nube privada de VMware](tutorial-configure-networking.md) **antes** de continuar con esta sección.  
 
 Después de implementar Azure VMware Solution, deberá crear el jumpbox de la red virtual que se conecta a vCenter y NSX. Una vez que haya configurado los circuitos de ExpressRoute y Global Reach de ExpressRoute, el jumpbox dejará de ser necesario.  Aún así, es práctico conectarse a vCenter y NSX en Azure VMware Solution.  
 
@@ -67,7 +67,7 @@ En este ejemplo, la red 10.74.72.0/22 que se agregó durante la implementación,
 
 Inicie sesión en el jumpbox que creó en el paso anterior. Una vez que haya iniciado sesión, abra un explorador web e inicie sesión en la consola de administración de vCenter y NSX-T.  
 
-Puede identificar las direcciones IP y las credenciales de la consola de administración de NSX-T y vCenter en Azure Portal.  A continuación, seleccione la nube privada y, en la vista **Información general**, seleccione **Identidad > Predeterminada**. 
+Puede identificar las direcciones IP y las credenciales de la consola de administración de NSX-T y vCenter en Azure Portal.  A continuación, seleccione la nube privada y, en la vista **Información general** , seleccione **Identidad > Predeterminada** . 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Creación de un segmento de red en Azure VMware Solution
 
@@ -82,7 +82,7 @@ Siga el tutorial de [Creación de un segmento de red NSX-T en Azure VMware Solut
 
 Vuelva al paso de [Comprobación de las rutas de red anunciadas](#verify-network-routes-advertised). Verá una ruta o rutas adicionales en la lista que representa los segmentos de red que creó en el paso anterior.  
 
-En el caso de las máquinas virtuales, deberá asignar los segmentos creados en el paso de [Comprobación del segmento de NSX-T anunciado](#verify-advertised-nsx-t-segment).  
+En el caso de las máquinas virtuales, asignará los segmentos creados en el paso [Creación de un segmento de red en Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution).  
 
 Como el DNS es necesario, identifique el servidor DNS que quiere utilizar.  
 

@@ -1,23 +1,23 @@
 ---
 title: Detalles del cumplimiento normativo de Azure Security Benchmark
 description: Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ac37714aa18806d3eddbb5cf03c922754483f85
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932182"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311457"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Detalles de la iniciativa integrada de cumplimiento normativo de Azure Security Benchmark
 
 En el siguiente artículo se detalla la correspondencia entre los **dominios de cumplimiento** y los **controles** de la definición de la iniciativa integrada del cumplimiento normativo de Azure Policy y Azure Security Benchmark.
-Para más información acerca de este estándar normativo, consulte [Azure Security Benchmark](../../../security/benchmarks/overview.md). Para entender el concepto de _Propiedad_, consulte [Definición de directivas de Azure Policy](../concepts/definition-structure.md#type) y [Responsabilidad compartida en la nube](../../../security/fundamentals/shared-responsibility.md).
+Para más información acerca de este estándar normativo, consulte [Azure Security Benchmark](../../../security/benchmarks/overview.md). Para entender el concepto de _Propiedad_ , consulte [Definición de directivas de Azure Policy](../concepts/definition-structure.md#type) y [Responsabilidad compartida en la nube](../../../security/fundamentals/shared-responsibility.md).
 
-Las siguientes asignaciones son para controles de **Azure Security Benchmark**. Use el panel de navegación de la derecha para ir directamente a un **dominio de cumplimiento** específico. Muchos de los controles se implementan con una definición de iniciativa de [Azure Policy](../overview.md). Para revisar la definición de iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**.
-Busque y seleccione la definición de la iniciativa integrada de cumplimiento normativo de **Azure Security Benchmark**.
+Las siguientes asignaciones son para controles de **Azure Security Benchmark** . Use el panel de navegación de la derecha para ir directamente a un **dominio de cumplimiento** específico. Muchos de los controles se implementan con una definición de iniciativa de [Azure Policy](../overview.md). Para revisar la definición de iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones** .
+Busque y seleccione la definición de la iniciativa integrada de cumplimiento normativo de **Azure Security Benchmark** .
 
 Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnico de Azure Security Benchmark](../../blueprints/samples/azure-security-benchmark.md).
 
@@ -29,7 +29,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
-**Identificador**: Azure Security Benchmark 1.1 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 1.1 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -58,7 +58,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>Supervise y registre la configuración y el tráfico de redes virtuales, subredes y NIC
 
-**Identificador**: Azure Security Benchmark 1.2 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 1.2 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="protect-critical-web-applications"></a>Proteja las aplicaciones web críticas
 
-**Identificador**: Azure Security Benchmark 1.3 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 1.3 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,7 +80,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>Deniegue las comunicaciones con direcciones IP malintencionadas conocidas
 
-**Identificador**: Azure Security Benchmark 1.4 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 1.4 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -91,7 +91,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="record-network-packets-and-flow-logs"></a>Registre los paquetes de red y registros de flujo
 
-**Identificador**: Azure Security Benchmark 1.5 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 1.5 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>Use herramientas automatizadas para supervisar las configuraciones de recursos de red y detectar cambios
 
-**Identificador**: Azure Security Benchmark 1.11 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 1.11 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="configure-central-security-log-management"></a>Configuración de la administración central de registros de seguridad
 
-**Identificador**: Azure Security Benchmark 2.2 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 2.2 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>Habilitación del registro de auditoría para recursos de Azure
 
-**Identificador**: Azure Security Benchmark 2.3 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 2.3 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="collect-security-logs-from-operating-systems"></a>Recopilación de registros de seguridad de sistemas operativos
 
-**Identificador**: Azure Security Benchmark 2.4 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 2.4 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="configure-security-log-storage-retention"></a>Configuración de la retención del almacenamiento de registros de seguridad
 
-**Identificador**: Azure Security Benchmark 2.5 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 2.5 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>Habilitación de alertas para actividades anómalas
 
-**Identificador**: Azure Security Benchmark 2.7 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 2.7 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="centralize-anti-malware-logging"></a>Centralización del registro antimalware
 
-**Identificador**: Azure Security Benchmark 2.8 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 2.8 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>Mantenga un inventario de cuentas administrativas
 
-**Identificador**: Azure Security Benchmark 3.1 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 3.1 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-dedicated-administrative-accounts"></a>Use cuentas administrativas dedicadas
 
-**Identificador**: Azure Security Benchmark 3.3 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 3.3 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>Use la autenticación multifactor para todo el acceso basado en Azure Active Directory
 
-**Identificador**: Azure Security Benchmark 3.5 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 3.5 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-azure-active-directory"></a>Uso de Azure Active Directory
 
-**Identificador**: Azure Security Benchmark 3.9 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 3.9 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>Revise y concilie regularmente el acceso de los usuarios
 
-**Identificador**: Azure Security Benchmark 3.10 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 3.10 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>Mantenimiento de un inventario de información confidencial
 
-**Identificador**: Azure Security Benchmark 4.1 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 4.1 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>Cifrado de toda la información confidencial en tránsito
 
-**Identificador**: Azure Security Benchmark 4.4 **Propiedad**: Compartido
+**Identificador** : Azure Security Benchmark 4.4 **Propiedad** : Compartido
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>Uso de una herramienta de detección activa para identificar datos confidenciales
 
-**Identificador**: Azure Security Benchmark 4.5 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 4.5 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Uso de RBAC de Azure para controlar el acceso a los recursos
 
-**Identificador**: Azure Security Benchmark 4.6 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 4.6 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>Cifrado de información confidencial en reposo
 
-**Identificador**: Azure Security Benchmark 4.8 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 4.8 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>Registro y alerta de cambios en los recursos críticos de Azure
 
-**Identificador**: Azure Security Benchmark 4.9 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 4.9 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>Ejecute herramientas de análisis de vulnerabilidades automatizado
 
-**Identificador**: Azure Security Benchmark 5.1 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 5.1 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>Implemente una solución de administración de revisiones de sistema operativo automatizada
 
-**Identificador**: Azure Security Benchmark 5.2 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 5.2 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,23 +336,23 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>Implemente una solución automatizada de administración de revisiones de software de terceros
 
-**Identificador**: Azure Security Benchmark 5.3 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 5.3 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Asegúrese de que la "Versión de Java" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes de Java. Para las aplicaciones de API, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
-|[Asegúrese de que la versión de Java sea la más reciente, si se usa como parte de la aplicación de funciones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Java. Para las aplicaciones de funciones, se recomienda usar la versión más reciente de Java con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
-|[Asegúrese de que la "Versión de Java" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Java. Para las aplicaciones web, se recomienda usar la versión más reciente de Java con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
-|[Asegúrese de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones de API, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[Asegúrese de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones web, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
-|[Asegúrese de que la "Versión de Python" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python. Para las aplicaciones de API, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
-|[Asegúrese de que la "Versión de Python" es la más reciente, si se usa como parte de la aplicación de funciones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python. Para las aplicaciones de funciones, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
-|[Asegúrese de que la "Versión de Python" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python. Para las aplicaciones web, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
+|[Asegurarse de que la "Versión de Java" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes de Java. Para las aplicaciones de API, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
+|[Asegúrese de que la versión de Java sea la más reciente, si se usa como parte de la aplicación de funciones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Java. Para las aplicaciones de funciones, se recomienda usar la versión más reciente de Java con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
+|[Asegúrese de que la "Versión de Java" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Java. Para las aplicaciones web, se recomienda usar la versión más reciente de Java con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
+|[Asegurarse de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones de API, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[Asegúrese de que la "Versión de PHP" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de PHP. Para las aplicaciones web, se recomienda usar la versión más reciente de PHP con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[Asegurarse de que la "Versión de Python" es la más reciente, si se usa como parte de la aplicación de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python. Para las aplicaciones de API, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
+|[Asegúrese de que la "Versión de Python" es la más reciente, si se usa como parte de la aplicación de funciones](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python. Para las aplicaciones de funciones, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
+|[Asegúrese de que la "Versión de Python" es la más reciente, si se usa como parte de la aplicación web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |A causa de errores de seguridad o para incluir funcionalidades, se publican de forma periódica versiones más recientes del software de Python. Para las aplicaciones web, se recomienda usar la versión más reciente de Python con el fin de aprovechar las correcciones de seguridad, de haberlas, o las nuevas funcionalidades de la versión más reciente. Actualmente, esta directiva solo se aplica a las aplicaciones web de Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
 |[Kubernetes Services se debe actualizar a una versión de Kubernetes no vulnerable](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |Actualice el clúster de servicio de Kubernetes a una versión de Kubernetes posterior para protegerse frente a vulnerabilidades conocidas en la versión actual de Kubernetes. La vulnerabilidad CVE-2019-9946 se ha revisado en las versiones de Kubernetes 1.11.9+, 1.12.7+, 1.13.5+ y 1.14.0+ |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>Use un proceso de clasificación de riesgos para priorizar la corrección de las vulnerabilidades detectadas
 
-**Identificador**: Azure Security Benchmark 5.5 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 5.5 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -366,7 +366,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-only-approved-applications"></a>Uso exclusivo de aplicaciones aprobadas
 
-**Identificador**: Azure Security Benchmark 6.8 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 6.8 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-only-approved-azure-services"></a>Uso exclusivo de servicios de Azure aprobados
 
-**Identificador**: Azure Security Benchmark 6.9 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 6.9 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="implement-approved-application-list"></a>Implementación de la lista de aplicaciones aprobadas
 
-**Identificador**: Azure Security Benchmark 6.10 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 6.10 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="maintain-secure-operating-system-configurations"></a>Mantenga configuraciones del sistema operativo seguras
 
-**Identificador**: Azure Security Benchmark 7.4 **Propiedad**: Compartido
+**Identificador** : Azure Security Benchmark 7.4 **Propiedad** : Compartido
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Identificador**: Azure Security Benchmark 7.10 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 7.10 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,7 +413,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="manage-azure-secrets-securely"></a>Administre los secretos de Azure de forma segura
 
-**Identificador**: Azure Security Benchmark 7.11 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 7.11 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -421,7 +421,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="manage-identities-securely-and-automatically"></a>Administre las identidades de forma segura y automática 
 
-**Identificador**: Azure Security Benchmark 7.12 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 7.12 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>Use software antimalware administrado centralmente
 
-**Identificador**: Azure Security Benchmark 8.1 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 8.1 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>Asegúrese de que se han actualizado el software y las firmas antimalware
 
-**Identificador**: Azure Security Benchmark 8.3 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 8.3 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-regular-automated-back-ups"></a>Garantía de copias de seguridad automáticas periódicas
 
-**Identificador**: Azure Security Benchmark 9.1 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 9.1 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>Realización de copias de seguridad completas del sistema y copia de seguridad de las claves administradas por el cliente
 
-**Identificador**: Azure Security Benchmark 9.2 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 9.2 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,7 +476,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>Garantía de la protección de las copias de seguridad y las claves administradas del cliente
 
-**Identificador**: Azure Security Benchmark 9.4 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 9.4 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -486,7 +486,7 @@ Esta iniciativa integrada se implementa como parte del [ejemplo de plano técnic
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>Provisión de detalles de contacto de incidentes de seguridad y configuración de notificaciones de alerta para incidentes de seguridad
 
-**Identificador**: Azure Security Benchmark 10.4 **Propiedad**: Customer
+**Identificador** : Azure Security Benchmark 10.4 **Propiedad** : Customer
 
 |Nombre<br /><sub>(Azure Portal)</sub> |Descripción |Efectos |Versión<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

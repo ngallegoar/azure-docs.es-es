@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 241c404eff1242c52520f94d5d955db7e260148c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3a3582891ab3d3e4bfb53cbba0c0b2826cba56b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537912"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123361"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Cifrado doble de infraestructura de Azure Database for PostgreSQL
 
@@ -20,7 +20,7 @@ Azure Database for PostgreSQL usa el [cifrado de datos en reposo](concepts-secur
 El cifrado doble de infraestructura agrega una segunda capa de cifrado con claves administradas por el servicio. Usa el módulo criptográfico validado FIPS 140-2, pero con un algoritmo de cifrado diferente. Esto proporciona una capa adicional de protección para los datos en reposo. La clave que se usa en el cifrado doble de infraestructura también la administra el servicio Azure Database for PostgreSQL. El cifrado doble de infraestructura no está habilitado de forma predeterminada ya que el nivel adicional de cifrado puede afectar al rendimiento.
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL admita los planes de tarifa "Uso general" y "Optimizado para memoria".
+> Esta característica solo se admite en los planes de tarifa "De uso general" y "Optimizado para memoria" de Azure Database for PostgreSQL.
 
 El cifrado del nivel de infraestructura tiene la ventaja de que se implementa en la capa más cercana al dispositivo de almacenamiento o a los cables de red. Azure Database for PostgreSQL implementa las dos capas de cifrado mediante claves administradas por el servicio. Aunque técnicamente siga en la capa de servicio, está muy cerca del hardware que almacena los datos en reposo. También puede habilitar opcionalmente el cifrado de datos en reposo mediante el uso de una [clave administrada por el cliente](concepts-data-encryption-postgresql.md) para el servidor PostgreSQL aprovisionado.  
 
@@ -33,8 +33,8 @@ La implementación en los niveles de infraestructura también admite una diversi
 
 El cifrado doble de infraestructura de Azure Database for PostgreSQL proporciona las siguientes ventajas:
 
-1. **Diversidad de implementación de cifrado adicional**: La intención planeada de cambiar al cifrado basado en hardware diversificará aún más las implementaciones proporcionando una implementación basada en hardware además de otra basada en software.
-2. **Errores de implementación**: dos capas de cifrado en el nivel de infraestructura protegen frente a los errores en el almacenamiento en caché o la administración de memoria en niveles superiores que exponen datos de texto no cifrado. Además, las dos capas también protegen frente a los errores de implementación del cifrado en general.
+1. **Diversidad de implementación de cifrado adicional** : La intención planeada de cambiar al cifrado basado en hardware diversificará aún más las implementaciones proporcionando una implementación basada en hardware además de otra basada en software.
+2. **Errores de implementación** : dos capas de cifrado en el nivel de infraestructura protegen frente a los errores en el almacenamiento en caché o la administración de memoria en niveles superiores que exponen datos de texto no cifrado. Además, las dos capas también protegen frente a los errores de implementación del cifrado en general.
 
 La combinación de estas proporciona una protección sólida frente a las amenazas comunes y los puntos débiles utilizados para atacar la criptografía.
 
@@ -58,7 +58,7 @@ Las funcionalidades de cifrado que proporciona Azure Database for PostgreSQL se 
 
 Para Azure Database for PostgreSQL, la compatibilidad con el cifrado doble de infraestructura mediante una clave administrada por el servicio tiene las siguientes limitaciones:
 
-* La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria**.
+* La compatibilidad con esta funcionalidad se limita a los planes de tarifa **De uso general** y **Optimizados para memoria** .
 * Puede crear una instancia de Azure Database for PostgreSQL que tenga habilitado el cifrado doble de la infraestructura en las siguientes regiones:
 
    * Este de EE. UU.

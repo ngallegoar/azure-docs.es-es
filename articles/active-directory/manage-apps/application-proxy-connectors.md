@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 923b83b388b58313e9613f0f8b71f266dcbeb028
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319833"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282138"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Descripción de los conectores del Proxy de aplicación de Azure AD
 
@@ -67,7 +67,7 @@ No es necesario que elimine manualmente los conectores que no se están utilizan
 
 Azure AD proporciona actualizaciones automáticas para todos los conectores que se implementen. Mientras se esté ejecutando el servicio de actualización de conectores del Proxy de aplicación, los conectores se actualizan automáticamente. Si no ve el servicio de actualización de conectores en el servidor, debe [volver a instalar el conector](application-proxy-add-on-premises-application.md) con el fin de obtener las actualizaciones.
 
-Si no quiere esperar a que haya una actualización automática para el conector, puede realizar una actualización manual. Vaya a la [página de descarga del conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) en el servidor en el que se encuentra el conector y seleccione **Descargar**. Este proceso inicia una actualización del conector local.
+Si no quiere esperar a que haya una actualización automática para el conector, puede realizar una actualización manual. Vaya a la [página de descarga del conector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) en el servidor en el que se encuentra el conector y seleccione **Descargar** . Este proceso inicia una actualización del conector local.
 
 Para los inquilinos con varios conectores, las actualizaciones automáticas se dirigen a un conector cada vez en cada grupo para evitar tiempos de inactividad en su entorno.
 
@@ -126,7 +126,7 @@ Si por algún motivo ese conector o máquina no están disponibles, el tráfico 
 
 Otro factor que incide el rendimiento es la calidad de las conexiones entre los conectores; en particular:
 
-- **El servicio en línea**: unas conexiones de baja o alta latencia al servicio Proxy de aplicación de Azure influyen en el rendimiento del conector. Para optimizar el rendimiento, conecte la organización a Azure con Express Route. Si no, el equipo de redes debe asegurarse de que las conexiones a Azure se administren de la manera más eficaz posible.
+- **El servicio en línea** : unas conexiones de baja o alta latencia al servicio Proxy de aplicación de Azure influyen en el rendimiento del conector. Para optimizar el rendimiento, conecte la organización a Azure con Express Route. Si no, el equipo de redes debe asegurarse de que las conexiones a Azure se administren de la manera más eficaz posible.
 - **Las aplicaciones de back-end:** en algunos casos, hay servidores proxy adicionales entre el conector y las aplicaciones de back-end que pueden ralentizar o evitar las conexiones. Para solucionar esta situación, abra un explorador desde el servidor del conector e intente acceder a la aplicación. Si ejecuta los conectores en Azure pero las aplicaciones están en local, la experiencia podría no corresponderse a lo que esperan los usuarios.
 - **Los controladores de dominio:** si los conectores realizan el inicio de sesión único (SSO) utilizando la delegación restringida de Kerberos, se pondrán en contacto con los controladores de dominio antes de enviar la solicitud al back-end. Los conectores tienen una memoria caché de vales Kerberos, pero en un entorno ocupado, la capacidad de respuesta de los controladores de dominio puede repercutir en el rendimiento. Este problema es más común en el caso de los conectores que se ejecutan en Azure pero se comunican con controladores de dominio que están en local.
 
@@ -161,8 +161,11 @@ Si un conector no se conecta al servicio durante varios meses, puede que tenga l
 
 ```
 Import-module AppProxyPSModule
-Register-AppProxyConnector
+Register-AppProxyConnector -EnvironmentName "AzureCloud"
 ```
+
+Para la administración pública, use `-EnvironmentName "AzureUSGovernment"`. Para más información, consulte [Instalación del agente para la nube de Azure Government](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
+
 Para más información acerca de cómo comprobar el certificado y solucionar problemas, consulte [Comprobación de que los componentes de máquina y back-end admitan el certificado de confianza del proxy de aplicación](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## <a name="under-the-hood"></a>En segundo plano
@@ -175,9 +178,9 @@ y contadores de rendimiento de Windows.
 
 ![Adición de contadores al conector con el Monitor de rendimiento](./media/application-proxy-connectors/performance-monitor.png)
 
-Los conectores tienen registros de **administración** y **sesión**. Los registros de **administración** incluyen eventos importantes y sus errores. Los registros de **sesión** incluyen todas las transacciones y sus detalles de procesamiento.
+Los conectores tienen registros de **administración** y **sesión** . Los registros de **administración** incluyen eventos importantes y sus errores. Los registros de **sesión** incluyen todas las transacciones y sus detalles de procesamiento.
 
-Para ver los registros, abra **Visor de eventos** y vaya a **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector**. Para que el registro de **sesión** sea visible, en el menú **Ver**, seleccione **Mostrar registros analíticos y de depuración**. El registro de **sesión** se usa normalmente para solucionar problemas y está deshabilitado de forma predeterminada. Habilítelo para comenzar la recopilación de eventos y deshabilítelo cuando ya no se necesite.
+Para ver los registros, abra **Visor de eventos** y vaya a **Registros de aplicaciones y servicios** > **Microsoft** > **AadApplicationProxy** > **Conector** . Para que el registro de **sesión** sea visible, en el menú **Ver** , seleccione **Mostrar registros analíticos y de depuración** . El registro de **sesión** se usa normalmente para solucionar problemas y está deshabilitado de forma predeterminada. Habilítelo para comenzar la recopilación de eventos y deshabilítelo cuando ya no se necesite.
 
 Puede examinar el estado del servicio en la ventana Servicios. El conector consta de dos servicios de Windows: el conector real y el actualizador. Ambos deben ejecutarse todo el tiempo.
 

@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91620042"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147553"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Análisis de datos con grupos de SQL dedicados
 
@@ -23,6 +24,7 @@ Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grup
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carga de los datos NYC Taxi en SQLDB1
 
 1. En Synapse Studio, vaya al centro de conectividad **Develop** (Desarrollar) y cree un script de SQL.
+1. Seleccione el grupo "SQLDB1" (grupo creado en el [paso 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) de este tutorial) en la sección "conectar a" del script.
 1. Escriba el siguiente código:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -69,15 +71,15 @@ Azure Synapse Analytics le ofrece la funcionalidad de analizar datos con un grup
     )
     OPTION (LABEL = 'COPY : Load [dbo].[Trip] - Taxi dataset');
     ```
-1. Este script tardará aproximadamente un minuto en ejecutarse. Carga dos millones filas de datos de NYC Taxi en una tabla denominada **dbo.Trip**.
+1. Este script tardará aproximadamente un minuto en ejecutarse. Carga dos millones filas de datos de NYC Taxi en una tabla denominada **dbo.Trip** .
 
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Exploración de los datos de NYC Taxi en el grupo de SQL dedicado
 
 1. En Synapse Studio, vaya al centro **Data** (Datos).
-1. Vaya a **SQLDB1** > **Tablas**. Verá que se han cargado varias tablas.
+1. Vaya a **SQLDB1** > **Tablas** . Verá que se han cargado varias tablas.
 1. Haga clic con el botón derecho en la tabla **dbo.Trip** y seleccione **New SQL Script** > **Select TOP 100 Rows** (Nuevo script SQL > Seleccionar 100 primeras filas).
 1. Espere mientras se crea un nuevo script de SQL y se ejecuta.
-1. Observe que en la parte superior del script de SQL, en **Connect to** (Conectar a) está seleccionado automáticamente el grupo de SQL llamado **SQLDB1**.
+1. Observe que en la parte superior del script de SQL, en **Connect to** (Conectar a) está seleccionado automáticamente el grupo de SQL llamado **SQLDB1** .
 1. Reemplace el texto del script de SQL por este código y ejecútelo.
 
     ```sql

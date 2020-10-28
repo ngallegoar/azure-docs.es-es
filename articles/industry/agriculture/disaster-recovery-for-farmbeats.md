@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 04/13/2020
 ms.author: v-umha
-ms.openlocfilehash: 1665c535d4b1fb6190ee5736b688b402f8b4a541
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdd59d078da1df021b7e23ec858ba7305f72cfa1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683893"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164217"
 ---
 # <a name="disaster-recovery-for-farmbeats"></a>Recuperación ante desastres de FarmBeats
 
@@ -26,10 +26,10 @@ En las secciones siguientes se proporciona información sobre cómo configurar l
 
 ## <a name="enable-data-redundancy"></a>Habilitación de la redundancia de datos
 
-FarmBeats almacena los datos en tres servicios propios de Azure, que son **Azure Storage**, **Cosmos DB** y **Time Series Insights**. Siga estos pasos para habilitar la redundancia de datos para estos servicios en una región de Azure emparejada:
+FarmBeats almacena los datos en tres servicios propios de Azure, que son **Azure Storage** , **Cosmos DB** y **Time Series Insights** . Siga estos pasos para habilitar la redundancia de datos para estos servicios en una región de Azure emparejada:
 
-1.  **Azure Storage**: siga estas instrucciones para permitir la redundancia de datos para cada cuenta de almacenamiento de la implementación de FarmBeats.
-2.  **Azure Cosmos DB**: siga estas instrucciones para habilitar la redundancia de datos para la cuenta de Cosmos DB de la implementación de FarmBeats.
+1.  **Azure Storage** : siga estas instrucciones para permitir la redundancia de datos para cada cuenta de almacenamiento de la implementación de FarmBeats.
+2.  **Azure Cosmos DB** : siga estas instrucciones para habilitar la redundancia de datos para la cuenta de Cosmos DB de la implementación de FarmBeats.
 3.  **Azure Time Series Insights (TSI)** : TSI no ofrece actualmente la redundancia de datos. Para recuperar datos de Time Series Insights, vaya a su partner de sensores o meteorológico e inserte los datos de nuevo en la implementación de FarmBeats.
 
 ## <a name="restore-service-from-online-backup"></a>Restauración del servicio desde Online Backup
@@ -45,18 +45,18 @@ Puede iniciar la conmutación por error y recuperar los datos almacenados para l
 Copie la clave de acceso de la instancia restaurada de Cosmos DB y actualice el nuevo almacén de claves de FarmBeats Datahub.
 
 
-  ![Recuperación ante desastres](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
+  ![Captura de pantalla en la que se destaca dónde obtener la copia de la clave de acceso.](./media/disaster-recovery-for-farmbeats/key-vault-secrets.png)
 
 > [!NOTE]
 > Copie la dirección URL de la instancia restaurada de Cosmos DB y actualícela en la nueva configuración de FarmBeats Datahub App Service. Ahora puede eliminar la cuenta de Cosmos DB en la nueva implementación de FarmBeats.
 
-  ![Recuperación ante desastres](./media/disaster-recovery-for-farmbeats/configuration.png)
+  ![Captura de pantalla que muestra dónde copiar la dirección URL de la instancia de Cosmos DB restaurada.](./media/disaster-recovery-for-farmbeats/configuration.png)
 
 ### <a name="configure-storage-account"></a>Configuración de la cuenta de almacenamiento
 
 Copie la clave de acceso de la cuenta de almacenamiento restaurada y actualícela en el nuevo almacén de claves de FarmBeats Datahub.
 
-![Recuperación ante desastres](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
+![Captura de pantalla que muestra dónde copiar la clave de acceso de la cuenta de almacenamiento restaurada.](./media/disaster-recovery-for-farmbeats/key-vault-7-secrets.png)
 
 >[!NOTE]
 > Asegúrese de actualizar el nombre de la cuenta de almacenamiento en el nuevo archivo de configuración de la máquina virtual de FarmBeats Batch.

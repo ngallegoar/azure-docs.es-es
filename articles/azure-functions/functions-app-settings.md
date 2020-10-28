@@ -3,12 +3,12 @@ title: Referencia de configuración de aplicación para Azure Functions
 description: Documentación de referencia para la configuración de la aplicación de Azure Functions o de variables de entorno.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: b17db828aeb19c3347c0db4babf0eee2b9d5f280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589307"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165780"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referencia de configuración de aplicación para Azure Functions
 
@@ -23,7 +23,7 @@ Hay otras opciones de configuración global en el archivo [host.json](functions-
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-Clave de instrumentación de Application Insights. Use solo uno entre `APPINSIGHTS_INSTRUMENTATIONKEY` y `APPLICATIONINSIGHTS_CONNECTION_STRING`. Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md). 
+Clave de instrumentación de Application Insights. Use solo uno entre `APPINSIGHTS_INSTRUMENTATIONKEY` y `APPLICATIONINSIGHTS_CONNECTION_STRING`. Cuando Application Insights se ejecuta en una nube soberana, use `APPLICATIONINSIGHTS_CONNECTION_STRING`. Para obtener más información, consulte [Configuración de la supervisión para Azure Functions](configure-monitoring.md). 
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -31,7 +31,12 @@ Clave de instrumentación de Application Insights. Use solo uno entre `APPINSIGH
 
 ## <a name="applicationinsights_connection_string"></a>APPLICATIONINSIGHTS_CONNECTION_STRING
 
-Cadena de conexión para Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` en lugar de `APPINSIGHTS_INSTRUMENTATIONKEY` cuando la aplicación de funciones requiera las personalizaciones agregadas admitidas mediante el uso de la cadena de conexión. Para obtener más información, consulte [Cadenas de conexión](../azure-monitor/app/sdk-connection-string.md). 
+Cadena de conexión para Application Insights. Use `APPLICATIONINSIGHTS_CONNECTION_STRING` en lugar de `APPINSIGHTS_INSTRUMENTATIONKEY` en los casos siguientes:
+
++ Cuando la aplicación de funciones requiera las personalizaciones agregadas admitidas mediante el uso de la cadena de conexión. 
++ Cuando la instancia de Application Insights se ejecute en una nube soberana, lo que requiere un punto de conexión personalizado.
+
+Para obtener más información, consulte [Cadenas de conexión](../azure-monitor/app/sdk-connection-string.md). 
 
 |Clave|Valor de ejemplo|
 |---|------------|
@@ -202,9 +207,9 @@ Para más información, vea [Dependencias personalizadas](functions-reference-py
 
 ## <a name="scale_controller_logging_enable"></a>SCALE\_CONTROLLER\_LOGGING\_ENABLE
 
-_Esta configuración se encuentra actualmente en versión preliminar_.  
+_Esta configuración se encuentra actualmente en versión preliminar_ .  
 
-Esta configuración controla el registro del controlador de escala de Azure Functions. Para más información, vea [Registros del controlador de escala](functions-monitoring.md#scale-controller-logs-preview).
+Esta configuración controla el registro del controlador de escala de Azure Functions. Para más información, vea [Registros del controlador de escala](functions-monitoring.md#scale-controller-logs).
 
 |Clave|Valor de ejemplo|
 |-|-|

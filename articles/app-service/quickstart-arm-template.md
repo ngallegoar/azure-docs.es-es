@@ -1,38 +1,46 @@
 ---
 title: Creación de una aplicación de App Service mediante el uso de una plantilla de Azure Resource Manager
-description: Cree su primera aplicación en Azure App Service en segundos mediante una plantilla de Azure Resource Manager, que es una de las muchas maneras de realizar una implementación en App Service.
+description: Cree su primera aplicación en Azure App Service en segundos mediante una plantilla de Azure Resource Manager (ARM), que es una de las muchas maneras de realizar una implementación en App Service.
 author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e577616e0976ca050a55c8524e68129545ed1912
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653301"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152347"
 ---
-# <a name="create-app-service-app-using-an-azure-resource-manager-template"></a>Creación de una aplicación de App Service mediante el uso de una plantilla de Azure Resource Manager
+# <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Inicio rápido: Creación de una aplicación de App Service mediante una plantilla de ARM
 
-Empiece a usar [Azure App Service](overview.md) mediante la implementación de una aplicación en la nube con una plantilla de Azure Resource Manager y la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) en Cloud Shell. Dado que usa un nivel de App Service gratuito, completar este inicio rápido no supone ningún costo.
+Empiece a usar [Azure App Service](overview.md) mediante la implementación de una aplicación en la nube con una plantilla de Azure Resource Manager (ARM) y la [CLI de Azure](/cli/azure/get-started-with-azure-cli) en Cloud Shell. Dado que usa un nivel de App Service gratuito, completar este inicio rápido no supone ningún costo.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+
+Use el botón siguiente para realizar la implementación en **Linux** :
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+
+Use el botón siguiente para realizar la implementación en **Windows** :
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-windows%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-azure-app-service-app"></a>Creación de una aplicación de Azure App Service
-
-### <a name="review-the-template"></a>Revisión de la plantilla
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 ::: zone pivot="platform-windows"
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/). Implementa un plan y una aplicación de App Service en Windows. Es compatible con las aplicaciones de .NET Core, .NET Framework, PHP, Node.js y HTML estático. Para Java, consulte [Creación de aplicaciones Java](app-service-web-get-started-java.md). 
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Implementa un plan y una aplicación de App Service en Windows. Es compatible con las aplicaciones de .NET Core, .NET Framework, PHP, Node.js y HTML estático. Para Java, consulte [Creación de aplicaciones Java](./quickstart-java.md).
 
-[!code-json[<Azure Resource Manager template App Service Windows app>](~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -43,17 +51,17 @@ Esta plantilla contiene varios parámetros que están predefinidos para su comod
 
 | Parámetros | Tipo    | Valor predeterminado                | Descripción |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp- **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)** " | Nombre de la aplicación |
-| ubicación   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Región de la aplicación |
+| webAppName | string  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nombre de la aplicación |
+| ubicación   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Región de la aplicación |
 | sku        | string  | "F1"                         | Tamaño de la instancia (F1 = nivel Gratis) |
 | language   | string  | ".net"                       | Pila de lenguajes de programación (.net, php, node, html) |
 | helloWorld | boolean | False                        | True = implementa la aplicación "Hola mundo" |
-| repoUrl    | string  | :                          | Repositorio de Git externo (opcional) |
+| repoUrl    | string  | " "                          | Repositorio de Git externo (opcional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/). Implementa un plan y una aplicación de App Service en Linux. Es compatible con todos los lenguajes de programación que se admiten en App Service.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). Implementa un plan y una aplicación de App Service en Linux. Es compatible con todos los lenguajes de programación que se admiten en App Service.
 
-[!code-json[<Azure Resource Manager template App Service Linux app>](~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -64,19 +72,18 @@ Esta plantilla contiene varios parámetros que están predefinidos para su comod
 
 | Parámetros | Tipo    | Valor predeterminado                | Descripción |
 |------------|---------|------------------------------|-------------|
-| webAppName | string  | "webApp- **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)** " | Nombre de la aplicación |
-| ubicación   | string  | "[[resourceGroup().location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | Región de la aplicación |
+| webAppName | string  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Nombre de la aplicación |
+| ubicación   | string  | "[[resourceGroup().location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | Región de la aplicación |
 | sku        | string  | "F1"                         | Tamaño de la instancia (F1 = nivel Gratis) |
 | linuxFxVersion   | string  | "DOTNETCORE&#124;3.0        | "Pila de lenguajes de programación &#124; Versión" |
-| repoUrl    | string  | :                          | Repositorio de Git externo (opcional) |
+| repoUrl    | string  | " "                          | Repositorio de Git externo (opcional) |
 
 ---
 ::: zone-end
 
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
-
-Aquí se usa la CLI de Azure para implementar la plantilla. También puede usar Azure Portal, Azure PowerShell y la API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-powershell.md). 
+Aquí se usa la CLI de Azure para implementar la plantilla. También puede usar Azure Portal, Azure PowerShell y la API REST. Para obtener información sobre otros métodos de implementación, consulte [Implementación de plantillas](../azure-resource-manager/templates/deploy-powershell.md).
 
 El siguiente código crea un grupo de recursos, un plan de App Service y una aplicación web. Se han establecido un grupo de recursos, un plan de App Service y una ubicación predeterminados. Reemplace `<app-name>` por un nombre de aplicación único global (los caracteres válidos son `a-z`, `0-9` y `-`).
 
@@ -86,11 +93,11 @@ Ejecute el código siguiente para implementar una aplicación de .NET Framework 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
---parameters language=".net" sample="true" webAppName="<app-name>" \
+--parameters language=".net" helloWorld="true" webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the code below to create a Python app on Linux. 
+Run the code below to create a Python app on Linux.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -115,7 +122,6 @@ Para implementar una pila de lenguajes diferente, actualice `linuxFxVersion` con
 > [!NOTE]
 > Puede encontrar [aquí más ejemplos de plantillas de Azure App Service](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
 
-
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 
 Vaya a `http://<app_name>.azurewebsites.net/` y compruebe que se ha creado.
@@ -127,19 +133,19 @@ Cuando ya no necesite, [elimine el grupo de recursos](../azure-resource-manager/
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Implementación desde Git local](deploy-local-git.md)
+>  [Implementación desde Git local](deploy-local-git.md)
 
 > [!div class="nextstepaction"]
->ASP.NET Core con SQL Database
+> ASP.NET Core con SQL Database
 
 > [!div class="nextstepaction"]
->Python con Postgres
+> Python con Postgres
 
 > [!div class="nextstepaction"]
-> [PHP con MySQL](tutorial-php-mysql-app.md)
+>  [PHP con MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Conexión a Azure SQL Database con Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+>  [Conexión a Azure SQL Database con Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
->Asignación de un dominio personalizado
+> Asignación de un dominio personalizado

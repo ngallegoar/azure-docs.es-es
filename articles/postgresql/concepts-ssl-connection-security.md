@@ -6,18 +6,25 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 2785f79d327402a40be0a905877b5113b3f751b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c98ee8f747975d4237c2906be2060eddbc7b9990
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710454"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123276"
 ---
 # <a name="configure-tls-connectivity-in-azure-database-for-postgresql---single-server"></a>Configuración de la conectividad de TSL en Azure Database for PostgreSQL: un solo servidor
 
 Azure Database for PostgreSQL prefiere conectar las aplicaciones cliente al servicio PostgreSQL mediante Seguridad de la capa de transporte (TLS), que anteriormente se denominaba Capa de sockets seguros (SSL). Aplicar conexiones TLS entre el servidor de bases de datos y las aplicaciones cliente ayuda a proteger contra los ataques de tipo "Man in the middle" mediante el cifrado del flujo de datos entre el servidor y la aplicación.
 
 De forma predeterminada, el servicio de base de datos de PostgreSQL está configurado para requerir una conexión TLS. Puede deshabilitar el requisito de TLS si la aplicación cliente no admite la conectividad de TLS.
+
+>[!NOTE]
+> En base a los comentarios de los clientes se ha extendido la puesta en desuso del certificado raíz de la entidad de certificación raíz Baltimore existente hasta el 15 de febrero de 2021 (15/02/2021).
+
+> [!IMPORTANT] 
+> El certificado raíz de SSL se ha establecido para que expire a partir del 15 de febrero de 2021 (15/02/2021). Actualice la aplicación para que use el [nuevo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Para más información, consulte el artículo sobre las [actualizaciones de certificados planeadas](concepts-certificate-rotation.md).
+
 
 ## <a name="enforcing-tls-connections"></a>Aplicación de conexiones TLS
 
@@ -31,11 +38,11 @@ Si lo desea, puede deshabilitar el establecimiento de la conectividad TLS. Micro
 
 ### <a name="using-the-azure-portal"></a>Uso de Azure Portal
 
-Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión**. Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL**. A continuación, haga clic en **Guardar**.
+Visite el servidor de Azure Database for PostgreSQL y haga clic en **Seguridad de conexión** . Use el botón de alternancia para habilitar o deshabilitar la opción **Aplicar conexión SSL** . A continuación, haga clic en **Guardar** .
 
 :::image type="content" source="./media/concepts-ssl-connection-security/1-disable-ssl.png" alt-text="Seguridad de conexión - Deshabilitar el establecimiento de TLS/SSL":::
 
-Para confirmar la configuración, consulte la página **Información general** para ver el indicador **Estado de aplicación de SSL**.
+Para confirmar la configuración, consulte la página **Información general** para ver el indicador **Estado de aplicación de SSL** .
 
 ### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
@@ -74,7 +81,7 @@ El servidor único de Azure Database for PostgreSQL admite el cifrado de los cli
 
 ### <a name="tls-settings"></a>Configuración de TLS
 
-El único servidor de Azure Database for PostgreSQL proporciona la capacidad de aplicar la versión de TLS para las conexiones cliente. Para aplicar la versión de TLS, use el valor de la opción **Versión de TLS mínima**. Se permiten los siguientes valores para esta configuración de opción:
+El único servidor de Azure Database for PostgreSQL proporciona la capacidad de aplicar la versión de TLS para las conexiones cliente. Para aplicar la versión de TLS, use el valor de la opción **Versión de TLS mínima** . Se permiten los siguientes valores para esta configuración de opción:
 
 |  Versión de TLS mínima             | Versión de TLS compatible con el cliente                |
 |:---------------------------------|-------------------------------------:|

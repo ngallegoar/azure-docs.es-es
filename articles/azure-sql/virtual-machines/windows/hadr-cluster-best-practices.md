@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a2c4364337083be005c550a8859079cd3bb1218
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317028"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167957"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de clústeres (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -47,8 +47,6 @@ En la tabla siguiente se enumeran las opciones de cuórum disponibles en el orde
 |**Sistema operativo admitido**| All |Windows Server 2016+| All|
 
 
-
-
 ### <a name="disk-witness"></a>Testigo de disco
 
 Se trata de un pequeño disco agrupado en el grupo de almacenamiento disponible del clúster. Este disco presenta una alta disponibilidad y puede conmutar por error entre nodos. Contiene una copia de la base de datos del clúster, con un tamaño predeterminado que suele ser inferior a 1 GB. El testigo de disco es la opción de cuórum preferida para cualquier clúster que use discos compartidos de Azure (o cualquier solución de disco compartido como SCSI compartido, iSCSI o SAN de canal de fibra).  Un volumen compartido de clúster no se puede usar como testigo de disco.
@@ -58,7 +56,7 @@ Configure un disco compartido de Azure como el testigo de disco.
 Para empezar, consulte [Configuración de un testigo de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Sistema operativo compatible**: All   
+**Sistema operativo compatible** : All   
 
 
 ### <a name="cloud-witness"></a>Testigo en la nube
@@ -68,7 +66,7 @@ Se trata de un tipo de testigo de cuórum de clúster de conmutación por error 
 Para empezar, consulte [Configuración de un testigo en la nube](/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp).
 
 
-**Sistema operativo compatible**: Windows Server 2016 y posteriores   
+**Sistema operativo compatible** : Windows Server 2016 y posteriores   
 
 
 ### <a name="file-share-witness"></a>Testigo de recurso compartido de archivos
@@ -80,54 +78,55 @@ Si va a usar un recurso compartido de archivos de Azure, puede montarlo con el m
 Para empezar, consulte [Configuración de un testigo de recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Sistema operativo compatible**: Windows Server 2012 y posteriores   
+**Sistema operativo compatible** : Windows Server 2012 y posteriores   
 
 ## <a name="connectivity"></a>Conectividad
 
-En un entorno de red local tradicional, una instancia de clúster de conmutación por error de SQL Server parece ser una instancia única de SQL Server que se ejecuta en un único equipo. Dado que la instancia de clúster de conmutación por error conmuta por error de nodo a nodo, el nombre de red virtual (VNN) de la instancia proporciona un punto de conexión unificado y permite que las aplicaciones se conecten a la instancia de SQL Server sin conocer qué nodo está activo actualmente. Cuando se produce una conmutación por error, el nombre de red virtual se registra en el nuevo nodo activo después de iniciarse. Este proceso pasa desapercibido para el cliente o aplicación que se conecta a SQL Server y reduce al mínimo el tiempo de inactividad que la aplicación o el cliente experimenta durante un error. 
+En un entorno de red local tradicional, una instancia de clúster de conmutación por error de SQL Server parece ser una instancia única de SQL Server que se ejecuta en un único equipo. Dado que la instancia de clúster de conmutación por error conmuta por error de nodo a nodo, el nombre de red virtual (VNN) de la instancia proporciona un punto de conexión unificado y permite que las aplicaciones se conecten a la instancia de SQL Server sin conocer qué nodo está activo actualmente. Cuando se produce una conmutación por error, el nombre de red virtual se registra en el nuevo nodo activo después de iniciarse. Este proceso pasa desapercibido para el cliente o aplicación que se conecta a SQL Server y reduce al mínimo el tiempo de inactividad que la aplicación o el cliente experimenta durante un error. Del mismo modo, el cliente de escucha del grupo de disponibilidad usa un VNN para enrutar el tráfico a la réplica adecuada. 
 
-Use un nombre de red virtual (VNN) con Azure Load Balancer o un nombre de red distribuida (DNN) para enrutar el tráfico al VNN de la instancia de clúster de conmutación por error con SQL Server en máquinas virtuales de Azure. La característica DNN actualmente solo está disponible para SQL Server 2019 CU2 y versiones posteriores en una máquina virtual de Windows Server 2016 (o posterior). 
+Use un VNN con Azure Load Balancer o un nombre de red distribuida (DNN) para enrutar el tráfico al VNN de la instancia de clúster de conmutación por error con VM con SQL Server en Azure o para reemplazar el cliente de escucha de VNN existente en un grupo de disponibilidad. 
+
 
 En la tabla siguiente se compara la compatibilidad de la conexión de HADR: 
 
 | |**Nombre de red virtual (VNN)**  |**Nombre de red distribuida (DNN)**  |
 |---------|---------|---------|
-|**Versión mínima de sistema operativo**| All | All |
-|**Versión de SQL Server mínima** |All |SQL Server 2019 CU2|
-|**Solución HADR compatible** | Instancia de clúster de conmutación por error <br/> grupo de disponibilidad | Instancia de clúster de conmutación por error|
+|**Versión mínima de sistema operativo**| All | Windows Server 2016 |
+|**Versión de SQL Server mínima** |All |SQL Server 2019 CU2 (para FCI)<br/> SQL Server 2019 CU8 (para AG)|
+|**Solución HADR compatible** | Instancia de clúster de conmutación por error <br/> grupo de disponibilidad | Instancia de clúster de conmutación por error <br/> grupo de disponibilidad|
 
 
 ### <a name="virtual-network-name-vnn"></a>Nombre de red virtual (VNN)
 
-Dado que el punto de acceso a la dirección IP virtual funciona de forma diferente en Azure, debe configurar [Azure Load Balancer](../../../load-balancer/index.yml) para enrutar el tráfico a la dirección IP de los nodos de FCI. En máquinas virtuales de Azure, un equilibrador de carga hospeda la dirección IP del nombre de red virtual en el que se basan los recursos de SQL Server en clúster. El equilibrador de carga distribuye los flujos de entrada que llegan al front-end y, a continuación, enruta ese tráfico a las instancias definidas por el grupo de back-end. El flujo de tráfico se configura mediante reglas de equilibrio de carga y sondeos de estado. Con FCI de SQL Server, las instancias del grupo de back-end son las máquinas virtuales de Azure que ejecutan SQL Server. 
+Dado que el punto de acceso a la dirección IP virtual funciona de forma diferente en Azure, debe configurar [Azure Load Balancer](../../../load-balancer/index.yml) para enrutar el tráfico a la dirección IP de los nodos de FCI o al cliente de escucha del grupo de disponibilidad. En máquinas virtuales de Azure, un equilibrador de carga hospeda la dirección IP del nombre de red virtual en el que se basan los recursos de SQL Server en clúster. El equilibrador de carga distribuye los flujos de entrada que llegan al front-end y, a continuación, enruta ese tráfico a las instancias definidas por el grupo de back-end. El flujo de tráfico se configura mediante reglas de equilibrio de carga y sondeos de estado. Con FCI de SQL Server, las instancias del grupo de back-end son las máquinas virtuales de Azure que ejecutan SQL Server. 
 
 Hay un ligero retraso en la conmutación por error cuando se usa el equilibrador de carga, ya que el sondeo de estado realiza comprobaciones activas cada 10 segundos de forma predeterminada. 
 
-Para empezar, aprenda a [configurar Azure Load Balancer para una FCI](hadr-vnn-azure-load-balancer-configure.md). 
+Para empezar, aprenda a configurar Azure Load Balancer para una [instancia de clúster de conmutación por error](failover-cluster-instance-vnn-azure-load-balancer-configure.md) o un [grupo de disponibilidad](availability-group-vnn-azure-load-balancer-configure.md).
 
-**Sistema operativo compatible**: All   
-**Versión de SQL compatible**: All   
-**Solución HADR admitida**: Instancia del clúster de conmutación por error y grupo de disponibilidad   
+**Sistema operativo compatible** : All   
+**Versión de SQL compatible** : All   
+**Solución HADR admitida** : Instancia del clúster de conmutación por error y grupo de disponibilidad   
 
 
 ### <a name="distributed-network-name-dnn"></a>Nombre de red distribuida (DNN)
 
-El nombre de red distribuida es una nueva característica de Azure para SQL Server 2019 CU2. El DNN proporciona una manera alternativa para que los clientes de SQL Server se conecten a la instancia de clúster de conmutación por error de SQL Server sin usar un equilibrador de carga. 
+El nombre de red distribuida es una nueva característica de Azure para SQL Server 2019. El DNN proporciona una manera alternativa para que los clientes de SQL Server se conecten al grupo de disponibilidad o a la instancia de clúster de conmutación por error de SQL Server sin usar un equilibrador de carga. 
 
-Cuando se crea un recurso DNN, el clúster enlaza el nombre DNS con las direcciones IP de todos los nodos del clúster. El cliente SQL intentará conectarse a cada dirección IP de esta lista para buscar el nodo en el que se está ejecutando actualmente la instancia de clúster de conmutación por error. Puede acelerar este proceso si especifica `MultiSubnetFailover=True` en la cadena de conexión. Esta configuración indica al proveedor que pruebe todas las direcciones IP en paralelo, por lo que el cliente puede conectarse a la FCI al instante. 
+Cuando se crea un recurso DNN, el clúster enlaza el nombre DNS con las direcciones IP de todos los nodos del clúster. El cliente de SQL intentará conectarse a cada dirección IP de esta lista para averiguar a qué recurso conectarse.  Puede acelerar este proceso si especifica `MultiSubnetFailover=True` en la cadena de conexión. Esta configuración indica al proveedor que pruebe todas las direcciones IP en paralelo, por lo que el cliente puede conectarse a la FCI o al cliente de escucha al instante. 
 
 Se recomienda un nombre de red distribuida a través de un equilibrador de carga cuando sea posible porque: 
 - La solución de un extremo a otro es más sólida, dado que ya no tiene que mantener el recurso del equilibrador de carga. 
 - La eliminación de los sondeos del equilibrador de carga reduce al mínimo la duración de la conmutación por error. 
-- El nombre de red distribuida simplifica el aprovisionamiento y la administración de la instancia de clúster de conmutación por error con SQL Server en máquinas virtuales de Azure. 
+- El nombre de red distribuida simplifica el aprovisionamiento y la administración de la instancia de clúster de conmutación por error o del cliente de escucha del grupo de disponibilidad con VM con SQL Server en Azure. 
 
-La mayoría de las características de SQL Server funcionan de manera transparente con FCI. En esos casos, basta con reemplazar el nombre DNS de VNN existente con el nombre DNS de DNN o con establecer el valor de DNN con el nombre DNS de VNN existente. Sin embargo, algunos componentes en el lado del servidor requieren un alias de red que asigne el nombre VNN al nombre DNN. Algunos casos específicos pueden requerir el uso explícito del nombre DNS de DNN, por ejemplo, al definir ciertas direcciones URL en una configuración de servidor. 
+La mayoría de las características de SQL Server funcionan de manera transparente con FCI y grupos de disponibilidad cuando se usa el DNN, pero hay determinadas características que pueden exigir una consideración especial. Para obtener más información, consulte [Interoperabilidad con FCI y DNN](failover-cluster-instance-dnn-interoperability.md) e [Interoperabilidad con AG y DNN](availability-group-dnn-interoperability.md). 
 
-Para empezar, aprenda a [configurar un recurso DNN para una FCI](hadr-distributed-network-name-dnn-configure.md). 
+Para empezar, aprenda a configurar un recurso de nombre de red distribuida para una [instancia de clúster de conmutación por error](failover-cluster-instance-distributed-network-name-dnn-configure.md) o un [grupo de disponibilidad](availability-group-distributed-network-name-dnn-listener-configure.md)
 
-**Sistema operativo compatible**: Windows Server 2016 y posteriores   
-**Versión de SQL compatible**: SQL Server 2019 y versiones posteriores   
-**Solución HADR admitida**: Solo una instancia de clúster de conmutación por error
+**Sistema operativo compatible** : Windows Server 2016 y posteriores   
+**Versión de SQL compatible** : SQL Server 2019 CU2 (FCI) y SQL Server 2019 CU8 (AG)   
+**Solución HADR admitida** : Instancia del clúster de conmutación por error y grupo de disponibilidad   
 
 
 ## <a name="limitations"></a>Limitaciones
@@ -146,5 +145,5 @@ En Azure Virtual Machines, MSDTC no se admite para Windows Server 2016 ni vers
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya determinado los procedimientos recomendados adecuados para su solución, empiece por [preparar la máquina virtual con SQL Server para FCI](failover-cluster-instance-prepare-vm.md). También puede crear el grupo de disponibilidad mediante la [CLI de Azure](availability-group-az-cli-configure.md) o las [plantillas de inicio rápido de Azure ](availability-group-quickstart-template-configure.md). 
+Una vez que haya determinado las prácticas recomendadas adecuadas para su solución, empiece por [preparar la VM con SQL Server para FCI](failover-cluster-instance-prepare-vm.md) o por crear el grupo de disponibilidad mediante [Azure Portal](availability-group-azure-portal-configure.md), la [CLI de Azure o PowerShell](availability-group-az-cli-configure.md), o [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md). 
 

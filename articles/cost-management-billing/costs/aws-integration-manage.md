@@ -3,18 +3,18 @@ title: Administración de los costos y el uso de AWS en Azure Cost Management
 description: Este artículo le ayudará a comprender cómo usar el análisis de costos y los presupuestos en Cost Management para administrar los costos y el uso de AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266224"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148969"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Administración de los costos y el uso de AWS en Azure
 
@@ -22,7 +22,7 @@ Una vez que haya instalado y configurado la integración de informes de uso y co
 
 Si no ha configurado aún la integración, consulte [Set up and configure AWS Usage report integration](aws-integration-set-up-configure.md) (Instalación y configuración de la integración de los informes de uso de AWS).
 
-_Antes de empezar_: Si está familiarizado con el análisis de costos, consulte [Quickstart: Explore and analyze costs with Cost analysis](quick-acm-cost-analysis.md) (Inicio rápido: exploración y análisis de los costos con Análisis de costos). Y, si no está familiarizado con los presupuestos en Azure, consulte [Tutorial: Create and manage Azure budgets](tutorial-acm-create-budgets.md) (Tutorial: creación y administración de presupuestos en Azure).
+_Antes de empezar_ : Si está familiarizado con el análisis de costos, consulte [Quickstart: Explore and analyze costs with Cost analysis](quick-acm-cost-analysis.md) (Inicio rápido: exploración y análisis de los costos con Análisis de costos). Y, si no está familiarizado con los presupuestos en Azure, consulte [Tutorial: Create and manage Azure budgets](tutorial-acm-create-budgets.md) (Tutorial: creación y administración de presupuestos en Azure).
 
 ## <a name="view-aws-costs-in-cost-analysis"></a>Visualización de los costos de AWS en Análisis de costos
 
@@ -44,7 +44,7 @@ En Análisis de costos, abra el selector de ámbito y seleccione el grupo de adm
 
 Este es un ejemplo que muestra el costo del grupo de administración en Análisis de costos agrupado por proveedor (Azure y AWS).
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Ejemplo que muestra los costos de Azure y AWS de un trimestre en Análisis de costos" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Ejemplo de la vista de selección de ámbito con cuentas vinculadas en un grupo de administración" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > Los grupos de administración no se admiten actualmente para clientes con Contrato de cliente de Microsoft (MCA). Los clientes MCA pueden crear el conector y ver sus datos de AWS. Sin embargo, los clientes MCA no pueden ver los costos de Azure y los costos de AWS juntos en un grupo de administración.
@@ -55,17 +55,17 @@ Para ver los costos de una cuenta vinculada de AWS, abra el selector de ámbito 
 
 Este es un ejemplo que muestra la selección de un ámbito de cuenta vinculada de AWS.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Ejemplo de la vista de selección de ámbito que muestra cuentas vinculadas de AWS" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Ejemplo de la vista de selección de ámbito con cuentas vinculadas en un grupo de administración" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Visualización de los costos de las cuentas consolidadas de AWS
 
 Para ver los costos de una cuenta consolidada de AWS, abra el selector de ámbito y selecciónela. Este es un ejemplo que muestra la selección de un ámbito de cuenta consolidada de AWS.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Ejemplo de la vista de selección de ámbito con cuentas consolidadas" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Ejemplo de la vista de selección de ámbito con cuentas vinculadas en un grupo de administración" :::
 
 Este ámbito proporciona una vista agregada de todas las cuentas vinculadas de AWS asociadas con la cuenta consolidada de AWS. Este es un ejemplo que muestra los costos de una cuenta consolidada de AWS agrupados por nombre de servicio.
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Ejemplo que muestra los costos consolidados de AWS en Análisis de costos" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Ejemplo de la vista de selección de ámbito con cuentas vinculadas en un grupo de administración" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensiones disponibles para el filtrado y el agrupamiento
 
@@ -95,7 +95,7 @@ En la siguiente tabla se describen las dimensiones disponibles de agrupamiento y
 
 Use presupuestos para administrar los costos de manera proactiva e impulsar la responsabilidad en la organización. Los presupuestos se establecen en los ámbitos de cuenta consolidada de AWS y cuenta vinculada de AWS. Este es un ejemplo de presupuestos para una cuenta consolidada de AWS como aparece en Cost Management:
 
-:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Ejemplo que muestra los presupuestos para una cuenta consolidada de AWS" :::
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Ejemplo de la vista de selección de ámbito con cuentas vinculadas en un grupo de administración" :::
 
 ## <a name="aws-data-collection-process"></a>Proceso de recopilación de datos de AWS
 
@@ -145,7 +145,7 @@ Este error significa que Cost Management no puede llamar a la API de AWS AssumeR
 - El identificador externo es el mismo que el de la definición de roles y de la definición del conector.
 - El tipo de rol está establecido en **Another AWS account Belonging to you or 3rd party** (Otra cuenta de AWS suya o de terceros).
 - La opción **Require MFA** (Requerir MFA) está desactivada.
-- La cuenta de AWS de confianza en el rol de AWS es _432263259397_.
+- La cuenta de AWS de confianza en el rol de AWS es _432263259397_ .
 
 ### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Error de recopilación con acceso denegado: definiciones de informe CUR
 
@@ -175,7 +175,13 @@ Este error significa que Cost Management no puede encontrar el informe de uso y 
 
 **Código de error:** _ReportIsNotValid_
 
-Este error está relacionado con la definición del informe sobre uso y costes de AWS y necesitamos una configuración específica para él. Consulte los requisitos en [Crear un informe de uso y costo en AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+Este error está relacionado con la definición del informe de uso y costo de AWS y necesitamos una configuración específica para él. Consulte los requisitos en [Crear un informe de uso y costo en AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### <a name="internal-error-when-creating-connector"></a>Error interno al crear el conector
+
+**Código de error:** _Crear conector: No se pudo crear el conector &lt;ConnectorName&gt;. Motivo: Error interno. Compruebe que se hayan proporcionado las propiedades correctas de AWS._
+
+Este error puede producirse cuando el conector de AWS y la suscripción se encuentran en grupos de administración diferentes; deben estar en el mismo grupo de administración.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

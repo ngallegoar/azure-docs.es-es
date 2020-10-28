@@ -1,20 +1,17 @@
 ---
-title: 'Script de PowerShell: Crear y ver desencadenadores de instantáneas de Azure Data Share | Microsoft Docs'
+title: 'Script de PowerShell: Creación y visualización de desencadenadores de instantáneas de Azure Data Share'
 description: Este script de PowerShell crea y obtiene desencadenadores de instantáneas de un recurso compartido.
-services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 31d9754ddd9e9dfd0cca258901a6c8ab2c4a9cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05b70641873ab352ca92ac199d99c05b2fe0f4e6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497172"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221305"
 ---
 # <a name="use-powershell-to-create-and-share-snapshot-triggers"></a>Uso de PowerShell para crear y compartir desencadenadores de instantáneas
 
@@ -47,12 +44,12 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger?view=azps-2.6.0) | Cree un desencadenador de una instantánea de un recurso compartido. |
-| [Get-AzDataShareTrigger](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | Obtiene la configuración de la sincronización de un recurso compartido. |
+| [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger) | Cree un desencadenador de una instantánea de un recurso compartido. |
+| [Get-AzDataShareTrigger](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting) | Obtiene la configuración de la sincronización de un recurso compartido. |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/).
 
 Encontrará más ejemplos de scripts de PowerShell para Azure Data Share en el artículo [Ejemplos de PowerShell para Azure Data Share](../../samples-powershell.md).

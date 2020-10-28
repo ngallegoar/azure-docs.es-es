@@ -4,28 +4,28 @@ titleSuffix: Azure App Configuration
 description: Aprenda a crear un almacén de Azure App Configuration mediante una plantilla de Azure Resource Manager.
 author: ZhijunZhao
 ms.author: zhijzhao
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: 840f907015e9673caba46998493b5cb705de5fb7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: feabac62564729338e41bf30eaf8d9f5a6317126
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824185"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149011"
 ---
 # <a name="quickstart-create-an-azure-app-configuration-store-by-using-an-arm-template"></a>Inicio rápido: Creación de un almacén de Azure App Configuration mediante una plantilla de Resource Manager
 
 En este inicio rápido se describe cómo:
 
-- Implementar un almacén de App Configuration mediante una plantilla de Resource Manager
-- Crear pares clave-valor en un almacén de App Configuration mediante la plantilla de Resource Manager
-- Leer los pares clave-valor de un almacén de App Configuration en la plantilla de Resource Manager
+- Implementar un almacén de App Configuration mediante una plantilla de Azure Resource Manager (ARM).
+- Crear pares clave-valor en un almacén de App Configuration mediante la plantilla de ARM.
+- Leer los pares clave-valor de un almacén de App Configuration en la plantilla de ARM.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-configuration-store-kv%2Fazuredeploy.json)
 
@@ -35,14 +35,14 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/en-us/resources/templates/101-app-configuration-store-kv/). Crea un almacén de App Configuration con dos pares clave-valor dentro. Luego, utiliza la función `reference` para generar los valores de los dos recursos de clave-valor. La lectura del valor de la clave de esta manera permite que se use en otros lugares de la plantilla.
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-app-configuration-store-kv/). Crea un almacén de App Configuration con dos pares clave-valor dentro. Luego, utiliza la función `reference` para generar los valores de los dos recursos de clave-valor. La lectura del valor de la clave de esta manera permite que se use en otros lugares de la plantilla.
 
 En el inicio rápido se usa el elemento `copy` para crear varias instancias del recurso de clave-valor. Para más información sobre el elemento `copy`, consulte [Iteración de recursos en las plantillas de Resource Manager](../azure-resource-manager/templates/copy-resources.md).
 
 > [!IMPORTANT]
 > Esta plantilla requiere la versión `2020-07-01-preview` o posterior del proveedor de recursos de App Configuration. Esta versión utiliza la función `reference` para leer los pares clave-valor. La función `listKeyValue` que se usó para leer los pares clave-valor en la versión anterior no está disponible a partir de la versión `2020-07-01-preview`.
 
-:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json" range="1-88" highlight="52-58,61-75,80,84":::
+:::code language="json" source="~/quickstart-templates/101-app-configuration-store-kv/azuredeploy.json":::
 
 En la plantilla se definen dos recursos de Azure:
 
@@ -83,10 +83,10 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. En el cuadro de búsqueda de Azure Portal, escriba **App Configuration**. En la lista, seleccione **App Configuration**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. En el cuadro de búsqueda de Azure Portal, escriba **App Configuration** . En la lista, seleccione **App Configuration** .
 1. Seleccione el recurso de App Configuration recién creado.
-1. En **Operaciones**, haga clic en **Explorador de configuración**.
+1. En **Operaciones** , haga clic en **Explorador de configuración** .
 1. Compruebe que existen dos pares clave-valor.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

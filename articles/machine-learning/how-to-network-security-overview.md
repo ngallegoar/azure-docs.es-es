@@ -1,5 +1,5 @@
 ---
-title: Información general sobre la privacidad y el aislamiento de la red virtual
+title: Información general sobre el aislamiento y la seguridad de la red virtual
 titleSuffix: Azure Machine Learning
 description: Use una instancia de Azure Virtual Network aislada con Azure Machine Learning para proteger los recursos del área de trabajo y los entornos de proceso.
 services: machine-learning
@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperfq1
-ms.openlocfilehash: d08c1d23539c817792415d359b8e1cbb3979ca40
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7ec62e4a6a864ca37011014341a2d059615873d5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825500"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131945"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Información general sobre la privacidad y el aislamiento de la red virtual
 
@@ -48,12 +48,12 @@ En la tabla siguiente se compara el modo en que los servicios acceden a diferent
 |**Sin red virtual**| Dirección IP pública | Dirección IP pública | Dirección IP pública | Dirección IP pública |
 |**Protección de recursos en una red virtual**| IP privada (punto de conexión privado) | IP pública (punto de conexión de servicio) <br> **- o -** <br> IP privada (punto de conexión privado) | Dirección IP privada | Dirección IP privada  | 
 
-* **Área de trabajo**: cree un punto de conexión privado desde la red virtual para conectarse a Private Link en el área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
-* **Recurso asociado**: use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage, Azure Key Vault y Azure Container Services.
+* **Área de trabajo** : cree un punto de conexión privado desde la red virtual para conectarse a Private Link en el área de trabajo. El punto de conexión privado conecta el área de trabajo a la red virtual a través de varias direcciones IP privadas.
+* **Recurso asociado** : use puntos de conexión de servicio o puntos de conexión privados para conectarse a recursos del área de trabajo como Azure Storage, Azure Key Vault y Azure Container Services.
     * Los **puntos de conexión de servicio** proporcionan la identidad de la red virtual al servicio de Azure. Una vez que habilita puntos de conexión de servicio en su red virtual, puede agregar una regla de red virtual para proteger los recursos de los servicios de Azure en la red virtual. Los puntos de conexión de servicio usan direcciones IP públicas.
     * Los **puntos de conexión privados** son interfaces de red que le permiten conectarse de forma segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, y coloca el servicio de manera eficaz en su red virtual.
-* **Acceso al proceso de entrenamiento**: acceda a destinos de proceso de entrenamiento como la instancia de proceso y los clústeres de proceso de Azure Machine Learning de forma segura con direcciones IP privadas. 
-* **Acceso al proceso de inferencia**: acceda a los clústeres de proceso de Azure Kubernetes Services (AKS) con direcciones IP privadas.
+* **Acceso al proceso de entrenamiento** : acceda a destinos de proceso de entrenamiento como la instancia de proceso y los clústeres de proceso de Azure Machine Learning de forma segura con direcciones IP privadas. 
+* **Acceso al proceso de inferencia** : acceda a los clústeres de proceso de Azure Kubernetes Services (AKS) con direcciones IP privadas.
 
 
 En las cinco secciones siguientes se muestra cómo proteger el escenario de red descrito anteriormente. Para proteger la red, debe hacer lo siguiente:

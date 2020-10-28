@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654113"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146146"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Inicio rápido: uso compartido de datos mediante Azure Data Share y las plantillas de Resource Manager
 
@@ -20,7 +20,7 @@ Aprenda a configurar una nueva instancia de Azure Data Share desde una cuenta de
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 
@@ -60,7 +60,7 @@ Esta plantilla se crea con fines formativos. En la práctica, lo habitual es que
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Esto se debe a que la implementación intentando crear el conjunto de datos antes de que haya finalizado la asignación de RBAC. A pesar del mensaje de error, la implementación puede haberse realizado correctamente.  Puede examinar la sección [Revisión de los recursos implementados](#review-deployed-resources).
+Esto se debe a que la implementación intenta crear el conjunto de datos antes de que haya finalizado la asignación de roles de Azure. A pesar del mensaje de error, la implementación puede haberse realizado correctamente.  Puede examinar la sección [Revisión de los recursos implementados](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -69,25 +69,25 @@ Esto se debe a que la implementación intentando crear el conjunto de datos ante
     [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. Seleccione o escriba los siguientes valores:
 
-    * **Suscripción**: seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
-    * **Grupo de recursos**: seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
-    * **Ubicación**: seleccione una ubicación para el grupo de recursos.
-    * **Nombre del proyecto**: escriba un nombre de proyecto.  El nombre de proyecto se utiliza para generar nombres de recursos.  Vea las definiciones de las variables de la plantilla anterior.
-    * **Ubicación**: seleccione la ubicación para los recursos.  Puede usar la misma ubicación para el grupo de recursos.
+    * **Suscripción** : seleccione la suscripción de Azure que se usa para crear el recurso compartido de datos y los restantes recursos.
+    * **Grupo de recursos** : seleccione **Crear nuevo** para crear un grupo de recursos, o bien seleccione un grupo de recursos existente.
+    * **Ubicación** : seleccione una ubicación para el grupo de recursos.
+    * **Nombre del proyecto** : escriba un nombre de proyecto.  El nombre de proyecto se utiliza para generar nombres de recursos.  Vea las definiciones de las variables de la plantilla anterior.
+    * **Ubicación** : seleccione la ubicación para los recursos.  Puede usar la misma ubicación para el grupo de recursos.
     * **Invitation Email** (Correo electrónico de invitación): escriba la dirección de correo electrónico de inicio de sesión de Azure del destinatario del recurso compartido de datos.  El alias de correo electrónico no funciona.
 
     Use el valor predeterminado en el resto de la configuración.
-1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, **Comprar**.
+1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, **Comprar** .
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Abra la cuenta de Data Share que creó.
 1. En el menú izquierdo, seleccione **Send Shares** (Enviar recursos compartidos).  Verá que la cuenta de almacenamiento en la lista.
-1. Seleccione la cuenta de almacenamiento.  En **Detalles**, verá el valor de sincronización que ha configurado en la plantilla.
+1. Seleccione la cuenta de almacenamiento.  En **Detalles** , verá el valor de sincronización que ha configurado en la plantilla.
 
     ![Configuración de sincronización de la cuenta de almacenamiento de Azure Data Share](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
-1. Seleccione **Invitaciones** en la parte superior. Verá la dirección de correo electrónico que especificó al implementar la plantilla. El valor de**Estado** debe estar **Pendiente**.
+1. Seleccione **Invitaciones** en la parte superior. Verá la dirección de correo electrónico que especificó al implementar la plantilla. El valor de **Estado** debe estar **Pendiente** .
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

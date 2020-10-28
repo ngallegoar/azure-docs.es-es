@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91292972"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093725"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -24,21 +24,21 @@ Azure Backup ofrece la funcionalidad de restauración de [discos y máquinas vir
 
 Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la máquina virtual y elija el punto de recuperación deseado.
 
-1. Inicie sesión en [Azure Portal](https://portal.Azure.com) y, en el panel izquierdo, seleccione **Máquinas virtuales**. En la lista de máquinas virtuales, seleccione la que desee para abrir su panel.
+1. Inicie sesión en [Azure Portal](https://portal.Azure.com) y, en el panel izquierdo, seleccione **Máquinas virtuales** . En la lista de máquinas virtuales, seleccione la que desee para abrir su panel.
 
 2. En el menú de la máquina virtual, seleccione **Backup** para abrir el panel de Backup.
 
     ![Apertura del elemento de copia de seguridad del almacén de Recovery Services](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. En el menú del panel de Backup, seleccione **Recuperación de archivos**.
+3. En el menú del panel de Backup, seleccione **Recuperación de archivos** .
 
     ![Selección de Recuperación de archivos](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
-    Se abre el menú **Recuperación de archivos**.
+    Se abre el menú **Recuperación de archivos** .
 
     ![Menú Recuperación de archivos](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
-4. En el menú desplegable **Seleccionar punto de recuperación**, elija el punto de recuperación que contiene los archivos que desee. De forma predeterminada, el punto de recuperación más reciente ya está seleccionado.
+4. En el menú desplegable **Seleccionar punto de recuperación** , elija el punto de recuperación que contiene los archivos que desee. De forma predeterminada, el punto de recuperación más reciente ya está seleccionado.
 
 5. Si desea descargar el software para copiar archivos del punto de recuperación, seleccione **Descargar ejecutable** (para máquinas virtuales Windows de Azure) o en **Descargar script** (para máquinas virtuales Linux de Azure, se genera un script de Python).
 
@@ -50,11 +50,11 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
     Para ejecutar el archivo ejecutable o el script como administrador, se recomienda guardar el archivo descargado en el equipo.
 
-6. El archivo ejecutable o el script están protegido con contraseña y es obligatoria. En el menú **Recuperación de archivos**, seleccione el botón de copia para cargar la contraseña en la memoria.
+6. El archivo ejecutable o el script están protegido con contraseña y es obligatoria. En el menú **Recuperación de archivos** , seleccione el botón de copia para cargar la contraseña en la memoria.
 
     ![Contraseña generada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. Asegúrese de que [tiene la máquina correcta](#selecting-the-right-machine-to-run-the-script) para ejecutar el script. Si la máquina correcta es la misma máquina en la que descargó el script, puede pasar a la sección de descarga. Desde la ubicación de descarga (normalmente, la carpeta *Descargas*), haga clic con el botón derecho en el archivo ejecutable o el script y ejecútelo con las credenciales del administrador. Cuando se le solicite, escriba la contraseña o péguela de la memoria y presione **Entrar**. Una vez que se escriba la contraseña válida, el script se conecta al punto de recuperación.
+7. Asegúrese de que [tiene la máquina correcta](#selecting-the-right-machine-to-run-the-script) para ejecutar el script. Si la máquina correcta es la misma máquina en la que descargó el script, puede pasar a la sección de descarga. Desde la ubicación de descarga (normalmente, la carpeta *Descargas* ), haga clic con el botón derecho en el archivo ejecutable o el script y ejecútelo con las credenciales del administrador. Cuando se le solicite, escriba la contraseña o péguela de la memoria y presione **Entrar** . Una vez que se escriba la contraseña válida, el script se conecta al punto de recuperación.
 
     ![Salida del ejecutable](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
@@ -78,7 +78,7 @@ En Linux, los volúmenes del punto de recuperación se montan en la carpeta en q
 
 ## <a name="closing-the-connection"></a>Cierre de la conexión
 
-Después de identificar los archivos y copiarlos en una ubicación de almacenamiento local, quite (o desmonte) las unidades adicionales. Para desmontar las unidades, en el menú **Recuperación de archivos** de Azure Portal, seleccione **Desmontar discos**.
+Después de identificar los archivos y copiarlos en una ubicación de almacenamiento local, quite (o desmonte) las unidades adicionales. Para desmontar las unidades, en el menú **Recuperación de archivos** de Azure Portal, seleccione **Desmontar discos** .
 
 ![Desmontar discos](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -312,7 +312,7 @@ Si lo hace en un equipo con acceso restringido, asegúrese de que hay acceso a l
 > [!NOTE]
 >
 > El archivo de script que descargó en el paso 5 [anterior](#mount-the-volume-and-copy-files) tendrá **geo-name** en el nombre del archivo. Use ese **geo-name** para rellenar la dirección URL. El nombre del script descargado comenzará por: \'VMname\'\_\'geoname\'_\'GUID\'.<br><br>
-> Por ejemplo, si el nombre de archivo del script es *ContosoVM_wcus_12345678*, **geo-name** es *wcus* y la dirección URL será:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
+> Por ejemplo, si el nombre de archivo del script es *ContosoVM_wcus_12345678* , **geo-name** es *wcus* y la dirección URL será:<br> <https://pod01-rec2.wcus.backup.windowsazure.com>
 >
 
 En el caso de Linux, el script requiere los componentes "open-iscsi" e "lshw" para conectar con el punto de recuperación. Si los componentes no existen en el equipo donde se ejecuta el script, este solicita permiso para instalarlos. Otorgue el consentimiento para instalar los componentes necesarios.
@@ -357,10 +357,10 @@ Si tiene problemas al tratar de recuperar archivos de las máquinas virtuales, c
 | Salida del ejecutable: *Excepción detectada al conectarse al destino* | El script no puede acceder al punto de recuperación.    | Compruebe si la máquina cumple los [requisitos de acceso anteriores](#access-requirements). |  
 | Salida del ejecutable: *el destino ya ha iniciado sesión mediante una sesión iSCSI.* | El script ya se ejecutó en la misma máquina y se ha conectado la unidad. | Ya se han conectado los volúmenes del punto de recuperación. Es posible que no se monten con las mismas letras de unidad de la máquina virtual original. Examine todos los volúmenes disponibles en el explorador de archivos para buscar su archivo. |
 | Salida del ejecutable: *este script no es válido porque se han desmontado los discos a través del portal o se ha superado el límite de 12 horas. Descargue un nuevo script del portal.* |    Se han desmontado los discos desde el portal o se ha superado el límite de 12 horas. | Este archivo ejecutable ahora no es válido y no se puede ejecutar. Si desea acceder a los archivos de esa recuperación en un momento dado, visite el portal para descargar un nuevo archivo ejecutable.|
-| En el equipo donde se ejecuta el archivo ejecutable: los nuevos volúmenes no se desmontan después de hacer clic en el botón Desmontar. | El iniciador iSCSI de la máquina no responde ni actualiza su conexión con el destino ni mantiene la caché. |  Espere unos minutos tras hacer clic **Desmontar**. Si los nuevos volúmenes no se han desmontado, examínelos todos. Al examinar todos los volúmenes se obliga al iniciador a actualizar la conexión y el volumen se desmonta con un mensaje de error que indica que el disco no está disponible.|
+| En el equipo donde se ejecuta el archivo ejecutable: los nuevos volúmenes no se desmontan después de hacer clic en el botón Desmontar. | El iniciador iSCSI de la máquina no responde ni actualiza su conexión con el destino ni mantiene la caché. |  Espere unos minutos tras hacer clic **Desmontar** . Si los nuevos volúmenes no se han desmontado, examínelos todos. Al examinar todos los volúmenes se obliga al iniciador a actualizar la conexión y el volumen se desmonta con un mensaje de error que indica que el disco no está disponible.|
 | Salida del ejecutable: el script se ejecuta correctamente, pero no se muestra en la salida del script el mensaje que indica que se han conectado nuevos volúmenes. |    Se trata de un problema transitorio.    | Los volúmenes ya deberían estar conectados. Abra el Explorador para examinarlos. Si usa siempre la misma máquina para ejecutar scripts, considere la posibilidad de reiniciarla; debería mostrarse la lista en las ejecuciones posteriores del ejecutable. |
 | Específico de Linux: no se pueden ver los volúmenes deseados. | El sistema operativo de la máquina en que se ejecuta el script puede no reconocer el sistema de archivos subyacente de la máquina virtual protegida. | Compruebe si el punto de recuperación es coherente frente a bloqueos o coherente con archivo. En caso de coherencia con archivo, ejecute el script en otra máquina cuyo sistema operativo reconozca el sistema de archivos de la máquina virtual protegida. |
-| Específico de Windows: no se pueden ver los volúmenes deseados. | Es posible que los discos se hayan conectado, pero no se han configurado los volúmenes | En la pantalla de administración de discos, identifique los discos adicionales relacionados con el punto de recuperación. Si cualquiera de estos discos está sin conexión, intente ponerlo en línea haciendo clic con el botón derecho en él y, luego, seleccionando **En línea**.|
+| Específico de Windows: no se pueden ver los volúmenes deseados. | Es posible que los discos se hayan conectado, pero no se han configurado los volúmenes | En la pantalla de administración de discos, identifique los discos adicionales relacionados con el punto de recuperación. Si cualquiera de estos discos está sin conexión, intente ponerlo en línea haciendo clic con el botón derecho en él y, luego, seleccionando **En línea** .|
 
 ## <a name="security"></a>Seguridad
 
@@ -376,7 +376,7 @@ Esta característica se ha creado para tener acceso a los datos de la máquina v
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Selección del punto de recuperación (quién puede generar el script)
 
-El script proporciona acceso a los datos de la máquina virtual y es importante regular quién puede generarlo primero. Es necesario iniciar sesión en Azure Portal y contar con la [autorización de RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para generar el script.
+El script proporciona acceso a los datos de la máquina virtual y es importante regular quién puede generarlo primero. Es necesario iniciar sesión en Azure Portal y contar con la [autorización de Azure RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para generar el script.
 
 La recuperación de archivos necesita el mismo nivel de autorización según sea necesario para la restauración de máquina virtual y de discos. En otras palabras, solo los usuarios autorizados que pueden ver los datos de la máquina virtual, pueden generar el script.
 

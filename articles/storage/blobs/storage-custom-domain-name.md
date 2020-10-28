@@ -9,12 +9,12 @@ ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 903413b6ca00600e15ac3af0a93b98a8d67a1c28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6289fb4e3b5bb695b79589d544d0ae475f9774
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053633"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314668"
 ---
 # <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage
 
@@ -23,7 +23,7 @@ Puede asignar un dominio personalizado a un punto de conexión del servicio de b
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!NOTE] 
-> Esta asignación solo funciona para subdominios (por ejemplo: `www.contoso.com`). Si desea que su punto de conexión web esté disponible en el dominio raíz (por ejemplo: `contoso.com`), tendrá que usar Azure CDN. Para obtener instrucciones, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. Dado que va a ir a esa sección de este artículo para activar el dominio raíz de su dominio personalizado, el paso de dicha sección para habilitar el HTTPS es opcional. 
+> Esta asignación solo funciona para subdominios (por ejemplo: `www.contoso.com`). Si desea que su punto de conexión web esté disponible en el dominio raíz (por ejemplo: `contoso.com`), tendrá que usar Azure CDN. Para obtener instrucciones, consulte la sección [Asignación de un dominio personalizado con HTTPS habilitado](#enable-https) de este artículo. Dado que va a ir a esa sección de este artículo para activar el dominio raíz de su dominio personalizado, el paso de dicha sección para habilitar HTTPS es opcional. 
 
 <a id="enable-http"></a>
 
@@ -58,11 +58,11 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Propiedades**.  
+2. En el panel de menús, en **Configuración** , seleccione **Propiedades** .  
 
 3. Copie el valor de **Punto de conexión principal de Blob service** o de **Punto de conexión del sitio web estático principal** en un archivo de texto. 
 
-4. Quite el identificador de protocolo (*por ejemplo*, HTTPS) y la barra diagonal final de esa cadena. La siguiente tabla contiene ejemplos.
+4. Quite el identificador de protocolo ( *por ejemplo* , HTTPS) y la barra diagonal final de esa cadena. La siguiente tabla contiene ejemplos.
 
    | Tipo de punto de conexión |  endpoint | nombre de host |
    |------------|-----------------|-------------------|
@@ -79,11 +79,11 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
 
 1. Inicie sesión en el sitio web del registrador de su dominio y vaya a la página de administración del valor de DNS.
 
-   Podría encontrar la página en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
+   Podría encontrar la página en una sección como **Nombre de dominio** , **DNS** o **Administración del servidor de nombres** .
 
 2. Busque la sección para la administración de registros CNAME. 
 
-   Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME**, **Alias** o **Subdomains**.
+   Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME** , **Alias** o **Subdomains** .
 
 3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos: 
 
@@ -97,17 +97,17 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menú, en **Blob service**, seleccione **Dominio personalizado**.  
+2. En el panel de menú, en **Blob service** , seleccione **Dominio personalizado** .  
 
    ![Opción de dominio personalizado](./media/storage-custom-domain-name/custom-domain-button.png "dominio personalizado")
 
-   Se abre el panel **Dominio personalizado**.
+   Se abre el panel **Dominio personalizado** .
 
-3. En el cuadro de texto **Nombre de dominio**, escriba el nombre de su dominio personalizado, incluido el subdominio  
+3. En el cuadro de texto **Nombre de dominio** , escriba el nombre de su dominio personalizado, incluido el subdominio  
    
-   Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www*, escriba `www.contoso.com`. Si su subdominio es *photos*, escriba `photos.contoso.com`.
+   Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www* , escriba `www.contoso.com`. Si su subdominio es *photos* , escriba `photos.contoso.com`.
 
-4. Para registrar el dominio personalizado, elija el botón **Guardar**.
+4. Para registrar el dominio personalizado, elija el botón **Guardar** .
 
    Una vez que el registro CNAME se ha propagado por los servidores de nombres de dominio (DNS), y si los usuarios tienen los permisos apropiados, pueden ver los datos de blob mediante el dominio personalizado.
 
@@ -115,7 +115,7 @@ Cree un registro CNAME que apunte al nombre de host. Un registro CNAME es un tip
 
 Para confirmar que el dominio personalizado se haya asignado al punto de conexión de Blob service, cree un blob en un contenedor público en la cuenta de almacenamiento. A continuación, en un explorador web, acceda al blob mediante el uso de un identificador URI con el siguiente formato: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`.
 
-Por ejemplo, para acceder a un formulario web del contenedor *myforms* en el subdominio personalizado *photos.contoso.com*, debe usar el siguiente identificador URI: `http://photos.contoso.com/myforms/applicationform.htm`.
+Por ejemplo, para acceder a un formulario web del contenedor *myforms* en el subdominio personalizado *photos.contoso.com* , debe usar el siguiente identificador URI: `http://photos.contoso.com/myforms/applicationform.htm`.
 
 <a id="zero-down-time"></a>
 
@@ -144,11 +144,11 @@ El nombre de host es la dirección URL del punto de conexión del almacenamiento
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menús, en **Configuración**, seleccione **Propiedades**.  
+2. En el panel de menús, en **Configuración** , seleccione **Propiedades** .  
 
 3. Copie el valor de **Punto de conexión principal de Blob service** o de **Punto de conexión del sitio web estático principal** en un archivo de texto. 
 
-4. Quite el identificador de protocolo (*por ejemplo*, HTTPS) y la barra diagonal final de esa cadena. La siguiente tabla contiene ejemplos.
+4. Quite el identificador de protocolo ( *por ejemplo* , HTTPS) y la barra diagonal final de esa cadena. La siguiente tabla contiene ejemplos.
 
    | Tipo de punto de conexión |  endpoint | nombre de host |
    |------------|-----------------|-------------------|
@@ -163,11 +163,11 @@ Cree un registro CNAME temporal que apunte al nombre de host. Un registro CNAME 
 
 1. Inicie sesión en el sitio web del registrador de su dominio y vaya a la página de administración del valor de DNS.
 
-   Podría encontrar la página en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
+   Podría encontrar la página en una sección como **Nombre de dominio** , **DNS** o **Administración del servidor de nombres** .
 
 2. Busque la sección para la administración de registros CNAME. 
 
-   Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME**, **Alias** o **Subdomains**.
+   Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME** , **Alias** o **Subdomains** .
 
 3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos: 
 
@@ -179,7 +179,7 @@ Cree un registro CNAME temporal que apunte al nombre de host. Un registro CNAME 
 
      Agregue el subdominio `asverify` al nombre de host. Por ejemplo: `asverify.mystorageaccount.blob.core.windows.net`.
 
-4. Para registrar el dominio personalizado, elija el botón **Guardar**.
+4. Para registrar el dominio personalizado, elija el botón **Guardar** .
 
    Si el registro se realiza correctamente, en el portal se notificará que la cuenta de almacenamiento se actualizó correctamente. Azure ha verificado el dominio personalizado, pero aún no se ha realizado el enrutamiento del tráfico al dominio en la cuenta de almacenamiento.
 
@@ -189,19 +189,19 @@ Al realizar un registro previo de su dominio personalizado en Azure, permite que
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menú, en **Blob service**, seleccione **Dominio personalizado**.  
+2. En el panel de menú, en **Blob service** , seleccione **Dominio personalizado** .  
 
    ![Opción de dominio personalizado](./media/storage-custom-domain-name/custom-domain-button.png "dominio personalizado")
 
-   Se abre el panel **Dominio personalizado**.
+   Se abre el panel **Dominio personalizado** .
 
-3. En el cuadro de texto **Nombre de dominio**, escriba el nombre de su dominio personalizado, incluido el subdominio  
+3. En el cuadro de texto **Nombre de dominio** , escriba el nombre de su dominio personalizado, incluido el subdominio  
    
-   Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www*, escriba `www.contoso.com`. Si su subdominio es *photos*, escriba `photos.contoso.com`.
+   Por ejemplo, si su dominio es *contoso.com* y su alias de subdominio es *www* , escriba `www.contoso.com`. Si su subdominio es *photos* , escriba `photos.contoso.com`.
 
-4. Seleccione la casilla **Usar validación CNAME indirecta**.
+4. Seleccione la casilla **Usar validación CNAME indirecta** .
 
-5. Para registrar el dominio personalizado, elija el botón **Guardar**.
+5. Para registrar el dominio personalizado, elija el botón **Guardar** .
   
    Una vez que el registro CNAME se ha propagado por los servidores de nombres de dominio (DNS), y si los usuarios tienen los permisos apropiados, pueden ver los datos de blob mediante el dominio personalizado.
 
@@ -211,11 +211,11 @@ Cree un registro CNAME temporal que apunte al nombre de host.
 
 1. Inicie sesión en el sitio web del registrador de su dominio y vaya a la página de administración del valor de DNS.
 
-   Podría encontrar la página en una sección como **Nombre de dominio**, **DNS** o **Administración del servidor de nombres**.
+   Podría encontrar la página en una sección como **Nombre de dominio** , **DNS** o **Administración del servidor de nombres** .
 
 2. Busque la sección para la administración de registros CNAME. 
 
-   Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME**, **Alias** o **Subdomains**.
+   Tiene que dirigirse a la página de configuración avanzada y buscar **CNAME** , **Alias** o **Subdomains** .
 
 3. Cree un registro CNAME. Como parte de ese registro, especifique los siguientes elementos: 
 
@@ -227,7 +227,7 @@ Cree un registro CNAME temporal que apunte al nombre de host.
 
 Para confirmar que el dominio personalizado se haya asignado al punto de conexión de Blob service, cree un blob en un contenedor público en la cuenta de almacenamiento. A continuación, en un explorador web, acceda al blob mediante el uso de un identificador URI con el siguiente formato: `http://<subdomain.customdomain>/<mycontainer>/<myblob>`.
 
-Por ejemplo, para acceder a un formulario web del contenedor *myforms* en el subdominio personalizado *photos.contoso.com*, debe usar el siguiente identificador URI: `http://photos.contoso.com/myforms/applicationform.htm`.
+Por ejemplo, para acceder a un formulario web del contenedor *myforms* en el subdominio personalizado *photos.contoso.com* , debe usar el siguiente identificador URI: `http://photos.contoso.com/myforms/applicationform.htm`.
 
 ### <a name="remove-a-custom-domain-mapping"></a>Eliminación de una asignación de dominio personalizado
 
@@ -239,12 +239,12 @@ Para quitar la configuración del dominio personalizado, haga lo siguiente:
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 
-2. En el panel de menú, en **Blob service**, seleccione **Dominio personalizado**.  
-   Se abre el panel **Dominio personalizado**.
+2. En el panel de menú, en **Blob service** , seleccione **Dominio personalizado** .  
+   Se abre el panel **Dominio personalizado** .
 
 3. Borre el contenido del cuadro de texto que incluye el nombre de dominio personalizado.
 
-4. Seleccione el botón **Guardar**.
+4. Seleccione el botón **Guardar** .
 
 Una vez que se haya quitado correctamente el dominio personalizado, verá una notificación del portal que indica que la cuenta de almacenamiento se actualizó correctamente
 

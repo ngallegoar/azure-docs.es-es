@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667700"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166461"
 ---
 # <a name="get-started-with-custom-keyword"></a>Introducción a Palabra clave personalizada
 
@@ -36,9 +36,9 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
 1. Vaya a [Speech Studio](https://aka.ms/sdsdk-speechportal) e **inicie sesión** o, si todavía no tiene una suscripción a Voz, elija [**Crear una suscripción**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-1. En la página [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) (Palabra clave personalizada), cree un **Nuevo proyecto**. 
+1. En la página [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) (Palabra clave personalizada), cree un **Nuevo proyecto** . 
 
-1. Escriba un **Nombre**, una **Descripción** opcional y seleccione el idioma. Necesita un proyecto por idioma, y la compatibilidad está limitada actualmente al idioma `en-US`.
+1. Escriba un **Nombre** , una **Descripción** opcional y seleccione el idioma. Necesita un proyecto por idioma, y la compatibilidad está limitada actualmente al idioma `en-US`.
 
     ![Descripción del proyecto de palabra clave](media/custom-keyword/custom-kws-portal-new-project.png)
 
@@ -46,15 +46,15 @@ Antes de que pueda usar una palabra clave personalizada, deberá crear una palab
 
     ![Selección del proyecto de palabra clave](media/custom-keyword/custom-kws-portal-project-list.png)
 
-1. Para crear un nuevo modelo de palabra clave, haga clic en **Entrenar modelo**.
+1. Para crear un nuevo modelo de palabra clave, haga clic en **Entrenar modelo** .
 
-1. Escriba un **Nombre** para el modelo, una **Descripción** opcional y la **Palabra clave** de su elección y después haga clic en **Siguiente**. Consulte las [directrices](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sobre cómo elegir una palabra clave eficaz.
+1. Escriba un **Nombre** para el modelo, una **Descripción** opcional y la **Palabra clave** de su elección y después haga clic en **Siguiente** . Consulte las [directrices](speech-devices-sdk-kws-guidelines.md#choose-an-effective-keyword) sobre cómo elegir una palabra clave eficaz.
 
     ![Escriba su palabra clave](media/custom-keyword/custom-kws-portal-new-model.png)
 
 1. El portal creará pronunciaciones candidatas para la palabra clave. Para escuchar a cada candidato, haga clic en los botones de reproducción y desactive las pronunciaciones que sean incorrectas. Una vez que solo las pronunciaciones correctas estén marcadas como activas, haga clic en **Entrenar** para empezar a generar el modelo de palabra clave. 
 
-    ![Revisión de la palabra clave](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Captura de pantalla que muestra dónde se eligen las pronunciaciones correctas.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. El modelo puede tardar hasta treinta minutos en generarse. La lista de palabras clave cambiará de **Procesando** a **Correcto** cuando el modelo esté completo. Luego puede descargar el archivo.
 

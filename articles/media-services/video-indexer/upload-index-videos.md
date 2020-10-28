@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268832"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218986"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -72,15 +72,15 @@ Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media
 > El nombre del vídeo no debe superar los 80 caracteres.
 
 1. Inicie sesión en el sitio web de [Video Indexer](https://www.videoindexer.ai/).
-2. Para cargar un vídeo, presione el botón **Upload** (Cargar) o el vínculo.
+1. Para cargar un vídeo, presione el botón **Upload** (Cargar) o el vínculo.
 
-    ![Cargar](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Cargar":::
+1. Una vez cargado el vídeo, Video Indexer inicia la indexación y el análisis del vídeo.
 
-    Una vez cargado el vídeo, Video Indexer inicia la indexación y el análisis del vídeo.
-
-    ![Cargado](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    Cuando Video Indexer ha terminado de analizar, recibirá una notificación con un vínculo a su vídeo y una breve descripción de lo que se ha encontrado en el vídeo. Por ejemplo: personas, temas u OCR.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Cargar":::
+1. Cuando Video Indexer haya terminado el análisis, recibirá un correo electrónico con un vínculo a su vídeo y una breve descripción de lo que se ha encontrado en él. Por ejemplo: personas, temas u OCR.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Carga e indexación con API
 
@@ -140,7 +140,7 @@ El precio depende de la opción de indexación seleccionada.
 
 #### <a name="priority"></a>priority
 
-Video Indexer indexa los vídeos según su prioridad. Use el parámetro **priority** para especificar la prioridad del índice. Los siguientes valores son válidos: **Low**, **Normal** (valor predeterminado) y **High**.
+Video Indexer indexa los vídeos según su prioridad. Use el parámetro **priority** para especificar la prioridad del índice. Los siguientes valores son válidos: **Low** , **Normal** (valor predeterminado) y **High** .
 
 El parámetro **priority** solo se admite en cuentas de pago.
 

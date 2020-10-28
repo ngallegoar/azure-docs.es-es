@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: ff408f114784fa3f0b8fab49521b5ec7ec2be102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f511a898b3b2964f954ba150b05f02486456dcf
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797724"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171494"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicación de un sitio de Hugo en Azure Static Web Apps, versión preliminar
 
@@ -77,7 +77,7 @@ Cree una aplicación de Hugo mediante la interfaz de la línea de comandos (CLI
 
 Necesita un repositorio en GitHub para conectarse a Azure Static Web Apps. En los pasos siguientes se muestra cómo crear un repositorio para el sitio.
 
-1. Cree un repositorio de GitHub en blanco (no cree un archivo Léame) desde [https://github.com/new](https://github.com/new), denominado **hugo-static-app**.
+1. Cree un repositorio de GitHub en blanco (no cree un archivo Léame) desde [https://github.com/new](https://github.com/new), denominado **hugo-static-app** .
 
 1. Agregue el repositorio de GitHub como remoto al repositorio local. Asegúrese de agregar el nombre de usuario de GitHub en lugar del marcador de posición `<YOUR_USER_NAME>` en el comando siguiente.
 
@@ -98,32 +98,32 @@ En los pasos siguientes se muestra cómo crear una aplicación de sitio estátic
 ### <a name="create-the-application"></a>Creación de la aplicación
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
-1. Haga clic en **Crear un recurso**.
-1. Busque **Static Web Apps**.
+1. Haga clic en **Crear un recurso** .
+1. Busque **Static Web Apps** .
 1. Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
 1. Haga clic en **Crear**
 
    :::image type="content" source="./media/publish-hugo/create-in-portal.png" alt-text="Creación de un recurso de Azure Static Web Apps en el portal":::
 
-1. En **Suscripción**, acepte la suscripción que aparece o seleccione otra en la lista desplegable.
+1. En **Suscripción** , acepte la suscripción que aparece o seleccione otra en la lista desplegable.
 
-1. En _Grupo de recursos_, seleccione **Nuevo**. En _Nuevo nombre de grupo de recursos_, escriba **hugo-static-app** y seleccione **Aceptar**.
+1. En _Grupo de recursos_ , seleccione **Nuevo** . En _Nuevo nombre de grupo de recursos_ , escriba **hugo-static-app** y seleccione **Aceptar** .
 
-1. Después, un nombre para la aplicación en el cuadro **Nombre**. Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`.
+1. Después, un nombre para la aplicación en el cuadro **Nombre** . Los caracteres válidos incluyen `a-z`, `A-Z`, `0-9` y `-`.
 
-1. En _Región_, seleccione una región cercana disponible.
+1. En _Región_ , seleccione una región cercana disponible.
 
-1. En _SKU_, seleccione **Gratis**.
+1. En _SKU_ , seleccione **Gratis** .
 
    :::image type="content" source="./media/publish-hugo/basic-app-details.png" alt-text="Creación de un recurso de Azure Static Web Apps en el portal":::
 
-1. Haga clic en el botón **Iniciar sesión con GitHub**.
+1. Haga clic en el botón **Iniciar sesión con GitHub** .
 
 1. Seleccione la **Organización** en la que creó el repositorio.
 
-1. Seleccione **hugo-static-app** como _Repositorio_.
+1. Seleccione **hugo-static-app** como _Repositorio_ .
 
-1. En _Rama_, seleccione **maestra**.
+1. En _Rama_ , seleccione **maestra** .
 
    :::image type="content" source="./media/publish-hugo/completed-github-info.png" alt-text="Creación de un recurso de Azure Static Web Apps en el portal":::
 
@@ -135,9 +135,9 @@ A continuación, agregue los valores de configuración que el proceso de compila
 
 1. Establezca _Ubicación de la aplicación_ en **/**
 
-1. Establezca _Ubicación del artefacto de la aplicación_ en **public**.
+1. Establezca _Ubicación del artefacto de la aplicación_ en **public** .
 
-   No es necesario un valor para _Ubicación de la API_, ya que por el momento no está implementando una API.
+   No es necesario un valor para _Ubicación de la API_ , ya que por el momento no está implementando una API.
 
 ### <a name="review-and-create"></a>Revisar y crear
 
@@ -150,6 +150,37 @@ A continuación, agregue los valores de configuración que el proceso de compila
 1. En la ventana _Información general_ de Azure Portal para el recurso de Azure Static Web Apps recién creado, haga clic en el vínculo _Dirección URL_ para abrir la aplicación implementada.
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Creación de un recurso de Azure Static Web Apps en el portal":::
+
+#### <a name="custom-hugo-version"></a>Versión de Hugo personalizada
+
+Cuando se genera una aplicación web estática, se genera un [archivo de flujo de trabajo](./github-actions-workflow.md) que contiene los valores de configuración de publicación de la aplicación. Para designar una versión específica de Hugo en el archivo de flujo de trabajo, proporcione un valor para `HUGO_VERSION` en la sección `env`. En la configuración de ejemplo siguiente se muestra cómo establecer Hugo en una versión específica.
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "api" # Api source code path - optional
+          app_artifact_location: "public" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
+        env:
+          HUGO_VERSION: 0.58.0
+```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

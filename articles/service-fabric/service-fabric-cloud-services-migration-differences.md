@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836741"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091175"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Obtenga información acerca de las diferencias entre Cloud Services y Service Fabric antes de migrar las aplicaciones.
 Microsoft Azure Service Fabric es la plataforma de aplicaciones en la nube de última generación para aplicaciones distribuidas altamente escalables y altamente confiables. Presenta muchas características nuevas para empaquetar, implementar, actualizar y administrar aplicaciones distribuidas en la nube. 
@@ -69,7 +69,7 @@ Con la comunicación directa, los niveles pueden comunicarse directamente a trav
 
 Service Fabric proporciona un mecanismo de detección de servicios, llamado Servicio de nombres, que puede usarse para resolver direcciones de puntos de conexión. 
 
-![Comunicación directa de Service Fabric][6]
+![Diagrama que muestra cómo Service Fabric proporciona un mecanismo de detección de servicios, llamado Naming Service, que puede usarse para resolver direcciones de puntos de conexión.][6]
 
 ### <a name="queues"></a>Colas
 Un mecanismo de comunicación común entre los niveles en entornos sin estado, como Cloud Services, es usar una cola de almacenamiento externo para almacenar a largo plazo tareas de trabajo de un nivel a otro. Un escenario común es un nivel web que envía trabajos a una cola de Azure o de Service Bus, y las instancias de rol Worker Role pueden quitar de la cola los trabajos y procesarlos.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326820"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152286"
 ---
 # <a name="azure-cognitive-services-security"></a>Seguridad de Azure Cognitive Services
 
@@ -33,7 +33,7 @@ En el caso de los usuarios de .NET, tenga en cuenta los <a href="https://docs.mi
 
 ## <a name="authentication"></a>Authentication
 
-Cuando se habla de autenticación, hay varias ideas equivocadas que son habituales. La autenticación y la autorización suelen confundirse. La identidad es también un componente importante de la seguridad. Una identidad es una colección de información sobre una <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidad de seguridad<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los proveedores de identidades (IdP) proporcionan identidades a los servicios de autenticación. La autenticación es el acto de comprobar la identidad de un usuario. La autorización es la especificación de los privilegios y derechos de acceso a los recursos de una identidad determinada. Varias de las ofertas de Cognitive Services incluyen el control de acceso basado en rol (RBAC). RBAC se puede usar para simplificar una parte del ceremonial implicado en la administración manual de entidades de seguridad. Para más detalles, consulte [Control de acceso basado en rol para recursos de Azure](../role-based-access-control/overview.md).
+Cuando se habla de autenticación, hay varias ideas equivocadas que son habituales. La autenticación y la autorización suelen confundirse. La identidad es también un componente importante de la seguridad. Una identidad es una colección de información sobre una <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">entidad de seguridad<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Los proveedores de identidades (IdP) proporcionan identidades a los servicios de autenticación. La autenticación es el acto de comprobar la identidad de un usuario. La autorización es la especificación de los privilegios y derechos de acceso a los recursos de una identidad determinada. Varias de las ofertas de Cognitive Services incluyen el control de acceso basado en roles de Azure (Azure RBAC). Azure RBAC se puede usar para simplificar una parte del ceremonial implicado en la administración manual de entidades de seguridad. Para obtener más detalles, consulte [Control de acceso basado en roles de Azure para recursos de Azure](../role-based-access-control/overview.md).
 
 Para más información sobre la autenticación con claves de suscripción, tokens de acceso y Azure Active Directory (AAD), consulte <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">Autenticación de solicitudes en Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
@@ -60,7 +60,7 @@ Cree y asigne una variable de entorno persistente según el valor.
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-En una nueva instancia del **símbolo del sistema**, lea la variable de entorno.
+En una nueva instancia del **símbolo del sistema** , lea la variable de entorno.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ Cree y asigne una variable de entorno persistente según el valor.
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-En una nueva instancia de **Windows PowerShell**, lea la variable de entorno.
+En una nueva instancia de **Windows PowerShell** , lea la variable de entorno.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ Cree y asigne una variable de entorno persistente según el valor.
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-En una nueva instancia de **Bash**, lea la variable de entorno.
+En una nueva instancia de **Bash** , lea la variable de entorno.
 
 ```Bash
 # Prints the env var value
@@ -211,7 +211,7 @@ En cuanto a los siguientes servicios, los ingenieros de Microsoft no obtendrán 
 * Personalizer
 
 > [!IMPORTANT]
-> En el caso de **Form Recognizer**, los ingenieros de Microsoft no tendrán acceso a los datos de los clientes en los recursos creados después del 10 de julio de 2020.
+> En el caso de **Form Recognizer** , los ingenieros de Microsoft no tendrán acceso a los datos de los clientes en los recursos creados después del 10 de julio de 2020.
 
 Para solicitar la capacidad de usar la SKU de E0, rellene y envíe este  [formulario de solicitud](https://aka.ms/cogsvc-cmk). Tardará de tres a cinco días hábiles aproximadamente en recibir una respuesta sobre el estado de la solicitud. En función de la demanda, es posible que se coloque en una cola y se apruebe a medida que haya espacio disponible. Una vez aprobado el uso de E0 SKU con LUIS, deberá crear un nuevo recurso desde Azure Portal y seleccionar E0 como el plan de tarifa. Los usuarios no podrán realizar la actualización de F0 a la nueva SKU de E0.
 

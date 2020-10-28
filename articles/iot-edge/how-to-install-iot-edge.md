@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045693"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109007"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Instalación o desinstalación del entorno de ejecución de Azure IoT Edge
 
@@ -39,19 +39,19 @@ Prepare el dispositivo para acceder a los paquetes de instalación de Microsoft.
 
 1. Instale la configuración del repositorio que coincida con el sistema operativo del dispositivo.
 
-   * **Ubuntu Server 16.04**:
+   * **Ubuntu Server 16.04** :
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Ubuntu Server 18.04**:
+   * **Ubuntu Server 18.04** :
 
      ```bash
      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
      ```
 
-   * **Raspbian Stretch**:
+   * **Raspbian Stretch** :
 
      ```bash
      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
@@ -83,6 +83,12 @@ IoT Edge con contenedores de Linux puede ejecutarse en cualquier versión de Win
 Azure IoT Edge se basa en un motor del contenedor [compatible con OCI](https://www.opencontainers.org/). Asegúrese de que el dispositivo admita los contenedores.
 
 Si va a instalar IoT Edge en una máquina virtual, habilite la virtualización anidada y asigne al menos 2 GB de memoria. En el caso de Hyper-V, las máquinas virtuales de generación 2 tienen la virtualización anidada habilitada de manera predeterminada. En VMware, hay un botón de alternancia para habilitar la característica en la máquina virtual.
+
+Si está instalando IoT Edge en un dispositivo IoT Core, use el siguiente comando en una [sesión remota de PowerShell](/windows/iot-core/connect-your-device/powershell) para comprobar si los contenedores de Windows son compatibles con el dispositivo:
+
+```powershell
+Get-Service vmcompute
+```
 
 ---
 
@@ -144,13 +150,13 @@ Compruebe qué versiones de IoT Edge están disponibles.
    apt list -a iotedge
    ```
 
-Si quiere instalar la versión más reciente del demonio de seguridad, use el siguiente comando, que también instala la versión más reciente del paquete **libiothsm-std**:
+Si quiere instalar la versión más reciente del demonio de seguridad, use el siguiente comando, que también instala la versión más reciente del paquete **libiothsm-std** :
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-Si desea instalar una versión específica del demonio de seguridad, especifique la versión en la salida de la lista apt. Especifique también la misma versión para el paquete **libiothsm-std**, que de lo contrario instalaría su versión más reciente. Por ejemplo, el siguiente comando instala la versión más reciente de la versión 1.0.8:
+Si desea instalar una versión específica del demonio de seguridad, especifique la versión en la salida de la lista apt. Especifique también la misma versión para el paquete **libiothsm-std** , que de lo contrario instalaría su versión más reciente. Por ejemplo, el siguiente comando instala la versión más reciente de la versión 1.0.8:
 
    ```bash
    sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
@@ -159,6 +165,9 @@ Si desea instalar una versión específica del demonio de seguridad, especifique
 Si la versión que quiere instalar no aparece en la lista, siga los pasos de [Instalación sin conexión o de una versión específica](#offline-or-specific-version-installation), en la sección siguiente. En esta sección se muestra cómo seleccionar cualquier versión anterior del demonio de seguridad de IoT Edge o versiones candidatas para lanzamiento.
 
 # <a name="windows"></a>[Windows](#tab/windows)
+
+>[!TIP]
+>En el caso de los dispositivos IoT Core, se recomienda ejecutar los comandos de instalación mediante una sesión remota de PowerShell. Para más información, consulte [Uso de PowerShell para Windows IoT](/windows/iot-core/connect-your-device/powershell).
 
 1. Ejecute PowerShell como administrador.
 
@@ -186,14 +195,14 @@ Si la versión que quiere instalar no aparece en la lista, siga los pasos de [In
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-3. En este momento, puede que la salida le pida que reinicie. En ese caso, reinícielo ahora.
+3. En este momento, los dispositivos IoT Core pueden reiniciarse automáticamente. Es posible que los dispositivos Windows 10 o Windows Server soliciten su reinicio. En ese caso, reinícielo ahora.
 
 Al instalar IoT Edge en un dispositivo, puede usar parámetros adicionales para modificar el proceso, entre los que se incluyen los siguientes:
 
 * Dirigir el tráfico para que pase por un servidor proxy
 * Haga que el instalador apunte a un directorio local, en el caso de una instalación sin conexión.
 
-Para obtener más información sobre estos parámetros adicionales, vea [Scripts de PowerShell para IoT Edge en Windows](reference-windows-scripts.md).
+Para más información sobre estos parámetros adicionales, consulte [Scripts de PowerShell para IoT Edge en Windows](reference-windows-scripts.md).
 
 ---
 
@@ -263,7 +272,7 @@ Si el dispositivo va a estar sin conexión durante la instalación o si desea in
 
    Es importante usar el script de PowerShell de la misma versión que el archivo .cab que se usa, porque la funcionalidad cambia para admitir las características de cada versión.
 
-3. Si el archivo .cab que descargó tiene un sufijo de arquitectura, cambie el nombre del archivo a **Microsoft-Azure-IoTEdge.cab**.
+3. Si el archivo .cab que descargó tiene un sufijo de arquitectura, cambie el nombre del archivo a **Microsoft-Azure-IoTEdge.cab** .
 
 4. Opcionalmente, descargue un instalador para Visual C++ Redistributable. Por ejemplo, el script de PowerShell usa esta versión: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Guarde el instalador en la misma carpeta del dispositivo IoT que los archivos IoT Edge.
 
@@ -322,6 +331,8 @@ Si quiere quitar la instalación de IoT Edge del dispositivo Windows, use el com
 Uninstall-IoTEdge
 ```
 
+El comando `Uninstall-IoTEdge` no funciona en Windows IoT Core. Para quitar IoT Edge, es preciso volver a implementar la imagen de Windows IoT Core.
+
 Para más información acerca de las opciones de desinstalación, use el comando `Get-Help Uninstall-IoTEdge -full`.
 
 ---
@@ -332,10 +343,10 @@ Después de instalar el entorno de ejecución de IoT Edge, configure el disposit
 
 Elija el siguiente artículo en función del tipo de autenticación que quiera usar:
 
-* **Clave simétrica**: tanto IoT Hub como el dispositivo IoT Edge tienen una copia de una clave segura. Cuando el dispositivo se conecta a IoT Hub, comprueba que las claves coincidan. Este método de autenticación es más rápido para comenzar, pero no es tan seguro.
+* **Clave simétrica** : tanto IoT Hub como el dispositivo IoT Edge tienen una copia de una clave segura. Cuando el dispositivo se conecta a IoT Hub, comprueba que las claves coincidan. Este método de autenticación es más rápido para comenzar, pero no es tan seguro.
 
   [Configuración de un dispositivo Azure IoT Edge con autenticación de claves simétricas](how-to-manual-provision-symmetric-key.md)
 
-* **X.509 autofirmado**: el dispositivo IoT Edge tiene certificados de identidad X.509 y se proporciona la huella digital de los certificados a IoT Hub. Cuando el dispositivo se conecta a IoT Hub, estos comparan el certificado con su huella digital. Este método de autenticación es más seguro y se recomienda para los escenarios de producción.
+* **X.509 autofirmado** : el dispositivo IoT Edge tiene certificados de identidad X.509 y se proporciona la huella digital de los certificados a IoT Hub. Cuando el dispositivo se conecta a IoT Hub, estos comparan el certificado con su huella digital. Este método de autenticación es más seguro y se recomienda para escenarios de producción.
 
   [Configuración de un dispositivo Azure IoT Edge con autenticación de certificados X.509](how-to-manual-provision-x509.md)

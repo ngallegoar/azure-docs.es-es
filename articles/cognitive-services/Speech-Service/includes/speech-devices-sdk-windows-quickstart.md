@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: d2160a5cd38fcd24c3af5d32ccbbbee8ac723b2f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226319"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169091"
 ---
 En este inicio rápido, aprenderá a usar Speech Devices SDK para Windows para crear un producto habilitado para voz o para utilizarlo como un dispositivo de [transcripción de conversaciones](../conversation-transcription-service.md). Para la transcripción de conversaciones, solo se admite el [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/). En el caso de otros tipos de voz, se admiten matrices de micrófonos lineales que proporcionen una geometría de matriz de micrófonos.
 
@@ -42,19 +42,19 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
 
 1. Inicie Eclipse.
 
-1. En el **selector de IDE de Eclipse**, en el campo **Workspace** (Área de trabajo), escriba el nombre de un nuevo directorio de área de trabajo. Luego, seleccione **Launch** (Iniciar).
+1. En el **selector de IDE de Eclipse** , en el campo **Workspace** (Área de trabajo), escriba el nombre de un nuevo directorio de área de trabajo. Luego, seleccione **Launch** (Iniciar).
 
-   ![Captura de pantalla del selector de Eclipse](../media/speech-devices-sdk/eclipse-launcher.png)
+   ![Captura de pantalla que muestra el selector de Eclipse donde se escribe el nombre del directorio del área de trabajo.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. Al cabo de unos segundos, aparece la ventana principal del IDE de Eclipse. Cierre la pantalla de bienvenida si hay alguna.
 
 1. En la barra de menús de Eclipse, cree un nuevo proyecto eligiendo **File (Archivo)**  > **New (Nuevo)**  > **Java Project (Proyecto de Java)** . Si no está disponible seleccione **Project** (Proyecto) y, a continuación, **Java Project** (Proyecto de Java).
 
-1. Se inicia el asistente para **nuevo proyecto de Java**. **Busque** la ubicación del proyecto de ejemplo. Seleccione **Finalizar**.
+1. Se inicia el asistente para **nuevo proyecto de Java** . **Busque** la ubicación del proyecto de ejemplo. Seleccione **Finalizar** .
 
-   ![Captura de pantalla del asistente de nuevo proyecto de Java](../media/speech-devices-sdk/eclipse-new-java-project.png)
+   ![Captura de pantalla que muestra el asistente para nuevo proyecto de Java.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. En el **Explorador de paquetes**, haga clic con el botón derecho en el proyecto. Elija **Configure (Configurar)**  > **Convert to Maven Project (Convertir en proyecto de Maven)** en el menú contextual. Seleccione **Finalizar**.
+1. En el **Explorador de paquetes** , haga clic con el botón derecho en el proyecto. Elija **Configure (Configurar)**  > **Convert to Maven Project (Convertir en proyecto de Maven)** en el menú contextual. Seleccione **Finalizar** .
 
    ![Captura de pantalla del Explorador de paquetes](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
@@ -79,7 +79,7 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
     </dependencies>
    ```
 
-1. Copie el contenido de **Windows-x64** en la ubicación del proyecto de Java, por ejemplo **C:\SDSDK\JRE-Sample-Release**.
+1. Copie el contenido de **Windows-x64** en la ubicación del proyecto de Java, por ejemplo **C:\SDSDK\JRE-Sample-Release** .
 
 1. Copie `kws.table`, `participants.properties` y `Microsoft.CognitiveServices.Speech.extension.pma.dll` en la carpeta del proyecto **target\classes**
 
@@ -112,7 +112,7 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
 
     Para usar una nueva palabra clave, actualice la línea siguiente en `FunctionsList.java`, y copie la palabra clave en la aplicación. Por ejemplo, para usar la palabra clave "Máquina" desde el paquete de palabras clave `machine.zip`:
 
-   * Copie el archivo `kws.table` del paquete ZIP en la carpeta de proyecto **target/classes**.
+   * Copie el archivo `kws.table` del paquete ZIP en la carpeta de proyecto **target/classes** .
    * Actualice `FunctionsList.java` con el nombre de la palabra clave:
 
      ```java
@@ -127,23 +127,23 @@ Si tiene previsto usar intenciones necesitará una suscripción a [Language Unde
 
 1. Se inicia la aplicación de ejemplo del SDK de dispositivos de voz y muestra las siguientes opciones:
 
-   ![Opciones y aplicación de ejemplo del SDK de dispositivos de voz de ejemplo](../media/speech-devices-sdk/java-sample-app-windows.png)
+   ![Captura de pantalla de opciones y aplicación de ejemplo del SDK de dispositivos de Voz de ejemplo.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Pruebe la nueva demostración de **Transcripción de conversaciones**. Empiece a transcribir con **Sesión** > **Iniciar**. De forma predeterminada, todos los usuarios son invitados. Sin embargo, si dispone de las firmas de voz del participante, se pueden colocar en un archivo `participants.properties` en la carpeta del proyecto **target/classes**. Para generar la firma de voz, consulte [Transcripción de conversaciones (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Pruebe la nueva demostración de **Transcripción de conversaciones** . Empiece a transcribir con **Sesión** > **Iniciar** . De forma predeterminada, todos los usuarios son invitados. Sin embargo, si dispone de las firmas de voz del participante, se pueden colocar en un archivo `participants.properties` en la carpeta del proyecto **target/classes** . Para generar la firma de voz, consulte [Transcripción de conversaciones (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Aplicación de demostración de transcripción de conversaciones](../media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![Captura de pantalla de una aplicación de demostración de transcripción de conversaciones.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Creación y ejecución de una aplicación independiente
 
-1. En el **Explorador de paquetes**, haga clic con el botón derecho en el proyecto. Seleccione **Exportar**.
+1. En el **Explorador de paquetes** , haga clic con el botón derecho en el proyecto. Seleccione **Exportar** .
 
-1. Aparecerá la ventana **Exportar**. Expanda **Java** y seleccione **Runnable JAR file** (Archivo JAR ejecutable) y, a continuación, seleccione **Siguiente**.
+1. Aparecerá la ventana **Exportar** . Expanda **Java** y seleccione **Runnable JAR file** (Archivo JAR ejecutable) y, a continuación, seleccione **Siguiente** .
 
-   ![Captura de pantalla de la ventana Exportar](../media/speech-devices-sdk/eclipse-export-windows.png)
+   ![Captura de pantalla que muestra la ventana Exportar donde se selecciona el archivo JAR ejecutable.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
-1. Aparece la ventana **Runnable JAR File Export** (Exportación de archivo JAR ejecutable). Elija un **Destino de exportación** para la aplicación y, a continuación, seleccione **Finalizar**.
+1. Aparece la ventana **Runnable JAR File Export** (Exportación de archivo JAR ejecutable). Elija un **Destino de exportación** para la aplicación y, a continuación, seleccione **Finalizar** .
 
-   ![Captura de pantalla de la ventana Runnable JAR File Export (Exportación de archivo JAR ejecutable)](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![Captura de pantalla que muestra la ventana Runnable JAR File Export (Exportación de archivo JAR ejecutable) donde se selecciona el destino para la exportación.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. Coloque `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` y `Microsoft.CognitiveServices.Speech.extension.pma.dll` en la carpeta de destino elegida anteriormente, ya que la aplicación necesita estos archivos.
 

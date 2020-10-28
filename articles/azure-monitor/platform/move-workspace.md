@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979697"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282864"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Trasladar un área de trabajo de Log Analytics a otro grupo de recursos o suscripción
 
@@ -39,17 +39,19 @@ Soluciones que deben quitarse para poder desvincular la cuenta de Automation:
 - Azure Security Center
 
 >[!IMPORTANT]
-> **Clientes de Azure Sentinel:**
+> **Clientes de Azure Sentinel**
 > - Una vez implementado en un área de trabajo, Azure Sentinel **no admite actualmente** el movimiento de esa área de trabajo a otros grupos de recursos o suscripciones. 
->
->   Si ya ha movido el área de trabajo, deshabilite todas las reglas activas en **Análisis** y vuelva a habilitarlas después de cinco minutos. Esto debe ser efectivo en la mayoría de los casos; sin embargo, cabe reiterar que no se admite y se realiza bajo su responsabilidad.
+> - Si ya ha movido el área de trabajo, deshabilite todas las reglas activas en **Análisis** y vuelva a habilitarlas después de cinco minutos. Esto debe ser efectivo en la mayoría de los casos; sin embargo, cabe reiterar que no se admite y se realiza bajo su responsabilidad.
+> 
+> **Alertas**
+> - Todas las alertas deben volver a crearse después del movimiento, ya que los permisos se basan en el id. de recurso de Azure del área de trabajo y cambian con el movimiento del área de trabajo. 
 
 ### <a name="delete-solutions-in-azure-portal"></a>Eliminación de soluciones en Azure Portal
 Use el siguiente procedimiento para eliminar las soluciones con Azure Portal:
 
 1. Abra el menú del grupo de recursos en el que están instaladas las soluciones.
 2. Seleccione la solución que quiera quitar.
-3. Haga clic en **Eliminar recursos** y luego confirme los recursos que se eliminarán con un clic en **Eliminar**.
+3. Haga clic en **Eliminar recursos** y luego confirme los recursos que se eliminarán con un clic en **Eliminar** .
 
 ![Eliminar soluciones](media/move-workspace/delete-solutions.png)
 
@@ -64,11 +66,11 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 ```
 
 ### <a name="remove-alert-rules-for-startstop-vms-solution"></a>Eliminación de reglas de alerta de la solución Start/Stop VMs
-Para quitar la solución **Start/Stop VMs**, también debe quitar las reglas de alerta creadas por la solución. Use el siguiente procedimiento en Azure Portal para eliminar estas reglas.
+Para quitar la solución **Start/Stop VMs** , también debe quitar las reglas de alerta creadas por la solución. Use el siguiente procedimiento en Azure Portal para eliminar estas reglas.
 
-1. Abra el menú **Supervisar** y luego seleccione **Alertas**.
-2. Haga clic en **Administrar regla de alertas**.
-3. Seleccione las siguientes tres reglas de alerta y luego haga clic en **Eliminar**.
+1. Abra el menú **Supervisar** y luego seleccione **Alertas** .
+2. Haga clic en **Administrar regla de alertas** .
+3. Seleccione las siguientes tres reglas de alerta y luego haga clic en **Eliminar** .
 
    - AutoStop_VM_Child
    - ScheduledStartStop_Parent
@@ -80,7 +82,7 @@ Para quitar la solución **Start/Stop VMs**, también debe quitar las reglas de 
 Use el siguiente procedimiento para desvincular la cuenta de Automation del área de trabajo con Azure Portal:
 
 1. Abra el menú **Cuentas de Automation** y luego seleccione la cuenta que desea eliminar.
-2. En la sección **Recursos relacionados** del menú, seleccione **Área de trabajo vinculada**. 
+2. En la sección **Recursos relacionados** del menú, seleccione **Área de trabajo vinculada** . 
 3. Haga clic en **Desvincular área de trabajo** para desvincular el área de trabajo de su cuenta de Automation.
 
     ![Unlink workspace (Desvincular área de trabajo)](media/move-workspace/unlink-workspace.png)
@@ -91,9 +93,9 @@ Use el siguiente procedimiento para desvincular la cuenta de Automation del áre
 Use el siguiente procedimiento para trasladar su área de trabajo con Azure Portal:
 
 1. Abra el menú **Áreas de trabajo de Log Analytics** y luego seleccione su área de trabajo.
-2. En la página **Descripción general**, haga clic en **cambiar** después en **Grupo de recursos** o **Suscripción**.
+2. En la página **Descripción general** , haga clic en **cambiar** después en **Grupo de recursos** o **Suscripción** .
 3. Se abrirá una nueva página con una lista de recursos relacionados con el área de trabajo. Seleccione los recursos para pasar a la misma suscripción de destino y grupo de recursos que el área de trabajo. 
-4. Seleccione un destino **Suscripción** y **Grupo de recursos**. Si va a trasladar el área de trabajo a otro grupo de recursos de la misma suscripción, no verá la opción **Suscripción**.
+4. Seleccione un destino **Suscripción** y **Grupo de recursos** . Si va a trasladar el área de trabajo a otro grupo de recursos de la misma suscripción, no verá la opción **Suscripción** .
 5. Haga clic en **Aceptar** para trasladar el área de trabajo y los recursos seleccionados.
 
     ![Captura de pantalla que muestra el panel Información general en el área de trabajo de Log Analytics con opciones para cambiar el nombre del grupo de recursos y la suscripción.](media/move-workspace/portal.png)

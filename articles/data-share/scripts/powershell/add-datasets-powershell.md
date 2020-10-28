@@ -1,20 +1,18 @@
 ---
-title: 'Script de PowerShell: Agregar un conjunto de datos de blob a Azure Data Share | Microsoft Docs'
+title: 'Script de PowerShell: adición de un conjunto de datos de blob a Azure Data Share'
 description: Este script de PowerShell agrega un conjunto de datos de blob a una recurso compartido existente.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 95a10b112c9f6448c437f20ee95f808632a31d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f2a2dded0b9c817e0700f4f93782d3b5c11ac3f
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307298"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221390"
 ---
 # <a name="use-powershell-to-create-a-data-share-in-azure"></a>Uso de PowerShell para crear un recurso compartido de datos en Azure
 
@@ -44,11 +42,11 @@ Este script usa los siguientes comandos:
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Agrega un conjunto de datos a un recurso compartido de datos. |
+| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset) | Agrega un conjunto de datos a un recurso compartido de datos. |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/).
 
 Encontrará más ejemplos de scripts de PowerShell para Azure Data Share en el artículo [Ejemplos de PowerShell para Azure Data Share](../../samples-powershell.md).

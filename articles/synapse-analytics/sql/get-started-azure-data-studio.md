@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78807db19b413bb642e8dcf61e480d6d954b6178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87059569"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132472"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conexión a Synapse SQL con Azure Data Studio (versión preliminar)
 
@@ -30,11 +30,11 @@ Puede usar [Azure Data Studio (versión preliminar)](/sql/azure-data-studio/down
 
 ## <a name="connect"></a>Conectar
 
-Para conectarse a Synapse SQL, abra Azure Data Studio y seleccione **Nueva conexión**.
+Para conectarse a Synapse SQL, abra Azure Data Studio y seleccione **Nueva conexión** .
 
 ![Procedimiento para abrir Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
-Seleccione **Microsoft SQL Server** como **Tipo de conexión**.
+Seleccione **Microsoft SQL Server** como **Tipo de conexión** .
 
 La cadena de conexión requiere los siguientes parámetros:
 
@@ -50,22 +50,22 @@ La cadena de conexión requiere los siguientes parámetros:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Elija **Autenticación de Windows**, **Azure Active Directory** o **Inicio de sesión de SQL** como **Tipo de autenticación**.
+Elija **Autenticación de Windows** , **Azure Active Directory** o **Inicio de sesión de SQL** como **Tipo de autenticación** .
 
 Para utilizar **Inicio de sesión SQL** como tipo de autenticación, agregue los parámetros de nombre de usuario y contraseña:
 
-* **Usuario**: usuario del servidor con el formato `<User>`
+* **Usuario** : usuario del servidor con el formato `<User>`
 * **Contraseña:** contraseña asociada con el usuario.
 
 Para usar Azure Active Directory, debe elegir el tipo de autenticación necesario.
 
 ![Autenticación de AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-En la siguiente captura de pantalla se muestran los **detalles de conexión** de la **autenticación de Windows**:
+En la siguiente captura de pantalla se muestran los **detalles de conexión** de la **autenticación de Windows** :
 
 ![Autenticación de Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-En la siguiente captura de pantalla se muestran los **detalles de conexión** con el **inicio de sesión de SQL**:
+En la siguiente captura de pantalla se muestran los **detalles de conexión** con el **inicio de sesión de SQL** :
 
 ![Inicio de sesión SQL](./media/get-started-azure-data-studio/2-database-details.png)
 
@@ -94,4 +94,5 @@ Explore otras formas de conectarse a Synapse SQL:
 - [Power BI](get-started-power-bi-professional.md)
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
- 
+
+Para más información, visite [Uso de Azure Data Studio para conectarse y consultar datos mediante un grupo de SQL dedicado en Azure Synapse Analytics](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw). 

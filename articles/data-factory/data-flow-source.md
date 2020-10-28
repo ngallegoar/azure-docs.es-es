@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/27/2020
-ms.openlocfilehash: 22f524ed4f01ad5b3be110008a82cd31c5c476c5
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.date: 10/15/2020
+ms.openlocfilehash: 0efcc82617c75089ff2bf396133f9fbc7ec701ea
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827856"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107698"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformación de origen en flujo de datos de asignación 
 
@@ -33,7 +33,7 @@ Cuando un formato se admita tanto en la opción en línea como en un objeto de c
 
 Se recomiendan los conjuntos de datos en línea cuando se usan esquemas flexibles, instancias de origen único u orígenes con parámetros. Si el origen contiene muchos parámetros, los conjuntos de datos en línea permiten no crear un objeto "ficticio". Los conjuntos de datos en línea se basan en Spark y sus propiedades son nativas para el flujo de datos.
 
-Para usar un conjunto de datos en línea, seleccione el formato deseado en el selector **Tipo de origen**. En lugar de seleccionar un conjunto de datos de origen, seleccione el servicio vinculado al que desea conectarse.
+Para usar un conjunto de datos en línea, seleccione el formato deseado en el selector **Tipo de origen** . En lugar de seleccionar un conjunto de datos de origen, seleccione el servicio vinculado al que desea conectarse.
 
 ![Conjunto de datos en línea](media/data-flow/inline-selector.png "Conjunto de datos en línea")
 
@@ -48,6 +48,7 @@ Mapping Data Flow sigue un enfoque de extracción, carga y transformación (ELT)
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [Avro](format-avro.md#mapping-data-flow-properties)<br>[Common Data Model (versión preliminar)](format-common-data-model.md#source-properties)<br>[Texto delimitado](format-delimited-text.md#mapping-data-flow-properties)<br>[Delta (versión preliminar)](format-delta.md)<br>[Excel](format-excel.md#mapping-data-flow-properties)<br>[JSON](format-json.md#mapping-data-flow-properties)<br>[ORC](format-orc.md#mapping-data-flow-properties)<br/>[Parquet](format-parquet.md#mapping-data-flow-properties)<br>[XML](format-xml.md#mapping-data-flow-properties) | ✓/-<br/>-/✓<br>✓/-<br>-/✓<br>✓/✓<br>✓/-<br/>✓/✓<br/>✓/-<br>✓/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
+| [Azure SQL Managed Instance (versión preliminar)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (API de SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
@@ -57,7 +58,7 @@ Azure Data Factory tiene acceso a más de [90 conectores nativos](connector-over
 
 ## <a name="source-settings"></a>Configuración de origen
 
-Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configuración de origen**. Aquí puede elegir o crear el conjunto de datos al que apunta el origen. También puede seleccionar las opciones de muestreo y esquema para los datos. 
+Una vez que haya agregado un origen, configúrelo mediante la pestaña **Configuración de origen** . Aquí puede elegir o crear el conjunto de datos al que apunta el origen. También puede seleccionar las opciones de muestreo y esquema para los datos. 
 
 Los valores de desarrollo de los parámetros del conjunto de datos se pueden configurar en [Configuración de depuración](concepts-data-flow-debug-mode.md) (requiere que esté activado el modo Depuración).
 

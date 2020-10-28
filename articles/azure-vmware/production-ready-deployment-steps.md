@@ -2,22 +2,23 @@
 title: Planificación de la implementación de Azure VMware Solution
 description: En este artículo se describe el flujo de trabajo de implementación de Azure VMware Solution.  El resultado final es un entorno listo para la creación y migración de máquinas virtuales (VM).
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055093"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147987"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
-En este artículo, le proporcionamos el proceso de planificación para identificar y recopilar los datos que se usan durante la implementación. [Use la lista de comprobación previa a la implementación](pre-deployment-checklist.md) para documentar la información y para facilitar la referencia durante la implementación.  
+En este artículo, le proporcionamos el proceso de planificación para identificar y recopilar los datos que se usan durante la implementación. Cuando planee la implementación, asegúrese de documentar la información que recopila para facilitar la referencia durante la implementación.
 
 Los procesos de este inicio rápido generan un entorno listo para la producción, para la creación de máquinas virtuales (VM) y la migración. 
 
 >[!IMPORTANT]
->Antes de crear el recurso de Azure VMware Solution, debe enviar una incidencia de soporte técnico para que se asignen los nodos. Una vez que el equipo de soporte técnico recibe su solicitud, se tarda hasta cinco días laborables en confirmar su solicitud y asignar los nodos. Si tiene una nube privada de Azure VMware Solution existente y desea asignar más nodos, repasará el mismo proceso. Para más información, consulte [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md). 
+>Antes de crear el recurso de Azure VMware Solution, siga el artículo [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md) para enviar una incidencia de soporte técnico y que le asignen los nodos. Una vez que el equipo de soporte técnico recibe su solicitud, se tarda hasta cinco días laborables en confirmar su solicitud y asignar los nodos. Si tiene una nube privada de Azure VMware Solution existente y desea asignar más nodos, repasará el mismo proceso. 
+
 
 ## <a name="subscription"></a>Suscripción
 
@@ -62,7 +63,7 @@ Azure VMware Solution se conecta a su instancia de Microsoft Azure Virtual Netwo
 
 Azure VMware Solution, el entorno de Azure existente y el entorno local (normalmente) intercambian rutas. Dicho esto, el bloque de direcciones de red CIDR /22 que define en este paso no se debe superponer a nada que ya tenga en el entorno local o en Azure.
 
-**Ejemplo**: 10.0.0.0/22
+**Ejemplo** : 10.0.0.0/22
 
 Para más información, consulte [Lista de comprobación de planificación de la red](tutorial-network-checklist.md#routing-and-subnet-considerations).
 
@@ -76,7 +77,7 @@ Incluso si solo tiene previsto extender las redes L2, cree un segmento de red qu
 
 Recuerde que los segmentos IP creados deben ser únicos en la superficie de Azure y local.  
 
-**Ejemplo**: 10.0.4.0/24
+**Ejemplo** : 10.0.4.0/24
 
 :::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificación: segmento de dirección IP" border="false":::     
 
@@ -93,7 +94,7 @@ Tenga en cuenta que:
 
 Identifique un bloque de direcciones de la red CIDR `/29`, que es necesario para el emparejamiento de ExpressRoute Global Reach. Recuerde que los segmentos IP creados deben ser únicos en la superficie de Azure VMware Solution y local. Las direcciones IP de este segmento se usan en cada extremo de la conexión de ExpressRoute Global Reach para conectar el circuito ExpressRoute de Azure VMware Solution con el circuito ExpressRoute local. 
 
-**Ejemplo**: 10.1.0.0/29
+**Ejemplo** : 10.1.0.0/29
 
 :::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificación: segmento de dirección IP" border="false":::
 

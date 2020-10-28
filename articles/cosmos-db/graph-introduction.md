@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409619"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279834"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introducción a Gremlin API de Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Las siguientes son características diferenciadas que ofrece la API para Gremlin
 
   Azure Cosmos DB elimina la necesidad de administrar recursos de bases de datos y máquinas. La mayoría de las plataformas de base de datos de grafos existentes están supeditadas a las limitaciones de su infraestructura y a menudo requieren un alto grado de mantenimiento para garantizar su funcionamiento. 
   
-  Al ser un servicio totalmente administrado, Cosmos DB evita la necesidad de administrar las máquinas virtuales, actualizar el software del entorno de ejecución, administrar el particionamiento o la replicación o realizar complejas actualizaciones en el nivel de datos. Se hacen copias de seguridad de todos los grafos, además de protegerlos ante errores regionales. Estas garantías permiten a los desarrolladores centrarse en la entrega de valor de la aplicación en lugar de dedicarse a la operación y administración de sus bases de datos de grafos. 
+  Al ser un servicio totalmente administrado, Cosmos DB evita la necesidad de administrar las máquinas virtuales, actualizar el software del entorno de ejecución, administrar el particionamiento o la replicación o realizar complejas actualizaciones en el nivel de datos. Se hacen copias de seguridad de todos los grafos, además de protegerlos ante errores regionales. Esto permite a los desarrolladores centrarse en la utilidad de la aplicación en lugar de dedicarse al funcionamiento y la administración de sus bases de datos de grafos. 
 
 * **Indexación automática**
 
@@ -92,13 +92,13 @@ Un enfoque de base de datos de grafo se basa en las relaciones persistentes en l
 
 Un [grafo](http://mathworld.wolfram.com/Graph.html) es una estructura que está formada por [vértices](http://mathworld.wolfram.com/GraphVertex.html) y [bordes](http://mathworld.wolfram.com/GraphEdge.html). Ambos objetos pueden tener un número arbitrario de pares de clave-valor como propiedades. 
 
-* **Vértices/nodos**: denotan entidades discretas, como una persona, un lugar o un evento.
+* **Vértices/nodos** : denotan entidades discretas, como una persona, un lugar o un evento.
 
-* **Bordes/relaciones**: representan las relaciones entre los vértices. Por ejemplo, es posible que una persona conozca a otra, haya participado en un evento y recientemente haya estado en una ubicación.
+* **Bordes/relaciones** : representan las relaciones entre los vértices. Por ejemplo, es posible que una persona conozca a otra, haya participado en un evento y recientemente haya estado en una ubicación.
 
-* **Propiedades**: expresan información acerca de los bordes y los vértices. Puede haber cualquier número de propiedades tanto en los vértices como en los bordes, y se pueden usar para describir y filtrar los objetos en una consulta. Algunas propiedades de ejemplo incluyen un vértice con un nombre y una edad, o un borde, que tiene una marca de tiempo o un peso.
+* **Propiedades** : expresan información acerca de los bordes y los vértices. Puede haber cualquier número de propiedades tanto en los vértices como en los bordes, y se pueden usar para describir y filtrar los objetos en una consulta. Algunas propiedades de ejemplo incluyen un vértice con un nombre y una edad, o un borde, que tiene una marca de tiempo o un peso.
 
-* **Etiqueta**: una etiqueta es un nombre o el identificador de un vértice o de un borde. Las etiquetas pueden agrupar varios vértices o bordes de modo que todos los vértices o bordes de un grupo tienen una etiqueta determinada. Por ejemplo, un grafo puede tener varios vértices de tipo de etiqueta "person".
+* **Etiqueta** : una etiqueta es un nombre o el identificador de un vértice o de un borde. Las etiquetas pueden agrupar varios vértices o bordes de modo que todos los vértices o bordes de un grupo tienen una etiqueta determinada. Por ejemplo, un grafo puede tener varios vértices de tipo de etiqueta "person".
 
 Las bases de datos de grafos suelen incluirse en la categoría de base de datos NoSQL o no relacional, porque no hay ninguna dependencia de un esquema o modelo de datos restringido. Esta falta de esquema permite el modelado y almacenamiento de estructuras conectadas de forma natural y eficaz.
 
@@ -110,19 +110,19 @@ Vamos a usar un grafo de ejemplo para entender cómo se expresan las consultas e
 
 Este grafo tiene los siguientes tipos de *vértices* (llamados también "etiquetas" en Gremlin):
 
-* **Personas**: El grafo tiene tres personas, Robin, Thomas y Ben
-* **Intereses**: Sus intereses; en este ejemplo, el fútbol
-* **Dispositivos**: Los dispositivos que usan las personas
-* **Sistemas operativos**: Los sistemas operativos que se ejecutan en los dispositivos
-* **Lugar**: los lugares desde los que se accede a los dispositivos.
+* **Personas** : El grafo tiene tres personas, Robin, Thomas y Ben
+* **Intereses** : Sus intereses; en este ejemplo, el fútbol
+* **Dispositivos** : Los dispositivos que usan las personas
+* **Sistemas operativos** : Los sistemas operativos que se ejecutan en los dispositivos
+* **Lugar** : los lugares desde los que se accede a los dispositivos.
 
-Las relaciones entre estas entidades se representan con las siguientes etiquetas o tipos de *bordes*:
+Las relaciones entre estas entidades se representan con las siguientes etiquetas o tipos de *bordes* :
 
-* **Knows**: Por ejemplo, "Thomas conoce a Robin"
-* **Interested**: Permite representar los intereses de las personas de nuestro grafo; por ejemplo, "Ben tiene interés en Fútbol"
-* **RunsOS**: Portátil ejecuta el sistema operativo Windows
-* **Uses**: Permite representar el dispositivo que una persona usa. Por ejemplo, Robin usa un teléfono Motorola con número de serie 77.
-* **Ubicado**: para representar la ubicación desde la que se tiene acceso a los dispositivos.
+* **Knows** : Por ejemplo, "Thomas conoce a Robin"
+* **Interested** : Permite representar los intereses de las personas de nuestro grafo; por ejemplo, "Ben tiene interés en Fútbol"
+* **RunsOS** : Portátil ejecuta el sistema operativo Windows
+* **Uses** : Permite representar el dispositivo que una persona usa. Por ejemplo, Robin usa un teléfono Motorola con número de serie 77.
+* **Ubicado** : para representar la ubicación desde la que se tiene acceso a los dispositivos.
 
 La consola Gremlin es un terminal interactivo ofrecido por Apache TinkerPop que se usa para interactuar con los datos del grafo. Para más información, consulte el documento de inicio rápido sobre [cómo usar la consola de Gremlin](create-graph-gremlin-console.md). También puede realizar estas operaciones mediante controladores de Gremlin en la plataforma que elija (Java, Node.js, Python o .NET). En los siguientes ejemplos se muestra cómo ejecutar consultas con los datos de este grafo mediante la consola de Gremlin.
 

@@ -2,143 +2,142 @@
 title: Implementación de plantillas de Resource Manager mediante Acciones de GitHub
 description: Se describe cómo implementar plantillas de Resource Manager mediante Acciones de GitHub.
 ms.topic: conceptual
-ms.date: 07/02/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: cea099088005fa91e1b3e9a793105df4796a66ee
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/13/2020
+ms.custom: github-actions-azure,subject-armqs
+ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018583"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282844"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implementación de plantillas de Azure Resource Manager mediante Acciones de GitHub
 
-[Acciones de GitHub](https://help.github.com/en/actions) permite crear flujos de trabajo personalizados del ciclo de vida de desarrollo de software personalizados directamente en el repositorio de GitHub donde se almacenan las plantillas de Azure Resource Manager (ARM). Un [flujo de trabajo](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) se define mediante un archivo YAML. Los flujos de trabajo tienen uno o más trabajos, y cada uno contiene un conjunto de pasos que realizan tareas individuales. Los pasos pueden ejecutar comandos o usar una acción. Puede crear acciones propias o usar acciones compartidas por la [comunidad de GitHub](https://github.com/marketplace?type=actions) y personalizarlas según sea necesario. En este artículo se muestra cómo usar [la acción de la CLI de Azure](https://github.com/marketplace/actions/azure-cli-action) para implementar plantillas de Resource Manager.
+[Acciones de GitHub](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) es un conjunto de características de GitHub para automatizar los flujos de trabajo de desarrollo de software en el mismo lugar donde almacena el código y colabora en las solicitudes de incorporación de cambios y problemas.
 
-La acción de la CLI de Azure tiene dos acciones dependientes:
-
-- **[Desprotección](https://github.com/marketplace/actions/checkout)** : desproteja el repositorio para que el flujo de trabajo pueda acceder a cualquier plantilla de Resource Manager especificada.
-- **[Inicio de sesión de Azure](https://github.com/marketplace/actions/azure-login)** : inicie sesión con las credenciales de Azure.
-
-Un flujo de trabajo básico para implementar una plantilla de Resource Manager puede tener tres pasos:
-
-1. Extraer del repositorio un archivo de plantilla
-2. Inicie sesión en Azure.
-3. Implementar la plantilla de Resource Manager
+Use la [acción Implementación de plantilla de Azure Resource Manager](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) para automatizar la implementación de una plantilla de Resource Manager en Azure. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Necesita un repositorio de GitHub para almacenar las plantillas de Resource Manager y los archivos del flujo de trabajo. Para crear uno, vea [Creación de un repositorio](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
+- Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Una cuenta de GitHub. Si no tiene ninguna, regístrese [gratis](https://github.com/join).  
+    - Un repositorio de GitHub para almacenar las plantillas de Resource Manager y los archivos del flujo de trabajo. Para crear uno, vea [Creación de un repositorio](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 
-## <a name="configure-deployment-credentials"></a>Configuración de las credenciales de implementación
 
-La acción de inicio de sesión de Azure usa una entidad de servicio para autenticarse en Azure. La entidad de seguridad de un flujo de trabajo de CI/CD normalmente necesita el derecho de colaborador integrado para implementar recursos de Azure.
+## <a name="workflow-file-overview"></a>Información general sobre el archivo de flujo de trabajo
 
-En el siguiente script de la CLI de Azure se muestra cómo generar una entidad de servicio de Azure con permisos de colaborador en un grupo de recursos de Azure. Este grupo de recursos es donde el flujo de trabajo implementa los recursos definidos en la plantilla de Resource Manager.
+Un archivo YAML (.yml) define un flujo de trabajo en la ruta de acceso `/.github/workflows/` de su repositorio. En esta definición se incluyen los diversos pasos y parámetros que componen el flujo de trabajo.
 
-```azurecli
-$projectName="[EnterAProjectName]"
-$location="centralus"
-$resourceGroupName="${projectName}rg"
-$appName="http://${projectName}"
-$scope=$(az group create --name $resourceGroupName --location $location --query 'id')
-az ad sp create-for-rbac --name $appName --role Contributor --scopes $scope --sdk-auth
+El archivo tiene dos secciones:
+
+|Sección  |Tareas  |
+|---------|---------|
+|**Autenticación** | 1. Defina una entidad de servicio. <br /> 2. Cree un secreto de GitHub. |
+|**Implementar** | 1. Implemente la plantilla de Resource Manager. |
+
+## <a name="generate-deployment-credentials"></a>Genere las credenciales de implementación.
+
+
+Puede crear una [entidad de servicio](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) mediante el comando [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) de la [CLI de Azure](/cli/azure/). Puede ejecutar este comando mediante [Azure Cloud Shell](https://shell.azure.com/) en Azure Portal o haciendo clic en el botón **Probar** .
+
+Cree un grupo de recursos si todavía no tiene uno. 
+
+```azurecli-interactive
+    az group create -n {MyResourceGroup}
 ```
 
-Personalice el valor de **$projectName** y **$location** en el script. El nombre del grupo de recursos es el nombre del proyecto con **rg** anexado. Tendrá que especificar el nombre del grupo de recursos en el flujo de trabajo.
+Sustituya el marcador de posición `myApp` por el nombre de aplicación. 
 
-El script genera un objeto JSON similar al siguiente:
-
-```json
-{
-   "clientId": "<GUID>",
-   "clientSecret": "<GUID>",
-   "subscriptionId": "<GUID>",
-   "tenantId": "<GUID>",
-   (...)
-}
+```azurecli-interactive
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-Copie la salida JSON y almacénela como un secreto de GitHub en el repositorio de GitHub. Vea [Requisito previo](#prerequisites) si todavía no tiene un repositorio.
+En el ejemplo anterior, reemplace los marcadores de posición por el identificador de la suscripción y el nombre del grupo de recursos. La salida es un objeto JSON con las credenciales de asignación de roles que proporcionan acceso a la aplicación App Service similar al siguiente. Copie este objeto JSON para más adelante. Solo necesitará las secciones con los valores `clientId`, `clientSecret`, `subscriptionId` y `tenantId`. 
 
-1. Desde el repositorio de GitHub, seleccione la pestaña **Settings** (Configuración).
-1. Seleccione **Secrets** (Secretos) en el panel de la izquierda.
-1. Escriba los siguientes valores:
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
+```
 
-    - **Name**: AZURE_CREDENTIALS
-    - **Valor**: (Pegue la salida JSON)
-1. Seleccione **Add secret** (Agregar secreto).
+> [!IMPORTANT]
+> Siempre es recomendable conceder acceso mínimo. El ámbito del ejemplo anterior se limita al grupo de recursos.
 
-Debe especificar el nombre del secreto en el flujo de trabajo.
+
+
+## <a name="configure-the-github-secrets"></a>Configuración de los secretos de GitHub
+
+Debe crear secretos para las credenciales de Azure, el grupo de recursos y las suscripciones. 
+
+1. En [GitHub](https://github.com/), examine el repositorio.
+
+1. Seleccione **Settings > Secrets > New secret** (Configuración > Secretos > Secreto nuevo).
+
+1. Pegue la salida JSON completa del comando de la CLI de Azure en el campo de valor del secreto. Asigne al secreto el nombre `AZURE_CREDENTIALS`.
+
+1. Cree otro secreto denominado `AZURE_RG`. Agregue el nombre del grupo de recursos al campo de valor del secreto (ejemplo: `myResourceGroup`). 
+
+1. Cree un secreto adicional denominado `AZURE_SUBSCRIPTION`. Agregue el identificador de la suscripción al campo de valor del secreto (ejemplo: `90fd3f9d-4c61-432d-99ba-1273f236afa2`). 
 
 ## <a name="add-resource-manager-template"></a>Adición de la plantilla de Resource Manager
 
-Agregue una plantilla de Resource Manager al repositorio de GitHub. Si no tiene una plantilla, puede usar la siguiente. La plantilla crea una cuenta de almacenamiento.
+Agregue una plantilla de Resource Manager al repositorio de GitHub. Esta plantilla crea una cuenta de almacenamiento.
 
 ```url
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Puede colocar el archivo en cualquier parte del repositorio. En el ejemplo de flujo de trabajo de la sección siguiente se supone que el archivo de plantilla se denomina **azuredeploy.json** y se almacena en una carpeta denominada **templates** en la raíz del repositorio.
+Puede colocar el archivo en cualquier parte del repositorio. En el ejemplo de flujo de trabajo de la sección siguiente se supone que el archivo de plantilla se denomina **azuredeploy.json** y se almacena en la raíz del repositorio.
 
 ## <a name="create-workflow"></a>Creación del flujo de trabajo
 
-El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflows** en la raíz del repositorio. La extensión de archivo de flujo de trabajo puede ser **.yml** o **.yaml**.
-
-Puede crear un archivo de flujo de trabajo y, después, insertarlo o cargarlo en el repositorio, o bien usar el procedimiento siguiente:
+El archivo de flujo de trabajo se debe almacenar en la carpeta **.github/workflows** en la raíz del repositorio. La extensión de archivo de flujo de trabajo puede ser **.yml** o **.yaml** .
 
 1. En el repositorio de GitHub, seleccione **Actions** (Acciones) en el menú superior.
 1. Seleccione **New workflow** (Nuevo flujo de trabajo).
 1. Seleccione **Set up a workflow yourself** (Configurar un flujo de trabajo personalmente).
-1. Cambie el nombre del archivo de flujo de trabajo si prefiere otro distinto a **main.yml**. Por ejemplo: **deployStorageAccount.yml**.
+1. Cambie el nombre del archivo de flujo de trabajo si prefiere otro distinto a **main.yml** . Por ejemplo: **deployStorageAccount.yml** .
 1. Reemplace el contenido del archivo .yml por lo siguiente:
 
     ```yml
-    name: Deploy ARM Template
-
-    on:
-      push:
-        branches:
-          - master
-        paths:
-          - ".github/workflows/deployStorageAccount.yml"
-          - "templates/azuredeploy.json"
-
+    on: [push]
+    name: Azure ARM
     jobs:
-      deploy-storage-account-template:
+      build-and-deploy:
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout source code
-            uses: actions/checkout@master
 
-          - name: Login to Azure
-            uses: azure/login@v1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
+          # Checkout code
+        - uses: actions/checkout@master
 
-
-          - name: Deploy ARM Template
-            uses: azure/CLI@v1
-            with:
-              inlineScript: |
-                az deployment group create --resource-group myResourceGroup --template-file ./templates/azuredeploy.json
+          # Log into Azure
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+     
+          # Deploy ARM template
+        - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
+          with:
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./azuredeploy.json
+            parameters: storageAccountType=Standard_LRS 
+        
+          # output containerName variable from template
+        - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+    > [!NOTE]
+    > En su lugar, puede especificar un archivo de parámetros de formato JSON en la acción de implementación de ARM (ejemplo: `.azuredeploy.parameters.json`).  
 
-    El archivo de flujo de trabajo tiene tres secciones:
+    La primera sección del archivo de flujo de trabajo incluye:
 
-    - **name**: El nombre del flujo de trabajo.
-    - **on**: el nombre de los eventos de GitHub que desencadenan el flujo de trabajo. El flujo de trabajo se desencadena cuando hay un evento de envío en la rama principal, que modifica al menos uno de los dos archivos especificados. Los dos archivos son el de trabajo y el de plantilla.
-
-        > [!IMPORTANT]
-        > Compruebe que los dos archivos y sus rutas de acceso coinciden con los suyos.
-    - **jobs**: una ejecución de flujo de trabajo se compone de uno o varios trabajos. Solo hay un trabajo denominado **deploy-storage-account-template**.  Este trabajo consta de tres pasos:
-
-        - **Desprotección del código fuente**.
-        - **Inicio de sesión en Azure**.
-
-            > [!IMPORTANT]
-            > Compruebe que el nombre del secreto coincide con el que ha guardado en el repositorio. Vea [Configuración de las credenciales de implementación](#configure-deployment-credentials).
-        - **Implementación de la plantilla ARM**. Reemplace el valor de **resourceGroupName**.  Si ha usado el script de la CLI de Azure de [Configuración de las credenciales de implementación](#configure-deployment-credentials), el nombre del grupo de recursos generado es el nombre del proyecto al que se le ha anexado **rg**. Compruebe el valor de **templateLocation**.
+    - **name** : El nombre del flujo de trabajo.
+    - **on** : el nombre de los eventos de GitHub que desencadenan el flujo de trabajo. El flujo de trabajo se desencadena cuando hay un evento de envío en la rama principal, que modifica al menos uno de los dos archivos especificados. Los dos archivos son el de trabajo y el de plantilla.
 
 1. Seleccione **Start commit** (Iniciar confirmación).
 1. Seleccione **Commit directly to the master branch** (Confirmar directamente en la rama principal).
@@ -148,11 +147,15 @@ Como el flujo de trabajo está configurado para que lo desencadene el archivo de
 
 ## <a name="check-workflow-status"></a>Comprobación del estado del flujo de trabajo
 
-1. Seleccione la pestaña **Actions** (Acciones). Debería ver un flujo de trabajo **Create deployStorageAccount.yml** (Crear deployStorageAccount.yml) en la lista. El flujo de trabajo tarda un par de minutos en ejecutarse.
+1. Seleccione la pestaña **Actions** (Acciones). Verá un flujo de trabajo **Create deployStorageAccount.yml** en la lista. El flujo de trabajo tarda un par de minutos en ejecutarse.
 1. Seleccione el flujo de trabajo para abrirlo.
-1. Seleccione **deploy-storage-account-template** (nombre del trabajo) en el menú de la izquierda. El nombre del trabajo se define en el flujo de trabajo.
-1. Seleccione **Deploy ARM Template** (Implementar plantilla de ARM) (nombre del paso) para expandirla. Puede ver la respuesta de la API REST.
+1. Seleccione **Run ARM deploy** (Ejecutar implementación de ARM) en el menú para comprobar la implementación.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando el repositorio y el grupo de recursos ya no sean necesarios, limpie los recursos que implementó eliminando el grupo de recursos y el repositorio de GitHub. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte [Tutorial: Creación e implementación de su primera plantilla de Resource Manager](template-tutorial-create-first-template.md).
+> [!div class="nextstepaction"]
+> [Creación de la primera plantilla de ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

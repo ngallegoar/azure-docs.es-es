@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087261"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091617"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 
@@ -34,7 +34,7 @@ Para información sobre cómo ver las claves de acceso a la cuenta y copiar una 
 La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución para autorizar las solicitudes realizadas a Azure Storage. Tiene varias opciones para almacenar una cadena de conexión:
 
 * Puede almacenar la cadena de conexión en una variable de entorno.
-* Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config**. Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
+* Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config** . Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
 * Una aplicación que se ejecuta en un servicio en la nube de Azure puede almacenar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.
 
 El almacenamiento de la cadena de conexión en un archivo de configuración facilita la actualización de la cadena de conexión para que alterne entre el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md) y una cuenta de Azure Storage en la nube. Solo necesitará editar la cadena de conexión para apuntar al entorno de destino.
@@ -57,7 +57,7 @@ Por ejemplo, la cadena de conexión podría ser similar a la siguiente:
 
 `DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>`
 
-Aunque Azure Storage admite HTTP y HTTPS en una cadena de conexión, *se recomienda encarecidamente utilizar HTTPS*.
+Aunque Azure Storage admite HTTP y HTTPS en una cadena de conexión, *se recomienda encarecidamente utilizar HTTPS* .
 
 > [!TIP]
 > Las cadenas de conexión de la cuenta de almacenamiento se pueden encontrar en [Azure Portal](https://portal.azure.com). Navegue a **CONFIGURACIÓN** > **Claves de acceso** en la hoja del menú de la cuenta de almacenamiento para ver las cadenas de conexión de las claves de acceso principal y secundaria.
@@ -110,9 +110,10 @@ Los valores del punto de conexión de una cadena de conexión se usan para const
 
 Si ha asignado un punto de conexión de Storage a un dominio personalizado y omite dicho punto en una cadena de conexión, no podrá usarla para acceder a los datos de dicho servicio desde el código.
 
+Para más información sobre cómo configurar un dominio personalizado para Azure Storage, consulte [Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](../blobs/storage-custom-domain-name.md).
+
 > [!IMPORTANT]
-> Los valores del punto de conexión de servicio de las cadenas de conexión deben ser identificadores URI con el formato correcto, entre los que se incluyen `https://` (recomendado) o `http://`. Dado que Azure Storage aún no admite HTTPS en dominios personalizados, *debe* especificar `http://` para los identificadores URI de todos los puntos de conexión que apunten a un dominio personalizado.
->
+> Los valores del punto de conexión de servicio de las cadenas de conexión deben ser identificadores URI con el formato correcto, entre los que se incluyen `https://` (recomendado) o `http://`.
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Creación de una cadena de conexión con el sufijo de un punto de conexión
 

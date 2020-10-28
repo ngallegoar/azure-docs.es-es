@@ -8,20 +8,20 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076698"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164171"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Creación e implementación de un servicio en la nube
-Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada*.
+Azure Portal le ofrece dos formas de crear e implementar un servicio en la nube: *Creación rápida* y *Creación personalizada* .
 
 En este artículo se explica cómo usar el método Creación rápida para crear un nuevo servicio en la nube y, a continuación, cómo usar **Cargar** para cargar e implementar un paquete de servicios en la nube en Azure. Cuando usa este método, el Portal de Azure pone a su disposición los vínculos pertinentes para completar todos los requisitos que vaya necesitando sobre la marcha. Si está listo para implementar su servicio en la nube una vez creado, puede hacer las dos cosas a la vez usando Creación personalizada.
 
 > [!NOTE]
-> Si tiene pensado publicar su servicio en la nube desde Azure DevOps, use Creación rápida y después configure la publicación Azure DevOps desde Creación rápida de Azure o en el panel. Para más información, consulte [Entrega continua en Azure con Azure DevOps][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido**.
+> Si tiene pensado publicar su servicio en la nube desde Azure DevOps, use Creación rápida y después configure la publicación Azure DevOps desde Creación rápida de Azure o en el panel. Para más información, consulte [Entrega continua en Azure con Azure DevOps][TFSTutorialForCloudService] o la ayuda de la página **Inicio rápido** .
 >
 >
 
@@ -54,33 +54,33 @@ Para crear un servicio en la nube con implementaciones de roles web o de trabajo
 
 ## <a name="create-and-deploy"></a>Creación e implementación
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Haga clic en **Crear un recurso > Proceso**, luego desplácese hacia abajo y haga clic en **Servicio en la nube**.
+2. Haga clic en **Crear un recurso > Proceso** , luego desplácese hacia abajo y haga clic en **Servicio en la nube** .
 
-    ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
-3. En la nuevo panel **Servicio en la nube**, escriba un valor para **Nombre DNS**.
+    ![Captura de pantalla que resalta la opción Servicio en la nube en Crear un recurso > Proceso.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+3. En la nuevo panel **Servicio en la nube** , escriba un valor para **Nombre DNS** .
 4. Cree un nuevo **Grupo de recursos** o seleccione uno existente.
-5. Seleccione una **ubicación**.
-6. Haga clic en **Paquete**. Se abre el panel **Cargar un paquete**. Rellene todos los campos obligatorios. Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
+5. Seleccione una **ubicación** .
+6. Haga clic en **Paquete** . Se abre el panel **Cargar un paquete** . Rellene todos los campos obligatorios. Si cualquiera de los roles contiene una sola instancia, asegúrese de que la casilla **Implementar aunque uno o varios roles contengan una sola instancia** esté seleccionada.
 7. Asegúrese de que la opción **Iniciar implementación** esté seleccionada.
-8. Haga clic en **Aceptar** para cerrar el panel **Cargar un paquete**.
-9. Si no tiene ningún certificado para agregar, haga clic en **Crear**.
+8. Haga clic en **Aceptar** para cerrar el panel **Cargar un paquete** .
+9. Si no tiene ningún certificado para agregar, haga clic en **Crear** .
 
     ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/select-package.png)
 
 ## <a name="upload-a-certificate"></a>Carga de un certificado
 Si el paquete de implementación se [configuró para usar certificados](cloud-services-configure-ssl-certificate-portal.md#modify), puede cargar el certificado ahora.
 
-1. Seleccione **Certificados** y, en el panel **Agregar certificados**, seleccione el archivo .pfx del certificado TLS/SSL y especifique la **contraseña** del certificado,
-2. Haga clic en **Adjuntar certificado** y luego en **Aceptar** en el panel **Agregar certificados**.
-3. Haga clic en **Crear** en el panel **Servicio en la nube**. Cuando la implementación haya llegado al estado **Listo** , puede continuar con los pasos siguientes.
+1. Seleccione **Certificados** y, en el panel **Agregar certificados** , seleccione el archivo .pfx del certificado TLS/SSL y especifique la **contraseña** del certificado,
+2. Haga clic en **Adjuntar certificado** y luego en **Aceptar** en el panel **Agregar certificados** .
+3. Haga clic en **Crear** en el panel **Servicio en la nube** . Cuando la implementación haya llegado al estado **Listo** , puede continuar con los pasos siguientes.
 
-    ![Publicación del servicio en la nube](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Captura de pantalla que resalta el proceso de carga de un certificado.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Compruebe que la implementación se haya completado correctamente.
 1. Haga clic en la instancia de servicio en la nube.
 
-    El estado debería mostrar que el servicio está **En ejecución**.
-2. En **Essentials**, haga clic en la **URL del sitio** para abrir el servicio en la nube en un explorador web.
+    El estado debería mostrar que el servicio está **En ejecución** .
+2. En **Essentials** , haga clic en la **URL del sitio** para abrir el servicio en la nube en un explorador web.
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 

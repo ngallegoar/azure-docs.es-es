@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822404"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309795"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administración del ciclo de vida de Azure Blob Storage
 
@@ -22,18 +22,21 @@ Los conjuntos de datos tienen ciclos de vida únicos. Al principio del ciclo de 
 
 La directiva de administración del ciclo de vida le permite:
 
-- Realizar la transición de los blobs a un nivel de almacenamiento de acceso esporádico (frecuente a esporádico, frecuente a archivo o esporádico a archivo) para optimizar el rendimiento y el costo
-- Eliminar los blobs al final de sus ciclos de vida
+- Pasar los blobs de nivel de acceso esporádico a nivel de acceso frecuente de inmediato si se accede a ellos para optimizar el rendimiento 
+- Pasar los blobs, las versiones de los blobs y las instantáneas de los blobs a un nivel de almacenamiento de acceso esporádico (nivel de acceso frecuente a nivel de acceso esporádico, nivel de acceso frecuente a nivel de almacenamiento de archivo o nivel de acceso esporádico a nivel de almacenamiento de archivo) si no se accede a ellos o se modifican durante un período de tiempo para optimizar el costo
+- Eliminar blobs, versiones de blobs e instantáneas de blobs al final de su ciclo de vida
 - Definir reglas que se ejecutarán una vez al día en el nivel de cuenta de almacenamiento
 - Aplicar reglas a contenedores o a un subconjunto de blobs (mediante prefijos de nombre o [etiquetas de índice de blobs](storage-manage-find-blobs.md) como filtros)
 
 Considere un escenario donde los datos tienen acceso frecuente durante las primeras fases del ciclo de vida, pero solo ocasionalmente al cabo de dos semanas. Transcurrido el primer mes, rara vez se accede al conjunto de datos. En este escenario, es mejor el almacenamiento de acceso frecuente durante las primeras etapas. El almacenamiento de acceso esporádico es más adecuado para un acceso ocasional. El almacenamiento de archivo es la mejor opción de nivel una vez que los datos tengan un mes. Con el ajuste de los niveles de almacenamiento en relación con la antigüedad de los datos, puede designar las opciones de almacenamiento menos caras para satisfacer sus necesidades. Para conseguir esta transición, las reglas de directivas de administración del ciclo de vida se encuentran disponibles para mover los datos antiguos a niveles de almacenamiento de acceso más esporádico.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+>[!NOTE]
+>Si necesita que los datos no dejen de poder leerse, por ejemplo, cuando los usa StorSimple, no establezca una directiva para mover los blobs al nivel de almacenamiento de archivo.
 
 ## <a name="availability-and-pricing"></a>Disponibilidad y precios
 
-La directiva de administración del ciclo de vida está disponible en todas las regiones de Azure para cuentas de almacenamiento de uso general v2 (GPv2), de Blob Storage y de Premium Block Blob. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
+La característica de administración del ciclo de vida está disponible en todas las regiones de Azure para cuentas de almacenamiento de uso general v2 (GPv2), de almacenamiento de blobs, de blob en bloques Premium y de Azure Data Lake Storage Gen2. En Azure Portal, puede convertir una cuenta existente de uso general (GPv1) en una cuenta de GPv2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
 La característica de administración del ciclo de vida es gratuita. A los clientes se les cobra el costo operativo habitual para las llamadas API [Establecer el nivel del blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). La operación de eliminación es gratuita. Para más información sobre los precios, consulte [Precios de los blobs en bloques](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -66,11 +69,11 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 1. En Azure Portal, busque y seleccione su cuenta de almacenamiento. 
 
-1. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
+1. En **Blob service** , seleccione **Administración del ciclo de vida** para ver o cambiar las reglas.
 
-1. Seleccione la pestaña **Vista de lista**.
+1. Seleccione la pestaña **Vista de lista** .
 
-1. Seleccione **Agregar una regla** y asigne un nombre a la regla en el formulario**Detalles**. También puede establecer valores en **Ámbito de la regla**, **Tipo de blob** y **Subtipo de blob**. En el ejemplo siguiente se establece el ámbito para filtrar los blobs. Esto hace que se agregue la pestaña **Conjunto de filtros**.
+1. Seleccione **Agregar una regla** y asigne un nombre a la regla en el formulario **Detalles** . También puede establecer valores en **Ámbito de la regla** , **Tipo de blob** y **Subtipo de blob** . En el ejemplo siguiente se establece el ámbito para filtrar los blobs. Esto hace que se agregue la pestaña **Conjunto de filtros** .
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Página de detalles de agregar una regla en la administración del ciclo de vida de Azure Portal":::
 
@@ -87,9 +90,9 @@ Hay dos formas de agregar una directiva en Azure Portal.
    > [!IMPORTANT]
    > La versión preliminar de seguimiento de la hora del último acceso solo está pensada para su uso en entornos que no son el de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
    
-   Para usar la opción **Último acceso**, seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal. Para obtener más información acerca de la opción **Último acceso**, consulte la sección sobre [traslado de datos en función de la fecha de último acceso (versión preliminar)](#move-data-based-on-last-accessed-date-preview).
+   Para usar la opción **Último acceso** , seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal. Para obtener más información acerca de la opción **Último acceso** , consulte la sección sobre [traslado de datos en función de la fecha de último acceso (versión preliminar)](#move-data-based-on-last-accessed-date-preview).
 
-1. Si seleccionó **Limitar blobs con filtros** en la página **Detalles**, seleccione **Conjunto de filtros** para agregar un filtro opcional. En el ejemplo siguiente se filtran los blobs del contenedor *mylifecyclecontainer* que comienzan por "log".
+1. Si seleccionó **Limitar blobs con filtros** en la página **Detalles** , seleccione **Conjunto de filtros** para agregar un filtro opcional. En el ejemplo siguiente se filtran los blobs del contenedor *mylifecyclecontainer* que comienzan por "log".
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-filter-set.png" alt-text="Página de detalles de agregar una regla en la administración del ciclo de vida de Azure Portal":::
 
@@ -100,9 +103,9 @@ Hay dos formas de agregar una directiva en Azure Portal.
 
 1. En Azure Portal, busque y seleccione su cuenta de almacenamiento.
 
-1. En **Blob service**, seleccione **Administración del ciclo de vida** para ver o cambiar la directiva.
+1. En **Blob service** , seleccione **Administración del ciclo de vida** para ver o cambiar la directiva.
 
-1. El siguiente JSON es un ejemplo de una directiva que se puede pegar en la pestaña **Vista de código**.
+1. El siguiente JSON es un ejemplo de una directiva que se puede pegar en la pestaña **Vista de código** .
 
    ```json
    {
@@ -133,7 +136,7 @@ Hay dos formas de agregar una directiva en Azure Portal.
    }
    ```
 
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 1. Para obtener más información sobre este ejemplo JSON, consulte las secciones [Directiva](#policy) y [Reglas](#rules).
 
@@ -263,29 +266,41 @@ La siguiente regla de ejemplo filtra la cuenta para ejecutar las acciones en obj
 - Establecer el nivel de blob en nivel esporádico 30 días después de la última modificación
 - Establecer el nivel de blob en nivel de almacenamiento de archivo 90 días después de la última modificación
 - Eliminar el blob 2555 días (siete años) después de la última modificación
-- Eliminar instantáneas de blob 90 días después de la creación de las instantáneas
+- Eliminar las versiones de blobs anteriores 90 días después de su creación
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -306,30 +321,30 @@ Entre los filtros están los siguientes:
 | blobIndexMatch | Una matriz de valores de diccionario que se compone de las condiciones de clave y valor de la etiqueta de índice de blobs con las que debe haber coincidencias. Cada regla puede definir hasta 10 condiciones de etiqueta de índice de blobs. Por ejemplo, si quiere que todos los blobs coincidan con `Project = Contoso` en `https://myaccount.blob.core.windows.net/` en relación a una regla, el valor de blobIndexMatch es `{"name": "Project","op": "==","value": "Contoso"}`. | Si no define blobIndexMatch, la regla se aplica a todos los blobs de la cuenta de almacenamiento. | No |
 
 > [!NOTE]
-> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá**, **Este de Canadá**, **Centro de Francia** y **Sur de Francia**. Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
+> El índice de blobs está en versión preliminar pública y se encuentra disponible en las regiones **Centro de Canadá** , **Este de Canadá** , **Centro de Francia** y **Sur de Francia** . Para más información sobre esta característica junto con las limitaciones y los problemas conocidos, consulte [Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Acciones de regla
 
 Las acciones se aplican a los blobs filtrados cuando se cumple la condición de ejecución.
 
-La administración del ciclo de vida admite el cambio de niveles y la eliminación de blobs e instantáneas de blob. Defina al menos una acción para cada regla en los blobs o las instantáneas de blob.
+La administración del ciclo de vida admite tanto la organización en niveles como la eliminación de blobs, versiones anteriores de los blobs e instantáneas de blobs. Defina al menos una acción para cada regla en los blobs de base, las versiones anteriores de los blobs o las instantáneas de los blobs.
 
-| Acción                      | Blob de base                                   | Instantánea      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Admite blobs actualmente en el nivel de acceso frecuente.         | No compatible |
-| enableAutoTierToHotFromCool | Admite blobs actualmente en el nivel de acceso esporádico.        | No compatible |
-| tierToArchive               | Admite blobs actualmente en el nivel de acceso frecuente o esporádico. | No compatible |
-| delete                      | Compatible en `blockBlob` y `appendBlob`.  | Compatible     |
+| Acción                      | Blob de base                                  | Instantánea      | Versión
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | Se admite para `blockBlob`                  | Compatible     | Compatible     |
+| enableAutoTierToHotFromCool | Se admite para `blockBlob`                  | No compatible | No compatible |
+| tierToArchive               | Se admite para `blockBlob`                  | Compatible     | Compatible     |
+| delete                      | Compatible en `blockBlob` y `appendBlob`. | Compatible     | Compatible     |
 
 >[!NOTE]
 >Si define más de una acción en el mismo blob, la administración del ciclo de vida aplica la acción menos cara al blob. Por ejemplo, la acción `delete` es más económica que la acción `tierToArchive`. La acción `tierToArchive` es más económica que la acción `tierToCool`.
 
-Las condiciones de ejecución se basan en la antigüedad. Para realizar el seguimiento de la antigüedad, los blobs de base usan la hora de la última modificación y las instantáneas de blob usan la hora de creación de la instantánea.
+Las condiciones de ejecución se basan en la antigüedad. Para realizar el seguimiento de la antigüedad, los blobs de base usan la hora de la última modificación, las versiones de los blobs usan la hora de creación de la versión y las instantáneas de los blobs usan la hora de creación de la instantánea.
 
 | Condición de ejecución de acción               | Valor de la condición                          | Descripción                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Valor entero que indica la antigüedad en días | Condición de las acciones de blob de base                                              |
-| daysAfterCreationGreaterThan       | Valor entero que indica la antigüedad en días | Condición de las acciones de instantánea de blob                                          |
+| daysAfterCreationGreaterThan       | Valor entero que indica la antigüedad en días | La condición de la versión del blob y de las acciones de la instantánea del blob                         |
 | daysAfterLastAccessTimeGreaterThan | Valor entero que indica la antigüedad en días | (versión preliminar) Condición de las acciones del blob base cuando está habilitada la hora del último acceso |
 
 ## <a name="examples"></a>Ejemplos
@@ -377,7 +392,7 @@ La opción **Último acceso** está disponible en versión preliminar en las sig
 > [!IMPORTANT]
 > La versión preliminar de seguimiento de la hora del último acceso solo está pensada para su uso en entornos que no son el de producción. En este momento no hay contratos de nivel de servicio de producción disponibles.
 
-Para usar la opción **Último acceso**, seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal.
+Para usar la opción **Último acceso** , seleccione **Seguimiento de acceso habilitado** en la página **Administración del ciclo de vida** de Azure Portal.
 
 #### <a name="how-last-access-time-tracking-works"></a>Funcionamiento del seguimiento de la hora del último acceso
 
@@ -522,26 +537,35 @@ Algunos datos solo deben expirar si se marcan explícitamente para su eliminaci�
 }
 ```
 
-### <a name="delete-old-snapshots"></a>Eliminación de instantáneas antiguas
+### <a name="manage-versions"></a>Administración de versiones
 
-En el caso de los datos que se modifican y a los que se accede con regularidad a lo largo de su ciclo de vida, las instantáneas suelen utilizarse para realizar un seguimiento de las versiones anteriores de los datos. Puede crear una directiva que elimine las instantáneas anteriores en función de la antigüedad de la instantánea. La antigüedad de la instantánea se determina mediante la evaluación de la hora de creación de la instantánea. Esta regla de directiva elimina las instantáneas de blobs en bloques en el contenedor `activedata` con una antigüedad de 90 días o más a contar desde el momento de la creación de la instantánea.
+En el caso de datos que se modifiquen y accedan de forma regular a lo largo de toda su duración, puede habilitar el control de versiones de Blob Storage para mantener de forma automática las versiones anteriores de un objeto. Puede crear una directiva para organizar en niveles o eliminar las versiones anteriores. La antigüedad de la versión se determina mediante la evaluación de la hora de creación de la misma. Esta regla de directiva crea niveles de las versiones anteriores en el contenedor `activedata` que sean 90 días, o más, posteriores a la creación de la versión en el nivel de acceso esporádico, y elimina las versiones anteriores que tengan 365 días, o más.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }

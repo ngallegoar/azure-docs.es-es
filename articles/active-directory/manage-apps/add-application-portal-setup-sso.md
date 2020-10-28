@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305790"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203627"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Configuración del inicio de sesión único (SSO) basado en SAML de una aplicación en el inquilino de Azure Active Directory (Azure AD)
 
@@ -43,8 +43,8 @@ Cuando termine de agregar una aplicación al inquilino de Azure AD, aparecerá 
 
 Para configurar el inicio de sesión único de una aplicación:
 
-1. En el portal de Azure AD, seleccione **Aplicaciones empresariales**. A continuación, busque y seleccione la aplicación que desea configurar para el inicio de sesión único.
-1. En la sección **Administrar**, seleccione **Inicio de sesión único** para abrir el panel **Inicio de sesión único**.
+1. En el portal de Azure AD, seleccione **Aplicaciones empresariales** . A continuación, busque y seleccione la aplicación que desea configurar para el inicio de sesión único.
+1. En la sección **Administrar** , seleccione **Inicio de sesión único** para abrir el panel **Inicio de sesión único** .
 
     > [!IMPORTANT]
     > Si la aplicación usa el OpenID Connect (OIDC) estándar para el inicio de sesión único, no verá una opción de inicio de sesión único en la navegación. Consulte el inicio rápido sobre el inicio de sesión único basado en OIDC para aprender a configurarlo.

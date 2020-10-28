@@ -1,18 +1,18 @@
 ---
 title: Administración de recursos delegados de Azure
 description: La administración de recursos delegados de Azure es una parte clave de Azure Lighthouse, lo que permite a los proveedores de servicios administrar recursos delegados a escala con agilidad y precisión.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163533"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203864"
 ---
 # <a name="azure-delegated-resource-management"></a>Administración de recursos delegados de Azure
 
-La administración de recursos delegados de Azure es uno de los componentes clave de [Azure Lighthouse](../overview.md). Con la administración de recursos delegados de Azure, los proveedores de servicios pueden simplificar las experiencias de involucración e incorporación de clientes, al mismo tiempo que administran los recursos delegados a escala con agilidad y precisión.
+La administración de recursos delegados de Azure es uno de los componentes clave de [Azure Lighthouse](../overview.md). Con la administración de recursos delegados de Azure, los proveedores de servicios pueden simplificar las experiencias de involucración e incorporación de clientes, al mismo tiempo que administran los recursos delegados a escala con agilidad y precisión. Los clientes mantienen el control sobre qué proveedores de servicios pueden acceder a su inquilino, quién puede acceder a su inquilino, a qué recursos pueden acceder y qué acciones se pueden realizar.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>¿Qué es la administración de recursos delegados de Azure?
 
@@ -35,14 +35,15 @@ En un nivel alto, este es el funcionamiento de la administración de recursos de
 2. Especifique este acceso e incorpore el cliente a Azure Lighthouse de una de estas dos maneras:
    - [Publicar una oferta de servicio administrado de Azure Marketplace](../how-to/publish-managed-services-offers.md) (privada o pública) que el cliente aceptará
    - [Implementar una plantilla de Azure Resource Manager en el inquilino del cliente](../how-to/onboard-customer.md) para una o varias suscripciones o grupos de recursos específicos
-3. Una vez incorporado el cliente, los usuarios autorizados pueden iniciar sesión en el inquilino administrador y realizar tareas de administración en el ámbito del cliente determinado, en función del acceso que haya definido.
+
+3. Una vez incorporado el cliente, los usuarios autorizados pueden iniciar sesión en el inquilino administrador y realizar tareas de administración en el ámbito del cliente determinado, en función del acceso que haya definido. Los clientes pueden revisar las acciones del proveedor de servicios y tener la opción de eliminar el acceso si es necesario.
 
 > [!NOTE]
 > Puede administrar recursos delegados que estén ubicados en diferentes [regiones](../../availability-zones/az-overview.md#regions). Sin embargo, no se admite la delegación de suscripciones entre una [nube nacional](../../active-directory/develop/authentication-national-cloud.md) y la nube pública de Azure o entre dos nubes nacionales independientes.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Soporte técnico para la administración de recursos delegados de Azure
 
-Si necesita ayuda en relación con la administración de recursos delegados de Azure, puede abrir una solicitud de soporte técnico en Azure Portal. En **Tipo de problema**, elija **Técnico**. Seleccione una suscripción y luego **Lighthouse** (en **Supervisión y administración**).
+Si necesita ayuda en relación con la administración de recursos delegados de Azure, puede abrir una solicitud de soporte técnico en Azure Portal. En **Tipo de problema** , elija **Técnico** . Seleccione una suscripción y luego **Lighthouse** (en **Supervisión y administración** ).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

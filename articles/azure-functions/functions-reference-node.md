@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317183"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164829"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -107,13 +107,13 @@ En JavaScript, los [enlaces](functions-triggers-bindings.md) se configuran y def
 
 ### <a name="inputs"></a>Entradas
 Las entradas se dividen en dos categorías Azure Functions: una es la entrada del desencadenador y la otra es una entrada adicional. Una función puede leer los enlaces del desencadenador y de entrada (enlaces de `direction === "in"`) de tres maneras:
- - **_[Recomendada]_ Como parámetros pasados a la función.** Se pasan a la función en el mismo orden en que se definen en *function.json*. La propiedad `name` definida en el archivo *function.json* no tiene que coincidir con el nombre del parámetro, aunque debería hacerlo.
+ - **_[Recomendada]_ Como parámetros pasados a la función.** Se pasan a la función en el mismo orden en que se definen en *function.json* . La propiedad `name` definida en el archivo *function.json* no tiene que coincidir con el nombre del parámetro, aunque debería hacerlo.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como miembros del objeto [`context.bindings`](#contextbindings-property).** Cada miembro se denomina mediante la propiedad `name` definida en el archivo *function.json*.
+ - **Como miembros del objeto [`context.bindings`](#contextbindings-property).** Cada miembro se denomina mediante la propiedad `name` definida en el archivo *function.json* .
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Las salidas (enlaces de `direction === "out"`) se pueden escribir mediante una f
 
 Puede asignar datos a los enlaces de salida de una de las maneras siguientes (no combine estos métodos):
 
-- **_[Recomendado para varias salidas]_ Devolución de un objeto.** Si usa una función de devolución asincrónica o de promesa, puede devolver un objeto con datos de salida asignados. En el ejemplo siguiente, los enlaces de salida se denominan "httpResponse" y "queueOutput" en el archivo *function.json*.
+- **_[Recomendado para varias salidas]_ Devolución de un objeto.** Si usa una función de devolución asincrónica o de promesa, puede devolver un objeto con datos de salida asignados. En el ejemplo siguiente, los enlaces de salida se denominan "httpResponse" y "queueOutput" en el archivo *function.json* .
 
   ```javascript
   module.exports = async function(context) {
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Permite escribir en los registros de la función de streaming en el nivel de seguimiento predeterminado. Hay métodos de registro adicionales disponibles en `context.log` que permiten escribir registros de la función en otros niveles de seguimiento:
+Permite escribir en los registros de la función de streaming en el nivel de seguimiento predeterminado, con otros niveles de registro disponibles. El registro del seguimiento se describe con más detalle en la sección siguiente. 
 
+## <a name="write-trace-output-to-logs"></a>Escritura de la salida del seguimiento en los registros
 
-| Método                 | Descripción                                |
-| ---------------------- | ------------------------------------------ |
-| **error(_message_)**   | Escribe en el registro de nivel de error o inferior.   |
-| **warn(_message_)**    | Escribe en el registro de nivel de advertencia o inferior. |
-| **info(_message_)**    | Escribe en el registro de nivel de información o inferior.    |
-| **verbose(_message_)** | Escribe en el registro de nivel detallado.           |
+En Functions, use los métodos `context.log` para escribir la salida de seguimiento en los registros y en la consola. Cuando se llama a `context.log()`, el mensaje se escribe en los registros del nivel de seguimiento predeterminado, que es el nivel de seguimiento de _información_ . Functions se integra con Azure Application Insights para capturar mejor los registros de la aplicación de funciones. Application Insights, que forma parte de Azure Monitor, proporciona funciones para la recopilación, la representación visual y el análisis de los datos de telemetría de la aplicación y de las salidas del seguimiento. Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
-En el ejemplo siguiente se escribe un registro en el nivel de seguimiento de advertencia:
+En el ejemplo siguiente se escribe un registro en el nivel de seguimiento de información que incluya el identificador de invocación:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-Puede [configurar el umbral de nivel de seguimiento de los registros](#configure-the-trace-level-for-console-logging) en el archivo host.json. Para más información sobre cómo escribir registros, consulte cómo [escribir resultados de seguimiento](#writing-trace-output-to-the-console) a continuación.
-
-Consulte cómo [supervisar Azure Functions](functions-monitoring.md) para obtener más información sobre cómo ver y consultar registros de la función.
-
-## <a name="writing-trace-output-to-the-console"></a>Escribir las salidas de seguimiento en la consola 
-
-En Functions, use los métodos `context.log` para escribir la salida de seguimiento en la consola. En Functions 2.x, las salidas de seguimiento mediante `console.log` se capturan en el nivel de Function App. Esto significa que las salidas de `console.log` no están vinculadas a la invocación de una función específica y, por lo tanto, no se muestran en los registros de una función determinada. No obstante, se propagan a Application Insights. En Functions 1.x, no puede usar `console.log` para escribir en la consola.
-
-Cuando se llama a `context.log()`, el mensaje se escribe en la consola en el nivel de seguimiento predeterminado, que es el nivel de seguimiento de _información_. El siguiente código escribe en la consola en el nivel de seguimiento de información:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Este código es equivalente al código anterior:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Este código escribe en la consola en el nivel de seguimiento de error:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Dado que _error_ es el nivel de seguimiento más alto, este seguimiento se escribe en la salida en todos los niveles de seguimiento, siempre y cuando el registro esté habilitado.
 
 Todos los métodos `context.log` admiten el mismo formato de parámetro que el [método util.format](https://nodejs.org/api/util.html#util_util_format_format) de Node.js. Considere el siguiente código que escribe registros de función mediante el nivel de seguimiento predeterminado:
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Configuración del nivel de seguimiento para el registro de la consola
+> [!NOTE]  
+> No use `console.log` para escribir salidas de seguimiento. Como la salida de `console.log` se captura en el nivel de la aplicación de funciones, no está asociada a ninguna invocación de función específica y no aparece en los registros de una función específica. Además, la versión 1.x del entorno de ejecución de Functions no admite el uso de `console.log` para escribir en la consola.
 
-Functions 1.x permite definir el nivel de seguimiento de umbral para escribir en la consola, que facilita el control de la forma en que se escriben los seguimientos en la consola desde la función. Para establecer el umbral para todos los seguimientos que se escriben en la consola, use la propiedad `tracing.consoleLevel` en el archivo host.json . Esta configuración se aplica a todas las funciones de Function App. En el ejemplo siguiente se establece el umbral de seguimiento para habilitar el registro detallado:
+### <a name="trace-levels"></a>Niveles de seguimiento
+
+Además del nivel predeterminado, están disponibles los siguientes métodos de registro para permitirle escribir registros de funciones en niveles de seguimiento específicos.
+
+| Método                 | Descripción                                |
+| ---------------------- | ------------------------------------------ |
+| **error( _message_ )**   | Escribe un evento de nivel de error en los registros.   |
+| **warn( _message_ )**    | Escribe un evento de nivel de advertencia en los registros. |
+| **info( _message_ )**    | Escribe en el registro de nivel de información o inferior.    |
+| **verbose( _message_ )** | Escribe en el registro de nivel detallado.           |
+
+En el ejemplo siguiente se escribe el mismo registro en el nivel de seguimiento de advertencia, en lugar de en el nivel de información:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Dado que _error_ es el nivel de seguimiento más alto, este seguimiento se escribe en la salida en todos los niveles de seguimiento, siempre y cuando el registro esté habilitado.
+
+### <a name="configure-the-trace-level-for-logging"></a>Configuración del nivel de seguimiento para el registro
+
+Functions permite definir el nivel de seguimiento de umbral para escribir en los registros o en la consola. La configuración del umbral específico depende de la versión del entorno de Functions.
+
+# <a name="v2x"></a>[v2.x y posteriores](#tab/v2)
+
+Para establecer el umbral para los seguimientos que se escriben en los registros, use la propiedad `logging.logLevel` en el archivo host.json. Este objeto JSON le permite definir un umbral predeterminado para todas las funciones de la aplicación, además de definir umbrales específicos para funciones individuales. Para más información, consulte [Configuración de la supervisión para Azure Functions](configure-monitoring.md).
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+Para establecer el umbral para todos los seguimientos que se escriben en los registros y en la consola, use la propiedad `tracing.consoleLevel` en el archivo host.json. Esta configuración se aplica a todas las funciones de Function App. En el ejemplo siguiente se establece el umbral de seguimiento para habilitar el registro detallado:
 
 ```json
 {
@@ -360,7 +358,65 @@ Functions 1.x permite definir el nivel de seguimiento de umbral para escribir en
 }  
 ```
 
-Los valores de **consoleLevel** corresponden a los nombres de los métodos `context.log`. Para deshabilitar todos los registros de seguimiento en la consola, establezca **consoleLevel** en _off_. Para más información, consulte la [referencia sobre host.json](functions-host-json-v1.md).
+Los valores de **consoleLevel** corresponden a los nombres de los métodos `context.log`. Para deshabilitar todos los registros de seguimiento en la consola, establezca **consoleLevel** en _off_ . Para más información, consulte la [referencia sobre host.json v1.x](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Registro de la telemetría personalizada
+
+De forma predeterminada, Functions escribe las salidas como seguimientos en Application Insights. Para obtener más control, puede usar en su lugar el [SDK de Node.js para Application Insights](https://github.com/microsoft/applicationinsights-node.js) para enviar los datos de telemetría personalizados a la instancia de Application Insights. 
+
+# <a name="v2x"></a>[v2.x y posteriores](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1.x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+El parámetro `tagOverrides` establece `operation_Id` en el identificador de invocación de la función. Esta configuración le permite correlacionar toda la telemetría personalizada y generada automáticamente para una determinada invocación de función.
 
 ## <a name="http-triggers-and-bindings"></a>Desencadenadores y enlaces HTTP
 
@@ -489,12 +545,12 @@ Hay dos maneras de instalar paquetes en Function App:
 ### <a name="using-kudu"></a>Mediante Kudu
 1. Ir a `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Haga clic en **Consola de depuración** > **CMD**.
+2. Haga clic en **Consola de depuración** > **CMD** .
 
 3. Vaya a `D:\home\site\wwwroot` y luego arrastre el archivo package.json a la carpeta **wwwroot** en la mitad superior de la página.  
     También puede cargar archivos en Function App de otras formas. Para obtener más información, vea [Actualización de los archivos de aplicación de función](functions-reference.md#fileupdate). 
 
-4. Una vez cargado el archivo package.json, ejecute el comando`npm install` en la **consola de ejecución remota de Kudu**.  
+4. Una vez cargado el archivo package.json, ejecute el comando`npm install` en la **consola de ejecución remota de Kudu** .  
     Esta acción descarga los paquetes indicados en el archivo package.json y se reinicia Function App.
 
 ## <a name="environment-variables"></a>Variables de entorno

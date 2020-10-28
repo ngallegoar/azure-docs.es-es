@@ -3,12 +3,12 @@ title: Mejora de la excelencia operativa con Advisor
 description: Use Azure Advisor para optimizar y madurar la excelencia operativa de sus suscripciones de Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077395"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122626"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Obtención de la excelencia operativa con Azure Advisor
 
@@ -50,9 +50,15 @@ Azure Policy es un servicio de Azure que se usa para crear, asignar y administra
 
 **Especifique las SKU de máquina virtual permitidas para las implementaciones.** Esta directiva permite especificar un conjunto de SKU de máquina virtual que su organización puede implementar.
 
-**Aplique *Auditar las máquinas virtuales que no utilizan discos administrados*.**
+**Aplique *Auditar las máquinas virtuales que no utilizan discos administrados* .**
 
-**Habilite *Heredar una etiqueta del grupo de recursos*.** Esta directiva agrega o reemplaza la etiqueta y el valor del grupo de recursos primario especificados cuando se crea o actualiza cualquier recurso. Los recursos existentes se pueden corregir con una tarea de corrección.
+**Habilite *Heredar una etiqueta del grupo de recursos* .** Esta directiva agrega o reemplaza la etiqueta y el valor del grupo de recursos primario especificados cuando se crea o actualiza cualquier recurso. Los recursos existentes se pueden corregir con una tarea de corrección.
+
+Advisor recomienda algunas directivas individuales de Azure que ayudan a los clientes a lograr la excelencia operativa mediante la adopción de procedimientos recomendados. Si un cliente decide asignar una directiva recomendada, suprimiremos la recomendación. Si el cliente decide quitar la directiva más adelante, Advisor suprimirá igualmente la recomendación porque se interpreta su eliminación como una señal segura de lo siguiente:
+
+1.  El cliente quitó la directiva porque, a pesar de la recomendación de Advisor, no era aplicable a su caso de uso concreto. 
+2.  El cliente es consciente de la directiva y está familiarizado con ella después de asignarla y quitarla, y puede asignarla o quitarla de nuevo según sea necesario, sin tener en cuenta si más adelante es pertinente para su caso de uso. Si el cliente considera que es útil asignar la misma directiva de nuevo, puede hacerlo en Azure Policy sin necesidad de una recomendación de Advisor. Tenga en cuenta que esta lógica se aplica específicamente a la recomendación de directivas de la categoría de excelencia operativa. Estas reglas no se aplican a las recomendaciones de seguridad.  
+
 
 ## <a name="no-validation-environment-enabled"></a>No se habilitó ningún entorno de validación.
 Azure Advisor ha determinado que no tiene un entorno de validación habilitado en la suscripción actual. Al crear los grupos de hosts, ha seleccionado \"No\" para \"el entorno de validación\"en la pestaña Propiedades. Tener al menos un grupo de hosts con un entorno de validación habilitado garantiza la continuidad del negocio mediante las implementaciones del servicio Windows Virtual Desktop con la detección temprana de posibles problemas. [Más información](../virtual-desktop/create-validation-host-pool.md)

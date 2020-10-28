@@ -3,22 +3,24 @@ title: Introducción a Azure Policy
 description: Azure Policy es un servicio de Azure que se usa para crear, asignar y administrar las definiciones de directivas en el entorno de Azure.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873921"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097395"
 ---
 # <a name="what-is-azure-policy"></a>¿Qué es Azure Policy?
 
-Azure Policy ayuda a aplicar los estándares de la organización y a evaluar el cumplimiento a escala. A través de su panel de cumplimiento, proporciona una vista agregada para evaluar el estado general del entorno, con la posibilidad de explorar en profundidad hasta el nivel de recurso y directiva. También ayuda al cumplimiento de los recursos gracias a la corrección masiva de los recursos existentes y la corrección automática de nuevos recursos.
+Azure Policy ayuda a aplicar los estándares de la organización y a evaluar el cumplimiento a escala. Mediante su panel de cumplimiento, proporciona una vista agregada para evaluar el estado general del entorno, con la posibilidad de explorar en profundidad hasta el nivel de recurso y directiva. También ayuda al cumplimiento de los recursos gracias a la corrección masiva de los recursos existentes y la corrección automática de nuevos recursos.
 
 Entre los casos de uso comunes de Azure Policy se incluye la implementación de la gobernanza para la coherencia de los recursos, el cumplimiento normativo, la seguridad, el costo y la administración. Las definiciones de directiva de estos casos de uso comunes ya están disponibles en el entorno de Azure como complementos para ayudarle a comenzar.
 
+Todos los datos y objetos de Azure Policy se cifran en reposo. Para más información, consulte [Cifrado en reposo de datos de Azure](../../security/fundamentals/encryption-atrest.md).
+
 ## <a name="overview"></a>Información general
 
-Para evaluar los recursos de Azure, Azure Policy compara las propiedades de esos recursos con las reglas de negocio. Estas reglas de negocios, descritas en [formato JSON](./concepts/definition-structure.md), se conocen como [definiciones de directiva](#policy-definition). Para simplificar la administración, se pueden agrupar varias reglas de negocio para formar una [iniciativa de directiva](#initiative-definition) (a veces conocida como _policySet_). Una vez formadas las reglas de negocio, se [asigna](#assignments) la definición o la iniciativa de directiva a cualquier ámbito de recursos que admita Azure, como [grupos de administración](../management-groups/overview.md), suscripciones, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) o recursos individuales. La asignación se aplica a todos los recursos dentro del [ámbito de Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) de esa asignación. Si es necesario, se pueden excluir los subámbitos. Para más información, consulte [Ámbito de Azure Policy](./concepts/scope.md).
+Para evaluar los recursos de Azure, Azure Policy compara las propiedades de esos recursos con las reglas de negocio. Estas reglas de negocios, descritas en [formato JSON](./concepts/definition-structure.md), se conocen como [definiciones de directiva](#policy-definition). Para simplificar la administración, se pueden agrupar varias reglas de negocio para formar una [iniciativa de directiva](#initiative-definition) (a veces conocida como _policySet_ ). Una vez formadas las reglas de negocio, se [asigna](#assignments) la definición o la iniciativa de directiva a cualquier ámbito de recursos que admita Azure, como [grupos de administración](../management-groups/overview.md), suscripciones, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups) o recursos individuales. La asignación se aplica a todos los recursos dentro del [ámbito de Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) de esa asignación. Si es necesario, se pueden excluir los subámbitos. Para más información, consulte [Ámbito de Azure Policy](./concepts/scope.md).
 
 Azure Policy usa un [formato JSON](./concepts/definition-structure.md) para formar la lógica que la evaluación emplea para determinar si un recurso es compatible o no. Las definiciones incluyen metadatos y la regla de directiva. La regla definida puede usar funciones, parámetros, operadores lógicos, condiciones y [alias](./concepts/definition-structure.md#aliases) de propiedad para coincidir exactamente con el escenario deseado. La regla de directiva determina qué recursos del ámbito de la asignación se evalúan.
 
@@ -59,7 +61,7 @@ La siguiente introducción de Azure Policy es de la compilación 2018. Para desc
 
 ### <a name="azure-policy-and-azure-rbac"></a>Azure Policy y Azure RBAC
 
-Hay algunas diferencias importantes entre Azure Policy y el control de acceso basado en rol de Azure (Azure RBAC). Para evaluar el estado, Azure Policy examina las propiedades de los recursos que se representan en Resource Manager y las propiedades de algunos proveedores de recursos. Azure Policy no restringe las acciones (también denominadas _operaciones_). Azure Policy garantiza que el estado de los recursos sea compatible con las reglas de negocio sin importar quién hizo el cambio o quién tiene permisos para hacerlo.
+Hay algunas diferencias importantes entre Azure Policy y el control de acceso basado en rol de Azure (Azure RBAC). Para evaluar el estado, Azure Policy examina las propiedades de los recursos que se representan en Resource Manager y las propiedades de algunos proveedores de recursos. Azure Policy no restringe las acciones (también denominadas _operaciones_ ). Azure Policy garantiza que el estado de los recursos sea compatible con las reglas de negocio sin importar quién hizo el cambio o quién tiene permisos para hacerlo.
 
 Azure RBAC se centra en la administración de [acciones](../../role-based-access-control/resource-provider-operations.md) del usuario en ámbitos diferentes. Si es necesario controlar alguna acción, Azure RBAC es la herramienta idónea. Incluso si un individuo tiene acceso para realizar una acción, si el resultado es un recurso no compatible, Azure Policy sigue bloqueando la creación o la actualización.
 
@@ -72,7 +74,7 @@ Azure Policy dispone de varios permisos, conocidos como operaciones, en dos prov
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de directiva de recursos** incluye la mayoría de las operaciones de Azure Policy. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como el rol **Lector** tienen acceso a todas las operaciones de _lectura_ de Azure Policy. El rol **Colaborador** puede desencadenar la corrección de recursos, pero no puede _crear_ definiciones o asignaciones. **Administrador de acceso de usuario**  es necesario para conceder la identidad administrada en los permisos necesarios de las asignaciones **deployIfNotExists** o **modify**.
+Muchos roles integrados conceden permiso a recursos de Azure Policy. El rol **Colaborador de directiva de recursos** incluye la mayoría de las operaciones de Azure Policy. El rol **Propietario** tiene derechos completos. Tanto el rol **Colaborador** como el rol **Lector** tienen acceso a todas las operaciones de _lectura_ de Azure Policy. El rol **Colaborador** puede desencadenar la corrección de recursos, pero no puede _crear_ definiciones o asignaciones. **Administrador de acceso de usuario**  es necesario para conceder la identidad administrada en los permisos necesarios de las asignaciones **deployIfNotExists** o **modify** .
 
 Si ninguno de los roles integrados tiene los permisos necesarios, cree un [rol personalizado](../../role-based-access-control/custom-roles.md).
 
@@ -92,7 +94,7 @@ A continuación, se ofrecen algunos consejos e indicaciones que se deben tener e
 - Considere las jerarquías organizativas al crear definiciones y asignaciones. Se recomienda crear definiciones a niveles más altos, como suscripción o grupo de administración. A continuación, cree la asignación en el siguiente nivel secundario. Si crea una definición en un grupo de administración, se puede limitar la asignación a una suscripción o un grupo de recursos dentro de ese grupo de administración.
 
 - Se recomienda crear y asignar las definiciones de iniciativa incluso para una definición de directiva única.
-  Por ejemplo, tiene la definición de directiva _policyDefA_ y la crea en la definición de iniciativa _initiativeDefC_. Si crea otra definición de directiva más adelante para _policyDefB_ con objetivos similares a _policyDefA_, puede agregarla a _initiativeDefC_ y realizar un seguimiento conjunto.
+  Por ejemplo, tiene la definición de directiva _policyDefA_ y la crea en la definición de iniciativa _initiativeDefC_ . Si crea otra definición de directiva más adelante para _policyDefB_ con objetivos similares a _policyDefA_ , puede agregarla a _initiativeDefC_ y realizar un seguimiento conjunto.
 
 - Una vez creada una asignación de iniciativa, las definiciones agregadas a la iniciativa también forman parte de las asignaciones de esa iniciativa.
 
@@ -122,36 +124,36 @@ Para obtener más información sobre las estructuras de las definiciones de dire
 
 Los parámetros de directiva permiten simplificar la administración de directivas reduciendo el número de definiciones de directiva que debe crear. Cuando crea una definición de directiva, puede definir parámetros para que sea más genérica. Después, puede volver a usar esa definición de directiva para diferentes escenarios. Para ello, transmita distintos valores al asignar la definición de directiva. Por ejemplo, especifique un conjunto de ubicaciones para una suscripción.
 
-Los parámetros se definen cuando se crea una definición de directiva. Cuando se define un parámetro, se le asigna un nombre y, de manera opcional, un valor. Por ejemplo, podría definir un parámetro para una directiva denominada _location_. Después, puede asignarle valores diferentes, como _EastUS_ o _WestUS_, al asignar una directiva.
+Los parámetros se definen cuando se crea una definición de directiva. Cuando se define un parámetro, se le asigna un nombre y, de manera opcional, un valor. Por ejemplo, podría definir un parámetro para una directiva denominada _location_ . Después, puede asignarle valores diferentes, como _EastUS_ o _WestUS_ , al asignar una directiva.
 
 Para más información sobre los parámetros de directiva, vea [Estructura de definición: Parámetros](./concepts/definition-structure.md#parameters).
 
 ### <a name="initiative-definition"></a>Definición de iniciativa
 
-Una definición de iniciativa es una colección de definiciones de directiva personalizadas para alcanzar un único objetivo general. Las definiciones de iniciativa simplifican la administración y asignación de las definiciones de directiva. Tal simplificación se realiza mediante la agrupación de un conjunto de directivas como un solo elemento. Por ejemplo, podría crear una iniciativa titulada **Habilitar la supervisión en Azure Security Center**, con el objetivo de supervisar todas las recomendaciones de seguridad disponibles en Azure Security Center.
+Una definición de iniciativa es una colección de definiciones de directiva personalizadas para alcanzar un único objetivo general. Las definiciones de iniciativa simplifican la administración y asignación de las definiciones de directiva. Tal simplificación se realiza mediante la agrupación de un conjunto de directivas como un solo elemento. Por ejemplo, podría crear una iniciativa titulada **Habilitar la supervisión en Azure Security Center** , con el objetivo de supervisar todas las recomendaciones de seguridad disponibles en Azure Security Center.
 
 > [!NOTE]
 > El SDK, como CLI de Azure y Azure PowerShell, usa propiedades y parámetros denominados **PolicySet** para hacer referencia a las iniciativas.
 
 En esta iniciativa, tendría definiciones de directiva como las siguientes:
 
-- **Supervisar SQL Database sin cifrar en Security Center**, para supervisar servidores y bases de datos SQL sin cifrar.
-- **Supervisar las vulnerabilidades del SO en Security Center**, para supervisar los servidores que no cumplen con la base de referencia configurada.
-- **Supervisar Endpoint Protection omitido en Security Center**, para supervisar los servidores que no tienen instalado un agente de protección de los puntos de conexión.
+- **Supervisar SQL Database sin cifrar en Security Center** , para supervisar servidores y bases de datos SQL sin cifrar.
+- **Supervisar las vulnerabilidades del SO en Security Center** , para supervisar los servidores que no cumplen con la base de referencia configurada.
+- **Supervisar Endpoint Protection omitido en Security Center** , para supervisar los servidores que no tienen instalado un agente de protección de los puntos de conexión.
 
 Al igual que los parámetros de directiva, los parámetros de iniciativa permiten simplificar la administración de iniciativas mediante la reducción de la redundancia. Los parámetros de iniciativa son aquellos que las definiciones de directiva usan dentro de la iniciativa.
 
-Por ejemplo, imagine un escenario en el que tiene la definición de una iniciativa (**initiativeC**), con las definiciones de directiva **policyA** y **policyB**, y que cada una de ellas espera un tipo diferente de parámetro:
+Por ejemplo, imagine un escenario en el que tiene la definición de una iniciativa ( **initiativeC** ), con las definiciones de directiva **policyA** y **policyB** , y que cada una de ellas espera un tipo diferente de parámetro:
 
 | Directiva | Nombre del parámetro |tipo del parámetro  |Nota: |
 |---|---|---|---|
 | policyA | allowedLocations | array  |Este parámetro espera una lista de cadenas para un valor, porque el tipo de parámetro está definido como una matriz |
 | policyB | allowedSingleLocation |string |Este parámetro espera una palabra para un valor, porque el tipo de parámetro se definió como una cadena |
 
-En este escenario, tiene tres opciones en el momento de definir los parámetros de iniciativa para **initiativeC**:
+En este escenario, tiene tres opciones en el momento de definir los parámetros de iniciativa para **initiativeC** :
 
-- Use los parámetros de las definiciones de directiva dentro de esta iniciativa: en este ejemplo, _allowedLocations_ y _allowedSingleLocation_ se convierten en parámetros de iniciativa para **initiativeC**.
-- Proporcione valores a los parámetros de las definiciones de directiva dentro de esta definición de iniciativa. En este ejemplo, puede proporcionar una lista de ubicaciones al parámetro de **policyA**, **allowedLocations**, y al parámetro de **policyB**, **allowedSingleLocation**. También puede proporcionar valores cuando asigne esta iniciativa.
+- Use los parámetros de las definiciones de directiva dentro de esta iniciativa: en este ejemplo, _allowedLocations_ y _allowedSingleLocation_ se convierten en parámetros de iniciativa para **initiativeC** .
+- Proporcione valores a los parámetros de las definiciones de directiva dentro de esta definición de iniciativa. En este ejemplo, puede proporcionar una lista de ubicaciones al parámetro de **policyA** , **allowedLocations** , y al parámetro de **policyB** , **allowedSingleLocation** . También puede proporcionar valores cuando asigne esta iniciativa.
 - Proporcione una lista de las opciones de _value_ que se puede usar cuando se asigna esta iniciativa. Cuando asigna esta iniciativa, los parámetros inherentes de las definiciones de directiva dentro de la iniciativa solo pueden tener valores provenientes de esta lista.
 
 Al crear las opciones de valor en una definición de iniciativa, no se puede proporcionar un valor diferente durante la asignación de la iniciativa, porque no forma parte de la lista.

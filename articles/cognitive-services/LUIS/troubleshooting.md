@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: a09989e57729862cb18f148f95eb83f81a775b7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542230"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149251"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
 
@@ -77,7 +77,7 @@ Obtenga más información sobre los [errores de importación de versión](luis-h
 
 ## <a name="collaborating-and-contributing"></a>Colaboración y contribución
 
-### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>¿Cómo puedo dar acceso a LUIS a los colaboradores mediante Azure Active Directory (Azure AD) o el control de acceso basado en roles (RBAC)?
+### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-azure-role-based-access-control-azure-rbac"></a>¿Cómo puedo dar acceso a LUIS a los colaboradores mediante Azure Active Directory (Azure AD) o el control de acceso basado en roles de Azure (RBAC de Azure)?
 
 Consulte los [recursos de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-resources) y el [usuario inquilino de Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para obtener información sobre cómo otorgar acceso de colaboradores.
 
@@ -95,7 +95,7 @@ Para corregir este error, tendrá que [cambiar su plan de tarifa](luis-how-to-az
 
 Las soluciones para este error incluyen:
 
-* En [Azure Portal](https://portal.azure.com), en su recurso Language Understanding, en **Administración de recursos -> Plan de tarifa**, cambie su plan de tarifa a un nivel superior de TPS. No es necesario hacer nada en el portal de Language Understanding si el recurso ya está asignado a la aplicación Language Understanding.
+* En [Azure Portal](https://portal.azure.com), en su recurso Language Understanding, en **Administración de recursos -> Plan de tarifa** , cambie su plan de tarifa a un nivel superior de TPS. No es necesario hacer nada en el portal de Language Understanding si el recurso ya está asignado a la aplicación Language Understanding.
 *  Si el uso supera el plan de tarifa más alto, agregue más recursos de Language Understanding con un equilibrador de carga delante. El [contenedor de Language Understanding](luis-container-howto.md) con Kubernetes o Docker Compose puede ayudarle en esto.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>He recibido un código de estado de error HTTP 429. ¿Cómo puedo corregirlo?
@@ -132,7 +132,7 @@ El sistema debe utilizar la intención de mayor puntuación independientemente d
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>¿Por qué no son visibles las visitas del punto de conexión en el panel de información de la aplicación?
 Las visitas totales del punto de conexión se actualizan periódicamente en el panel de información de la aplicación, pero las métricas asociadas con su clave de punto de conexión de LUIS en Azure Portal se actualizan con mayor frecuencia.
 
-Si las visitas del punto de conexión no están actualizadas en el panel de información, inicie sesión en Azure Portal, busque el recurso asociado a su clave de punto de conexión de LUIS y abra **Métrica** para seleccionar la métrica del **Total de llamadas**. Si la clave de punto de conexión se utiliza para más de una aplicación de LUIS, la métrica en Azure Portal muestra el número agregado de llamadas de todas las aplicaciones de LUIS que la usan.
+Si las visitas del punto de conexión no están actualizadas en el panel de información, inicie sesión en Azure Portal, busque el recurso asociado a su clave de punto de conexión de LUIS y abra **Métrica** para seleccionar la métrica del **Total de llamadas** . Si la clave de punto de conexión se utiliza para más de una aplicación de LUIS, la métrica en Azure Portal muestra el número agregado de llamadas de todas las aplicaciones de LUIS que la usan.
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>¿Existe un comando get de PowerShell para la cuota de punto de conexión?
 
@@ -190,7 +190,7 @@ Vea [Entrenamiento con todos los datos](luis-how-to-train.md#train-with-all-data
 ## <a name="app-publishing"></a>Publicación de la aplicación
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>¿Qué es el identificador de inquilino de la ventana Add a key to your app (Agregar una clave a la aplicación)?
-En Azure, un inquilino representa al cliente o a la organización que están asociados con un servicio. Para encontrar el identificador de inquilino en Azure Portal en el cuadro **Id. de directorio**, seleccione **Azure Active Directory** > **Administrar** > **Propiedades**.
+En Azure, un inquilino representa al cliente o a la organización que están asociados con un servicio. Para encontrar el identificador de inquilino en Azure Portal en el cuadro **Id. de directorio** , seleccione **Azure Active Directory** > **Administrar** > **Propiedades** .
 
 ![Identificador de inquilino en Azure Portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -278,7 +278,7 @@ Si utiliza Azure Bot Service y el problema es que las **pruebas en el chat web**
 1. Abra el editor de código en línea.
 1. En la barra de navegación superior azul, seleccione el nombre del bot (el segundo elemento a la derecha).
 1. En la lista desplegable resultante, seleccione **Open Kudu Console** (Abrir la consola de Kudu).
-1. Seleccione **LogFiles** y **Aplicación**. Revise todos los archivos de registro. Si no ve el error en la carpeta de la aplicación, revise todos los archivos de registro en **LogFiles**.
+1. Seleccione **LogFiles** y **Aplicación** . Revise todos los archivos de registro. Si no ve el error en la carpeta de la aplicación, revise todos los archivos de registro en **LogFiles** .
 1. Recuerde recompilar el proyecto si está utilizando un lenguaje compilado como C#.
 
 > [!Tip]

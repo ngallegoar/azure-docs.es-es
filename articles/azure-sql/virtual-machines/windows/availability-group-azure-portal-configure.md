@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482807"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164574"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Configuración de un grupo de disponibilidad para SQL Server en máquinas virtuales de Azure (Azure Portal: versión preliminar)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Uso de Azure Portal para configurar un grupo de disponibilidad (versión preliminar) para SQL Server en máquinas virtuales de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 En este artículo se explica cómo usar [Azure Portal](https://portal.azure.com) para configurar un grupo de disponibilidad para SQL Server en máquinas virtuales de Azure. 
 
 Use Azure Portal para crear un nuevo clúster o incorporar un clúster existente y, luego, cree el grupo de disponibilidad, la escucha y el equilibrador de carga interno. 
 
-   > [!NOTE]
-   > Esta característica se encuentra actualmente en versión preliminar y en implementación, de modo que si la región deseada no está disponible, vuelva a comprobarlo pronto. 
+Esta funcionalidad actualmente está en su versión preliminar. 
+
+Si bien en este artículo se usa Azure Portal para configurar el entorno del grupo de disponibilidad, también es posible hacerlo mediante [PowerShell o la CLI de Azure](availability-group-az-commandline-configure.md), [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md) o [manualmente](availability-group-manually-configure-tutorial.md). 
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -60,7 +61,7 @@ Si aún no tiene un clúster, créelo mediante Azure Portal con estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
 1. Vaya al recurso [Máquinas virtuales SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Seleccione **Alta disponibilidad** en **Configuración**. 
+1. Seleccione **Alta disponibilidad** en **Configuración** . 
 1. Seleccione **+ New Windows Server failover cluster** (Nuevo clúster de conmutación por error de Windows Server) para abrir la página **Configure Windows Failover cluster** (Configurar clúster de conmutación por error de Windows).  
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
@@ -84,7 +85,7 @@ Para hacerlo, siga estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
 1. Vaya al recurso [Máquinas virtuales SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Seleccione **Alta disponibilidad** en **Configuración**. 
+1. Seleccione **Alta disponibilidad** en **Configuración** . 
 1. Seleccione **Onboard existing Windows Server Failover Cluster** (Incorporar clúster de conmutación por error existente de Windows Server) para abrir la página **Onboard Windows Server Failover Cluster** (Incorporar clúster de conmutación por error de Windows Server). 
 
    :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
@@ -101,8 +102,8 @@ Una vez creado o incorporado el clúster, cree el grupo de disponibilidad median
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
 1. Vaya al recurso [Máquinas virtuales SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Seleccione **Alta disponibilidad** en **Configuración**. 
-1. Seleccione **+ New Always On availability group** (Nuevo grupo de disponibilidad Always On) para abrir la página **Crear grupo de disponibilidad**.
+1. Seleccione **Alta disponibilidad** en **Configuración** . 
+1. Seleccione **+ New Always On availability group** (Nuevo grupo de disponibilidad Always On) para abrir la página **Crear grupo de disponibilidad** .
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
@@ -122,7 +123,7 @@ Una vez creado o incorporado el clúster, cree el grupo de disponibilidad median
 
 1. Compruebe la configuración del grupo de disponibilidad y seleccione **Aplicar** para crearlo. 
 
-Puede comprobar el estado de la implementación en el **registro de actividad**, que es accesible desde el icono de campana de la barra de navegación superior. 
+Puede comprobar el estado de la implementación en el **registro de actividad** , que es accesible desde el icono de campana de la barra de navegación superior. 
 
   > [!NOTE]
   > **Synchronization health** (Estado de sincronización), en la página **Alta disponibilidad** de Azure Portal, muestra **Incorrecto** hasta que se agregan bases de datos al grupo de disponibilidad. 
@@ -137,8 +138,8 @@ Para agregar bases de datos al grupo de disponibilidad mediante SQL Server Man
 1. Conéctese a una de las VM con SQL Server mediante el método que prefiera, como conexión a Escritorio remoto (RDP). 
 1. Abra SQL Server Management Studio (SSMS).
 1. Conéctese a la instancia de SQL Server. 
-1. Expanda **Alta disponibilidad de Always On** en el **Explorador de objetos**.
-1. Expanda **Grupos de disponibilidad**, haga clic con el botón derecho en el grupo de disponibilidad y seleccione **Agregar base de datos...**
+1. Expanda **Alta disponibilidad de Always On** en el **Explorador de objetos** .
+1. Expanda **Grupos de disponibilidad** , haga clic con el botón derecho en el grupo de disponibilidad y seleccione **Agregar base de datos...**
 
    :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
@@ -156,16 +157,16 @@ Para agregar más VM con SQL Server al clúster, siga estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com). 
 1. Vaya al recurso [Máquinas virtuales SQL](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
-1. Seleccione **Alta disponibilidad** en **Configuración**. 
+1. Seleccione **Alta disponibilidad** en **Configuración** . 
 1. Seleccione **Configure Windows Server Failover Cluster** (Configurar clúster de conmutación por error de Windows Server) para abrir la página **Configure Windows Server Failover Cluster** (Configurar clúster de conmutación por error de Windows Server). 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
 1. Expanda **Windows Server Failover Cluster credentials** (Credenciales del clúster de conmutación por error de Windows Server) y escriba las cuentas usadas para el servicio de SQL Server, el operador de clúster y el arranque del clúster. 
 1. Seleccione las VM con SQL Server que quiere agregar al clúster. 
-1. Seleccione **Aplicar**. 
+1. Seleccione **Aplicar** . 
 
-Puede comprobar el estado de la implementación en el **registro de actividad**, que es accesible desde el icono de campana de la barra de navegación superior. 
+Puede comprobar el estado de la implementación en el **registro de actividad** , que es accesible desde el icono de campana de la barra de navegación superior. 
 
 
 ## <a name="modify-availability-group"></a>Modificación de un grupo de disponibilidad 
@@ -177,7 +178,7 @@ Es posible **Add more replicas** (Agregar más réplicas) al grupo de disponibil
 
 ## <a name="remove-cluster"></a>Eliminación del clúster
 
-Quite todas las VM con SQL Server del clúster para destruirlo y luego quite los metadatos del clúster del proveedor de recursos de VM con SQL. Para ello, puede usar la versión más reciente de la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o PowerShell. 
+Quite todas las VM con SQL Server del clúster para destruirlo y luego quite los metadatos del clúster del proveedor de recursos de VM con SQL. Para ello, puede usar la versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) o PowerShell. 
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -244,7 +245,7 @@ Para ver los registros de la implementación y consultar el historial de impleme
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
 1. Vaya al grupo de recursos.
-1. Seleccione **Implementaciones** en **Configuración**.
+1. Seleccione **Implementaciones** en **Configuración** .
 1. Seleccione la implementación que le interese para obtener más información sobre ella. 
 
 

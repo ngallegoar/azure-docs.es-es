@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9304936f746b82b59550d62e8b60a9e0035d188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498810"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147935"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Seguimiento y registro de eventos para un pedido de importación de Azure Data Box y Azure Data Box Heavy
 
@@ -23,7 +23,7 @@ En la tabla siguiente se muestra un resumen de los pasos del pedido de importaci
 
 | Fase del pedido de importación de Data Box       | Herramienta de seguimiento y auditoría                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Crear pedido               | [Configuración del control de acceso en el pedido a través de RBAC](#set-up-access-control-on-the-order)                                                    |
+| Crear pedido               | [Configuración del control de acceso en el pedido a través de RBAC de Azure](#set-up-access-control-on-the-order)                                                    |
 | Pedido procesado            | [Seguimiento del pedido](#track-the-order) a través de: <ul><li> Azure portal </li><li> Sitio web del transportista </li><li>Notificaciones por correo electrónico</ul> |
 | Configuración de un dispositivo              | Registro del acceso de las credenciales del dispositivo en los [registros de actividad](#query-activity-logs-during-setup)                                              |
 | Copia de los datos a un dispositivo        | [Visualización de los archivos *error.xml*](#view-error-log-during-data-copy) para la copia de datos                                                             |
@@ -39,15 +39,15 @@ Puede controlar quién puede acceder a su pedido cuando se cree por primera vez.
 
 Los dos roles que se pueden definir para el servicio de Azure Data Box son los siguientes:
 
-- **Lector de Data Box**: tiene acceso de solo lectura a los pedidos, como defina el ámbito. Solo puede ver los detalles de un pedido. No puede acceder a otros detalles relacionados con las cuentas de almacenamiento ni editar los detalles del pedido, como la dirección y otros datos.
-- **Colaborador de Data Box**: solo puede crear un pedido para transferir datos a una cuenta de almacenamiento determinada *si ya tiene acceso de escritura a una cuenta de almacenamiento*. Si no tiene acceso a una cuenta de almacenamiento, ni siquiera puede crear un pedido de Data Box para copiar datos a la cuenta. Este rol no define permisos relacionados con la cuenta de almacenamiento ni concede acceso a las cuentas de almacenamiento.  
+- **Lector de Data Box** : tiene acceso de solo lectura a los pedidos, como defina el ámbito. Solo puede ver los detalles de un pedido. No puede acceder a otros detalles relacionados con las cuentas de almacenamiento ni editar los detalles del pedido, como la dirección y otros datos.
+- **Colaborador de Data Box** : solo puede crear un pedido para transferir datos a una cuenta de almacenamiento determinada *si ya tiene acceso de escritura a una cuenta de almacenamiento* . Si no tiene acceso a una cuenta de almacenamiento, ni siquiera puede crear un pedido de Data Box para copiar datos a la cuenta. Este rol no define permisos relacionados con la cuenta de almacenamiento ni concede acceso a las cuentas de almacenamiento.  
 
 Para restringir el acceso a un pedido, puede hacer lo siguiente:
 
 - Asignar un rol en el nivel de un pedido. El usuario solo tiene los permisos que definan los roles para interactuar únicamente con ese pedido de Data Box específico.
 - Asignar un rol en el nivel del grupo de recursos. El usuario tiene acceso a todos los pedidos de Data Box dentro de un grupo de recursos.
 
-Para más información sobre el uso sugerido de RBAC, vea [Procedimientos recomendados para Azure RBAC](../role-based-access-control/best-practices.md).
+Para más información sobre el uso sugerido de RBAC de Azure, consulte [Procedimientos recomendados para RBAC de Azure](../role-based-access-control/best-practices.md).
 
 ## <a name="track-the-order"></a>Seguimiento del pedido
 
@@ -76,7 +76,7 @@ Durante la copia de datos en Data Box o Data Box Heavy, se genera un archivo de 
 
 ### <a name="errorxml-file"></a>Archivo error.xml
 
-Asegúrese de que los trabajos de copia se hayan completado sin errores. Si hay errores durante el proceso de copia, descargue los registros de la página **Conectar y copiar**.
+Asegúrese de que los trabajos de copia se hayan completado sin errores. Si hay errores durante el proceso de copia, descargue los registros de la página **Conectar y copiar** .
 
 - Si copió un archivo que no tiene 512 bytes alineados a una carpeta de disco administrado en Data Box, el archivo no se carga como blob en páginas en la cuenta de almacenamiento provisional. Verá un error en los registros. Quite el archivo y copie uno que tenga 512 bytes alineados.
 - Si copió un archivo VHDX, un VHD dinámico o un VHD diferenciado (estos archivos no son compatibles), verá un error en los registros.
@@ -354,13 +354,13 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Descarga del historial de pedidos
 
-El historial de pedidos está disponible en Azure Portal. Si el pedido está completo y se completa la limpieza del dispositivo (eliminación de datos de los discos), vaya al pedido de su dispositivo y navegue hasta **Detalles de pedido**. La opción **Descargar el historial de pedidos** está disponible. Para más información, consulte [Descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
+El historial de pedidos está disponible en Azure Portal. Si el pedido está completo y se completa la limpieza del dispositivo (eliminación de datos de los discos), vaya al pedido de su dispositivo y navegue hasta **Detalles de pedido** . La opción **Descargar el historial de pedidos** está disponible. Para más información, consulte [Descargar historial de pedidos](data-box-portal-admin.md#download-order-history).
 
 Si se desplaza por el historial de pedidos, verá:
 
 - Información de seguimiento del operador para el dispositivo.
-- Los eventos con actividad *SecureErase*. Estos eventos se corresponden con el borrado de los datos en el disco.
-- Vínculos de registro de Data Box. Se presentan las rutas de acceso para los archivos de *registros de auditoría*, *registros de copia* y *BOM*.
+- Los eventos con actividad *SecureErase* . Estos eventos se corresponden con el borrado de los datos en el disco.
+- Vínculos de registro de Data Box. Se presentan las rutas de acceso para los archivos de *registros de auditoría* , *registros de copia* y *BOM* .
 
 Este es un ejemplo del registro del historial de pedidos de Azure Portal:
 

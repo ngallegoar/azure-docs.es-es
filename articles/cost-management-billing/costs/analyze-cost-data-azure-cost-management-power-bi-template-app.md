@@ -3,17 +3,17 @@ title: Análisis de los costos de Azure con la aplicación para Power BI
 description: En este artículo se explica cómo instalar y usar la aplicación Azure Cost Management para Power BI.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447670"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131129"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Análisis del costo con la aplicación Azure Cost Management para Power BI para Contrato Enterprise (EA)
 
@@ -29,24 +29,24 @@ Actualmente, la aplicación Azure Cost Management para Power BI solo admite cli
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una [licencia de Power BI Pro](/power-bi/service-self-service-signup-for-power-bi) para instalar y usar la aplicación.
-- Para conectarse a los datos, debe usar una cuenta de [administrador de empresa](../manage/understand-ea-roles.md).
+- Para conectarse a los datos, debe usar una cuenta de [administrador de empresa](../manage/understand-ea-roles.md). Se admite el rol de administrador de empresa (solo lectura).
 
 ## <a name="installation-steps"></a>Pasos de instalación
 
 Para instalar la aplicación
 
 1. Abra la [aplicación Azure Cost Management para Power BI](https://aka.ms/costmgmt/ACMApp).
-2. En la página AppSource de Power BI, seleccione **Obtenerla ahora**.
+2. En la página AppSource de Power BI, seleccione **Obtenerla ahora** .
 3. Seleccione **Continuar** para aceptar las condiciones de uso y la directiva de privacidad.
-4. En el cuadro **¿Quiere instalar esta aplicación de Power BI?** , seleccione **Instalar**.
-5. Si es necesario, cree un área de trabajo y seleccione **Continuar**.
+4. En el cuadro **¿Quiere instalar esta aplicación de Power BI?** , seleccione **Instalar** .
+5. Si es necesario, cree un área de trabajo y seleccione **Continuar** .
 6. Cuando finalice la instalación, aparecerá una notificación que indica que la nueva aplicación está lista.
-7. Seleccione **Ir a la aplicación**.
-8. En **Empezar a trabajar con la nueva aplicación**, en **Conectar los datos**, seleccione **Conectar**.  
+7. Seleccione **Ir a la aplicación** .
+8. En **Empezar a trabajar con la nueva aplicación** , en **Conectar los datos** , seleccione **Conectar** .  
   ![Empezar a trabajar con la nueva aplicación: Conectar](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. En el cuadro de diálogo que aparece, escriba el número de inscripción de Contrato Enterprise para **BillingProfileIdOrEnrollmentNumber**. Especifique el número de meses de datos que se van a obtener. Deje el valor de **Ámbito** predeterminado de **Número de inscripción** y, a continuación, seleccione **Siguiente**.  
+9. En el cuadro de diálogo que aparece, escriba el número de inscripción de Contrato Enterprise para **BillingProfileIdOrEnrollmentNumber** . Especifique el número de meses de datos que se van a obtener. Deje el valor de **Ámbito** predeterminado de **Número de inscripción** y, a continuación, seleccione **Siguiente** .  
   ![Introducción de la información de inscripción de EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. El siguiente cuadro de diálogo se conecta a Azure y obtiene los datos necesarios para las recomendaciones de instancia reservada. *Deje los valores predeterminados tal como están configurados* y seleccione **Iniciar sesión**.  
+10. El siguiente cuadro de diálogo se conecta a Azure y obtiene los datos necesarios para las recomendaciones de instancia reservada. *Deje los valores predeterminados tal como están configurados* y seleccione **Iniciar sesión** .  
   ![Captura de pantalla que muestra el cuadro de diálogo para conectar a la aplicación Azure Cost Management con los valores predeterminados.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. El paso de instalación final se conecta a su inscripción de Contrato Enterprise y requiere una cuenta de [administrador de empresa](../manage/understand-ea-roles.md). Seleccione **Iniciar sesión** para autenticarse con su inscripción de Contrato Enterprise. Este paso también inicia una acción de actualización de datos en Power BI.  
   ![Conexión a la inscripción de Contrato Enterprise](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -88,7 +88,7 @@ El informe también identifica las máquinas virtuales de Windows en las que la 
 
 Puede aplicar un filtro en _chargetype_ para ver los datos de sobreutilización de instancias reservadas.
 
-Para más información sobre los datos amortizados, consulte [Obtención del uso y los costos de reservas de Contrato Enterprise](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Para más información sobre los datos amortizados, consulte [Obtención del uso y los costos de reservas de Contrato Enterprise](../reservations/understand-reserved-instance-usage-ea.md).
 
 **RI Savings** (Ahorro de RI): el informe muestra el ahorro acumulado por las reservas de suscripción, grupo de recursos y nivel de recurso. Muestra lo siguiente:
 
@@ -204,8 +204,8 @@ La información siguiente resume los datos disponibles en la aplicación. Tambi�
 | [**Budgets**](/rest/api/consumption/budgets/get#definitions) (Presupuestos) | Detalles del presupuesto para ver los costos reales o el uso de los objetivos de presupuesto existentes. |
 | [**Pricesheets**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) (Hojas de precios) | Tasas de los medidores aplicables para el perfil de facturación proporcionado o la inscripción a Contrato Enterprise. |
 | [**RI charges**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) (Cargos de RI) | Cargos asociados a las instancias reservadas en los últimos 24 meses. |
-| [**RI recommendations (shared)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) [Recomendaciones de RI (compartidas)] | Recomendaciones de compras de instancias reservadas basadas en todas las tendencias de uso de las suscripciones durante los últimos 7, 30 o 60 días. |
-| [**RI recommendations (single)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) [Recomendaciones de RI (únicas)] | Recomendaciones de compra de instancias reservadas basadas en las tendencias de uso de las suscripciones únicas durante los últimos 7, 30 o 60 días. |
+| [**RI recommendations (shared)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) [Recomendaciones de RI (compartidas)] | Recomendaciones de compras de instancias reservadas basadas en todas las tendencias de uso de las suscripciones durante los últimos 7, 30 o 60 días. |
+| [**RI recommendations (single)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) [Recomendaciones de RI (únicas)] | Recomendaciones de compra de instancias reservadas basadas en las tendencias de uso de las suscripciones únicas durante los últimos 7, 30 o 60 días. |
 | [**RI usage details**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) (Detalles de uso de RI) | Detalles de consumo de las instancias reservadas existentes durante el último mes. |
 | [**RI usage summary**](/rest/api/consumption/reservationssummaries/list) (Resumen de uso de RI) | Porcentaje diario de uso de reservas de Azure. |
 | [**Usage details**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) (Detalles de uso) | Un desglose de cantidades consumidas y de cargos estimados para el perfil de facturación determinado en la inscripción a Contrato Enterprise. |

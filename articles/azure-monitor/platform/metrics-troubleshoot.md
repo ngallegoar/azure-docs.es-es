@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a9286ff15834fafe4a69907836ce1abd17abca6
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440684"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168076"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -20,11 +20,11 @@ Use este artículo si tienen problemas al crear, personalizar o interpretar los 
 
 ## <a name="cant-find-your-resource-to-select-it"></a>No se encuentra el recurso para seleccionarlo
 
-Hizo clic en el botón **Seleccionar un recurso**, pero no ve el recurso en el cuadro de diálogo del selector de recursos.
+Hizo clic en el botón **Seleccionar un recurso** , pero no ve el recurso en el cuadro de diálogo del selector de recursos.
 
 **Solución:** El explorador de métricas requiere que seleccione las suscripciones y los grupos de recursos antes de enumerar los recursos disponibles. Si no ve el recurso:
 
-1. Asegúrese de que ha seleccionado la suscripción correcta en la lista desplegable **Suscripción**. Si su suscripción no aparece, haga clic en **configuración Directorio + suscripción** y agregue una suscripción con el recurso.
+1. Asegúrese de que ha seleccionado la suscripción correcta en la lista desplegable **Suscripción** . Si su suscripción no aparece, haga clic en **configuración Directorio + suscripción** y agregue una suscripción con el recurso.
 
 1. Asegúrese de haber seleccionado el grupo de recursos correcto.
     > [!WARNING]
@@ -38,7 +38,7 @@ En ocasiones, puede que los gráficos no muestren ningún dato después de selec
 
 La exploración de métricas requiere que el proveedor de recursos *Microsoft.Insights* esté registrado en su suscripción. En muchos casos, se registra automáticamente (es decir, después de configurar una regla de alerta, personalizar la configuración de diagnóstico para cualquier recurso o configurar una regla de escalado automático). Si el proveedor de recursos Microsoft.Insights no está registrado, debe registrarlo manualmente siguiendo los pasos descritos en [Tipos y proveedores de recursos de Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
-**Solución:** Abra **Suscripciones**, pestaña **Proveedores de recursos** y verifique que *Microsoft.Insights* esté registrado para su suscripción.
+**Solución:** Abra **Suscripciones** , pestaña **Proveedores de recursos** y verifique que *Microsoft.Insights* esté registrado para su suscripción.
 
 ### <a name="you-dont-have-sufficient-access-rights-to-your-resource"></a>No tiene suficientes derechos de acceso al recurso
 
@@ -62,7 +62,7 @@ Algunos recursos no emiten constantemente sus métricas. Por ejemplo, Azure no r
 
 Al [bloquear los límites del eje Y del gráfico](metrics-charts.md#lock-boundaries-of-chart-y-axis), puede hacer que por accidente el área de visualización del gráfico no muestre la línea del gráfico. Por ejemplo, si el eje Y está bloqueado en un intervalo entre el 0 y el 50 %, y la métrica tiene un valor constante del 100 %, la línea se representa siempre fuera del área visible, lo que hace que el gráfico parezca estar en blanco.
 
-**Solución:** Verifique que los límites del eje Y del gráfico no queden bloqueados fuera del intervalo de los valores de las métricas. Si los límites del eje Y se bloquean, puede querer restablecerlos temporalmente para asegurarse de que los valores de las métricas no se encuentren fuera del intervalo del gráfico. No se recomienda bloquear el intervalo del eje Y con granularidad automática para los gráficos con agregación **sum**, **min** y **max**, ya que sus valores cambiarán con la granularidad al cambiar el tamaño de la ventana del explorador o al pasar de una resolución de pantalla a otra. Cambiar la granularidad puede hacer que el área de visualización del gráfico quede vacía.
+**Solución:** Verifique que los límites del eje Y del gráfico no queden bloqueados fuera del intervalo de los valores de las métricas. Si los límites del eje Y se bloquean, puede querer restablecerlos temporalmente para asegurarse de que los valores de las métricas no se encuentren fuera del intervalo del gráfico. No se recomienda bloquear el intervalo del eje Y con granularidad automática para los gráficos con agregación **sum** , **min** y **max** , ya que sus valores cambiarán con la granularidad al cambiar el tamaño de la ventana del explorador o al pasar de una resolución de pantalla a otra. Cambiar la granularidad puede hacer que el área de visualización del gráfico quede vacía.
 
 ### <a name="you-are-looking-at-a-guest-os-metric-but-didnt-enable-azure-diagnostic-extension"></a>Ve una métrica del SO invitado, pero no ha habilitado la extensión de Azure Diagnostics
 
@@ -78,25 +78,25 @@ Este problema puede producirse si se creó el panel con una métrica que más ta
 
 ## <a name="chart-shows-dashed-line"></a>El gráfico muestra una línea discontinua
 
-Los gráficos de métricas de Azure usan el estilo de línea discontinua para indicar que hay un valor que falta (también conocido como "valor null") entre dos puntos de datos de intervalo de agregación conocidos. Por ejemplo, si en el selector de tiempo ha elegido la granularidad de tiempo "1 minuto", pero la métrica se notificó a las 07:26, 07:27, 07:29 y 07:30 (observe la brecha de un minuto entre el segundo y el tercer punto de datos), entonces una línea discontinua conectará 07:27 con 07:29 y una línea continua conectará todos los demás puntos de datos. La línea discontinua cae a cero cuando la métrica usa la agregación **count** y **sum**. Para las agregaciones **avg**, **min** o **max**, la línea discontinua conecta dos puntos de datos conocidos más cercanos. Además, cuando faltan los datos en el lado más a la derecha o más a la izquierda del gráfico, la línea discontinua se expande hacia la dirección del punto de datos faltante.
-  ![imagen de métrica](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+Los gráficos de métricas de Azure usan el estilo de línea discontinua para indicar que hay un valor que falta (también conocido como "valor null") entre dos puntos de datos de intervalo de agregación conocidos. Por ejemplo, si en el selector de tiempo ha elegido la granularidad de tiempo "1 minuto", pero la métrica se notificó a las 07:26, 07:27, 07:29 y 07:30 (observe la brecha de un minuto entre el segundo y el tercer punto de datos), entonces una línea discontinua conectará 07:27 con 07:29 y una línea continua conectará todos los demás puntos de datos. La línea discontinua cae a cero cuando la métrica usa la agregación **count** y **sum** . Para las agregaciones **avg** , **min** o **max** , la línea discontinua conecta dos puntos de datos conocidos más cercanos. Además, cuando faltan los datos en el lado más a la derecha o más a la izquierda del gráfico, la línea discontinua se expande hacia la dirección del punto de datos faltante.
+  ![Captura de pantalla que muestra cómo, cuando faltan los datos en el lado más a la derecha o más a la izquierda del gráfico, la línea discontinua se expande hacia la dirección del punto de datos faltante.](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
-**Solución:** Este comportamiento es así por diseño. Resulta útil para identificar los puntos de datos que faltan. El gráfico de líneas es una opción superior para visualizar las tendencias de las métricas de alta densidad, pero puede ser difícil de interpretar para las métricas con valores dispersos, especialmente cuando es importante la correlación de valores con intervalo de agregación. La línea discontinua facilita la lectura de estos gráficos, pero si el gráfico sigue no siendo claro, considere la posibilidad de ver las métricas con otro tipo de gráfico. Por ejemplo, un gráfico de trazado disperso de la misma métrica muestra claramente cada intervalo de agregación al mostrar solo un punto cuando hay un valor y omite los datos de punto por completo cuando falta el valor: ![imagen de métrica](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
+**Solución:** Este comportamiento es así por diseño. Resulta útil para identificar los puntos de datos que faltan. El gráfico de líneas es una opción superior para visualizar las tendencias de las métricas de alta densidad, pero puede ser difícil de interpretar para las métricas con valores dispersos, especialmente cuando es importante la correlación de valores con intervalo de agregación. La línea discontinua facilita la lectura de estos gráficos, pero si el gráfico sigue no siendo claro, considere la posibilidad de ver las métricas con otro tipo de gráfico. Por ejemplo, un gráfico de trazado disperso de la misma métrica muestra claramente cada intervalo de agregación al mostrar solo un punto cuando hay un valor y omite los datos de punto por completo cuando falta el valor: ![Captura de pantalla que resalta la opción de menú Gráfico de dispersión.](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 
    > [!NOTE]
    > Si aún prefiere un gráfico de líneas para la métrica, mover el mouse sobre el gráfico puede ayudarle a evaluar la granularidad de tiempo al resaltar el punto de datos en la ubicación del puntero del mouse.
 
 ## <a name="chart-shows-unexpected-drop-in-values"></a>El gráfico muestra una caída inesperada en los valores
 
-En muchos casos, la caída percibida en los valores de métrica es una falta de comprensión de los datos que se muestran en el gráfico. Puede verse confundido por un descenso en las sumas o los recuentos cuando el gráfico muestra los minutos más recientes porque los puntos de datos más recientes de las métricas no se han recibido o porque Azure no los ha procesado. Según el servicio, la latencia del procesamiento de métricas puede ubicarse dentro del intervalo un par de minutos. Para los gráficos que muestran un intervalo de tiempo reciente con una granularidad de 1 a 5 minutos, la caída del valor a lo largo de los últimos minutos se vuelve más evidente: ![imagen de métrica](./media/metrics-troubleshoot/drop-in-values.png)
+En muchos casos, la caída percibida en los valores de métrica es una falta de comprensión de los datos que se muestran en el gráfico. Puede verse confundido por un descenso en las sumas o los recuentos cuando el gráfico muestra los minutos más recientes porque los puntos de datos más recientes de las métricas no se han recibido o porque Azure no los ha procesado. Según el servicio, la latencia del procesamiento de métricas puede ubicarse dentro del intervalo un par de minutos. Para los gráficos que muestran un intervalo de tiempo reciente con una granularidad de 1 a 5 minutos, la caída del valor a lo largo de los últimos minutos se vuelve más evidente: ![Captura de pantalla que muestra una caída del valor en los últimos minutos.](./media/metrics-troubleshoot/drop-in-values.png)
 
-**Solución:** Este comportamiento es así por diseño. Creemos que es beneficioso mostrar los datos tan pronto como se reciben, incluso cuando los datos son *parciales* o *incompletos*. Esto le permite llegar a conclusiones importantes antes y comenzar a investigar de inmediato. Por ejemplo, para una métrica que muestra el número de errores, ver un valor parcial X le indica que se produjeron al menos X errores en un minuto dado. Puede comenzar a investigar el problema de inmediato, en lugar de esperar a ver el recuento exacto de los errores que se produjeron en este minuto, lo que podría no ser tan importante. El gráfico se actualizará una vez que se reciba todo el conjunto de datos, pero en ese momento puede que se muestren los nuevos puntos de datos incompletos de los minutos más recientes.
+**Solución:** Este comportamiento es así por diseño. Creemos que es beneficioso mostrar los datos tan pronto como se reciben, incluso cuando los datos son *parciales* o *incompletos* . Esto le permite llegar a conclusiones importantes antes y comenzar a investigar de inmediato. Por ejemplo, para una métrica que muestra el número de errores, ver un valor parcial X le indica que se produjeron al menos X errores en un minuto dado. Puede comenzar a investigar el problema de inmediato, en lugar de esperar a ver el recuento exacto de los errores que se produjeron en este minuto, lo que podría no ser tan importante. El gráfico se actualizará una vez que se reciba todo el conjunto de datos, pero en ese momento puede que se muestren los nuevos puntos de datos incompletos de los minutos más recientes.
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>No se pueden elegir las métricas y el espacio de nombres del SO invitado
 
 Las máquinas virtuales y los conjunto de escalado de máquinas virtuales tienen dos categorías de métricas: Las métricas del **host de máquina virtual** recopiladas por el entorno de hospedaje de Azure y las métricas del **sistema operativo invitado (clásico)** recopiladas por el [agente de supervisión](agents-overview.md) que se ejecuta en las máquinas virtuales. El agente de supervisión se instala al habilitar la [extensión de Azure Diagnostics](diagnostics-extension-overview.md).
 
-De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta de Azure Storage, que elige en la pestaña **Configuración de diagnóstico** del recurso. Si no se recopilan métricas del SO invitado o el explorador de métricas no puede acceder a ellas, solo verá el espacio de nombres de las métricas del **host de máquina virtual**:
+De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta de Azure Storage, que elige en la pestaña **Configuración de diagnóstico** del recurso. Si no se recopilan métricas del SO invitado o el explorador de métricas no puede acceder a ellas, solo verá el espacio de nombres de las métricas del **host de máquina virtual** :
 
 ![imagen de métrica](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460584"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151562"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Control de las notificaciones de mantenimiento planeado
 
@@ -25,9 +25,9 @@ Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el 
 
 El mantenimiento planeado que requiere un reinicio se programa en olas. Cada ola tiene un ámbito diferente (regiones).
 
-- Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al administrador y los coadministradores del servicio. Puede agregar más destinatarios y opciones de mensajes, como correo electrónico, SMS y webhooks, mediante [alertas del registro de actividad](../service-health/alerts-activity-log-service-notifications-portal.md).  
-- Cuando desaparece la notificación, aparece un *periodo de autoservicio*. Durante esta periodo, puede consultar cuáles de las máquinas virtuales han resultado afectadas e iniciar el mantenimiento en función de sus propias necesidades de programación. El periodo de autoservicio suele ser de unos 35 días.
-- Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado*. Mientras está ventana está activa Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
+- Una ola comienza con una notificación a los clientes. De manera predeterminada, la notificación se envía al administrador y a los coadministradores de suscripciones. Puede agregar más destinatarios y opciones de mensajes, como correo electrónico, SMS y webhooks, mediante [alertas del registro de actividad](../service-health/alerts-activity-log-service-notifications-portal.md).  
+- Cuando desaparece la notificación, aparece un *periodo de autoservicio* . Durante esta periodo, puede consultar cuáles de las máquinas virtuales han resultado afectadas e iniciar el mantenimiento en función de sus propias necesidades de programación. El periodo de autoservicio suele ser de unos 35 días.
+- Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado* . Mientras está ventana está activa Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
 
 El objetivo de tener dos ventanas es proporcionar tiempo suficiente para que pueda iniciar el mantenimiento y reiniciar la máquina virtual sabiendo cuando iniciará Azure el mantenimiento automáticamente.
 
@@ -43,7 +43,7 @@ Las directrices siguientes están pensadas para ayudarle a decidir si debe utili
 > Es posible que el mantenimiento de autoservicio no esté disponible para todas las máquinas virtuales. Para determinar si su máquina virtual se puede volver a implementar de forma proactiva, busque **Iniciar ahora** en el estado del mantenimiento. El mantenimiento de autoservicio no está disponible para Cloud Services (rol de trabajo o web) y Service Fabric.
 
 
-El mantenimiento de autoservicio no es aconsejable para implementaciones que usan **conjuntos de disponibilidad**. Los conjuntos de disponibilidad solo se actualizan dominio a dominio. 
+El mantenimiento de autoservicio no es aconsejable para implementaciones que usan **conjuntos de disponibilidad** . Los conjuntos de disponibilidad solo se actualizan dominio a dominio. 
 
 - Deje que Azure desencadene el mantenimiento. En caso de que el mantenimiento requiera un reinicio, se realizará por dominio de actualización. Los dominios de actualización no necesariamente reciben el mantenimiento de forma secuencial y hay una pausa de 30 minutos entre dominios de actualización. 
 - Si la pérdida temporal de cierta capacidad (1 dominio de actualización) supone un problema, se pueden agregar instancias durante el periodo de mantenimiento. 
@@ -80,7 +80,7 @@ Para más información sobre la alta disponibilidad, consulte [Availability for 
 
 **P: ¿Cómo recibo notificaciones acerca del mantenimiento planeado?**
 
-**R:** Una oleada de mantenimiento planeado se inicia mediante el establecimiento de una programación en una o varias regiones de Azure. Poco después, se envía una notificación por correo electrónico a los administradores del servicio (un correo electrónico por suscripción). Mediante Alertas de registro de actividad se pueden configurar más canales y destinatarios de esta notificación. En caso de que implemente una máquina virtual en una región en la que ya se ha programado un mantenimiento planeado, no recibirá la notificación, sino que tendrá que comprobar el estado de mantenimiento de la máquina virtual.
+**R:** Una oleada de mantenimiento planeado se inicia mediante el establecimiento de una programación en una o varias regiones de Azure. Poco después, se envía una notificación por correo electrónico al administrador y a los coadministradores de las suscripciones (un correo electrónico por suscripción). Mediante Alertas de registro de actividad se pueden configurar más canales y destinatarios de esta notificación. En caso de que implemente una máquina virtual en una región en la que ya se ha programado un mantenimiento planeado, no recibirá la notificación, sino que tendrá que comprobar el estado de mantenimiento de la máquina virtual.
 
 **P: No veo ninguna indicación de mantenimiento planeado en el portal, PowerShell o la CLI. ¿Qué está pasando?**
 

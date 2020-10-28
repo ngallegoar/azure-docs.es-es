@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964692"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221203"
 ---
 # <a name="unsupported-language-deployments"></a>Implementaciones en lenguajes no compatibles
 
@@ -33,13 +33,13 @@ Para que sus modelos sean candidatos para la implementación, deben cumplir los 
 * El par de idiomas del modelo debe ser un par de idiomas no compatible en Traductor personalizado.  Los pares de idiomas en los que se admite un idioma, hacia o desde el inglés, pero el par en sí no incluye el inglés, son candidatos para las implementaciones de idiomas no compatibles.  Por ejemplo, un modelo de Hub para un par de idiomas de francés a alemán se considera un par de idiomas no compatible, aunque francés a inglés e inglés a alemán son pares de idiomas compatibles.
 
 ## <a name="process"></a>Proceso
-Una vez que haya migrado los modelos de la instancia de Hub que sean candidatos para la implementación, los encontrará yendo a la página **Configuración** para su área de trabajo y desplazamiento al final de la página donde verá la sección sobre **entrenamientos de Translator Hub no admitidos**.  Solo aparecerá esta sección si tiene proyectos que cumplen los requisitos previos mencionados anteriormente.
+Una vez que haya migrado los modelos de la instancia de Hub que sean candidatos para la implementación, los encontrará yendo a la página **Configuración** para su área de trabajo y desplazamiento al final de la página donde verá la sección sobre **entrenamientos de Translator Hub no admitidos** .  Solo aparecerá esta sección si tiene proyectos que cumplen los requisitos previos mencionados anteriormente.
 
-![Migración desde Microsoft Translator Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Captura de pantalla que resalta la sección de entrenamientos no admitidos del centro de traductores.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
-En la página de selección de **entrenamientos de Translator Hub no admitidos**, la pestaña **Unrequested trainings** (Entrenamientos no solicitados) incluye modelos que cumplen los requisitos para la implementación.  Seleccione los modelos que desea implementar y envíe una solicitud.   Antes del 30 de abril, fecha límite de la implementación, podrá seleccionar tantos modelos como desee para la implementación.
+En la página de selección de **entrenamientos de Translator Hub no admitidos** , la pestaña **Unrequested trainings** (Entrenamientos no solicitados) incluye modelos que cumplen los requisitos para la implementación.  Seleccione los modelos que desea implementar y envíe una solicitud.   Antes del 30 de abril, fecha límite de la implementación, podrá seleccionar tantos modelos como desee para la implementación.
  
-![Migración desde Microsoft Translator Hub](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Captura de pantalla que muestra la pestaña de entrenamientos no solicitados.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 Después del envío, el modelo dejará de estar disponible en la pestaña **Unrequested trainings** (Entrenamientos no solicitados) y aparecerá, en su lugar, en la pestaña **Requested trainings** (Entrenamientos solicitados).  Podrá ver sus entrenamientos solicitados en cualquier momento.
 

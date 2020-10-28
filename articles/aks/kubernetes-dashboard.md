@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8df913234be1f3e07677520e41b699fe6d503204
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570824"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314500"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Acceso al panel web de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -34,7 +34,7 @@ También es preciso que esté instalada y configurada la versión 2.6.0 de la CL
 
 ## <a name="disable-the-kubernetes-dashboard"></a>Deshabilitación del panel de Kubernetes
 
-El complemento kube-dashboard está **habilitado de forma predeterminada en los clústeres anteriores a K8s 1.18**. El complemento se puede deshabilitar ejecutando el siguiente comando.
+El complemento kube-dashboard está **habilitado de forma predeterminada en los clústeres anteriores a K8s 1.18** . El complemento se puede deshabilitar ejecutando el siguiente comando.
 
 ``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
@@ -44,7 +44,7 @@ az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 
 Para iniciar el panel de Kubernetes en un clúster, use el comando [az aks browse][az-aks-browse]. Este comando requiere la instalación del complemento kube-dashboard en el clúster, que se incluye de forma predeterminada en los clústeres que ejecutan cualquier versión anterior a Kubernetes 1.18.
 
-El ejemplo siguiente abre el panel para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
+El ejemplo siguiente abre el panel para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup* :
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
@@ -102,9 +102,9 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Inicio de sesión en el panel (kubernetes 1.16 o posterior)
 
 > [!IMPORTANT]
-> A partir de la [versión 1.10.1 del panel de Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) o la versión 1.16 o posterior de Kubernetes, la cuenta de servicio "kubernetes-dashboard" ya no se puede usar para recuperar recursos debido a una [corrección de seguridad en esa versión](https://github.com/kubernetes/dashboard/pull/3400). Como resultado, las solicitudes sin información de autenticación devuelven un error 401 no autorizado. Un token de portador recuperado de una cuenta de servicio puede seguir utilizándose como en este [ejemplo del panel de Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), pero esto afecta al flujo de inicio de sesión del complemento del panel en comparación con versiones anteriores.
+> A partir de la [versión 1.10.1 del panel de Kubernetes](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) o la versión 1.16 o posterior de Kubernetes, la cuenta de servicio "kubernetes-dashboard" ya no se puede usar para recuperar recursos debido a una [corrección de seguridad en esa versión](https://github.com/kubernetes/dashboard/pull/3400). Como resultado, las solicitudes sin información de autenticación devuelven un [error 401 no autorizado](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). Un token de portador recuperado de una cuenta de servicio puede seguir utilizándose como en este [ejemplo del panel de Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), pero esto afecta al flujo de inicio de sesión del complemento del panel en comparación con versiones anteriores.
 >
->Si sigue ejecutando una versión anterior a la 1.16, todavía puede conceder permisos a la cuenta de servicio "kubernetes-dashboard", pero no se **recomienda**:
+>Si sigue ejecutando una versión anterior a la 1.16, todavía puede conceder permisos a la cuenta de servicio "kubernetes-dashboard", pero no se **recomienda** :
 > ```console
 > kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
 > ```
@@ -124,7 +124,7 @@ En el caso de los clústeres tanto habilitados como no habilitados para Azure A
 
 **Uso de un token**
 
-1. En el caso de los **clústeres no habilitados para Azure AD**, ejecute `kubectl config view` y copie el token asociado a la cuenta de usuario del clúster.
+1. En el caso de los **clústeres no habilitados para Azure AD** , ejecute `kubectl config view` y copie el token asociado a la cuenta de usuario del clúster.
 1. Péguelo en la opción de token en el inicio de sesión.    
 1. Haga clic en `Sign In`
 
@@ -149,7 +149,7 @@ Para ver cómo el panel de Kubernetes puede reducir la complejidad de las tareas
 Para crear una aplicación, realice los pasos siguientes:
 
 1. Seleccione el botón **Crear** de la ventana superior derecha.
-1. Para usar el asistente para gráficos, elija **Crear una aplicación**.
+1. Para usar el asistente para gráficos, elija **Crear una aplicación** .
 1. Proporcione un nombre para la implementación, por ejemplo *nginx*
 1. Escriba el nombre de la imagen de contenedor que se utilizará, como *nginx:1.15.5*
 1. Para exponer el puerto 80 para el tráfico web, cree un servicio de Kubernetes. En **Service** (Servicio), seleccione **External** (Externo) y escriba **80** tanto para el puerto como para el puerto de destino.
@@ -157,7 +157,7 @@ Para crear una aplicación, realice los pasos siguientes:
 
 ![Implementación de una aplicación en el panel web de Kubernetes](./media/kubernetes-dashboard/create-app.png)
 
-Se tarda un minuto o dos en que una dirección IP externa pública se asigne al servicio de Kubernetes. A la izquierda, bajo **Discovery and Load Balancing** (Detección y equilibrio de carga), seleccione **Servicios**. Se muestra el servicio de la aplicación, incluidos los *puntos de conexión externos*, como se muestra en el ejemplo siguiente:
+Se tarda un minuto o dos en que una dirección IP externa pública se asigne al servicio de Kubernetes. A la izquierda, bajo **Discovery and Load Balancing** (Detección y equilibrio de carga), seleccione **Servicios** . Se muestra el servicio de la aplicación, incluidos los *puntos de conexión externos* , como se muestra en el ejemplo siguiente:
 
 ![Visualización de la lista de servicios y puntos de conexión](./media/kubernetes-dashboard/view-services.png)
 
@@ -179,14 +179,14 @@ Además de crear y visualizar las aplicaciones, el panel de Kubernetes puede uti
 
 Para editar una implementación:
 
-1. Seleccione **Deployments** (Implementaciones) en el menú izquierdo y, a continuación, elija su implementación de *nginx*.
+1. Seleccione **Deployments** (Implementaciones) en el menú izquierdo y, a continuación, elija su implementación de *nginx* .
 1. Seleccione **Edit** (Editar) en la barra de navegación superior derecha.
-1. Busque el valor de `spec.replica`, en torno a la línea 20. Para aumentar el número de réplicas de la aplicación, cambie este valor de *1* a *3*.
+1. Busque el valor de `spec.replica`, en torno a la línea 20. Para aumentar el número de réplicas de la aplicación, cambie este valor de *1* a *3* .
 1. Seleccione **Update** (Actualizar) cuando esté listo.
 
 ![Edición de la implementación para actualizar el número de réplicas](./media/kubernetes-dashboard/edit-deployment.png)
 
-Se tarda unos minutos en que los nuevos pods se creen dentro de un conjunto de réplicas. En el menú izquierdo, elija **Replica Sets** (Conjuntos de réplicas) y, a continuación, elija su conjunto de réplicas de *nginx*. La lista de los pods ahora refleja el número de réplicas actualizado, como se muestra en la salida del ejemplo siguiente:
+Se tarda unos minutos en que los nuevos pods se creen dentro de un conjunto de réplicas. En el menú izquierdo, elija **Replica Sets** (Conjuntos de réplicas) y, a continuación, elija su conjunto de réplicas de *nginx* . La lista de los pods ahora refleja el número de réplicas actualizado, como se muestra en la salida del ejemplo siguiente:
 
 ![Visualización de información sobre el conjunto de réplicas](./media/kubernetes-dashboard/view-replica-set.png)
 

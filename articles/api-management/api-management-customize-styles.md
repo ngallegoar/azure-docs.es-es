@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430735"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168212"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalización del estilo de las páginas del portal para desarrolladores
 
@@ -31,7 +31,7 @@ Existen tres maneras comunes de personalizar el portal para desarrolladores en A
 
 En este artículo, aprenderá a personalizar el estilo de los elementos de las páginas del portal para **desarrolladores** heredado y a ver los cambios.
 
-![Personalizar el estilo](./media/modify-developer-portal-style/developer_portal.png)
+![Captura de pantalla que muestra dónde se cambia la configuración en el portal para desarrolladores heredado.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -45,21 +45,21 @@ En este artículo, aprenderá a personalizar el estilo de los elementos de las p
 
 ## <a name="customize-the-developer-portal"></a>Personalización del portal para desarrolladores
 
-1. Seleccione **Información general**.
-2. Haga clic en el botón **Developer portal (legacy)** (Portal para desarrolladores [heredado]) en la parte superior de la ventana **Información general**.
+1. Seleccione **Información general** .
+2. Haga clic en el botón **Developer portal (legacy)** (Portal para desarrolladores [heredado]) en la parte superior de la ventana **Información general** .
 3. En el lado superior izquierdo de la pantalla, verá un icono formado por dos pinceles. Mantenga el puntero sobre este icono para abrir el menú de personalización del portal.
 
-    ![Personalizar el estilo](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+    ![Captura de pantalla que resalta el icono con dos pinceles.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Seleccione **Estilos** en el menú para abrir el panel de personalización del estilo.
 
-    En la página aparecen todos los elementos que se pueden personalizar con **Estilos**.
+    En la página aparecen todos los elementos que se pueden personalizar con **Estilos** .
 5. Escriba "headings-color" en el campo **Change variable values to customize developer portal appearance:** (Cambiar valores de variables para personalizar la apariencia del portal para desarrolladores).
 
     El elemento **\@headings-color** aparece en la página. Esta variable controla el color del texto.
 
     ![Personalizar el estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Haga clic en el campo correspondiente a la variable **\@headings-color**. 
+6. Haga clic en el campo correspondiente a la variable **\@headings-color** . 
     
     Se abre la lista desplegable del selector de colores.
 7. En esta lista, seleccione un nuevo color.

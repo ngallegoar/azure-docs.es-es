@@ -6,32 +6,31 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/08/2020
+ms.date: 10/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4b1007fe89cf455b6af8ebba00f24e8019ad8013
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0d81e0474d898ffee7f128c0bcea61f077c3d758
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078296"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103227"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 
+Este artículo lo ayuda a crear una conexión de puerta de enlace de VPN entre las redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias.
+
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png" alt-text="Diagrama que muestra la arquitectura de red virtual a red virtual clásica":::
+
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Este artículo lo ayuda a crear una conexión de puerta de enlace de VPN entre las redes virtuales. Las redes virtuales pueden estar en la misma región o en distintas, así como pertenecer a una única suscripción o a varias. Los pasos de este artículo se corresponden al modelo de implementación clásica y a Azure Portal. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
+Los pasos de este artículo se corresponden al modelo de implementación clásica y a Azure Portal. También se puede crear esta configuración con una herramienta o modelo de implementación distintos, mediante la selección de una opción diferente en la lista siguiente:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Conexión de diferentes modelos de implementación - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Conexión de diferentes modelos de implementación - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Resource Manager](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Conexión de redes virtuales en diferentes modelos de implementación](vpn-gateway-connect-different-deployment-models-portal.md)
 >
 >
-
-![Diagrama de conectividad VNet a VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
 ## <a name="about-vnet-to-vnet-connections"></a>Acerca de conexiones de red virtual a red virtual
 
@@ -39,7 +38,7 @@ La conexión de una red virtual a otra (de red virtual a red virtual) en el mode
 
 Las redes virtuales que se conecten pueden estar en suscripciones y regiones distintas. Puede combinar la comunicación entre redes virtuales con configuraciones de varios sitios. Esto permite establecer topologías de red que combinen la conectividad entre entornos con la conectividad entre redes virtuales.
 
-![Conexiones de red virtual a red virtual](./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png)
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-portal-classic/aboutconnections.png" alt-text="Diagrama que muestra la arquitectura de red virtual a red virtual clásica":::
 
 ### <a name="why-connect-virtual-networks"></a><a name="why"></a>¿Por qué debería conectarse a redes virtuales?
 
@@ -61,24 +60,15 @@ Para más información acerca de las conexiones de red virtual a red virtual, co
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Usamos el portal para la mayoría de los pasos, pero debe usar PowerShell para crear las conexiones entre las redes virtuales. No se pueden crear las conexiones mediante Azure Portal. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
+Usamos el portal para la mayoría de los pasos, pero debe usar PowerShell para crear las conexiones entre las redes virtuales. No puede crear las conexiones mediante Azure Portal porque no hay ninguna manera de especificar la clave compartida en el portal. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
-## <a name="step-1---plan-your-ip-address-ranges"></a><a name="plan"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
+## <a name="planning"></a><a name="planning"></a>Planificación
 
 Es importante decidir los intervalos que usará para configurar las redes virtuales. Para esta configuración, debe asegurarse de que ninguno de los intervalos de red virtual se superpongan entre sí o con cualquiera de las redes locales a las que se conectan.
 
-En la tabla siguiente se muestra un ejemplo de cómo definir las redes virtuales. Use los intervalos solo como referencia. Escriba los intervalos para las redes virtuales. Necesitará esta información en pasos posteriores.
+### <a name="vnets"></a><a name="vnet"></a>Redes virtuales
 
-**Ejemplo**
-
-| Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
-|:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU. |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
-
-## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Paso 2: Creación de las redes virtuales
-
-En este paso, creará dos redes virtuales clásicas. Si usa este artículo como ejercicio, puede usar los valores de ejemplo siguientes:
+Para este ejercicio, usamos los valores de ejemplo siguientes:
 
 **Valores para TestVNet1**
 
@@ -95,24 +85,42 @@ GatewaySubnet: 10.11.1.0/27
 Nombre: TestVNet4<br>
 Espacio de direcciones: 10.41.0.0/16, 10.42.0.0/16 (opcional)<br>
 Nombre de subred: predeterminado<br>
-Intervalo de direcciones de subred: 10.41.0.1/24<br>
+Intervalo de direcciones de subred: 10.41.0.0/24<br>
 Grupo de recursos: ClassicRG<br>
 Ubicación: Oeste de EE. UU.<br>
 GatewaySubnet: 10.41.1.0/27
 
+### <a name="connections"></a><a name="plan"></a>Conexiones
+
+En la tabla siguiente se muestra un ejemplo de cómo conectará las redes virtuales. Use los intervalos solo como referencia. Escriba los intervalos para las redes virtuales. Necesitará esta información en pasos posteriores.
+
+En este ejemplo, TestVNet1 se conecta a un sitio de red local que crea con el nombre "VNet4Local". La configuración de VNet4Local contiene los prefijos de dirección para TestVNet4.
+El sitio local para cada red virtual es la otra red virtual. Los valores de ejemplo siguientes se usan para esta configuración:
+
+**Ejemplo**
+
+| Virtual Network | Espacio de direcciones | Location | Se conecta a un sitio de red local |
+|:--- |:--- |:--- |:--- |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU. |SiteVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |SiteVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+
+## <a name="create-virtual-networks"></a><a name="vnetvalues"></a>Creación de redes virtuales
+
+En este paso, crea dos redes virtuales clásicas, TestVNet1 y TestVNet4. Si utiliza este artículo como ejercicio, use los [valores de ejemplo](#vnet).
+
 **Cuando cree las redes virtuales, recuerde la siguiente configuración:**
 
-* **Espacios de direcciones de la red virtual**: en la página Espacios de direcciones de la red virtual, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual.<br>Los espacios de direcciones que selecciona no se pueden superponer con los espacios de direcciones de ninguna de las otras redes virtuales o las ubicaciones locales a las que se conectará esta red virtual.
+* **Espacios de direcciones de la red virtual** : en la página Espacios de direcciones de la red virtual, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual.<br>Los espacios de direcciones que selecciona no se pueden superponer con los espacios de direcciones de ninguna de las otras redes virtuales o las ubicaciones locales a las que se conectará esta red virtual.
 
-* **Ubicación**: al crear una red virtual, la debe asociar a una ubicación de Azure (región). Por ejemplo, Por ejemplo, si desea que las máquinas virtuales que implemente en la red virtual se encuentren físicamente en Oeste de EE.UU., seleccione esa ubicación. No se puede cambiar la ubicación asociada a la red virtual después de crearla.
+* **Ubicación** : al crear una red virtual, la debe asociar a una ubicación de Azure (región). Por ejemplo, Por ejemplo, si desea que las máquinas virtuales que implemente en la red virtual se encuentren físicamente en Oeste de EE.UU., seleccione esa ubicación. No se puede cambiar la ubicación asociada a la red virtual después de crearla.
 
 **Después de crear las redes virtuales, puede agregar la configuración siguiente:**
 
-* **Espacio de direcciones**: no se requiere espacio de direcciones adicional para esta configuración, pero puede agregar espacio de direcciones adicional después de crear la red virtual.
+* **Espacio de direcciones** : no se requiere espacio de direcciones adicional para esta configuración, pero puede agregar espacio de direcciones adicional después de crear la red virtual.
 
-* **Subredes**: no se requieren subredes adicionales para esta configuración, pero puede que quiera que las máquinas virtuales estén en una subred independiente de las otras instancias de rol.
+* **Subredes** : no se requieren subredes adicionales para esta configuración, pero puede que quiera que las máquinas virtuales estén en una subred independiente de las otras instancias de rol.
 
-* **Servidores DNS**: escriba el nombre del servidor DNS y la dirección IP. Mediante este valor no se crea un servidor DNS. Le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual.
+* **Servidores DNS** : escriba el nombre del servidor DNS y la dirección IP. Mediante este valor no se crea un servidor DNS. Le permite especificar el servidor DNS que desea usar para la resolución de nombres para esta red virtual.
 
 ### <a name="to-create-a-classic-virtual-network"></a>Para crear una red virtual clásica
 
@@ -120,49 +128,52 @@ GatewaySubnet: 10.41.1.0/27
 
 [!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
-## <a name="step-3---configure-the-local-site"></a><a name="localsite"></a>Paso 3: Configuración del sitio local
+## <a name="configure-sites-and-gateways"></a><a name="localsite"></a>Configuración de sitios y puertas de enlace
 
 Azure usa la configuración especificada en cada sitio de red local para determinar cómo enrutar el tráfico entre las redes virtuales. Cada red virtual debe señalar a la red local correspondiente a la que se desea redirigir el tráfico. Puede determinar el nombre que quiere utilizar para hacer referencia a cada sitio de red local. Se recomienda usar un nombre descriptivo.
 
 Por ejemplo, TestVNet1 se conecta a un sitio de red local que cree con el nombre "VNet4Local". La configuración de VNet4Local contiene los prefijos de dirección para TestVNet4.
 
-El sitio local para cada red virtual es la otra red virtual. Los valores de ejemplo siguientes se usan para esta configuración:
+Tenga en cuenta que el sitio local para cada red virtual es la otra red virtual.
 
-| Virtual Network | Espacio de direcciones | Region | Se conecta a un sitio de red local |
+| Virtual Network | Espacio de direcciones | Location | Se conecta a un sitio de red local |
 |:--- |:--- |:--- |:--- |
-| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU. |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
-| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
+| TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |Este de EE. UU. |SiteVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
+| TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |Oeste de EE. UU. |SiteVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
 
-1. Ubique TestVNet1 en Azure Portal. En la sección **Conexiones VPN** de la página, haga clic en **Puerta de enlace**.
+### <a name="to-configure-a-site"></a><a name="site"></a>Para configurar un sitio
 
-    ![Sin puerta de enlace](./media/vpn-gateway-howto-vnet-vnet-portal-classic/nogateway.png)
-2. En la página **Nueva conexión VPN**, seleccione **De sitio a sitio**.
-3. Haga clic en **Sitio local** para abrir la página Sitio local y ajuste la configuración.
-4. En la página **Sitio local**, asígnele un nombre al sitio local. En el ejemplo, le asignamos el nombre "VNet4Local" al sitio local.
-5. Para la **dirección IP de VPN Gateway**, puede usar la dirección IP que desee, siempre que tenga un formato válido. Normalmente, se usaría la dirección IP externa real para un dispositivo VPN. Pero para las configuraciones de red virtual a red virtual, se usa la dirección IP pública asignada a la puerta de enlace para la red virtual. Dado que aún no ha creado la puerta de enlace de red virtual, se especifica cualquier dirección IP pública válida como marcador de posición.<br>No lo deje en blanco: no es opcional para esta configuración. En un paso posterior, volverá a estos parámetros y los configurará con las direcciones IP de puerta de enlace de red virtual correspondientes una vez que Azure la genere.
-6. En el **espacio de direcciones de cliente**, use el espacio de direcciones de la otra red virtual. Consulte el ejemplo de planeación. Haga clic en **Aceptar** para guardar la configuración y vuelva a la página **Nueva conexión VPN**.
+Normalmente, sitio local suele hacer referencia a la ubicación local. Contiene la dirección IP del dispositivo VPN al que se creará una conexión y los intervalos de direcciones IP que se enrutarán a través de la puerta de enlace VPN en el dispositivo VPN.
 
-    ![sitio local](./media/vpn-gateway-howto-vnet-vnet-portal-classic/localsite.png)
+1. En la página de la red virtual, en **Configuración** , seleccione **Conexiones de sitio a sitio** .
+1. En la página Conexiones de sitio a sitio, seleccione **+ Agregar** .
+1. En la página **Configurar una conexión VPN y una puerta de enlace** , para **Tipo de conexión** , deje seleccionado **De sitio a sitio** .
 
-## <a name="step-4---create-the-virtual-network-gateway"></a><a name="gw"></a>Paso 4: Creación de la puerta de enlace de red virtual
+   * **Dirección IP de la puerta de enlace de VPN:** es la dirección IP pública del dispositivo VPN en la red local. Para este ejercicio, puede incluir una dirección ficticia porque todavía no tiene la dirección IP de VPN Gateway del otro sitio. Por ejemplo: 5.4.3.2. Más adelante, una vez configurada la puerta de enlace de la otra red virtual, puede ajustar este valor.
 
-Cada red virtual debe tener una puerta de enlace de red virtual. La puerta de enlace de red virtual enruta el tráfico y lo cifra.
+   * **Espacio de direcciones de cliente:** lista de los intervalos de direcciones IP que quiere enrutar a la otra red virtual mediante esta puerta de enlace. Puede agregar varios intervalos de espacios de direcciones. Asegúrese de que los intervalos que especifique aquí no se superponen con los intervalos de otras redes a la que se conecta su red virtual, ni con los intervalos de direcciones de la propia red virtual.
+1. En la parte inferior de la página, NO seleccione Revisar y crear. En su lugar, seleccione **Siguiente: Puerta de enlace>** .
 
-1. En la página **Nueva conexión VPN**, seleccione la casilla **Crear puerta de enlace inmediatamente**.
-2. Haga clic en **Subred, tamaño y tipo de enrutamiento**. En la página **Configuración de la puerta de enlace**, haga clic en **Subred**.
-3. El nombre de la subred de puerta de enlace se rellena automáticamente con el nombre "GatewaySubnet" requerido. **Intervalo de direcciones** contiene las direcciones IP que se asignan a los servicios de VPN Gateway. Algunas configuraciones permiten una subred de puerta de enlace de /29, pero es mejor usar una de /28 o /27 para incorporar futuras configuraciones que pueden requerir más direcciones IP para los servicios de puerta de enlace. En la configuración de ejemplo, usamos 10.11.1.0/27. Ajuste el espacio de direcciones y, luego, haga clic en **Aceptar**.
-4. Configure el **tamaño de la puerta de enlace**. Esta configuración se refiere a la [SKU de puerta de enlace](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-5. Configure el **tipo de enrutamiento**. El tipo de enrutamiento de esta configuración debe ser **Dinámico**. No puede cambiar el tipo de enrutamiento más adelantes, a menos que anule la puerta de enlace y cree una nueva.
-6. Haga clic en **OK**.
-7. En la página **Nueva conexión VPN**, haga clic en **Aceptar** para empezar a crear la puerta de enlace de red virtual. La creación de una puerta de enlace suele tardar 45 minutos o más, según la SKU de la puerta de enlace seleccionada.
+### <a name="to-configure-a-virtual-network-gateway"></a><a name="sku"></a>Configuración de una puerta de enlace de red virtual
 
-## <a name="step-5---configure-testvnet4-settings"></a><a name="vnet4settings"></a>Paso 5: Configuración de las opciones de TestVNet4
+1. En la página **Puerta de enlace** , seleccione los siguientes valores:
 
-Repita los pasos para [crear un sitio local](#localsite) y [crear la puerta de enlace de red virtual](#gw) para configurar TestVNet4, reemplazando los valores cuando sea necesario. Si hace esto como ejercicio, use los [valores de ejemplo](#vnetvalues).
+   * **Size:** Es la SKU de la puerta de enlace que va a usa para crear la puerta de enlace de red virtual. Las puertas de enlace de VPN clásicas utilizan las SKU antiguas (heredadas). Para más información acerca de las SKU antiguas de puerta de enlace, consulte [Funcionamiento de SKU de puerta de enlace de red virtual (SKU antigua)](vpn-gateway-about-skus-legacy.md). Puede seleccionar **Estándar** para este ejercicio.
 
-## <a name="step-6---update-the-local-sites"></a><a name="updatelocal"></a>Paso 6: Actualización de los sitios locales
+   * **Tipo de enrutamiento:** Seleccione el tipo de enrutamiento de la puerta de enlace. Esto también se conoce como tipo de VPN. Es importante seleccionar el tipo correcto porque la puerta de enlace no se puede convertir de un tipo a otro. El dispositivo VPN debe ser compatible con el tipo de enrutamiento que seleccione. Para más información acerca del tipo de enrutamiento, consulte [Acerca de la configuración de VPN Gateway](vpn-gateway-about-vpn-gateway-settings.md#vpntype). Verá que muchos artículos hacen referencia a los tipos de VPN 'RouteBased' y 'PolicyBased'. 'Dynamic' corresponde a 'RouteBased' y 'Static' corresponde a 'PolicyBased'. Para esta configuración, seleccione **Dynamic** .
 
-Una vez que se crean las puertas de enlace de red virtual para ambas redes virtuales, debe ajustar los valores de **dirección IP de VPN Gateway** de los sitios locales.
+   * **Subred de puerta de enlace:** El tamaño de la subred de la puerta de enlace que especifique depende de la configuración de la puerta de enlace VPN que desea crear. Aunque es posible crear una puerta de enlace tan pequeña como /29, le recomendamos que use /27 o /28. Esto crea una subred mayor que incluye más direcciones. El uso de una subred de la puerta de enlace mayor permite suficientes direcciones IP para dar cabida a posibles configuraciones futuras.
+
+1. En la parte inferior de la página, seleccione **Revisar y crear** para validar la configuración. Seleccione **Crear** para realizar la implementación. Según la SKU de puerta de enlace que seleccione, puede tardar hasta 45 minutos en crear una puerta de enlace de red virtual.
+1. Puede continuar en el paso siguiente mientras se crea esta puerta de enlace.
+
+### <a name="configure-testvnet4-settings"></a>Configuración de las opciones de TestVNet4
+
+Repita los pasos de [Creación de un sitio y una puerta de enlace](#localsite) para configurar TestVNet4 y reemplace los valores cuando sea necesario. Si hace esto como ejercicio, use los [valores de ejemplo](#planning).
+
+## <a name="update-local-sites"></a><a name="updatelocal"></a>Actualización de sitios locales
+
+Una vez que se crean las puertas de enlace de red virtual para ambas redes virtuales, debe ajustar las propiedades de **Dirección IP de VPN Gateway** de los sitios locales.
 
 |Nombre de red virtual|Sitio conectado|Dirección IP de la puerta de enlace|
 |:--- |:--- |:--- |
@@ -171,52 +182,42 @@ Una vez que se crean las puertas de enlace de red virtual para ambas redes virtu
 
 ### <a name="part-1---get-the-virtual-network-gateway-public-ip-address"></a>Parte 1: Obtención de la dirección IP pública de puerta de enlace de red virtual
 
-1. Ubique la red virtual en Azure Portal.
-2. Haga clic para abrir la página **Información general** de la red virtual. En la página, en **Conexiones VPN**, puede ver la dirección IP de la puerta de enlace de red virtual.
+1. Para navegar a su virtual, diríjase a **Grupo de recursos** y selecciónela.
+1. En la página de la red virtual, en el panel **Essentials** de la derecha, busque la **Dirección IP de la puerta de enlace** y cópiela en el portapapeles.
 
-   ![Dirección IP pública](./media/vpn-gateway-howto-vnet-vnet-portal-classic/publicIP.png)
-3. Copie la dirección IP. La usará en la sección siguiente.
-4. Repita estos pasos para TestVNet4
+### <a name="part-2---modify-the-local-site-properties"></a>Parte 2: Modificación de las propiedades de sitios locales
 
-### <a name="part-2---modify-the-local-sites"></a>Parte 2: Modificación de los sitios locales
+1. En Conexiones de sitio a sitio, seleccione la conexión. Por ejemplo, SiteVNet4.
+1. En la página **Propiedades** de Conexión de sitio a sitio, seleccione **Editar el sitio local** .
+1. En el campo **Dirección IP de la puerta de enlace de VPN** , pegue la dirección IP de la puerta de enlace de VPN que copió en la sección anterior.
+1. Seleccione **Aceptar** .
+1. El campo se actualiza en el sistema. También puede usar este método para agregar la dirección IP adicional que quiere enrutar a este sitio.
 
-1. Ubique la red virtual en Azure Portal.
-2. Haga clic en el sitio local en la página **Información general** de la red virtual.
+### <a name="part-3---repeat-steps-for-the-other-vnet"></a>Parte 3: Repetición de los pasos para la otra red virtual
 
-   ![Sitio local creado](./media/vpn-gateway-howto-vnet-vnet-portal-classic/local.png)
-3. En la página **Conexiones VPN de sitio a sitio**, haga clic en el nombre del sitio local que desea modificar.
+Repita los pasos para TestVNet4.
 
-   ![Sitio local abierto](./media/vpn-gateway-howto-vnet-vnet-portal-classic/openlocal.png)
-4. Haga clic en el **sitio local** que desea modificar.
-
-   ![modificación de sitio](./media/vpn-gateway-howto-vnet-vnet-portal-classic/connections.png)
-5. Actualice la **dirección IP de VPN Gateway** y haga clic en **Aceptar** para guardar la configuración.
-
-   ![dirección IP de puerta de enlace](./media/vpn-gateway-howto-vnet-vnet-portal-classic/gwupdate.png)
-6. Cierre las otras páginas.
-7. Repita estos pasos para TestVNet4.
-
-## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a><a name="getvalues"></a>Paso 7: Recuperación de valores desde el archivo de configuración de red
+## <a name="retrieve-configuration-values"></a><a name="getvalues"></a>Recuperar los valores de configuración
 
 [!INCLUDE [retrieve values](../../includes/vpn-gateway-values-classic.md)]
 
-## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>Paso 8: Creación de las conexiones de VPN Gateway
+## <a name="create-connections"></a><a name="createconnections"></a>Crear conexiones
 
-Una vez completados todos los pasos anteriores, puede establecer las claves compartidas previamente de IPsec/IKE y cree la conexión. Este conjunto de pasos usa PowerShell. Las conexiones de red virtual a red virtual del modelo de implementación clásica no se puede configurar en Azure Portal.
+Una vez completados todos los pasos anteriores, puede establecer las claves compartidas previamente de IPsec/IKE y cree la conexión. Este conjunto de pasos usa PowerShell. Las conexiones de red virtual a red virtual del modelo de implementación clásica no se pueden configurar en Azure Portal porque la clave compartida no se puede especificar en el portal.
 
 En los ejemplos, verá que la clave compartida es exactamente la misma. Siempre debe coincidir con la clave compartida. Asegúrese de reemplazar los valores de estos ejemplos por los nombres exactos de las redes locales y los sitios de red local.
 
-1. Cree la conexión de TestVNet1 a TestVNet4.
+1. Cree la conexión de TestVNet1 a TestVNet4. Asegúrese de cambiar los valores.
 
    ```powershell
    Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet1' `
-   -LocalNetworkSiteName '17BE5E2C_VNet4Local' -SharedKey A1b2C3D4
+   -LocalNetworkSiteName 'value for _VNet4Local' -SharedKey A1b2C3D4
    ```
 2. Cree la conexión de TestVNet4 a TestVNet1.
 
    ```powershell
    Set-AzureVNetGatewayKey -VNetName 'Group ClassicRG TestVNet4' `
-   -LocalNetworkSiteName 'F7F7BFC7_VNet1Local' -SharedKey A1b2C3D4
+   -LocalNetworkSiteName 'value for _VNet1Local' -SharedKey A1b2C3D4
    ```
 3. Espere a que se inicialicen las conexiones. Una vez que se inicializa la puerta de enlace, el estado pasa a ser "Correcto".
 
@@ -229,7 +230,10 @@ En los ejemplos, verá que la clave compartida es exactamente la misma. Siempre 
    StatusCode     : OK
    ```
 
-## <a name="vnet-to-vnet-considerations-for-classic-vnets"></a><a name="faq"></a>Consideraciones de red virtual a red virtual para redes virtuales clásicas
+## <a name="faq-and-considerations"></a><a name="faq"></a>Preguntas más frecuentes y consideraciones
+
+Estas consideraciones se aplican a las redes virtuales clásicas y a las puertas de enlace de red virtual clásicas.
+
 * Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas.
 * Las redes virtuales pueden estar en la misma región de Azure o en regiones distintas (ubicaciones).
 * Un servicio en la nube o un punto de conexión de equilibrio de carga no puede abarcar varias redes virtuales, aunque estas estén conectadas entre sí.
@@ -243,4 +247,5 @@ En los ejemplos, verá que la clave compartida es exactamente la misma. Siempre 
 * El tráfico VNet a VNet viaja a través de la red troncal de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Compruebe las conexiones. Consulte [Comprobación de una conexión de VPN Gateway](vpn-gateway-verify-connection-resource-manager.md).

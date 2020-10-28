@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6532747c50311ada4df6a0038bd0e05f4d9ce31
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400713"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089697"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Configuración y validación de conexiones de red virtual o de VPN
 
@@ -57,9 +57,9 @@ Cuando cumpla los requisitos, puede empezar a leer el artículo [Tutorial: Conex
 Para comprobar la configuración del emparejamiento, use el siguiente método:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que tenga los [roles y permisos](virtual-network-manage-peering.md#permissions) necesarios.
-2. En el cuadro que contiene el texto **Buscar recursos**, en la parte superior del portal, escriba **redes virtuales**. Cuando aparezca la opción **Redes virtuales** en los resultados de búsqueda, selecciónela.
+2. En el cuadro que contiene el texto **Buscar recursos** , en la parte superior del portal, escriba **redes virtuales** . Cuando aparezca la opción **Redes virtuales** en los resultados de búsqueda, selecciónela.
 3. En la hoja **Redes virtuales** que aparece, haga clic en la red virtual para la que desea crear un emparejamiento.
-4. En el panel que aparece para la red virtual, seleccione **Emparejamientos** en la sección **Configuración**.
+4. En el panel que aparece para la red virtual, seleccione **Emparejamientos** en la sección **Configuración** .
 5. Seleccione un emparejamiento y vea los resultados de la configuración.
 
 ![Elementos que se seleccionan para comprobar la configuración del emparejamiento de red virtual](./media/virtual-network-configure-vnet-connections/4034496_en_1.png)
@@ -122,7 +122,7 @@ Puede crear una conexión entre redes virtuales que estén en diferentes suscrip
 
 Para configurar una conexión entre una red virtual clásica y una red virtual de Resource Manager, consulte [Conexión de redes virtuales a partir de diferentes modelos de implementación desde Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
 
-![Conexión de una red virtual clásica a una red virtual de Azure Resource Manager](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Diagrama que muestra la conexión de una red virtual clásica a una red virtual de Azure Resource Manager.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 Para comprobar la configuración cuando conecte una red virtual clásica a una red virtual de Azure Resource Manager, siga estas instrucciones.
 
@@ -140,7 +140,7 @@ Para comprobar la configuración cuando conecte una red virtual clásica a una r
 
 ## <a name="create-a-point-to-site-vpn-connection"></a>Creación de una conexión VPN de punto a sitio
 
-Las configuraciones de punto a sitio (*P2S*) permiten crear una conexión segura entre un equipo cliente individual y una red virtual. Las conexiones de punto a sitio resultan útiles cuando se desea establecer conexión con una red virtual desde una ubicación remota; por ejemplo, desde casa o desde una conferencia. También son útiles cuando hay pocos clientes que necesiten conectarse a una red virtual. 
+Las configuraciones de punto a sitio ( *P2S* ) permiten crear una conexión segura entre un equipo cliente individual y una red virtual. Las conexiones de punto a sitio resultan útiles cuando se desea establecer conexión con una red virtual desde una ubicación remota; por ejemplo, desde casa o desde una conferencia. También son útiles cuando hay pocos clientes que necesiten conectarse a una red virtual. 
 
 La conexión VPN de punto a sitio se inicia desde el equipo cliente mediante el cliente VPN de Windows nativo. En la conexión de clientes, se usan certificados para la autenticación.
 
@@ -158,7 +158,7 @@ En el artículo [Solución de problemas: Problemas de conexión de punto a sitio
 
 ## <a name="create-a-multisite-vpn-connection"></a>Creación de una conexión VPN multisitio
 
-Puede agregar una conexión de sitio a sitio (*S2S* en el diagrama siguiente) con una red virtual que ya tenga una conexión de sitio a sitio, una conexión de punto a sitio o una conexión de red a red. Con frecuencia, a este tipo de conexión se le denomina configuración *multisitio*. 
+Puede agregar una conexión de sitio a sitio ( *S2S* en el diagrama siguiente) con una red virtual que ya tenga una conexión de sitio a sitio, una conexión de punto a sitio o una conexión de red a red. Con frecuencia, a este tipo de conexión se le denomina configuración *multisitio* . 
 
 ![Conexión multisitio](./media/virtual-network-configure-vnet-connections/4034497_en_2.png)
 
@@ -200,7 +200,7 @@ Para comprobar si ha configurado el enrutamiento de tránsito para el emparejami
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que tenga los [roles y permisos](virtual-network-manage-peering.md#permissions) necesarios.
 2. [Cree un emparejamiento entre VNetA y VNetB](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-peering) como se muestra en el diagrama anterior. 
-3. En el panel que aparece para la red virtual, seleccione **Emparejamientos** en la sección **Configuración**.
+3. En el panel que aparece para la red virtual, seleccione **Emparejamientos** en la sección **Configuración** .
 4. Seleccione el emparejamiento que desea ver. Luego, seleccione **Configuración** para validar que ha habilitado **Permitir tránsito de puerta de enlace** en la red VNetA conectada al circuito ExpressRoute y **Usar puerta de enlace remota** en la red VNetB remota no conectada al circuito ExpressRoute.
 
 ### <a name="configure-transit-routing-in-a-virtual-network-peering-connection"></a>Configuración del enrutamiento de tránsito en una conexión de emparejamiento de red virtual
@@ -213,10 +213,10 @@ Cuando las redes virtuales están emparejadas, también puede configurar la puer
 Para comprobar si ha configurado una ruta de tránsito para el emparejamiento de red virtual, siga estas instrucciones:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta que tenga los [roles y permisos](virtual-network-manage-peering.md#permissions) necesarios.
-2. En el cuadro que contiene el texto **Buscar recursos**, en la parte superior del portal, escriba **redes virtuales**. Cuando aparezca la opción **Redes virtuales** en los resultados de búsqueda, selecciónela.
+2. En el cuadro que contiene el texto **Buscar recursos** , en la parte superior del portal, escriba **redes virtuales** . Cuando aparezca la opción **Redes virtuales** en los resultados de búsqueda, selecciónela.
 3. En la hoja **Redes virtuales** que aparece, seleccione la red virtual cuyo valor de emparejamiento desea comprobar.
-4. En el panel de la red virtual que ha seleccionado, seleccione **Emparejamientos** en la sección **Configuración**.
-5. Seleccione el emparejamiento que desea ver. Compruebe que ha habilitado **Permitir tránsito de puerta de enlace** y **Usar puerta de enlace remota** en **Configuración**.
+4. En el panel de la red virtual que ha seleccionado, seleccione **Emparejamientos** en la sección **Configuración** .
+5. Seleccione el emparejamiento que desea ver. Compruebe que ha habilitado **Permitir tránsito de puerta de enlace** y **Usar puerta de enlace remota** en **Configuración** .
 
 ![Elementos seleccionados para comprobar que ha configurado una ruta de tránsito para el emparejamiento de red virtual](./media/virtual-network-configure-vnet-connections/4035414_en_1.png)
 
@@ -248,7 +248,7 @@ BGP también puede habilitar el enrutamiento de tránsito entre varias redes med
 
 Para configurar una conexión VPN que usa BGP, consulte [Configuración de BGP para Azure VPN Gateway con PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-resource-manager-ps).
 
-Habilite BGP en la puerta de enlace de red virtual mediante la creación de un número de sistema autónomo (AS) para él. Las puertas de enlace básicas no admiten BGP. Para comprobar la SKU de la puerta de enlace, vaya a la sección **Información general** de la hoja **VPN Gateway** en Azure Portal. Si la SKU es **básica**, tendrá que cambiarla (consulte el artículo en el que se indica cómo se [cambia el tamaño de la puerta de enlace](https://docs.microsoft.com/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)) a **VpnGw1**. 
+Habilite BGP en la puerta de enlace de red virtual mediante la creación de un número de sistema autónomo (AS) para él. Las puertas de enlace básicas no admiten BGP. Para comprobar la SKU de la puerta de enlace, vaya a la sección **Información general** de la hoja **VPN Gateway** en Azure Portal. Si la SKU es **básica** , tendrá que cambiarla (consulte el artículo en el que se indica cómo se [cambia el tamaño de la puerta de enlace](https://docs.microsoft.com/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)) a **VpnGw1** . 
 
 La comprobación de la SKU provocará un tiempo de inactividad que oscila entre 20 y 30 minutos. En cuanto la puerta de enlace tenga la SKU correcta, se puede agregar el número de sistema autónomo (AS) mediante el cmdlet [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) de PowerShell. Después de configurar el número de AS, se proporcionará automáticamente una dirección IP del par BGP para la puerta de enlace.
 
@@ -277,15 +277,15 @@ Para comprobar si BGP está configurado correctamente, puede ejecutar los cmdlet
 Estas son las principales diferencias entre las puertas de enlace activo-activo y activo-en espera:
 
 * Debe crear dos configuraciones de la IP de la puerta de enlace con dos direcciones IP públicas.
-* Debe establecer la marca **EnableActiveActiveFeature**.
-* La SKU de la puerta de enlace debe ser **VpnGw1**, **VpnGw2** o **VpnGw3**.
+* Debe establecer la marca **EnableActiveActiveFeature** .
+* La SKU de la puerta de enlace debe ser **VpnGw1** , **VpnGw2** o **VpnGw3** .
 
 Para lograr una alta disponibilidad en la conectividad de red a red y entre entornos locales, debe implementar varias puertas de enlace VPN y establecer varias conexiones en paralelo entre sus redes y Azure. Para obtener información general de las opciones y topología de conectividad, consulte [Conectividad de alta disponibilidad entre locales y de red virtual a red virtual](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable).
 
 Para crear conexiones activo-activo entre locales y de red a red, siga las instrucciones de [Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-activeactive-rm-powershell) para configurar Azure VPN Gateway en modo activo/activo.
 
 > [!Note]  
-> * Al agregar direcciones a la puerta de enlace de red local para el modo activo-activo habilitado para BGP, *agregue solo las direcciones /32 de los pares BGP*. Si agrega más direcciones, se considerarán rutas estáticas y tendrán prioridad sobre las rutas BGP.
+> * Al agregar direcciones a la puerta de enlace de red local para el modo activo-activo habilitado para BGP, *agregue solo las direcciones /32 de los pares BGP* . Si agrega más direcciones, se considerarán rutas estáticas y tendrán prioridad sobre las rutas BGP.
 > * Debe usar números de sistema autónomo (AS) de BGP diferentes para las redes locales que se conectan a Azure. (Si son iguales, tiene que cambiar el número de sistema autónomo (AS) de la red virtual si el dispositivo VPN local ya utiliza el ASN para emparejarse con otros vecinos de BGP).
 
 ## <a name="change-an-azure-vpn-gateway-type-after-deployment"></a>Cambio de un tipo de instancia de Azure VPN Gateway tras la implementación

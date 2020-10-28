@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: reference
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 194b0122987d4fdc5d100112c60006588d28f96c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: fac5fad51137cd08f2498db132768263a770430d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826917"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203881"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>Novedades de Azure Key Vault
 
@@ -27,7 +27,7 @@ Estas son las novedades de Azure Key Vault. También se anuncian nuevas caracter
 
 ### <a name="soft-delete-on-by-default"></a>Activación predeterminada de la eliminación temporal
 
-A finales de 2020, la **eliminación temporal estará activada de forma predeterminada en todos los almacenes de claves**, tanto nuevos como existentes. Para obtener toda la información no solo sobre este posible cambio importante, sino también sobre los pasos necesarios para buscar los almacenes de claves afectados y actualizarlos de antemano, consulte el artículo [La eliminación temporal se habilitará en todos los almacenes de claves](soft-delete-change.md). 
+A finales de 2020, la **eliminación temporal estará activada de forma predeterminada en todos los almacenes de claves** , tanto nuevos como existentes. Para obtener toda la información no solo sobre este posible cambio importante, sino también sobre los pasos necesarios para buscar los almacenes de claves afectados y actualizarlos de antemano, consulte el artículo [La eliminación temporal se habilitará en todos los almacenes de claves](soft-delete-change.md). 
 
 ### <a name="azure-tls-certificate-changes"></a>Cambios en los certificados TLS de Azure  
 
@@ -37,7 +37,7 @@ Microsoft está actualizando los servicios de Azure para que usen los certificad
 
 - Los servicios de [Azure Active Directory](/azure/active-directory) (Azure AD) comenzaron esta transición el 7 de julio de 2020.
 - Todos los puntos de conexión de TLS/SSL de Azure recién creados contienen certificados actualizados que se encadenan a las nuevas entidades de certificación raíz.
-- Los puntos de conexión de Azure existentes realizarán la transición de forma escalonada a partir del 13 de agosto de 2020 y finalizarán el 26 de octubre de 2020.
+- Los puntos de conexión de Azure existentes realizarán la transición de forma escalonada a partir del 13 de agosto de 2020.
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) y [DPS](/azure/iot-dps/) permanecerán en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. Para obtener información más detallada, consulte el mensaje del blob[Azure IoT TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 - [Azure Storage](/azure/storage) permanecerá en la entidad de certificación raíz Baltimore CyberTrust, pero las entidades de certificación intermedias cambiarán. Para obtener información más detallada, consulte el mensaje del blob[Azure Storage TLS: Changes are coming! (…and why you care)](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518).
 
@@ -80,11 +80,11 @@ Estas son algunas maneras de detectar si una aplicación se ve afectada:
 - Si tiene alguna aplicación que se integra con las API de Azure u otros servicios de Azure y no está seguro de si usa el anclaje de certificados, póngase en contacto con el proveedor de la aplicación.
 
 - Los distintos sistemas operativos y entornos de ejecución de lenguaje que se comunican con los servicios de Azure pueden requerir pasos adicionales para compilar correctamente la cadena de certificados con estas nuevas raíces:
-    - **Linux**: muchas distribuciones requieren que se agreguen entidades de certificación a /etc/SSL/certs. Para obtener instrucciones específicas, vea la documentación de la distribución.
-    - **Java**: asegúrese de que el almacén de claves de Java contenga las entidades de certificación indicadas anteriormente.
-    - **Windows se ejecuta en entornos desconectados**: los sistemas que se ejecuten en entornos desconectados deberán agregar las nuevas raíces al almacén de entidades de certificación raíz de confianza y las intermedias al almacén de entidades de certificación intermedias.
-    - **Android**: consulte la documentación del dispositivo y la versión de Android.
-    - **Otros dispositivos de hardware, especialmente IoT**: póngase en contacto con el fabricante del dispositivo.
+    - **Linux** : muchas distribuciones requieren que se agreguen entidades de certificación a /etc/SSL/certs. Para obtener instrucciones específicas, vea la documentación de la distribución.
+    - **Java** : asegúrese de que el almacén de claves de Java contenga las entidades de certificación indicadas anteriormente.
+    - **Windows se ejecuta en entornos desconectados** : los sistemas que se ejecuten en entornos desconectados deberán agregar las nuevas raíces al almacén de entidades de certificación raíz de confianza y las intermedias al almacén de entidades de certificación intermedias.
+    - **Android** : consulte la documentación del dispositivo y la versión de Android.
+    - **Otros dispositivos de hardware, especialmente IoT** : póngase en contacto con el fabricante del dispositivo.
 
 - Si en su entorno se ha establecido que las reglas de firewall permitan llamadas salientes solo a determinadas ubicaciones de descarga de la lista de revocación de certificados (CRL) o de comprobación del Protocolo de estado de certificados en línea (OCSP), tendrá que permitir las siguientes direcciones URL de CRL y OCSP:
 

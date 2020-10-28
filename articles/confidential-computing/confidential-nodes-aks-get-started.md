@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: c8c64dadebb092d7f376fd2b6590b26f4dde0ee0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998549"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122190"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service con nodos de computación confidencial mediante la CLI de Azure (versión preliminar)
 
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Si ya tiene un clúster de AKS que cumpla los requisitos anteriores, [vaya a la sección de clúster existente](#existing-cluster) para agregar un nuevo grupo de nodos de computación confidencial.
 
-Primero, cree un grupo de recursos para el clúster con el comando az group create. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *westus2*:
+Primero, cree un grupo de recursos para el clúster con el comando az group create. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *westus2* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
@@ -118,6 +118,8 @@ Vaya a la sección de implementación de [Hola mundo desde enclave](#hello-world
 ```azurecli-interactive
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
+
+![Creación de un clúster de AKS con DCSv2](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
 
 ## <a name="adding-confidential-computing-node-to-existing-aks-cluster"></a>Adición de un nodo de computación confidencial a un clúster de AKS existente<a id="existing-cluster"></a>
 

@@ -3,20 +3,20 @@ title: Información general de los almacenes de Backup
 description: Información general de los almacenes de Backup.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 773152212ed831c0083cfdf912f45ece578d079f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993754"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091294"
 ---
 # <a name="backup-vaults-overview"></a>Información general de los almacenes de Backup
 
 En este artículo se describen las características de un almacén de Backup. Un almacén de Backup es una entidad de almacenamiento de Azure que hospeda los datos de copia de seguridad para ciertas cargas de trabajo más recientes que Azure Backup admite. Puede usar almacenes de Backup para almacenar los datos de copia de seguridad de varios servicios de Azure, como servidores de Azure Database for PostgreSQL, y cargas de trabajo más recientes que Azure Backup admitirá. Los almacenes de Backup facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reducen al mínimo la sobrecarga administrativa. Los almacenes de Backup se basan en el modelo de Azure Resource Manager de Azure, que proporciona características como las siguientes:
 
-- **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad**: con los almacenes de Backup, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
+- **Funcionalidades mejoradas para ayudar a proteger datos de copia de seguridad** : con los almacenes de Backup, Azure Backup proporciona funcionalidades de seguridad para proteger las copias de seguridad en la nube. Estas características de seguridad garantizan que puede proteger las copias de seguridad y recuperar datos de forma segura, incluso si los servidores de producción y copia de seguridad están en peligro. [Más información](backup-azure-security-feature.md)
 
-- **Control de acceso basado en rol (RBAC)** : RBAC permite un control muy detallado de la administración de acceso en Azure. [Azure proporciona diversas funciones integradas](../role-based-access-control/built-in-roles.md) y Azure Backup tiene tres [roles integrados para administrar puntos de recuperación](backup-rbac-rs-vault.md). Los almacenes de Backup son compatibles con RBAC, que restringe el acceso de copia de seguridad y restauración al conjunto definido de roles de usuario. [Más información](backup-rbac-rs-vault.md)
+- **Control de acceso basado en roles de Azure (Azure RBAC)** : Azure RBAC permite un control muy detallado de la administración de acceso en Azure. [Azure proporciona diversas funciones integradas](../role-based-access-control/built-in-roles.md) y Azure Backup tiene tres [roles integrados para administrar puntos de recuperación](backup-rbac-rs-vault.md). Los almacenes de Backup son compatibles con Azure RBAC, que restringe el acceso de copia de seguridad y restauración al conjunto definido de roles de usuario. [Más información](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>Configuración de almacenamiento en el almacén de Backup
 
@@ -47,14 +47,14 @@ Inicie sesión en Azure Portal en <https://portal.azure.com>.
 ### <a name="create-backup-vault"></a>Creación de un almacén de Backup
 
 1. Escriba **almacenes de copia de seguridad** en el cuadro de búsqueda.
-1. En **Servicios**, seleccione **Almacenes de Backup**.
-1. En la página **Almacenes de Backup**, seleccione **Agregar**.
-1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y, en Grupo de recursos, elija **Crear nuevo**. Escriba *myResourceGroup* para el nombre.
+1. En **Servicios** , seleccione **Almacenes de Backup** .
+1. En la página **Almacenes de Backup** , seleccione **Agregar** .
+1. En la pestaña **Aspectos básicos** , en **Detalles del proyecto** , asegúrese de que esté seleccionada la suscripción correcta y, en Grupo de recursos, elija **Crear nuevo** . Escriba *myResourceGroup* para el nombre.
 
   ![Crear un grupo de recursos](./media/backup-vault-overview/new-resource-group.png)
 
-1. En **Detalles de instancia**, escriba *myVault* como **Nombre del almacén de Backup** y seleccione la región de su elección, en este caso, *Este de EE. UU.* como su **Región**.
-1. Ahora elija la **redundancia de almacenamiento**. La redundancia de almacenamiento no se puede cambiar después de proteger los elementos en el almacén.
+1. En **Detalles de instancia** , escriba *myVault* como **Nombre del almacén de Backup** y seleccione la región de su elección, en este caso, *Este de EE. UU.* como su **Región** .
+1. Ahora elija la **redundancia de almacenamiento** . La redundancia de almacenamiento no se puede cambiar después de proteger los elementos en el almacén.
 1. Se recomienda que, si usa Azure como punto de conexión del almacenamiento de copia de seguridad principal, siga utilizando la configuración **con redundancia geográfica** predeterminada.
 1. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure.
 1. Obtenga más información sobre la redundancia [geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) y [local](../storage/common/storage-redundancy.md#locally-redundant-storage).
@@ -98,23 +98,23 @@ Cuando no haya ningún otro elemento en el almacén, seleccione **Eliminar** en 
 
 ![Eliminación del almacén](./media/backup-vault-overview/delete-vault.png)
 
-1. Para verificar que desea eliminar el almacén, seleccione **Sí**. El almacén se elimina. El portal vuelve al menú **Nuevo** servicio.
+1. Para verificar que desea eliminar el almacén, seleccione **Sí** . El almacén se elimina. El portal vuelve al menú **Nuevo** servicio.
 
 ## <a name="monitor-and-manage-the-backup-vault"></a>Supervisión y administración del almacén de Backup
 
-En esta sección se describe cómo usar el panel de **información general** del almacén de Backup para supervisar y administrar los almacenes de Backup. El panel de información general contiene dos iconos: **Trabajos** e **Instancias**.
+En esta sección se describe cómo usar el panel de **información general** del almacén de Backup para supervisar y administrar los almacenes de Backup. El panel de información general contiene dos iconos: **Trabajos** e **Instancias** .
 
 ![Panel de información general](./media/backup-vault-overview/overview-dashboard.png)
 
 ### <a name="manage-backup-instances"></a>Administración de instancias de Backup
 
-En el icono **Trabajos**, obtendrá una vista resumida de todos los trabajos relacionados con la copia de seguridad y restauración en el almacén de copia de seguridad. La selección de cualquiera de los números de este icono le permite ver más información sobre los trabajos de un tipo de origen de datos, tipo de operación y estado en concreto.
+En el icono **Trabajos** , obtendrá una vista resumida de todos los trabajos relacionados con la copia de seguridad y restauración en el almacén de copia de seguridad. La selección de cualquiera de los números de este icono le permite ver más información sobre los trabajos de un tipo de origen de datos, tipo de operación y estado en concreto.
 
 ![Instancias de Backup](./media/backup-vault-overview/backup-instances.png)
 
 ### <a name="manage-backup-jobs"></a>Administración de trabajos de copia de seguridad
 
-En el icono **Instancias de Backup**, se obtiene una vista resumida de todas las instancias de copia de seguridad del almacén de Backup. La selección de cualquiera de los números de este icono le permite ver más información sobre las instancias de copia de seguridad para un tipo de origen de datos y estado de protección en concreto.
+En el icono **Instancias de Backup** , se obtiene una vista resumida de todas las instancias de copia de seguridad del almacén de Backup. La selección de cualquiera de los números de este icono le permite ver más información sobre las instancias de copia de seguridad para un tipo de origen de datos y estado de protección en concreto.
 
 ![Trabajos de copia de seguridad](./media/backup-vault-overview/backup-jobs.png)
 

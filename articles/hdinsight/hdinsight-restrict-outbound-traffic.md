@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006524"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103346"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante Firewall
 
@@ -23,11 +23,11 @@ Este artículo proporciona los pasos para proteger el tráfico saliente del clú
 
 Los clústeres de HDInsight se implementan normalmente en una red virtual. El clúster tiene dependencias en servicios que están fuera de esa red.
 
-Hay varias dependencias que requieren tráfico de entrada. El tráfico entrante de administración no se puede enviar a través de un dispositivo de firewall. Las direcciones de origen de este tráfico son conocidas y se publican [aquí](hdinsight-management-ip-addresses.md). También puede crear reglas de grupo de seguridad de red (NSG) con esa información para proteger el tráfico entrante a los clústeres.
+El tráfico entrante de administración no se puede enviar a través de un firewall. Puede usar etiquetas de servicio de NSG para el tráfico entrante, tal y como se documenta [aquí](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags). 
 
-Las dependencias del tráfico de salida de HDInsight aislado se definen casi por completo con nombres de dominio completos. Estos no tienen direcciones IP estáticas detrás. La falta de direcciones estáticas significa que los grupos de seguridad de red (NSG) no pueden bloquear el tráfico saliente de un clúster. Las direcciones cambian con tal frecuencia que no se pueden configurar reglas en función del uso y la resolución de nombres actual.
+Las dependencias del tráfico de salida de HDInsight aislado se definen casi por completo con nombres de dominio completos. Estos no tienen direcciones IP estáticas detrás. La falta de direcciones estáticas significa que los grupos de seguridad de red (NSG) no pueden bloquear el tráfico saliente de un clúster. Las direcciones IP cambian con tal frecuencia que no se pueden configurar reglas en función de la resolución de nombres y del uso actualmente.
 
-Proteja las direcciones salientes con un firewall que pueda controlar el tráfico saliente en función de los nombres de dominio. Azure Firewall restringe el tráfico saliente en función del nombre de dominio completo del destino o las [etiquetas de FQDN](../firewall/fqdn-tags.md).
+Proteja las direcciones salientes mediante un firewall que controle el tráfico saliente en función de los nombres de dominio completo. Azure Firewall restringe el tráfico saliente en función del nombre de dominio completo del destino o las [etiquetas de FQDN](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configuración de Azure Firewall con HDInsight
 
@@ -53,11 +53,11 @@ Cree una colección de reglas de aplicación que permita al clúster enviar y re
 
 1. Seleccione el nuevo firewall **Test-FW01** en Azure Portal.
 
-1. Vaya a **Configuración** > **Reglas** > **Recopilación de reglas de aplicación** >  **+ Agregar una colección de reglas de aplicación**.
+1. Vaya a **Configuración** > **Reglas** > **Recopilación de reglas de aplicación** >  **+ Agregar una colección de reglas de aplicación** .
 
     ![Título: Agregar colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
-1. En la pantalla **Agregar una colección de reglas de aplicación**, realice los pasos siguientes:
+1. En la pantalla **Agregar una colección de reglas de aplicación** , realice los pasos siguientes:
 
     **Sección superior**
 
@@ -79,19 +79,19 @@ Cree una colección de reglas de aplicación que permita al clúster enviar y re
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Permite la actividad de inicio de sesión de Windows |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Permite la actividad de inicio de sesión de Windows |
-    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Reemplace `storage_account_name` por el nombre de la cuenta de almacenamiento real. Si el clúster está respaldado por WASB, agregue una regla para WASB. Para usar SOLO conexiones https, asegúrese de que la opción ["se requiere transferencia segura"](../storage/common/storage-require-secure-transfer.md) esté habilitada en la cuenta de almacenamiento. |
+    | Rule_4 | * | https:443,http:80 | storage_account_name.blob.core.windows.net | Reemplace `storage_account_name` por el nombre de la cuenta de almacenamiento real. Para usar SOLO conexiones https, asegúrese de que la opción ["se requiere transferencia segura"](../storage/common/storage-require-secure-transfer.md) esté habilitada en la cuenta de almacenamiento. Si usa un punto de conexión privado para acceder a cuentas de almacenamiento, este paso no es necesario y el tráfico de almacenamiento no se reenviará al firewall.|
 
    ![Título: Escribir los detalles de la colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. Seleccione **Agregar**.
+1. Seleccione **Agregar** .
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Configuración del firewall con reglas de red
 
 Cree las reglas de red para configurar correctamente el clúster de HDInsight.
 
-1. Siguiendo con el paso anterior, vaya a **Recopilación de reglas de red** >  **+ Agregar recopilación de reglas de red**.
+1. Siguiendo con el paso anterior, vaya a **Recopilación de reglas de red** >  **+ Agregar recopilación de reglas de red** .
 
-1. En la pantalla **Agregar una colección de reglas de red**, proporcione la siguiente información:
+1. En la pantalla **Agregar una colección de reglas de red** , proporcione la siguiente información:
 
     **Sección superior**
 
@@ -101,43 +101,32 @@ Cree las reglas de red para configurar correctamente el clúster de HDInsight.
     |Priority|200|
     |Acción|Allow|
 
-    **Sección de direcciones IP**
-
-    | Nombre | Protocolo | Direcciones de origen | Direcciones de destino | Puertos de destino | Notas |
-    | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Servicio de hora |
-    | Rule_2 | Any | * | DC_IP_Address_1, DC_IP_Address_2 | * | Si usa Enterprise Security Package (ESP), agregue una regla de red en la sección Direcciones IP que permita la comunicación de los clústeres de ESP con AAD-DS. Puede encontrar las direcciones IP de los controladores de dominio en la sección de AAD-DS en el portal. |
-    | Rule_3 | TCP | * | Dirección IP de la cuenta de Data Lake Storage | * | Si usa Azure Data Lake Storage, puede agregar una regla de red en la sección Direcciones IP para solucionar una incidencia de SNI con ADLS Gen1 y Gen2. Esta opción enrutará el tráfico al firewall. Esto podría ocasionar mayores costos con grandes cargas de datos, pero el tráfico se registrará y será auditable en los registros del firewall. Determine la dirección IP de la cuenta de Data Lake Storage. Puede usar un comando de PowerShell, como `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")`, para resolver el nombre de dominio completo en una dirección IP.|
-    | Rule_4 | TCP | * | * | 12000 | (Opcional) Si usa Log Analytics, cree una regla de red en la sección Direcciones IP para permitir la comunicación con el área de trabajo de Log Analytics. |
-
     **Sección de etiquetas de servicio**
 
     | Nombre | Protocolo | Direcciones de origen | Etiquetas de servicio | Puertos de destino | Notas |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Configure una regla de red en la sección Etiquetas de servicio de SQL que le permitirá registrar y auditar el tráfico de SQL. A menos que haya configurado los puntos de conexión de servicio para SQL Server en la subred de HDInsight, el firewall se omitirá. |
-    | Rule_8 | TCP | * | Azure Monitor | * | (opcional) Los clientes que piensan usar la característica de escalado automático deben agregar esta regla. |
+    | Rule_5 | TCP | * | SQL | 1433 | Si usa los servidores SQL Server predeterminados proporcionados por HDInsight, configure una regla de red en la sección de etiquetas de servicio para SQL que le permita registrar y auditar el tráfico de SQL. A menos que haya configurado los puntos de conexión de servicio para SQL Server en la subred de HDInsight, el firewall se omitirá. Si usa un servidor SQL Server personalizado para tiendas de metadatos de Ambari, Oozie, Ranger e Hive, solo tiene que permitir el tráfico para sus propios servidores SQL Server personalizados.|
+    | Rule_6 | TCP | * | Azure Monitor | * | (opcional) Los clientes que piensan usar la característica de escalado automático deben agregar esta regla. |
     
    ![Título: Especificación de la colección de reglas de aplicación](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Seleccione **Agregar**.
+1. Seleccione **Agregar** .
 
 ### <a name="create-and-configure-a-route-table"></a>Creación y configuración de una tabla de rutas
 
 Cree una tabla de rutas con las siguientes entradas:
 
-* Todas las direcciones IP de [Servicios de mantenimiento y administración: Todas las regiones](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) con un tipo de próximo salto de **Internet**.
-
-* Dos direcciones IP para la región donde se crea el clúster de [Servicios de mantenimiento y administración: Regiones específicas](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions) con un tipo de próximo salto de **Internet**.
+* Todas las direcciones IP de los [servicios de mantenimiento y administración](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) con un tipo de próximo salto para **Internet** . Debe incluir 4 direcciones IP para las regiones genéricas y 2 direcciones IP para la región específica. Esta regla solo es necesaria si ResourceProviderConnection se establece en *Inbound* . Si ResourceProviderConnection se establece en *Outbound* , estas direcciones IP no son necesarias en el UDR. 
 
 * Una ruta de aplicación virtual para la dirección IP 0.0.0.0/0 con el próximo salto establecido en la dirección IP privada de la instancia de Azure Firewall.
 
 Por ejemplo, para configurar la tabla de rutas de un clúster creado en la región de Estados Unidos "Este de EE. UU.", use los pasos siguientes:
 
-1. Seleccione el firewall de Azure **Test-FW01**. Copie la **Dirección IP privada** que aparece en la página **Información general**. En este ejemplo se usará la **dirección de ejemplo 10.0.2.4**.
+1. Seleccione el firewall de Azure **Test-FW01** . Copie la **Dirección IP privada** que aparece en la página **Información general** . En este ejemplo se usará la **dirección de ejemplo 10.0.2.4** .
 
-1. A continuación, vaya a **Todos los servicios** > **Redes** > **Tablas de rutas** y **Crear tabla de rutas**.
+1. A continuación, vaya a **Todos los servicios** > **Redes** > **Tablas de rutas** y **Crear tabla de rutas** .
 
-1. En la nueva ruta, vaya a **Configuración** > **Rutas** >  **+ Agregar**. Agregue las siguientes rutas:
+1. En la nueva ruta, vaya a **Configuración** > **Rutas** >  **+ Agregar** . Agregue las siguientes rutas:
 
 | Nombre de ruta | Prefijo de dirección | Tipo de próximo salto | Siguiente dirección de salto |
 |---|---|---|---|
@@ -151,13 +140,13 @@ Por ejemplo, para configurar la tabla de rutas de un clúster creado en la regi�
 
 Complete la configuración de la tabla de rutas:
 
-1. Asigne la tabla de rutas que ha creado a la subred de HDInsight; para ello, seleccione **Subredes** en **Configuración**.
+1. Asigne la tabla de rutas que ha creado a la subred de HDInsight; para ello, seleccione **Subredes** en **Configuración** .
 
-1. Seleccione **+ Asociar**.
+1. Seleccione **+ Asociar** .
 
-1. En la pantalla **Asociar subred**, seleccione la red virtual en la que se creó el clúster. Además, seleccione la **subred** que usó para el clúster de HDInsight.
+1. En la pantalla **Asociar subred** , seleccione la red virtual en la que se creó el clúster. Además, seleccione la **subred** que usó para el clúster de HDInsight.
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Nodo perimetral o tráfico de aplicación personalizado
 

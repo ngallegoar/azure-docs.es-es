@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: d148bc81e81c4afa32682fa1462ecfbf5427f164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079241"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147966"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server a Azure Blob Storage
 
@@ -45,20 +45,20 @@ Antes de empezar, si no tiene una suscripción a Azure, [cree una cuenta gratuit
 ### <a name="azure-roles"></a>Roles de Azure
 Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe tener un rol *Colaborador* o *Propietario* asignado o ser *administrador* de la suscripción de Azure.
 
-Para ver los permisos que tiene en la suscripción, vaya a Azure Portal, seleccione su nombre de usuario en la esquina superior derecha y, después, seleccione **Permisos**. Si tiene acceso a varias suscripciones, elija la correspondiente. Para instrucciones de ejemplo sobre cómo agregar un rol a un usuario, consulte el artículo [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
+Para ver los permisos que tiene en la suscripción, vaya a Azure Portal, seleccione su nombre de usuario en la esquina superior derecha y, después, seleccione **Permisos** . Si tiene acceso a varias suscripciones, elija la correspondiente. Para instrucciones de ejemplo sobre cómo agregar un usuario a un rol, consulte el artículo [Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 y 2017
-En este tutorial, usará una base de datos de SQL Server como almacén de datos de *origen*. La canalización de Data Factory que crea en este tutorial copia los datos de esta base de datos de SQL Server (origen) a Azure Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
+En este tutorial, usará una base de datos de SQL Server como almacén de datos de *origen* . La canalización de Data Factory que crea en este tutorial copia los datos de esta base de datos de SQL Server (origen) a Azure Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
 
 1. Inicie SQL Server Management Studio. Si no está instalada en su equipo, vaya a [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Conéctese a una instancia de SQL Server con sus credenciales.
 
-1. Cree una base de datos de ejemplo. En la vista de árbol, haga clic con el botón derecho en **Bases de datos** y, luego, seleccione **Nueva base de datos**.
+1. Cree una base de datos de ejemplo. En la vista de árbol, haga clic con el botón derecho en **Bases de datos** y, luego, seleccione **Nueva base de datos** .
 
-1. En el cuadro de diálogo **Nueva base de datos**, escriba el nombre de la base de datos y haga clic en **Aceptar**.
+1. En el cuadro de diálogo **Nueva base de datos** , escriba el nombre de la base de datos y haga clic en **Aceptar** .
 
-1. Para crear la tabla **emp** e insertar en ella algunos datos de ejemplo, ejecute el siguiente script de consulta en la base de datos. En la vista de árbol, haga clic con el botón derecho en la base de datos que ha creado y, después, haga clic en **Nueva consulta**.
+1. Para crear la tabla **emp** e insertar en ella algunos datos de ejemplo, ejecute el siguiente script de consulta en la base de datos. En la vista de árbol, haga clic con el botón derecho en la base de datos que ha creado y, después, haga clic en **Nueva consulta** .
 
     ```sql
     CREATE TABLE dbo.emp
@@ -83,32 +83,32 @@ En este tutorial, use el nombre y la clave de su cuenta de Azure Storage. Para o
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con el nombre de usuario y la contraseña de Azure.
 
-1. En el panel izquierdo, seleccione **Más servicios**, use la palabra clave **Almacenamiento** para realizar el filtro y, luego, seleccione **Cuentas de almacenamiento**.
+1. En el panel izquierdo, seleccione **Más servicios** , use la palabra clave **Almacenamiento** para realizar el filtro y, luego, seleccione **Cuentas de almacenamiento** .
 
     ![Buscar cuenta de Storage](media/doc-common-process/search-storage-account.png)
 
 1. En la lista de cuentas de almacenamiento, filtre por su cuenta de almacenamiento (si fuera necesario) y, después, seleccione su cuenta de almacenamiento.
 
-1. En la ventana **Cuenta de almacenamiento**, seleccione **Claves de acceso**.
+1. En la ventana **Cuenta de almacenamiento** , seleccione **Claves de acceso** .
 
-1. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1**, copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial.
+1. En los cuadros **Nombre de la cuenta de almacenamiento** y **key1** , copie los valores y péguelos en el Bloc de notas, u otro editor, para su uso posterior en el tutorial.
 
 #### <a name="create-the-adftutorial-container"></a>Creación del contenedor adftutorial
 En esta sección se crea un contenedor de blobs denominado **adftutorial** en la instancia de Azure Blob Storage.
 
-1. En la ventana **Cuenta de almacenamiento**, cambie a **Información general** y, después, seleccione **Blobs**.
+1. En la ventana **Cuenta de almacenamiento** , cambie a **Información general** y, después, seleccione **Blobs** .
 
     ![Selección de la opción Blobs](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. En la ventana **Blob service**, seleccione **Contenedor**.
+1. En la ventana **Blob service** , seleccione **Contenedor** .
 
-1. En la ventana **Nuevo contenedor**, en el cuadro **Nombre**, escriba **adftutorial**y, después, seleccione **Aceptar**.
+1. En la ventana **Nuevo contenedor** , en el cuadro **Nombre** , escriba **adftutorial** y, después, seleccione **Aceptar** .
 
     ![Especificación de un nombre de contenedor](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
-1. En la lista de contenedores, seleccione **adftutorial**.  
+1. En la lista de contenedores, seleccione **adftutorial** .  
 
-1. Mantenga abierta la ventana **contenedor** de **adftutorial**. Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
+1. Mantenga abierta la ventana **contenedor** de **adftutorial** . Úselo para comprobar la salida al final de este tutorial. Data Factory crea automáticamente la carpeta de salida de este contenedor, por lo que no es necesario que el usuario la cree.
 
 
 ### <a name="windows-powershell"></a>Windows PowerShell
@@ -178,8 +178,8 @@ Si no está en el equipo, instale la versión más reciente de Azure PowerShell.
 >    ```
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
-> * Para crear instancias de Data Factory, a la cuenta de usuario que use para iniciar sesión en Azure debe se le deben asignar los roles *colaborador* o *propietario*, o bien debe de ser de un *administrador* de la suscripción a Azure.
-> * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory**: [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
+> * Para crear instancias de Data Factory, a la cuenta de usuario que use para iniciar sesión en Azure debe se le deben asignar los roles *colaborador* o *propietario* , o bien debe de ser de un *administrador* de la suscripción a Azure.
+> * Para una lista de las regiones de Azure en las que Data Factory está disponible actualmente, seleccione las regiones que le interesen en la página siguiente y expanda **Análisis** para poder encontrar **Data Factory** : [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/). Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (Azure HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
 >
 >
 
@@ -257,21 +257,21 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 ## <a name="install-the-integration-runtime"></a>Instalación de Integration Runtime
 1. Descargue [Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) en un equipo Windows local y ejecute la instalación.
 
-1. En el **Asistente para la instalación de Microsoft Integration Runtime**, haga clic en **Siguiente**.  
+1. En el **Asistente para la instalación de Microsoft Integration Runtime** , haga clic en **Siguiente** .  
 
-1. En la ventana **Contrato de licencia para el usuario final**, acepte los términos del Contrato de licencia y haga clic en **Siguiente**.
+1. En la ventana **Contrato de licencia para el usuario final** , acepte los términos del Contrato de licencia y haga clic en **Siguiente** .
 
-1. En la ventana **Carpeta de destino**, seleccione **Siguiente**.
+1. En la ventana **Carpeta de destino** , seleccione **Siguiente** .
 
-1. En la ventana **Preparado para instalar Microsoft Integration Runtime**, haga clic en **Instalar**.
+1. En la ventana **Preparado para instalar Microsoft Integration Runtime** , haga clic en **Instalar** .
 
-1. En **Ha completado el Asistente para la instalación de Microsoft Integration Runtime Setup**, seleccione **Finalizar**.
+1. En **Ha completado el Asistente para la instalación de Microsoft Integration Runtime Setup** , seleccione **Finalizar** .
 
-1. En la ventana **Registro de Integration Runtime (autohospedado)** , pegue la clave que guardó en la sección anterior y haga clic en **Registrar**.
+1. En la ventana **Registro de Integration Runtime (autohospedado)** , pegue la clave que guardó en la sección anterior y haga clic en **Registrar** .
 
     ![Registro de Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-1. En la ventana **Nuevo nodo de Integration Runtime (autohospedado)** , seleccione **Finalizar**.
+1. En la ventana **Nuevo nodo de Integration Runtime (autohospedado)** , seleccione **Finalizar** .
 
     ![Ventana Nuevo nodo de Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -279,7 +279,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     ![Se registró correctamente](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. En la ventana **Registro de Integration Runtime (autohospedado)** , haga clic en **Iniciar Configuration Manager**.
+1. En la ventana **Registro de Integration Runtime (autohospedado)** , haga clic en **Iniciar Configuration Manager** .
 
 1. Cuando el nodo se conecte al servicio en la nube, se mostrará el servicio en la nube:
 
@@ -287,9 +287,9 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
 1. Para probar la conectividad a la base de datos de SQL Server, siga estos pasos:
 
-    a. En la ventana **Configuration Manager**, cambie a la pestaña **Diagnósticos**.
+    a. En la ventana **Configuration Manager** , cambie a la pestaña **Diagnósticos** .
 
-    b. En el cuadro **Tipo de origen de datos**, seleccione **SqlServer**.
+    b. En el cuadro **Tipo de origen de datos** , seleccione **SqlServer** .
 
     c. Escriba el nombre del servidor.
 
@@ -301,7 +301,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 
     g. Escriba la contraseña asociada con el nombre de usuario.
 
-    h. Para confirmar que Integration Runtime puede conectarse a SQL Server, seleccione **Probar**.  
+    h. Para confirmar que Integration Runtime puede conectarse a SQL Server, seleccione **Probar** .  
     ![Conectividad correcta](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
 
     Si la conexión se ha realizado correctamente, verá una marca de verificación verde. De lo contrario, recibirá un mensaje de error asociado al error. Solucione los problemas y asegúrese de que Integration Runtime puede conectarse a la instancia de SQL Server.
@@ -332,7 +332,7 @@ En este paso, vinculará su cuenta de Azure Storage a la factoría de datos.
     }
    ```
 
-1. En PowerShell, cambie a la carpeta *C:\ADFv2Tutorial*.
+1. En PowerShell, cambie a la carpeta *C:\ADFv2Tutorial* .
    ```powershell
    Set-Location 'C:\ADFv2Tutorial'    
    ```
@@ -415,10 +415,10 @@ En este paso, vinculará la instancia de SQL Server a la factoría de datos.
     > - Seleccione la sección que se basa en la autenticación que usa para conectarse a su instancia de SQL Server.
     > - Reemplace **\<integration runtime name>** por el nombre de su instancia del entorno de ejecución de integración.
     > - Antes de guardar el archivo, reemplace **\<servername>** , **\<databasename>** , **\<username>** y **\<password>** por los valores de su instancia de SQL Server.
-    > - Si necesita usar una barra diagonal inversa (\\) en la cuenta del usuario o en el nombre del servidor, utilice el carácter de escape (\\) antes. Por ejemplo, use *mydomain\\\\myuser*.
+    > - Si necesita usar una barra diagonal inversa (\\) en la cuenta del usuario o en el nombre del servidor, utilice el carácter de escape (\\) antes. Por ejemplo, use *mydomain\\\\myuser* .
 
 1. Para cifrar los datos confidenciales (nombre de usuario, contraseña, etc.), ejecute el cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  
-    Este cifrado que las credenciales se cifran mediante la API de protección de datos (DPAPI). Las credenciales cifradas se almacenan de manera local en el nodo de Integration Runtime autohospedado (máquina local). La carga de salida se puede redirigir a otro archivo JSON (en este caso, *encryptedLinkedService.json*) que contiene las credenciales cifradas.
+    Este cifrado que las credenciales se cifran mediante la API de protección de datos (DPAPI). Las credenciales cifradas se almacenan de manera local en el nodo de Integration Runtime autohospedado (máquina local). La carga de salida se puede redirigir a otro archivo JSON (en este caso, *encryptedLinkedService.json* ) que contiene las credenciales cifradas.
 
    ```powershell
    New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -480,7 +480,7 @@ En este paso, defina un conjunto de datos que represente los datos de la instanc
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Creación de un conjunto de datos para Azure Blob Storage (receptor)
 En este paso, se define un conjunto de datos que representa los datos que se van a copiar a Azure Blob Storage. El conjunto de datos es del tipo AzureBlob. Hace referencia al servicio vinculado Azure Storage que creó anteriormente en este tutorial.
 
-El servicio vinculado tiene la información de conexión que Data Factory usa en el runtime para conectarse a su cuenta de Azure Storage. Este conjunto de datos especifica la carpeta del almacenamiento de Azure a la que se copian los datos desde la base de datos de SQL Server. En este tutorial, la carpeta es: *adftutorial/fromonprem*, donde `fromonprem` es el contenedor de blobs y `adftutorial` es la carpeta.
+El servicio vinculado tiene la información de conexión que Data Factory usa en el runtime para conectarse a su cuenta de Azure Storage. Este conjunto de datos especifica la carpeta del almacenamiento de Azure a la que se copian los datos desde la base de datos de SQL Server. En este tutorial, la carpeta es: *adftutorial/fromonprem* , donde `fromonprem` es el contenedor de blobs y `adftutorial` es la carpeta.
 
 1. Cree un archivo JSON denominado *AzureBlobDataset.json* en la carpeta *C:\ADFv2Tutorial* con el siguiente código:
 
@@ -531,7 +531,7 @@ El servicio vinculado tiene la información de conexión que Data Factory usa en
     ```
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
-En este tutorial, creará una canalización con una actividad de copia. La actividad de copia usa SqlServerDataset como el conjunto de datos de entrada y AzureBlobDataset como conjunto de datos de salida. El tipo de origen se establece en *SqlSource* y el tipo de receptor en *BlobSink*.
+En este tutorial, creará una canalización con una actividad de copia. La actividad de copia usa SqlServerDataset como el conjunto de datos de entrada y AzureBlobDataset como conjunto de datos de salida. El tipo de origen se establece en *SqlSource* y el tipo de receptor en *BlobSink* .
 
 1. Cree un archivo JSON denominado *SqlServerToBlobPipeline.json* en la carpeta *C:\ADFv2Tutorial* con el siguiente código:
 
@@ -709,7 +709,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
 ## <a name="verify-the-output"></a>Comprobación del resultado
 La canalización automáticamente la carpeta de salida *fromonprem* en el contenedor de blobs `adftutorial`. Confirme que ve el archivo *dbo.emp.txt* en la carpeta de salida.
 
-1. En Azure Portal, en la ventana Contenedor **adftutorial**, seleccione **Actualizar** para ver la carpeta de salida.
+1. En Azure Portal, en la ventana Contenedor **adftutorial** , seleccione **Actualizar** para ver la carpeta de salida.
 1. Seleccione `fromonprem` en la lista de carpetas.
 1. Confirme que ve un archivo denominado `dbo.emp.txt`.
 

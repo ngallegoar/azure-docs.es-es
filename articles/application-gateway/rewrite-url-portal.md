@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 7/16/2020
 ms.author: surmb
-ms.openlocfilehash: 160d056447bd53ea01437acd372b5efeb15b4773
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec58c6f97efdbcb91071bcea98bbbc614833246d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083164"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215780"
 ---
 # <a name="rewrite-url-with-azure-application-gateway---azure-portal-preview"></a>Reescritura de la dirección URL con Azure Application Gateway: Azure Portal (versión preliminar)
 
@@ -33,7 +33,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/) con su cuenta de Azu
 
 ## <a name="configure-url-rewrite"></a>Configuración de la reescritura de URL
 
-En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga */article*, la ruta de dirección URL y la cadena de consulta de URL se reescriben.
+En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga */article* , la ruta de dirección URL y la cadena de consulta de URL se reescriben.
 
 `contoso.com/article/123/fabrikam` -> `contoso.com/article.aspx?id=123&title=fabrikam`
 
@@ -41,15 +41,15 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
 
 2. Seleccione **Reescrituras** en el panel izquierdo.
 
-3. Seleccione **Conjunto de reescritura**:
+3. Seleccione **Conjunto de reescritura** :
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-1.png" alt-text="Agregar un conjunto de reescritura":::
 
 4. Proporcione un nombre para el conjunto de reescritura y asócielo a una regla de enrutamiento:
 
-    a. Escriba el nombre del conjunto de reescritura en el cuadro **Nombre**.
+    a. Escriba el nombre del conjunto de reescritura en el cuadro **Nombre** .
     
-    b. Seleccione una o varias de las reglas enumeradas en la lista **Reglas de enrutamiento asociadas**. Esto se usa para asociar la configuración de reescritura al cliente de escucha de origen mediante la regla de enrutamiento. Puede seleccionar solo las reglas de enrutamiento que no se hayan asociado con otros conjuntos de reescritura. Las reglas que ya se han asociado con otros conjuntos de reescritura aparecen atenuadas.
+    b. Seleccione una o varias de las reglas enumeradas en la lista **Reglas de enrutamiento asociadas** . Esto se usa para asociar la configuración de reescritura al cliente de escucha de origen mediante la regla de enrutamiento. Puede seleccionar solo las reglas de enrutamiento que no se hayan asociado con otros conjuntos de reescritura. Las reglas que ya se han asociado con otros conjuntos de reescritura aparecen atenuadas.
     
     c. Seleccione **Next** (Siguiente).
     
@@ -57,29 +57,29 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
 
 5. Crear una regla de reescritura:
 
-    a. Seleccione **Agregar regla de reescritura**.
+    a. Seleccione **Agregar regla de reescritura** .
     
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Agregar un conjunto de reescritura":::
     
-    b. Escriba un nombre para la regla de reescritura en el cuadro **Nombre de la regla de reescritura**. Escriba un número en el cuadro **Secuencia de reglas**.
+    b. Escriba un nombre para la regla de reescritura en el cuadro **Nombre de la regla de reescritura** . Escriba un número en el cuadro **Secuencia de reglas** .
 
-6. En este ejemplo, se reescribirá la ruta de la dirección URL y la cadena de consulta de URL solo cuando la ruta de acceso contenga */article*. Para ello, agregue una condición para evaluar si la ruta de acceso de la dirección URL contiene */article*
+6. En este ejemplo, se reescribirá la ruta de la dirección URL y la cadena de consulta de URL solo cuando la ruta de acceso contenga */article* . Para ello, agregue una condición para evaluar si la ruta de acceso de la dirección URL contiene */article*
 
     a. Seleccione **Agregar condición** y, luego, seleccione el cuadro que contiene las instrucciones **If** para expandirlo.
     
-    b. Como en este ejemplo queremos comprobar el patrón */article* en la ruta de acceso de la dirección URL, en la lista **Tipo de variable para comprobar**, seleccione **Variable de servidor**.
+    b. Como en este ejemplo queremos comprobar el patrón */article* en la ruta de acceso de la dirección URL, en la lista **Tipo de variable para comprobar** , seleccione **Variable de servidor** .
     
-    c. En la lista **Variable de servidor**, seleccione uri_path
+    c. En la lista **Variable de servidor** , seleccione uri_path
     
-    d. En **Distingue mayúsculas de minúsculas**, seleccione **No**.
+    d. En **Distingue mayúsculas de minúsculas** , seleccione **No** .
     
-    e. En la lista **Operador**, seleccione **igual (=)** .
+    e. En la lista **Operador** , seleccione **igual (=)** .
     
     f. Escriba un patrón de expresión regular. En este ejemplo, usaremos el patrón `.*article/(.*)/(.*)`.
     
       () se usa para capturar la subcadena para su uso posterior en la creación de la expresión para reescribir la ruta de dirección URL. Para más información, consulte [esta página](rewrite-http-headers-url.md#capturing).
 
-    g. Seleccione **Aceptar**.
+    g. Seleccione **Aceptar** .
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Agregar un conjunto de reescritura":::
 
@@ -87,19 +87,19 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
 
 7. Agregar una acción para reescribir la dirección URL y la ruta de dirección URL
 
-   a. En la lista **Tipo de reescritura**, seleccione **URL**.
+   a. En la lista **Tipo de reescritura** , seleccione **URL** .
 
-   b. En la lista **Tipo de acción**, seleccione **Conjunto**.
+   b. En la lista **Tipo de acción** , seleccione **Conjunto** .
 
-   c. En **Componentes**, seleccione **Ruta de acceso de URL y cadena de consulta de URL**.
+   c. En **Componentes** , seleccione **Ruta de acceso de URL y cadena de consulta de URL** .
 
-   d. En **Valor de ruta de acceso de URL**, escriba el nuevo valor de la ruta de acceso. En este ejemplo, usaremos **/article.aspx**. 
+   d. En **Valor de ruta de acceso de URL** , escriba el nuevo valor de la ruta de acceso. En este ejemplo, usaremos **/article.aspx** . 
 
-   e. En **Valor de cadena de consulta de URL**, escriba el nuevo valor de la cadena de consulta de dirección URL. En este ejemplo, usaremos **id={var_uri_path_1}&title={var_uri_path_2}**
+   e. En **Valor de cadena de consulta de URL** , escriba el nuevo valor de la cadena de consulta de dirección URL. En este ejemplo, usaremos **id={var_uri_path_1}&title={var_uri_path_2}**
     
     `{var_uri_path_1}` y `{var_uri_path_1}` se usan para recuperar las subcadenas capturadas durante la evaluación de la condición en esta expresión `.*article/(.*)/(.*)`.
     
-   f. Seleccione **Aceptar**.
+   f. Seleccione **Aceptar** .
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Agregar un conjunto de reescritura":::
 
@@ -113,8 +113,8 @@ En el ejemplo siguiente, siempre que la dirección URL de la solicitud contenga 
 
 Observe los campos siguientes en los registros de acceso para comprobar si la reescritura de la dirección URL se produjo según lo esperado.
 
-* **originalRequestUriWithArgs**: Este campo contiene la dirección URL de la solicitud original
-* **requestUri**: Este campo contiene la dirección URL posterior a la operación de reescritura en Application Gateway
+* **originalRequestUriWithArgs** : Este campo contiene la dirección URL de la solicitud original
+* **requestUri** : Este campo contiene la dirección URL posterior a la operación de reescritura en Application Gateway
 
 Para más información sobre todos los campos de los registros de acceso, consulte [este](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku) documento.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045406"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218262"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Depuración de las consultas de Azure Stream Analytics localmente mediante un diagrama de trabajos de Visual Studio
 
@@ -32,7 +32,7 @@ Use este [inicio rápido](stream-analytics-quick-create-vs.md) para aprender a c
 > [!NOTE]
 > Si exporta un trabajo al proyecto local y desea realizar una prueba en un flujo de entrada activo, debe especificar de nuevo las credenciales para todas las entradas.  
 
-Elija el origen de entrada y salida en el editor de scripts y seleccione **Ejecutar de forma local**. El diagrama de trabajos aparece a la derecha.
+Elija el origen de entrada y salida en el editor de scripts y seleccione **Ejecutar de forma local** . El diagrama de trabajos aparece a la derecha.
 
 ### <a name="view-the-intermediate-result-set"></a>Visualización del conjunto de resultados intermedio  
 
@@ -87,7 +87,7 @@ En esta sección, explorará las métricas disponibles para cada parte del diagr
   
 #### <a name="output-sinks-live-output"></a>Receptores de salida (salida activa)
 
-![Receptores de salida locales del diagrama de trabajos](./media/debug-locally-using-job-diagram/live-output.png)
+![Diagrama de trabajos que muestra los receptores locales de la salida.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Métrica|Descripción|
 |-|-|

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87d56f32877fbe5b817dab5d9ad98e1f1f71386c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054753"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096205"
 ---
 # <a name="localization-string-ids"></a>Identificadores de cadenas de localización
 
@@ -343,7 +343,42 @@ En el ejemplo siguiente se muestra el uso de algunos de los elementos de la inte
 
 ## <a name="verification-display-control-user-interface-elements"></a>Elementos de la interfaz de usuario del control de pantalla de verificación
 
-Los siguientes son los identificadores de un [control de pantalla de verificación](display-control-verification.md).
+Los siguientes son los identificadores de un [control de pantalla de verificación](display-control-verification.md) con la [versión 2.1.0 o superior del diseño de página](page-layout.md).
+
+| ID | Valor predeterminado |
+| -- | ------------- |
+|intro_msg| La comprobación es necesaria. Haga clic en el botón Enviar.|
+|success_send_code_msg | Se ha enviado el código de verificación a su bandeja de entrada. Cópielo en el siguiente cuadro de entrada de texto.|
+|failure_send_code_msg | Estamos teniendo problemas para comprobar su dirección de correo electrónico. Escriba una dirección de correo electrónico válida e inténtelo de nuevo.|
+|success_verify_code_msg | Se ha verificado la dirección de correo electrónico. Ahora puede continuar.|
+|failure_verify_code_msg | Estamos teniendo problemas para comprobar su dirección de correo electrónico. Inténtelo de nuevo.|
+|but_send_code | Envíe un código de comprobación.|
+|but_verify_code | Verificar código|
+|but_send_new_code | Envíe un código nuevo.|
+|but_change_claims | Cambie la dirección de correo electrónico.|
+
+### <a name="verification-display-control-example"></a>Ejemplo de control de pantalla de verificación
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>Elementos de la interfaz de usuario del control de pantalla de verificación (en desuso)
+
+Los siguientes son los identificadores de un [control de pantalla de verificación](display-control-verification.md) con la [versión 2.0.0 del diseño de página](page-layout.md).
 
 | ID | Valor predeterminado |
 | -- | ------------- |
@@ -355,7 +390,7 @@ Los siguientes son los identificadores de un [control de pantalla de verificaci�
 |verification_control_but_verify_code |Verifique el código |
 |verification_control_code_sent| Se ha enviado el código de verificación. Cópielo en el siguiente cuadro de entrada de texto. |
 
-### <a name="verification-display-control-example"></a>Ejemplo de control de pantalla de verificación
+### <a name="verification-display-control-example-deprecated"></a>Ejemplo de control de pantalla de verificación (en desuso)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -468,8 +503,8 @@ Los siguientes son los identificadores de los mensajes de error de un [perfil t�
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015931"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166189"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Novedades de Text Analytics API
 
@@ -25,6 +25,7 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
 
 * Compatibilidad del hindi para Análisis de sentimiento v3.x, a partir de la versión del modelo `2020-04-01`. 
 * Versión de modelo `2020-09-01` para el punto de conexión /languages v3, que agrega mejoras de precisión y detección de idiomas.
+* Disponibilidad de v3 en Centro de la India y Norte de Emiratos Árabes Unidos.
 
 ## <a name="september-2020"></a>Septiembre de 2020
 
@@ -41,7 +42,7 @@ Text Analytics API se actualiza constantemente. Para mantenerse al día con los 
 > [!div class="nextstepaction"]
 > [Más información sobre de Text Analytics API v3.1-preview.2](quickstarts/text-analytics-sdk.md)
 
-### <a name="text-analytics-for-health-container-updates"></a>Text Analytics for health container updates
+### <a name="text-analytics-for-health-container-updates"></a>Actualizaciones de Text Analytics para el contenedor de estado
 
 Las siguientes actualizaciones son específicas de la versión de septiembre de Text Analytics para el contenedor de estado únicamente.
 * Se ha publicado una nueva imagen de contenedor con la etiqueta `1.1.013530001-amd64-preview` con la nueva versión de modelo `2020-09-03` en el repositorio containerpreview. 
@@ -60,7 +61,7 @@ Las siguientes actualizaciones son específicas de la versión de septiembre de 
 * Ahora se devolverá un error HTTP 400 para las solicitudes de API v3 que superen los [límites de datos](concepts/data-limits.md) publicados. 
 * Los puntos de conexión que devuelven un desplazamiento ya admiten el parámetro opcional `stringIndexType`, que ajusta los valores devueltos `offset` y `length` para que coincidan con un [esquema de índice de cadena](concepts/text-offsets.md) compatible.
 
-### <a name="text-analytics-for-health-container-updates"></a>Text Analytics for health container updates
+### <a name="text-analytics-for-health-container-updates"></a>Actualizaciones de Text Analytics para el contenedor de estado
 
 Las siguientes actualizaciones son específicas de la versión de agosto de Text Analytics para el contenedor de estado únicamente.
 

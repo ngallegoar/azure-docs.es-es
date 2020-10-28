@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 76cc09ab5283e10e8f25af3aba4278ec6cca4838
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 550097272f90a2f7fa06af7f06810fd3fa0ed94f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333280"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173892"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Inicio rápido: Empiece a supervisar su aplicación web creada con Node.js con Azure Application Insights
 
@@ -31,7 +31,7 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights**.
+2. Seleccione **Crear un recurso** > **Herramientas de desarrollo** > **Application Insights** .
 
    ![Incorporación de un recurso de Azure Application Insights](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
@@ -46,7 +46,7 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
    | **Grupo de recursos**     | myResourceGroup      | Nombre del nuevo grupo de recursos que hospedará los datos de AppInsights. puede crear un grupo de recursos o use uno existente. |
    | **Ubicación** | Este de EE. UU. | Elija una ubicación cerca de usted o de donde se hospeda la aplicación |
 
-3. Seleccione **Crear**.
+3. Seleccione **Crear** .
 
 ## <a name="configure-appinsights-sdk"></a>Configuración del SDK de AppInsights
 
@@ -60,7 +60,7 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
    npm install applicationinsights --save
    ```
 
-3. Edite el primer archivo *.js* de la aplicación y agregue las dos líneas siguientes al principio del script. Si usa la [aplicación del inicio rápido de Node.js](../../app-service/quickstart-nodejs.md), se modificará el archivo *index.js*. Reemplace `<instrumentation_key>` por la clave de instrumentación de la aplicación. 
+3. Edite el primer archivo *.js* de la aplicación y agregue las dos líneas siguientes al principio del script. Si usa la [aplicación del inicio rápido de Node.js](../../app-service/quickstart-nodejs.md), se modificará el archivo *index.js* . Reemplace `<instrumentation_key>` por la clave de instrumentación de Application Insights. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -82,7 +82,7 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
 
    ![Mapa de aplicación de Application Insights](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Seleccione el icono **App Analytics**![icono de Mapa de Aplicación](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Ver en Analytics**.  Esta acción abre **Application Insights Analytics**, que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
+3. Seleccione el icono **App Analytics**![icono de Mapa de Aplicación](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Ver en Analytics** .  Esta acción abre **Application Insights Analytics** , que proporciona un lenguaje de consulta avanzado para analizar todos los datos recopilados por Application Insights. En este caso, se genera una consulta que representa el número de solicitudes en un gráfico. Puede escribir sus propias consultas para analizar otros datos.
 
    ![Gráficos de análisis de Application Insights](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
@@ -90,7 +90,7 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
 
    ![Gráficos de escala de tiempo de información general del estado de Application Insights](./media/nodejs-quick-start/azure-app-insights-health-overview.png)
 
-   Para habilitar el gráfico **Tiempo de carga de la vista de página** que se rellenará con los datos de **Telemetría del lado cliente**, agregue este script para cada página de las que desee realizar el seguimiento:
+   Para habilitar el gráfico **Tiempo de carga de la vista de página** que se rellenará con los datos de **Telemetría del lado cliente** , agregue este script para cada página de las que desee realizar el seguimiento:
 
    ```HTML
    <!-- 
@@ -112,7 +112,7 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
    </script>
    ```
 
-5. En el lado izquierdo, seleccione **Métrica**. Utilice el Explorador de métricas para investigar el estado y la utilización del recurso. Puede seleccionar **Agregar nuevo gráfico** para crear vistas personalizadas adicionales o seleccionar **Editar** para modificar los tipos de gráfico existentes, el alto, la paleta de colores, las agrupaciones o las métricas. Por ejemplo, puede hacer un gráfico que muestre el tiempo de carga de páginas promedio del explorador si selecciona "Tiempo de carga de páginas del explorador" en la lista desplegable de las métricas y "Promedio" en la agregación. Para más información acerca del Explorador de métricas de Azure, consulte [Introducción al Explorador de métricas de Azure](../platform/metrics-getting-started.md).
+5. En el lado izquierdo, seleccione **Métrica** . Utilice el Explorador de métricas para investigar el estado y la utilización del recurso. Puede seleccionar **Agregar nuevo gráfico** para crear vistas personalizadas adicionales o seleccionar **Editar** para modificar los tipos de gráfico existentes, el alto, la paleta de colores, las agrupaciones o las métricas. Por ejemplo, puede hacer un gráfico que muestre el tiempo de carga de páginas promedio del explorador si selecciona "Tiempo de carga de páginas del explorador" en la lista desplegable de las métricas y "Promedio" en la agregación. Para más información acerca del Explorador de métricas de Azure, consulte [Introducción al Explorador de métricas de Azure](../platform/metrics-getting-started.md).
 
    ![Gráficos de métricas del servidor de Application Insights](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
@@ -125,8 +125,8 @@ Cuando haya finalizado las pruebas, puede eliminar el grupo de recursos y todos 
 > [!NOTE]
 > Si ha usado un grupo de recursos existente, las instrucciones siguientes no funcionarán y solo necesitará eliminar el recurso individual de Application Insights. Tenga esto en cuenta que cada vez que se elimina un grupo de recursos, se eliminarán todos los recursos de subyacente que sean miembros de ese grupo.
 
-1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y **myResourceGroup**.
-2. En la página del grupo de recursos, seleccione **Eliminar**, escriba **myResourceGroup** en el cuadro de texto y, después, seleccione **Eliminar**.
+1. En el menú izquierdo de Azure Portal, seleccione **Grupos de recursos** y **myResourceGroup** .
+2. En la página del grupo de recursos, seleccione **Eliminar** , escriba **myResourceGroup** en el cuadro de texto y, después, seleccione **Eliminar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

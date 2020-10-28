@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628049"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165339"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparación de los datos para Habla personalizada
 
@@ -59,7 +59,7 @@ Los archivos deben agruparse por tipo en un conjunto de datos y cargarse como ar
 
 Para cargar los datos, navegue al portal de <a href="https://speech.microsoft.com/customspeech" target="_blank">Habla personalizada <span class="docon docon-navigate-external x-hidden-focus"></span></a>. En el portal, haga clic en **Cargar datos** para iniciar el asistente y crear el primer conjunto de datos. Se le pedirá que seleccione un tipo de datos de voz para el conjunto de datos, antes de permitirle cargar los datos.
 
-![Selección del audio desde el portal de Voz](./media/custom-speech/custom-speech-select-audio.png)
+![Captura de pantalla que resalta la opción de carga de audio desde el portal de Voz.](./media/custom-speech/custom-speech-select-audio.png)
 
 Cada conjunto de datos que cargue debe cumplir los requisitos del tipo de datos elegido. Los datos deben tener el formato correcto para poder cargarse. Los datos con el formato correcto garantizan que el servicio Habla personalizada procesará los datos con precisión. Los requisitos se muestran en las secciones siguientes.
 

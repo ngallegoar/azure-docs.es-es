@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317334"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127240"
 ---
 # <a name="storage-configuration"></a>Configuración de almacenamiento
 
@@ -124,8 +124,8 @@ La selección de la clase de almacenamiento correcta es muy importante para el r
 
 Por lo general, hay dos tipos de almacenamiento:
 
-- **Almacenamiento local**: almacenamiento que se aprovisiona en las unidades de disco duro local de un nodo determinado. Este tipo de almacenamiento puede ser idóneo en términos de rendimiento, pero requiere un diseño específico para la redundancia de datos mediante la replicación de los datos en varios nodos.
-- **Almacenamiento remoto compartido**: almacenamiento que se aprovisiona en algún dispositivo de almacenamiento remoto (por ejemplo, un dispositivo SAN, NAS o un servicio de almacenamiento en la nube como EBS o Azure Files). Normalmente, este tipo de almacenamiento proporciona redundancia de datos automáticamente, pero generalmente no es tan rápido como puede ser el almacenamiento local.
+- **Almacenamiento local** : almacenamiento que se aprovisiona en las unidades de disco duro local de un nodo determinado. Este tipo de almacenamiento puede ser idóneo en términos de rendimiento, pero requiere un diseño específico para la redundancia de datos mediante la replicación de los datos en varios nodos.
+- **Almacenamiento remoto compartido** : almacenamiento que se aprovisiona en algún dispositivo de almacenamiento remoto (por ejemplo, un dispositivo SAN, NAS o un servicio de almacenamiento en la nube como EBS o Azure Files). Normalmente, este tipo de almacenamiento proporciona redundancia de datos automáticamente, pero generalmente no es tan rápido como puede ser el almacenamiento local.
 
 > [!NOTE]
 > Por ahora, si usa NFS, debe establecer allowRunAsRoot en true en el archivo del perfil de implementación antes de implementar el controlador de datos de Azure Arc.
@@ -238,6 +238,6 @@ En el caso de los servicios de Kubernetes administrado basados en la nube públi
 
 |Servicio en la nube pública|Recomendación|
 |---|---|
-|**Azure Kubernetes Service (AKS)**|Azure Kubernetes Service (AKS) tiene dos tipos de almacenamiento: Azure Files y Azure Disks. Cada tipo de almacenamiento tiene dos niveles de precios y rendimiento: Estándar (HDD) y Premium (SSD). Por lo tanto, las cuatro clases de almacenamiento proporcionadas en AKS son `azurefile` (nivel Estándar de Azure Files), `azurefile-premium` (nivel Premium de Azure Files), `default` (nivel Estándar de Azure Disks) y `managed-premium` (nivel Premium de Azure Disks). La clase de almacenamiento predeterminada es `default` (nivel Estándar de Azure Disks). Hay **[diferencias de precios](https://azure.microsoft.com/en-us/pricing/details/storage/)** importantes entre los tipos y los niveles que se deben tener en cuenta en la decisión. En el caso de cargas de trabajo de producción con requisitos de alto rendimiento, se recomienda usar `managed-premium` para todas las clases de almacenamiento. En el caso de cargas de trabajo de desarrollo y pruebas, pruebas de concepto, etc., donde el costo es una consideración, `azurefile` es la opción menos costosa. Las cuatro opciones se pueden usar en situaciones que requieran almacenamiento remoto compartido, ya que todas utilizan dispositivos de almacenamiento conectados a la red de Azure. Más información sobre [Almacenamiento en AKS](../../aks/concepts-storage.md).|
+|**Azure Kubernetes Service (AKS)**|Azure Kubernetes Service (AKS) tiene dos tipos de almacenamiento: Azure Files y Azure Managed Disks. Cada tipo de almacenamiento tiene dos niveles de precios y rendimiento: Estándar (HDD) y Premium (SSD). Por lo tanto, las cuatro clases de almacenamiento proporcionadas en AKS son `azurefile` (nivel Estándar de Azure Files), `azurefile-premium` (nivel Premium de Azure Files), `default` (nivel Estándar de Azure Disks) y `managed-premium` (nivel Premium de Azure Disks). La clase de almacenamiento predeterminada es `default` (nivel Estándar de Azure Disks). Hay **[diferencias de precios](https://azure.microsoft.com/en-us/pricing/details/storage/)** importantes entre los tipos y los niveles que se deben tener en cuenta en la decisión. En el caso de cargas de trabajo de producción con requisitos de alto rendimiento, se recomienda usar `managed-premium` para todas las clases de almacenamiento. En el caso de cargas de trabajo de desarrollo y pruebas, pruebas de concepto, etc., donde el costo es una consideración, `azurefile` es la opción menos costosa. Las cuatro opciones se pueden usar en situaciones que requieran almacenamiento remoto compartido, ya que todas utilizan dispositivos de almacenamiento conectados a la red de Azure. Más información sobre [Almacenamiento en AKS](../../aks/concepts-storage.md).|
 |**AWS Elastic Kubernetes Service (EKS)**| Elastic Kubernetes Service de Amazon tiene una clase de almacenamiento principal basada en el [controlador de almacenamiento CSI EBS](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Se recomienda para las cargas de trabajo de producción. Hay un nuevo controlador de almacenamiento, el [controlador de almacenamiento CSI EFS](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html), que se puede agregar a un clúster de EKS, pero actualmente se encuentra en una fase beta y está sujeto a cambios. Aunque AWS indica que este controlador de almacenamiento se admite para producción, no se recomienda usarlo porque todavía está en versión beta y está sujeto a cambios. La clase de almacenamiento EBS es el valor predeterminado y se llama `gp2`. Más información sobre [Almacenamiento en EKS](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html).|
 |**Google Kubernetes Engine (GKE)**|Google Kubernetes Engine (GKE) tiene solo una clase de almacenamiento llamada `standard` que se usa para [discos persistentes GCE](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Al ser la única, también es la predeterminada. Aunque hay un [aprovisionador de volúmenes estáticos locales](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) para GKE que puede usar con discos SSD con conexión directa, no es recomendable usarlo, ya que Google no lo mantiene ni presta servicio técnico. Más información sobre [Almacenamiento en GKE](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).

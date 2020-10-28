@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c659af83034a2406449e586723341e1ae535934f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5927e19dfb6864d7edcde9dceadfd744d7ddbf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525428"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126625"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integración de Azure Active Directory con Small Improvements
 
@@ -41,7 +41,7 @@ Para configurar la integración de Azure AD con Small Improvements, necesita los
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Small Improvements admite el inicio de sesión único iniciado por **SP**.
+* Small Improvements admite el inicio de sesión único iniciado por **SP** .
 
 ## <a name="adding-small-improvements-from-the-gallery"></a>Adición de Small Improvements desde la galería
 
@@ -49,11 +49,11 @@ Para configurar la integración de Small Improvements en Azure AD, deberá agreg
 
 **Para agregar Small Improvements desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar la integración de Small Improvements en Azure AD, deberá agreg
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Small Improvements**, seleccione **Small Improvements** en el panel de resultados y, luego, haga clic en **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Small Improvements** , seleccione **Small Improvements** en el panel de resultados y, luego, haga clic en **Agregar** para agregar la aplicación.
 
      ![Small Improvements en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Small Improvements con un usuario de prueba llamado **Britta Simon**.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Small Improvements con un usuario de prueba llamado **Britta Simon** .
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Small Improvements.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Small Improvements, es preciso completar los siguientes bloques de creación:
@@ -85,30 +85,30 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Small Improvements, realice los siguientes pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Small Improvements**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Small Improvements** , seleccione **Inicio de sesión único** .
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML** , siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Small Improvements](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.small-improvements.com`
+    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.small-improvements.com`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte al cliente de Small Improvements](mailto:support@small-improvements.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -128,15 +128,15 @@ Para configurar el inicio de sesión único de Azure AD con Small Improvements, 
 
 1. En la página principal del panel, haga clic en el botón **Administration** (Administración) a la izquierda.
 
-    ![Configurar inicio de sesión único](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
+    ![Captura de pantalla que muestra el botón de administración seleccionado.](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
-1. Haga clic en el botón **Inicio de sesión único de SAML** de la sección **Integraciones**.
+1. Haga clic en el botón **Inicio de sesión único de SAML** de la sección **Integraciones** .
 
-    ![Configurar inicio de sesión único](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
+    ![Captura de pantalla que muestra el icono de inicio de sesión único de SAML seleccionado en la sección de integraciones.](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
 1. En la página Configuración de SSO, realice los pasos siguientes:
 
-    ![Configurar inicio de sesión único](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
+    ![Captura de pantalla que muestra la página de configuración del inicio de sesión único, donde puede especificar los valores descritos.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. En el cuadro de texto **SAML Endpoint** (Punto de conexión SAML), pegue el valor de la **Login URL** (Dirección URL de inicio de sesión) que ha copiado de Azure Portal.
 
@@ -146,13 +146,13 @@ Para configurar el inicio de sesión único de Azure AD con Small Improvements, 
 
     d. Escriba el valor adecuado para asignar un nombre al botón de inicio de sesión SSO en el cuadro de texto **Mensaje SAML** .  
 
-    e. Haga clic en **Save**(Guardar).
+    e. Haga clic en **Save** (Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -164,40 +164,40 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon** .
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario** , escriba **brittasimon@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, concederá acceso a Britta Simon a Small Improvements para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **Small Improvements**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y, luego, **Small Improvements** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Small Improvements**.
+2. En la lista de aplicaciones, seleccione **Small Improvements** .
 
     ![Vínculo de Small Improvements en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ### <a name="create-small-improvements-test-user"></a>Creación de un usuario de prueba de Small Improvements
 
@@ -207,29 +207,29 @@ Para permitir que los usuarios de Azure AD inicien sesión en Small Improvements
 
 1. Inicie sesión en su sitio de la empresa de Small Improvements como administrador.
 
-1. En la página principal, vaya al menú de la izquierda y haga clic en **Administración**.
+1. En la página principal, vaya al menú de la izquierda y haga clic en **Administración** .
 
 1. Haga clic en el botón **User Directory** (Directorio del usuario) en la sección Administración de usuarios.
 
-    ![Creación de un usuario de prueba de Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![Captura de pantalla que muestra la opción de directorio del usuario seleccionada en la información general de administración.](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
-1. Haga clic en **Agregar usuarios**.
+1. Haga clic en **Agregar usuarios** .
 
-    ![Creación de un usuario de prueba de Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![Captura de pantalla que muestra el botón para agregar usuarios.](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
-1. En el cuadro de diálogo **Agregar usuarios**, realice los pasos siguientes: 
+1. En el cuadro de diálogo **Agregar usuarios** , realice los pasos siguientes: 
 
-    ![Creación de un usuario de prueba de Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo para agregar usuarios, donde puede especificar los valores que se han indicado.](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
-    a. Escriba el **nombre** de usuario, en este caso **Britta**.
+    a. Escriba el **nombre** de usuario, en este caso **Britta** .
 
-    b. Escriba los **apellidos** del usuario, en este caso **Simon**.
+    b. Escriba los **apellidos** del usuario, en este caso **Simon** .
 
     c. Escriba la dirección de **correo electrónico** del usuario como **brittasimon@contoso.com** .
 
     d. También puede escribir el mensaje personal en el cuadro **Enviar correo electrónico de notificación** . Si no desea enviar la notificación, desactive esta casilla.
 
-    e. Haga clic en **Crear usuarios**.
+    e. Haga clic en **Crear usuarios** .
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
 

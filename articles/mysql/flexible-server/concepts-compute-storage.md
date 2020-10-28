@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708686"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315169"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opciones de proceso y almacenamiento de Azure Database for MySQL: servidor flexible (versión preliminar)
 
@@ -49,25 +49,25 @@ Las especificaciones detalladas de los tipos de servidores disponibles son las s
 | Tamaño de proceso         | Núcleos virtuales | Tamaño de memoria (GiB) | 
 |----------------------|--------|-------------------|
 | **Flexible**        |        |                   | 
-| B1s                  | 1      | 1                 |  
-| B1ms                 | 1      | 2                 | 
-| B2s                  | 2      | 4                 |  
+| Standard_B1s         | 1      | 1                 |  
+| Standard_B1ms        | 1      | 2                 | 
+| Standard_B2s         | 2      | 4                 |  
 | **Uso general**  |        |                   | 
-| D2ds_v4              | 2      | 8                 |  
-| D4ds_v4              | 4      | 16                | 
-| D8ds_v4              | 8      | 32                | 
-| D16ds_v4             | 16     | 64                | 
-| D32ds_v4             | 32     | 128               |  
-| D48ds_v4             | 48     | 192               |  
-| D64ds_v4             | 64     | 256               | 
+| Standard_D2ds_v4     | 2      | 8                 |  
+| Standard_D4ds_v4     | 4      | 16                | 
+| Standard_D8ds_v4     | 8      | 32                | 
+| Standard_D16ds_v4    | 16     | 64                | 
+| Standard_D32ds_v4    | 32     | 128               |  
+| Standard_D48ds_v4    | 48     | 192               |  
+| Standard_D64ds_v4    | 64     | 256               | 
 | **Memoria optimizada** |        |                   |
-| E2ds_v4              | 2      | 16                |
-| E4ds_v4              | 4      | 32                |
-| E8ds_v4              | 8      | 64                |
-| E16ds_v4             | 16     | 128               |
-| E32ds_v4             | 32     | 256               |
-| E48ds_v4             | 48     | 384               |
-| E64ds_v4             | 64     | 504               |
+| Standard_E2ds_v4     | 2      | 16                |
+| Standard_E4ds_v4     | 4      | 32                |
+| Standard_E8ds_v4     | 8      | 64                |
+| Standard_E16ds_v4    | 16     | 128               |
+| Standard_E32ds_v4    | 32     | 256               |
+| Standard_E48ds_v4    | 48     | 384               |
+| Standard_E64ds_v4    | 64     | 504               |
 
 Para obtener más detalles acerca de la serie de proceso disponible, consulte la documentación de la máquina virtual de Azure para [Flexible (serie B)](../../virtual-machines/sizes-b-series-burstable.md), [De uso general (serie Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md) y [Optimizada para memoria (serie Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -110,25 +110,25 @@ Para obtener más información sobre el número máximo de IOPS efectivo por tam
 | Tamaño de proceso         | Número máximo de IOPS efectivo  | 
 |----------------------|---------------------|
 | **Flexible**        |                     |
-| B1s                  | 320                 |
-| B1ms                 | 640                 |
-| B2s                  | 1280                | 
+| Standard_B1s         | 320                 |
+| Standard_B1ms        | 640                 |
+| Standard_B2s         | 1280                | 
 | **Uso general**  |                     |
-| D2ds_v4              | 3200                |
-| D4ds_v4              | 6400                |
-| D8ds_v4              | 12800               |
-| D16ds_v4             | 20000               |
-| D32ds_v4             | 20000               |
-| D48ds_v4             | 20000               | 
-| D64ds_v4             | 20000               | 
+| Standard_D2ds_v4     | 3200                |
+| Standard_D4ds_v4     | 6400                |
+| Standard_D8ds_v4     | 12800               |
+| Standard_D16ds_v4    | 20000               |
+| Standard_D32ds_v4    | 20000               |
+| Standard_D48ds_v4    | 20000               | 
+| Standard_D64ds_v4    | 20000               | 
 | **Memoria optimizada** |                     | 
-| E2ds_v4              | 3200                | 
-| E4ds_v4              | 6400                | 
-| E8ds_v4              | 12800               | 
-| E16ds_v4             | 20000               | 
-| E32ds_v4             | 20000               | 
-| E48ds_v4             | 20000               | 
-| E64ds_v4             | 20000               |  
+| Standard_E2ds_v4     | 3200                | 
+| Standard_E4ds_v4     | 6400                | 
+| Standard_ E8ds_v4    | 12800               | 
+| Standard_ E16ds_v4   | 20000               | 
+| Standard_E32ds_v4    | 20000               | 
+| Standard_E48ds_v4    | 20000               | 
+| Standard_E64ds_v4    | 20000               |  
 
 El número máximo efectivo de IOPS depende del número máximo de IOPS disponible por tamaño de proceso. Vea la fórmula siguiente y consulte la columna *Rendimiento máximo del disco sin almacenamiento en la caché: IOPS/MBps* en la documentación de la [serie B](../../virtual-machines/sizes-b-series-burstable.md), [serie Ddsv4](../../virtual-machines/ddv4-ddsv4-series.md) y [serie Edsv4](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -153,7 +153,7 @@ El escalado del almacenamiento y el cambio del período de retención de la copi
 
 ## <a name="pricing"></a>Precios
 
-Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/MySQL/) del servicio. Para ver el coste de la configuración deseada, en [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) se muestra el coste mensual en la pestaña **Proceso + Almacenamiento** según las opciones que seleccione. Si no tiene una suscripción de Azure, puede usar la calculadora de precios de Azure para obtener un precio estimado. En el sitio web [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/), seleccione **Agregar elementos**, expanda la categoría **Bases de datos** y elija **Azure Database for MySQL** y **Servidor flexible** como tipo de implementación para personalizar las opciones.
+Para conocer la información más actualizada sobre precios, consulte la [página de precios](https://azure.microsoft.com/pricing/details/MySQL/) del servicio. Para ver el coste de la configuración deseada, en [Azure Portal](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) se muestra el coste mensual en la pestaña **Proceso + Almacenamiento** según las opciones que seleccione. Si no tiene una suscripción de Azure, puede usar la calculadora de precios de Azure para obtener un precio estimado. En el sitio web [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/), seleccione **Agregar elementos** , expanda la categoría **Bases de datos** y elija **Azure Database for MySQL** y **Servidor flexible** como tipo de implementación para personalizar las opciones.
 
 Si quiere optimizar el coste del servidor, puede considerar las siguientes sugerencias:
 

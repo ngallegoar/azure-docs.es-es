@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cdf01c9dac3c37b3af7b07adb8d202761e7640
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5c650c2b828e2742df5dd92657003460bcda66a0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258649"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145114"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Instrucciones: Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo puede configurar directivas de acceso condici
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-El uso obligatorio de dispositivos administrados para acceder a las aplicaciones en la nube vincula el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD**. Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
+El uso obligatorio de dispositivos administrados para acceder a las aplicaciones en la nube vincula el **acceso condicional de Azure AD** y la **administración de dispositivos de Azure AD** . Si no está familiarizado con ninguna de estas áreas, debería leer los siguientes temas en primer lugar:
 
 - **[Acceso condicional en Azure Active Directory](./overview.md)** : en este artículo se proporciona información general conceptual sobre el acceso condicional y la terminología relacionada.
 - **[Introducción a la administración de dispositivos en Azure Active Directory](../devices/overview.md)** : en este artículo se proporciona información general de las diversas opciones que tiene para mantener los dispositivos bajo el control de la organización. 
@@ -54,13 +54,13 @@ En otras palabras, los dispositivos administrados son dispositivos que están ba
 
 Para registrar un dispositivo en Azure AD, tiene tres opciones: 
 
-- **Dispositivos registrados en Azure AD**: para registrar un dispositivo personal en Azure AD.
-- **Dispositivos unidos a Azure AD**: para registrar en Azure AD un dispositivo Windows 10 de la organización que no se haya unido a una instancia local de AD. 
-- **Dispositivos unidos a Azure AD híbrido**: para registrar en Azure AD un dispositivo Windows 10 o de nivel inferior compatible que esté unido a una instancia de AD local registrada.
+- **Dispositivos registrados en Azure AD** : para registrar un dispositivo personal en Azure AD.
+- **Dispositivos unidos a Azure AD** : para registrar en Azure AD un dispositivo Windows 10 de la organización que no se haya unido a una instancia local de AD. 
+- **Dispositivos unidos a Azure AD híbrido** : para registrar en Azure AD un dispositivo Windows 10 o de nivel inferior compatible que esté unido a una instancia de AD local registrada.
 
 Estas tres opciones se describen en el artículo [¿Qué es la identidad de dispositivos?](../devices/overview.md)
 
-Para convertirse en dispositivo administrado, un dispositivo registrado debe ser un **dispositivo unido a Azure AD híbrido** o un **dispositivo que se ha marcado como compatible**.  
+Para convertirse en dispositivo administrado, un dispositivo registrado debe ser un **dispositivo unido a Azure AD híbrido** o un **dispositivo que se ha marcado como compatible** .  
 
 ![Condiciones basadas en el dispositivo](./media/require-managed-devices/47.png)
  
@@ -103,19 +103,19 @@ En este escenario, Contoso ha decidido que todos los accesos móviles a los recu
 Las organizaciones deben completar los pasos siguientes en orden para exigir el uso de un dispositivo móvil inscrito.
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
-1. Seleccione **Nueva directiva**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional** .
+1. Seleccione **Nueva directiva** .
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
-1. En **Asignaciones**, seleccione **Usuarios y grupos**.
-   1. En **Incluir**, seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
-   1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Office 365**.
-1. En **Condiciones**, seleccione **Plataformas de dispositivo**.
-   1. Establezca **Configurar** en **Sí**.
-   1. Incluya **Android** e **iOS**.
-1. En **Controles de acceso** > **Conceder**, seleccione las opciones siguientes:
+1. En **Asignaciones** , seleccione **Usuarios y grupos** .
+   1. En **Incluir** , seleccione **Todos los usuarios** o **Usuarios y grupos** específicos a los que desee aplicar esta directiva. 
+   1. Seleccione **Listo** .
+1. En **Aplicaciones en la nube o acciones** > **Incluir** , seleccione **Office 365** .
+1. En **Condiciones** , seleccione **Plataformas de dispositivo** .
+   1. Establezca **Configurar** en **Sí** .
+   1. Incluya **Android** e **iOS** .
+1. En **Controles de acceso** > **Conceder** , seleccione las opciones siguientes:
    - **Requerir que el dispositivo esté marcado como compatible**
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. Confirme la configuración y establezca **Habilitar directiva** en **Activado** .
 1. Seleccione **Crear** para crear y habilitar la directiva.
 
 ### <a name="known-behavior"></a>Comportamiento conocido
@@ -126,4 +126,4 @@ En Windows 7, iOS, Android, macOS y algunos exploradores web de terceros, Azure
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Antes de configurar una directiva de acceso condicional basada en el dispositivo en su entorno, debe echar un vistazo a los [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md).
+[Evalúe el impacto de las directivas de acceso condicional antes de habilitar ampliamente el modo de solo informe](concept-conditional-access-report-only.md).

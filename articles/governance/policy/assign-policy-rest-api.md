@@ -1,14 +1,14 @@
 ---
 title: 'Inicio rápido: Asignación de nuevas directivas con la API REST'
 description: En este inicio rápido, se usa la API REST para crear una asignación de Azure Policy para identificar recursos no compatibles.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 04880ef013060bc5ff12618af6a9156295a26a88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ab05079c5bb319f0808a743a1d668649df51b1b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88137096"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074012"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-rest-api"></a>Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles mediante la API REST
 
@@ -23,7 +23,7 @@ La API REST se usa para crear y administrar los recursos de Azure. En esta guía
 
 - Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-- Si aún no lo ha hecho, instale [ARMClient](https://github.com/projectkudu/ARMClient). Se trata de una herramienta que envía solicitudes HTTP a las API REST basadas en Azure Resource Manager. Como alternativa, puede usar la característica "Pruébelo" de la documentación de REST o herramientas como [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) o [Postman](https://www.postman.com)de PowerShell.
+- Si aún no lo ha hecho, instale [ARMClient](https://github.com/projectkudu/ARMClient). Se trata de una herramienta que envía solicitudes HTTP a las API REST basadas en Azure Resource Manager. También puede usar la característica "Pruébelo" de la documentación de REST o herramientas como [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) o [Postman](https://www.postman.com) de PowerShell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -54,17 +54,17 @@ Ejecute el siguiente comando para crear una asignación de directiva:
 El punto de conexión anterior y el cuerpo de la solicitud usan la siguiente información:
 
 URI de la API REST:
-- **Scope**: un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Podría abarcar desde un grupo de administración a un recurso individual. Asegúrese de reemplazar `{scope}` por uno de los siguientes patrones:
+- **Scope** : un ámbito determina en qué recursos o agrupación de recursos se aplica la asignación de directiva. Podría abarcar desde un grupo de administración a un recurso individual. Asegúrese de reemplazar `{scope}` por uno de los siguientes patrones:
   - Grupo de administración: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
   - Suscripción: `/subscriptions/{subscriptionId}`
   - Grupos de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}`
-- **Nombre**: el nombre real de la asignación. En este ejemplo se usa _audit-vm-manageddisks_.
+- **Nombre** : el nombre real de la asignación. En este ejemplo se usa _audit-vm-manageddisks_ .
 
 Cuerpo de la solicitud:
-- **DisplayName**: nombre para mostrar de la asignación de directiva. En este caso, usará _Auditoría de máquinas virtuales sin discos administrados_.
-- **Description**: una explicación más detallada de lo que hace la directiva o de por qué se asigna a este ámbito.
-- **policyDefinitionId**: identificador de definición de directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Auditoría de máquinas virtuales que no usan discos administrados_.
+- **DisplayName** : nombre para mostrar de la asignación de directiva. En este caso, usará _Auditoría de máquinas virtuales sin discos administrados_ .
+- **Description** : una explicación más detallada de lo que hace la directiva o de por qué se asigna a este ámbito.
+- **policyDefinitionId** : identificador de definición de directiva, según la opción utilizada para crear la asignación. En este caso, es el identificador de la definición de directiva _Auditoría de máquinas virtuales que no usan discos administrados_ .
 
 ## <a name="identify-non-compliant-resources"></a>Identificación de recursos sin compatibilidad
 
@@ -100,7 +100,7 @@ Los resultados deben tener una apariencia similar al ejemplo siguiente:
 }
 ```
 
-Son comparables a lo que normalmente vería en **Recursos no compatibles**, en la vista de Azure Portal.
+Son comparables a lo que normalmente vería en **Recursos no compatibles** , en la vista de Azure Portal.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

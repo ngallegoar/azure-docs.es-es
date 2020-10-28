@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c580e44cc827de46c7464ba5f316e6c515de2940
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b3dc49e3e2d8492882507918a59edb0b9da41fcf
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977993"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167260"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Agrupación de una instancia de ASCS/SCS de SAP en un clúster de conmutación por error de Windows con un disco compartido de clúster en Azure
 
@@ -49,6 +49,9 @@ La plataforma en la nube de Azure no ofrece la opción de configurar direcciones
 El servicio Azure Load Balancer proporciona un *equilibrador de carga interno* para Azure. Con el equilibrador de carga interno, los clientes se comunican con el clúster a través de la dirección IP virtual del clúster. 
 
 Implemente el equilibrador de carga interno en el grupo de recursos que contiene los nodos del clúster. A continuación, configure todas las reglas de reenvío de puertos necesarias utilizando los puertos de sondeo del equilibrador de carga interno. Los clientes se pueden conectar por medio del nombre de host virtual. El servidor DNS resuelve la dirección IP del clúster y el equilibrador de carga interno controla el enrutamiento de puerto al nodo activo del clúster.
+
+> [!IMPORTANT]
+> La dirección IP flotante no se admite en una configuración de IP secundaria de NIC para los escenarios de equilibrio de carga. Para obtener más información, consulte [Limitaciones de Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Si necesita una dirección IP adicional para la VM, implemente una segunda NIC.  
 
 ![Figura 1: Configuración de clústeres de conmutación por error de Windows en Azure sin un disco compartido][sap-ha-guide-figure-1001]
 
@@ -145,9 +148,9 @@ Microsoft ofrece [discos compartidos de Azure](../../windows/disks-shared.md), q
 
 De momento, puede usar discos SSD Premium de Azure como un disco compartido de Azure para la instancia de ASCS/SCS de SAP. Actualmente están en vigor las siguientes limitaciones:
 
--  [Disco Ultra de Azure](../../disks-types.md#ultra-disk) no se admite como disco compartido de Azure para cargas de trabajo de SAP. Actualmente no es posible colocar máquinas virtuales de Azure mediante un disco Ultra de Azure en un conjunto de disponibilidad.
--  [Disco compartido de Azure](../../windows/disks-shared.md) con discos SSD Premium solamente se admite con máquinas virtuales en un conjunto de disponibilidad. No se admite en implementaciones de zonas de disponibilidad. 
--  El valor de disco compartido de Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determina cuántos nodos de clúster puede usar el disco compartido. Normalmente, en la instancia de ASCS/SCS de SAP se configuran dos nodos en el clúster de conmutación por error de Windows y, por tanto, el valor de `maxShares` tiene que establecerse en dos.
+-  [Disco Ultra de Azure](../../disks-types.md#ultra-disk) no se admite como disco compartido de Azure para cargas de trabajo de SAP. Actualmente no es posible colocar máquinas virtuales de Azure, con disco Ultra de Azure, en el conjunto de disponibilidad.
+-  El [disco compartido de Azure](../../windows/disks-shared.md) con discos SSD Premium solo se admite con máquinas virtuales en el conjunto de disponibilidad. No se admite en la implementación de Availability Zones. 
+-  El valor de disco compartido de Azure [maxShares](../../disks-shared-enable.md?tabs=azure-cli#disk-sizes) determina cuántos nodos de clúster pueden usar el disco compartido. Normalmente, para la instancia de ASCS/SCS de SAP, se configuran dos nodos en el clúster de conmutación por error de Windows, por lo que el valor de `maxShares` debe establecerse en dos.
 -  Todas las máquinas virtuales del clúster de ASCS/SCS de SAP tienen que implementarse en el mismo [grupo de selección de ubicación de proximidad de Azure](../../windows/proximity-placement-groups.md).   
    Aunque puede implementar máquinas virtuales del clúster de Windows en un conjunto de disponibilidad con disco compartido de Azure sin grupo de selección de ubicación de proximidad, este garantiza la proximidad física de los discos compartidos de Azure y las máquinas virtuales del clúster, con lo que se consigue una menor latencia entre las VM y la capa de almacenamiento.    
 
@@ -163,10 +166,10 @@ Para obtener más detalles sobre las limitaciones del disco compartido de Azure,
 
 Se admiten Windows Server 2016 y 2019 (use las imágenes más recientes del centro de datos).
 
-Se recomienda encarecidamente el uso del **centro de datos de Windows Server 2019**, ya que:
-- El servicio de clúster de conmutación por error de Windows 2019 reconoce Azure.
-- Se han incorporado integración y reconocimiento del mantenimiento del host de Azure y se ha mejorado la experiencia mediante la supervisión de eventos de programación de Azure.
-- Es posible usar el nombre de red distribuida (es la opción predeterminada). Por tanto, no hay necesidad de tener una dirección IP dedicada para el nombre de red del clúster. Tampoco existe la necesidad de configurar esta dirección IP en el equilibrador de carga interno de Azure. 
+Se recomienda encarecidamente el uso del **centro de datos de Windows Server 2019** , ya que:
+- El servicio de clúster de conmutación por error de Windows 2019 reconoce a Azure.
+- Se ha agregado la integración y el reconocimiento del mantenimiento del host de Azure y se ha mejorado la experiencia mediante la supervisión de eventos de programación de Azure.
+- Es posible usar el nombre de red distribuida (es la opción predeterminada). Por lo tanto, no es necesario tener una dirección IP dedicada para el nombre de red del clúster. Tampoco existe la necesidad de configurar esta dirección IP en el equilibrador de carga interno de Azure. 
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Discos compartidos en Azure con SIOS DataKeeper
 

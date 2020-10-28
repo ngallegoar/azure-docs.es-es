@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 50dd6038a8642f13cea7840fff723a5cf12ce2dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80999785"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165679"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Creación de una aplicación de análisis en tienda en Azure IoT Central
 
@@ -68,16 +68,16 @@ Para crear una nueva aplicación de análisis en tienda de finalización de la c
 
 1. Seleccione la plantilla de aplicación **In-store analytics - checkout** (Análisis en tienda: finalización de la compra). Esta plantilla incluye plantillas de dispositivo para todos los dispositivos usados en el tutorial, excepto los sensores RuuviTag. La plantilla también proporciona un panel del operador para la supervisión de la zona de cajas, las condiciones ambientales y el estado del dispositivo. 
 
-1. Opcionalmente, elija un valor descriptivo para **Application name** (Nombre de la aplicación). Esta aplicación se basa en una tienda al por menor ficticia llamada Contoso. El tutorial usa el **Nombre de aplicación** *Contoso checkout*. La plantilla de la aplicación se basa en la compañía ficticia Northwind. En este tutorial, usará Contoso para aprender a personalizar la aplicación.
+1. Opcionalmente, elija un valor descriptivo para **Application name** (Nombre de la aplicación). Esta aplicación se basa en una tienda al por menor ficticia llamada Contoso. El tutorial usa el **Nombre de aplicación** *Contoso checkout* . La plantilla de la aplicación se basa en la compañía ficticia Northwind. En este tutorial, usará Contoso para aprender a personalizar la aplicación.
 
     > [!NOTE]
     > Aunque use un **nombre de aplicación** descriptivo, debe usar un valor único para la dirección **URL** de la aplicación.
 
-1. Si tiene una suscripción de Azure, escriba el *directorio, la suscripción de Azure y la región*. Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.  
+1. Si tiene una suscripción de Azure, escriba el *directorio, la suscripción de Azure y la región* . Si no tiene una suscripción, puede activar **7-day free trial** (Evaluación gratuita de 7 días) y completar la información de contacto necesaria.  
 
     Para más información acerca de los directorios y las suscripciones, consulte la [guía de inicio rápido para crear una aplicación](../core/quick-deploy-iot-central.md).
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
     ![Página de creación de una aplicación de Azure IoT Central](./media/tutorial-in-store-analytics-create-app/preview-application-template.png)
 
@@ -95,7 +95,7 @@ Para seleccionar un tema de aplicación predefinido:
 
 2. Seleccione un nuevo **Theme** (Tema).
 
-3. Seleccione **Guardar**.
+3. Seleccione **Guardar** .
 
 En lugar de usar un tema predefinido, puede crear un tema personalizado. Si desea usar un conjunto de imágenes de ejemplo para personalizar la aplicación y completar el tutorial, descargue las [imágenes de ejemplo de Contoso](https://github.com/Azure-Samples/iot-central-docs-samples/tree/master/retail).
 
@@ -111,9 +111,9 @@ Para crear un tema personalizado:
 
 1. Use el botón **Change** (Cambiar) para elegir una imagen para **Browser icon** (Icono del explorador) que aparecerá en las pestañas del explorador.
 
-1. Opcionalmente, reemplace los valores de **Browser colors** (Colores del explorador) mediante la adición de códigos de color HTML en hexadecimal. En **Header** (Encabezado), agregue *#008575*.  En **Accent** (Resaltar), agregue *#A1F3EA*. 
+1. Opcionalmente, reemplace los valores de **Browser colors** (Colores del explorador) mediante la adición de códigos de color HTML en hexadecimal. En **Header** (Encabezado), agregue *#008575* .  En **Accent** (Resaltar), agregue *#A1F3EA* . 
 
-1. Seleccione **Guardar**. 
+1. Seleccione **Guardar** . 
 
     ![Logotipo personalizado de Azure IoT Central](./media/tutorial-in-store-analytics-create-app/select-application-logo.png)
 
@@ -127,7 +127,7 @@ Para actualizar la imagen de la aplicación:
 
 1. Use el botón **Select image** (Seleccionar imagen) para elegir una imagen para cargar como la imagen de la aplicación. Esta imagen aparece en el icono de la aplicación en la página **My Apps** (Mis aplicaciones) del administrador de aplicaciones de IoT Central.
 
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 1. Opcionalmente, vaya a la vista **My Apps** (Mis aplicaciones) del sitio web del [administrador de aplicaciones de Azure IoT Central](https://aka.ms/iotcentral). El icono de la aplicación muestra la imagen de la aplicación actualizada.
 
@@ -148,9 +148,9 @@ Para agregar una plantilla de dispositivo RuuviTag a la aplicación:
 
 1. Seleccione **Siguiente: Customize** (Personalizar)
 
-    ![Plantilla de dispositivo del sensor RuuviTag de Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
+    ![Captura de pantalla que resalta el botón Next: Customize (Siguiente: Personalizar).](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
-1. Seleccione **Crear**. La aplicación agrega la plantilla del dispositivo RuuviTag.
+1. Seleccione **Crear** . La aplicación agrega la plantilla del dispositivo RuuviTag.
 
 1. Seleccione **Device templates** (Plantillas de dispositivo) en el panel izquierdo. En la página se muestran todas las plantillas de dispositivo incluidas en la plantilla de aplicación y la plantilla del dispositivo RuuviTag que acaba de agregar.
 
@@ -185,13 +185,13 @@ En el caso del tipo de telemetría `humidity`, realice los cambios siguientes:
 
 1. Seleccione el control **Expand** (Expandir) para expandir los detalles del esquema de la fila.
 
-1. Actualice el valor de **Display Name** (Nombre para mostrar) de *humedad* a un valor personalizado como *Humedad relativa*.
+1. Actualice el valor de **Display Name** (Nombre para mostrar) de *humedad* a un valor personalizado como *Humedad relativa* .
 
 1. Cambie la opción **Semantic Type** (Tipo de semántica) de *None* (Ninguno) a *Humidity* (Humedad).  Opcionalmente, establezca los valores de esquema para el tipo de telemetría de humedad en la vista de esquema expandida. La configuración de esquema le permite crear requisitos de validación detallados para los datos de los que los sensores realizan un seguimiento. Por ejemplo, puede establecer los valores de intervalo de funcionamiento mínimo y máximo para una interfaz determinada.
 
 1. Haga clic en **Guardar** para guardar los cambios.
 
-    ![Personalización de la plantilla del dispositivo RuuviTag de Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
+    ![Captura de pantalla que muestra la pantalla para personalizar y resalta el botón para guardar.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
 
 Para agregar una propiedad en la nube a una plantilla de dispositivo en la aplicación:
 
@@ -203,17 +203,17 @@ Especifique los siguientes valores para crear una propiedad personalizada para a
 
 1. Escriba el valor *Ubicación* en el campo **Display Name** (Nombre para mostrar). Este valor se copia automáticamente en el campo **Name** (Nombre), que es un nombre descriptivo para la propiedad. Puede usar el valor copiado o cambiarlo.
 
-1. Seleccione *String* (Cadena) en el desplegable **Schema** (Esquema). Un tipo de cadena permite asociar una cadena de nombre de ubicación a cualquier dispositivo basado en la plantilla. Por ejemplo, puede asociar un área de una tienda a cada dispositivo. Opcionalmente, puede establecer el campo **Semantic Type** (Tipo de semántica) de la propiedad en *Location* (Ubicación) y se establece automáticamente **Schema** (Esquema) en *Geopoint*. Esto permite asociar coordenadas GPS a un dispositivo. 
+1. Seleccione *String* (Cadena) en el desplegable **Schema** (Esquema). Un tipo de cadena permite asociar una cadena de nombre de ubicación a cualquier dispositivo basado en la plantilla. Por ejemplo, puede asociar un área de una tienda a cada dispositivo. Opcionalmente, puede establecer el campo **Semantic Type** (Tipo de semántica) de la propiedad en *Location* (Ubicación) y se establece automáticamente **Schema** (Esquema) en *Geopoint* . Esto permite asociar coordenadas GPS a un dispositivo. 
 
-1. Establezca **Minimum Length** (Longitud mínima) en *2*. 
+1. Establezca **Minimum Length** (Longitud mínima) en *2* . 
 
-1. Establezca **Trim Whitespace** (Recortar espacios en blanco) en **On**.
+1. Establezca **Trim Whitespace** (Recortar espacios en blanco) en **On** .
 
 1. Seleccione **Save** (Guardar) para guardar la propiedad en la nube personalizada.
 
     ![Personalización de la plantilla del dispositivo RuuviTag de Azure IoT Central](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-cloud-property.png)
 
-1. Seleccione **Publicar**. 
+1. Seleccione **Publicar** . 
 
     La publicación de una plantilla de dispositivo hace que sea visible para los operadores de la aplicación. Después de publicar una plantilla, úsela para generar dispositivos simulados para realizar pruebas o para conectar dispositivos reales a la aplicación. Si ya tiene dispositivos conectados a la aplicación, al publicar una plantilla personalizada se envían los cambios a los dispositivos.
 
@@ -242,9 +242,9 @@ Para crear una regla:
 
 1. Expanda el panel izquierdo.
 
-1. Seleccione **Reglas**.
+1. Seleccione **Reglas** .
 
-1. Seleccione **+ Nuevo**.
+1. Seleccione **+ Nuevo** .
 
 1. Escriba *Nivel de humedad* como el nombre de la regla. 
 
@@ -254,7 +254,7 @@ Para crear una regla:
 
 1. Elija `Is greater than` para **Operator** (Operador). 
 
-1. Especifique un nivel de humedad interior de un rango superior típico para el entorno como **Value** (Valor). Por ejemplo, escriba *65*. Ha establecido una condición para la regla que se produce cuando la humedad relativa de cualquier sensor RuuviTag real o simulado supera este valor. Es posible que tenga que ajustar el valor hacia arriba o hacia abajo según el intervalo de humedad normal del entorno.  
+1. Especifique un nivel de humedad interior de un rango superior típico para el entorno como **Value** (Valor). Por ejemplo, escriba *65* . Ha establecido una condición para la regla que se produce cuando la humedad relativa de cualquier sensor RuuviTag real o simulado supera este valor. Es posible que tenga que ajustar el valor hacia arriba o hacia abajo según el intervalo de humedad normal del entorno.  
 
    ![Agregar condiciones de regla de Azure IoT Central](./media/tutorial-in-store-analytics-create-app/rules-add-conditions.png)
 

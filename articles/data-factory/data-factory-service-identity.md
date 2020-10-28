@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 7134fc5d591fffdfb9aea13767e597dddc92b038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434952"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123756"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -39,9 +39,9 @@ La identidad administrada de Data Factory ofrece las características siguientes
 
 La identidad administrada de Data Factory se genera de la manera siguiente:
 
-- Cuando se crea una factoría de datos mediante **Azure Portal o PowerShell**, la identidad administrada siempre se crea automáticamente.
-- Cuando se crea una factoría de datos mediante **SDK**, la identidad administrada se crea solo si se especifica "Identity = new FactoryIdentity()" en el objeto de factoría para la creación. Vea el ejemplo que aparece en el [Inicio rápido de .NET: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Cuando se crea una factoría de datos mediante **API de REST**, la identidad administrada solo se crea si se especifica la sección "identity" en el cuerpo de la solicitud. Vea el ejemplo que aparece en el [Inicio rápido de REST: Crear una factoría de datos](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Cuando se crea una factoría de datos mediante **Azure Portal o PowerShell** , la identidad administrada siempre se crea automáticamente.
+- Cuando se crea una factoría de datos mediante **SDK** , la identidad administrada se crea solo si se especifica "Identity = new FactoryIdentity()" en el objeto de factoría para la creación. Vea el ejemplo que aparece en el [Inicio rápido de .NET: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Cuando se crea una factoría de datos mediante **API de REST** , la identidad administrada solo se crea si se especifica la sección "identity" en el cuerpo de la solicitud. Vea el ejemplo que aparece en el [Inicio rápido de REST: Crear una factoría de datos](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 Si observa que la factoría de datos no tiene una identidad administrada asociada tras la instrucción [Recuperar identidad administrada](#retrieve-managed-identity), puede generar una de forma explícita si actualiza la factoría de datos con el iniciador de identidades mediante programación:
 
@@ -57,7 +57,7 @@ Si observa que la factoría de datos no tiene una identidad administrada asociad
 
 ### <a name="generate-managed-identity-using-powershell"></a>Generar identidad administrada con PowerShell
 
-Llame al comando **Set-AzDataFactoryV2** de nuevo para ver cómo los campos "Identity" se van generando:
+Llame al comando **Set-AzDataFactoryV2** y verá cómo se van agregando campos "Identity":
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
@@ -79,7 +79,7 @@ Llame a la siguiente API con la sección "identity" en el cuerpo de la solicitud
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Cuerpo de la solicitud**: agregue "identity": { "type": "SystemAssigned" }.
+**Cuerpo de la solicitud** : agregue "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Respuesta**: la identidad administrada se crea automáticamente y la sección "identity" se rellena en consecuencia.
+**Respuesta** : la identidad administrada se crea automáticamente y la sección "identity" se rellena en consecuencia.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generar identidad administrada con una plantilla de Azure Resource Manager
 
-**Plantilla**: agregue "identity": { "type": "SystemAssigned" }.
+**Plantilla** : agregue "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -201,7 +201,7 @@ Llame a la siguiente API en la solicitud:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Respuesta**: Obtendrá una respuesta como la que se muestra en el siguiente ejemplo. La sección "identity" se rellena en consecuencia.
+**Respuesta** : Obtendrá una respuesta como la que se muestra en el siguiente ejemplo. La sección "identity" se rellena en consecuencia.
 
 ```json
 {

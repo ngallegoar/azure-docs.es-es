@@ -7,21 +7,20 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940776"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125448"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nodos de computación confidencial en Azure Kubernetes Service, versión preliminar pública
 
-La [computación confidencial de Azure](overview.md) permite proteger los datos confidenciales mientras estén en uso. Las infraestructuras subyacentes protegen estos datos no solo de otras aplicaciones, sino también de los administradores y proveedores de servicios en la nube. 
+La [computación confidencial de Azure](overview.md) permite proteger los datos confidenciales mientras estén en uso. Las infraestructuras subyacentes protegen estos datos no solo de otras aplicaciones, sino también de los administradores y proveedores de servicios en la nube, con hardware respaldado por entornos de contenedor de ejecución de confianza.
 
 ## <a name="overview"></a>Información general
 
-Azure Kubernetes Service permite agregar [nodos de computación confidencial de DCsv2](confidential-computing-enclaves.md) en Intel SGX. Estos nodos ejecutan cargas de trabajo confidenciales en un entorno de ejecución de confianza (TEE) basado en hardware. Para ello, permiten que el código de nivel de usuario asigne regiones privadas de la memoria. Estas regiones se denominan enclaves. Los enclaves están diseñados para proteger el código y los datos de los procesos que se ejecutan con privilegios más elevados. El modelo de ejecución de SGX elimina las capas intermedias del sistema operativo invitado y de hipervisor. Esto permite ejecutar aplicaciones de contenedor directamente sobre la CPU sin perder el bloque de memoria especial cifrado. 
-
+Azure Kubernetes Service (AKS) permite agregar [nodos de computación confidencial de DCsv2](confidential-computing-enclaves.md) con tecnología Intel SGX. Estos nodos ejecutan cargas de trabajo confidenciales en un entorno de ejecución de confianza (TEE) basado en hardware. Para ello, permiten que el código de nivel de usuario asigne regiones privadas de la memoria. Estas regiones se denominan enclaves. Los enclaves están diseñados para proteger el código y los datos de los procesos que se ejecutan con privilegios más elevados. El modelo de ejecución de SGX elimina las capas intermedias del sistema operativo invitado, del sistema operativo de host y de hipervisor. El modelo de *ejecución aislada por contenedor basada en hardware* permite que las aplicaciones se ejecuten directamente con la CPU, manteniendo el bloque de memoria especial cifrado. Los nodos de computación confidenciales contribuyen con la posición de seguridad general de las aplicaciones de contenedor en AKS y en gran medida con la estrategia de los contenedores de defensa en profundidad. 
 
 ![Información general del nodo de SGX](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -36,7 +35,7 @@ Azure Kubernetes Service permite agregar [nodos de computación confidencial de 
 - Asistente de atestación fuera del proceso a mediante DaemonSet de AKS
 - Compatibilidad con contenedores Linux mediante los nodos de trabajo de máquina virtual de Ubuntu 18.04 Gen 2
 
-## <a name="aks-provided-daemon-sets"></a>DaemonSet proporcionados por AKS
+## <a name="aks-provided-daemon-sets-addon"></a>Conjuntos de demonio proporcionados por AKS (complemento)
 
 #### <a name="sgx-device-plugin"></a>SGX Device Plugin <a id="sgx-plugin"></a>
 

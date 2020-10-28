@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d2953710c559deb094761410e6d46401e103d8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553298"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108548"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con PureCloud by Genesys
 
@@ -39,7 +39,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* PureCloud by Genesys admite el inicio de sesión único iniciado por **SP e IDP**.
+* PureCloud by Genesys admite el inicio de sesión único iniciado por **SP e IDP** .
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -49,15 +49,15 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de PureCloud by Genesys en Azure AD, deberá agregar PureCloud by Genesys desde la galería a la lista de aplicaciones SaaS administradas. Para ello, siga estos pasos.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) mediante una cuenta profesional o educativa, o bien mediante una cuenta personal de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **PureCloud by Genesys** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **PureCloud by Genesys** en el cuadro de búsqueda.
 1. Seleccione **PureCloud by Genesys** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-purecloud-by-genesys"></a>Configuración y prueba del inicio de sesión único de Azure AD para PureCloud by Genesis
 
-Configure y pruebe el inicio de sesión único de Azure AD con PureCloud by Genesys mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de PureCloud by Genesys.
+Configure y pruebe el inicio de sesión único de Azure AD con PureCloud by Genesys mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de PureCloud by Genesys.
 
 Para configurar y probar el inicio de sesión único de Azure AD con PureCloud by Genesys, es preciso completar los siguientes bloques de creación:
 
@@ -72,15 +72,15 @@ Para configurar y probar el inicio de sesión único de Azure AD con PureCloud 
 
 Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **PureCloud by Genesys**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **PureCloud by Genesys** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , si quiere configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
 
-    a. En el cuadro **Identificador**, escriba una dirección URL que corresponda a su región:
+    a. En el cuadro **Identificador** , escriba una dirección URL que corresponda a su región:
 
     ```http
     https://login.mypurecloud.com/saml
@@ -90,7 +90,7 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
     https://login.mypurecloud.au/saml
     ```
 
-    b. En el cuadro **URL de respuesta**, escriba una dirección URL que corresponda a su región:
+    b. En el cuadro **URL de respuesta** , escriba una dirección URL que corresponda a su región:
 
     ```http
     https://login.mypurecloud.com/saml
@@ -100,9 +100,9 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
     https://login.mypurecloud.com.au/saml
     ```
 
-1. Seleccione **Establecer direcciones URL adicionales** y lleve a cabo el siguiente paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Seleccione **Establecer direcciones URL adicionales** y lleve a cabo el siguiente paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    En el cuadro **URL de inicio de sesión**, escriba una dirección URL que corresponda a su región:
+    En el cuadro **URL de inicio de sesión** , escriba una dirección URL que corresponda a su región:
     
     ```http
     https://login.mypurecloud.com
@@ -123,11 +123,11 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
     | Email | user.userprincipalname |
     | OrganizationName | `Your organization name` |
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar PureCloud by Genesys**, copie las direcciones URL adecuadas según sus requisitos.
+1. En la sección **Configurar PureCloud by Genesys** , copie las direcciones URL adecuadas según sus requisitos.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -135,31 +135,31 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
 En esta sección, creará un usuario de prueba llamado B.Simon en Azure Portal:
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba el nombre de usuario con el siguiente formato: username@companydomain.extension. Por ejemplo: `B.Simon@contoso.com`.
-   1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Seleccione **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba el nombre de usuario con el siguiente formato: username@companydomain.extension. Por ejemplo: `B.Simon@contoso.com`.
+   1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Seleccione **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a B.Simon para que use el inicio de sesión único de Azure concediéndole acceso a PureCloud by Genesys.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **PureCloud by Genesys**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **PureCloud by Genesys** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista de usuarios y, luego, elija el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y elija el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista de usuarios y, luego, elija el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y elija el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-purecloud-by-genesys-sso"></a>Configuración del inicio de sesión único en PureCloud by Genesys
 
@@ -167,11 +167,11 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
 1. Seleccione **Admin** (Administración) en la parte superior y, a continuación, vaya a **Single Sign-On** (Inicio de sesión único) en **Integrations** (Integraciones).
 
-    ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![Captura de pantalla que muestra la ventana de administración de PureCloud, donde puede seleccionar la opción de inicio de sesión único.](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. Cambie a la pestaña **ADFS/Azure AD (Premium)** y, a continuación, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![Captura de pantalla que muestra la página de integraciones, donde puede especificar los valores descritos.](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. Seleccione **Browse** (Examinar) para cargar en **ADFS Certificate** (Certificado de ADFS) el certificado codificado en base 64 que descargó de Azure Portal.
 
@@ -179,11 +179,11 @@ En esta sección, habilitará a B.Simon para que use el inicio de sesión único
 
     c. En el cuadro de texto **Target URI** (URI de destino), pegue el valor de **URL de inicio de sesión** que copió de Azure Portal.
 
-    d. Para el valor de **Relying Party Identifier** (Identificador de usuario de confianza), vaya a Azure Portal y, en la página de integración de aplicaciones de **PureCloud by Genesys**, seleccione la pestaña **Propiedades** y copie el valor de **Id. de aplicación**. Péguelo en el cuadro de texto **Relying Party Identifier** (Identificador de usuario de confianza).
+    d. Para el valor de **Relying Party Identifier** (Identificador de usuario de confianza), vaya a Azure Portal y, en la página de integración de aplicaciones de **PureCloud by Genesys** , seleccione la pestaña **Propiedades** y copie el valor de **Id. de aplicación** . Péguelo en el cuadro de texto **Relying Party Identifier** (Identificador de usuario de confianza).
 
-    ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![Captura de pantalla que muestra el panel de propiedades, donde puede encontrar el valor de identificador de la aplicación.](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. Seleccione **Guardar**.
+    e. Seleccione **Guardar** .
 
 ### <a name="create-purecloud-by-genesys-test-user"></a>Creación de un usuario de prueba de PureCloud by Genesys
 
@@ -195,21 +195,21 @@ Para permitir que los usuarios de Azure AD inicien sesión en PureCloud by Gene
 
 1. Seleccione **Admin** (Administrador) en la parte superior y vaya a **People** (Personas) en **People & Permissions** (Personas y permisos).
 
-    ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![Captura de pantalla que muestra la ventana de administración de PureCloud, donde puede seleccionar la opción de personas.](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. En la página **People** (Personas), haga clic en **Add Person** (Agregar persona).
 
-    ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![Captura de pantalla que muestra la página de personas en la que puede agregar una persona.](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. En el cuadro de diálogo **Add People to the Organization** (Agregar personas a la organización), siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![Captura de pantalla que muestra la página donde puede especificar los valores descritos.](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-    a. En el cuadro **Full name** (Nombre completo), escriba el nombre del usuario. Por ejemplo: **B.Simon**.
+    a. En el cuadro **Full name** (Nombre completo), escriba el nombre del usuario. Por ejemplo: **B.Simon** .
 
-    b. En el cuadro **Email** (Correo electrónico), escriba el correo electrónico del usuario. Por ejemplo, **b.simon\@contoso.com**.
+    b. En el cuadro **Email** (Correo electrónico), escriba el correo electrónico del usuario. Por ejemplo, **b.simon\@contoso.com** .
 
-    c. Seleccione **Crear**.
+    c. Seleccione **Crear** .
 
 ## <a name="test-sso"></a>Prueba de SSO
 

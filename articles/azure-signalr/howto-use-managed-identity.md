@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559415"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152309"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades administradas para Azure SignalR Service
 
@@ -26,9 +26,9 @@ Para configurar una identidad administrada en Azure Portal, primero tiene que cr
 
 1. Cree una instancia de Azure SignalR Service en el portal como lo haría normalmente. Búsquela en el portal.
 
-2. Seleccione **Identidad**.
+2. Seleccione **Identidad** .
 
-4. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Seleccione **Guardar**.
+4. En la pestaña **Asignado por el sistema** , cambie **Estado** a **Activado** . Seleccione **Guardar** .
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/system-identity-portal.png" alt-text="Adición de una identidad asignada por el sistema en el portal":::
 
@@ -40,11 +40,11 @@ La creación de una instancia de Azure SignalR Service con una identidad asignad
 
 2. Cree una instancia de Azure SignalR Service en el portal como lo haría normalmente. Búsquela en el portal.
 
-3. Seleccione **Identidad**.
+3. Seleccione **Identidad** .
 
-4. En la pestaña **Usuario asignado**, seleccione **Agregar**.
+4. En la pestaña **Usuario asignado** , seleccione **Agregar** .
 
-5. Busque la identidad que creó anteriormente y selecciónela. Seleccione **Agregar**.
+5. Busque la identidad que creó anteriormente y selecciónela. Seleccione **Agregar** .
 
     :::image type="content" source="media/signalr-howto-use-managed-identity/user-identity-portal.png" alt-text="Adición de una identidad asignada por el sistema en el portal":::
 
@@ -56,26 +56,26 @@ Azure SignalR Service es un servicio totalmente administrado, por lo que no pued
 
 1. Agregue una identidad asignada por el sistema o una asignada por el usuario.
 
-2. Ajuste la configuración ascendente y use **ManagedIdentity** como valor de **Auth**. Para obtener información sobre cómo crear una configuración ascendente con autenticación, vea [Configuración de Upstream](concept-upstream.md).
+2. Ajuste la configuración ascendente y use **ManagedIdentity** como valor de **Auth** . Para obtener información sobre cómo crear una configuración ascendente con autenticación, vea [Configuración de Upstream](concept-upstream.md).
 
-3. En la configuración de autenticación de la identidad administrada, puede especificar el recurso de destino en **Recurso**. El recurso se convertirá en una notificación `aud` en el token de acceso obtenido, que se puede usar como parte de la validación en los puntos de conexión ascendentes. El recurso puede ser uno de los siguientes:
+3. En la configuración de autenticación de la identidad administrada, puede especificar el recurso de destino en **Recurso** . El recurso se convertirá en una notificación `aud` en el token de acceso obtenido, que se puede usar como parte de la validación en los puntos de conexión ascendentes. El recurso puede ser uno de los siguientes:
     - Vacío
     - Identificador de la aplicación (cliente) de la entidad de servicio
     - URI del identificador de la aplicación de la entidad de servicio
-    - [Identificador de recursos de un servicio de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [Identificador de recursos de un servicio de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > Si valida un token de acceso por sí mismo en el servicio, puede elegir cualquier formato para el recurso. Solo tiene que asegurarse de que el valor **Recurso** de la configuración de **Auth** sea coherente con la validación. Si usa el control de acceso basado en roles (RBAC) para un plano de datos, debe usar el recurso que solicite el proveedor de servicios.
+    > Si valida un token de acceso por sí mismo en el servicio, puede elegir cualquier formato para el recurso. Solo tiene que asegurarse de que el valor **Recurso** de la configuración de **Auth** sea coherente con la validación. Si usa el control de acceso basado en roles de Azure para un plano de datos, debe usar el recurso que solicite el proveedor de servicios.
 
 ### <a name="validate-access-tokens"></a>Validación de los tokens de acceso
 
-El token del encabezado `Authorization` es un [token de acceso plataforma de identidades de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens).
+El token del encabezado `Authorization` es un [token de acceso plataforma de identidades de Microsoft](../active-directory/develop/access-tokens.md#validating-tokens).
 
 Para validar los tokens de acceso, la aplicación también debe validar la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, fijémonos en la [versión independiente del inquilino del documento](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-El middleware de Azure Active Directory (Azure AD) tiene capacidades integradas para validar los tokens de acceso. Puede examinar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) para encontrar uno en el idioma que elija.
+El middleware de Azure Active Directory (Azure AD) tiene capacidades integradas para validar los tokens de acceso. Puede examinar nuestros [ejemplos](../active-directory/develop/sample-v2-code.md) para encontrar uno en el idioma que elija.
 
-Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar la validación de tokens. También hay varias bibliotecas de asociados de código abierto disponibles para la validación de JSON Web Token (JWT). Al menos hay una opción para casi cualquier plataforma y lenguaje. Para obtener más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, vea [Bibliotecas de autenticación de la plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
+Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar la validación de tokens. También hay varias bibliotecas de asociados de código abierto disponibles para la validación de JSON Web Token (JWT). Al menos hay una opción para casi cualquier plataforma y lenguaje. Para obtener más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, vea [Bibliotecas de autenticación de la plataforma de identidad de Microsoft](../active-directory/develop/reference-v2-libraries.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

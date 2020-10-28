@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801994"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145525"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acceso condicional: Aplicaciones o acciones en la nube
 
@@ -123,10 +123,9 @@ Además de las aplicaciones de Microsoft, los administradores pueden agregar cua
 > [!NOTE]
 > Puesto que la directiva de acceso condicional establece los requisitos para obtener acceso a un servicio, no puede aplicarla a una aplicación cliente (pública o nativa). Es decir, la directiva no está establecida directamente en una aplicación cliente (pública o nativa), pero se aplica cuando un cliente llama a un servicio. Por ejemplo, una directiva establecida en el servicio SharePoint se aplica a los clientes que llamen a SharePoint. Así mismo, una directiva establecida en Exchange se aplica al intento de acceder al correo electrónico mediante el cliente de Outlook. Este es el motivo por el que las aplicaciones cliente (públicas o nativas) no están disponibles para su selección en el selector Aplicaciones en la nube y la opción Acceso condicional no está disponible en la configuración de la aplicación para la aplicación cliente (pública o nativa) registrada en el inquilino. 
 
-
 ## <a name="user-actions"></a>Acciones del usuario
 
-Las acciones del usuario son tareas que un usuario puede realizar. La única acción admitida actualmente es **Registro de la información de seguridad**, lo que permite que la directiva de acceso condicional se aplique cuando los usuarios que están habilitados para el registro combinado intentan registrar su información de seguridad. Para más información, consulte el artículo [Registro de información de seguridad combinado](../authentication/concept-registration-mfa-sspr-combined.md).
+Las acciones del usuario son tareas que un usuario puede realizar. La única acción admitida actualmente es **Registro de la información de seguridad** , lo que permite que la directiva de acceso condicional se aplique cuando los usuarios que están habilitados para el registro combinado intentan registrar su información de seguridad. Para más información, consulte el artículo [Registro de información de seguridad combinado](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

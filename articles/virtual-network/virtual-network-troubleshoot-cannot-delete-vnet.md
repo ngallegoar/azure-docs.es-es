@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8942e9180e87552ec64e0e848751f492778c9993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131665"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167821"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Solución de problemas: No se pudo eliminar una red virtual en Azure
 
@@ -42,13 +42,13 @@ Podría recibir errores al intentar eliminar una red virtual en Microsoft Azure.
 
 Para quitar la red virtual, primero debe quitar la puerta de enlace de red virtual.
 
-Para las redes virtuales clásicas, vaya a la página **Información general** de la red virtual clásica en Azure Portal. En la sección **Conexiones VPN**, si la puerta de enlace se está ejecutado en la red virtual, verá la dirección IP de la puerta de enlace. 
+Para las redes virtuales clásicas, vaya a la página **Información general** de la red virtual clásica en Azure Portal. En la sección **Conexiones VPN** , si la puerta de enlace se está ejecutado en la red virtual, verá la dirección IP de la puerta de enlace. 
 
 ![Compruebe si la puerta de enlace se está ejecutando](media/virtual-network-troubleshoot-cannot-delete-vnet/classic-gateway.png)
 
 En las redes virtuales, vaya a la página **Información general** de la red virtual. Compruebe si hay **Dispositivos conectados** para la puerta de enlace de red virtual.
 
-![Compruebe el dispositivo conectado](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Captura de pantalla de la lista de dispositivos conectados para una red virtual en Azure Portal. La puerta de enlace de red virtual aparece resaltada en la lista.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Para poder quitar la puerta de enlace, quite primero todos los objetos **Conexión** de la puerta de enlace. 
 
@@ -56,7 +56,7 @@ Para poder quitar la puerta de enlace, quite primero todos los objetos **Conexi�
 
 Vaya a la página **Información general** de la red virtual. Compruebe si hay **Dispositivos conectados** para la puerta de enlace de aplicación.
 
-![Compruebe el dispositivo conectado](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Captura de pantalla de la lista de dispositivos conectados para una red virtual en Azure Portal. La puerta de enlace de aplicación está resaltada en la lista.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Si hay una puerta de enlace de aplicación, debe quitarla para poder eliminar la red virtual.
 
@@ -64,7 +64,7 @@ Si hay una puerta de enlace de aplicación, debe quitarla para poder eliminar la
 
 Si Active Directory Domain Services está habilitado y conectado a la red virtual, no se puede eliminar esta red virtual. 
 
-![Compruebe el dispositivo conectado](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Captura de pantalla de la página Azure AD Domain Services en Azure Portal. El campo Disponible en la red o subred virtuales está resaltado.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 Para deshabilitar el servicio, consulte [Deshabilitar Azure Active Directory Domain Services con Azure Portal](../active-directory-domain-services/delete-aadds.md).
 

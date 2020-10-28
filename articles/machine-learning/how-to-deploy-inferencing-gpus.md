@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 0fda407a916ca43ed36fa567374752bbb7a49a80
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9a18b35ce974aebb38f8f58b892fd93b94f5e3c8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998967"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314800"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 
@@ -26,7 +26,7 @@ En este artículo aprenderá a usar Azure Machine Learning para implementar un m
 La inferencia, o la puntuación del modelo, es la fase en que se usa el modelo implementado para realizar predicciones. El uso de GPU en lugar de CPU ofrece ventajas de rendimiento en el cálculo que se puede paralelizar considerablemente.
 
 > [!IMPORTANT]
-> En el caso de las implementaciones de servicios web, la inferencia de GPU solo se admite en Azure Kubernetes Service. Para realizar la inferencia mediante __una canalización de aprendizaje automático__, las GPU solo se admiten en Proceso de Azure Machine Learning. Para más información sobre el uso de canalizaciones de aprendizaje automático, consulte [Ejecución de predicciones por lotes](how-to-use-parallel-run-step.md). 
+> En el caso de las implementaciones de servicios web, la inferencia de GPU solo se admite en Azure Kubernetes Service. Para realizar la inferencia mediante __una canalización de aprendizaje automático__ , las GPU solo se admiten en Proceso de Azure Machine Learning. Para obtener más información sobre el uso de canalizaciones de aprendizaje automático, consulte [Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes](tutorial-pipeline-batch-scoring-classification.md). 
 
 > [!TIP]
 > Aunque los fragmentos de código de este artículo usan un modelo TensorFlow, puede aplicar la información a cualquier marco de aprendizaje automático que admita GPU.

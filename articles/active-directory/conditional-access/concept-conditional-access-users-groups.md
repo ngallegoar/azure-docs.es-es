@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552907"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145423"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acceso condicional: Usuarios y grupos
 
-Una directiva de acceso condicional debe incluir una asignación de usuario como una de las señales del proceso de toma de decisiones. Se pueden incluir o excluir usuarios de las directivas de acceso condicional. 
+Una directiva de acceso condicional debe incluir una asignación de usuario como una de las señales del proceso de toma de decisiones. Se pueden incluir o excluir usuarios de las directivas de acceso condicional. Azure Active Directory evalúa todas las directivas y se asegura de que se cumplan todos los requisitos antes de conceder acceso al usuario.
 
 ![Usuario como señal en las decisiones tomadas por acceso condicional](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -66,13 +66,15 @@ Las siguientes opciones están disponibles para su exclusión al crear una direc
 
 ### <a name="preventing-administrator-lockout"></a>Impedir el bloqueo de administrador
 
-Para evitar que un administrador se bloquee fuera de su directorio al crear una directiva que se aplica a **todos los usuarios** y a **todas las aplicaciones**, verá la siguiente advertencia.
+Para evitar que un administrador se bloquee fuera de su directorio al crear una directiva que se aplica a **todos los usuarios** y a **todas las aplicaciones** , verá la siguiente advertencia.
 
 > No se bloquee. Se recomienda aplicar primero una directiva a un pequeño conjunto de usuarios para comprobar que se comporta según lo esperado. También se recomienda excluir al menos un administrador de esta directiva. Esto garantiza que sigue teniendo acceso y puede actualizar una directiva si es necesario un cambio. Revise los usuarios y las aplicaciones afectados.
 
 De forma predeterminada, la directiva proporcionará una opción para excluir al usuario actual de la directiva, pero el administrador puede invalidar este valor predeterminado, como se muestra en la siguiente imagen. 
 
 ![Advertencia, no se bloquee.](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[¿Qué se debe hacer si está bloqueado en Azure Portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

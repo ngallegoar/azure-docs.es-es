@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca9f4e290c5dad45e5bf87439ebcd1c88a7c540f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602010"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145541"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedimientos: Bloqueo de la autenticación heredada en Azure AD con acceso condicional   
 
@@ -37,10 +37,7 @@ Si el entorno está listo para bloquear la autenticación heredada con el fin de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este artículo se asume que está familiarizado con: 
-
-- Los [conceptos básicos](overview.md) del acceso condicional de Azure AD 
-- Los [procedimientos recomendados](best-practices.md) para configurar directivas de acceso condicional en Azure Portal
+En este artículo se supone que está familiarizado con los [conceptos básicos](overview.md) del acceso condicional de Azure AD.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -83,8 +80,8 @@ Para más información sobre estos protocolos y servicios de autenticación, vea
 
 Para poder bloquear la autenticación heredada en su directorio, primero debe entender si los usuarios tienen aplicaciones que la usen y cómo afecta a su directorio global. Se pueden usar los registros de inicio de sesión de Azure AD para saber si usa la autenticación heredada.
 
-1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión**.
-1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente**.
+1. Vaya a **Azure Portal** > **Azure Active Directory** > **Inicios de sesión** .
+1. Agregue la columna Aplicación cliente si no se muestra; para ello, haga clic en **Columnas** > **Aplicación cliente** .
 1. **Agregar filtros** > **Aplicación cliente** > seleccione todos los protocolos de autenticación heredados. Seleccione fuera del cuadro de diálogo de filtrado para aplicar las selecciones y cierre el cuadro de diálogo.
 
 Al filtrar solo se muestran los intentos de inicio de sesión que se realizaron con protocolos de autenticación heredada. Al hacer clic en cada intento de inicio de sesión individual se muestran detalles adicionales. El campo **Aplicación cliente** en la pestaña **Información básica** indicará qué protocolo de autenticación heredada se usó.
@@ -100,7 +97,7 @@ Hay dos maneras de usar las directivas de acceso condicional para bloquear la au
  
 ### <a name="directly-blocking-legacy-authentication"></a>Bloqueo directo de la autenticación heredada
 
-La forma más sencilla de bloquear la autenticación heredada en toda la organización es mediante la configuración de una directiva de acceso condicional que se aplica específicamente a los clientes de autenticación heredados y bloquea el acceso. Al asignar usuarios y aplicaciones a la directiva, asegúrese de excluir los usuarios y las cuentas de servicio que todavía deben iniciar sesión con la autenticación heredada. Configure la condición de aplicaciones cliente; para ello, seleccione **Clientes de Exchange ActiveSync** y **Otros clientes**. Para bloquear el acceso a estas aplicaciones cliente, configure los controles de acceso para bloquear el acceso.
+La forma más sencilla de bloquear la autenticación heredada en toda la organización es mediante la configuración de una directiva de acceso condicional que se aplica específicamente a los clientes de autenticación heredados y bloquea el acceso. Al asignar usuarios y aplicaciones a la directiva, asegúrese de excluir los usuarios y las cuentas de servicio que todavía deben iniciar sesión con la autenticación heredada. Configure la condición de aplicaciones cliente; para ello, seleccione **Clientes de Exchange ActiveSync** y **Otros clientes** . Para bloquear el acceso a estas aplicaciones cliente, configure los controles de acceso para bloquear el acceso.
 
 ![Condición de aplicaciones cliente configurada para bloquear la autenticación heredada](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
@@ -118,7 +115,7 @@ La configuración de una directiva para **otros clientes** bloquea toda la organ
 
 La directiva puede tardar hasta 24 horas en surtir efecto.
 
-Puede seleccionar todos los controles de concesión disponibles para la condición **Otros clientes**, pero la experiencia del usuario final siempre es la misma: el acceso bloqueado.
+Puede seleccionar todos los controles de concesión disponibles para la condición **Otros clientes** , pero la experiencia del usuario final siempre es la misma: el acceso bloqueado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

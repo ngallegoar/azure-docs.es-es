@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 723546d6a997d895c1a1df39b558aabb797d0a11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9f93457edc4276422eb97b56c90b83ad6a19a65
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545104"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126899"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con SolarWinds Orion
 
@@ -39,7 +39,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* SolarWinds Orion admite el inicio de sesión único iniciado por **SP y IDP**.
+* SolarWinds Orion admite el inicio de sesión único iniciado por **SP y IDP** .
 * Una vez configurado SolarWinds Orion, puede aplicar el control de sesión, que protege contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-solarwinds-orion-from-the-gallery"></a>Adición de SolarWinds Orion desde la galería
@@ -47,16 +47,16 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de SolarWinds Orion en Azure AD, será preciso que agregue SolarWinds Orion de la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **SolarWinds Orion** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **SolarWinds Orion** en el cuadro de búsqueda.
 1. Seleccione **SolarWinds Orion** en el panel de resultados y, luego, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-solarwinds-orion"></a>Configuración y prueba del inicio de sesión único de Azure AD para SolarWinds Orion
 
-Configure y pruebe el inicio de sesión único de Azure AD con SolarWinds Orion con un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de SolarWinds Orion.
+Configure y pruebe el inicio de sesión único de Azure AD con SolarWinds Orion con un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de SolarWinds Orion.
 
 Para configurar y probar el inicio de sesión único de Azure AD con SolarWinds Orion, es preciso completar los siguientes bloques de creación:
 
@@ -71,21 +71,21 @@ Para configurar y probar el inicio de sesión único de Azure AD con SolarWinds
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SolarWinds Orion**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SolarWinds Orion** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<ORION-HOSTNAME-OR-EXTERNAL-URL>`
+    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `https://<ORION-HOSTNAME-OR-EXTERNAL-URL>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<ORION-HOSTNAME-OR-EXTERNAL-URL>/Orion/SAMLLogin.aspx`
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<ORION-HOSTNAME-OR-EXTERNAL-URL>/Orion/SAMLLogin.aspx`
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<ORION-HOSTNAME-OR-EXTERNAL-URL>/Orion/Login.aspx`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<ORION-HOSTNAME-OR-EXTERNAL-URL>/Orion/Login.aspx`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de SolarWinds Orion](mailto:technicalsupport@solarwinds.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -102,11 +102,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | Apellidos | user.surname |
     | Email |user.mail |
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar SolarWinds Orion**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar SolarWinds Orion** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -114,49 +114,49 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a conceder a B.Simon acceso a SolarWinds Orion para que pueda usar el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **SolarWinds Orion**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **SolarWinds Orion** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-solarwinds-orion-sso"></a>Configuración del inicio de sesión único en SolarWinds Orion
 
 1. Inicie sesión en SolarWinds Orion y vaya a **Settings** -> **All Settings** (Configuración > Toda la configuración).
 
-    ![ Configuración de SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Captura de pantalla que muestra la opción de toda la configuración seleccionada en la configuración.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. En la sección **USER ACCOUNTS** (CUENTAS DE USUARIO), seleccione **SAML Configuration** (Configuración de SAML).
 
-    ![ Configuración de SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
+    ![Captura de pantalla que muestra la opción de configuración de SAML seleccionada en las cuentas de usuario.](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
 
 1. Haga clic en **ADD IDENTITY PROVIDER** (AGREGAR PROVEEDOR DE IDENTIDADES).
 
-    ![ Configuración de SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
+    ![Captura de pantalla que muestra la configuración de SAML, donde puede seleccionar la opción para agregar un proveedor de identidades.](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
 
 1. Realice los pasos siguientes en la página **Add Identity Provider** (Agregar proveedor de identidades):
 
-    ![ Configuración de SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
+    ![Captura de pantalla que muestra la página para agregar un proveedor de identidades, donde puede especificar los valores descritos.](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
 
     a. Vaya a la pestaña **Configure** (Configurar).
 
@@ -168,31 +168,31 @@ En esta sección, va a conceder a B.Simon acceso a SolarWinds Orion para que pue
 
     e. En Azure Portal, abra el **certificado (Base64)** en el Bloc de notas y pegue el contenido en el cuadro de texto **X.509 Signing Certificate** (Certificado de firma de X.509).
 
-    f. Haga clic en **Guardar**.
+    f. Haga clic en **Guardar** .
 
 ### <a name="create-solarwinds-orion-test-user"></a>Creación de un usuario de prueba en SolarWinds Orion
 
 1. Inicie sesión en el sitio web de SolarWinds Orion y vaya a **Settings** -> **All Settings** (Configuración > Toda la configuración).
 
-    ![ Creación de un usuario de prueba en SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Captura de pantalla que muestra la opción de toda la configuración seleccionada en la configuración.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. En la sección **USER ACCOUNTS** (CUENTAS DE USUARIO), seleccione **Manage Accounts** (Administrar cuentas).
 
-    ![ Creación de un usuario de prueba en SolarWinds Orion ](./media/solarwinds-orion-tutorial/user-accounts.png)
+    ![Captura de pantalla que muestra la opción de configuración de SAML seleccionada.](./media/solarwinds-orion-tutorial/user-accounts.png)
 
 1. En la pestaña **INDIVIDUAL ACCOUNTS** (CUENTAS INDIVIDUALES), haga clic en **ADD NEW ACCOUNT** (AGREGAR NUEVA CUENTA).
 
-    ![ Creación de un usuario de prueba en SolarWinds Orion ](./media/solarwinds-orion-tutorial/create-user.png)
+    ![Captura de pantalla que muestra la opción para agregar una nueva cuenta seleccionada en la administración de cuentas.](./media/solarwinds-orion-tutorial/create-user.png)
 
 1. Seleccione el tipo de cuenta que necesita para crear usuarios individuales o grupos de SAML.
 
-    ![ Creación de un usuario de prueba en SolarWinds Orion ](./media/solarwinds-orion-tutorial/create-user-new-account.png)
+    ![Captura de pantalla que muestra la opción para agregar una nueva cuenta, donde puede seleccionar el tipo de cuenta.](./media/solarwinds-orion-tutorial/create-user-new-account.png)
 
 1.  En el cuadro de texto **NAME ID** (ID. DE NOMBRE), escriba el nombre, que debe coincidir con el mismo nombre de usuario o nombre de grupo que en Azure AD.
 
 1.  Haga clic en **Next** (Siguiente) y, luego, envíe la página.
 
-    ![ Creación de un usuario de prueba en SolarWinds Orion ](./media/solarwinds-orion-tutorial/create-user-name-id.png)
+    ![Captura de pantalla que muestra la opción para agregar una nueva cuenta, en la que puede escribir el nombre I D de Azure A D.](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## <a name="test-sso"></a>Prueba de SSO 
 

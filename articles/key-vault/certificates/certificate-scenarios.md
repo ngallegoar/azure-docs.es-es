@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224866"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124228"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
 En los escenarios siguientes se describen algunos de los usos principales de servicio de administración de certificados de Key Vault, como los pasos adicionales necesarios para crear el primer certificado en el almacén de claves.
@@ -35,15 +35,15 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
 ## <a name="creating-your-first-key-vault-certificate"></a>Creación del primer certificado de Key Vault  
  Para crear un certificado en Key Vault (KV), deben cumplirse los requisitos previos (pasos 1 y 2) y debe existir un almacén de claves para el usuario o la organización.  
 
-**Paso 1**: emisores de la entidad de certificación  
+**Paso 1** : emisores de la entidad de certificación  
 -   La incorporación como administrador de TI, administrador de PKI o cualquiera que administre las cuentas con entidades de certificación para una empresa determinada (p. ej. Contoso) es un requisito previo para usar los certificados de Key Vault.  
-    Las siguientes entidades de certificación son los emisores asociados actualmente con Key Vault:  
+    Las siguientes entidades de certificación son los emisores asociados actualmente con Key Vault. Obtenga más información [aquí](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers).   
     -   DigiCert: Key Vault ofrece certificados TLS/SSL OV con DigiCert.  
     -   GlobalSign: Key Vault ofrece certificados TLS/SSL OV con GlobalSign.  
 
-**Paso 2**: un administrador de la cuenta del proveedor de la entidad de certificación crea las credenciales que utilizará Key Vault para la inscripción, la renovación y el uso de certificados TLS/SSL mediante Key Vault.
+**Paso 2** : un administrador de la cuenta del proveedor de la entidad de certificación crea las credenciales que utilizará Key Vault para la inscripción, la renovación y el uso de certificados TLS/SSL mediante Key Vault.
 
-**Paso 3**: un administrador, junto con un empleado de Contoso (usuario de Key Vault) propietario de certificados que, dependiendo de la entidad de certificación, puede obtener un certificado del administrador o directamente desde la cuenta con la entidad de certificación.  
+**Paso 3** : un administrador, junto con un empleado de Contoso (usuario de Key Vault) propietario de certificados que, dependiendo de la entidad de certificación, puede obtener un certificado del administrador o directamente desde la cuenta con la entidad de certificación.  
 
 - Comience una operación de incorporación de credenciales a un almacén de claves mediante el establecimiento de un recurso de [emisor de certificados](/rest/api/keyvault/setcertificateissuer/setcertificateissuer). Un emisor de certificados es una entidad que se representa en Azure Key Vault (KV) como un recurso CertificateIssuer. Se utiliza para proporcionar información sobre el origen de un certificado de KV; el nombre del emisor, el proveedor, las credenciales y otros detalles administrativos.
   - Por ejemplo, MyDigiCertIssuer  
@@ -52,7 +52,7 @@ Los certificados se componen de tres recursos interrelacionados vinculados entre
 
     Para más información acerca de la creación de cuentas con proveedores de entidades de certificación, consulte la entrada correspondiente en el [blog de Key Vault](https://aka.ms/kvcertsblog).  
 
-**Paso 3.1**: configure [contactos de certificados](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para las notificaciones. Este es el contacto del usuario de Key Vault. Key Vault no aplica este paso.  
+**Paso 3.1** : configure [contactos de certificados](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) para las notificaciones. Este es el contacto del usuario de Key Vault. Key Vault no aplica este paso.  
 
 Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repetir.  
 
@@ -60,7 +60,7 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
 
 ![Creación de un certificado con una entidad de certificación asociada a Key Vault](../media/certificate-authority-2.png)
 
-**Paso 4**: las siguientes descripciones se corresponden con los pasos indicados con letras verdes que se enumeran en el diagrama anterior.  
+**Paso 4** : las siguientes descripciones se corresponden con los pasos indicados con letras verdes que se enumeran en el diagrama anterior.  
   (1) - En el diagrama anterior, la aplicación crea un certificado que comienza con la creación interna de una clave en el almacén de claves.  
   (2) - Key Vault envía una solicitud de certificado TLS/SSL a la entidad de certificación.  
   (3) - La aplicación sondea, en proceso de bucle y espera, que Key Vault termine el certificado. La creación del certificado se completa cuando Key Vault recibe la respuesta de la entidad de certificación con el certificado X.509.  

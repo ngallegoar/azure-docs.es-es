@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e22a6028f5b7fa8cf81ddf0e3e2a550859aad0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34d5cdd95f44082d05153390209de5145e56d3f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259601"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089577"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Tutorial: Agregue los intercambios de notificaciones de la API de REST a directivas personalizadas de Azure Active Directory B2C.
 
@@ -62,7 +62,7 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 1. Abra el archivo de extensiones de la directiva. Por ejemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Busque el elemento [BuildingBlocks](buildingblocks.md). Si el elemento no existe, agréguelo.
 1. Busque el elemento [ClaimsSchema](claimsschema.md). Si el elemento no existe, agréguelo.
-1. Agregue las notificaciones siguientes al elemento **ClaimsSchema**.  
+1. Agregue las notificaciones siguientes al elemento **ClaimsSchema** .  
 
 ```xml
 <ClaimType Id="balance">
@@ -75,7 +75,7 @@ Una notificación proporciona un almacenamiento temporal de datos durante la eje
 </ClaimType>
 ```
 
-## <a name="configure-the-restful-api-technical-profile"></a>Configuración del perfil técnico de la API RESTful 
+## <a name="add-the-restful-api-technical-profile"></a>Incorporación del perfil técnico de la API RESTful 
 
 Un [perfil técnico de RESTful](restful-technical-profile.md) proporciona compatibilidad para interactuar con su propio servicio RESTful. Azure AD B2C envía datos al servicio RESTful en una colección `InputClaims` y recibe los datos en una colección `OutputClaims`. Busque el elemento **ClaimsProviders** en el archivo <em> **`TrustFrameworkExtensions.xml`**</em> y agregue un nuevo proveedor de notificaciones como se indica a continuación:
 
@@ -87,6 +87,7 @@ Un [perfil técnico de RESTful](restful-technical-profile.md) proporciona compat
       <DisplayName>Get user extended profile Azure Function web hook</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
+        <!-- Set the ServiceUrl with your own REST API endpoint -->
         <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/GetProfile?code=your-code</Item>
         <Item Key="SendClaimsIn">Body</Item>
         <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
@@ -107,9 +108,20 @@ Un [perfil técnico de RESTful](restful-technical-profile.md) proporciona compat
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
-```
+``` 
 
 En este ejemplo, `userLanguage` se enviará al servicio REST como `lang` desde la carga de JSON. El valor de la notificación `userLanguage` contiene el identificador de idioma del usuario actual. Para obtener más información, consulte el [solucionador de notificaciones](claim-resolver-overview.md).
+
+### <a name="configure-the-restful-api-technical-profile"></a>Configuración del perfil técnico de la API RESTful 
+
+Después de implementar la API REST, configure los metadatos del perfil técnico `REST-ValidateProfile` para que reflejen su propia API REST, incluidos:
+
+- **ServiceUrl** . Establezca la dirección URL del punto de conexión de la API REST.
+- **SendClaimsIn** . Especifique cómo se envían las notificaciones de entrada al proveedor de notificaciones RESTful.
+- **AuthenticationType** . Establezca el tipo de autenticación realizada por el proveedor de notificaciones RESTful. 
+- **AllowInsecureAuthInProduction** . En un entorno de producción, asegúrese de establecer estos metadatos en `true`.
+    
+Consulte los [metadatos del perfil técnico de RESTful](restful-technical-profile.md#metadata) para obtener más configuraciones.
 
 Los comentarios anteriores `AuthenticationType` y `AllowInsecureAuthInProduction` especifican los cambios que se deben realizar al pasar a un entorno de producción. Para aprender a proteger las API RESTful para la producción, consulte [Proteger la API RESTful](secure-rest-api.md).
 
@@ -143,7 +155,7 @@ Los [recorridos del usuario](userjourneys.md) especifican rutas de acceso explí
     <OrchestrationStep Order="8" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
     ```
 
-1. Repita los dos últimos pasos para los recorridos del usuario **ProfileEdit** y **PasswordReset**.
+1. Repita los dos últimos pasos para los recorridos del usuario **ProfileEdit** y **PasswordReset** .
 
 
 ## <a name="include-a-claim-in-the-token"></a>Incorporación de una notificación en el token 
@@ -171,18 +183,18 @@ Para devolver la notificación `balance` a la aplicación de usuario de confianz
 </RelyingParty>
 ```
 
-Repita este paso para los recorridos del usuario **ProfileEdit.xml** y **PasswordReset.xml**.
+Repita este paso para los recorridos del usuario **ProfileEdit.xml** y **PasswordReset.xml** .
 
-Guarde los archivos que ha cambiado: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml*. 
+Guarde los archivos que ha cambiado: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* y *PasswordReset.xml* . 
 
 ## <a name="test-the-custom-policy"></a>Prueba de la directiva personalizada
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD. Para ello, seleccione el filtro **Directorio y suscripción** que se encuentra en el menú superior y elija el directorio que contiene el inquilino de Azure AD.
-1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones**.
-1. Seleccione **Marco de experiencia de identidad**.
-1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml*. 
-1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora**.
+1. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Registros de aplicaciones** .
+1. Seleccione **Marco de experiencia de identidad** .
+1. Seleccione **Cargar directiva personalizada** y cargue los archivos de directiva modificados: *TrustFrameworkBase.xml* y *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* y *PasswordReset.xml* . 
+1. Seleccione la directiva de registro o inicio de sesión que cargó y haga clic en el botón **Ejecutar ahora** .
 1. Debe poder suscribirse con una dirección de correo electrónico o una cuenta de Facebook.
 1. El token enviado de vuelta a la aplicación contiene la notificación `balance`.
 

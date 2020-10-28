@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588810"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124158"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Renovación de los certificados de Azure Key Vault
 
@@ -25,12 +25,20 @@ Mediante el uso de certificados de corta duración o el aumento de la frecuencia
 
 En este artículo se describe cómo renovar los certificados de Azure Key Vault.
 
-## <a name="get-notified-about-certificate-expirations"></a>Obtención de notificaciones sobre expiraciones de certificados
-Para recibir una notificación cuando los certificados estén a punto de expirar, haga lo siguiente:
+## <a name="get-notified-about-certificate-expiration"></a>Obtención de notificaciones sobre expiraciones de certificados
+Para recibir notificaciones sobre los eventos de vida de un certificado, deberá agregar el contacto del certificado. Los contactos de certificados contienen información de contacto para enviar notificaciones desencadenadas por los eventos de vigencia del certificado. La información de los contactos es compartida por todos los certificados del almacén de claves. Se envía una notificación a todos los contactos especificados para un evento de cualquier certificado del almacén de claves.
 
-En primer lugar, agregue un contacto de certificado al almacén de claves mediante el cmdlet [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) de PowerShell.
+### <a name="steps-to-set-certificate-notifications"></a>Pasos para establecer notificaciones de certificado:
+En primer lugar, agregue un contacto del certificado al almacén de claves. Para ello, puede usar Azure Portal o el cmdlet de PowerShell [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
 
 En segundo lugar, configure cuándo desea recibir una notificación sobre la expiración del certificado. Para configurar los atributos del ciclo de vida del certificado, consulte [Configuración de la rotación automática de certificados en Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+Si se establece la directiva de un certificado para la renovación automática, se envía una notificación en los siguientes eventos.
+
+- Antes de la renovación del certificado
+- Tras la renovación del certificado, indicando si el certificado se renovó correctamente o si se produjo un error que exige la renovación manual del certificado.  
+
+  Si se establece una directiva de certificado en renovación manual (solo correo electrónico), cuando llega el momento de renovar el certificado se envía una notificación.  
 
 En Key Vault, hay tres categorías de certificados:
 -   Certificados que se crean con una entidad de certificación integrada, como DigiCert o GlobalSign
@@ -49,8 +57,8 @@ Mediante Azure Key Vault, puede importar certificados de cualquier entidad de ce
 Para renovar un certificado de una entidad de certificación no integrada, haga lo siguiente:
 
 1. Inicie sesión en Azure Portal y, a continuación, abra el certificado que desea renovar.
-1. En el panel Certificado, seleccione el botón **+ Nueva versión**.
-1. Seleccione **Operación de certificados**.
+1. En el panel Certificado, seleccione el botón **+ Nueva versión** .
+1. Seleccione **Operación de certificados** .
 1. Seleccione **Descargar CSR** para descargar un archivo CSR en la unidad local.
 1. Envíe el archivo CSR a la entidad de certificación de su elección para firmar la solicitud.
 1. Recupere la solicitud firmada y seleccione **Merge CSR** (Fusionar CSR) en el mismo panel Operación de certificados.

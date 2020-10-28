@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75475782"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165560"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generación de un mapa térmico de humedad del suelo
 
@@ -54,7 +54,7 @@ Una vez que haya vinculado su cuenta de sensor a Azure FarmBeats, deberá asigna
 2.  Seleccione **MyFarm** > **Add Devices** (Mi granja > Agregar dispositivos).
 3.  Aparece la ventana **Add Devices** (Agregar dispositivos). Seleccione cualquier dispositivo vinculado a los sensores de humedad del suelo de la granja.
 
-    ![Proyecto de FarmBeats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Captura de pantalla que muestra la pantalla Agregar dispositivos.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Seleccione **Add Devices** (Agregar dispositivos).     
 
@@ -70,7 +70,7 @@ Este paso consiste en crear un trabajo o una operación de larga duración que g
 6.  En **Select Soil Moisture** **Sensor Measure** (Seleccionar medida del sensor de humedad del suelo), escriba la medida que desea utilizar para el mapa.
     Para buscar la medida del sensor, en **Sensors** (Sensores), seleccione cualquier sensor de humedad del suelo. En **Sensor Properties** (Propiedades del sensor), use el valor de **Measure Name** (Nombre de medida).
 
-    ![Proyecto de FarmBeats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Captura de pantalla que muestra la pantalla Humedad del suelo.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  Seleccione **Generate Maps** (Generar mapas).
@@ -87,10 +87,10 @@ Siga estos pasos:
 2. Cuando el estado del trabajo muestre **Succeeded** (Correcto), haga clic en **Maps** (Mapas) en el menú.
 3. Busque el mapa por el día en que se creó con el formato <soil-moisture_miGranja_AAAA-MM-DD>.
 4. Seleccione un mapa de la columna **Name** (Nombre) y aparecerá una ventana emergente con la vista previa del mapa seleccionado.
-5. Seleccione **Descargar**. El mapa se descarga y se almacena en la carpeta local del equipo.
+5. Seleccione **Descargar** . El mapa se descarga y se almacena en la carpeta local del equipo.
 
     ![Proyecto de FarmBeats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha generado correctamente un mapa térmico de humedad del suelo, aprenda a [generar mapas de colocación de sensores](generate-maps-in-azure-farmbeats.md#sensor-placement-map) y a [ingerir datos históricos de telemetría](ingest-historical-telemetry-data-in-azure-farmbeats.md). 
+Ahora que ha generado correctamente un mapa térmico de humedad del suelo, aprenda a [generar mapas de colocación de sensores](generate-maps-in-azure-farmbeats.md#sensor-placement-map) y a [ingerir datos históricos de telemetría](ingest-historical-telemetry-data-in-azure-farmbeats.md). 

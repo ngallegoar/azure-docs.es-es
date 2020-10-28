@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9a2345dce542f941df0122acd12b4acedd3b49a3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 46b764c9fcdb771f0a82fa47c0b1aa9112bb9e94
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047241"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150510"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Administración automática de dispositivos en Azure Digital Twins mediante Device Provisioning Service (DPS)
 
@@ -29,12 +29,12 @@ Antes de configurar el aprovisionamiento, debe tener una **instancia de Azure Di
 Si todavía no tiene esta configuración, puede crearla si sigue las instrucciones sobre Azure Digital Twins que aparecen en [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md). El tutorial le guiará a través de la configuración de una instancia de Azure Digital Twins con modelos y dispositivos gemelos, una instancia conectada de [Azure IoT Hub](../iot-hub/about-iot-hub.md) y varias [funciones de Azure](../azure-functions/functions-overview.md) para propagar el flujo de datos.
 
 Más adelante en este artículo, necesitará los valores siguientes que obtuvo al configurar la instancia. Si necesita volver a recopilar estos valores, use los vínculos siguientes para obtener instrucciones.
-* El **_nombre de host_** de la instancia de Azure Digital Twins ([que se encuentra en el portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* La cadena de conexión de Azure Event Hubs **_cadena de conexión_** ([que se encuentra en el portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* El **_nombre de host_** de la instancia de Azure Digital Twins ( [que se encuentra en el portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* La cadena de conexión de Azure Event Hubs **_cadena de conexión_** ( [que se encuentra en el portal](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 En este ejemplo también se usa un **simulador de dispositivos** que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Para obtener el proyecto de ejemplo en la máquina, vaya al vínculo del ejemplo y seleccione el botón *Descargar ZIP* situado debajo del título. Descomprima la carpeta descargada.
 
-El simulador de dispositivos se basa en **Node.js**, versión 10.0.x u otra posterior. En [*Preparación del entorno de desarrollo*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
+El simulador de dispositivos se basa en **Node.js** , versión 10.0.x u otra posterior. En [*Preparación del entorno de desarrollo*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 
 ## <a name="solution-architecture"></a>Arquitectura de la solución
 
@@ -69,7 +69,7 @@ Cuando se aprovisiona un nuevo dispositivo mediante Device Provisioning Service,
 
 Cree una instancia de Device Provisioning Service que se usará para aprovisionar dispositivos IoT. Puede usar las instrucciones de la CLI de Azure que aparecen a continuación o usar Azure Portal: [*Guía de inicio rápido: Configuración de Azure IoT Hub Device Provisioning Service con Azure Portal*](../iot-dps/quick-setup-auto-provision.md)
 
-El siguiente comando de la CLI de Azure creará una instancia de Device Provisioning Service. Tendrá que especificar un nombre, un grupo de recursos y una región. El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o localmente si tiene la [CLI de Azure instalada en la máquina](/cli/azure/install-azure-cli?view=azure-cli-latest).
+El siguiente comando de la CLI de Azure creará una instancia de Device Provisioning Service. Tendrá que especificar un nombre, un grupo de recursos y una región. El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o localmente si tiene la [CLI de Azure instalada en la máquina](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
@@ -77,9 +77,9 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Creación de una función de Azure
 
-A continuación, creará una función desencadenada mediante una solicitud HTTP dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ([*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)) o una propia.
+A continuación, creará una función desencadenada mediante una solicitud HTTP dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ( [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)) o una propia.
 
-Device Provisioning Service usará esta función en una [directiva de asignación personalizada](../iot-dps/how-to-use-custom-allocation-policies.md) que aprovisiona un nuevo dispositivo. Para más información sobre cómo usar solicitudes HTTP con funciones de Azure, consulte [*Desencadenador de solicitudes HTTP para Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
+Device Provisioning Service usará esta función en una [directiva de asignación personalizada](../iot-dps/how-to-use-custom-allocation-policies.md) para aprovisionar un nuevo dispositivo. Para más información sobre cómo usar solicitudes HTTP con funciones de Azure, consulte [*Desencadenador de solicitudes HTTP para Azure Functions*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
 En el proyecto de la aplicación de funciones, agregue una nueva función. Agregue también un nuevo paquete NuGet al proyecto: `Microsoft.Azure.Devices.Provisioning.Service`.
 
@@ -233,7 +233,7 @@ Guarde el archivo y, a continuación, vuelva a publicar la aplicación de funcio
 
 ### <a name="configure-your-function"></a>Configuración de la función
 
-A continuación, tendrá que establecer variables de entorno en la aplicación de funciones anterior que contiene la referencia a la instancia de Azure Digital Twins que ha creado. Si ha empleado el tutorial general ([*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)), la configuración ya estará establecida.
+A continuación, tendrá que establecer variables de entorno en la aplicación de funciones anterior que contiene la referencia a la instancia de Azure Digital Twins que ha creado. Si ha empleado el tutorial general ( [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)), la configuración ya estará establecida.
 
 Agregue la configuración con este comando de la CLI de Azure:
 
@@ -252,15 +252,15 @@ az functionapp config appsettings set --settings "AdtAppId=<Application (client)
 
 ### <a name="create-device-provisioning-enrollment"></a>Creación de una inscripción de Device Provisioning Service
 
-A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada**. Siga las instrucciones para realizar esta tarea que se encuentran en las secciones [*Creación de la inscripción*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) y [*Derivación de las claves de dispositivo únicas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del artículo sobre Device Provisioning Service acerca de las directivas de asignación personalizadas.
+A continuación, deberá crear una inscripción en Device Provisioning Service mediante una **función de asignación personalizada** . Siga las instrucciones para realizar esta tarea que se encuentran en las secciones [*Creación de la inscripción*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) y [*Derivación de las claves de dispositivo únicas*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del artículo sobre Device Provisioning Service acerca de las directivas de asignación personalizadas.
 
-Mientras pasa por ese flujo, vinculará la inscripción a la función que acaba de crear seleccionando la función durante el paso para **seleccionar cómo desea asignar los dispositivos a los centros**. Después de crear la inscripción, el nombre de la inscripción y la clave SAS principal o secundaria se usarán más adelante para configurar el simulador de dispositivos de este artículo.
+Mientras pasa por ese flujo, vinculará la inscripción a la función que acaba de crear seleccionando la función durante el paso para **seleccionar cómo desea asignar los dispositivos a los centros** . Después de crear la inscripción, el nombre de la inscripción y la clave SAS principal o secundaria se usarán más adelante para configurar el simulador de dispositivos de este artículo.
 
 ### <a name="set-up-the-device-simulator"></a>Configuración del simulador de dispositivos
 
 En este ejemplo se usa un simulador de dispositivos que incluye el aprovisionamiento mediante Device Provisioning Service. El simulador de dispositivos se encuentra aquí: [Ejemplo de integración de Azure Digital Twins e IoT Hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/). Si no ha descargado aún el ejemplo, hágalo ahora. Para ello, vaya al vínculo de ejemplo y seleccione el botón *Descargar archivo ZIP* que aparece debajo del título. Descomprima la carpeta descargada.
 
-Abra una ventana de comandos y vaya a la carpeta descargada y, después, al directorio *device-simulator*. Instale las dependencias del proyecto mediante el siguiente comando:
+Abra una ventana de comandos y vaya a la carpeta descargada y, después, al directorio *device-simulator* . Instale las dependencias del proyecto mediante el siguiente comando:
 
 ```cmd
 npm install
@@ -318,12 +318,12 @@ En las siguientes secciones se describen los pasos necesarios para configurar es
 Ahora debe crear un [centro de eventos](../event-hubs/event-hubs-about.md) de Azure que se usará para recibir los eventos de ciclo de vida de IoT Hub. 
 
 Siga los pasos descritos en el inicio rápido [*Creación de un centro de eventos*](../event-hubs/event-hubs-create.md) mediante la siguiente información:
-* Si usa el tutorial general ([*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)), puede volver a usar el grupo de recursos que creó para dicho tutorial.
+* Si usa el tutorial general ( [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)), puede volver a usar el grupo de recursos que creó para dicho tutorial.
 * Asigne el nombre *lifecycleevents* a su centro de eventos, o cualquier otro de su elección, y recuerde el espacio de nombres que ha creado. Los usará cuando configure la función de ciclo de vida y la ruta de IoT Hub en las secciones siguientes.
 
 ### <a name="create-an-azure-function"></a>Creación de una función de Azure
 
-A continuación, creará una función desencadenada por Event Hubs dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ([*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)) o una propia. 
+A continuación, creará una función desencadenada por Event Hubs dentro de una aplicación de funciones. Puede usar la aplicación de funciones creada en el tutorial integral ( [*Tutorial: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md)) o una propia. 
 
 Asigne el nombre *lifecycleevents* al desencadenador del centro de eventos y conéctelo al centro de eventos que creó en el paso anterior. Si ha usado un nombre de centro de eventos diferente, cámbielo para que coincida con el nombre del desencadenador que aparece a continuación.
 
@@ -445,9 +445,9 @@ Guarde el proyecto y, a continuación, vuelva a publicar la aplicación de funci
 
 ### <a name="configure-your-function"></a>Configuración de la función
 
-A continuación, tendrá que establecer variables de entorno en la aplicación de funciones anterior que contiene la referencia a la instancia de Azure Digital Twins que ha creado y al centro de eventos. Si ha empleado el tutorial general ([*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)), el primer valor ya estará configurado.
+A continuación, tendrá que establecer variables de entorno en la aplicación de funciones anterior que contiene la referencia a la instancia de Azure Digital Twins que ha creado y al centro de eventos. Si ha empleado el tutorial general ( [*Tutorial: Conexión de una solución de un extremo a otro*](./tutorial-end-to-end.md)), el primer valor ya estará configurado.
 
-Agregue la configuración con este comando de la CLI de Azure. El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o localmente si tiene la [CLI de Azure instalada en la máquina](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Agregue la configuración con este comando de la CLI de Azure. El comando se puede ejecutar en [Cloud Shell](https://shell.azure.com), o localmente si tiene la [CLI de Azure instalada en la máquina](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 ```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
@@ -469,7 +469,7 @@ Las instrucciones para crear una ruta de IoT Hub se detallan en este artículo: 
 
 Los pasos que debe seguir para esta configuración son:
 1. Creación de un punto de conexión personalizado del centro de eventos de IoT Hub. Este punto de conexión debe tener como destino el centro de eventos que creó en la sección [*Creación de un centro de eventos*](#create-an-event-hub).
-2. Agregue una ruta a *Eventos de ciclo de vida del dispositivo*. Use el punto de conexión que creó en el paso anterior. Puede limitar los eventos de ciclo de vida del dispositivo para que envíe solo los eventos de eliminación agregando la consulta de enrutamiento `opType='deleteDeviceIdentity'`.
+2. Agregue una ruta a *Eventos de ciclo de vida del dispositivo* . Use el punto de conexión que creó en el paso anterior. Puede limitar los eventos de ciclo de vida del dispositivo para que envíe solo los eventos de eliminación agregando la consulta de enrutamiento `opType='deleteDeviceIdentity'`.
     :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Una vista de un dispositivo y varios servicios de Azure en un escenario completo. Los datos fluyen en ambos sentidos entre un dispositivo termostato y DPS. Los datos también fluyen desde DPS a IoT Hub y a Azure Digital Twins a través de una función de Azure con la etiqueta &quot;Asignación&quot;. Los datos de una acción manual de &quot;Eliminar dispositivo&quot; fluyen a través de IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
 
 Una vez que haya pasado por este flujo, todo está listo para la completa retirada de los dispositivos.
@@ -480,7 +480,7 @@ Para desencadenar el proceso de retirada, debe eliminar manualmente el dispositi
 
 En la [primera mitad de este artículo](#auto-provision-device-using-device-provisioning-service), creó un dispositivo en IoT Hub y un dispositivo gemelo digital correspondiente. 
 
-Ahora, vaya a IoT Hub y elimine ese dispositivo (puede hacerlo con un [comando de la CLI de Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o en [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Ahora, vaya a IoT Hub y elimine ese dispositivo (puede hacerlo con un [comando de la CLI de Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) o en [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 El dispositivo se eliminará automáticamente de Azure Digital Twins. 
 
@@ -497,7 +497,7 @@ Debería ver que el gemelo del dispositivo ya no se encuentra en la instancia de
 
 Cuando ya no necesite los recursos creados en este artículo, siga estos pasos para eliminarlos.
 
-Con Azure Cloud Shell o la CLI de Azure local, puede eliminar todos los recursos de Azure de un grupo de recursos mediante el comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete). Esto permite eliminar el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como el espacio de nombres de los centros de eventos y ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
+Con Azure Cloud Shell o la CLI de Azure local, puede eliminar todos los recursos de Azure de un grupo de recursos mediante el comando [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete). Esto permite eliminar el grupo de recursos, la instancia de Azure Digital Twins, el centro de IoT y el registro del dispositivo del centro, el tema de Event Grid y las suscripciones asociadas, así como el espacio de nombres de los centros de eventos y ambas aplicaciones de Azure Functions, incluidos los recursos asociados, como el almacenamiento.
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. 

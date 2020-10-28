@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Conexión a una cuenta de Azure Cosmos mediante un punto de conexión privado de Azure'
 titleSuffix: Azure Private Link
-description: Introducción al punto de conexión privado de Azure para conectarse a una cuenta de Azure Cosmos de forma privada.
+description: Comience a trabajar con este tutorial sobre el uso de un punto de conexión privado de Azure para conectarse a una cuenta de Azure Cosmos de forma privada.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 8b38c72efff5b76392d23837696c340e3cfb58de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd534fff5bfc56dbc4040db016563b06bef6d047
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843587"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145697"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Tutorial: Conexión a una cuenta de Azure Cosmos mediante un punto de conexión privado de Azure
 
@@ -28,6 +28,10 @@ En este tutorial, aprenderá a:
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
+## <a name="prerequisites"></a>Requisitos previos
+
+* Una suscripción de Azure
+
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 Inicie sesión en [Azure Portal](https://portal.azure.com).
@@ -40,50 +44,50 @@ El host bastión se utilizará para conectarse de forma segura a la máquina vir
 
 1. En la parte superior izquierda de la pantalla, seleccione **Crear un recurso > Redes > Red virtual** o busque **Red virtual** en el cuadro de búsqueda.
 
-2. En **Crear red virtual**, escriba o seleccione esta información en la pestaña **Conceptos básicos**:
+2. En **Crear red virtual** , escriba o seleccione esta información en la pestaña **Conceptos básicos** :
 
     | **Configuración**          | **Valor**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Detalles del proyecto**  |                                                                 |
     | Suscripción     | Selección de su suscripción a Azure                                  |
-    | Grupo de recursos   | Seleccione **myResourceGroup**. |
+    | Grupo de recursos   | Seleccione **myResourceGroup** . |
     | **Detalles de instancia** |                                                                 |
-    | Nombre             | Escriba **myVNet**.                                    |
-    | Region           | Seleccione **Este de EE. UU**. |
+    | Nombre             | Escriba **myVNet** .                                    |
+    | Region           | Seleccione **Este de EE. UU** . |
 
 3. Seleccione la pestaña **Direcciones IP** o el botón **Siguiente: Direcciones IP** situado en la parte inferior de la página.
 
-4. En la pestaña **Direcciones IP**, especifique esta información:
-
-    | Parámetro            | Value                      |
-    |--------------------|----------------------------|
-    | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16**. |
-
-5. En **Nombre de subred**, seleccione la palabra **predeterminada**.
-
-6. En **Editar subred**, especifique esta información:
+4. En la pestaña **Direcciones IP** , especifique esta información:
 
     | Configuración            | Value                      |
     |--------------------|----------------------------|
-    | Nombre de subred | Escriba **mySubnet**. |
-    | Intervalo de direcciones de subred | Escriba **10.1.0.0/24**. |
+    | Espacio de direcciones IPv4 | Escriba **10.1.0.0/16** . |
 
-7. Seleccione **Guardar**.
+5. En **Nombre de subred** , seleccione la palabra **predeterminada** .
+
+6. En **Editar subred** , especifique esta información:
+
+    | Configuración            | Value                      |
+    |--------------------|----------------------------|
+    | Nombre de subred | Escriba **mySubnet** . |
+    | Intervalo de direcciones de subred | Escriba **10.1.0.0/24** . |
+
+7. Seleccione **Guardar** .
 
 8. Seleccione la pestaña **Seguridad** .
 
-9. En **BastionHost**, seleccione **Habilitar**. Escriba esta información:
+9. En **BastionHost** , seleccione **Habilitar** . Escriba esta información:
 
     | Configuración            | Value                      |
     |--------------------|----------------------------|
-    | Nombre del bastión | Escriba **myBastionHost**. |
-    | Espacio de direcciones de AzureBastionSubnet | Escriba **10.1.1.0/24**. |
-    | Dirección IP pública | Seleccione **Crear nuevo**. </br> En **Nombre**, escriba **myBastionIP**. </br> Seleccione **Aceptar**. |
+    | Nombre del bastión | Escriba **myBastionHost** . |
+    | Espacio de direcciones de AzureBastionSubnet | Escriba **10.1.1.0/24** . |
+    | Dirección IP pública | Seleccione **Crear nuevo** . </br> En **Nombre** , escriba **myBastionIP** . </br> Seleccione **Aceptar** . |
 
 
-8. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear**.
+8. Seleccione la pestaña **Revisar y crear** o el botón **Revisar y crear** .
 
-9. Seleccione **Crear**.
+9. Seleccione **Crear** .
 
 ## <a name="create-a-virtual-machine"></a>Creación de una máquina virtual
 
@@ -91,41 +95,41 @@ En esta sección, creará una máquina virtual que se utilizará para probar el 
 
 1. En la parte superior izquierda del portal, seleccione **Crear un recurso** > **Proceso** > **Máquina virtual** o **Máquina virtual** en el cuadro de búsqueda.
    
-2. En **Crear una máquina virtual**, escriba o seleccione los valores en la pestaña **Básico**:
+2. En **Crear una máquina virtual** , escriba o seleccione los valores en la pestaña **Básico** :
 
-    | Parámetro | Valor                                          |
+    | Configuración | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Selección de su suscripción a Azure |
-    | Grupo de recursos | Seleccione **myResourceGroup**. |
+    | Grupo de recursos | Seleccione **myResourceGroup** . |
     | **Detalles de instancia** |  |
-    | Nombre de la máquina virtual | Escriba **myVM**. |
-    | Region | Seleccione **Este de EE. UU**. |
+    | Nombre de la máquina virtual | Escriba **myVM** . |
+    | Region | Seleccione **Este de EE. UU** . |
     | Opciones de disponibilidad | Seleccione **No se requiere redundancia de la infraestructura** |
-    | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen1**. |
-    | Instancia de Azure Spot | Seleccione **No**. |
+    | Imagen | Seleccione **Windows Server 2019 Datacenter - Gen1** . |
+    | Instancia de Azure Spot | Seleccione **No** . |
     | Size | Elija el tamaño de la máquina virtual o acepte la configuración predeterminada. |
     | **Cuenta de administrador** |  |
     | Nombre de usuario | Escriba un nombre de usuario. |
     | Contraseña | Escriba una contraseña. |
     | Confirmar contraseña | Vuelva a escribir la contraseña. |
 
-3. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes**.
+3. Seleccione la pestaña **Redes** o seleccione **Siguiente: Discos** y, después, **Siguiente: Redes** .
   
 4. En la pestaña Redes, seleccione o escriba:
 
-    | Parámetro | Valor |
+    | Configuración | Valor |
     |-|-|
     | **Interfaz de red** |  |
     | Virtual network | **myVNet** |
     | Subnet | **mySubnet** |
-    | Dirección IP pública | Seleccione **Ninguno**. |
+    | Dirección IP pública | Seleccione **Ninguno** . |
     | Grupo de seguridad de red de NIC | **Basic**|
-    | Puertos de entrada públicos | Seleccione **Ninguno**. |
+    | Puertos de entrada públicos | Seleccione **Ninguno** . |
    
-5. Seleccione **Revisar + crear**. 
+5. Seleccione **Revisar + crear** . 
   
-6. Revise la configuración y, a continuación, seleccione **Crear**.
+6. Revise la configuración y, a continuación, seleccione **Crear** .
 
 ## <a name="create-a-cosmos-db-account-with-a-private-endpoint"></a>Creación de una cuenta de Cosmos DB con un punto de conexión privado
 
@@ -133,96 +137,96 @@ En esta sección creará una cuenta de Cosmos DB y configurará el punto de con
 
 1. En el menú izquierdo, seleccione **Crear un recurso** > **Bases de datos** > **Cuenta de Cosmos DB** o busque **Cuenta de Cosmos DB** en el cuadro de búsqueda.
 
-2. En la pestaña **Aspectos básicos** de la página **Crear cuenta de Cosmos DB**, escriba o seleccione la información siguiente:
+2. En la pestaña **Aspectos básicos** de la página **Crear cuenta de Cosmos DB** , escriba o seleccione la información siguiente:
 
     | Parámetro | Valor                                          |
     |-----------------------|----------------------------------|
     | **Detalles del proyecto** |  |
     | Suscripción | Seleccione su suscripción a Azure. |
-    | Grupo de recursos | Seleccione **myResourceGroup**. |
+    | Grupo de recursos | Seleccione **myResourceGroup** . |
     | **Detalles de instancia** |  |
-    | Nombre de la cuenta | Escriba **mycosmosdb**. Si el nombre no está disponible, escriba un nombre único. |
-    | API | Seleccione **Core (SQL)**. |
-    | Location | Seleccione **Este de EE. UU**. |
+    | Nombre de la cuenta | Escriba **mycosmosdb** . Si el nombre no está disponible, escriba un nombre único. |
+    | API | Seleccione **Core (SQL)** . |
+    | Location | Seleccione **Este de EE. UU** . |
     | Capacity mode (Modo de capacidad) | Deje el valor **Provisioned throughput** (Rendimiento aprovisionado) predeterminado. |
     | Aplicación de descuento por nivel Gratis | Deje el valor **No aplicar** predeterminado. |
     | Redundancia geográfica | Deje el valor **Deshabilitado** predeterminado. |
     | Escrituras en varias regiones | Deje el valor **Deshabilitado** predeterminado. |
    
-3. Seleccione la pestaña **Redes** o el botón **Siguiente: Redes**.
+3. Seleccione la pestaña **Redes** o el botón **Siguiente: Redes** .
 
-4. En la pestaña **Redes**, escriba o seleccione la siguiente información:
+4. En la pestaña **Redes** , escriba o seleccione la siguiente información:
 
     | Parámetro | Valor |
     | ------- | ----- |
     | **Conectividad de red** | |
-    | Método de conectividad | Seleccione **Punto de conexión privado**. |
+    | Método de conectividad | Seleccione **Punto de conexión privado** . |
     | **Configurar firewall** | |
     | Allow access from the Azure portal (Permitir acceso desde Azure Portal) | Deje el valor **Permitir** predeterminado. |
     | Permitir el acceso desde mi dirección IP | Deje el valor **Denegar** predeterminado. |
 
-5. En **Punto de conexión privado**, seleccione **+ Agregar**.
+5. En **Punto de conexión privado** , seleccione **+ Agregar** .
 
-6. En **Crear un punto de conexión privado**, escriba o seleccione la siguiente información:
+6. En **Crear un punto de conexión privado** , escriba o seleccione la siguiente información:
 
     | Configuración | Valor                                          |
     |-----------------------|----------------------------------|
     | Suscripción | Selección de su suscripción a Azure |
-    | Grupo de recursos | Seleccione **myResourceGroup**. |
-    | Location | Seleccione **Este de EE. UU**. |
-    | Nombre | Escriba **myPrivateEndpoint**. |
+    | Grupo de recursos | Seleccione **myResourceGroup** . |
+    | Location | Seleccione **Este de EE. UU** . |
+    | Nombre | Escriba **myPrivateEndpoint** . |
     | Subrecurso de destino | Deje el valor **Core (SQL)** predeterminado. |
     | **Redes** |  |
-    | Virtual network | Seleccione **myVNet**. |
-    | Subnet | Seleccione **mySubnet**. |
+    | Virtual network | Seleccione **myVNet** . |
+    | Subnet | Seleccione **mySubnet** . |
     | **Integración de DNS privado** |
-    | Integración con una zona DNS privada | Deje el valor predeterminado **Sí**. |
+    | Integración con una zona DNS privada | Deje el valor predeterminado **Sí** . |
     | Zona DNS privada | Deje el valor (New) privatelink.documents.azure.com ([Nuevo] privatelink.documents.azure.com) predeterminado. |
 
-7. Seleccione **Aceptar**.
+7. Seleccione **Aceptar** .
 
-8. Seleccione **Revisar + crear**.
+8. Seleccione **Revisar + crear** .
 
-9. Seleccione **Crear**.
+9. Seleccione **Crear** .
 
 ### <a name="add-a-database-and-a-container"></a>Adición de una base de datos y un contenedor
 
-1. Seleccione **Ir al recurso** o, en el menú de la izquierda de Azure Portal, seleccione **Todos los recursos** > **mycosmosdb**.
+1. Seleccione **Ir al recurso** o, en el menú de la izquierda de Azure Portal, seleccione **Todos los recursos** > **mycosmosdb** .
 
-2. En el menú de la izquierda, seleccione **Explorador de datos**.
+2. En el menú de la izquierda, seleccione **Explorador de datos** .
 
-3. En la ventana **Explorador de datos**, seleccione **Nuevo contenedor**.
+3. En la ventana **Explorador de datos** , seleccione **Nuevo contenedor** .
 
-4. En **Agregar contenedor**, escriba o seleccione la siguiente información:
+4. En **Agregar contenedor** , escriba o seleccione la siguiente información:
 
     | Parámetro | Valor |
     | ------- | ----- |
     | Identificador de base de datos | Deje el valor **Crear nuevo** predeterminado. </br> Escriba **mydatabaseid** en el cuadro de texto. |
     | Rendimiento (400-100 000 RU/s) | Deje el valor **Manual** predeterminado. </br> Escriba **400** en el cuadro de texto. |
-    | Id. de contenedor | Escriba **mycontainerid**. |
-    | Clave de partición | Escriba **/mykey**. |
+    | Id. de contenedor | Escriba **mycontainerid** . |
+    | Clave de partición | Escriba **/mykey** . |
 
-5. Seleccione **Aceptar**.
+5. Seleccione **Aceptar** .
 
-10. En la sección **Configuración** de la cuenta de Cosmos DB, seleccione **Claves**.
+10. En la sección **Configuración** de la cuenta de Cosmos DB, seleccione **Claves** .
 
-11. Seleccione **myResourceGroup**.
+11. Seleccione **myResourceGroup** .
 
 12. Seleccione la cuenta de almacenamiento que creó en los pasos previos.
 
-14. Seleccione copiar en la **CADENA DE CONEXIÓN PRINCIPAL**.
+14. Seleccione copiar en la **CADENA DE CONEXIÓN PRINCIPAL** .
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Prueba de la conectividad con el punto de conexión privado
 
 En esta sección utilizará la máquina virtual creada en el paso anterior para conectarse a la cuenta de Cosmos DB mediante el punto de conexión privado.
 
-1. En el panel de navegación de la izquierda, seleccione **Grupos de recursos**.
+1. En el panel de navegación de la izquierda, seleccione **Grupos de recursos** .
 
-2. Seleccione **myResourceGroup**.
+2. Seleccione **myResourceGroup** .
 
-3. Seleccione **myVM**.
+3. Seleccione **myVM** .
 
-4. En la página de información general para **myVM**, seleccione **Conectar** y, luego, **Bastion**.
+4. En la página de información general para **myVM** , seleccione **Conectar** y, luego, **Bastion** .
 
 5. Seleccione el botón **Usar bastión** azul.
 
@@ -246,38 +250,38 @@ En esta sección utilizará la máquina virtual creada en el paso anterior para 
 
 9. Instale el [Explorador de Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) en la máquina virtual.
 
-10. Seleccione **Finalizar** después de instalar el **Explorador de Microsoft Azure Storage**.  Deje activada la casilla para abrir la aplicación.
+10. Seleccione **Finalizar** después de instalar el **Explorador de Microsoft Azure Storage** .  Deje activada la casilla para abrir la aplicación.
 
-11. En la pantalla **Conectar a Azure Storage**, seleccione **Cancelar**.
+11. En la pantalla **Conectar a Azure Storage** , seleccione **Cancelar** .
 
-12. En el Explorador de Storage, haga clic con el botón derecho en **Cuentas de Cosmos DB** y seleccione **Conectarse a Cosmos DB**.
+12. En el Explorador de Storage, seleccione con el botón derecho **Cuentas de Cosmos DB** y seleccione **Conectarse a Cosmos DB** .
 
-13. En **Seleccionar API**, deje el valor **SQL** predeterminado.
+13. En **Seleccionar API** , deje el valor **SQL** predeterminado.
 
-14. En el cuadro de **Cadena de conexión**, pegue la cadena de conexión de la cuenta de Cosmos DB copiada en los pasos anteriores.
+14. En el cuadro de **Cadena de conexión** , pegue la cadena de conexión de la cuenta de Cosmos DB copiada en los pasos anteriores.
 
 15. Seleccione **Next** (Siguiente).
 
-16. Compruebe que la configuración sea correcta en **Resumen de la conexión**.  
+16. Compruebe que la configuración sea correcta en **Resumen de la conexión** .  
 
-17. Seleccione **Conectar**.
+17. Seleccione **Conectar** .
 
-18. Cierre la conexión con **myVM**.
+18. Cierre la conexión con **myVM** .
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Si no va a seguir usando esta aplicación, elimine la red virtual, la máquina virtual y la cuenta de Cosmos DB mediante los pasos siguientes:
 
-1. En el menú izquierdo, seleccione **Grupos de recursos**.
+1. En el menú izquierdo, seleccione **Grupos de recursos** .
 
-2. Seleccione **myResourceGroup**.
+2. Seleccione **myResourceGroup** .
 
-3. Seleccione **Eliminar grupo de recursos**.
+3. Seleccione **Eliminar grupo de recursos** .
 
-4. Especifique **myResourceGroup** en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS**.
+4. Especifique **myResourceGroup** en **ESCRIBA EL NOMBRE DEL GRUPO DE RECURSOS** .
 
-5. Seleccione **Eliminar**.
+5. Seleccione **Eliminar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

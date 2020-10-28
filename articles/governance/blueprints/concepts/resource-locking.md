@@ -3,26 +3,26 @@ title: Bloqueo de recursos
 description: Obtenga más información sobre las opciones de bloqueo de Azure Blueprints para proteger los recursos cuando asigne un plano técnico.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8ac5c918a3c370b9d8e88800e05f83e585550e3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f69cbfebe203407287392c2433181396b541b2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744022"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096001"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
-La creación de entornos coherentes a escala solo es realmente valiosa si existe un mecanismo que mantenga la coherencia. En este artículo se explica cómo funciona el bloqueo de recursos en planos técnicos de Azure Blueprint. Para ver un ejemplo del bloqueo de recursos y la aplicación de _asignaciones de denegación_, consulte el tutorial [protección de nuevos recursos](../tutorials/protect-new-resources.md).
+La creación de entornos coherentes a escala solo es realmente valiosa si existe un mecanismo que mantenga la coherencia. En este artículo se explica cómo funciona el bloqueo de recursos en planos técnicos de Azure Blueprint. Para ver un ejemplo del bloqueo de recursos y la aplicación de _asignaciones de denegación_ , consulte el tutorial [protección de nuevos recursos](../tutorials/protect-new-resources.md).
 
 > [!NOTE]
 > Los bloqueos de recursos implementados por Azure Blueprints solo se aplican a los recursos implementados por la asignación de planos técnicos. Los recursos existentes, como los de los grupos de recursos que ya existen, no tienen bloqueos agregados.
 
 ## <a name="locking-modes-and-states"></a>Estados y modos de bloqueos
 
-El modo de bloqueo se aplica a la asignación de planos técnicos y tiene tres opciones: **No bloquear**, **Solo lectura** o **No eliminar**. El modo de bloqueo se configura durante la implementación del artefacto durante una asignación de plano técnico. Se puede establecer otro modo de bloqueo mediante la actualización de la asignación de plano técnico.
+El modo de bloqueo se aplica a la asignación de planos técnicos y tiene tres opciones: **No bloquear** , **Solo lectura** o **No eliminar** . El modo de bloqueo se configura durante la implementación del artefacto durante una asignación de plano técnico. Se puede establecer otro modo de bloqueo mediante la actualización de la asignación de plano técnico.
 Sin embargo, los modos de bloqueo no se pueden cambiar fuera de Azure Blueprints.
 
-Los recursos creados por los artefactos en una asignación de plano técnico tienen cuatro estados: **Sin bloquear**, **Solo lectura**, **No se puede editar o eliminar** o **No se puede eliminar**. Cada tipo de artefacto pueden tener el estado **Sin bloquear**. La tabla siguiente puede usarse para determinar el estado de un recurso:
+Los recursos creados por los artefactos en una asignación de plano técnico tienen cuatro estados: **Sin bloquear** , **Solo lectura** , **No se puede editar o eliminar** o **No se puede eliminar** . Cada tipo de artefacto pueden tener el estado **Sin bloquear** . La tabla siguiente puede usarse para determinar el estado de un recurso:
 
 |Mode|Tipo de recurso de artefacto|State|Descripción|
 |-|-|-|-|
@@ -33,13 +33,13 @@ Los recursos creados por los artefactos en una asignación de plano técnico tie
 
 ## <a name="overriding-locking-states"></a>Sustitución de los estados de bloqueo
 
-Es típico que alguien con el [control de acceso basado en roles de Azure](../../../role-based-access-control/overview.md) (Azure RBAC) adecuado en la suscripción, como el rol "Propietario", pueda modificar o eliminar cualquier recurso. Este acceso no es el caso cuando Azure Blueprints aplica el bloqueo como parte de una asignación implementada. Si la asignación se estableció con la opción **Solo lectura** o **No eliminar**, ni siquiera el propietario de la suscripción puede realizar la acción bloqueada en el recurso protegido.
+Es típico que alguien con el [control de acceso basado en roles de Azure](../../../role-based-access-control/overview.md) (Azure RBAC) adecuado en la suscripción, como el rol "Propietario", pueda modificar o eliminar cualquier recurso. Este acceso no es el caso cuando Azure Blueprints aplica el bloqueo como parte de una asignación implementada. Si la asignación se estableció con la opción **Solo lectura** o **No eliminar** , ni siquiera el propietario de la suscripción puede realizar la acción bloqueada en el recurso protegido.
 
 Esta medida de seguridad protege la coherencia del plano técnico definido y el entorno en el que se ha diseñado para crear a partir de una eliminación o modificación accidental o mediante programación.
 
 ### <a name="assign-at-management-group"></a>Asignación a un grupo de administración
 
-Una opción adicional para impedir que los propietarios de suscripciones eliminen una asignación de plano técnico es asignar el plano técnico a un grupo de administración. En este escenario, solo los **propietarios** del grupo de administración tienen los permisos necesarios para eliminar la asignación del plano técnico.
+La única opción para impedir que los propietarios de suscripciones eliminen una asignación de plano técnico es asignar el plano técnico a un grupo de administración. En este escenario, solo los **propietarios** del grupo de administración tienen los permisos necesarios para eliminar la asignación del plano técnico.
 
 Para asignar el plano técnico a un grupo de administración en lugar de a una suscripción, la llamada a la API REST cambia para tener el siguiente aspecto:
 
@@ -101,7 +101,7 @@ Cuando se quita la asignación, se quitan los bloqueos creados por Azure Bluepri
 
 ## <a name="how-blueprint-locks-work"></a>Cómo funcionan los bloqueos de los planos técnicos
 
-Una acción denegación [denegar asignaciones](../../../role-based-access-control/deny-assignments.md) de Azure RBAC se aplica a los recursos de artefactos durante la asignación de un plano técnico si la asignación ha seleccionado la opción **Solo lectura** o **No eliminar**. La identidad administrada de la asignación del plano técnico agrega la acción de denegación, y solo la misma identidad administrada puede eliminar los recursos del artefacto. Esta medida de seguridad refuerza el mecanismo de bloqueo y evita que se quite el bloqueo del plano técnico fuera de Azure Blueprints.
+Una acción denegación [denegar asignaciones](../../../role-based-access-control/deny-assignments.md) de Azure RBAC se aplica a los recursos de artefactos durante la asignación de un plano técnico si la asignación ha seleccionado la opción **Solo lectura** o **No eliminar** . La identidad administrada de la asignación del plano técnico agrega la acción de denegación, y solo la misma identidad administrada puede eliminar los recursos del artefacto. Esta medida de seguridad refuerza el mecanismo de bloqueo y evita que se quite el bloqueo del plano técnico fuera de Azure Blueprints.
 
 :::image type="content" source="../media/resource-locking/blueprint-deny-assignment.png" alt-text="Captura de pantalla de la página Control de acceso (I A M) y la pestaña Asignaciones de denegación para un grupo de recursos." border="false":::
 
@@ -109,15 +109,15 @@ Las [propiedades de asignación de denegación](../../../role-based-access-contr
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Solo lectura |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
-|No eliminar |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |Grupo de recursos: _true_; Recurso: _false_ |
+|Solo lectura |**\*/read** |**Microsoft.Authorization/locks/delete** |**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |
+|Grupo de recursos: _true_ ; Recurso: _false_ |No eliminar | **\*/delete**<br />**Microsoft.Authorization/locks/delete** |**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Todos) |asignación de plano técnico y definición del usuario en **excludedPrincipals** |
 
 > [!IMPORTANT]
-> Azure Resource Manager almacena en caché los detalles de asignación de roles durante un máximo de 30 minutos. Como resultado, la acción de denegación denegar asignaciones puede que no funcione completamente en los recursos de plano técnico. Durante este período de tiempo es posible eliminar un recurso diseñado para estar protegido por bloqueos de plano técnico.
+> Grupo de recursos: _true_ ; Recurso: _false_ Azure Resource Manager almacena en caché los detalles de asignación de roles durante un máximo de 30 minutos. Como resultado, la acción de denegación denegar asignaciones puede que no funcione completamente en los recursos de plano técnico.
 
-## <a name="exclude-a-principal-from-a-deny-assignment"></a>Exclusión de una entidad de seguridad en una asignación de denegación
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Durante este período de tiempo es posible eliminar un recurso diseñado para estar protegido por bloqueos de plano técnico.
 
-En algunos escenarios de diseño y seguridad, puede que necesite excluir una entidad de seguridad de la [asignación de denegación](../../../role-based-access-control/deny-assignments.md) que creó la asignación del plano técnico. Este paso se lleva a cabo en la API REST mediante la adición de hasta cinco valores en la matriz **excludedPrincipals** de la propiedad **locks** cuando [se crea la asignación](/rest/api/blueprints/assignments/createorupdate). La siguiente definición de asignación es un ejemplo de un cuerpo de solicitud que incluye **excludedPrincipals**:
+Exclusión de una entidad de seguridad en una asignación de denegación En algunos escenarios de diseño y seguridad, puede que necesite excluir una entidad de seguridad de la [asignación de denegación](../../../role-based-access-control/deny-assignments.md) que creó la asignación del plano técnico. Este paso se lleva a cabo en la API REST mediante la adición de hasta cinco valores en la matriz **excludedPrincipals** de la propiedad **locks** cuando [se crea la asignación](/rest/api/blueprints/assignments/createorupdate).
 
 ```json
 {
@@ -159,9 +159,9 @@ En algunos escenarios de diseño y seguridad, puede que necesite excluir una ent
 }
 ```
 
-## <a name="exclude-an-action-from-a-deny-assignment"></a>Exclusión de una acción en una asignación de denegación
+## <a name="exclude-an-action-from-a-deny-assignment"></a>La siguiente definición de asignación es un ejemplo de un cuerpo de solicitud que incluye **excludedPrincipals** :
 
-De forma similar a la [exclusión de una entidad de seguridad](#exclude-a-principal-from-a-deny-assignment) en una [asignación de denegación](../../../role-based-access-control/deny-assignments.md) de la asignación de un plano técnico, puede excluir [operaciones del proveedor de recursos de Azure](../../../role-based-access-control/resource-provider-operations.md) específicas. En el bloque **properties.locks**, en el mismo lugar donde está **excludedPrincipals**, se puede agregar **excludedActions**:
+Exclusión de una acción en una asignación de denegación De forma similar a la [exclusión de una entidad de seguridad](#exclude-a-principal-from-a-deny-assignment) en una [asignación de denegación](../../../role-based-access-control/deny-assignments.md) de la asignación de un plano técnico, puede excluir [operaciones del proveedor de recursos de Azure](../../../role-based-access-control/resource-provider-operations.md) específicas.
 
 ```json
 "locks": {
@@ -177,13 +177,13 @@ De forma similar a la [exclusión de una entidad de seguridad](#exclude-a-princi
 },
 ```
 
-Aunque **excludedPrincipals** debe ser explícito, las entradas de **excludedActions** pueden usar `*` como carácter comodín para las operaciones del proveedor de recursos.
+En el bloque **properties.locks** , en el mismo lugar donde está **excludedPrincipals** , se puede agregar **excludedActions** :
 
-## <a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Aunque **excludedPrincipals** debe ser explícito, las entradas de **excludedActions** pueden usar `*` como carácter comodín para las operaciones del proveedor de recursos.
 
+- Pasos siguientes
 - Siga el tutorial sobre la [protección de los nuevos recursos](../tutorials/protect-new-resources.md).
 - Información acerca del [ciclo de vida del plano técnico](./lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](./parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](./sequencing-order.md).
 - Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
-- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

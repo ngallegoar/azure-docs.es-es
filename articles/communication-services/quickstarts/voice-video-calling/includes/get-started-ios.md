@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376672"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157862"
 ---
 En este inicio rápido, aprenderá a iniciar una llamada mediante la biblioteca cliente de llamadas de Azure Communication Services para iOS.
 
@@ -28,7 +28,7 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
 ### <a name="creating-the-xcode-project"></a>Creación del proyecto de Xcode
 
-En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación de una vista**. En este tutorial se usa el [marco SwiftUI](https://developer.apple.com/xcode/swiftui/), por lo que debe establecer **Lenguaje** en **Swift** e **Interfaz de usuario** en **SwiftUI**. Durante este inicio rápido, no va a crear pruebas. No dude en desactivar **Incluir pruebas**.
+En Xcode, cree un nuevo proyecto de iOS y seleccione la plantilla **Aplicación de una vista** . En este tutorial se usa el [marco SwiftUI](https://developer.apple.com/xcode/swiftui/), por lo que debe establecer **Lenguaje** en **Swift** e **Interfaz de usuario** en **SwiftUI** . Durante este inicio rápido, no va a crear pruebas. No dude en desactivar **Incluir pruebas** .
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Captura de pantalla que muestra la ventana Nuevo proyecto en Xcode.":::
 
@@ -41,10 +41,10 @@ Agregue la biblioteca cliente de llamadas de Azure Communication Services y sus 
 
 1. [Descargue](https://github.com/Azure/Communication/releases) la biblioteca cliente de llamadas de Azure Communication Services para iOS.
 2. En Xcode, haga clic en el archivo del proyecto y seleccione el destino de compilación para abrir el editor de configuración del proyecto.
-3. En la pestaña **General**, desplácese a la sección **Frameworks, Libraries, and Embedded Content** (Marcos, bibliotecas y contenido insertado) y haga clic en el icono **"+"** .
-4. En la parte inferior izquierda del cuadro de diálogo, utilice el menú desplegable **Agregar archivos**, desplácese hasta el directorio **AzureCommunicationCalling.framework** del paquete de la biblioteca cliente sin comprimir.
-    1. Repita el último paso para agregar **AzureCore.framework** y **AzureCommunication.framework**.
-5. Abra la pestaña **Configuración de la compilación** del editor de configuración del proyecto y desplácese hasta la sección **Rutas de búsqueda**. Agregue la entrada **Framework Search Paths** (Rutas de acceso de búsqueda del marco) para el directorio que contiene **AzureCommunicationCalling.framework**.
+3. En la pestaña **General** , desplácese a la sección **Frameworks, Libraries, and Embedded Content** (Marcos, bibliotecas y contenido insertado) y haga clic en el icono **"+"** .
+4. En la parte inferior izquierda del cuadro de diálogo, utilice el menú desplegable **Agregar archivos** , desplácese hasta el directorio **AzureCommunicationCalling.framework** del paquete de la biblioteca cliente sin comprimir.
+    1. Repita el último paso para agregar **AzureCore.framework** y **AzureCommunication.framework** .
+5. Abra la pestaña **Configuración de la compilación** del editor de configuración del proyecto y desplácese hasta la sección **Rutas de búsqueda** . Agregue la entrada **Framework Search Paths** (Rutas de acceso de búsqueda del marco) para el directorio que contiene **AzureCommunicationCalling.framework** .
     1. Agregue otra entrada de rutas de acceso de búsqueda del marco que apunte a la carpeta que contiene las dependencias.
 
 :::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Captura de pantalla que muestra la ventana Nuevo proyecto en Xcode.":::
@@ -53,7 +53,7 @@ Agregue la biblioteca cliente de llamadas de Azure Communication Services y sus 
 
 Para acceder al micrófono del dispositivo, debe actualizar la lista de propiedades de información de la aplicación con el elemento `NSMicrophoneUsageDescription`. Puede establecer el valor asociado al elemento `string` que se incluirá en el cuadro de diálogo que el sistema usa para solicitar acceso al usuario.
 
-Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyecto y seleccione **Abrir como** > **Código fuente**. Agregue las líneas siguientes a la sección `<dict>` de nivel superior y guarde el archivo.
+Haga clic con el botón derecho en la entrada `Info.plist` del árbol del proyecto y seleccione **Abrir como** > **Código fuente** . Agregue las líneas siguientes a la sección `<dict>` de nivel superior y guarde el archivo.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -125,7 +125,7 @@ Las siguientes clases e interfaces controlan algunas de las características pri
 
 ## <a name="authenticate-the-client"></a>Autenticar el cliente
 
-Inicialice una instancia de `CallAgent` con un token de acceso de usuario que nos permita realizar y recibir llamadas. Agregue el código siguiente a la devolución de llamada `onAppear` en **ContentView.swift**:
+Inicialice una instancia de `CallAgent` con un token de acceso de usuario que nos permita realizar y recibir llamadas. Agregue el código siguiente a la devolución de llamada `onAppear` en **ContentView.swift** :
 
 ```swift
 var userCredential: CommunicationUserCredential?
@@ -155,7 +155,7 @@ Debe reemplazar `<USER ACCESS TOKEN>` por un token de acceso de usuario válido 
 
 ## <a name="start-a-call"></a>Inicio de una llamada
 
-El método `startCall` se establece como la acción que se llevará a cabo cuando se toque el botón *Iniciar llamada*. Actualice la implementación para iniciar una llamada con `ASACallAgent`:
+El método `startCall` se establece como la acción que se llevará a cabo cuando se toque el botón *Iniciar llamada* . Actualice la implementación para iniciar una llamada con `ASACallAgent`:
 
 ```swift
 func startCall()
@@ -175,7 +175,7 @@ También puede usar las propiedades de `ACSStartCallOptions` para establecer las
 
 ## <a name="end-a-call"></a>Finalización de una llamada
 
-Implemente el método `endCall` para finalizar la llamada actual cuando se toque el botón *Finalizar llamada*.
+Implemente el método `endCall` para finalizar la llamada actual cuando se toque el botón *Finalizar llamada* .
 
 ```swift
 func endCall()
@@ -194,10 +194,10 @@ Para compilar y ejecutar la aplicación en el simulador de iOS, seleccione **Pro
 
 :::image type="content" source="../media/ios/quick-start-make-call.png" alt-text="Captura de pantalla que muestra la ventana Nuevo proyecto en Xcode.":::
 
-Para hacer una llamada de VoIP saliente, proporcione un identificador de usuario en el campo de texto y toque el botón **Iniciar llamada**. La llamada a `8:echo123` le conecta a un bot de eco, lo que resulta ideal como introducción y para verificar que los dispositivos de audio funcionan. 
+Para hacer una llamada de VoIP saliente, proporcione un identificador de usuario en el campo de texto y toque el botón **Iniciar llamada** . La llamada a `8:echo123` le conecta a un bot de eco, lo que resulta ideal como introducción y para verificar que los dispositivos de audio funcionan. 
 
 > [!NOTE]
-> La primera vez que realice una llamada, el sistema le solicitará acceso al micrófono. En una aplicación de producción, debe usar la API `AVAudioSession`, [comprobar el estado del permiso](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) y actualizar correctamente el comportamiento de la aplicación cuando no se conceda el permiso.
+> La primera vez que realice una llamada, el sistema le solicitará acceso al micrófono. En una aplicación de producción, debe usar la API `AVAudioSession` para [comprobar el estado del permiso](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) y actualizar correctamente el comportamiento de la aplicación cuando no se conceda el permiso.
 
 ## <a name="sample-code"></a>Código de ejemplo
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo habilitar la supervisión de un cl
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994505"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165407"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Habilitar la supervisión de un clúster de Azure Kubernetes Service (AKS) ya implementado
 
@@ -58,7 +58,7 @@ Si prefiere realizar la integración en un área de trabajo existente, realice l
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
     ```
 
-    Copie el valor de **SubscriptionId**.
+    Copie el valor de **SubscriptionId** .
 
 2. Cambie a la suscripción que hospeda el área de trabajo de Log Analytics con el siguiente comando:
 
@@ -105,15 +105,15 @@ Si prefiere realizar la integración en un área de trabajo existente, realice l
 
 Para habilitar la supervisión de un clúster de AKS en Azure Portal desde Azure Monitor, siga estos pasos:
 
-1. En Azure Portal, seleccione **Monitor**.
+1. En Azure Portal, seleccione **Monitor** .
 
 2. Seleccione **Contenedores** en la lista.
 
-3. En la página **Supervisión - Contenedores**, seleccione **Clústeres sin supervisar**.
+3. En la página **Supervisión - Contenedores** , seleccione **Clústeres sin supervisar** .
 
-4. En la lista de clústeres sin supervisar, busque el contenedor y haga clic en **Habilitar**.
+4. En la lista de clústeres sin supervisar, busque el contenedor y haga clic en **Habilitar** .
 
-5. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
+5. En la página **Incorporación a Azure Monitor para contenedores** , si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa el contenedor de AKS en la suscripción.
 
     ![Habilitación de la supervisión de conclusiones de contenedores de AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -127,19 +127,17 @@ Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pu
 
 Para habilitar la supervisión directamente desde un clúster de AKS en Azure Portal, siga estos pasos:
 
-1. En Azure Portal, seleccione **Todos los servicios**.
+1. En Azure Portal, seleccione **Todos los servicios** .
 
-2. En la lista de recursos, empiece a escribir **Containers**.  La lista se filtra en función de lo que escriba.
+2. En la lista de recursos, empiece a escribir **Containers** .  La lista se filtra en función de lo que escriba.
 
-3. Seleccione **servicios de Kubernetes**.
+3. Seleccione **servicios de Kubernetes** .
+    
+4. En la lista de servicios de Kubernetes, seleccione un servicio.
 
-    ![El vínculo de Servicios de Kubernetes](./media/container-insights-onboard/portal-search-containers-01.png)
+5. En la página de información general del servicio Kubernetes, seleccione **Supervisión - Insights** .
 
-4. En la lista de contenedores, seleccione uno de ellos.
-
-5. En la página de información general del contenedor, seleccione **Contenedores de Monitor**.
-
-6. En la página **Incorporación a Azure Monitor para contenedores**, si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
+6. En la página **Incorporación a Azure Monitor para contenedores** , si tiene un área de trabajo de Log Analytics ya existente en la misma suscripción que el clúster, selecciónela de la lista desplegable.
     La lista preselecciona el área de trabajo y la ubicación predeterminadas en las que se implementa el contenedor de AKS en la suscripción.
 
     ![Habilitación de la supervisión del mantenimiento de contenedores de AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -295,7 +293,7 @@ Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Comprobar la implementación del agente y la solución
 
-Con la versión del agente *06072018*, o cualquier versión posterior, puede comprobar que tanto el agente como la solución se han implementado correctamente. Con las versiones anteriores del agente, solo se puede comprobar la implementación del agente.
+Con la versión del agente *06072018* , o cualquier versión posterior, puede comprobar que tanto el agente como la solución se han implementado correctamente. Con las versiones anteriores del agente, solo se puede comprobar la implementación del agente.
 
 ### <a name="agent-version-06072018-or-later"></a>Versión 06072018 del agente, o posterior
 

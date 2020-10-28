@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: b639bc19620a07d9730066f98977080827f07ec0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67ed8c54e32a301a50fa49b1ebba284b216d8664
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91570458"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276309"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Inicio rápido: Compilación de una aplicación de consola mediante el SDK de .NET V4 para administrar recursos de la cuenta de SQL API de Azure Cosmos DB.
 
@@ -29,7 +29,7 @@ ms.locfileid: "91570458"
 
 Introducción a la biblioteca cliente de API de SQL de Azure Cosmos DB para .NET. Siga los pasos de este documento para instalar el paquete .NET V4 (Azure.Cosmos), compilar una aplicación y probar el código de ejemplo para las operaciones CRUD básicas en los datos almacenados en Azure Cosmos DB. 
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede usar Azure Cosmos DB para crear y consultar rápidamente las bases de datos de gráficos, documentos, claves y valores. Use la biblioteca cliente de API de SQL de Azure Cosmos DB para .NET para:
+Azure Cosmos DB es una base de datos NoSQL rápida de Microsoft con API abiertas para cualquier escala. Puede usar Azure Cosmos DB para crear y consultar rápidamente las bases de datos de gráficos, documentos, claves y valores. Use la biblioteca cliente de API de SQL de Azure Cosmos DB para .NET para:
 
 * Crear una base de datos y un contenedor de Azure Cosmos
 * Agregar datos de ejemplo al contenedor
@@ -49,13 +49,13 @@ En esta sección se le guía por el proceso de creación de una cuenta de Azure 
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Crear una cuenta de Azure Cosmos
 
-Si usa la opción [Prueba gratuita del emulador de Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) para crear una cuenta de Azure Cosmos, debe crear una cuenta de Azure Cosmos DB del tipo de **SQL API**. Ya se ha creado una cuenta de prueba de Azure Cosmos DB. No tiene que crear la cuenta explícitamente, por lo que puede omitir esta sección y pasar a la siguiente.
+Si usa la opción [Prueba gratuita del emulador de Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) para crear una cuenta de Azure Cosmos, debe crear una cuenta de Azure Cosmos DB del tipo de **SQL API** . Ya se ha creado una cuenta de prueba de Azure Cosmos DB. No tiene que crear la cuenta explícitamente, por lo que puede omitir esta sección y pasar a la siguiente.
 
 Si tiene su propia suscripción de Azure o creó una suscripción gratuita, debe crear una cuenta de Azure Cosmos explícitamente. El código siguiente creará una cuenta de Azure Cosmos con coherencia de sesión. La cuenta se replica en `South Central US` y `North Central US`.  
 
-Puede usar Azure Cloud Shell para crear la cuenta de Azure Cosmos. Azure Cloud Shell es un shell interactivo, autenticado y al que se puede acceder desde un explorador para administrar recursos de Azure. Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adapte a la forma de trabajar de cada uno, Bash o PowerShell. En esta guía de inicio rápido, elija el modo **Bash**. Azure Cloud Shell también requiere una cuenta de almacenamiento; puede crear una cuando se le solicite.
+Puede usar Azure Cloud Shell para crear la cuenta de Azure Cosmos. Azure Cloud Shell es un shell interactivo, autenticado y al que se puede acceder desde un explorador para administrar recursos de Azure. Ofrece la flexibilidad de poder elegir la experiencia de shell que mejor se adapte a la forma de trabajar de cada uno, Bash o PowerShell. En esta guía de inicio rápido, elija el modo **Bash** . Azure Cloud Shell también requiere una cuenta de almacenamiento; puede crear una cuando se le solicite.
 
-Seleccione el botón **Pruébelo** junto al siguiente código, elija el modo **Bash**, seleccione **Crear una cuenta de almacenamiento** e inicie sesión en Cloud Shell. Después, copie y pegue el código siguiente en Azure Cloud Shell y ejecútelo. El nombre de la cuenta de Azure Cosmos debe ser único globalmente; asegúrese de actualizar el valor de `mysqlapicosmosdb` antes de ejecutar el comando.
+Seleccione el botón **Pruébelo** junto al siguiente código, elija el modo **Bash** , seleccione **Crear una cuenta de almacenamiento** e inicie sesión en Cloud Shell. Después, copie y pegue el código siguiente en Azure Cloud Shell y ejecútelo. El nombre de la cuenta de Azure Cosmos debe ser único globalmente; asegúrese de actualizar el valor de `mysqlapicosmosdb` antes de ejecutar el comando.
 
 ```azurecli-interactive
 
@@ -139,7 +139,7 @@ Antes de empezar a compilar la aplicación, consulte la jerarquía de recursos d
 * Contenedores 
 * Elementos
 
-Para obtener más información acerca de la jerarquía de diferentes entidades, consulte el artículo sobre cómo [trabajar con bases de datos, contenedores y elementos en Azure Cosmos DB](databases-containers-items.md). Usará las siguientes clases de .NET para interactuar con estos recursos:
+Para obtener más información acerca de la jerarquía de diferentes entidades, consulte el artículo sobre cómo [trabajar con bases de datos, contenedores y elementos en Azure Cosmos DB](account-databases-containers-items.md). Usará las siguientes clases de .NET para interactuar con estos recursos:
 
 * CosmosClient: esta clase proporciona una representación lógica del lado cliente para el servicio Azure Cosmos DB. El objeto de cliente se usa para configurar y ejecutar solicitudes en el servicio.
 * CreateDatabaseIfNotExistsAsync: este método crea (si no existe) u obtiene (si ya existe) un recurso de base de datos como operación asincrónica. 

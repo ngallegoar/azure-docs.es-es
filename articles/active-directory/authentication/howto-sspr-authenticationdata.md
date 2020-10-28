@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cba2517f536c9044ad15c628c793529f93b988ce
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966498"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165013"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Cumplimentación previa de la información de contacto de autenticación de usuarios para el autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Directory
 
@@ -28,12 +28,12 @@ Puede rellenar previamente la información de contacto de autenticación si cump
 * Ha dado un formato correcto a los datos en su directorio local.
 * Ha configurado [Azure AD Connect](../hybrid/how-to-connect-install-express.md) para su inquilino de Azure AD.
 
-Todos los números de teléfono deben tener el formato *+CódigoPaís NúmeroTelefónico*, por ejemplo: *+1 4251234567*.
+Todos los números de teléfono deben tener el formato *+CódigoPaís NúmeroTelefónico* , por ejemplo: *+1 4251234567* .
 
 > [!NOTE]
 > Debe haber un espacio entre el código de país y el número de teléfono.
 >
-> El restablecimiento de contraseña no admite extensiones telefónicas. Incluso con el formato *+1 4251234567X12345*, las extensiones se quitan antes de hacer la llamada.
+> El restablecimiento de contraseña no admite extensiones telefónicas. Incluso con el formato *+1 4251234567X12345* , las extensiones se quitan antes de hacer la llamada.
 
 ## <a name="fields-populated"></a>Campos rellenos
 
@@ -48,16 +48,14 @@ Después de que un usuario verifica el número de teléfono móvil, el campo *Te
 
 ## <a name="authentication-contact-info"></a>Información de contacto para la autenticación
 
-En la página **Métodos de autenticación** de un usuario de Azure AD en Azure Portal, un administrador global puede establecer manualmente la información del contacto de autenticación, tal como se muestra en la siguiente captura de pantalla de ejemplo:
+En la página **Métodos de autenticación** de un usuario de Azure AD en Azure Portal, un administrador global puede establecer manualmente la información del contacto de autenticación. Puede revisar los métodos existentes en la sección *Métodos de autenticación utilizables* o **+ Agregar métodos de autenticación** , como se muestra en la siguiente captura de pantalla de ejemplo:
 
-![Información de contacto de autenticación en un usuario en Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Administración de los métodos de autenticación desde Azure Portal":::
 
 Las siguientes consideraciones se aplican a esta información de contacto de autenticación:
 
 * Si se rellena el campo *Teléfono* y el *Teléfono móvil* está habilitado en la directiva de SSPR, el usuario ve dicho número en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
-* El campo de *Teléfono alternativo* no se utiliza para restablecer la contraseña.
 * Si se rellena el campo de *Correo electrónico* y el *Correo electrónico* está habilitado en la directiva de SSPR, el usuario ve dicho correo electrónico en la página de registro de restablecimiento de la contraseña y durante el flujo de trabajo de restablecimiento de la contraseña.
-* Si se rellena el campo de *Correo electrónico alternativo* y el *Correo electrónico* está habilitado en la directiva de SSPR, el usuario no verá dicho correo electrónico en la página de registro de restablecimiento de la contraseña, pero sí durante el flujo de trabajo de restablecimiento de la contraseña.
 
 ## <a name="security-questions-and-answers"></a>Preguntas y respuestas de seguridad
 
@@ -71,9 +69,9 @@ Cuando se registre un usuario, la página de registro establecerá los campos si
 * **Correo electrónico de autenticación**
 * **Preguntas y respuestas de seguridad**
 
-Si especificó un valor para *Teléfono móvil* o *Correo electrónico alternativo*, los usuarios podrán usarlos inmediatamente para restablecer sus contraseñas, aunque no se hayan registrado para el servicio.
+Si especificó un valor para *Teléfono móvil* o *Correo electrónico alternativo* , los usuarios podrán usarlos inmediatamente para restablecer sus contraseñas, aunque no se hayan registrado para el servicio.
 
-Además, los usuarios ven esos valores cuando se registran por primera vez, y pueden modificarlos si lo desean. Una vez que se registran correctamente, dichos valores se conservan en los campos *Teléfono de autenticación* y *Correo electrónico de autenticación*, respectivamente.
+Además, los usuarios ven esos valores cuando se registran por primera vez, y pueden modificarlos si lo desean. Una vez que se registran correctamente, dichos valores se conservan en los campos *Teléfono de autenticación* y *Correo electrónico de autenticación* , respectivamente.
 
 ## <a name="set-and-read-the-authentication-data-through-powershell"></a>Establecimiento y lectura de datos de autenticación mediante PowerShell
 
@@ -169,5 +167,3 @@ Una vez que la información de contacto de autenticación se ha rellenado previa
 
 > [!div class="nextstepaction"]
 > [Habilitación del autoservicio de restablecimiento de contraseña de Azure AD](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Los administradores globales pueden modificar la información de contacto de autenticación de un usuario"

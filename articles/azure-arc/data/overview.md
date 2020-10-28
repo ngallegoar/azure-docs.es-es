@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90945730"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316964"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>¿Qué son los servicios de datos habilitados para Azure Arc (versión preliminar)?
 
@@ -41,7 +41,7 @@ Azure Arc también proporciona otras ventajas en la nube, como la implementació
 
 ## <a name="unified-management"></a>Administración unificada
 
-Gracias a las herramientas conocidas como Azure Portal, Azure Data Studio y la CLI de datos de Azure, ahora puede obtener una vista unificada de todos los recursos de datos implementados con Azure Arc. No solo puede ver y administrar una variedad de bases de datos relacionales en todo el entorno y Azure, sino que también puede obtener registros y telemetría de las API de Kubernetes para analizar la capacidad y el estado de la infraestructura subyacente. Además de contar con la supervisión del rendimiento y el análisis de registros localizados, ahora puede aprovechar Azure Monitor para obtener información operativa completa en todo el estado.
+Gracias a las herramientas conocidas como Azure Portal, Azure Data Studio y la [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)], ahora puede obtener una vista unificada de todos los recursos de datos implementados con Azure Arc. No solo puede ver y administrar una variedad de bases de datos relacionales en todo el entorno y Azure, sino que también puede obtener registros y telemetría de las API de Kubernetes para analizar la capacidad y el estado de la infraestructura subyacente. Además de contar con la supervisión del rendimiento y el análisis de registros localizados, ahora puede aprovechar Azure Monitor para obtener información operativa completa en todo el estado.
 
 ## <a name="disconnected-scenario-support"></a>Compatibilidad con los escenarios sin conexión
 

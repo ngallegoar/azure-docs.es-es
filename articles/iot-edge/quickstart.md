@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7b732537d5b0ba517c5d638381c07f229c500081
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047053"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107800"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Inicio rápido: Implementación del primer módulo de IoT Edge en un dispositivo Windows virtual
 
@@ -68,8 +68,8 @@ Dispositivo de IoT Edge:
   Una vez que se inicia la máquina virtual, puede descargar un archivo RDP para su uso al conectarse a la máquina virtual:
 
   1. Vaya a la nueva máquina virtual Windows en Azure Portal.
-  1. Seleccione **Conectar**.
-  1. En la pestaña **RDP**, seleccione **Descargar archivo RDP**.
+  1. Seleccione **Conectar** .
+  1. En la pestaña **RDP** , seleccione **Descargar archivo RDP** .
 
   Abra este archivo con Conexión a Escritorio remoto para conectarse a la máquina virtual Windows mediante el nombre de administrador y la contraseña que especificó con el comando `az vm create`.
 
@@ -78,7 +78,7 @@ Dispositivo de IoT Edge:
 >
 > En esta guía de inicio rápido se usa una máquina virtual de Escritorio de Windows por motivos de simplicidad. Para obtener información sobre qué sistemas operativos Windows están disponibles con carácter general para escenarios de producción, vea [Sistemas compatibles con Azure IoT Edge](support.md).
 >
-> Si desea configurar su propio dispositivo Windows para IoT Edge, siga los pasos descritos en [Instalación del entorno de ejecución de Azure IoT Edge](how-to-install-iot-edge.md).
+> Si quiere configurar su propio dispositivo Windows para IoT Edge, incluidos los dispositivos que ejecutan IoT Core, siga los pasos descritos en [Instalación del entorno de ejecución de Azure IoT Edge](how-to-install-iot-edge.md).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -94,7 +94,7 @@ El código siguiente crea un centro **F1** gratis en el grupo de recursos `IoTEd
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
    ```
 
-   Si se produce un error porque ya hay un centro gratis en la suscripción, cambie la SKU a **S1**. Si recibe un error que le indica que el nombre de IoT Hub no está disponible, significa que alguien más ya tiene un centro con ese nombre. Pruebe con uno nuevo.
+   Si se produce un error porque ya hay un centro gratis en la suscripción, cambie la SKU a **S1** . Si recibe un error que le indica que el nombre de IoT Hub no está disponible, significa que alguien más ya tiene un centro con ese nombre. Pruebe con uno nuevo.
 
 ## <a name="register-an-iot-edge-device"></a>Registro de un dispositivo de IoT Edge
 
@@ -169,7 +169,7 @@ Use PowerShell para descargar e instalar el entorno de ejecución de IoT Edge. U
    Initialize-IoTEdge -ContainerOs Windows
    ```
 
-6. Cuando se le pida una **DeviceConnectionString**, proporcione la cadena que ha copiado en la sección anterior. No incluya comillas para la cadena de conexión.
+6. Cuando se le pida una **DeviceConnectionString** , proporcione la cadena que ha copiado en la sección anterior. No incluya comillas para la cadena de conexión.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Visualización del estado del entorno de ejecución de Azure IoT Edge
 
@@ -187,7 +187,7 @@ Compruebe que el entorno de ejecución se ha instalado y configurado correctamen
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
-3. Vea todos los módulos que se ejecutan en el dispositivo IoT Edge. Como el servicio se acaba de iniciar por primera vez, solo verá la ejecución del módulo **edgeAgent**. El módulo edgeAgent se ejecuta de forma predeterminada y le ayuda a instalar e iniciar todos los módulos adicionales que implemente en el dispositivo.
+3. Vea todos los módulos que se ejecutan en el dispositivo IoT Edge. Como el servicio se acaba de iniciar por primera vez, solo verá la ejecución del módulo **edgeAgent** . El módulo edgeAgent se ejecuta de forma predeterminada y le ayuda a instalar e iniciar todos los módulos adicionales que implemente en el dispositivo.
 
     ```powershell
     iotedge list
@@ -241,7 +241,7 @@ Si ha creado una máquina virtual y un centro de IoT en un nuevo grupo de recurs
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible.
 
-Quite el grupo **IoTEdgeResources**. La eliminación de un grupo de recursos puede tardar unos minutos.
+Quite el grupo **IoTEdgeResources** . La eliminación de un grupo de recursos puede tardar unos minutos.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources

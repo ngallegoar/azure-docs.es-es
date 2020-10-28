@@ -10,13 +10,13 @@ ms.topic: reference
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/21/2020
-ms.openlocfilehash: 1d9fc9f50ac21e2ea621e26ad2b1fe0f146116de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: d6936d6c72855bc22e3fc9323028fd0b8cd0fb29
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618495"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097582"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,7 +50,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|320|640|1280|1920|2560|
-|Velocidad de registro máx. (Mbps)|3.8|7.5|15|22.5|30|
+|Velocidad de registro máx. (Mbps)|4.5.|9|18|27|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|75|150|300|450|600|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -76,7 +76,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|3200|3840|4480|5120|
-|Velocidad de registro máx. (Mbps)|30|30|30|30|
+|Velocidad de registro máx. (Mbps)|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|750|900|1050|1200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|
@@ -102,7 +102,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|5760|6400|7680|10240|12800|
-|Velocidad de registro máx. (Mbps)|30|30|30|30|30|
+|Velocidad de registro máx. (Mbps)|36|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1350|1\.500|1800|2400|3000|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|
@@ -227,9 +227,9 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 #### <a name="notes"></a>Notas
 
-**Nota 1**: La hiperescala es una arquitectura de varios niveles con componentes de proceso y almacenamiento independientes: [Arquitectura de nivel de servicio Hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
+**Nota 1** : La hiperescala es una arquitectura de varios niveles con componentes de proceso y almacenamiento independientes: [Arquitectura de nivel de servicio Hiperescala](service-tier-hyperscale.md#distributed-functions-architecture)
 
-**Nota 2**: La latencia es de 1 o 2 ms para los datos de la unidad de estado sólido de la réplica de proceso local, que almacena en caché las páginas de datos más usadas. Mayor latencia de los datos recuperados de los servidores de páginas.
+**Nota 2** : La latencia es de 1 o 2 ms para los datos de la unidad de estado sólido de la réplica de proceso local, que almacena en caché las páginas de datos más usadas. Mayor latencia de los datos recuperados de los servidores de páginas.
 
 ## <a name="general-purpose---provisioned-compute---gen4"></a>Uso general: proceso aprovisionado: Gen4
 
@@ -251,7 +251,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|320|640|960|1280|1600|1920|
-|Velocidad de registro máx. (Mbps)|3,75|7.5|11,25|15|18,75|22.5|
+|Velocidad de registro máx. (Mbps)|4.5.|9|13.5|18|22.5|27|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -276,7 +276,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)
 |Número máx. de IOPS de datos *|2240|2560|2880|3200|5120|7680|
-|Velocidad de registro máx. (Mbps)|26,3|30|30|30|30|30|
+|Velocidad de registro máx. (Mbps)|31.5|36|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1400|1600|1800|2000|3200|4800|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|
@@ -303,7 +303,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|640|1280|1920|2560|3200|3840|4480|
-|Velocidad de registro máx. (Mbps)|7.5|15|22.5|30|30|30|30|
+|Velocidad de registro máx. (Mbps)|9|18|27|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|200|400|600|800|1000|1200|1400|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -328,7 +328,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|5120|5760|6400|7680|10240|12800|12800|
-|Velocidad de registro máx. (Mbps)|30|30|30|30|30|30|30|
+|Velocidad de registro máx. (Mbps)|36|36|36|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|1600|1800|2000|2400|3200|4000|8000|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Número de réplicas|1|1|1|1|1|1|1|
@@ -355,7 +355,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|2560|3200|3840|4480|5120|
-|Velocidad de registro máx. (Mbps)|30|30|30|30|30|
+|Velocidad de registro máx. (Mbps)|36|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|400|500|600|700|800|
 |Máximo de inicios de sesión simultáneos|800|1000|1200|1400|1600|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
@@ -381,7 +381,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 |Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
 |Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
 |Número máx. de IOPS de datos *|5760|6400|7680|10240|11 520|23 040|
-|Velocidad de registro máx. (Mbps)|30|30|30|30|30|30|
+|Velocidad de registro máx. (Mbps)|36|36|36|36|36|36|
 |Cantidad máxima de trabajos (solicitudes) simultáneos|900|1000|1200|1600|1800|3600|
 |Máximo de inicios de sesión simultáneos|1800|2000|2400|3200|3600|7200|
 |N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|

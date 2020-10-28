@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cbec0b4b28574bfbe46516de54f1b8a3fad7ce2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259301"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091141"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Información general de Service Fabric con Azure API Management
 
@@ -29,13 +29,13 @@ Una arquitectura de Service Fabric común usa una aplicación web de una página
 
 En este escenario, un servicio web sin estado actúa como puerta de enlace en la aplicación de Service Fabric. Este enfoque precisa que escriba un servicio web que admita solicitudes HTTP proxy para servicios back-end, como se muestra en el siguiente diagrama:
 
-![Información general de la topología de Service Fabric con Azure API Management][sf-web-app-stateless-gateway]
+![Diagrama que muestra cómo un servicio web sin estado actúa como puerta de enlace en la aplicación de Service Fabric.][sf-web-app-stateless-gateway]
 
 A medida que aumenta la complejidad de las aplicaciones, también lo hacen las puertas de enlace que deben presentar una API delante de innumerables servicios back-end. Azure API Management se ha diseñado para controlar API complejas con reglas de enrutamiento, control de acceso, limitación de velocidad, supervisión, registro de eventos y almacenamiento en caché de respuestas con el mínimo esfuerzo por su parte. Azure API Management admite la selección de réplicas, la resolución de la partición y la detección de servicios de Service Fabric para enrutar de forma inteligente las solicitudes directamente a los servicios back-end en Service Fabric para que no tenga que escribir su propia puerta de enlace de API sin estado. 
 
 En este escenario, la interfaz de usuario web se sigue ofreciendo a través de un servicio web, mientras que las llamadas a la API HTTP se administran y se enrutan a través de Azure API Management, tal como se muestra en el siguiente diagrama:
 
-![Información general de la topología de Service Fabric con Azure API Management][sf-apim-web-app]
+![Diagrama que muestra cómo la interfaz de usuario web se sigue ofreciendo a través de un servicio web, mientras que las llamadas a la API HTTP se administran y se enrutan a través de Azure API Management.][sf-apim-web-app]
 
 ## <a name="application-scenarios"></a>Escenarios de aplicación
 
@@ -51,7 +51,7 @@ En el caso más simple, el tráfico se reenvía a una instancia de servicio sin 
 
 En el siguiente escenario, una aplicación de Service Fabric contiene un servicio sin estado denominado `fabric:/app/fooservice`, que expone una API HTTP interna. El nombre de instancia de servicio es conocido y puede estar codificado de forma rígida directamente en la directiva de procesamiento de entrada de API Management. 
 
-![Información general de la topología de Service Fabric con Azure API Management][sf-apim-static-stateless]
+![Diagrama que muestra cómo una aplicación de Service Fabric contiene un servicio sin estado, que expone una API HTTP interna.][sf-apim-static-stateless]
 
 ## <a name="send-traffic-to-a-stateful-service"></a>Envío de tráfico a un servicio con estado
 
@@ -82,11 +82,11 @@ En este ejemplo, se crea una nueva instancia de servicio sin estado para cada us
   - Se enruta una solicitud para `/api/users/foo` a la instancia de servicio `fabric:/app/users/foo`
   - Se enruta una solicitud para `/api/users/bar` a la instancia de servicio `fabric:/app/users/bar`
 
-![Información general de la topología de Service Fabric con Azure API Management][sf-apim-dynamic-stateless]
+![Diagrama que muestra un ejemplo en el que se crea una nueva instancia de servicio sin estado para cada usuario de una aplicación con un nombre generado de forma dinámica.][sf-apim-dynamic-stateless]
 
 ## <a name="send-traffic-to-multiple-stateful-services"></a>Envío de tráfico a varios servicios con estado
 
-De forma similar al ejemplo de servicio sin estado, una operación de API Management puede asignar solicitudes a más de una instancia de servicio **con estado**, en cuyo caso también podría tener que realizar una resolución de partición para cada instancia de servicio con estado.
+De forma similar al ejemplo de servicio sin estado, una operación de API Management puede asignar solicitudes a más de una instancia de servicio **con estado** , en cuyo caso también podría tener que realizar una resolución de partición para cada instancia de servicio con estado.
 
 Para lograr esto, una operación de API Management contiene una directiva de procesamiento de entrada con un back-end de Service Fabric que se asigna a una instancia de servicio con estado en el back-end de Service Fabric basándose en los valores recuperados de la solicitud HTTP entrante. Además de asignar una solicitud a la instancia de servicio específica, la solicitud también se puede asignar a una partición específica dentro de la instancia de servicio y, opcionalmente, a la réplica principal o a una réplica secundaria aleatoria dentro de la partición.
 
@@ -103,7 +103,7 @@ En este ejemplo, se crea una nueva instancia de servicio con estado para cada us
 
 Se realiza también la partición de cada instancia de servicio mediante el esquema de partición Int-64 con dos particiones y un intervalo de claves que abarca de `Int64.MinValue` a `Int64.MaxValue`. La directiva de back-end calcula una clave de partición dentro de ese intervalo convirtiendo el valor `id` proporcionado en la ruta de acceso de solicitud de la dirección URL en un entero de 64 bits, aunque se puede utilizar aquí cualquier algoritmo para calcular la clave de partición. 
 
-![Información general de la topología de Service Fabric con Azure API Management][sf-apim-dynamic-stateful]
+![Diagrama que muestra que se realiza también la partición de cada instancia de servicio mediante el esquema de partición Int-64 con dos particiones y un intervalo de claves que abarca de Int64.MinValue a Int64.MaxValue.][sf-apim-dynamic-stateful]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

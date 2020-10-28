@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293649"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165152"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Diseño del uso del asistente en Windows 10
 
@@ -70,7 +70,7 @@ Aunque los estados cambien rápidamente, merece la pena considerar la posibilida
 Cuando la aplicación del asistente tiene el foco, es indudable que la intención del usuario es interactuar con ella, por lo que es la vista principal de la aplicación la que debe controlar todas las experiencias de activación por voz, Vista cuyo tamaño puede cambiar el usuario. Para ayudar a explicar las interacciones del shell del asistente, en el resto de este documento se usa el ejemplo concreto de un asistente de servicios financieros llamado Contoso. Tanto en este diagrama como en los siguientes, lo que el usuario diga aparecerá a la izquierda en los bocadillos habituales de los tebeos, mientras que las respuestas del asistente se verán a la derecha.
 
 **Vista en la aplicación. Estado inicial cuando comienza la activación por voz:** 
-![Captura de pantalla del asistente por voz en Windows antes de la activación](media/voice-assistants/windows_voice_assistant/initial_state.png)
+![Captura de pantalla que muestra la aplicación del asistente para finanzas de Contoso abierta en su lienzo predeterminado. Un globo de habla a la derecha dice "Contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **Vista en la aplicación. Después de la activación por voz correcta, comienza la experiencia de escucha:** ![Captura de pantalla del asistente de voz en Windows mientras el asistente de voz está escuchando](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -103,20 +103,20 @@ Cuando la pantalla está apagada, la aplicación del asistente puede reproducir 
 El asistente debe implementar la guía para el descarte en esta sección para facilitar el inicio de sesión de los usuarios la próxima vez que quieran usar su PC con Windows. A continuación, se muestran varios requisitos específicos que el asistente debe implementar:
 
 - **Todos los lienzos del asistente que se muestran con el dispositivo bloqueado deben contener una X** en la parte superior derecha para descartar el asistente.
-- **Si se presiona cualquier tecla, también se debe descartar la aplicación del asistente**. La entrada mediante teclado es la señal de una aplicación de bloqueo tradicional de que el cliente quiere iniciar sesión. Por lo tanto, ni las entradas de texto ni las que se realicen mediante el teclado deberían dirigirse a la aplicación. En su lugar, la aplicación deberá descartarse automáticamente si se detecta alguna entrada mediante el teclado, para que el usuario pueda iniciar sesión fácilmente en su dispositivo.
+- **Si se presiona cualquier tecla, también se debe descartar la aplicación del asistente** . La entrada mediante teclado es la señal de una aplicación de bloqueo tradicional de que el cliente quiere iniciar sesión. Por lo tanto, ni las entradas de texto ni las que se realicen mediante el teclado deberían dirigirse a la aplicación. En su lugar, la aplicación deberá descartarse automáticamente si se detecta alguna entrada mediante el teclado, para que el usuario pueda iniciar sesión fácilmente en su dispositivo.
 - **Si la pantalla se apaga, la aplicación debe descartarse automáticamente.** Así se garantiza que la próxima vez que el usuario use su equipo, la pantalla de inicio de sesión estará lista.
 - Si la aplicación está &quot;en uso&quot;, puede continuar con el dispositivo bloqueado. &quot;En uso&quot; significa que se produce cualquier entrada o salida. Por ejemplo, se puede seguir transmitiendo música o vídeo aunque la aplicación esté bloqueada. Se permite usar tanto &quot;Continuar&quot; como otros pasos de diálogo de varios turnos para que la aplicación funcione con el dispositivo bloqueado.
 - Los **detalles de la implementación al descartar la aplicación** se pueden encontrar [en la guía de la implementación con la aplicación bloqueada](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Captura de pantalla del asistente por voz en Windows antes de la activación](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Captura de pantalla que muestra la vista sobre el bloqueo de la aplicación del asistente para finanzas de Contoso.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Captura de pantalla del asistente por voz en Windows antes de la activación](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Captura de pantalla de un escritorio que muestra la pantalla de bloqueo de Windows.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>Consideraciones acerca de la privacidad y seguridad con el dispositivo bloqueado
 
 Muchos equipos son portables, por lo que el usuario no siempre los tiene a mano. Puede que el equipo se haya quedado en la habitación del hotel, en el asiento del avión o en áreas de trabajo a las que otras personas tengan acceso físico. Si los asistentes que se activan con el dispositivo bloqueado no están preparados, este puede sufrir un tipo de ataque llamado &quot;[Evil Maid](https://en.wikipedia.org/wiki/Evil_maid_attack)&quot;.
 
-Por consiguiente, los asistentes deben seguir las instrucciones de esta sección por seguridad. La interacción con el dispositivo bloqueado se produce cuando el usuario de Windows no ha realizado la autenticación. Esto significa que, en general, **la entrada en el asistente también debería tratarse como no autenticada**.
+Por consiguiente, los asistentes deben seguir las instrucciones de esta sección por seguridad. La interacción con el dispositivo bloqueado se produce cuando el usuario de Windows no ha realizado la autenticación. Esto significa que, en general, **la entrada en el asistente también debería tratarse como no autenticada** .
 
 - Los asistentes deberán **implementar una lista de aptitudes permitidas para identificar aquellas que a las que sea seguro** acceder con el dispositivo bloqueado.
 - Las tecnologías de identificación del altavoz pueden jugar un papel importante para reducir ciertos riesgos, pero la identificación del altavoz no es un sustituto apropiado de la autenticación de Windows.
@@ -136,7 +136,7 @@ Para aumentar la seguridad, **Windows siempre bloqueará tanto los vínculos web
 
 Si el dispositivo está sin bloquear, cuando la aplicación del asistente _no_ tiene el foco, Windows proporciona una interfaz de usuario para la activación por voz menos intrusiva, para que el usuario se encuentre a gusto. Esto sucede especialmente en el caso de activaciones falsas, ya que supondrían un gran problema si iniciaran toda la aplicación. La idea es que cada asistente tenga otra página principal en el shell, el icono de la barra de tareas del asistente. Cuando se produce la solicitud de activación en segundo plano, aparece una pequeña vista encima del icono de la barra de tareas del asistente. Los asistentes deben proporcionar una pequeña experiencia de escucha en este lienzo. Después de procesar las solicitudes, los asistentes pueden elegir cambiar el tamaño de la vista para mostrar una respuesta en contexto, o bien entregar la vista principal de su aplicación, para que muestre objetos visuales mayores con más detalle.
 
-- Para que el tamaño sea el menor posible, la vista previa no tiene barra de título, por lo que **el asistente debe dibujar una X en la parte superior derecha para que los usuarios puedan descartar la vista**. Consulte el apartado en el que se indica cómo [cerrar la aplicación](windows-voice-assistants-implementation-guide.md#closing-the-application) para conocer las API específicas a las que se llama cuando se hace clic en el botón de descarte.
+- Para que el tamaño sea el menor posible, la vista previa no tiene barra de título, por lo que **el asistente debe dibujar una X en la parte superior derecha para que los usuarios puedan descartar la vista** . Consulte el apartado en el que se indica cómo [cerrar la aplicación](windows-voice-assistants-implementation-guide.md#closing-the-application) para conocer las API específicas a las que se llama cuando se hace clic en el botón de descarte.
 - Para poder usar las vistas previas de la activación por voz, los asistentes pueden invitar a los usuarios a anclar el asistente a la barra de tareas la primera vez que se ejecute.
 
 **Vista previa de la activación por voz: estado inicial**
@@ -145,11 +145,11 @@ El asistente de Contoso tiene una página principal en la barra de tareas: su ic
 
 ![Captura de pantalla del asistente por voz en Windows antes de la activación como un icono de la barra de tareas](media/voice-assistants/windows_voice_assistant/pre_compact_view.png)
 
-**A medida que la activación progresa**, el asistente solicita la activación en segundo plano. El asistente recibe un pequeño panel de vista previa (con un ancho predeterminado de 408 y un alto de 248). Si la activación por voz del lado servidor determina que la señal era un falso positivo, esta vista puede descartarse para que la interrupción sea mínima.
+**A medida que la activación progresa** , el asistente solicita la activación en segundo plano. El asistente recibe un pequeño panel de vista previa (con un ancho predeterminado de 408 y un alto de 248). Si la activación por voz del lado servidor determina que la señal era un falso positivo, esta vista puede descartarse para que la interrupción sea mínima.
 
 ![Captura de pantalla del asistente de voz de Windows en forma de vista compacta durante la comprobación de la activación](media/voice-assistants/windows_voice_assistant/compact_view_activating.png)
 
-**Cuando se confirma la activación final**, el asistente presenta su experiencia de usuario de escucha. El asistente debe dibujar siempre una X de descarte en la parte superior derecha de la vista previa de la activación por voz.
+**Cuando se confirma la activación final** , el asistente presenta su experiencia de usuario de escucha. El asistente debe dibujar siempre una X de descarte en la parte superior derecha de la vista previa de la activación por voz.
 
 ![Captura de pantalla del asistente por voz de Windows durante la escucha en vista compacta](media/voice-assistants/windows_voice_assistant/compact_view_listening.png)
 
@@ -157,7 +157,7 @@ Las **respuestas rápidas** se pueden mostrar en la vista previa de la activaci�
 
 ![Captura de pantalla del asistente por voz de Windows durante la respuesta en vista compacta](media/voice-assistants/windows_voice_assistant/compact_view_response.png)
 
-**Entrega**. En cualquier momento, el asistente puede volver a la vista principal de la aplicación para proporcionar más información, o bien mostrar un diálogo o respuestas que requieran más espacio en la pantalla. Para más información acerca de la implementación, consulte la sección sobre la [transición de la vista compacta a la vista completa](windows-voice-assistants-implementation-guide.md#transition-from-compact-view-to-full-view).
+**Entrega** . En cualquier momento, el asistente puede volver a la vista principal de la aplicación para proporcionar más información, o bien mostrar un diálogo o respuestas que requieran más espacio en la pantalla. Para más información acerca de la implementación, consulte la sección sobre la [transición de la vista compacta a la vista completa](windows-voice-assistants-implementation-guide.md#transition-from-compact-view-to-full-view).
 
 ![Capturas de pantallas del asistente por voz en Windows antes y después de expandir la vista compacta](media/voice-assistants/windows_voice_assistant/compact_transition.png)
 

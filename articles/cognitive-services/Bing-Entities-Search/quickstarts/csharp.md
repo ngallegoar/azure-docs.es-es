@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 131c282ab61f04ffa94921c2816886a35ea4b7ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936833"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221237"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con C#
 
@@ -25,24 +25,23 @@ Use este inicio rápido para realizar la primera llamada a Bing Entity Search AP
 Aunque esta aplicación está escrita en C#, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Cualquier edición de [Visual Studio 2017 o versiones posteriores](https://www.visualstudio.com/downloads/).
-
-- El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet. Para instalar el paquete NuGet en Visual Studio:
-
-   1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto.
-   2. Seleccione **Administrar paquetes NuGet**.
-   3. Busque *Newtonsoft.json* y selecciónelo, a continuación instale el paquete.
-
-- Si usa Linux o MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
+- O bien, si usa Linux o MacOS, puede seguir este inicio rápido con [Visual Studio Code](https://code.visualstudio.com/) y [.NET Core](/dotnet/core/install/macos).
+- [Cuenta gratuita de Azure](https://azure.microsoft.com/free/dotnet).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Creación e inicialización de un proyecto
 
-1. Cree una solución de consola de C# en Visual Studio. Después, agregue los siguientes espacios de nombres en el archivo de código principal:
+1. Cree una solución de consola de C# en Visual Studio. 
+1. Agregue el paquete NuGet [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
+    1. En el **Explorador de soluciones** , haga clic con el botón derecho en el proyecto.
+    2. Seleccione **Administrar paquetes NuGet** .
+    3. Busque *Newtonsoft.json* y selecciónelo, a continuación instale el paquete.
+1. Después, agregue los siguientes espacios de nombres en el archivo de código principal:
     
     ```csharp
     using Newtonsoft.Json;

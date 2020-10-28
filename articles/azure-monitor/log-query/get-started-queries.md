@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874068"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207196"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Introducción a las consultas de registro en Azure Monitor
 
@@ -37,7 +37,7 @@ Siga con una versión en vídeo de este tutorial:
 
 ## <a name="writing-a-new-query"></a>Escribir una nueva consulta
 
-Las consultas pueden comenzar por un nombre de tabla o el comando *search*. Debe empezar por un nombre de tabla, ya que define un ámbito claro para la consulta y mejora el rendimiento de las consultas y la pertinencia de los resultados.
+Las consultas pueden comenzar por un nombre de tabla o el comando *search* . Debe empezar por un nombre de tabla, ya que define un ámbito claro para la consulta y mejora el rendimiento de las consultas y la pertinencia de los resultados.
 
 > [!NOTE]
 > El lenguaje de consulta de Kusto que usa Azure Monitor distingue entre mayúsculas y minúsculas. Las palabras clave del lenguaje se suelen escribir en minúsculas. Al usar nombres de tablas o columnas en una consulta, asegúrese de usar las mayúsculas y minúsculas correctas, tal como se muestra en el panel de esquema.
@@ -51,11 +51,11 @@ SecurityEvent
 | take 10
 ```
 
-La consulta anterior devuelve 10 resultados de la tabla *SecurityEvent*, sin orden específico. Se trata de una forma muy común para echar un vistazo a una tabla y comprender su estructura y contenido. Vamos a examinar su estructura:
+La consulta anterior devuelve 10 resultados de la tabla *SecurityEvent* , sin orden específico. Se trata de una forma muy común para echar un vistazo a una tabla y comprender su estructura y contenido. Vamos a examinar su estructura:
 
-* La consulta comienza por el nombre de la tabla, *SecurityEvent*; esta parte define el ámbito de la consulta.
+* La consulta comienza por el nombre de la tabla, *SecurityEvent* ; esta parte define el ámbito de la consulta.
 * El carácter de barra vertical (|) separa los comandos,de manera que la salida del primero sea la entrada del siguiente. Puede agregar cualquier cantidad de elementos canalizados.
-* Después de la canalización se encuentra el comando **take**, que devuelve un número concreto de registros arbitrarios de la tabla.
+* Después de la canalización se encuentra el comando **take** , que devuelve un número concreto de registros arbitrarios de la tabla.
 
 En realidad podríamos ejecutar la consulta incluso sin agregar `| take 10`, seguiría siendo válida, pero podría devolver hasta 10 000 resultados.
 
@@ -74,7 +74,7 @@ Esta consulta busca en la tabla *SecurityEvent* los registros que contienen la e
 > Las consultas de búsqueda son normalmente más lentas que las consultas basadas en tablas porque tienen que procesar más datos. 
 
 ## <a name="sort-and-top"></a>sort y top
-Mientras que **take** resulta útil para obtener algunos registros, los resultados no se seleccionan ni se muestran en un orden concreto. Para obtener una vista ordenada a partir de la columna preferida, use **sort**:
+Mientras que **take** resulta útil para obtener algunos registros, los resultados no se seleccionan ni se muestran en un orden concreto. Para obtener una vista ordenada a partir de la columna preferida, use **sort** :
 
 ```Kusto
 SecurityEvent   
@@ -83,14 +83,14 @@ SecurityEvent
 
 No obstante, esto podría devolver demasiados resultados y tardar un tiempo. En la consulta anterior se ordena *toda* la tabla SecurityEvent a partir de la columna TimeGenerated. En el portal de Analytics se limita la presentación para mostrar solo 10 000 registros. Es obvio que este enfoque no es el mejor.
 
-La mejor manera de obtener solo los 10 registros más recientes es usar **top**, que ordena toda la tabla en el servidor y devuelve los registros principales:
+La mejor manera de obtener solo los 10 registros más recientes es usar **top** , que ordena toda la tabla en el servidor y devuelve los registros principales:
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
 
-El criterio de ordenación descendente es el valor predeterminado, por lo que se suele omitir el argumento **desc**. La salida tendrá este aspecto:
+El criterio de ordenación descendente es el valor predeterminado, por lo que se suele omitir el argumento **desc** . La salida tendrá este aspecto:
 
 ![Los 10 principales](media/get-started-queries/top10.png)
 
@@ -98,7 +98,7 @@ El criterio de ordenación descendente es el valor predeterminado, por lo que se
 ## <a name="where-filtering-on-a-condition"></a>where: filtrado por una condición
 Los filtros, tal como indica su nombre, filtran los datos por una condición específica. Se trata de la manera más común para limitar los resultados de la consulta a la información pertinente.
 
-Para agregar un filtro a una consulta, use el operador **where** seguido por una o varias condiciones. Por ejemplo, la siguiente consulta devuelve solo los registros de *SecurityEvent* donde _Level_ sea igual a _8_:
+Para agregar un filtro a una consulta, use el operador **where** seguido por una o varias condiciones. Por ejemplo, la siguiente consulta devuelve solo los registros de *SecurityEvent* donde _Level_ sea igual a _8_ :
 
 ```Kusto
 SecurityEvent
@@ -112,9 +112,9 @@ Al escribir las condiciones de filtro, puede usar las siguientes expresiones:
 | == | Coincidencia con igualdad<br>(distingue mayúsculas y minúsculas) | `Level == 8` |
 | =~ | Coincidencia con igualdad<br>(no distingue mayúsculas y minúsculas) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
 | !=, <> | Coincidencia sin igualdad<br>(ambas expresiones son idénticas) | `Level != 4` |
-| *and*, *or* | Necesario entre condiciones| `Level == 16 or CommandLine != ""` |
+| *and* , *or* | Necesario entre condiciones| `Level == 16 or CommandLine != ""` |
 
-Para filtrar con varias condiciones, puede usar **and**:
+Para filtrar con varias condiciones, puede usar **and** :
 
 ```Kusto
 SecurityEvent
@@ -170,9 +170,9 @@ En el ejemplo anterior se genera esta salida:
 
 También puede usar **project** para cambiar el nombre de las columnas y definir otras nuevas. En el ejemplo siguiente se utiliza project para hacer lo siguiente:
 
-* Seleccionar solo las columnas originales *Computer* y *TimeGenerated*.
-* Cambiar el nombre de la columna *Activity* a *EventDetails*.
-* Crear una nueva columna denominada *EventCode*. La función **substring()** se utiliza para obtener solo los primeros cuatro caracteres del campo Activity.
+* Seleccionar solo las columnas originales *Computer* y *TimeGenerated* .
+* Mostrar la columna *Activity* como *EventDetails* .
+* Crear una nueva columna denominada *EventCode* . La función **substring()** se utiliza para obtener solo los primeros cuatro caracteres del campo Activity.
 
 
 ```Kusto
@@ -181,7 +181,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend** mantiene todas las columnas originales en el conjunto de resultados y define otras adicionales. La consulta siguiente usa **extend** para agregar la columna *EventCode*. Tenga en cuenta que es posible que esta columna no se muestre al final de los resultados de la tabla, en cuyo caso sería necesario expandir los detalles de un registro para verlo.
+**extend** mantiene todas las columnas originales en el conjunto de resultados y define otras adicionales. La consulta siguiente usa **extend** para agregar la columna *EventCode* . Tenga en cuenta que es posible que esta columna no se muestre al final de los resultados de la tabla, en cuyo caso sería necesario expandir los detalles de un registro para verlo.
 
 ```Kusto
 SecurityEvent
@@ -190,7 +190,7 @@ SecurityEvent
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>summarize: incorporación de grupos de filas
-Use **summarize** para identificar grupos de registros, según una o varias columnas, y aplicarles agregaciones. El uso más habitual de **summarize** es con *count*, lo que devuelve el número de resultados de cada grupo.
+Use **summarize** para identificar grupos de registros, según una o varias columnas, y aplicarles agregaciones. El uso más habitual de **summarize** es con *count* , lo que devuelve el número de resultados de cada grupo.
 
 En la consulta siguiente se revisan todos los registros *Perf* de la última hora, se agrupan por *ObjectName* y se cuentan los registros de cada grupo: 
 ```Kusto
@@ -215,7 +215,7 @@ Perf
 | summarize avg(CounterValue) by Computer
 ```
 
-Lamentablemente, los resultados de esta consulta no tienen sentido, ya que hemos mezclado diferentes contadores de rendimiento. Para que esto tenga más sentido, debemos calcular el promedio por separado para cada combinación de *CounterName* y *Computer*:
+Lamentablemente, los resultados de esta consulta no tienen sentido, ya que hemos mezclado diferentes contadores de rendimiento. Para que esto tenga más sentido, debemos calcular el promedio por separado para cada combinación de *CounterName* y *Computer* :
 
 ```Kusto
 Perf
@@ -226,7 +226,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumen por una columna de tiempo
 La agrupación de resultados también puede basarse en una columna de tiempo o con cualquier otro valor continuo. Sin embargo, simplemente resumir por `by TimeGenerated` crearía grupos para cada milisegundo del intervalo de tiempo, ya que son valores únicos. 
 
-Para crear grupos basados en valores continuos es mejor dividir el intervalo en unidades manejables mediante **bin**. En la siguiente consulta se analizan los registros *Perf* que miden la memoria libre (*Available MBytes*) en un equipo específico. Se calcula el valor promedio de cada período de 1 hora durante los últimos 7 días:
+Para crear grupos basados en valores continuos es mejor dividir el intervalo en unidades manejables mediante **bin** . En la siguiente consulta se analizan los registros *Perf* que miden la memoria libre ( *Available MBytes* ) en un equipo específico. Se calcula el valor promedio de cada período de 1 hora durante los últimos 7 días:
 
 ```Kusto
 Perf 

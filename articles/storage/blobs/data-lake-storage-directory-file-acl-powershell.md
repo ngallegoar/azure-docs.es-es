@@ -10,18 +10,18 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 62a6bb807f01fd19a92c3dc4edf797171dd5ebc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8083d42d9ce79bcf31e3875f2ff5d5f06970a7ff
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713406"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131520"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Uso de PowerShell para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2
 
 En este artículo se explica cómo usar PowerShell para crear y administrar directorios, archivos y permisos en cuentas de almacenamiento que tengan habilitado un espacio de nombres jerárquico (HNS). 
 
-[Referencia](https://docs.microsoft.com/powershell/module/Az.Storage/?view=azps-4.5.0) | [Asignación de Gen1 a Gen2](#gen1-gen2-map) | [Envíenos su comentarios](https://github.com/Azure/azure-powershell/issues)
+[Referencia](https://docs.microsoft.com/powershell/module/Az.Storage/) | [Asignación de Gen1 a Gen2](#gen1-gen2-map) | [Envíenos su comentarios](https://github.com/Azure/azure-powershell/issues)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -39,15 +39,15 @@ En este artículo se explica cómo usar PowerShell para crear y administrar dire
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell).
+   Para actualizar la versión de PowerShell, vea [Actualización de Windows PowerShell existente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
     
-2. Instale el módulo **Az.Storage**.
+2. Instale el módulo **Az.Storage** .
 
    ```powershell
    Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
-   Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0).
+   Para más información sobre cómo instalar módulos de PowerShell, vea [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## <a name="connect-to-the-account"></a>Conexión con la cuenta
 
@@ -266,9 +266,9 @@ Remove-AzDataLakeGen2Item  -Context $ctx -FileSystem $filesystemName -Path $file
 
 Puede usar el parámetro `-Force` para quitar el archivo sin preguntar.
 
-## <a name="manage-access-permissions"></a>Administración de permisos de acceso
+## <a name="manage-access-control-lists-acls"></a>Administración de listas de control de acceso
 
-Puede obtener, establecer y actualizar los permisos de acceso de los directorios y archivos. Estos permisos se capturan en las listas de control de acceso (ACL).
+Puede obtener, establecer y actualizar los permisos de acceso de los directorios y archivos.
 
 > [!NOTE]
 > Si usa Azure Active Directory (Azure AD) para autorizar comandos, asegúrese de que la entidad de seguridad tiene asignado el [rol Propietario de datos de blobs de almacenamiento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Para más información sobre cómo se aplican los permisos de ACL y las consecuencias de cambiarlos, vea [Control de acceso en Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).

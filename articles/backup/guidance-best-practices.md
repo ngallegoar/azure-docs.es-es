@@ -3,12 +3,12 @@ title: Guía y procedimientos recomendados
 description: Descubra los procedimientos recomendados y las instrucciones para realizar copias de seguridad en la nube de las cargas de trabajo locales y en la nube.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985515"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092314"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Copia de seguridad en la nube de cargas de trabajo locales y en la nube
 
@@ -32,29 +32,29 @@ Aunque empezar a proteger la infraestructura y las aplicaciones en Azure resulta
 
 Azure Backup permite proteger los datos de diversas cargas de trabajo (locales y en la nube). Es un mecanismo de protección de datos integrado, seguro y confiable de Azure. Puede escalar sin problemas su protección en múltiples cargas de trabajo sin que esto suponga ninguna sobrecarga de administración. También existen varios canales de automatización para conseguirlo (a través de PowerShell, la CLI, las plantillas de Azure Resource Manager y las API REST).
 
-* **Almacenamiento escalable, duradero y seguro**: Azure Backup usa almacenamiento de blobs confiable con características de alta disponibilidad y seguridad integradas. Puede elegir almacenamiento LRS, GRS o RA-GRS para los datos de copia de seguridad.  
+* **Almacenamiento escalable, duradero y seguro** : Azure Backup usa almacenamiento de blobs confiable con características de alta disponibilidad y seguridad integradas. Puede elegir almacenamiento LRS, GRS o RA-GRS para los datos de copia de seguridad.  
 
-* **Integración nativa de cargas de trabajo**: Azure Backup proporciona integración nativa con las cargas de trabajo de Azure (máquinas virtuales, SAP HANA, SQL en máquinas virtuales de Azure e incluso Azure Files) sin necesidad de administrar la automatización o la infraestructura para implementar agentes, escribir nuevos scripts o aprovisionar almacenamiento.
+* **Integración nativa de cargas de trabajo** : Azure Backup proporciona integración nativa con las cargas de trabajo de Azure (máquinas virtuales, SAP HANA, SQL en máquinas virtuales de Azure e incluso Azure Files) sin necesidad de administrar la automatización o la infraestructura para implementar agentes, escribir nuevos scripts o aprovisionar almacenamiento.
 
 ### <a name="data-plane"></a>Plano de datos
 
-* **Administración automatizada de almacenamiento**: Azure Backup automatiza el aprovisionamiento y la administración de cuentas de almacenamiento para los datos de copia de seguridad a fin de garantizar que se escale a medida que estos datos crecen.
+* **Administración automatizada de almacenamiento** : Azure Backup automatiza el aprovisionamiento y la administración de cuentas de almacenamiento para los datos de copia de seguridad a fin de garantizar que se escale a medida que estos datos crecen.
 
-* **Protección contra eliminación malintencionada**: la eliminación temporal de las copias de seguridad protege contra cualquier intento accidental o malintencionado de eliminar las copias de seguridad. Los datos de copia de seguridad eliminados se almacenan durante 14 días de forma gratuita y se pueden recuperar desde ese estado.
+* **Protección contra eliminación malintencionada** : la eliminación temporal de las copias de seguridad protege contra cualquier intento accidental o malintencionado de eliminar las copias de seguridad. Los datos de copia de seguridad eliminados se almacenan durante 14 días de forma gratuita y se pueden recuperar desde ese estado.
 
-* **Copias de seguridad cifradas seguras**: Azure Backup garantiza que los datos de copia de seguridad se almacenan de forma segura, aprovechando las funcionalidades de seguridad integradas de la plataforma Azure, como el control de acceso basado en roles (RBAC) y el cifrado.
+* **Copias de seguridad cifradas seguras** : Azure Backup garantiza que los datos de copia de seguridad se almacenan de forma segura, aprovechando las funcionalidades de seguridad integradas de la plataforma Azure, como Azure RBAC y el cifrado.
 
-* **Administración del ciclo de vida de los datos de copia de seguridad**: Azure Backup limpia automáticamente los datos de copia de seguridad antiguos para cumplir las directivas de retención. También puede organizar los datos desde un almacenamiento operativo hasta la opción de almacén.
+* **Administración del ciclo de vida de los datos de copia de seguridad** : Azure Backup limpia automáticamente los datos de copia de seguridad antiguos para cumplir las directivas de retención. También puede organizar los datos desde un almacenamiento operativo hasta la opción de almacén.
 
 ### <a name="management-plane"></a>Plano de administración
 
-* **Control de acceso**: los almacenes (almacenes de Recovery Services y de Backup) proporcionan las funcionalidades de administración y son accesibles a través de Azure Portal, el centro de copias de seguridad, los paneles de almacén, el SDK, la CLI e incluso las API de REST. También supone un límite para RBAC, lo que le ofrece la opción de restringir el acceso a las copias de seguridad solo a los administradores de copias de seguridad autorizados.
+* **Control de acceso** : los almacenes (almacenes de Recovery Services y de Backup) proporcionan las funcionalidades de administración y son accesibles a través de Azure Portal, el centro de copias de seguridad, los paneles de almacén, el SDK, la CLI e incluso las API de REST. También supone un límite para Azure RBAC, lo que le ofrece la opción de restringir el acceso a las copias de seguridad solo a los administradores de copias de seguridad autorizados.
 
-* **Administración de directivas**: las directivas de Azure Backup dentro de cada almacén definen cuándo se deben desencadenar las copias de seguridad y cuánto tiempo deben conservarse. También puede administrar estas directivas y aplicarlas en varios elementos.
+* **Administración de directivas** : las directivas de Azure Backup dentro de cada almacén definen cuándo se deben desencadenar las copias de seguridad y cuánto tiempo deben conservarse. También puede administrar estas directivas y aplicarlas en varios elementos.
 
-* **Supervisión e informes**: Azure Backup se integra con Log Analytics y proporciona la capacidad de ver informes también a través de libros.
+* **Supervisión e informes** : Azure Backup se integra con Log Analytics y proporciona la capacidad de ver informes también a través de libros.
 
-* **Administración de instantáneas**: Azure Backup toma instantáneas de algunas cargas de trabajo nativas de Azure (máquinas virtuales y Azure Files), administra estas instantáneas y permite restaurarlas rápidamente. Esta opción reduce drásticamente el tiempo de recuperación de los datos en el almacenamiento original.
+* **Administración de instantáneas** : Azure Backup toma instantáneas de algunas cargas de trabajo nativas de Azure (máquinas virtuales y Azure Files), administra estas instantáneas y permite restaurarlas rápidamente. Esta opción reduce drásticamente el tiempo de recuperación de los datos en el almacenamiento original.
 
 ## <a name="vault-considerations"></a>Consideraciones sobre el almacén
 
@@ -62,7 +62,7 @@ Azure Backup usa almacenes (almacenes de Recovery Services y de Backup) y para o
 
 ### <a name="align-to-subscription-design-strategy"></a>Alineación con la estrategia de diseño de suscripciones
 
-Dado que el almacén tienen como ámbito una suscripción, ajuste el diseño del almacén para que cumpla con la estrategia de diseño de la suscripción como, por ejemplo, la *estrategia de categoría de aplicación*, en la que las suscripciones se separan en función de aplicaciones o servicios específicos o en arquetipos de aplicación. Para más información, consulte este [artículo](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
+Dado que el almacén tienen como ámbito una suscripción, ajuste el diseño del almacén para que cumpla con la estrategia de diseño de la suscripción como, por ejemplo, la *estrategia de categoría de aplicación* , en la que las suscripciones se separan en función de aplicaciones o servicios específicos o en arquetipos de aplicación. Para más información, consulte este [artículo](/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
 ### <a name="single-or-multiple-vault"></a>Uno o varios almacenes
 
@@ -120,9 +120,9 @@ Al crear una directiva de copia de seguridad, tenga en cuenta las siguientes dir
   * Si se reduce la retención, se marcarán para eliminarse y, posteriormente, se eliminarán en el siguiente trabajo de limpieza.
   * En todos los puntos de retención (excepto los puntos a petición) se aplicarán las reglas de retención más recientes. Por lo tanto, si se amplía el período de retención (por ejemplo, a cien días), cuando se realice la copia de seguridad seguida de una reducción de retención (por ejemplo, de cien a siete días), todos los datos de copia de seguridad se conservarán según el último período de retención especificado (es decir, siete días).
 
-* Azure Backup proporciona la flexibilidad necesaria para *detener la protección y administrar las copias de seguridad*:
-  * *Detener la protección y conservar los datos de copia de seguridad*. Si está retirando o dando de baja el origen de datos (máquina virtual, aplicación), pero necesita conservar los datos con fines de auditoría o cumplimiento, puede usar esta opción para detener todos los trabajos de copia de seguridad futuros de protección del origen de datos y conservar los puntos de recuperación de los que se ha realizado una copia de seguridad. Después, podrá restaurar o reanudar la protección de la máquina virtual.
-  * *Detener la protección y eliminar los datos de copia de seguridad*. Esta opción hará que todos los trabajos de copia de seguridad futuros dejen de proteger la máquina virtual y eliminará todos los puntos de recuperación. No podrá restaurar la máquina virtual ni usar la opción Reanudar copia de seguridad.
+* Azure Backup proporciona la flexibilidad necesaria para *detener la protección y administrar las copias de seguridad* :
+  * *Detener la protección y conservar los datos de copia de seguridad* . Si está retirando o dando de baja el origen de datos (máquina virtual, aplicación), pero necesita conservar los datos con fines de auditoría o cumplimiento, puede usar esta opción para detener todos los trabajos de copia de seguridad futuros de protección del origen de datos y conservar los puntos de recuperación de los que se ha realizado una copia de seguridad. Después, podrá restaurar o reanudar la protección de la máquina virtual.
+  * *Detener la protección y eliminar los datos de copia de seguridad* . Esta opción hará que todos los trabajos de copia de seguridad futuros dejen de proteger la máquina virtual y eliminará todos los puntos de recuperación. No podrá restaurar la máquina virtual ni usar la opción Reanudar copia de seguridad.
 
   * Si reanuda la protección (de un origen de datos que se ha detenido con retención de datos), se aplicarán las reglas de retención. Los puntos de recuperación expirados se quitarán (a la hora programada).
 
@@ -174,11 +174,11 @@ Azure Backup requiere el traslado de los datos de la carga de trabajo al almacé
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 
-* *Copia de seguridad de máquinas virtuales de Azure*: todas las comunicaciones y transferencias de datos necesarias entre el almacenamiento y Azure Backup se producen dentro de la red de Azure sin necesidad de acceder a la red virtual. Por lo tanto, la copia de seguridad de las máquinas virtuales de Azure colocadas dentro de redes protegidas no requiere que permita el acceso a ninguna dirección IP ni nombre de dominio completo.
+* *Copia de seguridad de máquinas virtuales de Azure* : todas las comunicaciones y transferencias de datos necesarias entre el almacenamiento y Azure Backup se producen dentro de la red de Azure sin necesidad de acceder a la red virtual. Por lo tanto, la copia de seguridad de las máquinas virtuales de Azure colocadas dentro de redes protegidas no requiere que permita el acceso a ninguna dirección IP ni nombre de dominio completo.
 
-* *Bases de datos SAP HANA y bases de datos SQL Server que se ejecutan en máquinas virtuales de Azure*: necesitan conectividad con el servicio Azure Backup, Azure Storage y Azure Active Directory. Esto puede lograrse mediante puntos de conexión privados o si se permite el acceso a las direcciones IP públicas o FQDN necesarios. No permitir la conectividad adecuada con los servicios de Azure necesarios puede provocar errores en operaciones como la detección de bases de datos, la configuración de copias de seguridad, la realización de copias de seguridad y la restauración de datos. Para obtener una guía de red completa cuando use etiquetas de NSG, Azure Firewall y un proxy HTTP, consulte estos artículos sobre [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) y [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity).
+* *Bases de datos SAP HANA y bases de datos SQL Server que se ejecutan en máquinas virtuales de Azure* : necesitan conectividad con el servicio Azure Backup, Azure Storage y Azure Active Directory. Esto puede lograrse mediante puntos de conexión privados o si se permite el acceso a las direcciones IP públicas o FQDN necesarios. No permitir la conectividad adecuada con los servicios de Azure necesarios puede provocar errores en operaciones como la detección de bases de datos, la configuración de copias de seguridad, la realización de copias de seguridad y la restauración de datos. Para obtener una guía de red completa cuando use etiquetas de NSG, Azure Firewall y un proxy HTTP, consulte estos artículos sobre [SQL](backup-sql-server-database-azure-vms.md#establish-network-connectivity) y [SAP HANA](./backup-azure-sap-hana-database.md#establish-network-connectivity).
 
-* *Híbrida*: el agente MARS (Microsoft Azure Recovery Services) requiere acceso a la red para todas las operaciones críticas: instalación, configuración, copia de seguridad y restauración. El agente MARS puede conectarse al servicio Azure Backup a través de [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) mediante el uso del emparejamiento público (disponible para los circuitos anteriores) y el emparejamiento de Microsoft, con [puntos de conexión privados](install-mars-agent.md#private-endpoints) o a través de [proxy o firewall con los controles de acceso adecuados](install-mars-agent.md#verify-internet-access).
+* *Híbrida* : el agente MARS (Microsoft Azure Recovery Services) requiere acceso a la red para todas las operaciones críticas: instalación, configuración, copia de seguridad y restauración. El agente MARS puede conectarse al servicio Azure Backup a través de [Azure ExpressRoute](install-mars-agent.md#use-azure-expressroute) mediante el uso del emparejamiento público (disponible para los circuitos anteriores) y el emparejamiento de Microsoft, con [puntos de conexión privados](install-mars-agent.md#private-endpoints) o a través de [proxy o firewall con los controles de acceso adecuados](install-mars-agent.md#verify-internet-access).
 
 ### <a name="private-endpoints-for-azure-backup"></a>Puntos de conexión privados para Azure Backup
 
@@ -227,18 +227,18 @@ Como administrador o usuario de copias de seguridad, debe ser capaz de supervisa
 
 * Azure Backup proporciona **supervisión integrada de trabajos** para operaciones como configurar copias de seguridad, hacerlas, restaurarlas, eliminarlas, etc. Esta supervisión tiene como ámbito el almacén y es ideal para controlar un único almacén. [Obtenga más información aquí](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
 
-* Si necesita supervisar las actividades operativas a gran escala, dispone del **Explorador de Backup**, que proporciona una vista agregada de todos los recursos de copia de seguridad, lo que permite realizar análisis detallados y solucionar problemas. Se trata de un libro de Azure Monitor integrado que proporciona una única ubicación central para ayudarle a supervisar las actividades operativas en todos los recursos de copia de seguridad en Azure, lo que abarca inquilinos, ubicaciones, suscripciones, grupos de recursos y almacenes. [Obtenga más información aquí](monitor-azure-backup-with-backup-explorer.md).
+* Si necesita supervisar las actividades operativas a gran escala, dispone del **Explorador de Backup** , que proporciona una vista agregada de todos los recursos de copia de seguridad, lo que permite realizar análisis detallados y solucionar problemas. Se trata de un libro de Azure Monitor integrado que proporciona una única ubicación central para ayudarle a supervisar las actividades operativas en todos los recursos de copia de seguridad en Azure, lo que abarca inquilinos, ubicaciones, suscripciones, grupos de recursos y almacenes. [Obtenga más información aquí](monitor-azure-backup-with-backup-explorer.md).
   * Úselo para identificar los recursos que no están configurados para la copia de seguridad y asegúrese de que nunca se queda sin la protección de datos críticos de su patrimonio en crecimiento.
   * El panel muestra las actividades operativas de los últimos siete días (máximo). Si necesita conservar estos datos, puede exportarlos como un archivo de Excel.
   * Si es un usuario de Azure Lighthouse, puede ver la información de varios inquilinos, lo que supone una supervisión sin límites.
 
-* Si necesita conservar y ver las actividades operativas a largo plazo, use **informes**. Un requisito común de los administradores de copias de seguridad es que necesitan información detallada sobre las copias de seguridad, en función de datos que abarcan un largo período de tiempo. Entre los casos de uso de esta solución se incluyen:
+* Si necesita conservar y ver las actividades operativas a largo plazo, use **informes** . Un requisito común de los administradores de copias de seguridad es que necesitan información detallada sobre las copias de seguridad, en función de datos que abarcan un largo período de tiempo. Entre los casos de uso de esta solución se incluyen:
   * Asignación y previsión del almacenamiento en la nube consumido.
   * Auditoría de copias de seguridad y restauraciones.
   * Identificación de las tendencias clave con diferentes niveles de granularidad.
 
 * Además:
-  * Puede enviar datos (por ejemplo, trabajos, directivas, etc.) al **área de trabajo de Log Analytics**. Esto habilitará las características de los registros de Azure Monitor que permiten la correlación de estos datos con otros datos de supervisión recopilados por Azure Monitor, la consolidación de las entradas de registro de varias suscripciones e inquilinos de Azure en una ubicación para su análisis conjunto, y el uso de consultas de registro para realizar análisis complejos y obtener información detallada sobre las entradas del registro. [Obtenga más información aquí](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
+  * Puede enviar datos (por ejemplo, trabajos, directivas, etc.) al **área de trabajo de Log Analytics** . Esto habilitará las características de los registros de Azure Monitor que permiten la correlación de estos datos con otros datos de supervisión recopilados por Azure Monitor, la consolidación de las entradas de registro de varias suscripciones e inquilinos de Azure en una ubicación para su análisis conjunto, y el uso de consultas de registro para realizar análisis complejos y obtener información detallada sobre las entradas del registro. [Obtenga más información aquí](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
   * Puede enviar datos al centro de eventos para después enviar entradas fuera de Azure, por ejemplo, a un sistema de administración de eventos e información de seguridad (SIEM) de terceros o a otra solución de análisis de registros. [Obtenga más información aquí](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
   * Puede enviar los datos de registro a una cuenta de Azure Storage si quiere conservarlos durante más de 90 días para su auditoría, análisis estático o copia de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividad se conservan en la plataforma de Azure durante ese tiempo. [Más información](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
 

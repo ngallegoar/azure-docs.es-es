@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418915"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172666"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definición de un perfil técnico de una contraseña de un solo uso en una directiva personalizada de Azure AD B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "89418915"
 
 Azure Active Directory B2C (Azure AD B2C) proporciona compatibilidad para administrar la generación y verificación de una contraseña de un solo uso. Use un perfil técnico para generar un código y, a continuación, verifique el código más adelante.
 
-El perfil técnico de la contraseña de un solo uso también puede devolver un mensaje de error durante la verificación del código. Puede diseñar la integración con la contraseña de un solo uso mediante el uso de un **perfil técnico de validación**. Un perfil técnico de validación llama al perfil técnico de la contraseña de un solo uso para verificar un código. El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada.
+El perfil técnico de la contraseña de un solo uso también puede devolver un mensaje de error durante la verificación del código. Puede diseñar la integración con la contraseña de un solo uso mediante el uso de un **perfil técnico de validación** . Un perfil técnico de validación llama al perfil técnico de la contraseña de un solo uso para verificar un código. El perfil técnico de validación valida los datos que proporciona el usuario antes de que continúe el recorrido del usuario. Con el perfil técnico de validación, se muestra un mensaje de error en una página autoafirmada.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -73,13 +73,15 @@ La configuración siguiente se puede usar para establecer el modo de generación
 
 | Atributo | Obligatorio | Descripción |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. |
+| CodeExpirationInSeconds | No | Tiempo en segundos hasta la expiración del código. Mínimo: `60`; máximo: `1200`; valor predeterminado: `600`. Cada vez que se proporciona un código (el mismo código que usa `ReuseSameCode`, o un código nuevo), se amplía la expiración del código.  |
 | CodeLength | No | Longitud del código. El valor predeterminado es `6`. |
 | CharacterSet | No | Juego de caracteres del código, con formato para usarse en una expresión regular. Por ejemplo, `a-z0-9A-Z`. El valor predeterminado es `0-9`. El juego de caracteres debe incluir un mínimo de 10 caracteres diferentes en el conjunto especificado. |
 | NumRetryAttempts | No | Número de intentos de verificación antes de que el código se considere no válido. El valor predeterminado es `5`. |
 | NumCodeGenerationAttempts | No | Número máximo de intentos de generación de código por identificador. Si no se especifica, el valor predeterminado es 10. |
 | Operación | Sí | La operación que se va a realizar. Valor posible: `GenerateCode`. |
-| ReuseSameCode | No | Indica si se debe proporcionar un código duplicado en lugar de generar un código nuevo cuando el código proporcionado no ha expirado y sigue siendo válido. El valor predeterminado es `false`. |
+| ReuseSameCode | No | Indica si se debe proporcionar el mismo código en lugar de generar un código nuevo cuando el código proporcionado no ha expirado y sigue siendo válido. El valor predeterminado es `false`.  |
+
+
 
 ### <a name="example"></a>Ejemplo
 

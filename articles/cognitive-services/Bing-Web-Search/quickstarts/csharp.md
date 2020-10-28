@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: seodec2018, devx-track-csharp
-ms.openlocfilehash: 2760e6a46801871a25ecbe23a2400211ae312650
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f87cf1ed9194ff74f85dcd11ed398824750ef696
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88921705"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217293"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Inicio rápido: Realizar búsquedas en la Web con la API de REST Bing Web Search y C#
 
@@ -24,19 +24,19 @@ Use este inicio rápido para realizar la primera llamada a la API Bing Web Searc
 
 En este programa de ejemplo de este inicio rápido solo se usan las clases de .NET Core.
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Estas son algunas cosas que necesitará antes de ejecutar esta guía de inicio rápido:
 
 * Windows: [Visual Studio 2017 o cualquier versión posterior](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](https://www.mono-project.com/)  
-* Una clave de suscripción
+* Linux/macOS: [Visual Studio Code](https://code.visualstudio.com/) y [.NET Core](https://dotnet.microsoft.com/download)
+* [Una suscripción de Azure gratuita](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="create-a-project-and-declare-dependencies"></a>Creación de un proyecto y declaración de dependencias
 
-Cree un proyecto en Visual Studio o Mono. Use el código siguiente para importar los espacios de nombres y tipos necesarios:
+Cree un proyecto de consola en Visual Studio o VS Code. Use el código siguiente para importar los espacios de nombres y tipos necesarios:
 
 ```csharp
 using System;

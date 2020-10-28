@@ -7,24 +7,26 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0dfc86503f1b3aa648cb8c7cefe14fbd123f1459
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047512"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207791"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Configuración de una instancia de Azure Digital Twins y autenticación (CLI)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
-En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins**, incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
+En este artículo se describen los pasos para **configurar una nueva instancia de Azure Digital Twins** , incluidas la creación de la instancia y la configuración de la autenticación. Después de completar este artículo, tendrá una instancia de Azure Digital Twins lista para empezar a programar.
 
 En esta versión de este artículo se realizan los pasos manualmente, uno por uno, mediante la CLI.
-* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (Azure Portal)* ](how-to-set-up-instance-portal.md).
-* Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (con scripts)* ](how-to-set-up-instance-scripted.md).
+* Para seguir estos pasos manualmente con Azure Portal, consulte la versión del portal de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (Azure Portal)*](how-to-set-up-instance-portal.md).
+* Para ejecutar una configuración automatizada mediante un script de implementación de ejemplo, consulte la versión con scripts de este artículo: [*Procedimiento: Configuración de una instancia y autenticación (con scripts)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-cloud-shell-session"></a>Configuración de una sesión de Cloud Shell
@@ -52,7 +54,7 @@ Si la instancia se creó correctamente, el resultado en Cloud Shell tiene un asp
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
 
-Anote *hostName*, *name* y *resourceGroup* del resultado de la instancia de Azure Digital Twins. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins para configurar la autenticación y los recursos de Azure relacionados. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
+Anote *hostName* , *name* y *resourceGroup* del resultado de la instancia de Azure Digital Twins. Estos son todos los valores importantes que puede necesitar a medida que sigue trabajando con la instancia de Azure Digital Twins para configurar la autenticación y los recursos de Azure relacionados. Si otros usuarios van a programar en la instancia, debe compartirlos con ellos.
 
 > [!TIP]
 > Puede ver estas propiedades, junto con todas las propiedades de la instancia, en cualquier momento si ejecuta `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -72,7 +74,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 El resultado de este comando es la información de salida acerca de la asignación de roles que se ha creado.
 
 > [!NOTE]
-> Si este comando devuelve un error que indica que la CLI **no puede encontrar el usuario ni la entidad de servicio en la base de datos de grafos**:
+> Si este comando devuelve un error que indica que la CLI **no puede encontrar el usuario ni la entidad de servicio en la base de datos de grafos** :
 >
 > Asigne el rol mediante el *id. de objeto* del usuario en su lugar. Esto puede ocurrir para los usuarios de [cuentas de Microsoft (MSA)](https://account.microsoft.com/account) personales. 
 >
@@ -86,67 +88,7 @@ El resultado de este comando es la información de salida acerca de la asignaci�
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
-Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados para administrarla. A continuación, configurará los permisos para que una aplicación cliente obtenga el acceso a ella.
-
-## <a name="set-up-access-permissions-for-client-applications"></a>Configuración de los permisos de acceso para aplicaciones cliente
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-Para crear un registro de la aplicación, debe proporcionar los identificadores de recursos de las API de Azure Digital Twins y los permisos de línea de base para la API.
-
-En el directorio de trabajo, cree un archivo nuevo y escriba el siguiente fragmento de código JSON para configurar estos detalles: 
-
-```json
-[{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
-
-Guarde este archivo como _**manifest.json**_.
-
-> [!NOTE] 
-> Hay algunos lugares en los que se puede usar una cadena `https://digitaltwins.azure.net` legible y "descriptiva" para el identificador de la aplicación de recursos de Azure Digital Twins en lugar del GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. En particular, muchos ejemplos a lo largo de este conjunto de documentación usan la autenticación con la biblioteca MSAL y, para ello, se puede usar la cadena descriptiva. Sin embargo, durante este paso de creación del registro de la aplicación, es necesario el formato de GUID del identificador, tal y como se muestra arriba. 
-
-A continuación, cargará este archivo a Cloud Shell. En la ventana de Cloud Shell, haga clic en el icono "Cargar/Descargar archivos" y elija "Cargar".
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
-Vaya al archivo *manifest.json* que acaba de crear y seleccione "Abrir".
-
-A continuación, ejecute el siguiente comando para crear un registro de aplicación, con una dirección URL de respuesta *Cliente público/nativo (móvil y escritorio)* de `http://localhost`. Reemplace los marcadores de posición según sea necesario:
-
-```azurecli
-az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
-```
-
-Este es un extracto de la salida de este comando y muestra información sobre el registro que ha creado:
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
-
-### <a name="verify-success"></a>Comprobación de que la operación se ha completado correctamente
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
-
-A continuación, compruebe que la configuración del archivo *manifest.json* cargado se estableció correctamente en el registro. Para ello, seleccione *Manifiesto* en la barra de menús para ver el código del manifiesto del registro de la aplicación. Desplácese hasta la parte inferior de la ventana de código y busque los campos del archivo *manifest.json* en `requiredResourceAccess`:
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
-
-### <a name="collect-important-values"></a>Recopilación de valores importantes
-
-A continuación, seleccione *Información general* en la barra de menús para ver los detalles del registro de la aplicación:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins":::
-
-Tome nota del *Id. de la aplicación (cliente)* y el *Id. de directorio (inquilino)* , como se muestra en **su** página. Estos valores se necesitarán más adelante para [autenticar una aplicación cliente en las API de Azure Digital Twins](how-to-authenticate-client.md). Si usted no es quien va a escribir el código para esas aplicaciones, debe compartir estos valores con la persona que lo hará.
-
-### <a name="other-possible-steps-for-your-organization"></a>Otros posibles pasos para la organización
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+Ahora tiene lista una instancia de Azure Digital Twins y los permisos asignados para administrarla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -154,5 +96,5 @@ Pruebe las llamadas individuales de la API de REST en su instancia mediante los 
 * [Referencia de az dt](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
-O bien, consulte cómo conectar la aplicación cliente a la instancia mediante la escritura del código de autenticación de la aplicación cliente:
+O bien, consulte cómo conectar una aplicación cliente a la instancia mediante el código de autenticación:
 * [*Procedimiento: Escritura de código de autenticación de aplicación*](how-to-authenticate-client.md)

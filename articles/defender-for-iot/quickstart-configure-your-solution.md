@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 3ecb2e2022cab80abf6a8692ac8cc3ba54eff1e4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f949d52d4ba461da94153cbbd17ca5fb3eb214d7
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90946250"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092093"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Inicio rápido: Configuración de la solución de Azure Defender para IoT
 
@@ -43,9 +43,9 @@ Después de definir todas las relaciones de los recursos, Defender para IoT apro
 Para agregar un recurso nuevo a la solución de IoT, siga estos pasos:
 
 1. Abra **IoT Hub** en Azure Portal.
-1. Seleccione y abra **Configuración** en la sección **Seguridad** del menú de la izquierda y, a continuación, seleccione **Recursos supervisados**.
+1. En **Seguridad** , seleccione **Información general** seguido de **Configuración** y, luego, elija **Recursos supervisados** .
 1. Seleccione **Editar** y los recursos supervisados que pertenezcan a la solución de IoT.
-1. Haga clic en **Agregar**.
+1. Haga clic en **Agregar** .
 
 Felicidades. Ha agregado un nuevo grupo de recursos a la solución de IoT.
 

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/10/2020
-ms.openlocfilehash: 124034fc6c999c37c6e79547b062508c957d1bac
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.date: 10/15/2020
+ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939841"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123308"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -43,7 +43,7 @@ Puede tener un servidor principal en cualquier [región de Azure Database for Po
 ### <a name="universal-replica-regions"></a>Regiones de réplica universal
 Siempre puede crear una réplica de lectura en cualquiera de las siguientes regiones, con independencia de dónde se encuentre el servidor principal. Estas son las regiones de réplica universal:
 
-Este de Australia, Sudeste de Australia, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU.
+Este de Australia, Sudeste de Australia, Sur de Brasil, Centro de Canadá, Este de Canadá, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Este de Japón, Oeste de Japón, Centro de Corea del Sur, Sur de Corea del Sur, Centro y norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de Reino Unido, Oeste de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2, Centro-oeste de EE. UU.
 
 ### <a name="paired-regions"></a>Regiones emparejadas
 Además de las regiones de réplica universal, puede crear una réplica de lectura en la región emparejada de Azure del servidor principal. Si no conoce el par de la región, puede obtener más información en el [artículo sobre regiones emparejadas de Azure](../best-practices-availability-paired-regions.md).
@@ -72,7 +72,7 @@ Al crear una réplica, no se heredan las reglas de firewall o el punto de conexi
 
 La réplica hereda su cuenta de administrador del servidor principal. Todas las cuentas de usuario existentes en el servidor principal se replican en las réplicas de lectura. Solo se puede conectar a una réplica de lectura a través de las cuentas de usuario disponibles en el servidor principal.
 
-Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for PostgreSQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin**, puede conectarse a la réplica mediante psql:
+Puede conectarse a la réplica mediante su nombre de host y una cuenta de usuario válida, igual que haría en un servidor Azure Database for PostgreSQL normal. En un servidor denominado **myreplica** con el nombre de usuario administrador **myadmin** , puede conectarse a la réplica mediante psql:
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -154,9 +154,9 @@ Tanto las réplicas de lectura como la [descodificación lógica](concepts-logic
 
 Para configurar el nivel de registro adecuado, use el parámetro de soporte de replicación de Azure. El soporte de la replicación de Azure tiene tres opciones de valor:
 
-* **Desactivado**: coloca la más mínima información en el WAL. Este valor no está disponible en la mayoría de los servidores Azure Database for PostgreSQL.  
-* **Réplica**: más detallado que **Off**. Este es el nivel mínimo de registro necesario para que [las réplicas de lectura](concepts-read-replicas.md) funcionen. Esta es la configuración predeterminada en la mayoría de los servidores.
-* **Lógico**: más detallado que **Réplica**. Este es el nivel mínimo de registro para que funcione la descodificación lógica. Las réplicas de lectura también funcionan con este valor.
+* **Desactivado** : coloca la más mínima información en el WAL. Este valor no está disponible en la mayoría de los servidores Azure Database for PostgreSQL.  
+* **Réplica** : más detallado que **Off** . Este es el nivel mínimo de registro necesario para que [las réplicas de lectura](concepts-read-replicas.md) funcionen. Esta es la configuración predeterminada en la mayoría de los servidores.
+* **Lógico** : más detallado que **Réplica** . Este es el nivel mínimo de registro para que funcione la descodificación lógica. Las réplicas de lectura también funcionan con este valor.
 
 El servidor debe reiniciarse después de un cambio de este parámetro. Internamente, este parámetro establece los parámetros Postgres `wal_level`, `max_replication_slots` y `max_wal_senders`.
 
@@ -172,8 +172,8 @@ La réplica no hereda las reglas de firewall, las reglas de red virtual ni la co
 Escalado de núcleos virtuales o entre Uso general y Memoria optimizada:
 * PostgreSQL requiere que `max_connections` la configuración en un servidor secundario sea [mayor o igual que el valor de la principal](https://www.postgresql.org/docs/current/hot-standby.html), de lo contrario, la réplica secundaria no se iniciará.
 * En Azure Database for PostgreSQL, las conexiones máximas permitidas para cada servidor se corrigen en la SKU de proceso, ya que las conexiones ocupan memoria. Puede obtener más información sobre la [asignación entre max_connections y las SKU de proceso](concepts-limits.md).
-* **Escalado**: En primer lugar, escale el proceso de una réplica y, a continuación, escale la principal. Esta orden impedirá que los errores no cumplan `max_connections` el requisito.
-* **Reducción vertical**: En primer lugar, reduzca verticalmente el proceso principal y, a continuación, reduzca verticalmente la réplica. Si intenta escalar la réplica por debajo de la principal, se producirá un error, ya que esto infringe el`max_connections` requisito.
+* **Escalado** : En primer lugar, escale el proceso de una réplica y, a continuación, escale la principal. Esta orden impedirá que los errores no cumplan `max_connections` el requisito.
+* **Reducción vertical** : En primer lugar, reduzca verticalmente el proceso principal y, a continuación, reduzca verticalmente la réplica. Si intenta escalar la réplica por debajo de la principal, se producirá un error, ya que esto infringe el`max_connections` requisito.
 
 Escalado de almacenamiento:
 * Todas las réplicas tienen habilitado el crecimiento automático de almacenamiento para evitar problemas de replicación de una réplica de almacenamiento completo. Esta configuración no se puede deshabilitar.

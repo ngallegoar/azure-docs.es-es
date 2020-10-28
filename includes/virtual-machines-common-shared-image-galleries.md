@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071785"
+ms.locfileid: "92116750"
 ---
 Shared Image Gallery es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes. Las galerías de imágenes compartidas proporcionan:
 
@@ -46,7 +46,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 Las definiciones de la imagen son una agrupación lógica de las versiones de una imagen. La definición de la imagen contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve y otra información acerca del uso de la imagen. Una definición de imagen es como un plan para todos los detalles que rodean la creación de una imagen específica. No se implementa una VM desde una definición de imagen, sino desde las versiones de imágenes creadas a partir de la definición.
 
-Hay tres parámetros para cada definición de imagen que se usan en combinación: **Publisher**, **Offer** y **SKU**. Se utilizan para buscar una definición de imagen específica. Puede tener versiones de imágenes que comparten uno o dos valores, pero no los tres.  Por ejemplo, estas son las tres definiciones de imágenes y sus valores:
+Hay tres parámetros para cada definición de imagen que se usan en combinación: **Publisher** , **Offer** y **SKU** . Se utilizan para buscar una definición de imagen específica. Puede tener versiones de imágenes que comparten uno o dos valores, pero no los tres.  Por ejemplo, estas son las tres definiciones de imágenes y sus valores:
 
 |Definición de imágenes|Publicador|Oferta|SKU|
 |---|---|---|---|
@@ -56,10 +56,11 @@ Hay tres parámetros para cada definición de imagen que se usan en combinación
 
 Los tres tienen conjuntos de valores únicos. El formato es similar a cómo puede especificar actualmente el editor, la oferta y la SKU para las [imágenes de Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) en Azure PowerShell para obtener la última versión de una imagen de Marketplace. Cada definición de imagen debe tener un conjunto único de estos valores.
 
-Las definiciones de imagen deben definir los siguientes parámetros que determinan qué tipos de versiones de imagen pueden contener:
--   Estado del sistema operativo: puede establecer el estado del sistema operativo en [generalizado o especializado](#generalized-and-specialized-images).
-- Sistema operativo: puede ser Windows o Linux.
+Los siguientes parámetros determinan qué tipos de versiones de imagen pueden contener:
 
+- Estado del sistema operativo: puede establecer el estado del sistema operativo en [generalizado o especializado](#generalized-and-specialized-images). Este campo es obligatorio.
+- Sistema operativo: puede ser Windows o Linux. Este campo es obligatorio.
+-   Generación de Hyper-V: especifique si la imagen se creó a partir de un disco duro virtual de Hyper-V de generación 1 o [generación 2](../articles/virtual-machines/generation-2.md). El valor predeterminado es la generación 1.
 
 
 Los siguientes son otros parámetros que se pueden establecer en la definición de la imagen para que pueda realizar un seguimiento más sencillo de sus recursos:
@@ -71,7 +72,6 @@ Los siguientes son otros parámetros que se pueden establecer en la definición 
 - Etiqueta: puede agregar etiquetas al crear la definición de imagen. Para más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos](../articles/azure-resource-manager/management/tag-resources.md).
 - Número mínimo y máximo de vCPU y recomendaciones de memoria: si la imagen tiene vCPU y recomendaciones de memoria, puede adjuntar esa información a la definición de imagen.
 - Tipos de disco no permitidos: puede proporcionar información acerca de las necesidades de almacenamiento para la máquina virtual. Por ejemplo, si la imagen no es adecuada para los discos HDD estándar, agréguelos a la lista de no permitidos.
--   Generación de Hyper-V: especifique si la imagen se creó a partir de un disco duro virtual de Hyper-V de generación 1 o [generación 2](../articles/virtual-machines/generation-2.md). El valor predeterminado es la generación 1.
 - Información del plan de compra para imágenes de Marketplace: `-PurchasePlanPublisher`, `-PurchasePlanName`y `-PurchasePlanProduct`. Para más información sobre el plan de compra, consulte [Buscar imágenes en Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Indicación de la información del plan de compra de Azure Marketplace al crear imágenes](../articles/virtual-machines/marketplace-images.md).
 
 
@@ -116,7 +116,7 @@ Para más información, consulte [Comparación del uso de recursos con los lími
 ## <a name="scaling"></a>Ampliación
 La galería de imágenes compartidas le permite especificar el número de réplicas de las imágenes que quiere que Azure mantenga. Esto ayuda en los escenarios de implementación de varias VM, ya que las implementaciones de VM se pueden distribuir a las distintas réplicas, lo que reduce la probabilidad de que el proceso de creación de instancias quede limitado por la sobrecarga de una única réplica.
 
-Con la galería de imágenes compartidas, ahora puede implementar hasta 1000 instancias de máquinas virtuales en una conjunto de escalado de máquinas virtuales (a partir de 600 con imágenes administradas). Las réplicas de imágenes proporcionan un mejor rendimiento de implementación, confiabilidad y coherencia.  Puede establecer un número de réplicas diferente en cada región de destino, en función de las necesidades de escala de la región. Dado que cada réplica es una copia en profundidad de la imagen, esto ayuda a escalar las implementaciones linealmente con cada réplica adicional. Aunque entendemos que no hay dos imágenes o regiones iguales, he aquí nuestra guía general sobre cómo usar réplicas en una región:
+Con la galería de imágenes compartidas, ahora puede implementar hasta 1000 instancias de máquinas virtuales en una conjunto de escalado de máquinas virtuales (a partir de 600 con imágenes administradas). Las réplicas de imágenes proporcionan un mejor rendimiento de implementación, confiabilidad y coherencia.   Puede establecer un número de réplicas diferente en cada región de destino, en función de las necesidades de escala de la región. Dado que cada réplica es una copia en profundidad de la imagen, esto ayuda a escalar las implementaciones linealmente con cada réplica adicional. Aunque entendemos que no hay dos imágenes o regiones iguales, he aquí nuestra guía general sobre cómo usar réplicas en una región:
 
 - En el caso de las implementaciones de conjunto de escalado de máquinas virtuales (VMSS), se recomienda mantener una réplica por cada 20 máquinas virtuales que cree simultáneamente. Por ejemplo, si va a crear 120 máquinas virtuales simultáneamente mediante la misma imagen en una región, se recomienda conservar al menos seis réplicas de la imagen. 
 - Para las implementaciones de un conjunto de escalado de máquinas virtuales, para cada conjunto con hasta 600 instancias, se recomienda conservar al menos una réplica. Por ejemplo, si va a crear cinco conjuntos de escalado de forma simultánea, cada uno con 600 instancias de máquinas virtuales con la misma imagen en una única región, se recomienda conservar al menos cinco réplicas de la imagen. 
@@ -220,9 +220,9 @@ Puede crear recursos de galería de imágenes compartidas con plantillas. Hay va
 Para enumerar todos los recursos de Shared Image Gallery en las suscripciones a las que tiene acceso en Azure Portal, siga estos pasos:
 
 1. Abra [Azure Portal](https://portal.azure.com).
-1. Desplácese hacia abajo en la página y seleccione **Todos los recursos**.
+1. Desplácese hacia abajo en la página y seleccione **Todos los recursos** .
 1. Seleccione todas las suscripciones en las que quiera enumerar todos los recursos.
-1. Busque los recursos de tipo **Shared Image Gallery**.
+1. Busque los recursos de tipo **Shared Image Gallery** .
   
 Para enumerar todos los recursos de la galería de imágenes compartidas mediante las suscripciones para las que tiene permiso, use el comando siguiente en la CLI de Azure:
 

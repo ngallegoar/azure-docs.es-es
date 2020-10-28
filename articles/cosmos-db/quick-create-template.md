@@ -8,20 +8,20 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6aa31e816a42e9cf1344137676fbbafb0c06730
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85483302"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282178"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Cosmos DB y un contenedor mediante una plantilla de Resource Manager
 
-Azure Cosmos DB es un servicio de base de datos con varios modelos y de distribución global de Microsoft. Puede usar Azure Cosmos DB para crear y consultar rápidamente las bases de datos de grafos, documentos y de claves y valores. Este inicio rápido se centra en el proceso de implementación de una plantilla de Azure Resource Manager para crear una base de datos de Azure Cosmos y un contenedor en dicha base de datos. Posteriormente, puede almacenar datos en este contenedor.
+Azure Cosmos DB es la base de datos NoSQL rápida de Microsoft con API abiertas para cualquier escala. Puede usar Azure Cosmos DB para crear y consultar rápidamente las bases de datos de grafos, documentos y de claves y valores. Este inicio rápido se centra en el proceso de implementación de una plantilla de Azure Resource Manager para crear una base de datos de Azure Cosmos y un contenedor en dicha base de datos. Posteriormente, puede almacenar datos en este contenedor.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementación en Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -61,22 +61,22 @@ Encontrará más ejemplos de plantillas de Azure Cosmos DB en la [galería de p
 
     A menos que se especifique, utilice el valor predeterminado para crear los recursos de Azure Cosmos.
 
-    * **Suscripción**: seleccione una suscripción de Azure.
-    * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
-    * **Ubicación**: seleccione una ubicación.  Por ejemplo, **Centro de EE. UU**.
-    * **Nombre de cuenta**: escriba un nombre para la cuenta de Azure Cosmos. Debe ser único globalmente.
-    * **Ubicación**: escriba una ubicación donde desea crear la cuenta de Azure Cosmos. La cuenta de Azure Cosmos puede estar en la misma ubicación que el grupo de recursos.
-    * **Región primaria**: la región de la réplica principal de la cuenta de Azure Cosmos.
-    * **Región secundaria**: la región de la réplica secundaria de la cuenta de Azure Cosmos.
-    * **Nivel de coherencia predeterminado**: nivel de coherencia predeterminado de la cuenta de Azure Cosmos.
-    * **Prefijo de obsolescencia máxima**: número máximo de solicitudes obsoletas. Necesario para BoundedStaleness.
-    * **Intervalo máximo en segundos**: tiempo máximo de retardo. Necesario para BoundedStaleness.
-    * **Nombre de base de datos**: el nombre de la base de datos de Azure Cosmos.
-    * **Nombre del contenedor**: el nombre del contenedor de Azure Cosmos.
-    * **Rendimiento**:  el rendimiento del contenedor, el valor de rendimiento mínimo es 400 RU/s.
-    * **Acepto los términos y condiciones anteriores**: Seleccionar.
+    * **Suscripción** : seleccione una suscripción de Azure.
+    * **Grupo de recursos** : seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar** .
+    * **Ubicación** : seleccione una ubicación.  Por ejemplo, **Centro de EE. UU** .
+    * **Nombre de cuenta** : escriba un nombre para la cuenta de Azure Cosmos. Debe ser único globalmente.
+    * **Ubicación** : escriba una ubicación donde desea crear la cuenta de Azure Cosmos. La cuenta de Azure Cosmos puede estar en la misma ubicación que el grupo de recursos.
+    * **Región primaria** : la región de la réplica principal de la cuenta de Azure Cosmos.
+    * **Región secundaria** : la región de la réplica secundaria de la cuenta de Azure Cosmos.
+    * **Nivel de coherencia predeterminado** : nivel de coherencia predeterminado de la cuenta de Azure Cosmos.
+    * **Prefijo de obsolescencia máxima** : número máximo de solicitudes obsoletas. Necesario para BoundedStaleness.
+    * **Intervalo máximo en segundos** : tiempo máximo de retardo. Necesario para BoundedStaleness.
+    * **Nombre de base de datos** : el nombre de la base de datos de Azure Cosmos.
+    * **Nombre del contenedor** : el nombre del contenedor de Azure Cosmos.
+    * **Rendimiento** :  el rendimiento del contenedor, el valor de rendimiento mínimo es 400 RU/s.
+    * **Acepto los términos y condiciones anteriores** : Seleccionar.
 
-3. Seleccione **Comprar**. Cuando la cuenta de Azure Cosmos se haya implementado correctamente, recibirá una notificación:
+3. Seleccione **Comprar** . Cuando la cuenta de Azure Cosmos se haya implementado correctamente, recibirá una notificación:
 
    :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Implementación en Azure":::
 

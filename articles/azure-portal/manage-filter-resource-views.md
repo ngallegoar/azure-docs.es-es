@@ -3,15 +3,15 @@ title: Visualización y filtrado de información de los recursos de Azure
 description: Filtre la información y use vistas diferentes para conocer mejor los recursos de Azure.
 author: mgblythe
 ms.service: azure-portal
-ms.topic: quickstart
+ms.topic: how-to
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f6185e1c4042110f446337c1b2c2904fefdae7a9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650412"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280251"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visualización y filtrado de información de los recursos de Azure
 
@@ -29,7 +29,7 @@ Empiece a explorar **Todos los recursos** y use los filtros para centrarse en un
 
 :::image type="content" source="media/manage-filter-resource-views/filter-simplewinvm.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
-Para cambiar las columnas que se incluyen en una vista, seleccione **Administrar vista** y, a continuación, **Editar columnas**.
+Para cambiar las columnas que se incluyen en una vista, seleccione **Administrar vista** y, a continuación, **Editar columnas** .
 
 :::image type="content" source="media/manage-filter-resource-views/edit-columns.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
@@ -37,9 +37,9 @@ Para cambiar las columnas que se incluyen en una vista, seleccione **Administrar
 
 Puede guardar las vistas que incluyen los filtros y columnas que ha seleccionado. Para guardar y usar una vista:
 
-1. Seleccione **Administrar vista** y, a continuación, **Guardar vista**.
+1. Seleccione **Administrar vista** y, a continuación, **Guardar vista** .
 
-1. Escriba un nombre para la vista y, a continuación, seleccione **Aceptar**. La vista guardada aparece ahora en el menú **Administrar vista**.
+1. Escriba un nombre para la vista y, a continuación, seleccione **Aceptar** . La vista guardada aparece ahora en el menú **Administrar vista** .
 
     :::image type="content" source="media/manage-filter-resource-views/simple-view.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
@@ -47,29 +47,29 @@ Puede guardar las vistas que incluyen los filtros y columnas que ha seleccionado
 
 Para eliminar una vista:
 
-1. Seleccione **Administrar vista** y, después, **Examinar todas las visualizaciones**.
+1. Seleccione **Administrar vista** y, después, **Examinar todas las visualizaciones** .
 
 1. En el panel **Vistas guardadas para "Todos los recursos"** , seleccione la vista y, a continuación, seleccione el icono **Eliminar** ![icono de la vista Eliminar](media/manage-filter-resource-views/icon-delete.png).
 
 ## <a name="summarize-resources-with-visuals"></a>Resumen de los recursos con objetos visuales
 
-Las vistas que hemos examinado hasta ahora han sido _vistas de lista_, pero también hay _vistas de resumen_ que incluyen objetos visuales. Puede guardar y usar estas vistas de la misma manera que puede ver las vistas de listas. Los filtros se mantienen entre los dos tipos de vistas. Hay vistas estándar, como la vista de **ubicación** que se muestra a continuación, además de vistas relevantes para servicios concretos, como la vista de **estado** de las máquinas virtuales.
+Las vistas que hemos examinado hasta ahora han sido _vistas de lista_ , pero también hay _vistas de resumen_ que incluyen objetos visuales. Puede guardar y usar estas vistas de la misma manera que puede ver las vistas de listas. Los filtros se mantienen entre los dos tipos de vistas. Hay vistas estándar, como la vista de **ubicación** que se muestra a continuación, además de vistas relevantes para servicios concretos, como la vista de **estado** de Azure Storage.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
 Para guardar y usar una vista de resumen:
 
-1. En el menú de la vista, seleccione **Vista de resumen**.
+1. En el menú de la vista, seleccione **Vista de resumen** .
 
     :::image type="content" source="media/manage-filter-resource-views/menu-summary-view.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
-1. La vista de resumen le permite resumir según diferentes atributos, como **Ubicación** y **Tipo**. Seleccione una opción **Resumir por** y un objeto visual adecuado. En la siguiente captura de pantalla aparece el **tipo de resumen** con el objeto visual **Gráfico de barras**.
+1. La vista de resumen le permite resumir según diferentes atributos, como **Ubicación** y **Tipo** . Seleccione una opción **Resumir por** y un objeto visual adecuado. En la siguiente captura de pantalla aparece el **tipo de resumen** con el objeto visual **Gráfico de barras** .
 
     :::image type="content" source="media/manage-filter-resource-views/type-summary-bar-chart.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
 1. Seleccione **Administrar vista** y, después, **Guardar** para guardar esta vista como hizo con la vista de lista.
 
-1. En la vista de resumen, en **Tipo de resumen**, seleccione una barra del gráfico. Al seleccionar la barra, se proporciona una lista filtrada para un tipo de recurso.
+1. En la vista de resumen, en **Tipo de resumen** , seleccione una barra del gráfico. Al seleccionar la barra, se proporciona una lista filtrada para un tipo de recurso.
 
     :::image type="content" source="media/manage-filter-resource-views/all-resources-filtered-type.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
@@ -79,11 +79,11 @@ Azure Resource Graph proporciona una exploración de recursos eficaz con la posi
 
 Para ejecutar una consulta de Resource Graph:
 
-1. Seleccione **Abrir consulta**.
+1. Seleccione **Abrir consulta** .
 
     :::image type="content" source="media/manage-filter-resource-views/open-query.png" alt-text="Vista de todos los recursos en Azure Portal":::
 
-1. En **Azure Resource Graph Explorer**, seleccione **Ejecutar consulta** para ver los resultados.
+1. En **Azure Resource Graph Explorer** , seleccione **Ejecutar consulta** para ver los resultados.
 
     :::image type="content" source="media/manage-filter-resource-views/run-query.png" alt-text="Vista de todos los recursos en Azure Portal":::
 

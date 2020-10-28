@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Hospedaje del dominio y los subdominios en Azure DNS'
-description: En este artículo aprenderá a configurar Azure DNS para hospedar las zonas DNS.
+description: En este tutorial aprenderá a configurar Azure DNS para hospedar las zonas DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078000"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282163"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutorial: Hospedaje del dominio en Azure DNS
 
@@ -40,18 +40,18 @@ En este ejemplo, nos referiremos al dominio primario como **contoso.net**
 
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
-1. Vaya a [Azure Portal](https://portal.azure.com/) para crear una zona DNS. Busque y seleccione **Zonas DNS**.
+1. Vaya a [Azure Portal](https://portal.azure.com/) para crear una zona DNS. Busque y seleccione **Zonas DNS** .
 
    ![Zona DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
-1. Seleccione **Crear zona DNS**.
-1. En la página **Crear zona DNS**, escriba los valores siguientes y después seleccione **Crear**: por ejemplo, **contoso.net**.
+1. Seleccione **Crear zona DNS** .
+1. En la página **Crear zona DNS** , escriba los valores siguientes y después seleccione **Crear** : por ejemplo, **contoso.net** .
       > [!NOTE] 
       > Si la nueva zona que va a crear es una zona secundaria (por ejemplo, zona primaria = contoso.net, zona secundaria = secundaria.contoso.net), consulte nuestro tutorial [Creación de una nueva zona DNS secundaria](./tutorial-public-dns-zones-child.md).
 
     | **Configuración** | **Valor** | **Detalles** |
     |--|--|--|
-    | **Detalles del proyecto**:  |  |  |
+    | **Detalles del proyecto** :  |  |  |
     | **Grupos de recursos**    | ContosoRG | Cree un grupo de recursos. El nombre del grupo de recursos debe ser único dentro de la suscripción que ha seleccionado. La ubicación del grupo de recursos no tiene efecto alguno sobre la zona DNS. La ubicación de la zona DNS siempre es "global" y no se muestra. |
     | **Detalles de la instancia:** |  |  |
     | **Zona secundaria**        | deje la opción desactivada | Puesto que esta zona **no** es [secundaria](./tutorial-public-dns-zones-child.md), debe dejar desactivada esta opción. |
@@ -63,9 +63,9 @@ En este ejemplo, nos referiremos al dominio primario como **contoso.net**
 
 Antes de poder delegar la zona DNS a Azure DNS, primero debe conocer el servidor de nombres de la zona. El DNS de Azure asigna los servidores de nombres de un grupo cada vez que se crea una zona.
 
-1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, seleccione **Todos los recursos**. En la página **Todos los recursos**, seleccione la zona DNS. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir el nombre de dominio en el cuadro **Filtrar por nombre** para acceder fácilmente a la puerta de enlace de aplicaciones. 
+1. Con la zona DNS creada, en el panel **Favoritos** de Azure Portal, seleccione **Todos los recursos** . En la página **Todos los recursos** , seleccione la zona DNS. Si la suscripción que seleccionó ya tiene varios recursos en ella, puede escribir el nombre de dominio en el cuadro **Filtrar por nombre** para acceder fácilmente a la puerta de enlace de aplicaciones. 
 
-1. Recupere los servidores de nombres de la página Zona DNS. En este ejemplo, a la zona contoso.net se le han asignado los servidores de nombres *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* y *ns4-01.azure-dns.info*:
+1. Recupere los servidores de nombres de la página Zona DNS. En este ejemplo, a la zona contoso.net se le han asignado los servidores de nombres *ns1-01.azure-dns.com* , *ns2-01.azure-dns.net* , *ns3-01.azure-dns.org* y *ns4-01.azure-dns.info* :
 
    ![Lista de servidores de nombres](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 
@@ -82,7 +82,7 @@ Ahora que se crea la zona DNS y que tiene los servidores de nombres, debe actual
 > [!NOTE]
 > Cuando copie cada dirección del servidor de nombres, asegúrese de copiar el punto final al final de la dirección. El punto indica el final de un nombre de dominio completo. Algunos registradores anexan el punto si el nombre NS no lo tiene al final. Para cumplir con la RFC de DNS, incluya el período de seguimiento.
 
-De momento, no se admiten en Azure DNS las delegaciones que usan servidores de nombres en su propia zona (a veces denominados *servidores DNS personalizados*).
+De momento, no se admiten en Azure DNS las delegaciones que usan servidores de nombres en su propia zona (a veces denominados *servidores DNS personalizados* ).
 
 ## <a name="verify-the-delegation"></a>Comprobación de la delegación
 
@@ -116,7 +116,7 @@ No es necesario especificar los servidores de nombres de Azure DNS. Si la delega
 
 Puede conservar el grupo de recursos **contosoRG** si va a realizar el tutorial siguiente. De lo contrario, elimine el grupo de recursos **contosoRG** para eliminar los recursos creados en este tutorial.
 
-- Seleccione el grupo de recursos **contosoRG** y, luego, **Eliminar grupo de recursos**. 
+- Seleccione el grupo de recursos **contosoRG** y, luego, **Eliminar grupo de recursos** . 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

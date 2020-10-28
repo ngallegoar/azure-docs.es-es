@@ -1,22 +1,22 @@
 ---
-title: Conversión de un dispositivo de IoT Plug and Play en un módulo genérico | Microsoft Docs
-description: Use el código de dispositivo C# PNP y conviértalo en un módulo.
+title: Conexión a un módulo IoT Plug and Play genérico | Microsoft Docs
+description: Use un ejemplo en C# de código de dispositivo IoT Plug and Play en un módulo genérico.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046343"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089169"
 ---
-# <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Tutorial: cómo convertir un dispositivo de IoT Plug and Play en un módulo (C#)
+# <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Conexión de un módulo IoT Plug and Play (C#)
 
-En este tutorial se muestra cómo convertir el código del dispositivo de IoT Plug and Play para que se ejecute como un módulo genérico.
+En este tutorial se muestra cómo conectar un [módulo](../iot-hub/iot-hub-devguide-module-twins.md) IoT Plug and Play genérico.
 
 Se dice que un dispositivo es de IoT Plug and Play si publica su id. de modelo cuando se conecta a un centro de IoT e implementa las propiedades y los métodos descritos en el modelo de Digital Twins Definition Language (DTDL) que identifica el id. de modelo. Para obtener más información sobre cómo usan los dispositivos un id. de modelo y DTDL, consulte la [Guía para desarrolladores de IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Los módulos usan los id. de modelo y los modelos de DTDL de la misma manera.
 
@@ -33,15 +33,15 @@ Para completar este tutorial en Windows, instale el siguiente software en el ent
 
 Use la herramienta del explorador de Azure IoT para agregar un nuevo dispositivo denominado **my-module-device** en el centro de IoT.
 
-Agregue un módulo denominado **my-module** a **my-module-device**:
+Agregue un módulo denominado **my-module** a **my-module-device** :
 
-1. En la herramienta del explorador de Azure IoT, vaya hasta el dispositivo **my-module-device**.
+1. En la herramienta del explorador de Azure IoT, vaya hasta el dispositivo **my-module-device** .
 
-1. Seleccione **Identidad del módulo** y, a continuación, seleccione **+ Agregar**.
+1. Seleccione **Identidad del módulo** y, a continuación, seleccione **+ Agregar** .
 
-1. Escriba **my-module** como nombre de la identidad de módulo y seleccione **Guardar**.
+1. Escriba **my-module** como nombre de la identidad de módulo y seleccione **Guardar** .
 
-1. En la lista de identidades de módulo, seleccione **my-module**. Copie la cadena de conexión principal. Usará esta cadena de conexión del módulo más adelante en este tutorial.
+1. En la lista de identidades de módulo, seleccione **my-module** . Copie la cadena de conexión principal. Usará esta cadena de conexión del módulo más adelante en este tutorial.
 
 1. Seleccione la pestaña **Módulo gemelo** y observe que no hay ninguna propiedad deseada o notificada:
 
@@ -169,7 +169,7 @@ Si ejecuta el código y, a continuación, usa el explorador de Azure IoT para ve
 
 Los SDK del servicio le permiten recuperar el id. de modelo de los dispositivos y módulos de IoT Plug and Play conectados. Puede usar los SDK del servicio para establecer propiedades de escritura y comandos de llamada:
 
-1. En otra instancia de Visual Studio, abra el proyecto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj*.
+1. En otra instancia de Visual Studio, abra el proyecto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* .
 
 1. En Visual Studio, vaya a **Project > Thermostat Properties > Debug** (Proyecto > Propiedades del termostato > Depurar). Después, agregue las siguientes variables de entorno al proyecto:
 
@@ -187,7 +187,7 @@ Los SDK del servicio le permiten recuperar el id. de modelo de los dispositivos 
     CloudToDeviceMethodResult result = await s_serviceClient.InvokeDeviceMethodAsync(s_deviceId, "my-module", commandInvocation);
     ```
 
-1. En el archivo *Program.cs*, modifique la línea que recupera el dispositivo gemelo de la manera siguiente:
+1. En el archivo *Program.cs* , modifique la línea que recupera el dispositivo gemelo de la manera siguiente:
 
     ```csharp
     Twin twin = await s_registryManager.GetTwinAsync(s_deviceId, "my-module");

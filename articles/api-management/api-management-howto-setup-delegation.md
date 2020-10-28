@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87461007"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148758"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
@@ -37,14 +37,14 @@ El flujo de trabajo final será el siguiente:
 3. Como respuesta, el punto de conexión de delegación se redirige a la interfaz de usuario o la presenta para pedir al usuario que inicie sesión o se suscriba.
 4. Una vez conseguido, se redirige de nuevo al usuario a la página del portal para desarrolladores de API Management de la que partió.
 
-Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En Azure Portal, busque **Seguridad** en el recurso de API Management y, luego, haga clic en el elemento de **Delegación**. Haga clic en la casilla para activar "Delegar inicio de sesión y suscripción".
+Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En Azure Portal, busque **Seguridad** en el recurso de API Management y, luego, haga clic en el elemento de **Delegación** . Haga clic en la casilla para activar "Delegar inicio de sesión y suscripción".
 
 ![Delegation page][api-management-delegation-signin-up]
 
 * Determine cuál será la dirección URL del extremo especial de delegación y escríbala en el campo **Dirección URL del extremo de delegación** . 
 * En el campo Clave de autenticación de delegación, escriba el secreto que se usará para procesar una firma suministrada para su comprobación con objeto de garantizar que la solicitud procede efectivamente de Azure API Management. Puede hacer clic en el botón **generar** para que API Management genere de forma aleatoria una clave en su lugar.
 
-Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias acciones:
+Ahora debe crear el **extremo de delegación** . Este tiene que realizar varias acciones:
 
 1. Recibir una solicitud de la forma siguiente:
    
@@ -52,32 +52,30 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
    
     Parámetros de consulta en el caso de inicio de sesión o suscripción:
    
-   * **operation**: identifica el tipo de solicitud de delegación del que se trata. Solo puede ser **SignIn** en este caso.
-   * **returnUrl**: la dirección URL de la página en la que el usuario hizo clic en un vínculo de suscripción o de inicio de sesión.
-   * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
-   * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
+   * **operation** : identifica el tipo de solicitud de delegación del que se trata. Solo puede ser **SignIn** en este caso.
+   * **returnUrl** : la dirección URL de la página en la que el usuario hizo clic en un vínculo de suscripción o de inicio de sesión.
+   * **salt** : una cadena salt especial que se usa para procesar un hash de seguridad
+   * **sig** : un hash de seguridad procesado que se comparará con su propio hash procesado
 2. Compruebe que la solicitud procede de Azure API Management (opcional, pero especialmente recomendado por motivos de seguridad).
    
-   * Procese un hash HMAC-SHA512 de una cadena según los parámetros de consulta **returnUrl** y **salt** ([se proporciona código de ejemplo a continuación]):
+   * Procese un hash HMAC-SHA512 de una cadena según los parámetros de consulta **returnUrl** y **salt** ( [se proporciona código de ejemplo a continuación]):
      
-     > HMAC(**salt** + '\n' + **returnUrl**)
-     > 
-     > 
+     > HMAC( **salt** + '\n' + **returnUrl** )
+
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
-3. Compruebe que ha recibido una solicitud para inicio de sesión/suscripción: el parámetro de consulta **operation** se establecerá en "**SignIn**".
+3. Compruebe que ha recibido una solicitud para inicio de sesión/suscripción: el parámetro de consulta **operation** se establecerá en " **SignIn** ".
 4. Presente al usuario la interfaz de usuario para que inicie sesión o se suscriba.
 5. Si el usuario se suscribe, hay que crear la cuenta correspondiente en Administración de API. [Cree un usuario] con la API de REST de API Management. Al hacerlo, asegúrese de que el identificador de usuario se establece en el mismo valor que existe en su almacén de usuario o en un identificador al que pueda realizar el seguimiento.
 6. Cuando el usuario se autentique correctamente:
    
-   * [solicite un token de inicio de sesión único (SSO)] a través de la API de REST de API Management
-   * anexe un parámetro de consulta returnUrl a la URL de SSO que se recibió de la llamada de API anterior:
+   * [Solicite un token de acceso compartido] a través de la API de REST de API Management.
+   * Anexe un parámetro de consulta returnUrl a la URL de SSO que se recibió de la llamada de API anterior:
      
-     > por ejemplo, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
-     > 
-     > 
-   * redirija al usuario a la URL producida anteriormente
+     > por ejemplo, `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     
+   * Redirija al usuario a la URL producida anteriormente.
 
-Además de la operación **SignIn**, también puede realizar la administración de cuentas siguiendo los pasos anteriores y utilizando una de las siguientes operaciones:
+Además de la operación **SignIn** , también puede realizar la administración de cuentas siguiendo los pasos anteriores y utilizando una de las siguientes operaciones:
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -86,10 +84,10 @@ Además de la operación **SignIn**, también puede realizar la administración 
 
 Debe pasar los siguientes parámetros de consulta para las operaciones de administración de cuenta.
 
-* **operation**: identifica qué tipo de solicitud de delegación es (ChangePassword, ChangeProfile o CloseAccount)
-* **userId**: el identificador de usuario de la cuenta para administrar
-* **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
-* **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
+* **operation** : identifica qué tipo de solicitud de delegación es (ChangePassword, ChangeProfile o CloseAccount)
+* **userId** : el identificador de usuario de la cuenta para administrar
+* **salt** : una cadena salt especial que se usa para procesar un hash de seguridad
+* **sig** : un hash de seguridad procesado que se comparará con su propio hash procesado
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegación de suscripciones a productos
 
@@ -99,7 +97,7 @@ La delegación de una suscripción a productos funciona de forma similar a la de
 2. El explorador se redirige al extremo de delegación.
 3. El extremo de delegación realiza los pasos necesarios para la suscripción al producto. Usted es el encargado de diseñar estos pasos. Pueden implicar la redirección a otra página para solicitar información de facturación, la formulación de otras preguntas o simplemente el almacenamiento de la información sin que se requiera ninguna acción del usuario.
 
-Para habilitar la funcionalidad, en la página **Delegación**, haga clic en **Delegar suscripción de productos**.
+Para habilitar la funcionalidad, en la página **Delegación** , haga clic en **Delegar suscripción de productos** .
 
 A continuación, asegúrese de que el extremo de delegación realiza las siguientes acciones:
 
@@ -110,32 +108,32 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
    
     Parámetros de consulta en el caso de suscripción a producto:
    
-   * **operation**: identifica el tipo de solicitud de delegación del que se trata. En las solicitudes de suscripción a producto las opciones válidas son:
+   * **operation** : identifica el tipo de solicitud de delegación del que se trata. En las solicitudes de suscripción a producto las opciones válidas son:
      * "Subscribe": una solicitud para suscribir al usuario a un producto determinado con el id. especificado (consulte más información a continuación).
      * "Unsubscribe": una solicitud para cancelar la suscripción de un usuario a un producto.
      * "Renew": una solicitud para renovar una suscripción (por ejemplo, que esté a punto de expirar).
-   * **productId**: en *Suscribirse*, el id. del producto al que el usuario solicitó suscribirse.
-   * **subscriptionId**: en *Cancelar suscripción* y *Renovar*, el identificador de la suscripción del producto.
-   * **userId**: en *Suscribirse*, el id. del usuario para el que se realiza la solicitud.
-   * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
-   * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
+   * **productId** : en *Suscribirse* , el id. del producto al que el usuario solicitó suscribirse.
+   * **subscriptionId** : en *Cancelar suscripción* y *Renovar* , el identificador de la suscripción del producto.
+   * **userId** : en *Suscribirse* , el id. del usuario para el que se realiza la solicitud.
+   * **salt** : una cadena salt especial que se usa para procesar un hash de seguridad
+   * **sig** : un hash de seguridad procesado que se comparará con su propio hash procesado
 
 2. Compruebe que la solicitud procede de Azure API Management (opcional, pero especialmente recomendado por motivos de seguridad).
    
-   * Procesar un hash HMAC-SHA512 de una cadena en función de los parámetros de consulta **productId**, **userId** y **salt**:
+   * Procesar un hash HMAC-SHA512 de una cadena en función de los parámetros de consulta **productId** , **userId** y **salt** :
      
-     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+     > HMAC( **salt** + '\n' + **productId** + '\n' + **userId** )
      > 
      > 
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
-3. Procese cualquier suscripción a producto en función del tipo de operación solicitada en **operation**; por ejemplo, facturación, preguntas adicionales, etc.
+3. Procese cualquier suscripción a producto en función del tipo de operación solicitada en **operation** ; por ejemplo, facturación, preguntas adicionales, etc.
 4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de API Management [llamando a la API de REST para las suscripciones].
 
 ## <a name="example-code"></a><a name="delegate-example-code"> </a>Ejemplo de código
 
 Estos ejemplos de código enseñan cómo:
 
-* Tomar la *clave de validación de delegación*, que se establece en la pantalla de delegación del portal del publicador
+* Tomar la *clave de validación de delegación* , que se establece en la pantalla de delegación del portal del publicador
 * Crear un HMAC que, después, se usa para validar la firma, probando la validez del valor de returnUrl que se pasó.
 
 El mismo código funciona para productId y userId con pequeñas modificaciones.
@@ -186,7 +184,7 @@ Para más información acerca de la delegación, vea el siguiente vídeo:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[solicite un token de inicio de sesión único (SSO)]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[Solicitud de un token de acceso compartido]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [Cree un usuario]: /rest/api/apimanagement/2019-12-01/user/createorupdate
 [llamando a la API de REST para las suscripciones]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

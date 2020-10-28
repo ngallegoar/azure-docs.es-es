@@ -4,12 +4,12 @@ description: Cómo configurar los nodos de transacción de Azure Blockchain Serv
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530393"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150866"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar los nodos de transacción de Azure Blockchain Service
 
@@ -18,7 +18,7 @@ Los nodos de transacciones se usan para enviar transacciones de cadenas de bloqu
 Para ver los detalles del nodo de transacción predeterminado:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-1. Vaya al miembro de Azure Blockchain Service. Seleccione **Nodos de transacción**.
+1. Vaya al miembro de Azure Blockchain Service. Seleccione **Nodos de transacción** .
 
     ![Selección del nodo de transacción predeterminado](./media/configure-transaction-nodes/nodes.png)
 
@@ -30,7 +30,7 @@ Puede agregar hasta nueve nodos adicionales de transacción al miembro de la cad
 
 Para agregar un nodo de transacción:
 
-1. En Azure Portal, vaya al miembro de Azure Blockchain Service y seleccione **Nodos de transacción > Agregar**.
+1. En Azure Portal, vaya al miembro de Azure Blockchain Service y seleccione **Nodos de transacción > Agregar** .
 1. Realice la configuración del nuevo nodo de transacción.
 
     ![Agregar nodos de transacción](./media/configure-transaction-nodes/add-node.png)
@@ -40,7 +40,7 @@ Para agregar un nodo de transacción:
     | Nombre | Nombre del nodo de transacción. El nombre se usa para crear la dirección DNS del punto de conexión del nodo de transacción. Por ejemplo, `newnode-myblockchainmember.blockchain.azure.com`. No se puede cambiar el nombre del nodo una vez creado. |
     | Contraseña | Establezca una contraseña segura. Use la contraseña para acceder al punto de conexión del nodo de transacción con autenticación básica.
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
     El aprovisionamiento de un nuevo nodo de transacción tarda unos 10 minutos. Los nodos de transacción adicionales generan costes. Para obtener más información sobre los costes, consulte [Precios de Azure](https://aka.ms/ABSPricing).
 
@@ -50,7 +50,7 @@ Los nodos de transacción tienen un nombre DNS único y puntos de conexión púb
 
 Para ver los detalles del punto de conexión de un nodo de transacción:
 
-1. En Azure Portal, vaya a uno de los nodos de transacción del miembro de Azure Blockchain Service y seleccione **Información general**.
+1. En Azure Portal, vaya a uno de los nodos de transacción del miembro de Azure Blockchain Service y seleccione **Información general** .
 
     ![Captura de pantalla que muestra la información general de los nodos de transacción para un miembro de cadena de bloques.](./media/configure-transaction-nodes/endpoints.png)
 
@@ -62,20 +62,20 @@ Los puntos de conexión del nodo de transacción de Azure Blockchain Service adm
 
 Para conceder control de acceso de Azure AD al punto de conexión:
 
-1. En Azure Portal, vaya al miembro de Azure Blockchain Service y seleccione **Nodos de transacción > Control de acceso (IAM) > Agregar > Agregar asignación de roles**.
+1. En Azure Portal, vaya al miembro de Azure Blockchain Service y seleccione **Nodos de transacción > Control de acceso (IAM) > Agregar > Agregar asignación de roles** .
 1. Cree una nueva asignación de roles para un usuario, grupo o entidad de servicio (roles de aplicación).
 
     ![Agregar rol de IAM](./media/configure-transaction-nodes/add-role.png)
 
     | Configuración | Acción |
     |---------|-------------|
-    | Role | Seleccione **Propietario**, **Colaborador** o **Lector**.
-    | Asignar acceso a | Seleccione **Usuario, grupo o entidad de servicio de Azure AD**.
+    | Role | Seleccione **Propietario** , **Colaborador** o **Lector** .
+    | Asignar acceso a | Seleccione **Usuario, grupo o entidad de servicio de Azure AD** .
     | Seleccionar | Busque el usuario, grupo o entidad de servicio que quiere agregar.
 
 1. Seleccione **Guardar** para agregar la asignación de roles.
 
-Para más información sobre el control de acceso de Azure AD, consulte [Administración del acceso a los recursos de Azure mediante RBAC y Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Para más información sobre el control de acceso de Azure AD, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
 Para obtener más información sobre cómo conectarse mediante la autenticación de Azure AD, consulte [connect to your node using AAD authentication](configure-aad.md) (Conectarse al nodo mediante la autenticación de AAD).
 
@@ -89,7 +89,7 @@ Puede ver los detalles del punto de conexión de autenticación básica de un no
 
 El nombre de usuario es el nombre del nodo y no se puede cambiar.
 
-Para usar la dirección URL, reemplace \<password\> por la contraseña establecida cuando se aprovisionó el nodo. Para actualizar la contraseña, seleccione **Restablecer contraseña**.
+Para usar la dirección URL, reemplace \<password\> por la contraseña establecida cuando se aprovisionó el nodo. Para actualizar la contraseña, seleccione **Restablecer contraseña** .
 
 ### <a name="access-keys"></a>Claves de acceso
 
@@ -103,7 +103,7 @@ Las reglas de firewall permiten limitar las direcciones IP que pueden intentar a
 
 Para ver las reglas de firewall de un nodo de transacción, vaya a uno de los nodos de transacción del miembro de Azure Blockchain Service y seleccione **Reglas de firewall** en la configuración.
 
-Puede agregar reglas de firewall mediante la especificación de un nombre de regla, una dirección IP inicial y una dirección IP final en la cuadrícula **Reglas de firewall**.
+Puede agregar reglas de firewall mediante la especificación de un nombre de regla, una dirección IP inicial y una dirección IP final en la cuadrícula **Reglas de firewall** .
 
 ![Reglas de firewall](./media/configure-transaction-nodes/firewall-rules.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89292986"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150802"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Introducción a la seguridad de la empresa en Azure HDInsight
 
@@ -82,14 +82,16 @@ En la tabla siguiente se proporcionan vínculos a recursos para cada tipo de sol
 |  | Asegúrese de que la característica [Cifrado en tránsito](./encryption-in-transit.md) está habilitada para usar TLS e IPSec para la comunicación interna de los clústeres. | Customer |
 |  | Configuración de las [claves que administra el cliente](../../storage/common/storage-encryption-keys-portal.md) para el cifrado de Azure Storage | Customer |
 |  | Controlar el acceso a los datos por parte de soporte técnico de Azure mediante la [Caja de seguridad del cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
-| Seguridad de aplicaciones y middleware | Integración con AAD-DS y [configuración de la autenticación](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+| Seguridad de aplicaciones y middleware | Realizar la integración con AAD-DS y [configurar ESP](apache-domain-joined-configure-using-azure-adds.md) o usar [HIB para la autenticación de OAuth](identity-broker.md)| Customer |
 |  | Configurar las directivas de [autorización de Apache Ranger](apache-domain-joined-run-hive.md) | Customer |
 |  | Usar [registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
 | Seguridad del sistema operativo | Crear clústeres con la imagen base segura más reciente | Customer |
 |  | Garantizar la [revisión del sistema operativo](../hdinsight-os-patching.md) en intervalos regulares | Customer |
+|  | Garantizar el [cifrado de discos CMK para máquinas virtuales](../disk-encryption.md) | Customer |
 | Seguridad de las redes | Configurar una [red virtual](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configurar las [reglas del grupo de seguridad de red (NSG) de entrada](../control-network-traffic.md) | Customer |
+|  | Configurar las [reglas del grupo de seguridad de red (NSG) de entrada](../control-network-traffic.md) o el [vínculo privado](../hdinsight-private-link.md) | Customer |
 |  | Configurar la [restricción del tráfico de salida](../hdinsight-restrict-outbound-traffic.md) con el firewall | Customer |
+|  | Configurar el [cifrado IPSec en tránsito](encryption-in-transit.md) entre los nodos del clúster | Customer |
 | Infraestructura virtualizada | N/D | HDInsight (proveedor de servicios en la nube) |
 | Seguridad de la infraestructura física | N/D | HDInsight (proveedor de servicios en la nube) |
 
