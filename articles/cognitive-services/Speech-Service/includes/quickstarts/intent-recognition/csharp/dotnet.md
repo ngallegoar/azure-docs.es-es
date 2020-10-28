@@ -7,12 +7,12 @@ ms.topic: include
 ms.author: trbye
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 70dc07fcbfc740ce0ec6b7a841221e3b0af5f7d6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 83e2c0486c193608739b78665d9dbbc3a52afc9e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88925985"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470933"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -53,7 +53,7 @@ Inserte este código en el método `RecognizeIntentAsync()`. Asegúrese de actua
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=26)]
 
-En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
 
 El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
@@ -103,9 +103,9 @@ En este momento, el código debe tener esta apariencia:
 
 Ya está listo para compilar la aplicación y probar el reconocimiento de voz con el servicio Voz.
 
-1. **Compile el código**: en la barra de menús de Visual Studio, elija **Compilar** > **Compilar solución**.
-2. **Inicie la aplicación**: en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd>.
-3. **Inicie el reconocimiento**: se le pedirá que diga una frase en inglés. La voz se envía al servicio Voz, se transcribe como texto y se representa en la consola.
+1. **Compile el código** : en la barra de menús de Visual Studio, elija **Compilar** > **Compilar solución** .
+2. **Inicie la aplicación** : en la barra de menús, elija **Depurar** > **Iniciar depuración** o presione <kbd>F5</kbd>.
+3. **Inicie el reconocimiento** : se le pedirá que diga una frase en inglés. La voz se envía al servicio Voz, se transcribe como texto y se representa en la consola.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8bcc3e41f87570822f48a111fe98d1fdaf72679f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298816"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470668"
 ---
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -48,7 +48,7 @@ Inserte este código en el bloque try/catch en `main()`. Asegúrese de actualiza
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=27)]
 
-En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+En este ejemplo se usa el método `FromSubscription()` para compilar la clase `SpeechConfig`. Para ver una lista completa de los métodos disponibles, consulte [Clase SpeechConfig](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
 
 El SDK de Voz se usará de forma predeterminada para reconocer el uso de en-us como idioma. Para más información sobre cómo elegir el idioma de origen, consulte [Especificación del idioma de origen para la conversión de voz a texto](../../../../how-to-specify-source-language.md).
 
@@ -104,7 +104,7 @@ En este momento, el código debe tener esta apariencia:
 
 ## <a name="build-and-run-your-app"></a>Compilación y ejecución de la aplicación
 
-Presione <kbd>F11</kbd>, o seleccione **Ejecutar** > **Depurar**.
+Presione <kbd>F11</kbd>, o seleccione **Ejecutar** > **Depurar** .
 Los próximos 15 segundos de la entrada de voz del micrófono se reconocen y se registran en la ventana de consola.
 
 ## <a name="next-steps"></a>Pasos siguientes
