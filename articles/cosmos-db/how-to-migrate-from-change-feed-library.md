@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019528"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490992"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migración desde la biblioteca de procesadores de fuente de cambios al SDK de Azure Cosmos DB para .NET V3
 
@@ -23,7 +23,7 @@ En este artículo se describen los pasos necesarios para migrar el código de un
 El SDK de .NET V3 tiene varios cambios importantes; estos son los pasos principales para migrar la aplicación:
 
 1. Convierta las instancias de `DocumentCollectionInfo` en referencias de `Container` para los contenedores supervisados y de concesiones.
-1. Las personalizaciones que usan `WithProcessorOptions` se deben actualizar para usar `WithLeaseConfiguration` y `WithPollInterval` para los intervalos, `WithStartTime`[para la hora de inicio](how-to-configure-change-feed-start-time.md) y `WithMaxItems` para definir el número máximo de elementos.
+1. Las personalizaciones que usan `WithProcessorOptions` se deben actualizar para usar `WithLeaseConfiguration` y `WithPollInterval` para los intervalos, `WithStartTime`[para la hora de inicio](./change-feed-processor.md#starting-time) y `WithMaxItems` para definir el número máximo de elementos.
 1. Establezca el `processorName` en `GetChangeFeedProcessorBuilder` para que coincida con el valor configurado en `ChangeFeedProcessorOptions.LeasePrefix`, o bien, puede usar `string.Empty`.
 1. Los cambios ya no se entregan como `IReadOnlyList<Document>` sino que, en su lugar, se trata de un `IReadOnlyCollection<T>` donde `T` es un tipo que debe definir. Ya no hay ninguna clase de elemento base.
 1. Para controlar los cambios, ya no necesita una implementación, en su lugar debe [definir un delegado](change-feed-processor.md#implementing-the-change-feed-processor). El delegado puede ser una función estática o, si necesita mantener el estado entre las ejecuciones, puede crear su propia clase y pasar un método de instancia como delegado.
@@ -60,4 +60,4 @@ Puede obtener más información sobre el procesador de la fuente de cambios en l
 
 * [Introducción a la fuente de cambios](change-feed-processor.md)
 * [Uso del calculador de la fuente de cambios](how-to-use-change-feed-estimator.md)
-* [Hora de inicio del procesador de la fuente de cambios](how-to-configure-change-feed-start-time.md)
+* [Hora de inicio del procesador de la fuente de cambios](./change-feed-processor.md#starting-time)

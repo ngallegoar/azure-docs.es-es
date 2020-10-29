@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409534"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490584"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Encabezados de respuesta del servidor Gremlin en Azure Cosmos DB
 En este artículo, se describen los encabezados que el servidor Gremlin de Cosmos DB devuelve al autor de la llamada al ejecutar una solicitud. Estos encabezados son útiles para solucionar problemas de rendimiento de las solicitudes, crear aplicaciones que se integren de forma nativa con el servicio Cosmos DB y simplificar el servicio de soporte al cliente.
@@ -29,7 +29,7 @@ Tenga en cuenta que, si depende de estos encabezados, estará limitando la porta
 | **x-ms-total-server-time-ms** | double | 130,512 | Aciertos y errores | Tiempo total, en milisegundos, que el servidor Gremlin de Cosmos DB tardó en ejecutar todo el recorrido. Este encabezado se incluye en todas las respuestas parciales. Representa el tiempo de ejecución acumulado desde el inicio de la solicitud. La última respuesta indica el tiempo total de ejecución. Este encabezado resulta útil para diferenciar entre el cliente y el servidor como origen de latencia. Puede comparar el tiempo de ejecución del recorrido del cliente con el valor de este encabezado. |
 | **x-ms-status-code** | long | 200 | Aciertos y errores | El encabezado indica el motivo interno por el que ha finalizado o terminado una solicitud. Es recomendable que la aplicación examine el valor de este encabezado y tome medidas correctivas. |
 | **x-ms-substatus-code** | long | 1003 | Solo error | Cosmos DB es una base de datos de varios modelos que se crea sobre el nivel de almacenamiento unificado. Si se produce un error en las capas inferiores de la pila de alta disponibilidad, este encabezado contiene información adicional sobre el motivo. Es conveniente que la aplicación guarde este encabezado para poder utilizarlo al contactar con el servicio de soporte al cliente de Cosmos DB. El valor de este encabezado le será útil al ingeniero de Cosmos DB para resolver problemas con mayor rapidez. |
-| **x-ms-retry-after-ms** | cadena (TimeSpan) | "00:00:03.9500000" | Solo error | Este encabezado es una representación de cadena de un tipo [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) de .NET. Este valor solo se incluirá en las solicitudes que registran errores por agotar el rendimiento aprovisionado. La aplicación debe ejecutar de nuevo el recorrido una vez transcurrido el período de tiempo indicado. |
+| **x-ms-retry-after-ms** | cadena (TimeSpan) | "00:00:03.9500000" | Solo error | Este encabezado es una representación de cadena de un tipo [TimeSpan](/dotnet/api/system.timespan) de .NET. Este valor solo se incluirá en las solicitudes que registran errores por agotar el rendimiento aprovisionado. La aplicación debe ejecutar de nuevo el recorrido una vez transcurrido el período de tiempo indicado. |
 | **x-ms-activity-id** | cadena (GUID) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Aciertos y errores | El encabezado contiene el identificador único del lado servidor de una solicitud. A cada solicitud se le asigna un identificador único para hacer un seguimiento. Las aplicaciones deben registrar los identificadores de actividad devueltos por el servidor en aquellas solicitudes en las que es posible que los clientes quieran ponerse en contacto con el servicio de soporte al cliente. El personal de soporte de Cosmos DB puede buscar solicitudes específicas utilizando estos identificadores en los recursos de telemetría del servicio Cosmos DB. |
 
 ## <a name="status-codes"></a>Códigos de estado
@@ -43,7 +43,7 @@ A continuación se indican los códigos de estado más comunes devueltos por el 
 | **408** | `"Server timeout"` indica que el recorrido tardó más de **30 segundos** y fue cancelado por el servidor. Optimice los recorridos para que se ejecuten rápidamente filtrando vértices o bordes en cada salto del recorrido para reducir el ámbito de búsqueda.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Esto suele ocurrir cuando ya existe un vértice o un borde con un identificador en el grafo.| 
 | **412** | El código de estado va acompañado de un mensaje de error `"PreconditionFailedException": One of the specified pre-condition is not met`. Esto error indica una infracción del control de simultaneidad optimista entre la lectura de un borde o vértice y su escritura en el almacén después de realizar una modificación. Por lo general, esto suele producirse cuando se modifica una propiedad; por ejemplo, `g.V('identifier').property('name','value')`. El motor de Gremlin leerá el vértice, lo modificará y lo escribirá de nuevo. Si hay otro recorrido ejecutándose en paralelo y se intenta escribir el mismo vértice o borde, uno de ellos registrará este error. La aplicación deberá ejecutar de nuevo el recorrido en el servidor.| 
-| **429** | La solicitud se limitó y se debe reintentar después del valor especificado en **x-ms-retry-after-ms**.| 
+| **429** | La solicitud se limitó y se debe reintentar después del valor especificado en **x-ms-retry-after-ms** .| 
 | **500** | Un mensaje de error que contiene `"NotFoundException: Entity with the specified id does not exist in the system."` indica que se ha vuelto a crear una base de datos o una colección con el mismo nombre. Este error desaparecerá en 5 minutos a medida que el cambio se propague e invalide las memorias caché en los diferentes componentes de Cosmos DB. Para evitar este problema, use nombres de base de datos y de colección únicos cada vez.| 
 | **1000** | Este código de estado se devuelve cuando el servidor analiza correctamente un mensaje pero no puede ejecutarlo. Normalmente, suelen tratarse de problemas con las consultas.| 
 | **1001** | Este código se devuelve cuando el servidor completa la ejecución transversal pero no puede serializar la respuesta de vuelta al cliente. Este error puede producirse cuando el recorrido genera un resultado complejo que es demasiado grande o no se ajusta a la especificación del protocolo TinkerPop. Si se encuentra con este error, la aplicación debería simplificar el recorrido. | 

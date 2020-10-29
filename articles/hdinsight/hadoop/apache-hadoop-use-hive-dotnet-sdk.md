@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: cdb2207ab834ab84cedd2ad23e5e26186ac44039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f815754c099e1e085fb0692285b9e690d68194e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020480"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487677"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Ejecución de consultas de Apache Hive mediante el SDK de .NET para HDInsight
 
@@ -33,7 +33,7 @@ Antes de empezar este artículo, debe tener los siguientes elementos:
     > [!IMPORTANT]  
     > A partir del 15 de septiembre de 2017, el SDK de .NET para HDInsight solo admite devolver resultados de consulta de Hive desde cuentas de Azure Storage. Si usa este ejemplo con un clúster de HDInsight que utilice Azure Data Lake Storage como almacenamiento principal, no se pueden recuperar resultados de búsqueda mediante .NET SDK.
 
-* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 y versiones posteriores. Se debe instalar al menos la carga de trabajo **Desarrollo de escritorio de .NET**.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/community/) 2013 y versiones posteriores. Se debe instalar al menos la carga de trabajo **Desarrollo de escritorio de .NET** .
 
 ## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
@@ -146,6 +146,6 @@ En este artículo, ha aprendido a enviar consultas de Apache Hive mediante el SD
 
 * [Introducción a Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Creación de clústeres de Apache Hadoop en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Referencia del SDK de .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [Referencia del SDK de .NET de HDInsight](/dotnet/api/overview/azure/hdinsight)
 * [Uso de Apache Sqoop con HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Crear aplicaciones .NET para HDInsight de autenticación no interactiva](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

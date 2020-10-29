@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: ccda92f094d28b27e48de689c3b39c4f8a9bfaa3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8c970c820417a5cff7030a8499cf0c3520465231
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283306"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491145"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-table-api"></a>Creación de un contenedor en Table API de Azure Cosmos DB
 
@@ -54,5 +54,4 @@ En este artículo se explican las distintas formas de crear un contenedor en Tab
 * [Creación de particiones en Azure Cosmos DB](partitioning-overview.md)
 * [Unidades de solicitud en Azure Cosmos DB](request-units.md)
 * [Aprovisionamiento del rendimiento en contenedores y bases de datos](set-throughput.md)
-* [Uso de la cuenta de Azure Cosmos](account-overview.md)
-
+* [Uso de la cuenta de Azure Cosmos](./account-databases-containers-items.md)

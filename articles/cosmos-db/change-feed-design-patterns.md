@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118957"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489360"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Modelos de diseño de la fuente de cambios de Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Además de leer la fuente de cambios de un contenedor de Cosmos, también puede 
 
 ### <a name="high-availability"></a>Alta disponibilidad
 
-Azure Cosmos DB ofrece hasta un 99,999 % de disponibilidad de lectura y escritura. A diferencia de muchas colas de mensajes, los datos de Azure Cosmos DB se pueden distribuir y configurar globalmente de forma sencilla con un [RTO (objetivo de tiempo de recuperación)](consistency-levels-tradeoffs.md#rto) de cero.
+Azure Cosmos DB ofrece hasta un 99,999 % de disponibilidad de lectura y escritura. A diferencia de muchas colas de mensajes, los datos de Azure Cosmos DB se pueden distribuir y configurar globalmente de forma sencilla con un [RTO (objetivo de tiempo de recuperación)](./consistency-levels.md#rto) de cero.
 
 Después de procesar los elementos de la fuente de cambios, puede compilar una vista materializada y conservar los valores agregados de nuevo en Azure Cosmos DB. Si usa Azure Cosmos DB para compilar un juego, puede usar la fuente de cambios para, por ejemplo, implementar marcadores en tiempo real basados en las puntuaciones de los juegos completados.
 
@@ -73,7 +73,7 @@ Si tiene que [desnormalizar los datos entre las particiones y los contenedores](
 
 ## <a name="event-sourcing"></a>Aprovisionamiento de eventos
 
-El [patrón de aprovisionamiento de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) implica el uso de un almacén de solo anexar para registrar la serie completa de acciones en esos datos. La fuente de cambios de Azure Cosmos DB es una excelente opción como almacén de datos central en las arquitecturas de aprovisionamiento de eventos, donde toda la ingesta de datos se modela como escritura (sin actualizaciones ni eliminaciones). En este caso, cada escritura en Azure Cosmos DB es un "evento" y tendrá un registro completo de los eventos pasados en la fuente de cambios. Los usos habituales de los eventos publicados por el almacén de eventos central son para mantener vistas materializadas o para la integración con sistemas externos. Dado que no hay ningún límite de tiempo para la retención en la fuente de cambios, puede reproducir todos los eventos pasados leyendo desde el principio de la fuente de cambios del contenedor de Cosmos.
+El [patrón de aprovisionamiento de eventos](/azure/architecture/patterns/event-sourcing) implica el uso de un almacén de solo anexar para registrar la serie completa de acciones en esos datos. La fuente de cambios de Azure Cosmos DB es una excelente opción como almacén de datos central en las arquitecturas de aprovisionamiento de eventos, donde toda la ingesta de datos se modela como escritura (sin actualizaciones ni eliminaciones). En este caso, cada escritura en Azure Cosmos DB es un "evento" y tendrá un registro completo de los eventos pasados en la fuente de cambios. Los usos habituales de los eventos publicados por el almacén de eventos central son para mantener vistas materializadas o para la integración con sistemas externos. Dado que no hay ningún límite de tiempo para la retención en la fuente de cambios, puede reproducir todos los eventos pasados leyendo desde el principio de la fuente de cambios del contenedor de Cosmos.
 
 Puede hacer que [varios consumidores de fuentes de cambios se suscriban a la misma fuente de cambios del contenedor](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Aparte del rendimiento aprovisionado del [contenedor de concesión](change-feed-processor.md#components-of-the-change-feed-processor), no hay ningún costo por el uso de la fuente de cambios. La fuente de cambios está disponible en cada contenedor, independientemente de si se ha utilizado.
 

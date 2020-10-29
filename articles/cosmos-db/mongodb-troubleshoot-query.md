@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283326"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488391"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Solución de problemas de consultas al usar la API para MongoDB de Azure Cosmos DB
 
@@ -116,7 +116,7 @@ La salida del comando `$explain` es larga y contiene información detallada acer
 | `timeInclusiveMS` | Latencia de consulta de back-end. |
 | `pathsIndexed` | Muestra los índices usados por la consulta. | 
 | `pathsNotIndexed` | Muestra los índices que la consulta podría haber usado, si están disponibles. | 
-| `shardInformation` | Resumen del rendimiento de las consultas de una [partición física](partition-data.md#physical-partitions) determinada. | 
+| `shardInformation` | Resumen del rendimiento de las consultas de una [partición física](./partitioning-overview.md#physical-partitions) determinada. | 
 | `retrievedDocumentCount` | Número de documentos cargados por el motor de consultas. | 
 | `outputDocumentCount` | Número de documentos devueltos en los resultados de la consulta. | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Latencia de consulta adicional estimada debido a la limitación de velocidad. | 
@@ -256,7 +256,7 @@ Los procedimientos recomendados de indexación en la API para MongoDB de Azure C
 
 Los [índices de caracteres comodín](mongodb-indexing.md#wildcard-indexes) pueden simplificar la indexación. A diferencia de MongoDB, los índices de caracteres comodín pueden admitir varios campos en predicados de consulta. No habrá ninguna diferencia en el rendimiento de las consultas si se usa un solo índice de caracteres comodín en lugar de crear un índice independiente para cada propiedad. Agregar un índice de caracteres comodín para todas las propiedades es la forma más fácil de optimizar todas las consultas.
 
-Puede agregar nuevos índices en cualquier momento, sin que ello afecte a la disponibilidad de la escritura o la lectura. Puede [realizar el seguimiento del progreso de transformación del índice](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Puede agregar nuevos índices en cualquier momento, sin que ello afecte a la disponibilidad de la escritura o la lectura. Puede [realizar el seguimiento del progreso de transformación del índice](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Obtención de información sobre qué operaciones de agregación usan el índice
 

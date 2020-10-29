@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570667"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486147"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configuración de escrituras en varias regiones en las aplicaciones que usan Azure Cosmos DB
 
@@ -129,8 +129,8 @@ Lea los siguientes artículos:
 * [Tipos de conflicto y directivas de resolución de conflictos en Azure Cosmos DB](conflict-resolution-policies.md)
 * [Alta disponibilidad en Azure Cosmos DB](high-availability.md)
 * [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md)
-* [Selección del nivel de coherencia adecuado en Azure Cosmos DB](consistency-levels-choosing.md)
-* [Inconvenientes de la coherencia, disponibilidad y rendimiento en Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
-* [Escalado del rendimiento aprovisionado globalmente](scaling-throughput.md)
+* [Selección del nivel de coherencia adecuado en Azure Cosmos DB](./consistency-levels.md)
+* [Inconvenientes de la coherencia, disponibilidad y rendimiento en Azure Cosmos DB](./consistency-levels.md)
+* [Availability and performance tradeoffs for various consistency levels](./consistency-levels.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
+* [Escalado del rendimiento aprovisionado globalmente](./request-units.md)
 * [Distribución global: En segundo plano](global-dist-under-the-hood.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82fdd40c9ae538d1d7aa87ab5b71ea6a6c0542d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318813"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487507"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Uso de datos con el Explorador de Azure Cosmos 
 
@@ -27,19 +27,19 @@ El Explorador de Azure Cosmos DB es una interfaz independiente basada en web que
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/). 
 
-2. En **Todos los recursos**, busque y vaya a la cuenta de Azure Cosmos DB, seleccione Claves y copie la **cadena de conexión principal**.  
+2. En **Todos los recursos** , busque y vaya a la cuenta de Azure Cosmos DB, seleccione Claves y copie la **cadena de conexión principal** .  
 
-3. Vaya a https://cosmos.azure.com/, pegue la cadena de conexión y seleccione **Conectar**. Con la cadena de conexión, puede acceder al Explorador de Azure Cosmos DB sin límite de tiempo.  
+3. Vaya a https://cosmos.azure.com/, pegue la cadena de conexión y seleccione **Conectar** . Con la cadena de conexión, puede acceder al Explorador de Azure Cosmos DB sin límite de tiempo.  
 
    Si quiere proporcionar a otros usuarios acceso temporal a su cuenta de Azure Cosmos DB, puede hacerlo con las direcciones URL de acceso de lectura y escritura o de acceso de lectura. 
 
-4. Abra la hoja **Explorador de datos**, seleccione **Open Full Screen** (Abrir pantalla completa). En el cuadro de diálogo emergente, puede ver dos direcciones URL de acceso: **Read-Write** (Lectura y escritura) y **Read** (Lectura). Estas direcciones URL le permiten compartir temporalmente su cuenta de Azure Cosmos DB con otros usuarios. El acceso a la cuenta expira en 24 horas. Después, puede reconectarse con una dirección URL de acceso nueva o mediante la cadena de conexión. 
+4. Abra la hoja **Explorador de datos** , seleccione **Open Full Screen** (Abrir pantalla completa). En el cuadro de diálogo emergente, puede ver dos direcciones URL de acceso: **Read-Write** (Lectura y escritura) y **Read** (Lectura). Estas direcciones URL le permiten compartir temporalmente su cuenta de Azure Cosmos DB con otros usuarios. El acceso a la cuenta expira en 24 horas. Después, puede reconectarse con una dirección URL de acceso nueva o mediante la cadena de conexión. 
 
    **Read-Write** (Lectura y escritura): cuando comparte la dirección URL de lectura y escritura con otros usuarios, estos pueden ver y modificar las bases de datos, las colecciones, las consultas y otros recursos asociados con esa cuenta específica.
 
    **Read** (Lectura): cuando comparte la dirección URL de solo lectura con otros usuarios, estos pueden ver las bases de datos, las colecciones, las consultas y otros recursos asociados con esa cuenta específica. Por ejemplo, si quiere compartir los resultados de una consulta con sus compañeros de equipo que no tienen acceso a Azure Portal o a su cuenta de Azure Cosmos DB, puede proporcionarles esta dirección URL.
 
-   Elija el tipo de acceso con el que quisiera abrir la cuenta y haga clic en **Abrir**. Después de abrir el explorador, la experiencia es igual que la que tendría con la pestaña Explorador de datos en Azure Portal.
+   Elija el tipo de acceso con el que quisiera abrir la cuenta y haga clic en **Abrir** . Después de abrir el explorador, la experiencia es igual que la que tendría con la pestaña Explorador de datos en Azure Portal.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Apertura del Explorador de Azure Cosmos DB":::
 
@@ -55,4 +55,4 @@ Los errores HTTP 401 que reciben los clientes pueden deberse a permisos de RBAC 
 
 Ya aprendió a empezar a trabajar con el Explorador de Azure Cosmos DB para administrar los datos y continuación podrá:
 
-* Empezar a definir [consultas](sql-api-query-reference.md) con la sintaxis de SQL y realizar [programación del lado servidor](stored-procedures-triggers-udfs.md) mediante el uso de procedimientos almacenados, UDF y desencadenadores. 
+* Empezar a definir [consultas](./sql-query-getting-started.md) con la sintaxis de SQL y realizar [programación del lado servidor](stored-procedures-triggers-udfs.md) mediante el uso de procedimientos almacenados, UDF y desencadenadores.

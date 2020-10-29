@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409772"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490635"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelado de datos de grafo para la API para Gremlin de Azure Cosmos DB
 
@@ -30,18 +30,18 @@ El proceso descrito en esta guía se basa en los siguientes supuestos:
 Una solución de base de datos de grafos se puede aplicar de forma óptima si las entidades y relaciones en un dominio de datos tienen cualquiera de las siguientes características: 
 
 * Las entidades tienen una **alta conexión** mediante relaciones descriptivas. La ventaja de este escenario es el hecho de que las relaciones se conservan en almacenamiento.
-* Hay **relaciones cíclicas** o **entidades que hacen referencia a sí mismas**. Este patrón a menudo es un desafío al usar bases de datos de documentos o relacionales.
+* Hay **relaciones cíclicas** o **entidades que hacen referencia a sí mismas** . Este patrón a menudo es un desafío al usar bases de datos de documentos o relacionales.
 * Hay **relaciones evolucionando de forma dinámica** entre entidades. Este patrón es especialmente aplicable a los datos jerárquicos o de estructura de árbol con muchos niveles.
 * Existen **relaciones de varios a varios** entre entidades.
-* Hay **requisitos de lectura y escritura en ambas entidades y relaciones**. 
+* Hay **requisitos de lectura y escritura en ambas entidades y relaciones** . 
 
-Si se cumple los criterios mencionados anteriormente, es probable que un enfoque de base de datos de grafos proporcionará ventajas para **complejidad de las consultas**, **escalabilidad del modelo de datos** y **rendimiento de las consultas**.
+Si se cumple los criterios mencionados anteriormente, es probable que un enfoque de base de datos de grafos proporcionará ventajas para **complejidad de las consultas** , **escalabilidad del modelo de datos** y **rendimiento de las consultas** .
 
-El siguiente paso es determinar si el grafo se va a usar para fines analíticos o transaccionales. Si el grafo está pensado para usarse para pesadas cargas de trabajo de procesamiento de datos y cálculo, vale la pena explorar el [conector de Cosmos DB Spark](https://docs.microsoft.com/azure/cosmos-db/spark-connector) y el uso de la [biblioteca GraphX](https://spark.apache.org/graphx/). 
+El siguiente paso es determinar si el grafo se va a usar para fines analíticos o transaccionales. Si el grafo está pensado para usarse para pesadas cargas de trabajo de procesamiento de datos y cálculo, vale la pena explorar el [conector de Cosmos DB Spark](./spark-connector.md) y el uso de la [biblioteca GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Cómo usar objetos de grafo
 
-El [estándar del grafo de propiedades de Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dos tipos de objetos **Vértices** y **Bordes**. 
+El [estándar del grafo de propiedades de Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) define dos tipos de objetos **Vértices** y **Bordes** . 
 
 Los siguientes son los procedimientos recomendados para las propiedades de los objetos de grafo:
 
@@ -67,15 +67,15 @@ Las siguientes son un conjunto de directrices para el enfoque del modelado de da
 
 ### <a name="modeling-vertices-and-properties"></a>Vértices y propiedades de modelado 
 
-El primer paso para un modelo de datos de grafo es asignar cada entidad identificada a un **objeto vértice**. La asignación de uno a uno de todas las entidades a vértices debe ser el paso inicial que está sujeto a cambios.
+El primer paso para un modelo de datos de grafo es asignar cada entidad identificada a un **objeto vértice** . La asignación de uno a uno de todas las entidades a vértices debe ser el paso inicial que está sujeto a cambios.
 
 Un problema común consiste en asignar propiedades de una sola entidad como vértices independientes. Tenga en cuenta el ejemplo siguiente, donde se representa la misma entidad de dos maneras diferentes:
 
-* **Propiedades basadas en vértice**: En este enfoque, la entidad usa tres vértices independientes y dos bordes para describir sus propiedades. Aunque este enfoque podría reducir la redundancia, aumenta la complejidad del modelo. El aumento de la complejidad del modelo puede dar como resultado latencia agregada, complejidad de las consultas y costo de cálculo. Este modelo también puede presentar desafíos en la creación de particiones.
+* **Propiedades basadas en vértice** : En este enfoque, la entidad usa tres vértices independientes y dos bordes para describir sus propiedades. Aunque este enfoque podría reducir la redundancia, aumenta la complejidad del modelo. El aumento de la complejidad del modelo puede dar como resultado latencia agregada, complejidad de las consultas y costo de cálculo. Este modelo también puede presentar desafíos en la creación de particiones.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidad con vértices para las propiedades." border="false":::
 
-* **Vértices insertados en propiedad**: Este enfoque aprovecha las ventajas de la lista de par clave-valor para representar todas las propiedades de la entidad dentro de un vértice. Este enfoque proporciona una complejidad reducida del modelo, lo que dará lugar a consultas más sencillas y más recorridos rentables.
+* **Vértices insertados en propiedad** : Este enfoque aprovecha las ventajas de la lista de par clave-valor para representar todas las propiedades de la entidad dentro de un vértice. Este enfoque proporciona una complejidad reducida del modelo, lo que dará lugar a consultas más sencillas y más recorridos rentables.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modelo de entidad con vértices para las propiedades." border="false":::
 
@@ -88,7 +88,7 @@ De todas formas, hay escenarios en los que hacer referencia a una propiedad pued
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Modelado de relaciones con direcciones de bordes
 
-Una vez que se han modelado los vértices, los bordes se pueden agregar para indicar las relaciones entre ellos. El primer aspecto que tiene que evaluarse es el de la **dirección de la relación**. 
+Una vez que se han modelado los vértices, los bordes se pueden agregar para indicar las relaciones entre ellos. El primer aspecto que tiene que evaluarse es el de la **dirección de la relación** . 
 
 Los objetos de borde tienen una dirección predeterminada seguida de un recorrido cuando se usa la función `out()` o `outE()`. El uso de esta dirección natural da como resultado una operación eficiente, puesto que todos los vértices se almacenan con sus bordes salientes. 
 

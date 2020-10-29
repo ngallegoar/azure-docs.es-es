@@ -7,33 +7,33 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: a5ce99927ce4cd2b04b5dd5cb865299b4be84ecb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f662d7e51c49006b191778ef70740ef79173828c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519803"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487949"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---hyperscale-citus-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Hiperescala (Citus) para Azure Database for PostgreSQL con capacidad reservada
 
 Ahora Hiperescala (Citus) para Azure Database for PostgreSQL le ayuda a ahorrar mediante el pago por adelantado de los recursos de proceso en comparación con los precios de pago por uso. Con la capacidad reservada de Hiperescala (Citus), se realiza un compromiso inicial en el grupo de servidores de Hiperescala (Citus) durante un periodo de uno o tres años con el fin de obtener un descuento importante en los costos de proceso. Para comprar capacidad reservada de Hiperescala (Citus), debe especificar la región de Azure, el plazo de reserva y la frecuencia de facturación.
 
 > [!IMPORTANT]
-> Este artículo trata sobre la capacidad reservada para Hiperescala (Citus) de Azure Database for PostgreSQL. Para obtener información sobre la capacidad reservada para Un solo servidor de Azure Database for PostgreSQL, consulte [Pago por adelantado de recursos de proceso de Un solo servidor para Azure Database for PostgreSQL con capacidad reservada](/azure/postgresql/concept-reserved-pricing).
+> Este artículo trata sobre la capacidad reservada para Hiperescala (Citus) de Azure Database for PostgreSQL. Para obtener información sobre la capacidad reservada para Un solo servidor de Azure Database for PostgreSQL, consulte [Pago por adelantado de recursos de proceso de Un solo servidor para Azure Database for PostgreSQL con capacidad reservada](./concept-reserved-pricing.md).
 
 No es necesario asignar la reserva a grupos de servidores específicos de Hiperescala (Citus). Un grupo de servidores de Hiperescala (Citus) que ya está en ejecución, o los que se han implementado recientemente, obtendrán de forma automática la ventaja de los precios reservados. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. Tan pronto como se compra una reserva, los costos de proceso de Hiperescala (Citus) que coinciden con los atributos de la reserva dejan de pagarse según las tarifas de pago por uso. 
 
 La reserva no cubre los cargos por software, redes o almacenamiento asociados a los grupos de servidor de Hiperescala (Citus). Al final del plazo de reserva, la ventaja en la facturación expira y los grupos de servidor de Hiperescala (Citus) se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, consulte [Oferta de capacidad reservada de Hiperescala (Citus) para Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
-Puede comprar la capacidad reservada de Hiperescala (Citus) en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](https://docs.microsoft.com/azure/cost-management-billing/reservations/monthly-payments-reservations). Para comprar capacidad reservada:
+Puede comprar la capacidad reservada de Hiperescala (Citus) en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar capacidad reservada:
 
 * Debe tener el rol Propietario al menos en una suscripción de contrato Enterprise (EA) o individual con tarifas de pago por uso.
 * En el caso de las suscripciones de contrato Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de contrato Enterprise en la suscripción.
 * En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de Hiperescala (Citus) son los agentes de administración o de ventas.
 
 Para obtener información sobre cómo se cargan los clientes con contrato Enterprise y los de Pago por uso por las compras de reserva, vea lo siguiente:
-- [Información sobre el uso de reservas de Azure para la inscripción de contrato Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-- [Información sobre el uso de reservas de Azure para suscripciones de Pago por uso](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Información sobre el uso de reservas de Azure para la inscripción de contrato Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+- [Información sobre el uso de reservas de Azure para suscripciones de Pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## <a name="determine-the-right-server-group-size-before-purchase"></a>Determinación del tamaño de grupo de servidor adecuado antes de la compra
 
@@ -49,10 +49,10 @@ En este caso, adquiera la reserva de un año para lo siguiente:
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Compra de capacidad reservada de Azure Database for PostgreSQL
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. Seleccione **Todos los servicios** > **Reservations**.
-1. Seleccione **Agregar**. En el panel **Comprar reservas**, seleccione **Azure Database for PostgreSQL** para comprar una nueva reserva para las bases de datos de PostgreSQL.
-1. Seleccione el tipo de **proceso de Hiperescala (Citus)** que se desea comprar y haga clic en **Seleccionar**.
-1. Revise la cantidad del tipo de proceso seleccionado en la pestaña **Productos**.
+1. Seleccione **Todos los servicios** > **Reservations** .
+1. Seleccione **Agregar** . En el panel **Comprar reservas** , seleccione **Azure Database for PostgreSQL** para comprar una nueva reserva para las bases de datos de PostgreSQL.
+1. Seleccione el tipo de **proceso de Hiperescala (Citus)** que se desea comprar y haga clic en **Seleccionar** .
+1. Revise la cantidad del tipo de proceso seleccionado en la pestaña **Productos** .
 1. Continúe con la pestaña **Comprar y revisar** para finalizar la compra.
 
 En la siguiente tabla se describen los campos obligatorios.
@@ -60,7 +60,7 @@ En la siguiente tabla se describen los campos obligatorios.
 | Campo        | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Suscripción | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for PostgreSQL. Los costos anticipados por la reserva de capacidad reservada de Azure Database for PostgreSQL se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción de contrato Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.                                                                                  |
-| Ámbito        | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona **Compartido**, el descuento por la reserva de núcleos virtuales se aplica a los grupos de servidores de Hiperescala (Citus) en cualquiera de las suscripciones en el contexto de facturación. Para los clientes con contrato Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta. Si selecciona **Suscripción única**, el descuento por la reserva de núcleos virtuales se aplica a los grupos de servidores de Hiperescala (Citus) de esta suscripción. Si selecciona **Grupo de recursos único**, el descuento de reserva se aplica a los grupos de servidores de Hiperescala (Citus) de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción. |
+| Ámbito        | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona **Compartido** , el descuento por la reserva de núcleos virtuales se aplica a los grupos de servidores de Hiperescala (Citus) en cualquiera de las suscripciones en el contexto de facturación. Para los clientes con contrato Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta. Si selecciona **Suscripción única** , el descuento por la reserva de núcleos virtuales se aplica a los grupos de servidores de Hiperescala (Citus) de esta suscripción. Si selecciona **Grupo de recursos único** , el descuento de reserva se aplica a los grupos de servidores de Hiperescala (Citus) de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción. |
 | Region       | La región de Azure que abarca la reserva de capacidad reservada de Hiperescala (Citus) para Azure Database for PostgreSQL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Término         | Un año o tres años.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Cantidad     | Número de recursos de proceso que se compran dentro de la reserva de capacidad reservada de Hiperescala (Citus). En concreto, el número de núcleos virtuales de los nodos de trabajo o coordinación en la región de Azure seleccionada que se están reservando y obtendrán el descuento de facturación. Por ejemplo, si ejecuta (o planea ejecutar) los grupos de servidores de Hiperescala (Citus) con la capacidad de proceso total de 64 núcleos virtuales de nodo de coordinación y 32 núcleos virtuales de nodo de trabajo en la región Este de EE. UU., especifique la cantidad como 64 y 32 para los nodos de coordinación y de trabajo, respectivamente, para maximizar el beneficio de todos los servidores.                                                                                                                                                                                                                                                     |
@@ -69,7 +69,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidad de tamaño del núcleo virtual
 
@@ -85,9 +85,9 @@ El descuento por la reserva de núcleos virtuales se aplica automáticamente al 
 
 Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
 
-* [¿Qué son las reservas de Azure?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Administración de reservas de Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Información sobre el descuento de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Información sobre el uso de reservas para suscripciones de pago por uso](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Información sobre el uso de reservas para la inscripción de contrato Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure Reservations en el programa del Proveedor de soluciones en la nube del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
+* [¿Qué son las reservas de Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Administración de reservas de Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Información sobre el descuento de Azure Reservations](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Información sobre el uso de reservas para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Información sobre el uso de reservas para la inscripción de contrato Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Azure Reservations en el programa del Proveedor de soluciones en la nube del Centro de partners](/partner-center/azure-reservations)

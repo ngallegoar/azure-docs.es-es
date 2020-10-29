@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: beca38e46dd2223211fb403d1e1734a5d406075b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7d860ad28ff54a9f300f5c90314b9a7c9f6943dd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92283441"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490686"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-table-api"></a>Búsqueda del cargo de la unidad de solicitud en las operaciones que se ejecutan en la Table API de Azure Cosmos DB
 
@@ -44,4 +44,4 @@ Para obtener información sobre cómo optimizar el consumo de RU, vea estos art�
 
 * [Rendimiento y unidades de solicitud en Azure Cosmos DB](request-units.md)
 * [Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimización de los costos de consulta de Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimización de los costos de consulta de Azure Cosmos DB](./optimize-cost-reads-writes.md)

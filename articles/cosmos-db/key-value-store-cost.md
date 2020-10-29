@@ -7,22 +7,22 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262827"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488459"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como almacén de pares valor-clave: Información general de costos
 
-Azure Cosmos DB es un servicio de base de datos multimodelo globalmente distribuido para crear aplicaciones de alta disponibilidad y a gran escala fácilmente. De forma predeterminada, Azure Cosmos DB indexa automática y eficazmente todos los datos que ingiere. Esto permite consultas [SQL](how-to-sql-query.md) (y [JavaScript](stored-procedures-triggers-udfs.md)) rápidas y coherentes en los datos. 
+Azure Cosmos DB es un servicio de base de datos multimodelo globalmente distribuido para crear aplicaciones de alta disponibilidad y a gran escala fácilmente. De forma predeterminada, Azure Cosmos DB indexa automática y eficazmente todos los datos que ingiere. Esto permite consultas [SQL](./sql-query-getting-started.md) (y [JavaScript](stored-procedures-triggers-udfs.md)) rápidas y coherentes en los datos. 
 
 En este artículo se describe el costo de Azure Cosmos DB para operaciones simples de escritura y lectura cuando se utiliza como un almacén de pares valor-clave. Las operaciones de escritura incluyen inserciones, reemplazos, eliminaciones y upserts de elementos de datos. Además de garantizar un Acuerdo de Nivel de Servicio de disponibilidad del 99,999 % para todas las cuentas de varias regiones, Azure Cosmos DB ofrece una latencia garantizada de < 10 ms para lecturas y para escrituras (indexadas) en el percentil 99. 
 
 ## <a name="why-we-use-request-units-rus"></a>¿Por qué usamos unidades de solicitud (RU)?
 
-El rendimiento de Azure Cosmos DB se basa en la cantidad de rendimiento aprovisionado expresado en las [unidades de solicitud](request-units.md) (RU/s). El aprovisionamiento tiene una granularidad de un segundo y se adquiere en RU/s ([no se debe confundir con la facturación horaria](https://azure.microsoft.com/pricing/details/cosmos-db/)). Las RU deben considerarse una abstracción lógica (una moneda) que simplifica el aprovisionamiento de rendimiento necesario para la aplicación. Los usuarios no tienen que pensar en diferenciar entre rendimiento de lectura y escritura. El modelo de moneda única de RU crea eficiencias para compartir la capacidad aprovisionada entre lecturas y escrituras. Este modelo de capacidad aprovisionada permite que el servicio proporcione un **rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad**. Por último, mientras que el modelo de RU se usa para representar el rendimiento, cada RU aprovisionada también tiene una cantidad definida de recursos (p. ej., memoria, núcleos/CPU e IOPS).
+El rendimiento de Azure Cosmos DB se basa en la cantidad de rendimiento aprovisionado expresado en las [unidades de solicitud](request-units.md) (RU/s). El aprovisionamiento tiene una granularidad de un segundo y se adquiere en RU/s ([no se debe confundir con la facturación horaria](https://azure.microsoft.com/pricing/details/cosmos-db/)). Las RU deben considerarse una abstracción lógica (una moneda) que simplifica el aprovisionamiento de rendimiento necesario para la aplicación. Los usuarios no tienen que pensar en diferenciar entre rendimiento de lectura y escritura. El modelo de moneda única de RU crea eficiencias para compartir la capacidad aprovisionada entre lecturas y escrituras. Este modelo de capacidad aprovisionada permite que el servicio proporcione un **rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad** . Por último, mientras que el modelo de RU se usa para representar el rendimiento, cada RU aprovisionada también tiene una cantidad definida de recursos (p. ej., memoria, núcleos/CPU e IOPS).
 
 Como un sistema de base de datos distribuido globalmente, Cosmos DB es el único servicio de Azure que proporciona un Acuerdo de Nivel de Servicio completo que abarca la latencia, el rendimiento, la coherencia y la alta disponibilidad. El rendimiento que se aprovisiona se aplica a cada una de las regiones asociadas a su cuenta de Cosmos. Para lecturas, Cosmos DB ofrece varios [niveles de coherencia](consistency-levels.md) bien definidos entre los que elegir. 
 
@@ -48,4 +48,3 @@ La mayoría de los almacenes de blobs u objetos básicos cobran 0,40 USD por cad
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Use la [calculadora de RU](https://cosmos.azure.com/capacitycalculator/) para calcular el rendimiento de las cargas de trabajo.
-

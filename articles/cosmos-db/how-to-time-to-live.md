@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 56cf360dd8d015d797b4974aab667bb89edcce4b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951934"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486011"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configuración del período de vida en Azure Cosmos DB
 
 En Azure Cosmos DB, puede elegir configurar el período de vida (TTL) en el nivel de contenedor, o puede invalidarlo en un nivel de elemento después de configurarlo para el contenedor. Puede configurar el período de vida de un contenedor mediante Azure Portal o los SDK específicos del lenguaje. Las invalidaciones del período de vida en el nivel de elemento se pueden configurar mediante los SDK.
 
-> Este contenido está relacionado con el TTL del almacén transaccional de Azure Cosmos DB. Si está buscando el TTL del almacén de análisis, que habilita escenarios de NoETL HTAP mediante [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), haga clic [aquí](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Este contenido está relacionado con el TTL del almacén transaccional de Azure Cosmos DB. Si está buscando el TTL del almacén de análisis, que habilita escenarios de NoETL HTAP mediante [Azure Synapse Link](./synapse-link.md), haga clic [aquí](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Habilitar el período de vida en un contenedor mediante Azure Portal
 
@@ -28,12 +28,12 @@ Siga estos pasos para habilitar el período de vida de un contenedor para que no
 
 2. Cree una cuenta de Azure Cosmos DB o seleccione una ya existente.
 
-3. Abra el panel **Explorador de datos**.
+3. Abra el panel **Explorador de datos** .
 
 4. Seleccione un contenedor existente, expándalo y modifique los valores siguientes:
 
-   * Abra la ventana **Escala y configuración**.
-   * En **Configuración** busque, **Período de vida**.
+   * Abra la ventana **Escala y configuración** .
+   * En **Configuración** busque, **Período de vida** .
    * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida
    * Haga clic en **Guardar** para guardar los cambios.
 
@@ -212,16 +212,16 @@ Use estos pasos para habilitar el período de vida en un elemento:
 
 2. Cree una cuenta de Azure Cosmos DB o seleccione una ya existente.
 
-3. Abra el panel **Explorador de datos**.
+3. Abra el panel **Explorador de datos** .
 
 4. Seleccione un contenedor existente, expándalo y modifique los valores siguientes:
 
-   * Abra la ventana **Escala y configuración**.
-   * En **Configuración** busque, **Período de vida**.
+   * Abra la ventana **Escala y configuración** .
+   * En **Configuración** busque, **Período de vida** .
    * Seleccione **Activado (valor no predeterminado)** o seleccione **Activado** y establezca un valor para el período de vida. 
    * Haga clic en **Guardar** para guardar los cambios.
 
-5. A continuación, vaya al elemento para el que quiere establecer el período de vida, agregue la propiedad `ttl` y seleccione **Actualizar**. 
+5. A continuación, vaya al elemento para el que quiere establecer el período de vida, agregue la propiedad `ttl` y seleccione **Actualizar** . 
 
    ```json
    {

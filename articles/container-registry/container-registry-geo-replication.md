@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 07/21/2020
 ms.author: stevelas
-ms.openlocfilehash: b5d016574fd85047ec349820a747b47d0582958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26a3a0902b76359dc7441d97fa2516989ec7f0b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116798"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486879"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicación geográfica en Azure Container Registry
 
@@ -69,7 +69,7 @@ La replicación geográfica es una característica de los [registros Premium](co
 
 Para configurar la replicación geográfica del registro Premium, inicie sesión en Azure Portal en https://portal.azure.com.
 
-Vaya a Azure Container Registry y seleccione **Replicaciones**:
+Vaya a Azure Container Registry y seleccione **Replicaciones** :
 
 ![Replicaciones en la interfaz de usuario del registro de contenedor en Azure Portal](media/container-registry-geo-replication/registry-services.png)
 
@@ -81,13 +81,13 @@ Se mostrará un mapa que indica todas las regiones de Azure actuales:
 * Los hexágonos verdes representan las regiones de réplica posibles.
 * Los hexágonos grises representan regiones de Azure que aún no están disponibles para la replicación.
 
-Para configurar una réplica, seleccione un hexágono verde y, a continuación, seleccione **Crear**:
+Para configurar una réplica, seleccione un hexágono verde y, a continuación, seleccione **Crear** :
 
  ![Interfaz de usuario de la creación de la replicación en Azure Portal](media/container-registry-geo-replication/create-replication.png)
 
-Para configurar réplicas adicionales, seleccione los hexágonos verdes de otras regiones y, a continuación, haga clic en **Crear**.
+Para configurar réplicas adicionales, seleccione los hexágonos verdes de otras regiones y, a continuación, haga clic en **Crear** .
 
-ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas. Una vez completada la operación, el portal muestra el mensaje *Listo*. Tenga en cuenta que el estado de la réplica no se actualiza de forma automática en el portal. Para ver el estado actualizado, use el botón Actualizar.
+ACR comenzará entonces a sincronizar imágenes entre las réplicas configuradas. Una vez completada la operación, el portal muestra el mensaje *Listo* . Tenga en cuenta que el estado de la réplica no se actualiza de forma automática en el portal. Para ver el estado actualizado, use el botón Actualizar.
 
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>Consideraciones sobre el uso de un registro con replicación geográfica
 
@@ -104,8 +104,8 @@ Después de configurar una réplica para el registro, puede eliminarla en cualqu
 
 Para eliminar una réplica en Azure Portal:
 
-1. Vaya a Azure Container Registry y seleccione **Replicaciones**.
-1. Seleccione el nombre de una réplica y, luego, **Eliminar**. Confirme que quiere eliminar la réplica.
+1. Vaya a Azure Container Registry y seleccione **Replicaciones** .
+1. Seleccione el nombre de una réplica y, luego, **Eliminar** . Confirme que quiere eliminar la réplica.
 
 Para usar la CLI de Azure para eliminar una réplica de *myregistry* en la región Este de EE. UU.:
 
@@ -121,7 +121,7 @@ En el ejemplo anterior, Contoso consolidó dos registros en uno y agregó répli
 
 ## <a name="troubleshoot-push-operations-with-geo-replicated-registries"></a>Solución de problemas de operaciones de inserción con registros con replicación geográfica
  
-Es posible que un cliente de Docker que inserte una imagen en un registro con replicación geográfica no inserte todas las capas de imagen y su manifiesto en una sola región replicada. Esto puede deberse a que Azure Traffic Manager enruta las solicitudes del registro al registro replicado más cercano a la red. Si el registro tiene dos regiones de replicación *cercanas*, las capas de imagen y el manifiesto se pueden distribuir a los dos sitios, y se produce un error en la operación de extracción cuando se valida el manifiesto. Este problema se produce debido a la manera en que el nombre DNS del registro se resuelve en algunos hosts de Linux. Este problema no se produce en Windows, que proporciona una memoria caché de DNS del lado cliente.
+Es posible que un cliente de Docker que inserte una imagen en un registro con replicación geográfica no inserte todas las capas de imagen y su manifiesto en una sola región replicada. Esto puede deberse a que Azure Traffic Manager enruta las solicitudes del registro al registro replicado más cercano a la red. Si el registro tiene dos regiones de replicación *cercanas* , las capas de imagen y el manifiesto se pueden distribuir a los dos sitios, y se produce un error en la operación de extracción cuando se valida el manifiesto. Este problema se produce debido a la manera en que el nombre DNS del registro se resuelve en algunos hosts de Linux. Este problema no se produce en Windows, que proporciona una memoria caché de DNS del lado cliente.
  
 Si ocurre este problema, una solución consiste en aplicar una caché DNS del lado cliente como `dnsmasq` en el host de Linux. Ayuda a garantizar que el nombre del registro se resuelva de forma coherente. Si usa una máquina virtual Linux en Azure para enviarla a un registro, consulte las opciones en [Opciones de resolución de nombres DNS para máquinas virtuales Linux en Azure](../virtual-machines/linux/azure-dns.md)en Azure.
 
@@ -131,14 +131,14 @@ Para optimizar la resolución DNS para la réplica más cercana al insertar imá
 
 Para solucionar los problemas de las operaciones con un registro con replicación geográfica, debería deshabilitar temporalmente el enrutamiento de Traffic Manager a una o más replicaciones. A partir de la CLI de Azure versión 2.8, puede configurar una opción `--region-endpoint-enabled` (versión preliminar) al crear o actualizar una región replicada. Cuando se establece la opción `--region-endpoint-enabled` de una replicación en `false`, Traffic Manager deja de enrutar las solicitudes de inserción o incorporación de cambios de Docker a esa región. De forma predeterminada, el enrutamiento está habilitado a todas las replicaciones y la sincronización de datos en todas las replicaciones tiene lugar independientemente de si el enrutamiento está habilitado o deshabilitado.
 
-Para deshabilitar el enrutamiento a una replicación existente, ejecute primero [az acr replication list][az-acr-replication-list] para mostrar las replicaciones en el registro. A continuación, ejecute [az acr replication update][az-acr-replication-update] y establezca `--region-endpoint-enabled false` para una replicación concreta. Por ejemplo, para configurar las opciones de la replicación de *westus* en *myregistry*:
+Para deshabilitar el enrutamiento a una replicación existente, ejecute primero [az acr replication list][az-acr-replication-list] para mostrar las replicaciones en el registro. A continuación, ejecute [az acr replication update][az-acr-replication-update] y establezca `--region-endpoint-enabled false` para una replicación concreta. Por ejemplo, para configurar las opciones de la replicación de *westus* en *myregistry* :
 
 ```azurecli
 # Show names of existing replications
 az acr replication list --registry --output table
 
 # Disable routing to replication
-az acr replication update update --name westus \
+az acr replication update --name westus \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled false
 ```
@@ -146,7 +146,7 @@ az acr replication update update --name westus \
 Para restaurar el enrutamiento a una replicación:
 
 ```azurecli
-az acr replication update update --name westus \
+az acr replication update --name westus \
   --registry myregistry --resource-group MyResourceGroup \
   --region-endpoint-enabled true
 ```

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d1019c31b10801a12c960dd5dadd8836fd9b7cd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36249694c5a4de8a738853892f827c6d9e1e4aff
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932260"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489479"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creación y administración de reglas de firewall de Azure Database for PostgreSQL: servidor flexible mediante la CLI de Azure
 
@@ -33,17 +33,17 @@ En este artículo, nos centraremos en la creación de un servidor PostgreSQL con
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede abrir Cloud Shell en una pestaña independiente acudiendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, después, seleccione **Entrar** para ejecutarlos.
 
-Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Deberá iniciar sesión en la cuenta con el comando [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** de su cuenta de Azure.
+Deberá iniciar sesión en la cuenta con el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad  **id** , que hace referencia al **identificador de suscripción** de su cuenta de Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción específica en su cuenta mediante el comando [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Anote el valor **id.** de la salida de **az login** para usarlo como valor para el argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set). Anote el valor **id.** de la salida de **az login** para usarlo como valor para el argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -87,11 +87,11 @@ En la documentación de referencia de la CLI de Azure <!--FIXME --> encontrará 
 El comando **az postgres flexible-server firewall-rule** se utiliza desde la CLI de Azure para crear, eliminar, enumerar, mostrar y actualizar reglas de firewall.
 
 Comandos:
-- **create**: crea una regla de firewall de servidor flexible.
-- **list**: enumera las reglas de firewall de servidor flexible.
-- **update**: actualiza una regla de firewall de servidor flexible.
-- **show**: muestra los detalles de una regla de firewall de servidor flexible.
-- **delete**: elimina una regla de firewall de servidor flexible.
+- **create** : crea una regla de firewall de servidor flexible.
+- **list** : enumera las reglas de firewall de servidor flexible.
+- **update** : actualiza una regla de firewall de servidor flexible.
+- **show** : muestra los detalles de una regla de firewall de servidor flexible.
+- **delete** : elimina una regla de firewall de servidor flexible.
 
 En la documentación de referencia de la CLI de Azure <!--FIXME --> encontrará la lista completa de los parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos tiene la opción de especificar el grupo de recursos.
 
@@ -118,7 +118,7 @@ az postgres flexible-server firewall-rule create --name mydemoserver --start-ip-
 Si se realiza correctamente, en la salida de cada comando create se mostrarán los detalles de la regla de firewall que ha creado, en formato JSON (de forma predeterminada). Si se produce un error, la salida muestra el texto del mensaje de error.
 
 ### <a name="list-firewall-rules"></a>Enumerar reglas de firewall 
-Use el comando `az postgres flexible-server firewall-rule list` para mostrar las reglas de firewall de servidor existentes en el servidor. Observe que el atributo de nombre del servidor se especifica en el modificador **--name**. 
+Use el comando `az postgres flexible-server firewall-rule list` para mostrar las reglas de firewall de servidor existentes en el servidor. Observe que el atributo de nombre del servidor se especifica en el modificador **--name** . 
 ```azurecli-interactive
 az postgres flexible-server firewall-rule list --name mydemoserver
 ```

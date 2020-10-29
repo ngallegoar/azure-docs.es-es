@@ -2,17 +2,18 @@
 title: 'Comprobación del estado de cifrado para Linux: Azure Disk Encryption'
 description: En este artículo se proporcionan instrucciones para comprobar el estado de cifrado del nivel de plataforma y del sistema operativo.
 author: kailashmsft
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: e39a230c71cf48422220768adfa8de91cbaa6692
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f51aae39c2cb60d8b60d4fb496f74eadb91b33b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072849"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487660"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Comprobación del estado de cifrado para Linux 
 
@@ -30,19 +31,19 @@ Este escenario se aplica a las extensiones de pase doble y de pase único de Azu
 
 ## <a name="portal"></a>Portal
 
-En Azure Portal, dentro de la sección **Extensiones**, seleccione en la lista la extensión Azure Disk Encryption. La información del **Mensaje de estado** indica el estado de cifrado actual:
+En Azure Portal, dentro de la sección **Extensiones** , seleccione en la lista la extensión Azure Disk Encryption. La información del **Mensaje de estado** indica el estado de cifrado actual:
 
 ![Comprobación del portal con el estado, la versión y el mensaje de estado resaltados](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
 En la lista de extensiones, verá la versión de la extensión de Azure Disk Encryption correspondiente. La versión 0. x corresponde a Azure Disk Encryption de pase doble y la versión 1. x corresponde a Azure Disk Encryption de pase único.
 
-Puede obtener más detalles seleccionando primero la extensión y después **Ver estado detallado**. Se mostrará un estado más detallado del proceso de cifrado en formato JSON.
+Puede obtener más detalles seleccionando primero la extensión y después **Ver estado detallado** . Se mostrará un estado más detallado del proceso de cifrado en formato JSON.
 
 ![Comprobación del portal con el vínculo "Ver estado detallado" resaltado](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
 
 ![Estado detallado en formato JSON](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
 
-Otra manera de validar el estado de cifrado es examinar la sección **Configuración del disco**.
+Otra manera de validar el estado de cifrado es examinar la sección **Configuración del disco** .
 
 ![Estado de cifrado del disco del sistema operativo y los discos de datos](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
@@ -176,7 +177,7 @@ az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuse
 ![Configuración del cifrado de datos](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 >[!IMPORTANT]
-> Si el disco no tiene la configuración de cifrado marcada, verá el texto **El disco no está cifrado**.
+> Si el disco no tiene la configuración de cifrado marcada, verá el texto **El disco no está cifrado** .
 
 Use los comandos siguientes para obtener la configuración detallada de estado y cifrado.
 
@@ -320,7 +321,7 @@ az storage blob show -c ${ContainerName} --connection-string ${ConnectionString}
 ## <a name="operating-system"></a>Sistema operativo
 Compruebe si las particiones de disco de datos están cifradas (y si el disco del sistema operativo no lo está).
 
-Cuando una partición o un disco están cifrados, se muestra como un tipo **crypt**. Cuando no lo están, se muestra como un tipo **part/disk**.
+Cuando una partición o un disco están cifrados, se muestra como un tipo **crypt** . Cuando no lo están, se muestra como un tipo **part/disk** .
 
 ``` bash
 lsblk
@@ -328,9 +329,9 @@ lsblk
 
 ![Nivel de cifrado de sistema operativo para una partición](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
 
-Puede obtener más detalles con la siguiente variante **lsblk**. 
+Puede obtener más detalles con la siguiente variante **lsblk** . 
 
-Verá una capa de tipo **crypt** que está montada por la extensión. En el ejemplo siguiente se muestran los volúmenes lógicos y los discos normales con **crypto\_LUKS FSTYPE**.
+Verá una capa de tipo **crypt** que está montada por la extensión. En el ejemplo siguiente se muestran los volúmenes lógicos y los discos normales con **crypto\_LUKS FSTYPE** .
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
@@ -347,7 +348,7 @@ cryptsetup luksDump /dev/VGNAME/LVNAME
 cryptsetup luksDump /dev/sdd1
 ```
 
-Y puede comprobar qué dispositivos **dm** se muestran como **crypt**:
+Y puede comprobar qué dispositivos **dm** se muestran como **crypt** :
 
 ```bash
 dmsetup ls --target crypt

@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: cfe565c45ea6aa0a4bcfecc95b1e1149b17542a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa136a15e4fa034307e16ef50c2b16060c5af0d2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708057"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490210"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection en Azure Database for PostgreSQL con un único servidor
 
@@ -33,14 +33,14 @@ Advanced Threat Protection para Azure Database for PostgreSQL proporciona una nu
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertas de Advanced Threat Protection 
 Advanced Threat Protection para Azure Database for PostgreSQL detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a bases de datos, o de vulnerar su seguridad, y puede desencadenar las siguientes alertas:
-- **Acceso desde una ubicación inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for PostgreSQL, donde alguien ha iniciado sesión en el servidor de Azure Database for PostgreSQL desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde un centro de datos de Azure inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for PostgreSQL, donde alguien ha iniciado sesión en el servidor desde un centro de datos de Azure inusual que se vio en este servidor recientemente. En algunos casos, la alerta detecta una acción legítima (una aplicación nueva en Azure, Power BI, el editor de consultas de Azure Database for PostgreSQL). En otros casos, la alerta detecta una acción malintencionada procedente de un recurso o servicio de Azure (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde una entidad de seguridad desconocida**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for PostgreSQL, donde alguien ha iniciado sesión en el servidor mediante una entidad de seguridad inusual (un usuario de Azure Database for PostgreSQL). En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde una aplicación potencialmente dañina**: esta alerta se desencadena cuando una aplicación potencialmente dañina se utiliza para tener acceso a la base de datos. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta un ataque que se realiza con herramientas de ataque comunes.
-- **Ataques por fuerza bruta a las credenciales de Azure Database for PostgreSQL**: esta alerta se desencadena cuando hay un número anormalmente elevado de inicios de sesión infructuosos con distintas credenciales. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta ataques por fuerza bruta.
+- **Acceso desde una ubicación inusual** : esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for PostgreSQL, donde alguien ha iniciado sesión en el servidor de Azure Database for PostgreSQL desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde un centro de datos de Azure inusual** : esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for PostgreSQL, donde alguien ha iniciado sesión en el servidor desde un centro de datos de Azure inusual que se vio en este servidor recientemente. En algunos casos, la alerta detecta una acción legítima (una aplicación nueva en Azure, Power BI, el editor de consultas de Azure Database for PostgreSQL). En otros casos, la alerta detecta una acción malintencionada procedente de un recurso o servicio de Azure (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde una entidad de seguridad desconocida** : esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for PostgreSQL, donde alguien ha iniciado sesión en el servidor mediante una entidad de seguridad inusual (un usuario de Azure Database for PostgreSQL). En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde una aplicación potencialmente dañina** : esta alerta se desencadena cuando una aplicación potencialmente dañina se utiliza para tener acceso a la base de datos. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta un ataque que se realiza con herramientas de ataque comunes.
+- **Ataques por fuerza bruta a las credenciales de Azure Database for PostgreSQL** : esta alerta se desencadena cuando hay un número anormalmente elevado de inicios de sesión infructuosos con distintas credenciales. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta ataques por fuerza bruta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Más información acerca de [Azure Security Center](../security-center/security-center-introduction.md)
 * Para obtener más información sobre los precios, vea la [página Precios de Azure Database for PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/) 
-* Configuración de [Advanced Threat Protection de Azure Database for PostgreSQL](howto-database-threat-protection-portal.md) mediante Azure Portal  
+* Configuración de [Advanced Threat Protection de Azure Database for PostgreSQL](howto-database-threat-protection-portal.md) mediante Azure Portal

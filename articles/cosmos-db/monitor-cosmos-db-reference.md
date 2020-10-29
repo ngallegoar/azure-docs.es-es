@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080460"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488357"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Cosmos DB
 
@@ -27,7 +27,7 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | --- | --- | --- |
 | **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
 | **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
-| **category** | **Categoría** | En el caso de Azure Cosmos DB, los tipos de registro disponibles son **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption** y **ControlPlaneRequests**. |
+| **category** | **Categoría** | En el caso de Azure Cosmos DB, los tipos de registro disponibles son **DataPlaneRequests** , **MongoRequests** , **QueryRuntimeStatistics** , **PartitionKeyStatistics** , **PartitionKeyRUConsumption** y **ControlPlaneRequests** . |
 | **operationName** | **OperationName** | Nombre de la operación. El nombre de la operación puede ser `Create`, `Update`, `Read`, `ReadFeed`, `Delete`, `Replace`, `Execute`, `SqlQuery`, `Query`, `JSQuery`, `Head`, `HeadFeed` o `Upsert`.   |
 | **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
@@ -41,13 +41,13 @@ En la tabla siguiente se enumeran las propiedades de los registros de recursos d
 | **duration** | **duration_d** | Duración de la operación en milisegundos. |
 | **requestLength** | **requestLength_s** | Longitud de la solicitud, en bytes. |
 | **responseLength** | **responseLength_s** | Longitud de la respuesta, en bytes.|
-| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Este valor no está vacío cuando se usan [tokens de recursos](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) para la autenticación. Los puntos de valor para el identificador de recurso del usuario. |
+| **resourceTokenUserRid** | **resourceTokenUserRid_s** | Este valor no está vacío cuando se usan [tokens de recursos](./secure-access-to-data.md#resource-tokens) para la autenticación. Los puntos de valor para el identificador de recurso del usuario. |
 | **responseLength** | **responseLength_s** | Longitud de la respuesta, en bytes.|
 
-Para obtener una lista de todas las categorías de registros de Azure Monitor y los vínculos a los esquemas asociados, consulte [Categorías y esquemas de los registros de Azure Monitor](../azure-monitor/platform/diagnostic-logs-schema.md). 
+Para obtener una lista de todas las categorías de registros de Azure Monitor y los vínculos a los esquemas asociados, consulte [Categorías y esquemas de los registros de Azure Monitor](../azure-monitor/platform/resource-logs-schema.md). 
 
 ## <a name="metrics"></a>Métricas
-En las tablas siguientes se enumeran las métricas de plataforma recopiladas para Azure Cosmos DB. Todas las métricas se almacenan en el espacio de nombres de las **métricas estándar de Cosmos DB**.
+En las tablas siguientes se enumeran las métricas de plataforma recopiladas para Azure Cosmos DB. Todas las métricas se almacenan en el espacio de nombres de las **métricas estándar de Cosmos DB** .
 
 Para ver una lista de todas las métricas compatibles con Azure Monitor (incluido Azure Cosmos DB), consulte [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md). 
 

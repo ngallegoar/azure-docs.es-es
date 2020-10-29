@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: 3de7101eb998d0f9b3b57afba6d19595738cbb63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb14c321962c65d09be420d8da15f1e547aa282
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020412"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489547"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Envío de trabajos de MapReduce mediante el SDK .NET de HDInsight
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
-Aprenda a enviar trabajos de MapReduce mediante el SDK .NET de HDInsight. Los clústeres de HDInsight vienen con un archivo .jar con varios ejemplos de MapReduce. El archivo jar es `/example/jars/hadoop-mapreduce-examples.jar`.  Uno de los ejemplos es **wordcount**. Desarrollará una aplicación de consola de C# para enviar un trabajo de recuento de palabras.  El trabajo lee el archivo `/example/data/gutenberg/davinci.txt` y envía los resultados a `/example/data/davinciwordcount`.  Si desea volver a ejecutar la aplicación, deberá limpiar la carpeta de salida.
+Aprenda a enviar trabajos de MapReduce mediante el SDK .NET de HDInsight. Los clústeres de HDInsight vienen con un archivo .jar con varios ejemplos de MapReduce. El archivo jar es `/example/jars/hadoop-mapreduce-examples.jar`.  Uno de los ejemplos es **wordcount** . Desarrollará una aplicación de consola de C# para enviar un trabajo de recuento de palabras.  El trabajo lee el archivo `/example/data/gutenberg/davinci.txt` y envía los resultados a `/example/data/davinciwordcount`.  Si desea volver a ejecutar la aplicación, deberá limpiar la carpeta de salida.
 
 > [!NOTE]  
 > Los pasos de este artículo deben realizarse desde un cliente de Windows. Para obtener información sobre cómo usar un cliente Linux, OS X o Unix para trabajar con Hive, utilice el selector de pestañas que se muestra en la parte superior del artículo.
@@ -42,7 +42,7 @@ El SDK de HDInsight para .NET ofrece bibliotecas cliente .NET que facilitan el t
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Copie el código que se indica a continuación en **Program.cs**. A continuación, modifique el código mediante el establecimiento de los valores de `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey` y `defaultStorageContainerName`.
+1. Copie el código que se indica a continuación en **Program.cs** . A continuación, modifique el código mediante el establecimiento de los valores de `existingClusterName`, `existingClusterPassword`, `defaultStorageAccountName`, `defaultStorageAccountKey` y `defaultStorageContainerName`.
 
     ```csharp
     using System.Collections.Generic;
@@ -174,5 +174,5 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 * Para enviar un trabajo de Hive, consulte [Ejecución de consultas de Apache Hive mediante el SDK de .NET para HDInsight](apache-hadoop-use-hive-dotnet-sdk.md).
 * Para más información sobre cómo crear clústeres de HDInsight, consulte [Creación de clústeres de Apache Hadoop basados en Linux en HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Para administrar clústeres de HDInsight, consulte [Administración de clústeres de Apache Haddop en HDInsight](../hdinsight-administer-use-portal-linux.md).
-* Para obtener información sobre el SDK .NET de HDInsight, consulte ka [referencia del SDK de .NET de HDInsight](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+* Para obtener información sobre el SDK .NET de HDInsight, consulte ka [referencia del SDK de .NET de HDInsight](/dotnet/api/overview/azure/hdinsight).
 * Para usar la autenticación no interactiva en Azure, consulte [Creación de aplicaciones .NET para HDInsight de autenticación no interactiva](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).

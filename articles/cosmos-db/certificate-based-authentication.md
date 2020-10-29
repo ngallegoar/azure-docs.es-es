@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569726"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486538"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticación basada en certificados para una identidad de Azure AD para las claves de acceso desde una cuenta de Azure Cosmos DB
 
@@ -22,7 +22,7 @@ La autenticación basada en certificados permite que una aplicación cliente se 
 
 * Instale la [versión más reciente](/powershell/azure/install-az-ps) de Azure PowerShell.
 
-* Si no tiene una [suscripción a Azure](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
+* Si no tiene una [suscripción a Azure](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 
 ## <a name="register-an-app-in-azure-ad"></a>Registro de una aplicación en Azure AD
 
@@ -30,7 +30,7 @@ En este paso, va a registrar una aplicación web de ejemplo en su cuenta de Azur
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-1. Abra el panel **Azure Active Directory**, vaya al panel **Registros de aplicaciones** y seleccione **Nuevo registro**. 
+1. Abra el panel **Azure Active Directory** , vaya al panel **Registros de aplicaciones** y seleccione **Nuevo registro** . 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
@@ -38,7 +38,7 @@ En este paso, va a registrar una aplicación web de ejemplo en su cuenta de Azur
 
    * **Name** (Nombre): especifique el nombre de la aplicación; puede ser cualquiera, como "sampleApp".
    * **Supported account types** (Tipos de cuenta admitidos): elija **Solo las cuentas de este directorio organizativo (directorio predeterminado)** para permitir que los recursos del directorio actual accedan a esta aplicación. 
-   * **URL de redireccionamiento**: elija una aplicación del tipo **Web** y proporcione la dirección URL en que se hospeda la aplicación, puede ser cualquier dirección URL. En este ejemplo, puede proporcionar una dirección URL de prueba como `https://sampleApp.com`. No importa si la aplicación no existe.
+   * **URL de redireccionamiento** : elija una aplicación del tipo **Web** y proporcione la dirección URL en que se hospeda la aplicación, puede ser cualquier dirección URL. En este ejemplo, puede proporcionar una dirección URL de prueba como `https://sampleApp.com`. No importa si la aplicación no existe.
 
    :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
@@ -107,7 +107,7 @@ El comando anterior da como resultado una salida similar a la de la captura de p
 
 1. Vaya a la cuenta de Azure Cosmos y abra la hoja **Control de acceso (IAM)** .
 
-1. Seleccione **Agregar** y **Agregar asignación de roles**. Agregar la aplicación sampleApp que creó en el paso anterior con el rol **Colaborador**, como se muestra en la captura de pantalla siguiente:
+1. Seleccione **Agregar** y **Agregar asignación de roles** . Agregar la aplicación sampleApp que creó en el paso anterior con el rol **Colaborador** , como se muestra en la captura de pantalla siguiente:
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Nuevo registro de aplicación en Active Directory":::
 
@@ -121,11 +121,11 @@ En el registro de aplicación de Azure para la aplicación cliente:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 
-1. Abra el panel **Azure Active Directory**, vaya al panel **Registros de aplicaciones** y abra la aplicación de ejemplo que creó en el paso anterior. 
+1. Abra el panel **Azure Active Directory** , vaya al panel **Registros de aplicaciones** y abra la aplicación de ejemplo que creó en el paso anterior. 
 
-1. Seleccione **Certificados y secretos** y, a continuación, seleccione **Cargar certificado**. Busque el archivo de certificado que creó en el paso anterior para cargarlo.
+1. Seleccione **Certificados y secretos** y, a continuación, seleccione **Cargar certificado** . Busque el archivo de certificado que creó en el paso anterior para cargarlo.
 
-1. Seleccione **Agregar**. Una vez cargado el certificado, se muestran los valores de huella digital, fecha de inicio y expiración.
+1. Seleccione **Agregar** . Una vez cargado el certificado, se muestran los valores de huella digital, fecha de inicio y expiración.
 
 ## <a name="access-the-keys-from-powershell"></a>Acceso a las claves desde PowerShell
 

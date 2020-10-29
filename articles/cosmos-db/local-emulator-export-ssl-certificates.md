@@ -7,12 +7,12 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 068b316eaa92a1e781df0b9945133a26fa0b88a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f747cc6405cef07510766bcfa4c826aec9d9857b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445290"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490414"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exportación de los certificados del emulador de Azure Cosmos DB para su uso con aplicaciones en Java, Python y Node.js
 
@@ -30,11 +30,11 @@ En este artículo se muestra cómo exportar los certificados TLS/SSL para su uso
 
 Debe exportar el certificado del emulador para usar correctamente el punto de conexión del emulador de los lenguajes y entornos de runtime que no se integran en el almacén de certificados de Windows. Puede exportar el certificado mediante el administrador de certificados de Windows. Use las siguientes instrucciones paso a paso para exportar el certificado "DocumentDBEmulatorCertificate" como archivo X.509 (.cer) codificado en BASE 64:
 
-1. Inicie el administrador de certificados de Windows; para ello, ejecute certlm.msc, vaya a la carpeta Personal-> Certificados y abra el certificado con el nombre descriptivo **DocumentDbEmulatorCertificate**.
+1. Inicie el administrador de certificados de Windows; para ello, ejecute certlm.msc, vaya a la carpeta Personal-> Certificados y abra el certificado con el nombre descriptivo **DocumentDbEmulatorCertificate** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Paso 1 de exportación de un emulador local de Azure Cosmos DB":::
 
-1. Haga clic en **Detalles** y, luego, en **Aceptar**.
+1. Haga clic en **Detalles** y, luego, en **Aceptar** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Paso 1 de exportación de un emulador local de Azure Cosmos DB":::
 
@@ -42,19 +42,19 @@ Debe exportar el certificado del emulador para usar correctamente el punto de co
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Paso 1 de exportación de un emulador local de Azure Cosmos DB":::
 
-1. Haga clic en **Next**.
+1. Haga clic en **Next** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Paso 1 de exportación de un emulador local de Azure Cosmos DB":::
 
-1. Haga clic en **No exportar la clave privada** y, luego, haga clic en **Siguiente**.
+1. Haga clic en **No exportar la clave privada** y, luego, haga clic en **Siguiente** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png" alt-text="Paso 1 de exportación de un emulador local de Azure Cosmos DB":::
 
-1. Haga clic en **X.509 codificado base 64 (. CER)** y luego en **Siguiente**.
+1. Haga clic en **X.509 codificado base 64 (. CER)** y luego en **Siguiente** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Paso 1 de exportación de un emulador local de Azure Cosmos DB":::
 
-1. Asigne un nombre al certificado. En este caso, **documentdbemulatorcert** y, luego, haga clic en **Siguiente**.
+1. Asigne un nombre al certificado. En este caso, **documentdbemulatorcert** y, luego, haga clic en **Siguiente** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Paso 1 de exportación de un emulador local de Azure Cosmos DB":::
 
@@ -66,7 +66,7 @@ Debe exportar el certificado del emulador para usar correctamente el punto de co
 
 Al ejecutar aplicaciones de Java o MongoDB que utilizan un cliente basado en Java, es más fácil instalar el certificado en el almacén de certificados predeterminado de Java que pasar las marcas `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"`. Por ejemplo, la aplicación de demostración de Java (`https://localhost:8081/_explorer/index.html`) incluida depende del almacén de certificados predeterminado.
 
-Siga las instrucciones de la publicación [Incorporación de un certificado al almacén de certificados de Java](https://docs.microsoft.com/azure/java-add-certificate-ca-store) para importar el certificado X.509 en el almacén de certificados de Java. Tenga en cuenta que trabajará en el directorio *%JAVA_HOME%* al ejecutar keytool. Después de que el certificado se haya importado en el almacén de certificados, los clientes para las API de SQL y Azure Cosmos DB para MongoDB podrán conectarse al emulador de Azure Cosmos.
+Siga las instrucciones de la publicación [Incorporación de un certificado al almacén de certificados de Java](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) para importar el certificado X.509 en el almacén de certificados de Java. Tenga en cuenta que trabajará en el directorio *%JAVA_HOME%* al ejecutar keytool. Después de que el certificado se haya importado en el almacén de certificados, los clientes para las API de SQL y Azure Cosmos DB para MongoDB podrán conectarse al emulador de Azure Cosmos.
 
 Como alternativa, puede ejecutar el siguiente script de Bash para importar el certificado:
 
@@ -84,7 +84,7 @@ sudo $JAVA_HOME/bin/keytool -cacerts -delete -alias cosmos_emulator
 sudo $JAVA_HOME/bin/keytool -cacerts -importcert -alias cosmos_emulator -file $EMULATOR_CERT_PATH
 ```
 
-Una vez que el certificado TLS/SSL "CosmosDBEmulatorCertificate" esté instalado, la aplicación debería poder conectarse y utilizar el emulador local de Azure Cosmos DB. Si tiene algún problema, puede seguir el artículo [Depuración de conexiones SSL/TLS](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). En la mayoría de los casos, puede que el certificado no esté instalado en el almacén *%JAVA_HOME%/jre/lib/security/cacerts*. Por ejemplo, si tiene instaladas varias versiones de Java, es probable que la aplicación esté utilizando un almacén de certificados CA diferente del actualizado.
+Una vez que el certificado TLS/SSL "CosmosDBEmulatorCertificate" esté instalado, la aplicación debería poder conectarse y utilizar el emulador local de Azure Cosmos DB. Si tiene algún problema, puede seguir el artículo [Depuración de conexiones SSL/TLS](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html). En la mayoría de los casos, puede que el certificado no esté instalado en el almacén *%JAVA_HOME%/jre/lib/security/cacerts* . Por ejemplo, si tiene instaladas varias versiones de Java, es probable que la aplicación esté utilizando un almacén de certificados CA diferente del actualizado.
 
 ## <a name="use-the-certificate-with-python-apps"></a>Uso del certificado con aplicaciones en Python
 
@@ -106,4 +106,3 @@ Si ha instalado el certificado en el almacén de certificados de Java o lo ha us
 
 * [Uso de parámetros de línea de comandos y comandos de PowerShell para controlar el emulador](emulator-command-line-parameters.md)
 * [Depuración de problemas con el emulador](troubleshoot-local-emulator.md)
-

@@ -8,16 +8,16 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f16498f0661ba918acd42b7964b649d0bbdf5841
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334402"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495893"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API de consulta de JavaScript en Azure Cosmos DB
 
-Además de emitir consultas con la API de SQL en Azure Cosmos DB, el [SDK del lado servidor de Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/) proporciona una interfaz de JavaScript para realizar consultas optimizadas en procedimientos almacenados y desencadenadores de Cosmos DB. No es necesario conocer el lenguaje SQL para utilizar esta interfaz JavaScript. JavaScript Query API permite crear mediante programación consultas pasando las funciones de predicado a una secuencia de llamadas de función, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y conocidas bibliotecas de JavaScript, como Lodash. Las consultas se analizan con el entorno de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
+Además de emitir consultas con la API de SQL en Azure Cosmos DB, el [SDK del lado servidor de Cosmos DB](https://github.com/Azure/azure-cosmosdb-js-server/) proporciona una interfaz de JavaScript para realizar consultas optimizadas en procedimientos almacenados y desencadenadores de Cosmos DB. No es necesario conocer el lenguaje SQL para utilizar esta interfaz JavaScript. JavaScript Query API permite crear mediante programación consultas pasando las funciones de predicado a una secuencia de llamadas de función, con una sintaxis familiar para los elementos integrados de matriz de ECMAScript5 y conocidas bibliotecas de JavaScript, como Lodash. Las consultas se analizan con el entorno de ejecución de JavaScript para que se ejecuten eficazmente mediante índices de Azure Cosmos DB.
 
 ## <a name="supported-javascript-functions"></a>Funciones JavaScript admitidas
 
@@ -43,7 +43,7 @@ Las siguientes construcciones de JavaScript no se optimizan para índices de Azu
 - Flujo de control (por ejemplo, if, for, while)
 - Llamadas a funciones
 
-Para más información, consulte la [documentación de JavaScript del lado servidor de Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).
+Para más información, consulte la [documentación de JavaScript del lado servidor de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-js-server/).
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>Hoja de referencia de SQL a JavaScript
 

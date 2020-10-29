@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 516989e37e8c9eb0c4ab35ea6add4f5b6526ee6d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.custom: contperfq2
+ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893465"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486929"
 ---
 # <a name="manage-app-consent-policies"></a>Administración de directivas de consentimiento de aplicaciones
 
@@ -56,14 +57,14 @@ Para empezar, familiarícese con las directivas de consentimiento de aplicacione
 1. Consulte los conjuntos de condiciones de tipo "includes" de una directiva:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. Consulte los conjuntos de condiciones de tipo "excludes":
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 
@@ -132,7 +133,7 @@ En la tabla siguiente se proporciona la lista de condiciones admitidas para las 
 | Condición | Descripción|
 |:---------------|:----------|
 | PermissionClassification | Es la [clasificación de permisos](configure-permission-classifications.md) referente al permiso que se va a conceder; también puede ser el valor "todos" para hacer que coincida con cualquier clasificación de permisos (incluidos los permisos que no están clasificados). El valor predeterminado es "todos". |
-| PermissionType | Es el tipo del permiso que se va a conceder. Use "aplicación" para permisos de aplicaciones (por ejemplo, roles de aplicación) o "delegado" para los permisos delegados. <br><br>**Nota**: El valor "delegatedUserConsentable" indica permisos delegados que el publicador de la API no ha configurado para requerir el consentimiento del administrador; este valor se puede usar en directivas de concesión de permisos integrados, pero no se puede usar en directivas de concesión de permisos personalizados. Necesario. |
+| PermissionType | Es el tipo del permiso que se va a conceder. Use "aplicación" para permisos de aplicaciones (por ejemplo, roles de aplicación) o "delegado" para los permisos delegados. <br><br>**Nota** : El valor "delegatedUserConsentable" indica permisos delegados que el publicador de la API no ha configurado para requerir el consentimiento del administrador; este valor se puede usar en directivas de concesión de permisos integrados, pero no se puede usar en directivas de concesión de permisos personalizados. Necesario. |
 | ResourceApplication | Es el valor **AppId** de la aplicación de recursos (por ejemplo, la API) para la que se concede un permiso o el estado "cualquiera" para que coincida con cualquier aplicación de recursos o API. El valor predeterminado es "cualquiera". |
 | Permisos | Lista de id. de permisos que deben coincidir con los permisos específicos, o una lista con el valor único "Todos" para que así los valores coincidan con cualquier permiso. El valor predeterminado es el valor único "todos". <ul><li>Los id. de permisos delegados se pueden encontrar en la propiedad **OAuth2Permissions** del objeto ServicePrincipal de la API.</li><li>Los id. de permisos de aplicación se pueden encontrar en la propiedad **AppRoles** del objeto ServicePrincipal de la API.</li></ol> |
 | ClientApplicationIds | Es una lista de valores de **AppId** que deben coincidir con las aplicaciones cliente o una lista con el valor único "todos" para que así los valores coincidan con cualquier aplicación cliente. El valor predeterminado es el valor único "todos". |

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: 1dc7bc8e119de7c8fdcf09713286be2633457486
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac0db7f8c94113ff87d1c0a3091e4c0cbd5ed2b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895866"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489853"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Registros en Hiperescala (Citus) para Azure Database for PostgreSQL
 
@@ -24,15 +24,15 @@ Para acceder a los registros de PostgreSQL para un nodo de trabajo o coordinador
 
 :::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="lista de nodos":::
 
-En el nodo seleccionado, abra **Configuración de diagnóstico** y haga clic en **+ Agregar configuración de diagnóstico**.
+En el nodo seleccionado, abra **Configuración de diagnóstico** y haga clic en **+ Agregar configuración de diagnóstico** .
 
 :::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="lista de nodos":::
 
-Elija un nombre para la nueva configuración de diagnóstico y active la casilla **PostgreSQLLogs**.  Elija el o los destinos que deben recibir los registros.
+Elija un nombre para la nueva configuración de diagnóstico y active la casilla **PostgreSQLLogs** .  Elija el o los destinos que deben recibir los registros.
 
 :::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="lista de nodos":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a las consultas de Log Analytics](/azure/azure-monitor/log-query/get-started-portal)
-- Información acerca de [Azure Event Hubs](/azure/event-hubs/event-hubs-about)
+- [Introducción a las consultas de Log Analytics](../azure-monitor/log-query/get-started-portal.md)
+- Información acerca de [Azure Event Hubs](../event-hubs/event-hubs-about.md)

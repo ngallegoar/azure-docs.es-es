@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 442e1c4facce076ce9eeacee772df9381fee6f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40a909b111d5e667f7554cf727ab26bf9bc39650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997224"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485858"
 ---
 # <a name="use-the-change-feed-estimator"></a>Uso del calculador de la fuente de cambios
 
@@ -64,4 +64,4 @@ Puede enviarla a su solución de supervisión y usarla para saber cómo se compo
 Puede obtener más información sobre el procesador de la fuente de cambios en los siguientes artículos:
 
 * [Introducción a la fuente de cambios](change-feed-processor.md)
-* [Hora de inicio del procesador de la fuente de cambios](how-to-configure-change-feed-start-time.md)
+* [Hora de inicio del procesador de la fuente de cambios](./change-feed-processor.md#starting-time)

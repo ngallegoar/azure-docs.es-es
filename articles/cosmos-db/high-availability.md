@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 85f358d205a4a14874e520efdace5345de837588
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276272"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490550"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>¿Cómo proporciona Azure Cosmos DB la alta disponibilidad?
 
@@ -58,7 +58,7 @@ Como base de datos distribuida globalmente, Azure Cosmos DB proporciona contrat
 
 En los infrecuentes casos en que se produce una interrupción regional, Azure Cosmos DB garantiza que la base de datos siempre tenga una alta disponibilidad. Los siguientes detalles capturan el comportamiento de Azure Cosmos DB durante una interrupción, en función de la configuración de la cuenta de Azure Cosmos:
 
-* Con Azure Cosmos DB, antes de que el cliente confirme una operación de escritura, un cuórum de réplicas dentro de la región que acepta las operaciones de escritura confirma los datos de forma permanente. Para obtener más detalles, consulte [Niveles de coherencia y rendimiento](consistency-levels-tradeoffs.md#consistency-levels-and-throughput).
+* Con Azure Cosmos DB, antes de que el cliente confirme una operación de escritura, un cuórum de réplicas dentro de la región que acepta las operaciones de escritura confirma los datos de forma permanente. Para obtener más detalles, consulte [Niveles de coherencia y rendimiento](./consistency-levels.md#consistency-levels-and-throughput).
 
 * Las cuentas de varias regiones configuradas con varias regiones de escritura seguirán teniendo una alta disponibilidad para las escrituras y lecturas. Las conmutaciones por error regionales se detectan y controlan en el cliente de Azure Cosmos DB. También son instantáneas y no requieren cambios de la aplicación.
 
@@ -89,7 +89,7 @@ En los infrecuentes casos en que se produce una interrupción regional, Azure Co
 
 * Las siguientes lecturas se redirigen a la región recuperada sin necesidad de realizar cambios en el código de la aplicación. Durante la conmutación por error y cuando se vuelva a unir una región previamente errónea, Azure Cosmos DB seguirá cumpliendo las garantías de coherencia de lectura.
 
-* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte* . En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia ( *K* o *T* ) donde K = 100 000 actualizaciones y T = 5 minutos. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](consistency-levels-tradeoffs.md#rto).
+* Incluso en un caso poco frecuente y desafortunado en que la región de Azure sea irrecuperable de forma permanente, no se produce pérdida de datos si se configura la cuenta de Azure Cosmos de varias regiones con coherencia *fuerte* . En el caso de una región de escritura irrecuperable de forma permanente, una cuenta de Azure Cosmos de varias regiones configurada con coherencia de obsolescencia limitada, la posible ventana de pérdida de datos se restringe a la ventana de obsolescencia ( *K* o *T* ) donde K = 100 000 actualizaciones y T = 5 minutos. En cuanto a los niveles de posible coherencia y prefijo coherente por sesión, el período de pérdida potencial de datos se restringe a un máximo de 15 minutos. Para obtener más información sobre los objetivos de RPO y RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
 
 ## <a name="availability-zone-support"></a>Compatibilidad de zonas de disponibilidad
 
@@ -131,7 +131,7 @@ Availability Zones se puede habilitar mediante:
 
 * [CLI de Azure](manage-with-cli.md#add-or-remove-regions)
 
-* [Plantillas del Administrador de recursos de Azure](manage-sql-with-resource-manager.md)
+* [Plantillas del Administrador de recursos de Azure](./manage-with-templates.md)
 
 ## <a name="building-highly-available-applications"></a>Compilación de aplicaciones de alta disponibilidad
 
@@ -143,15 +143,15 @@ Availability Zones se puede habilitar mediante:
 
 * Incluso si su cuenta de Azure Cosmos es de alta disponibilidad, es posible que la aplicación no se haya diseñado correctamente para seguir teniendo alta disponibilidad. Para probar la alta disponibilidad de un extremo a otro de la aplicación, como parte de las pruebas de la aplicación o las exploraciones de recuperación ante desastres (DR), deshabilite temporalmente la conmutación automática por error de la cuenta, invoque la [conmutación por error manual mediante PowerShell, la CLI de Azure o Azure Portal](how-to-manage-database-account.md#manual-failover) y, luego, supervise la conmutación por error de la aplicación. Cuando haya terminado, puede realizar la conmutación por recuperación a la región primaria y restaurar la conmutación automática por error en la cuenta.
 
-* En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que una aplicación se recupere totalmente se conoce como "objetivo de tiempo de recuperación (RTO)". También debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO). Para ver el RPO y el RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](consistency-levels-tradeoffs.md#rto).
+* En un entorno de base de datos distribuida de forma global, existe una relación directa entre el nivel de coherencia y la durabilidad de los datos si se produce una interrupción en toda la región. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que una aplicación se recupere totalmente se conoce como "objetivo de tiempo de recuperación (RTO)". También debe conocer el período máximo de actualizaciones de datos recientes que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO). Para ver el RPO y el RTO de Azure Cosmos DB, consulte [Durabilidad de datos y los niveles de coherencia](./consistency-levels.md#rto).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora puede pasar a la lectura de los artículos siguientes:
 
-* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
+* [Availability and performance tradeoffs for various consistency levels](./consistency-levels.md) (Compromisos entre rendimiento y disponibilidad en los distintos niveles de coherencia)
 
-* [Escalado del rendimiento aprovisionado globalmente](scaling-throughput.md)
+* [Escalado del rendimiento aprovisionado globalmente](./request-units.md)
 
 * [Distribución global en segundo plano](global-dist-under-the-hood.md)
 

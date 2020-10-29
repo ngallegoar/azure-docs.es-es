@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
-ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408239"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490601"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Uso del paso de perfil de ejecución para evaluar las consultas de Gremlin
 
@@ -139,12 +139,12 @@ Este es un ejemplo con anotaciones de la salida que se devuelve:
 ## <a name="execution-profile-response-objects"></a>Objetos de respuesta de perfil de ejecución
 
 La respuesta de una función executionProfile() producirá una jerarquía de objetos JSON con la estructura siguiente:
-  - **Objeto de operación de Gremlin**: representa la operación completa de Gremlin que se ejecutó. Contiene las siguientes propiedades:
+  - **Objeto de operación de Gremlin** : representa la operación completa de Gremlin que se ejecutó. Contiene las siguientes propiedades:
     - `gremlin`: la instrucción de Gremlin explícita que se ejecutó.
     - `totalTime`: el tiempo, en milisegundos, empleado en la ejecución del paso. 
     - `metrics`: una matriz que contiene cada uno de los operadores de tiempo de ejecución de Cosmos DB que se ejecutaron para satisfacer la consulta. Esta lista se clasifica en orden de ejecución.
     
-  - **Operadores de tiempo de ejecución de Cosmos DB**: representa cada uno de los componentes de toda la operación de Gremlin. Esta lista se clasifica en orden de ejecución. Cada objeto contiene las siguientes propiedades:
+  - **Operadores de tiempo de ejecución de Cosmos DB** : representa cada uno de los componentes de toda la operación de Gremlin. Esta lista se clasifica en orden de ejecución. Cada objeto contiene las siguientes propiedades:
     - `name`: nombre de la operación. Este es el tipo de paso que se evaluó y ejecutó. Lea más en la tabla siguiente.
     - `time`: cantidad de tiempo, en milisegundos, que tardó un operador determinado.
     - `annotations`: contiene información adicional específica del operador que se ejecutó.
@@ -177,7 +177,7 @@ Los siguientes son ejemplos de optimizaciones comunes que se pueden observar con
 
 ### <a name="blind-fan-out-query-patterns"></a>Patrones de consulta de distribución ramificada ciega
 
-Suponga la siguiente respuesta del perfil de ejecución desde un **grafo con particiones**:
+Suponga la siguiente respuesta del perfil de ejecución desde un **grafo con particiones** :
 
 ```json
 [
@@ -220,8 +220,8 @@ Suponga la siguiente respuesta del perfil de ejecución desde un **grafo con par
 
 Se pueden extraer de ella las siguientes conclusiones:
 - La consulta es una búsqueda única de identificador, ya que la instrucción de Gremlin sigue el patrón `g.V('id')`.
-- Por la métrica `time`, la latencia de esta consulta parece ser alta, ya que [una sola operación de lectura de puntos tarda más de 10 ms](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Si observamos el objeto `storeOps`, podemos ver que `fanoutFactor` es `5`, lo que significa que esta operación tuvo acceso a [5 particiones](https://docs.microsoft.com/azure/cosmos-db/partition-data).
+- Por la métrica `time`, la latencia de esta consulta parece ser alta, ya que [una sola operación de lectura de puntos tarda más de 10 ms](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Si observamos el objeto `storeOps`, podemos ver que `fanoutFactor` es `5`, lo que significa que esta operación tuvo acceso a [5 particiones](./partitioning-overview.md).
 
 La conclusión de este análisis es que podemos determinar que la primera consulta accede a particiones de las necesarias. Para solucionar esto, se puede especificar la clave de creación de particiones como un predicado. El resultado será una menor latencia y un costo más reducido por consulta. Más información sobre la [creación de particiones de grafos](graph-partitioning.md). Una consulta más óptima sería `g.V('tt0093640').has('partitionKey', 't1001')`.
 

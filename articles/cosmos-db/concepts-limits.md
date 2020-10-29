@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329379"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489292"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cuotas de servicio de Azure Cosmos DB
 
@@ -144,7 +144,7 @@ No hay ninguna restricción en las cargas de elementos, como el número de propi
 
 ## <a name="per-request-limits"></a>Límites por solicitud
 
-Azure Cosmos DB admite [operaciones CRUD y de consulta](/rest/api/cosmos-db/) con recursos como contenedores, elementos y bases de datos. También admite [solicitudes de lotes transaccionales](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) con varios elementos con la misma clave de partición en un contenedor.
+Azure Cosmos DB admite [operaciones CRUD y de consulta](/rest/api/cosmos-db/) con recursos como contenedores, elementos y bases de datos. También admite [solicitudes de lotes transaccionales](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) con varios elementos con la misma clave de partición en un contenedor.
 
 | Resource | Límite predeterminado |
 | --- | --- |
@@ -191,7 +191,7 @@ Consulte este artículo sobre [escalabilidad automática](provision-throughput-a
 
 ## <a name="sql-query-limits"></a>Límites de la consulta SQL
 
-Cosmos DB admite la consulta de elementos mediante [SQL](how-to-sql-query.md). En la tabla siguiente se describen las restricciones en las instrucciones de consulta, por ejemplo, en relación con el número de cláusulas o la longitud de la consulta.
+Cosmos DB admite la consulta de elementos mediante [SQL](./sql-query-getting-started.md). En la tabla siguiente se describen las restricciones en las instrucciones de consulta, por ejemplo, en relación con el número de cláusulas o la longitud de la consulta.
 
 | Resource | Límite predeterminado |
 | --- | --- |

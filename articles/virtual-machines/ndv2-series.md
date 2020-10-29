@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 74c8924116cf9b565ea63e3b72a409686a4d725c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff828024610ce498d40a4039d8116e28366aebb9
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975727"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494417"
 ---
 # <a name="updated-ndv2-series"></a>Serie NDv2 actualizada
 
@@ -37,7 +37,7 @@ Fundamentalmente, NDv2 se ha creado para cargas de trabajo de escalado vertical 
 [Almacenamiento en caché de Premium Storage](premium-storage-performance.md): Compatible<br>
 [Migración en vivo](maintenance-and-updates.md): No compatible<br>
 [Actualizaciones con conservación de memoria](maintenance-and-updates.md): No compatible<br>
-[Compatibilidad con generación de VM](generation-2.md): Generación 1<br>
+[Compatibilidad con generación de VM](generation-2.md): Generación 2<br>
 InfiniBand: Compatible<br>
 <br>
 

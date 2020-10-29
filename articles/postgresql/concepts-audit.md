@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: efd4cb7c0c5db50729539373938ebccd689dee42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 615297a4bf47d80c9313f011b90d343b7ae680e3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708992"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488051"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registro de auditoría en Azure Database for PostgreSQL con un único servidor
 
@@ -42,9 +42,9 @@ Para instalar pgAudit, tendrá que incluirlo en las bibliotecas de carga previa 
 Mediante [Azure Portal](https://portal.azure.com):
 
    1. Seleccione su servidor de Azure Database for PostgreSQL.
-   2. En la barra lateral, seleccione **Parámetros del servidor**.
+   2. En la barra lateral, seleccione **Parámetros del servidor** .
    3. Busque el parámetro `shared_preload_libraries`.
-   4. Seleccione **pgaudit**.
+   4. Seleccione **pgaudit** .
    5. Reinicie el servidor para aplicar el cambio.
 
    6. Conéctese al servidor mediante un cliente (como psql) y habilite la extensión pgAudit.
@@ -88,9 +88,9 @@ Para empezar a trabajar rápidamente, establezca `pgaudit.log` en `WRITE` y abra
 ## <a name="viewing-audit-logs"></a>Visualización de registros de auditoría
 Si usa archivos .log, los registros de auditoría se incluirán en el mismo archivo que los registros de errores de PostgreSQL. Puede descargar archivos de registro de [Azure Portal](howto-configure-server-logs-in-portal.md) o de la [CLI](howto-configure-server-logs-using-cli.md). 
 
-Si usa el registro de recursos de Azure, la forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+Si usa el registro de recursos de Azure, la forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
-Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics** , por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 Puede usar esta consulta para comenzar. Puede configurar alertas basadas en las consultas.
 

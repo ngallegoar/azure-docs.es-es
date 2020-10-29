@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 3b660875288db1f16f13d58b1538a876e2ff2666
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7f81e6182209e29e41a21abadbaf05518844d201
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123308"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490176"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de lectura en Azure Database for PostgreSQL: servidor único
 
@@ -143,7 +143,7 @@ Una vez que la aplicación procesa correctamente las lecturas y las escrituras, 
 
 ### <a name="disaster-recovery"></a>Recuperación ante desastres
 
-Cuando se produce un desastre importante, como errores regionales o de nivel de zona de disponibilidad, puede realizar una operación de recuperación ante desastres mediante la promoción de la réplica de lectura. En el portal de la interfaz de usuario, puede navegar al servidor de réplica de lectura. Después, haga clic en la pestaña de replicación. Desde aquí puede detener la réplica para promoverla de modo que se convierta en un servidor independiente. Otra opción consiste en usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/postgres/server/replica?view=azure-cli-latest#az_postgres_server_replica_stop) para detener y promover el servidor de réplica.
+Cuando se produce un desastre importante, como errores regionales o de nivel de zona de disponibilidad, puede realizar una operación de recuperación ante desastres mediante la promoción de la réplica de lectura. En el portal de la interfaz de usuario, puede navegar al servidor de réplica de lectura. Después, haga clic en la pestaña de replicación. Desde aquí puede detener la réplica para promoverla de modo que se convierta en un servidor independiente. Otra opción consiste en usar la [CLI de Azure](/cli/azure/postgres/server/replica#az_postgres_server_replica_stop) para detener y promover el servidor de réplica.
 
 ## <a name="considerations"></a>Consideraciones
 

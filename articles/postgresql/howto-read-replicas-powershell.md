@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bacb7a434cfa04dbdfdaf39d9fd3a0baab5f11a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704810"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489819"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for PostgreSQL mediante PowerShell
 
@@ -26,14 +26,14 @@ Puede crear y administrar réplicas de lectura mediante PowerShell.
 
 Para completar esta guía, necesita:
 
-- El [módulo Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado localmente o [Azure Cloud Shell](https://shell.azure.com/) en el explorador
+- El [módulo Az PowerShell](/powershell/azure/install-az-ps) instalado localmente o [Azure Cloud Shell](https://shell.azure.com/) en el explorador
 - Un [servidor de Azure Database for PostgreSQL](quickstart-create-postgresql-server-database-using-azure-powershell.md).
 
 > [!IMPORTANT]
 > Mientras el módulo Az.PostgreSql PowerShell se encuentre en versión preliminar, debe instalarlo por separado del módulo Az PowerShell mediante el siguiente comando: `Install-Module -Name Az.PostgreSql -AllowPrerelease`.
 > Una vez que el módulo Az.PostgreSql PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
 
-Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,12 +51,12 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 El comando `New-AzPostgreSqlServerReplica` requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | Descripción  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se crea el servidor de réplica.  |
+| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se crea el servidor de réplica.  |
 | Nombre | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
 
-Para crear una réplica de lectura entre regiones, use el parámetro **Location**. En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
+Para crear una réplica de lectura entre regiones, use el parámetro **Location** . En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
 
 ```azurepowershell-interactive
 Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
@@ -65,7 +65,7 @@ Get-AzPostgreSqlServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md).
 
-De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el servidor principal, a menos que se especifique el parámetro **Sku**.
+De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el servidor principal, a menos que se especifique el parámetro **Sku** .
 
 > [!NOTE]
 > Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el principal para asegurarse de que la réplica trabaja al mismo nivel que el servidor maestro.
@@ -80,9 +80,9 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 El comando `Get-AzMariaDReplica` requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | Descripción  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
+| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
 | nombreDeServidor | mydemoserver | El nombre o el identificador del servidor principal. |
 
 ### <a name="delete-a-replica-server"></a>Eliminación de un servidor de réplica

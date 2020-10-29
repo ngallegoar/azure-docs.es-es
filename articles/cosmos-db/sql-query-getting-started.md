@@ -6,29 +6,29 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: f4ee0c0af6939e71f696fc900ec2ab1343ca91df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a95fe72df152e297114f4bde59b11137c6accdb6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802521"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488153"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 
 En las cuentas de la API de SQL de Azure Cosmos DB, hay dos maneras de leer los datos:
 
-**Lecturas puntuales**: puede realizar una búsqueda de clave y valor en un único *id. de elemento* y clave de partición. La combinación de *id. de elemento* y clave de partición es la clave y el propio elemento es el valor. En el caso de un documento de 1 KB, las lecturas puntuales normalmente cuestan 1 [unidad de solicitud](request-units.md) con una latencia inferior a 10 ms. Las lecturas puntuales devuelven un único elemento.
+**Lecturas puntuales** : puede realizar una búsqueda de clave y valor en un único *id. de elemento* y clave de partición. La combinación de *id. de elemento* y clave de partición es la clave y el propio elemento es el valor. En el caso de un documento de 1 KB, las lecturas puntuales normalmente cuestan 1 [unidad de solicitud](request-units.md) con una latencia inferior a 10 ms. Las lecturas puntuales devuelven un único elemento.
 
-**Consultas SQL**: puede consultar datos escribiendo consultas mediante el Lenguaje de consulta estructurado (SQL) como lenguaje de consulta JSON. Las consultas siempre cuestan al menos 2,3 unidades de solicitud y, en general, tendrán una latencia mayor y más variable que las lecturas puntuales. Las consultas pueden devolver muchos elementos.
+**Consultas SQL** : puede consultar datos escribiendo consultas mediante el Lenguaje de consulta estructurado (SQL) como lenguaje de consulta JSON. Las consultas siempre cuestan al menos 2,3 unidades de solicitud y, en general, tendrán una latencia mayor y más variable que las lecturas puntuales. Las consultas pueden devolver muchos elementos.
 
 La mayoría de las cargas de trabajo con mucha actividad de lectura en Azure Cosmos DB utilizan una combinación de lecturas puntuales y consultas SQL. Si solo necesita leer un único elemento, las lecturas puntuales son más baratas y rápidas que las consultas. Las lecturas puntuales no necesitan usar el motor de consultas para tener acceso a los datos y pueden leer los datos directamente. Por supuesto, no es posible que todas las cargas de trabajo lean los datos exclusivamente mediante lecturas puntuales, por lo que la compatibilidad con SQL como lenguaje de consulta y la [indexación independiente del esquema](index-overview.md) proporcionan una manera más flexible de acceder a los datos.
 
 Estos son algunos ejemplos de cómo realizar lecturas puntuales con cada SDK:
 
-- [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet&preserve-view=true)
-- [SDK de Java](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable&preserve-view=true#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [SDK de Node.js](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest&preserve-view=true#read-requestoptions-)
-- [SDK de Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python&preserve-view=true#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [SDK de .NET](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
+- [SDK de Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [SDK de Node.js](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
+- [SDK de Python](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
 En el resto de este documento se muestra cómo empezar a escribir consultas SQL en Azure Cosmos DB. Las consultas SQL se pueden ejecutar mediante el SDK o Azure Portal.
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331590"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488986"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Preguntas más frecuentes sobre Azure Front Door
 
@@ -92,7 +92,6 @@ Para que la aplicación solo acepte tráfico procedente su instancia específica
 - Configure la creación de listas de control de acceso de IP de los back-end para que acepten tráfico únicamente del espacio de direcciones IP de back-end de Azure Front Door y de los servicios de infraestructura de Azure. Consulte los detalles de IP siguientes para la creación de listas de control de acceso en el back-end:
  
     - Consulte la sección *AzureFrontDoor.Backend* en [Etiquetas de servicio e intervalos de direcciones IP de Azure](https://www.microsoft.com/download/details.aspx?id=56519) para el intervalo de direcciones IP del back-end IPv4 de Front Door. También puede usar la etiqueta de servicio *AzureFrontDoor.Backend* en sus [grupos de seguridad en red](../virtual-network/network-security-groups-overview.md#security-rules).
-    - El espacio IP de back-end **IPv6** de Front Door, si está cubierto en la etiqueta de servicio, no se incluye en el archivo JSON de intervalos IP de Azure. Si busca un intervalo de direcciones IPv6 explícito, actualmente, está limitado a `2a01:111:2050::/44`
     - [Servicios de infraestructura básica](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) de Azure través de direcciones IP de host virtualizado: `168.63.129.16` y `169.254.169.254`
 
     > [!WARNING]
