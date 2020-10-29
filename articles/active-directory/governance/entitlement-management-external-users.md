@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447085"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362508"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Gobernanza del acceso de los usuarios externos en la administración de derechos de Azure AD
 
@@ -51,7 +51,7 @@ En el diagrama y los pasos siguientes se proporciona información general sobre 
 
 1. Envía un [vínculo al portal Mi acceso](entitlement-management-access-package-settings.md) a su contacto en la organización externa que pueden compartir con sus usuarios para solicitar el paquete de acceso.
 
-1. Un usuario externo (**Solicitante A** en este ejemplo) usa el vínculo al portal Mi acceso para [solicitar acceso](entitlement-management-request-access.md) al paquete de acceso. La forma en que el usuario inicia sesión depende del tipo de autenticación del directorio o dominio definido en la organización conectada.
+1. Un usuario externo ( **Solicitante A** en este ejemplo) usa el vínculo al portal Mi acceso para [solicitar acceso](entitlement-management-request-access.md) al paquete de acceso. La forma en que el usuario inicia sesión depende del tipo de autenticación del directorio o dominio definido en la organización conectada.
 
 1. Un aprobador [aprueba la solicitud](entitlement-management-request-approve.md) (o se aprueba automáticamente).
 
@@ -75,7 +75,7 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 
 ### <a name="enable-catalog-for-external-users"></a>Habilitar un catálogo para usuarios externos
 
-- De forma predeterminada, al crear un [nuevo catálogo](entitlement-management-catalog-create.md), este se habilita para permitir que los usuarios externos soliciten los paquetes de acceso que contiene. Asegúrese de que la opción **Habilitado para los usuarios externos** se haya establecido en **Sí**.
+- De forma predeterminada, al crear un [nuevo catálogo](entitlement-management-catalog-create.md), este se habilita para permitir que los usuarios externos soliciten los paquetes de acceso que contiene. Asegúrese de que la opción **Habilitado para los usuarios externos** se haya establecido en **Sí** .
 
     ![Edición de la configuración del catálogo](./media/entitlement-management-shared/catalog-edit.png)
 
@@ -99,7 +99,7 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 
 - Si desea incluir sitios de SharePoint Online en los paquetes de acceso para usuarios externos, asegúrese de que la configuración de uso compartido externo en el nivel de la organización se haya establecido en **Cualquiera** (los usuarios no necesitan iniciar sesión) o **Invitados nuevos y existentes** (los invitados deben iniciar sesión o proporcionar un código de verificación). Para más información, consulta [Activar o desactivar el uso compartido externo](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Si desea restringir el uso compartido externo fuera de la administración de derechos, puede establecer la configuración de uso compartido externo en **Invitados existentes**. Luego, solo los nuevos usuarios que se invitan a través de la administración de derechos podrán obtener acceso a estos sitios. Para más información, consulta [Activar o desactivar el uso compartido externo](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
+- Si desea restringir el uso compartido externo fuera de la administración de derechos, puede establecer la configuración de uso compartido externo en **Invitados existentes** . Luego, solo los nuevos usuarios que se invitan a través de la administración de derechos podrán obtener acceso a estos sitios. Para más información, consulta [Activar o desactivar el uso compartido externo](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
 - Asegúrese de que la configuración de nivel de sitio habilite el acceso de invitado (las mismas selecciones que se muestran anteriormente). Para más información, consulte [Activar o desactivar el uso compartido externo de un sitio](/sharepoint/change-external-sharing-site).
 
@@ -109,7 +109,7 @@ Para asegurarse de que los usuarios ajenos a la organización puedan solicitar p
 
 - Si quiere que los usuarios externos puedan acceder al sitio de SharePoint Online y a los recursos asociados a un grupo de Microsoft 365, asegúrese de activar el uso compartido externo de SharePoint Online. Para más información, consulta [Activar o desactivar el uso compartido externo](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Para obtener información sobre cómo establecer la directiva de invitado para los grupos de Microsoft 365 en el nivel de directorio de PowerShell, consulte [Ejemplo: Configuración de la directiva de invitado para grupos en el nivel de directorio](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Para obtener información sobre cómo establecer la directiva de invitado para los grupos de Microsoft 365 en el nivel de directorio de PowerShell, consulte [Ejemplo: Configuración de la directiva de invitado para grupos en el nivel de directorio](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Revisar la configuración de uso compartido de Teams
 
@@ -121,29 +121,29 @@ Puede seleccionar lo que ocurre cuando un usuario externo, invitado a su directo
 
 **Rol necesario:** administrador global o administrador de usuarios.
 
-1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades**.
+1. En Azure Portal, haga clic en **Azure Active Directory** y, luego, en **Gobernanza de identidades** .
 
-1. En el menú izquierdo, en la sección **Administración de derechos**, haga clic en **Configuración**.
+1. En el menú izquierdo, en la sección **Administración de derechos** , haga clic en **Configuración** .
 
-1. Haga clic en **Editar**.
+1. Haga clic en **Editar** .
 
     ![Configuración para administrar el ciclo de vida de los usuarios externos](./media/entitlement-management-external-users/settings-external-users.png)
 
-1. En la sección **Administración del ciclo de vida de los usuarios externos**, seleccione las diferentes opciones para los usuarios externos.
+1. En la sección **Administración del ciclo de vida de los usuarios externos** , seleccione las diferentes opciones para los usuarios externos.
 
-1. Cuando un usuario externo pierde la última asignación de un paquete de acceso, si desea bloquearlos para que no inicien sesión en este directorio, establezca **Impedir que los usuarios externos inicien sesión en este directorio** en **Sí**.
+1. Cuando un usuario externo pierde la última asignación de un paquete de acceso, si desea bloquearlos para que no inicien sesión en este directorio, establezca **Impedir que los usuarios externos inicien sesión en este directorio** en **Sí** .
 
     > [!NOTE]
     > Si un usuario tiene bloqueada la capacidad de iniciar sesión en este directorio, el usuario no podrá volver a solicitar el paquete de acceso ni solicitar acceso adicional en este directorio. No configure el bloqueo de inicio de sesión si posteriormente necesitará solicitar acceso a otros paquetes de acceso.
 
-1. Cuando un usuario externo pierde la última asignación de un paquete de acceso, si quiere quitar su cuenta de usuario invitado de este directorio, establezca **Quitar usuario externo** en **Sí**.
+1. Cuando un usuario externo pierde la última asignación de un paquete de acceso, si quiere quitar su cuenta de usuario invitado de este directorio, establezca **Quitar usuario externo** en **Sí** .
 
     > [!NOTE]
     > La administración de derechos solo quita las cuentas a las que se ha invitado mediante la administración de derechos. Tenga en cuenta también que se impedirá que el usuario inicie sesión y se eliminará del directorio aunque dicho usuario se haya agregado a recursos del directorio que no eran asignaciones de paquetes de acceso. Si el invitado estaba presente en este directorio antes de recibir las asignaciones de paquetes de acceso, se mantendrá. Sin embargo, si se le invitó mediante una asignación de paquete de acceso y, después de invitarlo, se ha asignado a un sitio de OneDrive para la Empresa o SharePoint Online, se quitará.
 
-1. Si quiere quitar la cuenta de usuario invitado de este directorio, puede establecer el número de días antes de que se quite. Si desea quitar la cuenta de usuario invitado en cuanto pierda la última asignación a cualquier paquete de acceso, establezca **Número de días antes de que se quite el usuario externo de este directorio** en **0**.
+1. Si quiere quitar la cuenta de usuario invitado de este directorio, puede establecer el número de días antes de que se quite. Si desea quitar la cuenta de usuario invitado en cuanto pierda la última asignación a cualquier paquete de acceso, establezca **Número de días antes de que se quite el usuario externo de este directorio** en **0** .
 
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save** (Guardar).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

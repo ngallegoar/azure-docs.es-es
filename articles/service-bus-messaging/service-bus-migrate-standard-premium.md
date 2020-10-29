@@ -4,10 +4,10 @@ description: Guía para permitir la migración de espacios de nombre estándar d
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "85340748"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migración de espacios de nombres estándar de Azure Service Bus existentes
@@ -21,11 +21,11 @@ En este artículo se describe cómo migrar los espacios de nombre de nivel Está
 
 Algunos de los puntos que debe tener en cuenta:
 
-- La migración está pensada para realizarse en contexto, lo que significa que las aplicaciones remitente y receptora **no requieren hacer ningún cambio en el código ni en la configuración**. La cadena de conexión existente apuntará automáticamente al espacio de nombres premium nuevo.
+- La migración está pensada para realizarse en contexto, lo que significa que las aplicaciones remitente y receptora **no requieren hacer ningún cambio en el código ni en la configuración** . La cadena de conexión existente apuntará automáticamente al espacio de nombres premium nuevo.
 - El espacio de nombres **Premium** no debe tener **ninguna entidad** para que la migración se realice correctamente.
 - Todas las **entidades** del espacio de nombres estándar se **copiar** al espacio de nombres premium durante el proceso de migración.
 - La migración admite **1000 entidades por unidad de mensajería** en el nivel premium. Para identificar cuántas unidades de mensajería necesita, empiece con el número de entidades que tiene en el espacio de nombres estándar actual.
-- No es posible migrar directamente desde el **nivel básico** al **nivel premium**, pero puede hacerlo de manera indirecta si migra primero desde el nivel básico al nivel estándar y, luego, desde el nivel estándar al premium en el paso siguiente.
+- No es posible migrar directamente desde el **nivel básico** al **nivel premium** , pero puede hacerlo de manera indirecta si migra primero desde el nivel básico al nivel estándar y, luego, desde el nivel estándar al premium en el paso siguiente.
 
 ## <a name="migration-steps"></a>Pasos de migración
 
@@ -45,7 +45,7 @@ El proceso de migración tiene asociadas algunas condiciones. Familiarícese con
 
 Para migrar el espacio de nombres estándar de Service Bus a premium mediante la herramienta de PowerShell o la CLI de Azure, siga estos pasos.
 
-1. Cree un espacio de nombres premium de Service Bus nuevo. Puede hacer referencia a las [plantillas de Azure Resource Manager](service-bus-resource-manager-namespace.md) o [use Azure Portal](service-bus-create-namespace-portal.md). Asegúrese de usar **Premium** para el parámetro **serviceBusSku**.
+1. Cree un espacio de nombres premium de Service Bus nuevo. Puede hacer referencia a las [plantillas de Azure Resource Manager](service-bus-resource-manager-namespace.md) o [use Azure Portal](service-bus-create-namespace-portal.md). Asegúrese de usar **Premium** para el parámetro **serviceBusSku** .
 
 1. Establezca las variables de entorno siguientes para simplificar los comandos de migración.
 
@@ -89,14 +89,14 @@ Para migrar el espacio de nombres estándar de Service Bus a premium mediante la
 
 La migración mediante Azure Portal tiene el mismo flujo lógico que la migración con los comandos. Siga estos pasos para migrar mediante Azure Portal.
 
-1. En el menú de **navegación** de la izquierda, seleccione **Migrar a premium**. Haga clic en el botón **Comenzar** para pasar a la siguiente página.
+1. En el menú de **navegación** de la izquierda, seleccione **Migrar a premium** . Haga clic en el botón **Comenzar** para pasar a la siguiente página.
     ![Página de aterrizaje de la migración][]
 
-1. Complete la **configuración**.
+1. Complete la **configuración** .
    ![Configuración del espacio de nombres][]
    1. Cree y asigne el espacio de nombres premium al que se va a migrar el espacio de nombres estándar.
         ![Configuración del espacio de nombres: creación de un espacio de nombres premium][]
-   1. Elija un **nombre posterior a la migración**. Usará este nombre para acceder al espacio de nombres estándar una vez que se complete la migración.
+   1. Elija un **nombre posterior a la migración** . Usará este nombre para acceder al espacio de nombres estándar una vez que se complete la migración.
         ![Configuración del espacio de nombres: elección de un nombre posterior a la migración][]
    1. Seleccione **"Next"** (Siguiente) para continuar.
 1. Sincronice las entidades de los espacios de nombres estándar y premium.

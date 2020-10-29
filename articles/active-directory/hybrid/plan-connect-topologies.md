@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146348"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359839"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologías de Azure AD Connect
 En este artículo se describen diversas topologías locales y de Azure Active Directory (Azure AD) que usan Azure AD Connect Sync como solución de integración de claves. En este artículo se describen tanto las configuraciones admitidas como las no admitidas.
@@ -142,7 +142,7 @@ Es posible tener más de un servidor provisional si desea tener varias copias de
 
 ## <a name="multiple-azure-ad-tenants"></a>Varios inquilinos de Azure AD
 Recomendamos tener un único inquilino en Azure AD para una organización.
-Antes de planear el uso de varios inquilinos de Azure AD, vea el artículo [Administración de unidades administrativas en Azure AD](../users-groups-roles/directory-administrative-units.md). Se ocupa de los escenarios comunes donde puede usar un solo inquilino.
+Antes de planear el uso de varios inquilinos de Azure AD, vea el artículo [Administración de unidades administrativas en Azure AD](../roles/administrative-units.md). Se ocupa de los escenarios comunes donde puede usar un solo inquilino.
 
 ![Topología para varios bosques y varios inquilinos](./media/plan-connect-topologies/multiforestmultidirectory.png)
 

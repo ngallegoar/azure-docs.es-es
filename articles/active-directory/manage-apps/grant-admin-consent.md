@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069584"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369104"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concesión del consentimiento del administrador para todo el inquilino a una aplicación
 
@@ -27,7 +27,7 @@ Para más información acerca de cómo dar consentimiento a las aplicaciones, co
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para conceder el consentimiento del administrador para todo el inquilino, debe iniciar sesión como [Administrador global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [Administrador de aplicaciones](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) o [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+Para conceder el consentimiento del administrador para todo el inquilino, debe iniciar sesión como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) o [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
 > Cuando a una aplicación se le concede consentimiento del administrador para todo el inquilino, todos los usuarios podrán iniciar sesión en la aplicación a menos que se haya configurado para requerir la asignación de usuarios. Para restringir qué usuarios pueden iniciar sesión en una aplicación, debe requerir la asignación de usuarios y, luego, asignar usuarios o grupos a la aplicación. Para más información, consulte [Métodos para asignar usuarios y grupos](methods-for-assigning-users-and-groups.md).
@@ -45,12 +45,12 @@ Para conceder el consentimiento del administrador para todo el inquilino, debe i
 
 Puede conceder el consentimiento del administrador para todo el inquilino a través de *Aplicaciones empresariales* si la aplicación ya se ha aprovisionado en el inquilino. Por ejemplo, se podría aprovisionar una aplicación en el inquilino si al menos un usuario ya ha dado su consentimiento a la aplicación. Para más información, vea [Cómo y por qué se agregan aplicaciones a Azure AD](../develop/active-directory-how-applications-are-added.md).
 
-Para conceder el consentimiento del administrador para todo el inquilino a una de las aplicaciones mostradas en **Aplicaciones empresariales**:
+Para conceder el consentimiento del administrador para todo el inquilino a una de las aplicaciones mostradas en **Aplicaciones empresariales** :
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [Administrador de aplicaciones](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) o [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
-2. Seleccione **Azure Active Directory** y después **Aplicaciones empresariales**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) o [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator).
+2. Seleccione **Azure Active Directory** y después **Aplicaciones empresariales** .
 3. Seleccione la aplicación a la que quiera conceder el consentimiento del administrador para todo el inquilino.
-4. Seleccione **Permisos** y, a continuación, haga clic en **Conceder consentimiento de administrador**.
+4. Seleccione **Permisos** y, a continuación, haga clic en **Conceder consentimiento de administrador** .
 5. Revise cuidadosamente los permisos que requiere la aplicación.
 6. Si está de acuerdo con los permisos que requiere la aplicación, conceda el consentimiento. En caso contrario, haga clic en **Cancelar** o cierre la ventana.
 
@@ -61,12 +61,12 @@ Para conceder el consentimiento del administrador para todo el inquilino a una d
 
 Para las aplicaciones desarrolladas por la organización, o bien las que se hayan registrado directamente en el inquilino de Azure AD, también puede conceder el consentimiento del administrador para todo el inquilino desde **Registros de aplicaciones** en Azure Portal.
 
-Para conceder el consentimiento del administrador para todo el inquilino desde **Registros de aplicaciones**:
+Para conceder el consentimiento del administrador para todo el inquilino desde **Registros de aplicaciones** :
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [Administrador de aplicaciones](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) o [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
-2. Seleccione **Azure Active Directory** y después **Registros de aplicaciones**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) o [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator).
+2. Seleccione **Azure Active Directory** y después **Registros de aplicaciones** .
 3. Seleccione la aplicación a la que quiera conceder el consentimiento del administrador para todo el inquilino.
-4. Seleccione **Permisos de API** y, después, haga clic en **Conceder consentimiento del administrador**.
+4. Seleccione **Permisos de API** y, después, haga clic en **Conceder consentimiento del administrador** .
 5. Revise cuidadosamente los permisos que requiere la aplicación.
 6. Si está de acuerdo con los permisos que requiere la aplicación, conceda el consentimiento. En caso contrario, haga clic en **Cancelar** o cierre la ventana.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145423"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366367"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acceso condicional: Usuarios y grupos
 
@@ -46,13 +46,13 @@ Las siguientes opciones están disponibles para su inclusión al crear una direc
 > Si los usuarios o grupos son miembros de más de 2048 grupos, es posible que se bloquee su acceso. Este límite se aplica a la pertenencia a grupos directa y anidada.
 
 > [!WARNING]
-> Las directivas de acceso condicional no admiten usuarios asignados a un rol de directorio [con el ámbito de una unidad administrativa](../users-groups-roles/roles-admin-units-assign-roles.md) o roles de directorio con un ámbito directo de un objeto, como mediante [roles personalizados](../users-groups-roles/roles-create-custom.md).
+> Las directivas de acceso condicional no admiten usuarios asignados a un rol de directorio [con el ámbito de una unidad administrativa](../roles/admin-units-assign-roles.md) o roles de directorio con un ámbito directo de un objeto, como mediante [roles personalizados](../roles/custom-create.md).
 
 ## <a name="exclude-users"></a>Excluir usuarios
 
 Cuando las organizaciones incluyen y excluyen un usuario o grupo, estos se excluyen de la directiva, ya que las acciones de exclusión invalidan las de inclusión en la directiva. Las exclusiones se usan normalmente para cuentas de acceso de emergencia. En los siguientes artículos encontrará más información sobre las cuentas de acceso de emergencia y por qué son importantes: 
 
-* [Administración de cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md)
 * [Crear una estrategia de administración de control de acceso resistente con Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 Las siguientes opciones están disponibles para su exclusión al crear una directiva de acceso condicional.

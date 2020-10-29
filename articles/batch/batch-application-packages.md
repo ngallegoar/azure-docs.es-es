@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "91277706"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementación de aplicaciones en nodos de proceso con paquetes de aplicaciones de Batch
@@ -33,7 +33,7 @@ Hay restricciones en el número de aplicaciones y paquetes de aplicación que pu
 
 ## <a name="understand-applications-and-application-packages"></a>Aplicaciones y paquetes de aplicación
 
-En Azure Batch, una *aplicación* hace referencia a un conjunto de archivos binarios con versiones que se pueden descargar automáticamente en los nodos de proceso del grupo. Una aplicación contiene uno o varios *paquetes de aplicación*, que representan diferentes versiones de la aplicación.
+En Azure Batch, una *aplicación* hace referencia a un conjunto de archivos binarios con versiones que se pueden descargar automáticamente en los nodos de proceso del grupo. Una aplicación contiene uno o varios *paquetes de aplicación* , que representan diferentes versiones de la aplicación.
 
 Cada *paquete de aplicación* es un archivo .zip que contiene los archivos binarios de la aplicación y los archivos auxiliares. Solo se admite el formato. zip.
 
@@ -69,7 +69,7 @@ Si aún no ha configurado ninguna cuenta de almacenamiento, Azure Portal muestra
 Una vez que haya vinculado las dos cuentas, Batch puede implementar automáticamente los paquetes almacenados en la cuenta de Almacenamiento vinculada en los nodos de proceso.
 
 > [!IMPORTANT]
-> No puede usar paquetes de aplicación con cuentas de Azure Storage configuradas con [reglas de firewall](../storage/common/storage-network-security.md) o con **Espacio de nombres jerárquico** establecido en **Habilitado**.
+> No puede usar paquetes de aplicación con cuentas de Azure Storage configuradas con [reglas de firewall](../storage/common/storage-network-security.md) o con **Espacio de nombres jerárquico** establecido en **Habilitado** .
 
 El servicio Batch utiliza Azure Storage para almacenar los paquetes de aplicación como blobs en bloques. Los datos de blob en bloques se [cobran al precio habitual](https://azure.microsoft.com/pricing/details/storage/) y el tamaño de cada paquete no puede superar el tamaño máximo del blob en bloques. Para más información, consulte [Objetivos de escalabilidad y rendimiento de Azure Storage para las cuentas de almacenamiento](../storage/blobs/scalability-targets.md). Para minimizar los costos, asegúrese de tener en cuenta el tamaño y número de los paquetes de aplicación y elimine periódicamente los paquetes en desuso.
 
@@ -79,35 +79,35 @@ Para ver las aplicaciones de la cuenta de Batch, seleccione **Aplicaciones** en 
 
 :::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagrama que muestra una vista de alto nivel de aplicaciones y paquetes de aplicación.":::
 
-Al seleccionar esta opción de menú se abre la ventana **Aplicaciones**. Esta ventana muestra el identificador de cada aplicación en su cuenta y las propiedades siguientes:
+Al seleccionar esta opción de menú se abre la ventana **Aplicaciones** . Esta ventana muestra el identificador de cada aplicación en su cuenta y las propiedades siguientes:
 
-- **Paquetes**: el número de versiones asociadas a la aplicación.
-- **Versión predeterminada**: si procede, versión de la aplicación que se instalará si no se especifica ninguna versión al implementar la aplicación.
-- **Permitir actualizaciones**: especifica si se permiten las actualizaciones y eliminaciones de paquetes.
+- **Paquetes** : el número de versiones asociadas a la aplicación.
+- **Versión predeterminada** : si procede, versión de la aplicación que se instalará si no se especifica ninguna versión al implementar la aplicación.
+- **Permitir actualizaciones** : especifica si se permiten las actualizaciones y eliminaciones de paquetes.
 
-Si quiere ver la [estructura de archivos](files-and-directories.md) del paquete de aplicación en un nodo de proceso, vaya a su cuenta de Batch en Azure Portal. Seleccione **Grupos**. Seleccione el grupo que contiene los nodos de proceso. Seleccione el nodo de proceso en el que está instalado el paquete de aplicación y abra la carpeta **applications**.
+Si quiere ver la [estructura de archivos](files-and-directories.md) del paquete de aplicación en un nodo de proceso, vaya a su cuenta de Batch en Azure Portal. Seleccione **Grupos** . Seleccione el grupo que contiene los nodos de proceso. Seleccione el nodo de proceso en el que está instalado el paquete de aplicación y abra la carpeta **applications** .
 
 ### <a name="view-application-details"></a>Visualización de los detalles de una aplicación
 
-Para consultar los detalles de una aplicación, selecciónela en la ventana **Aplicaciones**. Puede configurar los siguientes valores para la aplicación.
+Para consultar los detalles de una aplicación, selecciónela en la ventana **Aplicaciones** . Puede configurar los siguientes valores para la aplicación.
 
-- **Permitir actualizaciones**: indica si sus paquetes de aplicación se pueden [actualizar o eliminar](#update-or-delete-an-application-package). El valor predeterminado es **Sí**. Si se establece en **No**, los paquetes de aplicación existentes no se pueden actualizar ni eliminar, pero todavía se pueden agregar nuevas versiones de paquetes de aplicación.
-- **Versión predeterminada**: paquete de aplicación predeterminado que se utilizará cuando se implemente la aplicación si no se especifica ninguna versión.
-- **Nombre para mostrar**: nombre descriptivo que la solución de Batch puede usar cuando muestra información sobre la aplicación. Por ejemplo, este nombre se puede usar en la interfaz de usuario de un servicio que se proporciona a los clientes a través de Batch.
+- **Permitir actualizaciones** : indica si sus paquetes de aplicación se pueden [actualizar o eliminar](#update-or-delete-an-application-package). El valor predeterminado es **Sí** . Si se establece en **No** , los paquetes de aplicación existentes no se pueden actualizar ni eliminar, pero todavía se pueden agregar nuevas versiones de paquetes de aplicación.
+- **Versión predeterminada** : paquete de aplicación predeterminado que se utilizará cuando se implemente la aplicación si no se especifica ninguna versión.
+- **Nombre para mostrar** : nombre descriptivo que la solución de Batch puede usar cuando muestra información sobre la aplicación. Por ejemplo, este nombre se puede usar en la interfaz de usuario de un servicio que se proporciona a los clientes a través de Batch.
 
 ### <a name="add-a-new-application"></a>Adición de una nueva aplicación
 
 Para crear una aplicación, agregue un paquete de aplicación y especifique un identificador de aplicación único.
 
-En la cuenta de Batch, seleccione **Aplicaciones** y luego elija **Agregar**.
+En la cuenta de Batch, seleccione **Aplicaciones** y luego elija **Agregar** .
 
 :::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagrama que muestra una vista de alto nivel de aplicaciones y paquetes de aplicación.":::
 
 Escriba la siguiente información:
 
-- **Identificador de aplicación**: identificador de la nueva aplicación.
-- **Versión**": versión del paquete de aplicación que se carga.
-- **Paquete de aplicación**: archivo .zip que contiene los archivos binarios y los archivos auxiliares necesarios para ejecutar la aplicación.
+- **Identificador de aplicación** : identificador de la nueva aplicación.
+- **Versión** ": versión del paquete de aplicación que se carga.
+- **Paquete de aplicación** : archivo .zip que contiene los archivos binarios y los archivos auxiliares necesarios para ejecutar la aplicación.
 
 Los valores que escriba en **Id. de la aplicación** y **Versión** deben seguir estos requisitos:
 
@@ -116,13 +116,13 @@ Los valores que escriba en **Id. de la aplicación** y **Versión** deben seguir
 - Deben ser único en la cuenta de Batch.
 - Los identificadores conservan las mayúsculas y minúsculas, aunque no las distinguen.
 
-Cuando esté listo, seleccione **Enviar**. Después de cargar el archivo. zip en la cuenta de Azure Storage, el portal muestra una notificación. En función del tamaño del archivo que se va a cargar y de la velocidad de la conexión de red, esta operación puede tardar cierto tiempo.
+Cuando esté listo, seleccione **Enviar** . Después de cargar el archivo. zip en la cuenta de Azure Storage, el portal muestra una notificación. En función del tamaño del archivo que se va a cargar y de la velocidad de la conexión de red, esta operación puede tardar cierto tiempo.
 
 ### <a name="add-a-new-application-package"></a>Adición de un nuevo paquete de aplicación
 
-Para agregar una versión del paquete de aplicación para una aplicación existente, seleccione la aplicación en la sección **Aplicaciones** de la cuenta de Batch y luego elija **Agregar**.
+Para agregar una versión del paquete de aplicación para una aplicación existente, seleccione la aplicación en la sección **Aplicaciones** de la cuenta de Batch y luego elija **Agregar** .
 
-Como hizo con la nueva aplicación, especifique la **versión** del nuevo paquete, cargue el archivo. zip en el campo **Paquete de aplicación** y seleccione **Enviar**.
+Como hizo con la nueva aplicación, especifique la **versión** del nuevo paquete, cargue el archivo. zip en el campo **Paquete de aplicación** y seleccione **Enviar** .
 
 ### <a name="update-or-delete-an-application-package"></a>Actualización o eliminación de un paquete de aplicación
 
@@ -130,9 +130,9 @@ Para actualizar o eliminar un paquete de aplicación existente, seleccione la ap
 
 :::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagrama que muestra una vista de alto nivel de aplicaciones y paquetes de aplicación.":::
 
-Si selecciona **Actualizar**, podrá cargar un nuevo archivo .zip. Con ello reemplazará el archivo .zip anterior que cargó para esa versión.
+Si selecciona **Actualizar** , podrá cargar un nuevo archivo .zip. Con ello reemplazará el archivo .zip anterior que cargó para esa versión.
 
-Si selecciona **Eliminar**, se le pedirá que confirme la eliminación de esa versión. Cuando haya seleccionado **Aceptar**, Batch eliminará el archivo .zip de la cuenta de Azure Storage. Si elimina la versión predeterminada de una aplicación, se quita el valor **Versión predeterminada** para esa aplicación.
+Si selecciona **Eliminar** , se le pedirá que confirme la eliminación de esa versión. Cuando haya seleccionado **Aceptar** , Batch eliminará el archivo .zip de la cuenta de Azure Storage. Si elimina la versión predeterminada de una aplicación, se quita el valor **Versión predeterminada** para esa aplicación.
 
 ## <a name="install-applications-on-compute-nodes"></a>Instalación de aplicaciones en nodos de proceso
 
@@ -223,9 +223,9 @@ Linux:
 AZ_BATCH_APP_PACKAGE_blender_2_7
 ```
 
-Cuando carga un paquete de aplicación, puede especificar una versión predeterminada que implementar en los nodos de proceso. Si ha especificado una versión predeterminada para una aplicación, puede omitir el sufijo de versión al hacer referencia a ella. Puede especificar la versión predeterminada de la aplicación en Azure Portal, en la ventana **Aplicaciones**, como se muestra en [Carga y administración de aplicaciones](#upload-and-manage-applications).
+Cuando carga un paquete de aplicación, puede especificar una versión predeterminada que implementar en los nodos de proceso. Si ha especificado una versión predeterminada para una aplicación, puede omitir el sufijo de versión al hacer referencia a ella. Puede especificar la versión predeterminada de la aplicación en Azure Portal, en la ventana **Aplicaciones** , como se muestra en [Carga y administración de aplicaciones](#upload-and-manage-applications).
 
-Por ejemplo, si especifica la versión "2.7" como la versión predeterminada de la aplicación *blender*, las tareas pueden hacer referencia a la siguiente variable de entorno y, después, los nodos de Windows ejecutarán la versión 2.7:
+Por ejemplo, si especifica la versión "2.7" como la versión predeterminada de la aplicación *blender* , las tareas pueden hacer referencia a la siguiente variable de entorno y, después, los nodos de Windows ejecutarán la versión 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 

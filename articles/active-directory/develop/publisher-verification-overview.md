@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258156"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363426"
 ---
 # <a name="publisher-verification"></a>Verificación del editor
 
@@ -29,11 +29,11 @@ Esta característica es principalmente para desarrolladores que compilan aplicac
 
 ## <a name="benefits"></a>Ventajas
 La verificación del publicador proporciona las ventajas siguientes:
-- **Mayor transparencia y reducción de riesgos para los clientes**: esta funcionalidad ayuda a los clientes a comprender cuáles de las aplicaciones que se usan en sus organizaciones están publicadas por desarrolladores en los que confían. 
+- **Mayor transparencia y reducción de riesgos para los clientes** : esta funcionalidad ayuda a los clientes a comprender cuáles de las aplicaciones que se usan en sus organizaciones están publicadas por desarrolladores en los que confían. 
 
-- **Personalización de marca mejorada**: aparece una notificación "comprobado" en la [petición de consentimiento](application-consent-experience.md) de Azure AD, la página Aplicaciones empresariales y las superficies de experiencia de usuario adicionales que usan los usuarios finales y los administradores. 
+- **Personalización de marca mejorada** : aparece una notificación "comprobado" en la [petición de consentimiento](application-consent-experience.md) de Azure AD, la página Aplicaciones empresariales y las superficies de experiencia de usuario adicionales que usan los usuarios finales y los administradores. 
 
-- **Adopción empresarial más fluida**: los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva.
+- **Adopción empresarial más fluida** : los administradores pueden configurar [directivas de consentimiento del usuario](../manage-apps/configure-user-consent.md) y que sea el estado de verificación del editor uno de los criterios principales de la directiva.
 
 > [!NOTE]
 > A partir de noviembre de 2020, los usuarios finales ya no podrán conceder consentimiento a la mayoría de las aplicaciones de varios inquilinos recién registradas sin publicadores comprobados. Esto será efectivo para las aplicaciones registradas después del 8 de noviembre de 2020. Use OAuth 2.0 para solicitar permisos más allá del inicio de sesión básico y la lectura del perfil de usuario, y solicite consentimiento a los usuarios de inquilinos que no sean aquellos en los que está registrada la aplicación. Se mostrará una advertencia en la pantalla de consentimiento que informa a los usuarios de que estas aplicaciones son peligrosas porque proceden de publicadores no comprobados.    
@@ -49,7 +49,7 @@ Hay algunos requisitos previos para la verificación del publicador, algunos de 
 
 -  El usuario que realiza la comprobación debe estar autorizado para realizar cambios en el registro de aplicación en Azure AD y en la cuenta de MPN del Centro de partners. 
 
-    -  En Azure AD, este usuario debe ser miembro de alguno de los siguientes [roles](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
+    -  En Azure AD, este usuario debe ser miembro de alguno de los siguientes [roles](../roles/permissions-reference.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
 
     -  En el Centro de partners, este usuario debe tener uno de los siguientes [roles](/partner-center/permissions-overview): Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD).
     

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0903828b04922104a9dd93ac79459bf73644f35c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419825"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365840"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Administración del grupo de administradores locales en dispositivos unidos a Azure AD
 
 Para administrar un dispositivo Windows, debe ser miembro del grupo de administradores locales. Como parte del proceso de unión a Azure Active Directory (Azure AD), Azure AD actualiza la pertenencia de este grupo en un dispositivo. Puede personalizar la actualización de la pertenencia para satisfacer los requisitos de su negocio. Una actualización de pertenencia es, por ejemplo, útil si desea permitir que el personal del soporte técnico realice tareas que requieran derechos de administrador en un dispositivo.
 
-En este artículo se explica cómo funciona la actualización de la pertenencia de los administradores locales y cómo puede personalizarla durante una unión a Azure AD. El contenido de este artículo no se aplica a dispositivos **unidos a Azure AD híbrido**.
+En este artículo se explica cómo funciona la actualización de la pertenencia de los administradores locales y cómo puede personalizarla durante una unión a Azure AD. El contenido de este artículo no se aplica a dispositivos **unidos a Azure AD híbrido** .
 
 ## <a name="how-it-works"></a>Funcionamiento
 
@@ -39,20 +39,20 @@ Azure AD también agrega el rol de administrador de dispositivos de Azure AD al 
 
 Para ver y actualizar la pertenencia al rol de administrador global, consulte:
 
-- [Visualización de todos los miembros de un rol de administrador en Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md)
+- [Visualización de todos los miembros de un rol de administrador en Azure Active Directory](../roles/manage-roles-portal.md)
 - [Asignación de un usuario a roles de administrador en Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md)
 
 
 ## <a name="manage-the-device-administrator-role"></a>Administración del rol de administrador de dispositivos 
 
-En Azure Portal, puede administrar el rol de administrador de dispositivos en la página **Dispositivos**. Para abrir la página **Dispositivos**:
+En Azure Portal, puede administrar el rol de administrador de dispositivos en la página **Dispositivos** . Para abrir la página **Dispositivos** :
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
-1. Busque y seleccione *Azure Active Directory*.
-1. En la sección **Administrar**, haga clic en **Dispositivos**.
-1. En la página **Dispositivos**, haga clic en **Configuración del dispositivo**.
+1. Busque y seleccione *Azure Active Directory* .
+1. En la sección **Administrar** , haga clic en **Dispositivos** .
+1. En la página **Dispositivos** , haga clic en **Configuración del dispositivo** .
 
-Para modificar el rol de administrador de dispositivos, configure **Administradores locales adicionales en dispositivos unidos a Azure AD**.  
+Para modificar el rol de administrador de dispositivos, configure **Administradores locales adicionales en dispositivos unidos a Azure AD** .  
 
 ![Otros administradores locales](./media/assign-local-admin/10.png)
 
@@ -93,7 +93,7 @@ De forma predeterminada, Azure AD agrega el usuario que realiza la unión a Azur
 
 Además de usar el proceso de unión a Azure AD, también puede elevar manualmente un usuario regular para que se convierta en un administrador local en un dispositivo específico. Este paso requiere que ya sea miembro del grupo de administradores locales. 
 
-A partir de la versión **Windows 10 1709**, puede realizar esta tarea en **Configuración -> Cuentas -> Otros usuarios**. Seleccione **Agregar un usuario de trabajo o escuela**, escriba el UPN del usuario en **Cuenta de usuario** y seleccione *Administrador* en **Tipo de cuenta**  
+A partir de la versión **Windows 10 1709** , puede realizar esta tarea en **Configuración -> Cuentas -> Otros usuarios** . Seleccione **Agregar un usuario de trabajo o escuela** , escriba el UPN del usuario en **Cuenta de usuario** y seleccione *Administrador* en **Tipo de cuenta**  
  
 Además, también puede agregar usuarios mediante el símbolo del sistema:
 

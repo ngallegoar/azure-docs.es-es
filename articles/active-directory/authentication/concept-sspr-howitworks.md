@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965104"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363681"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funcionamiento: Autoservicio de restablecimiento de contraseña de Azure AD
 
@@ -41,7 +41,7 @@ Cuando un usuario selecciona el vínculo **No se puede tener acceso a la cuenta*
 
 * De forma predeterminada, se utiliza la configuración regional del explorador para mostrar el portal de SSPR en el idioma correspondiente. La experiencia de restablecimiento de contraseña está traducida a los mismos idiomas que [admite Microsoft 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * Si desea crear un vínculo al portal de SSPR en un idioma traducido específico, anexe `?mkt=` al final de la dirección URL de restablecimiento de contraseña, junto con la configuración regional necesaria.
-    * Por ejemplo, para especificar la configuración regional de español *es-us*, utilice `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
+    * Por ejemplo, para especificar la configuración regional de español *es-us* , utilice `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
 Una vez que el portal de SSPR se muestra en el idioma necesario, se solicita al usuario que especifique un Id. de usuario y verifique un captcha. Azure AD verifica que el usuario pueda utilizar SSPR. Para ello, lleva a cabo las siguientes comprobaciones:
 
@@ -94,9 +94,9 @@ Cuando el registro no sea un requisito, no se instará a los usuarios a completa
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Establecer el número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación
 
-Para asegurarse de que los métodos de autenticación sean correctos cuando es necesario restablecer o cambiar la contraseña de los usuarios, puede exigir que estos confirmen la información que hayan registrado transcurrido un periodo de tiempo determinado. Esta opción solo está disponible si habilita la opción **Exigir a los usuarios que se registren al iniciar sesión**.
+Para asegurarse de que los métodos de autenticación sean correctos cuando es necesario restablecer o cambiar la contraseña de los usuarios, puede exigir que estos confirmen la información que hayan registrado transcurrido un periodo de tiempo determinado. Esta opción solo está disponible si habilita la opción **Exigir a los usuarios que se registren al iniciar sesión** .
 
-Los valores válidos para solicitar a un usuario que confirme los métodos que ha registrado abarcan de *0* a *730* días. Si el valor se establece en *0*, nunca se solicitará a los usuarios que confirmen la información de autenticación.
+Los valores válidos para solicitar a un usuario que confirme los métodos que ha registrado abarcan de *0* a *730*  días. Si el valor se establece en *0* , nunca se solicitará a los usuarios que confirmen la información de autenticación.
 
 ## <a name="authentication-methods"></a>Métodos de autenticación
 
@@ -120,7 +120,7 @@ Los usuarios solo pueden restablecer su contraseña si tienen registrado un mét
 
 ### <a name="number-of-authentication-methods-required"></a>Número de métodos de autenticación requeridos
 
-El número de métodos de autenticación disponibles que un usuario debe proporcionar para restablecer o desbloquear su contraseña se puede configurar. El valor se puede establecer en *uno* o *dos*.
+El número de métodos de autenticación disponibles que un usuario debe proporcionar para restablecer o desbloquear su contraseña se puede configurar. El valor se puede establecer en *uno* o *dos* .
 
 Los usuarios pueden y deben registrar varios métodos de autenticación. Nuevamente, es muy recomendable que los usuarios registren dos o más métodos de autenticación para tener más flexibilidad en el caso de que no puedan acceder a uno de los métodos cuando lo necesiten.
 
@@ -172,17 +172,17 @@ Para mejorar el reconocimiento de los eventos de contraseña, SSPR permite confi
 
 ### <a name="notify-users-on-password-resets"></a>¿Quiere notificar a los usuarios los restablecimientos de contraseña?
 
-Si esta opción se ha establecida en **Sí**, los usuarios que restablezcan la contraseña recibirán un correo electrónico para informarles de que la contraseña se ha cambiado. El correo electrónico se envía a través del portal de SSPR a las direcciones de correo electrónico principal y alternativa que se hayan almacenado en Azure AD. A ningún otro usuario se le informa del evento de restablecimiento.
+Si esta opción se ha establecida en **Sí** , los usuarios que restablezcan la contraseña recibirán un correo electrónico para informarles de que la contraseña se ha cambiado. El correo electrónico se envía a través del portal de SSPR a las direcciones de correo electrónico principal y alternativa que se hayan almacenado en Azure AD. A ningún otro usuario se le informa del evento de restablecimiento.
 
 ### <a name="notify-all-admins-when-other-admins-reset-their-passwords"></a>Notificación a todos los administradores cuando otros administradores restablecen sus contraseñas
 
-Si esta opción se ha establecido en **Sí**, todos los administradores de Azure recibirán un correo electrónico en la dirección de correo electrónico principal que tienen almacenada en Azure AD. En el correo electrónico se les notifica que otro administrador ha cambiado su contraseña mediante SSPR.
+Si esta opción se ha establecido en **Sí** , todos los administradores de Azure recibirán un correo electrónico en la dirección de correo electrónico principal que tienen almacenada en Azure AD. En el correo electrónico se les notifica que otro administrador ha cambiado su contraseña mediante SSPR.
 
 Considere el escenario de ejemplo siguiente:
 
 * hay cuatro administradores en un entorno.
 * El administrador *A* restablece la contraseña de los usuarios mediante SSPR.
-* Los administradores *B*, *C* y *D* recibirán un correo electrónico para informarles del restablecimiento de contraseña.
+* Los administradores *B* , *C* y *D* recibirán un correo electrónico para informarles del restablecimiento de contraseña.
 
 ## <a name="on-premises-integration"></a>Integración local
 
@@ -208,15 +208,15 @@ Para empezar a trabajar con la escritura diferida de SSPR, realice el siguiente 
 
 Puede habilitar la escritura diferida de contraseñas desde Azure Portal. También puede deshabilitar temporalmente la escritura diferida de contraseñas sin necesidad de volver a configurar Azure AD Connect.
 
-* Si la opción se ha establecido en **Sí**, la escritura diferida estará habilitada. Los usuarios que utilicen la autenticación federada de paso a través o la sincronización de hash de contraseña podrán restablecer sus contraseñas.
-* Si la opción se ha establecido en **No**, la escritura diferida estará deshabilitada. Los usuarios que utilicen la autenticación federada de paso a través o la sincronización de hash de contraseña no podrán restablecer sus contraseñas.
+* Si la opción se ha establecido en **Sí** , la escritura diferida estará habilitada. Los usuarios que utilicen la autenticación federada de paso a través o la sincronización de hash de contraseña podrán restablecer sus contraseñas.
+* Si la opción se ha establecido en **No** , la escritura diferida estará deshabilitada. Los usuarios que utilicen la autenticación federada de paso a través o la sincronización de hash de contraseña no podrán restablecer sus contraseñas.
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña
 
 De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un restablecimiento de contraseña. Para proporcionar flexibilidad, puede permitir que los usuarios desbloqueen sus cuentas locales sin tener que restablecer la contraseña. Utilice esta opción para separar esas dos operaciones.
 
-* Si se establece en **Sí**, los usuarios tienen la opción de restablecer su contraseña y desbloquear la cuenta, o bien de desbloquear la cuenta sin tener que restablecer la contraseña.
-* Si se establece en **No**, los usuarios solo pueden realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
+* Si se establece en **Sí** , los usuarios tienen la opción de restablecer su contraseña y desbloquear la cuenta, o bien de desbloquear la cuenta sin tener que restablecer la contraseña.
+* Si se establece en **No** , los usuarios solo pueden realizar una operación combinada de restablecimiento de contraseña y desbloqueo de cuenta.
 
 ### <a name="on-premises-active-directory-password-filters"></a>Filtros de la contraseña de Active Directory local
 
@@ -226,9 +226,9 @@ SSPR efectúa una operación equivalente a un restablecimiento de contraseña in
 
 El restablecimiento y el cambio de contraseña son totalmente compatibles con todas las configuraciones negocio a negocio (B2B). Se admiten los tres casos siguientes para el restablecimiento de contraseña de usuario B2B:
 
-* **Usuarios de una organización asociada con un inquilino de Azure AD existente**: Si la organización con la que colabora tiene un inquilino de Azure AD, se respetarán todas las directivas de restablecimiento de contraseña que estén habilitadas en dicho inquilino. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No tiene costo adicional para los clientes de Microsoft 365.
-* **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que colabora utilizó la característica de [registro de autoservicio](../users-groups-roles/directory-self-service-signup.md) para acceder a un inquilino, se permitirá que restablezca la contraseña con el correo electrónico que hubiera registrado.
-* **Usuarios B2B**: cualquier nuevo usuario B2B creado con la nueva [funcionalidad B2B de Azure AD](../external-identities/what-is-b2b.md) podrá restablecer su contraseña con el correo electrónico que haya registrado durante el proceso de invitación.
+* **Usuarios de una organización asociada con un inquilino de Azure AD existente** : Si la organización con la que colabora tiene un inquilino de Azure AD, se respetarán todas las directivas de restablecimiento de contraseña que estén habilitadas en dicho inquilino. Para que el restablecimiento de contraseña funcione, la organización asociada solo tiene que asegurarse de que SSPR de Azure AD está habilitado. No tiene costo adicional para los clientes de Microsoft 365.
+* **Usuarios que se registran mediante el** registro de autoservicio: si la organización con la que colabora utilizó la característica de [registro de autoservicio](../enterprise-users/directory-self-service-signup.md) para acceder a un inquilino, se permitirá que restablezca la contraseña con el correo electrónico que hubiera registrado.
+* **Usuarios B2B** : cualquier nuevo usuario B2B creado con la nueva [funcionalidad B2B de Azure AD](../external-identities/what-is-b2b.md) podrá restablecer su contraseña con el correo electrónico que haya registrado durante el proceso de invitación.
 
 Para probar este escenario, vaya a https://passwordreset.microsoftonline.com con uno de estos usuarios asociados. Si tienen un correo electrónico alternativo o de autenticación definido, el restablecimiento de contraseña funcionará según lo esperado.
 

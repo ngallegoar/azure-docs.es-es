@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b3070a1296b368ea2c56038ec696942416a6fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d9fdc44681c8773d7b6f724174a74e76e57939e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84743888"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369767"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Cree una revisión de acceso para los roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 
@@ -29,17 +29,17 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[Administrador de roles con privilegios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
+[Administrador de roles con privilegios](../roles/permissions-reference.md#privileged-role-administrator)
 
 ## <a name="open-access-reviews"></a>Abrir las revisiones de acceso
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con un usuario que sea miembro del rol Administrador de roles con privilegios.
 
-1. Abra **Azure AD Privileged Identity Management**.
+1. Abra **Azure AD Privileged Identity Management** .
 
-1. Seleccione **Roles de Azure AD**.
+1. Seleccione **Roles de Azure AD** .
 
-1. En Administrar, seleccione **Revisiones de acceso** y, a continuación, seleccione **Nueva**.
+1. En Administrar, seleccione **Revisiones de acceso** y, a continuación, seleccione **Nueva** .
 
     ![Roles de Azure AD: lista de revisiones de acceso que muestra el estado de todas las revisiones](./media/pim-how-to-start-security-review/access-reviews.png)
 
@@ -47,7 +47,7 @@ En este artículo se describe cómo crear una o varias revisiones de acceso para
 
 ## <a name="start-the-access-review"></a>Inicio de la revisión de acceso
 
-Cuando haya especificado la configuración de una revisión de acceso, seleccione **Iniciar**. La revisión de acceso aparecerá en la lista con un indicador de su estado.
+Cuando haya especificado la configuración de una revisión de acceso, seleccione **Iniciar** . La revisión de acceso aparecerá en la lista con un indicador de su estado.
 
 ![Lista de revisiones de acceso que muestra el estado de las revisiones iniciadas](./media/pim-how-to-start-security-review/access-reviews-list.png)
 
@@ -63,7 +63,7 @@ Si se trata de una revisión puntual, una vez finalizado el período de revisió
 
 Para administrar una serie de revisiones de acceso, vaya a la revisión de acceso y verá los próximos eventos en Revisiones programadas; ahí podrá editar la fecha de finalización o agregar o quitar revisores según corresponda.
 
-Según las selecciones de la **Configuración de finalización**, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando se detenga manualmente la revisión. El estado de la revisión cambiará de **Completado** a estados intermedios como **Aplicando** y, por último, a **Aplicado**. Debería ver que los usuarios denegados, si es que los hay, se eliminan de los roles en unos minutos.
+Según las selecciones de la **Configuración de finalización** , la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando se detenga manualmente la revisión. El estado de la revisión cambiará de **Completado** a estados intermedios como **Aplicando** y, por último, a **Aplicado** . Debería ver que los usuarios denegados, si es que los hay, se eliminan de los roles en unos minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

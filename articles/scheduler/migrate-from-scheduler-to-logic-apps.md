@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532160"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368271"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migración de trabajos de Azure Scheduler to Azure Logic Apps
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo se pueden programar tanto los trabajos único
 
 * Compilar su trabajo con un diseñador visual y [conectores listos para usar](../connectors/apis-list.md) de cientos de servicios, como Azure Blob Storage, Azure Service Bus, Office 365 Outlook y SAP.
 
-* Administrar cada carga de trabajo programada como un recurso de Azure de primera clase. No tiene que preocuparse por el concepto de una *colección de trabajos*, ya que cada aplicación lógica es un recurso individual de Azure.
+* Administrar cada carga de trabajo programada como un recurso de Azure de primera clase. No tiene que preocuparse por el concepto de una *colección de trabajos* , ya que cada aplicación lógica es un recurso individual de Azure.
 
 * Ejecutar varios trabajos únicos mediante una sola aplicación lógica.
 
@@ -59,7 +59,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
 1. En el caso del desencadenador de solicitud, también puede proporcionar un esquema de JSON, que ayuda al Diseñador de aplicaciones lógicas a conocer la estructura de las entradas incluidas en la llamada entrante al desencadenador de solicitud y facilita las salidas más adelante en el flujo de trabajo.
 
-   En el cuadro **Esquema JSON de cuerpo de solicitud**, especifique el esquema, por ejemplo:
+   En el cuadro **Esquema JSON de cuerpo de solicitud** , especifique el esquema, por ejemplo:
 
    ![Esquema de solicitud](./media/migrate-from-scheduler-to-logic-apps/request-schema.png)
 
@@ -67,7 +67,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
    1. En el desencadenador de solicitud, seleccione **Use sample payload to generate schema** (Usar una carga de ejemplo para generar el esquema).
 
-   1. En **Enter or paste a sample JSON payload** (Escribir o copiar una carga de JSON de ejemplo), especifique la carga de ejemplo y luego seleccione **Listo**, por ejemplo:
+   1. En **Enter or paste a sample JSON payload** (Escribir o copiar una carga de JSON de ejemplo), especifique la carga de ejemplo y luego seleccione **Listo** , por ejemplo:
 
       ![Carga de ejemplo](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
@@ -78,7 +78,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
       }
       ```
 
-1. En el desencadenador, seleccione **Nuevo paso**.
+1. En el desencadenador, seleccione **Nuevo paso** .
 
 1. En el cuadro de búsqueda, escriba `delay until` como filtro. En la lista de acciones, seleccione esta acción: **Retraso hasta**
 
@@ -102,7 +102,7 @@ La creación de una aplicación lógica individual permite ejecutar varios traba
 
    ![Guardado de la aplicación lógica](./media/migrate-from-scheduler-to-logic-apps/save-logic-app.png)
 
-   La primera vez que se guarda una aplicación lógica por primera vez, la dirección URL del punto de conexión del desencadenador de solicitud de la aplicación lógica aparece en el cuadro **Dirección URL de HTTP POST**. Si desea llamar a la aplicación lógica y enviar las entradas a ella para su procesamiento, use esta dirección URL como destino de la llamada.
+   La primera vez que se guarda una aplicación lógica por primera vez, la dirección URL del punto de conexión del desencadenador de solicitud de la aplicación lógica aparece en el cuadro **Dirección URL de HTTP POST** . Si desea llamar a la aplicación lógica y enviar las entradas a ella para su procesamiento, use esta dirección URL como destino de la llamada.
 
    ![Guardar la dirección URL del punto de conexión del desencadenador de solicitud](./media/migrate-from-scheduler-to-logic-apps/request-endpoint-url.png)
 
@@ -116,7 +116,7 @@ Por ejemplo, con la aplicación Postman puede crear una solicitud POST con una c
 
 | Método de solicitud | URL | Body | encabezados |
 |----------------|-----|------|---------|
-| **POST** | <*endpoint-URL*> | **raw** (sin formato) <p>**JSON(application/json)** <p>En el cuadro **raw** (sin formato), escriba la carga que quiere enviar en la solicitud. <p>**Nota**: Este valor configura automáticamente los valores de **Encabezados**. | **Clave**: Content-Type <br>**Valor**: application/json |
+| **POST** | <*endpoint-URL*> | **raw** (sin formato) <p>**JSON(application/json)** <p>En el cuadro **raw** (sin formato), escriba la carga que quiere enviar en la solicitud. <p>**Nota** : Este valor configura automáticamente los valores de **Encabezados** . | **Clave** : Content-Type <br>**Valor** : application/json |
 |||||
 
 ![Enviar solicitud para desencadenar manualmente la aplicación lógica](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -127,13 +127,13 @@ Después de enviar la llamada, la respuesta de la aplicación lógica aparece ba
 
 > [!IMPORTANT]
 >
-> Si posteriormente quiere cancelar el trabajo, seleccione la pestaña **Encabezados**. Busque y copie el valor del encabezado **x-ms-flujo de trabajo-run-id** de la respuesta. 
+> Si posteriormente quiere cancelar el trabajo, seleccione la pestaña **Encabezados** . Busque y copie el valor del encabezado **x-ms-flujo de trabajo-run-id** de la respuesta. 
 >
 > ![Response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
 ## <a name="cancel-a-one-time-job"></a>Cancelar un trabajo único
 
-En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecución de una aplicación lógica. Para cancelar un trabajo único, puede usar la [ejecución de flujos de trabajo - Cancel](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) en la API REST de Logic Apps. Si envía una llamada al desencadenador, especifique el [identificador de la ejecución del flujo de trabajo](#workflow-run-id).
+En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecución de una aplicación lógica. Para cancelar un trabajo único, puede usar la [ejecución de flujos de trabajo - Cancel](/rest/api/logic/workflowruns/cancel) en la API REST de Logic Apps. Si envía una llamada al desencadenador, especifique el [identificador de la ejecución del flujo de trabajo](#workflow-run-id).
 
 ## <a name="schedule-recurring-jobs"></a>Programar trabajos repetitivos
 
@@ -151,7 +151,7 @@ En Logic Apps, cada trabajo único se ejecuta como una instancia de la ejecució
 
    Para más información sobre las opciones de programación avanzadas, consulte [Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps](../connectors/connectors-native-recurrence.md).
 
-1. Agregue otras acciones que desee mediante la selección de [cientos de conectores listos para usar](../connectors/apis-list.md). En el desencadenador, seleccione **Nuevo paso**. Busque y seleccione las acciones que desea.
+1. Agregue otras acciones que desee mediante la selección de [cientos de conectores listos para usar](../connectors/apis-list.md). En el desencadenador, seleccione **Nuevo paso** . Busque y seleccione las acciones que desea.
 
    Por ejemplo, puede incluir una acción de HTTP que envía una solicitud a una dirección URL o las acciones que trabajar con Colas de almacenamiento, colas de Service Bus o temas de Service Bus:
 
@@ -169,7 +169,7 @@ Estas son otras formas de personalizar los trabajos.
 
 Para controlar la forma en que las acciones intentan volver a ejecutarse en una aplicación lógica cuando se producen errores intermitentes, puede establecer la [directiva de reintentos](../logic-apps/logic-apps-exception-handling.md#retry-policies) en la configuración de cada acción, por ejemplo:
 
-1. Abra el menú de puntos suspensivos ( **...** ) de la acción y seleccione **Configuración**.
+1. Abra el menú de puntos suspensivos ( **...** ) de la acción y seleccione **Configuración** .
 
    ![Abrir la configuración de la acción](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -181,7 +181,7 @@ Para controlar la forma en que las acciones intentan volver a ejecutarse en una 
 
 En Azure Scheduler, si la acción predeterminada no se ejecuta, puede ejecutar una acción alternativa que solucione el error. En Azure Logic Apps, también puede realizar la misma tarea.
 
-1. En el Diseñador de aplicación lógica, encima de la acción que quiera administrar, mueva el puntero sobre la flecha entre los pasos y seleccione **Agregar una rama paralela**.
+1. En el Diseñador de aplicación lógica, encima de la acción que quiera administrar, mueva el puntero sobre la flecha entre los pasos y seleccione **Agregar una rama paralela** .
 
    ![Incorporación de una rama paralela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -189,15 +189,15 @@ En Azure Scheduler, si la acción predeterminada no se ejecuta, puede ejecutar u
 
    ![Agregar acción paralela](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. En la acción alternativa, abra el menú de puntos suspensivos ( **...** ) y seleccione **Configurar ejecución posterior**.
+1. En la acción alternativa, abra el menú de puntos suspensivos ( **...** ) y seleccione **Configurar ejecución posterior** .
 
    ![Configurar ejecución posterior](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
-1. Desactive la casilla de la propiedad **correcto**. Seleccione estas propiedades: **con errores**, **se omitió** y **se superó el tiempo de espera**
+1. Desactive la casilla de la propiedad **correcto** . Seleccione estas propiedades: **con errores** , **se omitió** y **se superó el tiempo de espera**
 
    ![Configurar las propiedades de "ejecución posterior"](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. Cuando haya finalizado, seleccione **Listo**.
+1. Cuando haya finalizado, seleccione **Listo** .
 
 Para más información acerca del control de excepciones, consulte [Detección y control de errores con la propiedad RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
@@ -224,22 +224,22 @@ Para más información acerca del control de excepciones, consulte [Detección y
 
 Si su suscripción de Azure tiene un plan de soporte técnico de pago, puede crear una solicitud de soporte en Azure Portal. En caso contrario, puede seleccionar otra opción diferente de soporte técnico.
 
-1. En el menú principal de [Azure Portal](https://portal.azure.com), seleccione **Ayuda y soporte técnico**.
+1. En el menú principal de [Azure Portal](https://portal.azure.com), seleccione **Ayuda y soporte técnico** .
 
-1. En el menú **Soporte técnico**, seleccione **Nueva solicitud de soporte técnico**. Especifique esta información sobre su solicitud:
+1. En el menú **Soporte técnico** , seleccione **Nueva solicitud de soporte técnico** . Especifique esta información sobre su solicitud:
 
    | Propiedad | Value |
    |---------|-------|
    | **Tipo de problema** | **Técnico** |
    | **Suscripción** | <*su-suscripción-de-Azure*> |
-   | **Servicio** | En **Supervisión y administración**, seleccione **Scheduler**. Si no encuentra **Scheduler**, seleccione primero **Todos los servicios**. |
+   | **Servicio** | En **Supervisión y administración** , seleccione **Scheduler** . Si no encuentra **Scheduler** , seleccione primero **Todos los servicios** . |
    ||| 
 
 1. Seleccione la opción de soporte técnico que desea. Si tiene un plan de soporte técnico de pago, elija **Next** (Siguiente).
 
 **Comunidad**
 
-* [Página de preguntas y respuestas sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Página de preguntas y respuestas sobre Azure Logic Apps](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Pasos siguientes

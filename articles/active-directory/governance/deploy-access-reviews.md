@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318125"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362706"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamiento de una implementación de revisiones de acceso de Azure Active Directory
 
@@ -55,13 +55,13 @@ Planear la implementación de revisiones de acceso es esencial para garantizar e
 
 Las principales ventajas de habilitar las revisiones de acceso son:
 
-* **Administración de la colaboración**. Las revisiones de acceso permiten a las organizaciones administrar el acceso a todos los recursos que necesitan los usuarios. Cuando sus usuarios comparten información y colaboran, las organizaciones tienen la garantía de que únicamente los usuarios autorizados manejan la información.
+* **Administración de la colaboración** . Las revisiones de acceso permiten a las organizaciones administrar el acceso a todos los recursos que necesitan los usuarios. Cuando sus usuarios comparten información y colaboran, las organizaciones tienen la garantía de que únicamente los usuarios autorizados manejan la información.
 
-* **Administración de los riesgos**. Las revisiones de acceso ofrecen a las organizaciones una forma de revisar el acceso a los datos y las aplicaciones. Así se reduce el riesgo de pérdida de datos. Se incluyen funciones que permiten revisar periódicamente el acceso por parte de asociados externos a los recursos corporativos. 
+* **Administración de los riesgos** . Las revisiones de acceso ofrecen a las organizaciones una forma de revisar el acceso a los datos y las aplicaciones. Así se reduce el riesgo de pérdida de datos. Se incluyen funciones que permiten revisar periódicamente el acceso por parte de asociados externos a los recursos corporativos. 
 
-* **Solución para el cumplimiento y la gobernanza**. Mediante las revisiones de acceso, puede regular y volver a certificar el ciclo de vida del acceso a grupos, aplicaciones y sitios. Es posible regular las revisiones de seguimiento con fines de cumplimiento o para aplicaciones sensibles al riesgo específicas de su organización. 
+* **Solución para el cumplimiento y la gobernanza** . Mediante las revisiones de acceso, puede regular y volver a certificar el ciclo de vida del acceso a grupos, aplicaciones y sitios. Es posible regular las revisiones de seguimiento con fines de cumplimiento o para aplicaciones sensibles al riesgo específicas de su organización. 
 
-* **Reducción del costo**. Las revisiones de acceso se crean en la nube y son compatibles de forma nativa con otros recursos en la nube, como grupos, aplicaciones y paquetes de acceso. El uso de revisiones de acceso es menos caro que si tiene que desarrollar herramientas propias o actualizar su conjunto de herramientas local.
+* **Reducción del costo** . Las revisiones de acceso se crean en la nube y son compatibles de forma nativa con otros recursos en la nube, como grupos, aplicaciones y paquetes de acceso. El uso de revisiones de acceso es menos caro que si tiene que desarrollar herramientas propias o actualizar su conjunto de herramientas local.
 
 ### <a name="training-resources"></a>Recursos de aprendizaje
 
@@ -91,7 +91,7 @@ Cuando fracasan los proyectos tecnológicos, normalmente se debe a expectativas 
 
 En el caso de las revisiones de acceso, probablemente tenga que incluir a representantes de los siguientes equipos de su organización:
 
-* **Administración de TI**: administra la infraestructura de TI y las inversiones de su empresa en la nube, junto con las aplicaciones de software como servicio (SaaS). Este equipo se ocupará de:
+* **Administración de TI** : administra la infraestructura de TI y las inversiones de su empresa en la nube, junto con las aplicaciones de software como servicio (SaaS). Este equipo se ocupará de:
 
    * Revisar el acceso con privilegios a la infraestructura y las aplicaciones, incluidos Microsoft 365 y Azure AD.
 
@@ -99,7 +99,7 @@ En el caso de las revisiones de acceso, probablemente tenga que incluir a repres
 
    * Asegúrese de que el acceso mediante programación (scripts) a los recursos a través de entidades de servicio se regule y revise.
 
-* **Equipos de desarrollo**: desarrollan y mantienen las aplicaciones para su organización. Este equipo se ocupará de:
+* **Equipos de desarrollo** : desarrollan y mantienen las aplicaciones para su organización. Este equipo se ocupará de:
 
    * Determinar quién puede acceder a los componentes de los recursos de SaaS, PaaS y IaaS que forman parte de las soluciones desarrolladas, y administrarlos.
 
@@ -107,13 +107,13 @@ En el caso de las revisiones de acceso, probablemente tenga que incluir a repres
 
    * Exigir identidades con privilegios que tengan acceso a software de producción o soluciones que estén hospedadas para sus clientes.
 
-* **Unidades de negocio**: administran proyectos y tienen aplicaciones propias. Este equipo se ocupará de: 
+* **Unidades de negocio** : administran proyectos y tienen aplicaciones propias. Este equipo se ocupará de: 
 
    * Revisar y aprobar, o bien denegar, el acceso a grupos y aplicaciones para usuarios internos y externos.
 
    * Programar y llevar a cabo revisiones para atestiguar la necesidad de acceso continuado de empleados e identidades externas (por ejemplo, asociados).
 
-* **Gobernanza corporativa**: garantiza que la organización siga las directivas internas y cumpla la normativa. Este equipo se ocupará de:
+* **Gobernanza corporativa** : garantiza que la organización siga las directivas internas y cumpla la normativa. Este equipo se ocupará de:
 
    * Solicitar o programar nuevas revisiones de acceso.
 
@@ -198,7 +198,7 @@ El rol administrativo que se necesita para crear, administrar o leer una revisi�
 | Paquete de acceso| Administrador global<p>Creador del paquete de acceso| Solo administrador global |
 
 
-Para obtener más información, consulte los [permisos del rol de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para obtener más información, consulte los [permisos del rol de administrador en Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>¿Quién revisará el acceso al recurso?
 
@@ -343,7 +343,7 @@ Puede hacer [uso de revisiones de acceso de Azure AD para administrar los usuar
 
 ### <a name="review-external-users-group-memberships"></a>Revisión de la pertenencia a grupos de un usuario externo
 
-A fin de minimizar el trabajo manual y los posibles errores asociados, valore la posibilidad de usar [grupos dinámicos](../users-groups-roles/groups-create-rule.md) para asignar la pertenencia a un grupo en función de los atributos de un usuario. Tal vez desee crear uno o varios grupos dinámicos para usuarios externos. El patrocinador interno puede actuar como revisor de la pertenencia al grupo. 
+A fin de minimizar el trabajo manual y los posibles errores asociados, valore la posibilidad de usar [grupos dinámicos](../enterprise-users/groups-create-rule.md) para asignar la pertenencia a un grupo en función de los atributos de un usuario. Tal vez desee crear uno o varios grupos dinámicos para usuarios externos. El patrocinador interno puede actuar como revisor de la pertenencia al grupo. 
 
 Nota: Los usuarios externos que se quiten de un grupo como consecuencia de una revisión de acceso no se eliminarán del inquilino. 
 
@@ -389,7 +389,7 @@ Las revisiones de acceso pueden ser de los miembros de un grupo o de los usuario
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planeamiento de una revisión de roles de Azure AD y de Azure Resource
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica el modo en que las empresas administran el acceso con privilegios a los recursos de Azure AD. Así se mantiene una lista más reducida de roles con privilegios, en [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) y en [Azure Resource](../../role-based-access-control/built-in-roles.md), y aumenta la seguridad general del directorio.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifica el modo en que las empresas administran el acceso con privilegios a los recursos de Azure AD. Así se mantiene una lista más reducida de roles con privilegios, en [Azure AD](../roles/permissions-reference.md) y en [Azure Resource](../../role-based-access-control/built-in-roles.md), y aumenta la seguridad general del directorio.
 
 Las revisiones de acceso permiten a los revisores atestiguar si los usuarios todavía necesitan pertenecer a un rol. Al igual que sucede con las revisiones de acceso para los paquetes de acceso, las revisiones de roles en Azure AD y Azure Resource se integran en la experiencia de usuario del administrador de PIM. Se recomienda revisar periódicamente las siguientes asignaciones de roles:
 

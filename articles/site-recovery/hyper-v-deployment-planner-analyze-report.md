@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: b2bb351de292ff2015cdcbd388155063a86a7359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f230445ecdb046c2b631e89567df71e1d09c3234
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653586"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369954"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Análisis del informe de Azure Site Recovery Deployment Planner
 En este artículo se describen las hojas que contiene el informe de Excel generado por Azure Site Recovery Deployment Planner en un escenario de Hyper-V en Azure.
@@ -23,7 +23,7 @@ La hoja de cálculo de resumen local proporciona una introducción al entorno de
 
 ![Resumen local](media/hyper-v-deployment-planner-analyze-report/on-premises-summary-h2a.png)
 
-**Fecha de inicio** y **Fecha de finalización**: las fechas de inicio y finalización de los datos de generación de perfiles que se tienen en cuenta para la generación del informe. De forma predeterminada, la fecha de inicio es la fecha en que comienza la generación de perfiles, mientras que la de finalización es la fecha en la que se detiene. Esta información se puede especificar mediante los valores "StartDate" y "EndDate" si el informe se genera con estos parámetros.
+**Fecha de inicio** y **Fecha de finalización** : las fechas de inicio y finalización de los datos de generación de perfiles que se tienen en cuenta para la generación del informe. De forma predeterminada, la fecha de inicio es la fecha en que comienza la generación de perfiles, mientras que la de finalización es la fecha en la que se detiene. Esta información se puede especificar mediante los valores "StartDate" y "EndDate" si el informe se genera con estos parámetros.
 
 **Total number of profiling days** (Número total de días de generación de perfiles): el número total de días de generación de perfiles comprendido entre las fechas de inicio y de finalización para el que se genera el informe.
 
@@ -154,7 +154,7 @@ Puede darse el caso de que sepa que no puede establecer un ancho de banda de má
 
 **Disk Storage Type** (Tipo de almacenamiento en disco): cuenta de almacenamiento estándar o premium, que se usa para replicar todas las máquinas virtuales correspondientes que se mencionan en la columna **VMs to Place** (Máquinas virtuales para colocar).
 
-**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix** (Prefijo sugerido): el prefijo de tres caracteres sugerido que se puede usar para asignar un nombre a la cuenta de almacenamiento. Puede usar su propio prefijo, pero el que sugiere la herramienta sigue la [convención de nomenclatura de particiones de las cuentas de almacenamiento](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Suggested Account Name** (Nombre de cuenta sugerido): el nombre de la cuenta de almacenamiento después de incluir el prefijo sugerido. Reemplace el nombre entre corchetes angulares (< y >) por una entrada personalizada.
 
@@ -220,7 +220,7 @@ El informe de Excel generado por Azure Site Recovery Deployment Planner proporci
 
 **VM Name** (Nombre de la máquina virtual): el nombre de la máquina virtual que se utiliza en VMListFile cuando se genera un informe. Esta columna también muestra los discos (discos duros virtuales) que están conectados a las máquinas virtuales. Los nombres incluyen los nombres de host de Hyper-V donde se colocaron las máquinas virtuales cuando la herramienta los detectó durante el período de generación de perfiles.
 
-**VM Compatibility** (Compatibilidad de la máquina virtual): indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](https://aka.ms/azure-storage-scalbility-performance) publicados, pueden ser cualesquiera de las siguientes:
+**VM Compatibility** (Compatibilidad de la máquina virtual): indica el motivo por el que una máquina virtual dada no es compatible con Site Recovery. Se describen las razones de cada disco incompatible de la máquina virtual, que, en función de los [límites de almacenamiento](/en-in/azure/storage/common/scalability-targets-standard-account) publicados, pueden ser cualesquiera de las siguientes:
 
 * El tamaño del disco es mayor que 4095 GB. Azure Storage no admite actualmente discos de datos de más de 4095 GB.
 
@@ -296,7 +296,7 @@ La hoja de cálculo proporciona los requisitos de espacio de almacenamiento libr
     Si no hay espacio libre suficiente para almacenar los archivos de registro, se pausa la replicación. A continuación, el estado de replicación de la máquina virtual entra en resincronización necesaria.
 * Si el ancho de banda de red no es suficiente para insertar los archivos de registro en Azure, estos se apilan en el volumen. En el peor de los casos, cuando aumenta el tamaño de los archivos de registro al 50 % del tamaño del disco duro virtual, la replicación de la máquina virtual pasa a resincronización necesaria. En el peor de los casos, se necesita un 50 % de espacio libre adicional del tamaño del disco duro virtual para la replicación diferencial.
 
-**Host de Hyper-V**: lista de servidores de Hyper-V para los que se ha generado perfil. Si un servidor forma parte de un clúster de Hyper-V, se agrupan todos los nodos del clúster.
+**Host de Hyper-V** : lista de servidores de Hyper-V para los que se ha generado perfil. Si un servidor forma parte de un clúster de Hyper-V, se agrupan todos los nodos del clúster.
 
 **Volume (VHD path)** (Volumen [ruta de acceso al disco duro virtual]): cada volumen de un host de Hyper-V en el que están presentes los archivos VHD o VHDX. 
 
@@ -321,11 +321,11 @@ Después de haber seguido la recomendación de los requisitos de almacenamiento 
 ![Detalles de procesamiento por lotes adicional de la replicación inicial](media/hyper-v-deployment-planner-analyze-report/ir-batching-for-rpo2-h2a.png)
 
 ### <a name="each-batch-provides-the-following-information"></a>Cada lote proporciona la siguiente información 
-**Host de Hyper-V**: el host de Hyper-V de la máquina virtual que se protegerá.
+**Host de Hyper-V** : el host de Hyper-V de la máquina virtual que se protegerá.
 
-**Máquina virtual**: la máquina virtual que se protegerá. 
+**Máquina virtual** : la máquina virtual que se protegerá. 
 
-**Comentarios**: si es necesaria cualquier acción para un volumen específico de una máquina virtual, aquí se proporciona el comentario. Por ejemplo, si no hay suficiente espacio libre en un volumen, el comentario dice que se agregue almacenamiento adicional para proteger esta máquina virtual.
+**Comentarios** : si es necesaria cualquier acción para un volumen específico de una máquina virtual, aquí se proporciona el comentario. Por ejemplo, si no hay suficiente espacio libre en un volumen, el comentario dice que se agregue almacenamiento adicional para proteger esta máquina virtual.
 
 **Volume (VHD path)** (Volumen [ruta de acceso al disco duro virtual]): el nombre del volumen donde residen los discos duros virtuales de la máquina virtual. 
 

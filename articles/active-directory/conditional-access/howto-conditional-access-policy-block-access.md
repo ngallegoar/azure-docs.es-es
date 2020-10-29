@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e57da384253912a875bacbc5f43aa9f9b99b45b2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 84e0801daa5bf83889be87987d440e377287b5ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265993"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366197"
 ---
 # <a name="conditional-access-block-access"></a>Acceso condicional: Bloquear acceso
 
@@ -31,53 +31,53 @@ Este tipo de directivas pueden tener efectos secundarios imprevistos. Las prueba
 
 Las directivas de acceso condicional son herramientas eficaces, por lo que se recomienda excluir las siguientes cuentas de la directiva:
 
-* Cuentas de **acceso de emergencia** para **evitar**el bloqueo de cuentas en todo el inquilino. En el caso improbable de que todos los administradores estén bloqueados en el inquilino, la cuenta administrativa de acceso de emergencia se puede usar para iniciar sesión en el inquilino y realizar los pasos para recuperar el acceso.
-   * Se puede encontrar más información en el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Cuentas de servicio** y **entidades de servicio**, como la cuenta de sincronización de Azure AD Connect. Las cuentas de servicio son cuentas no interactivas que no están asociadas a ningún usuario en particular. Los servicios back-end las usan normalmente para permitir el acceso mediante programación a las aplicaciones, pero también se utilizan para iniciar sesión en los sistemas con fines administrativos. Las cuentas de servicio como estas se deben excluir porque MFA no se puede completar mediante programación. El acceso condicional no bloquea las llamadas realizadas por las entidades de servicio.
+* Cuentas de **acceso de emergencia** para **evitar** el bloqueo de cuentas en todo el inquilino. En el caso improbable de que todos los administradores estén bloqueados en el inquilino, la cuenta administrativa de acceso de emergencia se puede usar para iniciar sesión en el inquilino y realizar los pasos para recuperar el acceso.
+   * Se puede encontrar más información en el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md).
+* **Cuentas de servicio** y **entidades de servicio** , como la cuenta de sincronización de Azure AD Connect. Las cuentas de servicio son cuentas no interactivas que no están asociadas a ningún usuario en particular. Los servicios back-end las usan normalmente para permitir el acceso mediante programación a las aplicaciones, pero también se utilizan para iniciar sesión en los sistemas con fines administrativos. Las cuentas de servicio como estas se deben excluir porque MFA no se puede completar mediante programación. El acceso condicional no bloquea las llamadas realizadas por las entidades de servicio.
    * Si su organización usa estas cuentas en scripts o código, piense en la posibilidad de reemplazarlas por [identidades administradas](../managed-identities-azure-resources/overview.md). Como solución temporal, puede excluir estas cuentas específicas de la directiva de línea de base.
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
-Los pasos siguientes le ayudarán a crear directivas de acceso condicional para bloquear el acceso a todas las aplicaciones excepto [Office 365](concept-conditional-access-cloud-apps.md#office-365) si los usuarios no están en una red de confianza. Estas directivas se colocan inicialmente en [modo de solo informe](howto-conditional-access-insights-reporting.md), para que los administradores puedan determinar el impacto que tendrán en los usuarios existentes. Cuando los administradores consideren que las directivas se aplican de la forma prevista, pueden cambiarlas a **Activadas**.
+Los pasos siguientes le ayudarán a crear directivas de acceso condicional para bloquear el acceso a todas las aplicaciones excepto [Office 365](concept-conditional-access-cloud-apps.md#office-365) si los usuarios no están en una red de confianza. Estas directivas se colocan inicialmente en [modo de solo informe](howto-conditional-access-insights-reporting.md), para que los administradores puedan determinar el impacto que tendrán en los usuarios existentes. Cuando los administradores consideren que las directivas se aplican de la forma prevista, pueden cambiarlas a **Activadas** .
 
 La primera directiva bloquea el acceso a todas las aplicaciones (menos las de Microsoft 365) si no se encuentran en una ubicación de confianza.
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
-1. Seleccione **Nueva directiva**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional** .
+1. Seleccione **Nueva directiva** .
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
-1. En **Asignaciones**, seleccione **Usuarios y grupos**.
-   1. En **Incluir**, seleccione **Todos los usuarios**.
-   1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
-   1. Seleccione **Listo**.
+1. En **Asignaciones** , seleccione **Usuarios y grupos** .
+   1. En **Incluir** , seleccione **Todos los usuarios** .
+   1. En **Excluir** , seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
+   1. Seleccione **Listo** .
 1. En **Aplicaciones o acciones en la nube** seleccione las opciones siguientes:
-   1. En **Incluir**, seleccione **Todas las aplicaciones en la nube**.
-   1. En **Excluir**, seleccione **Office 365**, **Seleccionar** y, luego, **Listo**.
-1. En **Condiciones**:
-   1. En **Condiciones** > **Ubicación**:
-      1. Establezca **Configurar** en **Sí**.
-      1. En **Incluir**, seleccione **Cualquier ubicación**.
-      1. En **Excluir**, seleccione **Todas las ubicaciones de confianza**.
-      1. Seleccione **Listo**.
-   1. En **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí**, seleccione **Listo** y, luego, **Listo**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Bloquear acceso** y, después, **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
+   1. En **Incluir** , seleccione **Todas las aplicaciones en la nube** .
+   1. En **Excluir** , seleccione **Office 365** , **Seleccionar** y, luego, **Listo** .
+1. En **Condiciones** :
+   1. En **Condiciones** > **Ubicación** :
+      1. Establezca **Configurar** en **Sí** .
+      1. En **Incluir** , seleccione **Cualquier ubicación** .
+      1. En **Excluir** , seleccione **Todas las ubicaciones de confianza** .
+      1. Seleccione **Listo** .
+   1. En **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí** , seleccione **Listo** y, luego, **Listo** .
+1. En **Controles de acceso** > **Conceder** , seleccione **Bloquear acceso** y, después, **Seleccionar** .
+1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe** .
 1. Seleccione **Crear** para crear la directiva.
 
 A continuación se crea una segunda directiva para requerir la autenticación multifactor o un dispositivo compatible para los usuarios de Microsoft 365.
 
-1. Seleccione **Nueva directiva**.
+1. Seleccione **Nueva directiva** .
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
-1. En **Asignaciones**, seleccione **Usuarios y grupos**.
-   1. En **Incluir**, seleccione **Todos los usuarios**.
-   1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
-   1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir**, elija sucesivamente **Seleccionar aplicaciones**, **Office 365**, **Seleccionar** y, luego, **Listo**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**.
-   1. Seleccione **Requerir autenticación multifactor**, **Requerir que el dispositivo esté marcado como compatible** y, luego, **Seleccionar**.
+1. En **Asignaciones** , seleccione **Usuarios y grupos** .
+   1. En **Incluir** , seleccione **Todos los usuarios** .
+   1. En **Excluir** , seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
+   1. Seleccione **Listo** .
+1. En **Aplicaciones en la nube o acciones** > **Incluir** , elija sucesivamente **Seleccionar aplicaciones** , **Office 365** , **Seleccionar** y, luego, **Listo** .
+1. En **Controles de acceso** > **Conceder** , seleccione **Conceder acceso** .
+   1. Seleccione **Requerir autenticación multifactor** , **Requerir que el dispositivo esté marcado como compatible** y, luego, **Seleccionar** .
    1. Asegúrese de que la opción **Requerir todos los controles seleccionados** esté seleccionada.
-   1. Elija **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe**.
+   1. Elija **Seleccionar** .
+1. Confirme la configuración y establezca **Habilitar directiva** en **Solo informe** .
 1. Seleccione **Crear** para crear la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes

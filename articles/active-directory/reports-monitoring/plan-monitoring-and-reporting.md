@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311224"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362406"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planeamiento de la implementación de la supervisión y los informes de Azure Active Directory
 
@@ -101,11 +101,11 @@ Los informes y la supervisión se usan para cumplir los requisitos empresariales
 
 |Área |Descripción |
 |-|-|
-|Retención| **Retención del registro durante más de 30 días**. Los requisitos legales o empresariales obligan a almacenar tanto los registros de auditoría como los registros de inicio de sesión de Azure AD durante más de 30 días. |
-|Análisis| **Es preciso poder realizar búsquedas en los registros**. ‎Es necesario realizar búsquedas en los registros almacenados con las herramientas de análisis. |
-| Operational Insights| **Información para varios equipos**. La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
-| Información de seguridad| **Información para varios equipos**. La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
-| Integración en sistemas SIEM      | **Integración de SIEM**. ‎La necesidad de integrar y transmitir en secuencias los registros de inicio de sesión de Azure AD y los registros de auditoría a sistemas de SIEM existentes. |
+|Retención| **Retención del registro durante más de 30 días** . Los requisitos legales o empresariales obligan a almacenar tanto los registros de auditoría como los registros de inicio de sesión de Azure AD durante más de 30 días. |
+|Análisis| **Es preciso poder realizar búsquedas en los registros** . ‎Es necesario realizar búsquedas en los registros almacenados con las herramientas de análisis. |
+| Operational Insights| **Información para varios equipos** . La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
+| Información de seguridad| **Información para varios equipos** . La necesidad de conceder acceso a distintos usuarios para obtener una visión de las operaciones, como el uso de las aplicaciones, los errores de inicio de sesión, el uso de autoservicio, las tendencias, etc. |
+| Integración en sistemas SIEM      | **Integración de SIEM** . ‎La necesidad de integrar y transmitir en secuencias los registros de inicio de sesión de Azure AD y los registros de auditoría a sistemas de SIEM existentes. |
 
 ### <a name="choose-a-monitoring-solution-architecture"></a>Elección de una arquitectura de soluciones de supervisión
 
@@ -151,9 +151,9 @@ Los siguientes roles pueden leer informes de Azure AD:
 
 * Lector de informes
 
-Más información acerca de los [roles administrativos de Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+Más información acerca de los [roles administrativos de Azure AD](../roles/permissions-reference.md).
 
-*Aplique siempre el concepto de privilegios mínimos para reducir el riesgo de que una cuenta esté en peligro*. Considere la posibilidad de implementar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para aumentar la protección de su organización.
+*Aplique siempre el concepto de privilegios mínimos para reducir el riesgo de que una cuenta esté en peligro* . Considere la posibilidad de implementar [Privileged Identity Management](../privileged-identity-management/pim-configure.md) para aumentar la protección de su organización.
 
 ##  
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3693c30a34601512770f5d9071f5d786410fb00e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932327"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360384"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Visualización de registros y métricas mediante Kibana y Grafana
 
@@ -30,7 +30,7 @@ Para acceder a los paneles, tendrá que recuperar la dirección IP del clúster.
 
 Use el comando siguiente para recuperar la IP pública:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -45,7 +45,7 @@ kubectl cluster-info
 
 ### <a name="aks-or-other-load-balanced-cluster"></a>AKS u otro clúster con carga equilibrada
 
-Para supervisar el entorno en AKS u otro clúster con carga equilibrada, debe obtener la dirección IP del servicio de proxy de administración. Use este comando para recuperar la dirección **IP externa**:
+Para supervisar el entorno en AKS u otro clúster con carga equilibrada, debe obtener la dirección IP del servicio de proxy de administración. Use este comando para recuperar la dirección **IP externa** :
 
 ```console
 kubectl get svc mgmtproxy-svc-external -n <namespace>
@@ -66,7 +66,7 @@ En los pasos siguientes, se resalta cómo crear una regla de NSG para los puntos
 
 ### <a name="find-the-name-of-the-nsg"></a>Buscar el nombre del NSG
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -74,7 +74,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 Una vez que tenga el nombre del NSG, se puede agregar una regla usando el comando siguiente:
 
-```console
+```azurecli
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 

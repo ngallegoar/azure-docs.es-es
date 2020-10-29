@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9630e1f23b6595ca690ecafcf0c4b9bfff603f2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb13b350dfecf70e5f3a45755f6f77069a855c6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78185665"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363851"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Introducción a las cuentas de usuario en Azure Active Directory B2C
 
@@ -23,9 +23,9 @@ En Azure Active Directory B2C (Azure AD B2C), se pueden crear varios tipos 
 
 Están disponibles los siguientes tipos de cuentas:
 
-- **Cuenta profesional**: una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
-- **Cuenta de invitado**: una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
-- **Cuenta de consumidor**: cuenta que utiliza un usuario de las aplicaciones que se han registrado con Azure AD B2C. Las cuentas de consumidor pueden ser creadas por:
+- **Cuenta profesional** : una cuenta profesional puede tener acceso a los recursos en un inquilino y, con un rol de administrador, puede administrar inquilinos.
+- **Cuenta de invitado** : una cuenta de invitado solo puede ser una cuenta de Microsoft o un usuario de Azure Active Directory que se pueda utilizar para tener acceso a aplicaciones o administrar inquilinos.
+- **Cuenta de consumidor** : cuenta que utiliza un usuario de las aplicaciones que se han registrado con Azure AD B2C. Las cuentas de consumidor pueden ser creadas por:
   - El usuario que pasa por un flujo de usuario de registro en una aplicación de Azure AD B2C
   - Uso de Microsoft Graph API
   - Uso de Azure Portal
@@ -36,14 +36,14 @@ Una cuenta profesional se crea de la misma manera para todos los inquilinos basa
 
 Cuando se agrega una nueva cuenta profesional, es preciso tener en cuenta las siguientes opciones de configuración:
 
-- **Nombre** y **Nombre de usuario**: la propiedad **Nombre** contiene el nombre y el apellido del usuario. El **Nombre de usuario** es el identificador que escribe el usuario para iniciar sesión. El nombre de usuario incluye el dominio completo. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio predeterminado inicial *su-dominio.onmicrosoft.com* o un nombre de [dominio personalizado](../active-directory/fundamentals/add-custom-domain.md) comprobado y no federado, como *contoso.com*.
-- **Perfil**: la cuenta está configurada con un perfil de datos de usuario. Tiene la oportunidad de especificar un nombre, los apellidos, el puesto y el nombre de departamento. Puede editar el perfil después de crear la cuenta.
-- **Grupos**: use un grupo para realizar tareas de administración, como asignar licencias o permisos a varios usuarios o dispositivos a la vez. Puede colocar la nueva cuenta en un [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente en su inquilino.
-- **Rol de directorio**: debe especificar el nivel de acceso que tiene la cuenta de usuario a los recursos en el inquilino. Están disponibles los siguientes niveles de permiso:
+- **Nombre** y **Nombre de usuario** : la propiedad **Nombre** contiene el nombre y el apellido del usuario. El **Nombre de usuario** es el identificador que escribe el usuario para iniciar sesión. El nombre de usuario incluye el dominio completo. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio predeterminado inicial *su-dominio.onmicrosoft.com* o un nombre de [dominio personalizado](../active-directory/fundamentals/add-custom-domain.md) comprobado y no federado, como *contoso.com* .
+- **Perfil** : la cuenta está configurada con un perfil de datos de usuario. Tiene la oportunidad de especificar un nombre, los apellidos, el puesto y el nombre de departamento. Puede editar el perfil después de crear la cuenta.
+- **Grupos** : use un grupo para realizar tareas de administración, como asignar licencias o permisos a varios usuarios o dispositivos a la vez. Puede colocar la nueva cuenta en un [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente en su inquilino.
+- **Rol de directorio** : debe especificar el nivel de acceso que tiene la cuenta de usuario a los recursos en el inquilino. Están disponibles los siguientes niveles de permiso:
 
-    - **Usuario**: los usuarios pueden acceder a los recursos asignados, pero no pueden administrar la mayoría de los recursos de inquilino.
-    - **Administrador global**: los administradores globales tienen el control completo de todos los recursos de inquilino.
-    - **Administrador limitado**: seleccione el rol administrativo o los roles para el usuario. Para obtener más información acerca de los roles que se pueden seleccionar, consulte [Asignación de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+    - **Usuario** : los usuarios pueden acceder a los recursos asignados, pero no pueden administrar la mayoría de los recursos de inquilino.
+    - **Administrador global** : los administradores globales tienen el control completo de todos los recursos de inquilino.
+    - **Administrador limitado** : seleccione el rol administrativo o los roles para el usuario. Para obtener más información acerca de los roles que se pueden seleccionar, consulte [Asignación de roles de administrador en Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### <a name="create-a-work-account"></a>Crear una cuenta profesional
 

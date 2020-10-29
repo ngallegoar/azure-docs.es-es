@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 7046062b1c2e42f47d650df6d616d6fb73c8d1ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8982b5626e3c19dbd49a3d2e20542d44b1a1da
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033071"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368594"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicaciones virtuales de red en Azure
 
@@ -71,7 +71,7 @@ Uso de PowerShell
    Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
    ```
 
-3. Compruebe la propiedad **EnableIPForwarding**.
+3. Compruebe la propiedad **EnableIPForwarding** .
 4. Si el reenvío IP no está habilitado, ejecute los siguientes comandos para habilitarlo:
 
    ```powershell
@@ -87,13 +87,13 @@ Uso de PowerShell
 
 **Comprobación de si se puede enrutar el tráfico a la aplicación virtual de red**
 
-1. En [Azure Portal](https://portal.azure.com), abra **Network Watcher**, seleccione **Próximo salto**.
+1. En [Azure Portal](https://portal.azure.com), abra **Network Watcher** , seleccione **Próximo salto** .
 2. Especifique una máquina virtual que esté configurada para redirigir el tráfico a la aplicación virtual de red y una dirección IP de destino en la cual se va a ver el próximo salto. 
-3. Si la aplicación virtual de red no aparece como **próximo salto**, comprueba y actualice las tablas de rutas de Azure.
+3. Si la aplicación virtual de red no aparece como **próximo salto** , comprueba y actualice las tablas de rutas de Azure.
 
 **Comprobación de si el tráfico puede llegar a la aplicación virtual de red**
 
-1. En [Azure Portal](https://portal.azure.com), abra **Network Watcher** y, después, seleccione **Comprobación del flujo de IP**. 
+1. En [Azure Portal](https://portal.azure.com), abra **Network Watcher** y, después, seleccione **Comprobación del flujo de IP** . 
 2. Especifique la máquina virtual y la dirección IP de la aplicación virtual de red y, después, compruebe si el tráfico está bloqueado por algún grupo de seguridad de red (NSG).
 3. Si existe una regla del grupo de seguridad de red que bloquee el tráfico, localice dicho grupo en las reglas de **seguridad eficaces** y, a continuación, actualícela para permitir el paso del tráfico. A continuación, ejecute **Comprobación del flujo de IP** de nuevo y use **Solución de problemas de conexión** para probar las comunicaciones TCP de la máquina virtual a la dirección IP interna o externa.
 
@@ -140,7 +140,7 @@ Capture un seguimiento de red simultáneo en la máquina virtual de origen, la a
    sudo tcpdump -s0 -i eth0 -X -w vmtrace.cap
 
 2. Utilice **PsPing** o **Nmap** desde la máquina virtual de origen a la máquina virtual de destino (por ejemplo: `PsPing 10.0.0.4:80` o `Nmap -p 80 10.0.0.4`).
-3. Abra el seguimiento de red desde la máquina virtual de destino mediante el [Monitor de red](https://cnet-downloads.com/network-monitor) o tcpdump. Aplique un filtro de visualización para la IP de la máquina virtual de origen desde la que ejecutó **PsPing** o **Nmap**, como `IPv4.address==10.0.0.4 (Windows netmon)` o `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
+3. Abra el seguimiento de red desde la máquina virtual de destino mediante el [Monitor de red](https://download.cnet.com/s/network-monitor) o tcpdump. Aplique un filtro de visualización para la IP de la máquina virtual de origen desde la que ejecutó **PsPing** o **Nmap** , como `IPv4.address==10.0.0.4 (Windows netmon)` o `tcpdump -nn -r vmtrace.cap src or dst host 10.0.0.4` (Linux).
 
 ### <a name="analyze-traces"></a>Análisis de seguimientos
 

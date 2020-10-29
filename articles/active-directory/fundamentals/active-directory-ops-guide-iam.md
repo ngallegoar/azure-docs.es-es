@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601321"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371008"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guía de referencia de operaciones de administración de identidad y acceso de Azure Active Directory
 
@@ -45,7 +45,7 @@ A medida que revise la lista, es posible que tenga que asignar un propietario a 
 
 #### <a name="assigning-owners-recommended-reading"></a>Lectura recomendada sobre la asignación de propietarios
 
-- [Asignación de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Asignación de roles de administrador en Azure Active Directory](../roles/permissions-reference.md)
 - [Gobernanza en Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Sincronización de identidades local
@@ -90,8 +90,8 @@ Idealmente, querrá alcanzar un equilibrio entre la reducción del número de ob
 
 Azure AD Connect desempeña un papel clave en el proceso de aprovisionamiento. Si por algún motivo el servidor de sincronización se queda sin conexión, los cambios en el entorno local no se actualizan en la nube y se pueden producir problemas de acceso para los usuarios. Por lo tanto, es importante definir una estrategia de conmutación por error que permita a los administradores reanudar rápidamente la sincronización después de que el servidor de sincronización se queda sin conexión. Estas estrategias se dividen en una de las siguientes categorías:
 
-- **Implementación de los servidores de Azure AD Connect en modo de ensayo**: permite al administrador "promover" el servidor de ensayo a producción mediante un sencillo cambio de configuración.
-- **Uso de virtualización**: si la conexión de Azure AD se implementa en una máquina virtual (VM), los administradores pueden aprovechar su pila de virtualización para migrar en vivo o volver a implementar rápidamente la máquina virtual y, de este modo, reanudar la sincronización.
+- **Implementación de los servidores de Azure AD Connect en modo de ensayo** : permite al administrador "promover" el servidor de ensayo a producción mediante un sencillo cambio de configuración.
+- **Uso de virtualización** : si la conexión de Azure AD se implementa en una máquina virtual (VM), los administradores pueden aprovechar su pila de virtualización para migrar en vivo o volver a implementar rápidamente la máquina virtual y, de este modo, reanudar la sincronización.
 
 Si su organización no dispone de una estrategia de recuperación ante desastres y conmutación por error para la sincronización, no dude en implementar Azure AD Connect en modo de ensayo. Del mismo modo, si hay una discrepancia entre la configuración de producción y de ensayo, debe volver a configurar el modo de ensayo de la línea de base de Azure AD Connect para que coincida con la configuración de producción, incluidas las versiones y las configuraciones de software.
 
@@ -107,7 +107,7 @@ Si la versión de Azure AD Connect tiene más de seis meses, debe actualizar a l
 
 El uso de **ms-DS-consistencyguid** como [delimitador de origen](../hybrid/plan-connect-design-concepts.md) permite una migración más sencilla de objetos entre bosques y dominios, tarea habitual en procesos de consolidación y limpieza, fusiones, adquisiciones y desinversiones en AD Domain.
 
-Si actualmente está usando **ObjectGuid** como delimitador de origen, se recomienda empezar a utilizar **ms-DS-ConsistencyGuid**.
+Si actualmente está usando **ObjectGuid** como delimitador de origen, se recomienda empezar a utilizar **ms-DS-ConsistencyGuid** .
 
 #### <a name="custom-rules"></a>Reglas personalizadas
 
@@ -122,9 +122,9 @@ Si usa reglas excesivamente complejas, debe investigar las causas de la compleji
 
 Entre los ejemplos de reglas personalizadas de uso incorrecto se incluyen:
 
-- **Compensar los datos sucios en el directorio**: en este caso, se recomienda trabajar con los propietarios del equipo de AD y limpiar los datos en el directorio como una tarea de corrección, así como ajustar los procesos para evitar la reintroducción de datos incorrectos.
-- **Corrección única de usuarios individuales**: es habitual encontrar reglas que se correlacionan con los valores atípicos de casos especiales, normalmente debido a un problema con un usuario específico.
-- **"CloudFiltering" excesivamente complicado**: aunque se recomienda reducir el número de objetos, existe el riesgo de crear y complicar en exceso el ámbito de sincronización mediante el uso de muchas reglas de sincronización. Si hay una lógica compleja para incluir o excluir objetos más allá del filtrado de la unidad organizativa, se recomienda tratar esta lógica fuera de la sincronización y etiquetar los objetos con un simple atributo "cloudFiltered" que pueda fluir con una regla de sincronización simple.
+- **Compensar los datos sucios en el directorio** : en este caso, se recomienda trabajar con los propietarios del equipo de AD y limpiar los datos en el directorio como una tarea de corrección, así como ajustar los procesos para evitar la reintroducción de datos incorrectos.
+- **Corrección única de usuarios individuales** : es habitual encontrar reglas que se correlacionan con los valores atípicos de casos especiales, normalmente debido a un problema con un usuario específico.
+- **"CloudFiltering" excesivamente complicado** : aunque se recomienda reducir el número de objetos, existe el riesgo de crear y complicar en exceso el ámbito de sincronización mediante el uso de muchas reglas de sincronización. Si hay una lógica compleja para incluir o excluir objetos más allá del filtrado de la unidad organizativa, se recomienda tratar esta lógica fuera de la sincronización y etiquetar los objetos con un simple atributo "cloudFiltered" que pueda fluir con una regla de sincronización simple.
 
 #### <a name="azure-ad-connect-configuration-documenter"></a>Documentador de configuración de Azure AD Connect
 
@@ -140,11 +140,11 @@ El [documentador de configuración de Azure AD Connect](https://github.com/Micro
 
 Azure Active Directory simplifica la administración de licencias a través de la [concesión de licencias basada en grupos](./active-directory-licensing-whatis-azure-portal.md) para los servicios en la nube de Microsoft. De este modo, la administración de identidad y acceso proporciona la infraestructura de grupo y la administración delegada de esos grupos a los equipos adecuados en las organizaciones. Hay varias maneras de configurar la pertenencia a grupos en Azure AD, entre las que se incluyen:
 
-- **Sincronización desde el entorno local**: los grupos pueden provenir de directorios locales, lo que podría ser una buena opción para las organizaciones que han establecido procesos de administración de grupos que se pueden ampliar para asignar licencias en Microsoft 365.
+- **Sincronización desde el entorno local** : los grupos pueden provenir de directorios locales, lo que podría ser una buena opción para las organizaciones que han establecido procesos de administración de grupos que se pueden ampliar para asignar licencias en Microsoft 365.
 
-- **Base en atributos/dinámica**: los grupos se pueden crear en la nube en función de una expresión basada en atributos de usuario, por ejemplo, Departamento igual a "ventas". Azure AD mantiene los miembros del grupo, manteniendo la coherencia con la expresión definida. El uso de este tipo de grupo para la asignación de licencias posibilita una asignación de licencias basada en atributos, que es una buena opción para las organizaciones que tienen una calidad de datos alta en su directorio.
+- **Base en atributos/dinámica** : los grupos se pueden crear en la nube en función de una expresión basada en atributos de usuario, por ejemplo, Departamento igual a "ventas". Azure AD mantiene los miembros del grupo, manteniendo la coherencia con la expresión definida. El uso de este tipo de grupo para la asignación de licencias posibilita una asignación de licencias basada en atributos, que es una buena opción para las organizaciones que tienen una calidad de datos alta en su directorio.
 
-- **Propiedad delegada**: los grupos se pueden crear en la nube y pueden ser propietarios designados. De este modo, puede permitir que los propietarios de empresas, por ejemplo, el equipo de colaboración o el equipo de BI, puedan definir quién debe tener acceso.
+- **Propiedad delegada** : los grupos se pueden crear en la nube y pueden ser propietarios designados. De este modo, puede permitir que los propietarios de empresas, por ejemplo, el equipo de colaboración o el equipo de BI, puedan definir quién debe tener acceso.
 
 Si actualmente está usando un proceso manual para asignar licencias y componentes a los usuarios, se recomienda implementar las licencias basadas en grupos. Si el proceso actual no supervisa los errores de licencia o lo que está asignado frente a lo que está disponible, debe definir mejoras en el proceso para solucionar los errores relativos a las licencias y supervisar su asignación.
 
@@ -157,20 +157,20 @@ Utilice las siguientes directrices para definir planes de servicio para los usua
 - Opcionalmente, se puede definir un atributo que contenga los paquetes para los usuarios.
 
 > [!IMPORTANT]
-> Las concesión de licencias basada en grupos de Azure AD incorpora el concepto de usuarios en estado de error de licencias. En caso de que se produzcan errores relativos a las licencias, debe [detectar y resolver](../users-groups-roles/licensing-groups-resolve-problems.md) de inmediato cualquier problema de asignación de licencias.
+> Las concesión de licencias basada en grupos de Azure AD incorpora el concepto de usuarios en estado de error de licencias. En caso de que se produzcan errores relativos a las licencias, debe [detectar y resolver](../enterprise-users/licensing-groups-resolve-problems.md) de inmediato cualquier problema de asignación de licencias.
 
 ![Captura de pantalla de un equipo generada automáticamente](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Administración del ciclo de vida
 
-Si actualmente usa una herramienta, como [Microsoft Identity Manager](/microsoft-identity-manager/) o un sistema de terceros, que se base en una infraestructura local, se recomienda descargar la asignación de la herramienta existente, implementar licencias basadas en grupos y definir una administración del ciclo de vida de los grupos basada en [grupos](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Del mismo modo, si el proceso existente no tiene en cuenta los nuevos empleados o los empleados que abandonan la organización, debe implementar licencias basadas en grupos dinámicos y definir un ciclo de vida de pertenencia a grupos. Por último, si implementa la concesión de licencias basada en grupo sobre grupos locales que carecen de administración del ciclo de vida, considere la posibilidad de usar grupos en la nube para habilitar funcionalidades como la propiedad delegada o la pertenencia dinámica basada en atributos.
+Si actualmente usa una herramienta, como [Microsoft Identity Manager](/microsoft-identity-manager/) o un sistema de terceros, que se base en una infraestructura local, se recomienda descargar la asignación de la herramienta existente, implementar licencias basadas en grupos y definir una administración del ciclo de vida de los grupos basada en [grupos](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Del mismo modo, si el proceso existente no tiene en cuenta los nuevos empleados o los empleados que abandonan la organización, debe implementar licencias basadas en grupos dinámicos y definir un ciclo de vida de pertenencia a grupos. Por último, si implementa la concesión de licencias basada en grupo sobre grupos locales que carecen de administración del ciclo de vida, considere la posibilidad de usar grupos en la nube para habilitar funcionalidades como la propiedad delegada o la pertenencia dinámica basada en atributos.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Asignación de aplicaciones con el grupo "Todos los usuarios"
 
-Los propietarios de recursos pueden creer que el grupo **Todos los usuarios** solo contiene **Empleados de la empresa**, cuando puede que realmente contengan tanto **Empleados de la empresa** como **Invitados**. Como resultado, debe tener especial cuidado al usar el grupo **Todos los usuarios** para la asignación de aplicaciones y conceder acceso a recursos como aplicaciones o contenido de SharePoint.
+Los propietarios de recursos pueden creer que el grupo **Todos los usuarios** solo contiene **Empleados de la empresa** , cuando puede que realmente contengan tanto **Empleados de la empresa** como **Invitados** . Como resultado, debe tener especial cuidado al usar el grupo **Todos los usuarios** para la asignación de aplicaciones y conceder acceso a recursos como aplicaciones o contenido de SharePoint.
 
 > [!IMPORTANT]
-> Si el grupo **Todos los usuarios** está habilitado y se usa para las directivas de acceso condicional o la asignación de recursos o aplicaciones, asegúrese de [proteger el grupo](../external-identities/use-dynamic-groups.md) si no desea que incluya a los usuarios invitados. Además, debe corregir las asignaciones de licencias creando y asignando grupos que contengan solo a los **Empleados de la empresa**. Por otro lado, si observa que el grupo **Todos los usuarios** está habilitado pero no se usa para conceder acceso a los recursos, asegúrese de que la directriz operativa de su organización sea usar intencionadamente ese grupo (que incluye tanto a los **empleados de la empresa** como a los **invitados**).
+> Si el grupo **Todos los usuarios** está habilitado y se usa para las directivas de acceso condicional o la asignación de recursos o aplicaciones, asegúrese de [proteger el grupo](../external-identities/use-dynamic-groups.md) si no desea que incluya a los usuarios invitados. Además, debe corregir las asignaciones de licencias creando y asignando grupos que contengan solo a los **Empleados de la empresa** . Por otro lado, si observa que el grupo **Todos los usuarios** está habilitado pero no se usa para conceder acceso a los recursos, asegúrese de que la directriz operativa de su organización sea usar intencionadamente ese grupo (que incluye tanto a los **empleados de la empresa** como a los **invitados** ).
 
 ### <a name="automated-user-provisioning-to-apps"></a>Aprovisionamiento de usuarios automático a aplicaciones
 

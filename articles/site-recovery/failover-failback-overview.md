@@ -3,12 +3,12 @@ title: Acerca de la conmutación por error y la conmutación por recuperación e
 description: Obtenga información sobre la conmutación por error y la conmutación por recuperación en Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3617683200aa3ffba08061b70993613fd0cc7241
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089539"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369886"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Acerca de la conmutación por error o conmutación por recuperación de la recuperación ante desastres local
 
@@ -18,10 +18,10 @@ En este artículo se proporciona información general sobre la conmutación por 
 
 La conmutación por error y la conmutación por recuperación en Site Recovery constan de cuatro fases:
 
-- **Fase 1: conmutación por error desde una ubicación local**: después de configurar la replicación en Azure para las máquinas locales, cuando el sitio local deje de funcionar, dichas máquinas se conmutarán por error en Azure. Tras la conmutación por error, se crean máquinas virtuales de Azure a partir de los datos replicados.
-- **Fase 2: reproteger las máquinas virtuales de Azure**: en Azure, las máquinas virtuales de Azure se reprotegen para que empiecen a replicarse de nuevo en el sitio local. La máquina virtual local (si está disponible) está apagada durante la reprotección, para ayudar a garantizar la coherencia de los datos.
-- **Fase 3: conmutación por error desde Azure**: cuando el sitio local funcione nuevamente con normalidad, ejecute otra conmutación por error. Esta vez, para conmutar por recuperación las máquinas virtuales de Azure en el sitio local. Puede realizar una conmutación por recuperación en la ubicación original de la conmutación por error o en una ubicación alternativa.
-- **Fase 4: reprotección de máquinas locales en Azure**: después de la conmutación por recuperación, habilite de nuevo la replicación de las máquinas locales en Azure.
+- **Fase 1: conmutación por error desde una ubicación local** : después de configurar la replicación en Azure para las máquinas locales, cuando el sitio local deje de funcionar, dichas máquinas se conmutarán por error en Azure. Tras la conmutación por error, se crean máquinas virtuales de Azure a partir de los datos replicados.
+- **Fase 2: reproteger las máquinas virtuales de Azure** : en Azure, las máquinas virtuales de Azure se reprotegen para que empiecen a replicarse de nuevo en el sitio local. La máquina virtual local (si está disponible) está apagada durante la reprotección, para ayudar a garantizar la coherencia de los datos.
+- **Fase 3: conmutación por error desde Azure** : cuando el sitio local funcione nuevamente con normalidad, ejecute otra conmutación por error. Esta vez, para conmutar por recuperación las máquinas virtuales de Azure en el sitio local. Puede realizar una conmutación por recuperación en la ubicación original de la conmutación por error o en una ubicación alternativa.
+- **Fase 4: reprotección de máquinas locales en Azure** : después de la conmutación por recuperación, habilite de nuevo la replicación de las máquinas locales en Azure.
 
 ## <a name="failover"></a>Conmutación por error
 
@@ -33,8 +33,8 @@ Se realiza una conmutación por error como parte de la estrategia de continuidad
 
 La conmutación por error es una actividad de dos fases:
 
-- **Conmutación por error**: la conmutación por error que crea y pone en marcha una máquina virtual de Azure mediante el punto de recuperación seleccionado.
-- **Confirmación**: después de la conmutación por error, compruebe la máquina virtual en Azure:
+- **Conmutación por error** : la conmutación por error que crea y pone en marcha una máquina virtual de Azure mediante el punto de recuperación seleccionado.
+- **Confirmación** : después de la conmutación por error, compruebe la máquina virtual en Azure:
     - Después, puede confirmar la conmutación por error al punto de recuperación seleccionado, o seleccionar un punto diferente para la confirmación.
     - No se puede cambiar el punto de recuperación después de confirmar la conmutación por error.
 
@@ -45,10 +45,10 @@ Para conectarse a las máquinas virtuales de Azure creadas después de la conmut
 
 **Conmutación por error** | **Ubicación** | **Acciones**
 --- | --- | ---
-**Máquina virtual de Azure (Windows)** | En la máquina local antes de la conmutación por error | **Acceso a través de Internet**: habilite RDP. Asegúrese de que se hayan agregado las reglas de TCP y UDP para **Público**, y que RDP se permite en todos los perfiles de **Firewall de Windows** > **Aplicaciones permitidas**.<br/><br/> **Acceso a través de VPN de sitio a sitio**: habilite RDP en la máquina. Compruebe que se permite RDP en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas**.<br/><br/>  Asegúrese de que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](https://support.microsoft.com/kb/3031135).<br/><br/> Asegúrese de que no haya actualizaciones de Windows pendientes en la máquina virtual cuando se desencadena una conmutación por error. Windows Update puede iniciarse cuando realice la conmutación por error y no podrá iniciar sesión en la máquina virtual hasta que se completen las actualizaciones.
-**Máquina virtual de Azure que ejecuta Windows** | En la máquina virtual de Azure después de la conmutación por error |  [Agregue una dirección IP pública](https://aka.ms/addpublicip) para la máquina virtual.<br/><br/> Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) deben permitir las conexiones entrantes al puerto de RDP.<br/><br/> Seleccione **Diagnósticos de arranque** para comprobar una captura de pantalla de la máquina virtual. Si no puede conectarse, compruebe que se está ejecutando la máquina virtual y revise las [sugerencias de solución de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Máquina virtual de Azure (Windows)** | En la máquina local antes de la conmutación por error | **Acceso a través de Internet** : habilite RDP. Asegúrese de que se hayan agregado las reglas de TCP y UDP para **Público** , y que RDP se permite en todos los perfiles de **Firewall de Windows** > **Aplicaciones permitidas** .<br/><br/> **Acceso a través de VPN de sitio a sitio** : habilite RDP en la máquina. Compruebe que se permite RDP en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas** .<br/><br/>  Asegúrese de que la directiva SAN del sistema operativo está establecida en **OnlineAll** . [Más información](https://support.microsoft.com/kb/3031135).<br/><br/> Asegúrese de que no haya actualizaciones de Windows pendientes en la máquina virtual cuando se desencadena una conmutación por error. Windows Update puede iniciarse cuando realice la conmutación por error y no podrá iniciar sesión en la máquina virtual hasta que se completen las actualizaciones.
+**Máquina virtual de Azure que ejecuta Windows** | En la máquina virtual de Azure después de la conmutación por error |  [Agregue una dirección IP pública](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para la máquina virtual.<br/><br/> Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) deben permitir las conexiones entrantes al puerto de RDP.<br/><br/> Seleccione **Diagnósticos de arranque** para comprobar una captura de pantalla de la máquina virtual. Si no puede conectarse, compruebe que se está ejecutando la máquina virtual y revise las [sugerencias de solución de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Máquina virtual de Azure que ejecuta Linux** | En la máquina local antes de la conmutación por error | Asegúrese de que el servicio de Secure Shell en la máquina virtual está configurado para iniciarse automáticamente en el arranque del sistema.<br/><br/> Compruebe que las reglas de firewall permiten una conexión SSH.
-**Máquina virtual de Azure que ejecuta Linux** | En la máquina virtual de Azure después de la conmutación por error | Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) necesitan permitir las conexiones entrantes al puerto SSH.<br/><br/> [Agregue una dirección IP pública](https://aka.ms/addpublicip) para la máquina virtual.<br/><br/> Seleccione **Diagnósticos de arranque** para obtener una captura de pantalla de la máquina virtual.<br/><br/>
+**Máquina virtual de Azure que ejecuta Linux** | En la máquina virtual de Azure después de la conmutación por error | Las reglas del grupo de seguridad de red de la máquina virtual conmutada por error (y la subred de Azure a la que esta se conecta) necesitan permitir las conexiones entrantes al puerto SSH.<br/><br/> [Agregue una dirección IP pública](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) para la máquina virtual.<br/><br/> Seleccione **Diagnósticos de arranque** para obtener una captura de pantalla de la máquina virtual.<br/><br/>
 
 ## <a name="types-of-failover"></a>Tipos de conmutación por error
 
@@ -109,10 +109,10 @@ La conmutación por recuperación funciona como se indica a continuación:
 
 Para reproteger y conmutar por recuperación las máquinas y servidores físicos de VMware de Azure a un entorno local, necesita una infraestructura de conmutación por recuperación y debe cumplir una serie de requisitos.
 
-- **Servidor de procesos temporal de Azure**: para realizar una conmutación por recuperación desde Azure, debe configurar una máquina virtual de Azure para que actúe como servidor de procesos y controle la replicación desde Azure. Dicha máquina virtual se puede eliminar cuando finalice la conmutación por recuperación.
-- **Conexión VPN**: para la conmutación por recuperación, necesita una conexión VPN o ExpressRoute desde la red de Azure al sitio local.
-- **Servidor de destino maestro independiente**: de manera predeterminada, el servidor de destino maestro que se instaló con el servidor de configuración en la máquina virtual local de VMware controla la conmutación por recuperación. Si necesita realizar la conmutación por recuperación en grandes volúmenes de tráfico, debe configurar un servidor de destino maestro local diferente para este propósito.
-- **Directiva de conmutación por recuperación**: para replicar de nuevo en el sitio local, necesita una directiva de conmutación por recuperación. Esta directiva se crea automáticamente cuando crea una directiva de replicación entre el entorno local y Azure.
+- **Servidor de procesos temporal de Azure** : para realizar una conmutación por recuperación desde Azure, debe configurar una máquina virtual de Azure para que actúe como servidor de procesos y controle la replicación desde Azure. Dicha máquina virtual se puede eliminar cuando finalice la conmutación por recuperación.
+- **Conexión VPN** : para la conmutación por recuperación, necesita una conexión VPN o ExpressRoute desde la red de Azure al sitio local.
+- **Servidor de destino maestro independiente** : de manera predeterminada, el servidor de destino maestro que se instaló con el servidor de configuración en la máquina virtual local de VMware controla la conmutación por recuperación. Si necesita realizar la conmutación por recuperación en grandes volúmenes de tráfico, debe configurar un servidor de destino maestro local diferente para este propósito.
+- **Directiva de conmutación por recuperación** : para replicar de nuevo en el sitio local, necesita una directiva de conmutación por recuperación. Esta directiva se crea automáticamente cuando crea una directiva de replicación entre el entorno local y Azure.
     - Esta directiva se asocia automáticamente al servidor de configuración.
     - Esta directiva no se puede editar.
     - Valores de la directiva: Umbral de RPO: 15 minutos; retención de punto de recuperación: 24 horas; frecuencia de instantánea coherente con la aplicación: 60 minutos.
@@ -124,8 +124,8 @@ Obtenga más información sobre la reprotección y la conmutación por recuperac
 
 Al reproteger las máquinas virtuales de Azure en un entorno local, puede especificar si quiere conmutar por recuperación a la ubicación original o a una ubicación alternativa.
 
-- **Recuperación de ubicación original**: esta opción conmuta por recuperación de Azure a la misma máquina local de origen (si existe). En este escenario solo los cambios se replican de nuevo al entorno local.
-- **Recuperación de ubicación alternativa**: si no existe la máquina local, puede conmutar por recuperación de Azure a una ubicación alternativa. Al reproteger la máquina virtual de Azure en un entorno local, se crea la máquina local. La replicación de datos completa se produce de Azure a un entorno local. --[Revise](concepts-types-of-failback.md) los requisitos y las limitaciones de la conmutación por recuperación en la ubicación.
+- **Recuperación de ubicación original** : esta opción conmuta por recuperación de Azure a la misma máquina local de origen (si existe). En este escenario solo los cambios se replican de nuevo al entorno local.
+- **Recuperación de ubicación alternativa** : si no existe la máquina local, puede conmutar por recuperación de Azure a una ubicación alternativa. Al reproteger la máquina virtual de Azure en un entorno local, se crea la máquina local. La replicación de datos completa se produce de Azure a un entorno local. --[Revise](concepts-types-of-failback.md) los requisitos y las limitaciones de la conmutación por recuperación en la ubicación.
 
 
 
@@ -138,17 +138,17 @@ Para reproteger y conmutar por recuperación máquinas virtuales de Hyper-V de A
 - Ejecute una conmutación por recuperación planeada de Azure a un entorno local.
 - No es necesario configurar ningún componente específico para la conmutación por recuperación de las máquinas virtuales de Hyper-V.
 - Durante la conmutación por error planeada, puede seleccionar opciones para sincronizar los datos antes de realizar la conmutación por recuperación:
-    - **Sincronizar datos antes de la conmutación por error**: esta opción reduce el tiempo de inactividad de las máquinas virtuales, ya que las sincroniza sin apagarlas.
+    - **Sincronizar datos antes de la conmutación por error** : esta opción reduce el tiempo de inactividad de las máquinas virtuales, ya que las sincroniza sin apagarlas.
         - Fase 1: toma una instantánea de la máquina virtual de Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
         - Fase 2: apaga la máquina virtual de Azure de modo que no se produzca ningún cambio nuevo. El último conjunto de cambios incrementales se transfiere al servidor local y se inicia la máquina virtual local.
-    - **Sincronizar datos solo durante la conmutación por error**: esta opción es más rápida, ya que se prevé que la mayoría del disco ha cambiado y, por lo tanto, no se realizan los cálculos de la suma de comprobación. Realiza una descarga del disco. Se recomienda utilizar esta opción si la máquina virtual ha estado trabajando con Azure durante un tiempo (un mes o más) o si se ha eliminado a la máquina virtual local.
+    - **Sincronizar datos solo durante la conmutación por error** : esta opción es más rápida, ya que se prevé que la mayoría del disco ha cambiado y, por lo tanto, no se realizan los cálculos de la suma de comprobación. Realiza una descarga del disco. Se recomienda utilizar esta opción si la máquina virtual ha estado trabajando con Azure durante un tiempo (un mes o más) o si se ha eliminado a la máquina virtual local.
 
 [Obtenga más información](hyper-v-azure-failback.md) sobre los procesos de reprotección y conmutación por recuperación de Hyper-V.
 
 Al reproteger las máquinas virtuales de Azure en un entorno local, puede especificar si quiere conmutar por recuperación a la ubicación original o a una ubicación alternativa.
 
-- **Recuperación de ubicación original**: esta opción conmuta por recuperación de Azure a la misma máquina local de origen (si existe). En este escenario, se selecciona una de las opciones de sincronización descritas en el procedimiento anterior.
-- **Recuperación de ubicación alternativa**: si no existe la máquina local, puede conmutar por recuperación de Azure a una ubicación alternativa. Al reproteger la máquina virtual de Azure en un entorno local, se crea la máquina local. En este caso, se recomienda seleccionar la opción para sincronizar los datos antes de la conmutación por error.
+- **Recuperación de ubicación original** : esta opción conmuta por recuperación de Azure a la misma máquina local de origen (si existe). En este escenario, se selecciona una de las opciones de sincronización descritas en el procedimiento anterior.
+- **Recuperación de ubicación alternativa** : si no existe la máquina local, puede conmutar por recuperación de Azure a una ubicación alternativa. Al reproteger la máquina virtual de Azure en un entorno local, se crea la máquina local. En este caso, se recomienda seleccionar la opción para sincronizar los datos antes de la conmutación por error.
 - [Revise](hyper-v-azure-failback.md) los requisitos y las limitaciones de la conmutación por recuperación en la ubicación.
 
 
@@ -164,4 +164,3 @@ Después de la conmutación por recuperación al sitio local, habilite la **Repl
 - Conmutar por error [máquinas virtuales en un plan de recuperación](site-recovery-failover.md).
 - [Prepararse para](vmware-azure-failback.md) la reprotección y la conmutación por recuperación de VMware.
 - Conmutar por recuperación [máquinas virtuales de Hyper-V](hyper-v-azure-failback.md)
-

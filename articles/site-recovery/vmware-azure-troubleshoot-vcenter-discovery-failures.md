@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8471305af93194ccae7b0928685e10d4d64726
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135354"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366670"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Solución de problemas de detección de vCenter Server
 
@@ -54,7 +54,7 @@ Cuando se encuentra este problema, se producen las situaciones siguientes:
 
 Para resolver el problema:
 
-Descargue la [herramienta PsExec](https://aka.ms/PsExec). 
+Descargue la [herramienta PsExec](/sysinternals/downloads/psexec). 
 
 Use la herramienta de PsExec para acceder al contexto de usuario del sistema y determinar si la dirección del proxy está configurada. Después, puede agregar vCenter a la lista de omisión mediante los procedimientos siguientes.
 
@@ -81,4 +81,4 @@ Para la configuración de proxy DRA:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 
+[Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)

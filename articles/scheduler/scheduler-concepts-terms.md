@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 100be6a4376883a4f2a91b1efd172242c1d19e19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 899c64e818896cde18e955d6abd82594734c4b57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80878398"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368169"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
 
@@ -40,7 +40,7 @@ A grandes rasgos, la API REST de Scheduler expone estas operaciones para adminis
 
 ### <a name="job-management"></a>Administración de trabajos
 
-Admite operaciones para crear y editar trabajos. Todos los trabajos deben pertenecer a una colección de trabajos existente, así que no hay ninguna creación implícita. Para más información, consulte [API REST de Scheduler: Trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs). Esta es la dirección del identificador URI de estas operaciones:
+Admite operaciones para crear y editar trabajos. Todos los trabajos deben pertenecer a una colección de trabajos existente, así que no hay ninguna creación implícita. Para más información, consulte [API REST de Scheduler: Trabajos](/rest/api/scheduler/jobs). Esta es la dirección del identificador URI de estas operaciones:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -48,7 +48,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Administración de la colección de trabajos
 
-Admite operaciones para crear y editar trabajos y colecciones de trabajos, que se asignan a las cuotas y a la configuración compartida. Por ejemplo, las cuotas especifican el número máximo de trabajos y un intervalo menor de periodicidad. Para más información, consulte [API REST de Scheduler: Colecciones de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Esta es la dirección del identificador URI de estas operaciones:
+Admite operaciones para crear y editar trabajos y colecciones de trabajos, que se asignan a las cuotas y a la configuración compartida. Por ejemplo, las cuotas especifican el número máximo de trabajos y un intervalo menor de periodicidad. Para más información, consulte [API REST de Scheduler: Colecciones de trabajos](/rest/api/scheduler/jobcollections). Esta es la dirección del identificador URI de estas operaciones:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -56,7 +56,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Administración del historial de trabajos
 
-Admite la operación GET para recuperar 60 días de historial de ejecución de trabajos, por ejemplo, el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Incluye compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. Para más información, consulte [API REST de Scheduler: Trabajos - Enumeración del historial de trabajos](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Esta es la dirección del identificador URI de esta operación:
+Admite la operación GET para recuperar 60 días de historial de ejecución de trabajos, por ejemplo, el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Incluye compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. Para más información, consulte [API REST de Scheduler: Trabajos - Enumeración del historial de trabajos](/rest/api/scheduler/jobs/listjobhistory). Esta es la dirección del identificador URI de esta operación:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -144,7 +144,7 @@ Este es un ejemplo que muestra una definición de trabajo completa para una acci
 
 ## <a name="starttime"></a>startTime
 
-En el objeto **startTime**, puede especificar la hora de inicio y un desplazamiento de la zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
+En el objeto **startTime** , puede especificar la hora de inicio y un desplazamiento de la zona horaria en [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 
@@ -214,7 +214,7 @@ A continuación se muestra un ejemplo de una acción de tema de Service Bus:
 },
 ```
 
-Para más información sobre los tokens de Firma de acceso compartido (SAS), consulte [Uso de firmas de acceso compartido (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Para más información sobre los tokens de Firma de acceso compartido (SAS), consulte [Uso de firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md).
 
 <a name="error-action"></a>
 
@@ -230,7 +230,7 @@ Igual que la **acción** primaria, puede hacer que la acción de error utilice u
 
 ## <a name="recurrence"></a>recurrence
 
-Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el objeto **recurrence**, por ejemplo:
+Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el objeto **recurrence** , por ejemplo:
 
 ```json
 "recurrence": {
@@ -250,7 +250,7 @@ Un trabajo se vuelve a producir si la definición de JSON del trabajo incluye el
 |----------|----------|-------|-------------| 
 | **frequency** | Sí, cuando se usa **recurrence** | "Minute", "Hour", "Day", "Week", "Month", "Year" | La unidad de tiempo entre las repeticiones | 
 | **interval** | No | 1 a 1000, ambos inclusive | Un entero positivo que determina el número de unidades de tiempo entre cada repetición según la **frecuencia** | 
-| **schedule** | No | Varía | Los detalles de las programaciones más complejas y avanzadas. Consulte **hours**, **minutes**, **weekDays**, **months** y **monthDays** | 
+| **schedule** | No | Varía | Los detalles de las programaciones más complejas y avanzadas. Consulte **hours** , **minutes** , **weekDays** , **months** y **monthDays** | 
 | **hours** | No | De 1 a 24 | Una matriz con las marcas de hora para saber cuándo ejecutar el trabajo | 
 | **minutes** | No | De 0 a 59 | Una matriz con las marcas de minutos para saber cuándo ejecutar el trabajo | 
 | **months** | No | De 1 a 12 | Una matriz con los meses en los que se puede ejecutar el trabajo | 
@@ -278,7 +278,7 @@ Para el caso de que un trabajo de Scheduler pueda producir un error, puede confi
 
 | Propiedad | Obligatorio | Value | Descripción | 
 |----------|----------|-------|-------------| 
-| **retryType** | Sí | **Fixed**, **None** | Determina si se especifica una directiva de reintentos (**fixed**) o no (**none**). | 
+| **retryType** | Sí | **Fixed** , **None** | Determina si se especifica una directiva de reintentos ( **fixed** ) o no ( **none** ). | 
 | **retryInterval** | No | PT30S | Especifica el intervalo y la frecuencia entre los reintentos en [ formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). El valor mínimo es de 15 segundos, mientras que el valor máximo es de 18 meses. | 
 | **retryCount** | No | 4 | Especifica el número de reintentos. El valor máximo es 20. | 
 ||||
@@ -293,14 +293,14 @@ El estado de un trabajo es **Enabled** (Habilitado), **Disabled** (Deshabilitado
 
 `"state": "Disabled"`
 
-Para cambiar los trabajos a estado **Habilitado** o **Deshabilitado**, puede usar la operación PUT o PATCH en esos trabajos.
-Sin embargo, si un trabajo tiene el estado **Completado** o **Con errores**, no puede actualizar el estado, aunque puede realizar la operación DELETE en el trabajo. Scheduler elimina los trabajos completados y con errores después de 60 días. 
+Para cambiar los trabajos a estado **Habilitado** o **Deshabilitado** , puede usar la operación PUT o PATCH en esos trabajos.
+Sin embargo, si un trabajo tiene el estado **Completado** o **Con errores** , no puede actualizar el estado, aunque puede realizar la operación DELETE en el trabajo. Scheduler elimina los trabajos completados y con errores después de 60 días. 
 
 <a name="status"></a>
 
 ## <a name="status"></a>status
 
-Después de que se inicia un trabajo, Scheduler devuelve información sobre el estado del trabajo mediante el objeto **status**, que solo controla Scheduler. Sin embargo, puede encontrar el objeto **status** dentro del objeto **job**. Esta es la información que incluye el estado de un trabajo:
+Después de que se inicia un trabajo, Scheduler devuelve información sobre el estado del trabajo mediante el objeto **status** , que solo controla Scheduler. Sin embargo, puede encontrar el objeto **status** dentro del objeto **job** . Esta es la información que incluye el estado de un trabajo:
 
 * Hora de la ejecución anterior, si la hubiera
 * Hora de la siguiente ejecución programada de los trabajos en curso

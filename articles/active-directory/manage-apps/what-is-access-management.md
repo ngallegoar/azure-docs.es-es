@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5ccd9e16fb5efd9fefca6253701f942c3202
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604111"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367795"
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 
@@ -45,7 +45,7 @@ Con algunos tipos de aplicaciones, existe la opción de [requerir que los usuari
 * Aplicaciones de proxy de aplicación que usan la autenticación previa de Azure Active Directory
 * Aplicaciones integradas en la plataforma de aplicaciones de Azure AD que usan la autenticación de OAuth 2.0 u OpenID Connect después de que un usuario o un administrador han dado su consentimiento a esa aplicación. Algunas aplicaciones empresariales ofrecen un control adicional sobre quién puede iniciar sesión.
 
-Cuando la asignación de usuarios *no es necesaria*, los usuarios sin asignar no ven la aplicación en su página Aplicaciones, pero sí pueden iniciar sesión en la aplicación propiamente dicha (esto se conoce también como inicio de sesión iniciado por SP). Otra opción es usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP).
+Cuando la asignación de usuarios *no es necesaria* , los usuarios sin asignar no ven la aplicación en su página Aplicaciones, pero sí pueden iniciar sesión en la aplicación propiamente dicha (esto se conoce también como inicio de sesión iniciado por SP). Otra opción es usar la dirección que aparece en **URL de acceso de usuario** en la página **Propiedades** de la aplicación (esto se conoce también como inicio de sesión iniciado por IDP).
 
 En algunas aplicaciones, la opción para requerir la asignación de usuarios no está disponible en las propiedades de la aplicación. En estos casos, puede usar PowerShell para establecer la propiedad appRoleAssignmentRequired en la entidad de servicio.
 
@@ -94,4 +94,4 @@ Al igual que sucede con las aplicaciones empresariales, se pueden [asignar usuar
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Protección de aplicaciones con acceso condicional](../conditional-access/concept-conditional-access-cloud-apps.md)
-* [Administración de grupos de autoservicio/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Administración de grupos de autoservicio/SSAA](../enterprise-users/groups-self-service-management.md)

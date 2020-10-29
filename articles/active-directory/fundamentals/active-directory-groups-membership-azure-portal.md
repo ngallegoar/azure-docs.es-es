@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd7eecd80b528b1d20d016d51c985bc24d1301d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565471"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371807"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Incorporación o eliminación de un grupo de otro grupo con Azure Active Directory
 En este artículo encontrará ayuda para agregar y quitar un grupo de otro grupo con Azure Active Directory.
@@ -36,34 +36,34 @@ Puede agregar un grupo de seguridad existente a otro grupo de seguridad existent
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global para el directorio.
 
-2. Seleccione **Azure Active Directory** y después seleccione **Grupos**.
+2. Seleccione **Azure Active Directory** y después seleccione **Grupos** .
 
-3. En la página **Grupos - Todos los grupos**, busque y seleccione el grupo que va a convertirse en miembro de otro grupo. Para este ejercicio, usaremos el grupo **MDM policy - West**.
+3. En la página **Grupos - Todos los grupos** , busque y seleccione el grupo que va a convertirse en miembro de otro grupo. Para este ejercicio, usaremos el grupo **MDM policy - West** .
 
     >[!Note]
     >Puede agregar el grupo como miembro solo a un otro grupo a la vez. Además, el cuadro **Seleccionar grupo** filtra la visualización en función de si coincide lo que ha escrito con cualquier parte del nombre de un usuario o dispositivo. Sin embargo, no se admiten caracteres comodín.
 
     ![Página Grupos - Todos los grupos con el grupo MDM policy - West seleccionado](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
 
-4. En la página **MDM policy - West - Group memberships**, seleccione **Pertenencia a grupos**, seleccione **Agregar**, busque el grupo de que quiere que su grupo sea miembro y, luego, elija **Seleccionar**. Para este ejercicio, usaremos el grupo **MDM policy - All org**.
+4. En la página **MDM policy - West - Group memberships** , seleccione **Pertenencia a grupos** , seleccione **Agregar** , busque el grupo de que quiere que su grupo sea miembro y, luego, elija **Seleccionar** . Para este ejercicio, usaremos el grupo **MDM policy - All org** .
 
-    El grupo **MDM policy - West** ahora es miembro del grupo **MDM policy - All org**, y hereda todas las propiedades y la configuración del grupo MDM policy - All org.
+    El grupo **MDM policy - West** ahora es miembro del grupo **MDM policy - All org** , y hereda todas las propiedades y la configuración del grupo MDM policy - All org.
 
     ![Creación de una pertenencia a grupos mediante la adición de grupo a otro grupo](media/active-directory-groups-membership-azure-portal/group-add-group-membership.png)
 
 5. Revise la página **MDM policy - West - Group memberships** para ver la relación entre el grupo y el miembro.
 
-6. Para obtener una vista más detallada de la relación entre el grupo y el miembro, seleccione el nombre del grupo (**MDM policy - All org**) y eche un vistazo a los detalles de la página **MDM policy - West**.
+6. Para obtener una vista más detallada de la relación entre el grupo y el miembro, seleccione el nombre del grupo ( **MDM policy - All org** ) y eche un vistazo a los detalles de la página **MDM policy - West** .
 
 ## <a name="remove-a-group-from-another-group"></a>Eliminación de un grupo de otro grupo
 Puede quitar un grupo de seguridad existente de otro grupo de seguridad. Sin embargo, al quitar el grupo también se eliminan los atributos y propiedades heredados de sus miembros.
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>Para quitar un grupo miembro de otro grupo
-1. En la página **Grupos - Todos los grupos**, busque y seleccione el grupo que va a quitarse como miembro de otro grupo. Para este ejercicio, volveremos a usar el grupo **MDM policy - West**.
+1. En la página **Grupos - Todos los grupos** , busque y seleccione el grupo que va a quitarse como miembro de otro grupo. Para este ejercicio, volveremos a usar el grupo **MDM policy - West** .
 
-2. En la página **Información general de MDM policy - West**, seleccione **Pertenencia a grupos**.
+2. En la página **Información general de MDM policy - West** , seleccione **Pertenencia a grupos** .
 
-3. Seleccione el grupo **MDM policy - All org** de la página **MDM policy - West - Group memberships** y, luego, seleccione **Quitar** de los detalles de la página **MDM policy - West**.
+3. Seleccione el grupo **MDM policy - All org** de la página **MDM policy - West - Group memberships** y, luego, seleccione **Quitar** de los detalles de la página **MDM policy - West** .
 
     ![Página de pertenencia a grupos que muestra los detalles del miembro y del grupo](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
 
@@ -78,6 +78,6 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 - [Edición de la configuración de un grupo](active-directory-groups-settings-azure-portal.md)
 
-- [Uso de un grupo para administrar el acceso a las aplicaciones SaaS](../users-groups-roles/groups-saasapps.md)
+- [Uso de un grupo para administrar el acceso a las aplicaciones SaaS](../enterprise-users/groups-saasapps.md)
 
-- [Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Escenarios, limitaciones y problemas conocidos del uso de grupos para administrar las licencias en Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)

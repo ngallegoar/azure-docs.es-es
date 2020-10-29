@@ -3,12 +3,12 @@ title: Matriz de compatibilidad para la recuperación ante desastres de VMware/f
 description: Resume la compatibilidad de la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure mediante Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 8983923a6ccc3b5462c3e9f00337763b225ed9ac
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330315"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369325"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -65,7 +65,7 @@ Site Recovery admite la replicación de cualquier carga de trabajo que se ejecut
 **Componente** | **Detalles**
 --- | ---
 Configuración del equipo | Las máquinas que se replican en Azure deben cumplir con los [requisitos de Azure](#azure-vm-requirements).
-Carga de trabajo del equipo | Site Recovery admite la replicación de cualquier carga de trabajo que se ejecute en una máquina compatible. [Más información](https://aka.ms/asr_workload).
+Carga de trabajo del equipo | Site Recovery admite la replicación de cualquier carga de trabajo que se ejecute en una máquina compatible. [Más información](./site-recovery-workload.md).
 Nombre de equipo | Asegúrese de que el nombre para mostrar de la máquina no pertenezca a [nombres de recursos reservados de Azure](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Los nombres de los volúmenes lógicos no distinguen mayúsculas de minúsculas. Asegúrese de que no haya dos volúmenes con el mismo nombre en un dispositivo. Por ejemplo: Los volúmenes con los nombres "voLUME1" o "volume1" no se pueden proteger con Azure Site Recovery.
 
 ### <a name="for-windows"></a>Para Windows
@@ -235,7 +235,7 @@ Invitado/servidor: disco de exclusión | Sí
 Varias rutas (MPIO) de invitado/servidor | No
 Particiones GPT de invitado/servidor | Se admiten cinco particiones desde el [paquete acumulativo de actualizaciones 37](https://support.microsoft.com/help/4508614/) (versión 9.25 de Mobility Service) y versiones posteriores. Antes se admitían cuatro.
 ReFS | El sistema de archivos resistente es compatible con Mobility Service versión 9.23 o posterior
-Arranque de EFI/UEFI de invitado/servidor | - Compatible con todos los [sistemas operativos de Azure MARKETPLACE UEFI](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) con la versión 9.30 del agente de movilidad de Site Recovery y posteriores. <br/> - No se admite el tipo de arranque seguro de UEFI. [Más información.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Arranque de EFI/UEFI de invitado/servidor | - Compatible con todos los [sistemas operativos de Azure MARKETPLACE UEFI](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) con la versión 9.30 del agente de movilidad de Site Recovery y posteriores. <br/> - No se admite el tipo de arranque seguro de UEFI. [Más información.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canales de replicación
 

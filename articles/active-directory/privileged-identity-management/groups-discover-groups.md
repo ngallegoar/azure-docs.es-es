@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68795033d36ad0bcb36b7cd81cea0d848ecd5113
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049016"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367846"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Incorporación de grupos de acceso con privilegios (versión preliminar) en Privileged Identity Management
 
@@ -27,7 +27,7 @@ En Azure Active Directory (Azure AD), puede asignar roles integrados de Azure 
 
 ## <a name="identify-groups-to-manage"></a>Identificación de los grupos que se administrarán
 
-Puede crear un grupo al que se pueden asignar roles en Azure AD como se describe en [Creación de un grupo al que se pueden asignar roles en Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md). Debe ser propietario del grupo para poder incorporarlo a la administración con Privileged Identity Management.
+Puede crear un grupo al que se pueden asignar roles en Azure AD como se describe en [Creación de un grupo al que se pueden asignar roles en Azure Active Directory](../roles/groups-create-eligible.md). Debe ser propietario del grupo para poder incorporarlo a la administración con Privileged Identity Management.
 
 1. [Inicie sesión en Azure AD](https://aad.portal.azure.com) con permisos del rol Administrador de roles con privilegios.
 1. Seleccione **Grupos** y, a continuación, seleccione el grupo al que se pueden asignar roles que quiera administrar en PIM. Puede buscar y filtrar la lista.

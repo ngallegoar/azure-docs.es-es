@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: fec52caa3cb7565a86a6c50d300fe448b6518457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51de1ab26318a02381ed95f00eadcc4e892f2f57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320075"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371637"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>API de envío del Centro de partners para incorporar aplicaciones de Azure en el centro de Partners
 
@@ -29,7 +29,7 @@ Para usar la API del Centro de partners para los productos de Azure necesita alg
 
 Antes de empezar a escribir código para llamar a la API de envío del Centro de partners, asegúrese de que ha completado los requisitos previos a continuación.
 
-- Usted (o su organización) tiene que tener un directorio de Azure AD y el permiso de [Administrador global](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) para el directorio. Si usa Microsoft 365 u otros servicios empresariales de Microsoft, ya tiene el directorio de Azure AD. De lo contrario, puede [crear un nuevo Azure AD en el Centro de partners](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sin cargo adicional.
+- Usted (o su organización) tiene que tener un directorio de Azure AD y el permiso de [Administrador global](../../active-directory/roles/permissions-reference.md) para el directorio. Si usa Microsoft 365 u otros servicios empresariales de Microsoft, ya tiene el directorio de Azure AD. De lo contrario, puede [crear un nuevo Azure AD en el Centro de partners](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sin cargo adicional.
 
 - Tiene que [asociar una aplicación Azure AD a su cuenta del Centro de partners](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) y obtener el identificador de inquilino, el identificador de cliente y la clave. Necesitará estos valores para obtener un token de acceso de Azure AD, que usará en las llamadas a la API de envío de Microsoft Store.
 
@@ -41,9 +41,9 @@ Para usar la API de envío de Microsoft Store, tiene que asociar una aplicación
 >Solo tiene que realizar esta operación una vez. Una vez que tenga el identificador de inquilino, el identificador de cliente y la clave, puede volver a usarlos cada vez que tenga que crear un nuevo token de acceso de Azure AD.
 
 1. En el Centro de partners, [asocie la cuenta del Centro de partners de la organización con el directorio de Azure AD de la organización](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center).
-1. A continuación, en la página **Usuarios** en la sección **Configuración** de la cuenta del Centro de partners, [agregue la aplicación de Azure AD](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa la aplicación o el servicio que usará para obtener acceso a los envíos de la cuenta del Centro de partners. Asegúrese de asignar a esta aplicación el rol **Administrador**. Si la aplicación aún no existe en el directorio de Azure AD, puede [crear una nueva aplicación de Azure AD en el Centro de partners](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
-1. Vuelva a la página **Usuarios**, haga clic en el nombre de la aplicación de Azure AD para ir a la configuración de la aplicación y, a continuación, copie los valores de **Identificador de inquilino** e **Identificador de cliente**.
-1. Haga clic en **Agregar nueva clave**. En la pantalla siguiente, copie el valor de **Clave**. Después de salir de esta página no podrá tener acceso de nuevo a esta información. Para más información, consulte [Administrar claves para una aplicación de Azure AD](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. A continuación, en la página **Usuarios** en la sección **Configuración** de la cuenta del Centro de partners, [agregue la aplicación de Azure AD](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa la aplicación o el servicio que usará para obtener acceso a los envíos de la cuenta del Centro de partners. Asegúrese de asignar a esta aplicación el rol **Administrador** . Si la aplicación aún no existe en el directorio de Azure AD, puede [crear una nueva aplicación de Azure AD en el Centro de partners](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
+1. Vuelva a la página **Usuarios** , haga clic en el nombre de la aplicación de Azure AD para ir a la configuración de la aplicación y, a continuación, copie los valores de **Identificador de inquilino** e **Identificador de cliente** .
+1. Haga clic en **Agregar nueva clave** . En la pantalla siguiente, copie el valor de **Clave** . Después de salir de esta página no podrá tener acceso de nuevo a esta información. Para más información, consulte [Administrar claves para una aplicación de Azure AD](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Paso 2: Obtención de un token de acceso de Azure AD
 
@@ -63,7 +63,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Para el valor *tenant_id* en el `POST URI` y los parámetros *client_id* y *client_secret*, especifique el identificador de inquilino, el identificador de cliente y la clave de la aplicación que recuperó del Centro de partners en la sección anterior. Para el parámetro *resource*, tiene que especificar `https://api.partner.microsoft.com`.
+Para el valor *tenant_id* en el `POST URI` y los parámetros *client_id* y *client_secret* , especifique el identificador de inquilino, el identificador de cliente y la clave de la aplicación que recuperó del Centro de partners en la sección anterior. Para el parámetro *resource* , tiene que especificar `https://api.partner.microsoft.com`.
 
 ### <a name="step-3-use-the-microsoft-store-submission-api"></a>Paso 3: Uso de la API de envío de Microsoft Store
 

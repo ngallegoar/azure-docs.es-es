@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318434"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371892"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Planes de implementación de Azure Active Directory
 ¿Busca una guía de un extremo a otro sobre cómo implementar las funcionalidades de Azure Active Directory (Azure AD)? Los planes de implementación de Azure AD le guían por el valor de negocio, las consideraciones de planeamiento y los procedimientos operativos necesarios para implementar correctamente las funcionalidades comunes de Azure AD.
@@ -40,13 +40,13 @@ Entre los roles, se incluyen los siguientes:
 
 **Los niveles de implicación podrían incluir:**
 
-- **R**esponsible para implementar el plan del proyecto y el resultado 
+- **R** esponsible para implementar el plan del proyecto y el resultado 
 
-- **A**probación del plan del proyecto y el resultado 
+- **A** probación del plan del proyecto y el resultado 
 
-- **C**olaborador con el plan del proyecto y el resultado 
+- **C** olaborador con el plan del proyecto y el resultado 
 
-- **I**nformado del plan del proyecto y el resultado
+- **I** nformado del plan del proyecto y el resultado
 
 
 ## <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto
@@ -54,7 +54,7 @@ Un piloto le permite probar con un grupo pequeño antes de activar una funcional
 
 En su primera oleada, TI de destino, facilidad de uso y otros usuarios adecuados que pueden probar y proporcionar comentarios. Estos comentarios deben usarse para desarrollar aún más las comunicaciones e instrucciones que envía a sus usuarios y proporcionarles información sobre los tipos de problemas que puede ver su personal de soporte técnico. 
 
-La ampliación de la implementación en grupos de usuarios más grandes debe llevarse a cabo aumentando el ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../users-groups-roles/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.
+La ampliación de la implementación en grupos de usuarios más grandes debe llevarse a cabo aumentando el ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../enterprise-users/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.
 
 
 ## <a name="deploy-authentication"></a>Implementación de la autenticación

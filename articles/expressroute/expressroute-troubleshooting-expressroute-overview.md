@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401748"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92204646"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Comprobación de la conectividad de ExpressRoute
 En este artículo encontrará información útil para comprobar y solucionar problemas de conectividad de ExpressRoute. ExpressRoute amplía las redes locales en la nube de Microsoft a través de una conexión privada que suele facilitar un proveedor de conectividad. La conectividad de ExpressRoute implica tradicionalmente tres zonas de red distintas, como se indica a continuación:
@@ -83,7 +83,7 @@ En Azure Portal, abra la hoja del circuito ExpressRoute. En la sección ![3][3] 
 
 ![4][4]    
 
-En Essentials (Fundamentos) de ExpressRoute, *Circuit status* (Estado del circuito) indica el estado del circuito en el lado de Microsoft. *Provider status* (Estado del proveedor) indica si el circuito ha sido aprovisionado o no (*Provisioned/Not provisioned*) en el lado del proveedor de servicios. 
+En Essentials (Fundamentos) de ExpressRoute, *Circuit status* (Estado del circuito) indica el estado del circuito en el lado de Microsoft. *Provider status* (Estado del proveedor) indica si el circuito ha sido aprovisionado o no ( *Provisioned/Not provisioned* ) en el lado del proveedor de servicios. 
 
 Para que un circuito ExpressRoute sea operativo, el valor de *Circuit status* (Estado del circuito) debe ser *Enabled* (Habilitado) y *Provider status* (Estado del proveedor) debe ser *Provisioned* (Aprovisionado)
 
@@ -100,7 +100,7 @@ Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 ```
 
 >[!TIP]
->Si busca el nombre de un grupo de recursos, para encontrarlo, puede enumerar todos los grupos de recursos de la suscripción con el comando *Get-AzResourceGroup*.
+>Si busca el nombre de un grupo de recursos, para encontrarlo, puede enumerar todos los grupos de recursos de la suscripción con el comando *Get-AzResourceGroup* .
 >
 
 
@@ -165,7 +165,7 @@ En Azure Portal, el estado de un emparejamiento de circuito ExpressRoute se pued
 Como se indicó en el ejemplo anterior, el emparejamiento privado de Azure está aprovisionado, mientras que los emparejamientos públicos de Azure y el emparejamiento de Microsoft no lo están. Un contexto de emparejamiento aprovisionado correctamente también mostrará las subredes de punto a punto principales y secundarias. Las subredes /30 se usan para la dirección IP de interfaz de los MSEE y los CE o los PE-MSEE. En el caso de los emparejamientos que se aprovisionan, también se indica quién modificó la configuración por última vez. 
 
 > [!NOTE]
-> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
+> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId* , *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId*, *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
+> Si se produce un error al habilitar un emparejamiento, compruebe si las subredes principales y secundarias asignadas coinciden con la configuración del CE o el PE-MSEE vinculado. Compruebe también si se usan los *VlanId* , *AzureASN* y *PeerASN* correctos en los MSEE, y si estos valores se asignan a los que se usan en el CE o el PE-MSEE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y PE-MSEE o CE. La clave compartida que se ha configurado previamente no se mostraría por motivos de seguridad. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].  
 >
 >
 
@@ -249,7 +249,7 @@ Consulte el documento [Obtención de tablas ARP en el modelo de implementación 
 
 ## <a name="validate-bgp-and-routes-on-the-msee"></a>Validación de BGP y las rutas en el MSEE
 
-Para obtener la tabla de enrutamiento de MSEE en la ruta de acceso *principal* del contexto de enrutamiento *privado*, use el siguiente comando:
+Para obtener la tabla de enrutamiento de MSEE en la ruta de acceso *principal* del contexto de enrutamiento *privado* , use el siguiente comando:
 
 ```azurepowershell
 Get-AzExpressRouteCircuitRouteTable -DevicePath Primary -ExpressRouteCircuitName ******* -PeeringType AzurePrivatePeering -ResourceGroupName ****
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Si el estado de un emparejamiento EBGP entre un MSEE y un CE o un PE-MSEE es activo o está en espera, compruebe si las subredes principales y secundarias asignadas del mismo nivel coinciden con la configuración de los CE o de los PE-MSEE vinculados. Compruebe también si se usan los *VlanId*, *AzureAsn* y *PeerAsn* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE o el CE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y CE o PE-MSEE. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
+> Si el estado de un emparejamiento EBGP entre un MSEE y un CE o un PE-MSEE es activo o está en espera, compruebe si las subredes principales y secundarias asignadas del mismo nivel coinciden con la configuración de los CE o de los PE-MSEE vinculados. Compruebe también si se usan los *VlanId* , *AzureAsn* y *PeerAsn* correctos en los MSEE, y si estos valores se asignan a los que se usan en el PE-MSEE o el CE vinculado. Si se elige el hash MD5, la clave compartida debe coincidir en el par MSEE y CE o PE-MSEE. Si necesita cambiar la configuración en un enrutador MSEE, consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute][CreatePeering].
 >
 
 
@@ -332,13 +332,8 @@ Para obtener más información, consulte los siguientes artículos:
 
 <!--Link References-->
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
-[DR-Pvt]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
-
+[CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
+[ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+[HA]: ./designing-for-high-availability-with-expressroute.md
+[DR-Pvt]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

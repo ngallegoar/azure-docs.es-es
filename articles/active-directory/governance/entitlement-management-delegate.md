@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979885"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362559"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegación y roles en la administración de derechos de Azure AD
 
@@ -51,7 +51,7 @@ Esta es una de las formas en las que Hana podría delegar la gobernanza del acce
 
     Tenga en cuenta que Mamta, Mark y Joe solo pueden ver su propio catálogo.
 
-1. Mamta crea un catálogo **Marketing**, que es un contenedor de recursos.
+1. Mamta crea un catálogo **Marketing** , que es un contenedor de recursos.
 
 1. Mamta agrega a este catálogo los recursos que su departamento de marketing posee.
 
@@ -124,20 +124,20 @@ Para que un usuario que no sea administrador global o administrador de usuarios 
 
 | Rol de directorio de Azure AD | Rol de administración de derechos | Puede agregar grupos de seguridad | Puede agregar grupos de Microsoft 365 | Puede agregar aplicaciones | Puede agregar sitios de SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Administrador global](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Administrador de usuarios](../users-groups-roles/directory-assign-admin-roles.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Administrador de Intune](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Administrador de Exchange](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  | :heavy_check_mark: |  |  |
-| [Administrador del servicio Teams](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  | :heavy_check_mark: |  |  |
-| [Administrador de SharePoint](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Administrador de aplicaciones](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
-| [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
+| [Administrador global](../roles/permissions-reference.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Administrador de usuarios](../roles/permissions-reference.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Administrador de Intune](../roles/permissions-reference.md) | Propietario del catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Administrador de Exchange](../roles/permissions-reference.md) | Propietario del catálogo |  | :heavy_check_mark: |  |  |
+| [Administrador del servicio Teams](../roles/permissions-reference.md) | Propietario del catálogo |  | :heavy_check_mark: |  |  |
+| [Administrador de SharePoint](../roles/permissions-reference.md) | Propietario del catálogo |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Administrador de aplicaciones](../roles/permissions-reference.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
+| [Administrador de aplicaciones en la nube](../roles/permissions-reference.md) | Propietario del catálogo |  |  | :heavy_check_mark: |  |
 | Usuario | Propietario del catálogo | Solo si es propietario del grupo | Solo si es propietario del grupo | Solo si es propietario de la aplicación |  |
 
 > [!NOTE]
-> Si un usuario agrega un grupo de seguridad o un grupo de Microsoft 365, el grupo al que no se pueden asignar roles. Si el usuario agrega un grupo al que se pueden asignar roles cuando crea el paquete de acceso, también debe ser el propietario de ese grupo al que se pueden asignar roles. Para más información, consulte [Creación de un grupo al que se pueden asignar roles en Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> Si un usuario agrega un grupo de seguridad o un grupo de Microsoft 365, el grupo al que no se pueden asignar roles. Si el usuario agrega un grupo al que se pueden asignar roles cuando crea el paquete de acceso, también debe ser el propietario de ese grupo al que se pueden asignar roles. Para más información, consulte [Creación de un grupo al que se pueden asignar roles en Azure Active Directory](../roles/groups-create-eligible.md).
 
-Para determinar el rol con menos privilegios de una tarea, también puede hacer referencia a los [roles de administrador por tarea de administrador en Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
+Para determinar el rol con menos privilegios de una tarea, también puede hacer referencia a los [roles de administrador por tarea de administrador en Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

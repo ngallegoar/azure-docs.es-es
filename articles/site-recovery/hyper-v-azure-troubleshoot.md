@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 9e8a1246a2e48c3c569b82845c713ba25ee2467a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426129"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364038"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solución de problemas de la replicación y la conmutación por error de Hyper-V en Azure
 
@@ -26,10 +26,10 @@ Si experimenta problemas al habilitar la protección para VM de Hyper-V, consult
 1. Compruebe que los hosts de Hyper-V y las VM cumplen con todos los [requisitos y requisitos previos](hyper-v-azure-support-matrix.md).
 2. Si se los servidores de Hyper-V se ubican en nubes de System Center Virtual Machine Manager (VMM), compruebe que ha preparado el [servidor VMM](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional).
 3. Compruebe que el servicio de administración de máquinas virtuales de Hyper-V se está ejecutando en los hosts de Hyper-V.
-4. Compruebe si hay problemas que aparecen en el inicio de sesión de Hyper-V-VMMS\Admin en la VM. Este registro se encuentra en **Registros de aplicaciones y servicios** > **Microsoft** > **Windows**.
+4. Compruebe si hay problemas que aparecen en el inicio de sesión de Hyper-V-VMMS\Admin en la VM. Este registro se encuentra en **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** .
 5. En la máquina virtual invitada, compruebe que WMI esté habilitado y accesible.
    - [Información acerca de](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) pruebas básicas de WMI.
-   - [Solución de problemas](https://aka.ms/WMiTshooting) de WMI.
+   - [Solución de problemas](/windows/win32/wmisdk/wmi-troubleshooting) de WMI.
    - [Solución de problemas](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) con los scripts y servicios de WMI.
 6. En la máquina virtual invitada, asegúrese de que se está ejecutando la versión más reciente de Integration Services.
     - [Compruebe](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) que dispone de la versión más reciente.
@@ -42,8 +42,8 @@ Para solucionar los problemas relacionados con la replicación inicial y en curs
 1. Asegúrese de que está ejecutando la [versión más reciente](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) de los servicios de Site Recovery.
 2. Verificar si la replicación está en pausa:
    - Compruebe el estado de mantenimiento de la máquina virtual en la consola del Administrador de Hyper-V.
-   - Si el problema es crítico, haga clic con el botón derecho en la máquina virtual > **Replicación** > **Ver mantenimiento de la replicación**.
-   - Si la replicación está en pausa, haga clic en **Reanudar replicación**.
+   - Si el problema es crítico, haga clic con el botón derecho en la máquina virtual > **Replicación** > **Ver mantenimiento de la replicación** .
+   - Si la replicación está en pausa, haga clic en **Reanudar replicación** .
 3. Compruebe que se están ejecutando los servicios necesarios. Si no es así,reinícielos.
     - Si se está replicando Hyper-V sin VMM, compruebe que estos servicios se están ejecutando en el host de Hyper-V:
         - Servicio de administración de máquinas virtuales
@@ -53,8 +53,8 @@ Para solucionar los problemas relacionados con la replicación inicial y en curs
     - Si replica con VMM en el entorno, compruebe que estos servicios se están ejecutando:
         - En el host de Hyper-V, compruebe que se están ejecutando el servicio de administración de máquinas virtuales, el Agente de Microsoft Azure Recovery Services y el servicio de Host del proveedor de WMI.
         - En el servidor VMM, asegúrese de que se está ejecutando el servicio System Center Virtual Machine Manager.
-4. Compruebe la conectividad entre el servidor de Hyper-V y Azure. Para comprobar la conectividad, abra el Administrador de tareas en el host de Hyper V. Vaya a la pestaña **Rendimiento** haga clic en el vínculo **Abrir el Monitor de recursos**. En la pestaña **Red** > **Proceso con actividad de red**, compruebe si cbengine.exe está enviando activamente grandes volúmenes (MB) de datos.
-5. Compruebe si los hosts de Hyper-V pueden conectarse a la dirección URL del blob de almacenamiento de Azure. Para comprobar si los hosts pueden conectarse, seleccione y compruebe **cbengine.exe**. Revise las **conexiones TCP** para comprobar la conectividad desde el host al blob de almacenamiento de Azure.
+4. Compruebe la conectividad entre el servidor de Hyper-V y Azure. Para comprobar la conectividad, abra el Administrador de tareas en el host de Hyper V. Vaya a la pestaña **Rendimiento** haga clic en el vínculo **Abrir el Monitor de recursos** . En la pestaña **Red** > **Proceso con actividad de red** , compruebe si cbengine.exe está enviando activamente grandes volúmenes (MB) de datos.
+5. Compruebe si los hosts de Hyper-V pueden conectarse a la dirección URL del blob de almacenamiento de Azure. Para comprobar si los hosts pueden conectarse, seleccione y compruebe **cbengine.exe** . Revise las **conexiones TCP** para comprobar la conectividad desde el host al blob de almacenamiento de Azure.
 6. Compruebe los problemas de rendimiento, como se describe a continuación.
     
 ### <a name="performance-issues"></a>Problemas de rendimiento
@@ -80,7 +80,7 @@ Las limitaciones de ancho de banda de red pueden afectar a la replicación. Para
 
 2. Haga clic en **Ver mantenimiento de la replicación** para ver los detalles:
 
-    - Si la replicación está en pausa, haga clic con el botón derecho en la máquina virtual > **Replicación** > **Reanudar replicación**.
+    - Si la replicación está en pausa, haga clic con el botón derecho en la máquina virtual > **Replicación** > **Reanudar replicación** .
     - Si una máquina virtual en un host de Hyper-V configurado en Site Recovery se migra a otro host de Hyper-V en el mismo clúster o a un equipo independiente, la replicación para la máquina virtual no resulta afectada. Compruebe que el nuevo host de Hyper-V cumpla todos los requisitos previos y se configure mediante Site Recovery.
 
 ## <a name="app-consistent-snapshot-issues"></a>Problemas de instantáneas coherentes con la aplicación
@@ -89,7 +89,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 ### <a name="vss-failing-inside-the-vm"></a>Fallo de VSS en la máquina virtual
 
-1. Asegúrese de que la versión más reciente de Integration Services está instalada y ejecutándose.  Compruebe si hay disponible una actualización ejecutando el comando siguiente desde un símbolo del sistema de PowerShell con privilegios elevados en el host de Hyper-V: **get-vm | select Name, State, IntegrationServicesState**.
+1. Asegúrese de que la versión más reciente de Integration Services está instalada y ejecutándose.  Compruebe si hay disponible una actualización ejecutando el comando siguiente desde un símbolo del sistema de PowerShell con privilegios elevados en el host de Hyper-V: **get-vm | select Name, State, IntegrationServicesState** .
 2. Compruebe que los servicios VSS se están ejecutando y están en buen estado:
    - Para comprobar los servicios, inicie sesión en la VM de invitado. A continuación, abra un símbolo del sistema de administrador y ejecute los siguientes comandos para comprobar si todas las instancias de VSS Writer están en buenas condiciones.
        - **Vssadmin list writers**
@@ -107,7 +107,7 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
     ![Disco dinámico](media/hyper-v-azure-troubleshoot/dynamic-disk.png)
     
 4. Compruebe que no tiene un disco iSCSI asociado a la máquina virtual. No es una opción admitida.
-5. Compruebe que el servicio de copia de seguridad está habilitado. Compruebe que está habilitada en **Configuración de Hyper-V** > **Integration Services**.
+5. Compruebe que el servicio de copia de seguridad está habilitado. Compruebe que está habilitada en **Configuración de Hyper-V** > **Integration Services** .
 6. Asegúrese de que no hay conflictos con aplicaciones que estén realizando instantáneas VSS. Si varias aplicaciones están intentando realizar instantáneas VSS al mismo tiempo se pueden producir conflictos. Por ejemplo, si una aplicación de copia de seguridad está realizando instantáneas VSS cuando Site Recovery está programado por la directiva de replicación para realizar una instantánea.   
 7. Compruebe si la máquina virtual está experimentando una tasa de modificación elevada:
     - Puede medir la tasa de cambio de datos diaria para las máquinas virtuales invitadas con los contadores de rendimiento en el host de Hyper-V. Para medir la tasa de cambio de datos, habilite el siguiente contador. Agregue un ejemplo de este valor a los discos de máquina virtual de 5 a 15 minutos, para obtener la renovación de la máquina virtual.
@@ -124,13 +124,13 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Fallo de VSS en el host de Hyper-V
 
 1. Busque en los registros de eventos errores VSS y recomendaciones:
-    - En el servidor host de Hyper-V, abra el registro de eventos de administrador de Hyper-V en **Visor de eventos** > **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **Hyper-V** > **Administrador**.
+    - En el servidor host de Hyper-V, abra el registro de eventos de administrador de Hyper-V en **Visor de eventos** > **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** > **Hyper-V** > **Administrador** .
     - Compruebe si existen eventos que indiquen errores de instantánea coherentes con la aplicación.
     - Un error habitual es: "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. The writer experienced a non-transient error (Hyper-V no pudo generar el conjunto de instantáneas VSS para la máquina virtual: hay más datos disponibles. El escritor ha experimentado un error transitorio). Restarting the VSS service might resolve issues if the service is unresponsive". (Hyper-V no ha podido generar el conjunto de instantáneas VSS para la máquina virtual "XYZ": El escritor ha experimentado un error no transitorio. Reiniciar el servicio VSS puede resolver el problema si el servicio no responde)
 
 2. Para generar instantáneas VSS para la máquina virtual, compruebe que los servicios de integración de Hyper-V están instalados en la máquina virtual y que está habilitado el servicio de integración de copia de seguridad (VSS).
-    - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar**.
-    - Para comprobarlo, inicie una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **Get-VMIntegrationService -VMName\<VMName>-nombre VSS**. Otra manera de obtener esta información es iniciar sesión en la máquina virtual invitada. [Más información](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Asegúrese de que los servicios/demonios de VSS de Integration Services se ejecutan en el invitado y se encuentran en un estado **Aceptar** .
+    - Para comprobarlo, inicie una sesión de PowerShell con privilegios elevados en el host de Hyper-V con el comando **Get-VMIntegrationService -VMName\<VMName>-nombre VSS** . Otra manera de obtener esta información es iniciar sesión en la máquina virtual invitada. [Más información](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Asegúrese de que los servicios de integración de VSS/copia de seguridad en la máquina virtual se están ejecutando y se encuentran en buen estado. Si no es así, reinicie estos servicios y el servicio de solicitante de instantáneas de volumen de Hyper-V en el servidor host de Hyper-V.
 
 ### <a name="common-errors"></a>Errores comunes
@@ -144,14 +144,14 @@ Una instantánea coherente con la aplicación es una instantánea en un momento 
 
 ## <a name="collect-replication-logs"></a>Recopilación de registros de replicación
 
-Todos los eventos de replicación de Hyper-V se registran en el registro Hyper-V-VMMS\Admin ubicado en **Registros de aplicaciones y servicios** > **Microsoft** > **Windows**. Además, puede habilitar un registro analítico para el servicio de administración de máquinas virtuales de Hyper-V de la forma siguiente:
+Todos los eventos de replicación de Hyper-V se registran en el registro Hyper-V-VMMS\Admin ubicado en **Registros de aplicaciones y servicios** > **Microsoft** > **Windows** . Además, puede habilitar un registro analítico para el servicio de administración de máquinas virtuales de Hyper-V de la forma siguiente:
 
-1. Asegúrese de que los registros analíticos y de depuración puedan verse en el Visor de eventos. Para que los registros estén disponibles, en el Visor de eventos, haga clic en **Vista** > **Mostrar registros analíticos y de depuración**. Puede verse el registro analítico en **Hyper-V-VMMS**.
-2. En el panel **Acciones**, haga clic en **Habilitar registro**. 
+1. Asegúrese de que los registros analíticos y de depuración puedan verse en el Visor de eventos. Para que los registros estén disponibles, en el Visor de eventos, haga clic en **Vista** > **Mostrar registros analíticos y de depuración** . Puede verse el registro analítico en **Hyper-V-VMMS** .
+2. En el panel **Acciones** , haga clic en **Habilitar registro** . 
 
     ![Habilitar registro](media/hyper-v-azure-troubleshoot/enable-log.png)
     
-3. Una vez habilitado, aparece en **Monitor de rendimiento** como una **Sesión de seguimiento de eventos** en **Conjuntos de recopiladores de datos**. 
+3. Una vez habilitado, aparece en **Monitor de rendimiento** como una **Sesión de seguimiento de eventos** en **Conjuntos de recopiladores de datos** . 
 4. Para ver la información recopilada, deshabilite el registro para detener la sesión de seguimiento. Después guarde el registro y vuelva a abrirlo en el Visor de eventos, o use otras herramientas para convertirlo, según proceda.
 
 

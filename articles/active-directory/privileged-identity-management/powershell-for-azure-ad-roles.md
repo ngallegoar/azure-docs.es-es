@@ -16,12 +16,12 @@ ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a3c5274a1b63d486bb7eb48b89560d5684db2e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: e7d04a2941888592ffa37acfe6cba52a33fda528
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317003"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365517"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell para roles de Azure AD en Privileged Identity Management
 
@@ -49,7 +49,7 @@ En este artículo se incluyen instrucciones para usar los cmdlets de PowerShell 
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. Busque el id. de inquilino de la organización de Azure AD; para ello, vaya a **Azure Active Directory** > **Propiedades** > **Id. de directorio**. En la sección de cmdlets, use este identificador siempre que necesite proporcionar el parámetro resourceId.
+1. Busque el id. de inquilino de la organización de Azure AD; para ello, vaya a **Azure Active Directory** > **Propiedades** > **Id. de directorio** . En la sección de cmdlets, use este identificador siempre que necesite proporcionar el parámetro resourceId.
 
     ![Busque el id. de organización en las propiedades de la organización de Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
@@ -162,4 +162,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 - [Asignación de un rol personalizado de Azure AD](azure-ad-custom-roles-assign.md)
 - [Eliminación o actualización de una asignación de roles personalizados de Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configuración de una asignación de roles personalizados de Azure AD](azure-ad-custom-roles-configure.md)
-- [Definiciones de roles en Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definiciones de roles en Azure AD](../roles/permissions-reference.md)

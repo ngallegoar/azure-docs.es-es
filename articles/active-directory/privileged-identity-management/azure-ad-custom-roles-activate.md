@@ -16,16 +16,16 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87421168"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371620"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Activación de un rol personalizado de Azure AD en Privileged Identity Management
 
-Privileged Identity Management en Azure Active Directory (Azure AD) ahora admite la asignación Just-In-Time y de duración limitada a los roles personalizados creados para la administración de aplicaciones en la experiencia administrativa de Administración de identidad y acceso. Para obtener más información sobre cómo crear roles personalizados para delegar la administración de aplicaciones en Azure AD, vea [Roles de administrador personalizados en Azure Active Directory (versión preliminar)](../users-groups-roles/roles-custom-overview.md).
+Privileged Identity Management en Azure Active Directory (Azure AD) ahora admite la asignación Just-In-Time y de duración limitada a los roles personalizados creados para la administración de aplicaciones en la experiencia administrativa de Administración de identidad y acceso. Para obtener más información sobre cómo crear roles personalizados para delegar la administración de aplicaciones en Azure AD, vea [Roles de administrador personalizados en Azure Active Directory (versión preliminar)](../roles/custom-overview.md).
 
 > [!NOTE]
 > Los roles personalizados de Azure AD no se integran con los roles de directorio integrados durante la versión preliminar. Una vez que la funcionalidad esté disponible con carácter general, la administración de roles tendrá lugar en la experiencia de roles integrados. Si ve el banner siguiente, estos roles deben administrarse [en la experiencia de roles integrados](pim-how-to-activate-role.md) y este artículo no se aplica:
@@ -47,16 +47,16 @@ Cuando necesite activar un rol personalizado de Azure AD, seleccione la opción
 > Antes de asignar un rol, debe crearlo o configurarlo. Para más información sobre la configuración de roles personalizados de AAD, consulte [Configuración de roles personalizados de Azure AD en Privileged Identity Management](azure-ad-custom-roles-configure.md).
 
 1. En la página **Roles personalizados de Azure AD (versión preliminar)** , busque la asignación que necesite.
-1. Seleccione **Activar el rol** para abrir la página **Activar**.
-1. Si el rol requiere la autenticación multifactor, seleccione **Compruebe su identidad antes de proceder**. Se le requiere que se autentique solo una vez por sesión.
+1. Seleccione **Activar el rol** para abrir la página **Activar** .
+1. Si el rol requiere la autenticación multifactor, seleccione **Compruebe su identidad antes de proceder** . Se le requiere que se autentique solo una vez por sesión.
 1. Seleccione **Comprobar mi identidad** y siga las instrucciones para realizar cualquier comprobación de seguridad adicional.
 1. Para especificar un ámbito de aplicación personalizado, seleccione **Ámbito** para abrir el panel de filtro. Debe solicitar acceso a un rol en el ámbito mínimo necesario. Si la asignación está en un ámbito de aplicación, solo la puede activar en ese ámbito.
 
    ![Asignación de un ámbito de recurso de Azure AD a la asignación de roles](./media/azure-ad-custom-roles-activate/assign-scope.png)
 
 1. Si es necesario, especifique una hora de inicio de activación personalizada. Cuando se usa, el miembro del rol se activa en el momento especificado.
-1. En el campo **Razón**, escriba el motivo de la solicitud de activación. Se pueden hacer obligatorios o no en la configuración del rol.
-1. Seleccione **Activar**.
+1. En el campo **Razón** , escriba el motivo de la solicitud de activación. Se pueden hacer obligatorios o no en la configuración del rol.
+1. Seleccione **Activar** .
 
 Si el rol no requiere aprobación, se activa según la configuración y se agrega a la lista de roles activos. Si quiere usar el rol activado, comience con los pasos que se describen en [Asignación de un rol personalizado de Azure AD en Privileged Identity Management](azure-ad-custom-roles-assign.md).
 
@@ -67,4 +67,4 @@ Si el rol requiere aprobación para activarse, recibirá una notificación de Az
 - [Asignación de un rol personalizado de Azure AD](azure-ad-custom-roles-assign.md)
 - [Eliminación o actualización de una asignación de roles personalizados de Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configuración de una asignación de roles personalizados de Azure AD](azure-ad-custom-roles-configure.md)
-- [Definiciones de roles en Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definiciones de roles en Azure AD](../roles/permissions-reference.md)

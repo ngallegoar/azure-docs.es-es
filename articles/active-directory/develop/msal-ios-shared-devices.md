@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528135"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365920"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo compartido para dispositivos iOS
 
@@ -43,7 +43,7 @@ Para crear una aplicación en modo de dispositivo compartido, los desarrolladore
 
 1. Los **administradores de dispositivos** preparan el dispositivo para que se comparta mediante un proveedor de administración de dispositivos móviles (MDM) como Microsoft Intune para administrar los dispositivos de la organización. MDM envía la aplicación Microsoft Authenticator a los dispositivos y activa el "modo compartido" para cada dispositivo mediante una actualización de perfil en el dispositivo. Esta configuración de modo compartido es lo que cambia el comportamiento de las aplicaciones compatibles en el dispositivo. Esta configuración del proveedor de MDM establece el modo de dispositivo compartido para el dispositivo y habilita el complemento [Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) que es necesario para el modo de dispositivo compartido.
 
-1. [**Necesario solo durante la versión preliminar pública**] Un usuario con el rol de [administrador de dispositivos en la nube](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) debe iniciar la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) y unir el dispositivo a la organización.
+1. [ **Necesario solo durante la versión preliminar pública** ] Un usuario con el rol de [administrador de dispositivos en la nube](../roles/permissions-reference.md#cloud-device-administrator) debe iniciar la [aplicación Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) y unir el dispositivo a la organización.
 
     Para configurar la pertenencia de los roles de la organización en Azure Portal: **Azure Active Directory** > **Roles y administradores**  > **Administrador de dispositivos en la nube**
 
@@ -58,10 +58,10 @@ El dispositivo debe estar configurado para admitir el modo de dispositivo compar
 
 1. En el portal de configuración de Intune, indique al dispositivo que habilite el [complemento Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) con la configuración siguiente:
 
-    - **Tipo**: Redirigir
-    - **Identificador de extensión**: com.microsoft.azureauthenticator.ssoextension
-    - **Id. de equipo**: (este campo no es necesario en iOS).
-    - **URL**:   
+    - **Tipo** : Redirigir
+    - **Identificador de extensión** : com.microsoft.azureauthenticator.ssoextension
+    - **Id. de equipo** : (este campo no es necesario en iOS).
+    - **URL** :   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`
         - `https://sts.windows.net`
@@ -71,7 +71,7 @@ El dispositivo debe estar configurado para admitir el modo de dispositivo compar
         - `https://login.microsoftonline.us`
         - `https://login.usgovcloudapi.net`
         - `https://login-us.microsoftonline.com`
-    - **Datos adicionales que se deben configurar**:
+    - **Datos adicionales que se deben configurar** :
       - Clave: sharedDeviceMode
       - Escriba:  Boolean
       - Valor: true

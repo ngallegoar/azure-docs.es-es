@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "86171863"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidad de las características de conectividad del back-end de Azure: Detalles de configuración de prueba
@@ -23,7 +23,7 @@ En este artículo se describen los detalles de la [configuración de la prueba][
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividad de red virtual de radio mediante el emparejamiento de redes virtuales
 
-En la siguiente ilustración se muestran los detalles del emparejamiento de redes virtuales de Azure de una red virtual de radio. Para información sobre cómo configurar el emparejamiento entre dos redes virtuales, consulte el artículo sobre la [administración del emparejamiento de redes virtuales][VNet-Config]. Si quiere que la red virtual de radio use las puertas de enlace conectadas a la red virtual del centro de conectividad, seleccione **Usar puertas de enlace remotas**.
+En la siguiente ilustración se muestran los detalles del emparejamiento de redes virtuales de Azure de una red virtual de radio. Para información sobre cómo configurar el emparejamiento entre dos redes virtuales, consulte el artículo sobre la [administración del emparejamiento de redes virtuales][VNet-Config]. Si quiere que la red virtual de radio use las puertas de enlace conectadas a la red virtual del centro de conectividad, seleccione **Usar puertas de enlace remotas** .
 
 [![1]][1]
 
@@ -33,7 +33,7 @@ En la siguiente ilustración se muestran los detalles del emparejamiento de rede
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Conectividad de red virtual de sucursal mediante una VPN de sitio a sitio
 
-Configure la conectividad VPN de sitio a sitio entre las redes virtuales del centro de conectividad y de sucursal mediante las puertas de enlace VPN de Azure VPN Gateway. De forma predeterminada, las puertas de enlace VPN y de Azure ExpressRoute usan el número de sistema autónomo (ASN) privado **65515**. Este valor de ASN se puede cambiar en VPN Gateway. En la configuración de prueba, el valor ASN de la puerta de enlace VPN de red virtual de sucursal se cambia a **65516** para habilitar el enrutamiento EBGP entre el centro de conectividad y la red virtual de sucursal.
+Configure la conectividad VPN de sitio a sitio entre las redes virtuales del centro de conectividad y de sucursal mediante las puertas de enlace VPN de Azure VPN Gateway. De forma predeterminada, las puertas de enlace VPN y de Azure ExpressRoute usan el número de sistema autónomo (ASN) privado **65515** . Este valor de ASN se puede cambiar en VPN Gateway. En la configuración de prueba, el valor ASN de la puerta de enlace VPN de red virtual de sucursal se cambia a **65516** para habilitar el enrutamiento EBGP entre el centro de conectividad y la red virtual de sucursal.
 
 
 [![3]][3]
@@ -51,7 +51,7 @@ En la siguiente ilustración se muestra la configuración de conexión entre el 
 
 [![5]][5]
 
-En la siguiente lista se muestra la configuración del enrutador del lado del cliente principal para la conectividad de emparejamiento privado de ExpressRoute. (En esta configuración de prueba se utilizan enrutadores Cisco ASR1000 en el lado del cliente). Cuando los circuitos de VPN de sitio a sitio y ExpressRoute se configuran en paralelo para conectar una red local con Azure, Azure da prioridad al circuito de ExpressRoute de forma predeterminada. Para evitar el enrutamiento asimétrico, la red local también debe dar prioridad a la conectividad de ExpressRoute sobre VPN de sitio a sitio. La siguiente configuración establece prioridades mediante el atributo BGP **local-preference**:
+En la siguiente lista se muestra la configuración del enrutador del lado del cliente principal para la conectividad de emparejamiento privado de ExpressRoute. (En esta configuración de prueba se utilizan enrutadores Cisco ASR1000 en el lado del cliente). Cuando los circuitos de VPN de sitio a sitio y ExpressRoute se configuran en paralelo para conectar una red local con Azure, Azure da prioridad al circuito de ExpressRoute de forma predeterminada. Para evitar el enrutamiento asimétrico, la red local también debe dar prioridad a la conectividad de ExpressRoute sobre VPN de sitio a sitio. La siguiente configuración establece prioridades mediante el atributo BGP **local-preference** :
 
 ```config
 interface TenGigabitEthernet0/0/0.300

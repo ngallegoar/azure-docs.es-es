@@ -14,12 +14,12 @@ ms.date: 07/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c039842a04923bc02aa288576570d51c39156c40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4478c9c286c06d5d6c5593195a0e93abd286b8c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88784018"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371518"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Funcionalidades de administración de los roles de Azure AD en Privileged Identity Management
 
@@ -29,7 +29,7 @@ Con la actualización que se está implementando actualmente, combinamos las dos
 
 ## <a name="time-bound-assignments"></a>Asignaciones con límites temporales
 
-Anteriormente, había dos estados posibles para las asignaciones de roles: *válido* y *permanente*. Ahora también puede establecer una hora de inicio y finalización para cada tipo de asignación. Esta adición le proporciona cuatro estados posibles en los que puede colocar una asignación:
+Anteriormente, había dos estados posibles para las asignaciones de roles: *válido* y *permanente* . Ahora también puede establecer una hora de inicio y finalización para cada tipo de asignación. Esta adición le proporciona cuatro estados posibles en los que puede colocar una asignación:
 
 - Válido de manera permanente
 - Activo de manera permanente
@@ -42,15 +42,15 @@ En muchos casos, aunque no quiera que los usuarios tengan la asignación válida
 
 También hemos agregado nuevas opciones de configuración para los roles de Azure AD.
 
-- **Anteriormente**, solo podía establecer la configuración de activación según el rol. Es decir, la configuración de activación, como los requisitos de autenticación multifactor y los de incidencias de incidentes y solicitudes, se aplica a todos los usuarios que pueden usar un rol específico.
+- **Anteriormente** , solo podía establecer la configuración de activación según el rol. Es decir, la configuración de activación, como los requisitos de autenticación multifactor y los de incidencias de incidentes y solicitudes, se aplica a todos los usuarios que pueden usar un rol específico.
 - **Ahora** puede configurar si un usuario individual debe realizar la autenticación multifactor antes de poder activar un rol. Además, puede disponer de un control avanzado sobre los correos electrónicos de Privileged Identity Management relacionados con roles específicos.
 
 ## <a name="extend-and-renew-assignments"></a>Extensión y renovación de asignaciones
 
 Tan pronto como comprenda la asignación con límites temporales, lo primero que probablemente se preguntará es qué sucede si expira un rol. En esta nueva versión, se proporcionan dos opciones para este escenario:
 
-- **Extensión**: cuando una asignación de roles está a punto de expirar, el usuario puede usar Privileged Identity Management para solicitar una extensión para esa asignación de roles.
-- **Renovación**: cuando una asignación de roles ha expirado, el usuario puede usar Privileged Identity Management para solicitar una renovación para esa asignación de roles.
+- **Extensión** : cuando una asignación de roles está a punto de expirar, el usuario puede usar Privileged Identity Management para solicitar una extensión para esa asignación de roles.
+- **Renovación** : cuando una asignación de roles ha expirado, el usuario puede usar Privileged Identity Management para solicitar una renovación para esa asignación de roles.
 
 Ambas acciones iniciadas por el usuario requieren una aprobación de un administrador global o un administrador de roles con privilegios. Los administradores ya no tendrán que encargarse de administrar estas expiraciones. Únicamente recibirán las solicitudes de extensión o renovación y deberán aprobarlas si son válidas.
 
@@ -69,4 +69,4 @@ En el caso de los clientes que usan el módulo de PowerShell de Privileged Ident
 - [Asignación de un rol personalizado de Azure AD](azure-ad-custom-roles-assign.md)
 - [Eliminación o actualización de una asignación de roles personalizados de Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Configuración de una asignación de roles personalizados de Azure AD](azure-ad-custom-roles-configure.md)
-- [Definiciones de roles en Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Definiciones de roles en Azure AD](../roles/permissions-reference.md)

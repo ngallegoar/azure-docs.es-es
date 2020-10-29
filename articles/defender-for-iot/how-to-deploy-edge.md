@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932075"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368815"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implementación de un módulo de seguridad en el dispositivo IoT Edge
 
@@ -34,7 +34,7 @@ Siga estos pasos para implementar un módulo de seguridad de Defender para IoT p
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
-1. En su IoT Hub, asegúrese de que el dispositivo está [registrado como un dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
+1. En su IoT Hub, asegúrese de que el dispositivo está [registrado como un dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device).
 
 1. El módulo Defender para IoT Edge requiere que el [marco AuditD](https://linux.die.net/man/8/auditd) esté instalado en el dispositivo IoT Edge.
 
@@ -49,7 +49,7 @@ Siga estos pasos para implementar un módulo de seguridad de Defender para IoT p
 
 ### <a name="deployment-using-azure-portal"></a>Implementación mediante Azure Portal
 
-1. Desde Azure Portal, abra **Marketplace**.
+1. Desde Azure Portal, abra **Marketplace** .
 
 1. Seleccione **Internet de las cosas** y luego busque **Defender para IoT** y selecciónelo.
 
@@ -57,19 +57,19 @@ Siga estos pasos para implementar un módulo de seguridad de Defender para IoT p
 
 1. Haga clic en **Crear** para configurar la implementación.
 
-1. Elija la **suscripción** de Azure de IoT Hub y luego seleccione su **IoT Hub**.<br>Seleccione **Implementar en un dispositivo** para un único dispositivo de destino o seleccione **Implementar a escala** para varios dispositivos de destino y haga clic en **Crear**. Para más información sobre la implementación a escala, consulte [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor).
+1. Elija la **suscripción** de Azure de IoT Hub y luego seleccione su **IoT Hub** .<br>Seleccione **Implementar en un dispositivo** para un único dispositivo de destino o seleccione **Implementar a escala** para varios dispositivos de destino y haga clic en **Crear** . Para más información sobre la implementación a escala, consulte [Implementación y supervisión de módulos de IoT Edge a escala mediante Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor).
 
     >[!Note]
-    >Si seleccionó **Implementar a escala**, agregue el nombre del dispositivo y los detalles antes de continuar con la pestaña **Agregar módulos** en las instrucciones siguientes.
+    >Si seleccionó **Implementar a escala** , agregue el nombre del dispositivo y los detalles antes de continuar con la pestaña **Agregar módulos** en las instrucciones siguientes.
 
 Complete cada uno de los pasos para completar la implementación de IoT Edge de Defender para IoT.
 
 #### <a name="step-1-modules"></a>Paso 1: Módulos
 
-1. Seleccione el módulo **AzureSecurityCenterforIoT**.
-1. En la pestaña **Configuración del módulo**, cambie el **nombre** a **azureiotsecurity**.
-1. Si es necesario, en la pestaña **Variables de entorno**, agregue una variable (por ejemplo, en el nivel de depuración).
-1. En la pestaña **Opciones de creación del contenedor**, agregue la configuración siguiente:
+1. Seleccione el módulo **AzureSecurityCenterforIoT** .
+1. En la pestaña **Configuración del módulo** , cambie el **nombre** a **azureiotsecurity** .
+1. Si es necesario, en la pestaña **Variables de entorno** , agregue una variable (por ejemplo, en el nivel de depuración).
+1. En la pestaña **Opciones de creación del contenedor** , agregue la configuración siguiente:
 
     ``` json
     {
@@ -89,7 +89,7 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
     }
     ```
 
-1. En la pestaña **Configuración de módulos gemelos**, agregue la configuración siguiente:
+1. En la pestaña **Configuración de módulos gemelos** , agregue la configuración siguiente:
 
    Propiedad del módulo gemelo:
    
@@ -107,12 +107,12 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
     
    Para obtener más información sobre cómo configurar el agente, vea [Configuración de agentes de seguridad](https://docs.microsoft.com/azure/defender-for-iot/how-to-agent-configuration).
 
-1. Seleccione **Actualizar**.
+1. Seleccione **Actualizar** .
 
 #### <a name="step-2-runtime-settings"></a>Paso 2: Configuración del entorno de ejecución
 
-1. Seleccione **Configuración del entorno de ejecución**.
-1. En **Centro de Microsoft Edge**, cambie el valor de **Imagen** a **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+1. Seleccione **Configuración del entorno de ejecución** .
+1. En **Centro de Microsoft Edge** , cambie el valor de **Imagen** a **mcr.microsoft.com/azureiotedge-hub:1.0.8.3** .
 1. Compruebe que la opción **Opciones de creación** está establecida tal y como se muestra a continuación:
 
     ``` json
@@ -139,13 +139,13 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
     }
     ```
 
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 1. Seleccione **Next** (Siguiente).
 
 #### <a name="step-3-specify-routes"></a>Paso 3: Especificación de rutas
 
-1. En la pestaña **Especificar rutas**, asegúrese de tener una ruta (explícita o implícita) que reenvíe los mensajes del módulo **azureiotsecurity** a **$upstream** de acuerdo con los ejemplos siguientes. Solo cuando la ruta esté establecida, seleccione **Siguiente**.
+1. En la pestaña **Especificar rutas** , asegúrese de tener una ruta (explícita o implícita) que reenvíe los mensajes del módulo **azureiotsecurity** a **$upstream** de acuerdo con los ejemplos siguientes. Solo cuando la ruta esté establecida, seleccione **Siguiente** .
 
    Rutas de ejemplo:
 
@@ -161,7 +161,7 @@ Complete cada uno de los pasos para completar la implementación de IoT Edge de 
 
 #### <a name="step-4-review-deployment"></a>Paso 4: Revisión de la implementación
 
-- En la pestaña **Revisar la implementación**, revise la información de implementación y seleccione **Crear** para completar la implementación.
+- En la pestaña **Revisar la implementación** , revise la información de implementación y seleccione **Crear** para completar la implementación.
 
 ## <a name="diagnostic-steps"></a>Pasos de diagnósticos
 
@@ -189,7 +189,7 @@ Si encuentra algún problema, los registros de contenedor son la mejor manera co
 
    `sudo docker logs azureiotsecurity`
 
-1. Para los registros más detallados, agregue la siguiente variable de entorno a la implementación del módulo **azureiotsecurity**: `logLevel=Debug`.
+1. Para los registros más detallados, agregue la siguiente variable de entorno a la implementación del módulo **azureiotsecurity** : `logLevel=Debug`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

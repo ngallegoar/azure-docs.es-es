@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89054978"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359805"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -75,7 +75,7 @@ Site Recovery está certificado para ISO 27001: 2013 y 27018, HIPAA y DPA. Apart
 
 Use la [calculadora de precios](https://aka.ms/asr_pricing_calculator) para estimar los costes al usar Site Recovery.
 
-Para obtener una estimación detallada de los costes, ejecute la herramienta Deployment Planner para [VMware](https://aka.ms/siterecovery_deployment_planner) y use el [informe de estimación de costes](https://aka.ms/asr_DP_costreport).
+Para obtener una estimación detallada de los costes, ejecute la herramienta Deployment Planner para [VMware](./site-recovery-deployment-planner.md) y use el [informe de estimación de costes](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>¿Existe alguna diferencia de coste entre replicar en el almacenamiento o directamente en discos administrados?
 
@@ -106,7 +106,7 @@ En cada máquina virtual que quiera replicar, instale el servicio empleando uno 
 Site Recovery replica servidores físicos y máquinas virtuales locales de VMware en discos administrados en Azure.
 
 - El servidor de procesos de Site Recovery escribe los registros de replicación en una cuenta de almacenamiento en caché de la región de destino.
-- Estos registros se utilizan para crear puntos de recuperación en los discos administrados de Azure que tengan el prefijo **asrseeddisk**.
+- Estos registros se utilizan para crear puntos de recuperación en los discos administrados de Azure que tengan el prefijo **asrseeddisk** .
 - Cuando se produzca una conmutación por error, el punto de recuperación que seleccione se usa para crear un disco administrado de destino. Este disco administrado está conectado a la máquina virtual en Azure.
 - Las máquinas virtuales que antes se replicaban en una cuenta de almacenamiento (antes de marzo de 2019) no se ven afectadas por esto.
 
@@ -114,7 +114,7 @@ Site Recovery replica servidores físicos y máquinas virtuales locales de VMwar
 
 No. Desde marzo de 2019, en Azure Portal, solo se puede realizar la replicación en discos administrados de Azure.
 
-La replicación de máquinas virtuales nuevas en una cuenta de almacenamiento será posible solo mediante PowerShell ([versión 1.4.5 del módulo Az.RecoveryServices](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) o la API REST (versión 2018-01-10 o 2016-08-10). [Obtenga información sobre cómo](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) configurar la replicación mediante los comandos de PowerShell.
+La replicación de máquinas virtuales nuevas en una cuenta de almacenamiento será posible solo mediante PowerShell ([versión 1.4.5 del módulo Az.RecoveryServices](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) o la API REST (versión 2018-01-10 o 2016-08-10). [Obtenga información sobre cómo](./vmware-azure-disaster-recovery-powershell.md) configurar la replicación mediante los comandos de PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>¿Cuáles son las ventajas de la replicación en discos administrados?
 
@@ -124,7 +124,7 @@ La replicación de máquinas virtuales nuevas en una cuenta de almacenamiento se
 
 Sí, le resultará muy fácil [cambiar el tipo de disco administrado](../virtual-machines/windows/convert-disk-storage.md) de las replicaciones en curso. Antes de cambiar el tipo, asegúrese de que no se ha generado ninguna dirección URL de firma de acceso compartido en el disco administrado:
 
-1. Vaya al recurso **Disco administrado** en Azure Portal y compruebe si tiene un banner de dirección URL de firma de acceso compartido en la hoja **Información general**.
+1. Vaya al recurso **Disco administrado** en Azure Portal y compruebe si tiene un banner de dirección URL de firma de acceso compartido en la hoja **Información general** .
 1. Si ve el banner, selecciónelo para cancelar la exportación en curso.
 1. Cambie el tipo del disco en los minutos siguientes. Si cambia el tipo del disco administrado, espere a que Azure Site Recovery genere puntos de recuperación nuevos.
 1. Use esos puntos de recuperación nuevos en cualquier conmutación por error de prueba o conmutación por error futura.
@@ -153,7 +153,7 @@ La replicación sin conexión no es posible. Solicite esta característica en el
 
 ### <a name="what-is-asrseeddisk"></a>¿Qué es asrseeddisk?
 
-En cada disco de origen, los datos se replican en un disco administrado en Azure. Este disco tiene un prefijo, **asrseeddisk**, y en él se almacena la copia del disco de origen y todas las instantáneas de punto de recuperación.
+En cada disco de origen, los datos se replican en un disco administrado en Azure. Este disco tiene un prefijo, **asrseeddisk** , y en él se almacena la copia del disco de origen y todas las instantáneas de punto de recuperación.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>¿Se pueden excluir discos de la replicación?
 
@@ -190,7 +190,7 @@ Site Recovery genera puntos de recuperación coherentes frente a bloqueos cada 5
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Mi versión del agente de Mobility Service o del servidor de configuración es antigua y no he podido actualizarla. ¿Qué puedo hacer?
 
-Site Recovery sigue el modelo de soporte técnico de N-4. [Más información](https://aka.ms/asr_support_statement) sobre cómo actualizar desde versiones muy antiguas.
+Site Recovery sigue el modelo de soporte técnico de N-4. [Más información](./service-updates-how-to.md#support-statement-for-azure-site-recovery) sobre cómo actualizar desde versiones muy antiguas.
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>¿Dónde puedo encontrar las notas de la versión o los paquetes acumulativos de actualización de Azure Site Recovery?
 
@@ -198,11 +198,11 @@ Site Recovery sigue el modelo de soporte técnico de N-4. [Más información](ht
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>¿Dónde puedo encontrar información de actualización de la recuperación ante desastres en Azure?
 
-[Más información sobre cómo actualizar](https://aka.ms/asr_vmware_upgrades).
+[Más información sobre cómo actualizar](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>¿Es necesario reiniciar las máquinas de origen en cada actualización?
 
-No es obligatorio reiniciar en cada actualización, si bien es recomendable. [Más información](https://aka.ms/asr_vmware_upgrades).
+No es obligatorio reiniciar en cada actualización, si bien es recomendable. [Más información](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## <a name="configuration-server"></a>Servidor de configuración
 
@@ -246,7 +246,7 @@ Si bien es posible, la máquina virtual de Azure que ejecuta el servidor de conf
 
 - Encontrará información sobre las actualizaciones más recientes en la [página de actualizaciones de Azure](https://azure.microsoft.com/updates/?product=site-recovery).
 - Puede descargar la versión más reciente desde Portal, o bien puede descargar la versión más reciente del servidor de configuración directamente desde el [Centro de descarga de Microsoft](https://aka.ms/asrconfigurationserver).
-- Si su versión es anterior a cuatro versiones de la versión actual, vea nuestra [declaración de compatibilidad](https://aka.ms/asr_support_statement) para obtener orientación sobre la actualización.
+- Si su versión es anterior a cuatro versiones de la versión actual, vea nuestra [declaración de compatibilidad](./service-updates-how-to.md#support-statement-for-azure-site-recovery) para obtener orientación sobre la actualización.
 
 ### <a name="should-i-back-up-the-configuration-server"></a>¿Debo hacer copias de seguridad del servidor de configuración?
 
@@ -258,11 +258,11 @@ Se recomienda programar copias de seguridad periódicas del servidor de configur
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Cuando estoy configurando el servidor de configuración, ¿puedo descargar e instalar MySQL manualmente?
 
-Sí. Descargue MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Después, instálelo manualmente. Cuando configure la máquina virtual del servidor de configuración y acepte los términos, MySQL aparecerá como **Ya instalado**en **Descargar e instalar**.
+Sí. Descargue MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Después, instálelo manualmente. Cuando configure la máquina virtual del servidor de configuración y acepte los términos, MySQL aparecerá como **Ya instalado** en **Descargar e instalar** .
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>¿Se puedo evitar descargar MySQL pero dejar que Site Recovery lo instale?
 
-Sí. Descargue el instalador de MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Al configurar la máquina virtual del servidor de configuración, acepte los términos y seleccione **Descargar e instalar**. Portal usará el instalador que haya agregado para instalar MySQL.
+Sí. Descargue el instalador de MySQL y colóquelo en la carpeta C:\Temp\ASRSetup. Al configurar la máquina virtual del servidor de configuración, acepte los términos y seleccione **Descargar e instalar** . Portal usará el instalador que haya agregado para instalar MySQL.
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>¿Se puede usar la VM del servidor de configuración para cualquier otra cosa?
 
@@ -286,7 +286,7 @@ Sí, pero tenga en cuenta que solo se puede realizar la conmutación por recuper
 
 ### <a name="where-can-i-download-vault-registration-keys"></a>¿Dónde puedo descargar las claves de registro del almacén?
 
-En el almacén de Recovery Services, seleccione **Servidores de configuración** en **Infraestructura de Site Recovery** > **Administrar**. Después, en **Servidores**, seleccione **Descargar clave de registro** para descargar el archivo de credenciales del almacén.
+En el almacén de Recovery Services, seleccione **Servidores de configuración** en **Infraestructura de Site Recovery** > **Administrar** . Después, en **Servidores** , seleccione **Descargar clave de registro** para descargar el archivo de credenciales del almacén.
 
 ### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>¿Se puede usar un solo servidor de configuración para proteger varias instancias de vCenter?
 

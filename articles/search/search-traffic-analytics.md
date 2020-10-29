@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "91333739"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recopilación de datos de telemetría para análisis del tráfico de búsqueda
@@ -49,11 +49,11 @@ Una vez que tenga un recurso de Application Insights, puede seguir las [instrucc
 
 En los pasos siguientes se refleja un acceso directo que funciona en algunos tipos de proyecto de Visual Studio. Crea un recurso y registra la aplicación en unos pocos clics.
 
-1. Para el desarrollo en Visual Studio y ASP.NET, abra la solución y seleccione **Proyecto** > **Agregar telemetría de Application Insights**.
+1. Para el desarrollo en Visual Studio y ASP.NET, abra la solución y seleccione **Proyecto** > **Agregar telemetría de Application Insights** .
 
-1. Haga clic en **Introducción**.
+1. Haga clic en **Introducción** .
 
-1. Registre su aplicación proporcionando un cuenta de Microsoft, una suscripción a Azure y un recurso de Application Insights (el valor predeterminado es un nuevo recurso). Haga clic en **Registrar**.
+1. Registre su aplicación proporcionando un cuenta de Microsoft, una suscripción a Azure y un recurso de Application Insights (el valor predeterminado es un nuevo recurso). Haga clic en **Registrar** .
 
 En este punto, la aplicación está configurada para la supervisión de aplicaciones, lo que significa que se realiza un seguimiento de todas las cargas de páginas con las métricas predeterminadas. Para obtener más información sobre los pasos anteriores, consulte [Habilitación de la telemetría de Application Insights del lado servidor](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -129,12 +129,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 Cada vez que un usuario emite una solicitud de búsqueda, debe registrarla como un evento de búsqueda con el esquema siguiente en un evento personalizado de Application Insights. Recuerde registrar solo las consultas de búsqueda generadas por el usuario.
 
-+ **SearchServiceName**: (cadena) nombre del servicio de búsqueda
-+ **SearchId**: (guid) identificador único de la consulta de búsqueda (se incluye en la respuesta de la búsqueda)
-+ **IndexName**: (cadena) índice del servicio de búsqueda que se va a consultar
-+ **QueryTerms**: (cadena) términos de búsqueda especificados por el usuario
-+ **ResultCount**: (int) número de documentos devueltos (se incluye en la respuesta de la búsqueda)
-+ **ScoringProfile**: (cadena) nombre del perfil de puntuación usado, si existe
++ **SearchServiceName** : (cadena) nombre del servicio de búsqueda
++ **SearchId** : (guid) identificador único de la consulta de búsqueda (se incluye en la respuesta de la búsqueda)
++ **IndexName** : (cadena) índice del servicio de búsqueda que se va a consultar
++ **QueryTerms** : (cadena) términos de búsqueda especificados por el usuario
++ **ResultCount** : (int) número de documentos devueltos (se incluye en la respuesta de la búsqueda)
++ **ScoringProfile** : (cadena) nombre del perfil de puntuación usado, si existe
 
 > [!NOTE]
 > Solicite el recuento de consultas generadas por el usuario agregando $count=true a la consulta de búsqueda. Para más información, consulte [Búsqueda de documentos (REST)](/rest/api/searchservice/search-documents#counttrue--false).
@@ -172,10 +172,10 @@ appInsights.trackEvent("Search", {
 
 Cada vez que un usuario hace clic en un documento, es una señal de que debe registrarse para fines de análisis de búsqueda. Utilice eventos personalizados de Application Insights para registrar estos eventos con el siguiente esquema:
 
-+ **ServiceName**: (cadena) nombre del servicio de búsqueda
-+ **SearchId**: (guid) identificador único de la consulta de búsqueda relacionada
-+ **DocId**: (cadena) identificador del documento
-+ **Position**: (int) clasificación del documento en la página de resultados de la búsqueda
++ **ServiceName** : (cadena) nombre del servicio de búsqueda
++ **SearchId** : (guid) identificador único de la consulta de búsqueda relacionada
++ **DocId** : (cadena) identificador del documento
++ **Position** : (int) clasificación del documento en la página de resultados de la búsqueda
 
 > [!NOTE]
 > La posición hace referencia al orden cardinal en la aplicación. Puede establecer este número, siempre que en todo momento sea el mismo, para permitir la comparación.
@@ -209,19 +209,19 @@ appInsights.trackEvent("Click", {
 
 Una vez que haya instrumentado la aplicación y comprobado que esta se ha conectado correctamente a Application Insights, debe descargar una plantilla de informe predefinida para analizar los datos en Power BI Desktop. El informe contiene tablas y gráficos predefinidos útiles para analizar los datos adicionales que se capturaron para los análisis de tráfico de búsqueda.
 
-1. En el panel de navegación izquierdo de Azure Cognitive Search, en **Configuración**, haga clic en **Análisis de tráfico de búsqueda**.
+1. En el panel de navegación izquierdo de Azure Cognitive Search, en **Configuración** , haga clic en **Análisis de tráfico de búsqueda** .
 
-1. En la página **Análisis de tráfico de búsqueda**, en el paso 3, haga clic en **Obtener Power BI Desktop** para instalar Power BI.
+1. En la página **Análisis de tráfico de búsqueda** , en el paso 3, haga clic en **Obtener Power BI Desktop** para instalar Power BI.
 
    ![Obtención de informes de Power BI](./media/search-traffic-analytics/get-use-power-bi.png "Obtención de informes de Power BI")
 
-1. En la misma página, haga clic en **Descargar informe de Power BI**.
+1. En la misma página, haga clic en **Descargar informe de Power BI** .
 
 1. El informe se abrirá en Power BI Desktop y se le pedirá que se conecte a Application Insights y proporcione las credenciales. Puede encontrar la información de conexión en las páginas de Azure Portal para el recurso de Application Insights. Para obtener las credenciales, proporcione el mismo nombre de usuario y la misma contraseña que usa para iniciar sesión en el portal.
 
    ![Conexión a Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Conexión a Application Insights")
 
-1. Haga clic en **Cargar**.
+1. Haga clic en **Cargar** .
 
 El informe contiene gráficos y tablas que le ayudarán a tomar decisiones más informadas para mejorar la relevancia y el rendimiento de las búsquedas.
 

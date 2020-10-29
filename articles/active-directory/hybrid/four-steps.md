@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600804"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369784"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Cuatro pasos para establecer las bases de una identidad segura con Azure Active Directory
 
@@ -83,7 +83,7 @@ En las empresas modernas, los departamentos de TI no son a menudo conscientes de
 
 [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) puede ayudarle a identificar aplicaciones útiles que son populares entre los usuarios, y que es posible que TI no autorice, y agregarlas a la galería de aplicaciones empresariales para que los usuarios puedan beneficiarse de funcionalidades como inicio de sesión único y acceso condicional.
 
-<em>"**Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud App Security** nos ayuda a garantizar que nuestro personal usa correctamente las aplicaciones SaaS y en la nube de formas tales que respalden las directivas de seguridad fundamentales que ayudan a proteger Accenture".</em> --- [John Blasi, director general de seguridad de la información en Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Además de detectar TI en la sombra, MCAS también puede determinar el nivel de riesgo de las aplicaciones, impedir el acceso no autorizado a los datos corporativos, evitar una posible pérdida de datos y otros riesgos de seguridad inherentes a las aplicaciones.
 
@@ -156,7 +156,7 @@ La asignación de usuarios a las aplicaciones se realiza mejor cuando se usan gr
 * Basada en atributos con pertenencia dinámica a grupos
 * Delegación a propietarios de la aplicación
 
-Azure AD le proporciona la capacidad de administrar el acceso a los recursos mediante grupos de seguridad y grupos de Microsoft 365. Estos grupos los puede administrar el propietario de un grupo que pueda aprobar o rechazar solicitudes de pertenencia y delegar el control de la pertenencia a grupos. Esta característica, conocida como [administración de grupos de autoservicio](../users-groups-roles/groups-self-service-management.md), ahorra tiempo al permitir a los propietarios de los grupos que no tienen asignado un rol administrativo crear y administrar los grupos sin depender de los administradores para gestionar sus solicitudes.
+Azure AD le proporciona la capacidad de administrar el acceso a los recursos mediante grupos de seguridad y grupos de Microsoft 365. Estos grupos los puede administrar el propietario de un grupo que pueda aprobar o rechazar solicitudes de pertenencia y delegar el control de la pertenencia a grupos. Esta característica, conocida como [administración de grupos de autoservicio](../enterprise-users/groups-self-service-management.md), ahorra tiempo al permitir a los propietarios de los grupos que no tienen asignado un rol administrativo crear y administrar los grupos sin depender de los administradores para gestionar sus solicitudes.
 
 ## <a name="step-4---operationalize-your-insights"></a>Paso 4: Operacionalización de las conclusiones
 
@@ -172,9 +172,9 @@ Los registros e informes de seguridad proporcionan un registro electrónico de a
 
 Cuando piense en su enfoque sobre las operaciones, es necesario tener en cuenta dos niveles de administración. El primer nivel coloca la carga de administración sobre los administradores globales. Usar siempre el rol de administrador global podría ser adecuado para pequeñas empresas. Sin embargo, en el caso de organizaciones más grandes con personal de departamento de soporte técnico y administradores responsables de tareas específicas, asignar el rol de administrador global puede ser un riesgo de seguridad, ya que proporciona a esos individuos la posibilidad de administrar tareas que están por encima de sus capacidades.
 
-En este caso, debería considerar el siguiente nivel de administración. Con Azure AD, puede designar a los usuarios finales como "administradores limitados" que pueden administrar tareas en roles con menos privilegios. Por ejemplo, podría asignar al personal del departamento de soporte técnico el rol [lector de seguridad](../users-groups-roles/directory-assign-admin-roles.md#security-reader) con el fin de proporcionarles la capacidad de administrar las características relacionadas con la seguridad con acceso de solo lectura. O, quizás, tenga sentido asignar el rol de [administrador de autenticación](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) a individuos para ofrecerles la posibilidad de restablecer credenciales sin contraseña o de leer y configurar Azure Service Health.
+En este caso, debería considerar el siguiente nivel de administración. Con Azure AD, puede designar a los usuarios finales como "administradores limitados" que pueden administrar tareas en roles con menos privilegios. Por ejemplo, podría asignar al personal del departamento de soporte técnico el rol [lector de seguridad](../roles/permissions-reference.md#security-reader) con el fin de proporcionarles la capacidad de administrar las características relacionadas con la seguridad con acceso de solo lectura. O, quizás, tenga sentido asignar el rol de [administrador de autenticación](../roles/permissions-reference.md#authentication-administrator) a individuos para ofrecerles la posibilidad de restablecer credenciales sin contraseña o de leer y configurar Azure Service Health.
 
-Para más información, consulte [Permisos de roles de administrador en Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Para más información, consulte [Permisos de roles de administrador en Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Supervisión de componentes híbridos (Azure AD Connect Sync, AD FS) con Azure AD Connect Health
 

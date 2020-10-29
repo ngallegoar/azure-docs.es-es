@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337456"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367472"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrucciones: Configuración y habilitación de directivas de riesgo
 
@@ -39,13 +39,13 @@ Si su organización desea permitir que los usuarios corrijan por sí mismos los 
 
 Las organizaciones deben decidir el nivel de riesgo que están dispuestos a aceptar para equilibrar la experiencia del usuario y la postura de seguridad. 
 
-La recomendación de Microsoft es establecer el umbral de la directiva de riesgo de usuario en **Alto** y la directiva de riesgo de inicio de sesión en **Medio y superior**.
+La recomendación de Microsoft es establecer el umbral de la directiva de riesgo de usuario en **Alto** y la directiva de riesgo de inicio de sesión en **Medio y superior** .
 
-Elegir un umbral **Alto** reduce el número de veces que una directiva se desencadena y minimiza el impacto en los usuarios. Sin embargo, excluye de la directiva las detecciones de riesgo **Bajo** y **Medio**, por lo que es posible que no impida que un atacante aproveche una identidad en peligro. Seleccionar un umbral **Bajo** presenta interrupciones adicionales para el usuario, pero aumenta el control de la seguridad.
+Elegir un umbral **Alto** reduce el número de veces que una directiva se desencadena y minimiza el impacto en los usuarios. Sin embargo, excluye de la directiva las detecciones de riesgo **Bajo** y **Medio** , por lo que es posible que no impida que un atacante aproveche una identidad en peligro. Seleccionar un umbral **Bajo** presenta interrupciones adicionales para el usuario, pero aumenta el control de la seguridad.
 
 ## <a name="exclusions"></a>Exclusiones
 
-Todas las directivas permiten excluir a usuarios, como las [cuentas de administrador de acceso de emergencia](../users-groups-roles/directory-emergency-access.md). Las organizaciones pueden determinar la necesidad de excluir otras cuentas de algunas directivas específicas en función de la forma en que se utilizan las cuentas. Todas las exclusiones deben revisarse periódicamente para ver si siguen siendo aplicables.
+Todas las directivas permiten excluir a usuarios, como las [cuentas de administrador de acceso de emergencia](../roles/security-emergency-access.md). Las organizaciones pueden determinar la necesidad de excluir otras cuentas de algunas directivas específicas en función de la forma en que se utilizan las cuentas. Todas las exclusiones deben revisarse periódicamente para ver si siguen siendo aplicables.
 
 Identity Protection usa las [ubicaciones de red](../conditional-access/location-condition.md) de confianza configuradas en algunas detecciones de riesgos para reducir los falsos positivos.
 
@@ -54,23 +54,23 @@ Identity Protection usa las [ubicaciones de red](../conditional-access/location-
 Para habilitar las directivas de riesgo de usuario e inicio de sesión, complete los pasos siguientes.
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Identity Protection** > **Información general**.
-1. Seleccione **Directiva de riesgo de usuario**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Identity Protection** > **Información general** .
+1. Seleccione **Directiva de riesgo de usuario** .
    1. En **Asignaciones**
-      1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
+      1. **Usuarios** : elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
-      1. **Condiciones** - **Riesgo de usuario**: la recomendación de Microsoft es establecer esta opción en **Alto**.
+      1. **Condiciones** - **Riesgo de usuario** : la recomendación de Microsoft es establecer esta opción en **Alto** .
    1. En **Controles**
-      1. **Acceso**: la recomendación de Microsoft es **Permitir el acceso** y **Requerir cambio de contraseña**.
+      1. **Acceso** : la recomendación de Microsoft es **Permitir el acceso** y **Requerir cambio de contraseña** .
    1. **Aplicar directiva** - **Activado**
-   1. **Guardar**: esta acción le devolverá a la página **Información general**.
-1. Seleccione **Directiva de riesgo de inicio de sesión**.
+   1. **Guardar** : esta acción le devolverá a la página **Información general** .
+1. Seleccione **Directiva de riesgo de inicio de sesión** .
    1. En **Asignaciones**
-      1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
+      1. **Usuarios** : elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
-      1. **Condiciones** - **Riesgo de inicio de sesión**: la recomendación de Microsoft es establecer esta opción en **Medio y superior**.
+      1. **Condiciones** - **Riesgo de inicio de sesión** : la recomendación de Microsoft es establecer esta opción en **Medio y superior** .
    1. En **Controles**
-      1. **Acceso**: la recomendación de Microsoft es **Permitir el acceso** y **Requerir autenticación multifactor**.
+      1. **Acceso** : la recomendación de Microsoft es **Permitir el acceso** y **Requerir autenticación multifactor** .
    1. **Aplicar directiva** - **Activado**
    1. **Guardar**
 

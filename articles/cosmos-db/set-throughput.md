@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331828"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367132"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introducción al rendimiento aprovisionado en Azure Cosmos DB
 
@@ -43,9 +43,6 @@ En la imagen siguiente se muestra cómo una partición física hospeda una o var
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Partición física que hospeda una o varias particiones lógicas de un contenedor" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Establecimiento del rendimiento en una base de datos
-
-> [!NOTE]
-> Actualmente no es posible aprovisionar el rendimiento en una base de datos de Azure Cosmos en cuentas en las que se habilitan las [claves administradas por el cliente](how-to-setup-cmk.md).
 
 Al aprovisionar el rendimiento en una base de datos de Azure Cosmos, dicho rendimiento se comparte entre todos los contenedores (denominados contenedores de base de datos compartidos) de la base de datos. Una excepción es si ha especificado un rendimiento aprovisionado en determinados contenedores de la base de datos. Compartir el rendimiento aprovisionado de nivel de base de datos entre sus contenedores equivale a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para obtener información sobre cómo configurar el rendimiento aprovisionado en una base de datos, consulte [Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md). Para obtener información sobre cómo configurar el rendimiento de escalabilidad automática en una base de datos, consulte [Aprovisionamiento del rendimiento de escalabilidad automática](how-to-provision-autoscale-throughput.md).
 

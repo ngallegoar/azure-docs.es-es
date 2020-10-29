@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 76b41e25a95f23b66edfbd4715037074537221f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc8a23d8cdb923f86d581d1af2967112d226c847
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076437"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370634"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de la suscripción clásica de Azure
 
@@ -40,7 +40,7 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
 1. Haga clic en **Control de acceso (IAM).**
 
-1. Haga clic en la pestaña **Administradores clásicos**.
+1. Haga clic en la pestaña **Administradores clásicos** .
 
     ![Captura de pantalla que abre la pestaña Administradores clásicos](./media/classic-administrators/classic-administrators.png)
 
@@ -48,7 +48,7 @@ En este artículo se describe cómo agregar o cambiar los roles de coadministrad
 
     Si la opción Agregar coadministrador está deshabilitada, no tendrá permisos.
 
-1. Seleccione el usuario que desea agregar y haga clic en **Agregar**.
+1. Seleccione el usuario que desea agregar y haga clic en **Agregar** .
 
     ![Captura de pantalla donde se agrega el coadministrador](./media/classic-administrators/add-coadmin.png)
 
@@ -71,9 +71,9 @@ Es posible que los usuarios invitados a los que se haya asignado el rol de coadm
 
 Sería de esperar que el usuario B pudiera administrarlo todo. Esta diferencia se debe a que la cuenta de Microsoft se agrega a la suscripción como usuario invitado y no como usuario miembro. En comparación con los usuarios miembros, los usuarios invitados tienen distintos permisos predeterminados en Azure AD. Por ejemplo, los usuarios miembros pueden leer otros usuarios en Azure AD y los usuarios invitados no. Los usuarios miembros pueden registrar a nuevas entidades de servicio en Azure AD y los usuarios invitados no.
 
-Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md) Para más información sobre cómo conceder acceso a los usuarios invitados, consulte [Incorporación o eliminación de asignaciones de roles de Azure para usuarios externos invitados mediante Azure Portal](role-assignments-external-users.md).
+Si un usuario invitado debe ser capaz de realizar estas tareas, una posible solución consiste en asignarle los roles de Azure AD que el usuario invitado necesita. Por ejemplo, en el escenario anterior, podría asignarle el rol [Lectores de directorios](../active-directory/roles/permissions-reference.md#directory-readers) para que pueda leer otros usuarios y asignarle el rol [Desarrollador de aplicaciones](../active-directory/roles/permissions-reference.md#application-developer) para que pueda crear entidades de servicio. Para más información sobre los usuarios miembros e invitados y sus permisos, vea [¿Cuales son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md) Para más información sobre cómo conceder acceso a los usuarios invitados, consulte [Incorporación o eliminación de asignaciones de roles de Azure para usuarios externos invitados mediante Azure Portal](role-assignments-external-users.md).
 
-Tenga en cuenta que los [roles integrados de Azure](../role-based-access-control/built-in-roles.md) son diferentes de los [roles de Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Los roles integrados no conceden acceso a Azure AD. Para más información, vea [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Tenga en cuenta que los [roles integrados de Azure](../role-based-access-control/built-in-roles.md) son diferentes de los [roles de Azure AD](../active-directory/roles/permissions-reference.md). Los roles integrados no conceden acceso a Azure AD. Para más información, vea [Descripción de los distintos roles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Para información donde se comparan los usuarios miembros y los usuarios invitados, consulte [¿Cuáles son los permisos de usuario predeterminados en Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md)
 
@@ -85,13 +85,13 @@ Para información donde se comparan los usuarios miembros y los usuarios invitad
 
 1. Haga clic en **Control de acceso (IAM).**
 
-1. Haga clic en la pestaña **Administradores clásicos**.
+1. Haga clic en la pestaña **Administradores clásicos** .
 
 1. Agregue una marca de verificación junto al coadministrador que desea quitar.
 
-1. Haga clic en **Quitar**.
+1. Haga clic en **Quitar** .
 
-1. En el cuadro de mensaje que aparece, haga clic en **Sí**.
+1. En el cuadro de mensaje que aparece, haga clic en **Sí** .
 
     ![Captura de pantalla donde se quita el coadministrador](./media/classic-administrators/remove-coadmin.png)
 
@@ -99,7 +99,7 @@ Para información donde se comparan los usuarios miembros y los usuarios invitad
 
 Solo el administrador de cuenta puede cambiar el administrador de servicios de una suscripción. De forma predeterminada, al registrarse en una suscripción de Azure, el administrador de servicios es también el administrador de cuenta. El usuario con el rol de administrador de cuenta no tiene acceso a Azure Portal. El usuario con el rol de administrador de servicios tiene acceso total a Azure Portal. Si el administrador de cuenta y el administrador de servicios son el mismo usuario y cambia el administrador de servicios a otro usuario distinto, el administrador de cuenta pierde el acceso a Azure Portal. Sin embargo, el administrador de cuenta siempre puede usar el Centro de cuentas para cambiar el administrador de servicio de nuevo a sí mismo.
 
-Siga estos pasos para cambiar el administrador de servicios en el **Centro de cuentas**.
+Siga estos pasos para cambiar el administrador de servicios en el **Centro de cuentas** .
 
 ### <a name="account-center"></a>Centro de cuentas
 
@@ -109,7 +109,7 @@ Siga estos pasos para cambiar el administrador de servicios en el **Centro de cu
 
 1. Haga clic en una suscripción.
 
-1. En la parte derecha, haga clic en **Editar detalles de suscripción**.
+1. En la parte derecha, haga clic en **Editar detalles de suscripción** .
 
     ![Captura de pantalla que muestra el botón Editar suscripción en el Centro de cuentas](./media/classic-administrators/editsub.png)
 
@@ -142,9 +142,9 @@ Siga estos pasos para ver el administrador de cuenta.
 
 1. Abra [Suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) y seleccione una suscripción.
 
-1. Haga clic en **Propiedades**.
+1. Haga clic en **Propiedades** .
 
-    El administrador de cuenta de la suscripción se muestra en el cuadro **Administrador de cuenta**.
+    El administrador de cuenta de la suscripción se muestra en el cuadro **Administrador de cuenta** .
 
     ![Captura de pantalla en la que aparece el administrador de cuenta](./media/classic-administrators/account-admin.png)
 

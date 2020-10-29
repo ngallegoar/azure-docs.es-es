@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246816"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364055"
 ---
 # <a name="design-secure-applications-on-azure"></a>Diseño de aplicaciones seguras en Azure
 En esta serie de artículos se presentan las actividades y controles de seguridad que hay que tener en cuenta al diseñar aplicaciones para la nube. Se abarcan los recursos de entrenamiento junto con los conceptos y preguntas de seguridad que se han de tener en cuenta durante las fases de diseño y requisitos del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir actividades y servicios de Azure que pueden usarse para diseñar una aplicación más segura.
@@ -226,14 +226,14 @@ Asegúrese de que la aplicación aplica [privilegios mínimos](https://docs.micr
 
 #### <a name="implement-just-in-time-access"></a>Implementación de acceso Just-In-Time
 
-Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de exposición de los privilegios. Utilice [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) para:
+Implemente acceso *Just-In-Time* (JIT) para reducir aún más el tiempo de exposición de los privilegios. Utilice [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) para:
 
 - Conceder a los usuarios los permisos que requieren solo cuando sean necesarios.
 - Asignar roles para una duración reducida con confianza de que los privilegios se revocan automáticamente.
 
 ### <a name="require-re-authentication-for-important-transactions"></a>Exigencia de reautenticación con transacciones importantes
 
-La [falsificación de solicitud entre sitios](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (también conocida como *XSRF* o *CSRF*) es un ataque contra aplicaciones hospedadas en web, en el que una aplicación web malintencionada influye en la interacción entre un explorador cliente y una aplicación web que confía en ese explorador. Los ataques de falsificación de solicitud entre sitios son posibles porque los exploradores web envían automáticamente algunos tipos de token de autenticación con cada solicitud en un sitio web.
+La [falsificación de solicitud entre sitios](https://docs.microsoft.com/aspnet/core/security/anti-request-forgery?view=aspnetcore-2.1) (también conocida como *XSRF* o *CSRF* ) es un ataque contra aplicaciones hospedadas en web, en el que una aplicación web malintencionada influye en la interacción entre un explorador cliente y una aplicación web que confía en ese explorador. Los ataques de falsificación de solicitud entre sitios son posibles porque los exploradores web envían automáticamente algunos tipos de token de autenticación con cada solicitud en un sitio web.
 Esta forma de aprovechamiento también se conoce como *ataque con un clic* o *montaje en la sesión* porque el ataque aprovecha la sesión del usuario autenticada anteriormente.
 
 La mejor manera de defenderse contra este tipo de ataque es pedirle al usuario algo que solo él puede proporcionar antes de cada transacción importante, como una compra, la desactivación de la cuenta o un cambio de contraseña. Puede pedirle al usuario que vuelva a escribir su contraseña, rellene un captcha o envíe un token secreto que solo él pueda tener. El enfoque más común es el token secreto.
@@ -244,7 +244,7 @@ La pérdida de claves y credenciales es un problema común. mucho peor que perde
 
 Coloque siempre sus claves, certificados, secretos y cadenas de conexión en una solución de administración de claves. Puede usar una solución centralizada en la que las claves y los secretos se almacenen en módulos de seguridad de hardware (HSM). Azure ofrece un HSM en la nube con [Azure Key Vault](../../key-vault/general/overview.md).
 
-Key Vault es un *almacén de secretos*: se trata de un servicio centralizado en la nube para el almacenamiento de secretos de aplicación. Key Vault mantiene los secretos de aplicación en una única ubicación centralizada y proporciona acceso seguro, control de permisos y registro de acceso para proteger sus datos confidenciales.
+Key Vault es un *almacén de secretos* : se trata de un servicio centralizado en la nube para el almacenamiento de secretos de aplicación. Key Vault mantiene los secretos de aplicación en una única ubicación centralizada y proporciona acceso seguro, control de permisos y registro de acceso para proteger sus datos confidenciales.
 
 Los secretos se almacenan en *almacenes* individuales. Cada almacén tiene sus propias directivas de configuración y seguridad para controlar el acceso. Los datos se obtienen a través de una API REST o un SDK que está disponible para la mayoría de lenguajes de programación de cliente.
 

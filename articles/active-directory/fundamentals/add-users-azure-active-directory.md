@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321096"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370821"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Incorporación o eliminación de usuarios mediante Azure Active Directory
 
@@ -34,33 +34,33 @@ Para agregar un usuario, siga estos pasos:
 
 1. Busque y seleccione *Azure Active Directory* en cualquier página.
 
-1. Seleccione **Usuarios** y, a continuación, seleccione **Nuevo usuario**.
+1. Seleccione **Usuarios** y, a continuación, seleccione **Nuevo usuario** .
 
     ![Agregar un usuario a través de Usuarios - Todos los usuarios en Azure AD](media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
-1. En la página **Usuario**, escriba información para este usuario:
+1. En la página **Usuario** , escriba información para este usuario:
 
-   - **Nombre**. Necesario. Nombre y apellidos del nuevo usuario. Por ejemplo, *Mary Parker*.
+   - **Nombre** . Necesario. Nombre y apellidos del nuevo usuario. Por ejemplo, *Mary Parker* .
 
-   - **Nombre de usuario**. Necesario. Nombre de usuario del nuevo usuario. Por ejemplo, `mary@contoso.com`.
+   - **Nombre de usuario** . Necesario. Nombre de usuario del nuevo usuario. Por ejemplo, `mary@contoso.com`.
 
-     La parte del dominio del nombre de usuario debe usar el nombre de dominio predeterminado inicial, *\<yourdomainname>.onmicrosoft.com* o un nombre de dominio personalizado, como de *contoso.com*. Para más información sobre cómo crear un nombre de dominio personalizado, consulte [Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory](add-custom-domain.md).
+     La parte del dominio del nombre de usuario debe usar el nombre de dominio predeterminado inicial, *\<yourdomainname>.onmicrosoft.com* o un nombre de dominio personalizado, como de *contoso.com* . Para más información sobre cómo crear un nombre de dominio personalizado, consulte [Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory](add-custom-domain.md).
 
-   - **Grupos**. Si quiere, puede agregar el usuario a uno o varios de los grupos existentes. También puede agregar el usuario a grupos en un momento posterior. Para más información sobre cómo agregar usuarios a grupos, consulte [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](active-directory-groups-create-azure-portal.md).
+   - **Grupos** . Si quiere, puede agregar el usuario a uno o varios de los grupos existentes. También puede agregar el usuario a grupos en un momento posterior. Para más información sobre cómo agregar usuarios a grupos, consulte [Creación de un grupo básico e incorporación de miembros con Azure Active Directory](active-directory-groups-create-azure-portal.md).
 
-   - **Rol del directorio**. Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. Puede asignar el rol de administrador global al usuario, o uno o varios de los otros roles de administrador limitados de Azure AD. Para obtener más información sobre la asignación de roles, consulte [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md).
+   - **Rol del directorio** . Si necesita permisos administrativos de Azure AD para el usuario, puede agregarlos a un rol de Azure AD. Puede asignar el rol de administrador global al usuario, o uno o varios de los otros roles de administrador limitados de Azure AD. Para obtener más información sobre la asignación de roles, consulte [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md).
 
-   - **Información del trabajo**. Puede agregar más información sobre el usuario aquí o hacerlo más adelante. Para obtener más información sobre cómo agregar información de usuario, vea [How to add or change user profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil de usuario).
+   - **Información del trabajo** . Puede agregar más información sobre el usuario aquí o hacerlo más adelante. Para obtener más información sobre cómo agregar información de usuario, vea [How to add or change user profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil de usuario).
 
-1. Copie la contraseña generada automáticamente proporcionada en el cuadro de texto **Contraseña**. Deberá proporcionar esta contraseña al usuario para iniciar sesión por primera vez.
+1. Copie la contraseña generada automáticamente proporcionada en el cuadro de texto **Contraseña** . Deberá proporcionar esta contraseña al usuario para iniciar sesión por primera vez.
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
 El usuario se crea y se agrega a la organización de Azure AD.
 
 ## <a name="add-a-new-guest-user"></a>Incorporación de un usuario invitado nuevo
 
-También puede invitar a un usuario invitado nuevo a colaborar con su organización si selecciona **Invitar usuario** en la página **Nuevo usuario**. Si la configuración de colaboración externa de la organización se configura de modo tal que se le permite invitar a otros usuarios, el usuario recibirá una invitación por correo electrónico que debe aceptar para empezar a colaborar. Para más información sobre cómo invitar a usuarios de colaboración B2B, consulte [Invitación a usuarios B2B a Azure Active Directory](../external-identities/add-users-administrator.md).
+También puede invitar a un usuario invitado nuevo a colaborar con su organización si selecciona **Invitar usuario** en la página **Nuevo usuario** . Si la configuración de colaboración externa de la organización se configura de modo tal que se le permite invitar a otros usuarios, el usuario recibirá una invitación por correo electrónico que debe aceptar para empezar a colaborar. Para más información sobre cómo invitar a usuarios de colaboración B2B, consulte [Invitación a usuarios B2B a Azure Active Directory](../external-identities/add-users-administrator.md).
 
 ## <a name="add-a-consumer-user"></a>Incorporación de un usuario consumidor
 
@@ -80,9 +80,9 @@ Siga estos pasos para eliminar un usuario:
 
 1. Busque y seleccione *Azure Active Directory* en cualquier página.
 
-1. Busque y seleccione el usuario que quiere eliminar del inquilino de Azure AD. Por ejemplo, _Mary Parker_.
+1. Busque y seleccione el usuario que quiere eliminar del inquilino de Azure AD. Por ejemplo, _Mary Parker_ .
 
-1. Seleccione **Eliminar usuario**.
+1. Seleccione **Eliminar usuario** .
 
     ![Página Users - All users (Usuarios: Todos los usuarios) con Eliminar usuario resaltado](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
@@ -103,6 +103,6 @@ Después de agregar a los usuarios, puede realizar los procesos básicos siguien
 
 - [Creación de un grupo básico e incorporación de miembros](active-directory-groups-create-azure-portal.md)
 
-- [Trabajo con usuarios y grupos dinámicos](../users-groups-roles/groups-create-rule.md)
+- [Trabajo con usuarios y grupos dinámicos](../enterprise-users/groups-create-rule.md)
 
-O bien puede realizar otras tareas de administración de usuarios, como [agregar usuarios invitados de otro directorio](../external-identities/what-is-b2b.md) o [restaurar un usuario eliminado](active-directory-users-restore.md). Para obtener más información acerca de otras acciones disponibles, consulte la [documentación de administración de usuarios en Azure Active Directory](../users-groups-roles/index.yml).
+O bien puede realizar otras tareas de administración de usuarios, como [agregar usuarios invitados de otro directorio](../external-identities/what-is-b2b.md) o [restaurar un usuario eliminado](active-directory-users-restore.md). Para obtener más información acerca de otras acciones disponibles, consulte la [documentación de administración de usuarios en Azure Active Directory](../enterprise-users/index.yml).

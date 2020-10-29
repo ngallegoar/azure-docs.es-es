@@ -3,19 +3,19 @@ title: Visualización de la actividad del proveedor de servicios
 description: Los clientes pueden visualizar la actividad registrada con el fin de ver las acciones realizadas por los proveedores de servicios mediante la administración de recursos delegados de Azure.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974318"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371093"
 ---
 # <a name="view-service-provider-activity"></a>Visualización de la actividad del proveedor de servicios
 
 Los clientes que tengan suscripciones delegadas para [Azure Lighthouse](../overview.md) pueden [visualizar los datos del registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md) para ver todas las acciones realizadas. Esto proporciona a los clientes una visibilidad completa de las operaciones que los proveedores de servicios realizan mediante la [administración de recursos delegados de Azure](../concepts/azure-delegated-resource-management.md), junto con las operaciones realizadas por los usuarios en el propio inquilino de Azure Active Directory (Azure AD) del cliente.
 
 > [!TIP]
-> Además se proporcionan definiciones de directivas integradas de Azure Policy para [restringir la delegación a inquilinos de administración específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) y [auditar la delegación de ámbitos en un inquilino de administración](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Para obtener más información, vea [Auditoría de delegaciones en el entorno](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Además se proporcionan definiciones de directivas integradas de Azure Policy para [restringir la delegación a inquilinos de administración específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) y [auditar la delegación de ámbitos en un inquilino de administración](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Para obtener más información, vea [Auditoría de delegaciones en el entorno](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Visualización de los datos del registro de actividad
 

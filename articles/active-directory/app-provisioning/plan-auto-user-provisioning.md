@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070374"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363698"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -34,13 +34,13 @@ El aprovisionamiento de usuarios crea las bases de una gobernanza continua de id
 
 Las ventajas principales de habilitar el aprovisionamiento automático de usuarios son:
 
-* **Mayor productividad**. Puede administrar las identidades de usuario en las distintas aplicaciones SaaS con una interfaz de administración de aprovisionamiento de usuarios única. Esta interfaz tiene un solo conjunto de directivas de aprovisionamiento.
+* **Mayor productividad** . Puede administrar las identidades de usuario en las distintas aplicaciones SaaS con una interfaz de administración de aprovisionamiento de usuarios única. Esta interfaz tiene un solo conjunto de directivas de aprovisionamiento.
 
-* **Administración de los riesgos**. Para aumentar la seguridad, puede automatizar los cambios en función del estado de los empleados o de las pertenencias a grupos que definen los roles o el acceso.
+* **Administración de los riesgos** . Para aumentar la seguridad, puede automatizar los cambios en función del estado de los empleados o de las pertenencias a grupos que definen los roles o el acceso.
 
-* **Solución para el cumplimiento y la gobernanza**. Azure AD admite registros de auditoría nativos para cada solicitud de aprovisionamiento de usuarios. Las solicitudes se ejecutan en los sistemas de origen y de destino. Esto le permite realizar un seguimiento de quién tiene acceso a las aplicaciones desde una sola pantalla.
+* **Solución para el cumplimiento y la gobernanza** . Azure AD admite registros de auditoría nativos para cada solicitud de aprovisionamiento de usuarios. Las solicitudes se ejecutan en los sistemas de origen y de destino. Esto le permite realizar un seguimiento de quién tiene acceso a las aplicaciones desde una sola pantalla.
 
-* **Reducción del costo**. El aprovisionamiento automático de usuarios reduce los costos al evitar ineficiencias y errores humanos asociados con el aprovisionamiento manual. Disminuye la necesidad de registros de auditoría, scripts y soluciones de aprovisionamiento de usuarios desarrollados de manera personalizada.
+* **Reducción del costo** . El aprovisionamiento automático de usuarios reduce los costos al evitar ineficiencias y errores humanos asociados con el aprovisionamiento manual. Disminuye la necesidad de registros de auditoría, scripts y soluciones de aprovisionamiento de usuarios desarrollados de manera personalizada.
 
 ### <a name="licensing"></a>Licencias
 
@@ -139,13 +139,13 @@ La comunicación es fundamental para el éxito de cualquier servicio nuevo. Comu
 
 Se recomienda que la configuración inicial del aprovisionamiento automático de usuarios esté en un entorno de prueba con un subconjunto de usuarios pequeño antes de escalarla a todos los usuarios de producción. Vea los [procedimientos recomendados](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) para ejecutar un piloto.
 
-#### <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto  
+#### <a name="best-practices-for-a-pilot"></a>Procedimientos recomendados para un piloto  
 
 Un piloto le permite probar con un grupo pequeño antes de implementar una funcionalidad para todos. Asegúrese de que, como parte de sus pruebas, cada caso de uso de su organización se prueba de forma exhaustiva.
 
 En su primera oleada, TI de destino, facilidad de uso y otros usuarios adecuados que pueden probar y proporcionar comentarios. Use estos comentarios para desarrollar aún más las comunicaciones e instrucciones que envía a sus usuarios y proporcionarles información sobre los tipos de problemas que puede ver su personal de soporte técnico.
 
-Amplíe la implementación en grupos de usuarios más grandes mediante el aumento del ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../users-groups-roles/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.
+Amplíe la implementación en grupos de usuarios más grandes mediante el aumento del ámbito de los grupos objetivo. Esto puede hacerse a través de la [pertenencia dinámica a grupos](../enterprise-users/groups-dynamic-membership.md) o agregando usuarios manualmente a los grupos objetivo.
 
 ## <a name="plan-application-connections-and-administration"></a>Planeamiento de la administración y conexiones de aplicación
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 681929928e6e6b28c7950c8aeeadc8b181491f46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804136"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370770"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Creación de un panel en tiempo real mediante Azure Cosmos DB y Power BI
 
@@ -46,16 +46,16 @@ Azure Analysis Services proporciona una plataforma completamente administrada co
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingesta de datos meteorológicos en Azure Cosmos DB
 
-Configure una canalización de ingesta para cargar [datos meteorológicos](https://catalog.data.gov/dataset/local-weather-archive) en Azure Cosmos DB. Puede configurar un trabajo de [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) para cargar periódicamente los datos meteorológicos más recientes en Azure Cosmos DB mediante el receptor de Cosmos DB y de origen HTTP.
+Configure una canalización de ingesta para cargar [datos meteorológicos](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) en Azure Cosmos DB. Puede configurar un trabajo de [Azure Data Factory (ADF)](../data-factory/connector-azure-cosmos-db.md) para cargar periódicamente los datos meteorológicos más recientes en Azure Cosmos DB mediante el receptor de Cosmos DB y de origen HTTP.
 
 
 ### <a name="connect-power-bi-to-azure-cosmos-db"></a>Conexión de Power BI con Azure Cosmos DB
 
-1. **Conectar la cuenta de Azure Cosmos con Power BI**: abra Power BI Desktop y use el conector de Azure Cosmos DB para seleccionar la base de datos y el contenedor correctos.
+1. **Conectar la cuenta de Azure Cosmos con Power BI** : abra Power BI Desktop y use el conector de Azure Cosmos DB para seleccionar la base de datos y el contenedor correctos.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/cosmosdb-powerbi-connector.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-1. **Configurar actualización incremental**: siga los pasos descritos en el artículo [Actualización incremental con Power BI](/power-bi/service-premium-incremental-refresh) para configurar la actualización incremental para el conjunto de datos. Agregue los parámetros **RangeStart** y **RangeEnd**, tal y como se muestra en la siguiente captura de pantalla:
+1. **Configurar actualización incremental** : siga los pasos descritos en el artículo [Actualización incremental con Power BI](/power-bi/service-premium-incremental-refresh) para configurar la actualización incremental para el conjunto de datos. Agregue los parámetros **RangeStart** y **RangeEnd** , tal y como se muestra en la siguiente captura de pantalla:
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/configure-range-parameters.png" alt-text="Conector de Power BI de Azure Cosmos DB" = Table.SelectRows(#"Expanded Document", each [Document.date] > DateTime.ToText(RangeStart,"yyyy-MM-dd") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd"))
    ```
@@ -70,24 +70,24 @@ Configure una canalización de ingesta para cargar [datos meteorológicos](https
    |Fecha (por ejemplo:- 2019-08-11 12:00:00)   |  String       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") y [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
 
-1. **Definir la directiva de actualización**: defina la directiva de actualización; para ello, vaya a la pestaña **Actualización incremental** en el menú **contextual** de la tabla. Establezca la directiva de actualización para que se actualice **cada día** y almacene los datos del último mes.
+1. **Definir la directiva de actualización** : defina la directiva de actualización; para ello, vaya a la pestaña **Actualización incremental** en el menú **contextual** de la tabla. Establezca la directiva de actualización para que se actualice **cada día** y almacene los datos del último mes.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-   Omita la advertencia que indica *que la consulta M no se puede confirmar que se vaya a incorporar*. El conector de Azure Cosmos DB incorpora las consultas de filtro.
+   Omita la advertencia que indica *que la consulta M no se puede confirmar que se vaya a incorporar* . El conector de Azure Cosmos DB incorpora las consultas de filtro.
 
-1. **Cargar los datos y generar los informes**: mediante el uso de los datos cargados anteriormente, cree los gráficos para informar de la temperatura y las precipitaciones.
+1. **Cargar los datos y generar los informes** : mediante el uso de los datos cargados anteriormente, cree los gráficos para informar de la temperatura y las precipitaciones.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-1. **Publicar el informe en Power BI Premium**: como la actualización incremental es una característica solo Premium, el cuadro de diálogo Publicar únicamente permite seleccionar un área de trabajo en la funcionalidad Premium. La primera actualización puede tardar más tiempo en importar los datos históricos. Las actualizaciones de datos posteriores son mucho más rápidas porque utilizan la actualización incremental.
+1. **Publicar el informe en Power BI Premium** : como la actualización incremental es una característica solo Premium, el cuadro de diálogo Publicar únicamente permite seleccionar un área de trabajo en la funcionalidad Premium. La primera actualización puede tardar más tiempo en importar los datos históricos. Las actualizaciones de datos posteriores son mucho más rápidas porque utilizan la actualización incremental.
 
 
 ## <a name="power-bi-azure-analysis-connector--azure-analysis-services"></a>Conector de Azure Analysis de Power BI + Azure Analysis Services 
 
 ### <a name="ingest-weather-data-into-azure-cosmos-db"></a>Ingesta de datos meteorológicos en Azure Cosmos DB 
 
-Configure una canalización de ingesta para cargar [datos meteorológicos](https://catalog.data.gov/dataset/local-weather-archive) en Azure Cosmos DB. Puede configurar un trabajo de Azure Data Factory (ADF) para cargar periódicamente los datos meteorológicos más recientes en Azure Cosmos DB mediante el receptor de Cosmos DB y de origen HTTP.
+Configure una canalización de ingesta para cargar [datos meteorológicos](https://catalog.data.gov/dataset/local-weather-archive/resource/c28974a2-fc83-4722-8977-9a701323f729) en Azure Cosmos DB. Puede configurar un trabajo de Azure Data Factory (ADF) para cargar periódicamente los datos meteorológicos más recientes en Azure Cosmos DB mediante el receptor de Cosmos DB y de origen HTTP.
 
 ### <a name="connect-azure-analysis-services-to-azure-cosmos-account"></a>Conexión de Azure Analysis Services con la cuenta de Azure Cosmos
 
@@ -101,15 +101,15 @@ Configure una canalización de ingesta para cargar [datos meteorológicos](https
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/tabular-model-designer.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-1. **Agregue el origen de datos de Azure Cosmos DB**: vaya a **Modelos**> **Orígenes de datos** > **Origen de datos nuevo** y agregue el origen de datos de Azure Cosmos DB, tal como se muestra en la siguiente captura de pantalla:
+1. **Agregue el origen de datos de Azure Cosmos DB** : vaya a **Modelos**> **Orígenes de datos** > **Origen de datos nuevo** y agregue el origen de datos de Azure Cosmos DB, tal como se muestra en la siguiente captura de pantalla:
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-   Conéctese a Azure Cosmos DB proporcionando el **URI de la cuenta**, el **nombre de la base de datos** y el **nombre del contenedor**. Ahora puede ver que los datos del contenedor de Azure Cosmos se importan en Power BI.
+   Conéctese a Azure Cosmos DB proporcionando el **URI de la cuenta** , el **nombre de la base de datos** y el **nombre del contenedor** . Ahora puede ver que los datos del contenedor de Azure Cosmos se importan en Power BI.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-1. **Construir el modelo de Analysis Services**: abra el editor de consultas y realice las operaciones necesarias para optimizar el conjunto de datos cargado:
+1. **Construir el modelo de Analysis Services** : abra el editor de consultas y realice las operaciones necesarias para optimizar el conjunto de datos cargado:
 
    * Extraer solo las columnas relacionadas con el tiempo meteorológico (temperatura y precipitaciones)
 
@@ -135,24 +135,24 @@ Configure una canalización de ingesta para cargar [datos meteorológicos](https
 
    Además, cambie el tipo de datos de las columnas de temperatura a Decimal para asegurarse de que estos valores se pueden trazar en Power BI.
 
-1. **Crear particiones de Azure Analysis**: cree particiones en Azure Analysis Services para dividir el conjunto de datos en particiones lógicas que se pueden actualizar de forma independiente y a diferentes frecuencias. En este ejemplo, se van a crear dos particiones que dividen el conjunto de datos en los datos del mes más reciente y en todo lo demás.
+1. **Crear particiones de Azure Analysis** : cree particiones en Azure Analysis Services para dividir el conjunto de datos en particiones lógicas que se pueden actualizar de forma independiente y a diferentes frecuencias. En este ejemplo, se van a crear dos particiones que dividen el conjunto de datos en los datos del mes más reciente y en todo lo demás.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Conector de Power BI de Azure Cosmos DB" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")` (Último mes)
    * **Historical** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")` (Historial)
 
-1. **Implementar el modelo en Azure Analysis Server**: haga clic con el botón derecho en el proyecto de Azure Analysis Services y elija **Implementar**. Agregue el nombre del servidor en el panel de **propiedades de Servidor de implementación**.
+1. **Implementar el modelo en Azure Analysis Server** : haga clic con el botón derecho en el proyecto de Azure Analysis Services y elija **Implementar** . Agregue el nombre del servidor en el panel de **propiedades de Servidor de implementación** .
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-1. **Configurar actualizaciones y combinaciones de particiones**: Azure Analysis Services permite el procesamiento independiente de las particiones. Puesto que deseamos que la partición del **mes más reciente** se actualice constantemente con los datos más recientes, establezca el intervalo de actualización en cinco minutos. Puede actualizar los datos mediante la [API REST](../analysis-services/analysis-services-async-refresh.md), [automatización de Azure](../analysis-services/analysis-services-refresh-azure-automation.md) o con una [aplicación lógica](../analysis-services/analysis-services-refresh-logic-app.md). No es necesario actualizar los datos de la partición histórica. Además, debe escribir código para consolidar la partición del mes más reciente en la partición del historial y crear una nueva partición del mes más reciente.
+1. **Configurar actualizaciones y combinaciones de particiones** : Azure Analysis Services permite el procesamiento independiente de las particiones. Puesto que deseamos que la partición del **mes más reciente** se actualice constantemente con los datos más recientes, establezca el intervalo de actualización en cinco minutos. Puede actualizar los datos mediante la [API REST](../analysis-services/analysis-services-async-refresh.md), [automatización de Azure](../analysis-services/analysis-services-refresh-azure-automation.md) o con una [aplicación lógica](../analysis-services/analysis-services-refresh-logic-app.md). No es necesario actualizar los datos de la partición histórica. Además, debe escribir código para consolidar la partición del mes más reciente en la partición del historial y crear una nueva partición del mes más reciente.
 
 ## <a name="connect-power-bi-to-analysis-services"></a>Conexión de Power BI con Analysis Services
 
-1. **Conectar a Azure Analysis Server mediante el conector de bases de datos de Azure Analysis Services**: elija el **modo activo** y conéctese a la instancia de Azure Analysis Services, tal como se muestra en la siguiente captura de pantalla:
+1. **Conectar a Azure Analysis Server mediante el conector de bases de datos de Azure Analysis Services** : elija el **modo activo** y conéctese a la instancia de Azure Analysis Services, tal como se muestra en la siguiente captura de pantalla:
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-get-data.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 
-1. **Cargar los datos y generar informes**: mediante el uso de los datos cargados anteriormente, cree los gráficos para informar de la temperatura y las precipitaciones. Dado que está creando una conexión activa, las consultas se deben ejecutar en los datos del modelo de Azure Analysis Services que ha implementado en el paso anterior. Los gráficos de temperatura se actualizarán en un plazo de cinco minutos después de que los nuevos datos se carguen en Azure Cosmos DB.
+1. **Cargar los datos y generar informes** : mediante el uso de los datos cargados anteriormente, cree los gráficos para informar de la temperatura y las precipitaciones. Dado que está creando una conexión activa, las consultas se deben ejecutar en los datos del modelo de Azure Analysis Services que ha implementado en el paso anterior. Los gráficos de temperatura se actualizarán en un plazo de cinco minutos después de que los nuevos datos se carguen en Azure Cosmos DB.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/load-data-generate-report.png" alt-text="Conector de Power BI de Azure Cosmos DB":::
 

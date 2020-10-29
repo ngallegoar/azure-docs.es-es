@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117624"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366401"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
 
@@ -27,18 +27,18 @@ ms.locfileid: "88117624"
 
 Azure Active Directory (Azure AD) hace un uso extensivo de los permisos para los flujos de OAuth y OpenID Connect (OIDC). Cuando la aplicación recibe un token de acceso de Azure AD, el token de acceso incluye notificaciones que describen los permisos que tiene la aplicación con respecto a un recurso determinado.
 
-Los *permisos*, también conocidos como *ámbitos*, facilitan la autorización del recurso, ya que este solo tiene que comprobar que el token contiene el permiso adecuado para cualquier API a la que llame la aplicación.
+Los *permisos* , también conocidos como *ámbitos* , facilitan la autorización del recurso, ya que este solo tiene que comprobar que el token contiene el permiso adecuado para cualquier API a la que llame la aplicación.
 
 ## <a name="types-of-permissions"></a>Tipos de permisos
 
 Azure AD define dos tipos de permisos:
 
-* **Permisos delegados**: se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas a una API. En función de la API de que se trate, es posible que el usuario no tenga la capacidad de dar su consentimiento a la API directamente y, en su lugar, tenga que [pedir a un administrador que proporcione el "consentimiento del administrador"](../develop/howto-convert-app-to-be-multi-tenant.md).
-* **Permisos de aplicación**: los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano. Los permisos de aplicación solo puede [autorizarlos un administrador](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant), porque suelen ser muy eficaces y permitir el acceso a los datos más allá de los límites de usuario o a datos que deberían estar restringidos a los administradores. Los usuarios que se definen como propietarios de la aplicación de recursos (es decir, la API que publica los permisos) también pueden conceder permisos de aplicación para las API que poseen.
+* **Permisos delegados** : se utilizan en aplicaciones que tienen un usuario con la sesión iniciada. Para estas aplicaciones, el usuario o un administrador dan su consentimiento para los permisos que la aplicación requiere y a la aplicación se le delega el permiso para actuar como el usuario que inició sesión al realizar llamadas a una API. En función de la API de que se trate, es posible que el usuario no tenga la capacidad de dar su consentimiento a la API directamente y, en su lugar, tenga que [pedir a un administrador que proporcione el "consentimiento del administrador"](../develop/howto-convert-app-to-be-multi-tenant.md).
+* **Permisos de aplicación** : los usan las aplicaciones que se ejecutan sin la presencia de un usuario con la sesión iniciada; por ejemplo, las aplicaciones que se ejecutan como demonios o servicios en segundo plano. Los permisos de aplicación solo puede [autorizarlos un administrador](../develop/v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant), porque suelen ser muy eficaces y permitir el acceso a los datos más allá de los límites de usuario o a datos que deberían estar restringidos a los administradores. Los usuarios que se definen como propietarios de la aplicación de recursos (es decir, la API que publica los permisos) también pueden conceder permisos de aplicación para las API que poseen.
 
 Los permisos efectivos son los permisos que la aplicación tendrá al realizar solicitudes a una API. 
 
-* En el caso de los permisos delegados, los permisos efectivos de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* En el caso de los permisos delegados, los permisos efectivos de la aplicación serán la intersección con menos privilegios de los permisos delegados que se le han concedido a la aplicación (mediante consentimiento) y los privilegios del usuario que tiene iniciada la sesión actualmente. La aplicación nunca puede tener más privilegios que el usuario que tiene la sesión iniciada. Dentro de las organizaciones, los privilegios del usuario que tiene la sesión iniciada pueden determinarse mediante directivas o pertenencia a uno o varios roles de administrador. Para información sobre qué roles de administrador pueden consentir los permisos delegados, consulte [Permisos de roles de administrador en Azure AD](../roles/permissions-reference.md).
     Por ejemplo, suponga que a su aplicación se le ha concedido el permiso delegado `User.ReadWrite.All` en Microsoft Graph. Este permiso concede a su aplicación de forma nominal un permiso para leer y actualizar el perfil de cada usuario de una organización. Si el usuario que inició sesión es un administrador global, la aplicación podrá actualizar el perfil de cada usuario de la organización. Sin embargo, si el usuario con la sesión iniciada no pertenece a un rol de administrador, la aplicación podrá actualizar solo el perfil del usuario que tiene la sesión iniciada. No podrá actualizar los perfiles de otros usuarios de la organización, porque el usuario para el que tiene permiso para actuar en su nombre no tiene tales privilegios.
 * Para los permisos de aplicación, los permisos efectivos de la aplicación son el nivel completo de privilegios que concede el permiso. Por ejemplo, una aplicación que tiene el permiso de aplicación `User.ReadWrite.All` puede actualizar el perfil de cada usuario de la organización.
 
@@ -72,15 +72,15 @@ Los permisos de Azure AD tienen un número de propiedades que ayudan a los usuar
 
 Las aplicaciones de Azure AD dependen del consentimiento para poder acceder a los recursos o las API necesarios. Hay una serie de tipos de consentimiento que la aplicación puede necesitar saber para que se pueda ejecutar correctamente. Si va a definir permisos, también debe saber cómo accederán los usuarios a la aplicación o la API.
 
-* **Consentimiento de usuario estático**: se concede automáticamente durante el [flujo de autorización de OAuth 2.0](v1-protocols-oauth-code.md#request-an-authorization-code) al especificar el recurso con el que la aplicación desea interactuar. En el escenario del consentimiento de usuario estático, la aplicación debe haber especificado a todos los permisos que necesita en la configuración de la aplicación en Azure Portal. Si al usuario o al administrador, según corresponda, no se le concede permiso a esta aplicación, Azure AD pedirá al usuario que proporcione su consentimiento en este momento. 
+* **Consentimiento de usuario estático** : se concede automáticamente durante el [flujo de autorización de OAuth 2.0](v1-protocols-oauth-code.md#request-an-authorization-code) al especificar el recurso con el que la aplicación desea interactuar. En el escenario del consentimiento de usuario estático, la aplicación debe haber especificado a todos los permisos que necesita en la configuración de la aplicación en Azure Portal. Si al usuario o al administrador, según corresponda, no se le concede permiso a esta aplicación, Azure AD pedirá al usuario que proporcione su consentimiento en este momento. 
 
     Obtenga más información sobre el registro de una aplicación de Azure AD que solicita acceso a un conjunto estático de API.
-* **Consentimiento de usuario dinámico**: es una característica del modelo de aplicación v2 de Azure AD. En este escenario, la aplicación solicita un conjunto de permisos que necesita en el [flujo de autorización de OAuth 2.0 para aplicaciones v2](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent). Si el usuario aún no ha dado su consentimiento, se le pedirá en este momento. [Obtenga más información sobre el consentimiento dinámico](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
+* **Consentimiento de usuario dinámico** : es una característica del modelo de aplicación v2 de Azure AD. En este escenario, la aplicación solicita un conjunto de permisos que necesita en el [flujo de autorización de OAuth 2.0 para aplicaciones v2](../develop/v2-permissions-and-consent.md#requesting-individual-user-consent). Si el usuario aún no ha dado su consentimiento, se le pedirá en este momento. [Obtenga más información sobre el consentimiento dinámico](./azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent).
 
     > [!IMPORTANT]
     > El consentimiento dinámico puede resultar conveniente, pero presenta un gran desafío para los permisos que requieren el consentimiento del administrador, ya que la experiencia de consentimiento de administrador no conoce los permisos en el momento del consentimiento. Si necesita permisos con privilegios de administrador o si su aplicación usa el consentimiento dinámico, debe registrar todos los permisos en Azure Portal (no solo el subconjunto de permisos que requieren el consentimiento del administrador). Esto permite a los administradores de inquilinos dar su consentimiento en nombre de todos los usuarios.
   
-* **Consentimiento del administrador**: es necesario si la aplicación necesita acceder a determinados permisos con privilegios elevados. El consentimiento de administrador garantiza que los administradores dispongan de algunos controles adicionales antes de autorizar a las aplicaciones o a los usuarios a acceder a datos con privilegios elevados de la organización. [Obtenga más información sobre cómo conceder el permiso de administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
+* **Consentimiento del administrador** : es necesario si la aplicación necesita acceder a determinados permisos con privilegios elevados. El consentimiento de administrador garantiza que los administradores dispongan de algunos controles adicionales antes de autorizar a las aplicaciones o a los usuarios a acceder a datos con privilegios elevados de la organización. [Obtenga más información sobre cómo conceder el permiso de administrador](../develop/v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

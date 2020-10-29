@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 343f6b7a78ca98615d512d31d7ac1c10d9de8f10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e57e495d34a265b5e0691106996206029656c5a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799339"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371127"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevación de los privilegios de acceso para administrar todas las suscripciones y los grupos de administración de Azure
 
@@ -33,7 +33,7 @@ Si es un administrador global, es posible que haya momentos en los que quiera re
 
 ## <a name="how-does-elevated-access-work"></a>¿Cómo funciona el acceso con privilegios elevados?
 
-Azure AD y los recursos de Azure están protegidos de forma independiente entre sí. Es decir, las asignaciones de roles de Azure AD no otorgan acceso a recursos de Azure, y las asignaciones de roles de Azure no conceden acceso a Azure AD. Sin embargo, si es [administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) de Azure AD, puede asignarse a sí mismo los privilegios de acceso para todas las suscripciones a Azure y los grupos de administración de su directorio. Use esta funcionalidad si no tiene acceso a recursos de suscripción a Azure, como máquinas virtuales o cuentas de almacenamiento, y quiere usar su privilegio de administrador global para obtener acceso a esos recursos.
+Azure AD y los recursos de Azure están protegidos de forma independiente entre sí. Es decir, las asignaciones de roles de Azure AD no otorgan acceso a recursos de Azure, y las asignaciones de roles de Azure no conceden acceso a Azure AD. Sin embargo, si es [administrador global](../active-directory/roles/permissions-reference.md#company-administrator-permissions) de Azure AD, puede asignarse a sí mismo los privilegios de acceso para todas las suscripciones a Azure y los grupos de administración de su directorio. Use esta funcionalidad si no tiene acceso a recursos de suscripción a Azure, como máquinas virtuales o cuentas de almacenamiento, y quiere usar su privilegio de administrador global para obtener acceso a esos recursos.
 
 Al elevar los privilegios de acceso, se le asignará el rol [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) en Azure en el ámbito raíz (`/`). Esto le permite ver todos los recursos y asignar acceso en cualquier suscripción o grupo de administración en el directorio. Se pueden quitar las asignaciones de roles de administrador de acceso de usuario mediante Azure PowerShell, CLI de Azure o la API de REST.
 
@@ -51,22 +51,22 @@ Siga estos pasos para elevar los privilegios de acceso de un administrador globa
 
     Si usa Azure AD Privileged Identity Management, [active la asignación de roles de administrador global](../active-directory/privileged-identity-management/pim-how-to-activate-role.md).
 
-1. Abra **Azure Active Directory**.
+1. Abra **Azure Active Directory** .
 
-1. En **Administrar**, seleccione **Propiedades**.
+1. En **Administrar** , seleccione **Propiedades** .
 
    ![Seleccionar propiedades para las propiedades de Azure Active Directory: captura de pantalla](./media/elevate-access-global-admin/azure-active-directory-properties.png)
 
-1. En **Administración del acceso para los recursos de Azure**, establezca el botón de alternancia en **Sí**.
+1. En **Administración del acceso para los recursos de Azure** , establezca el botón de alternancia en **Sí** .
 
    ![Captura de pantalla de administración de acceso a recursos de Azure](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Al establecer el botón de alternancia en **Sí**, se le asigna el rol de administrador de accesos de usuario en Azure RBAC en el ámbito raíz (/). Esto le concede permiso para asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Este botón de alternancia solo está disponible para los usuarios que tienen asignado el rol de administrador global de Azure AD.
+   Al establecer el botón de alternancia en **Sí** , se le asigna el rol de administrador de accesos de usuario en Azure RBAC en el ámbito raíz (/). Esto le concede permiso para asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Este botón de alternancia solo está disponible para los usuarios que tienen asignado el rol de administrador global de Azure AD.
 
-   Al establecer el botón de alternancia en **No**, se quita el rol de administrador de accesos de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
+   Al establecer el botón de alternancia en **No** , se quita el rol de administrador de accesos de usuario en Azure RBAC de su cuenta de usuario. Ya no puede asignar roles en todas las suscripciones de Azure y los grupos de administración asociados a este directorio de Azure AD. Puede ver y administrar solo las suscripciones de Azure y los grupos de administración a los que se le ha concedido acceso.
 
     > [!NOTE]
-    > Si usa [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia la opción **Administración de acceso para recursos de Azure** a **No**. Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
+    > Si usa [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia la opción **Administración de acceso para recursos de Azure** a **No** . Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
     
 1. Haga clic en **Guardar** para guardar la configuración.
 
@@ -90,9 +90,9 @@ Para quitar la asignación del rol de administrador de accesos de usuario en el 
 
 1. Inicie sesión como el mismo usuario que se usó para elevar el acceso.
 
-1. En la lista de navegación, haga clic en **Azure Active Directory** y, luego, haga clic en **Propiedades**.
+1. En la lista de navegación, haga clic en **Azure Active Directory** y, luego, haga clic en **Propiedades** .
 
-1. Establezca el botón de alternancia **Administración del acceso para los recursos de Azure** de nuevo en **No**. Puesto que se trata de una configuración que se realiza a nivel de usuario, debe haber iniciado sesión con el mismo usuario que el utilizado para elevar los privilegios de acceso.
+1. Establezca el botón de alternancia **Administración del acceso para los recursos de Azure** de nuevo en **No** . Puesto que se trata de una configuración que se realiza a nivel de usuario, debe haber iniciado sesión con el mismo usuario que el utilizado para elevar los privilegios de acceso.
 
     Si intenta quitar la asignación de rol de administración de identidad y acceso en el panel de control de acceso (IAM), verá el siguiente mensaje. Para quitar la asignación de roles, debe establecer el botón de alternancia en **No** o usar Azure PowerShell, la CLI de Azure o la API REST.
 
@@ -103,7 +103,7 @@ Para quitar la asignación del rol de administrador de accesos de usuario en el 
     Si usa Privileged Identity Management, desactive la asignación de roles de administrador global.
 
     > [!NOTE]
-    > Si usa [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia la opción **Administración de acceso para recursos de Azure** a **No**. Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
+    > Si usa [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md), la desactivación de la asignación de roles no cambia la opción **Administración de acceso para recursos de Azure** a **No** . Para mantener el acceso con privilegios mínimos, se recomienda establecer esta opción en **No** antes de desactivar la asignación de roles.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

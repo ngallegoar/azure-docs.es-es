@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049577"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366571"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -55,7 +55,7 @@ Mitigar una interrupción real debe ser el objetivo principal de la organizació
 
 ### <a name="administrator-lockout-contingency"></a>Medida de contingencia frente al bloqueo de administrador
 
-Para desbloquear el acceso de administrador a su inquilino, debe crear cuentas de acceso de emergencia. Estas cuentas de acceso de emergencia, también conocidas como cuentas *de emergencia*, permiten el acceso para administrar la configuración de Azure AD cuando los procedimientos de acceso con cuentas con privilegios normales no están disponibles. Se deben crear al menos dos cuentas de acceso de emergencia siguiendo las [recomendaciones sobre cuentas de acceso de emergencia]( ../users-groups-roles/directory-emergency-access.md).
+Para desbloquear el acceso de administrador a su inquilino, debe crear cuentas de acceso de emergencia. Estas cuentas de acceso de emergencia, también conocidas como cuentas *de emergencia* , permiten el acceso para administrar la configuración de Azure AD cuando los procedimientos de acceso con cuentas con privilegios normales no están disponibles. Se deben crear al menos dos cuentas de acceso de emergencia siguiendo las [recomendaciones sobre cuentas de acceso de emergencia]( ../users-groups-roles/directory-emergency-access.md).
 
 ### <a name="mitigating-user-lockout"></a>Mitigación del bloqueo de usuario
 
@@ -138,7 +138,7 @@ Este estándar de nomenclatura para las directivas de contingencia será del mod
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-En el ejemplo siguiente: **Ejemplo A: directiva de CA de contingencia para restaurar el acceso a aplicaciones de colaboración críticas**, es una contingencia corporativa típica. En este escenario, la organización normalmente requiere MFA para todos los accesos de Exchange Online y SharePoint Online y, en este caso, la interrupción se da porque el proveedor de MFA para el cliente tiene una interrupción del servicio (ya sea Azure MFA, un proveedor de MFA local o MFA de terceros). Esta directiva mitiga esta interrupción al permitir que los usuarios de destino específicos accedan a estas aplicaciones desde dispositivos Windows de confianza solo cuando acceden a la aplicación desde su red corporativa de confianza. También excluirá las cuentas de emergencia y los administradores principales de estas restricciones. Los usuarios de destino tendrán entonces acceso a Exchange Online y SharePoint Online, mientras que otros usuarios seguirán sin tener acceso a las aplicaciones debido a la interrupción. En este ejemplo se necesita una ubicación de red denominada **CorpNetwork** y un grupo de seguridad **ContingencyAccess** con los usuarios de destino, un grupo denominado **CoreAdmins** con los administradores principales y un grupo denominado **EmergencyAccess** con las cuentas de acceso de emergencia. La contingencia requiere cuatro directivas para proporcionar el acceso deseado. 
+En el ejemplo siguiente: **Ejemplo A: directiva de CA de contingencia para restaurar el acceso a aplicaciones de colaboración críticas** , es una contingencia corporativa típica. En este escenario, la organización normalmente requiere MFA para todos los accesos de Exchange Online y SharePoint Online y, en este caso, la interrupción se da porque el proveedor de MFA para el cliente tiene una interrupción del servicio (ya sea Azure MFA, un proveedor de MFA local o MFA de terceros). Esta directiva mitiga esta interrupción al permitir que los usuarios de destino específicos accedan a estas aplicaciones desde dispositivos Windows de confianza solo cuando acceden a la aplicación desde su red corporativa de confianza. También excluirá las cuentas de emergencia y los administradores principales de estas restricciones. Los usuarios de destino tendrán entonces acceso a Exchange Online y SharePoint Online, mientras que otros usuarios seguirán sin tener acceso a las aplicaciones debido a la interrupción. En este ejemplo se necesita una ubicación de red denominada **CorpNetwork** y un grupo de seguridad **ContingencyAccess** con los usuarios de destino, un grupo denominado **CoreAdmins** con los administradores principales y un grupo denominado **EmergencyAccess** con las cuentas de acceso de emergencia. La contingencia requiere cuatro directivas para proporcionar el acceso deseado. 
 
 **Ejemplo A. Directiva de CA de contingencia para restaurar el acceso a aplicaciones de colaboración críticas:**
 
@@ -180,7 +180,7 @@ Orden de activación:
 5. Habilitar Directiva 4: Compruebe que ningún usuario puede acceder a Exchange Online desde las aplicaciones de correo nativo en dispositivos móviles.
 6. Deshabilite la directiva de MFA existente para SharePoint Online y Exchange Online.
 
-En el ejemplo siguiente, **Ejemplo B. Directivas de CA de contingencia para permitir el acceso móvil a Salesforce**, se restaurará el acceso de una aplicación empresarial. En este escenario, el cliente normalmente requiere que el acceso de los empleados de ventas a Salesforce (configurada para inicio de sesión único con Azure AD) desde dispositivos móviles solo se permita desde dispositivos compatibles. La interrupción en este caso es que hay un problema con la evaluación del cumplimiento de dispositivos y la interrupción se produce en un momento delicado en el que el equipo de ventas necesita acceder a Salesforce para cerrar acuerdos. Estas directivas de contingencia conceden a los usuarios críticos acceso a Salesforce desde un dispositivo móvil para que sigan cerrando tratos y, de esta forma, que el negocio no se vea afectado. En este ejemplo, **SalesforceContingency** contiene todos los empleados de ventas que necesitan conservar el acceso y **SalesAdmins** contiene los administradores necesarios de Salesforce.
+En el ejemplo siguiente, **Ejemplo B. Directivas de CA de contingencia para permitir el acceso móvil a Salesforce** , se restaurará el acceso de una aplicación empresarial. En este escenario, el cliente normalmente requiere que el acceso de los empleados de ventas a Salesforce (configurada para inicio de sesión único con Azure AD) desde dispositivos móviles solo se permita desde dispositivos compatibles. La interrupción en este caso es que hay un problema con la evaluación del cumplimiento de dispositivos y la interrupción se produce en un momento delicado en el que el equipo de ventas necesita acceder a Salesforce para cerrar acuerdos. Estas directivas de contingencia conceden a los usuarios críticos acceso a Salesforce desde un dispositivo móvil para que sigan cerrando tratos y, de esta forma, que el negocio no se vea afectado. En este ejemplo, **SalesforceContingency** contiene todos los empleados de ventas que necesitan conservar el acceso y **SalesAdmins** contiene los administradores necesarios de Salesforce.
 
 **Ejemplo B. Directivas de CA de contingencia:**
 
@@ -285,7 +285,7 @@ Si su organización usa directivas heredadas de MFA por usuario, puede considera
 ## <a name="learn-more"></a>Más información
 
 * [Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS](./howto-mfaserver-iis.md)
-* [Administración de cuentas administrativas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Administración de cuentas administrativas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md)
 * [Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Planeamiento de la implementación de unión a Azure Active Directory híbrido](../devices/hybrid-azuread-join-plan.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964475"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366486"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planificación de una implementación de Azure Multi-Factor Authentication
 
@@ -37,8 +37,8 @@ Antes de iniciar una implementación de Azure Multi-Factor Authentication, exist
 
 | Escenario | Requisito previo |
 | --- | --- |
-| Entorno de identidades **solo en la nube** con autenticación moderna. | **Sin tareas de requisitos previos adicionales**. |
-| Escenarios de identidad **híbridos**. | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) está implementado y las identidades de usuario están sincronizadas o federadas con la instancia local de Active Directory Domain Services con Azure Active Directory. |
+| Entorno de identidades **solo en la nube** con autenticación moderna. | **Sin tareas de requisitos previos adicionales** . |
+| Escenarios de identidad **híbridos** . | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) está implementado y las identidades de usuario están sincronizadas o federadas con la instancia local de Active Directory Domain Services con Azure Active Directory. |
 | Aplicaciones heredadas locales que se publican para el acceso a la nube. | Azure AD [Application Proxy](../manage-apps/application-proxy.md) está implementado. |
 | Se usa Azure MFA con la autenticación RADIUS | Está implementado un [servidor de directivas de redes (NPS)](howto-mfa-nps-extension.md). |
 | Los usuarios tienen Microsoft Office 2010 o versiones anteriores, o bien Apple Mail para iOS 11 o versiones anteriores. | Actualización a [Microsoft Office 2013 o versiones posteriores](https://support.microsoft.com/help/4041439/modern-authentication-configuration-requirements-for-transition-from-o), o bien a Apple Mail para iOS 12 o versiones posteriores. Los protocolos de autenticación heredada no admiten el acceso condicional. |
@@ -92,17 +92,17 @@ Se recomienda que las organizaciones usen acceso condicional para definir su red
 ### <a name="configuring-a-named-location"></a>Configuración de una ubicación con nombre
 
 1. Vaya a **Azure Active Directory** en Azure Portal.
-2. seleccione **Seguridad**.
-3. En **Administrar**, elija **Ubicaciones con nombre**.
-4. Seleccione **Nueva ubicación**.
+2. seleccione **Seguridad** .
+3. En **Administrar** , elija **Ubicaciones con nombre** .
+4. Seleccione **Nueva ubicación** .
 5. En el campo **Nombre** escriba un nombre descriptivo.
-6. Seleccione si va a definir la ubicación mediante *Intervalos IP* o bien *Países o regiones*.
+6. Seleccione si va a definir la ubicación mediante *Intervalos IP* o bien *Países o regiones* .
    1. Si usa *Intervalos IP*
-      1. Decida si quiere utilizar la opción *Marcar como ubicación de confianza*. Iniciar sesión desde una ubicación de confianza reduce el riesgo de inicio de sesión del usuario. Solo marque esta ubicación como de confianza si sabe que los intervalos de direcciones IP especificados están establecidos y son confiables en su organización.
+      1. Decida si quiere utilizar la opción *Marcar como ubicación de confianza* . Iniciar sesión desde una ubicación de confianza reduce el riesgo de inicio de sesión del usuario. Solo marque esta ubicación como de confianza si sabe que los intervalos de direcciones IP especificados están establecidos y son confiables en su organización.
       2. Especifique los intervalos de direcciones IP
    2. Si usa *Países o regiones*
       1. Expanda el menú desplegable y seleccione los países o regiones que quiere definir para esta ubicación con nombre.
-      2. Decida si quiere utiliza la opción *Incluir áreas desconocidas*. Las áreas desconocidas son direcciones IP que no pueden asignarse a un país o región.
+      2. Decida si quiere utiliza la opción *Incluir áreas desconocidas* . Las áreas desconocidas son direcciones IP que no pueden asignarse a un país o región.
 7. Seleccione **Crear**
 
 ## <a name="plan-authentication-methods"></a>Planificación de métodos de autenticación
@@ -133,17 +133,17 @@ Se envía al usuario un mensaje de texto que contiene un código de verificació
 
 ### <a name="choose-verification-options"></a>Elección de opciones de comprobación
 
-1. Vaya a **Azure Active Directory**, **Usuarios**, **Multi-Factor Authentication**.
+1. Vaya a **Azure Active Directory** , **Usuarios** , **Multi-Factor Authentication** .
 
    ![Acceso al portal de Multi-factor Authentication desde la hoja de usuarios de Azure AD en Azure Portal](media/howto-mfa-getstarted/users-mfa.png)
 
-1. En la nueva pestaña que se abre, vaya a **valor de configuración del servicio**.
-1. En **opciones de comprobación**, active todas las casillas para los métodos disponibles para los usuarios.
+1. En la nueva pestaña que se abre, vaya a **valor de configuración del servicio** .
+1. En **opciones de comprobación** , active todas las casillas para los métodos disponibles para los usuarios.
 
    ![Configuración de métodos de verificación en la pestaña de configuración del servicio Multi-Factor Authentication](media/howto-mfa-getstarted/mfa-servicesettings-verificationoptions.png)
 
-1. Haga clic en **Guardar**.
-1. Cierre la pestaña **configuración del servicio**.
+1. Haga clic en **Guardar** .
+1. Cierre la pestaña **configuración del servicio** .
 
 ## <a name="plan-registration-policy"></a>Planificación de la directiva de registro
 
@@ -226,31 +226,31 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Para planear la estrategia de directiva de acceso condicional, que determinará cuándo se solicitan MFA y otros controles, consulte [Directivas de acceso condicional habituales](../conditional-access/concept-conditional-access-policy-common.md).
 
-Es importante que evite bloquearse accidentalmente del inquilino de Azure AD. Puede mitigar el efecto de esta falta involuntaria de acceso administrativo si [crea de dos o más cuentas de acceso de emergencia en su inquilino](../users-groups-roles/directory-emergency-access.md) y no las incluye en su directiva de acceso condicional.
+Es importante que evite bloquearse accidentalmente del inquilino de Azure AD. Puede mitigar el efecto de esta falta involuntaria de acceso administrativo si [crea de dos o más cuentas de acceso de emergencia en su inquilino](../roles/security-emergency-access.md) y no las incluye en su directiva de acceso condicional.
 
 ### <a name="create-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de administrador global.
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
-1. Seleccione **Nueva directiva**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional** .
+1. Seleccione **Nueva directiva** .
    ![Creación de una directiva de acceso condicional que habilite MFA para los usuarios de Azure Portal en el grupo piloto](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Escriba un nombre descriptivo para la directiva.
-1. En **usuarios y grupos**:
-   * En la pestaña **Incluir**, seleccione el botón de radio **Todos los usuarios**.
-   * En la pestaña **Excluir**, active la casilla para **Usuarios y grupos** y elija las cuentas de acceso de emergencia.
-   * Haga clic en **Done**(Listo).
-1. En **Aplicaciones en la nube**, seleccione el botón de selección **Todas las aplicaciones en la nube**.
-   * OPCIONAL: En la pestaña **Excluir**, elija aplicaciones en la nube para las que su organización no requiere MFA.
-   * Haga clic en **Done**(Listo).
-1. En la sección **Condiciones**:
+1. En **usuarios y grupos** :
+   * En la pestaña **Incluir** , seleccione el botón de radio **Todos los usuarios** .
+   * En la pestaña **Excluir** , active la casilla para **Usuarios y grupos** y elija las cuentas de acceso de emergencia.
+   * Haga clic en **Done** (Listo).
+1. En **Aplicaciones en la nube** , seleccione el botón de selección **Todas las aplicaciones en la nube** .
+   * OPCIONAL: En la pestaña **Excluir** , elija aplicaciones en la nube para las que su organización no requiere MFA.
+   * Haga clic en **Done** (Listo).
+1. En la sección **Condiciones** :
    * OPCIONAL: Si ha habilitado Azure Identity Protection, puede optar por integrar la evaluación de riesgos de inicio de sesión en la directiva.
    * OPCIONAL: Si ha configurado ubicaciones de confianza o ubicaciones con nombre, puede especificar que se incluyan o excluyan esas ubicaciones de la directiva.
-1. En **Conceder**, asegúrese de que el botón de selección **Conceder acceso** está seleccionado.
-    * Active la casilla **Requerir autenticación multifactor**.
-    * Haga clic en **Seleccionar**.
-1. Omita la sección **Sesión**.
-1. Establezca la opción **Habilitar directiva** en **Activada**.
-1. Haga clic en **Crear**.
+1. En **Conceder** , asegúrese de que el botón de selección **Conceder acceso** está seleccionado.
+    * Active la casilla **Requerir autenticación multifactor** .
+    * Haga clic en **Seleccionar** .
+1. Omita la sección **Sesión** .
+1. Establezca la opción **Habilitar directiva** en **Activada** .
+1. Haga clic en **Crear** .
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planificación de la integración con sistemas locales
 

@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361911"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368390"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Incorporación o eliminación de asignaciones de roles de Azure para usuarios externos invitados mediante Azure Portal
 
@@ -51,7 +51,7 @@ Siga estos pasos para agregar un usuario invitado a su directorio mediante la p�
 
 1. Asegúrese de que la configuración de colaboración externa de la organización se configure de forma que le permita invitar a otros usuarios. Para más información, consulte [Habilitación de la colaboración externa B2B y administración de quién puede invitar a otros usuarios](../active-directory/b2b/delegate-invitations.md).
 
-1. En Azure Portal, haga clic en **Azure Active Directory** > **Usuarios** > **Nuevo usuario invitado**.
+1. En Azure Portal, haga clic en **Azure Active Directory** > **Usuarios** > **Nuevo usuario invitado** .
 
     ![Característica Nuevo usuario invitado en Azure Portal](./media/role-assignments-external-users/invite-guest-user.png)
 
@@ -71,9 +71,9 @@ Para más información sobre el proceso de invitación, consulte [Canje de invit
 
 En RBAC, para conceder acceso es preciso asignar un rol. Para agregar una asignación de roles para un usuario invitado, siga los [mismos pasos](role-assignments-portal.md#add-a-role-assignment) que para un usuario miembro, un grupo, una entidad de servicio o una identidad administrada. Siga estos pasos para agregar una asignación de roles a un usuario invitado en distintos ámbitos.
 
-1. En Azure Portal, haga clic en **Todos los servicios**.
+1. En Azure Portal, haga clic en **Todos los servicios** .
 
-1.  Seleccione el conjunto de recursos al que se aplica el acceso, también conocido como el ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
+1.  Seleccione el conjunto de recursos al que se aplica el acceso, también conocido como el ámbito. Por ejemplo, puede seleccionar **Grupos de administración** , **Suscripciones** , **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
 
@@ -93,9 +93,9 @@ En RBAC, para conceder acceso es preciso asignar un rol. Para agregar una asigna
 
     Se abre el panel Agregar asignación de roles.
 
-1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
+1. En la lista desplegable **Rol** , seleccione un rol como **Colaborador de la máquina virtual** .
 
-1. En la lista **Seleccionar**, seleccione el usuario invitado. Si no ve al usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar, direcciones de correo electrónico o identificadores de objeto.
+1. En la lista **Seleccionar** , seleccione el usuario invitado. Si no ve al usuario en la lista, puede escribir en el cuadro **Seleccionar** para buscar en el directorio por nombres para mostrar, direcciones de correo electrónico o identificadores de objeto.
 
    ![Panel Agregar asignación de roles](./media/role-assignments-external-users/add-role-assignment.png)
 
@@ -109,9 +109,9 @@ Para agregar una asignación de roles para un usuario invitado, siga los [mismos
 
 Si el usuario invitado todavía no está en el directorio, puede invitar al usuario directamente desde el panel Agregar asignación de roles.
 
-1. En Azure Portal, haga clic en **Todos los servicios**.
+1. En Azure Portal, haga clic en **Todos los servicios** .
 
-1.  Seleccione el conjunto de recursos al que se aplica el acceso, también conocido como el ámbito. Por ejemplo, puede seleccionar **Grupos de administración**, **Suscripciones**, **Grupos de recursos** o un recurso.
+1.  Seleccione el conjunto de recursos al que se aplica el acceso, también conocido como el ámbito. Por ejemplo, puede seleccionar **Grupos de administración** , **Suscripciones** , **Grupos de recursos** o un recurso.
 
 1. Haga clic en el recurso específico.
 
@@ -125,9 +125,9 @@ Si el usuario invitado todavía no está en el directorio, puede invitar al usua
 
     Se abre el panel Agregar asignación de roles.
 
-1. En la lista desplegable **Rol**, seleccione un rol como **Colaborador de la máquina virtual**.
+1. En la lista desplegable **Rol** , seleccione un rol como **Colaborador de la máquina virtual** .
 
-1. En la lista **Seleccionar**, escriba la dirección de correo electrónico de la persona a la que desea invitar y seleccione esa persona.
+1. En la lista **Seleccionar** , escriba la dirección de correo electrónico de la persona a la que desea invitar y seleccione esa persona.
 
    ![Invitar a usuarios invitados en el panel Agregar asignación de roles](./media/role-assignments-external-users/add-role-assignment-new-guest.png)
 
@@ -159,21 +159,21 @@ Antes de eliminar un usuario invitado de un directorio, primero debe eliminar la
 
    ![Eliminar asignación de roles](./media/role-assignments-external-users/remove-role-assignment-select.png)
 
-1. Haga clic en **Quitar**.
+1. Haga clic en **Quitar** .
 
    ![Mensaje de eliminación de asignación de roles](./media/role-assignments-external-users/remove-role-assignment.png)
 
-1. En el mensaje de eliminación de asignación de roles que aparece, haga clic en **Sí**.
+1. En el mensaje de eliminación de asignación de roles que aparece, haga clic en **Sí** .
 
-1. En la barra de navegación izquierda, haga clic en **Azure Active Directory** > **Usuarios**.
+1. En la barra de navegación izquierda, haga clic en **Azure Active Directory** > **Usuarios** .
 
 1. Haga clic en el usuario invitado que desea eliminar.
 
-1. Haga clic en **Eliminar**.
+1. Haga clic en **Eliminar** .
 
    ![Eliminar usuario invitado](./media/role-assignments-external-users/delete-guest-user.png)
 
-1. En el mensaje de eliminación que aparece, haga clic en **Sí**.
+1. En el mensaje de eliminación que aparece, haga clic en **Sí** .
 
 ## <a name="troubleshoot"></a>Solución de problemas
 
@@ -183,7 +183,7 @@ Los usuarios invitados tienen permisos de directorio restringidos. Por ejemplo, 
 
 ![El usuario invitado no puede examinar los usuarios de un directorio](./media/role-assignments-external-users/directory-no-users.png)
 
-Si un usuario invitado necesita privilegios adicionales en el directorio, puede asignar un rol de directorio al usuario invitado. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Si un usuario invitado necesita privilegios adicionales en el directorio, puede asignar un rol de directorio al usuario invitado. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![Asignar el rol Lectores de directorio](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,17 +193,17 @@ Los usuarios invitados tienen permisos de directorio restringidos. Incluso si un
 
 ![El usuario invitado no puede examinar las entidades de seguridad para asignar roles](./media/role-assignments-external-users/directory-no-browse.png)
 
-Si el usuario invitado conoce el nombre de inicio de sesión exacto de alguien del directorio, puede conceder acceso. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Si el usuario invitado conoce el nombre de inicio de sesión exacto de alguien del directorio, puede conceder acceso. Si realmente desea que un usuario invitado tenga acceso de lectura completo al directorio, puede agregar el usuario invitado al rol [Lectores de directorio](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>El usuario invitado no puede registrar aplicaciones ni crear entidades de servicio
 
-Los usuarios invitados tienen permisos de directorio restringidos. Si un usuario invitado necesita poder registrar aplicaciones o crear entidades de servicio, puede agregar el usuario invitado al rol [Desarrollador de aplicaciones](../active-directory/users-groups-roles/directory-assign-admin-roles.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
+Los usuarios invitados tienen permisos de directorio restringidos. Si un usuario invitado necesita poder registrar aplicaciones o crear entidades de servicio, puede agregar el usuario invitado al rol [Desarrollador de aplicaciones](../active-directory/roles/permissions-reference.md) en Azure AD. Para más información, consulte [Concesión de permisos a los usuarios de organizaciones asociadas en el inquilino de Azure Active Directory](../active-directory/b2b/add-guest-to-role.md).
 
 ![El usuario invitado no puede registrar aplicaciones](./media/role-assignments-external-users/directory-access-denied.png)
 
 ### <a name="guest-user-does-not-see-the-new-directory"></a>El usuario invitado no ve el nuevo directorio
 
-Si a un usuario invitado se le ha concedido acceso a un directorio, pero no ve el nuevo directorio enumerado en Azure Portal cuando intenta cambiar en su panel **Directorio y suscripción**, asegúrese de que el usuario invitado ha completado el proceso de invitación. Para más información sobre el proceso de invitación, consulte [Canje de invitación de colaboración B2B de Azure Active Directory](../active-directory/b2b/redemption-experience.md).
+Si a un usuario invitado se le ha concedido acceso a un directorio, pero no ve el nuevo directorio enumerado en Azure Portal cuando intenta cambiar en su panel **Directorio y suscripción** , asegúrese de que el usuario invitado ha completado el proceso de invitación. Para más información sobre el proceso de invitación, consulte [Canje de invitación de colaboración B2B de Azure Active Directory](../active-directory/b2b/redemption-experience.md).
 
 ### <a name="guest-user-does-not-see-resources"></a>El usuario invitado no ve los recursos
 

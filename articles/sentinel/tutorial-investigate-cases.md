@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 648d456534e86075a243a84ac0485d95a7f28479
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1873e21db1c586453dc9e9fe890268d8797303a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843114"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367013"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigación de incidentes con Azure Sentinel
 
@@ -37,16 +37,16 @@ En este artículo se describe:
 > * Uso del gráfico de investigación
 > * Respuesta a amenazas
 
-Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Análisis**. Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
+Un incidente puede incluir varias alertas, a modo de agregado de todas las pruebas relevantes en una investigación en concreto. Los incidentes se crearán en función de las reglas de análisis que haya creado en la página **Análisis** . Las propiedades relacionadas con alertas, como la gravedad y el estado, se establecen en el nivel de incidente. Después de indicar a Azure Sentinel qué tipos de amenazas está buscando y cómo detectarlas, puede supervisar las amenazas que se detecten investigando cada incidente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 - Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
 
-- Si tiene un usuario invitado que necesita asignar incidentes, al usuario se le debe asignar el rol [Lector de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) en el inquilino de Azure AD. Los usuarios normales (no invitados) tienen asignado este rol de forma predeterminada.
+- Si tiene un usuario invitado que necesita asignar incidentes, al usuario se le debe asignar el rol [Lector de directorio](../active-directory/roles/permissions-reference.md#directory-readers) en el inquilino de Azure AD. Los usuarios normales (no invitados) tienen asignado este rol de forma predeterminada.
 
 ## <a name="how-to-investigate-incidents"></a>Investigación de incidentes
 
-1. Seleccione **Incidentes**. La página **Incidentes** le permite saber cuántos incidentes tiene, cuántos están abiertos, cuántos están establecidos en **En curso** y cuántos se han cerrado. De cada incidente puede ver la hora a la que tuvo lugar y su estado. Valore la gravedad para decidir qué incidentes abordar primero.
+1. Seleccione **Incidentes** . La página **Incidentes** le permite saber cuántos incidentes tiene, cuántos están abiertos, cuántos están establecidos en **En curso** y cuántos se han cerrado. De cada incidente puede ver la hora a la que tuvo lugar y su estado. Valore la gravedad para decidir qué incidentes abordar primero.
 
     ![Ver gravedad del incidente](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -54,7 +54,7 @@ Un incidente puede incluir varias alertas, a modo de agregado de todas las prueb
 
 1. Para iniciar una investigación, seleccione un incidente específico. A la derecha, puede ver información detallada del incidente, como la gravedad o un resumen del número de entidades implicadas, los eventos sin procesar que desencadenaron este incidente y el identificador único del mismo.
 
-1. Para ver más detalles sobre las alertas y las entidades del incidente, seleccione **View full details** (Ver detalles completos) en la página del incidente y revise las pestañas correspondientes donde se resume la información del incidente. En la pestaña **Alertas**, revise la alerta en sí. Puede ver toda la información relevante sobre la alerta: la consulta que la ha desencadenado, el número de resultados devueltos por consulta y la capacidad de ejecutar cuadernos de estrategias en las alertas. Para explorar el incidente más en profundidad, seleccione el número de **eventos**. Esto abre la consulta que ha generado los resultados y los eventos que han desencadenado la alerta en Log Analytics. En la pestaña **Entities** (Entidades), puede ver todas las entidades que ha asignado como parte de la definición de regla de alerta.
+1. Para ver más detalles sobre las alertas y las entidades del incidente, seleccione **View full details** (Ver detalles completos) en la página del incidente y revise las pestañas correspondientes donde se resume la información del incidente. En la pestaña **Alertas** , revise la alerta en sí. Puede ver toda la información relevante sobre la alerta: la consulta que la ha desencadenado, el número de resultados devueltos por consulta y la capacidad de ejecutar cuadernos de estrategias en las alertas. Para explorar el incidente más en profundidad, seleccione el número de **eventos** . Esto abre la consulta que ha generado los resultados y los eventos que han desencadenado la alerta en Log Analytics. En la pestaña **Entities** (Entidades), puede ver todas las entidades que ha asignado como parte de la definición de regla de alerta.
 
     ![Ver detalles de la alerta](media/tutorial-investigate-cases/alert-details.png)
 
@@ -72,26 +72,26 @@ El gráfico de investigación permite a los analistas formular las preguntas ade
   
 El gráfico de investigación le proporciona:
 
-- **Contexto visual de datos sin procesar**: El gráfico visual y dinámico, muestra las relaciones de entidad extraídas automáticamente de los datos sin procesar. Esto le permite ver fácilmente las conexiones entre distintos orígenes de datos.
+- **Contexto visual de datos sin procesar** : El gráfico visual y dinámico, muestra las relaciones de entidad extraídas automáticamente de los datos sin procesar. Esto le permite ver fácilmente las conexiones entre distintos orígenes de datos.
 
-- **Detección del ámbito completo de la investigación**: Amplíe el ámbito de la investigación mediante consultas de exploración integradas para exponer el ámbito completo de una infracción de seguridad.
+- **Detección del ámbito completo de la investigación** : Amplíe el ámbito de la investigación mediante consultas de exploración integradas para exponer el ámbito completo de una infracción de seguridad.
 
-- **Pasos de investigación integrados**: Use opciones de exploración predefinidas para asegurarse de que está formulando las preguntas adecuadas en caso de una amenaza.
+- **Pasos de investigación integrados** : Use opciones de exploración predefinidas para asegurarse de que está formulando las preguntas adecuadas en caso de una amenaza.
 
 Para usar el gráfico de investigación:
 
-1. Seleccione un incidente y, a continuación, seleccione **Investigar**. Esto le llevará al gráfico de investigación. El gráfico proporciona un mapa ilustrativo de las entidades conectadas directamente a la alerta y de cada recurso conectado más allá.
+1. Seleccione un incidente y, a continuación, seleccione **Investigar** . Esto le llevará al gráfico de investigación. El gráfico proporciona un mapa ilustrativo de las entidades conectadas directamente a la alerta y de cada recurso conectado más allá.
 
    > [!IMPORTANT] 
    > Solo podrá investigar el incidente si ha usado los campos de asignación de entidades al configurar la regla de análisis. El gráfico de investigación requiere que el incidente original incluya entidades.
 
    ![Visualización de mapas](media/tutorial-investigate-cases/map1.png)
 
-1. Seleccione una entidad para abrir el panel**Entidades** para que pueda revisar la información de esa entidad.
+1. Seleccione una entidad para abrir el panel **Entidades** para que pueda revisar la información de esa entidad.
 
     ![Ver entidades en el mapa](media/tutorial-investigate-cases/map-entities.png)
   
-1. Amplíe su investigación manteniendo el puntero sobre cada entidad para mostrar una lista de preguntas diseñadas por nuestros expertos y analistas en seguridad clasificadas por tipo de entidad para profundizar en la investigación. Llamamos a estas opciones **consultas de exploración**.
+1. Amplíe su investigación manteniendo el puntero sobre cada entidad para mostrar una lista de preguntas diseñadas por nuestros expertos y analistas en seguridad clasificadas por tipo de entidad para profundizar en la investigación. Llamamos a estas opciones **consultas de exploración** .
 
     ![Ver más detalles](media/tutorial-investigate-cases/exploration-cases.png)
 
@@ -111,7 +111,7 @@ Para usar el gráfico de investigación:
 
 ## <a name="closing-an-incident"></a>Cierre de un incidente
 
-Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la investigación haya alcanzado su conclusión), debe establecer el estado del incidente en **Cerrado**. Al hacerlo, a los efectos de clasificar el incidente, se le pedirá que indique el motivo por el que lo cierra. Este paso es obligatorio. Haga clic en **Seleccionar clasificación** y elija una de las siguientes opciones de la lista desplegable:
+Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la investigación haya alcanzado su conclusión), debe establecer el estado del incidente en **Cerrado** . Al hacerlo, a los efectos de clasificar el incidente, se le pedirá que indique el motivo por el que lo cierra. Este paso es obligatorio. Haga clic en **Seleccionar clasificación** y elija una de las siguientes opciones de la lista desplegable:
 
 - Verdadero positivo: actividad sospechosa
 - Positivo inofensivo: sospechoso, pero esperado
@@ -121,7 +121,7 @@ Una vez que haya resuelto un incidente en particular (por ejemplo, cuando la inv
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Captura de pantalla que destaca las clasificaciones disponibles en la lista Seleccionar clasificación.":::
 
-Después de elegir la clasificación adecuada, agregue texto descriptivo en el campo **Comentario**. Esto será útil en el caso de que tenga que volver a consultar este incidente. Haga clic en **Aplicar** cuando haya terminado, y el incidente se cerrará.
+Después de elegir la clasificación adecuada, agregue texto descriptivo en el campo **Comentario** . Esto será útil en el caso de que tenga que volver a consultar este incidente. Haga clic en **Aplicar** cuando haya terminado, y el incidente se cerrará.
 
 :::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="Captura de pantalla que destaca las clasificaciones disponibles en la lista Seleccionar clasificación.":::
 

@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658803"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366860"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replicación de máquinas locales mediante puntos de conexión privados
 
@@ -26,7 +26,7 @@ En este artículo se describe cómo completar los pasos siguientes:
 - Crear y aprobar puntos de conexión privados para un almacén que esté en una red virtual.
 - Crear puntos de conexión privados para las cuentas de almacenamiento. Puede seguir permitiendo el acceso público o con firewall para el almacenamiento según sea necesario. Azure Site Recovery no necesita que se cree ningún punto de conexión privado para acceder al almacenamiento.
   
-En el diagrama siguiente se muestra el flujo de trabajo de la replicación en una recuperación ante desastres híbrida con puntos de conexión privados. No se pueden crear puntos de conexión privados en una red local. Para usar vínculos privados es preciso crear una red virtual de Azure (que en este artículo se denomina *red de derivación*), establecer la conectividad privada entre el entorno local y la red de derivación y, seguidamente, crear puntos de conexión privados en la red de derivación. Puede elegir cualquier forma de conectividad privada.
+En el diagrama siguiente se muestra el flujo de trabajo de la replicación en una recuperación ante desastres híbrida con puntos de conexión privados. No se pueden crear puntos de conexión privados en una red local. Para usar vínculos privados es preciso crear una red virtual de Azure (que en este artículo se denomina *red de derivación* ), establecer la conectividad privada entre el entorno local y la red de derivación y, seguidamente, crear puntos de conexión privados en la red de derivación. Puede elegir cualquier forma de conectividad privada.
 
 :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/architecture.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
@@ -55,11 +55,11 @@ Los almacenes de Recovery Services contienen la información de replicación de 
 
 Las [identidades administradas](../active-directory/managed-identities-azure-resources/overview.md) permiten a los almacenes acceder a las cuentas de almacenamiento. En función de los requisitos, es posible que Site Recovery tenga que acceder a las cuentas de almacenamiento de destino y de almacenamiento en caché/registro. El acceso a la identidad administrada es necesario cuando se usa el servicio Private Link para el almacén.
 
-1. Vaya al almacén de Recovery Services. Seleccione **Identidad** en **Configuración**:
+1. Vaya al almacén de Recovery Services. Seleccione **Identidad** en **Configuración** :
 
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-1. Cambie el **Estado** a **Activado** y seleccione **Guardar**.
+1. Cambie el **Estado** a **Activado** y seleccione **Guardar** .
 
    Se genera un identificador de objeto. El almacén ya está registrado en Azure Active Directory.
 
@@ -71,24 +71,24 @@ Para proteger las máquinas de la red de origen local, necesitará un punto de c
 
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-links.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-1. En el panel izquierdo, seleccione **Puntos de conexión privados**. En la página **Puntos de conexión privados**, seleccione **Agregar** para empezar a crear un punto de conexión privado para el almacén:
+1. En el panel izquierdo, seleccione **Puntos de conexión privados** . En la página **Puntos de conexión privados** , seleccione **Agregar** para empezar a crear un punto de conexión privado para el almacén:
 
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-1. En la página **Crear un punto de conexión privado**, especifique los detalles necesarios para crear una conexión con un punto de conexión privado.
+1. En la página **Crear un punto de conexión privado** , especifique los detalles necesarios para crear una conexión con un punto de conexión privado.
 
-   1. **Conceptos básicos**. Proporcionan los detalles básicos de los puntos de conexión privados. Use la región que utilizó para la red de derivación:
+   1. **Conceptos básicos** . Proporcionan los detalles básicos de los puntos de conexión privados. Use la región que utilizó para la red de derivación:
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-basic-tab.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-   1. **Recurso**. En esta pestaña debe especificar el recurso de plataforma como servicio para el que desea crear la conexión. En **Tipo de recurso** para la suscripción que ha seleccionado, seleccione **Microsoft.RecoveryServices/vaults**. Elija el nombre del almacén de Recovery Services en **Recurso**. Seleccione **Azure Site Recovery** en **Subrecurso de destino**.
+   1. **Recurso** . En esta pestaña debe especificar el recurso de plataforma como servicio para el que desea crear la conexión. En **Tipo de recurso** para la suscripción que ha seleccionado, seleccione **Microsoft.RecoveryServices/vaults** . Elija el nombre del almacén de Recovery Services en **Recurso** . Seleccione **Azure Site Recovery** en **Subrecurso de destino** .
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-resource-tab.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-   1. **Configuración**. En esta pestaña, especifique la red de derivación y la subred en que desea que se cree el punto de conexión privado. 
+   1. **Configuración** . En esta pestaña, especifique la red de derivación y la subred en que desea que se cree el punto de conexión privado. 
 
-      Habilite la integración en una zona DNS privada, seleccione **Sí**.
-      Elija una zona DNS existente o cree una. Si selecciona **Sí**, la zona se vincula automáticamente a la red de derivación. Esta acción también agrega los registros DNS necesarios para la resolución DNS de nuevas direcciones IP y nombres de dominio completos creados para el punto de conexión privado.
+      Habilite la integración en una zona DNS privada, seleccione **Sí** .
+      Elija una zona DNS existente o cree una. Si selecciona **Sí** , la zona se vincula automáticamente a la red de derivación. Esta acción también agrega los registros DNS necesarios para la resolución DNS de nuevas direcciones IP y nombres de dominio completos creados para el punto de conexión privado.
 
       Asegúrese de elegir crear una nueva zona DNS para cada nuevo punto de conexión privado que se conecta al mismo almacén. Si elige una zona DNS privada existente, se sobrescriben los registros CNAME anteriores. Consulte la [guía de los puntos de conexión privados](../private-link/private-endpoint-overview.md#private-endpoint-properties) antes de continuar.
 
@@ -98,9 +98,9 @@ Para proteger las máquinas de la red de origen local, necesitará un punto de c
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-endpoints-configuration-tab.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-   1. **Etiquetas**. Opcionalmente, puede agregar etiquetas para el punto de conexión privado.
+   1. **Etiquetas** . Opcionalmente, puede agregar etiquetas para el punto de conexión privado.
 
-   1. **Revisar \+ y crear**. Al finalizar la validación, seleccione **Crear** para crear el punto de conexión privado.
+   1. **Revisar \+ y crear** . Al finalizar la validación, seleccione **Crear** para crear el punto de conexión privado.
 
 Una vez creado el punto de conexión privado, se agregan cinco nombres de dominio completos (FQDN) al punto de conexión privado. Estos vínculos permiten a las máquinas de la red local acceder a todos los microservicios de Site Recovery necesarios en el contexto del almacén a través de la red de derivación. Se puede usar el mismo punto de conexión privado para la protección de cualquier máquina de Azure tanto en la red de derivación como en todas las redes emparejadas.
 
@@ -123,7 +123,7 @@ Puede usar un punto de conexión privado a Azure Storage. La creación de puntos
 > [!NOTE]
 > Los puntos de conexión privados para el almacenamiento solo se pueden crear en cuentas de almacenamiento del tipo De uso general v2. Para más información sobre los precios, consulte [Precios de blobs en páginas de Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
-Para crear una cuenta de almacenamiento con un punto de conexión privado, siga la [guía para crear almacenamiento privado](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint). Asegúrese de seleccionar **Sí** en **Integrar con la zona DNS privada**. Seleccione una zona DNS existente o cree una.
+Para crear una cuenta de almacenamiento con un punto de conexión privado, siga la [guía para crear almacenamiento privado](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint). Asegúrese de seleccionar **Sí** en **Integrar con la zona DNS privada** . Seleccione una zona DNS existente o cree una.
 
 ### <a name="grant-required-permissions-to-the-vault"></a>Concesión de los permisos necesarios para el almacén
 
@@ -145,15 +145,15 @@ En estos pasos se indica cómo agregar una asignación de roles a una cuenta de 
 
 1. Vaya a la cuenta de almacenamiento. Seleccione **Control de acceso (IAM)** en el panel izquierdo.
 
-1. En la sección **Agregar una asignación de roles**, seleccione **Agregar**:
+1. En la sección **Agregar una asignación de roles** , seleccione **Agregar** :
 
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-1. En la página **Agregar una asignación de roles**, en la lista **Rol**, seleccione un rol en la lista que se encuentra al principio de esta sección. Escriba el nombre del almacén y seleccione **Guardar**.
+1. En la página **Agregar una asignación de roles** , en la lista **Rol** , seleccione un rol en la lista que se encuentra al principio de esta sección. Escriba el nombre del almacén y seleccione **Guardar** .
 
    :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/storage-role-assignment-select-role.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-Después de agregar estos permisos, debe permitir el acceso a los servicios de confianza de Microsoft. Vaya a **Firewalls y redes virtuales** y seleccione **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en **Excepciones**.
+Después de agregar estos permisos, debe permitir el acceso a los servicios de confianza de Microsoft. Vaya a **Firewalls y redes virtuales** y seleccione **Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento** en **Excepciones** .
 
 ### <a name="protect-your-virtual-machines"></a>Protección de las máquinas virtuales
 
@@ -176,9 +176,9 @@ Cree una zona DNS privada para que el proveedor de Site Recovery (en el caso de 
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
-   1. En la página **Zonas DNS privadas**, seleccione el botón **Agregar** para empezar a crear una zona.
+   1. En la página **Zonas DNS privadas** , seleccione el botón **Agregar** para empezar a crear una zona.
 
-   1. En la página **Crear una zona DNS privada**, escriba los detalles necesarios. Escriba **privatelink.siterecovery.windowsazure.com** como nombre de la zona DNS privada. Puede elegir cualquier grupo de recursos y cualquier suscripción.
+   1. En la página **Crear una zona DNS privada** , escriba los detalles necesarios. Escriba **privatelink.siterecovery.windowsazure.com** como nombre de la zona DNS privada. Puede elegir cualquier grupo de recursos y cualquier suscripción.
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/create-private-dns-zone.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
@@ -188,9 +188,9 @@ Cree una zona DNS privada para que el proveedor de Site Recovery (en el caso de 
 
    Ahora necesita vincular la zona DNS privada que ha creado a la red de derivación.
 
-   1. Vaya a la zona DNS privada que creó en el paso anterior y, después, a **Vínculos de la red virtual** en el panel de la izquierda. Seleccione **Agregar**.
+   1. Vaya a la zona DNS privada que creó en el paso anterior y, después, a **Vínculos de la red virtual** en el panel de la izquierda. Seleccione **Agregar** .
 
-   1. Escriba los detalles necesarios. En las listas **Suscripción** y **Red virtual**, seleccione los detalles correspondientes a la red de derivación. Deje los valores predeterminados en los demás campos.
+   1. Escriba los detalles necesarios. En las listas **Suscripción** y **Red virtual** , seleccione los detalles correspondientes a la red de derivación. Deje los valores predeterminados en los demás campos.
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-virtual-network-link.png" alt-text="Diagrama que muestra la arquitectura de Azure Site Recovery y los puntos de conexión privados.":::
 
@@ -205,7 +205,7 @@ Cree una zona DNS privada para que el proveedor de Site Recovery (en el caso de 
 
    1. Vaya a su zona DNS privada y, después, a la sección **Información general** del panel de la izquierda. Seleccione **Conjunto de registros** para empezar a agregar registros.
 
-   1. En la página **Agregar conjunto de registros**, agregue una entrada para cada nombre de dominio completo y una dirección IP privada como un registro de tipo **A**. En la página **Punto de conexión privado** en **Información general**, puede obtener una lista de los nombres de dominio completos y de las direcciones IP. Como se puede ver en la siguiente captura de pantalla, el primer nombre de dominio completo del punto de conexión privado se agrega al conjunto de registros de la zona DNS privada.
+   1. En la página **Agregar conjunto de registros** , agregue una entrada para cada nombre de dominio completo y una dirección IP privada como un registro de tipo **A** . En la página **Punto de conexión privado** en **Información general** , puede obtener una lista de los nombres de dominio completos y de las direcciones IP. Como se puede ver en la siguiente captura de pantalla, el primer nombre de dominio completo del punto de conexión privado se agrega al conjunto de registros de la zona DNS privada.
 
       Estos nombres de dominio completos coinciden con este patrón: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 

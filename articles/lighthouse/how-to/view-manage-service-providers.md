@@ -3,12 +3,12 @@ title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974403"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371110"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
@@ -20,7 +20,7 @@ Los clientes pueden usar la página de **Proveedores de servicios** de [Azure Po
 Para acceder a la página **Proveedores de servicios** de Azure Portal, el cliente puede seleccionar **Todos los servicios** y, a continuación, buscar **Proveedores de servicios** y seleccionar esta opción. También pueden encontrarla si escribe "Proveedores de servicios" o "Azure Lighthouse" en el cuadro de búsqueda situado cerca de la parte superior de Azure Portal.
 
 > [!NOTE]
-> Para ver la página **Proveedores de servicios**, un usuario del inquilino del cliente debe tener el [rol integrado Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro que incluya el acceso de lectura).
+> Para ver la página **Proveedores de servicios** , un usuario del inquilino del cliente debe tener el [rol integrado Lector](../../role-based-access-control/built-in-roles.md#reader) (u otro que incluya el acceso de lectura).
 >
 > Para agregar o actualizar ofertas, delegar recursos y quitar ofertas, el usuario debe tener el [rol integrado Propietario](../../role-based-access-control/built-in-roles.md#owner) para la suscripción.
 
@@ -31,29 +31,29 @@ Tenga en cuenta que la página de **Proveedores de servicios** solo muestra info
 
 ## <a name="view-service-provider-details"></a>Ver detalles del proveedor de servicios
 
-Para ver detalles sobre los proveedores de servicios, el cliente puede seleccionar **Ofertas del proveedor de servicios** en el lado izquierdo de la página **Proveedores de servicios**.
+Para ver detalles sobre los proveedores de servicios, el cliente puede seleccionar **Ofertas del proveedor de servicios** en el lado izquierdo de la página **Proveedores de servicios** .
 
 Para cada oferta de proveedor de servicios, el cliente verá el nombre del proveedor de servicios y la oferta asociada a él, junto con el nombre que el cliente especificó durante el proceso de incorporación.
 
-En la columna **Delegaciones**, el cliente ve el número de suscripciones o grupos de recursos que se han delegado en el proveedor de servicios de esa oferta. El proveedor de servicios podrá tener acceso a estas suscripciones o grupos de recursos y administrarlos de acuerdo con los niveles de acceso especificados en la oferta.
+En la columna **Delegaciones** , el cliente ve el número de suscripciones o grupos de recursos que se han delegado en el proveedor de servicios de esa oferta. El proveedor de servicios podrá tener acceso a estas suscripciones o grupos de recursos y administrarlos de acuerdo con los niveles de acceso especificados en la oferta.
 
 ## <a name="add-or-remove-service-provider-offers"></a>Agregar o quitar ofertas del proveedor de servicios
 
-Un cliente puede agregar una nueva oferta del proveedor de servicios desde la página **Ofertas del proveedor de servicios**. Para ello, debe seleccionar **Agregar oferta**. El proveedor de servicios debe haber publicado una oferta para este cliente. Después, el cliente puede seleccionar esa oferta en la pantalla **Ofertas privadas** y, a continuación, seleccionar **Crear**.
+Un cliente puede agregar una nueva oferta del proveedor de servicios desde la página **Ofertas del proveedor de servicios** . Para ello, debe seleccionar **Agregar oferta** . El proveedor de servicios debe haber publicado una oferta para este cliente. Después, el cliente puede seleccionar esa oferta en la pantalla **Ofertas privadas** y, a continuación, seleccionar **Crear** .
 
 Si el cliente quiere quitar una oferta del proveedor de servicios, puede seleccionar el icono de la papelera en la fila de esa oferta. Después de confirmar la eliminación, ese proveedor de servicios ya no tendrá acceso a los recursos del cliente que anteriormente se delegaron para esa oferta.
 
 ## <a name="delegate-resources"></a>Recursos delegados
 
-Para que un proveedor de servicios pueda acceder a los recursos de un cliente y administrarlos, se deben delegar. Si un cliente ha aceptado una oferta, pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas del proveedor de servicios**. Esto permite al cliente saber que deben tomar medidas para que el proveedor de servicios pueda acceder a los recursos del cliente.
+Para que un proveedor de servicios pueda acceder a los recursos de un cliente y administrarlos, se deben delegar. Si un cliente ha aceptado una oferta, pero aún no ha delegado los recursos, verá una nota en la parte superior de la sección **Ofertas del proveedor de servicios** . Esto permite al cliente saber que deben tomar medidas para que el proveedor de servicios pueda acceder a los recursos del cliente.
 
 Para delegar suscripciones o grupos de recursos:
 
 1. Active la casilla de la fila que contiene el proveedor de servicios, la oferta y el nombre. A continuación, seleccione **Delegar recursos** en la parte superior de la pantalla.
-1. En la sección **Detalles de la oferta** de la página **Delegar recursos**, revise los detalles sobre el proveedor de servicios y la oferta. Para revisar las asignaciones de roles de la oferta, seleccione **Hacer clic aquí para ver los detalles de la oferta seleccionada**.
-1. En la sección **Delegar**, seleccione **Delegar suscripciones** o **Delegar grupos de recursos**.
-1. Elija las suscripciones o los grupos de recursos que quiera delegar para esta oferta y, después, seleccione **Agregar**.
-1. Active la casilla situada en la parte inferior de la página para confirmar que quiere conceder a este proveedor de servicios acceso a los recursos que ha seleccionado y, después, seleccione **Delegar**.
+1. En la sección **Detalles de la oferta** de la página **Delegar recursos** , revise los detalles sobre el proveedor de servicios y la oferta. Para revisar las asignaciones de roles de la oferta, seleccione **Hacer clic aquí para ver los detalles de la oferta seleccionada** .
+1. En la sección **Delegar** , seleccione **Delegar suscripciones** o **Delegar grupos de recursos** .
+1. Elija las suscripciones o los grupos de recursos que quiera delegar para esta oferta y, después, seleccione **Agregar** .
+1. Active la casilla situada en la parte inferior de la página para confirmar que quiere conceder a este proveedor de servicios acceso a los recursos que ha seleccionado y, después, seleccione **Delegar** .
 
 ## <a name="update-service-provider-offers"></a>Actualización de las ofertas de proveedores de servicios
 
@@ -65,7 +65,7 @@ Después de revisar los cambios, el cliente puede optar por actualizar a la nuev
 
 ## <a name="view-delegations"></a>Ver delegaciones
 
-Las delegaciones representan las asignaciones de roles que conceden permisos al proveedor del servicio para los recursos que un cliente ha delegado. Para ver esta información, seleccione **Delegaciones** en el lado izquierdo de la página **Proveedores de servicios**.
+Las delegaciones representan las asignaciones de roles que conceden permisos al proveedor del servicio para los recursos que un cliente ha delegado. Para ver esta información, seleccione **Delegaciones** en el lado izquierdo de la página **Proveedores de servicios** .
 
 Los filtros de la parte superior de la página permiten ordenar y agrupar la información de delegación. También puede filtrar por clientes, ofertas o palabras clave específicos.
 
@@ -78,7 +78,7 @@ Es posible que los clientes quieran obtener visibilidad sobre las suscripciones 
 
 Se proporciona una [definición de directiva integrada de Azure Policy](../../governance/policy/samples/built-in-policies.md#lighthouse) para [auditar la delegación de ámbitos en un inquilino de administración](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Esta directiva se puede asignar a un grupo de administración que incluya todas las suscripciones que quiera auditar. Al comprobar el cumplimiento de esta directiva, las suscripciones o los grupos de recursos delegados (dentro del grupo de administración al que se asigna la directiva) se mostrarán en un estado no conforme. Luego, puede revisar los resultados y confirmar que no hay ninguna delegación inesperada.
 
-Otra [definición de directiva integrada](../../governance/policy/samples/built-in-policies.md#lighthouse) le permite [restringir las delegaciones a inquilinos de administración específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json). Esta directiva se puede aplicar de forma similar a un grupo de administración que incluya las suscripciones para las que desea limitar las delegaciones. Una vez implementada la directiva, se denegarán todos los intentos de delegar una suscripción a un inquilino fuera de los que especifique.
+Otra [definición de directiva integrada](../../governance/policy/samples/built-in-policies.md#lighthouse) le permite [restringir las delegaciones a inquilinos de administración específicos](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json). Esta directiva se puede aplicar de forma similar a un grupo de administración que incluya las suscripciones para las que desea limitar las delegaciones. Una vez implementada la directiva, se denegarán todos los intentos de delegar una suscripción a un inquilino fuera de los que especifique.
 
 Para más información sobre cómo asignar una directiva y ver los resultados del estado de cumplimiento, consulte [Inicio rápido: Creación de una asignación de directiva](../../governance/policy/assign-policy-portal.md).
 

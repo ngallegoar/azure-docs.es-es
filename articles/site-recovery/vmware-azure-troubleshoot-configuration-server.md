@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113078"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371960"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Solución de problemas del servidor de configuración
 
@@ -22,34 +22,34 @@ En este artículo se le ayudará a solucionar problemas al implementar y adminis
 
 La máquina de origen se registra con el servidor de configuración al instalar el agente de movilidad. Puede depurar los errores durante este paso siguiendo estas directrices:
 
-1. Abra el archivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas.
+1. Abra el archivo C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver** , en la sección **Mostrar/ocultar** , active la casilla **Elementos ocultos** ). Los errores podrían deberse a varios problemas.
 
-2. Busque la cadena **No se encuentra ninguna dirección IP válida**. Si se encuentra la cadena:
+2. Busque la cadena **No se encuentra ninguna dirección IP válida** . Si se encuentra la cadena:
    1. Compruebe que el identificador de host solicitado es el mismo que el identificador de host de la máquina de origen.
    2. Compruebe que la máquina de origen tiene al menos una dirección IP asignada a la NIC física. Para que el registro del agente con el servidor de configuración se realice correctamente, la máquina de origen debe tener al menos una dirección IPv4 asignada a la NIC física.
    3. Ejecute uno de los siguientes comandos en la máquina de origen para obtener todas las direcciones IP de la máquina de origen:
       - En Windows: `> ipconfig /all`
       - En Linux: `# ifconfig -a`
 
-3. Si no se encuentra la cadena **No se encuentra ninguna dirección IP válida** , busque la cadena **Motivo => NULL**. Se produce este error si la máquina de origen utiliza un host vacío para registrarse con el servidor de configuración. Si se encuentra la cadena:
+3. Si no se encuentra la cadena **No se encuentra ninguna dirección IP válida** , busque la cadena **Motivo => NULL** . Se produce este error si la máquina de origen utiliza un host vacío para registrarse con el servidor de configuración. Si se encuentra la cadena:
     - Tras resolver los problemas, siga las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) para volver a intentar el registro manualmente.
 
-4. Si no se encuentra la cadena **Motivo => NULL**, en la máquina de origen, abra el archivo C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver**, en la sección **Mostrar/ocultar**, active la casilla **Elementos ocultos**). Los errores podrían deberse a varios problemas. 
+4. Si no se encuentra la cadena **Motivo => NULL** , en la máquina de origen, abra el archivo C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log (la carpeta ProgramData podría ser una carpeta oculta. Si no ve la carpeta ProgramData, en el Explorador de archivos, en la pestaña **Ver** , en la sección **Mostrar/ocultar** , active la casilla **Elementos ocultos** ). Los errores podrían deberse a varios problemas. 
 
-5. Busque la cadena **post request: (7) - Couldn't connect to server**. Si se encuentra la cadena:
+5. Busque la cadena **post request: (7) - Couldn't connect to server** . Si se encuentra la cadena:
     1. Resuelva los problemas de red entre el servidor de configuración y la máquina de origen. Compruebe que el servidor de configuración es accesible desde la máquina de origen con herramientas de red como ping, traceroute o un explorador web. Asegúrese de que la máquina de origen pueda acceder al servidor de configuración a través del puerto 443.
     2. Compruebe si alguna regla de firewall de la máquina de origen bloquea la conexión entre el servidor de configuración y la máquina de origen. Trabaje con el administrador de red para desbloquear los problemas de conexión.
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.
     4. Cuando se resuelvan los problemas de red, vuelva a intentar el registro siguiendo las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-6. Si no se encuentra la cadena **post request: (7) - Couldn't connect to server**, en el mismo archivo de registro, busque la cadena **request: (60) - Peer certificate cannot be authenticated with given CA certificates**. Este error podría producirse porque el certificado de servidor de configuración ha expirado o la máquina de origen no admite TLS 1.0 o protocolos posteriores. También puede producirse si un firewall bloquea la comunicación TLS entre la máquina de origen y el servidor de configuración. Si se encuentra la cadena: 
+6. Si no se encuentra la cadena **post request: (7) - Couldn't connect to server** , en el mismo archivo de registro, busque la cadena **request: (60) - Peer certificate cannot be authenticated with given CA certificates** . Este error podría producirse porque el certificado de servidor de configuración ha expirado o la máquina de origen no admite TLS 1.0 o protocolos posteriores. También puede producirse si un firewall bloquea la comunicación TLS entre la máquina de origen y el servidor de configuración. Si se encuentra la cadena: 
     1. Para resolverlo, conéctese a la dirección IP del servidor de configuración mediante un explorador web en la máquina de origen. Use la URI https:\/\/<dirección IP del servidor de configuración\>:443/. Asegúrese de que la máquina de origen pueda acceder al servidor de configuración a través del puerto 443.
     2. Compruebe si es necesario agregar o quitar alguna regla de firewall de la máquina de origen para que la máquina de origen se comunique con el servidor de configuración. Dada la variedad de software de firewall que podría estar en uso, no podemos incluir todas las configuraciones de firewall necesarias. Trabaje con el administrador de red para desbloquear los problemas de conexión.
     3. Asegúrese de que las carpetas incluidas en [Exclusiones de carpetas de Site Recovery de programas antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) se excluyan del software antivirus.  
     4. Tras resolver los problemas, vuelva a intentar el registro siguiendo las directrices en [Registrar la máquina de origen con el servidor de configuración](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**. La plataforma debe establecerse en **VmWare** o **Azure**. Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error en la desinstalación, complete los siguientes pasos: a. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices**.
-    b. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services**.
+7. En Linux, si el valor de la plataforma de <INSTALLATION_DIR\>/etc/drscout.conf está dañado, se producirá un error en el registro. Para identificar este problema, abra el archivo /var/log/ua_install.log. Busque la cadena **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** . La plataforma debe establecerse en **VmWare** o **Azure** . Si el archivo drscout.conf está dañado, recomendamos que [desinstale el agente de movilidad](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) y, a continuación, vuelva a instalarlo. Si se produce un error en la desinstalación, complete los siguientes pasos: a. Abra el archivo Installation_Directory/uninstall.sh y convierta en comentario la llamada a la función **StopServices** .
+    b. Abra el archivo Installation_Directory/Vx/bin/uninstall.sh y convierta en comentario la llamada a la función **stop_services** .
     c. Abra el archivo Installation_Directory/Fx/uninstall.sh y convierta en comentario la sección completa que intenta detener el servicio Fx.
     d. [Desinstale](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) el agente de movilidad. Después de la desinstalación correcta, reinicie el sistema e intente volver a instalar el agente de movilidad.
 
@@ -63,7 +63,7 @@ Este error se produce cuando el servicio no puede leer los datos de la conexión
 
 Para solucionar errores de detección de vCenter, agregue el servidor de vCenter a la configuración de proxy de la lista de omisión. 
 
-- Descargue la herramienta PsExec desde [aquí](https://aka.ms/PsExec) para acceder al contenido de usuario del sistema.
+- Descargue la herramienta PsExec desde [aquí](/sysinternals/downloads/psexec) para acceder al contenido de usuario del sistema.
 - Abra Internet Explorer en el contenido de usuario del sistema mediante la ejecución de la siguiente línea de comandos: psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Agregue la configuración de proxy en Internet Explorer y reinicie el servicio tmanssvc.
 - Para editar la configuración del proxy DRA, ejecute cd C:\Archivos de programa\Microsoft Azure Site Recovery Provider
@@ -163,16 +163,16 @@ Se produce un error en la actualización del servidor de configuración cuando d
 Para identificar el problema, vaya a C:\ProgramData\ASRSetupLogs\CX_TP_InstallLogFile en el servidor de configuración. Si encuentra los siguientes errores, use los pasos siguientes para resolver el problema: 
 
 ```output
-2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-2018-06-28 14:28:12.944   Stopping svagents service.
-2018-06-28 14:31:32.949   Unable to stop svagents service.
-2018-06-28 14:31:32.949   Stopping svagents service.
-2018-06-28 14:34:52.960   Unable to stop svagents service.
-2018-06-28 14:34:52.960   Stopping svagents service.
-2018-06-28 14:38:12.971   Unable to stop svagents service.
-2018-06-28 14:38:12.971   Rolling back the install changes.
-2018-06-28 14:38:12.971   Upgrade has failed.
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
 ```
 
 Para resolver el problema:
@@ -194,7 +194,7 @@ No tiene permisos suficientes para crear una aplicación en Azure Active Directo
 
 Para resolver el problema, inicie sesión en Azure Portal y realice una de las siguientes acciones:
 
-- Solicite el rol de desarrollador de aplicaciones en AAD. Para obtener más información sobre los distintos roles de desarrollador de aplicaciones, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Solicite el rol de desarrollador de aplicaciones en AAD. Para obtener más información sobre los distintos roles de desarrollador de aplicaciones, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/roles/permissions-reference.md).
 - Compruebe que la marca de que el **usuario puede crear la aplicación** se establece en *True* en AAD. Para más información, vea: [Cómo: portal para crear una aplicación de Azure AD y una entidad de servicio que puedan acceder a los recursos](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>El destino maestro o el servidor de procesos no puede comunicarse con el servidor de configuración 
@@ -258,4 +258,3 @@ Este problema puede producirse cuando la hora del sistema es incorrecta.
 Para resolver el problema:
 
 Establezca la hora correcta en el equipo y vuelva a intentar iniciar de sesión. 
- 

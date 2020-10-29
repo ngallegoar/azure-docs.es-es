@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: a74d9347d0050a2970e698ae616eb09fe32bdc5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b86d0c189bcf0687a703f2338188df2090feaf0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135448"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368033"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planeamiento de la capacidad y escalado para la recuperación ante desastres de VMware en Azure
 
@@ -20,7 +20,7 @@ Use este artículo para planear la capacidad y el escalado cuando se replican VM
 
 ## <a name="how-do-i-start-capacity-planning"></a>¿Cómo se puede iniciar el planeamiento de la capacidad?
 
-Para conocer los requisitos de la infraestructura de Azure Site Recovery, recopile información sobre el entorno de replicación ejecutando [Azure Site Recovery Deployment Planner](https://aka.ms/asr-deployment-planner-doc) para la replicación de VMware. Para obtener más información, consulte [Información sobre Azure Site Recovery Deployment Planner para VMware en Azure](site-recovery-deployment-planner.md). 
+Para conocer los requisitos de la infraestructura de Azure Site Recovery, recopile información sobre el entorno de replicación ejecutando [Azure Site Recovery Deployment Planner](./site-recovery-deployment-planner.md) para la replicación de VMware. Para obtener más información, consulte [Información sobre Azure Site Recovery Deployment Planner para VMware en Azure](site-recovery-deployment-planner.md). 
 
 Site Recovery Deployment Planner proporciona un informe con toda la información sobre las máquinas virtuales compatibles e incompatibles, los discos por máquina virtual y la tasa de cambio de datos por disco. También resume los requisitos de ancho de banda de red para satisfacer el RPO de destino y la infraestructura de Azure necesaria para una replicación y conmutación por error de prueba correctas.
 
@@ -77,18 +77,18 @@ La forma de escalar los servidores depende de si prefiere un modelo de escalado 
 
 Después de ejecutar la herramienta [Site Recovery Deployment Planner](site-recovery-deployment-planner.md) para calcular el ancho de banda necesario para la replicación (la replicación inicial y la diferencial), tiene un par de opciones para controlar la cantidad de ancho de banda que se utiliza para la replicación:
 
-* **Limitar el ancho de banda**: el tráfico de VMware que se replica en Azure pasa por un servidor de procesos específico. También puede limitar el ancho de banda en las máquinas que se ejecutan como servidores de procesos.
-* **Influir en el ancho de banda**: puede influir en el ancho de banda utilizado para la replicación mediante un par de claves del Registro:
+* **Limitar el ancho de banda** : el tráfico de VMware que se replica en Azure pasa por un servidor de procesos específico. También puede limitar el ancho de banda en las máquinas que se ejecutan como servidores de procesos.
+* **Influir en el ancho de banda** : puede influir en el ancho de banda utilizado para la replicación mediante un par de claves del Registro:
   * El valor del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM** especifica el número de subprocesos que se utilizan para la transferencia de datos (replicación inicial o diferencial) de un disco. Un valor mayor aumenta el ancho de banda de red utilizado para la replicación.
   * El valor del Registro **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\DownloadThreadsPerVM** especifica el número de subprocesos usados para la transferencia de datos durante la conmutación por recuperación.
 
 ### <a name="throttle-bandwidth"></a>Limitar el ancho de banda
 
 1. Abra el complemento MMC de Azure Backup en la máquina que utiliza como el servidor de procesos. De forma predeterminada, hay un acceso directo a Backup en el escritorio o en la siguiente carpeta: C:\Archivos de programa\Microsoft Azure Recovery Services Agent\bin.
-2. En el complemento, seleccione **Cambiar propiedades**.
+2. En el complemento, seleccione **Cambiar propiedades** .
 
     ![Captura de pantalla de la opción de complemento MMC de Azure Backup para cambiar las propiedades](./media/site-recovery-vmware-to-azure/throttle1.png)
-3. En la pestaña **Limitación**, seleccione la opción **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad**. Establezca los límites para las horas laborables y no laborables. Los intervalos válidos van de 512 Kbps a 1023 Mbps.
+3. En la pestaña **Limitación** , seleccione la opción **Habilitar el límite de uso del ancho de banda de Internet para operaciones de copia de seguridad** . Establezca los límites para las horas laborables y no laborables. Los intervalos válidos van de 512 Kbps a 1023 Mbps.
 
     ![Captura de pantalla del cuadro de diálogo de propiedades de Azure Backup](./media/site-recovery-vmware-to-azure/throttle2.png)
 
@@ -104,10 +104,10 @@ Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "
 
 ### <a name="alter-the-network-bandwidth-for-a-vm"></a>Modificación del ancho de banda de red para una VM
 
-1. En el Registro de la VM, vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * Para modificar el tráfico de ancho de banda en un disco de replicación, modifique el valor de **UploadThreadsPerVM**. Cree la clave en caso de que no exista.
-   * Para modificar el ancho de banda para el tráfico de conmutación por recuperación de Azure, modifique el valor de **DownloadThreadsPerVM**.
-2. El valor predeterminado para cada clave es **4**. En una red "sobreaprovisionada", se deben cambiar los valores predeterminados de estas claves de registro. El valor máximo que puede usar es **32**. Supervise el tráfico para optimizar el valor.
+1. En el Registro de la VM, vaya a **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication** .
+   * Para modificar el tráfico de ancho de banda en un disco de replicación, modifique el valor de **UploadThreadsPerVM** . Cree la clave en caso de que no exista.
+   * Para modificar el ancho de banda para el tráfico de conmutación por recuperación de Azure, modifique el valor de **DownloadThreadsPerVM** .
+2. El valor predeterminado para cada clave es **4** . En una red "sobreaprovisionada", se deben cambiar los valores predeterminados de estas claves de registro. El valor máximo que puede usar es **32** . Supervise el tráfico para optimizar el valor.
 
 ## <a name="set-up-the-site-recovery-infrastructure-to-protect-more-than-500-vms"></a>Configuración de la infraestructura de Site Recovery para proteger más de 500 máquinas virtuales
 
@@ -126,13 +126,13 @@ Si debe escalar horizontalmente la implementación a más de 200 máquinas de or
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrar máquinas para utilizar el nuevo servidor de procesos
 
-1. Seleccione **Configuración** > **Site Recovery servers** (Servidores de Site Recovery). Seleccione el servidor de configuración y luego expanda **Servidores de procesos**.
+1. Seleccione **Configuración** > **Site Recovery servers** (Servidores de Site Recovery). Seleccione el servidor de configuración y luego expanda **Servidores de procesos** .
 
     ![Captura de pantalla del cuadro de diálogo Servidor de procesos](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-2. Haga clic con el botón derecho en el servidor de procesos que se utiliza actualmente y seleccione **Cambiar**.
+2. Haga clic con el botón derecho en el servidor de procesos que se utiliza actualmente y seleccione **Cambiar** .
 
     ![Captura de pantalla del cuadro de diálogo Servidor de configuración](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
-3. En **Seleccionar servidor de procesos de destino**, seleccione el nuevo servidor de procesos que desea usar. A continuación, seleccione las máquinas virtuales que va a controlar el servidor. Seleccione el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Seleccione la marca de verificación para empezar a replicar en un nuevo servidor de procesos.
+3. En **Seleccionar servidor de procesos de destino** , seleccione el nuevo servidor de procesos que desea usar. A continuación, seleccione las máquinas virtuales que va a controlar el servidor. Seleccione el icono de información para obtener detalles sobre el servidor. Aparece el espacio promedio que se necesita para replicar cada máquina virtual seleccionada en el nuevo servidor de procesos para ayudarlo a tomar decisiones relacionadas con la carga. Seleccione la marca de verificación para empezar a replicar en un nuevo servidor de procesos.
 
 ## <a name="deploy-additional-master-target-servers"></a>Implementar servidores de destino maestros adicionales
 
@@ -146,15 +146,15 @@ Para obtener información sobre cómo agregar un servidor de destino maestro par
 
 Para agregar un servidor de destino maestro nuevo a una máquina virtual basada en Linux:
 
-1. Vaya a **Almacén de Recovery Services** > **Infraestructura de Site Recovery** > **Servidores de configuración**.
-2. Seleccione el servidor de configuración requerido y, a continuación, seleccione **Servidor de destino maestro**.
+1. Vaya a **Almacén de Recovery Services** > **Infraestructura de Site Recovery** > **Servidores de configuración** .
+2. Seleccione el servidor de configuración requerido y, a continuación, seleccione **Servidor de destino maestro** .
 
     ![Captura de pantalla que muestra el botón Agregar servidor de destino maestro](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
 3. Descargue el archivo de instalación unificada y, a continuación, ejecute el archivo en la máquina virtual para configurar el servidor de destino maestro.
-4. Seleccione **Instalación del destino principal** > **Siguiente**.
+4. Seleccione **Instalación del destino principal** > **Siguiente** .
 
     ![Captura de pantalla que muestra la selección de la opción Instalación del destino principal](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
-5. Seleccione la ubicación de instalación predeterminada y, a continuación, seleccione **Instalar**.
+5. Seleccione la ubicación de instalación predeterminada y, a continuación, seleccione **Instalar** .
 
      ![Captura de pantalla que muestra la ubicación de instalación predeterminada](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
 6. Seleccione **Continuar con la configuración** para registrar el destino maestro con el servidor de configuración.
@@ -163,9 +163,9 @@ Para agregar un servidor de destino maestro nuevo a una máquina virtual basada 
 7. Escriba la dirección IP del servidor de configuración y luego escriba la frase de contraseña. Para obtener información sobre cómo generar una frase de contraseña, consulte [Generación de frase de contraseña del servidor de configuración](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase). 
 
     ![Captura de pantalla que muestra dónde escribir la dirección IP y la frase de contraseña para el servidor de configuración](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
-8. Seleccione **Registrar**. Cuando se complete el registro, seleccione **Finalizar**.
+8. Seleccione **Registrar** . Cuando se complete el registro, seleccione **Finalizar** .
 
-Después de registrarse correctamente, este servidor aparece en Azure Portal en **Almacén de Recovery Services** > **Infraestructura de Site Recovery** > **Servidores de configuración**, en los servidores de destino maestros del servidor de configuración.
+Después de registrarse correctamente, este servidor aparece en Azure Portal en **Almacén de Recovery Services** > **Infraestructura de Site Recovery** > **Servidores de configuración** , en los servidores de destino maestros del servidor de configuración.
 
  > [!NOTE]
  > Descargue la versión más reciente del [archivo de la instalación unificada del servidor de destino maestro para Windows](https://aka.ms/latestmobsvc).

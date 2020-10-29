@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657211"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363732"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Plan de implementación de autoservicio de restablecimiento de contraseña de Azure Active Directory
 
@@ -48,13 +48,13 @@ Más información acerca de SSPR. Consulte [Funcionamiento: Autoservicio de rest
 
 Las ventajas clave de habilitar SSPR son:
 
-* **Administración del coste**. SSPR reduce los costes de soporte técnico de TI al permitir que los usuarios restablezcan las contraseñas por sí mismos. También reduce el coste de tiempo perdido debido a la pérdida de contraseñas y bloqueos. 
+* **Administración del coste** . SSPR reduce los costes de soporte técnico de TI al permitir que los usuarios restablezcan las contraseñas por sí mismos. También reduce el coste de tiempo perdido debido a la pérdida de contraseñas y bloqueos. 
 
-* **Experiencia de usuario intuitiva**. Proporciona un proceso intuitivo único de registro de usuarios que permite a los usuarios restablecer contraseñas y desbloquear cuentas a petición desde cualquier dispositivo o ubicación. SSPR permite a los usuarios volver a trabajar más rápidamente y ser más productivos.
+* **Experiencia de usuario intuitiva** . Proporciona un proceso intuitivo único de registro de usuarios que permite a los usuarios restablecer contraseñas y desbloquear cuentas a petición desde cualquier dispositivo o ubicación. SSPR permite a los usuarios volver a trabajar más rápidamente y ser más productivos.
 
-* **Flexibilidad y seguridad**. SSPR permite a las empresas acceder a la seguridad y la flexibilidad que proporciona una plataforma en la nube. Los administradores pueden cambiar la configuración para adaptarse a los nuevos requisitos de seguridad y aplicar los cambios a los usuarios sin interrumpir su inicio de sesión.
+* **Flexibilidad y seguridad** . SSPR permite a las empresas acceder a la seguridad y la flexibilidad que proporciona una plataforma en la nube. Los administradores pueden cambiar la configuración para adaptarse a los nuevos requisitos de seguridad y aplicar los cambios a los usuarios sin interrumpir su inicio de sesión.
 
-* **Auditoría y seguimiento del uso sólidos**. Una organización puede asegurarse de que los sistemas empresariales permanecen seguros mientras sus usuarios restablecen sus propias contraseñas. Los registros de auditoría sólidos incluyen información de cada paso del proceso de restablecimiento de contraseña. Estos registros también están disponibles desde una API y permiten al usuario importar estos datos en el sistema de Administración de eventos e información de seguridad (SIEM) de su elección.
+* **Auditoría y seguimiento del uso sólidos** . Una organización puede asegurarse de que los sistemas empresariales permanecen seguros mientras sus usuarios restablecen sus propias contraseñas. Los registros de auditoría sólidos incluyen información de cada paso del proceso de restablecimiento de contraseña. Estos registros también están disponibles desde una API y permiten al usuario importar estos datos en el sistema de Administración de eventos e información de seguridad (SIEM) de su elección.
 
 ### <a name="licensing"></a>Licencias
 
@@ -151,7 +151,7 @@ La siguiente configuración es necesaria para habilitar SSPR junto con los valor
 
 | Área | Configuración | Value |
 | --- | --- | --- |
-| **Propiedades de SSPR** | Se habilitó el autoservicio de restablecimiento de contraseña | Grupo **Seleccionado** para piloto/**Todos** para producción |
+| **Propiedades de SSPR** | Se habilitó el autoservicio de restablecimiento de contraseña | Grupo **Seleccionado** para piloto/ **Todos** para producción |
 | **Métodos de autenticación** | Authentication methods required to register (Métodos de autenticación requeridos para registrarse) | Siempre 1 más de los necesarios para el restablecimiento |
 |   | Authentication methods required to reset (Métodos de autenticación requeridos para restablecer) | Uno o dos |
 | **Registro** | Exigir a los usuarios que se registren al iniciar sesión | Sí |
@@ -167,7 +167,7 @@ La siguiente configuración es necesaria para habilitar SSPR junto con los valor
 
 Al habilitar SSPR, elija un grupo de seguridad adecuado en el entorno piloto.
 
-* Para exigir el registro de SSPR a todos los usuarios, se recomienda usar la opción **Todos**.
+* Para exigir el registro de SSPR a todos los usuarios, se recomienda usar la opción **Todos** .
 * En caso contrario, seleccione el grupo de seguridad de Azure AD o AD adecuado.
 
 ### <a name="authentication-methods"></a>Métodos de autenticación
@@ -184,13 +184,13 @@ Nota: El usuario debe tener configurados los métodos de autenticación en las [
 
 ### <a name="registration-settings"></a>Configuración de registro
 
-Establezca **Exigir a los usuarios que se registren al iniciar sesión** en **Sí**. Esta configuración requiere que los usuarios se registren cuando inician sesión, lo que garantiza que todos los usuarios estén protegidos.
+Establezca **Exigir a los usuarios que se registren al iniciar sesión** en **Sí** . Esta configuración requiere que los usuarios se registren cuando inician sesión, lo que garantiza que todos los usuarios estén protegidos.
 
 Establezca **Número de días que pasan hasta que se pide a los usuarios que vuelvan a confirmar su información de autenticación** entre **90** y **180** días, a menos que su organización tenga una necesidad de negocio para un plazo de tiempo más corto.
 
 ### <a name="notifications-settings"></a>Configuración de notificaciones
 
-Configure tanto **¿Quiere notificar a los usuarios los restablecimientos de contraseña?** como **¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?** en **Sí**. Al seleccionar **Sí** en ambos se aumenta la seguridad asegurándose de que los usuarios son conscientes de que se restablece la contraseña. También garantiza que todos los administradores son conscientes de que un administrador cambia una contraseña. Si los usuarios o administradores reciben una notificación y no han comenzado el cambio, pueden denunciar de inmediato un problema de seguridad potencial.
+Configure tanto **¿Quiere notificar a los usuarios los restablecimientos de contraseña?** como **¿Quiere notificar a todos los administradores cuando otros administradores restablezcan su contraseña?** en **Sí** . Al seleccionar **Sí** en ambos se aumenta la seguridad asegurándose de que los usuarios son conscientes de que se restablece la contraseña. También garantiza que todos los administradores son conscientes de que un administrador cambia una contraseña. Si los usuarios o administradores reciben una notificación y no han comenzado el cambio, pueden denunciar de inmediato un problema de seguridad potencial.
 
 ### <a name="customization-settings"></a>Configuración de personalización
 
@@ -204,8 +204,8 @@ La [escritura diferida de contraseñas](../hybrid/whatis-hybrid-identity.md) se 
 
 Se recomienda la configuración siguiente:
 
-* Asegúrese de que **Escritura diferida de contraseñas al Active Directory local** esté establecido en **Sí**. 
-* Establezca **Allow users to unlock account without resetting password** (Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña) en **Sí**.
+* Asegúrese de que **Escritura diferida de contraseñas al Active Directory local** esté establecido en **Sí** . 
+* Establezca **Allow users to unlock account without resetting password** (Permitir a los usuarios desbloquear las cuentas sin restablecer la contraseña) en **Sí** .
 
 De forma predeterminada, Azure AD desbloquea las cuentas cuando se realiza un restablecimiento de contraseña.
 
@@ -313,7 +313,7 @@ Azure AD puede proporcionar información adicional sobre el rendimiento de SSPR
 Puede usar informes pregenerados en Azure Portal para medir el rendimiento de SSPR. Si está debidamente protegido por licencia, también puede crear consultas personalizadas. Para más información, consulte [Opciones de creación de informes para la administración de contraseñas de Azure AD](./howto-sspr-reporting.md).
 
 > [!NOTE]
->  Debe ser [administrador global](../users-groups-roles/directory-assign-admin-roles.md) y habilitar la opción para que estos datos se recopilen para su organización. Para habilitarla, debe visitar la pestaña Informes o los registros de auditoría en Azure Portal como mínimo una vez. Hasta entonces, los datos no se recopilan para su organización.
+>  Debe ser [administrador global](../roles/permissions-reference.md) y habilitar la opción para que estos datos se recopilen para su organización. Para habilitarla, debe visitar la pestaña Informes o los registros de auditoría en Azure Portal como mínimo una vez. Hasta entonces, los datos no se recopilan para su organización.
 
 Los registros de auditoría para el registro y el restablecimiento de contraseña están disponibles durante 30 días. Si la auditoría de seguridad dentro su una empresa requiere una retención más prolongada, los registros deben exportarse y consumirse en una herramienta SIEM, como [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk o ArcSight.
 

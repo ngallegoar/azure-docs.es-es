@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398653"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367999"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute con Azure Site Recovery
 
@@ -37,7 +37,7 @@ Asegúrese de que también se cumplan los [requisitos de red](vmware-azure-confi
 
 En caso de que use el proxy de forma local y desee utilizar ExpressRoute para el tráfico de replicación, debe configurar la lista de omisión del proxy en el servidor de configuración y los servidores de proceso. Para hacerlo, siga estos pasos:
 
-- Descargue la herramienta PsExec desde [aquí](https://aka.ms/PsExec) para acceder al contexto de usuario del sistema.
+- Descargue la herramienta PsExec desde [aquí](/sysinternals/downloads/psexec) para acceder al contexto de usuario del sistema.
 - Abra Internet Explorer en el contexto de usuario del sistema mediante la ejecución de la siguiente línea de comandos: psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 - Adición de la configuración de proxy en Internet Explorer
 - En la lista de omisión, agregue la dirección URL de Azure *.blob.core.windows.net.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 114f26c71ee1aecdb1a0ad3d1c01e558843c0969
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: bdaaed72b85bc3c0196a8897be311efa5fb714e2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91705065"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366350"
 ---
 # <a name="common-conditional-access-policies"></a>Directivas de acceso condicional habituales
 
@@ -28,7 +28,7 @@ Los [valores predeterminados de seguridad](../fundamentals/concept-fundamentals-
 
 En los siguientes artículos encontrará más información sobre las cuentas de acceso de emergencia y por qué son importantes: 
 
-* [Administración de cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md)
 * [Crear una estrategia de administración de control de acceso resistente con Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 ## <a name="typical-policies-deployed-by-organizations"></a>Directivas habituales implementadas por organizaciones

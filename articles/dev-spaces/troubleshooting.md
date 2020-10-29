@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Obtenga información sobre cómo solucionar problemas y resolver problemas comunes al habilitar y usar Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 5d8bf69d456bca2a88b8aa2031d5ef0ba20f7c30
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979128"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364174"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Solución de problemas de Azure Dev Spaces
 
@@ -28,7 +28,7 @@ Para Visual Studio, establezca la variable de entorno `MS_VS_AZUREDEVSPACES_TOO
 
 En la CLI, puede generar más información durante la ejecución del comando mediante el uso del conmutador `--verbose`. También puede examinar registros más detallados en `%TEMP%\Azure Dev Spaces`. En un equipo Mac, para encontrar el directorio *TEMP* hay que ejecutar `echo $TMPDIR` desde una ventana de terminal. En un equipo Linux, el directorio *TEMP* es normalmente `/tmp`. Además, compruebe que el registro está habilitado en el [archivo de configuración de la CLI de Azure](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables).
 
-Azure Dev Spaces también funciona mejor cuando se depura una sola instancia o pod. El archivo `azds.yaml` contiene un valor, *replicaCount*, que indica el número de pods que Kubernetes ejecuta para el servicio. Si cambia el valor de *replicaCount* para configurar la aplicación de forma que ejecute varios pods para un servicio determinado, el depurador se asocia al primer pod (cuando se muestran en orden alfabético). El depurador se asocia a un pod diferente cuando se recicla el pod original, lo que da lugar posiblemente a un comportamiento inesperado.
+Azure Dev Spaces también funciona mejor cuando se depura una sola instancia o pod. El archivo `azds.yaml` contiene un valor, *replicaCount* , que indica el número de pods que Kubernetes ejecuta para el servicio. Si cambia el valor de *replicaCount* para configurar la aplicación de forma que ejecute varios pods para un servicio determinado, el depurador se asocia al primer pod (cuando se muestran en orden alfabético). El depurador se asocia a un pod diferente cuando se recicla el pod original, lo que da lugar posiblemente a un comportamiento inesperado.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Problemas comunes al habilitar Azure Dev Spaces
 
@@ -74,7 +74,7 @@ Para corregir este problema, [agregue un valor taint](../aks/operator-best-pract
 
 Azure Dev Spaces no pudo crear un controlador en el clúster de AKS porque no encontró un nodo sin valor taint con estado *Listo* donde programar pods. Azure Dev Spaces necesita al menos un nodo de Linux en estado *Listo* que permita programar pods sin especificar tolerations.
 
-Para corregir este problema, [actualice la configuración de taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) en el clúster de AKS para asegurarse de que al menos un nodo de Linux permite programar pods sin especificar tolerations. Además, asegúrese de que al menos uno de los nodos de Linux que permitan programar pods sin especificar tolerations tenga el estado *Listo*. Si el nodo está tardando mucho tiempo en alcanzar el estado *Listo*, puede probar a reiniciarlo.
+Para corregir este problema, [actualice la configuración de taint](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) en el clúster de AKS para asegurarse de que al menos un nodo de Linux permite programar pods sin especificar tolerations. Además, asegúrese de que al menos uno de los nodos de Linux que permitan programar pods sin especificar tolerations tenga el estado *Listo* . Si el nodo está tardando mucho tiempo en alcanzar el estado *Listo* , puede probar a reiniciarlo.
 
 ### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>Error "Azure Dev Spaces CLI not installed properly" (La CLI de Azure Dev Spaces no está instalada correctamente) al ejecutar az aks use-dev-spaces
 
@@ -138,7 +138,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-El comando anterior muestra que el pod del servicio se ha asignado a *virtual-node-aci-linux*, que es un nodo virtual.
+El comando anterior muestra que el pod del servicio se ha asignado a *virtual-node-aci-linux* , que es un nodo virtual.
 
 Para corregir este problema, actualice el gráfico de Helm del servicio a fin de quitar cualquier valor *nodeSelector* o *tolerations* que permita que el servicio se ejecute en un nodo virtual. Estos valores se definen normalmente en el archivo `values.yaml` del gráfico.
 
@@ -217,14 +217,14 @@ azds up --verbose --output json
 
 En Visual Studio:
 
-1. Abra **Herramientas > Opciones** y, en **Proyectos y soluciones**, elija **Build and Run** (Compilar y ejecutar).
-2. Cambie la configuración de **Detalles de la salida de la compilación del proyecto de MSBuild** a **Detallado** o **Diagnóstico**.
+1. Abra **Herramientas > Opciones** y, en **Proyectos y soluciones** , elija **Build and Run** (Compilar y ejecutar).
+2. Cambie la configuración de **Detalles de la salida de la compilación del proyecto de MSBuild** a **Detallado** o **Diagnóstico** .
 
     ![Captura de pantalla del cuadro de diálogo Opciones de herramientas](media/common/VerbositySetting.PNG)
 
 ### <a name="rerunning-a-service-after-controller-re-creation"></a>Nueva ejecución de un servicio después de volver a crear el controlador
 
-Puede que reciba el error*El servicio no se puede iniciar* cuando intenta volver a ejecutar un servicio después de haber quitado y luego creado de nuevo el controlador de Azure Dev Spaces asociado a este clúster. En esta situación, la salida detallada contiene el texto siguiente:
+Puede que reciba el error *El servicio no se puede iniciar* cuando intenta volver a ejecutar un servicio después de haber quitado y luego creado de nuevo el controlador de Azure Dev Spaces asociado a este clúster. En esta situación, la salida detallada contiene el texto siguiente:
 
 ```output
 Installing Helm chart...
@@ -240,7 +240,7 @@ Para solucionar este problema, use el comando `kubectl delete` para quitar manua
 
 ### <a name="error-service-cannot-be-started-when-using-multi-stage-dockerfiles"></a>Error "No se puede iniciar el servicio" al usar Dockerfiles de varias fases
 
-Al usar un Dockerfile de varias fases, recibirá el error *El servicio no se puede iniciar*. En esta situación, la salida detallada contiene el texto siguiente:
+Al usar un Dockerfile de varias fases, recibirá el error *El servicio no se puede iniciar* . En esta situación, la salida detallada contiene el texto siguiente:
 
 ```cmd
 $ azds up -v
@@ -261,24 +261,24 @@ Este error se produce porque Azure Dev Spaces no admite actualmente compilacione
 
 Al usar [Azure Dev Spaces para conectar el clúster de AKS a la máquina de desarrollo](https://code.visualstudio.com/docs/containers/bridge-to-kubernetes), es posible que se produzca una incidencia que provoque que no se reenvíe el tráfico entre la máquina de desarrollo y el clúster de AKS.
 
-Al conectar el equipo de desarrollo al clúster de AKS, Azure Dev Spaces reenvía el tráfico de red entre el clúster de AKS y el equipo de desarrollo modificando el archivo `hosts` de la máquina de desarrollo. Azure Dev Spaces crea una entrada en `hosts` con la dirección del servicio Kubernetes que se va a reemplazar como nombre de host. Esta entrada se usa con el reenvío de puertos para dirigir el tráfico entre la máquina de desarrollo y el clúster de AKS. Si un servicio de la máquina de desarrollo entra en conflicto con el puerto del servicio Kubernetes que se está reemplazando, Azure Dev Spaces no puede reenviar el tráfico para el servicio Kubernetes. Por ejemplo, el servicio *Windows BranchCache*  normalmente se enlaza a *0.0.0.0:80*, lo que provocará un conflicto en el puerto 80 de todas las direcciones IP locales.
+Al conectar el equipo de desarrollo al clúster de AKS, Azure Dev Spaces reenvía el tráfico de red entre el clúster de AKS y el equipo de desarrollo modificando el archivo `hosts` de la máquina de desarrollo. Azure Dev Spaces crea una entrada en `hosts` con la dirección del servicio Kubernetes que se va a reemplazar como nombre de host. Esta entrada se usa con el reenvío de puertos para dirigir el tráfico entre la máquina de desarrollo y el clúster de AKS. Si un servicio de la máquina de desarrollo entra en conflicto con el puerto del servicio Kubernetes que se está reemplazando, Azure Dev Spaces no puede reenviar el tráfico para el servicio Kubernetes. Por ejemplo, el servicio *Windows BranchCache*  normalmente se enlaza a *0.0.0.0:80* , lo que provocará un conflicto en el puerto 80 de todas las direcciones IP locales.
 
-Para corregir esta incidencia, debe detener los servicios o procesos que entren en conflicto con el puerto del servicio Kubernetes que se intenta reemplazar. Puede usar herramientas, como *netstat*, para inspeccionar los servicios o procesos de la máquina de desarrollo que están en conflicto.
+Para corregir esta incidencia, debe detener los servicios o procesos que entren en conflicto con el puerto del servicio Kubernetes que se intenta reemplazar. Puede usar herramientas, como *netstat* , para inspeccionar los servicios o procesos de la máquina de desarrollo que están en conflicto.
 
-Por ejemplo, para detener y deshabilitar el servicio *Windows BranchCache*, haga lo siguiente:
+Por ejemplo, para detener y deshabilitar el servicio *Windows BranchCache* , haga lo siguiente:
 * Ejecute `services.msc` desde el símbolo del sistema.
-* Haga clic con el botón derecho en *BranchCache* y seleccione *Propiedades*.
-* Haga clic en *Detener*.
-* De forma opcional, puede deshabilitarlo estableciendo la opción *Tipo de inicio* en *Deshabilitado*.
-* Haga clic en *OK*.
+* Haga clic con el botón derecho en *BranchCache* y seleccione *Propiedades* .
+* Haga clic en *Detener* .
+* De forma opcional, puede deshabilitarlo estableciendo la opción *Tipo de inicio* en *Deshabilitado* .
+* Haga clic en *OK* .
 
 ### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Error "no AzureAssignedIdentity found for pod:azds/azds-webhook-deployment-\<id\> in assigned state" (No se encontró ninguna identidad AzureAssignedIdentity para pod:azds/azds-webhook-deployment-\<id\> en el estado asignado).
 
-Al ejecutar un servicio con Azure Dev Spaces en un clúster de AKS con una [identidad administrada](../aks/use-managed-identity.md) e [identidades administradas del pod](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) instaladas, el proceso puede dejar de responder después del paso de *instalación del gráfico*. Si inspecciona el *azds-injector-webhook* en el espacio de nombres *azds*, es posible que vea este error.
+Al ejecutar un servicio con Azure Dev Spaces en un clúster de AKS con una [identidad administrada](../aks/use-managed-identity.md) e [identidades administradas del pod](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) instaladas, el proceso puede dejar de responder después del paso de *instalación del gráfico* . Si inspecciona el *azds-injector-webhook* en el espacio de nombres *azds* , es posible que vea este error.
 
 Los servicios que Azure Dev Spaces ejecuta en el clúster usan la identidad administrada del clúster para comunicarse con los servicios de back-end de Azure Dev Spaces fuera del clúster. Cuando se instala la identidad administrada del pod, las reglas de redes se configuran en los nodos del clúster a fin de redirigir todas las llamadas para las credenciales de identidad administrada a un [DaemonSet de Identidad administrada del nodo (NMI) en el clúster](https://github.com/Azure/aad-pod-identity#node-managed-identity). Este DaemonSet de NMI identifica el pod que realiza la llamada y garantiza que este se ha etiquetado correctamente para tener acceso a la identidad administrada solicitada. Azure Dev Spaces no puede detectar si un clúster tiene instalada la identidad administrada del pod y no puede realizar la configuración necesaria para permitir a los servicios Azure Dev Spaces obtener acceso a la identidad administrada del clúster. Dado que los servicios Azure Dev Spaces no se han configurado para tener acceso a la identidad administrada del clúster, el DaemonSet de NMI no les permitirá obtener un token de Azure AD para la identidad administrada y no podrá comunicarse con los servicios de back-end de Azure Dev Spaces.
 
-Para corregir este problema, aplique una [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) para el *azds-injector-webhook* y actualice los pods instrumentados por Azure Dev Spaces para tener acceso a la identidad administrada.
+Para corregir este problema, aplique una [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception) para el *azds-injector-webhook* y actualice los pods instrumentados por Azure Dev Spaces para tener acceso a la identidad administrada.
 
 Cree un archivo denominado *webhookException.yaml* y copie la siguiente definición de código YAML:
 
@@ -293,7 +293,7 @@ spec:
     azds.io/uses-cluster-identity: "true"
 ```
 
-El archivo anterior crea un objeto *AzurePodIdentityException* para el *azds-injector-webhook*. Para implementar este objeto, use `kubectl`:
+El archivo anterior crea un objeto *AzurePodIdentityException* para el *azds-injector-webhook* . Para implementar este objeto, use `kubectl`:
 
 ```cmd
 kubectl apply -f webhookException.yaml
@@ -329,7 +329,7 @@ El comando anterior genera los identificadores *clientId* y *resourceId* para la
 }
 ```
 
-Para crear un objeto *AzureIdentity*, cree un archivo denominado *clusteridentity.yaml* y use la siguiente definición de YAML actualizada con los detalles de la identidad administrada del comando anterior:
+Para crear un objeto *AzureIdentity* , cree un archivo denominado *clusteridentity.yaml* y use la siguiente definición de YAML actualizada con los detalles de la identidad administrada del comando anterior:
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -342,7 +342,7 @@ spec:
   ClientID: <clientId>
 ```
 
-Para crear un objeto *AzureIdentityBinding*, cree un archivo denominado *clusteridentitybinding.yaml* y use la siguiente definición de código YAML:
+Para crear un objeto *AzureIdentityBinding* , cree un archivo denominado *clusteridentitybinding.yaml* y use la siguiente definición de código YAML:
 
 ```yaml
 apiVersion: "aadpodidentity.k8s.io/v1"
@@ -354,14 +354,14 @@ spec:
   Selector: my-label-value
 ```
 
-Para implementar los objetos *AzureIdentity* y *AzureIdentityBinding*, use `kubectl`:
+Para implementar los objetos *AzureIdentity* y *AzureIdentityBinding* , use `kubectl`:
 
 ```cmd
 kubectl apply -f clusteridentity.yaml
 kubectl apply -f clusteridentitybinding.yaml
 ```
 
-Después de implementar los objetos *AzureIdentity* y *AzureIdentityBinding*, cualquier carga de trabajo con la etiqueta *aadpodidbinding: my-label-value* puede tener acceso a la identidad administrada del clúster. Agregue esta etiqueta y vuelva a implementar todas las cargas de trabajo que se ejecutan en cualquier espacio de desarrollo. Por ejemplo:
+Después de implementar los objetos *AzureIdentity* y *AzureIdentityBinding* , cualquier carga de trabajo con la etiqueta *aadpodidbinding: my-label-value* puede tener acceso a la identidad administrada del clúster. Agregue esta etiqueta y vuelva a implementar todas las cargas de trabajo que se ejecutan en cualquier espacio de desarrollo. Por ejemplo:
 
 ```yaml
 apiVersion: apps/v1
@@ -424,7 +424,7 @@ Para corregir este problema, cierre y vuelva a abrir Visual Studio Code. Reinic
 
 ### <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Error "Internal watch failed: watch ENOSPC" (Error durante la inspección interna: inspeccione ENOSPC) al asociar depuración a una aplicación de Node.js
 
-Este error se produce cuando el nodo que ejecuta el pod con la aplicación Node.js que está intentando asociar a un depurador ha superado el valor *fs.inotify.max_user_watches*. En algunos casos, [el valor predeterminado de *fs.inotify.max_user_watches* puede ser demasiado pequeño para controlar la asociación de un depurador directamente a un pod](https://github.com/Azure/AKS/issues/772).
+Este error se produce cuando el nodo que ejecuta el pod con la aplicación Node.js que está intentando asociar a un depurador ha superado el valor *fs.inotify.max_user_watches* . En algunos casos, [el valor predeterminado de *fs.inotify.max_user_watches* puede ser demasiado pequeño para controlar la asociación de un depurador directamente a un pod](https://github.com/Azure/AKS/issues/772).
 
 Una solución temporal para resolver este problema consiste en aumentar el valor de *fs.inotify.max_user_watches* en cada nodo del clúster y reiniciar ese nodo para que los cambios surtan efecto.
 
@@ -477,7 +477,7 @@ az aks get-credentials --resource-group <resource group name> --name <cluster na
 kubectl delete InitializerConfiguration azds
 ```
 
-Una vez que haya eliminado *azds InitializerConfiguration* del controlador de Azure Dev Spaces, use `kubectl delete` para eliminar todos los pods con estado *pendiente*. Una vez que se hayan eliminado todos los pods pendientes, vuelva a implementarlos.
+Una vez que haya eliminado *azds InitializerConfiguration* del controlador de Azure Dev Spaces, use `kubectl delete` para eliminar todos los pods con estado *pendiente* . Una vez que se hayan eliminado todos los pods pendientes, vuelva a implementarlos.
 
 Si los nuevos pods aún siguen en el estado *pendiente* después de una reimplementación, use `kubectl delete` para eliminar todos los *pods* con ese estado. Una vez que se hayan eliminado todos los pods pendientes, elimine el controlador del clúster y vuelva a instalarlo:
 
@@ -496,15 +496,15 @@ Para actualizar el rol de Azure del usuario para el controlador:
 
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 1. Vaya al grupo de recursos que contiene el controlador, que suele ser el mismo que el del clúster de AKS.
-1. Marque la casilla *Mostrar tipos ocultos*.
+1. Marque la casilla *Mostrar tipos ocultos* .
 1. Haga clic en el controlador.
 1. Abra el panel *Access Control (IAM)* .
-1. Haga clic en la pestaña *Asignaciones de roles*.
-1. Haga clic en *Agregar* y, a continuación, en *Agregar asignación de roles*.
-    * Para *Rol*, seleccione *Colaborador* o *Propietario*.
-    * En *Asignar acceso a*, seleccione *Usuario, grupo o entidad de servicio de Azure AD*.
-    * En *Seleccionar*, busque el usuario al que desea conceder permisos.
-1. Haga clic en *Save*(Guardar).
+1. Haga clic en la pestaña *Asignaciones de roles* .
+1. Haga clic en *Agregar* y, a continuación, en *Agregar asignación de roles* .
+    * Para *Rol* , seleccione *Colaborador* o *Propietario* .
+    * En *Asignar acceso a* , seleccione *Usuario, grupo o entidad de servicio de Azure AD* .
+    * En *Seleccionar* , busque el usuario al que desea conceder permisos.
+1. Haga clic en *Save* (Guardar).
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Se produce un error en la resolución de nombres DNS para una dirección URL pública asociada con un servicio Dev Spaces
 
@@ -518,7 +518,7 @@ Para corregir este problema:
   azds list-uris
   ```
 
-* Si una dirección URL está en estado *Pendiente*, Dev Spaces aún está esperando a que se complete el registro DNS. A veces, el proceso de registro tarda unos minutos en completarse. Dev Spaces también abre un túnel de host local para cada servicio, que puede usar mientras espera el registro del DNS.
+* Si una dirección URL está en estado *Pendiente* , Dev Spaces aún está esperando a que se complete el registro DNS. A veces, el proceso de registro tarda unos minutos en completarse. Dev Spaces también abre un túnel de host local para cada servicio, que puede usar mientras espera el registro del DNS.
 * Si una dirección URL permanece en estado *Pendiente* durante más de 5 minutos, puede que indique un problema con el pod de DNS externo que crea al punto de conexión público o con el pod controlador de entrada nginx que adquiere el punto de conexión público. Use los siguientes comandos para eliminar estos pods y permitir que AKS los vuelva a crear automáticamente:
   ```console
   kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -530,7 +530,7 @@ Para corregir este problema:
 Puede ver este error al intentar acceder al servicio. Por ejemplo, cuando vaya a la dirección URL del servicio en un explorador. Este error indica que el puerto del contenedor no está disponible. Esto puede deberse a los siguientes motivos:
 
 * El contenedor está todavía en proceso de creación e implementación. Este problema puede producirse si ejecuta `azds up` o inicia el depurador y luego intenta acceder al contenedor antes de que se haya implementado correctamente.
-* La configuración del puerto no es coherente en _Dockerfile_, el gráfico de Helm y cualquier otro código de servidor que abre un puerto.
+* La configuración del puerto no es coherente en _Dockerfile_ , el gráfico de Helm y cualquier otro código de servidor que abre un puerto.
 
 Para corregir este problema:
 
@@ -594,7 +594,7 @@ Actualice el firewall o la configuración de seguridad para permitir el tráfico
 
 ### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Error "Could not find the cluster \<cluster\>cluster\<subscriptionId\> in subscription subscriptionId" ("No se encontró el clúster \<cluster\>clúster\<subscriptionId\> en la suscripción subscriptionId")
 
-Es posible que vea este error si el archivo kubeconfig tiene como destino un clúster o una suscripción diferente de la que está intentando usar con las herramientas del lado cliente de Azure Dev Spaces. Las herramientas del lado cliente de Azure Dev Spaces replican el comportamiento de *kubectl*, que usa [uno o varios archivos kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) para seleccionar y comunicarse con el clúster.
+Es posible que vea este error si el archivo kubeconfig tiene como destino un clúster o una suscripción diferente de la que está intentando usar con las herramientas del lado cliente de Azure Dev Spaces. Las herramientas del lado cliente de Azure Dev Spaces replican el comportamiento de *kubectl* , que usa [uno o varios archivos kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) para seleccionar y comunicarse con el clúster.
 
 Para corregir este problema:
 

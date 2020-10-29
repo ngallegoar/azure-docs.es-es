@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145284"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366333"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planeamiento de la implementación del acceso condicional
 
@@ -105,7 +105,7 @@ Cuando las nuevas directivas estén listas para su entorno, impleméntelas en fa
 ## <a name="understand-ca-policy-components"></a>Descripción de los componentes de la directiva de CA
 Las directivas de CA son instrucciones if-then: si se cumple una asignación, aplique estos controles de acceso.
 
-Al configurar las directivas de CA, las condiciones se denominan *asignaciones*. Las directivas de CA permiten exigir controles de acceso en las aplicaciones de la organización según determinadas condiciones.
+Al configurar las directivas de CA, las condiciones se denominan *asignaciones* . Las directivas de CA permiten exigir controles de acceso en las aplicaciones de la organización según determinadas condiciones.
 
 
 Para obtener más información, consulte [Creación de una directiva de acceso condicional](concept-conditional-access-policies.md).
@@ -220,7 +220,7 @@ Crear una directiva para cada aplicación no es eficaz y conlleva una administra
 
 ### <a name="set-up-emergency-access-accounts"></a>Configurar cuentas de acceso de emergencia
 
-Si configura mal una directiva, esto puede bloquear las organizaciones de Azure Portal. Mitigue el impacto de un bloqueo accidental del administrador mediante la creación de dos o más [cuentas de acceso de emergencia](../users-groups-roles/directory-emergency-access.md) en la organización.
+Si configura mal una directiva, esto puede bloquear las organizaciones de Azure Portal. Mitigue el impacto de un bloqueo accidental del administrador mediante la creación de dos o más [cuentas de acceso de emergencia](../roles/security-emergency-access.md) en la organización.
 
 * Cree una cuenta de usuario dedicada a la administración de directivas y excluida de todas las directivas.
 
@@ -264,7 +264,7 @@ La pauta de nomenclatura ayuda a encontrar las directivas y a comprender su prop
 
 ![Captura de pantalla que muestra las normas de nomenclatura de las directivas.](media/plan-conditional-access/11.png)
 
-**Ejemplo**: Una directiva para requerir MFA para los usuarios de marketing con acceso a la aplicación de Dynamics CRP desde redes externas podría ser:
+**Ejemplo** : Una directiva para requerir MFA para los usuarios de marketing con acceso a la aplicación de Dynamics CRP desde redes externas podría ser:
 
 ![Pauta de nomenclatura](media/plan-conditional-access/naming-example.png)
 
@@ -287,7 +287,7 @@ EM01 - HABILITAR EN CASO DE EMERGENCIA: Interrupción de MFA [1/4]: Exchange Sha
 
 ### <a name="exclude-countries-from-which-you-never-expect-a-sign-in"></a>Excluya los países desde los que nunca espera un inicio de sesión.
 
-Azure Active Directory permite crear [ubicaciones con nombre](location-condition.md). Cree una ubicación con nombre que incluya todos los países desde los que nunca esperaría que se produjera un inicio de sesión. Después, cree una directiva para todas las aplicaciones que bloquee el inicio de sesión desde esa ubicación con nombre. **Asegúrese de excluir a los administradores de esta directiva**.
+Azure Active Directory permite crear [ubicaciones con nombre](location-condition.md). Cree una ubicación con nombre que incluya todos los países desde los que nunca esperaría que se produjera un inicio de sesión. Después, cree una directiva para todas las aplicaciones que bloquee el inicio de sesión desde esa ubicación con nombre. **Asegúrese de excluir a los administradores de esta directiva** .
 
 ### <a name="plan-your-policy-deployment"></a>Planear la implementación de la directiva
 
@@ -421,7 +421,7 @@ Otra manera de validar la directiva de acceso condicional es mediante la [herram
 
 Realice cada prueba del plan de pruebas con los usuarios de prueba.
 
-**Asegúrese de que se prueban los criterios de exclusión de las directivas**. Por ejemplo, puede excluir a un usuario o grupo de una directiva que requiera MFA. Pruebe si a los usuarios excluidos se les solicita MFA, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
+**Asegúrese de que se prueban los criterios de exclusión de las directivas** . Por ejemplo, puede excluir a un usuario o grupo de una directiva que requiera MFA. Pruebe si a los usuarios excluidos se les solicita MFA, ya que la combinación de otras directivas puede hacer que se exija para esos usuarios.
 
 ### <a name="roll-back-policies"></a>Revertir las directivas
 

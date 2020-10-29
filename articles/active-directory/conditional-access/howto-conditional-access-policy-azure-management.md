@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717e81a1385b04d3152beac39105c56754c55c40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e2b6b3e9a6bdead4e4da7f1a829698d86cfbf52
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049288"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366180"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Acceso condicional: Exigir autenticación multifactor para la administración de Azure
 
@@ -32,9 +32,9 @@ Estas herramientas pueden proporcionar acceso con privilegios elevados a los rec
 
 Las directivas de acceso condicional son herramientas eficaces, por lo que se recomienda excluir las siguientes cuentas de la directiva:
 
-* Cuentas de **acceso de emergencia** para **evitar**el bloqueo de cuentas en todo el inquilino. En el caso improbable de que todos los administradores estén bloqueados en el inquilino, la cuenta administrativa de acceso de emergencia se puede usar para iniciar sesión en el inquilino y realizar los pasos para recuperar el acceso.
-   * Se puede encontrar más información en el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Cuentas de servicio** y **entidades de servicio**, como la cuenta de sincronización de Azure AD Connect. Las cuentas de servicio son cuentas no interactivas que no están asociadas a ningún usuario en particular. Los servicios back-end las usan normalmente para permitir el acceso mediante programación a las aplicaciones, pero también se utilizan para iniciar sesión en los sistemas con fines administrativos. Las cuentas de servicio como estas se deben excluir porque MFA no se puede completar mediante programación. El acceso condicional no bloquea las llamadas realizadas por las entidades de servicio.
+* Cuentas de **acceso de emergencia** para **evitar** el bloqueo de cuentas en todo el inquilino. En el caso improbable de que todos los administradores estén bloqueados en el inquilino, la cuenta administrativa de acceso de emergencia se puede usar para iniciar sesión en el inquilino y realizar los pasos para recuperar el acceso.
+   * Se puede encontrar más información en el artículo [Administración de cuentas de acceso de emergencia en Azure AD](../roles/security-emergency-access.md).
+* **Cuentas de servicio** y **entidades de servicio** , como la cuenta de sincronización de Azure AD Connect. Las cuentas de servicio son cuentas no interactivas que no están asociadas a ningún usuario en particular. Los servicios back-end las usan normalmente para permitir el acceso mediante programación a las aplicaciones, pero también se utilizan para iniciar sesión en los sistemas con fines administrativos. Las cuentas de servicio como estas se deben excluir porque MFA no se puede completar mediante programación. El acceso condicional no bloquea las llamadas realizadas por las entidades de servicio.
    * Si su organización usa estas cuentas en scripts o código, piense en la posibilidad de reemplazarlas por [identidades administradas](../managed-identities-azure-resources/overview.md). Como solución temporal, puede excluir estas cuentas específicas de la directiva de línea de base.
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
@@ -42,17 +42,17 @@ Las directivas de acceso condicional son herramientas eficaces, por lo que se re
 Los pasos siguientes le ayudarán a crear una directiva de acceso condicional para exigir que aquellos con acceso a la aplicación [Microsoft Azure Management](concept-conditional-access-cloud-apps.md#microsoft-azure-management) realicen la autenticación multifactor.
 
 1. Inicie sesión en **Azure Portal** como administrador global, administrador de seguridad o administrador de acceso condicional.
-1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional**.
-1. Seleccione **Nueva directiva**.
+1. Vaya a **Azure Active Directory** > **Seguridad** > **Acceso condicional** .
+1. Seleccione **Nueva directiva** .
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
-1. En **Asignaciones**, seleccione **Usuarios y grupos**.
-   1. En **Incluir**, seleccione **Todos los usuarios**.
-   1. En **Excluir**, seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
-   1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir**, elija sucesivamente **Seleccionar aplicaciones**, **Microsoft Azure Management**, **Seleccionar** y, luego, **Listo**.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , en **Seleccionar aplicaciones cliente a las que se aplicará la directiva** mantenga todos los valores seleccionados y haga clic en **Hecho**.
-1. En **Controles de acceso** > **Conceder**, seleccione **Conceder acceso**, **Requerir autenticación multifactor** y **Seleccionar**.
-1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
+1. En **Asignaciones** , seleccione **Usuarios y grupos** .
+   1. En **Incluir** , seleccione **Todos los usuarios** .
+   1. En **Excluir** , seleccione **Usuarios y grupos** y, luego, elija las cuentas de acceso de emergencia de la organización. 
+   1. Seleccione **Listo** .
+1. En **Aplicaciones en la nube o acciones** > **Incluir** , elija sucesivamente **Seleccionar aplicaciones** , **Microsoft Azure Management** , **Seleccionar** y, luego, **Listo** .
+1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , en **Seleccionar aplicaciones cliente a las que se aplicará la directiva** mantenga todos los valores seleccionados y haga clic en **Hecho** .
+1. En **Controles de acceso** > **Conceder** , seleccione **Conceder acceso** , **Requerir autenticación multifactor** y **Seleccionar** .
+1. Confirme la configuración y establezca **Habilitar directiva** en **Activado** .
 1. Seleccione **Crear** para crear la directiva.
 
 ## <a name="next-steps"></a>Pasos siguientes

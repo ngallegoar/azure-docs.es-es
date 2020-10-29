@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: e851da0013cf3a9ff6bb1a0fc1c073b5b796c54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66ec285554299214122a4093837d3506bf642b13
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898550"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368135"
 ---
 # <a name="what-is-azure-scheduler"></a>¿Qué es Azure Scheduler?
 
@@ -25,7 +25,7 @@ ms.locfileid: "78898550"
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) le ayuda a crear [trabajos](../scheduler/scheduler-concepts-terms.md) que se ejecutan en la nube mediante la descripción declarativa de acciones. Posteriormente, el servicio programa y ejecuta esas acciones de forma automática. Por ejemplo, puede llamar a servicios dentro y fuera de Azure, como llamar a puntos de conexión HTTP o HTTPS, y también publicar mensajes en colas de Azure Storage y colas o temas de Azure Service Bus. Puede ejecutar trabajos de inmediato o en un momento posterior. Scheduler admite [programaciones complejas y periodicidad avanzada](../scheduler/scheduler-advanced-complexity.md) con facilidad. Scheduler especifica cuándo se debe ejecutar los trabajos, mantiene un historial con los resultados del trabajo que puede revisar y, a continuación, programa de forma predecible y confiable cargas de trabajo para que se ejecuten.
 
-Otras funcionalidades de Azure también usan Scheduler en segundo plano, por ejemplo, [Azure WebJobs](../app-service/webjobs-create.md), que es una característica de [Web Apps](https://azure.microsoft.com/services/app-service/web/) en Azure App Service. Puede administrar la comunicación para estas acciones mediante la [API REST de Scheduler](https://docs.microsoft.com/rest/api/scheduler/).
+Otras funcionalidades de Azure también usan Scheduler en segundo plano, por ejemplo, [Azure WebJobs](../app-service/webjobs-create.md), que es una característica de [Web Apps](https://azure.microsoft.com/services/app-service/web/) en Azure App Service. Puede administrar la comunicación para estas acciones mediante la [API REST de Scheduler](/rest/api/scheduler/).
 
 Estos son algunos escenarios en los que Scheduler puede ayudarle:
 
@@ -37,7 +37,7 @@ Estos son algunos escenarios en los que Scheduler puede ayudarle:
 
 Aunque puede usar Scheduler para crear, mantener y ejecutar cargas de trabajo programadas, Scheduler no hospeda las cargas de trabajo ni ejecuta código. El servicio solo *invoca* los servicios o el código hospedado en cualquier otro lugar, por ejemplo, en Azure, localmente o con otro proveedor. Scheduler puede realizar la invocación mediante HTTP, HTTPS, una cola de Storage, una cola de Service Bus o un tema de Service Bus.
 
-Para crear, programar, administrar, actualizar o eliminar trabajos y [colecciones de trabajos](../scheduler/scheduler-concepts-terms.md), puede usar código, la [API REST de Scheduler](https://docs.microsoft.com/rest/api/scheduler/) o los [cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md).
+Para crear, programar, administrar, actualizar o eliminar trabajos y [colecciones de trabajos](../scheduler/scheduler-concepts-terms.md), puede usar código, la [API REST de Scheduler](/rest/api/scheduler/) o los [cmdlets de PowerShell de Azure Scheduler](scheduler-powershell-reference.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

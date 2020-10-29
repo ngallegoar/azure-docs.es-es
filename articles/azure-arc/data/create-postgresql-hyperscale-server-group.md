@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108310"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364429"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Creación de un grupo de servidores Hiperescala de PostgreSQL habilitado para Azure Arc
 
@@ -45,7 +45,7 @@ azdata login
 
 Después, se le pedirá el nombre de usuario, la contraseña y el espacio de nombres del sistema.  
 
-> Si ha usado el script para crear el controlador de datos, el espacio de nombres debe ser **arc**.
+> Si ha usado el script para crear el controlador de datos, el espacio de nombres debe ser **arc** .
 
 ```console
 Namespace: arc
@@ -80,10 +80,10 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 
 > [!NOTE]
 > - **Hay otros parámetros de línea de comandos disponibles.  Para ver la lista completa de opciones, ejecute `azdata arc postgres server create --help`.**
-> - La clase de almacenamiento usada para las copias de seguridad ( _--storage-class-backups -scb_) toma como valor predeterminado la clase de almacenamiento de datos del controlador de datos si no se proporciona.
+> - La clase de almacenamiento usada para las copias de seguridad ( _--storage-class-backups -scb_ ) toma como valor predeterminado la clase de almacenamiento de datos del controlador de datos si no se proporciona.
 > - La unidad aceptada por los parámetros --volume-size-* es una cantidad de recursos Kubernetes (es suficiente con un entero seguido de uno de estos valores SI (T, G, M, K, m), o bien sus equivalentes elevados a la potencia de dos (Ti, Gi, Mi, Ki)).
 > - Los nombres deben tener una longitud de 12 caracteres o menos, y ajustarse a las convenciones de nomenclatura de DNS.
-> - Se le pedirá que escriba la contraseña del usuario administrativo estándar _postgres_.  Puede omitir el mensaje interactivo si establece la variable de entorno de sesión `AZDATA_PASSWORD` antes de ejecutar el comando create.
+> - Se le pedirá que escriba la contraseña del usuario administrativo estándar _postgres_ .  Puede omitir el mensaje interactivo si establece la variable de entorno de sesión `AZDATA_PASSWORD` antes de ejecutar el comando create.
 > - Si ha implementado el controlador de datos con las variables de entorno de sesión AZDATA_USERNAME y AZDATA_PASSWORD en la misma sesión de terminal, los valores de AZDATA_PASSWORD también se usarán para implementar el grupo de servidores Hiperescala de PostgreSQL. Si prefiere usar otra contraseña, (1) actualice el valor de AZDATA_PASSWORD o (2) elimine la variable de entorno AZDATA_PASSWORD o elimine su valor; se le pedirá que escriba una contraseña de forma interactiva al crear un grupo de servidores.
 > - El nombre del usuario administrador predeterminado para el motor de base de datos de Hiperescala de PostgreSQL es _postgresql_ y no se puede cambiar en este momento.
 > - La creación de un grupo de servidores Hiperescala de PostgreSQL no registrará los recursos en Azure de forma inmediata. Como parte del proceso de carga de [inventario de recursos](upload-metrics-and-logs-to-azure-monitor.md) o [datos de uso](view-billing-data-in-azure.md) a Azure, los recursos se crearán en Azure y podrá verlos en Azure Portal.
@@ -136,9 +136,9 @@ Si usa una máquina virtual de Azure para realizar pruebas, siga estas instrucci
 
 ## <a name="special-note-about-azure-virtual-machine-deployments"></a>Nota especial sobre las implementaciones de máquinas virtuales de Azure
 
-Cuando se usa una máquina virtual de Azure, la dirección IP del punto de conexión no mostrará la _IP pública_. Para localizar la IP pública, use el comando siguiente:
+Cuando se usa una máquina virtual de Azure, la dirección IP del punto de conexión no mostrará la _IP pública_ . Para localizar la IP pública, use el comando siguiente:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -148,7 +148,7 @@ Es posible que también tenga que exponer el puerto del grupo de servidores Hipe
 
 Para establecer una regla, tendrá que conocer el nombre de su NSG. Puede determinar el NSG con el comando siguiente:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -156,20 +156,20 @@ Una vez que tenga el nombre del NSG, puede agregar una regla de firewall mediant
 
 Reemplace el valor del parámetro --destination-port-ranges siguiente por el número de puerto que ha obtenido del comando "azdata arc postgres server list" anterior.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
 ## <a name="connect-with-azure-data-studio"></a>Conexión con Azure Data Studio
 
-Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anterior, y la contraseña que haya especificado al crear la instancia.  Si PostgreSQL no está disponible en la lista desplegable *Tipo de conexión*, puede instalar la extensión PostgreSQL si busca PostgreSQL en la pestaña Extensiones.
+Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anterior, y la contraseña que haya especificado al crear la instancia.  Si PostgreSQL no está disponible en la lista desplegable *Tipo de conexión* , puede instalar la extensión PostgreSQL si busca PostgreSQL en la pestaña Extensiones.
 
 > [!NOTE]
 > Tendrá que hacer clic en el botón [Avanzado] del panel de conexión para escribir el número de puerto.
 
 Recuerde que, si usa una máquina virtual de Azure, necesitará la _IP pública_ a la que se pueda acceder mediante el comando siguiente:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

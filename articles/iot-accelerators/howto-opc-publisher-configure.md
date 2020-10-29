@@ -9,12 +9,12 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b004bb4fbca768d782863f73d83ec5443bc66ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320616"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366962"
 ---
 # <a name="configure-opc-publisher"></a>Configuración de OPC Publisher
 
@@ -120,7 +120,7 @@ En esta sección se describen las llamadas a métodos que se pueden usar para co
 
 ### <a name="configure-using-opc-ua-method-calls"></a>Configuración mediante llamadas a métodos OPC UA
 
-OPC Publisher incluye un servidor OPC UA al que se puede acceder en el puerto 62222. Si el nombre de host es **publisher**, el punto de conexión URI es `opc.tcp://publisher:62222/UA/Publisher`.
+OPC Publisher incluye un servidor OPC UA al que se puede acceder en el puerto 62222. Si el nombre de host es **publisher** , el punto de conexión URI es `opc.tcp://publisher:62222/UA/Publisher`.
 
 Este punto de conexión expone los cuatro métodos siguientes:
 
@@ -144,13 +144,13 @@ OPC Publisher implementa las siguientes llamadas a métodos directos de IoT Hub:
 - ExitApplication
 - GetInfo
 
-El formato de la carga de JSON de la solicitud del método y las respuestas se definen en [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+El formato de la carga de JSON de la solicitud del método y las respuestas se definen en [opcpublisher/HubMethodModel.cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
 
 Si llama a un método desconocido en el módulo, responde con una cadena que indica que el método no se ha implementado. Puede llamar a un método desconocido para hacer ping en el módulo.
 
 ### <a name="configure-username-and-password-for-authentication"></a>Configuración de la autenticación con nombre de usuario y contraseña
 
-Se puede establecer el modo de autenticación mediante llamadas a métodos directos de IoT Hub. La carga debe contener la propiedad **OpcAuthenticationMode**, y el nombre de usuario y la contraseña:
+Se puede establecer el modo de autenticación mediante llamadas a métodos directos de IoT Hub. La carga debe contener la propiedad **OpcAuthenticationMode** , y el nombre de usuario y la contraseña:
 
 ```csharp
 {

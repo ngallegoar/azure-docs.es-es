@@ -4,12 +4,12 @@ description: En este artículo se analizan las preguntas generales más frecuent
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3da86eead5b927a2a71d7b1a28bc5966bf5f8840
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950500"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369444"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Preguntas generales acerca de Azure Site Recovery
 
@@ -71,7 +71,7 @@ Consulte los detalles de los [precios de Site Recovery](https://azure.microsoft.
 
 Puede usar la [calculadora de precios](https://aka.ms/asr_pricing_calculator) para estimar los costos al usar Site Recovery.
 
-Para obtener una estimación detallada de los costos, ejecute la herramienta Deployment Planner para [VMware](https://aka.ms/siterecovery_deployment_planner) o [Hyper-V](https://aka.ms/asr-deployment-planner) y use el [informe de estimación de costos](https://aka.ms/asr_DP_costreport).
+Para obtener una estimación detallada de los costos, ejecute la herramienta Deployment Planner para [VMware](./site-recovery-deployment-planner.md) o [Hyper-V](https://aka.ms/asr-deployment-planner) y use el [informe de estimación de costos](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 
 ### <a name="managed-disks-are-now-used-to-replicate-vmware-vms-and-physical-servers-do-i-incur-additional-charges-for-the-cache-storage-account-with-managed-disks"></a>Ahora se usan discos administrados para replicar máquinas virtuales y servidores físicos de VMware. ¿Se producen cargos adicionales para la cuenta de almacenamiento de caché con discos administrados?
@@ -117,7 +117,7 @@ Los agentes de Mobility instalados en los elementos replicados se comunican con 
 Todas las comunicaciones entre los microservicios de Azure Site Recovery se producen en el protocolo TLS 1.2. Site Recovery usa proveedores de seguridad configurados en el sistema (SO) y utiliza el protocolo TLS más reciente disponible. Habrá que habilitar explícitamente TLS 1.2 en el Registro y entonces Site Recovery comenzará a utilizar TLS 1.2 para la comunicación con los servicios. 
 
 ### <a name="how-can-i-enforce-restricted-access-on-my-storage-accounts-which-are-accessed-by-site-recovery-service-for-readingwriting-replication-data"></a>¿Cómo se puede aplicar el acceso restringido a las cuentas de almacenamiento, a las que se accede con Site Recovery para leer o escribir datos de replicación?
-Puede cambiar a la identidad administrada del almacén de Recovery Services desde la opción *Identidad*. Una vez que el almacén se registra en Azure Active Directory, puede ir a las cuentas de almacenamiento y proporcionar las siguientes asignaciones de roles al almacén:
+Puede cambiar a la identidad administrada del almacén de Recovery Services desde la opción *Identidad* . Una vez que el almacén se registra en Azure Active Directory, puede ir a las cuentas de almacenamiento y proporcionar las siguientes asignaciones de roles al almacén:
 
 - Cuentas de almacenamiento basadas en Resource Manager (tipo Estándar):
   - [Colaborador](../role-based-access-control/built-in-roles.md#contributor)
@@ -132,10 +132,10 @@ Puede cambiar a la identidad administrada del almacén de Recovery Services desd
 ## <a name="disaster-recovery"></a>Recuperación ante desastres
 
 ### <a name="what-can-site-recovery-protect"></a>¿Qué se puede proteger con Site Recovery?
-* **Máquinas virtuales de Azure**: Site Recovery puede replicar cualquier carga de trabajo que se ejecute en una máquina virtual de Azure compatible.
-* **Máquinas virtuales de Hyper-V**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de Hyper-V.
-* **Servidores físicos**: Site Recovery puede proteger servidores físicos con Windows o Linux.
-* **Máquinas virtuales de VMware**: Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de VMware.
+* **Máquinas virtuales de Azure** : Site Recovery puede replicar cualquier carga de trabajo que se ejecute en una máquina virtual de Azure compatible.
+* **Máquinas virtuales de Hyper-V** : Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de Hyper-V.
+* **Servidores físicos** : Site Recovery puede proteger servidores físicos con Windows o Linux.
+* **Máquinas virtuales de VMware** : Site Recovery puede proteger cualquier carga de trabajo que se ejecute en una máquina virtual de VMware.
 
 ### <a name="what-workloads-can-i-protect-with-site-recovery"></a>¿Qué cargas de trabajo se pueden proteger con Site Recovery?
 Puede usar Site Recovery para proteger la mayoría de las cargas de trabajo que se ejecutan en una máquina virtual o un servidor físico. Site Recovery proporciona compatibilidad para la replicación con reconocimiento de aplicaciones para que estas se puedan recuperar a un estado inteligente. Se integra con aplicaciones de Microsoft como SharePoint, Exchange, Dynamics, SQL Server y Active Directory; además, colabora estrechamente con los principales proveedores, como Oracle, SAP, IBM y Red Hat. [Obtenga más información](site-recovery-workload.md) acerca de la protección de la carga de trabajo.
@@ -304,7 +304,7 @@ No, Site Recovery mantendrá todos los puntos de recuperación anteriores. En fu
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Después de habilitar la replicación en una máquina virtual, ¿cómo puedo cambiar la directiva de replicación?
 
-Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación**. Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
+Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)**  > **Directivas de replicación** . Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>¿Todos los puntos de recuperación son una copia completa de la máquina virtual o diferencial?
 

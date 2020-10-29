@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
-ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069686"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367981"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Grupos de seguridad de red con Azure Site Recovery
 
-Los grupos de seguridad de red sirven para limitar el tráfico a los recursos en una red virtual. Los [grupos de seguridad de red (NSG)](../virtual-network/security-overview.md#network-security-groups) contienen una lista de reglas de seguridad que permiten o deniegan el tráfico entrante o saliente en función de las direcciones IP de origen o destino, el puerto y el protocolo.
+Los grupos de seguridad de red sirven para limitar el tráfico a los recursos en una red virtual. Los [grupos de seguridad de red (NSG)](../virtual-network/network-security-groups-overview.md#network-security-groups) contienen una lista de reglas de seguridad que permiten o deniegan el tráfico entrante o saliente en función de las direcciones IP de origen o destino, el puerto y el protocolo.
 
 En el modelo de implementación del Administrador de recursos, los NSG se pueden asociar a subredes o a interfaces de red individuales. Cuando un grupo de seguridad de red está asociado a una subred, las reglas se aplican a todos los recursos conectados a la subred. El tráfico se puede restringir aún más mediante la asociación adicional de un grupo de seguridad de red a interfaces de red individuales dentro de una subred que ya tienen otro asociado.
 
@@ -27,9 +27,9 @@ En este artículo se describe el uso de los grupos de seguridad de red con Azure
 Una subred individual puede o no tener un grupo de seguridad de red asociado. Una interfaz de red individual también puede o no tener un grupo de seguridad de red asociado. Por lo tanto, puede restringir eficazmente el tráfico dual para una máquina virtual mediante la asociación de un NSG, primero a una subred y, a continuación, otro NSG a la interfaz de red de la VM. En este caso, la aplicación de reglas de grupo de seguridad de red depende de la dirección del tráfico y la prioridad de las reglas de seguridad aplicadas.
 
 Consideremos un ejemplo sencillo con una máquina virtual como se indica a continuación:
--    La máquina virtual se encuentra en la **subred Contoso**.
--    La **subred Contoso** está asociada al **grupo de seguridad de red de la subred**.
--    La interfaz de red de la máquina virtual también está asociada a un **grupo de seguridad de red de máquina virtual**.
+-    La máquina virtual se encuentra en la **subred Contoso** .
+-    La **subred Contoso** está asociada al **grupo de seguridad de red de la subred** .
+-    La interfaz de red de la máquina virtual también está asociada a un **grupo de seguridad de red de máquina virtual** .
 
 ![Grupo de seguridad de red con Site Recovery](./media/concepts-network-security-group-with-site-recovery/site-recovery-with-network-security-group.png)
 
@@ -37,7 +37,7 @@ En este ejemplo, para el tráfico entrante, primero se evalúa el grupo de segur
 
 Esto permite la aplicación de la regla de seguridad específica. Por ejemplo, puede que desee permitir el acceso entrante a Internet para algunas máquinas virtuales de aplicación (por ejemplo, las de front-end) en una subred, pero restringir el acceso a Internet para otras máquinas virtuales (por ejemplo, las de base de datos o de back-end). En este caso puede tener una regla más flexible en el grupo de seguridad de red de la subred que permita el tráfico de Internet y restringir el acceso para máquinas virtuales específicas al denegar el acceso en el grupo de seguridad de red de la máquina virtual. Lo mismo se aplica al tráfico saliente.
 
-Al configurar estas configuraciones de grupo de seguridad de red, asegúrese de que las prioridades correctas se aplican a las [reglas de seguridad](../virtual-network/security-overview.md#security-rules). Las reglas se procesan en orden de prioridad. Se procesan primero las reglas con los números más bajos ya que estos tienen más prioridad. Si el tráfico coincide con una regla, se detiene el procesamiento. Como resultado, las reglas con menor prioridad (números más altos) que tengan los mismos atributos que las reglas con una prioridad mayor no se procesarán.
+Al configurar estas configuraciones de grupo de seguridad de red, asegúrese de que las prioridades correctas se aplican a las [reglas de seguridad](../virtual-network/network-security-groups-overview.md#security-rules). Las reglas se procesan en orden de prioridad. Se procesan primero las reglas con los números más bajos ya que estos tienen más prioridad. Si el tráfico coincide con una regla, se detiene el procesamiento. Como resultado, las reglas con menor prioridad (números más altos) que tengan los mismos atributos que las reglas con una prioridad mayor no se procesarán.
 
 Puede que no siempre sepa cuándo se aplican los grupos de seguridad de red a una interfaz de red y a una subred. Puede verificar las reglas agregadas que se aplican a una interfaz de red mediante la visualización de las [reglas de seguridad vigentes](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) de una interfaz de red. También puede usar la funcionalidad [Comprobación del flujo de IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) de [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) para determinar si se permite la comunicación hacia una interfaz de red o desde esta. La herramienta le indica si se permite la comunicación y qué regla de seguridad de red permite o deniega el tráfico.
 
@@ -50,7 +50,7 @@ Una vez que se han creado las máquinas virtuales después de la conmutación po
 Por ejemplo, si la configuración de la máquina virtual tras la conmutación por error es similar al [escenario de ejemplo](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) descrito anteriormente:
 -    Puede crear la **red virtual Contoso** y la **subred Contoso** como parte del planeamiento de la recuperación ante desastres en la región de Azure de destino.
 -    También puede crear y configurar el **grupo de seguridad de red de la subred** y el **grupo de seguridad de red de la máquina virtual** como parte del mismo planeamiento.
--    Después, el **grupo de seguridad de red de la subred** se puede asociar inmediatamente a la **subred Contoso**, ya que están disponibles tanto el grupo de seguridad de red como la subred.
+-    Después, el **grupo de seguridad de red de la subred** se puede asociar inmediatamente a la **subred Contoso** , ya que están disponibles tanto el grupo de seguridad de red como la subred.
 -    El **grupo de seguridad de red de la máquina virtual** se puede asociar con máquinas virtuales durante la conmutación por error mediante planes de recuperación.
 
 Una vez creados y configurados los grupos de seguridad de red, se recomienda ejecutar una [conmutación por error de prueba](site-recovery-test-failover-to-azure.md) para verificar las asociaciones del grupo de seguridad de red generado por script y la conectividad de la máquina virtual tras la conmutación por error.
@@ -65,14 +65,14 @@ Site Recovery no crea ni replica grupos de seguridad de red como parte de la ope
 
 Teniendo en cuenta el [escenario de ejemplo](concepts-network-security-group-with-site-recovery.md#using-network-security-groups) descrito anteriormente:
 -    Site Recovery puede crear réplicas de la **red virtual Contoso** y la **subred Contoso** en la región de Azure de destino cuando la replicación está habilitada para la máquina virtual.
--    Puede crear las réplicas deseadas del **grupo de seguridad de red de la subred** y del **grupo de seguridad de red de la máquina virtual** (denominados, por ejemplo, **grupo de seguridad de red de la subred de destino** y **grupo de seguridad de red de la máquina virtual de destino**, respectivamente) en la región de Azure de destino, lo cual permite cualquier regla adicional necesaria en la región de destino.
+-    Puede crear las réplicas deseadas del **grupo de seguridad de red de la subred** y del **grupo de seguridad de red de la máquina virtual** (denominados, por ejemplo, **grupo de seguridad de red de la subred de destino** y **grupo de seguridad de red de la máquina virtual de destino** , respectivamente) en la región de Azure de destino, lo cual permite cualquier regla adicional necesaria en la región de destino.
 -    Después, el **grupo de seguridad de red de la subred de destino** se puede asociar inmediatamente a la subred de la región de destino, ya que están disponibles tanto el grupo de seguridad de red como la subred.
 -    El **grupo de seguridad de red de la máquina virtual de destino** se puede asociar con máquinas virtuales durante la conmutación por error mediante planes de recuperación.
 
 Una vez creados y configurados los grupos de seguridad de red, se recomienda ejecutar una [conmutación por error de prueba](azure-to-azure-tutorial-dr-drill.md) para verificar las asociaciones del grupo de seguridad de red generado por script y la conectividad de la máquina virtual tras la conmutación por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
--    Más información sobre los [grupos de seguridad de red](../virtual-network/security-overview.md#network-security-groups).
--    Más información acerca de las [reglas de seguridad](../virtual-network/security-overview.md#security-rules) de los grupos de seguridad de red.
+-    Más información sobre los [grupos de seguridad de red](../virtual-network/network-security-groups-overview.md#network-security-groups).
+-    Más información acerca de las [reglas de seguridad](../virtual-network/network-security-groups-overview.md#security-rules) de los grupos de seguridad de red.
 -    Más información sobre las [reglas de seguridad eficaces](../virtual-network/diagnose-network-traffic-filter-problem.md) para los grupos de seguridad de red.
 -    Más información sobre los [planes de recuperación](site-recovery-create-recovery-plans.md) para automatizar la conmutación por error de las aplicaciones.

@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662523"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369801"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Cómo proporciona Azure AD administración regulada por la nube para cargas de trabajo locales
 
@@ -39,7 +39,7 @@ En este documento se describe la estrategia de Microsoft para IDaaS híbridas y 
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>El enfoque de Azure AD a la administración de identidades regulada por la nube
 
-A medida que las organizaciones realizan la transición a la nube, necesitan garantías de que disponen de control de todo el entorno: más seguridad y visibilidad de las actividades, respaldada por la automatización, e información proactiva. En "**Administración regulada por la nube**" se describe cómo las organizaciones administran y controlan sus usuarios, aplicaciones, grupos y dispositivos desde la nube.
+A medida que las organizaciones realizan la transición a la nube, necesitan garantías de que disponen de control de todo el entorno: más seguridad y visibilidad de las actividades, respaldada por la automatización, e información proactiva. En " **Administración regulada por la nube** " se describe cómo las organizaciones administran y controlan sus usuarios, aplicaciones, grupos y dispositivos desde la nube.
 
 En este mundo moderno, las organizaciones necesitan poder administrar de forma eficaz a escala, debido a la proliferación de las aplicaciones SaaS y el papel creciente de las identidades de colaboración y externas. El nuevo panorama de riesgo de la nube significa que una organización debe tener más capacidad de respuesta: un actor malintencionado que ponga en peligro a un usuario en la nube podría afectar a las aplicaciones en la nube y locales.
 
@@ -107,11 +107,11 @@ Las organizaciones necesitan un proceso de administración del acceso que sea es
 
 Normalmente, el departamento de TI delega las decisiones sobre la aprobación de los accesos en los responsables de la toma de decisiones de la empresa. Por otro lado, el departamento de TI puede involucrar él mismo a los usuarios. Por ejemplo, los usuarios que tienen acceso a los datos confidenciales de los clientes en una aplicación de marketing de una compañía en Europa tienen que conocer las directivas de la compañía. También es posible que los usuarios invitados desconozcan los requisitos de control de los datos de una organización a la que han sido invitados.
 
-Las organizaciones pueden automatizar el proceso del ciclo de vida de los accesos a través de tecnologías como los [grupos dinámicos](../users-groups-roles/groups-dynamic-membership.md), junto con el aprovisionamiento de usuarios en [aplicaciones SaaS](../saas-apps/tutorial-list.md) o [aplicaciones integradas con el estándar System for Cross-Domain Identity Management (SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md)). Las organizaciones también pueden controlar qué [usuarios invitados tienen acceso a las aplicaciones locales](../external-identities/hybrid-cloud-to-on-premises.md). Estos derechos de acceso se pueden revisar periódicamente utilizando [revisiones de acceso de Azure AD](../governance/access-reviews-overview.md) recurrentes.
+Las organizaciones pueden automatizar el proceso del ciclo de vida de los accesos a través de tecnologías como los [grupos dinámicos](../enterprise-users/groups-dynamic-membership.md), junto con el aprovisionamiento de usuarios en [aplicaciones SaaS](../saas-apps/tutorial-list.md) o [aplicaciones integradas con el estándar System for Cross-Domain Identity Management (SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md)). Las organizaciones también pueden controlar qué [usuarios invitados tienen acceso a las aplicaciones locales](../external-identities/hybrid-cloud-to-on-premises.md). Estos derechos de acceso se pueden revisar periódicamente utilizando [revisiones de acceso de Azure AD](../governance/access-reviews-overview.md) recurrentes.
 
 ## <a name="future-directions"></a>Direcciones en el futuro
 
-En los entornos híbridos, la estrategia de Microsoft consiste en habilitar implementaciones donde la **nube es el plano de control de las identidades**, y los directorios locales y otros sistemas de identidad, como Active Directory y otras aplicaciones locales, son el destino para el aprovisionamiento de acceso a los usuarios. Esta estrategia seguirá garantizando los derechos, las identidades y el acceso en esas aplicaciones y en las cargas de trabajo que dependen de ellas. En este estado final, las organizaciones podrán impulsar la productividad del usuario final completamente desde la nube.
+En los entornos híbridos, la estrategia de Microsoft consiste en habilitar implementaciones donde la **nube es el plano de control de las identidades** , y los directorios locales y otros sistemas de identidad, como Active Directory y otras aplicaciones locales, son el destino para el aprovisionamiento de acceso a los usuarios. Esta estrategia seguirá garantizando los derechos, las identidades y el acceso en esas aplicaciones y en las cargas de trabajo que dependen de ellas. En este estado final, las organizaciones podrán impulsar la productividad del usuario final completamente desde la nube.
 
 ![Arquitectura de Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 

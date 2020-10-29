@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/06/2020
 ms.author: cynthn
 ms.reviewer: olayemio
-ms.openlocfilehash: bf4a1feb91a1ac4b0bca0d6afdbac41a8be3aa4f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 35edcfb4bdb0715245f4a3190fb22638b1162429
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92049529"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370991"
 ---
 # <a name="create-a-managed-disk-from-an-image-version"></a>Creación de un disco administrado a partir de la versión de una imagen
 
@@ -23,10 +23,10 @@ Si es necesario, puede crear un disco administrado a partir de la versión de un
 
 ## <a name="cli"></a>CLI
 
-Establezca la variable `source` como identificador de la versión de la imagen y, luego, use [az disk create](/cli/azure/disk.md#az_disk_create) para crear el disco administrado. 
+Establezca la variable `source` como identificador de la versión de la imagen y, luego, use [az disk create](/cli/azure/disk#az_disk_create) para crear el disco administrado. 
 
 
-Puede ver una lista de las versiones de una imagen mediante [az sig image-version list](/cli/azure/sig/image-version.md#az_sig_image_version_list). En este ejemplo, vamos a buscar todas las versiones de una imagen que forman parte de la definición de la imagen *myImageDefinition* en la galería de imágenes *myGallery*.
+Puede ver una lista de las versiones de una imagen mediante [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). En este ejemplo, vamos a buscar todas las versiones de una imagen que forman parte de la definición de la imagen *myImageDefinition* en la galería de imágenes *myGallery* .
 
 ```azurecli-interactive
 az sig image-version list \
@@ -37,7 +37,7 @@ az sig image-version list \
 ```
 
 
-En este ejemplo, se crea un disco administrado denominado *myManagedDisk* en la región *EastUS*, en un grupo de recursos denominado *myResourceGroup*. 
+En este ejemplo, se crea un disco administrado denominado *myManagedDisk* en la región *EastUS* , en un grupo de recursos denominado *myResourceGroup* . 
 
 ```azurecli-interactive
 source="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<galleryName>/images/<galleryImageDefinition>/versions/<imageVersion>"
