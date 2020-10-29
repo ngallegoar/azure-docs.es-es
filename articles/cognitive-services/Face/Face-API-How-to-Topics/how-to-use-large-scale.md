@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b35b66615bd5c577dd73faca77d3ea20468442f8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332396"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913524"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Ejemplo: Usar la característica a gran escala
 
@@ -232,7 +232,7 @@ Flujo de trabajo de ejemplo:
 
 Si es aceptable una latencia relativamente larga, no es necesario desencadenar la operación Train justo después de agregar datos nuevos. En su lugar, la operación de entrenamiento se puede separar de la lógica principal y desencadenar periódicamente. Esta estrategia es adecuada para escenarios dinámicos con una latencia aceptable. Se puede aplicar a escenarios estáticos para reducir aún más la frecuencia de la operación Train.
 
-Supongamos que hay una función `TrainLargePersonGroup` similar a `TrainLargeFaceList`. Una implementación típica del entrenamiento independiente en LargePersonGroup mediante la invocación de la clase [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) en `System.Timers` es:
+Supongamos que hay una función `TrainLargePersonGroup` similar a `TrainLargeFaceList`. Una implementación típica del entrenamiento independiente en LargePersonGroup mediante la invocación de la clase [`Timer`](/dotnet/api/system.timers.timer) en `System.Timers` es:
 
 ```csharp
 private static void Main()
