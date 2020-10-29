@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282857"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477341"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Uso de Azure Table Storage y Table API de Azure Cosmos DB con C++
 
@@ -78,7 +78,7 @@ En este ejemplo se muestra cómo declarar un campo estático para mantener la ca
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Use el nombre de la cuenta de Storage en `<your_storage_account>`. En <your_storage_account_key>, use la clave de acceso de la cuenta de Storage que se muestra en [Azure Portal](https://portal.azure.com). Para obtener información sobre las cuentas de Storage y las claves de acceso, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md).
+Use el nombre de la cuenta de Storage en `<your_storage_account>`. En <your_storage_account_key>, use la clave de acceso de la cuenta de Storage que se muestra en [Azure Portal](https://portal.azure.com). Para obtener información sobre las cuentas de Storage y las claves de acceso, consulte [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Configuración de una cadena de conexión de Azure Cosmos DB
 
@@ -98,7 +98,7 @@ Para probar la aplicación en el equipo local de Windows, puede usar Emulador de
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Para iniciar Emulador de Azure Storage, en el escritorio de Windows, seleccione el botón **Iniciar** o la tecla Windows. Escriba y ejecute *Emulador de Microsoft Azure Storage*. Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../storage/common/storage-use-emulator.md).
+Para iniciar Emulador de Azure Storage, en el escritorio de Windows, seleccione el botón **Iniciar** o la tecla Windows. Escriba y ejecute *Emulador de Microsoft Azure Storage* . Para más información, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Recuperación de la cadena de conexión
 
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Adición de una entidad a una tabla
 
-Para agregar una entidad a una tabla, cree un nuevo objeto `table_entity` y páselo a `table_operation::insert_entity`. El código siguiente usa el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Puede realizarse una consulta en las entidades con la misma clave de partición de manera más rápida que en aquellas que tienen claves de partición distintas. El uso de claves de partición diversas favorece una mayor escalabilidad de las operaciones paralelas. Para obtener más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage/common/storage-performance-checklist.md).
+Para agregar una entidad a una tabla, cree un nuevo objeto `table_entity` y páselo a `table_operation::insert_entity`. El código siguiente usa el nombre de pila del cliente como clave de fila y el apellido como clave de partición. En conjunto, la clave de partición y la clave de fila de una entidad la identifican inequívocamente en la tabla. Puede realizarse una consulta en las entidades con la misma clave de partición de manera más rápida que en aquellas que tienen claves de partición distintas. El uso de claves de partición diversas favorece una mayor escalabilidad de las operaciones paralelas. Para obtener más información, consulte [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](../storage/blobs/storage-performance-checklist.md).
 
 El código siguiente crea una nueva instancia de `table_entity` con algunos datos de clientes que se van a almacenar. El código siguiente llama a `table_operation::insert_entity` para crear un objeto `table_operation` a fin de insertar una entidad en una tabla y le asocia la nueva entidad de tabla. Por último, el código llama al método `execute` en el objeto `cloud_table`. El nuevo objeto `table_operation` envía una solicitud a Table service para insertar la nueva entidad de cliente en la tabla `people`.  
 
@@ -499,11 +499,11 @@ else
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-En Visual Studio Community Edition, si en el proyecto se generan errores de compilación debido a los archivos de inclusión *storage_account.h* y *table.h*, quite el conmutador de compilador **/permissive-** :
+En Visual Studio Community Edition, si en el proyecto se generan errores de compilación debido a los archivos de inclusión *storage_account.h* y *table.h* , quite el conmutador de compilador **/permissive-** :
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Propiedades**.
-1. En el cuadro de diálogo **Páginas de propiedades**, expanda **Propiedades de configuración**, expanda **C/C++** y seleccione **Lenguaje**.
-1. Establezca **Modo de conformidad** en **No**.
+1. En el **Explorador de soluciones** , haga clic con el botón derecho en el proyecto y seleccione **Propiedades** .
+1. En el cuadro de diálogo **Páginas de propiedades** , expanda **Propiedades de configuración** , expanda **C/C++** y seleccione **Lenguaje** .
+1. Establezca **Modo de conformidad** en **No** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

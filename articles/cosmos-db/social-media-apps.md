@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850702"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478157"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Redes sociales y Azure Cosmos DB
 
-Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social**. Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y familiares y, a veces, para compartir intereses comunes con otras personas.
+Vivir en una sociedad enormemente interconectada significa que, en algún momento de la vida, uno formará parte de una **red social** . Las redes sociales se usan para mantenerse en contacto con amigos, compañeros de trabajo y familiares y, a veces, para compartir intereses comunes con otras personas.
 
 Como ingeniero o desarrollador, puede que se haya preguntado cómo es que estas redes almacenan e interconectan sus datos. O bien es posible que incluso le hayan encargado crear o diseñar una nueva red social para un segmento de mercado específico. Es ahí cuando surge la pregunta importante: ¿Cómo se almacenan todos estos datos?
 
@@ -216,9 +216,9 @@ Gracias al empleo de Azure Cosmos DB, se puede implementar fácilmente un motor 
 
 ¿Por qué es tan fácil este proceso?
 
-Azure Cognitive Search implementa lo que llaman "[indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx)"; es decir, procesos en segundo plano que se enlazan en los repositorios de datos y automáticamente agregan, actualizan o quitan objetos en los índices. Son compatibles con [indexadores de Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [indexadores de Blobs de Azure](../search/search-howto-indexing-azure-blob-storage.md) y, afortunadamente, [indexadores de Cosmos DB](../search/search-howto-index-documentdb.md). La transición de la información de Cosmos DB a Azure Cognitive Search es sencilla. Ambas tecnologías almacenan información en formato JSON, por lo que basta con [crear el índice](../search/search-create-index-portal.md) y asignar los atributos de los documentos que quiere indizar. ¡Ya está! Según el tamaño de los datos, todo el contenido estará disponible para realizar búsquedas en cuestión de minutos con la ayuda de la mejor solución de búsquedas como servicio en la infraestructura en la nube.
+Azure Cognitive Search implementa lo que llaman "[indexadores](/rest/api/searchservice/Indexer-operations)"; es decir, procesos en segundo plano que se enlazan en los repositorios de datos y automáticamente agregan, actualizan o quitan objetos en los índices. Son compatibles con [indexadores de Azure SQL Database](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [indexadores de Blobs de Azure](../search/search-howto-indexing-azure-blob-storage.md) y, afortunadamente, [indexadores de Cosmos DB](../search/search-howto-index-cosmosdb.md). La transición de la información de Cosmos DB a Azure Cognitive Search es sencilla. Ambas tecnologías almacenan información en formato JSON, por lo que basta con [crear el índice](../search/search-what-is-an-index.md) y asignar los atributos de los documentos que quiere indizar. ¡Ya está! Según el tamaño de los datos, todo el contenido estará disponible para realizar búsquedas en cuestión de minutos con la ayuda de la mejor solución de búsquedas como servicio en la infraestructura en la nube.
 
-Para obtener más información sobre Azure Cognitive Search, puede consultar la [Guía de búsqueda de Hitchhiker](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Para obtener más información sobre Azure Cognitive Search, puede consultar la [Guía de búsqueda de Hitchhiker](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## <a name="the-underlying-knowledge"></a>La información subyacente
 
@@ -238,7 +238,7 @@ Otra opción disponible es usar [Azure Cognitive Services](https://www.microsoft
 
 ## <a name="a-planet-scale-social-experience"></a>Una experiencia social a escala mundial
 
-Hay un último, pero no por ello menos importante, artículo que abordaremos: la **escalabilidad**. Al diseñar una arquitectura, cada componente debe escalarse por sí mismo. En algún momento tendrá que procesar más datos o querrá ampliar su cobertura geográfica. Afortunadamente, llevar a cabo ambas tareas es una **experiencia inmediata** con Cosmos DB.
+Hay un último, pero no por ello menos importante, artículo que abordaremos: la **escalabilidad** . Al diseñar una arquitectura, cada componente debe escalarse por sí mismo. En algún momento tendrá que procesar más datos o querrá ampliar su cobertura geográfica. Afortunadamente, llevar a cabo ambas tareas es una **experiencia inmediata** con Cosmos DB.
 
 Cosmos DB admite particiones dinámicas de fábrica. Automáticamente crea particiones basadas en una **clave de partición** específica, que se define como atributo en sus documentos. Debe definir la clave de partición correcta durante el tiempo de diseño. Para más información, consulte [Creación de particiones en Azure Cosmos DB](partitioning-overview.md).
 
@@ -252,7 +252,7 @@ Con el tiempo, el tráfico crecerá y su consumo de recursos (que se mide en [RU
 
 ¿Qué ocurre si las cosas siguen mejorando? Supongamos que los usuarios de otro continente, país o región descubren su plataforma y empiecen a usarla. ¡Qué fantástica sorpresa!
 
-Pero espere un momento. Pronto se dará cuenta de que su experiencia con la plataforma no es óptima. Están tan lejos de su región operativa que la latencia es enorme. Obviamente, no quiere que abandonen su red social. ¡Si tan solo hubiese una forma sencilla de **extender su alcance global**! Y la hay.
+Pero espere un momento. Pronto se dará cuenta de que su experiencia con la plataforma no es óptima. Están tan lejos de su región operativa que la latencia es enorme. Obviamente, no quiere que abandonen su red social. ¡Si tan solo hubiese una forma sencilla de **extender su alcance global** ! Y la hay.
 
 Cosmos DB le permite [replicar los datos global](../cosmos-db/tutorial-global-distribution-sql-api.md) y transparentemente con un par de clics y seleccionar de forma automática entre las regiones disponibles del [código de cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Este proceso también significa que tiene [varias regiones de conmutación por error](high-availability.md).
 

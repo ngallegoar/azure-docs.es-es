@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: fc3ca5fdde464ba63671512a6ebecd2c314cb192
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7e5443869efd7f37153b47e4d9c3eaa39f9c41d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570843"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475284"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar datos de Azure Cosmos DB mediante el conector de Power BI
 
@@ -32,7 +32,7 @@ Antes de seguir las instrucciones de este tutorial de Power BI, asegúrese de qu
 
 * Descargue los [datos de volcanes de ejemplo](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) de GitHub.
 
-* [Cree una cuenta de base de datos de Azure Cosmos](https://azure.microsoft.com/documentation/articles/create-account/) e importe los datos de volcanes mediante la [herramienta de migración de datos de Azure Cosmos DB](import-data.md). Al importar datos, tenga en cuenta las opciones siguientes para el origen y los destinos en la herramienta de migración de datos:
+* [Cree una cuenta de base de datos de Azure Cosmos](create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account) e importe los datos de volcanes mediante la [herramienta de migración de datos de Azure Cosmos DB](import-data.md). Al importar datos, tenga en cuenta las opciones siguientes para el origen y los destinos en la herramienta de migración de datos:
 
    * **Parámetros de origen** 
 
@@ -74,31 +74,31 @@ Recuperará los datos de los volcanes de la cuenta de Azure Cosmos DB y visualiz
 
 1. Ejecute Power BI Desktop.
 
-2. También puede **obtener datos**, consultar **orígenes recientes** o **abrir otros informes** directamente desde la pantalla de bienvenida. Haga clic en la X de la esquina superior derecha para cerrar la pantalla. Se muestra la vista **Informe** de Power BI Desktop.
+2. También puede **obtener datos** , consultar **orígenes recientes** o **abrir otros informes** directamente desde la pantalla de bienvenida. Haga clic en la X de la esquina superior derecha para cerrar la pantalla. Se muestra la vista **Informe** de Power BI Desktop.
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
-3. Seleccione la cinta de opciones **Inicio** y haga clic en **Obtener datos**.  Se muestra la pantalla **Obtener datos** .
+3. Seleccione la cinta de opciones **Inicio** y haga clic en **Obtener datos** .  Se muestra la pantalla **Obtener datos** .
 
-4. Haga clic en **Azure**, seleccione **Azure Cosmos DB (beta)** y, a continuación, haga clic en **Conectar**. 
+4. Haga clic en **Azure** , seleccione **Azure Cosmos DB (beta)** y, a continuación, haga clic en **Conectar** . 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
-5. En la página **Vista previa del conector**, haga clic en **Continuar**. Aparece la ventana de **Azure Cosmos DB**.
+5. En la página **Vista previa del conector** , haga clic en **Continuar** . Aparece la ventana de **Azure Cosmos DB** .
 
-6. Especifique la dirección URL del punto de conexión de la cuenta de Azure Cosmos DB de la que desea recuperar los datos, tal como se muestra a continuación, y haga clic en **Aceptar**. Para usar su propia cuenta, puede recuperar la dirección URL del cuadro te texto Identificador URI de la hoja **Claves** de Azure Portal. Si lo prefiere, puede indicar el nombre de la base de datos, el nombre de la colección o usar el navegador para seleccionar la base de datos y la colección para identificar la procedencia de los datos.
+6. Especifique la dirección URL del punto de conexión de la cuenta de Azure Cosmos DB de la que desea recuperar los datos, tal como se muestra a continuación, y haga clic en **Aceptar** . Para usar su propia cuenta, puede recuperar la dirección URL del cuadro te texto Identificador URI de la hoja **Claves** de Azure Portal. Si lo prefiere, puede indicar el nombre de la base de datos, el nombre de la colección o usar el navegador para seleccionar la base de datos y la colección para identificar la procedencia de los datos.
    
-7. Si se conecta a este punto de conexión por primera vez, se le pedirá la clave de cuenta. Para usar su propia cuenta, recupere la clave del cuadro **Clave principal** de la hoja **Claves de solo lectura** de Azure Portal. Escriba la clave adecuada y, a continuación, haga clic en **Conectar**.
+7. Si se conecta a este punto de conexión por primera vez, se le pedirá la clave de cuenta. Para usar su propia cuenta, recupere la clave del cuadro **Clave principal** de la hoja **Claves de solo lectura** de Azure Portal. Escriba la clave adecuada y, a continuación, haga clic en **Conectar** .
    
    Se recomienda usar la clave de solo lectura al generar informes. De esta forma se evita una exposición innecesaria de la clave principal a posibles riesgos de seguridad. La clave de solo lectura está disponible desde la hoja **Claves** de Azure Portal. 
     
-8. Con la cuenta conectada correctamente, aparece el panel **Navegador**. El panel **Navegador** muestra la lista de bases de datos que hay en la cuenta.
+8. Con la cuenta conectada correctamente, aparece el panel **Navegador** . El panel **Navegador** muestra la lista de bases de datos que hay en la cuenta.
 
 9. Haga clic y expanda la base de datos de donde proceden los datos del informe; seleccione **volcanodb** (el nombre de la base de datos puede ser diferente).   
 
 10. Seleccione una colección que contenga los datos que se van a recuperar, seleccione **volcano1** (el nombre de la colección puede ser diferente).
     
-    El panel de vista previa muestra una lista de elementos **Registro** .  Un documento se representa como un tipo **Registro** en Power BI. De forma similar, un bloque JSON anidado dentro de un documento también es un **Registro**.
+    El panel de vista previa muestra una lista de elementos **Registro** .  Un documento se representa como un tipo **Registro** en Power BI. De forma similar, un bloque JSON anidado dentro de un documento también es un **Registro** .
     
     :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
@@ -109,7 +109,7 @@ Recuperará los datos de los volcanes de la cuenta de Azure Cosmos DB y visualiz
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
-1. Haga clic en el botón de expansión en el lado derecho del encabezado de columna **Documento** .  Se muestra el menú contextual con una lista de campos.  Seleccione los campos necesarios para el informe, por ejemplo, nombre de volcán, país, región, ubicación, elevación, tipo, estado y última erupción conocida. Anule la selección del cuadro **Use original column name as prefix** (Usar nombre de columna original como prefijo) y haga clic en **Aceptar**.
+1. Haga clic en el botón de expansión en el lado derecho del encabezado de columna **Documento** .  Se muestra el menú contextual con una lista de campos.  Seleccione los campos necesarios para el informe, por ejemplo, nombre de volcán, país, región, ubicación, elevación, tipo, estado y última erupción conocida. Anule la selección del cuadro **Use original column name as prefix** (Usar nombre de columna original como prefijo) y haga clic en **Aceptar** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
@@ -119,7 +119,7 @@ Recuperará los datos de los volcanes de la cuenta de Azure Cosmos DB y visualiz
 
 1. En nuestro ejemplo, la propiedad Ubicación es un bloque de GeoJSON en un documento.  Como puede ver, la ubicación se representa como un tipo **Registro** en Power BI Desktop.  
 
-1. Haga clic en el botón de expansión en el lado derecho del encabezado de columna Document.Location.  Aparece el menú contextual con los campos de tipo y coordenadas.  Vamos a seleccionar el campo de coordenadas, asegúrese de que **Use original column name as prefix** (Usar nombre de columna original como prefijo) no esté seleccionado y haga clic en **Aceptar**.
+1. Haga clic en el botón de expansión en el lado derecho del encabezado de columna Document.Location.  Aparece el menú contextual con los campos de tipo y coordenadas.  Vamos a seleccionar el campo de coordenadas, asegúrese de que **Use original column name as prefix** (Usar nombre de columna original como prefijo) no esté seleccionado y haga clic en **Aceptar** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
@@ -129,13 +129,13 @@ Recuperará los datos de los volcanes de la cuenta de Azure Cosmos DB y visualiz
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiresultflattenlist.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
-1. Para eliminar el formato de la matriz de coordenadas, cree una **columna personalizada** llamada LatLong.  Seleccione la cinta de opciones **Agregar columna** y haga clic en **Columna personalizada**.  Aparece la ventana de **Columna personalizada**.
+1. Para eliminar el formato de la matriz de coordenadas, cree una **columna personalizada** llamada LatLong.  Seleccione la cinta de opciones **Agregar columna** y haga clic en **Columna personalizada** .  Aparece la ventana de **Columna personalizada** .
 
 1. Dele un nombre a la nueva columna, por ejemplo, LatLong.
 
-1. Después, especifique la fórmula personalizada para la nueva columna.  En nuestro ejemplo, concatenaremos los valores de latitud y longitud separados por comas, como se muestra a continuación mediante la fórmula siguiente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Haga clic en **OK**.
+1. Después, especifique la fórmula personalizada para la nueva columna.  En nuestro ejemplo, concatenaremos los valores de latitud y longitud separados por comas, como se muestra a continuación mediante la fórmula siguiente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Haga clic en **OK** .
    
-   Para más información sobre las expresiones de análisis de datos (DAX), incluidas las funciones DAX, visite [Aspectos básicos de DAX en Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
+   Para más información sobre las expresiones de análisis de datos (DAX), incluidas las funciones DAX, visite [Aspectos básicos de DAX en Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png" alt-text="Vista de informes de Power BI Desktop: conector de Power BI":::
 
@@ -170,7 +170,7 @@ En la vista de informe, debe buscar:
 A continuación se muestran los pasos básicos para crear un sencillo informe de la vista de mapa interactivo.
 
 1. En nuestro ejemplo, crearemos una vista del mapa que muestra la ubicación de cada volcán.  En el panel **Visualizaciones** , haga clic en el tipo de mapa visual que aparece destacado en la captura de pantalla anterior.  Debería ver el tipo de mapa visual pintado en el lienzo **Informe** .  El panel de **visualizaciones** también debe mostrar un conjunto de propiedades relacionadas con el tipo de mapa visual.
-1. Ahora, arrastre y coloque el campo LatLong desde el panel de **campos** a la **bicación** del panel de **visualizaciones**.
+1. Ahora, arrastre y coloque el campo LatLong desde el panel de **campos** a la **bicación** del panel de **visualizaciones** .
 1. A continuación, arrastre y coloque el campo del nombre del volcán en la propiedad **Leyenda** .  
 1. Luego, arrastre y coloque el campo Elevación en la propiedad **Tamaño** .  
 1. Ahora debería ver el mapa visual que muestra un conjunto de burbujas que indican la ubicación de cada volcán, con el tamaño de la burbuja correlacionado con la elevación del volcán.
@@ -182,7 +182,7 @@ A continuación se muestran los pasos básicos para crear un sencillo informe de
 Para compartir el informe, debe tener una cuenta en PowerBI.com.
 
 1. En Power BI Desktop, haga clic en la cinta de opciones de **inicio** .
-1. Haga clic en **Publicar**.  Se le pedirá que escriba el nombre de usuario y la contraseña de su cuenta de PowerBI.com.
+1. Haga clic en **Publicar** .  Se le pedirá que escriba el nombre de usuario y la contraseña de su cuenta de PowerBI.com.
 1. Una vez que se autentique la credencial, el informe se publicará en el destino que seleccione.
 1. Haga clic en **Abrir 'PowerBITutorial.pbix' en Power BI** para ver y compartir su informe en PowerBI.com.
    
@@ -226,4 +226,3 @@ For a scheduled refresh, do the following.
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre Power BI, consulte [Introducción a Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Para más información sobre Azure Cosmos DB, consulte la [página de aterrizaje de la documentación de Azure Cosmos DB](https://azure.microsoft.com/documentation/services/cosmos-db/).
-

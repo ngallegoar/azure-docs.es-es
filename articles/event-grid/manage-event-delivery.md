@@ -3,12 +3,12 @@ title: 'Mensajes fallidos y directivas de reintento: Azure Event Grid'
 description: Describe la personalización de las opciones de entrega de eventos para Event Grid. Defina un destino de mensajes fallidos y especifique el tiempo para reintentar la entrega.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8cd74ccfb77bcec45d06071a4f46fb2a640cf8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261811"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460944"
 ---
 # <a name="set-dead-letter-location-and-retry-policy"></a>Establecimiento de una ubicación para los eventos fallidos y de una directiva de reintentos
 
@@ -17,7 +17,7 @@ Cuando crea una suscripción a eventos, puede personalizar la configuración de 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> Para obtener información sobre la entrega de mensajes, los reintentos y la cola de mensajes fallidos, consulte el artículo conceptual: [Entrega y reintento de entrega de mensajes de Event Grid]()
+> Para obtener información sobre la entrega de mensajes, los reintentos y la cola de mensajes fallidos, consulte el artículo conceptual: [Entrega y reintento de entrega de mensajes de Event Grid](delivery-and-retry.md)
 
 ## <a name="set-dead-letter-location"></a>Establecimiento de una ubicación para los eventos fallidos
 

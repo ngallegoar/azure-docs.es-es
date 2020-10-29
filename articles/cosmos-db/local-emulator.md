@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173782"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482628"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Instalación y uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -328,7 +328,7 @@ Supongamos que tiene varias máquinas con una sola red, configura el emulador en
 
 Puede ejecutar el emulador en una red local. Para habilitar el acceso de red, especifique la opción `/AllowNetworkAccess` en la [línea de comandos](emulator-command-line-parameters.md), que también requiere que especifique `/Key=key_string` o `/KeyFile=file_name`. Puede usar `/GenKeyFile=file_name` para generar un archivo con una clave aleatoria por adelantado. Después, puede pasarlo a `/KeyFile=file_name` o `/Key=contents_of_file`.
 
-La primera vez que se habilita el acceso de red, el usuario debe apagar el emulador y eliminar su directorio de datos *%LOCALAPPDATA%\CosmosDBEmulator*.
+La primera vez que se habilita el acceso de red, el usuario debe apagar el emulador y eliminar su directorio de datos *%LOCALAPPDATA%\CosmosDBEmulator* .
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticación de conexiones cuando se usa el emulador
 
@@ -369,7 +369,7 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 
 ### <a name="table-api"></a>Table API
 
-Cuando tenga el emulador de Azure Cosmos funcionando en su escritorio, podrá usar el [SDK de Table API de Azure Cosmos DB](table-storage-how-to-use-dotnet.md) para interactuar con el emulador. Inicie el emulador desde el [símbolo del sistema](emulator-command-line-parameters.md) como administrador con "/EnableTableEndpoint". A continuación, ejecute el siguiente código para conectarse a la cuenta de Table API:
+Cuando tenga el emulador de Azure Cosmos funcionando en su escritorio, podrá usar el [SDK de Table API de Azure Cosmos DB](./tutorial-develop-table-dotnet.md) para interactuar con el emulador. Inicie el emulador desde el [símbolo del sistema](emulator-command-line-parameters.md) como administrador con "/EnableTableEndpoint". A continuación, ejecute el siguiente código para conectarse a la cuenta de Table API:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -458,11 +458,11 @@ Inicie el emulador desde un [símbolo del sistema](emulator-command-line-paramet
 
 Utilice los pasos siguientes para desinstalar el emulador:
 
-1. Cierre todas las instancias abiertas del emulador local; para ello, haga clic con el botón derecho en el icono del **emulador de Azure Cosmos** en la bandeja del sistema y seleccione **Salir**. Todas las instancias pueden tardar un minuto en salir.
+1. Cierre todas las instancias abiertas del emulador local; para ello, haga clic con el botón derecho en el icono del **emulador de Azure Cosmos** en la bandeja del sistema y seleccione **Salir** . Todas las instancias pueden tardar un minuto en salir.
 
 1. En el cuadro de búsqueda de Windows, escriba **Aplicaciones y características** y seleccione **Aplicaciones y características (configuración del sistema)** .
 
-1. En la lista de aplicaciones, desplácese a **Azure Cosmos DB Emulator** (Emulador de Azure Cosmos DB), selecciónela, haga clic en **Desinstalar**, confirme y seleccione **Desinstalar** de nuevo.
+1. En la lista de aplicaciones, desplácese a **Azure Cosmos DB Emulator** (Emulador de Azure Cosmos DB), selecciónela, haga clic en **Desinstalar** , confirme y seleccione **Desinstalar** de nuevo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

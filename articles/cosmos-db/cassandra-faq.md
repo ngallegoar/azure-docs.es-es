@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278184"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482611"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre Cassandra API en Azure Cosmos DB
 
@@ -26,7 +26,7 @@ En este artículo se describen las diferencias de funcionalidad entre Apache Cas
 - Con Apache Cassandra, es posible establecer un factor de replicación de 1. Sin embargo, esto da lugar a una disponibilidad baja si el único nodo con datos deja de funcionar. Esto no supone un problema con Cassandra API para Azure Cosmos DB porque siempre hay un factor de replicación de 4 (cuórum de 3).
 - La adición o eliminación de nodos en Apache Cassandra requiere intervención manual, junto con un elevado uso de CPU en el nuevo nodo, mientras que los nodos existentes mueven algunos de sus intervalos de tokens al nuevo nodo. Esta situación es la misma cuando retira un nodo existente. Sin embargo, Cassandra API se escala horizontalmente sin que se observe ningún problema en el servicio o la aplicación.
 - No es necesario establecer **num_tokens** en cada nodo del clúster como en Apache Cassandra. Azure Cosmos DB administra totalmente los nodos y los intervalos de tokens.
-- Cassandra API está totalmente administrada. No necesita los comandos **nodetool**, como repair y decommission, que se usan en Apache Cassandra.
+- Cassandra API está totalmente administrada. No necesita los comandos **nodetool** , como repair y decommission, que se usan en Apache Cassandra.
 
 ## <a name="other-frequently-asked-questions"></a>Otras preguntas frecuentes
 
@@ -75,7 +75,7 @@ Es esencial ver qué operaciones ocasionan este problema (y su volumen). Puede h
 
 Hay disponibles métricas que muestran cómo se usa el rendimiento en horas, días y cada siete días, entre particiones o en total. Para más información, consulte [Supervisión y depuración con métricas de Azure Cosmos DB](use-metrics.md).
 
-Los registros de diagnóstico se explican en el artículo [Registro de diagnóstico de Azure Cosmos DB](logging.md).
+Los registros de diagnóstico se explican en el artículo [Registro de diagnóstico de Azure Cosmos DB](./monitor-cosmos-db.md).
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>¿Se corresponde la clave principal con el concepto de clave de partición de Azure Cosmos DB?
 
@@ -135,9 +135,9 @@ Sí, TTL se admite.
 
 Azure Cosmos DB es un servicio de plataforma que le ayuda a aumentar la productividad y no preocuparse de la administración y supervisión de la infraestructura. Por ejemplo, no es necesario supervisar los parámetros anteriores de estado de nodo, estado de réplica, gc y sistema operativo con varias herramientas. Solo debe vigilar el rendimiento que está disponible en las métricas del portal para ver si está siendo limitado, y aumentar o disminuir el rendimiento. Puede:
 
-- Supervisar los [SLA](monitor-accounts.md)
+- Supervisar los [SLA](./monitor-cosmos-db.md)
 - Usar [métricas](use-metrics.md)
-- Usar [registros de diagnóstico](logging.md)
+- Usar [registros de diagnóstico](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>¿Qué SDK de cliente pueden trabajar con Cassandra API?
 
@@ -187,7 +187,7 @@ Puede leer acerca de las opciones de migración en el tutorial [Migración de lo
 Proporcione sus comentarios a través de [comentarios de UserVoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Pasos siguientes
 

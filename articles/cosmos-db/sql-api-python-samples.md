@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: ba4382e03e6fc1acfd606a375a062c05581f712c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 10da2f3a84a4c1e6d761c86901f3249972cc0f5b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278222"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477851"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Ejemplos de Python para Azure Cosmos DB
 
@@ -38,7 +38,7 @@ En el repositorio de GitHub [azure-documentdb-python](https://github.com/Azure/a
     * Dentro de una suscripción activa de Azure:
         * [Cree una cuenta gratuita de Azure](https://azure.microsoft.com/free) o use la suscripción existente 
         * [Créditos mensuales de Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Nivel gratis de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Nivel gratis de Azure Cosmos DB](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Sin una suscripción activa de Azure:
         * [Pruebe Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/), un entorno de pruebas que dura 30 días.
         * [Emulador de Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) 
@@ -90,7 +90,7 @@ En el ejemplo [item_management.py](https://github.com/Azure/azure-sdk-for-python
 
 ## <a name="indexing-examples"></a>Ejemplos de indización
 
-En el ejemplo [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) de Python, se muestra cómo realizar las siguientes tareas. Para información sobre la indexación en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, consulte los artículos conceptuales sobre las [directivas de indexación](index-policy.md), los [tipos de indexación](index-types.md) y las [rutas de acceso de indexación](index-paths.md).
+En el ejemplo [index_management.py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) de Python, se muestra cómo realizar las siguientes tareas. Para información sobre la indexación en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, consulte los artículos conceptuales sobre las [directivas de indexación](index-policy.md), los [tipos de indexación](index-overview.md#index-kinds) y las [rutas de acceso de indexación](index-policy.md#include-exclude-paths).
 
 | Tarea | Referencia de API |
 | --- | --- |

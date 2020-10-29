@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: f90160ba58983414b5421542c6292f4570f1e10a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 708a7139aec7b8d3fe9e5f08df2c5e93b99d0668
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142839"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476797"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solución de problemas con el uso del SDK de Azure Cosmos DB para Java v4 con cuentas de SQL API
 
@@ -34,9 +34,9 @@ El SDK de Azure Cosmos DB para Java v4 proporciona la representación lógica d
 Comience con esta lista:
 
 * Eche un vistazo a la sección [Problemas comunes y soluciones alternativas] de este artículo.
-* Consulte el SDK para Java en el repositorio central de Azure Cosmos DB, que está disponible como [código abierto en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Tiene una [sección de problemas](https://github.com/Azure/azure-sdk-for-java/issues) que se supervisa activamente. Compruebe si encuentra algún problema similar con una solución alternativa ya registrada. Una sugerencia útil es filtrar los problemas por la etiqueta *cosmos:v4-item*.
+* Consulte el SDK para Java en el repositorio central de Azure Cosmos DB, que está disponible como [código abierto en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). Tiene una [sección de problemas](https://github.com/Azure/azure-sdk-for-java/issues) que se supervisa activamente. Compruebe si encuentra algún problema similar con una solución alternativa ya registrada. Una sugerencia útil es filtrar los problemas por la etiqueta *cosmos:v4-item* .
 * Revise las [sugerencias de rendimiento](performance-tips-java-sdk-v4-sql.md) del SDK de Azure Cosmos DB para Java v4 y siga los procedimientos sugeridos.
-* Lea el resto de este artículo y, si no encuentra una solución, registre un [problema de GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Si hay una opción para agregar etiquetas al problema de GitHub, agregue la etiqueta *cosmos:v4-item*.
+* Lea el resto de este artículo y, si no encuentra una solución, registre un [problema de GitHub](https://github.com/Azure/azure-sdk-for-java/issues). Si hay una opción para agregar etiquetas al problema de GitHub, agregue la etiqueta *cosmos:v4-item* .
 
 ## <a name="common-issues-and-workarounds"></a><a name="common-issues-workarounds"></a>Problemas comunes y soluciones alternativas
 
@@ -46,7 +46,7 @@ Comience con esta lista:
 Para obtener el mejor rendimiento:
 * Asegúrese de que la aplicación se está ejecutando en la misma región que la cuenta de Azure Cosmos DB. 
 * Compruebe el uso de la CPU en el host donde se ejecuta la aplicación. Si el uso de CPU es de un 50 por ciento o más, ejecute la aplicación en un host con una configuración mayor. O bien, distribuya la carga en más máquinas.
-    * Si ejecuta la aplicación en Azure Kubernetes Service, puede [usar Azure Monitor para supervisar el uso de CPU](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
+    * Si ejecuta la aplicación en Azure Kubernetes Service, puede [usar Azure Monitor para supervisar el uso de CPU](../azure-monitor/insights/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Limitación de la conexión
 La limitación de la conexión puede deberse a un [Límite de conexiones en una máquina host] o al [agotamiento de puertos SNAT (PAT) de Azure].
@@ -62,13 +62,13 @@ El número máximo permitido de archivos abiertos, que se identifican como "nofi
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Agotamiento de puertos SNAT (PAT) de Azure
 
-Si la aplicación está implementada en Azure Virtual Machines sin una dirección IP pública, los [puertos SNAT de Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) se usan de manera predeterminada para establecer conexiones con cualquier punto de conexión fuera de la máquina virtual. El número de conexiones permitidas desde la máquina virtual hasta el punto de conexión de Azure Cosmos DB está limitado por la [configuración de Azure SNAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Si la aplicación está implementada en Azure Virtual Machines sin una dirección IP pública, los [puertos SNAT de Azure](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) se usan de manera predeterminada para establecer conexiones con cualquier punto de conexión fuera de la máquina virtual. El número de conexiones permitidas desde la máquina virtual hasta el punto de conexión de Azure Cosmos DB está limitado por la [configuración de Azure SNAT](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  Los puertos SNAT de Azure se usan solo cuando la máquina virtual tiene una dirección IP privada y un proceso de la máquina virtual intenta conectarse con una dirección IP pública. Hay dos soluciones alternativas para evitar la limitación de Azure SNAT:
 
-* Agregue el punto de conexión de servicio de Azure Cosmos DB a la subred de la red virtual de Azure Virtual Machines. Para obtener más información, consulte [puntos de conexión de servicio de red virtual de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Agregue el punto de conexión de servicio de Azure Cosmos DB a la subred de la red virtual de Azure Virtual Machines. Para obtener más información, consulte [puntos de conexión de servicio de red virtual de Azure](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    Cuando se habilita el punto de conexión de servicio, las solicitudes ya no se envían desde una dirección IP pública a Azure Cosmos DB. En su lugar, se envían la red virtual y la identidad de la subred. Este cambio puede producir caídas de firewall si solo se permiten direcciones IP públicas. Si usa un firewall, cuando se habilite el punto de conexión de servicio, agregue una subred al firewall mediante las [ACL de Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    Cuando se habilita el punto de conexión de servicio, las solicitudes ya no se envían desde una dirección IP pública a Azure Cosmos DB. En su lugar, se envían la red virtual y la identidad de la subred. Este cambio puede producir caídas de firewall si solo se permiten direcciones IP públicas. Si usa un firewall, cuando se habilite el punto de conexión de servicio, agregue una subred al firewall mediante las [ACL de Virtual Network](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Asignar una dirección IP pública a la máquina virtual de Azure.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>No se puede conectar con el servicio: firewall
@@ -217,5 +217,3 @@ Muchas de las conexiones al punto de conexión de Azure Cosmos DB podrían estar
 [Enable client SDK logging]: #enable-client-sice-logging
 [Límite de conexiones en una máquina host]: #connection-limit-on-host
 [Agotamiento de puertos SNAT (PAT) de Azure]: #snat
-
-

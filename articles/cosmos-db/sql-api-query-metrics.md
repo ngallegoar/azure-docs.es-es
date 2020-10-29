@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 38f21ec32d14261c7f1bb5e285180d9721b9dca7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280522"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477834"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Optimización del rendimiento de consultas con Azure Cosmos DB
 
-Azure Cosmos DB proporciona una [API de SQL para consultar datos](how-to-sql-query.md), sin necesidad de índices de esquema o secundarios. En este artículo se proporciona la siguiente información para los desarrolladores:
+Azure Cosmos DB proporciona una [API de SQL para consultar datos](./sql-query-getting-started.md), sin necesidad de índices de esquema o secundarios. En este artículo se proporciona la siguiente información para los desarrolladores:
 
 * Detalles de alto nivel sobre cómo funciona la ejecución de consultas SQL de Azure Cosmos DB
 * Detalles sobre cómo consultar encabezados de solicitud y respuesta y opciones del SDK de cliente
@@ -275,6 +275,4 @@ Estos son algunos ejemplos de consultas y cómo interpretar algunas de las métr
 ## <a name="next-steps"></a>Pasos siguientes
 * Para conocer los operadores de consulta y palabras clave SQL admitidos, consulte [Consultas SQL](sql-query-getting-started.md). 
 * Para aprender más sobre las unidades de solicitud, consulte [Unidades de solicitud](request-units.md).
-* Para aprender más sobre la directiva de indexación, consulte [Directiva de indexación](index-policy.md) 
-
-
+* Para aprender más sobre la directiva de indexación, consulte [Directiva de indexación](index-policy.md)

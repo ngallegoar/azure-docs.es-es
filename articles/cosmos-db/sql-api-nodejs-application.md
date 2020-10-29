@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322706"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478123"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Compilación de una aplicación web de Node.js mediante el SDK de JavaScript para administrar la cuenta de SQL API en Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ ms.locfileid: "91322706"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -64,7 +64,7 @@ Ahora aprendamos a crear un proyecto Node.js básico de Hola mundo usando el mar
 
 1. Navegue hasta el directorio en el que desea almacenar la nueva aplicación.
 
-1. Use Express Generator para generar una nueva aplicación denominada **todo**.
+1. Use Express Generator para generar una nueva aplicación denominada **todo** .
 
    ```bash
    express todo
@@ -103,11 +103,11 @@ El archivo **package.json** es uno de los archivos creados en la raíz del proye
 Ahora que ha completado la instalación y configuración iniciales, a continuación escribirá código que la aplicación de tareas pendientes (Todo) necesita para comunicarse con Azure Cosmos DB.
 
 ### <a name="create-the-model"></a>Creación del modelo
-1. En la raíz del directorio del proyecto, cree un nuevo directorio con el nombre **models**.  
+1. En la raíz del directorio del proyecto, cree un nuevo directorio con el nombre **models** .  
 
-2. En el directorio **models**, cree un archivo nuevo con el nombre **taskDao.js**. Este archivo contiene el código necesario para crear la base de datos y el contenedor. También define los métodos para leer, actualizar, crear y encontrar tareas en Azure Cosmos DB. 
+2. En el directorio **models** , cree un archivo nuevo con el nombre **taskDao.js** . Este archivo contiene el código necesario para crear la base de datos y el contenedor. También define los métodos para leer, actualizar, crear y encontrar tareas en Azure Cosmos DB. 
 
-3. Copie el código siguiente en el archivo **taskDao.js**:
+3. Copie el código siguiente en el archivo **taskDao.js** :
 
    ```javascript
     // @ts-check
@@ -188,9 +188,9 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
 
 ### <a name="create-the-controller"></a>Crear el controlador
 
-1. En el directorio **routes** del nuevo proyecto, cree un nuevo archivo denominado **tasklist.js**.  
+1. En el directorio **routes** del nuevo proyecto, cree un nuevo archivo denominado **tasklist.js** .  
 
-2. Agregue el siguiente código a **tasklist.js**. Este código carga los módulos CosmosClient y async, que utiliza **tasklist.js**. Este código también define la clase **TaskList**, que pasa como una instancia del objeto **TaskDao** que definimos anteriormente:
+2. Agregue el siguiente código a **tasklist.js** . Este código carga los módulos CosmosClient y async, que utiliza **tasklist.js** . Este código también define la clase **TaskList** , que pasa como una instancia del objeto **TaskDao** que definimos anteriormente:
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -249,9 +249,9 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
 
 ### <a name="add-configjs"></a>Agregar config.js
 
-1. En la raíz del directorio del proyecto, cree un nuevo archivo con el nombre **config.js**. 
+1. En la raíz del directorio del proyecto, cree un nuevo archivo con el nombre **config.js** . 
 
-2. Agregue el código siguiente al archivo **config.js**. Este código define las opciones de configuración y los valores necesarios para nuestra aplicación.
+2. Agregue el código siguiente al archivo **config.js** . Este código define las opciones de configuración y los valores necesarios para nuestra aplicación.
    
    ```javascript
    const config = {};
@@ -272,7 +272,7 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
    module.exports = config;
    ```
 
-3. En el archivo **config.js**, actualice los valores de HOST y AUTH_KEY con los valores de la página Claves de la cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com). 
+3. En el archivo **config.js** , actualice los valores de HOST y AUTH_KEY con los valores de la página Claves de la cuenta de Azure Cosmos DB en [Azure Portal](https://portal.azure.com). 
 
 4. Guarde y cierre el archivo **config.js** .
 
@@ -280,7 +280,7 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
 
 1. En el directorio del proyecto, abra el archivo **app.js** . Este archivo se creó anteriormente, cuando se creó la aplicación web de Express.  
 
-2. Agregue el código siguiente al archivo **app.js**. Este código define el archivo de configuración que se va a utilizar y carga los valores en algunas variables que se utilizarán en las secciones siguientes. 
+2. Agregue el código siguiente al archivo **app.js** . Este código define el archivo de configuración que se va a utilizar y carga los valores en algunas variables que se utilizarán en las secciones siguientes. 
    
    ```javascript
     const CosmosClient = require('@azure/cosmos').CosmosClient
@@ -355,13 +355,13 @@ Ahora que ha completado la instalación y configuración iniciales, a continuaci
     module.exports = app
    ```
 
-3. Por último, guarde y cierre el archivo **app.js**.
+3. Por último, guarde y cierre el archivo **app.js** .
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Creación de una interfaz de usuario
 
 Ahora vamos a crear la interfaz de usuario para que un usuario pueda interactuar con la aplicación. La aplicación Express que hemos creado en las secciones anteriores utiliza **Jade** como motor de vistas.
 
-1. El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar Twitter Bootstrap, que es un kit de herramientas que se utiliza para diseñar un sitio web.  
+1. El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade** . En este paso podrá modificarlo para utilizar Twitter Bootstrap, que es un kit de herramientas que se utiliza para diseñar un sitio web.  
 
 2. Abra el archivo **layout.jade** que se encuentra en la carpeta **views** y reemplace el contenido por el código siguiente:
 
@@ -381,9 +381,9 @@ Ahora vamos a crear la interfaz de usuario para que un usuario pueda interactuar
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    Este código indica al motor **Jade** que represente HTML de nuestra aplicación y que cree un **block** llamado **content** donde podemos especificar el diseño de nuestras páginas de contenido. Guarde y cierre este archivo **layout.jade**.
+    Este código indica al motor **Jade** que represente HTML de nuestra aplicación y que cree un **block** llamado **content** donde podemos especificar el diseño de nuestras páginas de contenido. Guarde y cierre este archivo **layout.jade** .
 
-3. Ahora abra el archivo **index.jade**, la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por el código siguiente:
+3. Ahora abra el archivo **index.jade** , la vista que utilizará nuestra aplicación, y reemplace el contenido del archivo por el código siguiente:
 
    ```html
    extends layout
@@ -427,7 +427,7 @@ Ahora vamos a crear la interfaz de usuario para que un usuario pueda interactuar
           button.btn(type="submit") Add item
    ```
 
-Este código amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade**. En este diseño hemos creado dos formularios HTML.
+Este código amplía el diseño y proporciona contenido para el marcador de posición **content** que hemos visto anteriormente en el archivo **layout.jade** . En este diseño hemos creado dos formularios HTML.
 
 El primer formulario contiene una tabla para nuestros datos y un botón que nos permite actualizar los elementos mediante la publicación en el método **/completeTask** de nuestro controlador.
     
@@ -444,13 +444,13 @@ Ahora que compiló la aplicación, puede ejecutarla localmente con los pasos sig
     > [!TIP]
     > Si recibe un error acerca de la sangría en el archivo layout.jade o el archivo index.jade, asegúrese de que las dos primeras líneas de los dos archivos están justificadas a la izquierda, sin espacios en blanco. Si hay espacios delante de las dos primeras líneas, quítelos, guarde ambos archivos y, a continuación, actualice la ventana del explorador. 
 
-2. Utilice los campos Elemento, Nombre del elemento y Categoría para especificar una nueva tarea y, a continuación, seleccione **Agregar elemento**. Esto crea un documento en Azure Cosmos DB con esas propiedades. 
+2. Utilice los campos Elemento, Nombre del elemento y Categoría para especificar una nueva tarea y, a continuación, seleccione **Agregar elemento** . Esto crea un documento en Azure Cosmos DB con esas propiedades. 
 
 3. La página debería actualizarse para mostrar el elemento recién creado en la lista ToDo.
    
     :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Aprendizaje de Node.js: captura de pantalla de la aplicación Hello World en una ventana del explorador":::
 
-4. Para completar una tarea, active la casilla en la columna Completo y, a continuación, seleccione **Actualizar tareas**. Se actualizará el documento que ya haya creado y lo quitará de la vista.
+4. Para completar una tarea, active la casilla en la columna Completo y, a continuación, seleccione **Actualizar tareas** . Se actualizará el documento que ya haya creado y lo quitará de la vista.
 
 5. Para detener la aplicación, presione CTRL+C en la ventana de terminal y, después, seleccione **Y** para finalizar el trabajo por lotes.
 
@@ -487,4 +487,3 @@ Cuando ya no necesite estos recursos, podrá eliminar el grupo de recursos, la c
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
-

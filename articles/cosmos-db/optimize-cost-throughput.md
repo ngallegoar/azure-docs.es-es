@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281070"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475471"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Puede aprovisionar el rendimiento en bases de datos o contenedores, y cada estra
 
 Las siguientes son algunas directrices para decidir una estrategia de rendimiento aprovisionado:
 
-**Considere la posibilidad de aprovisionar el rendimiento en una base de datos de Azure Cosmos (que contiene un conjunto de contenedores) si**:
+**Considere la posibilidad de aprovisionar el rendimiento en una base de datos de Azure Cosmos (que contiene un conjunto de contenedores) si** :
 
 1. Tiene algunas decenas de contenedores de Azure Cosmos y quiere compartir el rendimiento entre algunos o todos ellos. 
 
@@ -54,7 +54,7 @@ Las siguientes son algunas directrices para decidir una estrategia de rendimient
 
 Como se muestra en la tabla siguiente, según la elección de la API, puede aprovisionar el rendimiento con distintas granularidades.
 
-|API|Para rendimiento **compartido**, configure |Para rendimiento **dedicado**, configure |
+|API|Para rendimiento **compartido** , configure |Para rendimiento **dedicado** , configure |
 |----|----|----|
 |API DE SQL|Base de datos|Contenedor|
 |API de Azure Cosmos DB para MongoDB|Base de datos|Colección|
@@ -80,7 +80,7 @@ Los SDK nativos (.NET/.NET Core, Java, Node.js y Python) capturan implícitament
 
 Si tiene más de un cliente de manera acumulativa funcionando constantemente por encima de la tasa de solicitud, el número de reintentos predeterminado que actualmente está establecido en 9 puede no ser suficiente. En estos casos, el cliente genera un `RequestRateTooLargeException` con el estado de código 429 para la aplicación. El número de reintentos predeterminado se puede cambiar estableciendo `RetryOptions` en la instancia ConnectionPolicy. De forma predeterminada, la excepción `RequestRateTooLargeException` con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet&preserve-view=true) se establece en 3, por lo que, en este caso, si una operación de solicitud tiene una tasa limitada al superar el rendimiento reservado para el contenedor, la operación de solicitud volverá a intentarlo tres veces antes de iniciar la excepción en la aplicación. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) se establece en 60, por lo que, en este caso, si el tiempo de espera acumulativo de reintento desde la primera solicitud supera los 60 segundos, se inicia la excepción.
+[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?preserve-view=true&view=azure-dotnet) se establece en 3, por lo que, en este caso, si una operación de solicitud tiene una tasa limitada al superar el rendimiento reservado para el contenedor, la operación de solicitud volverá a intentarlo tres veces antes de iniciar la excepción en la aplicación. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) se establece en 60, por lo que, en este caso, si el tiempo de espera acumulativo de reintento desde la primera solicitud supera los 60 segundos, se inicia la excepción.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -112,7 +112,7 @@ Además, si usa Azure Cosmos DB y sabe que no va a buscar por determinados valor
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Optimización al cambiar la directiva de indexación 
 
-De forma predeterminada, Azure Cosmos DB indexa automáticamente todas las propiedades de cada registro. Esto está pensado para facilitar el desarrollo y garantizar un rendimiento excelente en muchos tipos diferentes de consultas ad hoc. Si tiene registros grandes con miles de propiedades, pagar el costo de rendimiento para la indexación de cada propiedad puede no ser útil, en especial si solo una consulta frente a 10 o 20 de esas propiedades. A medida que aprende a manejar la carga de trabajo específica, nuestra sugerencia es ajustar la directiva de índice. Para información detallada sobre la directiva de indexación de Azure Cosmos DB, consulte [aquí](indexing-policies.md). 
+De forma predeterminada, Azure Cosmos DB indexa automáticamente todas las propiedades de cada registro. Esto está pensado para facilitar el desarrollo y garantizar un rendimiento excelente en muchos tipos diferentes de consultas ad hoc. Si tiene registros grandes con miles de propiedades, pagar el costo de rendimiento para la indexación de cada propiedad puede no ser útil, en especial si solo una consulta frente a 10 o 20 de esas propiedades. A medida que aprende a manejar la carga de trabajo específica, nuestra sugerencia es ajustar la directiva de índice. Para información detallada sobre la directiva de indexación de Azure Cosmos DB, consulte [aquí](index-policy.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Supervisión del rendimiento aprovisionado y consumido 
 
@@ -156,7 +156,7 @@ Los pasos siguientes le ayudan a que sus soluciones sean altamente escalables y 
 
 1. Si tiene mucho rendimiento aprovisionado excesivo a través de contenedores y bases de datos, debe revisar las RU aprovisionadas frente a las RU consumidas y ajustar las cargas de trabajo.  
 
-2. Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar la carga de unidades de solicitud (RU) asociadas a la ejecución de las operaciones típicas, frente a un contenedor o base de datos representativo de Azure Cosmos que usa la aplicación y, después, calcular el número de operaciones que prevé realizar cada segundo. Asegúrese de medir e incluir las consultas típicas, así como su uso. Para información sobre cómo calcular los costos de RU de consultas mediante programación o con el portal, consulte [Optimización del costo de las consultas](optimize-cost-queries.md). 
+2. Un método para calcular la cantidad de rendimiento reservado que necesita la aplicación es registrar la carga de unidades de solicitud (RU) asociadas a la ejecución de las operaciones típicas, frente a un contenedor o base de datos representativo de Azure Cosmos que usa la aplicación y, después, calcular el número de operaciones que prevé realizar cada segundo. Asegúrese de medir e incluir las consultas típicas, así como su uso. Para información sobre cómo calcular los costos de RU de consultas mediante programación o con el portal, consulte [Optimización del costo de las consultas](./optimize-cost-reads-writes.md). 
 
 3. Otra forma de obtener las operaciones y sus costos en RU es habilitar los registros de Azure Monitor, lo que proporcionará el desglose de operación/duración y el cargo de solicitud. Azure Cosmos DB proporciona el cargo de solicitud para cada operación, por lo que cada cargo de operación se puede almacenar desde la respuesta y luego usarse para el análisis. 
 
@@ -182,6 +182,5 @@ A continuación, puede seguir obteniendo más información sobre la optimizació
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
-* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
+* Obtenga más información sobre la [optimización del costo de las consultas](./optimize-cost-reads-writes.md).
 * Obtenga más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md).
-

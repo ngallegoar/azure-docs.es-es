@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db83e24931ec91449ac8c08bf4ce476e0f527b26
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85963247"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461352"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recopilación de contadores de rendimiento para aplicaciones de Linux en Azure Monitor 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
 En este artículo se proporciona información sobre cómo configurar el [agente de Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) con el fin de recopilar contadores de rendimiento para aplicaciones específicas de Azure Monitor.  Las aplicaciones incluidas en este artículo son las siguientes:  
 
 - [MySQL](#mysql)

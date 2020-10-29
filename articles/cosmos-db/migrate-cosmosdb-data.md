@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263551"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480928"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migre cientos de terabytes de datos a Azure Cosmos DB 
 
@@ -28,17 +28,17 @@ En la actualidad, las estrategias de migración de Azure Cosmos DB difieren en f
 
 Las herramientas existentes para migrar datos a Azure Cosmos DB tienen algunas limitaciones que se hacen especialmente evidentes en escalas grandes:
 
- * **Capacidades de escalabilidad horizontal limitadas**: Con el fin de migrar terabytes de datos a Azure Cosmos DB lo más rápido posible y consumir de forma eficaz todo el rendimiento aprovisionado, los clientes de migración deben tener la capacidad de escalar horizontalmente de manera indefinida.  
+ * **Capacidades de escalabilidad horizontal limitadas** : Con el fin de migrar terabytes de datos a Azure Cosmos DB lo más rápido posible y consumir de forma eficaz todo el rendimiento aprovisionado, los clientes de migración deben tener la capacidad de escalar horizontalmente de manera indefinida.  
 
-* **Falta de seguimiento de progreso y de comprobación**: Es importante realizar un seguimiento del progreso de migración y realizar una comprobación al migrar grandes conjuntos de datos. De lo contrario, cualquier error que se produzca durante la migración la detendrá, y tendrá que iniciar el proceso desde cero. No sería productivo reiniciar todo el proceso de migración cuando ya se haya completado el 99 % del mismo.  
+* **Falta de seguimiento de progreso y de comprobación** : Es importante realizar un seguimiento del progreso de migración y realizar una comprobación al migrar grandes conjuntos de datos. De lo contrario, cualquier error que se produzca durante la migración la detendrá, y tendrá que iniciar el proceso desde cero. No sería productivo reiniciar todo el proceso de migración cuando ya se haya completado el 99 % del mismo.  
 
-* **Falta de cola de mensajes fallidos**: En conjuntos de datos grandes, en algunos casos podría haber problemas con partes de los datos de origen. Además, puede haber problemas transitorios con el cliente o la red. Ninguno de estos casos debe hacer que se produzca un error en toda la migración. Aunque la mayoría de las herramientas de migración tienen capacidades de reintento sólidas que protegen contra problemas intermitentes, no siempre es suficiente. Por ejemplo, si menos del 0,01 % de los documentos de datos de origen tienen un tamaño superior a 2 MB, se producirá un error en la escritura del documento en Azure Cosmos DB. Idealmente, es útil que la herramienta de migración conserve estos documentos "con errores" en otra cola de mensajes fallidos, que se puede procesar después de la migración. 
+* **Falta de cola de mensajes fallidos** : En conjuntos de datos grandes, en algunos casos podría haber problemas con partes de los datos de origen. Además, puede haber problemas transitorios con el cliente o la red. Ninguno de estos casos debe hacer que se produzca un error en toda la migración. Aunque la mayoría de las herramientas de migración tienen capacidades de reintento sólidas que protegen contra problemas intermitentes, no siempre es suficiente. Por ejemplo, si menos del 0,01 % de los documentos de datos de origen tienen un tamaño superior a 2 MB, se producirá un error en la escritura del documento en Azure Cosmos DB. Idealmente, es útil que la herramienta de migración conserve estos documentos "con errores" en otra cola de mensajes fallidos, que se puede procesar después de la migración. 
 
 Muchas de estas limitaciones se han corregido para herramientas como Azure Data Factory o los servicios de migración de datos de Azure. 
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Herramienta personalizada con la biblioteca BulkExecutor 
 
-Los desafíos descritos en la sección anterior se pueden resolver con una herramienta personalizada que se puede escalar horizontalmente en varias instancias y que es resistente a los errores transitorios. Además, la herramienta personalizada puede pausar y reanudar la migración en varios puntos de comprobación. Azure Cosmos DB ya proporciona la [biblioteca BulkExecutor](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview), que incorpora algunas de estas características. Por ejemplo, la biblioteca BulkExecutor ya tiene la funcionalidad para controlar los errores transitorios y puede escalar horizontalmente los subprocesos en un único nodo para consumir aproximadamente 500.000 RU por nodo. La biblioteca BulkExecutor también divide el conjunto de archivos de origen en microlotes que se operan de forma independiente como una forma de puntos de comprobación.  
+Los desafíos descritos en la sección anterior se pueden resolver con una herramienta personalizada que se puede escalar horizontalmente en varias instancias y que es resistente a los errores transitorios. Además, la herramienta personalizada puede pausar y reanudar la migración en varios puntos de comprobación. Azure Cosmos DB ya proporciona la [biblioteca BulkExecutor](./bulk-executor-overview.md), que incorpora algunas de estas características. Por ejemplo, la biblioteca BulkExecutor ya tiene la funcionalidad para controlar los errores transitorios y puede escalar horizontalmente los subprocesos en un único nodo para consumir aproximadamente 500.000 RU por nodo. La biblioteca BulkExecutor también divide el conjunto de archivos de origen en microlotes que se operan de forma independiente como una forma de puntos de comprobación.  
 
 La herramienta personalizada usa la biblioteca BulkExecutor y admite la escalabilidad horizontal en varios clientes y el seguimiento de los errores durante el proceso de ingesta. Para usar esta herramienta, los datos de origen se deben dividir en archivos distintos en Azure Data Lake Storage (ADLS) para que los distintos trabajadores de migración puedan recoger los archivos e ingerirlos en Azure Cosmos DB. La herramienta personalizada hace uso de una colección independiente, que almacena los metadatos sobre el progreso de migración de cada archivo de origen individual en ADLS y realiza un seguimiento de los errores asociados a ellos.  
 
@@ -152,4 +152,4 @@ Aunque puede seguir esta guía para migrar correctamente grandes conjuntos de da
 
 * Puede aprender más si prueba las aplicaciones de ejemplo que usan la biblioteca BulkExecutor en [.NET](bulk-executor-dot-net.md) y [Java](bulk-executor-java.md). 
 * La biblioteca BulkExecutor está integrada en el conector de Spark a Cosmos DB; para más información, vea el artículo sobre el [conector de Spark a Azure Cosmos DB](spark-connector.md).  
-* Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala. 
+* Póngase en contacto con el equipo de producto de Azure Cosmos DB abriendo una incidencia de soporte técnico en el tipo de problema "Asesoramiento general" y en el subtipo "Grandes migraciones (TB+)" para obtener ayuda adicional con las migraciones a gran escala.

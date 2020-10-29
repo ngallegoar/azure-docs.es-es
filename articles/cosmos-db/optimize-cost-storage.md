@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dca046df68b10853752b0de65c48c2b8f83afb31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020905"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475488"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimización de los costos de almacenamiento de Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB ofrece almacenamiento y rendimiento ilimitados. A diferencia del
 
 ## <a name="storage-cost"></a>Coste del almacenamiento
 
-El almacenamiento se factura con la unidad de GB. El almacenamiento local respaldado por SSD lo utilizan los datos y la indexación. El almacenamiento total utilizado es igual al almacenamiento requerido por los datos e índices utilizados en todas las regiones donde se utiliza Azure Cosmos DB. Si se replica globalmente una cuenta de Azure Cosmos en tres regiones, pagará por el costo total de almacenamiento en cada una de esas tres regiones. Para calcular los requisitos de almacenamiento, consulte la herramienta de [planeamiento de capacidad](https://www.documentdb.com/capacityplanner). El costo de almacenamiento de Azure Cosmos DB es $0,25 GB/mes, consulte en la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) las actualizaciones más recientes. Puede configurar alertas para determinar el almacenamiento utilizado por el contenedor de Azure Cosmos; para supervisar el almacenamiento, consulte el artículo [Supervisión de Azure Cosmos DB](monitor-accounts.md)).
+El almacenamiento se factura con la unidad de GB. El almacenamiento local respaldado por SSD lo utilizan los datos y la indexación. El almacenamiento total utilizado es igual al almacenamiento requerido por los datos e índices utilizados en todas las regiones donde se utiliza Azure Cosmos DB. Si se replica globalmente una cuenta de Azure Cosmos en tres regiones, pagará por el costo total de almacenamiento en cada una de esas tres regiones. Para calcular los requisitos de almacenamiento, consulte la herramienta de [planeamiento de capacidad](https://www.documentdb.com/capacityplanner). El costo de almacenamiento de Azure Cosmos DB es $0,25 GB/mes, consulte en la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) las actualizaciones más recientes. Puede configurar alertas para determinar el almacenamiento utilizado por el contenedor de Azure Cosmos; para supervisar el almacenamiento, consulte el artículo [Supervisión de Azure Cosmos DB](./monitor-cosmos-db.md)).
 
 ## <a name="optimize-cost-with-item-size"></a>Optimización de los costos con el tamaño del elemento
 
@@ -28,7 +28,7 @@ Azure Cosmos DB espera que el tamaño del elemento sea de 2 MB o menos para un 
 
 ## <a name="optimize-cost-with-indexing"></a>Optimización del costo con indexación
 
-De forma predeterminada, los datos se indexan automáticamente, lo que puede aumentar el total de almacenamiento consumido. Sin embargo, puede aplicar directivas de índice personalizadas para reducir esta sobrecarga. La indexación automática que no se ha ajustado mediante la directiva es de aproximadamente del 10 a 20 % del tamaño del elemento. Al quitar o personalizar las directivas de índice, no pagará ningún costo adicional por las operaciones de escritura y no necesitará capacidad de rendimiento adicional. Consulte [Indexación en Azure Cosmos DB](indexing-policies.md) para configurar directivas de indexación personalizadas. Si ha trabajado antes con bases de datos relacionales, puede pensar que "indexar todo" significa duplicar el almacenamiento o algo más. Sin embargo, en Azure Cosmos DB, en el caso medio, es mucho menor. En Azure Cosmos DB, la sobrecarga de almacenamiento del índice es típicamente baja (10-20 %) incluso con la indexación automática, porque está diseñada para un espacio de almacenamiento reducido. Mediante la administración de la directiva de indexación, puede controlar el equilibrio de la superficie del índice y del rendimiento de la consulta de una manera más precisa.
+De forma predeterminada, los datos se indexan automáticamente, lo que puede aumentar el total de almacenamiento consumido. Sin embargo, puede aplicar directivas de índice personalizadas para reducir esta sobrecarga. La indexación automática que no se ha ajustado mediante la directiva es de aproximadamente del 10 a 20 % del tamaño del elemento. Al quitar o personalizar las directivas de índice, no pagará ningún costo adicional por las operaciones de escritura y no necesitará capacidad de rendimiento adicional. Consulte [Indexación en Azure Cosmos DB](index-policy.md) para configurar directivas de indexación personalizadas. Si ha trabajado antes con bases de datos relacionales, puede pensar que "indexar todo" significa duplicar el almacenamiento o algo más. Sin embargo, en Azure Cosmos DB, en el caso medio, es mucho menor. En Azure Cosmos DB, la sobrecarga de almacenamiento del índice es típicamente baja (10-20 %) incluso con la indexación automática, porque está diseñada para un espacio de almacenamiento reducido. Mediante la administración de la directiva de indexación, puede controlar el equilibrio de la superficie del índice y del rendimiento de la consulta de una manera más precisa.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Optimización del costo con el período de vida y la fuente de cambios
 
@@ -40,7 +40,7 @@ Si desea almacenar tipos de medios enriquecidos, por ejemplo, vídeos o imágene
 
 ## <a name="check-storage-consumed"></a>Comprobación del almacenamiento consumido
 
-Para comprobar el consumo de almacenamiento de un contenedor de Azure Cosmos, puede ejecutar una solicitud HEAD o GET en el contenedor, e inspeccionar los encabezados `x-ms-request-quota` y `x-ms-request-usage`. Además, cuando trabaje con SDK de .NET, puede utilizar las propiedades [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100)), y [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) para consumir el almacenamiento.
+Para comprobar el consumo de almacenamiento de un contenedor de Azure Cosmos, puede ejecutar una solicitud HEAD o GET en el contenedor, e inspeccionar los encabezados `x-ms-request-quota` y `x-ms-request-usage`. Además, cuando trabaje con SDK de .NET, puede utilizar las propiedades [DocumentSizeQuota](/previous-versions/azure/dn850325(v%3Dazure.100)), y [DocumentSizeUsage](/previous-versions/azure/dn850324(v=azure.100)) para consumir el almacenamiento.
 
 ## <a name="using-sdk"></a>Uso de SDK
 
@@ -59,6 +59,5 @@ A continuación, puede seguir obteniendo más información sobre la optimizació
 * Obtenga más información sobre [la factura de Azure Cosmos DB](understand-your-bill.md).
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
-* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
+* Obtenga más información sobre la [optimización del costo de las consultas](./optimize-cost-reads-writes.md).
 * Obtenga más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md).
-

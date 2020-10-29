@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2497a1fe5bfd3618246c9590685d08894e897f3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568665"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476525"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Configuración de la distribución global de Azure Cosmos DB con Table API
 
@@ -28,7 +28,7 @@ En este artículo se tratan las tareas siguientes:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Conexión a una región de preferencia con Table API
 
-Para aprovechar las ventajas de la [distribución global](distribute-data-globally.md), las aplicaciones cliente deben especificar la ubicación actual en la que se ejecuta la aplicación. Esto se hace mediante el establecimiento de la propiedad `CosmosExecutorConfiguration.CurrentRegion`. La propiedad `CurrentRegion` debe contener una sola ubicación. Cada instancia de cliente puede especificar su propia región para lecturas de baja latencia. Se debe asignar un nombre a la región con su [nombre para mostrar](https://msdn.microsoft.com/library/azure/gg441293.aspx), como "Oeste de EE. UU.". 
+Para aprovechar las ventajas de la [distribución global](distribute-data-globally.md), las aplicaciones cliente deben especificar la ubicación actual en la que se ejecuta la aplicación. Esto se hace mediante el establecimiento de la propiedad `CosmosExecutorConfiguration.CurrentRegion`. La propiedad `CurrentRegion` debe contener una sola ubicación. Cada instancia de cliente puede especificar su propia región para lecturas de baja latencia. Se debe asignar un nombre a la región con su [nombre para mostrar](/previous-versions/azure/reference/gg441293(v=azure.100)), como "Oeste de EE. UU.". 
 
 El SDK de Table API de Azure Cosmos DB elige automáticamente el mejor punto de conexión para comunicarse en función de la configuración de la cuenta y la disponibilidad regional actual. Prioriza la región más cercana para proporcionar una mejor latencia a los clientes. Después de establecer la propiedad `CurrentRegion` actual, las solicitudes de lectura y escritura se dirigen de la siguiente manera:
 
@@ -47,4 +47,3 @@ En este tutorial, ha hecho lo siguiente:
 > [!div class="checklist"]
 > * Configuración de la distribución global con Azure Portal
 > * Configurar la distribución global mediante Table API de Azure Cosmos DB
-

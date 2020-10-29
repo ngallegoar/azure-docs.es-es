@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289045"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474774"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -79,7 +79,9 @@ En comparación con otras opciones de optimización, como el escalado y la admin
 
 **Necesidad de una estrategia de distribución de datos diferente para un rendimiento más rápido de las consultas**
 
-Azure Data Warehouse es un sistema de procesamiento masivo en paralelo (MPP) y distribuido.   Los datos de una tabla del almacenamiento de datos se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin o replicada).  
+Azure Data Warehouse es un sistema de procesamiento masivo en paralelo (MPP) y distribuido.  
+
+Synapse SQL es un sistema de consultas distribuidas que permite a las empresas implementar escenarios de virtualización de datos y almacenamiento de datos mediante experiencias estándar de T-SQL conocidas para los ingenieros de datos. También amplía las funcionalidades de SQL para abordar los escenarios de streaming y aprendizaje automático. Los datos de una tabla del almacenamiento de datos se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, round_robin o replicada).  
 
 La distribución de datos se especifica en el momento de creación de la tabla y permanece invariable hasta que se elimina la tabla. Puesto que la vista materializada es una tabla virtual en disco, posibilita las distribuciones de datos hash y round_robin.  Los usuarios pueden elegir una distribución de datos diferente a la de las tablas base, pero que sea óptima para el rendimiento de las consultas que utilizan las vistas con frecuencia.  
 

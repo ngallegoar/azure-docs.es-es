@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 804330d44d63aa70076a7387aacfbbd3b4f742c9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278459"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480996"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Tutorial: Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Async Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
@@ -61,14 +61,14 @@ Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea us
 
 ## <a name="step-2-set-up-your-visual-studio-project"></a><a id="SetupVS"></a>Paso 2: Configuración del proyecto de Visual Studio
 
-1. Abra Visual Studio y seleccione **Crear un proyecto**.
-1. En **Crear un proyecto**, elija **Aplicación de consola (.NET Framework)** para C# y seleccione **Siguiente**.
-1. Asigne al proyecto el nombre *CosmosGettingStartedTutorial* y seleccione **Crear**.
+1. Abra Visual Studio y seleccione **Crear un proyecto** .
+1. En **Crear un proyecto** , elija **Aplicación de consola (.NET Framework)** para C# y seleccione **Siguiente** .
+1. Asigne al proyecto el nombre *CosmosGettingStartedTutorial* y seleccione **Crear** .
 
     :::image type="content" source="./media/sql-api-get-started/configure-cosmos-getting-started-2019.png" alt-text="Configuración del proyecto":::
 
-1. En el **Explorador de soluciones**, haga clic con el botón derecho en la nueva aplicación de consola, que se encuentra en la solución de Visual Studio y, a continuación, seleccione **Administrar paquetes NuGet**.
-1. En **Administrador de paquetes NuGet**, seleccione **Examinar** y busque *Microsoft.Azure.Cosmos*. Elija **Microsoft.Azure.Cosmos** y seleccione **Instalar**.
+1. En el **Explorador de soluciones** , haga clic con el botón derecho en la nueva aplicación de consola, que se encuentra en la solución de Visual Studio y, a continuación, seleccione **Administrar paquetes NuGet** .
+1. En **Administrador de paquetes NuGet** , seleccione **Examinar** y busque *Microsoft.Azure.Cosmos* . Elija **Microsoft.Azure.Cosmos** y seleccione **Instalar** .
 
    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png" alt-text="Configuración del proyecto":::
 
@@ -78,7 +78,7 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
 
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Paso 3: Conexión a una cuenta de Azure Cosmos DB
 
-1. Reemplace las referencias que aparecen al principio de su aplicación de C#, en el archivo *Program.cs*, por estas otras:
+1. Reemplace las referencias que aparecen al principio de su aplicación de C#, en el archivo *Program.cs* , por estas otras:
 
    ```csharp
    using System;
@@ -117,15 +117,15 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
     ```
 
    > [!NOTE]
-   > Si ya está familiarizado con la versión anterior del SDK de .NET, puede que conozca los términos *colección* y *documento*. Dado que Azure Cosmos DB admite varios modelos de API, todas las versiones del SDK de .NET posteriores a la 3.0 usan los términos genéricos *contenedor* y *elemento*. Un *contenedor* puede ser una colección, un grafo o una tabla. Un *elemento* puede ser un documento, un vértice o borde, o una fila, y es el contenido que hay en un contenedor. Para más información, consulte [Trabajo con bases de datos, contenedores y elementos en Azure Cosmos DB](account-databases-containers-items.md).
+   > Si ya está familiarizado con la versión anterior del SDK de .NET, puede que conozca los términos *colección* y *documento* . Dado que Azure Cosmos DB admite varios modelos de API, todas las versiones del SDK de .NET posteriores a la 3.0 usan los términos genéricos *contenedor* y *elemento* . Un *contenedor* puede ser una colección, un grafo o una tabla. Un *elemento* puede ser un documento, un vértice o borde, o una fila, y es el contenido que hay en un contenedor. Para más información, consulte [Trabajo con bases de datos, contenedores y elementos en Azure Cosmos DB](account-databases-containers-items.md).
 
-1. Abra [Azure Portal](https://portal.azure.com). Busque la cuenta de Azure Cosmos DB y seleccione **Claves**.
+1. Abra [Azure Portal](https://portal.azure.com). Busque la cuenta de Azure Cosmos DB y seleccione **Claves** .
 
    :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-portal-keys.png" alt-text="Configuración del proyecto":::
 
-1. En *Program.cs*, reemplace `<your endpoint URL>` por el valor de **URI**. Reemplace `<your primary key>` por el valor de **CLAVE PRINCIPAL**.
+1. En *Program.cs* , reemplace `<your endpoint URL>` por el valor de **URI** . Reemplace `<your primary key>` por el valor de **CLAVE PRINCIPAL** .
 
-1. Debajo del método **Main**, agregue una nueva tarea asincrónica llamada **GetStartedDemoAsync**, que crea una instancia del nuevo `CosmosClient`.
+1. Debajo del método **Main** , agregue una nueva tarea asincrónica llamada **GetStartedDemoAsync** , que crea una instancia del nuevo `CosmosClient`.
 
     ```csharp
     public static async Task Main(string[] args)
@@ -145,7 +145,7 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
 
     **GetStartedDemoAsync** se usa como punto de entrada que llama a los métodos que operan en recursos de Azure Cosmos DB.
 
-1. Agregue el código siguiente para ejecutar la tarea asincrónica **GetStartedDemoAsync** desde su método **Main**. El método **Main** detecta las excepciones y las escribe en la consola.
+1. Agregue el código siguiente para ejecutar la tarea asincrónica **GetStartedDemoAsync** desde su método **Main** . El método **Main** detecta las excepciones y las escribe en la consola.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
 
@@ -157,7 +157,7 @@ Felicidades. Se ha conectado correctamente a una cuenta de Azure Cosmos DB.
 
 ## <a name="step-4-create-a-database"></a>Paso 4: Crear una base de datos
 
-Una base de datos es el contenedor lógico de elementos con particiones en contenedores. El método `CreateDatabaseIfNotExistsAsync` o `CreateDatabaseAsync` de la clase [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) puede crear una base de datos.
+Una base de datos es el contenedor lógico de elementos con particiones en contenedores. El método `CreateDatabaseIfNotExistsAsync` o `CreateDatabaseAsync` de la clase [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) puede crear una base de datos.
 
 1. Copie y pegue el método `CreateDatabaseAsync` debajo del método `GetStartedDemoAsync`.
 
@@ -308,7 +308,7 @@ El método [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.cr
 
 En primer lugar, vamos a crear una clase llamada `Family` que representará los objetos almacenados en Azure Cosmos DB en este ejemplo. También crearemos las subclases `Parent`, `Child`, `Pet`, `Address` que se usan en `Family`. El elemento debe tener una propiedad `Id` serializada como `id` en JSON.
 
-1. Seleccione Ctrl+Mayús+A para abrir **Agregar nuevo elemento**. Agregue una nueva clase `Family.cs` al proyecto.
+1. Seleccione Ctrl+Mayús+A para abrir **Agregar nuevo elemento** . Agregue una nueva clase `Family.cs` al proyecto.
 
     :::image type="content" source="./media/sql-api-get-started/cosmos-getting-started-add-family-class-2019.png" alt-text="Configuración del proyecto":::
 
@@ -317,12 +317,12 @@ En primer lugar, vamos a crear una clase llamada `Family` que representará los 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
 
 
-1. De nuevo en *Program.cs*, agregue el método `AddItemsToContainerAsync` después del método `CreateContainerAsync`.
+1. De nuevo en *Program.cs* , agregue el método `AddItemsToContainerAsync` después del método `CreateContainerAsync`.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
 
 
-    El código comprueba que no exista un elemento con el mismo identificador. Se insertan dos elementos, uno para *Andersen Family* y otro para *Wakefield Family*.
+    El código comprueba que no exista un elemento con el mismo identificador. Se insertan dos elementos, uno para *Andersen Family* y otro para *Wakefield Family* .
 
 1. Agregue una llamada a `AddItemsToContainerAsync` en el método `GetStartedDemoAsync`.
 
@@ -345,7 +345,7 @@ Felicidades. Ha creado correctamente dos elementos de Azure Cosmos.
 
 ## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>Paso 7: Consulta de los recursos de Azure Cosmos DB
 
-Azure Cosmos DB admite consultas enriquecidas en los documentos JSON que se almacenan en los contenedores. Para obtener más información, consulte [Introducción a las consultas SQL](sql-api-sql-query.md). El ejemplo de código siguiente muestra cómo ejecutar una consulta en los elementos que se insertaron en el paso anterior.
+Azure Cosmos DB admite consultas enriquecidas en los documentos JSON que se almacenan en los contenedores. Para obtener más información, consulte [Introducción a las consultas SQL](./sql-query-getting-started.md). El ejemplo de código siguiente muestra cómo ejecutar una consulta en los elementos que se insertaron en el paso anterior.
 
 1. Copie y pegue el método `QueryItemsAsync` después del método `AddItemsToContainerAsync`.
 
@@ -489,7 +489,7 @@ Para compilar la solución `GetStarted`, necesita los siguientes requisitos prev
 * Una [cuenta de Azure Cosmos DB][cosmos-db-create-account].
 * La solución [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-getting-started) está disponible en GitHub.
 
-Para restaurar las referencias al SDK de Azure Cosmos DB para .NET en Visual Studio, haga clic con el botón derecho en la solución en el **Explorador de soluciones** y, después, seleccione **Restaurar paquetes NuGet**. Después, en el archivo *App.config*, actualice los valores de `EndPointUri` y `PrimaryKey`, tal y como se describe en el [paso 3: Conexión a una cuenta de Azure Cosmos DB](#Connect).
+Para restaurar las referencias al SDK de Azure Cosmos DB para .NET en Visual Studio, haga clic con el botón derecho en la solución en el **Explorador de soluciones** y, después, seleccione **Restaurar paquetes NuGet** . Después, en el archivo *App.config* , actualice los valores de `EndPointUri` y `PrimaryKey`, tal y como se describe en el [paso 3: Conexión a una cuenta de Azure Cosmos DB](#Connect).
 
 Y, eso es todo, compílelo y habrá terminado.
 
@@ -497,8 +497,8 @@ Y, eso es todo, compílelo y habrá terminado.
 
 * ¿Desea un tutorial de ASP.NET MVC más complejo? Consulte [Tutorial: Desarrollar una aplicación web ASP.NET Core MVC con Azure Cosmos DB mediante el SDK de .NET](sql-api-dotnet-application.md).
 * ¿Quiere realizar pruebas de escalado y rendimiento con Azure Cosmos DB? Consulte [Pruebas de escala y rendimiento con Azure Cosmos DB](performance-testing.md).
-* Para obtener información sobre cómo supervisar las solicitudes, el uso y el almacenamiento de Azure Cosmos DB, consulte [Supervisión de las métricas de rendimiento y almacenamiento en Azure Cosmos DB](monitor-accounts.md).
+* Para obtener información sobre cómo supervisar las solicitudes, el uso y el almacenamiento de Azure Cosmos DB, consulte [Supervisión de las métricas de rendimiento y almacenamiento en Azure Cosmos DB](./monitor-cosmos-db.md).
 * Para ejecutar consultas en nuestro conjunto de datos de ejemplo, visite nuestro [Sitio de prueba de consultas](https://www.documentdb.com/sql/demo).
-* Para más información sobre Azure Cosmos DB, consulte [Bienvenido a Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
+* Para más información sobre Azure Cosmos DB, consulte [Bienvenido a Azure Cosmos DB](./introduction.md).
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

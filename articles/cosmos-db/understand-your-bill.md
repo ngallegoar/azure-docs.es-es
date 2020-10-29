@@ -7,23 +7,23 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567866"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476406"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entienda la factura de Azure Cosmos DB
 
 Como servicio de bases de datos nativo de la nube totalmente administrado, Azure Cosmos DB simplifica la facturación al cobrar solo las operaciones de la base de datos y el almacenamiento consumido. No existen tarifas de licencia adicionales, costos de hardware, de utilidades ni de instalaciones en comparación con las alternativas locales u hospedadas en IaaS. Al considerar las funcionalidades de varias regiones de Azure Cosmos DB, el servicio de base de datos proporciona una considerable reducción de costos en comparación con soluciones locales o IaaS.
 
-- **Operaciones de la base de datos**: la forma en que se le cobran las operaciones de base de datos depende del tipo de cuenta de Azure Cosmos que se use.
+- **Operaciones de la base de datos** : la forma en que se le cobran las operaciones de base de datos depende del tipo de cuenta de Azure Cosmos que se use.
 
-  - **Rendimiento aprovisionado**: la facturación se realiza por hora al rendimiento máximo aprovisionado para una concreta, en incrementos de 100 RU/s.
-  - **Sin servidor**: la facturación se realiza por hora a la cantidad total de unidades de solicitud usada por las operaciones de base de datos.
+  - **Rendimiento aprovisionado** : la facturación se realiza por hora al rendimiento máximo aprovisionado para una concreta, en incrementos de 100 RU/s.
+  - **Sin servidor** : la facturación se realiza por hora a la cantidad total de unidades de solicitud usada por las operaciones de base de datos.
 
-- **Almacenamiento**: se le cobra una tarifa plana por la cantidad total de almacenamiento (GB) usada por los datos y los índices en una hora concreta.
+- **Almacenamiento** : se le cobra una tarifa plana por la cantidad total de almacenamiento (GB) usada por los datos y los índices en una hora concreta.
 
 Consulte la [página de precios](https://azure.microsoft.com/pricing/details/cosmos-db/) para obtener la información sobre los precios más reciente.
 
@@ -313,5 +313,5 @@ A continuación, puede obtener información sobre la optimización de costos en 
 * Obtenga más información sobre la [optimización del costo de la capacidad del rendimiento](optimize-cost-throughput.md).
 * Obtenga más información sobre la [optimización del costo del almacenamiento](optimize-cost-storage.md).
 * Obtenga más información sobre la [optimización del costo de la lectura y la escritura](optimize-cost-reads-writes.md).
-* Obtenga más información sobre la [optimización del costo de las consultas](optimize-cost-queries.md).
+* Obtenga más información sobre la [optimización del costo de las consultas](./optimize-cost-reads-writes.md).
 * Obtenga más información sobre la [optimización del costo de las cuentas de Azure Cosmos de varias regiones](optimize-cost-regions.md).

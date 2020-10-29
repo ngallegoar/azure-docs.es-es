@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: ec5c98d90facf9458769f235880f17d14708e425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87923662"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482016"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Escalado del rendimiento de Azure Cosmos DB mediante el desencadenador de temporizador de Azure Functions
 
 El rendimiento de una cuenta de Azure Cosmos se basa en la cantidad de rendimiento aprovisionado expresado en las unidades de solicitud por segundo (RU/s). El aprovisionamiento se realiza a una granularidad de un segundo y se factura en función de los mayores RU/s por hora. Este modelo de capacidad aprovisionada permite que el servicio proporcione un rendimiento predecible y coherente, baja latencia garantizada y alta disponibilidad. La mayor parte de la producción realiza cargas de trabajo de estas características. Sin embargo, en entornos de desarrollo y pruebas en los que Azure Cosmos DB solo se usa durante las horas de trabajo, se puede escalar verticalmente el rendimiento de la mañana y reducirse verticalmente por la tarde después del horario de trabajo.
 
-Puede establecer el rendimiento a través de las [plantillas de Azure Resource Manager](resource-manager-samples.md), [CLI de Azure](cli-samples.md) y [PowerShell](powershell-samples.md) para las cuentas de API principales (SQL), o mediante los SDK de Azure Cosmos DB específicos del lenguaje. La ventaja de usar plantillas de Resource Manager, CLI de Azure o PowerShell es que admiten todas las API de modelo de Azure Cosmos DB.
+Puede establecer el rendimiento a través de las [plantillas de Azure Resource Manager](./templates-samples-sql.md), [CLI de Azure](cli-samples.md) y [PowerShell](powershell-samples.md) para las cuentas de API principales (SQL), o mediante los SDK de Azure Cosmos DB específicos del lenguaje. La ventaja de usar plantillas de Resource Manager, CLI de Azure o PowerShell es que admiten todas las API de modelo de Azure Cosmos DB.
 
 ## <a name="throughput-scheduler-sample-project"></a>Proyecto de ejemplo del programador de rendimiento
 

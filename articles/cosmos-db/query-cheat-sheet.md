@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: fb080858ff6be98846c542844810cf976eb3f264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5683fb64c9b5df027ff8b0f50cec49e9bce5808
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85117988"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475131"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Hojas de referencia rápida de consultas Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Descargue las [hojas de referencia rápida de consultas Azure Cosmos DB con tama
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más ayuda para escribir consultas, vea los artículos siguientes:
-* Para las consultas de la API de SQL, consulte [Tutorial: Consulta de Azure Cosmos DB mediante la API de SQL](tutorial-query-sql-api.md), [Consultas SQL para Azure Cosmos DB](how-to-sql-query.md), y [Referencia de la sintaxis SQL de Azure Cosmos DB](sql-api-query-reference.md).
+* Para las consultas de la API de SQL, consulte [Tutorial: Consulta de Azure Cosmos DB mediante la API de SQL](tutorial-query-sql-api.md), [Consultas SQL para Azure Cosmos DB](./sql-query-getting-started.md), y [Referencia de la sintaxis SQL de Azure Cosmos DB](./sql-query-getting-started.md).
 * Para las consultas de MongoDB, consulte [Consulta de los datos con la API de Azure Cosmos DB para MongoDB](tutorial-query-mongodb.md) y [Azure Cosmos DB's API for MongoDB feature support and syntax](mongodb-feature-support.md) (API de Azure Cosmos DB para la compatibilidad y sintaxis de la característica de MongoDB)
 * Para las consultas de Gremlin API, consulte [Tutorial: Consulta de la Graph API de Azure Cosmos DB mediante Gremlin](tutorial-query-graph.md) y [Compatibilidad de Azure Cosmos DB con grafos Gremlin](gremlin-support.md).
 * Para las consultas de Table API, vea [Tutorial: Consulta de Azure Cosmos DB mediante Table API](tutorial-query-table.md).

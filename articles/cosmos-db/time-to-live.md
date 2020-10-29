@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91802937"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476984"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Mediante el **período de vida** o TTL, Azure Cosmos DB proporciona la capacida
 
 La eliminación de los elementos expirados es una tarea en segundo plano que usa las [unidades de solicitud](request-units.md) restantes, es decir, las unidades de solicitud que no han consumido las solicitudes del usuario. Incluso después de que expire el período de vida, si el contenedor está sobrecargado con solicitudes y no hay suficientes RU disponibles, se retrasa la eliminación de los datos. Los datos se eliminan cuando hay suficientes RU disponibles para realizar la operación de eliminación. Aunque se retrasa la eliminación de los datos, las consultas (por parte de cualquier API) no devuelven los datos después de que expira el período de vida.
 
-> Este contenido está relacionado con el TTL del almacén transaccional de Azure Cosmos DB. Si está buscando el TTL del almacén de análisis, que habilita escenarios de NoETL HTAP mediante [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), haga clic [aquí](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Este contenido está relacionado con el TTL del almacén transaccional de Azure Cosmos DB. Si está buscando el TTL del almacén de análisis, que habilita escenarios de NoETL HTAP mediante [Azure Synapse Link](./synapse-link.md), haga clic [aquí](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Período de vida para contenedores y elementos
 
@@ -32,7 +32,7 @@ El valor de período de vida se establece en segundos, y se interpreta como una 
 
    - Si existe y el valor se ha establecido en "-1", es igual a infinito y los documentos no expiran de forma predeterminada.
 
-   - Si existe y el valor se ha establecido en un número *"n"*, los elementos expiran *"n"* segundos después de la última modificación.
+   - Si existe y el valor se ha establecido en un número *"n"* , los elementos expiran *"n"* segundos después de la última modificación.
 
 2. **Período de vida en un elemento** (se establece mediante `ttl`):
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: dac2ed3888dcf1d38fc5e2c21611edf8008a07f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280999"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476372"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restricciones de clave únicas de Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Puede definir claves únicas solo cuando se crea un contenedor de Azure Cosmos. 
 
 * No puede actualizar un contenedor existente para que use una clave única distinta. En otras palabras, una vez creado un contenedor con una directiva de clave única, la directiva no se puede cambiar.
 
-* Para establecer una clave única para un contenedor existente, cree un nuevo contenedor con la restricción de clave única. Utilice la herramienta de migración de datos adecuada para mover los datos desde el contenedor existente al nuevo contenedor. Para los contenedores de SQL, use la [Herramienta de migración de datos](import-data.md) para mover los datos. Para los contenedores de MongoDB, utilice [mongoimport.exe o mongorestore.exe](mongodb-migrate.md) para mover los datos.
+* Para establecer una clave única para un contenedor existente, cree un nuevo contenedor con la restricción de clave única. Utilice la herramienta de migración de datos adecuada para mover los datos desde el contenedor existente al nuevo contenedor. Para los contenedores de SQL, use la [Herramienta de migración de datos](import-data.md) para mover los datos. Para los contenedores de MongoDB, utilice [mongoimport.exe o mongorestore.exe](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) para mover los datos.
 
 * Una directiva de clave única puede tener un máximo de 16 valores de ruta de acceso. Por ejemplo, los valores pueden ser `/firstName`, `/lastName` y `/address/zipCode`. Cada directiva de clave única puede tener un máximo de 10 restricciones o combinaciones de clave única. Las rutas de acceso combinadas para cada restricción de índice única no deben superar los 60 bytes. En el ejemplo anterior, el nombre, el apellido y la dirección de correo electrónico de forma conjunta constituyen solo una restricción. Esta restricción utiliza tres de las dieciséis posibles rutas de acceso.
 

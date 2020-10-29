@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 44519a21296fd658f12b8d7df2191797b16caf7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320904"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482237"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Uso de Azure Policy para implementar la gobernanza y los controles de recursos de Azure Cosmos DB
 
@@ -134,4 +134,4 @@ Para corregir los recursos no compatibles, consulte [Corregir los recursos no co
 
 - [Revise las definiciones de directivas personalizadas de ejemplo para Azure Cosmos DB](https://github.com/Azure/azure-policy/tree/master/samples/CosmosDB), incluidas las directivas de filtrado de VNet y de varias ubicaciones de escritura mostradas anteriormente.
 - [Creación de una asignación de directiva en Azure Portal](../governance/policy/assign-policy-portal.md)
-- [Revisión de las definiciones de directivas integradas de Azure Policy para Azure Cosmos DB](./policy-samples.md)
+- [Revisión de las definiciones de directivas integradas de Azure Policy para Azure Cosmos DB](./policy-reference.md)

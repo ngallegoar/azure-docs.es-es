@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbf2893896b7258115ed3f59224caef9cf843b1f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282567"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481523"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: ejemplos de .NET para la API de SQL
 
@@ -38,7 +38,7 @@ Para obtener ejemplos de código de la versión 3.0 del SDK de .NET (versión pr
 ## <a name="prerequisites"></a>Prerrequisitos
 
 Visual Studio 2019 con el flujo de trabajo de desarrollo de Azure instalado
-- Puede descargar y usar [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/), que es una edición **gratuita**. Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio. 
+- Puede descargar y usar [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/), que es una edición **gratuita** . Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio. 
 
 El [paquete NuGet Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 
@@ -90,7 +90,7 @@ El método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/b
 | [Lectura de documento únicamente si ha cambiado](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>Ejemplos de indización
-El método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) del proyecto *IndexManagement* de ejemplo muestra cómo realizar las tareas siguientes. Para más información sobre la indexación en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, consulte las [directivas de indexación](index-policy.md), los [tipos de indexación](index-types.md) y las [rutas de acceso de indexación](index-paths.md). 
+El método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) del proyecto *IndexManagement* de ejemplo muestra cómo realizar las tareas siguientes. Para más información sobre la indexación en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, consulte las [directivas de indexación](index-policy.md), los [tipos de indexación](index-overview.md#index-kinds) y las [rutas de acceso de indexación](index-policy.md#include-exclude-paths). 
 
 | Tarea | Referencia de API |
 | --- | --- |
@@ -102,7 +102,7 @@ El método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/
 | [Realización de una transformación de índices](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L318-L370) |[ReplaceDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync) |
 
 ## <a name="geospatial-examples"></a>Ejemplos de geoespacialidad
-El método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) del proyecto *Geospatial* de ejemplo muestra cómo realizar las tareas siguientes.  Para más información sobre los datos geoespaciales y GeoJSON antes de ejecutar los ejemplos siguientes, consulte [Uso de los datos de ubicación geoespacial y GeoJSON](geospatial.md). 
+El método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) del proyecto *Geospatial* de ejemplo muestra cómo realizar las tareas siguientes.  Para más información sobre los datos geoespaciales y GeoJSON antes de ejecutar los ejemplos siguientes, consulte [Uso de los datos de ubicación geoespacial y GeoJSON](./sql-query-geospatial-intro.md). 
 
 | Tarea | Referencia de API |
 | --- | --- |
@@ -114,7 +114,7 @@ El método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/
 | [Validación de datos de puntos y polígonos](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-st-isvalid.md)<br>[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)<br>[GeometryOperationExtensions.IsValid](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid)<br>[GeometryOperationExtensions.IsValidDetailed](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed) |
 
 ## <a name="query-examples"></a>Ejemplos de consultas
-El método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) del proyecto de *Queries* de ejemplo muestra cómo realizar las siguientes tareas con la gramática de consultas SQL, el proveedor LINQ con consulta y Lambda. Para más información sobre la referencia de consultas SQL en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, consulte los [ejemplos de consultas SQL para Azure Cosmos DB](how-to-sql-query.md). 
+El método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) del proyecto de *Queries* de ejemplo muestra cómo realizar las siguientes tareas con la gramática de consultas SQL, el proveedor LINQ con consulta y Lambda. Para más información sobre la referencia de consultas SQL en Azure Cosmos DB antes de ejecutar los ejemplos siguientes, consulte los [ejemplos de consultas SQL para Azure Cosmos DB](./sql-query-getting-started.md). 
 
 | Tarea | Referencia de API |
 | --- | --- |
@@ -164,4 +164,3 @@ El método [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/
 | [Creación de un usuario](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L93) |[DocumentClient.CreateUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserasync) |
 | [Establecimiento de permisos en una colección o en un documento](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L97) |[DocumentClient.CreatePermissionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createpermissionasync) |
 | [Obtención de una lista de permisos de un usuario](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L241) |[DocumentClient.ReadUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readuserasync)<br>[DocumentClient.ReadPermissionFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpermissionfeedasync) |
-

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277039"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475811"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Procesadores de fuente de cambios de Azure Cosmos DB
 
@@ -125,10 +125,10 @@ El procesador de fuente de cambios se inicializará y comenzará a leer los camb
 
 El procesador de fuente de cambios se puede hospedar en cualquier plataforma que admita procesos o tareas de larga duración:
 
-* Un [WebJob de Azure](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/) que se ejecuta continuamente.
-* Un proceso de una [máquina virtual de Azure](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
-* Un trabajo en segundo plano de [Azure Kubernetes Service](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
-* Un [servicio hospedado de ASP.NET](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+* Un [WebJob de Azure](/learn/modules/run-web-app-background-task-with-webjobs/) que se ejecuta continuamente.
+* Un proceso de una [máquina virtual de Azure](/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Un trabajo en segundo plano de [Azure Kubernetes Service](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
+* Un [servicio hospedado de ASP.NET](/aspnet/core/fundamentals/host/hosted-services).
 
 Aunque el procesador de fuente de cambios puede ejecutarse en entornos de corta duración, dado que el contenedor de concesión mantiene el estado, el ciclo de inicio de estos entornos agrega retraso a la recepción de las notificaciones (debido a la sobrecarga que supone iniciar el procesador cada vez que se inicia el entorno).
 
@@ -147,4 +147,4 @@ Puede obtener más información sobre el procesador de la fuente de cambios en l
 * [Modelo de extracción de fuente de cambios](change-feed-pull-model.md)
 * [Migración desde la biblioteca de procesadores de fuente de cambios](how-to-migrate-from-change-feed-library.md)
 * [Uso del calculador de la fuente de cambios](how-to-use-change-feed-estimator.md)
-* [Hora de inicio del procesador de la fuente de cambios](how-to-configure-change-feed-start-time.md)
+* [Hora de inicio del procesador de la fuente de cambios](#starting-time)
