@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191283"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779414"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registros de diagnóstico: Azure Content Delivery Network
 
@@ -44,13 +44,13 @@ Siga estos pasos para habilitar el registro para el punto de conexión de Azure 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 
-2. En Azure Portal, vaya a **Todos los recursos** -> **su-perfil-de-cdn**.
+2. En Azure Portal, vaya a **Todos los recursos** -> **su-perfil-de-cdn** .
 
 2. Seleccione el punto de conexión de CDN para el que quiera habilitar los registros de diagnóstico:
 
     :::image type="content" source="./media/cdn-diagnostics-log/02_browse-to-diagnostics-logs.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
-3. Seleccione **Registros de diagnóstico** en la sección **Supervisión**:
+3. Seleccione **Registros de diagnóstico** en la sección **Supervisión** :
 
     :::image type="content" source="./media/cdn-diagnostics-log/03_diagnostics-logs-options.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
@@ -59,11 +59,11 @@ Siga estos pasos para habilitar el registro para el punto de conexión de Azure 
 Para usar una cuenta de almacenamiento y almacenar los registros, siga estos pasos:
 
  >[!NOTE] 
- >Se necesita una cuenta de almacenamiento para completar estos pasos. Consulte **[Creación de una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** para obtener más información.
+ >Se necesita una cuenta de almacenamiento para completar estos pasos. Consulte **[Creación de una cuenta de Azure Storage](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** para obtener más información.
     
 1. En **Diagnostic setting name** (Nombre de la configuración de diagnóstico), escriba un nombre para la configuración del registro de diagnóstico.
  
-2. Seleccione **Archivar en una cuenta de almacenamiento** y luego seleccione **CoreAnalytics**. 
+2. Seleccione **Archivar en una cuenta de almacenamiento** y luego seleccione **CoreAnalytics** . 
 
 3. En **Retención (días)** , elija el número de días de retención. Con una retención de cero días, los registros se almacenan indefinidamente. 
 
@@ -71,41 +71,41 @@ Para usar una cuenta de almacenamiento y almacenar los registros, siga estos pas
 
     :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
-3. Seleccione **Guardar**.
+3. Seleccione **Guardar** .
 
 ### <a name="send-to-log-analytics"></a>Enviar a Log Analytics
 
 Para usar Log Analytics para los registros, siga estos pasos:
 
 >[!NOTE] 
->Se requiere un área de trabajo de Log Analytics para completar estos pasos. Consulte **[Creación de un área de trabajo de Log Analytics en Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** para obtener más información.
+>Se requiere un área de trabajo de Log Analytics para completar estos pasos. Consulte **[Creación de un área de trabajo de Log Analytics en Azure Portal](../azure-monitor/learn/quick-create-workspace.md)** para obtener más información.
     
 1. En **Diagnostic setting name** (Nombre de la configuración de diagnóstico), escriba un nombre para la configuración del registro de diagnóstico.
 
-2. Seleccione **Enviar a Log Analytics** y luego seleccione **CoreAnalytics**. 
+2. Seleccione **Enviar a Log Analytics** y luego seleccione **CoreAnalytics** . 
 
 3. Seleccione la suscripción y el área de trabajo de Log Analytics para los registros.
 
    :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
-4. Seleccione **Guardar**.
+4. Seleccione **Guardar** .
 
 ### <a name="stream-to-an-event-hub"></a>Transmitir a un centro de eventos
 
 Para usar un centro de eventos para los registros, siga estos pasos:
 
 >[!NOTE] 
->Se necesita un centro de eventos para completar estos pasos. Consulte **[Guía de inicio rápido: Creación de un centro de eventos mediante Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** para obtener más información.
+>Se necesita un centro de eventos para completar estos pasos. Consulte **[Guía de inicio rápido: Creación de un centro de eventos mediante Azure Portal](../event-hubs/event-hubs-create.md)** para obtener más información.
     
 1. En **Diagnostic setting name** (Nombre de la configuración de diagnóstico), escriba un nombre para la configuración del registro de diagnóstico.
 
-2. Seleccione **Transmitir a un centro de eventos** y luego **CoreAnalytics**. 
+2. Seleccione **Transmitir a un centro de eventos** y luego **CoreAnalytics** . 
 
 3. Seleccione la suscripción y el espacio de nombres del centro de eventos para los registros.
 
    :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selección del punto de conexión de CDN." border="true":::
 
-4. Seleccione **Guardar**.
+4. Seleccione **Guardar** .
 
 
 ## <a name="enable-logging-with-powershell"></a>Habilitación del registro con PowerShell
@@ -190,8 +190,8 @@ Para descargar la herramienta, consulte [Explorador de Azure Storage](https://st
 1.  Abra el **Explorador de Microsoft Azure Storage**
 2.  Busque la cuenta de almacenamiento.
 3.  Expanda el nodo **Contenedores de blob** en esta cuenta de almacenamiento.
-4.  Seleccione el contenedor llamado *insights-logs-coreanalytics*.
-5.  Los resultados se muestran en el panel derecho, comenzando por el primer nivel, como *resourceId=* . Siga seleccionando cada nivel hasta encontrar el archivo *PT1H.json*. Para obtener una explicación de la ruta de acceso, consulte [Formato de las rutas de acceso de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
+4.  Seleccione el contenedor llamado *insights-logs-coreanalytics* .
+5.  Los resultados se muestran en el panel derecho, comenzando por el primer nivel, como *resourceId=* . Siga seleccionando cada nivel hasta encontrar el archivo *PT1H.json* . Para obtener una explicación de la ruta de acceso, consulte [Formato de las rutas de acceso de blob](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Cada archivo blob *PT1H.json* representa los registros de análisis durante una hora de un punto de conexión de red CDN concreto o de su dominio personalizado.
 7.  El esquema del contenido de este archivo JSON se describe en la sección de esquema de los registros de análisis básico.
 
@@ -229,7 +229,7 @@ A continuación, se muestra cómo puede usar la herramienta:
 
 ## <a name="log-data-delays"></a>Retrasos en el registro de datos
 
-En la tabla siguiente se muestran los retrasos de los datos de registro de **Azure CDN Estándar de Microsoft**, **Azure CDN Estándar de Akamai** y **Azure CDN Estándar/Premium de Verizon**.
+En la tabla siguiente se muestran los retrasos de los datos de registro de **Azure CDN Estándar de Microsoft** , **Azure CDN Estándar de Akamai** y **Azure CDN Estándar/Premium de Verizon** .
 
 Retrasos de datos de registro de Microsoft | Retrasos en el registro de datos de Verizon | Retrasos en el registro de datos de Akamai
 --- | --- | ---
@@ -369,14 +369,7 @@ Propiedades de ejemplo:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Registros de diagnóstico de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Análisis básico mediante el portal complementario de Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [API de REST de Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Análisis básico mediante el portal complementario de Azure CDN](./cdn-analyze-usage-patterns.md)
+* [Registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [API de REST de Azure Log Analytics](/rest/api/loganalytics)

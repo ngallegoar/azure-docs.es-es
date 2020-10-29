@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ea9c759bdb4bb2b837028407ce6e83f6e25a8c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400558"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784055"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Elección de la solución de Azure para la transferencia de datos
 
@@ -24,19 +24,19 @@ En este artículo se proporciona información general de algunas de las solucion
 La transferencia de datos puede realizarse sin conexión o mediante la conexión de red. Elija la solución en función de lo siguiente:
 
 - **Tamaño de los datos** que quiere transferir.
-- **Frecuencia de transferencia**: ingesta de datos única o periódica.
-- **Red**: ancho de banda disponible para la transferencia de datos en el entorno.
+- **Frecuencia de transferencia** : ingesta de datos única o periódica.
+- **Red** : ancho de banda disponible para la transferencia de datos en el entorno.
 
 El movimiento de datos puede ser de los siguientes tipos:
 
-- **Transferencia sin conexión mediante dispositivos entregables**: use dispositivos entregables físicos para la transferencia de datos única en bloque sin conexión. Microsoft envía un disco o un dispositivo seguro especializado. Como alternativa, puede comprar y enviar sus propios discos. Copie los datos en el dispositivo y envíelo a Azure para cargarlos.  Las opciones disponibles para este caso son Data Box Disk, Data Box, Data Box Heavy e Import/Export (con sus propios discos).
+- **Transferencia sin conexión mediante dispositivos entregables** : use dispositivos entregables físicos para la transferencia de datos única en bloque sin conexión. Microsoft envía un disco o un dispositivo seguro especializado. Como alternativa, puede comprar y enviar sus propios discos. Copie los datos en el dispositivo y envíelo a Azure para cargarlos.  Las opciones disponibles para este caso son Data Box Disk, Data Box, Data Box Heavy e Import/Export (con sus propios discos).
 
-- **Transferencia de red**: los datos se transfieren a Azure mediante la conexión de red. Esto puede hacerse de diferentes maneras.
+- **Transferencia de red** : los datos se transfieren a Azure mediante la conexión de red. Esto puede hacerse de diferentes maneras.
 
-    - **Interfaz gráfica**: si únicamente transfiere algunos datos de manera esporádica y no necesita automatizar la transferencia, puede elegir una herramienta de interfaz gráfica, como el Explorador de Azure Storage o una herramienta de exploración basada en web de Azure Portal.
-    - **Transferencia mediante scripts o programación**: puede usar las herramientas de software optimizadas que ofrecemos o llamar directamente a los SDK o las API REST. Las herramientas de scripts disponibles son AzCopy, Azure PowerShell y la CLI de Azure. Para la interfaz de programación, utilice uno de los SDK para .NET, Java, Python, Node/JS, C++, Go, PHP o Ruby.
-    - **Dispositivos locales**: nosotros ofrecemos un dispositivo virtual o físico que reside en el centro de datos y optimiza la transferencia de datos a través de la red. Estos dispositivos también proporcionan una caché local de los archivos usados frecuentemente. El dispositivo físico es Azure Stack Edge y el virtual, Data Box Gateway. Ambos se ejecutan permanentemente en el entorno local y se conectan a Azure a través de la red.
-    - **Canalización de datos administrados**: puede configurar una canalización en la nube para transferir archivos periódicamente entre distintos servicios de Azure, locales o de ambos tipos. Utilice Azure Data Factory para configurar y administrar canalizaciones de datos, y mover y transformar los datos para el análisis.
+    - **Interfaz gráfica** : si únicamente transfiere algunos datos de manera esporádica y no necesita automatizar la transferencia, puede elegir una herramienta de interfaz gráfica, como el Explorador de Azure Storage o una herramienta de exploración basada en web de Azure Portal.
+    - **Transferencia mediante scripts o programación** : puede usar las herramientas de software optimizadas que ofrecemos o llamar directamente a los SDK o las API REST. Las herramientas de scripts disponibles son AzCopy, Azure PowerShell y la CLI de Azure. Para la interfaz de programación, utilice uno de los SDK para .NET, Java, Python, Node/JS, C++, Go, PHP o Ruby.
+    - **Dispositivos locales** : nosotros ofrecemos un dispositivo virtual o físico que reside en el centro de datos y optimiza la transferencia de datos a través de la red. Estos dispositivos también proporcionan una caché local de los archivos usados frecuentemente. El dispositivo físico es Azure Stack Edge y el virtual, Data Box Gateway. Ambos se ejecutan permanentemente en el entorno local y se conectan a Azure a través de la red.
+    - **Canalización de datos administrados** : puede configurar una canalización en la nube para transferir archivos periódicamente entre distintos servicios de Azure, locales o de ambos tipos. Utilice Azure Data Factory para configurar y administrar canalizaciones de datos, y mover y transformar los datos para el análisis.
 
 En la siguiente ilustración se muestran las directrices para elegir las herramientas de transferencia de datos de Azure en función del ancho de banda de red disponible para la transferencia, el tamaño de los datos que se van a transferir y la frecuencia de las transferencias.
 
@@ -66,20 +66,20 @@ Responda a las siguientes preguntas, que le ayudarán a seleccionar una solució
 
 ## <a name="data-transfer-feature-in-azure-portal"></a>Característica Transferencia de datos en Azure Portal
 
-También puede ir a su cuenta de Azure Storage en Azure Portal y seleccionar la característica **Transferencia de datos**. Proporcione el ancho de banda de red en su entorno, el tamaño de los datos que desea transferir y la frecuencia de transferencia de datos. Verá las soluciones de transferencia de datos óptimas correspondientes a la información que ha proporcionado. 
+También puede ir a su cuenta de Azure Storage en Azure Portal y seleccionar la característica **Transferencia de datos** . Proporcione el ancho de banda de red en su entorno, el tamaño de los datos que desea transferir y la frecuencia de transferencia de datos. Verá las soluciones de transferencia de datos óptimas correspondientes a la información que ha proporcionado. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción al Explorador de Azure Storage](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/)
-- [Introducción a AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [Introducción a AzCopy](./storage-use-azcopy-v10.md)
 - [Inicio rápido: Carga, descarga y enumeración de blobs mediante PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md)
 - Más información sobre lo siguiente:
 
-    - [Azure Data Box, Azure Data Box Disk y Azure Data Box Heavy para las transferencias sin conexión](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box Gateway y Azure Data Box Edge para las transferencias en línea](https://docs.microsoft.com/azure/databox-online/).
-- [Qué es Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box Disk y Azure Data Box Heavy para las transferencias sin conexión](../../databox/index.yml).
+    - [Azure Data Box Gateway y Azure Data Box Edge para las transferencias en línea](../../databox-online/index.yml).
+- [Qué es Azure Data Factory](../../data-factory/copy-activity-overview.md).
 - Use las API REST para transferir datos
 
-    - [En .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [En Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [En .NET](/dotnet/api/overview/azure/storage)
+    - [En Java](/java/api/overview/azure/storage)

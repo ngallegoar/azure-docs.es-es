@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 80f5d6033429c40f468d525a088bcc72bdc3375b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4837b905f4e65b5513f1dbf693af9815b5696a4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450300"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782967"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Solucione con Intelligent Insights los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL.
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-En esta página se proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL detectados mediante el registro de recursos de [Intelligent Insights](intelligent-insights-overview.md). Tanto las métricas como los flujos de recursos se pueden transmitir en secuencias a los [registros de Azure Monitor](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
+En esta página se proporciona información sobre los problemas de rendimiento de Azure SQL Database e Instancia administrada de Azure SQL detectados mediante el registro de recursos de [Intelligent Insights](intelligent-insights-overview.md). Tanto las métricas como los flujos de recursos se pueden transmitir en secuencias a los [registros de Azure Monitor](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage) o una solución de terceros para las funcionalidades personalizadas de informes y alertas de DevOps.
 
 > [!NOTE]
 > Para ver una guía rápida de solución de problemas de rendimiento con Intelligent Insights, consulte en este documento el diagrama de flujo denominado [Flujo de solución de problemas recomendado](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow).
@@ -74,7 +74,7 @@ El registro de diagnóstico genera códigos hash de consultas que han afectado a
 
 Si se han alcanzado los límites de sesión disponibles, puede optimizar las aplicaciones mediante la reducción del número de inicios de sesión realizados en la base de datos. Si no puede reducir el número de inicios de sesión de las aplicaciones en la base de datos, considere la posibilidad de aumentar el plan de tarifa de suscripción de la base de datos. O bien, puede mover la base de datos y dividirla en varias bases de datos para una distribución más uniforme de la carga de trabajo.
 
-Para conocer más sugerencias sobre cómo resolver los límites de sesión, vea [Cómo abordar los límites del número máximo de inicios de sesión](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Vea [Introducción a los límites de recursos de un servidor](resource-limits-logical-server.md) para obtener información sobre los límites en los niveles de servidor y suscripción.
+Para conocer más sugerencias sobre cómo resolver los límites de sesión, vea [Cómo abordar los límites del número máximo de inicios de sesión](/archive/blogs/latam/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins). Vea [Introducción a los límites de recursos de un servidor](resource-limits-logical-server.md) para obtener información sobre los límites en los niveles de servidor y suscripción.
 
 ## <a name="workload-increase"></a>Aumento de la carga de trabajo
 
@@ -118,7 +118,7 @@ Para obtener más sugerencias de solución de problemas, consulte [Memory grants
 
 Este patrón de rendimiento indica una degradación del rendimiento actual de la base de datos en el que se detectó un bloqueo excesivo de la base de datos en comparación con la base de referencia de rendimiento de los últimos 7 días.
 
-En el sistema de administración de bases de datos relacionales moderno, el bloqueo es esencial para implementar sistemas de varios subprocesos en los que, siempre que sea posible, el rendimiento se maximiza mediante la ejecución de varios trabajos simultáneos y transacciones de la base de datos paralelas. El bloqueo en este contexto hace referencia al mecanismo de acceso integrado en el que solo una transacción puede tener acceso exclusivo a las filas, las páginas, las tablas y los archivos necesarios y no competir con ninguna otra transacción por los recursos. Cuando la transacción se realiza con los recursos cuyo uso tenía bloqueado, se libera el bloqueo en estos recursos y se permite que otras transacciones accedan a los recursos necesarios. Para más información sobre el bloqueo, consulte [Bloquear el motor de base de datos](https://msdn.microsoft.com/library/ms190615.aspx).
+En el sistema de administración de bases de datos relacionales moderno, el bloqueo es esencial para implementar sistemas de varios subprocesos en los que, siempre que sea posible, el rendimiento se maximiza mediante la ejecución de varios trabajos simultáneos y transacciones de la base de datos paralelas. El bloqueo en este contexto hace referencia al mecanismo de acceso integrado en el que solo una transacción puede tener acceso exclusivo a las filas, las páginas, las tablas y los archivos necesarios y no competir con ninguna otra transacción por los recursos. Cuando la transacción se realiza con los recursos cuyo uso tenía bloqueado, se libera el bloqueo en estos recursos y se permite que otras transacciones accedan a los recursos necesarios. Para más información sobre el bloqueo, consulte [Bloquear el motor de base de datos](/previous-versions/sql/sql-server-2008-r2/ms190615(v=sql.105)).
 
 Si las transacciones ejecutadas por el motor SQL esperan largos períodos de tiempo para el acceso a recursos cuyo uso tienen bloqueado, este tiempo de espera provoca la reducción del rendimiento de la ejecución de la carga de trabajo.
 
@@ -144,7 +144,7 @@ La opción de configuración del servidor MAXDOP se usa para controlar el númer
 
 El registro de diagnóstico genera códigos hash de consulta relacionados con las consultas en las que ha aumentado la duración de la ejecución porque están más paralelizadas de lo que deberían. El registro también genera tiempos de espera CXP. Este tiempo representa el tiempo en que un subproceso de organizador o coordinador único (subproceso 0) espera a que todos los demás subprocesos finalicen, antes de combinar los resultados y seguir avanzando. Además, el registro de diagnóstico proporciona los tiempos de espera de las consultas con un rendimiento deficiente durante la ejecución general. Puede usar esta información como base para la solución de problemas.
 
-En primer lugar, optimice o simplifique las consultas más complejas. Le recomendamos que divida los trabajos por lotes largos en partes más pequeñas. Además, asegúrese de que se han creado índices para admitir las consultas. También puede aplicar manualmente el grado máximo de paralelismo (MAXDOP) para una consulta que se marcó como con un rendimiento deficiente. Para configurar esta operación mediante T-SQL, consulte [Configurar la opción de servidor MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+En primer lugar, optimice o simplifique las consultas más complejas. Le recomendamos que divida los trabajos por lotes largos en partes más pequeñas. Además, asegúrese de que se han creado índices para admitir las consultas. También puede aplicar manualmente el grado máximo de paralelismo (MAXDOP) para una consulta que se marcó como con un rendimiento deficiente. Para configurar esta operación mediante T-SQL, consulte [Configurar la opción de servidor MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 Si se establece la opción de configuración del servidor MAXDOP en cero (0) como valor predeterminado, se indica que la base de datos puede usar todos los núcleos de CPU disponibles con el fin de paralelizar los subprocesos para ejecutar una sola consulta. La configuración de MAXDOP en uno (1) indica que solo un núcleo puede usarse para la ejecución de una única consulta. En la práctica, esto significa que el paralelismo se ha desactivado. En función de cada caso, los núcleos disponibles para la base de datos y la información de registro de diagnóstico, puede ajustar la opción MAXDOP al número de núcleos usados para la ejecución de consultas en paralelo que podrán resolver el problema en su caso.
 
@@ -196,7 +196,7 @@ El registro de diagnóstico genera códigos hash para las consultas que se ident
 
 Este patrón de rendimiento indica que se detectó una nueva consulta que presenta un rendimiento deficiente y que afecta al rendimiento de la carga de trabajo en comparación con la base de referencia de rendimiento de 7 días.
 
-Escribir una consulta que tenga un buen rendimiento a veces puede ser una tarea complicada. Para más información sobre cómo escribir consultas, consulte [Writing SQL queries](https://msdn.microsoft.com/library/bb264565.aspx) (Escritura de consultas SQL). Para optimizar el rendimiento de las consultas existentes, consulte [Optimizar consultas](https://msdn.microsoft.com/library/ms176005.aspx).
+Escribir una consulta que tenga un buen rendimiento a veces puede ser una tarea complicada. Para más información sobre cómo escribir consultas, consulte [Writing SQL queries](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)) (Escritura de consultas SQL). Para optimizar el rendimiento de las consultas existentes, consulte [Optimizar consultas](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
@@ -210,7 +210,7 @@ Considere la posibilidad de usar [Información de rendimiento de consultas](quer
 
 Este patrón de rendimiento detectable indica una degradación del rendimiento de la carga de trabajo en la que se identifican consultas con un rendimiento deficiente en comparación con la base de referencia de carga de trabajo de los últimos 7 días.
 
-En este caso, el sistema no puede clasificar las consultas con un rendimiento deficiente en cualquier otra categoría de rendimiento detectable estándar, pero detectó la estadística de espera responsable de la regresión. Por lo tanto, las considera consultas con *estadísticas de espera aumentada*, donde también se expone la estadística de espera aumentada responsable de la regresión.
+En este caso, el sistema no puede clasificar las consultas con un rendimiento deficiente en cualquier otra categoría de rendimiento detectable estándar, pero detectó la estadística de espera responsable de la regresión. Por lo tanto, las considera consultas con *estadísticas de espera aumentada* , donde también se expone la estadística de espera aumentada responsable de la regresión.
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
@@ -218,7 +218,7 @@ El registro de diagnóstico genera información sobre los detalles de los tiempo
 
 Dado que el sistema no pudo identificar correctamente la causa principal de las consultas con un rendimiento deficiente, la información de diagnóstico es un buen punto de partida para la solución manual de problemas. Puede optimizar el rendimiento de estas consultas. Una buena práctica es capturar solo los datos que necesite y simplificar y dividir las consultas complejas en otras más pequeñas.
 
-Para más información sobre cómo optimizar el rendimiento de las consultas, consulte [Optimizar consultas](https://msdn.microsoft.com/library/ms176005.aspx).
+Para más información sobre cómo optimizar el rendimiento de las consultas, consulte [Optimizar consultas](/previous-versions/sql/sql-server-2008-r2/ms176005(v=sql.105)).
 
 ## <a name="tempdb-contention"></a>Contención de TempDB
 
@@ -230,7 +230,7 @@ Este patrón de rendimiento detectable indica una condición de rendimiento de l
 
 El registro de diagnóstico genera detalles de contención de tempDB. Puede usar la información como punto de partida para solucionar el problema. Hay dos cosas que puede hacer para solucionar este tipo de contención y mejorar el rendimiento de la carga de trabajo general: la primera es dejar de usar las tablas temporales y la segunda usar tablas optimizadas para memoria.
 
-Para más información, consulte [Introducción a las tablas optimizadas para memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
+Para más información, consulte [Introducción a las tablas optimizadas para memoria](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables).
 
 ## <a name="elastic-pool-dtu-shortage"></a>Escasez de DTU en el grupo elástico
 
@@ -260,7 +260,7 @@ Este patrón de rendimiento detectable combina tres casos diferentes de regresi�
 
 La condición de regresión de un plan nuevo hace referencia a un estado en el que el motor de base de datos empieza a ejecutar un nuevo plan de ejecución de consultas que no es tan eficaz como el anterior. La condición de regresión de un plan anterior se refiere al estado en que el motor de base de datos pasa de usar un nuevo plan más eficaz al plan anterior, que no es tan eficaz como el nuevo. La regresión de la carga de trabajo cambiada en los planes existentes se refiere al estado en el que el plan nuevo y el anterior se alternan continuamente, aunque la balanza se decanta más por el plan de rendimiento deficiente.
 
-Para más información sobre las regresiones de un plan, consulte [What is plan regression in SQL Server](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../what-is-plan-regression-in-sql-server/) (Qué es la regresión de un plan en SQL Server).
+Para más información sobre las regresiones de un plan, consulte [What is plan regression in SQL Server](/archive/blogs/sqlserverstorageengine/what-is-plan-regression-in-sql-server) (Qué es la regresión de un plan en SQL Server).
 
 ### <a name="troubleshooting"></a>Solución de problemas
 
@@ -268,7 +268,7 @@ El registro de diagnóstico genera los códigos hash de consulta, el identificad
 
 Puede analizar qué plan le puede ir mejor para sus consultas específicas que puede identificar con los códigos hash de consulta proporcionados. Una vez determine el plan que funciona mejor para sus consultas, puede forzarlo manualmente.
 
-Para más información, consulte [How SQL Server prevents plan regressions](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions/) (Cómo SQL Server impide las regresiones del plan).
+Para más información, consulte [How SQL Server prevents plan regressions](/archive/blogs/sqlserverstorageengine/you-shall-not-regress-how-sql-server-2017-prevents-plan-regressions) (Cómo SQL Server impide las regresiones del plan).
 
 > [!TIP]
 > ¿Sabía que la característica de inteligencia integrada puede administrar automáticamente los planes de ejecución de consultas con mejor rendimiento para sus bases de datos?
@@ -287,7 +287,7 @@ Los cambios de configuración de ámbito de base de datos se pueden establecer p
 
 El registro de diagnóstico genera los cambios en la configuración de ámbito de base de datos realizados recientemente que han provocado la degradación del rendimiento en comparación con el comportamiento de la carga de trabajo de los últimos 7 días. Se pueden revertir los cambios de configuración a los valores anteriores. También puede ajustar los valores uno a uno hasta alcanzar el nivel de rendimiento deseado. Puede copiar los valores de configuración de ámbito de la base de datos de una base de datos similar con un rendimiento satisfactorio. Si no puede solucionar los problemas de rendimiento, revierta a los valores predeterminados e intente ajustar a partir de esta base de referencia.
 
-Para más información sobre cómo optimizar la configuración de ámbito de base de datos y la sintaxis de T-SQL para cambiar la configuración, consulte [Modificar configuración de ámbito de base de datos (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
+Para más información sobre cómo optimizar la configuración de ámbito de base de datos y la sintaxis de T-SQL para cambiar la configuración, consulte [Modificar configuración de ámbito de base de datos (Transact-SQL)](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).
 
 ## <a name="slow-client"></a>Cliente lento
 
@@ -326,11 +326,11 @@ Navegue a Azure SQL Analytics y acceda a Intelligent Insights a través de Azure
 > [!TIP]
 > Seleccione el diagrama de flujo para descargar una versión en PDF.
 
-Intelligent Insights normalmente necesita una hora para realizar el análisis de la causa principal del problema de rendimiento. Si no puede encontrar el problema en Intelligent Insights y es importante para usted, use el Almacén de consultas para identificar manualmente la causa principal del problema de rendimiento. (Normalmente, estos problemas se han producido hace menos de una hora). Para más información, consulte [Supervisión del rendimiento mediante el almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+Intelligent Insights normalmente necesita una hora para realizar el análisis de la causa principal del problema de rendimiento. Si no puede encontrar el problema en Intelligent Insights y es importante para usted, use el Almacén de consultas para identificar manualmente la causa principal del problema de rendimiento. (Normalmente, estos problemas se han producido hace menos de una hora). Para más información, consulte [Supervisión del rendimiento mediante el almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Conozca los conceptos de [Intelligent Insights](intelligent-insights-overview.md).
 - Use el [registro de diagnóstico del rendimiento de Intelligent Insights](intelligent-insights-use-diagnostics-log.md).
-- Realice la supervisión con [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Realice la supervisión con [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Aprenda a [recopilar y usar los datos de registro provenientes de los recursos de Azure](../../azure-monitor/platform/platform-logs-overview.md).

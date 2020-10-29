@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8250fc39fe58168ddc13b7bcf5c040b57d5e92fb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450234"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782627"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retención a largo plazo: Azure SQL Database y Azure SQL Managed Instance
 
@@ -26,7 +26,7 @@ Muchas aplicaciones tienen finalidades normativas, de cumplimiento u otras de ca
 La retención a largo plazo se puede habilitar para Azure SQL Database y se encuentra en versión preliminar pública limitada para Instancia administrada de Azure SQL. En este artículo se proporciona información general conceptual de la retención a largo plazo. Para configurar la retención a largo plazo, consulte [Configuración de la retención a largo plazo en Azure SQL Database](long-term-backup-retention-configure.md) y [Configuración de retención a largo plazo en Instancia administrada de Azure SQL](../managed-instance/long-term-backup-retention-configure.md). 
 
 > [!NOTE]
-> Puede usar los trabajos del Agente SQL para programar [copias de seguridad de base de datos de solo copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como alternativa a la retención a largo plazo después de 35 días.
+> Puede usar los trabajos del Agente SQL para programar [copias de seguridad de base de datos de solo copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) como alternativa a la retención a largo plazo después de 35 días.
 
 
 ## <a name="how-long-term-retention-works"></a>Cómo funciona la retención a largo plazo
@@ -36,7 +36,7 @@ La retención a largo plazo (LTR) aprovecha las copias de seguridad de base de d
 Para habilitar LTR, puede definir la directiva mediante una combinación de cuatro parámetros: retención de copia de seguridad semanal (W), retención de copia de seguridad mensual (M), retención de copia de seguridad anual (Y) y semana del año (WeekOfYear). Si especifica W, se copiará una copia de seguridad cada semana en el almacenamiento a largo plazo. Si especifica M, la primera copia de seguridad de cada mes se copiará en el almacenamiento a largo plazo. Si especifica Y, se copiará una copia de seguridad durante la semana especificada en WeekOfYear en el almacenamiento a largo plazo. Si el valor de WeekOfYear especificado pertenece al pasado al configurar la directiva, la primera copia de seguridad de LTR se creará el año siguiente. Cada copia de seguridad se conservará en el almacenamiento a largo plazo según los parámetros de la directiva configurados al crear la copia de seguridad de LTR.
 
 > [!NOTE]
-> Cualquier cambio en la directiva LTR se aplica solo a las copias de seguridad futuras. Por ejemplo, si se modifican los parámetros de retención de copia de seguridad semanal (W), retención de copia de seguridad mensual (M) o retención de copia de seguridad anual (Y), la nueva configuración de retención solo se aplicará a las copias de seguridad nuevas. La retención de las copias de seguridad existentes no se modificará. Si su intención es eliminar las copias de seguridad de LTR anteriores antes de que expire su período de retención, tendrá que [eliminar manualmente las copias de seguridad](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups).
+> Cualquier cambio en la directiva LTR se aplica solo a las copias de seguridad futuras. Por ejemplo, si se modifican los parámetros de retención de copia de seguridad semanal (W), retención de copia de seguridad mensual (M) o retención de copia de seguridad anual (Y), la nueva configuración de retención solo se aplicará a las copias de seguridad nuevas. La retención de las copias de seguridad existentes no se modificará. Si su intención es eliminar las copias de seguridad de LTR anteriores antes de que expire su período de retención, tendrá que [eliminar manualmente las copias de seguridad](./long-term-backup-retention-configure.md#delete-ltr-backups).
 > 
 
 Ejemplos de la directiva LTR:
@@ -81,10 +81,10 @@ Si usa grupos de conmutación por error o de replicación geográfica activa com
 
 El uso de la retención de copias de seguridad a largo plazo con Azure SQL Managed Instance tiene las siguientes limitaciones:
 
-- **Versión preliminar pública limitada**: esta versión preliminar solo está disponible para las suscripciones EA y CSP, y está sujeta a una disponibilidad limitada.  
+- **Versión preliminar pública limitada** : esta versión preliminar solo está disponible para las suscripciones EA y CSP, y está sujeta a una disponibilidad limitada.  
 - [**Solo PowerShell**](../managed-instance/long-term-backup-retention-configure.md): actualmente no hay compatibilidad con Azure Portal. La retención a largo plazo sebe habilitarse mediante PowerShell. 
 
-Para solicitar la inscripción, cree una [incidencia de Soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/). Como tipo de incidencia, seleccione Problema técnico, como servicio elija SQL Managed Instance y, como tipo de problema, seleccione **Copia de seguridad, restauración y continuidad empresarial/Retención de copias de seguridad a largo plazo**. En la solicitud, indique que le gustaría inscribirse en la versión preliminar pública limitada de LTR de SQL Managed Instance.
+Para solicitar la inscripción, cree una [incidencia de Soporte técnico de Azure](https://azure.microsoft.com/support/create-ticket/). Como tipo de incidencia, seleccione Problema técnico, como servicio elija SQL Managed Instance y, como tipo de problema, seleccione **Copia de seguridad, restauración y continuidad empresarial/Retención de copias de seguridad a largo plazo** . En la solicitud, indique que le gustaría inscribirse en la versión preliminar pública limitada de LTR de SQL Managed Instance.
 
 ## <a name="configure-long-term-backup-retention"></a>Configuración de la retención de copia de seguridad a largo plazo
 
@@ -99,4 +99,3 @@ Para restaurar una base de datos desde el almacenamiento de LTR, puede seleccion
 ## <a name="next-steps"></a>Pasos siguientes
 
 Dado que las copias de seguridad de bases de datos protegen los datos de eliminaciones o daños accidentales, son una parte esencial de cualquier estrategia de recuperación ante desastres y de continuidad empresarial. Para descubrir otras soluciones de continuidad empresarial de SQL Database, consulte el artículo de [información general sobre la continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md).
- 

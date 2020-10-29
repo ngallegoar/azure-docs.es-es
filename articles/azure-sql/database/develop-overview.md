@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
 ms.custom: sqldbrb=2
-ms.openlocfilehash: b099158261de55c829ab2b89a2f994b35b3e50d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea3456dbd1d0942cba48c97d70982ae088d73f9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782984"
 ---
 # <a name="application-development-overview---sql-database--sql-managed-instance"></a>Introducción al desarrollo de aplicaciones: SQL Database e Instancia administrada de SQL
 
@@ -27,7 +27,7 @@ Este artículo le lleva por las consideraciones básicas que debe tener en cuent
 
 Puede usar distintas [plataformas y lenguajes de programación](connect-query-content-reference-guide.md) para conectarse y consultar a Azure SQL Database. Puede encontrar [aplicaciones de ejemplo](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) que puede usar para conectarse a la base de datos.
 
-Puede aprovechar herramientas de código abierto como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) o [VS Code](https://code.visualstudio.com/). Además, Azure SQL Database funciona con herramientas de Microsoft como [Visual Studio](https://www.visualstudio.com/downloads/) y [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). También puede usar Azure Portal, PowerShell y API REST, que le ayudan a conseguir una mayor productividad.
+Puede aprovechar herramientas de código abierto como [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) o [VS Code](https://code.visualstudio.com/). Además, Azure SQL Database funciona con herramientas de Microsoft como [Visual Studio](https://www.visualstudio.com/downloads/) y [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms). También puede usar Azure Portal, PowerShell y API REST, que le ayudan a conseguir una mayor productividad.
 
 ## <a name="authentication"></a>Authentication
 
@@ -39,7 +39,7 @@ Obtenga más información sobre cómo [administrar el acceso e inicio de sesión
 
 En la lógica de conexión de cliente, reemplace el tiempo de espera predeterminado para que sea de 30 segundos. El valor predeterminado de 15 segundos es demasiado corto para conexiones que dependen de Internet.
 
-Si usa un [grupo de conexiones](https://msdn.microsoft.com/library/8xx3tyca.aspx), asegúrese de cerrar la conexión en el momento en que el programa no la esté usando activamente y no esté preparándose para volver a usarla.
+Si usa un [grupo de conexiones](/dotnet/framework/data/adonet/sql-server-connection-pooling), asegúrese de cerrar la conexión en el momento en que el programa no la esté usando activamente y no esté preparándose para volver a usarla.
 
 Evite las transacciones de larga ejecución, ya que cualquier error de conexión o de infraestructura puede revertir la transacción. Si es posible, divida la transacción en varias transacciones más pequeñas y use el [procesamiento por lotes para mejorar el rendimiento](../performance-improve-use-batching.md).
 

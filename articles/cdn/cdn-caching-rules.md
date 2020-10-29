@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/19/2019
 ms.author: allensu
-ms.openlocfilehash: 1f30943eb0cc72f677785d1228b47b65764c1e7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5f4f6a6e72b57638688069111071a6e0a035c49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887866"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778972"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Control del comportamiento del almacenamiento en caché de Azure CDN con reglas de caché
 
 > [!NOTE] 
-> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai**. Para los perfiles de **Azure CDN de Microsoft**, debe usar el [motor de reglas estándar](cdn-standard-rules-engine-reference.md). Para los perfiles de **Azure CDN Premium de Verizon**, debe usar el [motor de reglas de Verizon Premium](cdn-rules-engine.md) en el portal **Administrar** para obtener una funcionalidad similar.
+> Las reglas de almacenamiento en caché solo están disponibles para los perfiles **Azure CDN estándar de Verizon** y **Azure CDN estándar de Akamai** . Para los perfiles de **Azure CDN de Microsoft** , debe usar el [motor de reglas estándar](cdn-standard-rules-engine-reference.md). Para los perfiles de **Azure CDN Premium de Verizon** , debe usar el [motor de reglas de Verizon Premium](./cdn-verizon-premium-rules-engine.md) en el portal **Administrar** para obtener una funcionalidad similar.
  
 Azure Content Delivery Network (CDN) ofrece dos formas de controlar cómo los archivos se almacenan en caché: 
 
@@ -42,23 +42,23 @@ Para información sobre el comportamiento de almacenamiento en caché predetermi
 
 1. Abra Azure Portal, seleccione un perfil de red CDN y luego seleccione un punto de conexión.
 
-2. En el panel izquierdo, debajo de Configuración, haga clic en **Reglas de caché**.
+2. En el panel izquierdo, debajo de Configuración, haga clic en **Reglas de caché** .
 
    ![Botón Reglas de caché de CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-   Aparece la página **Reglas de caché**.
+   Aparece la página **Reglas de caché** .
 
    ![Página de reglas de almacenamiento en caché de CDN](./media/cdn-caching-rules/cdn-caching-rules-page.png)
 
 
 ## <a name="caching-behavior-settings"></a>Configuración del comportamiento del almacenamiento en caché
-Para las reglas de almacenamiento en caché globales y personalizadas, puede especificar la siguiente configuración para **Comportamiento de almacenamiento en caché**:
+Para las reglas de almacenamiento en caché globales y personalizadas, puede especificar la siguiente configuración para **Comportamiento de almacenamiento en caché** :
 
-- **Omitir caché**: no almacenar en caché y omitir los encabezados de directiva de caché proporcionados por el origen.
+- **Omitir caché** : no almacenar en caché y omitir los encabezados de directiva de caché proporcionados por el origen.
 
-- **Invalidar**: omitir la duración de la caché proporcionada por el origen; en su lugar, utilizar la duración de caché proporcionada. Esto no invalidará cache-control: no-cache.
+- **Invalidar** : omitir la duración de la caché proporcionada por el origen; en su lugar, utilizar la duración de caché proporcionada. Esto no invalidará cache-control: no-cache.
 
-- **Establecer si falta**: respetar los encabezados de directiva de caché proporcionados por el origen, si existen; en caso contrario, utilizar la duración de caché proporcionada.
+- **Establecer si falta** : respetar los encabezados de directiva de caché proporcionados por el origen, si existen; en caso contrario, utilizar la duración de caché proporcionada.
 
 ![Reglas de almacenamiento en caché globales](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
@@ -67,17 +67,17 @@ Para las reglas de almacenamiento en caché globales y personalizadas, puede esp
 ## <a name="cache-expiration-duration"></a>Duración de expiración de caché
 Para las reglas de almacenamiento en caché globales y personalizadas, puede especificar la duración de expiración de caché en días, horas, minutos y segundos:
 
-- Para las configuraciones **Invalidar** y **Establecer si falta** correspondientes a **Comportamiento de almacenamiento en caché**, el intervalo de las duraciones de caché válido está comprendido entre 0 segundos y 366 días. Para un valor de 0 segundos, la red CDN almacena en caché el contenido, pero debe volver a validar cada solicitud con el servidor de origen.
+- Para las configuraciones **Invalidar** y **Establecer si falta** correspondientes a **Comportamiento de almacenamiento en caché** , el intervalo de las duraciones de caché válido está comprendido entre 0 segundos y 366 días. Para un valor de 0 segundos, la red CDN almacena en caché el contenido, pero debe volver a validar cada solicitud con el servidor de origen.
 
-- Para la configuración **Omitir caché**, la duración de caché se establece automáticamente en 0 segundos y no se puede cambiar.
+- Para la configuración **Omitir caché** , la duración de caché se establece automáticamente en 0 segundos y no se puede cambiar.
 
 ## <a name="custom-caching-rules-match-conditions"></a>Condiciones de coincidencia de reglas de almacenamiento en caché personalizadas
 
 Para las reglas de caché personalizadas, hay dos condiciones de coincidencia disponibles:
  
-- **Ruta de acceso**: esta condición coincide con la ruta de acceso de la dirección URL, sin incluir el nombre de dominio, y admite el símbolo de comodín (\*). Por ejemplo, _/myfile.html_, _/my/folder/*_ , and _/my/images/*.jpg_. La longitud máxima es de 260 caracteres.
+- **Ruta de acceso** : esta condición coincide con la ruta de acceso de la dirección URL, sin incluir el nombre de dominio, y admite el símbolo de comodín (\*). Por ejemplo, _/myfile.html_ , _/my/folder/*_ , and _/my/images/*.jpg_ . La longitud máxima es de 260 caracteres.
 
-- **Extensión**: esta condición coincide con la extensión de archivo del archivo solicitado. Puede proporcionar una lista de extensiones de archivo separadas por comas para coincidir. Por ejemplo, _.jpg_, _.mp3_ o _.png_. El número máximo de extensiones es 50 y el número máximo de caracteres por extensión es 16. 
+- **Extensión** : esta condición coincide con la extensión de archivo del archivo solicitado. Puede proporcionar una lista de extensiones de archivo separadas por comas para coincidir. Por ejemplo, _.jpg_ , _.mp3_ o _.png_ . El número máximo de extensiones es 50 y el número máximo de caracteres por extensión es 16. 
 
 ## <a name="global-and-custom-rule-processing-order"></a>Orden de procesamiento de las reglas globales y personalizadas
 Las reglas de almacenamiento en caché globales y personalizadas se procesan en el orden siguiente:
@@ -86,7 +86,7 @@ Las reglas de almacenamiento en caché globales y personalizadas se procesan en 
 
 - Las reglas de almacenamiento en caché personalizadas tienen prioridad sobre las reglas de almacenamiento en caché globales, donde se apliquen. Las reglas de almacenamiento en caché personalizadas se procesan en orden de arriba a abajo. Es decir, si una solicitud cumple ambas condiciones, las reglas situadas abajo en la lista tienen prioridad sobre las reglas situadas en la parte de arriba de la lista. Por lo tanto, debe colocar las reglas más específicas en la parte inferior de la lista.
 
-**Ejemplo**:
+**Ejemplo** :
 - Regla de almacenamiento en caché global: 
    - Comportamiento del almacenamiento en caché: **Invalidar**
    - Duración de expiración de caché: 1 día
@@ -109,8 +109,8 @@ Cuando se establecen estas reglas, una solicitud de _&lt;endpoint hostname&gt;_ 
 > Los archivos que se almacenan en caché antes de un cambio de regla mantienen su valor de duración de caché de origen. Para restablecer sus duraciones de caché, debe [purgar el archivo](cdn-purge-endpoint.md). 
 >
 > Los cambios en la configuración de Azure CDN pueden tardar un tiempo en propagarse por la red: 
-> - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
-> - En los perfiles de **Azure CDN estándar de Verizon**, la propagación normalmente se completa en 10 minutos.  
+> - En los perfiles de **Azure CDN estándar** , la propagación normalmente se completa en un minuto. 
+> - En los perfiles de **Azure CDN estándar de Verizon** , la propagación normalmente se completa en 10 minutos.  
 >
 
 ## <a name="see-also"></a>Consulte también

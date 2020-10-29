@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
-ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 283ec9999f9b4362035b6770383984efb0879d49
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714386"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783766"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guía de seguridad del Explorador de Azure Storage
 
@@ -44,13 +44,13 @@ En esta sección se describen las dos tecnologías basadas en Azure AD que se p
 
 #### <a name="azure-role-based-access-control-azure-rbac"></a>Control de acceso basado en roles de Azure (RBAC de Azure)
 
-El [control de acceso basado en roles de Azure (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview) permite controlar de forma detallada los recursos de Azure. Los roles y permisos de Azure se pueden administrar desde Azure Portal.
+El [control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/overview.md) permite controlar de forma detallada los recursos de Azure. Los roles y permisos de Azure se pueden administrar desde Azure Portal.
 
 El Explorador de Storage admite el acceso Azure RBAC a cuentas de almacenamiento, Blobs y colas. Si necesita acceder a recursos compartidos de archivos o tablas, deberá asignar roles de Azure que concedan permiso para enumerar claves de cuenta de almacenamiento.
 
 #### <a name="access-control-lists-acls"></a>Listas de control de acceso (ACL)
 
-Las [listas de control de acceso (ACL)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) permiten controlar el acceso a los archivos y carpetas en contenedores de blobs de ADLS Gen2. Puede administrar las ACL con el Explorador de Storage.
+Las [listas de control de acceso (ACL)](../blobs/data-lake-storage-access-control.md) permiten controlar el acceso a los archivos y carpetas en contenedores de blobs de ADLS Gen2. Puede administrar las ACL con el Explorador de Storage.
 
 ### <a name="shared-access-signatures-sas"></a>Firmas de acceso compartido (SAS)
 
@@ -81,7 +81,7 @@ Las claves de cuenta de almacenamiento conceden acceso no restringido a los serv
 
 Algunos roles de Azure conceden permiso para recuperar claves de cuentas de almacenamiento. Los usuarios con estos roles pueden eludir de manera eficaz los permisos concedidos o denegados mediante Azure RBAC. Se recomienda no conceder este permiso, a menos que sea necesario.
 
-El Explorador de Storage intentará usar claves de cuenta de almacenamiento, si están disponibles para autenticar solicitudes. Puede deshabilitar esta característica en Configuración (**Servicios > Cuentas de almacenamiento > Usage of Keys [Deshabilitar el uso de claves]** ). Algunas características no son compatibles con Azure RBAC, como trabajar con cuentas de almacenamiento clásicas. Estas características siguen requiriendo claves y no se ven afectadas por esta configuración.
+El Explorador de Storage intentará usar claves de cuenta de almacenamiento, si están disponibles para autenticar solicitudes. Puede deshabilitar esta característica en Configuración ( **Servicios > Cuentas de almacenamiento > Usage of Keys [Deshabilitar el uso de claves]** ). Algunas características no son compatibles con Azure RBAC, como trabajar con cuentas de almacenamiento clásicas. Estas características siguen requiriendo claves y no se ven afectadas por esta configuración.
 
 Si debe usar claves para tener acceso a los recursos de almacenamiento, se recomiendan las siguientes directrices:
 
@@ -102,4 +102,4 @@ Al habilitar el acceso público a un contenedor de blobs, se recomiendan las sig
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Recomendaciones de seguridad](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)
+- [Recomendaciones de seguridad](../blobs/security-recommendations.md)

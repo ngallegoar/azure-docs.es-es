@@ -7,13 +7,13 @@ ms.service: vpn-gateway
 ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 74d7bd087df4b00c0bafb5ec33fbbdfa5c57b379
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 2ffd8b42bf43658ba488f4c1c92bb7af5b88339e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67186155"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755504"
 ---
 Inicie sesión en la suscripción de Azure con el comando [az login](/cli/azure/) y siga las instrucciones que aparecen en pantalla. Para más información sobre el inicio de sesión, consulte [Introducción a la CLI de Azure](/cli/azure/get-started-with-azure-cli).
 

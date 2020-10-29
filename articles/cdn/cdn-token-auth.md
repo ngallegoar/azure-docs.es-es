@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: bded48b59d10e47a9bbf476583fed78b5b97431d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21ef06f37e6840df08b1477f9c0ff24f6e15d1a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887429"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778011"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protección de los activos de Azure CDN con autenticación por tokens
 
@@ -78,11 +78,11 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
       Para evitar el tiempo de inactividad, cree un elemento principal y una clave de copia de seguridad. Una clave de copia de seguridad proporciona un acceso ininterrumpido a su contenido cuando se actualiza la clave principal.
     
-   2. Escriba una clave de cifrado única en el cuadro **Clave principal** y, opcionalmente, escriba una clave de copia de seguridad en el cuadro **Clave de copia de seguridad**.
+   2. Escriba una clave de cifrado única en el cuadro **Clave principal** y, opcionalmente, escriba una clave de copia de seguridad en el cuadro **Clave de copia de seguridad** .
 
-   3. Seleccione la versión de cifrado mínima para cada clave de la lista **Minimum Encryption Version** (Versión mínima de cifrado) y después seleccione **Actualizar**:
-      - **V2**: indica que la clave se puede utilizar para generar tokens de versión 2.0 y 3.0. Use esta opción solo si está realizando la transición de una clave de cifrado de la versión 2.0 heredada a una clave de la versión 3.0.
-      - **V3**: (recomendada) indica que la clave solo se puede utilizar para generar tokens de la versión 3.0.
+   3. Seleccione la versión de cifrado mínima para cada clave de la lista **Minimum Encryption Version** (Versión mínima de cifrado) y después seleccione **Actualizar** :
+      - **V2** : indica que la clave se puede utilizar para generar tokens de versión 2.0 y 3.0. Use esta opción solo si está realizando la transición de una clave de cifrado de la versión 2.0 heredada a una clave de la versión 3.0.
+      - **V3** : (recomendada) indica que la clave solo se puede utilizar para generar tokens de la versión 3.0.
 
       ![Clave de configuración de autenticación por tokens de la red CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
@@ -164,20 +164,20 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
 
       Una vez generado el token, se muestra en el cuadro **Generated Token** (Token generado). Para usar el token, anéxelo como una cadena de consulta al final del archivo en la ruta de acceso de la dirección URL. Por ejemplo, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
-   8. Opcionalmente, pruebe el token con la herramienta de descifrado para poder ver los parámetros del token. Pegue el valor del token en el cuadro **Token to Decrypt** (Token para descifrar). Seleccione la clave de cifrado que se usará en la lista **Key To Decrypt** (Clave para descifrar) y después seleccione **Descifrar**.
+   8. Opcionalmente, pruebe el token con la herramienta de descifrado para poder ver los parámetros del token. Pegue el valor del token en el cuadro **Token to Decrypt** (Token para descifrar). Seleccione la clave de cifrado que se usará en la lista **Key To Decrypt** (Clave para descifrar) y después seleccione **Descifrar** .
 
-      Una vez descifrado el token, sus parámetros se muestran en el cuadro **Parámetros originales**.
+      Una vez descifrado el token, sus parámetros se muestran en el cuadro **Parámetros originales** .
 
-   9. También puede personalizar el tipo de código de respuesta que se devuelve cuando se deniega una solicitud. Seleccione **Habilitado** y, después, seleccione el código de respuesta de la lista **Código de respuesta**. El **Nombre de encabezado** se establece automáticamente en **Ubicación**. Seleccione **Guardar** para implementar el nuevo código de respuesta. Para determinados códigos de respuesta, también debe especificar la dirección URL de la página de error en el cuadro **Valor de encabezado**. El código de respuesta **403** (Prohibido) está seleccionado de forma predeterminada. 
+   9. También puede personalizar el tipo de código de respuesta que se devuelve cuando se deniega una solicitud. Seleccione **Habilitado** y, después, seleccione el código de respuesta de la lista **Código de respuesta** . El **Nombre de encabezado** se establece automáticamente en **Ubicación** . Seleccione **Guardar** para implementar el nuevo código de respuesta. Para determinados códigos de respuesta, también debe especificar la dirección URL de la página de error en el cuadro **Valor de encabezado** . El código de respuesta **403** (Prohibido) está seleccionado de forma predeterminada. 
 
-3. En **HTTP Large** (HTTP grandes), seleccione **Motor de reglas**. Utilice el motor de reglas para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación por tokens y habilitar otras funcionalidades relacionadas con la autenticación por tokens. Para más información, vea [Referencia del motor de reglas](cdn-rules-engine-reference.md).
+3. En **HTTP Large** (HTTP grandes), seleccione **Motor de reglas** . Utilice el motor de reglas para definir las rutas de acceso para aplicar la característica, habilitar la característica de autenticación por tokens y habilitar otras funcionalidades relacionadas con la autenticación por tokens. Para más información, vea [Referencia del motor de reglas](./cdn-verizon-premium-rules-engine-reference.md).
 
    1. Seleccione una regla existente o cree una para definir el recurso o la ruta de acceso para los que desea aplicar la autenticación por tokens. 
-   2. Para habilitar la autenticación por tokens según una regla, seleccione **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** (Autenticación por tokens) en la lista **Características** y después seleccione **Habilitada**. Seleccione **Actualizar** si va a actualizar una regla o **Agregar** si va a crearla.
+   2. Para habilitar la autenticación por tokens según una regla, seleccione **[Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm)** (Autenticación por tokens) en la lista **Características** y después seleccione **Habilitada** . Seleccione **Actualizar** si va a actualizar una regla o **Agregar** si va a crearla.
         
       ![Ejemplo de autenticación por tokens habilitada en el motor de reglas de la red CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. En el motor de reglas, también puede habilitar otras características relacionadas con la autenticación por tokens. Para habilitar cualquiera de las siguientes características, selecciónela en la lista **Características** y después seleccione **Habilitada**.
+4. En el motor de reglas, también puede habilitar otras características relacionadas con la autenticación por tokens. Para habilitar cualquiera de las siguientes características, selecciónela en la lista **Características** y después seleccione **Habilitada** .
     
    - **[Token Auth Denial Code](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm)** (Código de denegación de autenticación de token): determina el tipo de respuesta que se devuelve al usuario cuando se deniega una solicitud. Las reglas establecidas aquí invalidan el código de respuesta especificado en la sección **Custom Denial Handling** (Control de denegación personalizado) de la página de autenticación por tokens.
 

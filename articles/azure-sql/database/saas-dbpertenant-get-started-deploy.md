@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3851e6a784d244b101c2c71c67b4b2c9a8f5cbee
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.openlocfilehash: 497e714289c834e026c6b9b767ed2b7af5442783
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91618948"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780842"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementación y exploración de una aplicación SaaS multiinquilino que usa el patrón de base de datos por inquilino con Azure SQL Database
 
@@ -24,7 +24,7 @@ ms.locfileid: "91618948"
 
 En este tutorial, se implementa y explora la aplicación de base de datos por inquilino de SaaS Wingtip Tickets (Wingtip). La aplicación usa un patrón de base de datos por inquilino para almacenar los datos de varios inquilinos. La aplicación está diseñada para presentar las características de Azure SQL Database que simplifican la habilitación de escenarios de SaaS.
 
-Cinco minutos después de que seleccione **Implementar en Azure**, tendrá una aplicación de SaaS multiinquilino. La aplicación incluye una base de datos que se ejecuta en Azure SQL Database. La aplicación se implementa con tres inquilinos de ejemplo, cada uno con su propia base de datos. Todas las bases de datos se implementan en un grupo elástico de SQL. La aplicación se implementa en la suscripción de Azure. Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación. El código fuente C# de la aplicación y los scripts de administración están disponibles en el [repositorio de GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
+Cinco minutos después de que seleccione **Implementar en Azure** , tendrá una aplicación de SaaS multiinquilino. La aplicación incluye una base de datos que se ejecuta en Azure SQL Database. La aplicación se implementa con tres inquilinos de ejemplo, cada uno con su propia base de datos. Todas las bases de datos se implementan en un grupo elástico de SQL. La aplicación se implementa en la suscripción de Azure. Tiene acceso completo para explorar y trabajar con los componentes individuales de la aplicación. El código fuente C# de la aplicación y los scripts de administración están disponibles en el [repositorio de GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
 
 En este tutorial, obtendrá información:
 
@@ -32,7 +32,7 @@ En este tutorial, obtendrá información:
 > - Cómo implementar la aplicación SaaS de Wingtip.
 > - Dónde obtener el código fuente de la aplicación y los scripts de administración.
 > - Acerca de los servidores, los grupos y las bases de datos que componen la aplicación.
-> - Cómo se asignan los inquilinos a sus datos con el *catálogo*.
+> - Cómo se asignan los inquilinos a sus datos con el *catálogo* .
 > - Cómo aprovisionar un nuevo inquilino.
 > - Cómo supervisar la actividad de los inquilinos en la aplicación.
 
@@ -40,7 +40,7 @@ Una [serie de tutoriales relacionados](saas-dbpertenant-wingtip-app-overview.md#
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, asegúrese de que Azure PowerShell está instalado. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Para completar este tutorial, asegúrese de que Azure PowerShell está instalado. Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="deploy-the-wingtip-tickets-saas-application"></a>Implementación de la aplicación SaaS Wingtip Tickets
 
@@ -48,14 +48,14 @@ Para completar este tutorial, asegúrese de que Azure PowerShell está instalado
 
 En los pasos de esta sección, se proporciona un valor de usuario que se usa para garantizar que los nombres de los recursos son globalmente únicos. También se proporcionará un nombre para el grupo de recursos con todos los recursos que se crean a partir de una implementación de la aplicación. Para una persona ficticia llamada Ann Finley, sugerimos:
 
-- **Usuario**: *af1*, con las iniciales de Ann Finley más un dígito. Si implementa la aplicación una segunda vez, use otro valor. Por ejemplo, af2.
+- **Usuario** : *af1* , con las iniciales de Ann Finley más un dígito. Si implementa la aplicación una segunda vez, use otro valor. Por ejemplo, af2.
 - **Grupo de recursos:** *wingtip-dpt-af1* indica que esta es la aplicación de base de datos por inquilino. Anexe el nombre de usuario af1 para correlacionar el nombre del grupo de recursos con los nombres de los recursos que contiene.
 
 Elija los nombres ahora y escríbalos.
 
 ### <a name="steps"></a>Pasos
 
-1. Para abrir la plantilla de implementación de base de datos por inquilino de la aplicación SAS Wingtip Tickets en Azure Portal, seleccione **Implementar en Azure**.
+1. Para abrir la plantilla de implementación de base de datos por inquilino de la aplicación SAS Wingtip Tickets en Azure Portal, seleccione **Implementar en Azure** .
 
    [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
@@ -64,15 +64,15 @@ Elija los nombres ahora y escríbalos.
     > [!IMPORTANT]
     > Para realizar la demostración, se ha eliminado intencionadamente la protección de varios firewalls de autenticación y del servidor. Es recomendable crear un grupo de recursos nuevo. No use grupos de recursos, servidores o grupos existentes. No use esta aplicación, los scripts ni ninguno de los recursos de implementación para producción. Elimine este grupo de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con él.
 
-    - **Grupo de recursos**: seleccione **Crear nuevo** y proporcione el nombre único que eligió antes para el grupo de recursos.
-    - **Ubicación**: seleccione una ubicación en la lista desplegable.
-    - **Usuario**: use el valor de nombre de usuario que eligió antes.
+    - **Grupo de recursos** : seleccione **Crear nuevo** y proporcione el nombre único que eligió antes para el grupo de recursos.
+    - **Ubicación** : seleccione una ubicación en la lista desplegable.
+    - **Usuario** : use el valor de nombre de usuario que eligió antes.
 
 1. Implemente la aplicación.
 
     a. Seleccione para aceptar los términos y condiciones.
 
-    b. Seleccione **Comprar**.
+    b. Seleccione **Comprar** .
 
 1. Para supervisar el estado de la implementación, seleccione **Notificaciones** (el icono de campana que se encuentra a la derecha del cuadro de búsqueda). La implementación de la aplicación SaaS Wingtip Tickets tarda aproximadamente cinco minutos.
 
@@ -86,10 +86,10 @@ Mientras la aplicación se implementa, descargue el código fuente y los scripts
 > Es posible que Windows bloquee el contenido ejecutable (scripts y archivos DLL) al descargar y extraer archivos ZIP de un origen externo. Siga los pasos para desbloquear el archivo ZIP antes de extraer los scripts. El desbloqueo garantiza que se puedan ejecutar los scripts.
 
 1. Vaya al [repositorio de GitHub WingtipTicketsSaaS-DbPerTenant][github-wingtip-dpt].
-1. Seleccione **Clone or download**(Clonar o descargar).
+1. Seleccione **Clone or download** (Clonar o descargar).
 1. Seleccione **Download ZIP** (Descargar archivo ZIP) y guarde el archivo.
 1. Haga clic con el botón derecho en el archivo **WingtipTicketsSaaS-DbPerTenant-master.zip** y seleccione **Properties** (Propiedades).
-1. En la pestaña **General**, seleccione **Desbloquear** > **Aplicar**.
+1. En la pestaña **General** , seleccione **Desbloquear** > **Aplicar** .
 1. Seleccione **Aceptar** y extraiga los archivos.
 
 Los scripts se encuentran en la carpeta ...\\WingtipTicketsSaaS-DbPerTenant-master\\Learning Modules.
@@ -122,7 +122,7 @@ Una página de **Event Hubs** central proporciona una lista de vínculos a los i
 
 ### <a name="azure-traffic-manager"></a>Administrador de tráfico de Azure
 
-La aplicación Wingtip usa  [*Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md) para controlar la distribución de solicitudes entrantes. La dirección URL para acceder a la página de eventos para un inquilino específico utiliza el formato siguiente:
+La aplicación Wingtip usa [*Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md) para controlar la distribución de solicitudes entrantes. La dirección URL para acceder a la página de eventos para un inquilino específico utiliza el formato siguiente:
 
 - http://events.wingtip-dpt.&lt;usuario&gt;.trafficmanager.net/fabrikamjazzclub
 
@@ -130,7 +130,7 @@ La aplicación Wingtip usa  [*Azure Traffic Manager*](../../traffic-manager/tra
 
     | Elemento de URL        | Descripción       |
     | :-------------- | :---------------- |
-    | events.wingtip-dpt | Elementos de eventos de la aplicación Wingtip.<br /><br /> *-dpt* distingue la implementación de *base de datos por inquilino* de Wingtip Tickets de otras implementaciones. Algunos ejemplos incluyen la implementación *única* de aplicación por inquilino ( *-sa*) o de *base de datos multiinquilino* ( *-mt*). |
+    | events.wingtip-dpt | Elementos de eventos de la aplicación Wingtip.<br /><br /> *-dpt* distingue la implementación de *base de datos por inquilino* de Wingtip Tickets de otras implementaciones. Algunos ejemplos incluyen la implementación *única* de aplicación por inquilino ( *-sa* ) o de *base de datos multiinquilino* ( *-mt* ). |
     | . *&lt;usuario&gt;* | *af1* en el ejemplo. |
     | .trafficmanager.NET/ | Traffic Manager, URL base. |
     | fabrikamjazzclub | Identifica el inquilino denominado Fabrikam Jazz Club. |
@@ -139,14 +139,14 @@ La aplicación Wingtip usa  [*Azure Traffic Manager*](../../traffic-manager/tra
 - La aplicación de eventos analiza el nombre del inquilino a partir de la dirección URL.
 - El nombre del inquilino se usa para crear una clave.
 - La clave se usa para acceder al catálogo y obtener la ubicación de la base de datos del inquilino.
-  - El catálogo se implementa mediante la *administración de asignaciones de particiones*.
+  - El catálogo se implementa mediante la *administración de asignaciones de particiones* .
 - Events Hub usa metadatos extendidos en el catálogo para generar las direcciones URL de las páginas de lista de eventos para cada inquilino.
 
-En un entorno de producción, lo habitual sería crear un registro de DNS CNAME que  [*apunte un dominio de Internet de empresa*](../../traffic-manager/traffic-manager-point-internet-domain.md)  al nombre DNS de Traffic Manager.
+En un entorno de producción, lo habitual sería crear un registro de DNS CNAME que [*apunte un dominio de Internet de empresa*](../../traffic-manager/traffic-manager-point-internet-domain.md) al nombre DNS de Traffic Manager.
 
 > [!NOTE]
 > Puede no ser obvio de inmediato cuál es el uso del administrador de tráfico en este tutorial. El objetivo de esta serie de tutoriales es mostrar patrones que pueden administrar la escala de un entorno de producción complejo. En tal caso, por ejemplo, podría tener varias aplicaciones web que se distribuyen en todo el mundo y que comparten ubicación con bases de datos, por lo que necesitaría el administrador de tráfico para enrutar entre estas instancias.
-Otro conjunto de tutoriales que ilustra el uso del administrador de tráfico son los tutoriales de [restauración geográfica](../../sql-database/saas-dbpertenant-dr-geo-restore.md) y de [replicación geográfica](../../sql-database/saas-dbpertenant-dr-geo-replication.md). En estos tutoriales, el administrador de tráfico se utiliza para ayudar a cambiar a una instancia de recuperación de la aplicación SaaS si se produce una interrupción regional.
+Otro conjunto de tutoriales que ilustra el uso del administrador de tráfico son los tutoriales de [restauración geográfica](./saas-dbpertenant-dr-geo-restore.md) y de [replicación geográfica](./saas-dbpertenant-dr-geo-replication.md). En estos tutoriales, el administrador de tráfico se utiliza para ayudar a cambiar a una instancia de recuperación de la aplicación SaaS si se produce una interrupción regional.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Empiece a generar carga en las bases de datos de los inquilinos
 
@@ -154,7 +154,7 @@ Ahora que se implementó la aplicación, vamos a ponerla en marcha.
 
 El script de PowerShell *Demo-LoadGenerator* inicia una carga de trabajo que se ejecuta en las bases de datos de todos los inquilinos. La carga real en muchas aplicaciones de SaaS es esporádica e imprevisible. Para simular este tipo de carga, el generador produce una carga con picos o ráfagas de actividad en cada inquilino. Las ráfagas tienen lugar a intervalos aleatorios. El modelo de carga tarda varios minutos en emerger. Permita que el generador se ejecute durante al menos tres o cuatro minutos antes de supervisar la carga.
 
-1. En PowerShell ISE, abra el script ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1*.
+1. En PowerShell ISE, abra el script ...\\Learning Modules\\Utilities\\*Demo-LoadGenerator.ps1* .
 2. Presione F5 para ejecutar el script e iniciar el generador de carga. Deje los valores predeterminados de parámetro por ahora.
 3. Inicie sesión en su cuenta de Azure y, si es necesario, seleccione la suscripción que desea usar.
 
@@ -170,7 +170,7 @@ Si quiere controlar y supervisar los trabajos en segundo plano, use los cmdlets 
 
 ### <a name="demo-loadgeneratorps1-actions"></a>Acciones de Demo-LoadGenerator.ps1
 
-*Demo-LoadGenerator.ps1* imita una carga de trabajo activa de transacciones de cliente. Los pasos siguientes describen la secuencia de acciones que inicia *Demo-LoadGenerator.ps1*:
+*Demo-LoadGenerator.ps1* imita una carga de trabajo activa de transacciones de cliente. Los pasos siguientes describen la secuencia de acciones que inicia *Demo-LoadGenerator.ps1* :
 
 1. *Demo-LoadGenerator.ps1* inicia *LoadGenerator.ps1* en primer plano.
 
@@ -181,7 +181,7 @@ Si quiere controlar y supervisar los trabajos en segundo plano, use los cmdlets 
 3. *LoadGenerator.ps1* inicia un trabajo de PowerShell en segundo plano para cada base de datos de inquilinos:
 
     - De manera predeterminada, los trabajos en segundo plano se ejecutan durante 120 minutos.
-    - Cada trabajo provoca una carga basada en CPU en una base de datos de inquilinos al ejecutar *sp_CpuLoadGenerator*. La intensidad y la duración de la carga varía según `$DemoScenario`.
+    - Cada trabajo provoca una carga basada en CPU en una base de datos de inquilinos al ejecutar *sp_CpuLoadGenerator* . La intensidad y la duración de la carga varía según `$DemoScenario`.
     - *sp_CpuLoadGenerator* recorre en bucle una instrucción SQL SELECT que provoca una carga elevada de CPU. El intervalo de tiempo entre las emisiones de SELECT varía en función de los valores de los parámetros para crear una carga de CPU controlable. Los niveles de carga y los intervalos son aleatorios para simular cargas más realistas.
     - Este archivo .sql está almacenado en *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
@@ -200,11 +200,11 @@ Antes de continuar con la siguiente sección, deje el generador de carga en ejec
 La implementación inicial crea tres inquilinos de ejemplo. Ahora creará otro inquilino para ver cómo afecta esto a la aplicación implementada. En la aplicación Wingtip, se explica el flujo de trabajo para aprovisionar nuevos inquilinos en el [tutorial de catalogación y aprovisionamiento](saas-dbpertenant-provision-and-catalog.md). En esta fase, se crea a un nuevo inquilino, lo que lleva menos de un minuto.
 
 1. Abra un nuevo PowerShell ISE.
-2. Abra ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1*.
+2. Abra ...\\Learning Modules\Provision and Catalog\\*Demo-ProvisionAndCatalog.ps1* .
 3. Presione F5 para ejecutar el script. Deje los valores predeterminados por ahora.
 
    > [!NOTE]
-   > Muchos scripts SaaS de Wingtip usan *$PSScriptRoot* para examinar las carpetas para llamar a funciones en otros scripts. Esta variable solo se evalúa cuando se ejecuta el script completo presionando F5. Resaltar y ejecutar una selección con F8 puede provocar errores. Para ejecutar los scripts, presione F5.
+   > Muchos scripts SaaS de Wingtip usan *$PSScriptRoot* para examinar las carpetas para llamar a funciones en otros scripts. Esta variable solo se evalúa cuando se ejecuta el script completo presionando F5.  Resaltar y ejecutar una selección con F8 puede provocar errores. Para ejecutar los scripts, presione F5.
 
 La base de datos de inquilino nueva se:
 
@@ -222,7 +222,7 @@ Actualice el centro de eventos para que el nuevo inquilino aparezca en la lista.
 
 Ahora que ha empezado a ejecutar una carga en la colección de inquilinos, veamos algunos de los recursos que se han implementado.
 
-1. En  [Azure Portal](https://portal.azure.com), vaya a la lista de los servidores SQL. Luego abra el servidor **catalog-dpt-&lt;USUARIO&gt;** .
+1. En [Azure Portal](https://portal.azure.com), vaya a la lista de los servidores SQL. Luego abra el servidor **catalog-dpt-&lt;USUARIO&gt;** .
     - El servidor de catálogos contiene dos bases de datos, **tenantcatalog** y **basetenantdb** (una base de datos de plantilla que se copia para crear nuevos inquilinos).
 
    ![Captura de pantalla de una página de información general del servidor de catálogo con las dos bases de datos.](./media/saas-dbpertenant-get-started-deploy/databases.png)
@@ -254,9 +254,9 @@ Estos dos gráficos ilustran que los grupos elásticos y SQL Database funcionan 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - Para más información, consulte los [tutoriales adicionales que se basan en el patrón de base de datos por inquilino de la aplicación SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- Para información sobre los grupos elásticos, consulte  [¿Qué son los grupos elásticos de Azure SQL?](elastic-pool-overview.md)
-- Para información sobre los trabajos elásticos, consulte  [Administración de bases de datos escaladas horizontalmente en la nube](../../sql-database/elastic-jobs-overview.md).
-- Para más información sobre las aplicaciones SaaS multiinquilino, consulte  [Patrones de inquilinato de base de datos SaaS multiinquilino](saas-tenancy-app-design-patterns.md).
+- Para información sobre los grupos elásticos, consulte [¿Qué son los grupos elásticos de Azure SQL?](elastic-pool-overview.md)
+- Para información sobre los trabajos elásticos, consulte [Administración de bases de datos escaladas horizontalmente en la nube](./elastic-jobs-overview.md).
+- Para más información acerca de aplicaciones SaaS multiinquilino, consulte [Patrones de inquilinato de base de datos SaaS multiinquilino](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -265,7 +265,7 @@ En este tutorial ha obtenido información:
 > [!div class="checklist"]
 > - Implementación de la aplicación SaaS Wingtip Tickets.
 > - Acerca de los servidores, los grupos y las bases de datos que componen la aplicación.
-> - Cómo se asignan los inquilinos a sus datos con el *catálogo*.
+> - Cómo se asignan los inquilinos a sus datos con el *catálogo* .
 > - Acerca de cómo aprovisionar nuevos inquilinos.
 > - Visualización del uso de grupos para supervisar la actividad de los inquilinos
 > - Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.

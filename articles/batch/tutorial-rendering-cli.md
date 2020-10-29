@@ -3,13 +3,13 @@ title: Representación de una escena en la nube
 description: 'Tutorial: Representación de una escena de Autodesk 3DS Max con Arnold mediante el servicio de representación de Batch y la interfaz de la línea de comandos de Azure'
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.custom: mvc
-ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82117138"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747051"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: Representación de una escena con Azure Batch 
 
@@ -38,7 +38,7 @@ Si decide instalar y usar la CLI localmente, para este tutorial es preciso que e
 
 Si no lo ha hecho ya, cree un grupo de recursos, una cuenta de Batch y una de Storage vinculada en la suscripción. 
 
-Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2*.
+Para crear un grupo de recursos, use el comando [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus2* .
 
 ```azurecli-interactive 
 az group create \
@@ -107,7 +107,7 @@ az storage blob upload-batch \
 
 ## <a name="create-a-rendering-pool"></a>Creación de un grupo de representación
 
-Cree un grupo de Batch para la representación mediante el comando [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). En este ejemplo se especifica la configuración del grupo en un archivo JSON. En el shell actual, cree un archivo denominado *mypool.json*, y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json)).
+Cree un grupo de Batch para la representación mediante el comando [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). En este ejemplo se especifica la configuración del grupo en un archivo JSON. En el shell actual, cree un archivo denominado *mypool.json* , y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json)).
 
 
 ```json
@@ -193,9 +193,9 @@ az batch job create \
 
 ### <a name="create-a-task"></a>Crea una tarea.
 
-Use el comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para crear una tarea de representación en el trabajo. En este ejemplo se especifica la configuración de la tarea en un archivo JSON. En el shell actual, cree un archivo denominado *myrendertask.json*, y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json)).
+Use el comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para crear una tarea de representación en el trabajo. En este ejemplo se especifica la configuración de la tarea en un archivo JSON. En el shell actual, cree un archivo denominado *myrendertask.json* , y copie y pegue el contenido siguiente. Asegúrese de copiar todo el texto correctamente. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json)).
 
-La tarea especifica un comando de 3DS Max para representar un fotograma individual de la escena *MotionBlur-DragonFlying.max*.
+La tarea especifica un comando de 3DS Max para representar un fotograma individual de la escena *MotionBlur-DragonFlying.max* .
 
 Modifique los elementos `blobSource` y `containerURL` del archivo JSON para que incluyan el nombre de la cuenta de Storage y el token de SAS. 
 
@@ -276,7 +276,7 @@ Abra *dragon.jpg* en el equipo. La imagen representada será similar a la siguie
 
 ## <a name="scale-the-pool"></a>Escalado del grupo
 
-Ahora, modifique el grupo para prepararnos para un trabajo de representación mayor, con varios fotogramas. Batch ofrece distintas maneras de escalar los recursos de proceso, como el [escalado automático](batch-automatic-scaling.md), que agrega o quita nodos al cambiar las necesidades de la tarea. En este ejemplo básico, utilice el comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar el número de nodos de baja prioridad del grupo a *6*:
+Ahora, modifique el grupo para prepararnos para un trabajo de representación mayor, con varios fotogramas. Batch ofrece distintas maneras de escalar los recursos de proceso, como el [escalado automático](batch-automatic-scaling.md), que agrega o quita nodos al cambiar las necesidades de la tarea. En este ejemplo básico, utilice el comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar el número de nodos de baja prioridad del grupo a *6* :
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -286,9 +286,9 @@ El tamaño del grupo tardará unos minutos en cambiar. Mientras se realiza el pr
 
 ## <a name="render-a-multiframe-scene"></a>Representación de una escena de varios fotogramas
 
-Como en el ejemplo de un solo fotograma, utilice el comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para crear tareas de representación en el trabajo denominado *myrenderjob*. En este caso, especifique la configuración de la tarea en un archivo JSON denominado *myrendertask_multi.json*. (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Cada una de las seis tareas especifica una línea de comandos Arnold que representa un fotograma de la escena 3DS Max *MotionBlur-DragonFlying.max*.
+Como en el ejemplo de un solo fotograma, utilice el comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para crear tareas de representación en el trabajo denominado *myrenderjob* . En este caso, especifique la configuración de la tarea en un archivo JSON denominado *myrendertask_multi.json* . (Puede descargar el archivo de [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json)). Cada una de las seis tareas especifica una línea de comandos Arnold que representa un fotograma de la escena 3DS Max *MotionBlur-DragonFlying.max* .
 
-Cree un archivo en el shell actual con el nombre *myrendertask_multi.json*, y copie y pegue el contenido del archivo descargado. Modifique los elementos `blobSource` y `containerURL` del archivo JSON de manera que incluyan el nombre de la cuenta de Storage y el token de SAS. Asegúrese de cambiar la configuración de las seis tareas. Guarde el archivo y ejecute el siguiente comando para poner las tareas en cola:
+Cree un archivo en el shell actual con el nombre *myrendertask_multi.json* , y copie y pegue el contenido del archivo descargado. Modifique los elementos `blobSource` y `containerURL` del archivo JSON de manera que incluyan el nombre de la cuenta de Storage y el token de SAS. Asegúrese de cambiar la configuración de las seis tareas. Guarde el archivo y ejecute el siguiente comando para poner las tareas en cola:
 
 ```azurecli-interactive
 az batch task create --job-id myrenderjob --json-file myrendertask_multi.json

@@ -7,22 +7,22 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: chuye
-ms.openlocfilehash: d318983cec1365b71d14731395e71528621659d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e20733cb4b93fcfac7606895746645727f12d6c8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051879"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783834"
 ---
 # <a name="azure-storage-explorer-blob-versioning-guide"></a>Guía de control de versiones de blobs del Explorador de Azure Storage
 
-El Explorador de Microsoft Azure Storage facilita el acceso y la administración de las versiones de los blobs. Esta guía le ayudará a comprender cómo funciona el control de versiones de blobs en el Explorador de Storage. Antes de continuar, se recomienda que lea más sobre el [control de versiones de blobs](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+El Explorador de Microsoft Azure Storage facilita el acceso y la administración de las versiones de los blobs. Esta guía le ayudará a comprender cómo funciona el control de versiones de blobs en el Explorador de Storage. Antes de continuar, se recomienda que lea más sobre el [control de versiones de blobs](../blobs/versioning-overview.md).
 
 ## <a name="terminology"></a>Terminología
 
 En esta sección se proporcionan algunas definiciones para ayudarle a comprender su uso en este artículo.
 
-- Eliminación temporal: característica de protección de datos automática alternativa. Puede obtener más información sobre la eliminación temporal [aquí](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview).
+- Eliminación temporal: característica de protección de datos automática alternativa. Puede obtener más información sobre la eliminación temporal [aquí](../blobs/soft-delete-blob-overview.md).
 - Blob activo: un blob o versión de blob se crea con un estado activo. Solo puede trabajar en los blobs o versiones de blob que están en estado activo.
 - Blob eliminado temporalmente: una versión de blob o un blob marcado como eliminado temporalmente. Los blobs eliminados temporalmente solo se conservan durante su período de retención.
 - Versión de blob: un blob que se ha creado con el control de versiones de blobs habilitado. Cada versión de blob está asociada a un id. de versión.
@@ -117,5 +117,5 @@ Cada versión de blob tiene su propio nivel de acceso. Para cambiar el nivel de 
 
 ## <a name="see-also"></a>Consulte también
 
-* [Control de versiones de blobs](https://docs.microsoft.com/azure/storage/blobs/versioning-overview)
-* [Eliminación temporal para blobs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview)
+* [Control de versiones de blobs](../blobs/versioning-overview.md)
+* [Eliminación temporal para blobs](../blobs/soft-delete-blob-overview.md)

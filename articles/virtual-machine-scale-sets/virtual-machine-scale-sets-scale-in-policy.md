@@ -9,13 +9,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 02/26/2020
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: 479bbfaf8468329cd515799e5822497df2bb4c1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 9ca6310705d54d563aae746ab2dbfe6cb412e6a9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83125169"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747794"
 ---
 # <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Uso de directivas personalizadas de reducción horizontal con conjuntos de escalado de máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ La característica de la directiva de reducción horizontal proporciona a los us
 
 ### <a name="default-scale-in-policy"></a>Directiva predeterminada de reducción horizontal
 
-De forma predeterminada, el conjunto de escalado de máquinas virtuales aplica esta directiva para determinar qué instancias se van a reducir horizontalmente. Con la directiva *Predeterminada*, se seleccionan las máquinas virtuales para la reducción horizontal en el orden siguiente:
+De forma predeterminada, el conjunto de escalado de máquinas virtuales aplica esta directiva para determinar qué instancias se van a reducir horizontalmente. Con la directiva *Predeterminada* , se seleccionan las máquinas virtuales para la reducción horizontal en el orden siguiente:
 
 1. Equilibrar máquinas virtuales entre zonas de disponibilidad (si el conjunto de escalado se implementa en una configuración de zona).
 2. Equilibrar máquinas virtuales entre dominios de error (mejor opción).
@@ -57,12 +57,12 @@ Se puede definir una directiva de reducción horizontal en el modelo de conjunto
  
 En los pasos siguientes se define la directiva de reducción horizontal al crear un nuevo conjunto de escalado. 
  
-1. Vaya a **Conjuntos de escalado de máquinas virtuales**.
+1. Vaya a **Conjuntos de escalado de máquinas virtuales** .
 1. Seleccione **+ Agregar** para crear un nuevo conjunto de escalado.
-1. Vaya a la pestaña **Escalado**. 
-1. Busque la sección **Directiva de reducción horizontal**.
+1. Vaya a la pestaña **Escalado** . 
+1. Busque la sección **Directiva de reducción horizontal** .
 1. Seleccione una directiva de reducción horizontal en el menú desplegable.
-1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear**.
+1. Cuando haya terminado de crear el nuevo conjunto de escalado, seleccione el botón **Revisar y crear** .
 
 ### <a name="using-api"></a>Uso de la API
 
@@ -83,7 +83,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 ```
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Cree un grupo de recursos y, a continuación, cree un nuevo conjunto de escalado con la directiva de reducción horizontal establecida como *OldestVM*.
+Cree un grupo de recursos y, a continuación, cree un nuevo conjunto de escalado con la directiva de reducción horizontal establecida como *OldestVM* .
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
@@ -96,7 +96,7 @@ New-AzVmss `
 
 ### <a name="azure-cli-20"></a>CLI de Azure 2.0
 
-En el ejemplo siguiente se agrega la directiva de reducción horizontal al crear un nuevo conjunto de escalado. En primer lugar, cree un grupo de recursos y, después, cree un nuevo conjunto de escalado con la directiva de reducción horizontal como *OldestVM*. 
+En el ejemplo siguiente se agrega la directiva de reducción horizontal al crear un nuevo conjunto de escalado. En primer lugar, cree un grupo de recursos y, después, cree un nuevo conjunto de escalado con la directiva de reducción horizontal como *OldestVM* . 
 
 ```azurecli-interactive
 az group create --name <myResourceGroup> --location <VMSSLocation>
@@ -136,9 +136,9 @@ La modificación de la directiva de reducción horizontal sigue el mismo proceso
 Puede modificar la directiva de reducción horizontal de un conjunto de escalado existente a través de Azure Portal. 
  
 1. En un conjunto de escalado de máquinas virtuales existente, seleccione **Escalado** en el menú de la izquierda.
-1. Seleccione la pestaña **Directiva de reducción horizontal**.
+1. Seleccione la pestaña **Directiva de reducción horizontal** .
 1. Seleccione una directiva de reducción horizontal en el menú desplegable.
-1. Cuando finalice, seleccione **Guardar**. 
+1. Cuando finalice, seleccione **Guardar** . 
 
 ### <a name="using-api"></a>Uso de la API
 
@@ -211,12 +211,12 @@ En los siguientes ejemplos se muestra cómo un conjunto de escalado de máquinas
 | Evento                 | Id. de instancia en Zona 1  | Id. de instancia en Zona 2  | Id. de instancia en Zona 3  | Selección de reducción horizontal                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Reducción horizontal              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Elija entre Zona 1 y 2, aunque Zona 3 tenga la máquina virtual más antigua. Elimine VM2 de Zona 2, ya que es la máquina virtual más antigua de esa zona.   |
-| Reducción horizontal              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Elija Zona 1, aunque Zona 3 tenga la máquina virtual más antigua. Elimine VM3 de Zona 1, ya que es la máquina virtual más antigua de esa zona.                  |
-| Reducción horizontal              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Las zonas están equilibradas. Elimine VM1 en Zona 3, ya que es la máquina virtual más antigua del conjunto de escalado.                                               |
-| Reducción horizontal              | ***4***, 5, 10         | 6, 9, 11               | 7, 8                   | Elija entre Zona 1 y Zona 2. Elimine VM4 en Zona 1, ya que es la máquina virtual más antigua de las dos zonas.                              |
-| Reducción horizontal              | 5, 10                  | ***6***, 9, 11         | 7, 8                   | Elija Zona 2, aunque Zona 1 tenga la máquina virtual más antigua. Elimine VM6 en Zona 1, ya que es la máquina virtual más antigua de esa zona.                    |
-| Reducción horizontal              | ***5***, 10            | 9, 11                  | 7, 8                   | Las zonas están equilibradas. Elimine VM5 en Zona 1, ya que es la máquina virtual más antigua del conjunto de escalado.                                                |
+| Reducción horizontal              | 3, 4, 5, 10            | **_2_* _, 6, 9, 11      | 1, 7, 8                | Elija entre Zona 1 y 2, aunque Zona 3 tenga la máquina virtual más antigua. Elimine VM2 de Zona 2, ya que es la máquina virtual más antigua de esa zona.   |
+| Reducción horizontal              | _*_3_*_ , 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Elija Zona 1, aunque Zona 3 tenga la máquina virtual más antigua. Elimine VM3 de Zona 1, ya que es la máquina virtual más antigua de esa zona.                  |
+| Reducción horizontal              | 4, 5, 10               | 6, 9, 11               | _*_1_*_ , 7, 8          | Las zonas están equilibradas. Elimine VM1 en Zona 3, ya que es la máquina virtual más antigua del conjunto de escalado.                                               |
+| Reducción horizontal              | _*_4_*_ , 5, 10         | 6, 9, 11               | 7, 8                   | Elija entre Zona 1 y Zona 2. Elimine VM4 en Zona 1, ya que es la máquina virtual más antigua de las dos zonas.                              |
+| Reducción horizontal              | 5, 10                  | _*_6_*_ , 9, 11         | 7, 8                   | Elija Zona 2, aunque Zona 1 tenga la máquina virtual más antigua. Elimine VM6 en Zona 1, ya que es la máquina virtual más antigua de esa zona.                    |
+| Reducción horizontal              | _*_5_*_ , 10            | 9, 11                  | 7, 8                   | Las zonas están equilibradas. Elimine VM5 en Zona 1, ya que es la máquina virtual más antigua del conjunto de escalado.                                                |
 
 En el caso de los conjuntos de escalado de máquinas virtuales no de zona, la directiva selecciona la máquina virtual más antigua del conjunto de escalado para su eliminación. Se omitirá la eliminación de cualquier máquina virtual "protegida".
 
@@ -225,12 +225,12 @@ En el caso de los conjuntos de escalado de máquinas virtuales no de zona, la di
 | Evento                 | Id. de instancia en Zona 1  | Id. de instancia en Zona 2  | Id. de instancia en Zona 3  | Selección de reducción horizontal                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
-| Reducción horizontal              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Elija entre Zona 1 y 2. Elimine VM11 de Zona 2, ya que es la máquina virtual más reciente de las dos zonas.                                |
-| Reducción horizontal              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Elija Zona 1, ya que tiene más máquinas virtuales que las otras dos zonas. Elimine VM10 de Zona 1, ya que es la máquina virtual más reciente de esa zona.          |
-| Reducción horizontal              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Las zonas están equilibradas. Elimine VM9 en Zona 2, ya que es la máquina virtual más reciente del conjunto de escalado.                                                |
-| Reducción horizontal              | 3, 4, 5                | 2, 6                   | 1, 7, ***8***          | Elija entre Zona 1 y Zona 3. Elimine VM8 en Zona 3, ya que es la máquina virtual más reciente de esa zona.                                      |
-| Reducción horizontal              | 3, 4, ***5***          | 2, 6                   | 1, 7                   | Elija Zona 1, aunque Zona 3 tenga la máquina virtual más reciente. Elimine VM5 en Zona 1, ya que es la máquina virtual más reciente de esa zona.                    |
-| Reducción horizontal              | 3, 4                   | 2, 6                   | 1, ***7***             | Las zonas están equilibradas. Elimine VM7 en Zona 3, ya que es la máquina virtual más reciente del conjunto de escalado.                                                |
+| Reducción horizontal              | 3, 4, 5, 10            | 2, 6, 9, _*_11_*_      | 1, 7, 8                | Elija entre Zona 1 y 2. Elimine VM11 de Zona 2, ya que es la máquina virtual más reciente de las dos zonas.                                |
+| Reducción horizontal              | 3, 4, 5, _*_10_*_      | 2, 6, 9                | 1, 7, 8                | Elija Zona 1, ya que tiene más máquinas virtuales que las otras dos zonas. Elimine VM10 de Zona 1, ya que es la máquina virtual más reciente de esa zona.          |
+| Reducción horizontal              | 3, 4, 5                | 2, 6, _*_9_*_          | 1, 7, 8                | Las zonas están equilibradas. Elimine VM9 en Zona 2, ya que es la máquina virtual más reciente del conjunto de escalado.                                                |
+| Reducción horizontal              | 3, 4, 5                | 2, 6                   | 1, 7, _*_8_*_          | Elija entre Zona 1 y Zona 3. Elimine VM8 en Zona 3, ya que es la máquina virtual más reciente de esa zona.                                      |
+| Reducción horizontal              | 3, 4, _*_5_*_          | 2, 6                   | 1, 7                   | Elija Zona 1, aunque Zona 3 tenga la máquina virtual más reciente. Elimine VM5 en Zona 1, ya que es la máquina virtual más reciente de esa zona.                    |
+| Reducción horizontal              | 3, 4                   | 2, 6                   | 1, _ *_7_**             | Las zonas están equilibradas. Elimine VM7 en Zona 3, ya que es la máquina virtual más reciente del conjunto de escalado.                                                |
 
 En el caso de los conjuntos de escalado de máquinas virtuales no de zona, la directiva selecciona la máquina virtual más reciente del conjunto de escalado para su eliminación. Se omitirá la eliminación de cualquier máquina virtual "protegida". 
 

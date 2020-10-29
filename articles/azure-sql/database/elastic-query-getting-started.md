@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 586dad7439cc57ed2c863ee5f6692e12f7a78c50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443310"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781233"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (versión preliminar)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Aquí se creará un administrador de mapas de particiones junto con varias parti
 1. Compile y ejecute la aplicación de ejemplo **Introducción a las herramientas de Elastic Database** siguiendo los pasos descritos en la sección del artículo [Descarga y ejecución de la aplicación de ejemplo](elastic-scale-get-started.md#download-and-run-the-sample-app-1). Una vez finalizados todos los pasos, verá el siguiente símbolo del sistema:
 
     ![símbolo del sistema][1]
-2. En la ventana de comandos, escriba "1" y pulse **Entrar**. De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar**; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
+2. En la ventana de comandos, escriba "1" y pulse **Entrar** . De esta forma, se creará el administrador de mapas de particiones y se agregarán dos particiones al servidor. A continuación, escriba "3" y pulse **Entrar** ; repita la acción cuatro veces. De esta forma, se insertan las filas de datos de ejemplo en sus particiones.
 3. [Azure Portal](https://portal.azure.com) debería mostrar tres nuevas bases de datos en el servidor:
 
    ![Confirmación de Visual Studio][2]
@@ -72,7 +72,7 @@ Se usan para conectarse al administrador de mapas de particiones y particiones:
     SECRET = '<password>';
     ```
 
-    El nombre de usuario y la contraseña deben coincidir con la información de inicio de sesión del paso 3 de la sección [Descarga y ejecución de la aplicación de ejemplo](elastic-scale-get-started.md#download-and-run-the-sample-app) en el artículo **Introducción a las herramientas de base de datos elástica**.
+    El nombre de usuario y la contraseña deben coincidir con la información de inicio de sesión del paso 3 de la sección [Descarga y ejecución de la aplicación de ejemplo](elastic-scale-get-started.md#download-and-run-the-sample-app) en el artículo **Introducción a las herramientas de base de datos elástica** .
 
 ### <a name="external-data-sources"></a>Orígenes de datos externos
 Para crear un origen de datos externo, ejecute el siguiente comando en la base de datos ElasticDBQuery:
@@ -121,13 +121,13 @@ Observará que la consulta agrega resultados de todas las particiones y proporci
 
 1. Inicie Excel 2013.
 2. Diríjase a la barra de herramientas **Datos** .
-3. Haga clic en **Desde otros orígenes** y luego en **Desde SQL Server**.
+3. Haga clic en **Desde otros orígenes** y luego en **Desde SQL Server** .
 
    ![Importación de Excel desde otros orígenes][5]
-4. En el **Asistente de conexión de datos** , escriba el nombre del servidor y las credenciales de inicio de sesión. A continuación, haga clic en **Siguiente**.
-5. En el cuadro de diálogo **Seleccione la base de datos que contiene la información que desea**, seleccione la base de datos **ElasticDBQuery**.
-6. Seleccione la tabla **Customers** de la vista de lista y haga clic en **Siguiente**. Haga clic en **Finalizar**.
-7. En el formulario **Importar datos**, en **Seleccione cómo desea ver estos datos en el libro**, seleccione **Tabla** y haga clic en **Aceptar**.
+4. En el **Asistente de conexión de datos** , escriba el nombre del servidor y las credenciales de inicio de sesión. A continuación, haga clic en **Siguiente** .
+5. En el cuadro de diálogo **Seleccione la base de datos que contiene la información que desea** , seleccione la base de datos **ElasticDBQuery** .
+6. Seleccione la tabla **Customers** de la vista de lista y haga clic en **Siguiente** . Haga clic en **Finalizar** .
+7. En el formulario **Importar datos** , en **Seleccione cómo desea ver estos datos en el libro** , seleccione **Tabla** y haga clic en **Aceptar** .
 
 Todas las filas de la tabla **Clientes** , almacenadas en distintas particiones, completan la hoja de Excel.
 
@@ -144,7 +144,7 @@ Para obtener información sobre los precios, consulte [Detalles de precios de SQ
 * Para obtener un tutorial sobre la creación de particiones verticales, consulte [Introducción a las consultas entre bases de datos (particiones verticales)](elastic-query-getting-started-vertical.md).
 * Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento vertical, consulte [Consulta de datos particionados verticalmente](elastic-query-vertical-partitioning.md)
 * Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento horizontal, consulte [Consulta de datos particionados horizontalmente.](elastic-query-horizontal-partitioning.md)
-* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
+* Consulte [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
 
 
 <!--Image references-->

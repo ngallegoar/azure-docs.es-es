@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 6305bdd8c892bb0323cd4f7dc61b7ad22652ed73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter , devx-track-azurecli
+ms.openlocfilehash: 51e5fd29d16c3f927dc9b89d9c7145a16f4fd49f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842740"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748249"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Tutorial: Implementación de una aplicación Service Fabric Mesh
 
@@ -55,17 +55,17 @@ La aplicación se encuentra en el directorio `src\todolistapp`.
 
 Para publicar el proyecto de Service Fabric Mesh en Azure, haga clic con el botón derecho en **todolistapp** en Visual Studio y seleccione **Publicar...**
 
-A continuación, verá un cuadro de diálogo **Publicación de la aplicación de Service Fabric**.
+A continuación, verá un cuadro de diálogo **Publicación de la aplicación de Service Fabric** .
 
 ![Cuadro de diálogo de publicación de Service Fabric mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-Seleccione la cuenta y la suscripción de Azure. Elija una **ubicación**. En este artículo se utiliza **Este de EE. UU**.
+Seleccione la cuenta y la suscripción de Azure. Elija una **ubicación** . En este artículo se utiliza **Este de EE. UU** .
 
-En **Grupo de recursos**, seleccione **\<Create New Resource Group...>** . Aparece un cuadro de diálogo donde se va a crear un nuevo grupo de recursos. En este artículo se utiliza la ubicación **Este de EE. UU.** y llama al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo único).  Presione **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
+En **Grupo de recursos** , seleccione **\<Create New Resource Group...>** . Aparece un cuadro de diálogo donde se va a crear un nuevo grupo de recursos. En este artículo se utiliza la ubicación **Este de EE. UU.** y llama al grupo **sfmeshTutorial1RG** (si la organización tiene varias personas con la misma suscripción, elija un nombre de grupo único).  Presione **Crear** para crear el grupo de recursos y volver al cuadro de diálogo Publicar.
 
 ![Cuadro de diálogo del nuevo grupo de recursos de Service Fabric mesh en Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-De nuevo en el cuadro de diálogo **Publicación de la aplicación de Service Fabric**, en **Azure Container Registry**, seleccione **\<Create New Container Registry...>** (Crear una instancia de Azure Container Registry...>). En el cuadro de diálogo **Crear Registro de contenedor**, utilice un nombre único para el **nombre de la instancia de Container Registry**. Especifique una **ubicación** (en este tutorial se utiliza **Este de EE. UU.** ). Seleccione el **grupo de recursos** que creó en el paso anterior en la lista desplegable, por ejemplo, **sfmeshTutorial1RG**. Establezca **SKU** en **Básica** y, a continuación, presione **Crear** para crear el registro de contenedor privado de Azure y volver al cuadro de diálogo Publicar.
+De nuevo en el cuadro de diálogo **Publicación de la aplicación de Service Fabric** , en **Azure Container Registry** , seleccione **\<Create New Container Registry...>** (Crear una instancia de Azure Container Registry...>). En el cuadro de diálogo **Crear Registro de contenedor** , utilice un nombre único para el **nombre de la instancia de Container Registry** . Especifique una **ubicación** (en este tutorial se utiliza **Este de EE. UU.** ). Seleccione el **grupo de recursos** que creó en el paso anterior en la lista desplegable, por ejemplo, **sfmeshTutorial1RG** . Establezca **SKU** en **Básica** y, a continuación, presione **Crear** para crear el registro de contenedor privado de Azure y volver al cuadro de diálogo Publicar.
 
 ![Cuadro de diálogo del nuevo registro de contenedor de Service Fabric Mesh de Visual Studio](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 

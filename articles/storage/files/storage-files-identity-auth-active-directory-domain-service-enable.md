@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: contperfq1
-ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: contperfq1, devx-track-azurecli
+ms.openlocfilehash: 906ec80ecc198675fdb5b163403267be1d13de00
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500324"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746856"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitación de la autenticación de Azure Active Directory Domain Services en Azure Files
 
@@ -39,7 +39,7 @@ Antes de habilitar Azure AD a través de SMB para recursos compartido de archiv
 
     Para admitir la autenticación con las credenciales de Azure AD, debe habilitar Azure AD Domain Services para su inquilino de Azure AD. Si no es el administrador del inquilino de Azure AD, póngase en contacto con el administrador y siga las instrucciones paso a paso para [habilitar Azure Active Directory Domain Services mediante Azure Portal](../../active-directory-domain-services/tutorial-create-instance.md).
 
-    Una implementación de Azure AD DS suele tardar unos 15 minutos en completarse. Confirme que el estado de mantenimiento de Azure AD muestra **En ejecución**, con la sincronización de hash de contraseña habilitada, antes de continuar con el paso siguiente.
+    Una implementación de Azure AD DS suele tardar unos 15 minutos en completarse. Confirme que el estado de mantenimiento de Azure AD muestra **En ejecución** , con la sincronización de hash de contraseña habilitada, antes de continuar con el paso siguiente.
 
 1.  **Unión al dominio de una máquina virtual de Azure con Azure AD DS.**
 
@@ -48,7 +48,7 @@ Antes de habilitar Azure AD a través de SMB para recursos compartido de archiv
     > [!NOTE]
     > La autenticación de Azure AD DS a través de SMB con recursos compartido de archivos de Azure solo se admite en máquinas virtuales de Azure que se ejecutan en versiones del sistema operativo posteriores a Windows 7 o Windows Server 2008 R2.
 
-1.  **Seleccione o cree un recurso compartido de archivos**.
+1.  **Seleccione o cree un recurso compartido de archivos** .
 
     Seleccione un recurso compartido de archivos nuevo o existente que esté asociado con la misma suscripción que el inquilino de Azure AD. Para información acerca de cómo crear un nuevo recurso compartido de archivos, consulte [Creación de un recurso compartido de archivos en Azure Files](storage-how-to-create-file-share.md).
     Para obtener un rendimiento óptimo, se recomienda que el recurso compartido de archivos esté en la misma región que la máquina virtual desde la que vaya a acceder al recurso compartido.
@@ -87,9 +87,9 @@ Tenga en cuenta que solo puede habilitar la autenticación de Azure AD DS a tra
 Para habilitar la autenticación de Azure AD DS a través de SMB mediante [Azure Portal](https://portal.azure.com), siga estos pasos:
 
 1. En Azure Portal, vaya a la cuenta de almacenamiento existente o [cree una](../common/storage-account-create.md).
-1. En la sección **Configuración**, haga clic en **Configuración**.
+1. En la sección **Configuración** , haga clic en **Configuración** .
 1. En **Identity-based access for file shares** (Acceso basado en identidad) cambie el elemento de alternancia de **Azure Active Directory Domain Service (AAD DS)** a **Enabled** (Habilitado).
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 En la imagen siguiente se muestra cómo habilitar la autenticación de Azure AD DS a través de SMB para la cuenta de almacenamiento.
 
@@ -99,7 +99,7 @@ En la imagen siguiente se muestra cómo habilitar la autenticación de Azure AD
 
 Para habilitar la autenticación de Azure AD DS a través de SMB con Azure PowerShell, instale el módulo Az más reciente (2.4 o posterior) o el módulo Az.Storage (1.5 o posterior). Para más información sobre cómo instalar PowerShell, consulte [Instalación de Azure PowerShell en Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
 
-Para crear una cuenta de almacenamiento, llame a [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0) y establezca el parámetro **EnableAzureActiveDirectoryDomainServicesForFile** en **true**. En el ejemplo siguiente, no olvide reemplazar los valores de marcador de posición por los suyos propios. (Si ha estado usando el módulo de versión preliminar anterior, el parámetro para habilitar la característica es **EnableAzureFilesAadIntegrationForSMB**).
+Para crear una cuenta de almacenamiento, llame a [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0) y establezca el parámetro **EnableAzureActiveDirectoryDomainServicesForFile** en **true** . En el ejemplo siguiente, no olvide reemplazar los valores de marcador de posición por los suyos propios. (Si ha estado usando el módulo de versión preliminar anterior, el parámetro para habilitar la característica es **EnableAzureFilesAadIntegrationForSMB** ).
 
 ```powershell
 # Create a new storage account
@@ -125,7 +125,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Para habilitar la autenticación de Azure AD mediante SMB con la CLI de Azure, instale la versión más reciente de la CLI (versión 2.0.70 o posterior). Para más información sobre cómo instalar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Para crear una cuenta de almacenamiento nueva, llame a [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) y establezca la propiedad `--enable-files-aadds` en **true**. En el ejemplo siguiente, no olvide reemplazar los valores de marcador de posición por los suyos propios. (Si ha estado usando el módulo de versión preliminar anterior, el parámetro para la habilitación de características es **file-aad**).
+Para crear una cuenta de almacenamiento nueva, llame a [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) y establezca la propiedad `--enable-files-aadds` en **true** . En el ejemplo siguiente, no olvide reemplazar los valores de marcador de posición por los suyos propios. (Si ha estado usando el módulo de versión preliminar anterior, el parámetro para la habilitación de características es **file-aad** ).
 
 ```azurecli-interactive
 # Create a new storage account

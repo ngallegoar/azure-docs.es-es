@@ -4,13 +4,13 @@ description: En este tutorial de Azure Kubernetes Service (AKS), se crea un clú
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: e78dcb3b7ba503011ec83058d9ad765815ef66a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 55af44f498492136b2ae03c7e23fce3676aa8e22
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576360"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747084"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutorial: Implementación de un clúster de Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior
 
 Los clústeres de AKS pueden usar los controles de acceso basado en rol (RBAC) de Kubernetes. Dichos controles permiten definir el acceso a los recursos en función de los roles asignados a los usuarios. Los permisos se combinan si a un usuario se le asignan varios roles y los permisos se pueden limitar a un espacio de nombres único o a todo el clúster. De forma predeterminada, la CLI de Azure habilita automáticamente RBAC al crear un clúster de AKS.
 
-Cree un clúster de AKS mediante [az aks create][]. En el ejemplo siguiente se crea un clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*. Este grupo de recursos se creó en el [tutorial anterior][aks-tutorial-prepare-acr] en la región *eastus*. En el ejemplo siguiente no se especifica una región, por lo que el clúster de AKS también se crea en la región *eastus*. Para más información sobre los límites de recursos y la disponibilidad de regiones para AKS, consulte [Cuotas, restricciones de tamaño de máquina virtual y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
+Cree un clúster de AKS mediante [az aks create][]. En el ejemplo siguiente se crea un clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup* . Este grupo de recursos se creó en el [tutorial anterior][aks-tutorial-prepare-acr] en la región *eastus* . En el ejemplo siguiente no se especifica una región, por lo que el clúster de AKS también se crea en la región *eastus* . Para más información sobre los límites de recursos y la disponibilidad de regiones para AKS, consulte [Cuotas, restricciones de tamaño de máquina virtual y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
 
 Para permitir que un clúster de AKS interactúe con otros recursos de Azure, se crea automáticamente una entidad de servicio de Azure Active Directory, dado que no se especificó ninguna. Aquí, a esta entidad de servicio se le [concede el derecho a extraer imágenes][container-registry-integration] de la instancia de Azure Container Registry (ACR) que creó en el tutorial anterior. Tenga en cuenta que puede usar una [identidad administrada](use-managed-identity.md) en lugar de una entidad de servicio para facilitar la administración.
 
@@ -65,7 +65,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>Conexión a un clúster mediante kubectl
 
-Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][]. En el ejemplo siguiente se obtienen las credenciales del clúster de AKS llamado *myAKSCluster* en el grupo de recursos *myResourceGroup*:
+Para configurar `kubectl` para conectarse a su clúster de Kubernetes, use el comando [az aks get-credentials][]. En el ejemplo siguiente se obtienen las credenciales del clúster de AKS llamado *myAKSCluster* en el grupo de recursos *myResourceGroup* :
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster

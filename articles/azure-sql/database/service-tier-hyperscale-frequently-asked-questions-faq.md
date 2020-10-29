@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488973"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780196"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -136,7 +136,7 @@ No.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>¿Cuántas réplicas de escalado horizontal de lectura se admiten?
 
-De manera predeterminada, las bases de datos de Hiperescala se crean con una réplica de escalado horizontal de lectura (dos réplicas, incluida la primaria). Puede escalar el número de réplicas de solo lectura entre 0 y 4 mediante [Azure Portal ](https://portal.azure.com) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+De manera predeterminada, las bases de datos de Hiperescala se crean con una réplica de escalado horizontal de lectura (dos réplicas, incluida la primaria). Puede escalar el número de réplicas de solo lectura entre 0 y 4 mediante [Azure Portal ](https://portal.azure.com) o la [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>¿Tengo que aprovisionar réplicas de proceso adicionales para lograr una alta disponibilidad?
 
@@ -198,7 +198,7 @@ Sí, incluida la compresión de fila, página y almacén de columnas.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>Si tengo una tabla de gran tamaño, ¿se reparten los datos de la tabla entre varios archivos de datos?
 
-Sí. Las páginas de datos asociadas a una determinada tabla pueden acabar en varios archivos de datos, los cuales forman todos parte del mismo grupo de archivos. SQL Server usa una [estrategia de relleno proporcional](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir los datos entre los archivos de datos.
+Sí. Las páginas de datos asociadas a una determinada tabla pueden acabar en varios archivos de datos, los cuales forman todos parte del mismo grupo de archivos. SQL Server usa una [estrategia de relleno proporcional](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) para distribuir los datos entre los archivos de datos.
 
 ## <a name="data-migration-questions"></a>Preguntas sobre migración de datos
 
@@ -231,9 +231,9 @@ Hiperescala es capaz de consumir 100 MB/s de datos nuevos o modificados, pero e
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>¿Puedo leer datos de Blob Storage y realizar una carga rápida (como PolyBase en Azure Synapse Analytics)?
 
-Puede hacer que una aplicación cliente lea datos de Azure Storage y cargue la carga de datos en una base de datos de Hiperescala (al igual que con cualquier otra base de datos de Azure SQL Database). Actualmente, Polybase no se admite en Azure SQL Database. Como alternativa a proporcionar una carga rápida, puede usar [Azure Data Factory ](https://docs.microsoft.com/azure/data-factory/) o usar un trabajo de Spark en [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) con el [conector de Spark para SQL](spark-connector.md). Este conector admite la inserción masiva.
+Puede hacer que una aplicación cliente lea datos de Azure Storage y cargue la carga de datos en una base de datos de Hiperescala (al igual que con cualquier otra base de datos de Azure SQL Database). Actualmente, Polybase no se admite en Azure SQL Database. Como alternativa a proporcionar una carga rápida, puede usar [Azure Data Factory ](../../data-factory/index.yml) o usar un trabajo de Spark en [Azure Databricks](/azure/azure-databricks/) con el [conector de Spark para SQL](spark-connector.md). Este conector admite la inserción masiva.
 
-También es posible leer datos de forma masiva desde el almacén de blobs de Azure mediante BULK INSERT o OPENROWSET: [Ejemplos de acceso masivo a datos en Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+También es posible leer datos de forma masiva desde el almacén de blobs de Azure mediante BULK INSERT o OPENROWSET: [Ejemplos de acceso masivo a datos en Azure Blob Storage](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 El modelo de recuperación simple o de registro masivo no se admite en Hiperescala. Se requiere el modelo de recuperación completa para proporcionar alta disponibilidad y recuperación a un momento dado. Sin embargo, la arquitectura de registro de Hiperescala proporciona una mejor tasa de ingesta de datos en comparación con otros niveles de servicio de Azure SQL Database.
 
@@ -277,7 +277,7 @@ No. El subsistema de almacenamiento administra las copias de seguridad y estas a
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>¿Puedo realizar una restauración geográfica con una base de datos de Hiperescala?
 
-Sí. La restauración geográfica es totalmente compatible. A diferencia de la restauración a un momento dado, la restauración geográfica requiere una operación de tamaño de datos. Los archivos de datos se copian en paralelo, por lo que la duración de esta operación depende sobre todo del tamaño del archivo más grande en la base de datos, en lugar del tamaño total de la base de datos. Los tiempos de la restauración geográfica se reducirán de manera significativa si la base de datos se restaura en la región de Azure que está [emparejada](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) con la región de la base de datos de origen.
+Sí. La restauración geográfica es totalmente compatible. A diferencia de la restauración a un momento dado, la restauración geográfica requiere una operación de tamaño de datos. Los archivos de datos se copian en paralelo, por lo que la duración de esta operación depende sobre todo del tamaño del archivo más grande en la base de datos, en lugar del tamaño total de la base de datos. Los tiempos de la restauración geográfica se reducirán de manera significativa si la base de datos se restaura en la región de Azure que está [emparejada](../../best-practices-availability-paired-regions.md) con la región de la base de datos de origen.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>¿Puedo configurar la replicación geográfica con la base de datos de Hiperescala?
 
@@ -357,7 +357,7 @@ No. Solo la réplica de proceso principal acepta solicitudes de lectura y escrit
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>¿Cuántas réplicas de proceso secundarias puedo aprovisionar?
 
-De manera predeterminada, se crea una réplica secundaria para las bases de datos de Hiperescala. Si quiere ajustar el número de réplicas, puede hacerlo a través de [Azure Portal](https://portal.azure.com) o la [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+De manera predeterminada, se crea una réplica secundaria para las bases de datos de Hiperescala. Si quiere ajustar el número de réplicas, puede hacerlo a través de [Azure Portal](https://portal.azure.com) o la [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>¿Cómo me conecto a estas réplicas de proceso secundarias?
 

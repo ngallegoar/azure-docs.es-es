@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ffe5a1d0c9bbdbc416ecce7c36b3710339c4f059
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330128"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781029"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperación ante desastres para una aplicación SaaS multiinquilino mediante la replicación geográfica de las bases de datos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Este tutorial describe los flujos de trabajo de la conmutación por error y la c
 
 Antes de iniciar este tutorial, asegúrese de cumplir estos requisitos previos:
 * La aplicación Wingtip Tickets SaaS Database Per Tenant está implementada. Para implementarla en menos de cinco minutos, consulte el artículo de [implementación y exploración de la aplicación Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md).  
-* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-the-geo-replication-recovery-pattern"></a>Introducción al patrón de recuperación por replicación geográfica
 
@@ -66,11 +66,11 @@ Todas las partes deben evaluarse cuidadosamente, especialmente si se trabaja a e
 
 En este tutorial, estos desafíos se abordan con las características de Azure SQL Database y la plataforma de Azure:
 
-* [Plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), para reservar toda la capacidad necesaria tan rápido como sea posible. Las plantillas de Azure Resource Manager se utilizan para aprovisionar una imagen reflejada de los servidores de producción y los grupos elásticos en la región de recuperación.
+* [Plantillas de Azure Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), para reservar toda la capacidad necesaria tan rápido como sea posible. Las plantillas de Azure Resource Manager se utilizan para aprovisionar una imagen reflejada de los servidores de producción y los grupos elásticos en la región de recuperación.
 * [Replicación geográfica](active-geo-replication-overview.md), para crear réplicas secundarias de solo lectura y replicación asincrónica para todas las bases de datos. Durante una interrupción, se produce una conmutación por error a las réplicas en la región de recuperación.  Una vez resuelta la interrupción, se produce una conmutación por recuperación a las bases de datos en la región original sin pérdida de datos.
-* Operaciones de conmutación por error [asincrónicas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), que se envían en el orden de prioridad de los inquilinos para minimizar el tiempo de conmutación por error si hay un gran número de bases de datos.
+* Operaciones de conmutación por error [asincrónicas](../../azure-resource-manager/management/async-operations.md), que se envían en el orden de prioridad de los inquilinos para minimizar el tiempo de conmutación por error si hay un gran número de bases de datos.
 * [Características de recuperación de administración de particiones](elastic-database-recovery-manager.md) para cambiar las entradas de las bases de datos en el catálogo durante la recuperación y la repatriación. Estas características permiten a la aplicación conectarse a bases de datos de inquilinos independientemente de la ubicación sin tener que volver a configurar la aplicación.
-* [Alias DNS de SQL Server](../../sql-database/dns-alias-overview.md), para habilitar el aprovisionamiento de nuevos inquilinos independientemente de la región en la que esté funcionando la aplicación. Los alias DNS también se utilizan para que el proceso de sincronización del catálogo se pueda conectar al catálogo activo, independientemente de su ubicación.
+* [Alias DNS de SQL Server](./dns-alias-overview.md), para habilitar el aprovisionamiento de nuevos inquilinos independientemente de la región en la que esté funcionando la aplicación. Los alias DNS también se utilizan para que el proceso de sincronización del catálogo se pueda conectar al catálogo activo, independientemente de su ubicación.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Obtención de los scripts de recuperación ante desastres 
 
@@ -85,7 +85,7 @@ En este tutorial, usará primero la replicación geográfica para crear réplica
 Más adelante, en un paso de repatriación diferente, se conmutarán por error el catálogo y las bases de datos de inquilinos de la región de recuperación a la región original. La aplicación y las bases de datos siguen estando disponibles durante la repatriación. Cuando haya finalizado, la aplicación es totalmente funcional en la región original.
 
 > [!Note]
-> La aplicación se recupera en la _región emparejada_ de la región en la que se implementa la aplicación. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+> La aplicación se recupera en la _región emparejada_ de la región en la que se implementa la aplicación. Para más información, consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="review-the-healthy-state-of-the-application"></a>Revisión del estado de mantenimiento de la aplicación
 
@@ -106,7 +106,7 @@ Antes de comenzar el proceso de recuperación, revise el estado de mantenimiento
 En esta tarea, se inicia un proceso para sincronizar la configuración de los servidores, los grupos elásticos y las bases de datos en el catálogo de inquilinos. El proceso mantiene esta información actualizada en el catálogo.  El proceso trabaja con el catálogo activo, ya sea en la región original o en la región de recuperación. La información de configuración se usa como parte del proceso de recuperación para garantizar que el entorno de recuperación sea coherente con el entorno original y, después durante la repatriación, para asegurarse de que la región original sea coherente con los cambios realizados en el entorno de recuperación. El catálogo también se usa para realizar un seguimiento del estado de recuperación de los recursos de inquilino
 
 > [!IMPORTANT]
-> Para simplificar, el proceso de sincronización y otros procesos de recuperación y repatriación de larga duración se implementan en estos tutoriales como trabajos locales de PowerShell o sesiones que se ejecutan en el inicio de sesión de usuario de cliente. Los token de autenticación que se emiten al iniciar sesión expirarán después de varias horas y luego se producirá un error de los trabajos. En un escenario de producción, los procesos de ejecución prolongada se deben implementar como servicios confiables de Azure de algún tipo, que se ejecutan como una entidad de servicio. Consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal).
+> Para simplificar, el proceso de sincronización y otros procesos de recuperación y repatriación de larga duración se implementan en estos tutoriales como trabajos locales de PowerShell o sesiones que se ejecutan en el inicio de sesión de usuario de cliente. Los token de autenticación que se emiten al iniciar sesión expirarán después de varias horas y luego se producirá un error de los trabajos. En un escenario de producción, los procesos de ejecución prolongada se deben implementar como servicios confiables de Azure de algún tipo, que se ejecutan como una entidad de servicio. Consulte [Uso de Azure PowerShell para crear una entidad de servicio con un certificado](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 1. En _PowerShell ISE_ , abra el archivo ...\Learning Modules\UserConfig.psm1. Reemplace `<resourcegroup>` y `<user>` en las líneas 10 y 11 por el valor usado al implementar la aplicación.  Guarde el archivo.
 
@@ -186,7 +186,7 @@ Ahora suponga que hay una interrupción en la región en la que la aplicación s
 
 2. Presione **F5** para ejecutar el script.  
     * El script se abre en una nueva ventana de PowerShell y luego inicia una serie de trabajos de PowerShell que se ejecutan en paralelo. Estos trabajos realizan la conmutación por error de las bases de datos de inquilino a la región de recuperación.
-    * La región de recuperación es la _región emparejada_ asociada a la región de Azure en la que implementó la aplicación. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
+    * La región de recuperación es la _región emparejada_ asociada a la región de Azure en la que implementó la aplicación. Para más información, consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md). 
 
 3. Supervise el estado del proceso de recuperación en la ventana de PowerShell.
     ![Proceso de conmutación por error](./media/saas-dbpertenant-dr-geo-replication/failover-process.png)

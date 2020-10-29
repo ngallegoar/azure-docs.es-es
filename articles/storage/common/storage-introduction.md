@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 7bb4cca6f58cb4ad0722c1407d2ef3062c3747e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091311"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781964"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introducción a los servicios principales de Azure Storage
 
@@ -46,7 +46,7 @@ En la tabla siguiente se comparan Files, Blobs, Disks, Queues y Tables y se mues
 | **Archivos de Azure** |Ofrece recursos compartidos de archivos en la nube totalmente administrados a los que puede acceder desde cualquier lugar a través del protocolo de bloque de mensajes del servidor (SMB) estándar del sector.<br><br>Los recursos compartidos de archivos de Azure se pueden montar desde implementaciones de Windows, Linux y macOS en la nube o locales. | Cuando desee migrar mediante lift-and-shift una aplicación a la nube que ya usa las API del sistema de archivos nativo para compartir datos entre ella y otras aplicaciones que se ejecutan en Azure.<br/><br/>Cuando quiera reemplazar o complementar los servidores de archivos locales o los dispositivos NAS.<br><br> Cuando desee almacenar herramientas de desarrollo y depuración a las que es necesario acceder desde muchas máquinas virtuales. |
 | **Azure Blobs** | Permite que los datos no estructurados se almacenen y accedan a una escala masiva en blobs en bloques.<br/><br/>También admite [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) para soluciones de análisis de macrodatos empresariales. | Cuando desea que la aplicación admita escenarios de streaming y de acceso aleatorio.<br/><br/>Cuando desea poder tener acceso a datos de aplicación desde cualquier lugar.<br/><br/>Desea crear una instancia empresarial de Data Lake en Azure y realizar análisis de macrodatos. |
 | **Azure Disks** | Permite que los datos se almacenen y se acceda a ellos desde un disco duro virtual conectado de manera persistente. | Cuando desea migrar mediante lift-and-shift aplicaciones que usan las API del sistema de archivos nativo para leer y escribir datos en discos persistentes.<br/><br/>Cuando desea almacenar datos a los que no se necesita acceder desde fuera de la máquina virtual a la que está conectado el disco. |
-| **Colas de Azure** | Permite la puesta en cola de mensajes asincrónica entre los componentes de la aplicación. | Cuando quiere desacoplar los componentes de la aplicación y usar la mensajería asincrónica para comunicarse entre ellos.<br><br>Para instrucciones sobre cuándo usar las colas de Queue Storage en comparación con las colas de Service Bus, consulte [Colas de Storage y de Service Bus: comparación y diferencias](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Colas de Azure** | Permite la puesta en cola de mensajes asincrónica entre los componentes de la aplicación. | Cuando quiere desacoplar los componentes de la aplicación y usar la mensajería asincrónica para comunicarse entre ellos.<br><br>Para instrucciones sobre cuándo usar las colas de Queue Storage en comparación con las colas de Service Bus, consulte [Colas de Storage y de Service Bus: comparación y diferencias](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md). |
 | **Tablas de Azure** | Permite almacenar datos NoSQL estructurados en la nube, lo que proporciona un almacén de claves y atributos con un diseño sin esquema. | Cuando quiere almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos u otros tipos de metadatos que el servicio requiera. <br/><br/>Para instrucciones sobre cuándo usar Table Storage en comparación con Table API de Azure Cosmos DB, consulte [Desarrollo con Table API de Azure Cosmos DB y Azure Table Storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Blob Storage
@@ -61,7 +61,7 @@ Blob Storage resulta muy conveniente para lo siguiente:
 - Almacenamiento de datos para copia de seguridad y restauración, recuperación ante desastres y archivado.
 - Almacenamiento de datos para el análisis en local o en un servicio hospedado de Azure.
 
-Se puede acceder a los objetos de Blob Storage desde cualquier lugar del mundo a través de HTTP o HTTPS. Los usuarios o las aplicaciones cliente pueden acceder a los blobs mediante direcciones URL, la [API REST de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), la [CLI de Azure](https://docs.microsoft.com/cli/azure/storage) o una biblioteca cliente de Azure Storage. Las bibliotecas de cliente de almacenamiento están disponibles para varios lenguajes, como [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) y [Ruby](https://azure.github.io/azure-storage-ruby).
+Se puede acceder a los objetos de Blob Storage desde cualquier lugar del mundo a través de HTTP o HTTPS. Los usuarios o las aplicaciones cliente pueden acceder a los blobs mediante direcciones URL, la [API REST de Azure Storage](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), la [CLI de Azure](/cli/azure/storage) o una biblioteca cliente de Azure Storage. Las bibliotecas de cliente de almacenamiento están disponibles para varios lenguajes, como [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) y [Ruby](https://azure.github.io/azure-storage-ruby).
 
 Para más información acerca de Azure Blob Storage, consulte [Introducción al almacenamiento de objetos en Azure](../blobs/storage-blobs-introduction.md).
 
@@ -93,7 +93,7 @@ Para más información sobre las colas de Azure, consulte [Introducción a las c
 
 ## <a name="table-storage"></a>Almacenamiento de tablas
 
-Azure Table Storage ahora forma parte de Azure Cosmos DB. Para ver la documentación de Azure Table Storage, consulte [Introducción a Azure Table Storage](../tables/table-storage-overview.md). Además del servicio Azure Table Storage existente, hay una nueva Table API de Azure Cosmos DB que ofrece tablas con rendimiento optimizado, distribución global e índices secundarios automáticos. Para más información al respecto y probar esta oferta, consulte [Introducción a Table API de Azure Cosmos DB](https://aka.ms/premiumtables).
+Azure Table Storage ahora forma parte de Azure Cosmos DB. Para ver la documentación de Azure Table Storage, consulte [Introducción a Azure Table Storage](../tables/table-storage-overview.md). Además del servicio Azure Table Storage existente, hay una nueva Table API de Azure Cosmos DB que ofrece tablas con rendimiento optimizado, distribución global e índices secundarios automáticos. Para más información al respecto y probar esta oferta, consulte [Introducción a Table API de Azure Cosmos DB](../../cosmos-db/table-introduction.md).
 
 Para más información sobre Table Storage, consulte [Introducción a Azure Table Storage](../tables/table-storage-overview.md).
 
@@ -112,10 +112,10 @@ Azure Storage ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite
 Cada solicitud para Azure Storage se debe autorizar. Azure Storage admite los siguientes métodos de autorización:
 
 - **Integración de Azure Active Directory (Azure AD) para datos de blob y cola.** Azure Storage admite la autenticación y autorización con Azure AD para los servicios Blob y Queue mediante control de acceso basado en rol de Azure (RBAC de Azure). Se recomiendan la autorización de solicitudes con Azure AD para mayor seguridad y facilidad de uso. Para más información, consulte [Autenticación del acceso a blobs y colas de Azure con Azure Active Directory](storage-auth-aad.md).
-- **Autorización de Azure AD a través de SMB para Azure Files**. Azure Files admite la autorización basada en identidad a través de SMB (bloque de mensajes del servidor) a través de Azure Active Directory Domain Services (Azure AD DS) o Active Directory Domain Services locales (versión preliminar). Las máquinas virtuales Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD. Para más información, consulte [Introducción a la compatibilidad de la autenticación basada en la identidad de Azure Files con el acceso SMB](../files/storage-files-active-directory-overview.md) y [Planeamiento de una implementación de Azure Files](../files/storage-files-planning.md#identity).
-- **Autorización con clave compartida.** Los servicios de Azure Storage Blob, Files, Queue y Table admiten autorización con la clave compartida. Los clientes con autorización de clave compartida pasan un encabezado con cada solicitud que está firmado con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Autorización de Azure AD a través de SMB para Azure Files** . Azure Files admite la autorización basada en identidad a través de SMB (bloque de mensajes del servidor) a través de Azure Active Directory Domain Services (Azure AD DS) o Active Directory Domain Services locales (versión preliminar). Las máquinas virtuales Windows unidas al dominio pueden acceder a los recursos compartidos de archivos de Azure con las credenciales de Azure AD. Para más información, consulte [Introducción a la compatibilidad de la autenticación basada en la identidad de Azure Files con el acceso SMB](../files/storage-files-active-directory-overview.md) y [Planeamiento de una implementación de Azure Files](../files/storage-files-planning.md#identity).
+- **Autorización con clave compartida.** Los servicios de Azure Storage Blob, Files, Queue y Table admiten autorización con la clave compartida. Los clientes con autorización de clave compartida pasan un encabezado con cada solicitud que está firmado con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](/rest/api/storageservices/authorize-with-shared-key).
 - **Autorización mediante las firmas de acceso compartido (SAS).** Una firma de acceso compartido (SAS) es una cadena que contiene un token de seguridad que se puede asociar a un URI para un recurso de almacenamiento. El token de seguridad encapsula las restricciones, como pueden ser los permisos y el intervalo de acceso. Para más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
-- **Acceso anónimo a contenedores y blobs.** Un contenedor y sus blobs pueden estar disponibles públicamente. Cuando se especifica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).
+- **Acceso anónimo a contenedores y blobs.** Un contenedor y sus blobs pueden estar disponibles públicamente. Cuando se especifica que un contenedor o blob es público, todos los usuarios pueden leerlo de forma anónima: no se requiere autenticación. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/anonymous-read-access-configure.md).
 
 ## <a name="encryption"></a>Cifrado
 
@@ -131,7 +131,7 @@ Las bibliotecas cliente de Azure Storage proporcionan métodos para cifrar los d
 
 ## <a name="redundancy"></a>Redundancia
 
-Para asegurarse de que los datos son duraderos, Azure Storage almacena varias copias de los mismos. Al configurar la cuenta de almacenamiento, selecciona una opción de redundancia. Para obtener más información, consulte [Redundancia de Azure Storage](/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json).
+Para asegurarse de que los datos son duraderos, Azure Storage almacena varias copias de los mismos. Al configurar la cuenta de almacenamiento, selecciona una opción de redundancia. Para obtener más información, consulte [Redundancia de Azure Storage](./storage-redundancy.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ## <a name="transfer-data-to-and-from-azure-storage"></a>Transferencia de datos hacia y desde Azure Storage
 
@@ -147,10 +147,10 @@ Puede acceder a los recursos de una cuenta de almacenamiento mediante cualquier 
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Referencias de biblioteca y de API de datos de Azure Storage
 
-- [API de REST de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/)
-- [Biblioteca cliente de Azure Storage para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Biblioteca cliente de Azure Storage para Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Biblioteca cliente de Azure Storage para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [API de REST de Azure Storage](/rest/api/storageservices/)
+- [Biblioteca cliente de Azure Storage para .NET](/dotnet/api/overview/azure/storage)
+- [Biblioteca cliente de Azure Storage para Java/Android](/java/api/overview/azure/storage)
+- [Biblioteca cliente de Azure Storage para Node.js](/javascript/api/overview/azure/storage-overview)
 - [Biblioteca cliente de Azure Storage para Python](https://github.com/Azure/azure-storage-python)
 - [Biblioteca cliente de Azure Storage para PHP](https://github.com/Azure/azure-storage-php)
 - [Biblioteca cliente de Azure Storage para Ruby](https://github.com/Azure/azure-storage-ruby)
@@ -158,19 +158,19 @@ Puede acceder a los recursos de una cuenta de almacenamiento mediante cualquier 
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Referencias de biblioteca y de API de administración de Azure Storage
 
-- [API REST del proveedor de recursos de almacenamiento](https://docs.microsoft.com/rest/api/storagerp/)
-- [Biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
-- [API de REST de administración de servicios de almacenamiento (clásico)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+- [API REST del proveedor de recursos de almacenamiento](/rest/api/storagerp/)
+- [Biblioteca de cliente de proveedor de recursos de almacenamiento para .NET](/dotnet/api/overview/azure/storage/management)
+- [API de REST de administración de servicios de almacenamiento (clásico)](/previous-versions/azure/reference/ee460790(v=azure.100))
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Referencias de biblioteca y de API de movimiento de datos de Azure Storage
 
-- [API de REST del servicio Import/Export de Storage](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [API de REST del servicio Import/Export de Storage](/rest/api/storageimportexport/)
 - [Biblioteca de cliente de movimiento de datos de almacenamiento para .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Herramientas y utilidades
 
-- [Cmdlets de Azure PowerShell para Storage](https://docs.microsoft.com/powershell/module/az.storage)
-- [Cmdlets de la CLI de Azure para Storage](https://docs.microsoft.com/cli/azure/storage)
+- [Cmdlets de Azure PowerShell para Storage](/powershell/module/az.storage)
+- [Cmdlets de la CLI de Azure para Storage](/cli/azure/storage)
 - [Utilidad de línea de comandos AzCopy](https://aka.ms/downloadazcopy)
 - El [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) es una aplicación independiente y gratuita de Microsoft que permite trabajar visualmente con los datos de Azure Storage en Windows, macOS y Linux.
 - [Plantillas de Azure Resource Manager para Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)

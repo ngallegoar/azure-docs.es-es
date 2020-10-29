@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 736746cc710e4e22f61edaa7b2dfd1ceef3d90eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5c0d8bb47b337b0415565a0b6dad5c6822d0b94
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89645479"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781743"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -292,7 +292,7 @@ Copia de un subconjunto de cubos mediante un símbolo comodín (*) en el nombre 
 
 **--s2s-handle-invalid-metadata** string   Especifica cómo se administran las claves de metadatos no válidas. Opciones disponibles: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (El valor predeterminado es `ExcludeIfInvalid`). (el valor predeterminado es "ExcludeIfInvalid")
 
-**--s2s-preserve-access-tier** Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite la configuración del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).  (el valor predeterminado es "true")
+**--s2s-preserve-access-tier** Conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite la configuración del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`).  (el valor predeterminado es "true")
 
 **--s2s-preserve-properties** Conserva las propiedades completas durante la copia de servicio a servicio. Para el origen de archivo no único de AWS S3 y Azure Files, la operación de lista no devuelve las propiedades completas de objetos y archivos. Para conservar las propiedades completas, AzCopy debe enviar una solicitud adicional por objeto o archivo. (El valor predeterminado es true)
 

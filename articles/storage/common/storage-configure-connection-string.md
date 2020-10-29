@@ -10,12 +10,12 @@ ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d7ca1707c89f03683960822591065143d3f8aa4f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091617"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783885"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 
@@ -35,7 +35,7 @@ La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución
 
 * Puede almacenar la cadena de conexión en una variable de entorno.
 * Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config** . Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
-* Una aplicación que se ejecuta en un servicio en la nube de Azure puede almacenar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.
+* Una aplicación que se ejecuta en un servicio en la nube de Azure puede almacenar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.
 
 El almacenamiento de la cadena de conexión en un archivo de configuración facilita la actualización de la cadena de conexión para que alterne entre el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md) y una cuenta de Azure Storage en la nube. Solo necesitará editar la cadena de conexión para apuntar al entorno de destino.
 

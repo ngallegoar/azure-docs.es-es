@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: 4b533fa23d3c128b5f9f75737fb88d39aec94905
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3862a07eea2dcec3e67c0145fcdcff8140d19ec3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950075"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746776"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release-for-linux-vms"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption con Azure AD (versión anterior) para máquinas virtuales Linux
 
@@ -61,7 +61,7 @@ Puede crear un almacén de claves con Azure PowerShell mediante el cmdlet [New-A
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
-4. Tenga en cuenta el **nombre del almacén**, el **nombre del grupo de recursos**, el **id. de recurso**, el **URI de almacén** y el **id. de objeto** que se devuelven para su uso posterior al cifrar los discos. 
+4. Tenga en cuenta el **nombre del almacén** , el **nombre del grupo de recursos** , el **id. de recurso** , el **URI de almacén** y el **id. de objeto** que se devuelven para su uso posterior al cifrar los discos. 
 
 
 ### <a name="create-a-key-vault-with-azure-cli"></a><a name="bkmk_KVCLI"></a> Crear un almacén de claves con la CLI de Azure
@@ -80,14 +80,14 @@ Puede administrar el almacén de claves con la CLI de Azure mediante el comando 
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
-4. Tenga en cuenta el **nombre del almacén** (nombre), el **nombre del grupo de recursos**, el **id. de recurso** (identificador), el **URI de almacén** y el **id. de objeto** que se devuelven para su uso posterior. 
+4. Tenga en cuenta el **nombre del almacén** (nombre), el **nombre del grupo de recursos** , el **id. de recurso** (identificador), el **URI de almacén** y el **id. de objeto** que se devuelven para su uso posterior. 
 
 ### <a name="create-a-key-vault-with-a-resource-manager-template"></a><a name="bkmk_KVRM"></a> Crear un almacén de claves con una plantilla de Resource Manager
 
 Puede crear un almacén de claves con la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 1. En la plantilla de inicio rápido de Azure, haga clic en **Deploy to Azure** (Implementar en Azure).
-2. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, el nombre del almacén de claves, el id. de objeto, los términos legales y el contrato, y luego haga clic en **Comprar**. 
+2. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, el nombre del almacén de claves, el id. de objeto, los términos legales y el contrato, y luego haga clic en **Comprar** . 
 
 
 ## <a name="set-up-an-azure-ad-app-and-service-principal"></a><a name="bkmk_ADapp"></a> Configurar una aplicación de Azure AD y una entidad de servicio 
@@ -135,10 +135,10 @@ Siga los pasos que aparecen en el artículo [Uso del portal para crear una aplic
 Para escribir los secretos de cifrado en un almacén de claves especificado, Azure Disk Encryption necesita el identificador de cliente y el secreto de cliente de la aplicación de Azure Active Directory que tenga permisos para escribir secretos en Key Vault. 
 
 > [!NOTE]
-> Azure Disk Encryption requiere que configure las siguientes directivas de acceso a la aplicación de cliente de Azure AD: los permisos _WrapKey_ y _Set_.
+> Azure Disk Encryption requiere que configure las siguientes directivas de acceso a la aplicación de cliente de Azure AD: los permisos _WrapKey_ y _Set_ .
 
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-azure-powershell"></a><a name="bkmk_KVAPPSH"></a> Establecer la directiva de acceso del almacén de claves para la aplicación de Azure AD con Azure PowerShell
-La aplicación de Azure AD necesita derechos de acceso a las claves o secretos del almacén. Use el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para conceder permisos a la aplicación, con el identificador de cliente (que se generó cuando se registró la aplicación) como valor del parámetro _–ServicePrincipalName_. Para obtener más información, consulte la entrada de blog [Azure Key Vault - Step by Step](/archive/blogs/kv/azure-key-vault-step-by-step) (Azure Key Vault - Paso a paso). 
+La aplicación de Azure AD necesita derechos de acceso a las claves o secretos del almacén. Use el cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) para conceder permisos a la aplicación, con el identificador de cliente (que se generó cuando se registró la aplicación) como valor del parámetro _–ServicePrincipalName_ . Para obtener más información, consulte la entrada de blog [Azure Key Vault - Step by Step](/archive/blogs/kv/azure-key-vault-step-by-step) (Azure Key Vault - Paso a paso). 
 
 1. Establezca la directiva de acceso del almacén de claves para la aplicación de AD con PowerShell.
 
@@ -161,10 +161,10 @@ az keyvault set-policy --name "MySecureVault" --spn "<spn created with CLI/the A
 ### <a name="set-the-key-vault-access-policy-for-the-azure-ad-app-with-the-portal"></a><a name="bkmk_KVAPRM"></a> Establecer la directiva de acceso del almacén de claves para la aplicación de Azure AD con el portal
 
 1. Abra el grupo de recursos con el almacén de claves.
-2. Seleccione el almacén de claves, vaya a **Directivas de acceso** y haga clic en **Agregar nuevo**.
+2. Seleccione el almacén de claves, vaya a **Directivas de acceso** y haga clic en **Agregar nuevo** .
 3. En **Select principal** (Seleccionar la entidad de seguridad), busque la aplicación de Azure AD que creó y selecciónela. 
-4. Para **Permisos de claves**, active **Encapsular clave** en **Operaciones criptográficas**.
-5. Para **Permisos de secretos**, active **Establecer** en **Operaciones de administración de secretos**.
+4. Para **Permisos de claves** , active **Encapsular clave** en **Operaciones criptográficas** .
+5. Para **Permisos de secretos** , active **Establecer** en **Operaciones de administración de secretos** .
 6. Haga clic en **Aceptar** para guardar la directiva de acceso. 
 
 ![Operaciones criptográficas de Azure Key Vault: Encapsular clave](./media/disk-encryption/keyvault-portal-fig3.png)
@@ -217,10 +217,10 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar 
 
 ### <a name="set-key-vault-advanced-access-policies-through-the-azure-portal"></a><a name="bkmk_KVperrm"></a> Establecer directivas de acceso avanzado del almacén de claves a través de Azure Portal
 
-1. Seleccione el almacén de claves, vaya a **Directivas de acceso** y **Haga clic para mostrar las directivas de acceso avanzado**.
-2. Active la casilla etiquetada **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
-3. Seleccione **Habilitar el acceso a Azure Virtual Machines para la implementación** o **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas**, si es necesario. 
-4. Haga clic en **Save**(Guardar).
+1. Seleccione el almacén de claves, vaya a **Directivas de acceso** y **Haga clic para mostrar las directivas de acceso avanzado** .
+2. Active la casilla etiquetada **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes** .
+3. Seleccione **Habilitar el acceso a Azure Virtual Machines para la implementación** o **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** , si es necesario. 
+4. Haga clic en **Save** (Guardar).
 
 ![Directivas de acceso avanzado de Azure Key Vault](./media/disk-encryption/keyvault-portal-fig4.png)
 

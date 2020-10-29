@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 43527e8e5860e0bbfc50643210156be943d2f174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48b74a5507eb4a1d48b7bf70133e476a30fe8169
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985197"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779958"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-azure-sql-database-and-azure-sql-managed-instance"></a>Optimización del rendimiento mediante las tecnologías en memoria en Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ Las tecnologías en memoria pueden mejorar el rendimiento de dichas cargas de tr
 
 Azure SQL Database y Azure SQL Managed Instance tienen las siguientes tecnologías en memoria:
 
-- *[OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* aumenta el número de transacciones por segundo y reduce la latencia de su procesamiento. Estas son las situaciones en las que se obtienen ventajas con OLTP en memoria: procesamiento de transacciones de alto rendimiento, como operaciones comerciales y juegos, ingesta de datos de eventos o dispositivos de IoT, almacenamiento en caché, carga de datos y escenarios de tablas temporales y variables de tablas.
+- *[OLTP en memoria](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* aumenta el número de transacciones por segundo y reduce la latencia de su procesamiento. Estas son las situaciones en las que se obtienen ventajas con OLTP en memoria: procesamiento de transacciones de alto rendimiento, como operaciones comerciales y juegos, ingesta de datos de eventos o dispositivos de IoT, almacenamiento en caché, carga de datos y escenarios de tablas temporales y variables de tablas.
 - Los *índices de almacén de columnas en clúster* reducen el espacio de almacenamiento necesario (hasta 10 veces) y mejoran el rendimiento de las consultas de análisis e informes. Puede usarlos con las tablas de hechos de sus data marts para incluir más datos en la base de datos y mejorar el rendimiento. También puede usarlos con los datos históricos de la base de datos operativa para archivar hasta 10 veces más datos, así como para disfrutar de un incremento equivalente en el número de consultas realizadas sobre ellos.
 - Con los *índices de almacén de columnas no clúster* para HTAP, podrá obtener información en tiempo real sobre su negocio realizando consultas directamente a la base de datos operativa, sin necesidad de ejecutar un caro proceso de extracción, transformación y carga (ETL) ni esperar a que se rellene el almacén de datos. Los índices de almacén de columnas no en clúster permiten una ejecución rápida de las consultas de análisis en la base de datos OLTP y, a la vez, reducen el impacto en la carga de trabajo operativa.
 - Los *índices de almacén de columnas en clúster optimizados para memoria* para HTAP le permiten realizar el procesamiento de transacciones de manera rápida y ejecutar consultas de análisis *simultáneamente* de manera muy rápida en los mismos datos.
@@ -78,12 +78,12 @@ Para obtener más información sobre OLTP en memoria en SQL Server, consulte:
 
 La tecnología OLTP en memoria proporciona operaciones de acceso a datos sumamente rápidas al mantener todos los datos en memoria. Además, usa índices especializados, compilación nativa de consultas y acceso a datos libre de bloqueos temporales para mejorar el rendimiento de la carga de trabajo OLTP. Hay dos maneras de organizar los datos de OLTP en memoria:
 
-- El formato **almacén de filas optimizadas para memoria**, en el que cada fila es un objeto de memoria independiente. Se trata de un formato clásico de OLTP en memoria optimizado para cargas de trabajo OLTP de alto rendimiento. Existen dos tipos de tablas optimizadas para memoria que se pueden usar en el formato de almacén de filas optimizadas para memoria:
+- El formato **almacén de filas optimizadas para memoria** , en el que cada fila es un objeto de memoria independiente. Se trata de un formato clásico de OLTP en memoria optimizado para cargas de trabajo OLTP de alto rendimiento. Existen dos tipos de tablas optimizadas para memoria que se pueden usar en el formato de almacén de filas optimizadas para memoria:
 
   - *Tablas duraderas* (SCHEMA_AND_DATA), en las que las filas que se encuentran en la memoria se conservan después de reiniciar el servidor. Este tipo de tablas se comporta como una tabla de almacén de filas tradicional, con las ventajas adicionales de las optimizaciones en memoria.
   - *Tablas no duraderas*  (SCHEMA_ONLY), en las que las filas no se conservan después del reinicio. Este tipo de tabla está diseñado para datos temporales (por ejemplo, tablas temporales o de reemplazo) o para tablas en las que necesite cargar datos rápidamente antes de moverlos a alguna tabla persistente (denominadas "tablas de almacenamiento provisional").
 
-- El formato **Almacén de columnas optimizadas para memoria**, en el que los datos se organizan en un formato de columnas. Esta estructura está diseñada para escenarios HTAP donde es necesario ejecutar consultas analíticas en la misma estructura de datos en la que se está ejecutando la carga de trabajo OLTP.
+- El formato **Almacén de columnas optimizadas para memoria** , en el que los datos se organizan en un formato de columnas. Esta estructura está diseñada para escenarios HTAP donde es necesario ejecutar consultas analíticas en la misma estructura de datos en la que se está ejecutando la carga de trabajo OLTP.
 
 > [!Note]
 > La tecnología de OLTP en memoria está diseñada para las estructuras de datos que pueden residir completamente en memoria. Puesto que no se pueden descargar los datos en memoria en el disco, asegúrese de usar una base de datos que tenga memoria suficiente. Consulte [Límite de almacenamiento y tamaño de datos para OLTP en memoria](#data-size-and-storage-cap-for-in-memory-oltp) para conocer más detalles.
@@ -93,7 +93,7 @@ Una guía rápida sobre OLTP en memoria: [Inicio rápido 1: Tecnologías de OLTP
 Vídeos detallados sobre las tecnologías:
 
 - [OLTP en memoria](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (que contiene una demostración de las ventajas de rendimiento y los pasos para reproducir estos resultados)
-- [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/) (Vídeos de OLTP en memoria: qué es y cuándo/cómo usarlo)
+- [In-Memory OLTP Videos: What it is and When/How to use it](/archive/blogs/sqlserverstorageengine/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it) (Vídeos de OLTP en memoria: qué es y cuándo/cómo usarlo)
 
 No existe ningún mecanismo de programación para comprender si una base de datos específica admite OLTP en memoria. Puede ejecutar la siguiente consulta de Transact-SQL:
 
@@ -101,7 +101,7 @@ No existe ningún mecanismo de programación para comprender si una base de dato
 SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 ```
 
-Si la consulta devuelve **1**, OLTP en memoria se admite en esta base de datos. Las siguientes consultas identifican todos los objetos que deben quitarse antes de que el nivel de una base de datos pueda degradarse a De uso general, Estándar o Básico:
+Si la consulta devuelve **1** , OLTP en memoria se admite en esta base de datos. Las siguientes consultas identifican todos los objetos que deben quitarse antes de que el nivel de una base de datos pueda degradarse a De uso general, Estándar o Básico:
 
 ```sql
 SELECT * FROM sys.tables WHERE is_memory_optimized=1
@@ -111,7 +111,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="data-size-and-storage-cap-for-in-memory-oltp"></a>Límite de almacenamiento y tamaño de datos para OLTP en memoria
 
-OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria*.
+OLTP en memoria incluye tablas optimizadas para memoria, que se usan para almacenar los datos de los usuarios. Estas tablas deben caber en la memoria. Dado que administra la memoria directamente en SQL Database, tenemos el concepto de una cuota para datos de usuario. Esta idea se conoce como *almacenamiento de OLTP en memoria* .
 
 Cada plan de tarifa de grupo elástico y de base de datos única admitido incluye una cantidad determinada de almacenamiento de OLTP en memoria.
 
@@ -149,7 +149,7 @@ Pero cambiar a un nivel inferior puede repercutir negativamente en la base de da
 
 Antes de degradar el plan de tarifa de una base de datos a De uso general, Estándar o Básico, quite todos los tipos de tabla y las tablas optimizadas para memoria, así como todos los módulos de Transact-SQL compilados de forma nativa.
 
-*Reducir verticalmente los recursos en el plan Crítico para la empresa*: Los datos de las tablas optimizadas para memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de la base de datos o instancia administrada o disponible en el grupo elástico. Si trata de reducir verticalmente el plan o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrolla correctamente.
+*Reducir verticalmente los recursos en el plan Crítico para la empresa* : Los datos de las tablas optimizadas para memoria deben caber en el almacenamiento de OLTP en memoria asociado al plan de la base de datos o instancia administrada o disponible en el grupo elástico. Si trata de reducir verticalmente el plan o mover la base de datos a un grupo que no disponga de almacenamiento de OLTP en memoria suficiente, la operación no se desarrolla correctamente.
 
 ## <a name="in-memory-columnstore"></a>Almacén de columnas en memoria
 
@@ -157,20 +157,20 @@ La tecnología de almacén de columnas en memoria es lo que le permite almacenar
 Hay dos tipos de modelos de almacén de columnas que puede usar para organizar los datos:
 
 - **Almacén de columnas en clúster** donde todos los datos en la tabla se organizan con el formato de columnas. En este modelo, todas las filas de la tabla se colocan en un formato de columnas que comprime enormemente los datos y le permite ejecutar informes y consultas analíticas rápidas en la tabla. Según la naturaleza de los datos, el tamaño de los datos puede disminuirse entre 10 y 100 veces. El modelo de almacén de columnas en clúster también permite la ingesta rápida de grandes cantidades de datos (carga masiva), ya que los lotes grandes de datos con más de 100 000 filas se comprimen antes de almacenarse en el disco. Este modelo es una buena elección para los escenarios de almacenamiento de datos clásicos.
-- **Almacén de columnas no en clúster**, donde los datos se almacenan en una tabla de almacén de filas tradicional y hay un índice en formato de almacén de columnas que se usa para las consultas analíticas. Este modelo permite el procesamiento analítico-transaccional híbrido (HTAP): la capacidad de ejecutar análisis en tiempo real de alto rendimiento en una carga de trabajo transaccional. Las consultas OLTP se ejecutan en la tabla de almacén de filas que está optimizada para tener acceso a un pequeño conjunto de filas, mientras que las consultas OLAP se ejecutan en el índice de almacén de columnas, que es la mejor opción para exámenes y análisis. El optimizador de consultas elige dinámicamente el formato de almacén de filas o almacén de columnas en función de la consulta. Los índices de almacén de columnas no en clúster no reducen el tamaño de los datos, ya que el conjunto de datos original se conserva en la tabla de almacén de filas original sin realizar ningún cambio. Sin embargo, el tamaño del índice de almacén de columnas adicional debe ser, en orden de magnitud, menor que el índice de árbol B equivalente.
+- **Almacén de columnas no en clúster** , donde los datos se almacenan en una tabla de almacén de filas tradicional y hay un índice en formato de almacén de columnas que se usa para las consultas analíticas. Este modelo permite el procesamiento analítico-transaccional híbrido (HTAP): la capacidad de ejecutar análisis en tiempo real de alto rendimiento en una carga de trabajo transaccional. Las consultas OLTP se ejecutan en la tabla de almacén de filas que está optimizada para tener acceso a un pequeño conjunto de filas, mientras que las consultas OLAP se ejecutan en el índice de almacén de columnas, que es la mejor opción para exámenes y análisis. El optimizador de consultas elige dinámicamente el formato de almacén de filas o almacén de columnas en función de la consulta. Los índices de almacén de columnas no en clúster no reducen el tamaño de los datos, ya que el conjunto de datos original se conserva en la tabla de almacén de filas original sin realizar ningún cambio. Sin embargo, el tamaño del índice de almacén de columnas adicional debe ser, en orden de magnitud, menor que el índice de árbol B equivalente.
 
 > [!Note]
 > La tecnología de almacén de columnas en memoria conserva únicamente los datos que se necesitan para su procesamiento en la memoria, mientras que los datos que no quepan en la memoria se almacenan en disco. Por lo tanto, la cantidad de datos en las estructuras de almacén de columnas en memoria puede superar la cantidad de memoria disponible.
 
 Vídeo detallado sobre la tecnología:
 
-- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (Índice de almacén de columnas: Vídeos de análisis en memoria de Ignite 2016)
+- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](/archive/blogs/sqlserverstorageengine/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016) (Índice de almacén de columnas: Vídeos de análisis en memoria de Ignite 2016)
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Almacenamiento y tamaño de datos para los índices de almacén de columnas
 
 No se requiere que los índices de almacén de columnas quepan en la memoria. Por lo tanto, el único límite del tamaño de los índices es el tamaño máximo global de la base de datos, que está documentado en los artículos sobre el [modelo de compra basado en DTU](database/service-tiers-dtu.md) y el [modelo de compra basado en núcleo virtual](database/service-tiers-vcore.md).
 
-Al utilizar los índices de almacén de columnas en clúster, se emplea una compresión de columnas para el almacenamiento de la tabla base. Esta compresión puede reducir considerablemente el consumo de almacenamiento de sus datos de usuario, lo que significa que la base de datos podrá albergar más información. Y es posible aumentar este compresión aún más con la [compresión de archivo de columnas](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). La cantidad de compresión que puede lograr depende de la naturaleza de los datos, pero no es raro obtener una compresión que reduzca el tamaño en 10 veces.
+Al utilizar los índices de almacén de columnas en clúster, se emplea una compresión de columnas para el almacenamiento de la tabla base. Esta compresión puede reducir considerablemente el consumo de almacenamiento de sus datos de usuario, lo que significa que la base de datos podrá albergar más información. Y es posible aumentar este compresión aún más con la [compresión de archivo de columnas](/sql/relational-databases/data-compression/data-compression#using-columnstore-and-columnstore-archive-compression). La cantidad de compresión que puede lograr depende de la naturaleza de los datos, pero no es raro obtener una compresión que reduzca el tamaño en 10 veces.
 
 Por ejemplo, si tiene una base de datos con el tamaño máximo de 1 terabyte (TB) y logra una compresión de 10 veces con índices de almacén de columnas, puede incluir un total de 10 TB de datos de usuario en la base de datos.
 
@@ -180,7 +180,7 @@ Al utilizar índices de almacén de columnas no agrupados, la tabla base sigue a
 
 *Cambiar una base de datos única a un plan Básico o Estándar* no sería posible si el nivel de destino está por debajo de S3. Los índices de almacén de columnas solo se admiten en los planes de tarifa Premium, Crítico para la empresa y Estándar (S3 y superior), no en el plan Básico. Si se cambia la base de datos a un nivel inferior incompatible, el índice de almacén de columnas dejará de estar disponible. El sistema mantiene el índice de almacén de columnas, pero no aprovecha el índice. Si, más tarde, vuelve a actualizar a un plan o nivel superior compatible, el almacén de columnas estará listo inmediatamente para volver a sacar el máximo partido.
 
-Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja de estar disponible después del cambio a un nivel inferior. Por lo tanto, se recomienda quitar todos los índices de almacén de columnas *en clúster* antes de cambiar la base de datos a un nivel o plan inferior incompatible.
+Si tiene un índice de almacén de columnas **en clúster** , toda la tabla deja de estar disponible después del cambio a un nivel inferior. Por lo tanto, se recomienda quitar todos los índices de almacén de columnas *en clúster* antes de cambiar la base de datos a un nivel o plan inferior incompatible.
 
 > [!Note]
 > SQL Managed Instance admite índices de almacén de columnas en todos los niveles.
@@ -189,7 +189,7 @@ Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicio rápido 1: Tecnologías de OLTP en memoria para acelerar el rendimiento de Transact-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Inicio rápido 1: Tecnologías de OLTP en memoria para acelerar el rendimiento de Transact-SQL](/sql/relational-databases/in-memory-oltp/survey-of-initial-areas-in-in-memory-oltp)
 - [Uso de OLTP en memoria para mejorar el rendimiento de las aplicaciones en Azure SQL](in-memory-oltp-configure.md)
 - [Supervisión del almacenamiento de OLTP en memoria](in-memory-oltp-monitor-space.md)
 - [Prueba de las características en memoria](in-memory-sample.md)
@@ -200,18 +200,18 @@ Si tiene un índice de almacén de columnas **en clúster**, toda la tabla deja 
 
 - [Más información sobre cómo Quorum duplica cargas de trabajo clave de las bases de datos a la vez que reduce las DTU en un 70 % con OLTP en memoria en SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
 - [Entrada de blog de OLTP en memoria](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-- [Más información sobre OLTP en memoria](https://msdn.microsoft.com/library/dn133186.aspx)
-- [Más información sobre los índices de almacén de columnas](https://msdn.microsoft.com/library/gg492088.aspx)
-- [Más información sobre los análisis operativos en tiempo real](https://msdn.microsoft.com/library/dn817827.aspx)
-- Consulte [Common Workload Patterns and Migration Considerations](https://msdn.microsoft.com/library/dn673538.aspx) (Patrones de cargas de trabajo comunes y consideraciones de migración), que describe los patrones de carga de trabajo donde In-Memory OLTP normalmente proporciona importantes mejoras de rendimiento.
+- [Más información sobre OLTP en memoria](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
+- [Más información sobre los índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview)
+- [Más información sobre los análisis operativos en tiempo real](/sql/relational-databases/indexes/get-started-with-columnstore-for-real-time-operational-analytics)
+- Consulte [Common Workload Patterns and Migration Considerations](/previous-versions/dn673538(v=msdn.10)) (Patrones de cargas de trabajo comunes y consideraciones de migración), que describe los patrones de carga de trabajo donde In-Memory OLTP normalmente proporciona importantes mejoras de rendimiento.
 
 ### <a name="application-design"></a>Diseño de aplicación
 
-- [OLTP en memoria (optimización en memoria)](https://msdn.microsoft.com/library/dn133186.aspx)
+- [OLTP en memoria (optimización en memoria)](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)
 - [Uso de OLTP en memoria para mejorar el rendimiento de las aplicaciones en Azure SQL](in-memory-oltp-configure.md)
 
 ### <a name="tools"></a>Herramientas
 
 - [Azure Portal](https://portal.azure.com/)
-- [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-- [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)
+- [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms)
+- [SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt)

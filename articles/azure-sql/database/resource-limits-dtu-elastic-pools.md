@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 72d50cadcc9b0f913c66f00ebc16d5e12a39de70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d87c5d162b96209c0ce3d3276dc518f42373590f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619107"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780819"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Límites de recursos para grupos elásticos que utilizan el modelo de compra de DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -154,7 +154,7 @@ Para el mismo número de DTU, los recursos proporcionados a un grupo elástico p
 Si se usan todas las unidades DTU de un grupo elástico, cada una de las bases de datos del grupo recibe una misma cantidad de recursos para procesar consultas. El servicio SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de DTU por base de datos se establece en un valor distinto de cero.
 
 > [!NOTE]
-> Para obtener información sobre los límites de `tempdb`, consulte los [límites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Para obtener información sobre los límites de `tempdb`, consulte los [límites de tempdb](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 

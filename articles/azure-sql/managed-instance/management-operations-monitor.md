@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: bdb021bc0247972fa29975c62bc9214e3b474e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993684"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782457"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Supervisión de operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,9 +62,9 @@ Estas son las API:
 
 | Comando | Descripción |
 | --- | --- |
-|[Operaciones de Instancia administrada de SQL Database: obtener](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Obtiene una operación de administración en una instancia administrada.|
-|[Operaciones de Instancia administrada de SQL Database: cancelar](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Cancela la operación asincrónica en la instancia administrada.|
-|[Operaciones de Instancia administrada de SQL Database: mostrar por instancia administrada](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Obtiene una lista de las operaciones realizadas en la instancia administrada.|
+|[Operaciones de Instancia administrada de SQL Database: obtener](/rest/api/sql/managedinstanceoperations/get)|Obtiene una operación de administración en una instancia administrada.|
+|[Operaciones de Instancia administrada de SQL Database: cancelar](/rest/api/sql/managedinstanceoperations/cancel)|Cancela la operación asincrónica en la instancia administrada.|
+|[Operaciones de Instancia administrada de SQL Database: mostrar por instancia administrada](/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Obtiene una lista de las operaciones realizadas en la instancia administrada.|
 
 > [!NOTE]
 > Use la versión 2020-02-02 de la API para ver la operación de creación de instancia administrada en la lista de operaciones. Se trata de la versión predeterminada que se usa en Azure Portal y los paquetes más recientes de PowerShell y la CLI de Azure.
@@ -75,11 +75,11 @@ Estas son las API:
 
 En Azure Portal, use la página de **información general** de la instancia administrada para supervisar las operaciones de instancia administrada. 
 
-Por ejemplo, la **operación de creación** está visible al inicio del proceso de creación en la página de **información general**: 
+Por ejemplo, la **operación de creación** está visible al inicio del proceso de creación en la página de **información general** : 
 
 ![Progreso de la creación de instancia administrada](./media/management-operations-monitor/monitoring-create-operation.png)
 
-Seleccione **Operación en curso** para abrir la página **Operación en curso** y ver las operaciones de **creación** o **actualización**. También puede [Cancelar](management-operations-cancel.md) operaciones desde esta página.  
+Seleccione **Operación en curso** para abrir la página **Operación en curso** y ver las operaciones de **creación** o **actualización** . También puede [Cancelar](management-operations-cancel.md) operaciones desde esta página.  
 
 ![Detalles de la operación de instancia administrada](./media/management-operations-monitor/monitoring-operation-details.png)
 
@@ -98,7 +98,7 @@ $managementOperations = Get-AzSqlInstanceOperation `
     -ManagedInstanceName $managedInstance  -ResourceGroupName $resourceGroup
 ```
 
-Para obtener una explicación detallada de los comandos, consulte [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation).
+Para obtener una explicación detallada de los comandos, consulte [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -108,7 +108,7 @@ En la lista az sql mi op se obtiene una lista de las operaciones realizadas en l
 az sql mi op list -g yourResourceGroupName --mi yourInstanceName 
 ```
 
-Para obtener una explicación detallada de los comandos, consulte [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Para obtener una explicación detallada de los comandos, consulte [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 

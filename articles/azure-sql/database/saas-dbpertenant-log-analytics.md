@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 787ee50dc04337d82940973d47af454264629afe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a078ba6147d4d874a890f406563111b6fdb82ed6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619804"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780910"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-azure-sql-database-saas-app"></a>Configuración y uso de registros de Azure Monitor con una aplicación SaaS multiinquilino de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En este tutorial, configurará y usará [registros de Azure Monitor](/azure/log-analytics/log-analytics-overview) para supervisar bases de datos y grupos elásticos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Se muestra cómo usar registros de Azure Monitor para intensificar la supervisión y la alerta proporcionadas en Azure Portal. Los registros de Azure Monitor admiten la supervisión de miles de grupos elásticos y cientos de miles de bases de datos. Los registros de Azure Monitor proporcionan una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
+En este tutorial, configurará y usará [registros de Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para supervisar bases de datos y grupos elásticos. Este tutorial se basa en el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md). Se muestra cómo usar registros de Azure Monitor para intensificar la supervisión y la alerta proporcionadas en Azure Portal. Los registros de Azure Monitor admiten la supervisión de miles de grupos elásticos y cientos de miles de bases de datos. Los registros de Azure Monitor proporcionan una única solución de supervisión, que puede integrar la supervisión de distintas aplicaciones y servicios de Azure en varias suscripciones de Azure.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -33,8 +33,8 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-* Aplicación Wingtip Tickets SaaS Database Per Tenant implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre [implementación y exploración de la aplicación Wingtip Tickets SaaS Database Per Tenant](../../sql-database/saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell está instalado. Para más información, consulte el artículo de [introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Aplicación Wingtip Tickets SaaS Database Per Tenant implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre [implementación y exploración de la aplicación Wingtip Tickets SaaS Database Per Tenant](./saas-dbpertenant-get-started-deploy.md).
+* Azure PowerShell está instalado. Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
 
 Consulte el [tutorial de administración y supervisión del rendimiento](saas-dbpertenant-performance-monitoring.md) para una descripción de los patrones y escenarios de SaaS, y ver cómo afectan a los requisitos de una solución de supervisión.
 
@@ -48,16 +48,16 @@ Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Anal
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Generación de datos de diagnóstico de rendimiento mediante la simulación de una carga de trabajo en los inquilinos 
 
-1. En PowerShell ISE, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*. Mantenga este script abierto, ya que quizá quiera ejecutar varios de los escenarios de generación de carga durante este tutorial.
+1. En PowerShell ISE, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1* . Mantenga este script abierto, ya que quizá quiera ejecutar varios de los escenarios de generación de carga durante este tutorial.
 1. Si aún no lo ha hecho, aprovisione un lote de inquilinos para que el contexto de supervisión sea más interesante. Este proceso tarda unos minutos.
 
-   a. Establezca **$DemoScenario = 1**, _Aprovisionamiento de un lote de inquilinos_.
+   a. Establezca **$DemoScenario = 1** , _Aprovisionamiento de un lote de inquilinos_ .
 
    b. Para ejecutar el script e implementar 17 inquilinos adicionales, presione F5.
 
 1. Ahora inicie el generador de carga para ejecutar una carga simulada en todos los inquilinos.
 
-    a. Establezca **$DemoScenario = 2**, _Generación de una carga de intensidad normal (aproximadamente 30 DTU)_ .
+    a. Establezca **$DemoScenario = 2** , _Generación de una carga de intensidad normal (aproximadamente 30 DTU)_ .
 
     b. Presione F5 para ejecutar el script.
 
@@ -69,7 +69,7 @@ Los scripts y el código fuente de la aplicación SaaS de base de datos multiinq
 
 Azure Monitor es un servicio independiente que debe configurarse. Los registros de Azure Monitor recopilan datos de registro, así como datos de telemetría y métricas de un área de trabajo de Log Analytics. Al igual que otros recursos de Azure, el área de trabajo de Log Analytics se debe crear, pero no en el mismo grupo de recursos que las aplicaciones que supervisa. Si bien, hacer esto es a menudo lo que tiene más sentido. Para la aplicación Wingtip Tickets, use un grupo de recursos único para garantizar que el área de trabajo se elimine con la aplicación.
 
-1. En PowerShell ISE, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*.
+1. En PowerShell ISE, abra *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1* .
 1. Presione F5 para ejecutar el script.
 
 Ahora puede abrir los registros de Azure Monitor en Azure Portal. Se tarda unos minutos en recopilar la telemetría en el área de trabajo de Log Analytics y para que sea visible. Cuanto más tiempo deje que el sistema recopile datos de diagnóstico, más interesante será la experiencia. 
@@ -114,7 +114,7 @@ En este ejercicio, abra el área de trabajo de Log Analytics en Azure Portal par
  
      ![Métricas de base de datos](./media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-1. Desplace la página de análisis a la izquierda y seleccione el icono de servidor en la lista de **información de recursos**.  
+1. Desplace la página de análisis a la izquierda y seleccione el icono de servidor en la lista de **información de recursos** .  
 
     ![Lista de información de recursos](./media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
@@ -135,7 +135,7 @@ En el área de trabajo de Log Analytics, puede explorar aún más los datos de m
 
 La supervisión y la alerta de los registros de Azure Monitor se basan en consultas sobre los datos del área de trabajo, a diferencia de la alerta definida en cada recurso de Azure Portal. Al basar las alertas en consultas, puede definir una alerta única que busque en todas las bases de datos, en lugar de definir una por cada base de datos. Las consultas solo se ven limitadas por los datos disponibles en el área de trabajo.
 
-Para más información sobre cómo usar los registros de Azure Monitor para consultar y establecer alertas, consulte [Uso de reglas de alerta en los registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Para más información sobre cómo usar los registros de Azure Monitor para consultar y establecer alertas, consulte [Uso de reglas de alerta en los registros de Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
 Los registros de Azure Monitor para SQL Database se cobran en función del volumen de datos del área de trabajo. En este tutorial, ha creado un área de trabajo gratuita, que está limitada a 500 MB al día. Una vez alcanzado ese límite, ya no se agregan más datos al área de trabajo.
 

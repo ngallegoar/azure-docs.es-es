@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e924a5f6c765b5b964fe3b1492393b063d9d23b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89072968"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783579"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Administración del almacenamiento en las nubes independientes mediante PowerShell
 
@@ -51,7 +51,7 @@ Inicie sesión en la cuenta que tenga acceso a la nube a la que desea conectarse
 Connect-AzAccount –Environment AzureUSGovernment
 ```
 
-Para acceder a la nube de China, use el entorno **AzureChinaCloud**. Para acceder a la nube de Alemania, use **AzureGermanCloud**.
+Para acceder a la nube de China, use el entorno **AzureChinaCloud** . Para acceder a la nube de Alemania, use **AzureGermanCloud** .
 
 En este momento, si necesita la lista de ubicaciones para crear una cuenta de almacenamiento o algún otro recurso, puede consultar las ubicaciones disponibles de la nube seleccionada mediante [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
@@ -69,7 +69,7 @@ La siguiente tabla muestra las ubicaciones devueltas para la nube de Alemania.
 
 ## <a name="endpoint-suffix"></a>Sufijo de punto de conexión
 
-El sufijo de punto de conexión para cada uno de estos entornos es diferente del punto de conexión de la nube pública de Azure. Por ejemplo, el sufijo de punto de conexión de blobs para la nube pública de Azure es **blob.core.windows.net**. Para la nube de administración pública, el sufijo de punto de conexión de blobs es **blob.core.usgovcloudapi.net**.
+El sufijo de punto de conexión para cada uno de estos entornos es diferente del punto de conexión de la nube pública de Azure. Por ejemplo, el sufijo de punto de conexión de blobs para la nube pública de Azure es **blob.core.windows.net** . Para la nube de administración pública, el sufijo de punto de conexión de blobs es **blob.core.usgovcloudapi.net** .
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>Obtención del punto de conexión mediante Get-AzEnvironment
 
@@ -167,7 +167,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Conservación de inicios de sesión de usuario entre sesiones de PowerShell](/powershell/azure/context-persistence)
-* [Almacenamiento de Azure Government](../../azure-government/documentation-government-services-storage.md)
+* [Almacenamiento de Azure Government](../../azure-government/compare-azure-government-global-azure.md)
 * [Guía para desarrolladores de Microsoft Azure Government](../../azure-government/documentation-government-developer-guide.md)
 * [Notas para desarrolladores para las aplicaciones de Azure China 21Vianet](https://msdn.microsoft.com/library/azure/dn578439.aspx)
 * [Documentación sobre Azure Alemania](../../germany/germany-welcome.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fb414680b8ff64d057f9f68d7b97380baeaa551
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192579"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778198"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Carga previa de activos en un punto de conexión de Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -37,17 +37,17 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 1. En [Azure Portal](https://portal.azure.com), examine el perfil de CDN que contiene el punto de conexión que quiere precargar. Se abre el panel del perfil.
     
 2. Haga clic en el punto de conexión de la lista. Se abre el panel del punto de conexión.
-3. En el panel del punto de conexión de CDN, seleccione **Cargar**.
+3. En el panel del punto de conexión de CDN, seleccione **Cargar** .
    
     ![Panel del punto de conexión de CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
-    Se abre el panel **Cargar**.
+    Se abre el panel **Cargar** .
    
     ![Panel Carga de CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
-4. En **Ruta de acceso de contenido**, escriba la ruta de acceso completa que quiera cargar (por ejemplo, `/pictures/kitten.png`).
+4. En **Ruta de acceso de contenido** , escriba la ruta de acceso completa que quiera cargar (por ejemplo, `/pictures/kitten.png`).
    
    > [!TIP]
-   > Después de empezar a escribir texto, aparecerán más cuadros de texto de **Ruta de acceso de contenido** para permitirle crear una lista de varios recursos. Para eliminar recursos de la lista, seleccione el botón de puntos suspensivos (...) y, a continuación, seleccione **Eliminar**.
+   > Después de empezar a escribir texto, aparecerán más cuadros de texto de **Ruta de acceso de contenido** para permitirle crear una lista de varios recursos. Para eliminar recursos de la lista, seleccione el botón de puntos suspensivos (...) y, a continuación, seleccione **Eliminar** .
    > 
    > Cada ruta de acceso de contenido debe ser una dirección URL relativa que se ajuste a las siguientes [expresiones regulares](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
    > - Carga de una sola ruta de acceso del archivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
@@ -58,7 +58,7 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
    > 
    
     ![Botón Cargar](./media/cdn-preload-endpoint/cdn-load-paths.png)
-5. Cuando haya terminado de escribir rutas de acceso de contenido, seleccione **Cargar**.
+5. Cuando haya terminado de escribir rutas de acceso de contenido, seleccione **Cargar** .
    
 
 > [!NOTE]
@@ -68,6 +68,5 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 
 ## <a name="see-also"></a>Consulte también
 * [Purgar un punto de conexión de Azure CDN](cdn-purge-endpoint.md)
-* [Referencia de API REST de Azure CDN: cargar previamente contenido en un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referencia de API REST de Azure CDN: purgar contenido desde un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
-
+* [Referencia de API REST de Azure CDN: cargar previamente contenido en un punto de conexión](/rest/api/cdn/endpoints/loadcontent)
+* [Referencia de API REST de Azure CDN: purgar contenido desde un punto de conexión](/rest/api/cdn/endpoints/purgecontent)

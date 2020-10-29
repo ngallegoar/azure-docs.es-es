@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/19/2020
-ms.openlocfilehash: 547e56dbc72e283b6c186380a01580982e029a64
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: ee9bcedea15b039982e73304a25073c85b496635
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216647"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780060"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -117,9 +117,9 @@ Con la capacidad de aumentar o disminuir rápidamente los nodos de ejecución ad
 
 ## <a name="create-a-hyperscale-database"></a>Creación de una base de datos de Hiperescala
 
-Las bases de datos de Hiperescala se pueden crear desde [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles cuando se usa el [modelo de compra basado en núcleo virtual](service-tiers-vcore.md).
+Las bases de datos de Hiperescala se pueden crear desde [Azure Portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/create-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/new-azurermsqldatabase) o la [CLI](/cli/azure/sql/db#az-sql-db-create). Las bases de datos de Hiperescala solo están disponibles cuando se usa el [modelo de compra basado en núcleo virtual](service-tiers-vcore.md).
 
-El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) para obtener una lista de los objetivos de servicio válidos.
+El siguiente comando de Transact-SQL crea una base de datos de Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `CREATE DATABASE`. Consulte los [límites de recursos](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) para obtener una lista de los objetivos de servicio válidos.
 
 ```sql
 -- Create a Hyperscale Database
@@ -131,7 +131,7 @@ Esto creará una base de datos Hiperescala en el hardware de Gen5 con cuatro nú
 
 ## <a name="upgrade-existing-database-to-hyperscale"></a>Actualización de una base de datos existente a Hiperescala
 
-Puede mover las bases de datos de Azure SQL Database existentes a Hiperescala con [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). Actualmente, esta migración es unidireccional. No se pueden trasladar bases de datos de Hiperescala a otro nivel de servicio, excepto mediante la exportación e importación de datos. Para las pruebas de concepto (POC), se recomienda que haga una copia de las bases de datos de producción y la migre a Hiperescala. La migración de una base de datos de Azure SQL Database existente al nivel Hiperescala tiene el tamaño de una operación de datos.
+Puede mover las bases de datos de Azure SQL Database existentes a Hiperescala con [Azure Portal](https://portal.azure.com), [T-SQL](/sql/t-sql/statements/alter-database-transact-sql), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase) o la [CLI](/cli/azure/sql/db#az-sql-db-update). Actualmente, esta migración es unidireccional. No se pueden trasladar bases de datos de Hiperescala a otro nivel de servicio, excepto mediante la exportación e importación de datos. Para las pruebas de concepto (POC), se recomienda que haga una copia de las bases de datos de producción y la migre a Hiperescala. La migración de una base de datos de Azure SQL Database existente al nivel Hiperescala tiene el tamaño de una operación de datos.
 
 El siguiente comando de T-SQL traslada una base de datos al nivel de servicio Hiperescala. Debe especificar tanto la edición como el servicio objetivo en la instrucción `ALTER DATABASE`.
 
@@ -165,7 +165,7 @@ Para el contrato de nivel de servicio de Hiperescala, consulte [Contrato de nive
 Si necesita restaurar una base de datos Hiperescala de Azure SQL Database en una región distinta a donde se hospeda actualmente —como parte de una operación de recuperación ante desastres, una exploración en profundidad, una reubicación o cualquier otro motivo—, el método principal es realizar una restauración geográfica de la base de datos. Esto implica exactamente los mismos pasos que seguiría para restaurar cualquier otra base de datos de SQL Database en una región diferente:
 
 1. Cree un [servidor](logical-servers.md) en la región de destino si ahí todavía no tiene un servidor adecuado.  Este servidor debe pertenecer a la misma suscripción que el servidor original (origen).
-2. Siga las instrucciones del tema [Restauración geográfica](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) de la página dedicada a la restauración de una base de datos de Azure SQL a partir de copias de seguridad automáticas.
+2. Siga las instrucciones del tema [Restauración geográfica](./recovery-using-backups.md#geo-restore) de la página dedicada a la restauración de una base de datos de Azure SQL a partir de copias de seguridad automáticas.
 
 > [!NOTE]
 > Dado que el origen y el destino están en regiones distintas, la base de datos no puede compartir el almacenamiento de instantáneas con la base de datos de origen como en las restauraciones no geográficas, que se completan muy rápidamente. En el caso de una restauración geográfica de una base de datos Hiperescala, será una operación de tamaño de datos, incluso si el destino está en la región emparejada del almacenamiento con replicación geográfica.  Esto significa que la duración de una restauración geográfica será proporcional al tamaño de la base de datos que se está restaurando.  Si el destino se encuentra en la región emparejada, la copia estará dentro de una región, lo que será mucho más rápido que una copia entre regiones, pero aun así será una operación del tamaño de los datos.
@@ -227,7 +227,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 | Si una base de datos tiene uno o más archivos de datos de más de 1 TB, se produce un error en la migración | En algunos casos, es posible que se pueda solucionar este problema si se reducen los archivos de gran tamaño para que tengan menos de 1 TB. Si va a migrar una base de datos que se utiliza durante el proceso de migración, asegúrese de que ningún archivo tenga un tamaño superior a 1 TB. Utilice la siguiente consulta para determinar el tamaño de los archivos de base de datos. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instancia administrada de SQL | Actualmente Azure SQL Managed Instance no es compatible con las bases de datos de Hiperescala. |
 | Grupos elásticos |  Los grupos elásticos no son compatibles actualmente con Hiperescala.|
-| La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo bacpac u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.) No se admite la exportación o importación de bacpac desde Azure Portal, desde PowerShell mediante [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), desde la CLI de Azure con [az sql db export](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-export) y [az sql db import](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-import) ni desde la [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export). Se admite la importación y exportación de bases de datos de Hiperescala (200 GB como máximo) mediante SSMS y [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versión 18.4 y posteriores. En el caso de las bases de datos de mayor tamaño, la importación y exportación de bacpac puede tardar mucho tiempo y producir errores por diversos motivos.|
+| La migración a Hiperescala actualmente es una operación unidireccional. | Una vez que una base de datos se migra a Hiperescala, no puede migrarse directamente a un nivel de servicio que no sea Hiperescala. En la actualidad, la única manera de migrar una base de datos de Hiperescala a un recursos que no sea de Hiperescala es exportar o importar mediante un archivo bacpac u otras tecnologías de movimiento de datos (copia masiva, Azure Data Factory, Azure Databricks, SSIS, etc.) No se admite la exportación o importación de bacpac desde Azure Portal, desde PowerShell mediante [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), desde la CLI de Azure con [az sql db export](/cli/azure/sql/db#az-sql-db-export) y [az sql db import](/cli/azure/sql/db#az-sql-db-import) ni desde la [API REST](/rest/api/sql/databases%20-%20import%20export). Se admite la importación y exportación de bases de datos de Hiperescala (200 GB como máximo) mediante SSMS y [SqlPackage](/sql/tools/sqlpackage) versión 18.4 y posteriores. En el caso de las bases de datos de mayor tamaño, la importación y exportación de bacpac puede tardar mucho tiempo y producir errores por diversos motivos.|
 | Migración de bases de datos con objetos OLTP en memoria | Hiperescala admite un subconjunto de objetos OLTP en memoria, incluidos los tipos de tablas optimizadas para memoria, las variables de tablas y los módulos compilados de forma nativa. Sin embargo, cuando hay presente cualquier tipo de objeto OLTP en memoria en la base de datos que se está migrando, no se admite la migración desde los niveles de servicio Premium y Crítico para la empresa a Hiperescala. Para migrar este tipo de base de datos a Hiperescala, se deben quitar todos los objetos OLTP en memoria y sus dependencias. Después de migrar la base de datos, estos objetos se pueden volver a crear. En la actualidad, no se admiten tablas optimizadas para memoria duraderas y no duraderas en Hiperescala, y deben volver a crearse como tablas de disco.|
 | Replicación geográfica  | Todavía no se puede configurar la replicación geográfica activa para Azure SQL Database Hiperescala. |
 | Copia de base de datos | La copia de la base de datos en Hiperescala está ahora en versión preliminar pública. |
@@ -244,4 +244,3 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 - Consulte [Introducción a los límites de recursos de un servidor](resource-limits-logical-server.md) para obtener información acerca de los límites en los niveles de servidor y suscripción.
 - Para conocer los límites del modelo de compras para una base de datos única, consulte [Límites del modelo de compra basado en núcleo virtual de Azure SQL Database para una base de datos única](resource-limits-vcore-single-databases.md).
 - Para obtener una lista de características y una comparación, consulte [Características comunes de SQL](features-comparison.md).
- 

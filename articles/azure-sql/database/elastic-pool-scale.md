@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 09/16/2020
-ms.openlocfilehash: 2792a93748600d71c37972058c8e496928543c9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 947d842860452425f8b30fbdaf9558c2a94a89a2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330713"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781216"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Escalar recursos de grupos elásticos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ En este artículo se describe cómo escalar los recursos de proceso y almacenami
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Cambio de los recursos de proceso (núcleos virtuales o DTU)
 
-Después de elegir inicialmente el número de núcleos virtuales o de eDTU, puede escalar o reducir un grupo elástico verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+Después de elegir inicialmente el número de núcleos virtuales o de eDTU, puede escalar o reducir un grupo elástico verticalmente de manera dinámica en función de la experiencia real mediante [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [API REST](/rest/api/sql/elasticpools/update).
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impacto de cambiar el nivel de servicio o la escala del tamaño de proceso
 
@@ -57,7 +57,7 @@ La latencia estimada para cambiar el nivel de servicio, escalar el tamaño de pr
 >
 > - En caso de cambiar el nivel de servicio o la escala de proceso para un grupo elástico, para calcular la estimación se debe usar la suma del espacio usado en todas las bases de datos en el grupo.
 > - En caso de mover una base de datos a un grupo elástico o desde este, solo el espacio que usa la base de datos, y no el del grupo elástico, afecta a la latencia.
-> - En el caso de los grupos elásticos Estándar y De uso general, la latencia para mover una base de datos dentro o fuera de un grupo elástico o entre grupos elásticos será proporcional al tamaño de la base de datos si el grupo elástico usa almacenamiento de recursos compartidos de archivos Premium ([PFS](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)). Para determinar si un grupo usa el almacenamiento PFS, ejecute la siguiente consulta en el contexto de cualquier base de datos del grupo. Si el valor de la columna AccountType es `PremiumFileStorage` o `PremiumFileStorage-ZRS`, el grupo utiliza el almacenamiento PFS.
+> - En el caso de los grupos elásticos Estándar y De uso general, la latencia para mover una base de datos dentro o fuera de un grupo elástico o entre grupos elásticos será proporcional al tamaño de la base de datos si el grupo elástico usa almacenamiento de recursos compartidos de archivos Premium ([PFS](../../storage/files/storage-files-introduction.md)). Para determinar si un grupo usa el almacenamiento PFS, ejecute la siguiente consulta en el contexto de cualquier base de datos del grupo. Si el valor de la columna AccountType es `PremiumFileStorage` o `PremiumFileStorage-ZRS`, el grupo utiliza el almacenamiento PFS.
 
 ```sql
 SELECT s.file_id,
@@ -69,7 +69,7 @@ WHERE s.type_desc IN ('ROWS', 'LOG');
 ```
 
 > [!TIP]
-> Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](https://docs.microsoft.com/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) y [Stop AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> Para supervisar las operaciones en curso, consulte: [Administración de operaciones mediante la API REST de SQL](/rest/api/sql/operations/list), [Administración de operaciones mediante la CLI](/cli/azure/sql/db/op), [Supervisión de operaciones mediante T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) y estos dos comandos de PowerShell: [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) y [Stop AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Consideraciones adicionales cuando se cambia el nivel de servicio o la escala de tamaño de proceso
 
@@ -100,7 +100,7 @@ Se le cobrará por cada hora que una base de datos exista con el mayor nivel de 
 ### <a name="dtu-based-purchasing-model"></a>Modelo de compra basado en DTU
 
 - El precio de la eDTU de un grupo elástico incluye una cierta cantidad de almacenamiento sin ningún costo adicional. El almacenamiento adicional que supere la cantidad incluida se puede aprovisionar por un costo extra hasta el límite de tamaño máximo en incrementos de 250 GB hasta 1 TB, y luego en incrementos de 256 GB superando 1 TB. Para más información sobre los límites de tamaño máximo y las cantidades de almacenamiento incluidas, consulte [Grupos elásticos: tamaños de almacenamiento y de proceso](resource-limits-dtu-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Se puede aprovisionar el almacenamiento adicional para un grupo elástico si se aumenta su tamaño máximo mediante [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [API de REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
+- Se puede aprovisionar el almacenamiento adicional para un grupo elástico si se aumenta su tamaño máximo mediante [Azure Portal](elastic-pool-manage.md#azure-portal), [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), la [CLI de Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o la [API de REST](/rest/api/sql/elasticpools/update).
 - El precio del almacenamiento adicional para un grupo de bases de datos elásticas es la cantidad de almacenamiento adicional multiplicada por el precio de la unidad de almacenamiento adicional del nivel de servicio. Para más información sobre el precio del almacenamiento adicional, consulte los [precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]

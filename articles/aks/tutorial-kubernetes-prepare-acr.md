@@ -4,13 +4,13 @@ description: En este tutorial de Azure Kubernetes Service (AKS) se crea una inst
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: bf2ea5c7ea0c2f3ae90f9d98d8009915d5ced6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: b0f78c3969f3d02c19824fdb6d1e3b786dceb43c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576291"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747072"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implementación y uso de Azure Container Registry
 
@@ -34,7 +34,7 @@ Para realizar este tutorial es necesario ejecutar la versión 2.0.53, o superior
 
 Para crear una instancia de Azure Container Registry, es preciso tener antes un grupo de recursos. Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*:
+Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus* :
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -54,7 +54,7 @@ Para usar la instancia de ACR, primero debe iniciar sesión. Use el comando [az 
 az acr login --name <acrName>
 ```
 
-Al finalizar, el comando devuelve un mensaje que indica que el *inicio de sesión se ha realizado correctamente*.
+Al finalizar, el comando devuelve un mensaje que indica que el *inicio de sesión se ha realizado correctamente* .
 
 ## <a name="tag-a-container-image"></a>Etiquetado de una imagen de contenedor
 

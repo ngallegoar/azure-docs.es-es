@@ -3,13 +3,13 @@ title: Implementación de un grupo de contenedores en Azure Virtual Network
 description: Obtenga información sobre cómo implementar un grupo de contenedores en una instancia de Azure Virtual Network nueva o existente mediante la interfaz de la línea de comandos de Azure.
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 02cf514e6c19387e3a9e2f1c78b65f346fff764e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303015"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746895"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementación de instancias de contenedor en una red virtual de Azure
 
@@ -40,7 +40,7 @@ Cuando haya implementado el primer grupo de contenedores con este método, puede
 
 ### <a name="example"></a>Ejemplo
 
-El comando [az container create][az-container-create] siguiente especifica valores para una nueva red virtual y una subred. Proporcione el nombre de un grupo de recursos creado en una región en la que haya [disponibles](container-instances-region-availability.md#availability---virtual-network-deployment) implementaciones de grupo de contenedores en una red virtual. Este comando implementa el contenedor [aci-helloworld][aci-helloworld] público de Microsoft que ejecuta un pequeño servidor web de Node.js que sirve una página web estática. En la siguiente sección, implementará un segundo grupo de contenedores en la misma subred y probará la comunicación entre las dos instancias de contenedor.
+El comando [az container create][az-container-create] siguiente especifica valores para una nueva red virtual y una subred. Proporcione el nombre de un grupo de recursos creado en una región en la que haya [disponibles](container-instances-region-availability.md) implementaciones de grupo de contenedores en una red virtual. Este comando implementa el contenedor [aci-helloworld][aci-helloworld] público de Microsoft que ejecuta un pequeño servidor web de Node.js que sirve una página web estática. En la siguiente sección, implementará un segundo grupo de contenedores en la misma subred y probará la comunicación entre las dos instancias de contenedor.
 
 ```azurecli
 az container create \
@@ -69,7 +69,7 @@ Para implementar un grupo de contenedores en una red virtual existente:
 
 En el ejemplo siguiente se implementa un segundo grupo de contenedores en la misma subred creada anteriormente y se comprueba la comunicación entre las dos instancias de contenedor.
 
-En primer lugar, obtenga la dirección IP del primer grupo de contenedores que implementó, *appcontainer*:
+En primer lugar, obtenga la dirección IP del primer grupo de contenedores que implementó, *appcontainer* :
 
 ```azurecli
 az container show --resource-group myResourceGroup \
@@ -83,7 +83,7 @@ La salida muestra la dirección IP del grupo de contenedores en la subred privad
 10.0.0.4
 ```
 
-Ahora, establezca `CONTAINER_GROUP_IP` en la dirección IP que recuperó con el comando `az container show` y ejecute el siguiente comando `az container create`. Este segundo contenedor, *commchecker*, ejecuta una imagen basada en Linux de Alpine y `wget` con la dirección IP de la subred privada del primer grupo de contenedores.
+Ahora, establezca `CONTAINER_GROUP_IP` en la dirección IP que recuperó con el comando `az container show` y ejecute el siguiente comando `az container create`. Este segundo contenedor, *commchecker* , ejecuta una imagen basada en Linux de Alpine y `wget` con la dirección IP de la subred privada del primer grupo de contenedores.
 
 ```azurecli
 CONTAINER_GROUP_IP=<container-group-IP-address>
@@ -139,7 +139,7 @@ Salida del ejemplo:
 /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
 ```
 
-Una vez que tenga el identificador del perfil de red, copie el siguiente YAML en un nuevo archivo denominado *vnet-deploy-aci.yaml*. En `networkProfile`, reemplace el valor de `id` con el identificador recién recuperado y, después, guarde el archivo. Este YAML crea un grupo de contenedores denominado *appcontaineryaml* en la red virtual.
+Una vez que tenga el identificador del perfil de red, copie el siguiente YAML en un nuevo archivo denominado *vnet-deploy-aci.yaml* . En `networkProfile`, reemplace el valor de `id` con el identificador recién recuperado y, después, guarde el archivo. Este YAML crea un grupo de contenedores denominado *appcontaineryaml* en la red virtual.
 
 ```YAML
 apiVersion: '2019-12-01'
@@ -204,7 +204,7 @@ Actualmente, esta característica necesita varios comandos adicionales para elim
 Antes de ejecutar el script, establezca la variable `RES_GROUP` en el nombre del grupo de recursos que contenga la red virtual y la subred que se deben eliminar. Actualice el nombre de la red virtual si no usó el nombre `aci-vnet` que se sugirió anteriormente. El script tiene el formato adecuado para el shell de Bash. Si prefiere otro shell como PowerShell o el símbolo del sistema, deberá ajustar los descriptores de acceso y la asignación de variables según corresponda.
 
 > [!WARNING]
-> Este script elimina los recursos. Elimina la red virtual y todas las subredes que contiene. Asegúrese de que ya no necesita *ninguno* de los recursos en la red virtual, incluidas las subredes que contiene, antes de ejecutar este script. Una vez eliminado, **estos recursos son irrecuperables**.
+> Este script elimina los recursos. Elimina la red virtual y todas las subredes que contiene. Asegúrese de que ya no necesita *ninguno* de los recursos en la red virtual, incluidas las subredes que contiene, antes de ejecutar este script. Una vez eliminado, **estos recursos son irrecuperables** .
 
 ```azurecli
 # Replace <my-resource-group> with the name of your resource group

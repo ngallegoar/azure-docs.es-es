@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 03/05/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d02bc8d97b65f4ea2c2585201654899a63d3229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aadb75d7257470cf4288c6123263f3d2dfe14d21
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201368"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781726"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-El elemento **ClaimsSchema** define los tipos de notificación a los que se puede hacer referencia como parte de la directiva. El esquema de notificaciones es el lugar en el que se declaran las notificaciones. Una notificación puede ser el nombre, apellido, nombre para mostrar, número de teléfono y mucho más. El elemento ClaimsSchema contiene la lista de elementos **ClaimType**. El elemento **ClaimType** contiene el atributo **Id**, que es el nombre de la notificación.
+El elemento **ClaimsSchema** define los tipos de notificación a los que se puede hacer referencia como parte de la directiva. El esquema de notificaciones es el lugar en el que se declaran las notificaciones. Una notificación puede ser el nombre, apellido, nombre para mostrar, número de teléfono y mucho más. El elemento ClaimsSchema contiene la lista de elementos **ClaimType** . El elemento **ClaimType** contiene el atributo **Id** , que es el nombre de la notificación.
 
 ```xml
 <BuildingBlocks>
@@ -52,13 +52,13 @@ El elemento **ClaimType** contiene los elementos siguientes:
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | El título que se muestra a los usuarios en varias pantallas. El valor se puede [localizar](localization.md). |
 | DataType | 1:1 | Tipo de la notificación. |
-| DefaultPartnerClaimTypes | 0:1 | Los tipos de notificación predeterminada del partner que se van a usar para un protocolo especificado. El valor del elemento **PartnerClaimType** especificado se puede sobrescribir en los elementos **InputClaim** o **OutputClaim**. Use este elemento para especificar el nombre predeterminado de un protocolo.  |
+| DefaultPartnerClaimTypes | 0:1 | Los tipos de notificación predeterminada del partner que se van a usar para un protocolo especificado. El valor del elemento **PartnerClaimType** especificado se puede sobrescribir en los elementos **InputClaim** o **OutputClaim** . Use este elemento para especificar el nombre predeterminado de un protocolo.  |
 | Máscara | 0:1 | Cadena opcional de caracteres de enmascaramiento que se pueden aplicar al mostrar la notificación. Por ejemplo, el número de teléfono 324-232-4343 se puede enmascarar como XXX-XXX-4343. |
 | UserHelpText | 0:1 | Una descripción del tipo de notificación que puede ser útil para que los usuarios comprendan su propósito. El valor se puede [localizar](localization.md). |
 | UserInputType | 0:1 | El tipo de control de entrada que el usuario debe tener disponible al especificar manualmente los datos de notificación para el tipo de notificación. Vea los tipos de entrada de usuario que se definen más adelante en esta página. |
 | AdminHelpText | 0:1 | Una descripción del tipo de notificación que puede ser útil para que los administradores comprendan su propósito. |
 | Restricción | 0:1 | Las restricciones de valor de esta notificación, como una expresión regular (Regex) o una lista de valores aceptables. El valor se puede [localizar](localization.md). |
-PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateValidationsInput**. Los elementos **PredicateValidationReference** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos bien formados. Para obtener más información, vea [Predicados](predicates.md). |
+PredicateValidationReference| 0:1 | Una referencia a un elemento **PredicateValidationsInput** . Los elementos **PredicateValidationReference** le permiten realizar un proceso de validación para asegurarse de que solo se introducen datos bien formados. Para obtener más información, vea [Predicados](predicates.md). |
 
 
 
@@ -228,7 +228,7 @@ En el ejemplo siguiente se configura una notificación de **correo electrónico*
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>TextBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9.!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'^_`{}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" HelpText="Please enter a valid email address." />
     </Restriction>
  </ClaimType>
 ```
@@ -241,7 +241,7 @@ El marco de experiencia de identidad presenta la notificación de dirección de 
 
 Azure AD B2C admite una serie de tipos de entrada de usuario, como una lista de cuadro de texto, contraseña y menú desplegable que puede usarse al escribir manualmente los datos de notificación para el tipo de notificación. Debe especificar **UserInputType** al recopilar información del usuario mediante un [perfil técnico autoafirmado](self-asserted-technical-profile.md) y [controles de visualización](display-controls.md).
 
-Los tipos de entrada de usuario disponibles del elemento **UserInputType**:
+Los tipos de entrada de usuario disponibles del elemento **UserInputType** :
 
 | UserInputType | Compatible con ClaimType | Descripción |
 | --------- | -------- | ----------- |
@@ -284,7 +284,7 @@ El tipo de entrada de usuario **EmailBox** se usa para proporcionar un campo de 
   <UserHelpText>Email address that can be used to contact you.</UserHelpText>
   <UserInputType>EmailBox</UserInputType>
   <Restriction>
-    <Pattern RegularExpression="^[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
+    <Pattern RegularExpression="^[a-zA-Z0-9.+!#$%&amp;'+^_`{}~-]+(?:\.[a-zA-Z0-9!#$%&amp;'+^_`{}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$" HelpText="Please enter a valid email address." />
   </Restriction>
 </ClaimType>
 ```

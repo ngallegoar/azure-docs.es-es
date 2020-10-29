@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81259891"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777850"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Tutorial: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS
 
@@ -37,7 +37,7 @@ Después de crear un punto de conexión de CDN en el perfil, su nombre, que es u
 Mediante el protocolo HTTPS en su dominio personalizado, se asegura de que los datos se entregan de manera segura en internet a través de cifrado TLS/SSL. Cuando el explorador web se conecta a un sitio web a través de HTTPS, valida el certificado de seguridad del sitio web y comprueba que lo ha emitido una entidad de certificación legítima. Para configurar HTTPS en su dominio personalizado, siga las instrucciones de este tutorial: [Configuración de HTTPS en un dominio personalizado de Azure CDN](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Las firmas de acceso compartido
-Si el punto de conexión de Blob Storage está configurado para no permitir el acceso de lectura anónimo, debe proporcionar un token de [Firma de acceso compartido (SAS)](cdn-sas-storage-support.md) en cada solicitud que realice a su dominio personalizado. De forma predeterminada, los puntos de conexión de Blob Storage no permiten el acceso de lectura anónimo. Para más información acerca de SAS, consulte [Manage anonymous read access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md) (Administración del acceso de lectura anónimo a contenedores y blobs).
+Si el punto de conexión de Blob Storage está configurado para no permitir el acceso de lectura anónimo, debe proporcionar un token de [Firma de acceso compartido (SAS)](cdn-sas-storage-support.md) en cada solicitud que realice a su dominio personalizado. De forma predeterminada, los puntos de conexión de Blob Storage no permiten el acceso de lectura anónimo. Para más información acerca de SAS, consulte [Manage anonymous read access to containers and blobs](../storage/blobs/anonymous-read-access-configure.md) (Administración del acceso de lectura anónimo a contenedores y blobs).
 
 Azure CDN pasa por alto las restricciones agregadas al token de SAS. Por ejemplo, todos los tokens de SAS tienen una fecha de expiración, lo que significa que se puede seguir accediendo al contenido mediante una SAS que haya expirado hasta que ese contenido se purgue desde los servidores de punto de presencia (POP) de la red CDN. Puede controlar cuánto tiempo se almacenan en caché los datos en Azure CDN mediante el establecimiento del encabezado de respuesta de caché. Para más información, consulte [Administración de la expiración de Azure Storage Blob en Azure CDN](cdn-manage-expiration-of-blob-content.md).
 
@@ -61,7 +61,3 @@ Si, por ejemplo, tiene una cuenta de almacenamiento en Estados Unidos a la que s
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN](cdn-caching-rules-tutorial.md)
-
-
-
-

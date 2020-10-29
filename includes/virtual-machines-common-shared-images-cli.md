@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/24/2020
 ms.author: cynthn
-ms.custom: include file
-ms.openlocfilehash: b49dc6ef2bfee311bc3ca524a5ccb0a4e4b5ca9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 58f38f5fe5544f01636d5fd2b2393025e5cb01ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793673"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755657"
 ---
 ## <a name="create-an-image-gallery"></a>Creación de una galería de imágenes 
 
@@ -21,7 +21,7 @@ Una galería de imágenes es el recurso principal que se usa para habilitar el u
 
 Los caracteres permitidos para el nombre de la Galería son letras mayúsculas o minúsculas, números y puntos. El nombre de la galería no puede contener guiones.   Los nombres de las galerías deben ser únicos dentro de su suscripción. 
 
-Cree una galería de imágenes mediante [az sig az create](/cli/azure/sig#az-sig-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myGalleryRG* en la región *Este de EE. UU.* y una galería denominada *myGallery*.
+Cree una galería de imágenes mediante [az sig az create](/cli/azure/sig#az-sig-create). En el ejemplo siguiente se crea un grupo de recursos denominado *myGalleryRG* en la región *Este de EE. UU.* y una galería denominada *myGallery* .
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location eastus

@@ -12,12 +12,12 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 092981f9d74a3f9f18c491ca6cee539a29e73c83
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90993751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92782508"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelación de operaciones de administración de Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -55,7 +55,7 @@ Para cancelar operaciones de administración mediante Azure Portal, siga estos p
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 1. Vaya a la hoja de **información general** del servicio SQL Managed Instance. 
-1. Seleccione el cuadro **Notificación** que aparece junto a la operación en curso para abrir la página **Operación en curso**. 
+1. Seleccione el cuadro **Notificación** que aparece junto a la operación en curso para abrir la página **Operación en curso** . 
 
    :::image type="content" source="media/management-operations-cancel/open-ongoing-operation.png" alt-text="Seleccione el cuadro Operación en curso para abrir la página Operación en curso.":::
 
@@ -75,7 +75,7 @@ Si no se puede cancelar la solicitud o el botón Cancelar no está activo, signi
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Si aún no tiene instalado Azure PowerShell, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Si aún no tiene instalado Azure PowerShell, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para cancelar la operación de administración, debe especificar el nombre de la operación. Por lo tanto, use primero el comando get para recuperar la lista de operaciones y luego cancele la operación específica.
 
@@ -93,7 +93,7 @@ foreach ($mo in $managementOperations ) {
 }
 ```
 
-Para obtener una explicación detallada de los comandos, consulte [Get-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation) y [Stop-AzSqlInstanceOperation](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation).
+Para obtener una explicación detallada de los comandos, consulte [Get-AzSqlInstanceOperation](/powershell/module/az.sql/get-azsqlinstanceoperation) y [Stop-AzSqlInstanceOperation](/powershell/module/az.sql/stop-azsqlinstanceoperation).
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -110,13 +110,13 @@ az sql mi op cancel -g yourResourceGroupName --mi yourInstanceName -n $operation
 done
 ```
 
-Para obtener una explicación detallada de los comandos, consulte [az sql mi op](https://docs.microsoft.com/cli/azure/sql/mi/op).
+Para obtener una explicación detallada de los comandos, consulte [az sql mi op](/cli/azure/sql/mi/op).
 
 ---
 
 ## <a name="canceled-deployment-request"></a>Solicitud de implementación cancelada
 
-Con la versión 2020-02-02 de la API, en cuanto se acepta la solicitud de creación de la instancia, la instancia comienza a existir como un recurso, independientemente del progreso del proceso de implementación (el estado de la instancia administrada es **de aprovisionamiento**). Si cancela la solicitud de implementación de instancia (nueva creación de instancia), la instancia administrada pasará del estado **de aprovisionamiento** a **FailedToCreate**.
+Con la versión 2020-02-02 de la API, en cuanto se acepta la solicitud de creación de la instancia, la instancia comienza a existir como un recurso, independientemente del progreso del proceso de implementación (el estado de la instancia administrada es **de aprovisionamiento** ). Si cancela la solicitud de implementación de instancia (nueva creación de instancia), la instancia administrada pasará del estado **de aprovisionamiento** a **FailedToCreate** .
 
 Las instancias que no se han podido crear todavía están presentes como recurso y: 
 

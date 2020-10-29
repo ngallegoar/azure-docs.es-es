@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 66e0ac622479d38d2e2a3cbf499bb7900251571d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12cf4b029424bbbdb7449e6e1d04684ed485ef97
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359398"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779023"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Azure CDN
 
@@ -68,21 +68,21 @@ Cuando usa un certificado administrado por CDN, la característica HTTPS se pued
 
 Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 
-1. Vaya a [Azure Portal](https://portal.azure.com) para buscar un certificado administrado por Azure CDN. Busque y seleccione **Perfiles de CDN**. 
+1. Vaya a [Azure Portal](https://portal.azure.com) para buscar un certificado administrado por Azure CDN. Busque y seleccione **Perfiles de CDN** . 
 
-2. Elija el perfil **Azure CDN estándar de Microsoft**, **Azure CDN estándar de Akamai**, **Azure CDN estándar de Verizon** o **Azure CDN prémium de Verizon**.
+2. Elija el perfil **Azure CDN estándar de Microsoft** , **Azure CDN estándar de Akamai** , **Azure CDN estándar de Verizon** o **Azure CDN prémium de Verizon** .
 
 3. En la lista de puntos de conexión de CDN, haga clic en el que contiene el dominio personalizado.
 
     ![Lista de puntos de conexión](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
 
-    Aparece la página **Punto de conexión**.
+    Aparece la página **Punto de conexión** .
 
 4. En la lista de dominios personalizados, seleccione el dominio personalizado para el que desea habilitar HTTPS.
 
     ![La captura de pantalla muestra la página de dominio personalizado, con la opción para usar un certificado propio.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
-    Aparece la página **Dominio personalizado**.
+    Aparece la página **Dominio personalizado** .
 
 5. En el tipo de administración de certificados, seleccione **Certificate management type** (Administrado por CDN).
 
@@ -96,10 +96,10 @@ Para habilitar HTTPS en un dominio personalizado, siga estos pasos:
 # <a name="option-2-enable-https-with-your-own-certificate"></a>[Opción 2: habilitación de HTTPS con su propio certificado](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Esta opción solo está disponible con los perfiles **Azure CDN de Microsoft** y **Azure CDN de Verizon**. 
+> Esta opción solo está disponible con los perfiles **Azure CDN de Microsoft** y **Azure CDN de Verizon** . 
 >
  
-Puede usar su propio certificado para habilitar la característica HTTPS. Este proceso se realiza a través de una integración con Azure Key Vault, lo cual permite almacenar de forma segura los certificados. Azure CDN usa este mecanismo de seguridad para obtener el certificado y requiere algunos pasos adicionales. Cuando cree el certificado TLS/SSL, debe usar una entidad de certificación (CA) permitida. Si no lo hace, si usa una entidad de certificación no permitida, la solicitud se rechazará. Para ver una lista de las entidades de certificación permitidas, vea [Entidades de certificación permitidas para habilitar HTTPS personalizado en Azure CDN](cdn-troubleshoot-allowed-ca.md). Para **Azure CDN de Verizon**, se aceptará cualquier entidad de certificación válida. 
+Puede usar su propio certificado para habilitar la característica HTTPS. Este proceso se realiza a través de una integración con Azure Key Vault, lo cual permite almacenar de forma segura los certificados. Azure CDN usa este mecanismo de seguridad para obtener el certificado y requiere algunos pasos adicionales. Cuando cree el certificado TLS/SSL, debe usar una entidad de certificación (CA) permitida. Si no lo hace, si usa una entidad de certificación no permitida, la solicitud se rechazará. Para ver una lista de las entidades de certificación permitidas, vea [Entidades de certificación permitidas para habilitar HTTPS personalizado en Azure CDN](cdn-troubleshoot-allowed-ca.md). Para **Azure CDN de Verizon** , se aceptará cualquier entidad de certificación válida. 
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparación de la cuenta y el certificado de Azure Key Vault
  
@@ -128,7 +128,7 @@ Conceda permisos de Azure CDN para acceder a los certificados (secretos) de su c
 
     ![Creación de una nueva directiva de acceso](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-2. En **Seleccionar la entidad de seguridad**, busque **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** y elija **Microsoft.Azure.Cdn**. Haga clic en **Seleccionar**.
+2. En **Seleccionar la entidad de seguridad** , busque **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8** y elija **Microsoft.Azure.Cdn** . Haga clic en **Seleccionar** .
 
     ![Configuración de directiva de grupo](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
@@ -136,7 +136,7 @@ Conceda permisos de Azure CDN para acceder a los certificados (secretos) de su c
 
 4. Seleccione **Secret permissions** (Permisos de secretos) y, después, active las casillas **Get** (Obtener) y **List** (Enumerar) para que CDN pueda ejecutar estos permisos y así obtener y enumerar los secretos.
 
-5. Seleccione **Aceptar**. 
+5. Seleccione **Aceptar** . 
 
     Azure CDN puede acceder ahora a este almacén de claves y a los certificados (secretos) almacenados en él.
  
@@ -146,7 +146,7 @@ Conceda permisos de Azure CDN para acceder a los certificados (secretos) de su c
 
 2. En la lista de dominios personalizados, seleccione el dominio personalizado para el que desea habilitar HTTPS.
 
-    Aparece la página **Dominio personalizado**.
+    Aparece la página **Dominio personalizado** .
 
 3. En el tipo de administración de certificados, seleccione **Use my own certificate** (Usar mi propio certificado). 
 
@@ -182,7 +182,7 @@ El registro CNAME debe tener el formato siguiente, donde *Nombre* es el nombre d
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-Para obtener más información sobre los registros CNAME, consulte [Creación de los registros DNS de CNAME](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+Para obtener más información sobre los registros CNAME, consulte [Creación de los registros DNS de CNAME](./cdn-map-content-to-custom-domain.md).
 
 Si el registro CNAME tiene el formato correcto, DigiCert automáticamente comprueba su nombre de dominio personalizado y crea un certificado dedicado para el nombre de dominio. DigitCert no enviará un correo electrónico de comprobación, y usted no tendrá que aprobar la solicitud. El certificado tiene una validez de un año y se renovará automáticamente antes de expirar. Continúe con [Esperar a la propagación](#wait-for-propagation). 
 
@@ -194,7 +194,7 @@ La validación automática suele tardar unas horas. Si no ve su dominio validado
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>El dominio personalizado no está asignado al punto de conexión de CDN
 
 >[!NOTE]
->Si usa **Azure CDN de Akamai**, debe configurar la entrada CNAME siguiente para habilitar la validación automatizada de dominios. "_acme-challenge.&lt;host de dominio personalizado&gt; -> CNAME -> &lt;host de dominio personalizado&gt;.ak-acme-challenge.azureedge.net"
+>Si usa **Azure CDN de Akamai** , debe configurar la entrada CNAME siguiente para habilitar la validación automatizada de dominios. "_acme-challenge.&lt;host de dominio personalizado&gt; -> CNAME -> &lt;host de dominio personalizado&gt;.ak-acme-challenge.azureedge.net"
 
 Si la entrada del registro CNAME contiene el subdominio cdnverify, siga el resto de las instrucciones que aparecen en este paso.
 
@@ -262,9 +262,9 @@ En los pasos anteriores, habilitó el protocolo HTTPS en su dominio personalizad
 
 ### <a name="disable-the-https-feature"></a>Deshabilitación de la característica HTTPS 
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Perfiles de CDN**. 
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **Perfiles de CDN** . 
 
-2. Elija el perfil **Azure CDN estándar de MIcrosoft**, **Azure CDN estándar de Verizon** o **Azure CDN prémium de Verizon**.
+2. Elija el perfil **Azure CDN estándar de MIcrosoft** , **Azure CDN estándar de Verizon** o **Azure CDN prémium de Verizon** .
 
 3. En la lista de puntos de conexión, escoja el que contenga el dominio personalizado.
 
@@ -272,7 +272,7 @@ En los pasos anteriores, habilitó el protocolo HTTPS en su dominio personalizad
 
     ![Lista de dominios personalizados](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
 
-5. Elija **Desactivar** para deshabilitar HTTPS y haga clic en **Aplicar**.
+5. Elija **Desactivar** para deshabilitar HTTPS y haga clic en **Aplicar** .
 
     ![Cuadro de diálogo Personalizar HTTPS](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
 
@@ -296,7 +296,7 @@ En la tabla siguiente se muestra el progreso de la operación que se produce cua
 
 1. *¿Quién es el proveedor de certificados y qué tipo de certificado se utiliza?*
 
-    Con **Azure CDN de Verizon** y **Azure CDN de Microsoft**, se usa para el dominio personalizado un certificado único o dedicado que proporciona Digicert. 
+    Con **Azure CDN de Verizon** y **Azure CDN de Microsoft** , se usa para el dominio personalizado un certificado único o dedicado que proporciona Digicert. 
 
 2. *¿Usa TLS/SSL basado en IP o SNI?*
 
@@ -337,4 +337,3 @@ Avance al siguiente tutorial para aprender a configurar el almacenamiento en cac
 
 > [!div class="nextstepaction"]
 > [Tutorial: Establecimiento de las reglas de almacenamiento en caché de Azure CDN](cdn-caching-rules-tutorial.md)
-

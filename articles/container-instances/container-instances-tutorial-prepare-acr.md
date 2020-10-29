@@ -3,13 +3,13 @@ title: 'Tutorial: Preparación del registro de contenedor para implementar una i
 description: 'Tutorial de Azure Container Instances, parte 2 de 3: Preparación de una instancia de Azure Container Registry e inserción de una imagen'
 ms.topic: tutorial
 ms.date: 12/18/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 44a7f21c067897b046413851ef5a2c73bfccc24f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708043"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746944"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Creación de una instancia de Azure Container Registry e inserción de una imagen de contenedor
 
@@ -40,7 +40,7 @@ En primer lugar, obtenga el nombre del servidor de inicio de sesión completo de
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Por ejemplo, si el registro se denomina *mycontainerregistry082*:
+Por ejemplo, si el registro se denomina *mycontainerregistry082* :
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -129,7 +129,7 @@ Para ver las *etiquetas* de una imagen concreta, use el comando [az acr reposito
 az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
-Debería ver una salida similar a esta:
+Debería ver un resultado similar al siguiente:
 
 ```console
 az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table

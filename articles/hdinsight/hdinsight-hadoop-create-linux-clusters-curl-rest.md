@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/10/2019
-ms.openlocfilehash: 75eda1720e80a886ca0efb2d1f4204416a5b55f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ce104e9340c3e93d64b68dcab6f5bd6d2f62493
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083345"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748728"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Creación de clústeres de Apache Hadoop mediante la API de REST de Azure
 
@@ -214,12 +214,12 @@ Este ejemplo se usa en los pasos de este documento. Sustituya los *valores* del 
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Inicie sesión en la suscripción de Azure
 
-Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) y conéctese a su suscripción con el comando `az login`.
+Siga los pasos documentados en [Introducción a la CLI de Azure](/cli/azure/get-started-with-az-cli2) y conéctese a su suscripción con el comando `az login`.
 
 ## <a name="create-a-service-principal"></a>Creación de una entidad de servicio
 
 > [!NOTE]  
-> Estos pasos son una versión resumida de la sección *Creación de entidad de servicio con contraseña* del documento [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Estos pasos crean una entidad de servicio que sirve para autenticarse en la API de REST de Azure.
+> Estos pasos son una versión resumida de la sección *Creación de entidad de servicio con contraseña* del documento [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](/cli/azure/create-an-azure-service-principal-azure-cli). Estos pasos crean una entidad de servicio que sirve para autenticarse en la API de REST de Azure.
 
 1. Desde una línea de comandos, use el siguiente comando para enumerar las suscripciones de Azure.
 
@@ -227,7 +227,7 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.mi
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    En la lista, seleccione la suscripción que desee usar y anote las columnas **Subscription_ID** y __Tenant_ID__. Copie estos valores.
+    En la lista, seleccione la suscripción que desee usar y anote las columnas **Subscription_ID** y __Tenant_ID__ . Copie estos valores.
 
 2. Use los comandos siguientes para crear una aplicación en Azure Active Directory.
 
@@ -242,15 +242,15 @@ Siga los pasos documentados en [Introducción a la CLI de Azure](https://docs.mi
 
    El valor devuelto por este comando es el __Id. de aplicación__ para la nueva aplicación. Guarde esta cadena.
 
-3. Use el siguiente comando para crear una entidad de servicio con el **Id. de aplicación**.
+3. Use el siguiente comando para crear una entidad de servicio con el **Id. de aplicación** .
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     El valor devuelto por este comando es el __Id. de objeto__. Guarde esta cadena.
+     El valor devuelto por este comando es el __Id. de objeto__ . Guarde esta cadena.
 
-4. Asigne el rol **Propietario** a la entidad de servicio mediante el valor de **Id. de objeto**. Utilice el **identificador de suscripción** que obtuvo anteriormente.
+4. Asigne el rol **Propietario** a la entidad de servicio mediante el valor de **Id. de objeto** . Utilice el **identificador de suscripción** que obtuvo anteriormente.
 
    ```azurecli
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -274,7 +274,7 @@ Establezca `$TENANTID`, `$APPID` y `$PASSWORD` en los valores obtenidos o usados
 
 Si esta solicitud se realiza correctamente, recibirá una respuesta 200 serie y el cuerpo de respuesta contendrá un documento JSON.
 
-El documento JSON que devuelve esta solicitud contiene un elemento denominado "**access_token**". El valor de **access_token** se utiliza para las solicitudes de autenticación a la API de REST.
+El documento JSON que devuelve esta solicitud contiene un elemento denominado " **access_token** ". El valor de **access_token** se utiliza para las solicitudes de autenticación a la API de REST.
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de97640ab462ac8ea7342d235d0fad802c232179
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869446"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783375"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -143,7 +143,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-pattern** string   Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg;*.pdf;exactName`
 
-**--help**: ayuda para la sincronización.
+**--help** : ayuda para la sincronización.
 
 **--include-attributes** string (solo Windows): incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: `A;S;R`
 
@@ -151,15 +151,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--log-level** string: define el nivel de detalle del registro para el archivo de registro, niveles disponibles: `INFO`(todas las solicitudes y respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (El valor predeterminado es `INFO`). 
 
-**--preserve-smb-info**   El valor predeterminado es false.Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files).Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern). La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que no se conserva para las carpetas.
+**--preserve-smb-info** False de manera predeterminada. Conserva la información de las propiedades de SMB (hora de la última escritura, hora de creación, bits de atributo) entre los recursos compatibles con SMB (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, include-pattern).  La información transferida a las carpetas es la misma que la transferida a los archivos, excepto la hora de la última escritura, que no se conserva para las carpetas.
 
-**--preserve-smb-permissions**   El valor predeterminado es false.Conserva las listas de control de acceso de SMB entre los recursos compatibles (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo,  `include-pattern`).
+**--preserve-smb-permissions** False de manera predeterminada. Conserva las listas de control de acceso de SMB entre los recursos compatibles (Windows y Azure Files). Esta marca se aplica tanto a archivos como a carpetas, salvo que se especifique un filtro que solo permita archivos (por ejemplo, `include-pattern`).
 
-**--put-md5**: crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
+**--put-md5** : crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 
 **--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`). 
 
-**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`). 
+**--s2s-preserve-access-tier** : conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](../blobs/storage-blob-storage-tiers.md) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 

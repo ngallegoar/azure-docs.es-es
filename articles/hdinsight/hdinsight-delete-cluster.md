@@ -6,18 +6,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-azurecli
 ms.date: 11/29/2019
-ms.openlocfilehash: 3903500e87dd162779d1732a4cfe405ba34e702c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a43f821a159af6944abb9509c24a8dd081be43
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074750"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748797"
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Eliminación de un clúster de HDInsight con el explorador, PowerShell o la CLI de Azure
 
-La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. La facturación se prorratea por minuto, por lo que siempre se debe eliminar el clúster cuando ya no está en uso. En este documento, aprenderá a eliminar un clúster mediante [Azure Portal](https://portal.azure.com), el [módulo Az de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) y la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. La facturación se prorratea por minuto, por lo que siempre se debe eliminar el clúster cuando ya no está en uso. En este documento, aprenderá a eliminar un clúster mediante [Azure Portal](https://portal.azure.com), el [módulo Az de Azure PowerShell](/powershell/azure/) y la [CLI de Azure](/cli/azure/).
 
 > [!IMPORTANT]  
 > Al eliminar un clúster de HDInsight, no se eliminan las cuentas de Azure Storage o Data Lake Storage asociadas a este. Puede volver a usar los datos almacenados en esos servicios en el futuro.
@@ -28,7 +28,7 @@ La facturación del clúster de HDInsight se inicia una vez creado el clúster y
 
 2. Desde el menú de la izquierda, vaya a **Todos los servicios** > **Analytics** > **Clústeres de HDInsight** y seleccione su clúster.
 
-3. En la vista predeterminada, seleccione el icono **Eliminar**. Siga las indicaciones para eliminar el clúster.
+3. En la vista predeterminada, seleccione el icono **Eliminar** . Siga las indicaciones para eliminar el clúster.
 
     ![Botón de eliminación de clúster de HDInsight](./media/hdinsight-delete-cluster/hdinsight-delete-cluster.png)
 

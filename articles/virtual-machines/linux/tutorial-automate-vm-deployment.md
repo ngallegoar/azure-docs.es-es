@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 57e336093ece0906033b86cefe72ed9f2b940573
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 456c42dc0b25e168744ce283cddbd63b877813ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279355"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747148"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial: Uso de cloud-init para personalizar una máquina virtual Linux en Azure durante el primer arranque
 
@@ -102,13 +102,13 @@ runcmd:
 Para más información sobre las opciones de configuración de cloud-init, consulte los [ejemplos de configuración de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/examples.html).
 
 ## <a name="create-virtual-machine"></a>Crear máquina virtual
-Antes de poder crear una máquina virtual, cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *eastus*:
+Antes de poder crear una máquina virtual, cree un grupo de recursos con [az group create](/cli/azure/group#az-group-create). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroupAutomate* en la ubicación *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una máquina virtual denominada *myVM*:
+Ahora cree una máquina virtual con el comando [az vm create](/cli/azure/vm#az-vm-create). Use el parámetro `--custom-data` para pasar su archivo de configuración cloud-init. Proporcione la ruta de acceso completa a la configuración de *cloud-init.txt* si guardó el archivo fuera de su directorio de trabajo actual. En el ejemplo siguiente se crea una máquina virtual denominada *myVM* :
 
 ```azurecli-interactive
 az vm create \
@@ -183,7 +183,7 @@ vm_secret=$(az vm secret format --secret "$secret" --output json)
 ### <a name="create-cloud-init-config-to-secure-nginx"></a>Creación de la configuración de cloud-init para proteger NGINX
 Cuando crea una máquina virtual, los certificados y las claves se almacenan en el directorio */var/lib/waagent/* protegido. Para automatizar el proceso de agregar el certificado a la máquina virtual y configurar NGINX, puede utilizar la configuración de cloud-init actualizada del ejemplo anterior.
 
-Cree un archivo denominado "*cloud-init-secured.txt*" y pegue la siguiente configuración. Si se utiliza Cloud Shell, cree ahí el archivo de configuración de cloud-init y no en la máquina local. Por ejemplo, escriba `sensible-editor cloud-init-secured.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
+Cree un archivo denominado " *cloud-init-secured.txt* " y pegue la siguiente configuración. Si se utiliza Cloud Shell, cree ahí el archivo de configuración de cloud-init y no en la máquina local. Por ejemplo, escriba `sensible-editor cloud-init-secured.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
 ```yaml
 #cloud-config

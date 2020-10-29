@@ -3,13 +3,13 @@ title: Solución de problemas comunes
 description: Obtenga información sobre cómo solucionar problemas comunes en la implementación, ejecución o administración de Azure Container Instances.
 ms.topic: article
 ms.date: 06/25/2020
-ms.custom: mvc
-ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ac75fff3b088a7d595de2b27c92126ce592aff47
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148605"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746920"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solución de problemas habituales de Azure Container Instances
 
@@ -155,7 +155,7 @@ La API de Container Instances y Azure Portal incluyen una propiedad `restartCoun
 ```
 
 > [!NOTE]
-> La mayoría de las imágenes de contenedor para las distribuciones de Linux establecen una shell, como bash, como el comando predeterminado. Puesto que un shell por sí mismo no es un servicio de ejecución prolongada, estos contenedores se cierran inmediatamente y caen en un bucle de reinicio cuando se configuran con la directiva de reinicio predeterminada **Always**.
+> La mayoría de las imágenes de contenedor para las distribuciones de Linux establecen una shell, como bash, como el comando predeterminado. Puesto que un shell por sí mismo no es un servicio de ejecución prolongada, estos contenedores se cierran inmediatamente y caen en un bucle de reinicio cuando se configuran con la directiva de reinicio predeterminada **Always** .
 
 ### <a name="container-takes-a-long-time-to-start"></a>El contenedor tarda mucho tiempo en iniciar
 
@@ -213,7 +213,7 @@ Si desea confirmar que Azure Container Instances escucha en el puerto que config
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. Busque la dirección IP del grupo de contenedores en la salida del comando de `az container create`. Busque el valor de **ip**. 
+1. Busque la dirección IP del grupo de contenedores en la salida del comando de `az container create`. Busque el valor de **ip** . 
 1. Una vez aprovisionado el contenedor correctamente, vaya a la dirección IP y al puerto de la aplicación contenedora en el explorador, por ejemplo, `192.0.2.0:9000`. 
 
     Debería ver el mensaje "Welcome to Azure Container Instances!" (Bienvenida a Azure Container Instances) que muestra la aplicación web.

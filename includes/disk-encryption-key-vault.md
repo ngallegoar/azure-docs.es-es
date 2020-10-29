@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
-ms.custom: include file
-ms.openlocfilehash: 234aa602cccb90d130e4d4b6aca375726ca29f0d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 489ee630deb56aef6c004067f29779053fbcd3e7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989434"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755658"
 ---
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -64,7 +64,7 @@ New-AzKeyvault -name "<your-unique-keyvault-name>" -ResourceGroupName "myResourc
 También puede crear un almacén de claves mediante la [plantilla de Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create).
 
 1. En la plantilla de inicio rápido de Azure, haga clic en **Deploy to Azure** (Implementar en Azure).
-2. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, el nombre del almacén de claves, el identificador de objeto, los términos legales y el contrato, y luego haga clic en **Comprar**. 
+2. Seleccione la suscripción, el grupo de recursos, la ubicación del grupo de recursos, el nombre del almacén de claves, el identificador de objeto, los términos legales y el contrato, y luego haga clic en **Comprar** . 
 
 
 ##  <a name="set-key-vault-advanced-access-policies"></a>Establecimiento de directivas de acceso avanzadas del almacén de claves
@@ -117,10 +117,10 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar 
 
 ### <a name="azure-portal"></a>Azure portal
 
-1. Seleccione el almacén de claves, vaya a **Directivas de acceso** y **haga clic para mostrar las directivas de acceso avanzadas**.
-2. Active la casilla etiquetada **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
-3. Seleccione **Habilitar el acceso a Azure Virtual Machines para la implementación** o **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas**, si es necesario. 
-4. Haga clic en **Save**(Guardar).
+1. Seleccione el almacén de claves, vaya a **Directivas de acceso** y **haga clic para mostrar las directivas de acceso avanzadas** .
+2. Active la casilla etiquetada **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes** .
+3. Seleccione **Habilitar el acceso a Azure Virtual Machines para la implementación** o **Habilitar el acceso a Azure Resource Manager para la implementación de plantillas** , si es necesario. 
+4. Haga clic en **Save** (Guardar).
 
     ![Directivas de acceso avanzado de Azure Key Vault](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 

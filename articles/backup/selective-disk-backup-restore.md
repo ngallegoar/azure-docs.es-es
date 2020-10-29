@@ -3,13 +3,13 @@ title: Copia de seguridad y restauración selectivas de discos para máquinas vi
 description: En este artículo, se describen la copia de seguridad y la restauración selectivas de discos mediante la solución de copia de seguridad de máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.custom: references_regions
-ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.custom: references_regions , devx-track-azurecli
+ms.openlocfilehash: 95104f231e7b4d4d2135ac3c5dde27512d465775
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174109"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746982"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Copia de seguridad y restauración selectivas de discos para máquinas virtuales de Azure
 
@@ -46,7 +46,7 @@ az account set -s {subscriptionID}
 
 ### <a name="configure-backup-with-azure-cli"></a>Configuración de la copia de seguridad con la CLI de Azure
 
-Durante la operación de configuración de la protección, debe especificar la configuración de la lista de discos con un parámetro de **inclusión** / **exclusión**, proporcionando los números LUN de los discos que se van a incluir o excluir en la copia de seguridad.
+Durante la operación de configuración de la protección, debe especificar la configuración de la lista de discos con un parámetro de **inclusión** / **exclusión** , proporcionando los números LUN de los discos que se van a incluir o excluir en la copia de seguridad.
 
 ```azurecli
 az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --disk-list-setting include --diskslist {LUN number(s) separated by space}
@@ -192,7 +192,11 @@ Asegúrese de usar Azure PowerShell versión 3.7.0 o posterior.
 ### <a name="enable-backup-with-powershell"></a>Habilitación de la copia de seguridad con PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -DiskListSetting "Include"/"Exclude" -DisksList[Strings] -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"  -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-powershell"></a>Copia de seguridad solo del disco del sistema operativo durante la configuración de la copia de seguridad con PowerShell
@@ -212,7 +216,11 @@ Se debe pasar el objeto obtenido **$item** anterior al parámetro **–Item** en
 ### <a name="modify-protection-for-already-backed-up-vms-with-powershell"></a>Modificación de la protección de las máquinas virtuales de las que ya ha realizado una copia de seguridad con PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Include"/"Exclude" -DisksList[Strings]   -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -InclusionDisksList[Strings] -VaultId $targetVault.ID
+```
+
+```azurepowershell
+Enable-AzRecoveryServicesBackupProtection -Item $item -ExclusionDisksList[Strings] -VaultId $targetVault.ID
 ```
 
 ### <a name="backup-only-os-disk-during-modify-protection-with-powershell"></a>Copia de seguridad solo del disco del sistema operativo durante la modificación de la protección con PowerShell
@@ -224,7 +232,7 @@ Enable-AzRecoveryServicesBackupProtection -Item $item  -ExcludeAllDataDisks -Vau
 ### <a name="reset-disk-exclusion-setting-with-powershell"></a>Restablecimiento de la configuración de exclusión de discos con PowerShell
 
 ```azurepowershell
-Enable-AzRecoveryServicesBackupProtection -Item $item -DiskListSetting "Reset" -VaultId $targetVault.ID
+Enable-AzRecoveryServicesBackupProtection -Item $item -ResetExclusionSettings -VaultId $targetVault.ID
 ```
 
 ### <a name="restore-selective-disks-with-powershell"></a>Restauración selectiva de discos con PowerShell
@@ -294,7 +302,7 @@ Actualmente, la copia de seguridad de VM de Azure no admite VM con discos Ultra 
 
 La copia de seguridad de máquinas virtuales de Azure sigue el modelo de precios existente, que se explica en detalle [aquí](https://azure.microsoft.com/pricing/details/backup/).
 
-El **costo de instancia protegida (PI)** se calcula para el disco del sistema operativo solo si elige realizar una copia de seguridad con la opción **Solo el disco del SO**.  Si configura la copia de seguridad y selecciona al menos un disco de datos, el costo de PI se calculará para todos los discos conectados a la máquina virtual. El **costo del almacenamiento de copia de seguridad** se calcula solo en función de los discos incluidos, lo que supone un ahorro. El **costo de las instantáneas** siempre se calcula para todos los discos de la máquina virtual (tanto los discos incluidos como los excluidos).
+El **costo de instancia protegida (PI)** se calcula para el disco del sistema operativo solo si elige realizar una copia de seguridad con la opción **Solo el disco del SO** .  Si configura la copia de seguridad y selecciona al menos un disco de datos, el costo de PI se calculará para todos los discos conectados a la máquina virtual. El **costo del almacenamiento de copia de seguridad** se calcula solo en función de los discos incluidos, lo que supone un ahorro. El **costo de las instantáneas** siempre se calcula para todos los discos de la máquina virtual (tanto los discos incluidos como los excluidos).
 
 Si ha elegido la característica de restauración entre regiones (CRR), los [precios de CRR](https://azure.microsoft.com/pricing/details/backup/) se aplican al costo de almacenamiento de copia de seguridad después de excluir el disco.
 

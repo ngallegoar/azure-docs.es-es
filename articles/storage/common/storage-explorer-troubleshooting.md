@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bffe0c3871eae12f3b875a96301136d11dfc516
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714447"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783800"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -23,7 +23,7 @@ En esta guía se resumen las soluciones de los problemas comunes que se encuentr
 
 ## <a name="azure-rbac-permissions-issues"></a>Problemas de permisos de RBAC de Azure
 
-El control de acceso basado en rol ([RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)) de Azure permite realizar una administración muy pormenorizada del acceso a los recursos de Azure mediante la combinación de conjuntos de permisos para formar _roles_. Aquí encontrará algunas estrategias para que RBAC de Azure funcione de forma óptima en el Explorador de Storage.
+El control de acceso basado en rol ( [RBAC](../../role-based-access-control/overview.md)) de Azure permite realizar una administración muy pormenorizada del acceso a los recursos de Azure mediante la combinación de conjuntos de permisos para formar _roles_ . Aquí encontrará algunas estrategias para que RBAC de Azure funcione de forma óptima en el Explorador de Storage.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>¿Cómo se accede a los recursos en Explorador de Storage?
 
@@ -31,22 +31,22 @@ Si tiene problemas para acceder a los recursos de almacenamiento mediante RBAC d
 
 #### <a name="read-listget-storage-accounts-permissions-issue"></a>"Problema de permisos de lectura para enumerar u obtener cuentas de almacenamiento"
 
-Debe tener permiso para enumerar las cuentas de almacenamiento. Para obtener este permiso, se le debe haber asignado el rol _Lector_.
+Debe tener permiso para enumerar las cuentas de almacenamiento. Para obtener este permiso, se le debe haber asignado el rol _Lector_ .
 
 #### <a name="list-storage-account-keys"></a>Enumerar claves de cuentas de almacenamiento
 
-El Explorador de Storage también puede usar las claves de cuenta para autenticar las solicitudes. Puede acceder a las claves de las cuentas con roles más eficaces, como el rol _Colaborador_.
+El Explorador de Storage también puede usar las claves de cuenta para autenticar las solicitudes. Puede acceder a las claves de las cuentas con roles más eficaces, como el rol _Colaborador_ .
 
 > [!NOTE]
 > Las claves de acceso otorgan permisos ilimitados a cualquier persona que disponga de ellas. Por tanto, no se recomienda dar estas claves a los usuarios de la cuenta. Si necesita revocar las claves de acceso, puede regenerarlas desde [Azure Portal](https://portal.azure.com/).
 
 #### <a name="data-roles"></a>Roles de datos
 
-Se le debe haber asignado al menos un rol que conceda acceso para leer datos de los recursos. Por ejemplo, si desea enumerar o descargar blobs, necesitará tener, como mínimo, el rol _Lector de datos de Storage Blob_.
+Se le debe haber asignado al menos un rol que conceda acceso para leer datos de los recursos. Por ejemplo, si desea enumerar o descargar blobs, necesitará tener, como mínimo, el rol _Lector de datos de Storage Blob_ .
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>¿Por qué se necesita un rol de la capa de administración para ver los recursos en el Explorador de Storage?
 
-Azure Storage tiene dos capas de acceso: _administración_ y _datos_. Se accede a las suscripciones y cuentas de almacenamiento mediante la capa de administración. Se accede a los contenedores, blobs y otros recursos de datos mediante la capa de datos. Por ejemplo, si desea obtener una lista de las cuentas de almacenamiento de Azure, debe enviar una solicitud al punto de conexión de administración. Si desea obtener una lista de los contenedores de blobs de una cuenta, envíe una solicitud al punto de conexión de servicio adecuado.
+Azure Storage tiene dos capas de acceso: _administración_ y _datos_ . Se accede a las suscripciones y cuentas de almacenamiento mediante la capa de administración. Se accede a los contenedores, blobs y otros recursos de datos mediante la capa de datos. Por ejemplo, si desea obtener una lista de las cuentas de almacenamiento de Azure, debe enviar una solicitud al punto de conexión de administración. Si desea obtener una lista de los contenedores de blobs de una cuenta, envíe una solicitud al punto de conexión de servicio adecuado.
 
 Los roles de Azure pueden concederle los permisos necesario s para obtener acceso a la capa de datos o de administración. Por ejemplo, el rol Lector otorga acceso de solo lectura a los recursos de la capa de administración.
 
@@ -65,24 +65,24 @@ Si quiere acceder a los contenedores de blobs o a las colas, puede adjuntarlos a
 3. Seleccione la cuenta de usuario y el inquilino asociados al recurso al que los está adjuntando. Haga clic en Siguiente.
 4. Seleccione el tipo de recurso, escriba la dirección URL del recurso y escriba un nombre para mostrar único para la conexión. Haga clic en Siguiente. Haga clic en Conectar.
 
-Actualmente no tenemos una solución relacionada con RBAC de Azure para otros tipos de recursos. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+Actualmente no tenemos una solución relacionada con RBAC de Azure para otros tipos de recursos. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Roles integrados de Azure recomendados
 
 Hay varios roles integrados de Azure que pueden proporcionar los permisos necesarios para usar el Explorador de Storage. Algunos de estos roles son:
-- [Propietario](/azure/role-based-access-control/built-in-roles#owner): administra todo, incluido el acceso a los recursos. **Nota**: Este rol le proporcionará acceso con clave.
-- [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): administra todo, excepto el acceso a los recursos. **Nota**: Este rol le proporcionará acceso con clave.
-- [Lector](/azure/role-based-access-control/built-in-roles#reader): lee y enumera los recursos.
-- [Colaborador de la cuenta de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-contributor): administración completa de cuentas de almacenamiento. **Nota**: Este rol le proporcionará acceso con clave.
-- [Propietario de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): acceso completo a contenedores de blobs y datos de Azure Storage.
-- [Colaborador de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Lee, escribe y elimina blobs y contenedores de Azure Storage.
-- [Lector de datos de Storage Blob](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Lee y enumera blobs y contenedores de Azure Storage.
+- [Propietario](../../role-based-access-control/built-in-roles.md#owner): administra todo, incluido el acceso a los recursos. **Nota** : Este rol le proporcionará acceso con clave.
+- [Colaborador](../../role-based-access-control/built-in-roles.md#contributor): administra todo, excepto el acceso a los recursos. **Nota** : Este rol le proporcionará acceso con clave.
+- [Lector](../../role-based-access-control/built-in-roles.md#reader): lee y enumera los recursos.
+- [Colaborador de la cuenta de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-account-contributor): administración completa de cuentas de almacenamiento. **Nota** : Este rol le proporcionará acceso con clave.
+- [Propietario de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): acceso completo a contenedores de blobs y datos de Azure Storage.
+- [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Lee, escribe y elimina blobs y contenedores de Azure Storage.
+- [Lector de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Lee y enumera blobs y contenedores de Azure Storage.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Error: certificado autofirmado en la cadena de certificados (y errores similares)
 
 Los errores de certificado habitualmente se producen en una de las situaciones siguientes:
 
-- La aplicación se conecta a través de un _proxy transparente_. Esto significa que un servidor (por ejemplo, el servidor de la empresa) intercepta el tráfico HTTPS, lo descifra y, después, lo cifra mediante un certificado autofirmado.
+- La aplicación se conecta a través de un _proxy transparente_ . Esto significa que un servidor (por ejemplo, el servidor de la empresa) intercepta el tráfico HTTPS, lo descifra y, después, lo cifra mediante un certificado autofirmado.
 - Ejecuta una aplicación que inserta un certificado TLS/SSL autofirmado en los mensajes HTTPS que recibe. Entre los ejemplos de aplicaciones que insertan certificados se incluyen los antivirus y el software de inspección del tráfico de red.
 
 Cuando el Explorador de Storage ve un certificado autofirmado o que no es de confianza, ya no sabe si se ha modificado el mensaje HTTPS recibido. Si tiene una copia del certificado autofirmado, puede indicar a Explorador de Storage que confíe en él. Para ello, debe seguir estos pasos:
@@ -98,12 +98,12 @@ Si no está seguro de cuál es la procedencia del certificado, siga estos pasos 
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html): cualquiera de las versiones ligeras debería ser suficiente.
     * Mac y Linux: debe estar incluido en el sistema operativo.
 2. Ejecute OpenSSL.
-    * Windows: abra el directorio de instalación, seleccione **/bin/** y, luego, haga doble clic en **openssl.exe**.
+    * Windows: abra el directorio de instalación, seleccione **/bin/** y, luego, haga doble clic en **openssl.exe** .
     * Mac y Linux: Ejecute `openssl` desde un terminal.
 3. Ejecute `s_client -showcerts -connect microsoft.com:443`.
 4. Busque certificados autofirmados. Si no está seguro de qué certificados están autofirmados, tome nota de todos aquellos en los que el asunto `("s:")` y el emisor `("i:")` sean el mismo.
 5. Cuando encuentre certificados autofirmados, en cada uno de ellos, copie y pegue todo el contenido desde `-----BEGIN CERTIFICATE-----` a `-----END CERTIFICATE-----` (inclusive) a un archivo .cer nuevo.
-6. Abra el Explorador de Storage y vaya a **Editar** > **Certificados SSL** > **Importar certificados**. Luego, use el selector de archivos para encontrar, seleccionar y abrir los archivos .cer que creó.
+6. Abra el Explorador de Storage y vaya a **Editar** > **Certificados SSL** > **Importar certificados** . Luego, use el selector de archivos para encontrar, seleccionar y abrir los archivos .cer que creó.
 
 Si no encuentra ningún certificado autofirmado con estos pasos, póngase en contacto con nosotros mediante la herramienta de comentarios. También puede abrir el Explorador de Storage desde la línea de comandos mediante la marca `--ignore-certificate-errors`. Cuando se abre con esta marca, el Explorador de Storage pasa por alto los errores de certificado.
 
@@ -113,10 +113,10 @@ Si no encuentra ningún certificado autofirmado con estos pasos, póngase en con
 
 Los cuadros de diálogo de inicio de sesión en blanco a menudo aparecen cuando Servicios de federación de Active Directory (AD FS) solicita al Explorador de Storage que realice una redirección, lo que no es compatible con Electron. Para solucionar este problema, puede intentar usar un flujo de código de dispositivo para el inicio de sesión. Para hacerlo, siga estos pasos:
 
-1. En la barra de herramientas vertical izquierda, abra **Configuración**. En el panel Configuración, vaya a **Aplicación** > **Iniciar sesión**. Habilite **Use device code flow sign-in** (Usar inicio de sesión de flujo de código del dispositivo).
+1. En la barra de herramientas vertical izquierda, abra **Configuración** . En el panel Configuración, vaya a **Aplicación** > **Iniciar sesión** . Habilite **Use device code flow sign-in** (Usar inicio de sesión de flujo de código del dispositivo).
 2. Abra el cuadro de diálogo **Connect** (Conectar) (mediante el icono de interruptor de la barra vertical izquierda o seleccionando **Add Account** (Agregar cuenta) en el panel de la cuenta).
 3. Elija el entorno en el que desea iniciar sesión.
-4. Seleccione **Iniciar sesión**.
+4. Seleccione **Iniciar sesión** .
 5. Siga las instrucciones del siguiente panel.
 
 Si no puede iniciar sesión en la cuenta que desea utilizar porque el explorador predeterminado ya está registrado en otra cuenta, realice una de estas acciones:
@@ -130,7 +130,7 @@ Si se encuentra en un bucle de reautenticación o ha cambiado el UPN de una de s
 
 1. Quite todas las cuentas y cierre el Explorador de Storage.
 2. Elimine la carpeta .IdentityService de la máquina. En Windows, la carpeta se encuentra en `C:\users\<username>\AppData\Local`. En Mac y Linux, puede encontrar la carpeta en la raíz de su directorio de usuario.
-3. En Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación *Gnome Keychain*. En Linux, la aplicación habitualmente se denomina _Keyring_ pero el nombre puede ser diferente en función de su distribución.
+3. En Mac o Linux, también deberá eliminar la entrada Microsoft.Developer.IdentityService del almacén de claves de su sistema operativo. En Mac, el almacén de claves es la aplicación *Gnome Keychain* . En Linux, la aplicación habitualmente se denomina _Keyring_ pero el nombre puede ser diferente en función de su distribución.
 
 ### <a name="conditional-access"></a>Acceso condicional
 
@@ -230,7 +230,7 @@ Si está conectado a Azure a través de un servidor proxy, compruebe que la conf
 
 ## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>La cadena de conexión no tiene una configuración completa
 
-Si recibe este mensaje de error, es posible que no tenga los permisos necesarios para obtener las claves para la cuenta de Storage. Para confirmar si este es el motivo, vaya al portal y busque la cuenta de Storage. Para ello, haga clic con el botón derecho en el nodo de la cuenta de Storage y seleccione **Abrir en el portal**. Luego, vaya a la hoja **Claves de acceso**. Si no tiene permisos para ver las claves, verá el mensaje "You don't have access" (No tiene acceso). Para solucionar este problema, puede obtener la clave de cuenta de otra persona y asociarla mediante el nombre y la clave, o bien puede pedir una SAS para la cuenta de Storage y usarla para asociar la cuenta de Storage.
+Si recibe este mensaje de error, es posible que no tenga los permisos necesarios para obtener las claves para la cuenta de Storage. Para confirmar si este es el motivo, vaya al portal y busque la cuenta de Storage. Para ello, haga clic con el botón derecho en el nodo de la cuenta de Storage y seleccione **Abrir en el portal** . Luego, vaya a la hoja **Claves de acceso** . Si no tiene permisos para ver las claves, verá el mensaje "You don't have access" (No tiene acceso). Para solucionar este problema, puede obtener la clave de cuenta de otra persona y asociarla mediante el nombre y la clave, o bien puede pedir una SAS para la cuenta de Storage y usarla para asociar la cuenta de Storage.
 
 Si ve las claves de la cuenta, abra una incidencia en GitHub para que podamos ayudarle a resolver el problema.
 
@@ -264,8 +264,8 @@ Después de recorrer todas las conexiones, en busca de todos los nombres de cone
 
 # <a name="windows"></a>[Windows](#tab/Windows)
 
-1. En el menú **Inicio**, busque **Administrador de credenciales** y ábralo.
-2. Vaya a **Credenciales de Windows**.
+1. En el menú **Inicio** , busque **Administrador de credenciales** y ábralo.
+2. Vaya a **Credenciales de Windows** .
 3. En **Credenciales genéricas** , busque las entradas que tengan la clave `<connection_type_key>/<corrupted_connection_name>` (por ejemplo, `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. Elimine estas entradas y vuelva a agregar las conexiones.
 
@@ -297,7 +297,7 @@ Si se va conectar a un servicio mediante una dirección URL de SAS y se produce 
 Si por error realizó la asociación mediante una dirección URL de SAS no válida y ahora no puede desasociarla, siga estos pasos:
 
 1. Al ejecutar el Explorador de Storage, presione F12 para abrir la ventana Herramientas de desarrollo.
-2. En la pestaña **Aplicación**, seleccione **Almacenamiento local** > **file://** en el árbol de la izquierda.
+2. En la pestaña **Aplicación** , seleccione **Almacenamiento local** > **file://** en el árbol de la izquierda.
 3. Busque la clave asociada al tipo de servicio del URI de SAS problemática. Por ejemplo, si el identificador URI de SAS incorrecto es para un contenedor de blobs, busque la clave llamada `StorageExplorer_AddStorageServiceSAS_v1_blob`.
 4. El valor de la clave debe ser una matriz JSON. Busque el objeto asociado con el identificador URI incorrecto y elimínelo.
 5. Presione Ctrl + R para volver a cargar el Explorador de Storage.
@@ -332,7 +332,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
-2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
-2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Descargue el archivo .tar.gz del Explorador de Storage.
-2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Instale el [entorno de ejecución de .NET Core](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

@@ -5,15 +5,15 @@ author: konichi3
 ms.author: koichih
 ms.date: 08/21/2020
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurecli
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b20dab7719e4c55c5868032db3178bb7baaddda0
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042973"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748483"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Certificación de dispositivos IoT Plug and Play
 
@@ -182,12 +182,12 @@ La información del perfil de empresa se usa en la descripción del dispositivo 
 
 Para certificar un dispositivo, primero debe crear un nuevo proyecto.
 
-Vaya al [portal de certificación](https://aka.ms/acdp). En la página **Proyectos**, seleccione *+ Crear nuevo proyecto*. A continuación, escriba un nombre para el proyecto, el nombre del dispositivo y seleccione una clase de dispositivo.
+Vaya al [portal de certificación](https://aka.ms/acdp). En la página **Proyectos** , seleccione *+ Crear nuevo proyecto* . A continuación, escriba un nombre para el proyecto, el nombre del dispositivo y seleccione una clase de dispositivo.
 
 La información del producto que se proporciona durante el proceso de certificación se divide en cuatro categorías:
 
 - Información del dispositivo. Recopila información sobre el dispositivo, como su nombre, descripción, certificaciones y sistema operativo.
-- La guía **Introducción**. Debe enviar la guía como documento PDF para que el administrador del sistema la apruebe antes de publicar el dispositivo.
+- La guía **Introducción** . Debe enviar la guía como documento PDF para que el administrador del sistema la apruebe antes de publicar el dispositivo.
 - Detalles de marketing. Proporcione información de marketing preparada para el cliente del dispositivo. La información de marketing incluye una descripción, una foto y los distribuidores.
 - Certificaciones adicionales del sector. Esta sección opcional le permite proporcionar información adicional sobre cualquier otra certificación que el dispositivo haya obtenido.
 

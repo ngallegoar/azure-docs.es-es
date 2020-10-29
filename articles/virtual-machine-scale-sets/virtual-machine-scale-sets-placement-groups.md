@@ -8,23 +8,23 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 06/25/2020
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 16c9c103053c0cd36273feb84cd9b07fcf2627bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: ffa2a3a921e988b92ad90831041a6fb4d321bc42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87830638"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747818"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso de grandes conjuntos de escalado de máquinas virtuales
-Ahora puede crear [conjuntos de escalado de máquinas virtuales](./index.yml) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado (_singlePlacementGroup=False_). 
+Ahora puede crear [conjuntos de escalado de máquinas virtuales](./index.yml) de Azure con una capacidad de hasta 1000 máquinas virtuales. En este documento, un _conjunto de escalado de máquinas virtuales grande_ se define como un conjunto de escalado capaz de escalar a más de 100 máquinas virtuales. Esta funcionalidad se establece con una propiedad de conjunto de escalado ( _singlePlacementGroup=False_ ). 
 
 Algunos aspectos de los grandes conjuntos de escalado, como los dominios de error y el equilibrio de carga, se comportan de manera diferente a los de un conjunto de escalado estándar. En este documento se explican las características de los grandes conjuntos de escalado y se describe lo que se necesita saber para usarlos correctamente en las aplicaciones. 
 
-Un enfoque habitual para implementar una infraestructura de nube a gran escala consiste en crear un conjunto de _unidades de escalado_, por ejemplo, crear varios conjuntos de escalado de máquinas virtuales en varias redes virtuales y cuentas de almacenamiento. Este enfoque facilita la administración en comparación con la de una sola máquina virtual, y varias unidades de escalado son útiles para muchas aplicaciones, especialmente para aquellas que requieren otros componentes apilables, como varias redes virtuales y puntos de conexión. Sin embargo, si su aplicación requiere un único clúster de gran tamaño, quizás sea más sencillo implementar un único conjunto de escalado con hasta 1000 máquinas virtuales. Algunos escenarios de ejemplo son las implementaciones de macrodatos centralizadas y las mallas de computación que requieren una administración sencilla de un grupo grande de nodos de trabajo. Combinados con los [discos de datos conectados](virtual-machine-scale-sets-attached-disks.md) de un conjunto de escalado de máquinas virtuales, los grandes conjuntos de escalado permiten implementar una infraestructura escalable compuesta por miles de vCPU y petabytes de almacenamiento, en una única operación.
+Un enfoque habitual para implementar una infraestructura de nube a gran escala consiste en crear un conjunto de _unidades de escalado_ , por ejemplo, crear varios conjuntos de escalado de máquinas virtuales en varias redes virtuales y cuentas de almacenamiento. Este enfoque facilita la administración en comparación con la de una sola máquina virtual, y varias unidades de escalado son útiles para muchas aplicaciones, especialmente para aquellas que requieren otros componentes apilables, como varias redes virtuales y puntos de conexión. Sin embargo, si su aplicación requiere un único clúster de gran tamaño, quizás sea más sencillo implementar un único conjunto de escalado con hasta 1000 máquinas virtuales. Algunos escenarios de ejemplo son las implementaciones de macrodatos centralizadas y las mallas de computación que requieren una administración sencilla de un grupo grande de nodos de trabajo. Combinados con los [discos de datos conectados](virtual-machine-scale-sets-attached-disks.md) de un conjunto de escalado de máquinas virtuales, los grandes conjuntos de escalado permiten implementar una infraestructura escalable compuesta por miles de vCPU y petabytes de almacenamiento, en una única operación.
 
 ## <a name="placement-groups"></a>Grupos de selección de ubicación 
-Lo que hace que un conjunto de escalado _grande_ sea especial no es el número de máquinas virtuales, sino el número de _grupos de selección de ubicación_ que contiene. Un grupo de selección de ubicación es una construcción similar a un conjunto de disponibilidad de Azure, con sus propios dominios de error y dominios de actualización. De forma predeterminada, un conjunto de escalado consta de un único grupo de selección de ubicación con un tamaño máximo de 100 máquinas virtuales. Si la propiedad _singlePlacementGroup_ de un conjunto de escalado se establece en _false_, el conjunto de escalado puede estar compuesto por varios grupos de selección de ubicación y tiene un intervalo de 0 a 1000 máquinas virtuales. Cuando se establece en el valor predeterminado _true_, el conjunto de escalado se compone de un solo grupo de selección de ubicación y tiene un intervalo de 0 a 100 máquinas virtuales.
+Lo que hace que un conjunto de escalado _grande_ sea especial no es el número de máquinas virtuales, sino el número de _grupos de selección de ubicación_ que contiene. Un grupo de selección de ubicación es una construcción similar a un conjunto de disponibilidad de Azure, con sus propios dominios de error y dominios de actualización. De forma predeterminada, un conjunto de escalado consta de un único grupo de selección de ubicación con un tamaño máximo de 100 máquinas virtuales. Si la propiedad _singlePlacementGroup_ de un conjunto de escalado se establece en _false_ , el conjunto de escalado puede estar compuesto por varios grupos de selección de ubicación y tiene un intervalo de 0 a 1000 máquinas virtuales. Cuando se establece en el valor predeterminado _true_ , el conjunto de escalado se compone de un solo grupo de selección de ubicación y tiene un intervalo de 0 a 100 máquinas virtuales.
 
 ## <a name="checklist-for-using-large-scale-sets"></a>Lista de comprobación para usar grandes conjuntos de escalado
 Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de escalado grandes, tenga en cuenta los siguientes requisitos:
@@ -41,11 +41,11 @@ Para decidir si la aplicación puede hacer un uso eficaz de los conjuntos de esc
 - El dominio de error y el identificador del grupo de selección de ubicación se muestran en la _vista de instancia_ de una máquina virtual del conjunto de escalado. Puede ver la vista de instancia de una máquina virtual del conjunto de escalado el [Explorador de recursos de Azure](https://resources.azure.com/).
 
 ## <a name="creating-a-large-scale-set"></a>Creación de un conjunto de escalado grande
-Al crear un conjunto de escalado en Azure Portal, simplemente especifique un valor de *Recuento de instancias* de hasta 1000. Si hay más de 100 instancias, en *Habilitar el escalado con más de 100 instancias* está seleccionado *Sí*, lo que le permitirá escalar a varios grupos de selección de ubicación. 
+Al crear un conjunto de escalado en Azure Portal, simplemente especifique un valor de *Recuento de instancias* de hasta 1000. Si hay más de 100 instancias, en *Habilitar el escalado con más de 100 instancias* está seleccionado *Sí* , lo que le permitirá escalar a varios grupos de selección de ubicación. 
 
 ![En esta imagen se muestra la hoja de instancias de Azure Portal. Están disponibles las opciones para seleccionar el Recuento de instancias y el tamaño de la Instancia.](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 
-Puede crear un conjunto de escalado de máquinas virtuales de gran tamaño con el comando _az vmss create_ de la [CLI de Azure](https://github.com/Azure/azure-cli). Este comando establece valores predeterminados inteligentes, como el tamaño de la subred, en función del argumento _instance-count_:
+Puede crear un conjunto de escalado de máquinas virtuales de gran tamaño con el comando _az vmss create_ de la [CLI de Azure](https://github.com/Azure/azure-cli). Este comando establece valores predeterminados inteligentes, como el tamaño de la subred, en función del argumento _instance-count_ :
 
 ```azurecli
 az group create -l southcentralus -n biginfra
@@ -58,7 +58,7 @@ Los valores predeterminados del comando _vmss create_ incluyen determinados valo
 az vmss create --help
 ```
 
-Si para crear un conjunto de escalado grande va a utilizar una plantilla de Azure Resource Manager, asegúrese de que la plantilla crea un conjunto de escalado basado en Azure Managed Disks. Puede establecer la propiedad _singlePlacementGroup_ en _false_ en la sección _properties_ del recurso _Microsoft.Compute/virtualMAchineScaleSets_. El siguiente fragmento JSON muestra el principio de una plantilla de conjunto de escalado, incluida la capacidad de 1000 máquinas virtuales y la configuración _"singlePlacementGroup" : false_:
+Si para crear un conjunto de escalado grande va a utilizar una plantilla de Azure Resource Manager, asegúrese de que la plantilla crea un conjunto de escalado basado en Azure Managed Disks. Puede establecer la propiedad _singlePlacementGroup_ en _false_ en la sección _properties_ del recurso _Microsoft.Compute/virtualMAchineScaleSets_ . El siguiente fragmento JSON muestra el principio de una plantilla de conjunto de escalado, incluida la capacidad de 1000 máquinas virtuales y la configuración _"singlePlacementGroup" : false_ :
 
 ```json
 {
@@ -80,7 +80,7 @@ Si para crear un conjunto de escalado grande va a utilizar una plantilla de Azur
 Para ver un ejemplo completo de una plantilla de conjunto de escalado de gran tamaño, consulte [https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json](https://github.com/gbowerman/azure-myriad/blob/main/bigtest/bigbottle.json).
 
 ## <a name="converting-an-existing-scale-set-to-span-multiple-placement-groups"></a>Conversión de un conjunto de escalado existente para incluir varios grupos de selección de ubicación
-Para que un conjunto de escalado de máquinas virtuales existente pueda escalar a más de 100 máquinas virtuales, tiene que cambiar la propiedad _singlePlacementGroup_ a _false_ en el modelo del conjunto de escalado. Puede probar a cambiar esta propiedad con el [Explorador de recursos de Azure](https://resources.azure.com/). Buscar un conjunto de escalado existente, seleccione _Editar_ y cambie la propiedad _singlePlacementGroup_. Si no ve esta propiedad, quizás esté viendo el conjunto de escalado con una versión anterior de la API Microsoft.Compute.
+Para que un conjunto de escalado de máquinas virtuales existente pueda escalar a más de 100 máquinas virtuales, tiene que cambiar la propiedad _singlePlacementGroup_ a _false_ en el modelo del conjunto de escalado. Puede probar a cambiar esta propiedad con el [Explorador de recursos de Azure](https://resources.azure.com/). Buscar un conjunto de escalado existente, seleccione _Editar_ y cambie la propiedad _singlePlacementGroup_ . Si no ve esta propiedad, quizás esté viendo el conjunto de escalado con una versión anterior de la API Microsoft.Compute.
 
 > [!NOTE]
 > Puede cambiar un conjunto de escalado para que admita más de un grupo de selección de ubicación, pero no al revés. Por lo tanto, asegúrese de que comprende las propiedades de los conjuntos de escalado grandes antes de convertirlos.

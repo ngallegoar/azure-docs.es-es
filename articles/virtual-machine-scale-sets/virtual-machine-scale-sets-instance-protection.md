@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: availability
 ms.date: 02/26/2020
 ms.reviewer: jushiman
-ms.custom: avverma
-ms.openlocfilehash: 8c4944da8ffcaa75e6448483918a29809c32830b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: 59720a3e89db29ba3eb0829084dd5252e27e9cc9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83124064"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746799"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances"></a>Protección de las instancias del conjunto de escalado de máquinas virtuales de Azure
 
@@ -30,15 +30,15 @@ Los conjuntos de escalado proporcionan dos tipos de capacidades de protección d
 -   **Protección contra la reducción horizontal**
     - Habilitada a través de la propiedad **protectFromScaleIn** en la instancia del conjunto de escalado.
     - Protege la instancia contra la reducción horizontal iniciada por la escalabilidad automática.
-    - Las operaciones de instancia iniciadas por el usuario (incluida la eliminación de la instancia) **no están bloqueadas**.
-    - Las operaciones iniciadas en el conjunto de escalado (actualizar, restablecer imagen inicial, desasignar, etc.) no **están bloqueadas**.
+    - Las operaciones de instancia iniciadas por el usuario (incluida la eliminación de la instancia) **no están bloqueadas** .
+    - Las operaciones iniciadas en el conjunto de escalado (actualizar, restablecer imagen inicial, desasignar, etc.) no **están bloqueadas** .
 
 -   **Protección contra las acciones del conjunto de escalado**
     - Habilitada a través de la propiedad **protectFromScaleSetActions** en la instancia del conjunto de escalado.
     - Protege la instancia contra la reducción horizontal iniciada por la escalabilidad automática.
     - Protege la instancia contra las operaciones iniciadas en el conjunto de escalado, como actualizar, restablecer imagen inicial, desasignar, etc.
-    - Las operaciones de instancia iniciadas por el usuario (incluida la eliminación de la instancia) **no están bloqueadas**.
-    - La eliminación del conjunto de escalado completo **no está bloqueada**.
+    - Las operaciones de instancia iniciadas por el usuario (incluida la eliminación de la instancia) **no están bloqueadas** .
+    - La eliminación del conjunto de escalado completo **no está bloqueada** .
 
 ## <a name="protect-from-scale-in"></a>Protección contra la reducción horizontal
 La protección de instancias se puede aplicar a instancias del conjunto de escalado después de crear las instancias. La protección se aplica y modifica solo en el [modelo de la instancia](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-vm-model-view), no en el [modelo del conjunto de escalado](virtual-machine-scale-sets-upgrade-scale-set.md#the-scale-set-model).
@@ -50,11 +50,11 @@ Hay varias maneras de aplicar la protección contra la reducción horizontal en 
 Puede aplicar la protección de la reducción horizontal mediante Azure Portal a una instancia del conjunto de escalado. No se puede ajustar más de una instancia a la vez. Repita los pasos para cada instancia que quiera proteger.
  
 1. Vaya a un conjunto de escalado de máquinas virtuales existente.
-1. Seleccione **Instancias** en el menú de la izquierda, en **Configuración**.
+1. Seleccione **Instancias** en el menú de la izquierda, en **Configuración** .
 1. Seleccione el nombre de la instancia que desea proteger.
-1. Seleccione la pestaña **Directiva de protección**.
-1. En la hoja **Directiva de protección**, seleccione la opción **Proteger de la reducción horizontal**.
-1. Seleccione **Guardar**. 
+1. Seleccione la pestaña **Directiva de protección** .
+1. En la hoja **Directiva de protección** , seleccione la opción **Proteger de la reducción horizontal** .
+1. Seleccione **Guardar** . 
 
 ### <a name="rest-api"></a>API DE REST
 
@@ -118,11 +118,11 @@ Hay varias maneras de aplicar la protección contra las acciones del conjunto de
 Puede aplicar la protección contra las acciones del conjunto de escalado mediante Azure Portal a una instancia del conjunto de escalado. No se puede ajustar más de una instancia a la vez. Repita los pasos para cada instancia que quiera proteger.
  
 1. Vaya a un conjunto de escalado de máquinas virtuales existente.
-1. Seleccione **Instancias** en el menú de la izquierda, en **Configuración**.
+1. Seleccione **Instancias** en el menú de la izquierda, en **Configuración** .
 1. Seleccione el nombre de la instancia que desea proteger.
-1. Seleccione la pestaña **Directiva de protección**.
-1. En la hoja **Directiva de protección**, seleccione la opción **Proteger frente a acciones del conjunto de escalado**.
-1. Seleccione **Guardar**. 
+1. Seleccione la pestaña **Directiva de protección** .
+1. En la hoja **Directiva de protección** , seleccione la opción **Proteger frente a acciones del conjunto de escalado** .
+1. Seleccione **Guardar** . 
 
 ### <a name="rest-api"></a>API DE REST
 

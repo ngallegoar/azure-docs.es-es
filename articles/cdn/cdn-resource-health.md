@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887056"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778172"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Supervisión del estado de los recursos de Azure CDN
   
-El estado de los recursos de Azure CDN es un subconjunto de [Estado de los recursos de Azure](../resource-health/resource-health-overview.md).  Puede usar Estado de los recursos de Azure para supervisar el estado de los recursos de una red CDN y recibir instrucciones procesables para solucionar problemas.
+El estado de los recursos de Azure CDN es un subconjunto de [Estado de los recursos de Azure](../service-health/resource-health-overview.md).  Puede usar Estado de los recursos de Azure para supervisar el estado de los recursos de una red CDN y recibir instrucciones procesables para solucionar problemas.
 
 >[!IMPORTANT] 
 >El estado de los recursos de Azure CDN solo tiene en cuenta el estado de la entrega de la red CDN global y las funciones de la API.  El estado de los recursos de Azure CDN no comprueba los puntos de conexión individuales de la red CDN.
@@ -34,16 +34,16 @@ El estado de los recursos de Azure CDN es un subconjunto de [Estado de los recur
 
 1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de la red CDN.
 
-2. Haga clic en el botón **Configuración**.
+2. Haga clic en el botón **Configuración** .
 
     ![Botón Configuración](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. En *Soporte y solución de problemas*, haga clic en **Estado de los recursos**.
+3. En *Soporte y solución de problemas* , haga clic en **Estado de los recursos** .
 
     ![Estado de los recursos de la red CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->También encontrará los recursos de la red CDN en el icono *Estado de los recursos* de la hoja *Ayuda y soporte técnico*.  Para acceder rápidamente a *Ayuda y soporte técnico*, haga clic en el círculo con un signo de interrogación ( **?** ) en la esquina superior derecha del portal.
+>También encontrará los recursos de la red CDN en el icono *Estado de los recursos* de la hoja *Ayuda y soporte técnico* .  Para acceder rápidamente a *Ayuda y soporte técnico* , haga clic en el círculo con un signo de interrogación ( **?** ) en la esquina superior derecha del portal.
 >
 > ![Ayuda y soporte técnico](./media/cdn-resource-health/cdn-help-support.png)
 
@@ -51,7 +51,7 @@ El estado de los recursos de Azure CDN es un subconjunto de [Estado de los recur
 
 Los estados relacionados con el estado de los recursos de Azure CDN se muestra a continuación.
 
-|Message | Acción recomendada |
+|Message | Acción recomendada |
 |---|---|
 |Es posible que haya detenido, quitado o configurado de forma incorrecta uno o más de los puntos de conexión de la red CDN. | Es posible que haya detenido, quitado o configurado de forma incorrecta uno o más de los puntos de conexión de la red CDN.|
 |El servicio de administración de la red CDN no está disponible en estos momentos. | Vuelva aquí para ver actualizaciones de estado. Si el problema persiste después del tiempo de resolución esperado, póngase en contacto con el soporte técnico.|
@@ -62,6 +62,6 @@ Tenemos problemas con algunos de nuestros proveedores de red CDN. | Vuelva aquí
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Información general sobre el estado de los recursos de Azure](../resource-health/resource-health-overview.md)
+- [Información general sobre el estado de los recursos de Azure](../service-health/resource-health-overview.md)
 - [Solución de problemas de la compresión en la red CDN](./cdn-troubleshoot-compression.md)
 - [Solución de problemas de errores 404](./cdn-troubleshoot-endpoint.md)

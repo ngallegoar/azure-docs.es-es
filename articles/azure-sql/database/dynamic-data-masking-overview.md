@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 5442ddab5b4925e40250e63833a634006db7aead
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398619"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781454"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -34,12 +34,12 @@ Para configurar una directiva de enmascaramiento de datos dinámicos en Azure Po
 
 ### <a name="dynamic-data-masking-permissions"></a>Permisos de enmascaramiento de datos dinámicos
 
-El enmascaramiento dinámico de datos se puede configurar mediante el administrador de Azure SQL Database, el administrador del servidor o los roles de [Administrador de seguridad de SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
+El enmascaramiento dinámico de datos se puede configurar mediante el administrador de Azure SQL Database, el administrador del servidor o los roles de [Administrador de seguridad de SQL](../../role-based-access-control/built-in-roles.md#sql-security-manager).
 
 ### <a name="dynamic-data-masking-policy"></a>Directiva de enmascaramiento de datos dinámicos
 
-* **Usuarios de SQL excluidos del enmascaramiento**: conjunto de usuarios de SQL o identidades de Azure AD que obtendrán datos sin máscara en los resultados de consulta SQL. Los usuarios con privilegios de administrador se excluirán siempre del enmascaramiento y verán los datos originales sin ninguna máscara.
-* **Reglas de enmascaramiento**: un conjunto de reglas que definen los campos designados para el enmascaramiento y la función de enmascaramiento que se va a usar. Los campos designados se pueden definir mediante un nombre de esquema de base de datos, un nombre de tabla y un nombre de columna.
+* **Usuarios de SQL excluidos del enmascaramiento** : conjunto de usuarios de SQL o identidades de Azure AD que obtendrán datos sin máscara en los resultados de consulta SQL. Los usuarios con privilegios de administrador se excluirán siempre del enmascaramiento y verán los datos originales sin ninguna máscara.
+* **Reglas de enmascaramiento** : un conjunto de reglas que definen los campos designados para el enmascaramiento y la función de enmascaramiento que se va a usar. Los campos designados se pueden definir mediante un nombre de esquema de base de datos, un nombre de tabla y un nombre de columna.
 * **Funciones de enmascaramiento** : un conjunto de métodos que controlan la exposición de datos para diferentes escenarios.
 
 | Función de enmascaramiento | Lógica de enmascaramiento |
@@ -60,15 +60,15 @@ El motor de recomendaciones de DDM marca determinados campos de la base de datos
 
 ### <a name="data-masking-policies"></a>Directivas de enmascaramiento de datos
 
-- [Get-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
-- [Set-AzSqlDatabaseDataMaskingPolicy](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
+- [Get-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingPolicy)
+- [Set-AzSqlDatabaseDataMaskingPolicy](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingPolicy)
 
 ### <a name="data-masking-rules"></a>Reglas de enmascaramiento de datos
 
-- [Get-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
-- [New-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
-- [Remove-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
-- [Set-AzSqlDatabaseDataMaskingRule](https://docs.microsoft.com/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
+- [Get-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Get-AzSqlDatabaseDataMaskingRule)
+- [New-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/New-AzSqlDatabaseDataMaskingRule)
+- [Remove-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Remove-AzSqlDatabaseDataMaskingRule)
+- [Set-AzSqlDatabaseDataMaskingRule](/powershell/module/az.sql/Set-AzSqlDatabaseDataMaskingRule)
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-rest-api"></a>Configuración del enmascaramiento de datos dinámicos para la base de datos mediante la API de REST
 
@@ -76,10 +76,10 @@ Puede usar las API de REST para administrar las reglas y directivas de enmascara
 
 ### <a name="data-masking-policies"></a>Directivas de enmascaramiento de datos
 
-- [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): crea o actualiza una directiva de enmascaramiento de datos para la base de datos.
-- [Obtener](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): obtiene una directiva de enmascaramiento de datos para la base de datos. 
+- [Crear o actualizar](/rest/api/sql/datamaskingpolicies/createorupdate): crea o actualiza una directiva de enmascaramiento de datos para la base de datos.
+- [Obtener](/rest/api/sql/datamaskingpolicies/get): obtiene una directiva de enmascaramiento de datos para la base de datos. 
 
 ### <a name="data-masking-rules"></a>Reglas de enmascaramiento de datos
 
-- [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/datamaskingrules/createorupdate): crea o actualiza una regla de enmascaramiento de datos para la base de datos.
-- [Lista por base de datos](https://docs.microsoft.com/rest/api/sql/datamaskingrules/listbydatabase): obtiene una lista de reglas de enmascaramiento de datos para la base de datos.
+- [Crear o actualizar](/rest/api/sql/datamaskingrules/createorupdate): crea o actualiza una regla de enmascaramiento de datos para la base de datos.
+- [Lista por base de datos](/rest/api/sql/datamaskingrules/listbydatabase): obtiene una lista de reglas de enmascaramiento de datos para la base de datos.

@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: eea00fe80b71f97ea280a3a76de5012175bcd61c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841992"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747853"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Tutorial: Actualización de una aplicación de Service Fabric que se ejecuta en Azure Service Fabric Mesh
 
@@ -50,7 +50,7 @@ Este tutorial usa el ejemplo To Do List, que se [implementó previamente](servic
 az mesh service show --resource-group myResourceGroup --name WebFrontEnd --app-name todolistapp
 ```
 
-En la plantilla de implementación del recurso de aplicación, cada servicio tiene una propiedad *cpu* que se puede usar para establecer los recursos de CPU solicitados. Una aplicación puede constar de varios servicios, cada uno con un único valor de *cpu*, que se implementan y administran de forma conjunta. Para aumentar los recursos de CPU del servicio de front-end web, modifique el valor de *cpu* en la plantilla de implementación o el archivo de parámetros.  Después, actualice la aplicación.
+En la plantilla de implementación del recurso de aplicación, cada servicio tiene una propiedad *cpu* que se puede usar para establecer los recursos de CPU solicitados. Una aplicación puede constar de varios servicios, cada uno con un único valor de *cpu* , que se implementan y administran de forma conjunta. Para aumentar los recursos de CPU del servicio de front-end web, modifique el valor de *cpu* en la plantilla de implementación o el archivo de parámetros.  Después, actualice la aplicación.
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificación de los parámetros de la plantilla de implementación
 
@@ -80,7 +80,7 @@ El parámetro *frontEndCpu* se declara en la sección *parameters* de la [planti
 }
 ```
 
-La propiedad *codePackages->resources->requests->cpu* del servicio WebFrontEnd hace referencia al parámetro *frontEndCpu*:
+La propiedad *codePackages->resources->requests->cpu* del servicio WebFrontEnd hace referencia al parámetro *frontEndCpu* :
 
 ```json
     "services": [

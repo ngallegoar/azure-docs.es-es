@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: cc32a67ab681341fd8320b9445f4e00013f2aa51
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 57d077e1631fa89058d67ba54d72e7713db17371
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170270"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747369"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Descripción de los cambios en la CA raíz para Azure Database for MySQL
 
@@ -52,11 +52,11 @@ Para evitar que se interrumpa la disponibilidad de la aplicación debido a la re
 *   Genere un almacén de certificados de CA combinado que incluya los certificados **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2** .
     *   Para los usuarios de Java (Conector de MySQL/J), ejecute lo siguiente:
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MySQLServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MySQLServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -117,11 +117,11 @@ Para el conector que usa el entorno de ejecución de integración autohospedado 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. ¿Es necesario planear un tiempo de inactividad de mantenimiento del servidor de base de datos para este cambio?
 No. Dado que el cambio aquí solo está en el lado del cliente para conectarse al servidor de base de datos, este cambio no requiere ningún tiempo de inactividad de mantenimiento para el servidor de base de datos.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8.  ¿Qué ocurre si no logro un tiempo de inactividad programado para este cambio antes del 15 de febrero de 2021 (15/02/2021)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8.  ¿Qué ocurre si no puedo lograr un tiempo de inactividad programado para este cambio antes del 15 de febrero de 2021 (15/02/2021)?
 Dado que los clientes usados para conectarse al servidor deben actualizar la información del certificado tal y como se describe en la sección de corrección [aquí](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), no es necesario un tiempo de inactividad para el servidor en este caso.
 
-### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Si creo un servidor después del 15 de febrero de 2021 (15/02/2021), ¿me afectará el cambio?
-En el caso de los servidores creados después del 15 de febrero de 2021 (15/02/2021), se puede usar el certificado recién emitido para que las aplicaciones se conecten mediante SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Si creo un nuevo servidor después del 15 de febrero de 2021 (15/02/2021), ¿me afectará este cambio?
+En los servidores creados después del 15 de febrero de 2021 (15/02/2021), puede usar el certificado recién emitido para que las aplicaciones se conecten mediante SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. ¿Con qué frecuencia actualiza Microsoft sus certificados o cuál es la directiva de expiración?
 Estos certificados utilizados por Azure Database for MySQL provienen de entidades de certificación (CA) de confianza. Por lo tanto, la compatibilidad de estos certificados en Azure Database for MySQL está ligada a la compatibilidad de estos certificados por parte de la CA. Sin embargo, como en este caso, puede haber errores imprevistos en estos certificados predefinidos, que deben corregirse lo antes posible.

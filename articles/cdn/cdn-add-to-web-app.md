@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abe13c7c6a9f26746278aeede199a0860a54c0d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079916"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779551"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adición de Azure CDN a una aplicación web de Azure App Service
 
@@ -43,13 +43,13 @@ Temas que se abordarán:
 Para completar este tutorial:
 
 - [Instalación de Git](https://git-scm.com/)
-- [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Instalación de la CLI de Azure](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Creación de la aplicación web
 
-Para crear la aplicación web con la que va a trabajar, siga el [tutorial de inicio rápido de HTML estático](../app-service/quickstart-html.md) mediante el paso de **búsqueda de la aplicación**.
+Para crear la aplicación web con la que va a trabajar, siga el [tutorial de inicio rápido de HTML estático](../app-service/quickstart-html.md) mediante el paso de **búsqueda de la aplicación** .
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
@@ -64,34 +64,34 @@ En el panel de navegación izquierdo, seleccione **App Services** y, a continuac
 
 ![Selección de la aplicación de App Service en el portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 
-En la página **App Service**, en la sección **Configuración**, seleccione **Redes > Configurar Azure CDN para la aplicación**.
+En la página **App Service** , en la sección **Configuración** , seleccione **Redes > Configurar Azure CDN para la aplicación** .
 
 ![Selección de la instancia de CDN en el portal](media/cdn-add-to-web-app/portal-select-cdn.png)
 
-En la página **Azure Content Delivery Network**, proporcione la configuración del **Nuevo punto de conexión** tal y como se especifica en la tabla.
+En la página **Azure Content Delivery Network** , proporcione la configuración del **Nuevo punto de conexión** tal y como se especifica en la tabla.
 
 ![Creación del perfil y el punto de conexión en el portal](media/cdn-add-to-web-app/portal-new-endpoint.png)
 
 | Configuración | Valor sugerido | Descripción |
 | ------- | --------------- | ----------- |
 | **Perfil de CDN** | myCDNProfile | Un perfil de CDN es una colección de puntos de conexión de CDN con el mismo plan de tarifa. |
-| **Plan de tarifa** | Estándar de Akamai | El [plan de tarifa](cdn-features.md) especifica el proveedor y las características disponibles. En este tutorial se usa *Standard Akamai*. |
+| **Plan de tarifa** | Estándar de Akamai | El [plan de tarifa](cdn-features.md) especifica el proveedor y las características disponibles. En este tutorial se usa *Standard Akamai* . |
 | **Nombre del punto de conexión de CDN** | Cualquier nombre que sea único en el dominio azureedge.net | Accederá a los recursos en caché en el dominio *&lt;nombrePuntoConexión&gt;* .azureedge.net.
 
 Seleccione **Crear** para crear un nuevo perfil de red CDN.
 
-Azure crea el perfil y el punto de conexión. El nuevo punto de conexión aparece en la lista **Puntos de conexión** y, una vez aprovisionado, el estado es **En ejecución**.
+Azure crea el perfil y el punto de conexión. El nuevo punto de conexión aparece en la lista **Puntos de conexión** y, una vez aprovisionado, el estado es **En ejecución** .
 
 ![Nuevo punto de conexión en la lista](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
 
 ### <a name="test-the-cdn-endpoint"></a>Probar el punto de conexión de CDN
 
  Dado que se tarda un tiempo en que el registro se propague, el punto de conexión no estará disponible para su uso de forma inmediata: 
-   - En los perfiles de **Azure CDN Estándar de Microsoft**, la propagación se completa normalmente en 10 minutos. 
-   - En los perfiles de **Azure CDN estándar**, la propagación normalmente se completa en un minuto. 
-   - En los perfiles **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium**, la propagación se completa normalmente en 90 minutos. 
+   - En los perfiles de **Azure CDN Estándar de Microsoft** , la propagación se completa normalmente en 10 minutos. 
+   - En los perfiles de **Azure CDN estándar** , la propagación normalmente se completa en un minuto. 
+   - En los perfiles **Azure CDN de Verizon estándar** y **Azure CDN de Verizon premium** , la propagación se completa normalmente en 90 minutos. 
 
-La aplicación de ejemplo tiene un archivo *index.html* y las carpetas *css*, *img* y *js* que contienen otros recursos estáticos. Las rutas de acceso de contenido para todos estos archivos son las mismas en el punto de conexión de CDN. Por ejemplo, las siguientes direcciones URL acceden ambas al archivo *bootstrap.css* en la carpeta *css*:
+La aplicación de ejemplo tiene un archivo *index.html* y las carpetas *css* , *img* y *js* que contienen otros recursos estáticos. Las rutas de acceso de contenido para todos estos archivos son las mismas en el punto de conexión de CDN. Por ejemplo, las siguientes direcciones URL acceden ambas al archivo *bootstrap.css* en la carpeta *css* :
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -166,13 +166,13 @@ En la lista de recursos, seleccione el punto de conexión de CDN.
 
 ![Selección del punto de conexión](media/cdn-add-to-web-app/portal-select-endpoint.png)
 
-En la parte superior de la página **Punto de conexión**, seleccione **Purgar**.
+En la parte superior de la página **Punto de conexión** , seleccione **Purgar** .
 
 ![Seleccionar Purgar](media/cdn-add-to-web-app/portal-select-purge.png)
 
-Escriba las rutas de acceso al contenido que desea purgar. Puede pasar una ruta de acceso de archivo completa para purgar un archivo individual, o un segmento de ruta de acceso para purgar y actualizar todo el contenido de una carpeta. Debido a que cambió *index.html*, asegúrese de que está en una de las rutas de acceso.
+Escriba las rutas de acceso al contenido que desea purgar. Puede pasar una ruta de acceso de archivo completa para purgar un archivo individual, o un segmento de ruta de acceso para purgar y actualizar todo el contenido de una carpeta. Debido a que cambió *index.html* , asegúrese de que está en una de las rutas de acceso.
 
-En la parte inferior de la página, seleccione **Purgar**.
+En la parte inferior de la página, seleccione **Purgar** .
 
 ![Página Purgar](media/cdn-add-to-web-app/app-service-web-purge-cdn.png)
 
@@ -182,7 +182,7 @@ Espere hasta que la solicitud de purga finalice el procesamiento; por lo general
 
 ![Notificación de purga](media/cdn-add-to-web-app/portal-purge-notification.png)
 
-Cuando vaya a la dirección URL del punto de conexión de la red CDN para *index.html*, verá el *V2* que agregó en el título en la página de inicio, que indica que se ha actualizado la caché de la red CDN.
+Cuando vaya a la dirección URL del punto de conexión de la red CDN para *index.html* , verá el *V2* que agregó en el título en la página de inicio, que indica que se ha actualizado la caché de la red CDN.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -206,11 +206,11 @@ En esta sección del tutorial, cambiará el comportamiento de almacenamiento en 
 
 ### <a name="change-the-cache-behavior"></a>Cambio del comportamiento de la memoria caché
 
-En la página **Punto de conexión de CDN** de Azure Portal, seleccione **Caché**.
+En la página **Punto de conexión de CDN** de Azure Portal, seleccione **Caché** .
 
-Seleccione **Almacenar en caché todas las URL únicas** en la lista desplegable **Comportamiento del almacenamiento en caché de cadenas de consulta**.
+Seleccione **Almacenar en caché todas las URL únicas** en la lista desplegable **Comportamiento del almacenamiento en caché de cadenas de consulta** .
 
-Seleccione **Guardar**.
+Seleccione **Guardar** .
 
 ![Selección del comportamiento de almacenamiento de cadenas de consulta en caché](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
 
@@ -226,14 +226,14 @@ Azure CDN devuelve el contenido de la aplicación web actual, que incluye *V2* e
 
 Para asegurarse de que esta página se almacena en caché en la red CDN, actualice la página. 
 
-Abra *index.html*, cambie *V2* a *V3* y, a continuación, implemente el cambio. 
+Abra *index.html* , cambie *V2* a *V3* y, a continuación, implemente el cambio. 
 
 ```bash
 git commit -am "version 3"
 git push azure master
 ```
 
-En un explorador, vaya a la dirección URL del punto de conexión CDN con una nueva cadena de consulta, como `q=2`. Azure CDN obtiene el archivo *index.html* actual y muestra *V3*. Sin embargo, si navega hasta el punto de conexión de CDN con la cadena de consulta `q=1`, verá *V2*.
+En un explorador, vaya a la dirección URL del punto de conexión CDN con una nueva cadena de consulta, como `q=2`. Azure CDN obtiene el archivo *index.html* actual y muestra *V3* . Sin embargo, si navega hasta el punto de conexión de CDN con la cadena de consulta `q=1`, verá *V2* .
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
@@ -269,5 +269,3 @@ Aprenda cómo optimizar el rendimiento de CDN en los siguientes artículos:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Adición de un dominio personalizado a un punto de conexión de Azure CDN](cdn-map-content-to-custom-domain.md)
-
-

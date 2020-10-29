@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: 6beaee98e78e79c48270801f5696e4e487b0a2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5807d38e22d8cecf40b5ad4262f9e4662b77ec4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84883721"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779142"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Administración de la directiva de almacenamiento en caché de Azure CDN en Azure Media Services
 Azure Media Services proporciona streaming adaptable basado en HTTP y descarga progresiva. El streaming basado en HTTP es enormemente escalable con ventajas de almacenamiento en caché en proxy y capas CDN, además de almacenamiento en caché del cliente. Los extremos de streaming proporcionan capacidades generales de streaming, así como configuración para encabezados de caché HTTP. Los extremos de streaming establecen Control de caché HTTP: encabezados max-age y Expires. Puede obtener más información sobre los encabezados de caché HTTP en [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -40,10 +40,9 @@ Puede usar Azure Portal o la API de Azure Media Services para configurar valores
 
 1. Para configurar encabezados de caché mediante Azure Portal, consulte la sección [Administración de puntos de conexión de streaming](../media-services/previous/media-services-portal-manage-streaming-endpoints.md).
 2. API de REST de Azure Media Services, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
-3. .NET SDK de Azure Media Services, [Propiedades de StreamingEndpointCacheControl](https://go.microsoft.com/fwlink/?LinkId=615302).
+3. .NET SDK de Azure Media Services, [Propiedades de StreamingEndpointCacheControl](/dotnet/api/microsoft.windowsazure.mediaservices.client.streamingendpointcachecontrol).
 
 ## <a name="cache-configuration-precedence-order"></a>Orden de prioridad de configuración de caché
 1. El valor de caché configurado de Azure Media Services reemplaza el valor predeterminado.
 2. Si no hay ninguna configuración manual, se aplican los valores predeterminados.
 3. De forma predeterminada, se aplican encabezados de caché de 2 segundos para manifest(playlist) de streaming en directo independientemente de la configuración multimedia o de Azure Storage y la anulación de este valor no está disponible.
-

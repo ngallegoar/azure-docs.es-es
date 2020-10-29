@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: ripohane
-ms.openlocfilehash: 5544a6985ca357688b2585fa29c6dc63546c3e8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de504cc4209aea19925c4c3e2385c7feabceedeb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90014963"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92781624"
 ---
 # <a name="azure-queue-storage-reference"></a>Referencia de Azure Queue Storage
 
@@ -25,8 +25,8 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Espacio de nombres Azure.Storage.Queues](/dotnet/api/azure.storage.queues) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET](/azure/storage/queues/storage-quickstart-queues-dotnet) |
-| 11.x | [Espacio de nombres Microsoft.Azure.Storage.Queue](/dotnet/api/microsoft.azure.storage.queue) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Inicio rápido: Uso del SDK de Azure Storage v11 para .NET para administrar una cola](/azure/storage/queues/storage-quickstart-queues-dotnet-legacy) |
+| 12.x | [Espacio de nombres Azure.Storage.Queues](/dotnet/api/azure.storage.queues) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET](./storage-quickstart-queues-dotnet.md) |
+| 11.x | [Espacio de nombres Microsoft.Azure.Storage.Queue](/dotnet/api/microsoft.azure.storage.queue) | [Paquete (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/) | [Inicio rápido: Uso del SDK de Azure Storage v11 para .NET para administrar una cola](./storage-quickstart-queues-dotnet-legacy.md) |
 
 ### <a name="storage-management"></a>Administración del almacenamiento
 
@@ -50,8 +50,8 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca cliente de Azure Storage Queue para Java](/java/api/overview/azure/storage-queue-readme) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java](/azure/storage/queues/storage-quickstart-queues-java) |
-| 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Inicio rápido: Administración de blobs con el SDK de Java v8](/azure/storage/blobs/storage-quickstart-blobs-java-legacy) |
+| 12.x | [Biblioteca cliente de Azure Storage Queue para Java](/java/api/overview/azure/storage-queue-readme) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java](./storage-quickstart-queues-java.md) |
+| 8.x | [com.microsoft.azure.storage.queue](/java/api/com.microsoft.azure.storage.queue) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Inicio rápido: Administración de blobs con el SDK de Java v8](../blobs/storage-quickstart-blobs-java-legacy.md) |
 
 ### <a name="storage-management"></a>Administración del almacenamiento
 
@@ -67,8 +67,8 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python](/azure/storage/queues/storage-quickstart-queues-python) |
-| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Uso de Azure Queue Storage v2.1 desde Python](/azure/storage/queues/storage-python-how-to-use-queue-storage) |
+| 12.x | [Bibliotecas cliente de Azure Storage v12 para Python](/azure/developer/python/sdk/storage/overview) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python](./storage-quickstart-queues-python.md) |
+| 2.x | [Bibliotecas cliente de Azure Storage v2 para Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Paquete (PyPI)](https://pypi.org/project/azure-storage-queue/2.1.0/) | [Uso de Azure Queue Storage v2.1 desde Python](./storage-python-how-to-use-queue-storage.md) |
 
 ## <a name="javascript-client-libraries"></a>Bibliotecas cliente de JavaScript
 
@@ -76,8 +76,8 @@ En la tabla siguiente se muestra la documentación de referencia y de ejemplo pa
 
 |  Versión  | Documentación de referencia | Paquete | Guía de inicio rápido |
 | :-------: | ----------------------- | ------- | ---------- |
-| 12.x | [Biblioteca cliente de Azure Storage Queue para JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript](/azure/storage/queues/storage-quickstart-queues-nodejs) |
-| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Uso de Azure Queue service para crear y eliminar colas de Node.js](/azure/storage/queues/storage-nodejs-how-to-use-queues) |
+| 12.x | [Biblioteca cliente de Azure Storage Queue para JavaScript](/javascript/api/overview/azure/storage-queue-readme) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue) | [Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript](./storage-quickstart-queues-nodejs.md) |
+| 10.x | [@azure/storage-queue](/javascript/api/@azure/storage-queue/?view=azure-node-legacy&preserve-view=true) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-queue/v/10.3.0) | [Uso de Azure Queue service para crear y eliminar colas de Node.js](./storage-nodejs-how-to-use-queues.md) |
 
 ## <a name="rest-apis"></a>API de REST
 

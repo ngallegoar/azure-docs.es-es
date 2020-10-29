@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887713"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778660"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Análisis del rendimiento del nodo perimetral en Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -55,7 +55,7 @@ Este panel consta de:
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge**.  Haga clic en **Panel**.
+2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge** .  Haga clic en **Panel** .
    
     Se muestra el panel de análisis de nodo perimetral.
 
@@ -143,7 +143,7 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Se abre el Portal de administración de CDN.
-2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge**.  Haga clic en **Objeto grande HTTP**.
+2. Mantenga el puntero sobre la pestaña **Análisis** y, después, sobre el control flotante **Análisis de rendimiento de Edge** .  Haga clic en **Objeto grande HTTP** .
    
     Se muestra la pantalla de informes de análisis de nodo perimetral.
 
@@ -186,6 +186,5 @@ Cada informe de este módulo contiene un gráfico y las estadísticas de uso del
 ## <a name="see-also"></a>Consulte también
 * [Información general de Azure CDN](cdn-overview.md)
 * [Estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
-* [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
+* [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](./cdn-verizon-premium-rules-engine.md)
 * [Informes de HTTP avanzados](cdn-advanced-http-reports.md)
-
