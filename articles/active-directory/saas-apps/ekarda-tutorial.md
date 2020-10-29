@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/15/2020
 ms.author: jeedes
-ms.openlocfilehash: cfd7a007c8f26a96d929026e231cb412cdc70279
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bb74732074482c12d3bc760e259bb014ccf006f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440888"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454203"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ekarda"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con ekarda
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar ekarda con Azure Active Directory (Azure�
 * Permitir que los usuarios inicien sesión automáticamente en ekarda con sus cuentas de Azure AD.
 * Administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el inicio de sesión único (SSO)?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el inicio de sesión único (SSO)?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,7 +41,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * ekarda admite el inicio de sesión único iniciado por SP e IDP.
 * ekarda admite el aprovisionamiento de usuarios Just-In-Time.
-* Después de configurar ekarda, puede aplicar el control de sesión. Esta precaución protege frente a la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del control de aplicaciones de acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Después de configurar ekarda, puede aplicar el control de sesión. Esta precaución protege frente a la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del control de aplicaciones de acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-ekarda-from-the-gallery"></a>Adición de ekarda desde la galería
 
@@ -49,15 +49,15 @@ Para configurar la integración de ekarda en Azure AD, agregue ekarda desde la 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 
-1. En el panel izquierdo, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una aplicación nueva, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **ekarda** en el cuadro de búsqueda.
+1. En el panel izquierdo, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una aplicación nueva, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **ekarda** en el cuadro de búsqueda.
 1. Seleccione **ekarda** en el panel de resultados y, a continuación, agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-ekarda"></a>Configuración y prueba del inicio de sesión único de Azure AD para ekarda
 
-Configure y pruebe el inicio de sesión único de Azure AD con ekarda mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculo entre un usuario de Azure AD y el usuario relacionado de ekarda.
+Configure y pruebe el inicio de sesión único de Azure AD con ekarda mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculo entre un usuario de Azure AD y el usuario relacionado de ekarda.
 
 Para configurar y probar el inicio de sesión único de Azure AD con ekarda, es preciso completar los siguientes pasos:
 
@@ -74,15 +74,15 @@ Para configurar y probar el inicio de sesión único de Azure AD con ekarda, es
 Siga estos pasos en Azure Portal para habilitar el inicio de sesión único de Azure AD:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. En la página de integración de la aplicación **ekarda**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para editar los valores de **Configuración básica de SAML**.
+1. En la página de integración de la aplicación **ekarda** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configuración del inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para editar los valores de **Configuración básica de SAML** .
 
    ![Captura de pantalla de la página Configuración del inicio de sesión único con SAML con el icono de lápiz resaltado.](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si tiene el **archivo de metadatos del proveedor de servicios**, siga estos pasos:
-    1. Seleccione **Cargar el archivo de metadatos**.
-    1. Para seleccionar el archivo de metadatos, seleccione el icono de carpeta y, a continuación, seleccione **Cargar**.
+1. En la sección **Configuración básica de SAML** , si tiene el **archivo de metadatos del proveedor de servicios** , siga estos pasos:
+    1. Seleccione **Cargar el archivo de metadatos** .
+    1. Para seleccionar el archivo de metadatos, seleccione el icono de carpeta y, a continuación, seleccione **Cargar** .
     1. Cuando se haya cargado correctamente el archivo de metadatos, los valores de **Identificador** y **Dirección URL de respuesta** se rellenarán automáticamente en los cuadros de texto de la sección de ekarda.
 
     > [!Note]
@@ -90,21 +90,21 @@ Siga estos pasos en Azure Portal para habilitar el inicio de sesión único de A
 
 1. Si no tiene el **archivo de metadatos del proveedor de servicios** en la sección **Configuración básica de SAML** y desea configurar la aplicación en modo iniciado por IDP, escriba los valores de los siguientes campos:
 
-    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://my.ekarda.com/users/saml_metadata/<COMPANY_ID>`
-    1. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://my.ekarda.com/users/saml_acs/<COMPANY_ID>`
+    1. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente patrón: `https://my.ekarda.com/users/saml_metadata/<COMPANY_ID>`
+    1. En el cuadro de texto **Dirección URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://my.ekarda.com/users/saml_acs/<COMPANY_ID>`
 
 1. Seleccione **Establecer direcciones URL adicionales** si desea configurar la aplicación en el modo iniciado por SP y haga lo siguiente:
 
-    * En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
+    * En el cuadro de texto **Dirección URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://my.ekarda.com/users/saml_sso/<COMPANY_ID>`
 
     > [!NOTE]
     > Los valores de los dos pasos anteriores no son reales. Actualícelos con valores reales de identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de ekarda](mailto:contact@ekarda.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para guardar el **certificado (Base 64)** en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione **Descargar** para guardar el **certificado (Base 64)** en el equipo.
 
     ![Captura de pantalla de la sección Certificado de firma de SAML de la página Configuración del inicio de sesión único con SAML, con el vínculo de descarga del certificado Base 64 resaltado.](common/certificatebase64.png)
 
-1. En la sección **Configurar ekarda**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar ekarda** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Captura de pantalla de la sección Configurar ekarda de la página Configuración del inicio de sesión único con SAML, con los vínculos de copia de dirección URL resaltados.](common/copy-configuration-urls.png)
 
@@ -112,32 +112,32 @@ Siga estos pasos en Azure Portal para habilitar el inicio de sesión único de A
 
 En esta sección, usará Azure Portal para crear un usuario de prueba llamado B.Simon.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios** .
 
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, escriba `B.Simon@contoso.com`:
-   1. Seleccione la casilla **Mostrar contraseña** y, anote el valor que aparece en el cuadro **Contraseña**.
-   1. Seleccione **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, escriba `B.Simon@contoso.com`:
+   1. Seleccione la casilla **Mostrar contraseña** y, anote el valor que aparece en el cuadro **Contraseña** .
+   1. Seleccione **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a ekarda mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **ekarda**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **ekarda** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Captura de pantalla de la sección Administrar, con la opción Usuarios y grupos resaltada.](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Captura de pantalla de la sección Usuarios y grupos, con la opción Agregar usuario resaltada.](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista de usuarios. A continuación, elija **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. A continuación, elija **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista de usuarios. A continuación, elija **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. A continuación, elija **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
 
 ## <a name="configure-ekarda-sso"></a>Configuración del inicio de sesión único de ekarda
 
@@ -158,7 +158,7 @@ En esta sección, va a permitir que B.Simon acceda a ekarda mediante el inicio d
     1. En el cuadro de texto **IDP Logout URL** (Dirección URL de cierre de sesión del IDP), pegue el valor de **URL de cierre de sesión** que copió de Azure Portal.
     1. Utilice el Bloc de notas para abrir el archivo del **certificado (Base 64)** que descargó de Azure Portal. Pegue el contenido en el cuadro de texto **IDP X509 Certificate** (Certificado X509 del IDP).
     1. Active la casilla **Enable SLO** (Habilitar SLO) en la sección **OPTIONS** (Opciones).
-    1. Seleccione **Actualizar**.
+    1. Seleccione **Actualizar** .
 
 ### <a name="create-an-ekarda-test-user"></a>Creación de un usuario de prueba de ekarda
 
@@ -168,14 +168,14 @@ En esta sección se crea un usuario llamado B.Simon en ekarda. ekarda admite el 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Al seleccionar el icono de ekarda en el portal Mis aplicaciones, debería iniciar sesión automáticamente en el sitio de ekarda para el que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al seleccionar el icono de ekarda en el portal Mis aplicaciones, debería iniciar sesión automáticamente en el sitio de ekarda para el que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-* [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 * [Pruebe ekarda con Azure AD](https://aad.portal.azure.com/).
 * Use la [solución eCard empresarial de ekarda](https://ekarda.com/ecards-ecards-with-logo-for-business-corporate-enterprise) para aprovisionar a los empleados para que envíen eCards con la marca del logotipo de la empresa a sus clientes y compañeros. Más información sobre el [aprovisionamiento de ekarda como una solución de inicio de sesión único](https://support.ekarda.com/#SSO-Implementation).
-* [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-* [Protección de ekarda con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+* [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+* [Protección de ekarda con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

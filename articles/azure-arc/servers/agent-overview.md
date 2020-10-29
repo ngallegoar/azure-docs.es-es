@@ -3,19 +3,19 @@ title: Información general del agente Connected Machine de Windows
 description: En este artículo se proporciona una descripción detallada del agente de servidores habilitados para Azure Arc disponible, que admite la supervisión de máquinas virtuales hospedadas en entornos híbridos.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 344bd2c801cb21932b35bcdfdcc38cc3fa73783b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102989"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370175"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Información general del agente de servidores habilitados para Azure Arc
 
 El agente Connected Machine de servidores habilitados para Azure Arc permite administrar las máquinas Windows y Linux hospedadas fuera de Azure en la red corporativa o en otro proveedor de nube. En este artículo se proporciona una descripción detallada del agente, de los requisitos del sistema y de la red, y de los diferentes métodos de implementación.
 
 >[!NOTE]
->A partir del lanzamiento general de los servidores habilitados para Azure Arc en septiembre de 2020, todas las versiones preliminares del agente de Azure Connected Machine (agentes con versiones inferiores a la 1.0) quedarán **en desuso** el **2 de febrero de 2021**.  Este período de tiempo le permite actualizar a la versión 1.0 o superior antes de que los agentes de versión preliminar ya no puedan comunicarse con el servicio de servidores habilitados para Azure Arc.
+>A partir del lanzamiento general de los servidores habilitados para Azure Arc en septiembre de 2020, todas las versiones preliminares del agente de Azure Connected Machine (agentes con versiones inferiores a la 1.0) quedarán **en desuso** el **2 de febrero de 2021** .  Este período de tiempo le permite actualizar a la versión 1.0 o superior antes de que los agentes de versión preliminar ya no puedan comunicarse con el servicio de servidores habilitados para Azure Arc.
 
 ## <a name="agent-component-details"></a>Detalles del componente de agente
 
@@ -58,9 +58,9 @@ Las siguientes versiones de los sistemas operativos Windows y Linux son compatib
 
 ### <a name="required-permissions"></a>Permisos necesarios
 
-* Para incorporar máquinas, debe ser miembro del rol **Incorporación de Azure Connected Machine**.
+* Para incorporar máquinas, debe ser miembro del rol **Incorporación de Azure Connected Machine** .
 
-* Para leer, modificar, volver a incorporar y eliminar una máquina, debe ser miembro del rol **Administrador de recursos de Azure Connected Machine**. 
+* Para leer, modificar, volver a incorporar y eliminar una máquina, debe ser miembro del rol **Administrador de recursos de Azure Connected Machine** . 
 
 ### <a name="azure-subscription-and-service-limits"></a>Límites del servicio y la suscripción de Azure
 
@@ -68,7 +68,7 @@ Antes de configurar las máquinas con servidores habilitados para Azure Arc, rev
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocolo Seguridad de la capa de transporte 1.2
 
-Para garantizar la seguridad de los datos en tránsito hacia Azure, se recomienda encarecidamente configurar la máquina para que use Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**.
+Para garantizar la seguridad de los datos en tránsito hacia Azure, se recomienda encarecidamente configurar la máquina para que use Seguridad de la capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan** .
 
 |Plataforma/lenguaje | Soporte técnico | Más información |
 | --- | --- | --- |
@@ -199,11 +199,11 @@ Después de instalar el agente Connected Machine para Windows, se aplican los si
     |%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs|Registra los detalles sobre el componente de agente de extensión.|
     |%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>|Registra los detalles de la extensión instalada.|
 
-* Se crea el grupo de seguridad local **Aplicaciones de extensión de agente híbrido**.
+* Se crea el grupo de seguridad local **Aplicaciones de extensión de agente híbrido** .
 
 * Durante la desinstalación del agente, no se quitan los artefactos siguientes.
 
-    * %ProgramFiles%\AzureConnectedMachineAgent\Logs
+    * *%ProgramData%\AzureConnectedMachineAgent\Log
     * %ProgramData%\AzureConnectedMachineAgent y subdirectorios
     * %ProgramData%\GuestConfig
 

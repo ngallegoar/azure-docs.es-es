@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317453"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455427"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Configuración de Concur para el aprovisionamiento automático de usuarios
 
@@ -35,7 +35,7 @@ Azure Active Directory usa un concepto que se denomina "asignaciones" para deter
 
 Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD representan a los usuarios que necesitan acceso a la aplicación Concur. Una vez decidido, puede asignar estos usuarios a la aplicación de Concur siguiendo estas instrucciones:
 
-[Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Asignar un usuario o grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-concur"></a>Sugerencias importantes para asignar usuarios a Concur
 
@@ -62,7 +62,7 @@ Al crear el perfil que se usará para habilitar la aplicación, escriba el nombr
 
 Por las siguientes razones, esta acción no debe realizarse con el perfil que se usa en la administración normal de tiempo y gastos.
 
-* El cliente tiene que ser el que hace clic en "*Sí*" en la ventana de cuadro de diálogo que aparece después de la habilitación de la aplicación. Este clic confirma que el cliente está autorizado por la aplicación asociada a tener acceso a sus datos, por lo que usted o el asociado no pueden hacer clic en el botón Sí.
+* El cliente tiene que ser el que hace clic en " *Sí* " en la ventana de cuadro de diálogo que aparece después de la habilitación de la aplicación. Este clic confirma que el cliente está autorizado por la aplicación asociada a tener acceso a sus datos, por lo que usted o el asociado no pueden hacer clic en el botón Sí.
 
 * Si un administrador de cliente que ha habilitado una aplicación mediante el perfil de administrador de tiempo y gastos abandona la empresa (lo que da lugar a la desactivación del perfil), las aplicaciones habilitadas mediante ese perfil no funcionarán hasta que la aplicación se habilite con otro perfil de administrador de servicios web activo. Es por este motivo por lo hay que crear distintos perfiles de administrador servicios web.
 
@@ -70,49 +70,49 @@ Por las siguientes razones, esta acción no debe realizarse con el perfil que se
 
 **Siga estos pasos para configurar el aprovisionamiento de usuario:**
 
-1. Inicie sesión en el inquilino de **Concur**.
+1. Inicie sesión en el inquilino de **Concur** .
 
-2. En el menú **Administración**, seleccione **Servicios web**.
+2. En el menú **Administración** , seleccione **Servicios web** .
    
     ![Inquilino de Concur](./media/concur-provisioning-tutorial/IC721729.png "Inquilino de Concur")
 
-3. En el lado izquierdo, en el panel **Servicios web**, seleccione **Habilitar aplicación de asociado**.
+3. En el lado izquierdo, en el panel **Servicios web** , seleccione **Habilitar aplicación de asociado** .
    
     ![Habilitar aplicación de asociado](./media/concur-provisioning-tutorial/ic721730.png "Habilitar aplicación de asociado")
 
-4. En la lista **Habilitar aplicación**, seleccione **Azure Active Directory** y después haga clic en **Habilitar**.
+4. En la lista **Habilitar aplicación** , seleccione **Azure Active Directory** y después haga clic en **Habilitar** .
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. Haga clic en **Sí** para cerrar el cuadro de diálogo **Confirmar acción**.
+5. Haga clic en **Sí** para cerrar el cuadro de diálogo **Confirmar acción** .
    
     ![Confirmar acción](./media/concur-provisioning-tutorial/ic721732.png "Confirmar acción")
 
-6. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
+6. En [Azure Portal](https://portal.azure.com), vaya a la sección **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones** .
 
 7. Si ya ha configurado Concur para el inicio de sesión único, busque la instancia de Concur mediante el campo de búsqueda. En caso contrario, seleccione **Agregar** y busque **Concur** en la galería de aplicaciones. Seleccione Concur en los resultados de búsqueda y agréguelo a la lista de aplicaciones.
 
-8. Seleccione la instancia de Concur y luego, la pestaña **Aprovisionamiento**.
+8. Seleccione la instancia de Concur y luego, la pestaña **Aprovisionamiento** .
 
-9. Establezca el **modo de aprovisionamiento** en **Automático**. 
+9. Establezca el **modo de aprovisionamiento** en **Automático** . 
  
     ![Captura de pantalla de la pestaña Aprovisionamiento de Concur en Azure Portal. El modo de aprovisionamiento se establece en Automático y el botón Probar conexión se resalta.](./media/concur-provisioning-tutorial/provisioning.png)
 
-10. En la sección **Credenciales de administrador**, escriba el **nombre de usuario** y la **contraseña** del administrador de Concur.
+10. En la sección **Credenciales de administrador** , escriba el **nombre de usuario** y la **contraseña** del administrador de Concur.
 
 11. En Azure Portal, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a la aplicación de Concur. Si la conexión no se establece, asegúrese de que la cuenta de Concur tiene permisos de administrador de equipo.
 
 12. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla.
 
-13. Haga clic en **Guardar**.
+13. Haga clic en **Guardar** .
 
 14. En la sección Asignaciones, seleccione **Synchronize Azure Active Directory Users to Concur** (Sincronizar usuarios de Azure Active Directory con Concur).
 
 15. En la sección **Attribute Mappings** (Asignaciones de atributos), revise los atributos de usuario que se sincronizan entre Azure AD y Concur. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Concur con el objetivo de realizar operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
-16. Para habilitar el servicio de aprovisionamiento de Azure AD para Concur, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+16. Para habilitar el servicio de aprovisionamiento de Azure AD para Concur, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
 
-17. Haga clic en **Guardar**.
+17. Haga clic en **Guardar** .
 
 Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la cuenta se ha sincronizado con Concur.
 
@@ -121,4 +121,3 @@ Ahora puede crear una cuenta de prueba. Espere 20 minutos para comprobar que la 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Configuración del inicio de sesión único](concur-tutorial.md)
-

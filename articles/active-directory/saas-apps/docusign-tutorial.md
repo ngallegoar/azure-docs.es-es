@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 51ad28319a372cd791575b5a3e67cc0fd6934be2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981645"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454701"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con DocuSign
 
@@ -40,29 +40,29 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba para comprobar que:
 
-* DocuSign admite el inicio de sesión único iniciado por el proveedor de servicios o **SP**.
+* DocuSign admite el inicio de sesión único iniciado por el proveedor de servicios o **SP** .
 
-* DocuSign admite el aprovisionamiento de usuarios **Just-In-Time**.
+* DocuSign admite el aprovisionamiento de usuarios **Just-In-Time** .
 
-* DocuSign admite el [aprovisionamiento automático de usuarios](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* DocuSign admite el [aprovisionamiento automático de usuarios](./docusign-provisioning-tutorial.md).
 
-* Una vez configurado DocuSign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado DocuSign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adición de DocuSign desde la galería
 
 Para configurar la integración de DocuSign en Azure AD, deberá agregar DocuSign desde la galería a la lista de aplicaciones SaaS administradas:
 
 1. Inicie sesión en Azure Portal mediante una cuenta profesional o educativa, o bien una cuenta personal de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **DocuSign** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **DocuSign** en el cuadro de búsqueda.
 1. Seleccione **DocuSign** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-docusign"></a>Configuración y prueba del inicio de sesión único de Azure AD para DocuSign
 
-Configure y pruebe el inicio de sesión único de Azure AD con DocuSign mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, tiene que establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de DocuSign.
+Configure y pruebe el inicio de sesión único de Azure AD con DocuSign mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, tiene que establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de DocuSign.
 
 Para configurar y probar el inicio de sesión único de Azure AD con DocuSign, siga estos pasos:
 
@@ -77,15 +77,15 @@ Para configurar y probar el inicio de sesión único de Azure AD con DocuSign, 
 
 Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **DocuSign**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En Azure Portal, en la página de integración de la aplicación **DocuSign** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, siga estos pasos:
+1. En la sección **Configuración básica de SAML** , siga estos pasos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón:
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
 
@@ -93,7 +93,7 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    c. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con alguno de los siguientes patrones:
+    c. En el cuadro de texto **Dirección URL de respuesta** , escriba una dirección URL con alguno de los siguientes patrones:
     
     | URL de respuesta |
     |-------------|
@@ -103,7 +103,7 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
     > [!NOTE]
     > Estos valores entre corchetes son marcadores de posición. Reemplácelos por los valores reales de la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta. Estos detalles se explican en la sección "Visualización de los puntos de conexión SAML 2.0" más adelante en este tutorial.
 
-1. En la página **Configuración del inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** . Seleccione **Descargar** para descargar el certificado y guárdelo en el equipo.
+1. En la página **Configuración del inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** . Seleccione **Descargar** para descargar el certificado y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -115,29 +115,29 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
 En esta sección, creará un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
-1. En la parte superior de la pantalla, seleccione **Nuevo usuario**.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba **B.Simon**.  
-   1. En el campo **Nombre de usuario**, escriba `<username>@<companydomain>.<extension>`. Por ejemplo: `B.Simon@contoso.com`.
-   1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Seleccione **Crear**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
+1. En la parte superior de la pantalla, seleccione **Nuevo usuario** .
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba **B.Simon** .  
+   1. En el campo **Nombre de usuario** , escriba `<username>@<companydomain>.<extension>`. Por ejemplo: `B.Simon@contoso.com`.
+   1. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Seleccione **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a DocuSign para que este usuario pueda utilizar el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **DocuSign**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-1. Seleccione **Agregar usuario** y, después, en el cuadro de diálogo **Agregar asignación**, selección **Usuarios y grupos**.
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista **Usuarios** y, luego, pulse el botón **Seleccionar** en la parte inferior de la pantalla.
-1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **DocuSign** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario** y, después, en el cuadro de diálogo **Agregar asignación** , selección **Usuarios y grupos** .
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista **Usuarios** y, luego, pulse el botón **Seleccionar** en la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol** . Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-docusign-sso"></a>Configuración del inicio de sesión único de DocuSign
 
-1. Para automatizar la configuración de DocuSign, tiene que instalar la extensión del explorador de inicio de sesión seguro de Mis aplicaciones. Para ello, seleccione **Instale la extensión**.
+1. Para automatizar la configuración de DocuSign, tiene que instalar la extensión del explorador de inicio de sesión seguro de Mis aplicaciones. Para ello, seleccione **Instale la extensión** .
 
     ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
 
@@ -185,9 +185,9 @@ En esta sección, va a permitir que B.Simon acceda a DocuSign para que este usua
 
     e. Seleccione **Sign AuthN Request** (Firmar solicitud de autenticación).
 
-    f. Para **Send AuthN request by** (Enviar solicitud de autenticación por), seleccione **POST**.
+    f. Para **Send AuthN request by** (Enviar solicitud de autenticación por), seleccione **POST** .
 
-    g. En **Send logout request by** (Enviar solicitud de cierre de sesión por), seleccione **GET**.
+    g. En **Send logout request by** (Enviar solicitud de cierre de sesión por), seleccione **GET** .
 
     h. En la sección **Custom Attribute Mapping** (Asignación de atributos personalizados), seleccione **ADD NEW MAPPING** (AGREGAR NUEVA ASIGNACIÓN).
 
@@ -218,7 +218,7 @@ En esta sección, va a permitir que B.Simon acceda a DocuSign para que este usua
        
        1. Copie la información de **Service Provider Issuer URL** (Dirección URL del emisor del proveedor de servicios) y luego péguela en el cuadro **URL de inicio de sesión**  de la sección **Configuración básica de SAML** de Azure Portal. Al final del valor de **Service Provider Login URL** (Dirección URL de inicio de sesión del proveedor de servicios) figura el valor de IDPID.
 
-       1. Seleccione **Cerrar**.
+       1. Seleccione **Cerrar** .
 
 ### <a name="create-docusign-test-user"></a>Creación de un usuario de prueba en DocuSign
 
@@ -235,12 +235,12 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 2. Vaya directamente a la dirección URL de inicio de sesión de DocuSign e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de DocuSign en el Panel de acceso, se debería iniciar sesión automáticamente en la versión de DocuSign para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de DocuSign en el Panel de acceso, se debería iniciar sesión automáticamente en la versión de DocuSign para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado DocuSign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+Una vez configurado DocuSign, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 
 <!--Image references-->
 

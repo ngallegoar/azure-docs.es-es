@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b8f91bca3650004472d8fe51d4e92b42ade3122
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 92b068ee9b8aaf4c462002354bbb6490f4888a80
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91759851"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455910"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-claromentis"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Claromentis
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Claromentis con Azure Active Directory
 * Permitir que los usuarios puedan iniciar sesión automáticamente en Claromentis con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -40,22 +40,22 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Claromentis admite el inicio de sesión único iniciado por **SP e IDP**
-* Claromentis admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Claromentis admite el aprovisionamiento de usuarios **Just-In-Time** .
 
 ## <a name="adding-claromentis-from-the-gallery"></a>Incorporación de Claromentis desde la galería
 
 Para configurar la integración de Claromentis en Azure AD, deberá agregar Claromentis desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Claromentis** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **Claromentis** en el cuadro de búsqueda.
 1. Seleccione **Claromentis** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-claromentis"></a>Configuración y prueba del inicio de sesión único de Azure AD para Claromentis
 
-Configure y pruebe el inicio de sesión único de Azure AD con Claromentis mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Claromentis.
+Configure y pruebe el inicio de sesión único de Azure AD con Claromentis mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Claromentis.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Claromentis, es preciso completar los siguientes bloques de creación:
 
@@ -70,21 +70,21 @@ Para configurar y probar el inicio de sesión único de Azure AD con Claromenti
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Claromentis**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Claromentis** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba el valor del identificador según los requisitos de su organización.
+    a. En el cuadro de texto **Identificador** , escriba el valor del identificador según los requisitos de su organización.
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<customer_site_url>/custom/loginhandler/simplesaml/www/module.php/saml/sp/saml2-acs.php/claromentis`
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<customer_site_url>/custom/loginhandler/simplesaml/www/module.php/saml/sp/saml2-acs.php/claromentis`
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    En el cuadro de texto **Dirección URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón:
 
     ```https
     https://<customer_site_url>/login
@@ -94,11 +94,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador, la dirección URL de inicio de sesión y la dirección URL de respuesta reales, como se explica más adelante en el tutorial.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la sección **Configurar Claromentis**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Claromentis** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -106,37 +106,37 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a Claromentis mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Claromentis**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **Claromentis** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-claromentis-sso"></a>Configuración del inicio de sesión único de Claromentis
 
 1. En otra ventana del explorador, inicie sesión en el sitio web de Claromentis como administrador.
 
-1. Haga clic en el **icono de aplicación** y seleccione **Administrador**.
+1. Haga clic en el **icono de aplicación** y seleccione **Administrador** .
 
     ![Captura de pantalla que muestra el sitio web de Claromentis con la opción Admin (Administrador) seleccionada.](./media/claromentis-tutorial/config1.png)
 
@@ -152,9 +152,9 @@ En esta sección, va a permitir que B.Simon acceda a Claromentis mediante el ini
 
     ![Captura de pantalla que muestra la sección Config (Configuración) de la página, donde puede especificar la información que se describe en este paso.](./media/claromentis-tutorial/config4.png)
 
-    a. En el cuadro de texto **Nombre del contacto técnico**, escriba el nombre de la persona de contacto del soporte técnico.
+    a. En el cuadro de texto **Nombre del contacto técnico** , escriba el nombre de la persona de contacto del soporte técnico.
 
-    b. En el cuadro de texto **Correo del contacto técnico**, escriba la dirección de correo electrónico de la persona de contacto del soporte técnico.
+    b. En el cuadro de texto **Correo del contacto técnico** , escriba la dirección de correo electrónico de la persona de contacto del soporte técnico.
 
     c. Proporcione la contraseña en el cuadro de texto **Auth Admin Password** (Autenticar contraseña del administrador).
 
@@ -162,13 +162,13 @@ En esta sección, va a permitir que B.Simon acceda a Claromentis mediante el ini
 
     ![Captura de pantalla que muestra la sección Auth Sources (Orígenes de autenticación), donde puede especificar la información que se describe en este paso.](./media/claromentis-tutorial/config5.png)
 
-    a. En el cuadro de texto **IDP**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
+    a. En el cuadro de texto **IDP** , pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
     b. En el cuadro de texto **Entity ID** (Id. de entidad), escriba el identificador de entidad.
 
     c. Cargue el archivo **XML de metadatos de federación** que descargó de Azure Portal.
 
-    d. Haga clic en **Save**(Guardar).
+    d. Haga clic en **Save** (Guardar).
 
 1. Ahora observará que todas las direcciones URL se han rellenado en la sección **Proveedor de identidades** de **SAML Config** (Configuración de SAML).
 
@@ -188,14 +188,14 @@ En esta sección, se crea un usuario llamado B.Simon en Claromentis. Claromentis
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Claromentis en el panel de acceso y debería iniciar sesión automáticamente en la versión de Claromentis para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Claromentis en el panel de acceso y debería iniciar sesión automáticamente en la versión de Claromentis para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prueba de Claromentis con Azure AD](https://aad.portal.azure.com/)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4ff6154e17408b9e2daaf3c81321ae31693de3aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8557c830aec2dd30de0a99a19d7950928d36e894
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544611"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456027"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Citrix NetScaler (autenticación basada en Kerberos)
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Citrix NetScaler con Azure Active Direc
 * Permitir que los usuarios inicien sesión automáticamente en Citrix NetScaler con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -47,7 +47,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * [Autenticación basada en encabezados para Citrix NetScaler](header-citrix-netscaler-tutorial.md#publish-the-web-server)
 
-* Una vez configurado Citrix NetScaler, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Citrix NetScaler, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-citrix-netscaler-from-the-gallery"></a>Incorporación de Citrix NetScaler desde la galería
 
@@ -57,17 +57,17 @@ Para integrar Citrix NetScaler con Azure AD, primero agregue esta aplicación a
 
 1. Seleccione **Azure Active Directory** en el menú izquierdo.
 
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
 
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
 
-1. En la sección **Agregar desde la galería**, escriba **Citrix NetScaler** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería** , escriba **Citrix NetScaler** en el cuadro de búsqueda.
 
 1. En los resultados, seleccione **Citrix NetScaler** y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-citrix-netscaler"></a>Configuración y prueba del inicio de sesión único de Azure AD para Citrix NetScaler
 
-Configure y pruebe el inicio de sesión único (SSO) de Azure AD con Citrix NetScaler mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Citrix NetScaler.
+Configure y pruebe el inicio de sesión único (SSO) de Azure AD con Citrix NetScaler mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Citrix NetScaler.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Citrix NetScaler, es preciso completar los siguientes bloques de creación:
 
@@ -87,29 +87,29 @@ Para configurar y probar el inicio de sesión único de Azure AD con Citrix Net
 
 Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en el panel de integración de aplicaciones de **Citrix NetScaler**, en **Administrar**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en el panel de integración de aplicaciones de **Citrix NetScaler** , en **Administrar** , seleccione **Inicio de sesión único** .
 
-1. En el panel **Seleccione un método de inicio de sesión único**, seleccione **SAML**.
+1. En el panel **Seleccione un método de inicio de sesión único** , seleccione **SAML** .
 
-1. En el panel **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de lápiz **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En el panel **Configurar el inicio de sesión único con SAML** , seleccione el icono con forma de lápiz **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, para configurar la aplicación en modo **iniciado por IDP**:
+1. En la sección **Configuración básica de SAML** , para configurar la aplicación en modo **iniciado por IDP** :
 
-    1. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente formato: `https://<Your FQDN>`.
+    1. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente formato: `https://<Your FQDN>`.
 
-    1. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente formato: `http(s)://<Your FQDN>.of.vserver/cgi/samlauth`.
+    1. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente formato: `http(s)://<Your FQDN>.of.vserver/cgi/samlauth`.
 
-1. Para configurar la aplicación en modo **iniciado por SP**, seleccione **Establecer direcciones URL adicionales** y haga lo siguiente:
+1. Para configurar la aplicación en modo **iniciado por SP** , seleccione **Establecer direcciones URL adicionales** y haga lo siguiente:
 
-    * En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato: `https://<Your FQDN>/CitrixAuthService/AuthService.asmx`.
+    * En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente formato: `https://<Your FQDN>/CitrixAuthService/AuthService.asmx`.
 
     > [!NOTE]
     > * Las direcciones URL que se usan en esta sección no son valores reales. Actualice estos valores con los reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Citrix NetScaler](https://www.citrix.com/contact/technical-support.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
     > * Para configurar el inicio de sesión único, las direcciones URL deben ser accesibles desde sitios web públicos. Deberá habilitar el firewall u otras opciones de seguridad en Citrix NetScaler para que Azure AD pueda publicar el token en la dirección URL configurada.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, en **Dirección URL de metadatos de federación de aplicación**, copie la dirección URL y guárdela en el Bloc de notas.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , en **Dirección URL de metadatos de federación de aplicación** , copie la dirección URL y guárdela en el Bloc de notas.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -121,41 +121,41 @@ Para habilitar el inicio de sesión único de Azure AD en Azure Portal, siga es
 
 En esta sección va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el menú izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el menú izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 
 1. Seleccione **Nuevo usuario** en la parte superior del panel.
 
-1. En las propiedades de **Usuario**, realice estos pasos:
+1. En las propiedades de **Usuario** , realice estos pasos:
 
-   1. En **Nombre**, escriba `B.Simon`.  
+   1. En **Nombre** , escriba `B.Simon`.  
 
-   1. En **Nombre de usuario**, escriba _username@companydomain.extension_ . Por ejemplo, `B.Simon@contoso.com`.
+   1. En **Nombre de usuario** , escriba _username@companydomain.extension_ . Por ejemplo, `B.Simon@contoso.com`.
 
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Password** (Contraseña).
 
-   1. Seleccione **Crear**.
+   1. Seleccione **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, concederá a B.Simon acceso a Citrix NetScaler para que pueda usar el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
 
-1. En la lista de aplicaciones, seleccione **Citrix NetScaler**.
+1. En la lista de aplicaciones, seleccione **Citrix NetScaler** .
 
-1. En la información general de la aplicación, en **Administrar**, seleccione **Usuarios y grupos**.
+1. En la información general de la aplicación, en **Administrar** , seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. Después, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** . Después, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
 
     ![Vínculo Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, en la lista **Usuarios** seleccione **B.Simon**. Elija **Seleccionar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , en la lista **Usuarios** seleccione **B.Simon** . Elija **Seleccionar** .
 
-1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol pertinente para el usuario en la lista y, a continuación, elija **Seleccionar**.
+1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol pertinente para el usuario en la lista y, a continuación, elija **Seleccionar** .
 
-1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
 
 ## <a name="configure-citrix-netscaler-sso"></a>Configuración del inicio de sesión único de Citrix NetScaler
 
@@ -171,7 +171,7 @@ Para crear un servidor virtual:
 
 1. Seleccione **Traffic Management** > **Load Balancing** > **Services** (Administración del tráfico > Equilibrio de carga > Servicios).
     
-1. Seleccione **Agregar**.
+1. Seleccione **Agregar** .
 
     ![Configuración de Citrix NetScaler: panel Services (Servicios)](./media/citrix-netscaler-tutorial/web01.png)
 
@@ -188,7 +188,7 @@ Para configurar el equilibrador de carga:
 
 1. Vaya a **Traffic Management** > **Load Balancing** > **Services** (Administración del tráfico > Equilibrio de carga > Servicios).
 
-1. Seleccione **Agregar**.
+1. Seleccione **Agregar** .
 
 1. Establezca los valores siguientes tal y como se describe en la captura de pantalla:
 
@@ -197,7 +197,7 @@ Para configurar el equilibrador de carga:
     * **Dirección IP**
     * **Puerto**
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
 
     ![Configuración de Citrix NetScaler: panel Basic Settings (Configuración básica)](./media/citrix-netscaler-tutorial/load01.png)
 
@@ -235,17 +235,17 @@ Para crear una directiva de autenticación:
 
 1. Vaya a **Security** > **AAA – Application Traffic** > **Policies** > **Authentication** > **Authentication Policies** (Seguridad > AAA – Tráfico de aplicación > Directivas > Autenticación > Directivas de autenticación).
 
-1. Seleccione **Agregar**.
+1. Seleccione **Agregar** .
 
 1. En el panel **Create Authentication Policy** (Crear directiva de autenticación), escriba o seleccione los valores siguientes:
 
-    * **Name**: escriba un nombre para la directiva de autenticación.
-    * **Acción**: Escriba **SAML** y seleccione **Add** (Agregar).
-    * **Expression** (Expresión):  escriba **true**.     
+    * **Name** : escriba un nombre para la directiva de autenticación.
+    * **Acción** : Escriba **SAML** y seleccione **Add** (Agregar).
+    * **Expression** (Expresión):  escriba **true** .     
     
     ![Configuración de Citrix NetScaler: panel Create Authentication Policy (Crear directiva de autenticación)](./media/citrix-netscaler-tutorial/policy01.png)
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
 ### <a name="create-an-authentication-saml-server"></a>Creación de un servidor SAML de autenticación
 
@@ -261,7 +261,7 @@ Para crear un servidor SAML de autenticación, vaya al panel **Create Authentica
     
 1. En **Issuer Name** (Nombre del emisor), escriba la dirección URL correspondiente.
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
 ![Configuración de Citrix NetScaler: panel Create Authentication SAML Server (Crear servidor SAML de autenticación)](./media/citrix-netscaler-tutorial/server01.png)
 
@@ -277,11 +277,11 @@ Para crear un servidor virtual de autenticación:
 
     1. Active la casilla **Non-Addressable** (No direccionable).
 
-    1. En **Protocol** (Protocolo), seleccione **SSL**.
+    1. En **Protocol** (Protocolo), seleccione **SSL** .
 
-    1. Seleccione **Aceptar**.
+    1. Seleccione **Aceptar** .
     
-1. Seleccione **Continuar**.
+1. Seleccione **Continuar** .
 
 ### <a name="configure-the-authentication-virtual-server-to-use-azure-ad"></a>Configuración del servidor virtual de autenticación para usar Azure AD
 
@@ -318,7 +318,7 @@ Modifique dos secciones para el servidor virtual de autenticación:
 
 ### <a name="create-a-kerberos-delegation-account-for-citrix-adc"></a>Creación de una cuenta de delegación de Kerberos para Citrix ADC
 
-1. Cree una cuenta de usuario (en este ejemplo, usamos _AppDelegation_).
+1. Cree una cuenta de usuario (en este ejemplo, usamos _AppDelegation_ ).
 
     ![Configuración de Citrix NetScaler: panel Properties (Propiedades)](./media/citrix-netscaler-tutorial/kerberos01.png)
 
@@ -337,7 +337,7 @@ Modifique dos secciones para el servidor virtual de autenticación:
     ![Configuración de Citrix NetScaler: delegación bajo el panel Properties (Propiedades)](./media/citrix-netscaler-tutorial/kerberos02.png)
 
     > [!NOTE]
-    > En el ejemplo de captura de pantalla, el nombre del servidor web interno que ejecuta el sitio de autenticación integrada de Windows (WIA) es _CWEB2_.
+    > En el ejemplo de captura de pantalla, el nombre del servidor web interno que ejecuta el sitio de autenticación integrada de Windows (WIA) es _CWEB2_ .
 
 ### <a name="citrix-netscaler-aaa-kcd-kerberos-delegation-accounts"></a>AAA KCD de Citrix NetScaler (cuentas de delegación de Kerberos)
 
@@ -347,20 +347,20 @@ Para configurar la cuenta de AAA KCD de Citrix NetScaler:
 
 1.  Seleccione **Add** (Agregar) y escriba o seleccione los siguientes valores:
 
-    * **Name**: escriba un nombre para la cuenta de KCD.
+    * **Name** : escriba un nombre para la cuenta de KCD.
 
     * **Realm** (Territorio): escriba el dominio y la extensión en mayúsculas.
 
-    * **Service SPN**: (SPN de servicio) `http/<host/fqdn>@<DOMAIN.COM>`.
+    * **Service SPN** : (SPN de servicio) `http/<host/fqdn>@<DOMAIN.COM>`.
     
         > [!NOTE]
         > `@DOMAIN.COM` es obligatorio y debe estar en mayúsculas. Ejemplo: `http/cweb2@IDENTT.WORK`.
 
-    * **Delegated User**: escriba el nombre del usuario delegado.
+    * **Delegated User** : escriba el nombre del usuario delegado.
 
     * Active la casilla **Password for Delegated User** (Contraseña para el usuario delegado), escriba una contraseña y confírmela.
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
  
     ![Configuración de Citrix NetScaler: panel Configure KCD Account (Configurar cuenta de KCD)](./media/citrix-netscaler-tutorial/kerberos03.png)
 
@@ -372,33 +372,33 @@ Para configurar la directiva y el perfil de tráfico de Citrix:
 
 1.  Seleccione **Traffic Profiles** (Perfiles de tráfico).
 
-1.  Seleccione **Agregar**.
+1.  Seleccione **Agregar** .
 
 1.  Para configurar un perfil de tráfico, escriba o seleccione los valores siguientes.
 
-    * **Name**: escriba un nombre para el perfil de tráfico.
+    * **Name** : escriba un nombre para el perfil de tráfico.
 
     * **Single Sign-on** (inicio de sesión único): seleccione **ON** (Activado).
 
-    * **KCD Account**: seleccione la cuenta de KCD que ha creado en la sección anterior.
+    * **KCD Account** : seleccione la cuenta de KCD que ha creado en la sección anterior.
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
 
     ![Configuración de Citrix NetScaler: panel Configure Traffic Profile (Configurar perfil de tráfico)](./media/citrix-netscaler-tutorial/kerberos04.png)
  
 1.  Seleccione **Traffic Policy** (Directiva de tráfico).
 
-1.  Seleccione **Agregar**.
+1.  Seleccione **Agregar** .
 
 1.  Para configurar una directiva de tráfico, escriba o seleccione los valores siguientes:
 
-    * **Name**: escriba un nombre para la directiva de tráfico.
+    * **Name** : escriba un nombre para la directiva de tráfico.
 
-    * **Perfil**: seleccione el perfil de tráfico que ha creado en la sección anterior.
+    * **Perfil** : seleccione el perfil de tráfico que ha creado en la sección anterior.
 
-    * **Expression** (Expresión): Escriba **true**.
+    * **Expression** (Expresión): Escriba **true** .
 
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
 
     ![Configuración de Citrix NetScaler: panel Configure Traffic Policy (Configurar directiva de tráfico)](./media/citrix-netscaler-tutorial/kerberos05.png)
 
@@ -447,20 +447,20 @@ En esta sección, se crea un usuario llamado B.Simon en Citrix NetScaler. Citrix
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el panel de acceso.
 
-Al seleccionar el icono de Citrix NetScaler en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Citrix NetScaler para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al seleccionar el icono de Citrix NetScaler en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Citrix NetScaler para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Pruebe Citrix NetScaler con Azure AD](https://aad.portal.azure.com/)
 
 - [Configuración del inicio de sesión único de Citrix NetScaler para la autenticación basada en encabezados](header-citrix-netscaler-tutorial.md)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Protección de Citrix NetScaler con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de Citrix NetScaler con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)

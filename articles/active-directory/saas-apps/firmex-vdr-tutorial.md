@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: jeedes
-ms.openlocfilehash: ab480dd8dae00cd48811473a7b335291fb6300eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dbd39b5c56192ad2ca957c5500338b50e8c8963
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555026"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453392"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-firmex-vdr"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Firmex VDR
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Firmex VDR con Azure Active Directory (
 * Permitir que los usuarios inicien sesión automáticamente en Firmex VDR con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -41,23 +41,23 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Firmex VDR admite SSO iniciado por **SP e IDP**
 
-* Una vez configurado Firmex VDR, puede aplicar controles de sesión que protejan la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Una vez configurado Firmex VDR, puede aplicar controles de sesión que protejan la filtración e infiltración de la información confidencial de la organización en tiempo real. Los controles de sesión proceden del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-firmex-vdr-from-the-gallery"></a>Adición de Firmex VDR desde la galería
 
 Para configurar la integración de Firmex VDR en Azure AD, será preciso que agregue Firmex VDR desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Firmex VDR** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **Firmex VDR** en el cuadro de búsqueda.
 1. Seleccione **Firmex VDR** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-firmex-vdr"></a>Configuración y prueba del inicio de sesión único de Azure AD para Firmex VDR
 
-Configure y pruebe el inicio de sesión único de Azure AD con Firmex VDR con un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Firmex VDR.
+Configure y pruebe el inicio de sesión único de Azure AD con Firmex VDR con un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Firmex VDR.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Firmex VDR, es preciso completar los siguientes bloques de creación:
 
@@ -72,19 +72,19 @@ Para configurar y probar el inicio de sesión único de Azure AD con Firmex VDR
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Firmex VDR**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Firmex VDR** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
+1. En la sección **Configuración básica de SAML** , el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://login.firmex.com`
+    En el cuadro de texto **URL de inicio de sesión** , escriba la dirección URL: `https://login.firmex.com`
 
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save** (Guardar).
 
 1. La aplicación Firmex VDR espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
@@ -96,11 +96,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | ------------ | --------- |
     | email | user.mail |
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la sección **Configurar Firmex VDR**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Firmex VDR** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -108,31 +108,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a conceder a B.Simon acceso a Firmex VDR mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Firmex VDR**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **Firmex VDR** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-firmex-vdr-sso"></a>Configuración del inicio de sesión único de Firmex VDR
 
@@ -160,7 +160,7 @@ Por ejemplo:
 
 ### <a name="step-2---contact-firmex-support-with-your-domains"></a>Paso 2: Contacto con el soporte técnico de Firmex con sus dominios
 
-Envíe un correo electrónico al [equipo de soporte técnico de Firmex](mailto:support@firmex.com) o llámelos al 1888 688 4042 x.11. Páseles la información de su dominio. El equipo de soporte técnico de Firmex agregará los dominios a su VDR como **dominios notificados**. El administrador debe configurar ahora el inicio de sesión único.
+Envíe un correo electrónico al [equipo de soporte técnico de Firmex](mailto:support@firmex.com) o llámelos al 1888 688 4042 x.11. Páseles la información de su dominio. El equipo de soporte técnico de Firmex agregará los dominios a su VDR como **dominios notificados** . El administrador debe configurar ahora el inicio de sesión único.
 
 Advertencia: Hasta que el administrador del sitio configure los dominios notificados, los usuarios de la empresa no podrán iniciar sesión en la aplicación VDR. Los usuarios ajenos a la empresa (es decir, los usuarios invitados) pueden iniciar sesión con su correo electrónico y contraseña. La configuración tardará unos minutos.
 
@@ -168,7 +168,7 @@ Advertencia: Hasta que el administrador del sitio configure los dominios notific
 
 1. Inicie sesión en Firmex como administrador del sitio.
 1. En la esquina superior izquierda, haga clic en el logotipo de su empresa.
-1. Seleccione la pestaña **SSO**. A continuación, seleccione **SSO Configuration** (Configuración de SSO). Haga clic en el dominio que desea configurar.
+1. Seleccione la pestaña **SSO** . A continuación, seleccione **SSO Configuration** (Configuración de SSO). Haga clic en el dominio que desea configurar.
 
     ![Dominios notificados](./media/firmex-vdr-tutorial/edit-sso.png)  
 
@@ -176,11 +176,11 @@ Advertencia: Hasta que el administrador del sitio configure los dominios notific
 
     ![SSO Configuration](./media/firmex-vdr-tutorial/SSO-config.png)
 
-    a. En el cuadro de texto **Identificador de entidad**, pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
+    a. En el cuadro de texto **Identificador de entidad** , pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
     b. En el cuadro de texto **Identity Provider URL** (Dirección URL del proveedor de identidades), pegue el valor de **Login URL** (Dirección URL de inicio de sesión) que ha copiado de Azure Portal.
 
-    c. **Public Key Certificate** (Certificado de clave pública): el emisor puede firmar digitalmente un mensaje SAML con fines de autenticación. Para comprobar la firma del mensaje, el receptor del mensaje utiliza una clave pública que se sabe que pertenece al emisor. Del mismo modo, para cifrar un mensaje, el emisor debe conocer una clave de cifrado pública que pertenezca al receptor final. En ambos casos (la firma y el cifrado), las claves públicas de confianza deben compartirse de antemano.  Este es el **certificado X509** de **XML de metadatos de federación**.
+    c. **Public Key Certificate** (Certificado de clave pública): el emisor puede firmar digitalmente un mensaje SAML con fines de autenticación. Para comprobar la firma del mensaje, el receptor del mensaje utiliza una clave pública que se sabe que pertenece al emisor. Del mismo modo, para cifrar un mensaje, el emisor debe conocer una clave de cifrado pública que pertenezca al receptor final. En ambos casos (la firma y el cifrado), las claves públicas de confianza deben compartirse de antemano.  Este es el **certificado X509** de **XML de metadatos de federación** .
 
     d. Haga clic en **Guardar** para completar la configuración de SSO. Los cambios surten efecto inmediatamente.
 
@@ -194,18 +194,18 @@ En esta sección, creará un usuario llamado B.Simon en Firmex VDR. Colabore con
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Firmex VDR en el panel de acceso, iniciará sesión automáticamente en la instancia de Firmex VDR para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Firmex VDR en el panel de acceso, iniciará sesión automáticamente en la instancia de Firmex VDR para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prueba de Firmex VDR con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Protección de Firmex con controles y visibilidad avanzados](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Protección de Firmex con controles y visibilidad avanzados](/cloud-app-security/proxy-intro-aad)
