@@ -32,7 +32,7 @@
   items:
     - name: Diseño de una base de datos
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-cli.md
@@ -118,25 +118,21 @@
           href: concepts-data-in-replication.md
         - name: Réplicas de lectura
           href: concepts-read-replicas.md
-    - name: Movimiento entre regiones
-      items:
-        - name: Azure portal
-          href: howto-move-regions-portal.md
 - name: Guías paso a paso
   items:
     - name: Administración de un servicio
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-create-manage-server-portal.md
     - name: Reglas de firewall
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-manage-firewall-portal.md
         - name: Azure CLI
           href: howto-manage-firewall-cli.md
     - name: Restauración de un servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
@@ -164,7 +160,7 @@
           href: howto-redirection.md
     - name: Configuración de parámetros del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
@@ -172,7 +168,7 @@
           href: howto-configure-server-parameters-using-powershell.md
     - name: Almacenamiento de crecimiento automático
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
@@ -180,19 +176,19 @@
           href: howto-auto-grow-storage-powershell.md
     - name: Denegación del acceso a una red pública
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-deny-public-network-access.md
     - name: Acceso a registros de servidor
       items:
         - name: Registros de consultas lentos
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-server-logs-portal.md
             - name: Azure CLI
               href: howto-configure-server-logs-cli.md
         - name: Registros de auditoría
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: howto-configure-audit-logs-portal.md
             - name: Azure CLI
               href: howto-configure-audit-logs-cli.md
@@ -218,28 +214,32 @@
           href: howto-troubleshoot-query-performance.md
     - name: Protección contra amenazas avanzada
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-database-threat-protection-portal.md
     - name: Virtual Network
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-manage-vnet-portal.md
         - name: Azure CLI
           href: howto-manage-vnet-cli.md
     - name: Private Link
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-configure-privatelink-portal.md
         - name: Azure CLI
           href: howto-configure-privatelink-cli.md
     - name: Reinicio del servidor
       items:
-        - name: Azure portal
+        - name: Portal de Azure
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: Movimiento entre regiones
+      items:
+        - name: Azure portal
+          href: howto-move-regions-portal.md
 - name: Referencia
   items:
     - name: Azure CLI
