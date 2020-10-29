@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/19/2019
-ms.openlocfilehash: 1e04662cb0f67863e23f1fc1ce7e1f21ca4e9197
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898a02796d578d76f9b45d167f4e92a4bf9831ba
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087646"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536290"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Administración de clústeres de ML Services en Azure HDInsight
 
@@ -21,7 +21,7 @@ En este artículo, aprenderá a administrar un clúster de ML Services en Azure 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Un clúster de ML Services en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster**.
+* Un clúster de ML Services en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster** .
 
 * Un cliente de Secure Shell (SSH): el cliente de SSH se usa para conectarse al clúster de HDInsight de forma remota y ejecutar comandos directamente desde el clúster. Para obtener más información, consulte [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -31,7 +31,7 @@ Para habilitar varios usuarios simultáneos para un clúster de ML Services en H
 
 ![Parámetros de inicio de sesión de HDI en Azure Portal](./media/r-server-hdinsight-manage/hdi-concurrent-users1.png)
 
-- **Nombre de usuario de inicio de sesión del clúster**: un usuario HTTP para la autenticación a través de la puerta de enlace de HDInsight que se usa para proteger los clústeres de HDInsight que ha creado. Este usuario HTTP se utiliza para acceder a la interfaz de usuario de Apache Ambari, a la interfaz de usuario de Apache Hadoop YARN y a otros componentes de la interfaz de usuario.
+- **Nombre de usuario de inicio de sesión del clúster** : un usuario HTTP para la autenticación a través de la puerta de enlace de HDInsight que se usa para proteger los clústeres de HDInsight que ha creado. Este usuario HTTP se utiliza para acceder a la interfaz de usuario de Apache Ambari, a la interfaz de usuario de Apache Hadoop YARN y a otros componentes de la interfaz de usuario.
 - **Nombre de usuario de Secure Shell (SSH)** : un usuario SSH para acceder al clúster a través de Secure Shell. Este es un usuario del sistema Linux para todos los nodos principales, nodos de trabajo y nodos perimetrales. Por consiguiente, puede usar Secure Shell para acceder a cualquiera de los nodos de un clúster remoto.
 
 La versión de comunidad de R Studio Server que se usa en el clúster de ML Services en HDInsight acepta únicamente el nombre de usuario y la contraseña de Linux como mecanismo de inicio de sesión. No admite tokens de paso. Por lo tanto, al tratar de obtener acceso a R Studio por primera vez en un clúster de ML Services, debe iniciar sesión dos veces.
@@ -74,7 +74,7 @@ Cuando se le pida la "contraseña actual de Kerberos", presione **Entrar** para 
 
 Acceda a RStudio desde `https://CLUSTERNAME.azurehdinsight.net/rstudio/`. La primera vez que inicie sesión después de crear el clúster, escriba las credenciales de administrador del clúster seguidas de las credenciales del usuario SSH que ha creado. Si no se trata del primer inicio de sesión, escriba solo las credenciales del usuario SSH que ha creado.
 
-También puede iniciar sesión con las credenciales originales (de forma predeterminada es *sshuser*) simultáneamente desde otra ventana del explorador.
+También puede iniciar sesión con las credenciales originales (de forma predeterminada es *sshuser* ) simultáneamente desde otra ventana del explorador.
 
 Tenga en cuenta también que los usuarios recién agregados no tienen privilegios raíz en el sistema Linux, pero tienen el mismo acceso a todos los archivos en el almacenamiento HDFS y WASB remoto.
 
@@ -106,7 +106,7 @@ mySparkCluster <- RxSpark(
 )
 ```
 
-Para más información, consulte la sección "Using Microsoft Machine Learning Server as a Apache Hadoop Client" (Uso de Microsoft Machine Learning Server como cliente de Apache Hadoop) de [How to use RevoScaleR in a Apache Spark compute context](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Uso de RevoScaleR en un contexto de proceso de Apache Spark)
+Para más información, consulte la sección "Using Microsoft Machine Learning Server as a Apache Hadoop Client" (Uso de Microsoft Machine Learning Server como cliente de Apache Hadoop) de [How to use RevoScaleR in a Apache Spark compute context](/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios) (Uso de RevoScaleR en un contexto de proceso de Apache Spark)
 
 ## <a name="use-a-compute-context"></a>Usar un contexto de proceso
 
@@ -195,17 +195,17 @@ Para instalar paquetes de R en los nodos de trabajo del clúster, debe usar una 
 
 1. Siga los pasos de [Personalización de clústeres mediante la acción de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
-3. En **Enviar acción de script**, proporcione la siguiente información:
+3. En **Enviar acción de script** , proporcione la siguiente información:
 
-   * En **Tipo de script**, seleccione **Personalizada**.
+   * En **Tipo de script** , seleccione **Personalizada** .
 
-   * En **Nombre**, especifique un nombre para la acción de script.
+   * En **Nombre** , especifique un nombre para la acción de script.
 
-     * En **URI de script de Bash**, escriba `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Se trata del script que instala los paquetes de R adicionales en el nodo de trabajo.
+     * En **URI de script de Bash** , escriba `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Se trata del script que instala los paquetes de R adicionales en el nodo de trabajo.
 
-   * Active solo la casilla de verificación de **Trabajo**.
+   * Active solo la casilla de verificación de **Trabajo** .
 
-   * **Parámetros**: paquetes de R que se van a instalar. Por ejemplo: `bitops stringr arules`
+   * **Parámetros** : paquetes de R que se van a instalar. Por ejemplo: `bitops stringr arules`
 
    * Active la casilla de verificación de **Persist this script action** (Continuar con esta acción de script).  
 

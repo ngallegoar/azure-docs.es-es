@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 1e88fc64ea297f70f56478588312675fb233f221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0d3ac4775ca057856c28ab42197bb734f149d6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085946"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534947"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Uso de Apache Oozie con Apache Hadoop para definir y ejecutar un flujo de trabajo en Azure HDInsight basado en Linux
 
@@ -31,11 +31,11 @@ Oozie también puede usarse para programar trabajos específicos de un sistema, 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Un clúster de Hadoop en HDInsight**. Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* **Un clúster de Hadoop en HDInsight** . Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Un cliente SSH**. Consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
+* **Un cliente SSH** . Consulte [Conexión a HDInsight (Apache Hadoop) mediante SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-* **Una instancia de Azure SQL Database**.  Consulte [Creación de una base de datos en Azure SQL Database en Azure Portal](../sql-database/sql-database-get-started.md).  En este artículo se usa una base de datos denominada **oozietest**.
+* **Una instancia de Azure SQL Database** .  Consulte [Creación de una base de datos en Azure SQL Database en Azure Portal](../azure-sql/database/single-database-create-quickstart.md).  En este artículo se usa una base de datos denominada **oozietest** .
 
 * El esquema de URI para el almacenamiento principal de clústeres. `wasb://` para Azure Storage, `abfs://` para Azure Data Lake Storage Gen2 o `adl://` para Azure Data Lake Storage Gen1. Si se habilita la transferencia segura para Azure Storage, el identificador URI sería `wasbs://`. Consulte también el artículo acerca de la [transferencia segura](../storage/common/storage-require-secure-transfer.md).
 
@@ -130,7 +130,7 @@ Siga estos pasos para crear un script de lenguaje de consulta de Hive (HiveQL) q
 
      El archivo de definición de flujo de trabajo (workflow.xml en este artículo) pasa estos valores a este script de HiveQL en tiempo de ejecución.
 
-1. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.  
+1. Para guardar el archivo, seleccione **Ctrl+X** , escriba **Y** y luego seleccione **Entrar** .  
 
 1. Use los comandos siguientes para copiar `useooziewf.hql` en `wasbs:///tutorials/useoozie/useooziewf.hql`:
 
@@ -215,7 +215,7 @@ Las definiciones de flujo de trabajo de Oozie se escriben en lenguaje de definic
 
      Tenga en cuenta también la entrada `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` de la sección de Sqoop. Esta entrada indica a Oozie que haga que este archivo esté disponible para Sqoop cuando se ejecuta esta acción.
 
-3. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.  
+3. Para guardar el archivo, seleccione **Ctrl+X** , escriba **Y** y luego seleccione **Entrar** .  
 
 4. Use el comando siguiente para copiar el archivo `workflow.xml` en `/tutorials/useoozie/workflow.xml`:
 
@@ -382,7 +382,7 @@ La definición del trabajo describe dónde encontrar workflow.xml. También se d
 
 4. Cuando se abra el editor nano, pegue el XML editado como contenido del archivo.
 
-5. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.
+5. Para guardar el archivo, seleccione **Ctrl+X** , escriba **Y** y luego seleccione **Entrar** .
 
 ## <a name="submit-and-manage-the-job"></a>Envío y administración del trabajo
 
@@ -489,9 +489,9 @@ Para más información acerca del comando Oozie, consulte [Herramienta de línea
 
 La API de REST de Oozie le permite crear sus propias herramientas que funcionan con Oozie. Lo siguiente es información específica de HDInsight sobre el uso de la API de REST de Oozie:
 
-* **URI**: se puede acceder a la API REST desde fuera del clúster en `https://CLUSTERNAME.azurehdinsight.net/oozie`.
+* **URI** : se puede acceder a la API REST desde fuera del clúster en `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticación**: para realizar la autenticación, use la API con la cuenta HTTP del clúster (admin) y la contraseña. Por ejemplo:
+* **Autenticación** : para realizar la autenticación, use la API con la cuenta HTTP del clúster (admin) y la contraseña. Por ejemplo:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -531,25 +531,25 @@ Para acceder a la interfaz de usuario web de Oozie, siga estos pasos:
 
 6. En la pestaña **Job Info** (Información de trabajo), puede ver información básica de trabajo y las acciones individuales dentro del trabajo. En las pestañas en la parte superior puede ver la **Job Definition** (Definición del trabajo), **Job Configuration** (Configuración del trabajo), **Job Log** (Registro del trabajo) o un grafo acíclico dirigido (DAG) del trabajo en **Job DAG** (DAG del trabajo).
 
-   * **Registro del trabajo**: Seleccione el botón **Get Logs** (Obtener registros) para obtener todos los registros del trabajo o use el campo **Enter Search Filter** (Escribir filtro de búsqueda) para filtrar los registros.
+   * **Registro del trabajo** : Seleccione el botón **Get Logs** (Obtener registros) para obtener todos los registros del trabajo o use el campo **Enter Search Filter** (Escribir filtro de búsqueda) para filtrar los registros.
 
        ![Registro del trabajo de HDInsight Apache Oozie](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
-   * **DAG del trabajo**: el DAG es una información general gráfica de las rutas de acceso de datos usadas en el flujo de trabajo.
+   * **DAG del trabajo** : el DAG es una información general gráfica de las rutas de acceso de datos usadas en el flujo de trabajo.
 
        !["DAG del trabajo de HDInsight Apache Oozie"](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
-7. Si selecciona una de las acciones en la pestaña **Job Info** (Información del trabajo), aparecerá información de la acción. Por ejemplo, seleccione la acción **RunSqoopExport**.
+7. Si selecciona una de las acciones en la pestaña **Job Info** (Información del trabajo), aparecerá información de la acción. Por ejemplo, seleccione la acción **RunSqoopExport** .
 
     ![Información de la acción de trabajo de HDInsight oozie](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
-8. Puede ver detalles de la acción, incluido un vínculo a la **dirección URL de la consola**. Este vínculo se puede usar para ver la información de seguimiento del trabajo.
+8. Puede ver detalles de la acción, incluido un vínculo a la **dirección URL de la consola** . Este vínculo se puede usar para ver la información de seguimiento del trabajo.
 
 ## <a name="schedule-jobs"></a>Programación de trabajos
 
 Puede utilizar el coordinador para especificar un inicio, un fin y la frecuencia de repetición para los trabajos. Para definir una programación para el flujo de trabajo, siga estos pasos:
 
-1. Use el comando siguiente para crear un nuevo archivo denominado **coordinator.xml**:
+1. Use el comando siguiente para crear un nuevo archivo denominado **coordinator.xml** :
 
     ```bash
     nano coordinator.xml
@@ -573,10 +573,10 @@ Puede utilizar el coordinador para especificar un inicio, un fin y la frecuencia
     > * `${coordFrequency}`: el tiempo entre las instancias en ejecución del trabajo.
     > * `${coordStart}`: la hora de inicio del trabajo.
     > * `${coordEnd}`: la hora de finalización del trabajo.
-    > * `${coordTimezone}`: los trabajos del coordinador se encuentran en una zona horaria fija sin horario de verano (representado normalmente mediante UTC). Esta zona horaria se conoce como la *zona de horaria de procesamiento de Oozie*.
+    > * `${coordTimezone}`: los trabajos del coordinador se encuentran en una zona horaria fija sin horario de verano (representado normalmente mediante UTC). Esta zona horaria se conoce como la *zona de horaria de procesamiento de Oozie* .
     > * `${wfPath}`: la ruta de acceso a workflow.xml.
 
-2. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.
+2. Para guardar el archivo, seleccione **Ctrl+X** , escriba **Y** y luego seleccione **Entrar** .
 
 3. Use el siguiente comando para copiar el archivo en el directorio de trabajo para este trabajo:
 
@@ -631,7 +631,7 @@ Puede utilizar el coordinador para especificar un inicio, un fin y la frecuencia
 
        Estos valores establecen la hora de inicio en las 12:00 del 10 de mayo de 2018 y la fecha de finalización el 12 de mayo de 2018. El intervalo para ejecutar este trabajo se configura diariamente. La frecuencia está en minutos, por lo que 24 horas x 60 minutos = 1440 minutos. Por último, la zona horaria se establece en UTC.
 
-5. Para guardar el archivo, seleccione **Ctrl+X**, escriba **Y** y luego seleccione **Entrar**.
+5. Para guardar el archivo, seleccione **Ctrl+X** , escriba **Y** y luego seleccione **Entrar** .
 
 6. Para enviar e iniciar el trabajo, use el comando siguiente:
 

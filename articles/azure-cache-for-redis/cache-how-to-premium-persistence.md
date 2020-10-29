@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8ae76ca27c8c6f8fed5692b9a2376fff53a52bb6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339550"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536579"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Configuración de la persistencia de datos en el nivel Prémium de Azure Cache for Redis
 En este artículo, aprenderá a configurar la persistencia de una instancia de Azure Cache for Redis del nivel premium a través de Azure Portal. Azure Cache for Redis cuenta con diferentes opciones de caché, lo que proporciona flexibilidad en la elección del tamaño y las características de la memoria caché, incluidas algunas características del nivel Prémium, como la agrupación en clústeres, la persistencia y la compatibilidad con las redes virtuales. 
@@ -28,7 +28,7 @@ La persistencia escribe los datos de Redis en una cuenta de Azure Storage que po
 
 > [!NOTE]
 > 
-> Azure Storage cifra automáticamente los datos cuando se conservan. Puede usar sus propias claves para el cifrado. Para más información, consulte [Claves administradas por el cliente con Azure Key Vault](/azure/storage/common/storage-service-encryption).
+> Azure Storage cifra automáticamente los datos cuando se conservan. Puede usar sus propias claves para el cifrado. Para más información, consulte [Claves administradas por el cliente con Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
 > 
 

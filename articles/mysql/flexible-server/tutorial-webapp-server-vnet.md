@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929721"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534063"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Tutorial: Creación de un servidor flexible (versión preliminar) de Azure Database for MySQL con una aplicación web de App Services en una red virtual
 
 > [!IMPORTANT]
 > El servidor flexible de Azure Database for MySQL está actualmente en versión preliminar pública.
 
-En este tutorial se muestra cómo crear una aplicación web de Azure App Service con el servidor flexible de MySQL (versión preliminar) dentro de una [red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+En este tutorial se muestra cómo crear una aplicación web de Azure App Service con el servidor flexible de MySQL (versión preliminar) dentro de una [red virtual](../../virtual-network/virtual-networks-overview.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 En este artículo es necesario que ejecute la versión 2.0 de la CLI de Azure, o cualquier versión posterior, de forma local. Para ver la versión instalada, ejecute el comando `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-Deberá iniciar sesión en su cuenta mediante el comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Anote la propiedad **id** de la salida del comando para el nombre de la suscripción correspondiente.
+Deberá iniciar sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). Anote la propiedad **id** de la salida del comando para el nombre de la suscripción correspondiente.
 
 ```azurecli
 az login
@@ -52,7 +52,7 @@ Este comando realiza las siguientes acciones, que pueden tardar algunos minutos:
 - Genera un nombre de servidor, si no se proporciona alguno.
 - Crea una nueva red virtual para el nuevo servidor de MySQL. Anote el nombre de la red virtual y de la subred que se crearon para el servidor, ya que debe agregar la aplicación web a la misma red virtual.
 - Crea un nombre de usuario administrador y una contraseña para el servidor, si no se proporciona alguna.
-- Crea una base de datos vacía llamada **flexibleserverdb**.
+- Crea una base de datos vacía llamada **flexibleserverdb** .
 
 > [!NOTE]
 > Anote la contraseña que se generará si no proporciona alguna. Si olvida la contraseña, tendrá que restablecerla con el comando ``` az mysql flexible-server update```.
@@ -111,4 +111,4 @@ az group delete -n myresourcegroup
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Asignación de un nombre DNS personalizado existente a Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Asignación de un nombre DNS personalizado existente a Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

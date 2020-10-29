@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 10/14/2019
-ms.openlocfilehash: 2a6b324c4caf9619566ba335ab2e5a318ab68bb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85226e7a2544cda01f40a1c1be6be32f11d9dfc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86079435"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542801"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-phoenix-queries-over-apache-hbase-in-azure-hdinsight"></a>Use Apache Zeppelin para ejecutar consultas de Apache Phoenix en Azure HDInsight
 
@@ -46,7 +46,7 @@ Un clúster de Apache HBase en HDInsight. Vea [Introducción a un ejemplo de Apa
 
     ![Estado del cuaderno de Zeppelin](./media/apache-hbase-phoenix-zeppelin/hbase-zeppelin-connected.png "Estado del cuaderno de Zeppelin")
 
-1. Cree una tabla de HBase. Escriba el siguiente comando y, a continuación, presione **Máyus + Entrar**:
+1. Cree una tabla de HBase. Escriba el siguiente comando y, a continuación, presione **Máyus + Entrar** :
 
     ```sql
     %jdbc(phoenix)
@@ -98,5 +98,5 @@ Un clúster de Apache HBase en HDInsight. Vea [Introducción a un ejemplo de Apa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Apache Phoenix ahora admite Zeppelin en Azure HDInsight](https://blogs.msdn.microsoft.com/ashish/2018/08/17/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight/)
+- [Apache Phoenix ahora admite Zeppelin en Azure HDInsight](/archive/blogs/ashish/apache-phoenix-now-supports-zeppelin-in-azure-hdinsight)
 - [Gramática de Apache Phoenix](https://phoenix.apache.org/language/index.html)

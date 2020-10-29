@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086728"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533298"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Análisis de datos de Twitter con Apache Hive y Apache Hadoop en HDInsight
 
@@ -30,7 +30,7 @@ Twitter permite recuperar los datos de cada tweet como un documento con formato 
 
 1. Desde un explorador web, inicie sesión en [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/). Seleccione el vínculo **Regístrate ahora** si no tiene una cuenta de Twitter.
 
-2. Seleccione **Crear nueva aplicación**.
+2. Seleccione **Crear nueva aplicación** .
 
 3. Especifique los campos **Name** (Nombre), **Description** (Descripción), **Website** (Sitio web). Puede conformar una dirección URL para el campo **Website** (Sitio web). La siguiente tabla muestra algunos valores de ejemplo para utilizar:
 
@@ -42,7 +42,7 @@ Twitter permite recuperar los datos de cada tweet como un documento con formato 
 
 4. Seleccione **Yes, I agree** (Acepto) y, a continuación, elija **Create your Twitter application** (Crear la aplicación de Twitter).
 
-5. Seleccione la pestaña **Permisos**. El permiso predeterminado es **Read only**(Solo lectura).
+5. Seleccione la pestaña **Permisos** . El permiso predeterminado es **Read only** (Solo lectura).
 
 6. Seleccione la pestaña **Claves y tokens de acceso** .
 
@@ -54,7 +54,7 @@ Twitter permite recuperar los datos de cada tweet como un documento con formato 
 
 ### <a name="download-tweets"></a>Descarga de tweets
 
-El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un archivo denominado **tweets.txt**.
+El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un archivo denominado **tweets.txt** .
 
 > [!NOTE]  
 > Los siguientes pasos se realizan en el clúster de HDInsight, puesto que Python ya está instalada.
@@ -78,13 +78,13 @@ El siguiente código Python descarga 10 000 tweets de Twitter y los guarda en un
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-1. Use el comando siguiente para crear un archivo denominado **gettweets.py**:
+1. Use el comando siguiente para crear un archivo denominado **gettweets.py** :
 
    ```bash
    nano gettweets.py
    ```
 
-1. Para modificar el comando siguiente, reemplace `Your consumer secret`, `Your consumer key`, `Your access token` y `Your access token secret` por la información pertinente de su aplicación de Twitter. A continuación, pegue el código editado como el contenido del archivo **gettweets.py**.
+1. Para modificar el comando siguiente, reemplace `Your consumer secret`, `Your consumer key`, `Your access token` y `Your access token secret` por la información pertinente de su aplicación de Twitter. A continuación, pegue el código editado como el contenido del archivo **gettweets.py** .
 
    ```python
    #!/usr/bin/python
@@ -291,7 +291,7 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
-    Este comando ejecuta el archivo **twitter.hql**. Una vez que se completa la consulta, verá el aviso `jdbc:hive2//localhost:10001/>`.
+    Este comando ejecuta el archivo **twitter.hql** . Una vez que se completa la consulta, verá el aviso `jdbc:hive2//localhost:10001/>`.
 
 1. Desde el símbolo del sistema de beeline, use la siguiente consulta para comprobar que se importaron datos:
 
@@ -313,4 +313,4 @@ Estos comandos almacenan los datos en una ubicación a la que pueden tener acces
 Ha aprendido cómo transformar un conjunto de datos JSON no estructurado en una tabla de [Apache Hive](https://hive.apache.org/) estructurada. Para obtener más información sobre Hive en HDInsight, consulte los siguientes documentos:
 
 * [Introducción a HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Análisis de la información de retraso de vuelos con HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Análisis de la información de retraso de vuelos con HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

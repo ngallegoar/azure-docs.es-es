@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 08/06/2020
-ms.openlocfilehash: 78c0526ac750977115a88e96bb5f7d5cb4e9803f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c02f9de5b41d58e40001ba103191f3ef015f5c5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87873099"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534913"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Uso de repositorios de metadatos externos en Azure HDInsight
 
@@ -63,9 +63,9 @@ HDInsight también admite tiendas de metadatos personalizadas, que se recomienda
 
 ### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Creación y configuración de Azure SQL Database para la metastore personalizada
 
-Debe crear o tener una instancia de Azure SQL Database antes de configurar un metastore de Hive personalizado para un clúster de HDInsight.  Para más información, consulte [Inicio rápido: Creación de una base de datos única en Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Debe crear o tener una instancia de Azure SQL Database antes de configurar un metastore de Hive personalizado para un clúster de HDInsight.  Para más información, consulte [Inicio rápido: Creación de una base de datos única en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-Al crear el clúster, el servicio HDInsight necesita conectarse al metastore externo y comprobar las credenciales. Configure las reglas de firewall de Azure SQL Database para permitir que los recursos y servicios de Azure accedan al servidor. Habilite esta opción en Azure Portal; para ello, seleccione **Establecer el firewall del servidor**. A continuación, seleccione **No** en **Denegar acceso de red pública** y **Sí** en **Permitir que los servicios y recursos de Azure accedan a este servidor** para Azure SQL Database. Para más información, consulte [Creación y administración de reglas de firewall de IP.](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Al crear el clúster, el servicio HDInsight necesita conectarse al metastore externo y comprobar las credenciales. Configure las reglas de firewall de Azure SQL Database para permitir que los recursos y servicios de Azure accedan al servidor. Habilite esta opción en Azure Portal; para ello, seleccione **Establecer el firewall del servidor** . A continuación, seleccione **No** en **Denegar acceso de red pública** y **Sí** en **Permitir que los servicios y recursos de Azure accedan a este servidor** para Azure SQL Database. Para más información, consulte [Creación y administración de reglas de firewall de IP.](../azure-sql/database/firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
 No se admiten los puntos de conexión privados para almacenes SQL.
 
@@ -75,7 +75,7 @@ No se admiten los puntos de conexión privados para almacenes SQL.
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selección de una tienda de metadatos personalizada durante la creación del clúster
 
-En cualquier momento, puede apuntar el clúster a una instancia de Azure SQL Database creada anteriormente. Para la creación de clústeres en el portal, se especifica la opción en **Almacenamiento > Configuración de Metastore**.
+En cualquier momento, puede apuntar el clúster a una instancia de Azure SQL Database creada anteriormente. Para la creación de clústeres en el portal, se especifica la opción en **Almacenamiento > Configuración de Metastore** .
 
 ![Repositorio de metadatos de Hive en HDInsight: Azure Portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 

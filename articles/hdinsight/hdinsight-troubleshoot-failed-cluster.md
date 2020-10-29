@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: be991b63784a2c72a51bfbdc8506f3b4695ed6c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895315"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535100"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Solución de problemas de un trabajo lento o con errores en un clúster de HDInsight
 
@@ -56,7 +56,7 @@ Azure Portal puede proporcionar esta información:
 
 ![Información de Azure Portal de HDInsight](./media/hdinsight-troubleshoot-failed-cluster/hdi-azure-portal-info.png)
 
-También puede usar la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+También puede usar la [CLI de Azure](/cli/azure/):
 
 ```azurecli
 az hdinsight list --resource-group <ResourceGroup>
@@ -90,8 +90,8 @@ HDInsight se basa en varios servicios de Azure. Ejecuta servidores virtuales en 
 
 #### <a name="check-azure-service-usage-limits"></a>Comprobar los límites de uso del servicio de Azure
 
-Si inicia un clúster grande o ha iniciado muchos clústeres al mismo tiempo, un clúster puede producir un error si ha superado un límite de servicio de Azure. Los límites de servicio varían en función de su suscripción a Azure. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-Puede solicitar que Microsoft aumente el número de recursos de HDInsight disponibles (por ejemplo, núcleos e instancias de VM) con una [solicitud de aumento de cuota de núcleos de Resource Manager](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Si inicia un clúster grande o ha iniciado muchos clústeres al mismo tiempo, un clúster puede producir un error si ha superado un límite de servicio de Azure. Los límites de servicio varían en función de su suscripción a Azure. Para más información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Puede solicitar que Microsoft aumente el número de recursos de HDInsight disponibles (por ejemplo, núcleos e instancias de VM) con una [solicitud de aumento de cuota de núcleos de Resource Manager](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 #### <a name="check-the-release-version"></a>Comprobar la versión de lanzamiento
 
@@ -115,7 +115,7 @@ El [panel de UI de Ambari](#view-cluster-configuration-settings-with-the-ambari-
 
 ### <a name="check-your-webhcat-service"></a>Comprobar el servicio de WebHCat
 
-Un escenario común en el que se producen errores en Apache Hive, Apache Pig o Apache Sqoop consiste en un error con el servicio [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (o *Templeton*). WebHCat es una interfaz REST para la ejecución del trabajo remoto, como Hive, Pig, Scoop y MapReduce. WebHCat traduce las solicitudes de envío de trabajo en aplicaciones de YARN de Apache Hadoop y devuelve un estado que se deriva del estado de la aplicación de YARN.  En las siguientes secciones se describen los códigos comunes del estado HTTP de WebHCat.
+Un escenario común en el que se producen errores en Apache Hive, Apache Pig o Apache Sqoop consiste en un error con el servicio [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (o *Templeton* ). WebHCat es una interfaz REST para la ejecución del trabajo remoto, como Hive, Pig, Scoop y MapReduce. WebHCat traduce las solicitudes de envío de trabajo en aplicaciones de YARN de Apache Hadoop y devuelve un estado que se deriva del estado de la aplicación de YARN.  En las siguientes secciones se describen los códigos comunes del estado HTTP de WebHCat.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (código de estado 502)
 
@@ -172,7 +172,7 @@ En el nivel de YARN, hay dos tipos de tiempos de expiración:
 
     Si abre el archivo de registro `/var/log/webhcat/webhcat.log` y busca "trabajo en cola", es posible que vea varias entradas en que el tiempo de ejecución sea excesivamente largo (> 2000 ms), cuyas entradas muestran un aumento en los tiempos de espera.
 
-    El tiempo de los trabajos en cola sigue aumentando porque la velocidad a la que se han enviado los trabajos nuevos es superior a la velocidad con que se completan los antiguos. Cuando el uso de la memoria de YARN está al 100%, la *cola de joblauncher* ya no puede tomar prestada capacidad de la *cola predeterminada*. Por lo tanto, no se pueden aceptar más trabajos nuevos en la cola de joblauncher. Este comportamiento puede aumentar el tiempo de espera y provocar un error de tiempo de expiración al que suelen seguir muchos más.
+    El tiempo de los trabajos en cola sigue aumentando porque la velocidad a la que se han enviado los trabajos nuevos es superior a la velocidad con que se completan los antiguos. Cuando el uso de la memoria de YARN está al 100%, la *cola de joblauncher* ya no puede tomar prestada capacidad de la *cola predeterminada* . Por lo tanto, no se pueden aceptar más trabajos nuevos en la cola de joblauncher. Este comportamiento puede aumentar el tiempo de espera y provocar un error de tiempo de expiración al que suelen seguir muchos más.
 
     En la siguiente imagen se muestra la cola de joblauncher con un uso excesivo del 714,4 %. Esto es aceptable siempre y cuando aún haya capacidad libre en la cola predeterminada que se pueda tomar prestada. Sin embargo, cuando el clúster se utiliza totalmente y la memoria YARN está al 100 % de su capacidad, los trabajos nuevos deben esperar, lo que finalmente provoca tiempos de espera.
 
@@ -228,7 +228,7 @@ Los registros de acciones de script residen en el directorio de `\STORAGE_ACCOUN
 
 ### <a name="view-hdinsight-logs-using-ambari-quick-links"></a>Ver registros de HDInsight con los vínculos rápidos de Ambari
 
-La UI de HDInsight Ambari incluye una serie de secciones de **vínculos rápidos**.  Para obtener acceso a los vínculos de registro de un servicio determinado en el clúster de HDInsight, abra la UI de Ambari del clúster, y, a continuación, seleccione el vínculo del servicio en la lista situada a la izquierda. Seleccione el menú desplegable **Vínculos rápidos**, el nodo de HDInsight que le interese y, a continuación, el vínculo de su registro asociado.
+La UI de HDInsight Ambari incluye una serie de secciones de **vínculos rápidos** .  Para obtener acceso a los vínculos de registro de un servicio determinado en el clúster de HDInsight, abra la UI de Ambari del clúster, y, a continuación, seleccione el vínculo del servicio en la lista situada a la izquierda. Seleccione el menú desplegable **Vínculos rápidos** , el nodo de HDInsight que le interese y, a continuación, el vínculo de su registro asociado.
 
 Por ejemplo, para los registros HDFS:
 
@@ -262,7 +262,7 @@ Para ayudar a diagnosticar el origen de un error de clúster, inicie un clúster
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Administración de clústeres de HDInsight con la interfaz de usuario web de Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Análisis de registros de HDInsight](hdinsight-debug-jobs.md)
+* [Análisis de registros de HDInsight](./hdinsight-troubleshoot-guide.md)
 * [Acceso a registros de aplicación de YARN de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Habilitar los volcados de montón de los servicios de Apache Hadoop en HDInsight basado en Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Problemas conocidos de clústeres de Apache Spark en HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Problemas conocidos de clústeres de Apache Spark en HDInsight](./spark/apache-spark-known-issues.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 593d6861ee5913fffb25bfdea4829e1b1ce6ddc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087408"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534454"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Análisis de registros para Apache Kafka en HDInsight
 
@@ -50,7 +50,7 @@ Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismo
 
 1. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo de Log Analytics.
 
-2. En el menú izquierdo, en **General**, seleccione **Registros**. Aquí podrá buscar los datos recopilados de Kafka. Escriba una consulta en la ventana de consulta y seleccione **Ejecutar**. A continuación se presentan algunos ejemplos de búsqueda:
+2. En el menú izquierdo, en **General** , seleccione **Registros** . Aquí podrá buscar los datos recopilados de Kafka. Escriba una consulta en la ventana de consulta y seleccione **Ejecutar** . A continuación se presentan algunos ejemplos de búsqueda:
 
 * Uso de disco:
 
@@ -104,7 +104,7 @@ Los pasos para habilitar registros de Azure Monitor para HDInsight son los mismo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre Azure Monitor, vea [Introducción a Azure Monitor](../../log-analytics/log-analytics-get-started.md) y [Uso de consultas con registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+Para obtener más información sobre Azure Monitor, vea [Introducción a Azure Monitor](../../azure-monitor/overview.md) y [Uso de consultas con registros de Azure Monitor](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 Para información sobre cómo trabajar con Apache Kafka, consulte los documentos siguientes:
 

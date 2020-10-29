@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84700372"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532771"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Solución de problemas de Apache Storm mediante Azure HDInsight
 
@@ -27,8 +27,8 @@ Tiene dos opciones para acceder a la interfaz de usuario de Storm desde un explo
 ### <a name="apache-ambari-ui"></a>Interfaz de usuario de Apache Ambari
 
 1. Vaya al panel de Ambari.
-2. En la lista de servicios, seleccione **Storm**.
-3. En el menú **Vínculos rápidos**, seleccione **Interfaz de usuario de Storm**.
+2. En la lista de servicios, seleccione **Storm** .
+3. En el menú **Vínculos rápidos** , seleccione **Interfaz de usuario de Storm** .
 
 ### <a name="direct-link"></a>Vínculo directo
 
@@ -95,7 +95,7 @@ Los archivos binarios de Storm para la pila HDP actual están en `/usr/hdp/curre
 
 Puede haber varios archivos binarios para versiones específicas de HDP en /usr/hdp (por ejemplo, `/usr/hdp/2.5.0.1233/storm`). La carpeta `/usr/hdp/current/storm-client` tiene un vínculo simbólico a la versión más reciente que se ejecuta en el clúster.
 
-Para más información, consulte cómo [conectarse a un clúster de HDInsight a través de SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) y [Apache Storm](https://storm.apache.org/).
+Para más información, consulte cómo [conectarse a un clúster de HDInsight a través de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) y [Apache Storm](https://storm.apache.org/).
 
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>¿Cómo se determina la topología de implementación de un clúster de Storm?
 
@@ -141,7 +141,7 @@ Para más información sobre el uso de archivos .jar del centro de eventos de St
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>Topología basada en C# (Mono en clústeres de Storm Linux HDInsight 3.4 o superior)
 
-[Procesamiento de eventos desde Azure Event Hubs con Apache Storm en HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Procesamiento de eventos desde Azure Event Hubs con Apache Storm en HDInsight (C#)](./apache-storm-develop-csharp-event-hub-topology.md)
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Archivos binarios de spout del centro de eventos de Apache Storm para clústeres de Storm Linux HDInsight 3.5 y superior
 
@@ -186,4 +186,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 - Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

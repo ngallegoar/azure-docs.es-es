@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93c07b47e03bde20d494feb1c86179cd9a24ba26
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409721"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539418"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Solicitud de aumentos de cuota para Azure HDInsight
 
@@ -30,7 +30,7 @@ Si ha recibido un error que indica que ha alcanzado un límite de cuota, use el 
 
     1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
     1. Vaya a la página **información general** para el clúster de HDInsight.
-    1. En el menú de la izquierda, seleccione **Límites de cuota**. La página muestra el número de núcleos en uso, el número de núcleos disponibles y el total de núcleos.
+    1. En el menú de la izquierda, seleccione **Límites de cuota** . La página muestra el número de núcleos en uso, el número de núcleos disponibles y el total de núcleos.
 
 Para solicitar un aumento de la cuota, siga los pasos siguientes:
 
@@ -39,17 +39,17 @@ Para solicitar un aumento de la cuota, siga los pasos siguientes:
 
     ![botón de ayuda y soporte técnico](./media/quota-increase-request/help-support-button.png)
 
-1. Seleccione **Nueva solicitud de soporte técnico**.
-1. En la página **Nueva solicitud de soporte técnico**, en la pestaña **Fundamentos**, seleccione las opciones siguientes:
+1. Seleccione **Nueva solicitud de soporte técnico** .
+1. En la página **Nueva solicitud de soporte técnico** , en la pestaña **Fundamentos** , seleccione las opciones siguientes:
 
-   - **Tipo de problema**: **Límites de servicio y suscripción (cuotas)**
-   - **Suscripción**: la suscripción que desea modificar.
-   - **Tipo de cuota**: **HDInsight**
+   - **Tipo de problema** : **Límites de servicio y suscripción (cuotas)**
+   - **Suscripción** : la suscripción que desea modificar.
+   - **Tipo de cuota** : **HDInsight**
 
      ![Creación de una solicitud de soporte técnico para aumentar la cuota de núcleos de HDInsight](./media/quota-increase-request/hdinsight-quota-support-request.png)
 
 1. Seleccione **Siguiente: Soluciones >>** .
-1. En la página **Detalles**, escriba una descripción del problema, seleccione su gravedad y método de contacto preferido, y complete los demás campos obligatorios. Use la plantilla que se muestra a continuación para asegurarse de proporcionar la información necesaria. El equipo de capacidad de Azure es quién evalúa las solicitudes de aumento de cuota, y no el equipo del producto de HDInsight. Cuanto más completa sea la información que proporcione, más probabilidades habrá de que se apruebe la solicitud.
+1. En la página **Detalles** , escriba una descripción del problema, seleccione su gravedad y método de contacto preferido, y complete los demás campos obligatorios. Use la plantilla que se muestra a continuación para asegurarse de proporcionar la información necesaria. El equipo de capacidad de Azure es quién evalúa las solicitudes de aumento de cuota, y no el equipo del producto de HDInsight. Cuanto más completa sea la información que proporcione, más probabilidades habrá de que se apruebe la solicitud.
 
     ```
     I would like to request [SPECIFY DESIRED AMOUNT] on [DESIRED SKU] for [SUBSCRIPTION ID].
@@ -62,14 +62,14 @@ Para solicitar un aumento de la cuota, siga los pasos siguientes:
     ![detalles del problema](./media/quota-increase-request/problem-details.png)
 
 1. Seleccione **Siguiente: Revisar y crear >>** .
-1. En la pestaña **Revisar y crear**, seleccione **Crear**.
+1. En la pestaña **Revisar y crear** , seleccione **Crear** .
 
 > [!NOTE]  
 > Si necesita aumentar la cuota de núcleos de HDInsight en una región privada, [envíe una solicitud de lista aprobada](https://aka.ms/canaryintwhitelist).
 
-Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Puede [ponerse en contacto con el servicio de soporte técnico para solicitar un aumento de la cuota](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
-Hay algunos límites de cuota fijos. Por ejemplo, una sola suscripción de Azure puede tener como máximo 10 000 núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Hay algunos límites de cuota fijos. Por ejemplo, una sola suscripción de Azure puede tener como máximo 10 000 núcleos. Para obtener información detallada sobre estos límites, vea [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103346"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535474"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configuración del tráfico de red saliente para clústeres de Azure HDInsight mediante Firewall
 
@@ -23,7 +23,7 @@ Este artículo proporciona los pasos para proteger el tráfico saliente del clú
 
 Los clústeres de HDInsight se implementan normalmente en una red virtual. El clúster tiene dependencias en servicios que están fuera de esa red.
 
-El tráfico entrante de administración no se puede enviar a través de un firewall. Puede usar etiquetas de servicio de NSG para el tráfico entrante, tal y como se documenta [aquí](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags). 
+El tráfico entrante de administración no se puede enviar a través de un firewall. Puede usar etiquetas de servicio de NSG para el tráfico entrante, tal y como se documenta [aquí](./hdinsight-service-tags.md). 
 
 Las dependencias del tráfico de salida de HDInsight aislado se definen casi por completo con nombres de dominio completos. Estos no tienen direcciones IP estáticas detrás. La falta de direcciones estáticas significa que los grupos de seguridad de red (NSG) no pueden bloquear el tráfico saliente de un clúster. Las direcciones IP cambian con tal frecuencia que no se pueden configurar reglas en función de la resolución de nombres y del uso actualmente.
 
@@ -160,7 +160,7 @@ Si las aplicaciones tienen otras dependencias, deben agregarse a Azure Firewall.
 
 ## <a name="logging-and-scale"></a>Registro y escala
 
-Azure Firewall puede enviar registros a algunos sistemas de almacenamiento diferentes. Para obtener instrucciones sobre la configuración del registro para el firewall, siga los pasos de [Tutorial: Supervisión de métricas y registros de Azure Firewall](../firewall/tutorial-diagnostics.md).
+Azure Firewall puede enviar registros a algunos sistemas de almacenamiento diferentes. Para obtener instrucciones sobre la configuración del registro para el firewall, siga los pasos de [Tutorial: Supervisión de métricas y registros de Azure Firewall](../firewall/firewall-diagnostics.md).
 
 Cuando haya completado la configuración del registro, si va a usar Log Analytics, puede ver el tráfico bloqueado con una consulta como la siguiente:
 

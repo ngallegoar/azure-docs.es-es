@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087612"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536341"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opciones de contexto de proceso para ML Services en HDInsight
 
@@ -23,18 +23,18 @@ El nodo perimetral de un clúster proporciona un lugar conveniente para conectar
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML Services en Azure HDInsight
 
-[ML Services en Azure HDInsight](r-server-overview.md) proporciona las más recientes funcionalidades para el análisis basado en R. Puede usar datos almacenados en un contenedor Apache Hadoop HDFS en su cuenta de almacenamiento de [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como ML Services se basa en el lenguaje R de código abierto, las aplicaciones basadas en R que cree pueden aplicar cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), un paquete de análisis de macrodatos de Microsoft que se incluye con ML Services.  
+[ML Services en Azure HDInsight](r-server-overview.md) proporciona las más recientes funcionalidades para el análisis basado en R. Puede usar datos almacenados en un contenedor Apache Hadoop HDFS en su cuenta de almacenamiento de [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage"), un almacén de Data Lake Store o el sistema de archivos local de Linux. Como ML Services se basa en el lenguaje R de código abierto, las aplicaciones basadas en R que cree pueden aplicar cualquiera de los más de 8000 paquetes de R de código abierto. También pueden utilizar las rutinas de [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), un paquete de análisis de macrodatos de Microsoft que se incluye con ML Services.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de proceso de un nodo perimetral
 
 En general, el script de R que se ejecuta en el nodo perimetral del clúster de ML Services lo hace dentro del intérprete de R de dicho nodo. Las excepciones son esos pasos que llaman a una función RevoScaleR. Las llamadas a RevoScaleR se ejecutan en un entorno de proceso determinado por la manera en que establece el contexto de proceso de RevoScaleR.  Al ejecutar el script de R desde un nodo perimetral, los posibles valores del contexto de proceso son:
 
-- secuencial local (*local*)
-- paralelo local (*localpar*)
+- secuencial local ( *local* )
+- paralelo local ( *localpar* )
 - MapReduce
 - Spark
 
-Las opciones *local* y *localpar* solo difieren en cómo se ejecutan las llamadas de **rxExec**. Las dos ejecutan otras llamadas a función de rx de manera paralela en todos los núcleos disponibles, a menos que se especifique lo contrario mediante el uso de la opción **numCoresToUse** de RevoScaleR; por ejemplo, `rxOptions(numCoresToUse=6)`. Las opciones de ejecución en paralelo ofrecen un rendimiento óptimo.
+Las opciones *local* y *localpar* solo difieren en cómo se ejecutan las llamadas de **rxExec** . Las dos ejecutan otras llamadas a función de rx de manera paralela en todos los núcleos disponibles, a menos que se especifique lo contrario mediante el uso de la opción **numCoresToUse** de RevoScaleR; por ejemplo, `rxOptions(numCoresToUse=6)`. Las opciones de ejecución en paralelo ofrecen un rendimiento óptimo.
 
 En la tabla siguiente se resumen las distintas opciones de contexto de proceso para establecer cómo se ejecutan las llamadas:
 
@@ -59,12 +59,12 @@ Con estos principios, las siguientes secciones ofrecen algunas reglas generales 
 
 ### <a name="local"></a>Local
 
-- Si la cantidad de datos que se va a analizar es pequeña y no requiere un análisis repetido, transmítalos directamente a la rutina de análisis mediante *local* o *localpar*.
-- Si la cantidad de datos que se va a analizar es pequeña o mediana y requiere análisis repetido, cópielos en el sistema de archivos local, impórtelos a XDF y analícelos mediante *local* o *localpar*.
+- Si la cantidad de datos que se va a analizar es pequeña y no requiere un análisis repetido, transmítalos directamente a la rutina de análisis mediante *local* o *localpar* .
+- Si la cantidad de datos que se va a analizar es pequeña o mediana y requiere análisis repetido, cópielos en el sistema de archivos local, impórtelos a XDF y analícelos mediante *local* o *localpar* .
 
 ### <a name="apache-spark"></a>Spark de Apache
 
-- Si la cantidad de datos que se va a analizar es grande, impórtelos a Spark DataFrame mediante **RxHiveData** o **RxParquetData**, o a XDF en HDFS (a no ser que el almacenamiento sea un problema), y analícelos mediante el contexto de proceso de Spark.
+- Si la cantidad de datos que se va a analizar es grande, impórtelos a Spark DataFrame mediante **RxHiveData** o **RxParquetData** , o a XDF en HDFS (a no ser que el almacenamiento sea un problema), y analícelos mediante el contexto de proceso de Spark.
 
 ### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop MapReduce
 
@@ -77,7 +77,7 @@ Para más información sobre los contextos de proceso de RevoScaleR y ver alguno
 > ?rxSetComputeContext
 ```
 
-También puede consultar la [información general sobre la computación distribuida ](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) en la [documentación de Machine Learning Server](https://docs.microsoft.com/machine-learning-server/).
+También puede consultar la [información general sobre la computación distribuida ](/machine-learning-server/r/how-to-revoscaler-distributed-computing) en la [documentación de Machine Learning Server](/machine-learning-server/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 2149d069ce9cb0b636e461d19963f413b162bc9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010797"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537531"
 ---
 # <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Preguntas frecuentes sobre la supervisión y solución de problemas de Azure Cache for Redis
 En este artículo se proporcionan respuestas a preguntas habituales sobre cómo administrar y solucionar los problemas de Azure Cache for Redis.
@@ -29,7 +29,7 @@ Se pueden supervisar las instancias de Microsoft Azure Cache for Redis en [Azure
 El **menú de recursos** de Azure Cache for Redis también contiene varias herramientas para supervisar las cachés y solucionar sus problemas.
 
 * En **Diagnosticar y solucionar problemas** se proporciona información sobre los problemas comunes y las estrategias para resolverlos.
-* **estado de los recursos** supervisa el recurso e indica si se ejecuta del modo previsto. Para obtener más información sobre el servicio Estado de los recursos de Azure, consulte [Información general sobre Estado de los recursos de Azure](../resource-health/resource-health-overview.md).
+* **estado de los recursos** supervisa el recurso e indica si se ejecuta del modo previsto. Para obtener más información sobre el servicio Estado de los recursos de Azure, consulte [Información general sobre Estado de los recursos de Azure](../service-health/resource-health-overview.md).
 * **Nueva solicitud de soporte** para abrir una solicitud de soporte técnico para su memoria caché.
 
 Estas herramientas permiten supervisar el estado de las instancias de Azure Cache for Redis y le ayudan a administrar sus aplicaciones de almacenamiento en caché. Para más información, vea la sección "Support & troubleshooting settings" (Configuración de soporte técnico y solución de problemas) de [How to configure Azure Cache for Redis](cache-configure.md) (Configuración de Azure Cache for Redis).

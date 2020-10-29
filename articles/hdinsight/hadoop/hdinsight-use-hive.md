@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462282"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540404"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>¿Qué son Apache Hive y HiveQL en Azure HDInsight?
 
@@ -34,7 +34,7 @@ HDInsight proporciona varios tipos de clúster, que están optimizados para carg
 
 Utilice la siguiente tabla para descubrir distintas formas de usar Hive con HDInsight:
 
-| **Use este método** si desea… | ... consultas **interactivas** | ...procesamiento por**lotes** | ...desde este **sistema operativo de cliente** |
+| **Use este método** si desea… | ... consultas **interactivas** | ...procesamiento por **lotes** | ...desde este **sistema operativo de cliente** |
 |:--- |:---:|:---:|:--- |:--- |
 | [Herramientas de HDInsight para Visual Studio Code](../hdinsight-for-vscode.md) |✔ |✔ | Linux, Unix, Mac OS X o Windows |
 | [Herramientas de HDInsight para Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
@@ -72,14 +72,14 @@ Para obtener más información sobre formatos de archivo compatibles con Hive, c
 
 Hay dos tipos de tablas que puede crear con Hive:
 
-* __Internas__: los datos se almacenan en el almacenamiento de datos de Hive. El almacenamiento de datos se encuentra en `/hive/warehouse/` en el almacenamiento predeterminado para el clúster.
+* __Internas__ : los datos se almacenan en el almacenamiento de datos de Hive. El almacenamiento de datos se encuentra en `/hive/warehouse/` en el almacenamiento predeterminado para el clúster.
 
     Use las tablas internas cuando se cumpla alguna de las condiciones siguientes:
 
     * Los datos sean temporales.
     * Desee que Hive administre el ciclo de vida de la tabla y los datos.
 
-* __Externas__: los datos se almacenan fuera del almacenamiento de datos. Los datos se pueden almacenar en cualquier almacenamiento accesible desde el clúster.
+* __Externas__ : los datos se almacenan fuera del almacenamiento de datos. Los datos se pueden almacenar en cualquier almacenamiento accesible desde el clúster.
 
     Use las tablas externas cuando se cumpla alguna de las condiciones siguientes:
 
@@ -88,7 +88,7 @@ Hay dos tipos de tablas que puede crear con Hive:
     * Necesite una ubicación personalizada, como una cuenta de almacenamiento no predeterminada.
     * Un programa distinto de Hive administre el formato de datos, la ubicación, etc.
 
-Para más información, consulte la entrada de blog [Hive Internal and External Tables Intro](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) (Introducción a las tablas internas y externas de Hive).
+Para más información, consulte la entrada de blog [Hive Internal and External Tables Intro](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro) (Introducción a las tablas internas y externas de Hive).
 
 ## <a name="user-defined-functions-udf"></a>Funciones definidas por el usuario (UDF)
 
@@ -100,7 +100,7 @@ Hive también puede extenderse a través de **funciones definidas por el usuario
 
 * [Usar funciones definidas por el usuario de C# con Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Cómo agregar una función definida por el usuario de Apache Hive personalizada a HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [Cómo agregar una función definida por el usuario de Apache Hive personalizada a HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Un ejemplo de función definida por el usuario de Apache Hive para convertir formatos de fecha y hora en una marca de tiempo de Hive](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -166,9 +166,9 @@ Estas instrucciones realizan las acciones siguientes:
 
 |. |Descripción |
 |---|---|
-|CREATE TABLE IF NOT EXISTS|Si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL**, esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.|
+|CREATE TABLE IF NOT EXISTS|Si la tabla no existe, créela. Dado que no se utiliza la palabra clave **EXTERNAL** , esta instrucción crea una tabla interna. La tabla se almacena en el almacenamiento de datos de Hive y Hive la administra por completo.|
 |STORED AS ORC|almacena los datos en el formato de columnas de filas optimizadas (ORC, Optimized Row Columnar). ORC es un formato altamente optimizado y eficiente para almacenar datos de Hive.|
-|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs**.|
+|INSERT OVERWRITE... SELECT|selecciona filas de la tabla **log4jLogs** que contiene **[ERROR]** y luego inserta los datos en la tabla **errorLogs** .|
 
 > [!NOTE]  
 > A diferencia de las tablas externas, la eliminación de una tabla interna también eliminará los datos subyacentes.
@@ -197,11 +197,11 @@ Azure Data Factory permite usar HDInsight como parte de una canalización de Dat
 
 Puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Hive. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con trabajos de Hive en HDInsight.
 
-* [Tarea de Hive de Azure HDInsight](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Tarea de Hive de Azure HDInsight](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Administrador de conexiones de suscripción de Azure](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Administrador de conexiones de suscripción de Azure](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Para más información, consulte la documentación del [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
+Para más información, consulte la documentación del [Azure Feature Pack](/sql/integration-services/azure-feature-pack-for-integration-services-ssis).
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

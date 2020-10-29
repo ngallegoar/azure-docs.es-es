@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: f6ac02f0bcd9becf5dd1ffcd600f78b848b47cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d5ec89ef7563df16e0fe9b447eca88b1dba7fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839697"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536885"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Configuración de replicación geográfica para Azure Cache for Redis
 
@@ -51,11 +51,11 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
 ## <a name="add-a-geo-replication-link"></a>Agregar un vínculo de replicación geográfica
 
-1. Para vincular dos cachés para la replicación geográfica, primero haga clic en **Replicación geográfica** en el menú Recursos de la caché que vaya a ser la caché vinculada principal. A continuación, haga clic en **Agregar vínculo de replicación de caché** desde la hoja **Replicación geográfica**.
+1. Para vincular dos cachés para la replicación geográfica, primero haga clic en **Replicación geográfica** en el menú Recursos de la caché que vaya a ser la caché vinculada principal. A continuación, haga clic en **Agregar vínculo de replicación de caché** desde la hoja **Replicación geográfica** .
 
     ![Agregar vínculo](./media/cache-how-to-geo-replication/cache-geo-location-menu.png)
 
-2. Haga clic en el nombre de la caché secundaria deseada en la lista **Cachés compatibles**. Si la caché secundaria no aparece en la lista, compruebe que se cumplen los [requisitos previos de replicación geográfica](#geo-replication-prerequisites) para la caché secundaria. Para filtrar las cachés por región, haga clic en la región en el mapa para mostrar solo esas cachés en la lista de **cachés disponibles**.
+2. Haga clic en el nombre de la caché secundaria deseada en la lista **Cachés compatibles** . Si la caché secundaria no aparece en la lista, compruebe que se cumplen los [requisitos previos de replicación geográfica](#geo-replication-prerequisites) para la caché secundaria. Para filtrar las cachés por región, haga clic en la región en el mapa para mostrar solo esas cachés en la lista de **cachés disponibles** .
 
     ![Cachés compatibles de replicación geográfica](./media/cache-how-to-geo-replication/cache-geo-location-select-link.png)
     
@@ -67,7 +67,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
     ![Vincular cachés](./media/cache-how-to-geo-replication/cache-geo-location-confirm-link.png)
 
-4. Puede ver el progreso del proceso de replicación en la hoja **Replicación geográfica**.
+4. Puede ver el progreso del proceso de replicación en la hoja **Replicación geográfica** .
 
     ![Estado de la vinculación](./media/cache-how-to-geo-replication/cache-geo-location-linking.png)
 
@@ -75,7 +75,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
     ![Captura de pantalla que destaca cómo ver el estado de vinculación de las memorias caché principales y secundarias.](./media/cache-how-to-geo-replication/cache-geo-location-link-status.png)
 
-    Una vez que se completa el proceso de replicación, el **estado del vínculo** cambia a **Correcto**.
+    Una vez que se completa el proceso de replicación, el **estado del vínculo** cambia a **Correcto** .
 
     ![Estado de cachés](./media/cache-how-to-geo-replication/cache-geo-location-link-successful.png)
 
@@ -83,7 +83,7 @@ Una vez que se configura la replicación geográfica, se aplican las siguientes 
 
 ## <a name="remove-a-geo-replication-link"></a>Quitar un vínculo de replicación geográfica
 
-1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Desvincular cachés** en la hoja **Replicación geográfica**.
+1. Para quitar el vínculo entre dos cachés y detener la replicación geográfica, haga clic en **Desvincular cachés** en la hoja **Replicación geográfica** .
     
     ![Desvincular cachés](./media/cache-how-to-geo-replication/cache-geo-location-unlink.png)
 
@@ -145,8 +145,8 @@ Sí, la replicación geográfica de cachés en redes virtuales es compatible con
 
 - Se admite la replicación geográfica entre cachés de la misma VNET.
 - También se admite la replicación geográfica entre cachés en distintas redes virtuales.
-  - Si las redes virtuales están en la misma región, puede conectarlas mediante un [emparejamiento de la red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) o una [conexión de red virtual a red virtual de VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Si las redes virtuales están en diferentes regiones, se admite la replicación geográfica mediante el emparejamiento de VNET, pero una VM cliente de la red virtual 1 (región 1) no podrá acceder a la memoria caché de la red virtual 2 (región 2) a través de su nombre DNS debido a una restricción de los equilibradores de carga internos básicos. Para obtener más información sobre las restricciones de emparejamiento de redes virtuales, consulte [Red virtual - Emparejamiento - Requisitos y restricciones](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). La solución recomendada es usar una conexión de red virtual a red virtual de VPN Gateway.
+  - Si las redes virtuales están en la misma región, puede conectarlas mediante un [emparejamiento de la red virtual](../virtual-network/virtual-network-peering-overview.md) o una [conexión de red virtual a red virtual de VPN Gateway](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
+  - Si las redes virtuales están en diferentes regiones, se admite la replicación geográfica mediante el emparejamiento de VNET, pero una VM cliente de la red virtual 1 (región 1) no podrá acceder a la memoria caché de la red virtual 2 (región 2) a través de su nombre DNS debido a una restricción de los equilibradores de carga internos básicos. Para obtener más información sobre las restricciones de emparejamiento de redes virtuales, consulte [Red virtual - Emparejamiento - Requisitos y restricciones](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). La solución recomendada es usar una conexión de red virtual a red virtual de VPN Gateway.
   
 Puede usar [esta plantilla de Azure](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/) para implementar rápidamente dos cachés con replicación geográfica en una red virtual conectada con una conexión puerta de enlace a puerta de enlace de VPN Gateway.
 
@@ -166,7 +166,7 @@ Para obtener un punto de recuperación, [exporte](cache-how-to-import-export-dat
 
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>¿Puedo usar PowerShell o la CLI de Azure para administrar la replicación geográfica?
 
-Sí, se puede administrar la replicación geográfica mediante Azure Portal, PowerShell o la CLI de Azure. Para obtener más información, consulte los [documentos de PowerShell](https://docs.microsoft.com/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) o [los documentos de la CLI de Azure](https://docs.microsoft.com/cli/azure/redis/server-link?view=azure-cli-latest).
+Sí, se puede administrar la replicación geográfica mediante Azure Portal, PowerShell o la CLI de Azure. Para obtener más información, consulte los [documentos de PowerShell](/powershell/module/az.rediscache/?view=azps-1.4.0#redis_cache) o [los documentos de la CLI de Azure](/cli/azure/redis/server-link?view=azure-cli-latest).
 
 ### <a name="how-much-does-it-cost-to-replicate-my-data-across-azure-regions"></a>¿Cuánto cuesta replicar datos entre regiones de Azure?
 
@@ -188,7 +188,7 @@ Para ejecutar una conmutación por error iniciada por el cliente, desvincule pri
 
 ### <a name="can-i-configure-a-firewall-with-geo-replication"></a>¿Puedo configurar un firewall con la replicación geográfica?
 
-Sí, puede configurar un [firewall](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall) con la replicación geográfica. Para que la replicación geográfica funcione junto con un firewall, asegúrese de que la dirección IP de la caché secundaria está agregada a las reglas de firewall de la caché principal.
+Sí, puede configurar un [firewall](./cache-configure.md#firewall) con la replicación geográfica. Para que la replicación geográfica funcione junto con un firewall, asegúrese de que la dirección IP de la caché secundaria está agregada a las reglas de firewall de la caché principal.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

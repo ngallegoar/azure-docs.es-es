@@ -3,12 +3,12 @@ title: Selección de una opción de migración de VMware con Azure Migrate Serve
 description: Proporciona información general sobre las opciones para migrar máquinas virtuales de VMware a Azure con Azure Migrate Server Migration.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: e62b9cea80f1ed7f672135b93e52ba606a717a6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac08075212d885a1aca755f94906b50754e23b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88950228"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534114"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selección de una opción de migración de VMware
 
@@ -29,9 +29,9 @@ Use estas comparaciones seleccionadas para que le ayuden a decidir qué método 
 **Implementación del dispositivo** | El [dispositivo de Azure Migrate](migrate-appliance.md) se implementa de forma local. | El [dispositivo de replicación de Azure Migrate](migrate-replication-appliance.md) se implementa de forma local.
 **Compatibilidad con Site Recovery** | Compatible. | No se puede replicar con la migración del servidor de Azure Migrate si ha configurado la replicación para una máquina con Site Recovery.
 **Disco de destino** | Discos administrados | Discos administrados
-**Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 63
+**Límites del disco** | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 32 TB<br/><br/> Número máximo de discos: 60 | Disco del sistema operativo: 2 TB<br/><br/> Disco de datos: 8 TB<br/><br/> Número máximo de discos: 63
 **Discos de acceso directo** | No compatible | Compatible
-**Arranque UEFI** | No compatible | La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS.<br/><br/> El disco del sistema operativo debe tener hasta cuatro particiones y los volúmenes deben formatearse con NTFS.
+**Arranque UEFI** | Compatible. | Compatible.
 
 ## <a name="compare-deployment-steps"></a>Comparación de los pasos de implementación
 
@@ -45,7 +45,7 @@ Después de revisar las limitaciones, una descripción de los pasos necesarios p
 **Preparación de VMware para la migración** | Defina la configuración en máquinas virtuales y servidores de VMware. | Obligatorio | Obligatorio
 **Instalación de Mobility Service en máquinas virtuales** | El servicio Mobility se ejecuta en cada máquina que quiera replicar. | No se requiere | Obligatorio
 **Implementación del dispositivo de replicación** | El [dispositivo de replicación](migrate-replication-appliance.md) se usa para la migración basada en agente. Se conecta entre el servicio Mobility que se ejecuta en las máquinas virtuales y Server Migration. | No se requiere | Obligatorio
-**Replicación de máquinas virtuales**, habilitación de la replicación de máquinas virtuales | Configure las opciones de replicación y seleccione las máquinas virtuales que se van a replicar. | Obligatorio | Obligatorio
+**Replicación de máquinas virtuales** , habilitación de la replicación de máquinas virtuales | Configure las opciones de replicación y seleccione las máquinas virtuales que se van a replicar. | Obligatorio | Obligatorio
 **Ejecución de una migración de prueba** | Ejecute una migración de prueba para asegurarse de que todo funciona de la forma esperada. | Obligatorio | Obligatorio
 **Ejecución de una migración completa** | Migre las máquinas virtuales. | Obligatorio | Obligatorio
 

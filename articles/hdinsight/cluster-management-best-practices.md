@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fd79568944d81e267a45287104bd0fa9698df2fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89648693"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542325"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Procedimientos recomendados de administración de clústeres de HDInsight
 
@@ -26,12 +26,12 @@ Aprenda los procedimientos recomendados para la administración de clústeres de
 | Azure Data Factory | [Creación de clústeres de Apache Hadoop a petición en HDInsight mediante Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Personalización de una plantilla de Resource Manager | [Creación de clústeres de Apache Hadoop en HDInsight con plantillas de Resource Manager](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Plantillas de inicio rápido | [Plantillas de inicio rápido de HDInsight](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
-| Ejemplos de Azure | [Ejemplos de Azure en HDInsight](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
+| Ejemplos de Azure | [Ejemplos de Azure en HDInsight](/samples/browse/?products=azure-hdinsight) |
 | Portal de Azure | [Creación de clústeres basados en Linux en HDInsight mediante Azure Portal](./spark/apache-spark-intellij-tool-plugin.md) |
 | Azure CLI | [Creación de clústeres de HDInsight mediante la CLI de Azure](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Creación de clústeres basados en Linux en HDInsight con Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Creación de clústeres de Apache Hadoop mediante la API REST de Azure](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDK (.NET, Python, Java) | [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet), [Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDK (.NET, Python, Java) | [.NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [Python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable), [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > Si va a crear un clúster y quiere volver a usar el nombre de uno creado anteriormente, espere hasta que se complete la eliminación del clúster anterior para crear otro.
@@ -62,7 +62,7 @@ Aprenda los procedimientos recomendados para la administración de clústeres de
 | Escala manual | [Escala de clústeres de Azure HDInsight](./hdinsight-scaling-best-practices.md) |
 | Supervisión con Ambari| [Supervisión del rendimiento de un clúster en Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Supervisión con registros de Azure Monitor | [Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
-| Problemas de servicio, mantenimiento planeado y advertencias de estado y seguridad | [Suscripción a alertas de estado de servicio específicas de la suscripción](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+| Problemas de servicio, mantenimiento planeado y advertencias de estado y seguridad | [Suscripción a alertas de estado de servicio específicas de la suscripción](../service-health/alerts-activity-log-service-notifications-portal.md) |
 
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>¿Cómo se comprueban los clústeres de HDInsight eliminados?

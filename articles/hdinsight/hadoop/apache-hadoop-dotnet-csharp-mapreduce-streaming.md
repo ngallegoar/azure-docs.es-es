@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 58f807a5a036f14af9baede604debe9d577cdbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4153b612b4b15883f28517d806acf6b340a94e49
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000692"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543056"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Uso de C# con el streaming de MapReduce en Apache Hadoop en HDInsight
 
@@ -31,9 +31,9 @@ Si desea conocer más detalles sobre la compatibilidad entre Mono y las versione
 
 A continuación se expone el proceso básico que se emplea para realizar streaming en este documento:
 
-1. Hadoop transfiere datos al asignador (*mapper.exe* en este ejemplo) en STDIN.
+1. Hadoop transfiere datos al asignador ( *mapper.exe* en este ejemplo) en STDIN.
 2. El asignador procesa los datos y envía pares clave-valor delimitados por tabulaciones a STDOUT.
-3. Hadoop lee los resultados, que, a continuación, se transfieren al reductor (*reducer.exe* en este ejemplo) en STDIN.
+3. Hadoop lee los resultados, que, a continuación, se transfieren al reductor ( *reducer.exe* en este ejemplo) en STDIN.
 4. El reductor lee los pares clave-valor delimitados por tabulaciones, procesa los datos y, después, envía el resultado en forma de pares clave-valor delimitados por tabulaciones en STDOUT.
 5. Hadoop lee los resultados, que, a continuación, se escriben en el directorio de salida.
 
@@ -47,7 +47,7 @@ Para más información, consulte [Hadoop Streaming](https://hadoop.apache.org/do
 
 * Una forma de cargar archivos .exe en el clúster. En los pasos descritos en este documento se emplean las herramientas Data Lake para Visual Studio para cargar los archivos en el almacenamiento principal del clúster.
 
-* Si usa PowerShell, necesitará el [Módulo Az](https://docs.microsoft.com/powershell/azure/).
+* Si usa PowerShell, necesitará el [Módulo Az](/powershell/azure/).
 
 * Un clúster de Apache Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -55,7 +55,7 @@ Para más información, consulte [Hadoop Streaming](https://hadoop.apache.org/do
 
 ## <a name="create-the-mapper"></a>Creación del asignador
 
-En Visual Studio, cree una nueva aplicación de consola denominada *mapper*. Use el código siguiente para la aplicación:
+En Visual Studio, cree una nueva aplicación de consola denominada *mapper* . Use el código siguiente para la aplicación:
 
 ```csharp
 using System;
@@ -92,7 +92,7 @@ Después de crear la aplicación, compílela para generar el archivo */bin/Debug
 
 ## <a name="create-the-reducer"></a>Creación del reductor
 
-En Visual Studio, cree una aplicación de consola de .NET Framework denominada *reducer*. Use el código siguiente para la aplicación:
+En Visual Studio, cree una aplicación de consola de .NET Framework denominada *reducer* . Use el código siguiente para la aplicación:
 
 ```csharp
 using System;
@@ -147,9 +147,9 @@ Después de crear la aplicación, compílela para generar el archivo */bin/Debug
 
 Luego, debe cargas las aplicaciones *mapper* y *reducer* en el almacenamiento de HDInsight.
 
-1. En Visual Studio, seleccione **Ver** > **Explorador de servidores**.
+1. En Visual Studio, seleccione **Ver** > **Explorador de servidores** .
 
-1. Haga clic con el botón derecho en **Azure**, seleccione **Conectar a la suscripción de Microsoft Azure...** y complete el proceso de inicio de sesión.
+1. Haga clic con el botón derecho en **Azure** , seleccione **Conectar a la suscripción de Microsoft Azure...** y complete el proceso de inicio de sesión.
 
 1. Expanda el clúster de HDInsight en el que desee implementar esta aplicación. Aparecerá una entrada con el texto **(Cuenta de almacenamiento predeterminada)** en la lista.
 
@@ -161,15 +161,15 @@ Luego, debe cargas las aplicaciones *mapper* y *reducer* en el almacenamiento de
 
 1. Para cargar los archivos .exe, siga uno de estos métodos:
 
-    * Si está usando una **cuenta de Azure Storage**, seleccione el icono **Cargar blob**.
+    * Si está usando una **cuenta de Azure Storage** , seleccione el icono **Cargar blob** .
 
         ![Icono de carga de HDInsight para mapper, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
 
-        En el cuadro de diálogo **Cargar nuevo archivo**, en **Nombre de archivo**, seleccione **Examinar**. En el cuadro de diálogo **Cargar blob**, vaya a la carpeta *bin\debug* del proyecto *mapper* y, luego, elija el archivo *mapper.exe*. Por último, seleccione **Abrir** y, a continuación, **Aceptar** para completar la carga.
+        En el cuadro de diálogo **Cargar nuevo archivo** , en **Nombre de archivo** , seleccione **Examinar** . En el cuadro de diálogo **Cargar blob** , vaya a la carpeta *bin\debug* del proyecto *mapper* y, luego, elija el archivo *mapper.exe* . Por último, seleccione **Abrir** y, a continuación, **Aceptar** para completar la carga.
 
-    * Si usa **Azure Data Lake Storage**, haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione **Cargar**. Por último, seleccione el archivo *mapper.exe* y haga clic en **Abrir**.
+    * Si usa **Azure Data Lake Storage** , haga clic con el botón derecho en un área vacía de la lista de archivos y, después, seleccione **Cargar** . Por último, seleccione el archivo *mapper.exe* y haga clic en **Abrir** .
 
-    Una vez que la carga del archivo *mapper.exe* haya finalizado, repita el proceso de carga con el archivo *reducer.exe*.
+    Una vez que la carga del archivo *mapper.exe* haya finalizado, repita el proceso de carga con el archivo *reducer.exe* .
 
 ## <a name="run-a-job-using-an-ssh-session"></a>Ejecución de un trabajo: Con una sesión de SSH
 
@@ -183,7 +183,7 @@ En el procedimiento siguiente se describe cómo ejecutar un trabajo de MapReduce
 
 1. Use uno de los siguientes comandos para iniciar el trabajo de MapReduce:
 
-   * Si el almacenamiento predeterminado es **Azure Storage**:
+   * Si el almacenamiento predeterminado es **Azure Storage** :
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -194,7 +194,7 @@ En el procedimiento siguiente se describe cómo ejecutar un trabajo de MapReduce
             -output /example/wordcountout
         ```
 
-    * Si el almacenamiento predeterminado es **Data Lake Storage Gen1**:
+    * Si el almacenamiento predeterminado es **Data Lake Storage Gen1** :
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -205,7 +205,7 @@ En el procedimiento siguiente se describe cómo ejecutar un trabajo de MapReduce
             -output /example/wordcountout
         ```
 
-   * Si el almacenamiento predeterminado es **Data Lake Storage Gen2**:
+   * Si el almacenamiento predeterminado es **Data Lake Storage Gen2** :
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar \
@@ -253,7 +253,7 @@ Sírvase del siguiente script de PowerShell para ejecutar un trabajo de MapReduc
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Este script le solicitará el nombre de la cuenta de inicio de sesión y la contraseña del clúster, junto con el nombre del clúster de HDInsight. Finalizado el trabajo, el resultado se descarga en un archivo denominado *output.txt*. A continuación, se muestra un ejemplo de los datos que contiene el archivo `output.txt`:
+Este script le solicitará el nombre de la cuenta de inicio de sesión y la contraseña del clúster, junto con el nombre del clúster de HDInsight. Finalizado el trabajo, el resultado se descarga en un archivo denominado *output.txt* . A continuación, se muestra un ejemplo de los datos que contiene el archivo `output.txt`:
 
 ```output
 you     1128

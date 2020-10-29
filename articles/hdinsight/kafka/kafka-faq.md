@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84c48f14ae57cfa4aa3290924d3d170c075fe3a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436915"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532547"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Preguntas frecuentes sobre Apache Kafka en Azure HDInsight
 
@@ -68,7 +68,7 @@ Para incrementar la cantidad de espacio disponible para mensajes Kafka, puede au
 
 ## <a name="can-a-kafka-cluster-work-with-databricks"></a>¿Puede un clúster de Kafka trabajar con Databricks? 
 
-Sí, los clústeres de Kafka pueden trabajar con Databricks, siempre y cuando estén en la misma red virtual. Para usar un clúster de Kafka con Databricks, cree una red virtual con un clúster de Kafka de HDInsight en ella y, después, especifique esa red virtual al crear el área de trabajo de Databricks y usar la inyección de red virtual. Para más información, consulte [Implementación de Azure Databricks en la red virtual de Azure (inyección de red virtual)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Tendrá que proporcionar los nombres de agente de arranque del clúster de Kafka al crear el área de trabajo de Databricks. Para obtener información sobre cómo recuperar los nombres de los agentes de Kafka, consulte [Obtención de la información del host de Apache Zookeeper y del agente](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
+Sí, los clústeres de Kafka pueden trabajar con Databricks, siempre y cuando estén en la misma red virtual. Para usar un clúster de Kafka con Databricks, cree una red virtual con un clúster de Kafka de HDInsight en ella y, después, especifique esa red virtual al crear el área de trabajo de Databricks y usar la inyección de red virtual. Para más información, consulte [Implementación de Azure Databricks en la red virtual de Azure (inyección de red virtual)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Tendrá que proporcionar los nombres de agente de arranque del clúster de Kafka al crear el área de trabajo de Databricks. Para obtener información sobre cómo recuperar los nombres de los agentes de Kafka, consulte [Obtención de la información del host de Apache Zookeeper y del agente](./apache-kafka-get-started.md#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>¿Cómo puedo conseguir la máxima durabilidad de los datos?
 
@@ -78,7 +78,7 @@ La durabilidad de los datos reduce al mínimo el riesgo de pérdida de mensajes.
 * Usar un factor de replicación mínimo de 4 en regiones con solo dos dominios de error.
 * Deshabilitar elecciones de líderes no limpios.
 * Establecer **min.insync.replicas** en 2 o más; esto cambia el número de réplicas que deben estar completamente sincronizadas con el líder antes de que pueda continuar un proceso de escritura.
-* Establecer la propiedad **acks** en **all**; esta propiedad requiere que todas las réplicas confirmen todos los mensajes.
+* Establecer la propiedad **acks** en **all** ; esta propiedad requiere que todas las réplicas confirmen todos los mensajes.
 
 Si se configura Kafka para una mayor coherencia de datos, la disponibilidad de los agentes para producir solicitudes se verá afectada.
 

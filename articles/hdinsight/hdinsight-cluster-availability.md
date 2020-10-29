@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086422"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533570"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Supervisión de la disponibilidad del clúster con Apache Ambari en Azure HDInsight
 
@@ -49,7 +49,7 @@ Ambari también ofrece varias alertas configurables que pueden proporcionar una 
 
 ![Recuento de alertas actuales de Apache Ambari](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
-Para ver una lista de definiciones de alertas y sus estados, seleccione la pestaña **Alertas**, tal como se muestra a continuación.
+Para ver una lista de definiciones de alertas y sus estados, seleccione la pestaña **Alertas** , tal como se muestra a continuación.
 
 ![Ver las definiciones de alertas de Ambari](media/hdinsight-cluster-availability/ambari-alerts-definitions.png)
 
@@ -62,7 +62,6 @@ Ambari ofrece muchas alertas predefinidas relacionadas con la disponibilidad, en
 | Porcentaje de JournalNodes disponible    | Esta alerta se desencadena si el número de elementos JournalNodes inactivos en el clúster es mayor que el umbral crítico configurado. Agrega los resultados de las comprobaciones del proceso JournalNode. |
 | Porcentaje de DataNodes disponible       | Esta alerta se desencadena si el número de elementos DataNodes inactivos en el clúster es mayor que el umbral crítico configurado. Agrega los resultados de las comprobaciones del proceso DataNode.|
 
-Encontrará [aquí](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui) una lista completa de alertas de Ambari que ayudan a supervisa la disponibilidad de un clúster.
 
 Para ver los detalles de una alerta o modificar los criterios, seleccione el **nombre** de la alerta. Tome **Resumen de estado de DataNode** como ejemplo. Puede ver una descripción de la alerta, así como los criterios específicos que desencadenarán una alerta de "advertencia" o "crítica", así como el intervalo de comprobación de los criterios. Para editar la configuración, seleccione el botón **Editar** de la esquina superior derecha del cuadro de configuración.
 
@@ -72,11 +71,11 @@ Aquí, puede editar la descripción y, lo que es más importante, el intervalo d
 
 ![Vista de edición de las configuraciones de alertas de Ambari](media/hdinsight-cluster-availability/ambari-alert-configuration-edit.png)
 
-En este ejemplo, puede hacer que 2 elementos DataNodes en mal estado desencadenen una alerta crítica y 1 elemento DataNode en mal estado desencadenen solo una advertencia. Cuando termine la edición, seleccione **Guardar**.
+En este ejemplo, puede hacer que 2 elementos DataNodes en mal estado desencadenen una alerta crítica y 1 elemento DataNode en mal estado desencadenen solo una advertencia. Cuando termine la edición, seleccione **Guardar** .
 
 ## <a name="email-notifications"></a>Notificaciones por correo electrónico
 
-Opcionalmente, también puede configurar notificaciones por correo electrónico para las alertas de Ambari. Para ello, en la pestaña **Alertas**, haga clic en el botón **Acciones** de la esquina superior izquierda y seleccione **Administrar notificaciones**.
+Opcionalmente, también puede configurar notificaciones por correo electrónico para las alertas de Ambari. Para ello, en la pestaña **Alertas** , haga clic en el botón **Acciones** de la esquina superior izquierda y seleccione **Administrar notificaciones** .
 
 ![Acción de administración de las notificaciones de Ambari](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
@@ -87,7 +86,7 @@ Se abrirá un cuadro de diálogo para administrar las notificaciones de alerta. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Disponibilidad y confiabilidad de clústeres de Apache Hadoop en HDInsight](hdinsight-high-availability-linux.md)
+- [Disponibilidad y confiabilidad de clústeres de Apache Hadoop en HDInsight](./hdinsight-business-continuity.md)
 - [Disponibilidad del clúster: registros de Azure Monitor](./cluster-availability-monitor-logs.md)
 - [Uso de registros de Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [Notificaciones por correo electrónico de Apache Ambari](apache-ambari-email.md)

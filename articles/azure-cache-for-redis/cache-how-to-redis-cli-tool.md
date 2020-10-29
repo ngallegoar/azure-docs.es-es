@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839051"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538024"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Uso de la herramienta de línea de comandos de Redis con Azure Cache for Redis
 
@@ -27,8 +27,8 @@ Si quiere ejecutar la herramienta de línea de comandos en otra plataforma, desc
 
 Puede recopilar la información necesaria para acceder a la memoria caché con tres métodos:
 
-1. CLI de Azure mediante [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell mediante [Get AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+1. CLI de Azure mediante [az redis list-keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Azure PowerShell mediante [Get AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Mediante Azure Portal.
 
 En esta sección se recuperan las claves desde Azure Portal.
@@ -46,11 +46,11 @@ Con Azure Cache for Redis, solo está habilitado de forma predeterminada el puer
 
     Ejecute **stunnel GUI Start** (Inicio de GUI de stunnel) para iniciar el servidor.
 
-    Haga clic con el botón derecho en el icono de la barra de tareas correspondiente al servidor de stunnel y haga clic en **Mostrar la ventana Registro**.
+    Haga clic con el botón derecho en el icono de la barra de tareas correspondiente al servidor de stunnel y haga clic en **Mostrar la ventana Registro** .
 
     En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Editar configuración** para abrir el archivo de configuración actual.
 
-    Agregue la siguiente entrada de *redis-cli.exe* en la sección **Definiciones de servicio**. Inserte el nombre real de la caché en lugar de `yourcachename`. 
+    Agregue la siguiente entrada de *redis-cli.exe* en la sección **Definiciones de servicio** . Inserte el nombre real de la caché en lugar de `yourcachename`. 
 
     ```
     [redis-cli]
@@ -61,7 +61,7 @@ Con Azure Cache for Redis, solo está habilitado de forma predeterminada el puer
 
     Guarde y cierre el archivo de configuración. 
   
-    En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Volver a cargar configuración**.
+    En el menú Ventana Registro de stunnel, haga clic en **Configuración** > **Volver a cargar configuración** .
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Conecte mediante la herramienta de línea de comandos de Redis.
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Captura de pantalla en la que se muestra que la conexión a la memoria caché se ha realizado correctamente.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Si usa una memoria caché de prueba con el puerto no TLS **no seguro**, ejecute `redis-cli.exe` y pase el *nombre de host*, el *puerto* y la *clave de acceso* (primaria o secundaria) para conectarse a la caché de prueba.
+Si usa una memoria caché de prueba con el puerto no TLS **no seguro** , ejecute `redis-cli.exe` y pase el *nombre de host* , el *puerto* y la *clave de acceso* (primaria o secundaria) para conectarse a la caché de prueba.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
@@ -88,4 +88,3 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre el uso de la [consola de Redis](cache-configure.md#redis-console) para emitir comandos.
-

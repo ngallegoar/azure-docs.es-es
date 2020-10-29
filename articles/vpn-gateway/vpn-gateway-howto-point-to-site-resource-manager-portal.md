@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: e1a0234754c2966313e0b35dd59bed79e7736a2c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18260867f0258ebe3cc885c5a1b1754f143bfccc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328456"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541611"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure una conexión VPN de punto a sitio a una red virtual mediante la autenticación nativa de los certificados de Azure: Portal de Azure
 
@@ -35,7 +35,7 @@ Las conexiones con autenticación mediante certificado de Azure nativas de punto
 Puede usar los siguientes valores para crear un entorno de prueba o hacer referencia a ellos para comprender mejor los ejemplos de este artículo:
 
 * **Nombre de la red virtual:** VNet1
-* **Espacio de direcciones**: 10.1.0.0/16<br>En este ejemplo, se utiliza solo un espacio de direcciones. Puede tener más de un espacio de direcciones para la red virtual.
+* **Espacio de direcciones** : 10.1.0.0/16<br>En este ejemplo, se utiliza solo un espacio de direcciones. Puede tener más de un espacio de direcciones para la red virtual.
 * **Nombre de subred:** FrontEnd
 * **Intervalo de direcciones de subred:** 10.1.0.0/24
 * **Subscription** (Suscripción): si tiene más de una suscripción, compruebe que usa la correcta.
@@ -46,7 +46,7 @@ Puede usar los siguientes valores para crear un entorno de prueba o hacer refere
 * **Tipo de puerta de enlace:** VPN
 * **Tipo de VPN:** basada en rutas
 * **Nombre de dirección IP pública:** VNet1GWpip
-* **Tipo de conexión**: De punto a sitio
+* **Tipo de conexión** : De punto a sitio
 * **Grupo de direcciones de clientes:** 172.16.201.0/24<br>Los clientes de VPN que se conectan a la red virtual mediante esta conexión de punto a sitio reciben una dirección IP del grupo de clientes.
 
 ## <a name="1-create-a-virtual-network"></a><a name="createvnet"></a>1. Creación de una red virtual
@@ -85,13 +85,13 @@ Azure usa certificados para autenticar a los clientes para conectarse a una red 
 
 El grupo de direcciones de cliente es un intervalo de direcciones IP privadas que usted especifica. Los clientes que se conectan de forma dinámica a través de una VPN de punto a sitio reciben una dirección IP de este intervalo. Use un intervalo de direcciones IP privadas que no se superponga a la ubicación local desde la que se va a conectar ni a la red virtual a la que desea conectarse. Si configura varios protocolos y SSTP es uno de ellos, el grupo de direcciones configurado se divide equitativamente entre los protocolos configurados.
 
-1. Una vez creada la puerta de enlace de red virtual, navegue hasta la sección **Valores** de la página de la puerta de enlace de red virtual. En la sección **Configuración**, seleccione **Configuración de punto a sitio**. Seleccione **Configure now** (Configurar ahora) para abrir la página de configuración.
+1. Una vez creada la puerta de enlace de red virtual, navegue hasta la sección **Valores** de la página de la puerta de enlace de red virtual. En la sección **Configuración** , seleccione **Configuración de punto a sitio** . Seleccione **Configure now** (Configurar ahora) para abrir la página de configuración.
 
    ![Página de punto a sitio](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-configure.png "Punto a sitio: configuración ahora")
-2. En la página **Configuración de punto a sitio**, puede configurar diversas opciones. Si no ve el tipo de túnel o el tipo de autenticación en esta página, la puerta de enlace usará la SKU básica. La SKU básica no admite la autenticación de IKEv2 o RADIUS. Si quiere usar esta configuración, debe eliminar y volver a crear la puerta de enlace con una SKU de puerta de enlace diferente.
+2. En la página **Configuración de punto a sitio** , puede configurar diversas opciones. Si no ve el tipo de túnel o el tipo de autenticación en esta página, la puerta de enlace usará la SKU básica. La SKU básica no admite la autenticación de IKEv2 o RADIUS. Si quiere usar esta configuración, debe eliminar y volver a crear la puerta de enlace con una SKU de puerta de enlace diferente.
 
    [![Configuración de punto a sitio](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-address.png "especificar el grupo de direcciones")](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-settings-expanded.png#lightbox)
-3. En el cuadro **Grupo de direcciones**, agregue el intervalo de direcciones IP privadas que quiere usar. Los clientes VPN reciben de forma dinámica una dirección IP del intervalo que especifique. La máscara de subred mínima es de 29 bits para la configuración activa/pasiva, y de 28 bits para la configuración activa/activa.
+3. En el cuadro **Grupo de direcciones** , agregue el intervalo de direcciones IP privadas que quiere usar. Los clientes VPN reciben de forma dinámica una dirección IP del intervalo que especifique. La máscara de subred mínima es de 29 bits para la configuración activa/pasiva, y de 28 bits para la configuración activa/activa.
 4. Vaya a la sección siguiente para configurar el tipo de túnel.
 
 ## <a name="5-configure-tunnel-type"></a><a name="tunneltype"></a>5. Configuración del tipo de túnel
@@ -106,7 +106,7 @@ Puede seleccionar el tipo de túnel. Las opciones de túnel son OpenVPN, SSTP y 
 
 ## <a name="6-configure-authentication-type"></a><a name="authenticationtype"></a>6. Configuración del tipo de autenticación
 
-En **Tipo de autenticación**, seleccione **Certificado de Azure**.
+En **Tipo de autenticación** , seleccione **Certificado de Azure** .
 
   ![Tipo de autenticación](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication-type.png "especificar el tipo de autenticación")
 
@@ -114,12 +114,12 @@ En **Tipo de autenticación**, seleccione **Certificado de Azure**.
 
 Puede cargar más certificados raíz de confianza, hasta un total de 20. Una vez que se han cargado los datos de certificado público, Azure puede usarlos para autenticar a los clientes que tienen instalado un certificado de cliente generado a partir del certificado raíz de confianza. Cargue la información de clave pública del certificado raíz en Azure.
 
-1. Los certificados se agregan en la página **Configuración de punto a sitio** de la sección **Certificado raíz**.
+1. Los certificados se agregan en la página **Configuración de punto a sitio** de la sección **Certificado raíz** .
 2. Asegúrese de exportar el certificado raíz como archivo X.509 codificado base 64 (.cer). Debe exportar el certificado en este formato para poder abrirlo con un editor de texto.
 3. Abra el certificado con un editor de texto como Bloc de notas. Al copiar los datos del certificado, asegúrese de copiar el texto como una línea continua sin retornos de carro ni avances de línea. Es posible que para ver los retornos de carro y los avances de línea deba cambiar la vista del editor de texto de forma que se muestren los símbolos y todos los caracteres. Copie solo la siguiente sección como una línea continua:
 
    ![Datos del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepadroot.png "copiar los datos del certificado raíz")
-4. Pegue los datos del certificado en la sección **Public Certificate Data** (Datos de certificado público). En **Nombre** asigne un nombre al certificado y, luego, seleccione **Guardar**. Puede agregar hasta 20 certificados raíz de confianza.
+4. Pegue los datos del certificado en la sección **Public Certificate Data** (Datos de certificado público). En **Nombre** asigne un nombre al certificado y, luego, seleccione **Guardar** . Puede agregar hasta 20 certificados raíz de confianza.
 
    ![Pegado de los datos del certificado](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/uploaded.png "pegar los datos del certificado")
 5. Seleccione **Guardar** en la parte superior de la página para guardar todos los valores de configuración.
@@ -147,9 +147,9 @@ Los archivos de configuración del cliente VPN contienen opciones para configura
 >
 >
 
-1. Para conectarse a su red virtual, en el equipo cliente, vaya a las conexiones VPN y ubique la que creó. Tiene el mismo nombre que su red virtual. Seleccione **Conectar**. Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Seleccione **Continuar** para usar privilegios elevados.
+1. Para conectarse a su red virtual, en el equipo cliente, vaya a las conexiones VPN y ubique la que creó. Tiene el mismo nombre que su red virtual. Seleccione **Conectar** . Es posible que aparezca un mensaje emergente que haga referencia al uso del certificado. Seleccione **Continuar** para usar privilegios elevados.
 
-2. En la página de estado **Conexión**, seleccione **Conectar** para iniciar la conexión. Si ve una pantalla para **Seleccionar certificado** , compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de lista desplegable para seleccionar el certificado correcto y, luego, seleccione **Aceptar**.
+2. En la página de estado **Conexión** , seleccione **Conectar** para iniciar la conexión. Si ve una pantalla para **Seleccionar certificado** , compruebe que el certificado de cliente que se muestra es el que desea utilizar para conectarse. Si no es así, use la flecha de lista desplegable para seleccionar el certificado correcto y, luego, seleccione **Aceptar** .
 
    ![El cliente VPN se conecta a Azure](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/clientconnect.png "conectar")
 3. Se ha establecido la conexión.
@@ -162,7 +162,7 @@ Los archivos de configuración del cliente VPN contienen opciones para configura
 
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Para conectarse desde un cliente VPN en Mac
 
-En el cuadro de diálogo Red, localice el perfil de cliente que quiere usar, especifique la configuración de [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) y, después, haga clic en **Conectar**.
+En el cuadro de diálogo Red, localice el perfil de cliente que quiere usar, especifique la configuración de [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) y, después, haga clic en **Conectar** .
 
 Para obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac). Si tiene problemas para conectarse, compruebe que la puerta de enlace de red virtual no está usando una SKU de nivel Básico. La SKU de nivel Básico no es compatible con los clientes Mac.
 
@@ -172,7 +172,7 @@ Para obtener instrucciones detalladas al respecto, consulte [Instalación: Mac (
 
 Estas instrucciones se aplican a los clientes Windows.
 
-1. Para comprobar que la conexión VPN está activa, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all*.
+1. Para comprobar que la conexión VPN está activa, abra un símbolo del sistema con privilegios elevados y ejecute *ipconfig/all* .
 2. Vea los resultados. Observe que la dirección IP que recibió es una de las direcciones dentro del grupo de direcciones de cliente de VPN punto a sitio que especificó en la configuración. Los resultados son similares a los del ejemplo siguiente:
 
    ```
@@ -192,7 +192,11 @@ Estas instrucciones se aplican a los clientes Windows.
 
 Estas instrucciones se aplican a los clientes Windows.
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
+
+* Compruebe que el paquete de configuración de cliente de VPN se generó después de que se especificaran las direcciones IP del servidor DNS para la red virtual. Si actualizó las direcciones IP de servidor DNS, genere un nuevo paquete de configuración de cliente de VPN e instálelo.
+
+* Use "ipconfig" para comprobar la dirección IPv4 asignada al adaptador de Ethernet en el equipo desde el que está intentando conectarse. Si la dirección IP está dentro del intervalo de direcciones de la red virtual a la que se va a conectar o dentro del intervalo de direcciones de su VPNClientAddressPool, esto se conoce como un espacio de direcciones superpuesto. Cuando el espacio de direcciones se superpone de esta manera, el tráfico de red no llega a Azure, sino que se mantiene en la red local.
 
 ## <a name="to-add-or-remove-trusted-root-certificates"></a><a name="add"></a>Para agregar o quitar certificados raíz de confianza
 
@@ -208,7 +212,7 @@ Puede agregar hasta 20 archivos .cer de certificado raíz de confianza a Azure. 
 2. En la sección **Certificado raíz** de la página, busque el certificado que desea quitar.
 3. Seleccione los puntos suspensivos junto al certificado y, luego, "Quitar".
 
-## <a name="to-revoke-a-client-certificate"></a><a name="revokeclient"></a>Revocación de un certificado de cliente
+## <a name="to-revoke-a-client-certificate"></a><a name="revokeclient"></a>Para revocar un certificado de cliente
 
 Puede revocar certificados de cliente. La lista de revocación de certificados permite denegar de forma selectiva la conectividad de punto a sitio basada en certificados de cliente individuales. Esto difiere de la forma en que se quita un certificado raíz de confianza. Si quita de Azure un archivo .cer de certificado raíz de confianza, se revoca el acceso para todos los certificados de cliente generados y firmados con el certificado raíz revocado. Al revocarse un certificado de cliente, en lugar del certificado raíz, se permite que el resto de los certificados que se generaron a partir del certificado raíz sigan usándose para la autenticación.
 
@@ -221,8 +225,8 @@ Puede revocar un certificado de cliente si agrega la huella digital a la lista d
 1. Recupere la huella digital del certificado de cliente. Para más información, consulte [Cómo recuperar la huella digital de un certificado](https://msdn.microsoft.com/library/ms734695.aspx).
 2. Copie la información en un editor de texto y quite todos los espacios de forma que sea una sola cadena continua.
 3. Vaya a la página **Configuración de punto a sitio** de la puerta de enlace de red virtual. Se trata de la misma hoja que utilizó para [cargar un certificado raíz de confianza](#uploadfile).
-4. En la sección **Certificados revocados**, especifique un nombre descriptivo para el certificado (no es necesario que sea el CN del certificado).
-5. Copie y pegue la cadena de huella digital en el campo **Huella digital**.
+4. En la sección **Certificados revocados** , especifique un nombre descriptivo para el certificado (no es necesario que sea el CN del certificado).
+5. Copie y pegue la cadena de huella digital en el campo **Huella digital** .
 6. Se valida la huella digital y se agrega automáticamente a la lista de revocación. Aparece un mensaje en la pantalla que indica que se está actualizando la lista. 
 7. Una vez finalizada la actualización, el certificado no se puede usar para conectarse. Los clientes que intenten conectarse con este certificado reciben un mensaje que indica que el certificado ya no es válido.
 

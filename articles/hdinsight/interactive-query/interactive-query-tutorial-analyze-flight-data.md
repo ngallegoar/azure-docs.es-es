@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319198"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534590"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Interactive Query en Azure HDInsight
 
@@ -30,9 +30,9 @@ En este tutorial se describen las tareas siguientes:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un clúster de Interactive Query en HDInsight. Consulte el artículo [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Interactive Query** como **Tipo de clúster**.
+* Un clúster de Interactive Query en HDInsight. Consulte el artículo [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **Interactive Query** como **Tipo de clúster** .
 
-* una base de datos de Azure SQL Database. La base de datos se usa como almacén de datos de destino. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos de Azure SQL Database en Azure Portal](/azure/sql-database/sql-database-single-database-get-started).
+* una base de datos de Azure SQL Database. La base de datos se usa como almacén de datos de destino. Si no tiene ninguna base de datos en Azure SQL Database, consulte el artículo [Creación de una base de datos de Azure SQL Database en Azure Portal](../../azure-sql/database/single-database-create-quickstart.md).
 
 * Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -48,7 +48,7 @@ En este tutorial se describen las tareas siguientes:
    | Filter Period |January |
    | Fields |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
-3. Seleccione **Descargar**. Obtenga un archivo .zip con los campos de datos que ha seleccionado.
+3. Seleccione **Descargar** . Obtenga un archivo .zip con los campos de datos que ha seleccionado.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Carga de datos en un clúster de HDInsight
 
@@ -95,9 +95,9 @@ Hay muchas maneras de cargar datos en el almacenamiento asociado a un clúster d
 
 Hay muchas formas de ejecutar un trabajo de Hive en un clúster de HDInsight. En esta sección se usa [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline%E2%80%93CommandLineShell) para ejecutar un trabajo de Hive. Para obtener información acerca de otros métodos de ejecución de trabajos de Hive, consulte [Uso de Apache Hive en HDInsight](../hadoop/hdinsight-use-hive.md).
 
-Como parte del trabajo de Hive importe los datos del archivo .csv en una tabla de Hive denominada **Delays**.
+Como parte del trabajo de Hive importe los datos del archivo .csv en una tabla de Hive denominada **Delays** .
 
-1. En el símbolo del sistema de SSH que ya tiene para el clúster de HDInsight, use el siguiente comando para crear y editar un nuevo archivo denominado **flightdelays.hql**:
+1. En el símbolo del sistema de SSH que ya tiene para el clúster de HDInsight, use el siguiente comando para crear y editar un nuevo archivo denominado **flightdelays.hql** :
 
     ```bash
     nano flightdelays.hql
@@ -165,15 +165,15 @@ Como parte del trabajo de Hive importe los datos del archivo .csv en una tabla d
     FROM delays_raw;
     ```
 
-3. Para guardar el archivo, presione **Ctrl+x**, luego **y** y después Entrar.
+3. Para guardar el archivo, presione **Ctrl+x** , luego **y** y después Entrar.
 
-4. Para iniciar Hive y ejecutar el archivo **flightdelays.hql**, use el siguiente comando:
+4. Para iniciar Hive y ejecutar el archivo **flightdelays.hql** , use el siguiente comando:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
 
-5. Cuando finalice el script **flightdelays.hql**, use el siguiente comando para abrir una sesión interactiva de Beeline:
+5. Cuando finalice el script **flightdelays.hql** , use el siguiente comando para abrir una sesión interactiva de Beeline:
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'

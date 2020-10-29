@@ -7,16 +7,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89399963"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535253"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Etiquetas de servicio de grupos de seguridad de red para Azure HDInsight
 
-Las etiquetas de servicio de Azure HDInsight de los grupos de seguridad de red (NSG) son grupos de direcciones IP para los servicios de mantenimiento y administración. Estos grupos ayudan a minimizar la complejidad de la creación de reglas de seguridad. Las [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) permiten el tráfico de entrada desde direcciones IP específicas sin escribir cada una de las [direcciones IP de administración](hdinsight-management-ip-addresses.md) en los grupos de seguridad de red.
+Las etiquetas de servicio de Azure HDInsight de los grupos de seguridad de red (NSG) son grupos de direcciones IP para los servicios de mantenimiento y administración. Estos grupos ayudan a minimizar la complejidad de la creación de reglas de seguridad. Las [etiquetas de servicio](../virtual-network/network-security-groups-overview.md#service-tags) permiten el tráfico de entrada desde direcciones IP específicas sin escribir cada una de las [direcciones IP de administración](hdinsight-management-ip-addresses.md) en los grupos de seguridad de red.
 
 El servicio HDInsight administra estas etiquetas de servicio. No puede crear su propia etiqueta de servicio ni modificar una etiqueta existente. Microsoft administra los prefijos de direcciones que coinciden con la etiqueta de servicio y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
@@ -26,9 +26,9 @@ Si quiere usar una región determinada y la etiqueta de servicio aún no está d
 
 Tiene dos opciones para usar etiquetas de servicio en los grupos de seguridad de red:
 
-- **Usar una sola etiqueta de servicio de HDInsight global**: esta opción abre la red virtual a todas las direcciones IP que usa el servicio HDInsight para supervisar los clústeres en todas las regiones. Aunque es el método más sencillo, podría no ser adecuado si tiene requisitos de seguridad restrictivos.
+- **Usar una sola etiqueta de servicio de HDInsight global** : esta opción abre la red virtual a todas las direcciones IP que usa el servicio HDInsight para supervisar los clústeres en todas las regiones. Aunque es el método más sencillo, podría no ser adecuado si tiene requisitos de seguridad restrictivos.
 
-- **Usar varias etiquetas de servicio regionales**: esta opción abre la red virtual solo a las direcciones IP que usa HDInsight en esa región específica. No obstante, si usa varias regiones, tendrá que agregar varias etiquetas de servicio a la red virtual.
+- **Usar varias etiquetas de servicio regionales** : esta opción abre la red virtual solo a las direcciones IP que usa HDInsight en esa región específica. No obstante, si usa varias regiones, tendrá que agregar varias etiquetas de servicio a la red virtual.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Usar una sola etiqueta de servicio de HDInsight global
 
@@ -36,11 +36,11 @@ La manera más fácil de empezar a usar etiquetas de servicio con el clúster de
 
 1. Desde [Azure Portal](https://portal.azure.com/), seleccione su grupo de seguridad de red.
 
-1. En **Configuración**, seleccione **Reglas de seguridad de entrada** y, a continuación, seleccione **+ Agregar**.
+1. En **Configuración** , seleccione **Reglas de seguridad de entrada** y, a continuación, seleccione **+ Agregar** .
 
-1. En la lista desplegable **Origen**, seleccione **Etiqueta de servicio**.
+1. En la lista desplegable **Origen** , seleccione **Etiqueta de servicio** .
 
-1. En la lista desplegable **Etiqueta de servicio de origen**, seleccione **HDInsight**.
+1. En la lista desplegable **Etiqueta de servicio de origen** , seleccione **HDInsight** .
 
     ![Adición de una etiqueta de servicio desde Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -125,5 +125,5 @@ Los clústeres de las regiones de *Centro de Alemania* y *Nordeste de Alemania* 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Grupos de seguridad de red: etiquetas de servicio](../virtual-network/security-overview.md#security-rules)
+- [Grupos de seguridad de red: etiquetas de servicio](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Creación de redes virtuales para clústeres de Azure HDInsight](hdinsight-create-virtual-network.md)

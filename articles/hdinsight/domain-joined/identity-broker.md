@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 6d4539e5dbc7182386a60317a9ee45a986ffd61f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 99ea17dad4f99cdab3fb44b8031e60e6cf69879c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999943"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543158"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Agente de identidad de Azure HDInsight (versión preliminar)
 
@@ -43,7 +43,7 @@ En este diagrama, el cliente (es decir, un explorador o una aplicación) debe ad
 
 Todavía puede haber muchas aplicaciones heredadas que solo admitan la autenticación básica (es decir, nombre de usuario y contraseña). Para estos escenarios, puede seguir usando la autenticación HTTP básica para conectarse a las puertas de enlace de clúster. En esta configuración, debe asegurarse de que la conectividad de red de los nodos de la puerta de enlace con el punto de conexión de Servicios de federación de Active Directory (AD FS) asegure una línea directa de visión desde los nodos de puerta de enlace.
 
-En el diagrama siguiente se muestra el flujo de autenticación básica para los usuarios federados. En primer lugar, la puerta de enlace intenta completar la autenticación mediante el [flujo de ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc). En caso de que no haya ningún hash de contraseña sincronizado con Azure AD, recurre a la detección del punto de conexión de AD FS y completa la autenticación mediante el acceso al punto de conexión de AD FS.
+En el diagrama siguiente se muestra el flujo de autenticación básica para los usuarios federados. En primer lugar, la puerta de enlace intenta completar la autenticación mediante el [flujo de ROPC](../../active-directory/develop/v2-oauth-ropc.md). En caso de que no haya ningún hash de contraseña sincronizado con Azure AD, recurre a la detección del punto de conexión de AD FS y completa la autenticación mediante el acceso al punto de conexión de AD FS.
 
 :::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que muestra el flujo de autenticación con el Agente de identidad de HDInsight.":::
 
@@ -54,7 +54,7 @@ Para crear un clúster de Enterprise Security Package con el Agente de identidad
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Siga los pasos de creación básicos para un clúster de Enterprise Security Package. Para obtener más información, consulte [Creación de un clúster de HDInsight con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Seleccione **Habilitar Agente de identidad de HDInsight**.
+1. Seleccione **Habilitar Agente de identidad de HDInsight** .
 
 La característica Agente de identidad de HDInsight agrega una VM adicional al clúster. Esta VM es el nodo del Agente de identidad de HDInsight e incluye componentes de servidor para admitir la autenticación. El nodo del Agente de identidad de HDInsight está unido al dominio de Azure AD DS.
 
@@ -103,7 +103,7 @@ Si agrega un nuevo rol denominado `idbrokernode` con los siguientes atributos al
 
 ## <a name="tool-integration"></a>Integración de herramientas
 
-Las herramientas de HDInsight se actualizan para admitir OAuth de forma nativa. Use estas herramientas para el acceso moderno basado en OAuth a los clústeres. El [complemento IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) de HDInsight se puede usar para aplicaciones basadas en Java, como Scala. Las [herramientas Spark y Hive para Visual Studio Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) se pueden usar para trabajos de PySpark y Hive. Las herramientas admiten trabajos en lotes e interactivos.
+Las herramientas de HDInsight se actualizan para admitir OAuth de forma nativa. Use estas herramientas para el acceso moderno basado en OAuth a los clústeres. El [complemento IntelliJ](../spark/apache-spark-intellij-tool-plugin.md#integrate-with-hdinsight-identity-broker-hib) de HDInsight se puede usar para aplicaciones basadas en Java, como Scala. Las [herramientas Spark y Hive para Visual Studio Code](../hdinsight-for-vscode.md) se pueden usar para trabajos de PySpark y Hive. Las herramientas admiten trabajos en lotes e interactivos.
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Acceso mediante SSH sin hash de contraseña en Azure AD DS
 
@@ -117,11 +117,11 @@ Para acceder mediante SSH a una VM unida a un dominio o para ejecutar el comando
 
 Si su organización no sincroniza los hashes de contraseña con Azure AD DS, como procedimiento recomendado, cree un usuario solo en la nube en Azure AD. A continuación, asígnelo como administrador de clústeres al crear el clúster y úselo para fines de administración. Puede usarlo para obtener acceso raíz a las VM a través de SSH.
 
-Para solucionar problemas de autenticación, consulte [esta guía](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+Para solucionar problemas de autenticación, consulte [esta guía](./domain-joined-authentication-issues.md).
 
 ## <a name="clients-using-oauth-to-connect-to-an-hdinsight-gateway-with-hdinsight-id-broker"></a>Clientes que usan OAuth para conectarse a una puerta de enlace de HDInsight con el Agente de identidad de HDInsight
 
-En la configuración del Agente de identidad de HDInsight, las aplicaciones personalizadas y los clientes que se conectan a la puerta de enlace se pueden actualizar para adquirir primero el token de OAuth que necesitan. Siga los pasos que aparecen en [este documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) para adquirir el token con la información siguiente:
+En la configuración del Agente de identidad de HDInsight, las aplicaciones personalizadas y los clientes que se conectan a la puerta de enlace se pueden actualizar para adquirir primero el token de OAuth que necesitan. Siga los pasos que aparecen en [este documento](../../storage/common/storage-auth-aad-app.md) para adquirir el token con la información siguiente:
 
 *   URI del recurso de OAuth: `https://hib.azurehdinsight.net` 
 *   AppId: 7865c1d2-f040-46cc-875f-831a1ef6a28a

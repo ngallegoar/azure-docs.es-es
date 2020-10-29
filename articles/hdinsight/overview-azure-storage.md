@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851371"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539469"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Introducción a Azure Storage en HDInsight
 
@@ -21,7 +21,7 @@ Azure Storage es una solución de almacenamiento sólida y de uso general, que s
 
 Se recomienda usar contenedores de almacenamiento independientes para el almacenamiento de clúster predeterminado y los datos empresariales. La separación es para aislar los registros de HDInsight y los archivos temporales de sus propios datos empresariales. También se recomienda eliminar el contenedor de blobs predeterminado, que contiene los registros de la aplicación y del sistema, después de cada uso para reducir los costes de almacenamiento. Asegúrese de recuperar los registros antes de eliminar el contenedor.
 
-Si decide proteger la cuenta de almacenamiento con las restricciones de **firewalls y redes virtuales** en **redes seleccionadas**, asegúrese de habilitar la excepción **Permitir servicios de Microsoft de confianza...** . La excepción es para que HDInsight pueda obtener acceso a su cuenta de almacenamiento.
+Si decide proteger la cuenta de almacenamiento con las restricciones de **firewalls y redes virtuales** en **redes seleccionadas** , asegúrese de habilitar la excepción **Permitir servicios de Microsoft de confianza...** . La excepción es para que HDInsight pueda obtener acceso a su cuenta de almacenamiento.
 
 ## <a name="hdinsight-storage-architecture"></a>Arquitectura de almacenamiento de HDInsight
 
@@ -44,7 +44,7 @@ A la hora de usar una cuenta de Azure Storage con clústeres de HDInsight, es ne
 * **Contenedores públicos o blobs públicos de las cuentas de almacenamiento que no se conectan a un clúster:** tiene permiso de solo lectura de los blobs de los contenedores.
   
   > [!NOTE]  
-  > Los contenedores públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../storage/blobs/storage-manage-access-to-resources.md).
+  > Los contenedores públicos le permiten obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten acceder a los blobs solo si conoce la URL exacta. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Contenedores privados de las cuentas de almacenamiento que no se conectan a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento al enviar los trabajos de WebHCat.
 
@@ -60,15 +60,15 @@ Los clústeres de proceso y los recursos de almacenamiento que no están colocad
 
 Al almacenar los datos en Azure Storage en lugar de HDFS, disfruta de varias ventajas:
 
-* **Uso compartido y reutilización de datos**: los datos de HDFS se ubican dentro del clúster de proceso. Solamente las aplicaciones que tengan acceso al clúster de cálculo podrán usar los datos usando las API HDFS. En contraste, se puede acceder a los datos de Azure Storage mediante las API de HDFS o las API REST de Blob Storage. Debido a esta disposición, se puede usar un conjunto mayor de aplicaciones (incluyendo otros clústeres de HDInsight) y herramientas para producir y consumir los datos.
+* **Uso compartido y reutilización de datos** : los datos de HDFS se ubican dentro del clúster de proceso. Solamente las aplicaciones que tengan acceso al clúster de cálculo podrán usar los datos usando las API HDFS. En contraste, se puede acceder a los datos de Azure Storage mediante las API de HDFS o las API REST de Blob Storage. Debido a esta disposición, se puede usar un conjunto mayor de aplicaciones (incluyendo otros clústeres de HDInsight) y herramientas para producir y consumir los datos.
 
-* **Archivado de datos**: Cuando los datos se almacenan en Azure Storage, los clústeres de HDInsight usados para el cálculo se eliminen de forma segura sin perder datos del usuario.
+* **Archivado de datos** : Cuando los datos se almacenan en Azure Storage, los clústeres de HDInsight usados para el cálculo se eliminen de forma segura sin perder datos del usuario.
 
-* **Costo de almacenamiento de datos**: El almacenamiento de datos en DFS a largo plazo es más caro que el almacenamiento de datos en Azure Storage. Esto se debe a que el costo de un clúster de proceso es mayor que el costo de Azure Storage. Además, como no hay que volver a cargar los datos para cada generación de clúster de proceso, también se ahorra en costos de carga de datos.
+* **Costo de almacenamiento de datos** : El almacenamiento de datos en DFS a largo plazo es más caro que el almacenamiento de datos en Azure Storage. Esto se debe a que el costo de un clúster de proceso es mayor que el costo de Azure Storage. Además, como no hay que volver a cargar los datos para cada generación de clúster de proceso, también se ahorra en costos de carga de datos.
 
-* **Escalabilidad horizontal elástica**: aunque HDFS proporciona un sistema de archivos escalable en horizontal, la escala se determina en función del número de nodos que cree para su clúster. Cambiar la escala puede ser un proceso más complicado que las funcionalidades de escalado elástico que se obtienen automáticamente en Azure Storage.
+* **Escalabilidad horizontal elástica** : aunque HDFS proporciona un sistema de archivos escalable en horizontal, la escala se determina en función del número de nodos que cree para su clúster. Cambiar la escala puede ser un proceso más complicado que las funcionalidades de escalado elástico que se obtienen automáticamente en Azure Storage.
 
-* **Replicación geográfica**: Su almacenamiento de Azure Storage se puede replicar geográficamente. Aunque la replicación geográfica aporta recuperación geográfica y redundancia de datos, una conmutación por error en la ubicación replicada geográficamente afecta gravemente al rendimiento y puede incurrir en costes adicionales. Por lo tanto, elija la replicación geográfica con prudencia y únicamente si merece la pena pagar el costo adicional por el valor de los datos.
+* **Replicación geográfica** : Su almacenamiento de Azure Storage se puede replicar geográficamente. Aunque la replicación geográfica aporta recuperación geográfica y redundancia de datos, una conmutación por error en la ubicación replicada geográficamente afecta gravemente al rendimiento y puede incurrir en costes adicionales. Por lo tanto, elija la replicación geográfica con prudencia y únicamente si merece la pena pagar el costo adicional por el valor de los datos.
 
 Determinados trabajos y paquetes de MapReduce podrían crear resultados intermedios que realmente no desea almacenar en Azure Storage. En tal caso, puede optar por almacenar los datos en el HDFS local. HDInsight usa DFS para varios de estos resultados intermedios en los trabajos de Hive y otros procesos.
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91308391"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534692"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migración de cargas de trabajo de Hive de Azure HDInsight 3.6 a HDInsight 4.0
 
@@ -117,7 +117,7 @@ Los clústeres de HDInsight 3.6 y 4.0 deben usar la misma cuenta de almacenamie
 
 1. Conéctese al clúster de HDInsight 3.6 con un [cliente Secure Shell (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Desde la sesión SSH abierta, descargue el siguiente archivo de script para generar un archivo llamado **alltables.hql**.
+1. Desde la sesión SSH abierta, descargue el siguiente archivo de script para generar un archivo llamado **alltables.hql** .
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -147,13 +147,13 @@ Los clústeres de HDInsight 3.6 y 4.0 deben usar la misma cuenta de almacenamie
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:alltables.hql c:/hdi
     ```
 
-1. Cargue **alltables.hql** al clúster de HDInsight *nuevo*.
+1. Cargue **alltables.hql** al clúster de HDInsight *nuevo* .
 
     ```bash
     scp c:/hdi/alltables.hql sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-1. Después, use SSH para conectarse al clúster de HDInsight 4.0 *nuevo*. Ejecute el siguiente código desde una sesión de SSH en el clúster:
+1. Después, use SSH para conectarse al clúster de HDInsight 4.0 *nuevo* . Ejecute el siguiente código desde una sesión de SSH en el clúster:
 
     Sin ESP:
 
@@ -208,7 +208,7 @@ Una vez que haya confirmado que la versión está completa y totalmente operativ
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Ejecución de consultas entre diferentes versiones de HDInsight
 
-Hay dos maneras de ejecutar y depurar las consultas de Hive/LLAP dentro de un clúster de HDInsight 3.6. HiveCLI proporciona una experiencia de línea de comandos y la [vista de Tez/Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) proporciona un flujo de trabajo basado en una interfaz gráfica de usuario.
+Hay dos maneras de ejecutar y depurar las consultas de Hive/LLAP dentro de un clúster de HDInsight 3.6. HiveCLI proporciona una experiencia de línea de comandos y la [vista de Tez/Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) proporciona un flujo de trabajo basado en una interfaz gráfica de usuario.
 
 En HDInsight 4.0, HiveCLI se ha reemplazado por Beeline. La vista Tez/Hive proporciona un flujo de trabajo basado en una interfaz gráfica de usuario. HiveCLI es un cliente de Thrift para Hiveserver 1 y Beeline es un cliente JDBC que proporciona acceso a Hiveserver 2. Beeline también se puede usar para conectarse a cualquier otro punto de conexión de base de datos compatible con JDBC. Beeline está disponible como componente integrado en HDInsight 4.0 sin necesidad de instalación.
 

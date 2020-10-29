@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93ac9a0b8766da70a55ac04f864fe48106fe8774
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004859"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536749"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Supervisión de Azure Cache for Redis
 
@@ -21,7 +21,7 @@ Las métricas de las instancias de Azure Cache for Redis se recopilan mediante e
 
 <a name="view-cache-metrics"></a>
 
-Para ver las métricas de caché, [busque](cache-configure.md#configure-azure-cache-for-redis-settings) la instancia de su memoria caché en [Azure Portal](https://portal.azure.com).  Azure Cache for Redis proporciona varios gráficos integrados en las hoja **Introducción** y **Métricas de Redis**. Se puede personalizar cada gráfico agregando o quitando métricas y cambiando el intervalo de informes.
+Para ver las métricas de caché, [busque](cache-configure.md#configure-azure-cache-for-redis-settings) la instancia de su memoria caché en [Azure Portal](https://portal.azure.com).  Azure Cache for Redis proporciona varios gráficos integrados en las hoja **Introducción** y **Métricas de Redis** . Se puede personalizar cada gráfico agregando o quitando métricas y cambiando el intervalo de informes.
 
 ![Caché en Redis](./media/cache-how-to-monitor/redis-cache-redis-metrics-blade.png)
 
@@ -34,13 +34,13 @@ La hoja **Introducción** tiene los siguientes gráficos de supervisión preconf
 
 ### <a name="monitoring-charts"></a>Gráficos de supervisión
 
-La sección **Supervisión** de la hoja **Introducción** contiene los gráficos **Aciertos y errores**, **Obtenciones y configuraciones**, **Conexiones** y **Comandos totales**.
+La sección **Supervisión** de la hoja **Introducción** contiene los gráficos **Aciertos y errores** , **Obtenciones y configuraciones** , **Conexiones** y **Comandos totales** .
 
 ![Gráficos de supervisión](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>Gráficos de uso
 
-La sección **Uso** de la hoja **Introducción** contiene los gráficos **Carga del servidor Redis**, **Uso de memoria**, **Ancho de banda de la red** y **Uso de CPU**, y muestra el **plan de tarifa** de la instancia de caché.
+La sección **Uso** de la hoja **Introducción** contiene los gráficos **Carga del servidor Redis** , **Uso de memoria** , **Ancho de banda de la red** y **Uso de CPU** , y muestra el **plan de tarifa** de la instancia de caché.
 
 ![Gráficos de uso](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -52,23 +52,23 @@ Para ver las métricas de Redis y crear gráficos personalizados mediante Azure 
 
 ![Caché en Redis](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Para más información acerca de cómo trabajar con métricas mediante Azure Monitor, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Para más información acerca de cómo trabajar con métricas mediante Azure Monitor, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportación de métricas de caché
 
-De manera predeterminada, en Azure Monitor las métricas de caché se [almacenan durante 30 días](../azure-monitor/platform/data-platform-metrics.md) y después se eliminan. Para conservar las métricas de memoria caché durante más de 30 días, puede [designar una cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md) y especifique un **retención (días)** directiva para las métricas de memoria caché. 
+De manera predeterminada, en Azure Monitor las métricas de caché se [almacenan durante 30 días](../azure-monitor/platform/data-platform-metrics.md) y después se eliminan. Para conservar las métricas de memoria caché durante más de 30 días, puede [designar una cuenta de almacenamiento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) y especifique un **retención (días)** directiva para las métricas de memoria caché. 
 
 Para configurar una cuenta de almacenamiento para las métricas de caché:
 
-1. En la página **Azure Cache for Redis**, en el encabezado **Monitoring** (Supervisión), seleccione **Diagnostics** (Diagnósticos).
-2. Seleccione **+ Agregar configuración de diagnóstico**.
+1. En la página **Azure Cache for Redis** , en el encabezado **Monitoring** (Supervisión), seleccione **Diagnostics** (Diagnósticos).
+2. Seleccione **+ Agregar configuración de diagnóstico** .
 3. Asigne un nombre a la configuración.
-4. Seleccione **Archivar en una cuenta de almacenamiento**. Cuando envíe diagnósticos a una cuenta de almacenamiento, se le cobrará de acuerdo a las tarifas de datos normales relativas a almacenamiento y transacciones.
+4. Seleccione **Archivar en una cuenta de almacenamiento** . Cuando envíe diagnósticos a una cuenta de almacenamiento, se le cobrará de acuerdo a las tarifas de datos normales relativas a almacenamiento y transacciones.
 4. Seleccione **Configurar** para elegir la cuenta de almacenamiento en la que va a almacenar las métricas de caché.
-5. En el encabezado de tabla **Métrica**, active la casilla junto a los elementos de línea que desea almacenar, como **AllMetrics** (Todas las métricas). Especifique una directiva **Retención (días)** . La retención máxima de días que puede especificar es **365 días**. Sin embargo, si desea conservar los datos de las métricas para siempre, establezca **Retención (días)** en **0**.
-6. Haga clic en **Save**(Guardar).
+5. En el encabezado de tabla **Métrica** , active la casilla junto a los elementos de línea que desea almacenar, como **AllMetrics** (Todas las métricas). Especifique una directiva **Retención (días)** . La retención máxima de días que puede especificar es **365 días** . Sin embargo, si desea conservar los datos de las métricas para siempre, establezca **Retención (días)** en **0** .
+6. Haga clic en **Save** (Guardar).
 
 
 ![Diagnósticos de Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -85,7 +85,7 @@ Para acceder a las métricas, puede verlas en Azure Portal como ya se ha descrit
 
 ## <a name="available-metrics-and-reporting-intervals"></a>Métricas disponibles e intervalos de informes
 
-Los informes de las métricas de caché se generan utilizando diferentes intervalos, como **Última hora**, **Hoy**, **Semana anterior** y **Personalizado**. La hoja **Métrica** para cada gráfico de métricas muestra los valores promedio, mínimos y máximo para cada métrica del gráfico, y algunas métricas muestran un total para el intervalo de informes. 
+Los informes de las métricas de caché se generan utilizando diferentes intervalos, como **Última hora** , **Hoy** , **Semana anterior** y **Personalizado** . La hoja **Métrica** para cada gráfico de métricas muestra los valores promedio, mínimos y máximo para cada métrica del gráfico, y algunas métricas muestran un total para el intervalo de informes. 
 
 Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la memoria caché. En el caso de las memorias caché que utilizan la [agrupación en clústeres](cache-how-to-premium-clustering.md), se usa otra versión de la métrica que incluye `(Shard 0-9)` en el nombre para medir el rendimiento de una sola partición de la memoria caché. Por ejemplo, si una memoria caché tiene 4 particiones, `Cache Hits` es el número total de resultados en toda la memoria caché y `Cache Hits (Shard 3)` refleja simplemente los resultados para esa partición de la memoria caché.
 
@@ -103,7 +103,7 @@ Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la
 | Escritura de caché |La cantidad de datos que se escriben en la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. Este valor corresponde al ancho de banda de red de los datos enviados a la memoria caché desde el cliente. |
 | Clientes conectados |El número de conexiones de clientes a la caché durante el intervalo de informes especificado. Esta cifra se asigna a `connected_clients` desde el comando INFO de Redis. Cuando se alcanza el [límite de conexión](cache-configure.md#default-redis-server-configuration), se producirá un error en los intentos de conexión a la caché posteriores. Incluso si no hay ninguna aplicación de cliente activa, puede haber algunas instancias de clientes conectadas debido a procesos y conexiones internos. |
 | CPU |El uso de CPU del servidor de Azure Cache for Redis como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)\% Processor Time` del sistema operativo. |
-| Errors | Errores específicos y problemas de rendimiento que puede experimentar la memoria caché durante un intervalo de notificación especificado. Esta métrica tiene ocho dimensiones que representan los diferentes tipos de errores, pero se podrían agregar más en el futuro. Los tipos de error que se representan ahora son los siguientes: <br/><ul><li>**Conmutación por error**: cuando una caché conmuta por error (un elemento subordinado promociona a un primario)</li><li>**Dataloss**: se produce una pérdida de datos en la memoria caché</li><li>**UnresponsiveClients**: los clientes no leen los datos del servidor lo suficientemente rápido</li><li>**AOF**: hay un problema relacionado con la persistencia de AOF</li><li>**RDB**: hay un problema relacionado con la persistencia de RDB</li><li>**Importación**: hay un problema relacionado con la importación de RDB</li><li>**Exportación**: hay un problema relacionado con la exportación de RDB</li></ul> |
+| Errors | Errores específicos y problemas de rendimiento que puede experimentar la memoria caché durante un intervalo de notificación especificado. Esta métrica tiene ocho dimensiones que representan los diferentes tipos de errores, pero se podrían agregar más en el futuro. Los tipos de error que se representan ahora son los siguientes: <br/><ul><li>**Conmutación por error** : cuando una caché conmuta por error (un elemento subordinado promociona a un primario)</li><li>**Dataloss** : se produce una pérdida de datos en la memoria caché</li><li>**UnresponsiveClients** : los clientes no leen los datos del servidor lo suficientemente rápido</li><li>**AOF** : hay un problema relacionado con la persistencia de AOF</li><li>**RDB** : hay un problema relacionado con la persistencia de RDB</li><li>**Importación** : hay un problema relacionado con la importación de RDB</li><li>**Exportación** : hay un problema relacionado con la exportación de RDB</li></ul> |
 | Claves expulsadas |El número de elementos que se elimina de la caché durante el intervalo de informes especificado debido al límite `maxmemory` . Esta cifra se asigna a `evicted_keys` desde el comando INFO de Redis. |
 | Claves expiradas |El número de elementos expirados de la caché durante el intervalo de informes especificado. Este valor se asigna a `expired_keys` desde el comando INFO de Redis.|
 | Gets |El número de operaciones get de la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` y `cmdstat_getrange`, y es equivalente a la suma de aciertos y errores de caché durante el intervalo de informes. |
@@ -125,11 +125,11 @@ Puede configurar la recepción de alertas en función de métricas y registros d
 * Llamar a un webhook
 * Invocar una aplicación lógica de Azure
 
-Para configurar reglas de alerta para la memoria caché, haga clic en **Reglas de alerta** en el **menú Recursos**.
+Para configurar reglas de alerta para la memoria caché, haga clic en **Reglas de alerta** en el **menú Recursos** .
 
 ![Supervisión](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Para más información acerca de la configuración y uso de alertas, consulte [Información general de las alertas](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Para más información acerca de la configuración y uso de alertas, consulte [Información general de las alertas](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Registros de actividad
 Los registros de actividad proporcionan información sobre las operaciones llevadas a cabo en las instancias de Azure Cache for Redis. Antes se los conocía como "registros de auditoría" o "registros operativos". Con los registros de actividades, se puede responder a las preguntas "qué, quién y cuándo" de las operaciones de escritura (PUT, POST, DELETE) llevadas a cabo en las instancias de Azure Cache for Redis. 
@@ -138,6 +138,6 @@ Los registros de actividad proporcionan información sobre las operaciones lleva
 > Los registros de actividad no incluyen operaciones de lectura (GET).
 >
 
-Para ver los registros de actividad de la memoria caché, haga clic en **Registros de actividad** en el **menú Recursos**.
+Para ver los registros de actividad de la memoria caché, haga clic en **Registros de actividad** en el **menú Recursos** .
 
 Para más información acerca de los registros de actividad, consulte [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md).

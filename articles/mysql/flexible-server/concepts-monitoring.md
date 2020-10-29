@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932263"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538670"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Supervisión de servidores flexibles de Azure Database for MySQL con métricas integradas
 
@@ -24,9 +24,9 @@ En este artículo se proporciona información sobre las distintas métricas disp
 
 ## <a name="available-metrics"></a>Métricas disponibles
 
-Azure Database for MySQL: servidor flexible proporciona distintas métricas para comprender cómo rinde la carga de trabajo y, en función de estos datos, comprender el impacto en el servidor y la aplicación. Por ejemplo, en un servidor flexible, puede supervisar el **porcentaje de CPU de host**, las **conexiones activas**, el **porcentaje de E/S** y el **porcentaje de memoria de host** para identificar si hay impacto en el rendimiento. A partir de esos datos, es posible que tenga que optimizar la carga de trabajo, y escalarla verticalmente mediante el cambio de niveles de proceso u horizontalmente mediante réplica de lectura.
+Azure Database for MySQL: servidor flexible proporciona distintas métricas para comprender cómo rinde la carga de trabajo y, en función de estos datos, comprender el impacto en el servidor y la aplicación. Por ejemplo, en un servidor flexible, puede supervisar el **porcentaje de CPU de host** , las **conexiones activas** , el **porcentaje de E/S** y el **porcentaje de memoria de host** para identificar si hay impacto en el rendimiento. A partir de esos datos, es posible que tenga que optimizar la carga de trabajo, y escalarla verticalmente mediante el cambio de niveles de proceso u horizontalmente mediante réplica de lectura.
 
-Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, vea [Configuración de alertas](./how-to-alert-on-metric.md). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, vea [Configuración de alertas](./how-to-alert-on-metric.md). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas están disponibles para Azure Database for MySQL:

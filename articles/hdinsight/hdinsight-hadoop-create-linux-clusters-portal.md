@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/06/2020
-ms.openlocfilehash: 1ba2f5e4b88ae6ae0ed15dbfbbc4fa5c55c45a77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebfd5c456d3658c6339e5174c9c4ab33f6c52d4d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874034"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541713"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure Portal
 
@@ -33,50 +33,50 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. En el menú superior, seleccione **+ Crear un recurso**.
+1. En el menú superior, seleccione **+ Crear un recurso** .
 
     ![Creación de un clúster en Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Creación de un clúster en Azure Portal")
 
-1. Seleccione **Analytics** > **Azure HDInsight** para ir a la página **Crear clúster de HDInsight**.
+1. Seleccione **Analytics** > **Azure HDInsight** para ir a la página **Crear clúster de HDInsight** .
 
 ## <a name="basics"></a>Aspectos básicos
 
 ![Conceptos básicos de creación de clústeres de HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Creación de un clúster en Azure Portal")
 
-En la pestaña **Básico**, especifique la siguiente información:
+En la pestaña **Básico** , especifique la siguiente información:
 
 |Propiedad |Descripción |
 |---|---|
 |Suscripción|En la lista desplegable, seleccione la suscripción de Azure que se usa para el clúster.|
-|Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear**.|
+|Resource group|En la lista desplegable, seleccione el grupo de recursos existente o seleccione **Crear** .|
 |Nombre del clúster|Escriba un nombre único global.|
 |Region|En la lista desplegable, seleccione una región donde crear el clúster.|
 |Tipo de clúster|Haga clic en **Seleccionar tipo de clúster** para abrir una lista. En la lista, seleccione el tipo de clúster que desee. Los clústeres de HDInsight se presentan en distintos tipos. Estos corresponden a la carga de trabajo o la tecnología para los que el clúster está optimizado. No hay ningún método compatible para crear un clúster que combine varios tipos.|
-|Versión|En la lista desplegable, seleccione una **versión**. Use la versión predeterminada si no sabe qué opción elegir. Para obtener más información, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).|
-|Nombre de usuario de inicio de sesión del clúster|Proporcione el nombre de usuario; el valor predeterminado es **admin**.|
+|Versión|En la lista desplegable, seleccione una **versión** . Use la versión predeterminada si no sabe qué opción elegir. Para obtener más información, consulte [Versiones de clústeres de HDInsight](hdinsight-component-versioning.md).|
+|Nombre de usuario de inicio de sesión del clúster|Proporcione el nombre de usuario; el valor predeterminado es **admin** .|
 |Contraseña de inicio de sesión de clúster|Proporcione la contraseña.|
 |Confirmar la contraseña de inicio de sesión del clúster|Reescriba la contraseña.|
-|Nombre de usuario de Secure Shell (SSH)|Proporcione el nombre de usuario; el valor predeterminado es **sshuser**.|
-|Uso de la contraseña de inicio de sesión del clúster para SSH|Si desea la misma contraseña de SSH que la contraseña de administrador que especificó anteriormente, active la casilla **Usar la contraseña de inicio de sesión del clúster para SSH**. De no ser así, especifique una **CONTRASEÑA** o **CLAVE PÚBLICA** para autenticar al usuario de SSH. Es recomendable usar una clave pública. Elija **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.  Para más información, consulte [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md) (Conexión a través de SSH con HDInsight [Apache Hadoop]).|
+|Nombre de usuario de Secure Shell (SSH)|Proporcione el nombre de usuario; el valor predeterminado es **sshuser** .|
+|Uso de la contraseña de inicio de sesión del clúster para SSH|Si desea la misma contraseña de SSH que la contraseña de administrador que especificó anteriormente, active la casilla **Usar la contraseña de inicio de sesión del clúster para SSH** . De no ser así, especifique una **CONTRASEÑA** o **CLAVE PÚBLICA** para autenticar al usuario de SSH. Es recomendable usar una clave pública. Elija **Seleccionar** en la parte inferior para guardar la configuración de las credenciales.  Para más información, consulte [Connect to HDInsight (Apache Hadoop) by using SSH](hdinsight-hadoop-linux-use-ssh-unix.md) (Conexión a través de SSH con HDInsight [Apache Hadoop]).|
 
 Seleccione **Siguiente: Almacenamiento>>** para avanzar a la pestaña siguiente.
 
 ## <a name="storage"></a>Storage
 
 > [!WARNING] 
-> A partir del 15 de junio de 2020 los clientes no podrán crear una nueva entidad de servicio mediante HDInsight. Consulte [Creación de una entidad de servicio y certificados](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) mediante Azure Active Directory.
+> A partir del 15 de junio de 2020 los clientes no podrán crear una nueva entidad de servicio mediante HDInsight. Consulte [Creación de una entidad de servicio y certificados](../active-directory/develop/howto-create-service-principal-portal.md) mediante Azure Active Directory.
 
 ![Almacenamiento en creación de clústeres de HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creación de un clúster en Azure Portal: almacenamiento")
 
 ### <a name="primary-storage"></a>Almacenamiento principal
 
-En la lista desplegable de **Tipo de almacenamiento principal**, seleccione el tipo de almacenamiento predeterminado. Los campos siguientes que va a completar variarán en función de la selección. Para **Azure Storage**:
+En la lista desplegable de **Tipo de almacenamiento principal** , seleccione el tipo de almacenamiento predeterminado. Los campos siguientes que va a completar variarán en función de la selección. Para **Azure Storage** :
 
-1. En **Método de selección**, elija **Seleccionar un elemento de la lista** o **Usar clave de acceso**.
-    * En **Seleccionar un elemento de la lista**, seleccione la **Cuenta de almacenamiento principal** en la lista desplegable o seleccione **Crear**.
-    * En **Usar clave de acceso**, escriba su **Nombre de la cuenta de almacenamiento**. A continuación, proporcione la **Clave de acceso**.
+1. En **Método de selección** , elija **Seleccionar un elemento de la lista** o **Usar clave de acceso** .
+    * En **Seleccionar un elemento de la lista** , seleccione la **Cuenta de almacenamiento principal** en la lista desplegable o seleccione **Crear** .
+    * En **Usar clave de acceso** , escriba su **Nombre de la cuenta de almacenamiento** . A continuación, proporcione la **Clave de acceso** .
 
-1. En **Contenedor**, acepte el valor predeterminado o escriba uno nuevo.
+1. En **Contenedor** , acepte el valor predeterminado o escriba uno nuevo.
 
 ### <a name="additional-azure-storage"></a>Azure Storage adicional
 
@@ -95,11 +95,11 @@ Seleccione **Siguiente: Seguridad y redes >>** para avanzar a la pestaña siguie
 
 ![Creación de clúster de HDInsight en seguridad y redes](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-security-networking.png "Creación de clúster de HDInsight en seguridad y redes")
 
-En la pestaña **Seguridad y redes**, especifique la información siguiente:
+En la pestaña **Seguridad y redes** , especifique la información siguiente:
 
 |Propiedad |Descripción |
 |---|---|
-|Paquete de seguridad de la empresa|Opcional: Active la casilla para usar **Enterprise Security Package**. Para obtener más información, consulte [Configuración de clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
+|Paquete de seguridad de la empresa|Opcional: Active la casilla para usar **Enterprise Security Package** . Para obtener más información, consulte [Configuración de clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).|
 |TLS|Opcional: Seleccione una versión de TLS de la lista desplegable. Para más información, consulte [Seguridad de la capa de transporte](./transport-layer-security.md).|
 |Virtual network|Opcional: Seleccione una red virtual y una subred existentes de la lista desplegable. Para obtener más información, consulte [Planeamiento de la implementación de una red virtual para clústeres de Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). El artículo incluye los requisitos de configuración específicos de la red virtual.|
 |Configuración de cifrado de disco|Opcional: Active la casilla para usar el cifrado. Para obtener más información, consulte [Cifrado de disco mediante claves administradas por el cliente](./disk-encryption.md).|
@@ -112,7 +112,7 @@ Seleccione **Siguiente: Configuración y precios >>** para avanzar a la pestaña
 
 ![Creación de un clúster de HDInsight en configuración](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-configuration.png "Pestaña Configuración y precios")
 
-En la pestaña **Configuración y precios**, especifique la información siguiente:
+En la pestaña **Configuración y precios** , especifique la información siguiente:
 
 |Propiedad |Descripción |
 |---|---|
@@ -134,7 +134,7 @@ El clúster tarda algo de tiempo en crearse, normalmente unos 20 minutos. Superv
 
 ## <a name="post-creation"></a>Después de la creación
 
-Una vez completado el proceso de creación, seleccione **Ir al recurso** en la notificación **Implementación correcta**. La ventana del clúster ofrece la siguiente información.
+Una vez completado el proceso de creación, seleccione **Ir al recurso** en la notificación **Implementación correcta** . La ventana del clúster ofrece la siguiente información.
 
 ![Información general de HDI en Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Propiedades de clúster")
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af1419dfb47f9090fd3aa307c71f7e62206e3e93
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797826"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543362"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Supervisión de Azure Cosmos DB
 
@@ -66,9 +66,9 @@ La página **Información general** de Azure Portal para cada base de datos de A
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Análisis de datos de métricas
 
-Azure Cosmos DB proporciona una experiencia personalizada para trabajar con métricas. Consulte [Supervisión y depuración de métricas de Azure Cosmos DB de Azure Monitor](cosmos-db-azure-monitor-metrics.md) para obtener información detallada sobre el uso de esta experiencia y para analizar diferentes escenarios de Azure Cosmos DB.
+Azure Cosmos DB proporciona una experiencia personalizada para trabajar con métricas.
 
-Puede analizar las métricas de Azure Cosmos DB con métricas de otros servicios de Azure mediante el explorador de métricas abriendo **Métricas** en el menú de **Azure Monitor**. Consulte [Introducción al explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md) para más información sobre esta herramienta. Todas las métricas de Azure Cosmos DB se encuentran en el espacio de nombres de las **métricas estándar de Cosmos DB**. Puede usar las siguientes dimensiones con estas métricas cuando agregue un filtro a un gráfico:
+Puede analizar las métricas de Azure Cosmos DB con métricas de otros servicios de Azure mediante el explorador de métricas abriendo **Métricas** en el menú de **Azure Monitor** . Consulte [Introducción al explorador de métricas de Azure](../azure-monitor/platform/metrics-getting-started.md) para más información sobre esta herramienta. Todas las métricas de Azure Cosmos DB se encuentran en el espacio de nombres de las **métricas estándar de Cosmos DB** . Puede usar las siguientes dimensiones con estas métricas cuando agregue un filtro a un gráfico:
 
 * CollectionName
 * DatabaseName
@@ -80,11 +80,11 @@ Puede analizar las métricas de Azure Cosmos DB con métricas de otros servicios
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-1. Seleccione **Monitor** en la barra de navegación izquierda y, a continuación, seleccione **Métricas**.
+1. Seleccione **Monitor** en la barra de navegación izquierda y, a continuación, seleccione **Métricas** .
 
    :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Opciones de supervisión disponibles en Azure Portal":::
 
-1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción**, y el **grupo de recursos** requeridos. En **Tipo de recurso**, seleccione **Cuentas de Azure Cosmos DB**, elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar**.
+1. En el panel **Métricas** panel > **Seleccionar un recurso** > elija la **suscripción** , y el **grupo de recursos** requeridos. En **Tipo de recurso** , seleccione **Cuentas de Azure Cosmos DB** , elija una de las cuentas de Azure Cosmos existentes y seleccione **Aplicar** .
 
    :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Opciones de supervisión disponibles en Azure Portal":::
 
@@ -96,7 +96,7 @@ Puede analizar las métricas de Azure Cosmos DB con métricas de otros servicios
 
 ### <a name="add-filters-to-metrics"></a>Incorporación de filtros a métricas
 
-También puede filtrar las métricas y el gráfico que se muestra por una propiedad **CollectionName**, **DatabaseName**, **OperationType**, **Region** y **StatusCode** concreta. Para filtrar las métricas, seleccione **Agregar filtro** y elija la propiedad necesaria, como por ejemplo **OperationType** y seleccione un valor como **Query**. A continuación, el gráfico muestra las unidades de solicitud consumidas por la operación de consulta durante el período seleccionado. Las operaciones ejecutadas a través del procedimiento almacenado no se registran, por lo que no están disponibles en la métrica OperationType.
+También puede filtrar las métricas y el gráfico que se muestra por una propiedad **CollectionName** , **DatabaseName** , **OperationType** , **Region** y **StatusCode** concreta. Para filtrar las métricas, seleccione **Agregar filtro** y elija la propiedad necesaria, como por ejemplo **OperationType** y seleccione un valor como **Query** . A continuación, el gráfico muestra las unidades de solicitud consumidas por la operación de consulta durante el período seleccionado. Las operaciones ejecutadas a través del procedimiento almacenado no se registran, por lo que no están disponibles en la métrica OperationType.
 
 :::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Opciones de supervisión disponibles en Azure Portal":::
 
@@ -114,11 +114,11 @@ Los datos de los registros de Azure Monitor se almacenan en tablas; cada tabla t
 | AzureActivity    | Tabla común que almacena todos los registros del registro de actividad.
 
 > [!IMPORTANT]
-> Al seleccionar **Registros** en el menú de Azure Machine Learning, Log Analytics se abre con el ámbito de la consulta establecido en la base de datos de Azure Cosmos actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si desea ejecutar una consulta que incluya datos de otras bases de datos o de otros servicios de Azure, elija **Registros** en el menú **Azure Monitor**. Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](../azure-monitor/log-query/scope.md) para obtener más información.
+> Al seleccionar **Registros** en el menú de Azure Machine Learning, Log Analytics se abre con el ámbito de la consulta establecido en la base de datos de Azure Cosmos actual. Esto significa que las consultas de registro solo incluirán datos de ese recurso. Si desea ejecutar una consulta que incluya datos de otras bases de datos o de otros servicios de Azure, elija **Registros** en el menú **Azure Monitor** . Consulte [Ámbito e intervalo de tiempo de una consulta de registro en Log Analytics de Azure Monitor](../azure-monitor/log-query/scope.md) para obtener más información.
 
 ### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Consultas de Log Analytics de Azure Cosmos DB en Azure Monitor
 
-Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqueda de registros** para ayudarle a supervisar los contenedores de Azure Cosmos. Estas consultas funcionan con el [nuevo lenguaje](../log-analytics/log-analytics-log-search-upgrade.md).
+Estas son algunas consultas que puede escribir en la barra de búsqueda **Búsqueda de registros** para ayudarle a supervisar los contenedores de Azure Cosmos. Estas consultas funcionan con el [nuevo lenguaje](../azure-monitor/log-query/log-query-overview.md).
 
 A continuación se muestran las consultas que puede usar para supervisar las bases de datos de Azure Cosmos.
 
@@ -151,9 +151,9 @@ A continuación se muestran las consultas que puede usar para supervisar las bas
 
 Las métricas de nivel de cuenta disponibles en el portal, como el uso de almacenamiento de cuenta y el total de solicitudes, no están disponibles mediante las API de SQL. Sin embargo, puede recuperar datos de uso en el nivel de colección mediante las API de SQL. Para recuperar datos de nivel de colección, haga lo siguiente:
 
-* Para usar la API de REST, [ejecute una operación GET en la colección](https://msdn.microsoft.com/library/mt489073.aspx). La información de cuota y uso de la colección se devuelve en los encabezados x-ms-resource-quota y x-ms-resource-usage de la respuesta.
+* Para usar la API de REST, [ejecute una operación GET en la colección](/rest/api/cosmos-db/get-a-collection). La información de cuota y uso de la colección se devuelve en los encabezados x-ms-resource-quota y x-ms-resource-usage de la respuesta.
 
-* Para usar el SDK de .NET, use el método [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx), que devuelve un objeto [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) que contiene varias propiedades de uso, como **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage** y otras más.
+* Para usar el SDK de .NET, use el método [DocumentClient.ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync), que devuelve un objeto [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1) que contiene varias propiedades de uso, como **CollectionSizeUsage** , **DatabaseUsage** , **DocumentUsage** y otras más.
 
 Para acceder a métricas adicionales, use el [SDK de Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Insights). Se pueden recuperar definiciones de métricas mediante la llamada a:
 

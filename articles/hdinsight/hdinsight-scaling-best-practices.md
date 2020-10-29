@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505019"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535406"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
@@ -32,9 +32,9 @@ Microsoft proporciona las siguientes utilidades para escalar clústeres:
 
 |Utilidad | Descripción|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[CLI de Azure](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[CLI de Azure clásica](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure Portal](https://portal.azure.com)|Abra el panel del clúster de HDInsight, seleccione **Tamaño de clúster** en el menú izquierdo y, luego, en el panel Tamaño de clúster, escriba el número de nodos de trabajo y seleccione Guardar.|  
 
@@ -43,8 +43,8 @@ Microsoft proporciona las siguientes utilidades para escalar clústeres:
 Con cualquiera de estos métodos, puede escalar o reducir verticalmente el clúster de HDInsight en cuestión de minutos.
 
 > [!IMPORTANT]  
-> * La CLI clásica de Azure está en desuso y solo debe usarse con el modelo de implementación clásico. Para las demás implementaciones, utilice la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
-> * El módulo AzureRM de PowerShell está en desuso.  Use el [módulo Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) siempre que sea posible.
+> * La CLI clásica de Azure está en desuso y solo debe usarse con el modelo de implementación clásico. Para las demás implementaciones, utilice la [CLI de Azure](/cli/azure/).
+> * El módulo AzureRM de PowerShell está en desuso.  Use el [módulo Az](/powershell/azure/new-azureps-module-az) siempre que sea posible.
 
 ## <a name="impact-of-scaling-operations"></a>Impacto de las operaciones de escalado
 
@@ -82,7 +82,7 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 
     1. Abra `https://CLUSTERNAME.azurehdinsight.net/stormui` en el explorador web, donde `CLUSTERNAME` es el nombre del clúster de Storm. Si se le solicite, escriba el nombre de administrador (admin) del clúster de HDInsight y la contraseña que especificó al crear el clúster.
 
-    1. Seleccione la topología que quiere equilibrar y, después, seleccione el botón **Reequilibrar**. Especifique el retraso antes de realizar la operación de reequilibrio.
+    1. Seleccione la topología que quiere equilibrar y, después, seleccione el botón **Reequilibrar** . Especifique el retraso antes de realizar la operación de reequilibrio.
 
         ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
 
@@ -128,9 +128,9 @@ Para evitar que se produzcan errores en los trabajos en ejecución durante una o
 Para ver una lista de los trabajos pendientes y en ejecución, puede usar la **interfaz de usuario de Resource Manager** de YARN; para ello, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione su clúster.  El clúster se abre en una nueva página del portal.
-2. En la vista principal, vaya a **Paneles de clúster** > **Inicio de Ambari**. Escriba las credenciales del clúster.
+2. En la vista principal, vaya a **Paneles de clúster** > **Inicio de Ambari** . Escriba las credenciales del clúster.
 3. En la interfaz de usuario de Ambari, seleccione **YARN** en la lista de servicios del menú de la izquierda.  
-4. En la página de YARN, seleccione **Vínculos rápidos**, mantenga el puntero sobre el nodo principal activo y, después, seleccione **ResourceManager UI** (UI de Resource Manager).
+4. En la página de YARN, seleccione **Vínculos rápidos** , mantenga el puntero sobre el nodo principal activo y, después, seleccione **ResourceManager UI** (UI de Resource Manager).
 
     ![Interfaz de usuario de Resource Manager de vínculos rápidos de Apache Ambari](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 

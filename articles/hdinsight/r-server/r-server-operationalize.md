@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 1a5a46957c92fb2c14907db728216481f3f57aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087697"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536273"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Puesta en funcionamiento de clústeres de ML Services en Azure HDInsight
 
@@ -21,14 +21,14 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Un clúster de ML Services en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster**.
+* Un clúster de ML Services en HDInsight. Consulte el artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster** .
 
 * Un cliente de Secure Shell (SSH): el cliente de SSH se usa para conectarse al clúster de HDInsight de forma remota y ejecutar comandos directamente desde el clúster. Para más información, consulte [Uso SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Poner en funcionamiento el clúster de ML Services con la configuración de un solo equipo
 
 > [!NOTE]  
-> Los pasos siguientes se pueden aplicar a R Server 9.0 y ML Server 9.1. Para ML Server 9.3, consulte [Use the administration tool to manage the operationalization configuration](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch) (Usar la herramienta de administración para administrar la configuración de puesta en marcha).
+> Los pasos siguientes se pueden aplicar a R Server 9.0 y ML Server 9.1. Para ML Server 9.3, consulte [Use the administration tool to manage the operationalization configuration](/machine-learning-server/operationalize/configure-admin-cli-launch) (Usar la herramienta de administración para administrar la configuración de puesta en marcha).
 
 1. Uso de SSH en el nodo perimetral.
 
@@ -54,11 +54,11 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
         sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
         ```
 
-1. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha**.
+1. Se muestran las diferentes opciones que tiene. Elija la primera opción, tal como se muestra en la siguiente captura de pantalla, con el fin de **configurar ML Server para la puesta en marcha** .
 
     ![Selección en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-1. Ahora verá la opción para elegir cómo desea poner en marcha ML Server. Entre las opciones, elija la primera de ellas escribiendo **A**.
+1. Ahora verá la opción para elegir cómo desea poner en marcha ML Server. Entre las opciones, elija la primera de ellas escribiendo **A** .
 
     ![Puesta en marcha en la utilidad de administración de R Server](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -74,7 +74,7 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
     ![Diagnóstico en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. En el menú de pruebas de diagnóstico, seleccione **A**. Cuando se le solicite, escriba la contraseña que ha proporcionado para el usuario administrador local.
+    b. En el menú de pruebas de diagnóstico, seleccione **A** . Cuando se le solicite, escriba la contraseña que ha proporcionado para el usuario administrador local.
 
     ![Prueba en la utilidad de administración de R Server](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
@@ -86,7 +86,7 @@ Después de haber usado el clúster de ML Services en HDInsight para completar e
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Retrasos prolongados al consumir el servicio web en Apache Spark
 
-Si se producen retrasos prolongados al intentar consumir un servicio web creado con funciones de mrsdeploy en un contexto de proceso de Apache Spark, puede que necesite agregar algunas carpetas que falten. La aplicación de Spark pertenece a un usuario llamado "*rserve2*" cada vez que se invoque desde un servicio web mediante las funciones de mrsdeploy. Para evitar este problema:
+Si se producen retrasos prolongados al intentar consumir un servicio web creado con funciones de mrsdeploy en un contexto de proceso de Apache Spark, puede que necesite agregar algunas carpetas que falten. La aplicación de Spark pertenece a un usuario llamado " *rserve2* " cada vez que se invoque desde un servicio web mediante las funciones de mrsdeploy. Para evitar este problema:
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -103,7 +103,7 @@ chmod 777 /var/RevoShare/rserve2
 rxSparkConnect(reset = TRUE)
 ```
 
-En esta fase, la configuración de la puesta en operación está completa. Ahora puede usar el paquete `mrsdeploy` en RClient para conectarse a la operacionalización en el nodo perimetral y empezar a usar sus características, como la [ejecución remota](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) y los [servicios web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Dependiendo de si el clúster se configura en una red virtual o no, puede que necesite configurar la tunelización de reenvío del puerto mediante el inicio de sesión SSH. En las secciones siguientes se explica cómo configurar este túnel.
+En esta fase, la configuración de la puesta en operación está completa. Ahora puede usar el paquete `mrsdeploy` en RClient para conectarse a la operacionalización en el nodo perimetral y empezar a usar sus características, como la [ejecución remota](/machine-learning-server/r/how-to-execute-code-remotely) y los [servicios web](/machine-learning-server/operationalize/concept-what-are-web-services). Dependiendo de si el clúster se configura en una red virtual o no, puede que necesite configurar la tunelización de reenvío del puerto mediante el inicio de sesión SSH. En las secciones siguientes se explica cómo configurar este túnel.
 
 ### <a name="ml-services-cluster-on-virtual-network"></a>Clúster de ML Services en una red virtual
 
@@ -151,21 +151,21 @@ El clúster de ML Services no se administra a través de [Apache Hadoop YARN](ht
 
 Siga estos pasos para retirar nodos de trabajo:
 
-1. Inicie sesión en la consola de Ambari del clúster y haga clic en la pestaña **Hosts**.
+1. Inicie sesión en la consola de Ambari del clúster y haga clic en la pestaña **Hosts** .
 
 1. Seleccione los nodos de trabajo (para retirarlos).
 
-1. Haga clic en **Acciones** > **Hosts seleccionados** > **Hosts** > **Activar modo de mantenimiento**. Por ejemplo, en la siguiente imagen se han seleccionado wn3 y wn4 para su retirada.  
+1. Haga clic en **Acciones** > **Hosts seleccionados** > **Hosts** > **Activar modo de mantenimiento** . Por ejemplo, en la siguiente imagen se han seleccionado wn3 y wn4 para su retirada.  
 
    ![Activación de modo de mantenimiento en Apache Ambari](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Seleccione **Acciones** > **Hosts seleccionados** > **DataNodes** > haga clic en **Retirar**.
-* Seleccione **Acciones** > **Hosts seleccionados** > **NodeManagers** > haga clic en **Retirar**.
-* Seleccione **Acciones** > **Hosts seleccionados** > **DataNodes** > haga clic en **Detener**.
-* Seleccione **Acciones** > **Hosts seleccionados** > **NodeManagers** > haga clic en **Detener**.
-* Seleccione **Acciones** > **Hosts seleccionados** > **Hosts** > haga clic en **Detener todos los componentes**.
+* Seleccione **Acciones** > **Hosts seleccionados** > **DataNodes** > haga clic en **Retirar** .
+* Seleccione **Acciones** > **Hosts seleccionados** > **NodeManagers** > haga clic en **Retirar** .
+* Seleccione **Acciones** > **Hosts seleccionados** > **DataNodes** > haga clic en **Detener** .
+* Seleccione **Acciones** > **Hosts seleccionados** > **NodeManagers** > haga clic en **Detener** .
+* Seleccione **Acciones** > **Hosts seleccionados** > **Hosts** > haga clic en **Detener todos los componentes** .
 * Anule la selección de los nodos de trabajo y selecciones los nodos principales.
-* Seleccione **Acciones** > **Hosts seleccionados** > "**Hosts** > **Reiniciar todos los componentes**.
+* Seleccione **Acciones** > **Hosts seleccionados** > " **Hosts** > **Reiniciar todos los componentes** .
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Paso 2: Configuración de los nodos de proceso en cada nodo de trabajo retirado
 
