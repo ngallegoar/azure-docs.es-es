@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029304"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745823"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificación de un conjunto de escalado de máquinas virtuales
 
@@ -283,9 +283,9 @@ Una vez que se actualiza el modelo de conjunto de escalado, la nueva configuraci
 ## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Actualización de las máquinas virtuales con el modelo de conjunto de escalado más reciente
 Los conjuntos de escalado tienen una "directiva de actualización" que determina cómo se actualizan las máquinas virtuales con el modelo de conjunto de escalado más reciente. Los tres modos de la directiva de actualización son:
 
-- **Automático**: en este modo, el conjunto de escalado no ofrece ninguna garantía sobre el orden en el que se desactivan las máquinas virtuales. El conjunto de escalado puede desactivarlas todas al mismo tiempo. 
-- **Gradual**: en este modo, el conjunto de escalado implementa la actualización por lotes con un tiempo de pausa opcional entre ellos.
-- **Manual**: en este modo, cuando se actualiza el modelo de conjunto de escalado, no ocurre nada en las máquinas virtuales existentes.
+- **Automático** : en este modo, el conjunto de escalado no ofrece ninguna garantía sobre el orden en el que se desactivan las máquinas virtuales. El conjunto de escalado puede desactivarlas todas al mismo tiempo. 
+- **Gradual** : en este modo, el conjunto de escalado implementa la actualización por lotes con un tiempo de pausa opcional entre ellos.
+- **Manual** : en este modo, cuando se actualiza el modelo de conjunto de escalado, no ocurre nada en las máquinas virtuales existentes.
  
 Para actualizar las máquinas virtuales existentes, debe realizar una "actualización manual" de cada una de ellas. Puede realizar esta actualización manual mediante:
 
@@ -310,7 +310,7 @@ Para actualizar las máquinas virtuales existentes, debe realizar una "actualiza
 - También puede usar los [SDK de Azure](https://azure.microsoft.com/downloads/) específicos del lenguaje.
 
 >[!NOTE]
-> Los clústeres de Service Fabric solo pueden usar el modo *automático*, pero la actualización se administra de forma diferente. Para más información, consulte [Actualización de la aplicación de Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> Los clústeres de Service Fabric solo pueden usar el modo *automático* , pero la actualización se administra de forma diferente. Para más información, consulte [Actualización de la aplicación de Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
 Hay un tipo de modificación en las propiedades globales del conjunto de escalado que no sigue la directiva de actualización. Los cambios en el perfil del disco de datos y del sistema operativo del conjunto de escalado (como nombre de usuario administrador y contraseña) solo se pueden realizar en la versión de API *2017-12-01* o posterior. Estos cambios solo se aplican a las máquinas virtuales creadas después del cambio en el modelo de conjunto de escalado. Para actualizar las máquinas virtuales existentes, debe realizar un "restablecimiento de la imagen inicial" de cada una de ellas. Para ello, puede usar:
 
@@ -348,13 +348,13 @@ Algunas propiedades solo pueden establecerse al crear el conjunto de escalado. E
 ### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Propiedades que solo se pueden cambiar en función del valor actual
 Algunas propiedades pueden cambiarse, con excepciones dependiendo del valor actual. Estas propiedades incluyen:
 
-- **singlePlacementGroup**: si singlePlacementGroup es true, se puede cambiar a false. Sin embargo, si singlePlacementGroup es false, **no se puede** cambiar a true.
-- **subnet**: la subred de un conjunto de escalado se puede modificar siempre y cuando la subred original y la nueva subred estén en la misma red virtual.
+- **singlePlacementGroup** : si singlePlacementGroup es true, se puede cambiar a false. Sin embargo, si singlePlacementGroup es false, **no se puede** cambiar a true.
+- **subnet** : la subred de un conjunto de escalado se puede modificar siempre y cuando la subred original y la nueva subred estén en la misma red virtual.
 
 ### <a name="properties-that-require-deallocation-to-change"></a>Propiedades que requieren desasignación para poder cambiar
 Algunas propiedades solo pueden cambiar a ciertos valores si se desasignan las máquinas virtuales del conjunto de escalado. Estas propiedades incluyen:
 
-- **Nombre de SKU**: si el nombre de la nueva SKU de máquina virtual no se admite en el hardware en el que se encuentra actualmente el conjunto de escalado, debe desasignar las máquinas virtuales del conjunto de escalado antes de modificar el nombre de SKU. Para más información, consulte [cómo cambiar el tamaño de una máquina virtual de Azure](../virtual-machines/windows/resize-vm.md).
+- **Nombre de SKU** : si el nombre de la nueva SKU de máquina virtual no se admite en el hardware en el que se encuentra actualmente el conjunto de escalado, debe desasignar las máquinas virtuales del conjunto de escalado antes de modificar el nombre de SKU. Para más información, consulte [cómo cambiar el tamaño de una máquina virtual de Azure](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>Actualizaciones específicas de la máquina virtual
@@ -364,7 +364,7 @@ Algunas modificaciones pueden aplicarse a máquinas virtuales específicas, y no
 ## <a name="scenarios"></a>Escenarios
 
 ### <a name="application-updates"></a>Actualizaciones de aplicaciones
-Si una aplicación se implementa en un conjunto de escalado mediante extensiones, al actualizar la configuración de extensiones la aplicación se actualiza en consonancia con la directiva de actualización. Por ejemplo, si tiene una nueva versión de un script que se va a ejecutar en una extensión de script personalizado, podría actualizar la propiedad *fileUris* para que apunte al nuevo script. En algunos casos, puede que desee forzar una actualización aunque no se haya modificado la configuración de extensiones (por ejemplo, ha actualizado el script sin cambiar su URI). En estos casos, puede modificar la propiedad *forceUpdateTag* para forzar una actualización. La plataforma Azure no interpreta esta propiedad. Si cambia el valor, no hay ningún efecto sobre cómo se ejecuta la extensión. Solo fuerza a que la extensión se vuelva a ejecutar. Para más información sobre *forceUpdateTag*, consulte la [documentación de API REST de las extensiones](/rest/api/compute/virtualmachineextensions/createorupdate). Tenga en cuenta que *forceUpdateTag* se puede utilizar con todas las extensiones, no solo con la extensión de script personalizado.
+Si una aplicación se implementa en un conjunto de escalado mediante extensiones, al actualizar la configuración de extensiones la aplicación se actualiza en consonancia con la directiva de actualización. Por ejemplo, si tiene una nueva versión de un script que se va a ejecutar en una extensión de script personalizado, podría actualizar la propiedad *fileUris* para que apunte al nuevo script. En algunos casos, puede que desee forzar una actualización aunque no se haya modificado la configuración de extensiones (por ejemplo, ha actualizado el script sin cambiar su URI). En estos casos, puede modificar la propiedad *forceUpdateTag* para forzar una actualización. La plataforma Azure no interpreta esta propiedad. Si cambia el valor, no hay ningún efecto sobre cómo se ejecuta la extensión. Solo fuerza a que la extensión se vuelva a ejecutar. Para más información sobre *forceUpdateTag* , consulte la [documentación de API REST de las extensiones](/rest/api/compute/virtualmachineextensions/createorupdate). Tenga en cuenta que *forceUpdateTag* se puede utilizar con todas las extensiones, no solo con la extensión de script personalizado.
 
 También es habitual que las aplicaciones se implementen mediante una imagen personalizada. Este escenario se explica en la siguiente sección.
 
@@ -379,7 +379,7 @@ Si usa imágenes personalizadas, puede actualizar la imagen mediante la actualiz
 ## <a name="examples"></a>Ejemplos
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Actualización de la imagen del sistema operativo en el conjunto de escalado
-Puede que tenga un conjunto de escalado que ejecuta una versión anterior de Ubuntu LTS 16.04 y quiere actualizar a una versión más reciente de Ubuntu LTS 16.04, como *16.04.201801090*. La propiedad de versión de referencia de imagen no es parte de una lista, por lo que puede modificar directamente estas propiedades con uno de los siguientes comandos:
+Puede que tenga un conjunto de escalado que ejecuta una versión anterior de Ubuntu LTS 16.04 y quiere actualizar a una versión más reciente de Ubuntu LTS 16.04, como *16.04.201801090* . La propiedad de versión de referencia de imagen no es parte de una lista, por lo que puede modificar directamente estas propiedades con uno de los siguientes comandos:
 
 - Azure PowerShell con [Update-AzVmss](/powershell/module/az.compute/update-azvmss), como sigue:
 
@@ -447,7 +447,7 @@ Supongamos que tiene un conjunto de escalado con una instancia de Azure Load Bal
     ```
 
 >[!NOTE]
-> Estos comandos dan por hecho que solo hay una configuración IP y un equilibrador de carga en el conjunto de escalado. Si hay varios, debe usar un índice de lista distinto de *0*.
+> Estos comandos dan por hecho que solo hay una configuración IP y un equilibrador de carga en el conjunto de escalado. Si hay varios, debe usar un índice de lista distinto de *0* .
 
 
 ## <a name="next-steps"></a>Pasos siguientes

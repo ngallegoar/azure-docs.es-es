@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: cf7e596c8ed057a3244ed2b12de59d02c4ba2cae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977942"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746222"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -135,7 +135,7 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o el comando de la CLI de Azure `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Nombre del grupo de recursos que contiene el almacén de claves|
 |  keyEncryptionKeyURL | La dirección URL de la clave de cifrado de claves con el formato https://&lt;nombreDelAlmacénDeClaves&gt;.vault.azure.net/key/&lt;nombreDeClave&gt;. Si no desea usar una KEK, deje este campo en blanco. |
-| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
+| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_ , _Datos_ y _Todo_ . 
 | forceUpdateTag | Cada vez que la operación tenga que ejecutarse, pase un valor único como GUID. |
 | resizeOSDisk | Si se debería cambiar el tamaño de la partición del sistema operativo para ocupar el VHD del sistema operativo completo antes de dividir el volumen del sistema. |
 | ubicación | Ubicación para todos los recursos. |

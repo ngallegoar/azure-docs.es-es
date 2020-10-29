@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006439"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746477"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Tutorial: Creación de una canalización de datos de un extremo a otro para derivar información de ventas en Azure HDInsight
 
@@ -27,13 +27,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* CLI de Azure (2.2.0 como mínimo). Consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* CLI de Azure (2.2.0 como mínimo). Consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 * jq, un procesador JSON de línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Un miembro del [rol integrado de Azure: propietario](../role-based-access-control/built-in-roles.md).
 
-* Si usa PowerShell para desencadenar la canalización de Data Factory, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/).
+* Si usa PowerShell para desencadenar la canalización de Data Factory, necesitará el [módulo AZ](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) para visualizar la información empresarial que aparece al final de este tutorial.
 
@@ -93,7 +93,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    Si no está seguro de qué región especificar, puede recuperar una lista de regiones admitidas para la suscripción con el comando [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations).
+    Si no está seguro de qué región especificar, puede recuperar una lista de regiones admitidas para la suscripción con el comando [az account list-locations](/cli/azure/account#az-account-list-locations).
 
     El comando implementará los siguientes recursos:
 
@@ -110,7 +110,7 @@ La contraseña predeterminada para el acceso SSH a los clústeres es `Thisisapas
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Comprobación de la implementación y recopilación de información de recursos
 
-1. Si desea comprobar el estado de la implementación, vaya al grupo de recursos en Azure Portal. En **Configuración**, seleccione **Implementaciones** y, a continuación, su implementación. Aquí puede ver los recursos que se han implementado correctamente y los que todavía están en curso.
+1. Si desea comprobar el estado de la implementación, vaya al grupo de recursos en Azure Portal. En **Configuración** , seleccione **Implementaciones** y, a continuación, su implementación. Aquí puede ver los recursos que se han implementado correctamente y los que todavía están en curso.
 
 1. Para ver los nombres de los clústeres, escriba el siguiente comando:
 
@@ -252,21 +252,21 @@ Consulte [este artículo sobre el uso de Jupyter Notebook](/azure/hdinsight/spar
 
 1. Abra Power BI Desktop.
 
-1. En el menú, vaya a **Obtenga datos** > **Más...**  > **Azure** > **HDInsight Interactive Query**.
+1. En el menú, vaya a **Obtenga datos** > **Más...**  > **Azure** > **HDInsight Interactive Query** .
 
-1. Seleccione **Conectar**.
+1. Seleccione **Conectar** .
 
-1. En el cuadro de diálogo **HDInsight Interactive Query**:
-    1. En el cuadro de texto **Servidor**, escriba el nombre del clúster de LLAP en el formato de `https://LLAPCLUSTERNAME.azurehdinsight.net`.
-    1. En el cuadro de texto **base de datos**, escriba `default`.
-    1. Seleccione **Aceptar**.
+1. En el cuadro de diálogo **HDInsight Interactive Query** :
+    1. En el cuadro de texto **Servidor** , escriba el nombre del clúster de LLAP en el formato de `https://LLAPCLUSTERNAME.azurehdinsight.net`.
+    1. En el cuadro de texto **base de datos** , escriba `default`.
+    1. Seleccione **Aceptar** .
 
-1. En el cuadro de diálogo **AzureHive**:
-    1. En el cuadro de texto **Nombre de usuario**, escriba `admin`.
-    1. En el cuadro de texto **Contraseña**, escriba `Thisisapassword1`.
-    1. Seleccione **Conectar**.
+1. En el cuadro de diálogo **AzureHive** :
+    1. En el cuadro de texto **Nombre de usuario** , escriba `admin`.
+    1. En el cuadro de texto **Contraseña** , escriba `Thisisapassword1`.
+    1. Seleccione **Conectar** .
 
-1. En **Navegador**, seleccione `sales` o `sales_raw` para obtener una vista previa de los datos. Una vez cargados los datos, puede experimentar con el panel que desee crear. Consulte los siguientes vínculos para ver una introducción a los paneles de Power BI:
+1. En **Navegador** , seleccione `sales` o `sales_raw` para obtener una vista previa de los datos. Una vez cargados los datos, puede experimentar con el panel que desee crear. Consulte los siguientes vínculos para ver una introducción a los paneles de Power BI:
 
 * [Introducción a los paneles para diseñadores de Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Tutorial: introducción al servicio Power BI](https://docs.microsoft.com/power-bi/service-get-started)

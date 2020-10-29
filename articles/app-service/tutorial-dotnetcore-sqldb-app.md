@@ -4,14 +4,14 @@ description: Aprenda a poner en funcionamiento una aplicación .NET Core en Azur
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
+ms.custom: devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b83dfbd715a6b27491fd5f5efd41213210092325
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 305137cf371d7a9e3d336d8142ef9a03eb38421f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982880"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743700"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutorial: Compilación de una aplicación de ASP.NET Core y Azure SQL Database en Azure App Service
 
@@ -75,7 +75,7 @@ dotnet ef database update
 dotnet run
 ```
 
-Vaya a `http://localhost:5000` en un explorador. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de _tareas pendientes_.
+Vaya a `http://localhost:5000` en un explorador. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de _tareas pendientes_ .
 
 ![Se conecta correctamente a SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
@@ -214,7 +214,7 @@ Ahora que las migraciones de base de datos se ejecutan en la base de datos de pr
 dotnet run
 ```
 
-Vaya a `http://localhost:5000` en un explorador. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de _tareas pendientes_. La aplicación ahora lee y escribe datos en la base de datos de producción.
+Vaya a `http://localhost:5000` en un explorador. Seleccione el vínculo **Crear nuevo** y cree un par de elementos de _tareas pendientes_ . La aplicación ahora lee y escribe datos en la base de datos de producción.
 
 Guarde los cambios y confírmelos en el repositorio de Git. 
 
@@ -269,7 +269,7 @@ Para establecer las cadenas de conexión de la aplicación de Azure, use el coma
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-En ASP.NET Core, puede usar esta cadena de conexión con nombre (`MyDbConnection`) con el patrón estándar, como cualquier cadena de conexión especificada en *appsettings.jon*. En este caso, `MyDbConnection` también se define en *appsettings.json*. Cuando se ejecuta en App Service, la cadena de conexión definida en App Service tiene prioridad sobre la definida en *appsettings.json*. El código usa el valor de *appsettings.json* durante el desarrollo local y el mismo código usa el valor de App Service cuando se implementa.
+En ASP.NET Core, puede usar esta cadena de conexión con nombre (`MyDbConnection`) con el patrón estándar, como cualquier cadena de conexión especificada en *appsettings.jon* . En este caso, `MyDbConnection` también se define en *appsettings.json* . Cuando se ejecuta en App Service, la cadena de conexión definida en App Service tiene prioridad sobre la definida en *appsettings.json* . El código usa el valor de *appsettings.json* durante el desarrollo local y el mismo código usa el valor de App Service cuando se implementa.
 
 Para ver cómo se hace referencia a la cadena de conexión en el código, consulte [Configuración de la aplicación para conectarse a la base de datos de producción](#configure-app-to-connect-to-production-database).
 
@@ -385,7 +385,7 @@ dotnet ef database update
 
 Realice algunos cambios en el código para usar la propiedad `Done`. Para simplificar, en este tutorial va a cambiar las vistas `Index` y `Create` para ver la propiedad en acción.
 
-Abra _Controllers/TodosController.cs_.
+Abra _Controllers/TodosController.cs_ .
 
 Busque el método `Create([Bind("ID,Description,CreatedDate")] Todo todo)` y agregue `Done` a la lista de propiedades en el atributo `Bind`. Cuando haya terminado, la firma del método `Create()` se parecerá al código siguiente:
 
@@ -393,7 +393,7 @@ Busque el método `Create([Bind("ID,Description,CreatedDate")] Todo todo)` y agr
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-Abra _Views/Todos/Create.cshtml_.
+Abra _Views/Todos/Create.cshtml_ .
 
 En el código Razor debería ver un elemento `<div class="form-group">` para `Description` y, luego, otro elemento `<div class="form-group">` para `CreatedDate`. Inmediatamente después de estos dos elementos, agregue otro elemento `<div class="form-group">` para `Done`:
 
@@ -407,7 +407,7 @@ En el código Razor debería ver un elemento `<div class="form-group">` para `De
 </div>
 ```
 
-Abra _Views/Todos/Index.cshtml_.
+Abra _Views/Todos/Index.cshtml_ .
 
 Busque el elemento vacío `<th></th>`. Justo encima de este elemento, agregue el siguiente código Razor:
 
@@ -439,7 +439,7 @@ dotnet run
 > Si abre una nueva ventana de terminal, debe establecer la cadena de conexión en la base de datos de producción en el terminal, como hizo en [Ejecución de migraciones de base de datos a la base de datos de producción](#run-database-migrations-to-the-production-database).
 >
 
-Abra el explorador y vaya a `http://localhost:5000/`. Ahora puede agregar una tarea pendiente y marcar **Listo**. A continuación se debería mostrar en su página principal como un elemento completado. Recuerde que la vista `Edit` no muestra el campo `Done`, dado que no cambió la vista `Edit`.
+Abra el explorador y vaya a `http://localhost:5000/`. Ahora puede agregar una tarea pendiente y marcar **Listo** . A continuación se debería mostrar en su página principal como un elemento completado. Recuerde que la vista `Edit` no muestra el campo `Done`, dado que no cambió la vista `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publicación de los cambios en Azure
 
@@ -449,7 +449,7 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Una vez que `git push` esté completo, vaya a la aplicación de App Service e intente agregar un elemento de tarea y active **Listo**.
+Una vez que `git push` esté completo, vaya a la aplicación de App Service e intente agregar un elemento de tarea y active **Listo** .
 
 ![Aplicación de Azure después de Migraciones de Code First](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
@@ -461,8 +461,8 @@ Mientras la aplicación ASP.NET Core se ejecuta en Azure App Service, puede hace
 
 El proyecto de ejemplo ya sigue las instrucciones indicadas en [Registro de ASP.NET Core en Azure](/aspnet/core/fundamentals/logging#azure-app-service-provider) con dos cambios de configuración:
 
-- Incluye una referencia a `Microsoft.Extensions.Logging.AzureAppServices` en *DotNetCoreSqlDb.csproj*.
-- Llama a `loggerFactory.AddAzureWebAppDiagnostics()` en *Program.cs*.
+- Incluye una referencia a `Microsoft.Extensions.Logging.AzureAppServices` en *DotNetCoreSqlDb.csproj* .
+- Llama a `loggerFactory.AddAzureWebAppDiagnostics()` en *Program.cs* .
 
 Para establecer el [nivel de registro](/aspnet/core/fundamentals/logging#log-level) de ASP.NET Core en App Service en `Information` desde el nivel predeterminado `Error`, utilice el comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) en Cloud Shell.
 
@@ -471,7 +471,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 ```
 
 > [!NOTE]
-> El nivel de registro del proyecto ya está establecido en `Information` en *appsettings.json*.
+> El nivel de registro del proyecto ya está establecido en `Information` en *appsettings.json* .
 > 
 
 Para iniciar la transmisión del registro, use el comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) en Cloud Shell.
@@ -488,11 +488,11 @@ Para más información acerca de cómo personalizar los registros de ASP.NET Cor
 
 ## <a name="manage-your-azure-app"></a>Administración de la aplicación de Azure
 
-Para ver la aplicación que ha creado, en [Azure Portal](https://portal.azure.com), busque y seleccione **App Services**.
+Para ver la aplicación que ha creado, en [Azure Portal](https://portal.azure.com), busque y seleccione **App Services** .
 
 ![Selección de App Services en Azure Portal](./media/tutorial-dotnetcore-sqldb-app/app-services.png)
 
-En la página **App Services**, seleccione el nombre de la aplicación de Azure.
+En la página **App Services** , seleccione el nombre de la aplicación de Azure.
 
 ![Navegación en el portal a la aplicación de Azure](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 

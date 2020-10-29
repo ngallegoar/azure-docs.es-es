@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842536"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745977"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Utilice el comando siguiente para crear un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*.
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Utilice el comando siguiente para crear un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* .
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Creación de un registro de contenedor
 
-Cree una instancia de ACR mediante el comando `az acr create`. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. En el ejemplo siguiente, se usa el nombre *myContainerRegistry*. Si se produce un error que el nombre del registro está en uso, elija un nombre diferente.
+Cree una instancia de ACR mediante el comando `az acr create`. El nombre del registro debe ser único dentro de Azure y contener entre 5 y 50 caracteres alfanuméricos. En el ejemplo siguiente, se usa el nombre *myContainerRegistry* . Si se produce un error que el nombre del registro está en uso, elija un nombre diferente.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -156,7 +156,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-En el ejemplo siguiente se muestran las etiquetas del repositorio **azure-mesh-todo-service**.
+En el ejemplo siguiente se muestran las etiquetas del repositorio **azure-mesh-todo-service** .
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,9 +196,9 @@ Una aplicación de Service Fabric Mesh es un recurso de Azure que puede implemen
 En este tutorial, el ejemplo de la lista de tareas pendientes se utiliza como ejemplo.  En lugar de crear los nuevos archivos de plantilla y parámetros, descargue los archivos [mesh_rp.windows.json deployment template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) y [mesh_rp.windows.parameter.json parameters](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parámetros
-Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores. La manera adecuada de hacerlo es crear una sección "Parámetros" en la parte superior de la plantilla de implementación, donde puede especificar los nombres y las propiedades de los parámetros, a los que se hace referencia más adelante en la plantilla de implementación. La definición de cada parámetro incluye las secciones *type*, *defaultValue* y *metadata*, esta última opcional, con una *descripción*.
+Cuando haya valores en la plantilla que prevea cambiar una vez implementada la aplicación o si le gustaría tener la opción de cambiar a una base según implementación (si tiene previsto volver a usar esta plantilla para otras implementaciones), el procedimiento recomendado es parametrizar los valores. La manera adecuada de hacerlo es crear una sección "Parámetros" en la parte superior de la plantilla de implementación, donde puede especificar los nombres y las propiedades de los parámetros, a los que se hace referencia más adelante en la plantilla de implementación. La definición de cada parámetro incluye las secciones *type* , *defaultValue* y *metadata* , esta última opcional, con una *descripción* .
 
-La sección de parámetros se define en la parte superior de la plantilla de implementación, justo antes de la sección *Recursos*:
+La sección de parámetros se define en la parte superior de la plantilla de implementación, justo antes de la sección *Recursos* :
 
 ```json
 {

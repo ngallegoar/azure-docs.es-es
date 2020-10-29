@@ -3,13 +3,13 @@ title: 'Tutorial: Creación de una imagen en la confirmación de código'
 description: En este tutorial, aprenderá a configurar una tarea de Azure Container Registry Tasks que desencadena automáticamente compilaciones de imágenes de contenedor en la nube cuando envía código fuente a un repositorio Git.
 ms.topic: tutorial
 ms.date: 05/04/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: a4d0a2d3d98bec28e4d6389c9069db3e7b395597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402848"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745557"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor en la nube al confirmar código fuente
 
@@ -32,7 +32,7 @@ En este tutorial se da por hecho que ya ha realizado los pasos de los [tutoriale
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.46** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
+Si quiere usar la CLI de Azure de forma local, debe tener la versión  **2.0.46** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 

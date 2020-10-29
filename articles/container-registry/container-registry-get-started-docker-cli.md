@@ -3,13 +3,13 @@ title: Inserción y extracción de imágenes de Docker
 description: Inserción y extracción de imágenes de Docker en un registro de contenedor privado de Azure mediante la CLI de Docker
 ms.topic: article
 ms.date: 01/23/2019
-ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 6751a04c3c1bfe826334161704c20c1ba2e5a6d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, H1Hack27Feb2017, devx-track-azurecli
+ms.openlocfilehash: 067b5749332c2c41b86d22e7de60083d5f61a442
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74456358"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746627"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
 
@@ -19,12 +19,12 @@ En los pasos siguientes, se descarga una [imagen de Nginx](https://store.docker.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* **Registro de contenedor de Azure**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
-* **CLI de Docker**: también debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
+* **Registro de contenedor de Azure** : cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
+* **CLI de Docker** : también debe tener instalado Docker localmente. Docker proporciona paquetes que permiten configurar Docker fácilmente en cualquier sistema [macOS][docker-mac], [Windows][docker-windows] o [Linux][docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Inicio de sesión en un registro
 
-Hay [varias maneras de autenticar](container-registry-authentication.md) en el registro de contenedor privado. Es el método recomendado cuando se trabaja en una línea de comandos con el comando de la CLI de Azure [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Por ejemplo, para iniciar sesión en un registro denominado *myregistry*:
+Hay [varias maneras de autenticar](container-registry-authentication.md) en el registro de contenedor privado. Es el método recomendado cuando se trabaja en una línea de comandos con el comando de la CLI de Azure [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login). Por ejemplo, para iniciar sesión en un registro denominado *myregistry* :
 
 ```azurecli
 az acr login --name myregistry
@@ -39,7 +39,7 @@ docker login myregistry.azurecr.io
 Ambos comandos devuelven `Login Succeeded` una vez completados.
 
 > [!TIP]
-> Especifique siempre el nombre completo del registro (en minúsculas) cuando se usa `docker login` y al etiquetar imágenes para insertar en el registro. En los ejemplos de este artículo, el nombre completo es *myregistry.azurecr.io*.
+> Especifique siempre el nombre completo del registro (en minúsculas) cuando se usa `docker login` y al etiquetar imágenes para insertar en el registro. En los ejemplos de este artículo, el nombre completo es *myregistry.azurecr.io* .
 
 ## <a name="pull-the-official-nginx-image"></a>Extracción de la imagen de Nginx oficial
 

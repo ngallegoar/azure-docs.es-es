@@ -3,13 +3,13 @@ title: Direcciones IP de entrada y salida
 description: Aprenda cómo se usan las direcciones IP de entrada y salida en App Service, cuándo cambian y cómo encontrar las direcciones de su aplicación.
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: seodec18
-ms.openlocfilehash: 8fa9fec9219cfd85a8a0b25f50835425766d9043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: e5b271cc5cd8cb52267b6ee44bc3965d0e4b0aab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050699"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746147"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Direcciones IP de entrada y salida en Azure App Service
 
@@ -51,13 +51,13 @@ El conjunto de direcciones IP de salida de la aplicación cambia cuando realiza 
 
 - Eliminar una aplicación y volver a crearla en otro grupo de recursos (puede cambiar la unidad de implementación).
 - Eliminar la última aplicación de un grupo de recursos _y_ región y volver a crearla (puede cambiar la unidad de implementación).
-- Escale la aplicación entre los niveles inferiores (**Básica**, **Estándar**, **Premium**) y **Premium V2** (las direcciones IP se pueden agregar o quitar del conjunto).
+- Escale la aplicación entre los niveles inferiores ( **Básica** , **Estándar** , **Premium** ) y **Premium V2** (las direcciones IP se pueden agregar o quitar del conjunto).
 
 Puede encontrar el conjunto de todas las posibles direcciones IP de salida que puede utilizar la aplicación, independientemente de los planes de tarifa, buscando la propiedad `possibleOutboundIpAddresses` o en el campo **Direcciones IP salientes adicionales** de la hoja **Propiedades** de Azure Portal. Consulte [Búsqueda de las direcciones IP de salida](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Búsqueda de las direcciones IP de salida
 
-Para buscar las direcciones IP de salida que usa actualmente su aplicación en Azure Portal, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP de salida**.
+Para buscar las direcciones IP de salida que usa actualmente su aplicación en Azure Portal, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP de salida** .
 
 Puede encontrar la misma información si ejecuta el comando siguiente en [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -69,7 +69,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 (Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
 ```
 
-Para buscar _todas_ las posibles direcciones IP de salida para la aplicación, con independencia de los planes de tarifa, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP salientes adicionales**.
+Para buscar _todas_ las posibles direcciones IP de salida para la aplicación, con independencia de los planes de tarifa, haga clic en **Propiedades** en el panel de navegación izquierdo de la aplicación. Se enumeran en el campo **Direcciones IP salientes adicionales** .
 
 Puede encontrar la misma información si ejecuta el comando siguiente en [Cloud Shell](../cloud-shell/quickstart.md).
 

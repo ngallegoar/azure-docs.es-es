@@ -5,14 +5,14 @@ keywords: app service, azure app service, authN, authZ, secure, security, multi-
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
-ms.custom: devx-track-csharp, seodec18
+ms.custom: devx-track-csharp, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: abda26e359becb137d4c0c9f2965ebfbb5ee047c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8620d6bc403882cb308405e8ffb4412917d0c6f1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982909"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743818"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service
 
@@ -122,7 +122,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="push-to-azure-from-git"></a>Inserción en Azure desde Git
 
-De nuevo en la _ventana de terminal local_, ejecute los siguientes comandos de Git para implementar la aplicación de back-end. Reemplace _\<deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](deploy-configure-credentials.md) y no las usadas para iniciar sesión en Azure Portal.
+De nuevo en la _ventana de terminal local_ , ejecute los siguientes comandos de Git para implementar la aplicación de back-end. Reemplace _\<deploymentLocalGitUrl-of-back-end-app>_ por la dirección URL del repositorio de Git remoto que guardó en [Creación de recursos de Azure](#create-azure-resources). Cuando el administrador de credenciales de Git solicite las credenciales, asegúrese de especificar sus [credenciales de implementación](deploy-configure-credentials.md) y no las usadas para iniciar sesión en Azure Portal.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
@@ -158,7 +158,7 @@ En este paso, vinculará el código de servidor de la aplicación de front-end p
 
 ### <a name="modify-front-end-code"></a>Modificación del código de front-end
 
-En el repositorio local, abra _Controllers/TodoController.cs_. Al comienzo de la clase `TodoController`, agregue las siguientes líneas y reemplace _\<back-end-app-name>_ por el nombre de la aplicación de back-end:
+En el repositorio local, abra _Controllers/TodoController.cs_ . Al comienzo de la clase `TodoController`, agregue las siguientes líneas y reemplace _\<back-end-app-name>_ por el nombre de la aplicación de back-end:
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
@@ -237,7 +237,7 @@ Usará Azure Active Directory como proveedor de identidades. Para más informaci
 
 En el menú de [Azure Portal](https://portal.azure.com), seleccione **Grupos de recursos** o busque y seleccione *Grupos de recursos* desde cualquier página.
 
-En **Grupos de recursos**, busque y seleccione el grupo de recursos. En **Información general**, seleccione la página de administración de la aplicación de back-end.
+En **Grupos de recursos** , busque y seleccione el grupo de recursos. En **Información general** , seleccione la página de administración de la aplicación de back-end.
 
 :::image type="content" source="./media/tutorial-auth-aad/portal-navigate-back-end.png" alt-text="Captura de pantalla de un ejemplo de API REST de Azure App Service en una ventana del explorador, que muestra una aplicación de lista de tareas pendientes.":::
 
@@ -245,17 +245,17 @@ En el menú de la izquierda de la aplicación de back-end, seleccione **Autentic
 
 En **Action to take when request is not authenticated** (Acción necesaria cuando la solicitud no está autenticada), seleccione **Log in with Azure Active Directory** (Iniciar sesión con Azure Active Directory).
 
-En **Proveedores de autenticación,** seleccione **Azure Active Directory**.
+En **Proveedores de autenticación,** seleccione **Azure Active Directory** .
 
 :::image type="content" source="./media/tutorial-auth-aad/configure-auth-back-end.png" alt-text="Captura de pantalla de un ejemplo de API REST de Azure App Service en una ventana del explorador, que muestra una aplicación de lista de tareas pendientes.":::
 
-Seleccione **Rápido**, acepte la configuración predeterminada para crear una nueva aplicación de AD y seleccione **Aceptar**.
+Seleccione **Rápido** , acepte la configuración predeterminada para crear una nueva aplicación de AD y seleccione **Aceptar** .
 
-En la página **Autenticación/autorización**, seleccione **Guardar**.
+En la página **Autenticación/autorización** , seleccione **Guardar** .
 
 Cuando vea la notificación con el mensaje `Successfully saved the Auth Settings for <back-end-app-name> App`, actualice la página del portal.
 
-Vuelva a seleccionar **Azure Active Directory** y, después, seleccione la **aplicación de Azure AD**.
+Vuelva a seleccionar **Azure Active Directory** y, después, seleccione la **aplicación de Azure AD** .
 
 Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en un bloc de notas. Este valor lo necesitará más adelante.
 
@@ -265,7 +265,7 @@ Copie el valor de **Identificador de cliente** de la aplicación de Azure AD en
 
 Siga los mismos pasos para la aplicación de front-end, pero omita el último paso. No es necesario el identificador de cliente para la aplicación de front-end.
 
-Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería dirigirle ahora a una página de inicio de sesión segura. Después de iniciar sesión, *todavía no puede tener acceso a los datos desde la aplicación de back-end*, porque la aplicación de back-end requiere ahora un inicio de sesión de Azure Active Directory desde la aplicación de front-end. Tiene que realizar tres acciones:
+Si quiere, vaya a `http://<front-end-app-name>.azurewebsites.net`. Debería dirigirle ahora a una página de inicio de sesión segura. Después de iniciar sesión, *todavía no puede tener acceso a los datos desde la aplicación de back-end* , porque la aplicación de back-end requiere ahora un inicio de sesión de Azure Active Directory desde la aplicación de front-end. Tiene que realizar tres acciones:
 
 - Conceder al front-end acceso al back-end
 - Configurar App Service para devolver un token que se pueda usar
@@ -280,13 +280,13 @@ Ahora que ha habilitado la autenticación y autorización en las dos aplicacione
 
 En el menú de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** o busque y seleccione *Azure Active Directory* desde cualquier página.
 
-Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación de front-end y, después, seleccione **Permisos de API**.
+Seleccione **Registros de aplicaciones** > **Aplicaciones propias** > **View all applications in this directory** (Ver todas las aplicaciones de este directorio). Seleccione el nombre de la aplicación de front-end y, después, seleccione **Permisos de API** .
 
 :::image type="content" source="./media/tutorial-auth-aad/add-api-access-front-end.png" alt-text="Captura de pantalla de un ejemplo de API REST de Azure App Service en una ventana del explorador, que muestra una aplicación de lista de tareas pendientes.":::
 
 Seleccione **Agregar un permiso** y, a continuación, **API usadas en mi organización** >  **\<back-end-app-name>** .
 
-En la página **Solicitud de permisos de API** de la aplicación de back-end, seleccione **Permisos delegados** y **user_impersonation** y, después, seleccione **Agregar permisos**.
+En la página **Solicitud de permisos de API** de la aplicación de back-end, seleccione **Permisos delegados** y **user_impersonation** y, después, seleccione **Agregar permisos** .
 
 :::image type="content" source="./media/tutorial-auth-aad/select-permission-front-end.png" alt-text="Captura de pantalla de un ejemplo de API REST de Azure App Service en una ventana del explorador, que muestra una aplicación de lista de tareas pendientes.":::
 
@@ -300,9 +300,9 @@ Se abre ahora [Azure Resource Explorer](https://resources.azure.com) con la apli
 
 :::image type="content" source="./media/tutorial-auth-aad/resources-enable-write.png" alt-text="Captura de pantalla de un ejemplo de API REST de Azure App Service en una ventana del explorador, que muestra una aplicación de lista de tareas pendientes.":::
 
-En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings**.
+En el explorador izquierdo, explore en profundidad hasta **config** > **authsettings** .
 
-En la vista **authsettings**, haga clic en **Edit** (Editar). Establezca `additionalLoginParams` en la siguiente cadena JSON, utilizando el identificador de cliente que copió. 
+En la vista **authsettings** , haga clic en **Edit** (Editar). Establezca `additionalLoginParams` en la siguiente cadena JSON, utilizando el identificador de cliente que copió. 
 
 ```json
 "additionalLoginParams": ["response_type=code id_token","resource=<back-end-client-id>"],
@@ -325,7 +325,7 @@ La aplicación de front-end dispone ahora del permiso necesario y también agreg
 > [!NOTE]
 > Estos encabezados se insertan con todos los lenguajes admitidos. Se accede a ellos mediante el patrón estándar de cada lenguaje respectivo.
 
-En el repositorio local, abra de nuevo _Controllers/TodoController.cs_. En la construcción `TodoController(TodoContext context)`, agregue el siguiente código:
+En el repositorio local, abra de nuevo _Controllers/TodoController.cs_ . En la construcción `TodoController(TodoContext context)`, agregue el siguiente código:
 
 ```cs
 public override void OnActionExecuting(ActionExecutingContext context)
@@ -376,7 +376,7 @@ Este paso no está relacionado con la autenticación y autorización. Sin embarg
 
 ### <a name="point-angularjs-app-to-back-end-api"></a>Vinculación de la aplicación Angular.js a la API de back-end
 
-En el repositorio local, abra _wwwroot/index.html_.
+En el repositorio local, abra _wwwroot/index.html_ .
 
 En la línea 51, establezca la variable `apiEndpoint` en la dirección URL HTTPS de la aplicación de back-end (`https://<back-end-app-name>.azurewebsites.net`). Reemplace _\<back-end-app-name>_ por el nombre de la aplicación de App Service.
 
@@ -384,7 +384,7 @@ En el repositorio local, abra _wwwroot/app/scripts/todoListSvc.js_ y observe que
 
 ### <a name="add-access-token-to-api-calls"></a>Adición del token de acceso a las llamadas API
 
-En _wwwroot/app/scripts/todoListSvc.js_, encima de la lista de llamadas API (encima de la línea `getItems : function(){`), agregue la siguiente función a la lista:
+En _wwwroot/app/scripts/todoListSvc.js_ , encima de la lista de llamadas API (encima de la línea `getItems : function(){`), agregue la siguiente función a la lista:
 
 ```javascript
 setAuth: function (token) {

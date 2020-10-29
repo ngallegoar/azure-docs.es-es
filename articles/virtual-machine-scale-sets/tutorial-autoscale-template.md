@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84629548"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746002"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Escalado automático de conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta. En este tutorial, aprenderá a:
@@ -33,7 +33,7 @@ Si decide instalar y usar la CLI localmente, en este tutorial es preciso que eje
 
 
 ## <a name="define-an-autoscale-profile"></a>Definición de un perfil de escalado automático
-Se define un perfil de escalado automático en una plantilla de Azure con el proveedor de recursos *Microsoft.Insights/autoscalesettings*. Un *perfil* establece la capacidad del conjunto de escalado y las reglas asociadas. En el ejemplo siguiente se define un perfil llamado *Escalado automático por porcentaje según el uso de CPU* y se establece una capacidad mínima predeterminada de *2* instancias de máquina virtual y un máximo de *10*:
+Se define un perfil de escalado automático en una plantilla de Azure con el proveedor de recursos *Microsoft.Insights/autoscalesettings* . Un *perfil* establece la capacidad del conjunto de escalado y las reglas asociadas. En el ejemplo siguiente se define un perfil llamado *Escalado automático por porcentaje según el uso de CPU* y se establece una capacidad mínima predeterminada de *2* instancias de máquina virtual y un máximo de *10* :
 
 ```json
 {
@@ -137,13 +137,13 @@ En el ejemplo siguiente, se define una regla que reduce el número de instancias
 ## <a name="create-an-autoscaling-scale-set"></a>Creación de un conjunto de escalado automático
 Vamos a usar una plantilla de ejemplo para crear un conjunto de escalado y aplicar reglas de escalado automático. También puede [revisar la plantilla completa](https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/scale_sets/autoscale.json) o [consultar la sección *Microsoft.Insights/autoscalesettings* del proveedor de recursos](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/scale_sets/autoscale.json#L220) de la plantilla.
 
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Ahora, cree un conjunto de escalado de máquinas virtuales con [az group deployment create](/cli/azure/group/deployment). Cuando se le solicite, proporcione su propio nombre de usuario, por ejemplo, *azureuser*, y la contraseña que se utilizan como credenciales para cada instancia de máquina virtual:
+Ahora, cree un conjunto de escalado de máquinas virtuales con [az group deployment create](/cli/azure/group/deployment). Cuando se le solicite, proporcione su propio nombre de usuario, por ejemplo, *azureuser* , y la contraseña que se utilizan como credenciales para cada instancia de máquina virtual:
 
 ```azurecli-interactive
 az group deployment create \
@@ -180,7 +180,7 @@ Conéctese mediante SSH a la primera instancia de máquina virtual. Especifique 
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Una vez iniciada la sesión, instale la utilidad **stress**. Inicie *10* trabajos de **stress** que generen carga de CPU. Estos trabajos se ejecutan durante *420* segundos, lo suficiente para que las reglas de escalado automático implementen la acción deseada.
+Una vez iniciada la sesión, instale la utilidad **stress** . Inicie *10* trabajos de **stress** que generen carga de CPU. Estos trabajos se ejecutan durante *420* segundos, lo suficiente para que las reglas de escalado automático implementen la acción deseada.
 
 ```console
 sudo apt-get update
@@ -188,9 +188,9 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Cuando **stress** muestra una salida similar a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
+Cuando **stress** muestra una salida similar a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , presione la tecla *Entrar* para volver al símbolo del sistema.
 
-Para confirmar que **stress** genera carga de CPU, examine la carga del sistema activa con la utilidad **top**:
+Para confirmar que **stress** genera carga de CPU, examine la carga del sistema activa con la utilidad **top** :
 
 ```console
 top
@@ -216,7 +216,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-De nuevo, cuando **stress** muestra una salida similar a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, presione la tecla *Entrar* para volver al símbolo del sistema.
+De nuevo, cuando **stress** muestra una salida similar a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , presione la tecla *Entrar* para volver al símbolo del sistema.
 
 Cierre la conexión a esta instancia de máquina virtual. **Stress** continuará ejecutándose en la instancia de máquina virtual.
 
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Supervisión de las reglas de escalado automático activas
-Para supervisar el número de instancias de máquina virtual del conjunto de escalado, use la utilidad **watch**. Las reglas de escalado automático tardan 5 minutos en empezar el proceso de escalado horizontal en respuesta a la carga de CPU generada por **stress** en cada instancia de máquina virtual:
+Para supervisar el número de instancias de máquina virtual del conjunto de escalado, use la utilidad **watch** . Las reglas de escalado automático tardan 5 minutos en empezar el proceso de escalado horizontal en respuesta a la carga de CPU generada por **stress** en cada instancia de máquina virtual:
 
 ```azurecli-interactive
 watch az vmss list-instances \

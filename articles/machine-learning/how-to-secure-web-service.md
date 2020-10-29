@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 5d0a86a966cacfdeac291c66fa245a613b383a85
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 52344b665b00329c80fb651657fbbd19d5ffd7a4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629530"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743088"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Uso de TLS para proteger un servicio web con Azure Machine Learning
 
@@ -26,11 +26,11 @@ En este artículo se muestra cómo proteger un servicio web implementado con Azu
 Se usa [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para restringir el acceso a los servicios web y proteger los datos que los clientes envían. HTTPS le ayuda a proteger las comunicaciones entre un cliente y un servicio web mediante el cifrado de las comunicaciones entre los dos. El cifrado usa [Seguridad de la capa de transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS se conoce a veces todavía como *Capa de sockets seguros* (SSL), que fue su predecesor.
 
 > [!TIP]
-> El SDK de Azure Machine Learning usa el término "SSL" para las propiedades relacionadas con las comunicaciones seguras. Esto no significa que su servicio web no use *TLS*. SSL es simplemente un término más comúnmente reconocido.
+> El SDK de Azure Machine Learning usa el término "SSL" para las propiedades relacionadas con las comunicaciones seguras. Esto no significa que su servicio web no use *TLS* . SSL es simplemente un término más comúnmente reconocido.
 >
 > Específicamente, los servicios web implementados mediante Azure Machine Learning solo admiten la versión 1.1 de TLS para ACI y la versión 1.2 para AKS.
 
-TLS y SSL dependen ambos de los *certificados digitales*, que ayudan con la comprobación de la identidad y el cifrado. Para obtener más información sobre cómo funcionan los certificados digitales, vea el tema de Wikipedia [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) (Infraestructura de clave pública).
+TLS y SSL dependen ambos de los *certificados digitales* , que ayudan con la comprobación de la identidad y el cifrado. Para obtener más información sobre cómo funcionan los certificados digitales, vea el tema de Wikipedia [Public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) (Infraestructura de clave pública).
 
 > [!WARNING]
 > Si no usa HTTPS para el servicio web, los datos que se envían hacia y desde el servicio podrían ser visibles para otros usuarios en Internet.
@@ -54,14 +54,14 @@ Hay ligeras diferencias al proteger los servicios web a través de los [destinos
 
 ## <a name="get-a-domain-name"></a>Obtención de un nombre de dominio
 
-Si todavía no tiene un nombre de dominio, compre uno en un *registrador de nombres de dominio*. El proceso y los precios difieren entre los registradores. El registrador proporciona herramientas para administrar el nombre de dominio. Estas herramientas se usan para asignar un nombre de dominio completo (como www\.contoso.com ) a la dirección IP que hospeda el servicio web.
+Si todavía no tiene un nombre de dominio, compre uno en un *registrador de nombres de dominio* . El proceso y los precios difieren entre los registradores. El registrador proporciona herramientas para administrar el nombre de dominio. Estas herramientas se usan para asignar un nombre de dominio completo (como www\.contoso.com ) a la dirección IP que hospeda el servicio web.
 
 ## <a name="get-a-tlsssl-certificate"></a>Obtención de un certificado TLS/SSL
 
 Hay muchas maneras de obtener un certificado TLS/SSL (certificado digital). La más común es comprar uno en una *entidad de certificación* (CA). Independientemente de dónde obtenga el certificado, se necesitan estos archivos:
 
-* Un **certificado**. El certificado debe contener la cadena de certificados completa y debe estar codificado en PEM.
-* Una **clave**. La clave debe estar codificada en PEM.
+* Un **certificado** . El certificado debe contener la cadena de certificados completa y debe estar codificado en PEM.
+* Una **clave** . La clave debe estar codificada en PEM.
 
 Cuando solicite un certificado, debe proporcionar el nombre de dominio completo (FQDN) de la dirección que pretende usar para el servicio web (por ejemplo, www\.contoso.com). La dirección que aparece en el certificado y la que usan los clientes se comparan para comprobar la identidad del servicio web. Si esas direcciones no coinciden, el cliente obtiene un mensaje de error.
 
@@ -73,7 +73,7 @@ Cuando solicite un certificado, debe proporcionar el nombre de dominio completo 
 
 ## <a name="enable-tls-and-deploy"></a><a id="enable"></a> Habilitación de TLS e implementación
 
-Para implementar (o volver a implementar) el servicio con el protocolo TLS habilitado, establezca el parámetro *ssl_enabled* en "True", cuando proceda. Establezca el parámetro *ssl_certificate* en el valor del archivo *certificate*. Establezca *ssl_key* en el valor del archivo *key*.
+Para implementar (o volver a implementar) el servicio con el protocolo TLS habilitado, establezca el parámetro *ssl_enabled* en "True", cuando proceda. Establezca el parámetro *ssl_certificate* en el valor del archivo *certificate* . Establezca *ssl_key* en el valor del archivo *key* .
 
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Implementación en AKS y en una matriz de puertas programables (FPGA)
 
@@ -83,13 +83,13 @@ Para implementar (o volver a implementar) el servicio con el protocolo TLS habil
 Cuando se implementa en AKS, puede crear un nuevo clúster de AKS o asociar uno existente. Para más información sobre cómo crear o adjuntar un clúster, consulte [Implementación de un modelo en un clúster de Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
   
 -  Si crea un clúster, se usa **[AksCompute.provisionining_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** .
-- Si se conecta a un clúster existente, se usa **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos devuelven un objeto de configuración que tiene un método **enable_ssl**.
+- Si se conecta a un clúster existente, se usa **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos devuelven un objeto de configuración que tiene un método **enable_ssl** .
 
 El método **enable_ssl** puede usar un certificado proporcionado por Microsoft o que adquiera.
 
-  * Cuando se usa un certificado de Microsoft, debe usar el parámetro *leaf_domain_label*. Este parámetro genera el nombre DNS para el servicio. Por ejemplo, el valor "contoso" crea el nombre de dominio "contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com", donde \<azureregion> es la región que contiene el servicio. Si lo desea, puede usar el parámetro *overwrite_existing_domain* para sobrescribir el *leaf_domain_label* existente.
+  * Cuando se usa un certificado de Microsoft, debe usar el parámetro *leaf_domain_label* . Este parámetro genera el nombre DNS para el servicio. Por ejemplo, el valor "contoso" crea el nombre de dominio "contoso\<six-random-characters>.\<azureregion>.cloudapp.azure.com", donde \<azureregion> es la región que contiene el servicio. Si lo desea, puede usar el parámetro *overwrite_existing_domain* para sobrescribir el *leaf_domain_label* existente.
 
-    Para implementar (o volver a implementar) el servicio con el protocolo TLS habilitado, establezca el parámetro *ssl_enabled* en "True", cuando proceda. Establezca el parámetro *ssl_certificate* en el valor del archivo *certificate*. Establezca *ssl_key* en el valor del archivo *key*.
+    Para implementar (o volver a implementar) el servicio con el protocolo TLS habilitado, establezca el parámetro *ssl_enabled* en "True", cuando proceda. Establezca el parámetro *ssl_certificate* en el valor del archivo *certificate* . Establezca *ssl_key* en el valor del archivo *key* .
 
     > [!IMPORTANT]
     > Si usa un certificado de Microsoft, no es necesario adquirir su propio nombre de dominio ni certificado.
@@ -115,7 +115,7 @@ El método **enable_ssl** puede usar un certificado proporcionado por Microsoft 
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
-  * Cuando se usa *un certificado que compró*, se emplean los parámetros *ssl_cert_pem_file*, *ssl_key_pem_file* y *ssl_cname*. El ejemplo siguiente muestra cómo usar archivos *.pem* para crear una configuración que use un certificado TLS/SSL adquirido:
+  * Cuando se usa *un certificado que compró* , se emplean los parámetros *ssl_cert_pem_file* , *ssl_key_pem_file* y *ssl_cname* . El ejemplo siguiente muestra cómo usar archivos *.pem* para crear una configuración que use un certificado TLS/SSL adquirido:
 
     ```python
     from azureml.core.compute import AksCompute
@@ -130,7 +130,7 @@ El método **enable_ssl** puede usar un certificado proporcionado por Microsoft 
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-Para más información acerca de *enable_ssl*, consulte [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) y [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
+Para más información acerca de *enable_ssl* , consulte [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) y [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 ### <a name="deploy-on-azure-container-instances"></a>Implementación en Azure Container Instances
 

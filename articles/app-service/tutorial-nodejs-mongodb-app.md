@@ -5,14 +5,14 @@ ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/16/2020
-ms.custom: mvc, cli-validate, seodec18, devx-track-js
+ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4fc79f8508f46f5003b99289d725b303feef78aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c204a07e3c5edff028342af1c88b15ebac0754b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312046"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743657"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure
 
@@ -186,7 +186,7 @@ Copie el valor de `primaryMasterKey`. Esta información la necesitará en el sig
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configuración de la cadena de conexión en la aplicación Node.js
 
-En la carpeta _config/env/_ del repositorio MEAN.js local, cree un archivo llamado _local-production.js_. _.gitignore_ ya está configurado para mantener este archivo fuera del repositorio. 
+En la carpeta _config/env/_ del repositorio MEAN.js local, cree un archivo llamado _local-production.js_ . _.gitignore_ ya está configurado para mantener este archivo fuera del repositorio. 
 
 Copie en él el código siguiente. Asegúrese de reemplazar los dos marcadores de posición *\<cosmosdb-name>* por el nombre de la base de datos de Cosmos DB y el marcador de posición *\<primary-master-key>* por la clave que copió en el paso anterior.
 
@@ -210,7 +210,7 @@ En una ventana de terminal local, ejecute el siguiente comando para minimizar y 
 gulp prod
 ```
 
-En la ventana de terminal local, ejecute el siguiente comando para usar la cadena de conexión que configuró en _config/env/local-production.js_. Omita el error de certificado y la advertencia de config.domain.
+En la ventana de terminal local, ejecute el siguiente comando para usar la cadena de conexión que configuró en _config/env/local-production.js_ . Omita el error de certificado y la advertencia de config.domain.
 
 ```bash
 # Bash
@@ -287,7 +287,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 En el código de Node.js, [acceda a la configuración de la aplicación](configure-language-nodejs.md#access-environment-variables) con `process.env.MONGODB_URI`, igual que accedería a cualquier variable de entorno. 
 
-En el repositorio MEAN.js local, abra _config/env/production.js_ (no _config/env/local-production.js_), que tiene la configuración específica para el entorno de producción. La aplicación MEAN.js predeterminada ya está configurada para usar la variable de entorno `MONGODB_URI` que ha creado.
+En el repositorio MEAN.js local, abra _config/env/production.js_ (no _config/env/local-production.js_ ), que tiene la configuración específica para el entorno de producción. La aplicación MEAN.js predeterminada ya está configurada para usar la variable de entorno `MONGODB_URI` que ha creado.
 
 ```javascript
 db: {
@@ -317,13 +317,13 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 </pre>
 
 Puede observar que el proceso de implementación ejecuta [Gulp](https://gulpjs.com/) después de `npm install`. App Service no ejecuta tareas Gulp o Grunt durante la implementación, así que este repositorio de ejemplo tiene dos archivos adicionales en su directorio raíz para permitirlo: 
 
-- _.deployment_: este archivo indica a App Service que ejecute `bash deploy.sh` como script de implementación personalizado.
-- _deploy.sh_: se trata del script de implementación personalizado. Si revisa el archivo, verá que se ejecuta `gulp prod` después de `npm install` y `bower install`. 
+- _.deployment_ : este archivo indica a App Service que ejecute `bash deploy.sh` como script de implementación personalizado.
+- _deploy.sh_ : se trata del script de implementación personalizado. Si revisa el archivo, verá que se ejecuta `gulp prod` después de `npm install` y `bower install`. 
 
 Puede usar este enfoque para agregar cualquier paso a la implementación basada en Git. Si reinicia la aplicación de Azure en cualquier momento, App Service no vuelve a ejecutar estas tareas de automatización. Para más información, consulte [Ejecute Bower y Grunt/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
 
@@ -351,7 +351,7 @@ En este paso, se cambia el modelo de datos de `article` y se publica el cambio e
 
 ### <a name="update-the-data-model"></a>Actualización del modelo de datos
 
-En el repositorio MEAN.js local, abra _modules/articles/server/models/article.server.model.js_.
+En el repositorio MEAN.js local, abra _modules/articles/server/models/article.server.model.js_ .
 
 En `ArticleSchema`, agregue un tipo `String` llamado `comment`. Cuando haya finalizado, su código de esquema tendrá este aspecto:
 
@@ -376,7 +376,7 @@ Actualice el resto del código de `articles` para usar `comment`.
 
 Hay cinco archivos que es necesario modificar: el controlador del servidor y las cuatro vistas del cliente. 
 
-Abra _modules/articles/server/controllers/articles.server.controller.js_.
+Abra _modules/articles/server/controllers/articles.server.controller.js_ .
 
 En la función `update`, agregue una asignación para `article.comment`. El código siguiente muestra la función `update` completada:
 
@@ -392,7 +392,7 @@ exports.update = function (req, res) {
 };
 ```
 
-Abra _modules/articles/client/views/view-article.client.view.html_.
+Abra _modules/articles/client/views/view-article.client.view.html_ .
 
 Justo antes de la etiqueta `</section>` de cierre, agregue la línea siguiente para mostrar `comment` junto con el resto de los datos de artículo:
 
@@ -400,7 +400,7 @@ Justo antes de la etiqueta `</section>` de cierre, agregue la línea siguiente p
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/list-articles.client.view.html_.
+Abra _modules/articles/client/views/list-articles.client.view.html_ .
 
 Justo antes de la etiqueta `</a>` de cierre, agregue la línea siguiente para mostrar `comment` junto con el resto de los datos de artículo:
 
@@ -408,7 +408,7 @@ Justo antes de la etiqueta `</a>` de cierre, agregue la línea siguiente para mo
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/admin/list-articles.client.view.html_.
+Abra _modules/articles/client/views/admin/list-articles.client.view.html_ .
 
 Dentro del elemento `<div class="list-group">` e inmediatamente encima de la etiqueta `</a>` de cierre, agregue la siguiente línea para mostrar `comment` junto con el resto de los datos de artículo:
 
@@ -416,7 +416,7 @@ Dentro del elemento `<div class="list-group">` e inmediatamente encima de la eti
 <p class="list-group-item-text" data-ng-bind="article.comment"></p>
 ```
 
-Abra _modules/articles/client/views/admin/form-article.client.view.html_.
+Abra _modules/articles/client/views/admin/form-article.client.view.html_ .
 
 Busque el elemento `<div class="form-group">` que contiene el botón de envío, que es similar a este:
 

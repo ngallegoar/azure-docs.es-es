@@ -3,13 +3,13 @@ title: Implementación de plantillas de Resource Manager mediante Acciones de Gi
 description: Se describe cómo implementar plantillas de Resource Manager mediante Acciones de GitHub.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282844"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746108"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implementación de plantillas de Azure Resource Manager mediante Acciones de GitHub
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
-ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 1ebfa137357e60a1f462ef90c6430cbf0cb5b968
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460805"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746586"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminación temporal de contenedores (versión preliminar)
 
@@ -32,7 +32,7 @@ Para una protección integral de los datos de blobs, Microsoft recomienda habili
 
 ## <a name="how-container-soft-delete-works"></a>Funcionamiento de la eliminación temporal de contenedores
 
-Al habilitar la eliminación temporal de contenedores, puede especificar un período de retención de 1 a 365 días para los contenedores eliminados. El período de retención predeterminado es de 7 días. Durante el período de retención, puede recuperar un contenedor eliminado mediante una llamada a la operación **Recuperar contenedor**.
+Al habilitar la eliminación temporal de contenedores, puede especificar un período de retención de 1 a 365 días para los contenedores eliminados. El período de retención predeterminado es de 7 días. Durante el período de retención, puede recuperar un contenedor eliminado mediante una llamada a la operación **Recuperar contenedor** .
 
 Cuando restaure un contenedor, puede restaurarlo a su nombre original si ese nombre no se ha reutilizado. Si se ha usado el nombre del contenedor original, puede restaurar el contenedor con un nuevo nombre.
 
@@ -57,7 +57,7 @@ La eliminación temporal de contenedores está disponible para los siguientes ti
 - Cuentas de almacenamiento de blob en bloques
 - Cuentas de Almacenamiento de blobs
 
-Si la cuenta de almacenamiento es una cuenta de uso general v1, use Azure Portal para realizar la actualización a una cuenta de uso general v2. Para más información sobre las cuentas de almacenamiento, consulte  [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
+Si la cuenta de almacenamiento es una cuenta de uso general v1, use Azure Portal para realizar la actualización a una cuenta de uso general v2. Para más información sobre las cuentas de almacenamiento, vea [Introducción a las cuentas de Azure Storage](../common/storage-account-overview.md).
 
 También se admiten las cuentas de almacenamiento con un espacio de nombres jerárquico habilitado para usarse con Azure Data Lake Storage Gen2.
 

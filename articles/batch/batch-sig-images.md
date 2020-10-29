@@ -3,13 +3,13 @@ title: Uso de Shared Image Gallery para crear un grupo de imágenes personalizad
 description: Los grupos de imágenes personalizadas son una manera eficaz de configurar los nodos de proceso para ejecutar las cargas de trabajo de Batch.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 4a41e8345bdb4c4e8761debe8e6b39f8588f5a8c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90605199"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745529"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Uso de Shared Image Gallery para crear un grupo de imágenes personalizadas
 
@@ -40,7 +40,7 @@ El uso de una imagen de Shared Image configurada para su escenario puede proporc
 
 - **Una cuenta de Azure Batch** Para crear una cuenta de Batch, consulte las guías de inicio rápido de Batch con [Azure Portal](quick-create-portal.md) o la [CLI de Azure](quick-create-cli.md).
 
-- **Una imagen de Shared Image Gallery**. Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
+- **Una imagen de Shared Image Gallery** . Para crear una imagen de Shared Image Gallery, debe tener o crear un recurso de imagen administrada. La imagen debe crearse desde instantáneas del disco del sistema operativo de la máquina virtual y, opcionalmente, de sus discos de datos conectados.
 
 > [!NOTE]
 > Si la imagen compartida no está en la misma suscripción que la cuenta de Batch, debe [registrar el proveedor de recursos Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para esa suscripción. Las dos suscripciones deben estar en el mismo inquilino de Azure AD.
@@ -208,9 +208,9 @@ Use los pasos siguientes para crear un grupo a partir de una imagen compartida e
 1. Abra [Azure Portal](https://portal.azure.com).
 1. Vaya a **Cuentas de Batch** y seleccione su cuenta.
 1. Seleccione **Grupos** y, luego, **Agregar** para crear un grupo.
-1. En la sección **Tipo de imagen**, seleccione **Shared Image Gallery**.
+1. En la sección **Tipo de imagen** , seleccione **Shared Image Gallery** .
 1. Complete el resto de secciones con información sobre la imagen administrada.
-1. Seleccione **Aceptar**.
+1. Seleccione **Aceptar** .
 
 ![Cree un grupo a partir de una imagen compartida con el portal.](media/batch-sig-images/create-custom-pool.png)
 

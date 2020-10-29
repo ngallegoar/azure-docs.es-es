@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 2f1eddf33dc02b1afaffdc200ed8b79b18f77aa4
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 31c9f203a8602b6c078fe2e9c672c539140f9990
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999205"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744431"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementación de un modelo de aprendizaje automático en Azure App Service (versión preliminar)
 
@@ -56,7 +56,7 @@ Para más información sobre las características proporcionadas por Azure App S
 
 Antes de realizar la implementación, debe definir qué necesita para ejecutar el modelo como un servicio web. En la lista siguiente se describen los principales elementos necesarios para una implementación:
 
-* Un __script de entrada__. Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
+* Un __script de entrada__ . Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
 
     > [!IMPORTANT]
     > El script de entrada es específico del modelo; debe comprender el formato de los datos de la solicitud entrante, el formato de los datos que espera el modelo y el formato de los datos que se devuelven a los clientes.
@@ -70,9 +70,9 @@ Antes de realizar la implementación, debe definir qué necesita para ejecutar e
 
     Para más información sobre los scripts de entrada, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Dependencias**, como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
+* **Dependencias** , como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
 
-Estas entidades se encapsulan en una __configuración de inferencia__. La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
+Estas entidades se encapsulan en una __configuración de inferencia__ . La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
 
 > [!IMPORTANT]
 > Al crear una configuración de inferencia para su uso con Azure App Service, debe usar un objeto [Environment](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
@@ -97,7 +97,7 @@ Para obtener más información sobre los entornos, consulte el tema sobre la [cr
 Para más información sobre la configuración de inferencia, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Al realizar la implementación en Azure App Service, no es necesario crear una __configuración de implementación__.
+> Al realizar la implementación en Azure App Service, no es necesario crear una __configuración de implementación__ .
 
 ## <a name="create-the-image"></a>Crear la imagen
 
@@ -146,7 +146,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
     }
     ```
 
-    Guarde el valor de __username__ y uno de los dos de __passwords__.
+    Guarde el valor de __username__ y uno de los dos de __passwords__ .
 
 1. Si aún no tiene un grupo de recursos o un plan de App Service para implementar el servicio, los siguientes comandos muestran cómo crear ambos:
 

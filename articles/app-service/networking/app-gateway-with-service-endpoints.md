@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
-ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88958940"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746197"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
 Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.

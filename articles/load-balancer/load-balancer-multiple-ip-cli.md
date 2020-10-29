@@ -5,7 +5,7 @@ description: Aprenda a asignar varias direcciones IP a una máquina virtual con 
 services: virtual-network
 documentationcenter: na
 author: asudbring
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 9e9a74690108c0e089e99f9cd7f0f62e7a7d1778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc1e477882f3d065dfe89e8511259732129cec30
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809161"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746032"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Equilibrio de carga en configuraciones de varias IP mediante la CLI de Azure
 
@@ -31,7 +31,7 @@ En este artículo, se explica cómo se utiliza Azure Load Balancer con varias di
 Para reproducir el escenario que se describe en este artículo, siga los pasos que se describen a continuación:
 
 1. [Instale y configure la CLI de Azure ](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) siguiendo los pasos que se describen en el artículo vinculado e inicie sesión en la cuenta de Azure.
-2. [Cree un grupo de recursos](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) llamado *contosofabrikam*, tal y como se describe a continuación:
+2. [Cree un grupo de recursos](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) llamado *contosofabrikam* , tal y como se describe a continuación:
 
     ```azurecli
     az group create contosofabrikam westcentralus
@@ -43,14 +43,14 @@ Para reproducir el escenario que se describe en este artículo, siga los pasos q
     az vm availability-set create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Cree una red virtual](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) llamada *myVNet* y una subred denominada *mySubnet*:
+4. [Cree una red virtual](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) llamada *myVNet* y una subred denominada *mySubnet* :
 
     ```azurecli
     az network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus --subnet-name MySubnet --subnet-prefix 10.0.0.0/24
 
     ```
 
-5. [Cree un equilibrador de carga](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) llamado *mylb*:
+5. [Cree un equilibrador de carga](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) llamado *mylb* :
 
     ```azurecli
     az network lb create --resource-group contosofabrikam --location westcentralus --name mylb
@@ -64,14 +64,14 @@ Para reproducir el escenario que se describe en este artículo, siga los pasos q
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name PublicIp2 --domain-name-label fabrikam --allocation-method Dynamic
     ```
 
-7. Cree las dos configuraciones de IP de front-tend: *contosofe* y *fabrikamfe*, respectivamente:
+7. Cree las dos configuraciones de IP de front-tend: *contosofe* y *fabrikamfe* , respectivamente:
 
     ```azurecli
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp1 --name contosofe
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Cree los grupos de direcciones del back-end: *contosopool* y *fabrikampool*; un [sondeo](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json):  - *HTTP*, y las reglas de equilibrado de carga: *HTTPc* y *HTTPf*:
+8. Cree los grupos de direcciones del back-end: *contosopool* y *fabrikampool* ; un [sondeo](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json):  - *HTTP* , y las reglas de equilibrado de carga: *HTTPc* y *HTTPf* :
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -89,7 +89,7 @@ Para reproducir el escenario que se describe en este artículo, siga los pasos q
     az network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Cree una dirección IP pública](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address): *myPublicIp*, y una [cuenta de almacenamiento](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json): *mystorageaccont1*, para la primera máquina virtual (VM1), tal y como se muestra a continuación:
+10. [Cree una dirección IP pública](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address): *myPublicIp* , y una [cuenta de almacenamiento](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json): *mystorageaccont1* , para la primera máquina virtual (VM1), tal y como se muestra a continuación:
 
     ```azurecli
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -97,7 +97,7 @@ Para reproducir el escenario que se describe en este artículo, siga los pasos q
     az storage account create --location westcentralus --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Cree las interfaces de red](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) para VM1 y agregue una segunda configuración de IP, *VM1-ipconfig2*, y [cree la VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-vm) tal como se describe a continuación:
+11. [Cree las interfaces de red](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) para VM1 y agregue una segunda configuración de IP, *VM1-ipconfig2* , y [cree la VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-vm) tal como se describe a continuación:
 
     ```azurecli
     az network nic create --resource-group contosofabrikam --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1

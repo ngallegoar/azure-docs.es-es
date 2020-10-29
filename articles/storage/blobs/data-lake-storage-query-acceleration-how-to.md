@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: normesta
 ms.reviewer: jamsbak
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 72602e1e74074f21c93950bdb779758e784ce171
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: b7f566f85ebdb6b481797823cba78aa968747e9f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89659877"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746420"
 ---
 # <a name="filter-data-by-using-azure-data-lake-storage-query-acceleration"></a>Filtro de datos mediante la aceleración de consultas de Azure Data Lake Storage
 
@@ -26,7 +26,7 @@ La aceleración de consultas permite tanto a las aplicaciones como a los marcos 
 
 - Para acceder a Azure Storage, necesitará una suscripción de Azure. Si todavía no tiene una suscripción, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-- Una cuenta de almacenamiento de **uso general v2**. Vea [Creación de una cuenta de Azure Storage](../common/storage-quickstart-create-account.md).
+- Una cuenta de almacenamiento de **uso general v2** . Vea [Creación de una cuenta de Azure Storage](../common/storage-quickstart-create-account.md).
 
 - Elija una pestaña para ver todos los requisitos previos específicos del SDK.
 

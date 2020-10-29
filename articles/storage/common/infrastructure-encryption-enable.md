@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 3164de9c3e44001d58d46eab9f823041b440960b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 612ba18ba71a22ad6c346b26008e688195c1d1e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984174"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746576"
 ---
 # <a name="create-a-storage-account-with-infrastructure-encryption-enabled-for-double-encryption-of-data"></a>Creación de una cuenta de almacenamiento con el cifrado de infraestructura habilitado para poder realizar el cifrado doble de datos
 
@@ -93,9 +94,9 @@ Una vez que la cuenta se ha creado, no se puede habilitar o deshabilitar el cifr
 
 Para usar PowerShell con el fin de crear una cuenta de almacenamiento con el cifrado de infraestructura habilitado, siga estos pasos:
 
-1. En Azure Portal, vaya a la página **Cuentas de almacenamiento**.
+1. En Azure Portal, vaya a la página **Cuentas de almacenamiento** .
 1. Elija el botón **Agregar** para agregar una cuenta de almacenamiento v2 de uso general.
-1. En la pestaña **Avanzado**, busque **Cifrado de infraestructura** y seleccione **Habilitado**.
+1. En la pestaña **Avanzado** , busque **Cifrado de infraestructura** y seleccione **Habilitado** .
 1. Seleccione **Revisar y crear** para terminar de crear la cuenta de almacenamiento.
 
     :::image type="content" source="media/infrastructure-encryption-enable/create-account-infrastructure-encryption-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar el cifrado de infraestructura al crear una la cuenta":::
@@ -178,7 +179,7 @@ En el ejemplo siguiente de JSON se crea una cuenta de almacenamiento v2 de uso g
 Para comprobar que el cifrado de infraestructura está habilitado para una cuenta de almacenamiento con Azure Portal, siga estos pasos:
 
 1. Vaya a la cuenta de almacenamiento en Azure Portal.
-1. En **Configuración**, elija **Cifrado**.
+1. En **Configuración** , elija **Cifrado** .
 
     :::image type="content" source="media/infrastructure-encryption-enable/verify-infrastructure-encryption-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar el cifrado de infraestructura al crear una la cuenta":::
 

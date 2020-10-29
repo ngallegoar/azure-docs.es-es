@@ -5,14 +5,14 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/15/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150218"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743546"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Tutorial: Creación de una aplicación PHP y MySQL en Azure App Service
 
@@ -107,7 +107,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configuración de la conexión a MySQL
 
-En la raíz del repositorio, cree un archivo llamado *.env*. Copie las siguientes variables en el archivo *.env*. Reemplace el marcador de posición _&lt;root_password>_ por la contraseña del usuario raíz de MySQL.
+En la raíz del repositorio, cree un archivo llamado *.env* . Copie las siguientes variables en el archivo *.env* . Reemplace el marcador de posición _&lt;root_password>_ por la contraseña del usuario raíz de MySQL.
 
 ```txt
 APP_ENV=local
@@ -121,7 +121,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Para obtener información sobre la forma en que Laravel usa el archivo _.env_, consulte [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Configuración del entorno de Laravel).
+Para obtener información sobre la forma en que Laravel usa el archivo _.env_ , consulte [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Configuración del entorno de Laravel).
 
 ### <a name="run-the-sample-locally"></a>Ejecución local del código
 
@@ -242,7 +242,7 @@ En este paso, conectará la aplicación PHP a la base de datos MySQL que creó e
 
 ### <a name="configure-the-database-connection"></a>Configuración de la conexión de base de datos
 
-En la raíz del repositorio, cree un archivo _.env.production_ y copie en él las siguientes variables. Reemplace el marcador de posición _&lt;mysql-server-name>_ en *DB_HOST* y *DB_USERNAME*.
+En la raíz del repositorio, cree un archivo _.env.production_ y copie en él las siguientes variables. Reemplace el marcador de posición _&lt;mysql-server-name>_ en *DB_HOST* y *DB_USERNAME* .
 
 ```
 APP_ENV=production
@@ -402,7 +402,7 @@ Para acceder a la configuración puede usar el método [getenv](https://www.php.
 
 Laravel necesita una clave de aplicación en App Service. Puede configurarlo con valores de aplicación.
 
-En la ventana del terminal local, use `php artisan` para generar una clave de aplicación sin guardarla en _.env_.
+En la ventana del terminal local, use `php artisan` para generar una clave de aplicación sin guardarla en _.env_ .
 
 ```bash
 php artisan key:generate --show
@@ -420,7 +420,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 ::: zone pivot="platform-windows"  
 
-Establezca la ruta de acceso de la aplicación virtual para la aplicación. Este paso se requiere porque el [ciclo de vida de la aplicación Laravel](https://laravel.com/docs/5.4/lifecycle) comienza en el directorio _public_, en lugar de en el directorio raíz de la aplicación. Otros marcos PHP cuyo ciclo de vida comienza en el directorio raíz pueden funcionar sin necesidad de configurar manualmente la ruta de acceso de la aplicación virtual.
+Establezca la ruta de acceso de la aplicación virtual para la aplicación. Este paso se requiere porque el [ciclo de vida de la aplicación Laravel](https://laravel.com/docs/5.4/lifecycle) comienza en el directorio _public_ , en lugar de en el directorio raíz de la aplicación. Otros marcos PHP cuyo ciclo de vida comienza en el directorio raíz pueden funcionar sin necesidad de configurar manualmente la ruta de acceso de la aplicación virtual.
 
 En Cloud Shell, establezca la ruta de acceso a la aplicación virtual con el comando [`az resource update`](/cli/azure/resource#az-resource-update). Reemplace el marcador de posición _&lt;app-name>_ .
 
@@ -428,7 +428,7 @@ En Cloud Shell, establezca la ruta de acceso a la aplicación virtual con el com
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-De manera predeterminada, Azure App Service apunta la ruta de acceso de la aplicación virtual raíz ( _/_ ) al directorio raíz de los archivos de la aplicación implementada (_sites\wwwroot_).
+De manera predeterminada, Azure App Service apunta la ruta de acceso de la aplicación virtual raíz ( _/_ ) al directorio raíz de los archivos de la aplicación implementada ( _sites\wwwroot_ ).
 
 ::: zone-end
 
@@ -550,11 +550,11 @@ En la ventana del terminal local, ejecute las migraciones de base de datos Larav
 php artisan migrate
 ```
 
-En función de la [convención de nomenclatura de Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), el modelo `Task` (consulte _app/Task.php_) se asigna a la tabla `tasks` de manera predeterminada.
+En función de la [convención de nomenclatura de Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), el modelo `Task` (consulte _app/Task.php_ ) se asigna a la tabla `tasks` de manera predeterminada.
 
 ### <a name="update-application-logic"></a>Actualización de la lógica de aplicación
 
-Abra el archivo *routes/web.php*. La aplicación define aquí tanto sus rutas como su lógica de negocios.
+Abra el archivo *routes/web.php* . La aplicación define aquí tanto sus rutas como su lógica de negocios.
 
 Al final del archivo, agregue una ruta con el siguiente código:
 
@@ -577,7 +577,7 @@ El código anterior lleva a cabo una sencilla actualización en el modelo de dat
 
 ### <a name="update-the-view"></a>Actualización de la vista
 
-Abra el archivo *resources/views/tasks.blade.php*. Busque la etiqueta de apertura `<tr>` y reemplácela por:
+Abra el archivo *resources/views/tasks.blade.php* . Busque la etiqueta de apertura `<tr>` y reemplácela por:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -669,7 +669,7 @@ Para detener la secuencia de registro en cualquier momento, escriba `Ctrl`+`C`.
 ::: zone-end
 
 > [!TIP]
-> Las aplicaciones PHP pueden usar el elemento estándar [error_log()](https://php.net/manual/function.error-log.php) para enviar información a la consola. La aplicación de ejemplo usa este enfoque en _app/Http/routes.php_.
+> Las aplicaciones PHP pueden usar el elemento estándar [error_log()](https://php.net/manual/function.error-log.php) para enviar información a la consola. La aplicación de ejemplo usa este enfoque en _app/Http/routes.php_ .
 >
 > Como marco web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) como proveedor de registros. Para ver cómo obtener Monolog para generar mensajes en la consola, consulte [PHP: How to use monolog to log to console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out) [PHP: Cómo usar monolog para registrarse en la consola (php://out)].
 >

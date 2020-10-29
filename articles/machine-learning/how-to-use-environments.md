@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4db53b806adc2e29ae9c9a950faf8fc822c9d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 5a7d33e163c10a6d56416ea474d7e3a9e8624219
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743988"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744415"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creación y uso de entornos de software en Azure Machine Learning
 
@@ -83,7 +83,7 @@ for env in envs:
 ```
 
 > [!WARNING]
->  No empiece el nombre de su propio entorno con el prefijo _AzureML_. Este prefijo está reservado para entornos mantenidos.
+>  No empiece el nombre de su propio entorno con el prefijo _AzureML_ . Este prefijo está reservado para entornos mantenidos.
 
 ### <a name="use-conda-dependencies-or-pip-requirements-files"></a>Uso de dependencias de Conda o archivos de requisitos de PIP
 
@@ -110,7 +110,7 @@ Cuando se habilita Docker, Azure Machine Learning crea una imagen de Docker y u
 myenv.docker.enabled = True
 ```
 
-De manera predeterminada, la imagen de Docker recién creada aparece en el registro de contenedor que está asociado al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único (*uuid*) del nombre corresponde a un hash calculado a partir de la configuración del entorno. Esta correspondencia permite que el servicio determine si ya existe para reutilizar una imagen del entorno dado.
+De manera predeterminada, la imagen de Docker recién creada aparece en el registro de contenedor que está asociado al área de trabajo.  El nombre del repositorio tiene el formato *azureml/azureml_\<uuid\>* . La parte del identificador único ( *uuid* ) del nombre corresponde a un hash calculado a partir de la configuración del entorno. Esta correspondencia permite que el servicio determine si ya existe para reutilizar una imagen del entorno dado.
 
 #### <a name="use-a-prebuilt-docker-image"></a>Uso de una imagen de Docker precompilada
 
@@ -259,7 +259,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
 >[!IMPORTANT]
-> Si usa la misma definición de entorno para otra ejecución, Azure Machine Learning Service vuelve a usar la imagen almacenada en caché de su entorno. Si crea un entorno con una dependencia de paquete desanclada (por ejemplo, ```numpy```), ese entorno seguirá usando la versión del paquete instalada _en el momento de la creación del entorno_. Además, cualquier entorno futuro con una definición coincidente seguirá usando la versión anterior. Para más información, consulte [Compilación, almacenamiento en caché y reutilización de entornos](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
+> Si usa la misma definición de entorno para otra ejecución, Azure Machine Learning Service vuelve a usar la imagen almacenada en caché de su entorno. Si crea un entorno con una dependencia de paquete desanclada (por ejemplo, ```numpy```), ese entorno seguirá usando la versión del paquete instalada _en el momento de la creación del entorno_ . Además, cualquier entorno futuro con una definición coincidente seguirá usando la versión anterior. Para más información, consulte [Compilación, almacenamiento en caché y reutilización de entornos](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
 
 ### <a name="private-python-packages"></a>Paquetes privados de Python
 

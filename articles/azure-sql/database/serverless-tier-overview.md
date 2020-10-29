@@ -4,19 +4,19 @@ description: En este artículo se describe el nuevo nivel de proceso sin servido
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
-ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321414"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743158"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -314,17 +314,17 @@ Para ver los límites de recursos, consulte [Nivel de proceso sin servidor](reso
 
 La cantidad de proceso que se factura es el máximo de CPU y memoria usado en cada segundo. Si la cantidad de CPU y memoria usadas es inferior a la cantidad mínima aprovisionada para cada una, se factura la cantidad aprovisionada. Para comparar la CPU y la memoria con fines de facturación, la memoria se normaliza en unidades de núcleos virtuales cambiando la escala de la cantidad de GB de memoria en 3 GB por núcleo virtual.
 
-- **Recurso facturado**: CPU y memoria
-- **Importe facturado**: precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
-- **Frecuencia de facturación**: Por segundo
+- **Recurso facturado** : CPU y memoria
+- **Importe facturado** : precio de la unidad de núcleo virtual * máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3) 
+- **Frecuencia de facturación** : Por segundo
 
 El precio de unidad de núcleo virtual es el costo por núcleo virtual por segundo. Consulte la [página de precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para conocer los precios de unidad específicos de una región determinada.
 
 La cantidad de proceso facturada se expone mediante la métrica siguiente:
 
-- **Métrica**: app_cpu_billed (segundos de núcleo virtual)
-- **Definición**: máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3)
-- **Frecuencia de informes**: Por minuto
+- **Métrica** : app_cpu_billed (segundos de núcleo virtual)
+- **Definición** : máx. (mínimo de núcleos virtuales, núcleos virtuales usados, GB de memoria mínima * 1/3, GB de memoria usada * 1/3)
+- **Frecuencia de informes** : Por minuto
 
 Esta cantidad se calcula cada segundo y se agrega en un intervalo de 1 minuto.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078364"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745801"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Uso de los controladores de interfaz de almacenamiento de contenedores (CSI) de Azure Files en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -33,13 +33,13 @@ Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Creación dinámica de PV para Azure Files mediante las clases de almacenamiento integradas
 
-Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de Azure Files. En el [grupo de recursos de nodo][node-resource-group], se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento para guardar los recursos compartidos de Azure Files. Seleccione una de las siguientes [SKU de redundancia de Azure Storage][storage-skus] para *skuName*:
+Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de Azure Files. En el [grupo de recursos de nodo][node-resource-group], se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento para guardar los recursos compartidos de Azure Files. Seleccione una de las siguientes [SKU de redundancia de Azure Storage][storage-skus] para *skuName* :
 
-* **Standard_LRS**: almacenamiento con redundancia local estándar
-* **Standard_GRS**: almacenamiento con redundancia geográfica estándar
-* **Standard_ZRS**: almacenamiento con redundancia de zona
-* **Standard_RAGRS**: almacenamiento con redundancia geográfica con acceso de lectura estándar
-* **Premium_LRS**: almacenamiento con redundancia local prémium
+* **Standard_LRS** : almacenamiento con redundancia local estándar
+* **Standard_GRS** : almacenamiento con redundancia geográfica estándar
+* **Standard_ZRS** : almacenamiento con redundancia de zona
+* **Standard_RAGRS** : almacenamiento con redundancia geográfica con acceso de lectura estándar
+* **Premium_LRS** : almacenamiento con redundancia local prémium
 
 > [!NOTE]
 > Azure Files es compatible con Azure Premium Storage. El recurso compartido de archivos prémium mínimo es de 100 GB.
@@ -212,7 +212,7 @@ Registre la marca de la característica `AllowNfsFileShares` con el comando [az 
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+Tarda unos minutos en que el estado muestre *Registrado* . Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Puede implementar un [conjunto con estado](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) de ejemplo que guarde marcas de tiempo en el archivo `data.txt` mediante la implementación del comando siguiente con el comando [kubectl apply][kubectl-apply]:
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

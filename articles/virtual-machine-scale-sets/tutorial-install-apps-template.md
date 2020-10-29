@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059255"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746022"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
@@ -40,9 +40,9 @@ Para ver la extensión de script personalizado en acción, cree un conjunto de e
 
 
 ## <a name="create-custom-script-extension-definition"></a>Creación de una definición de extensión de script personalizado
-Al definir un conjunto de escalado de máquinas virtuales con una plantilla de Azure, el proveedor de recursos *Microsoft.Compute/virtualMachineScaleSets* puede incluir una sección sobre las extensiones. En *extensionsProfile* se detalla lo que se aplica a las instancias de máquina virtual de un conjunto de escalado. Para usar la extensión de script personalizado, debe especificar un publicador *Microsoft.Azure.Extensions* y un tipo *CustomScript*.
+Al definir un conjunto de escalado de máquinas virtuales con una plantilla de Azure, el proveedor de recursos *Microsoft.Compute/virtualMachineScaleSets* puede incluir una sección sobre las extensiones. En *extensionsProfile* se detalla lo que se aplica a las instancias de máquina virtual de un conjunto de escalado. Para usar la extensión de script personalizado, debe especificar un publicador *Microsoft.Azure.Extensions* y un tipo *CustomScript* .
 
-La propiedad *fileUris* se utiliza para definir los paquetes o scripts de instalación de origen. Para iniciar el proceso de instalación, los scripts necesarios se definen en *commandToExecute*. En el ejemplo siguiente, se define un script de ejemplo de GitHub que instala y configura el servidor web NGINX:
+La propiedad *fileUris* se utiliza para definir los paquetes o scripts de instalación de origen. Para iniciar el proceso de instalación, los scripts necesarios se definen en *commandToExecute* . En el ejemplo siguiente, se define un script de ejemplo de GitHub que instala y configura el servidor web NGINX:
 
 ```json
 "extensionProfile": {
@@ -70,7 +70,7 @@ Para obtener un ejemplo completo de una plantilla de Azure que implementa un con
 
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
-Vamos a usar la plantilla de ejemplo para crear un conjunto de escalado y aplicar la extensión de script personalizado. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus*:
+Vamos a usar la plantilla de ejemplo para crear un conjunto de escalado y aplicar la extensión de script personalizado. En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -108,7 +108,7 @@ Deje el explorador web abierto para que pueda ver una versión actualizada en el
 
 
 ## <a name="update-app-deployment"></a>Actualización de la implementación de aplicaciones
-A lo largo del ciclo de vida de un conjunto de escalado, puede que deba implementar una versión actualizada de la aplicación. Con la extensión de script personalizado, puede hacer referencia a un script de implementación actualizado y, luego, volver a aplicar la extensión al conjunto de escalado. Cuando se creó el conjunto de escalado en un paso anterior, el parámetro *upgradePolicy* se estableció en *Automatic*. Esta configuración permite que las instancias de máquina virtual del conjunto de escalado se actualicen y apliquen automáticamente la versión más reciente de la aplicación.
+A lo largo del ciclo de vida de un conjunto de escalado, puede que deba implementar una versión actualizada de la aplicación. Con la extensión de script personalizado, puede hacer referencia a un script de implementación actualizado y, luego, volver a aplicar la extensión al conjunto de escalado. Cuando se creó el conjunto de escalado en un paso anterior, el parámetro *upgradePolicy* se estableció en *Automatic* . Esta configuración permite que las instancias de máquina virtual del conjunto de escalado se actualicen y apliquen automáticamente la versión más reciente de la aplicación.
 
 Para actualizar la definición de la extensión de script personalizado, edite la plantilla para que haga referencia a un nuevo script de instalación. Debe usarse un nuevo nombre de archivo para la extensión de script personalizado para que reconozca el cambio. La extensión de script personalizado no examina el contenido del script para determinar los cambios. La definición siguiente usa un script de instalación actualizado con *_v2* anexado al nombre:
 

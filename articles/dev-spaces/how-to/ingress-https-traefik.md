@@ -5,13 +5,13 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: Aprenda a configurar Azure Dev Spaces para usar un controlador de entrada de Traefik personalizado y configurar HTTPS con ese controlador de entrada.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.custom: devx-track-js
-ms.openlocfilehash: a30dae3b65a7e877dc20b4d6fae8de338024d3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: fb45c310d306813dc10b667db6ce36048eccf217
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973060"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746112"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>Uso de un controlador de entrada de Traefik personalizado y configuración de HTTPS
 
@@ -53,7 +53,7 @@ helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 Cree un espacio de nombres Kubernetes para el controlador de entrada de Traefik e instálelo mediante `helm`.
 
 > [!NOTE]
-> Si el clúster de AKS no tiene habilitado RBAC, quite el parámetro *--set rbac.enabled=true*.
+> Si el clúster de AKS no tiene habilitado RBAC, quite el parámetro *--set rbac.enabled=true* .
 
 ```console
 kubectl create ns traefik
@@ -61,7 +61,7 @@ helm install traefik stable/traefik --namespace traefik --set kubernetes.ingress
 ```
 
 > [!NOTE]
-> En el ejemplo anterior se crea un punto de conexión público para el controlador de entrada. Si en su lugar necesita usar un punto de conexión privado para el controlador de entrada, agregue el parámetro *--set service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=true* al comando *helm install*.
+> En el ejemplo anterior se crea un punto de conexión público para el controlador de entrada. Si en su lugar necesita usar un punto de conexión privado para el controlador de entrada, agregue el parámetro *--set service.annotations."service\\.beta\\.kubernetes\\.io/azure-load-balancer-internal"=true* al comando *helm install* .
 > ```console
 > helm install traefik stable/traefik --namespace traefik --set kubernetes.ingressClass=traefik --set rbac.enabled=true --set fullnameOverride=customtraefik --set kubernetes.ingressEndpoint.useDefaultPublishedService=true --set service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.85.0
 > ```
@@ -73,7 +73,7 @@ Obtenga la dirección IP del servicio del controlador de entrada de Traefik medi
 kubectl get svc -n traefik --watch
 ```
 
-La salida de ejemplo muestra las direcciones IP de todos los servicios en el espacio de nombres de *Traefik*.
+La salida de ejemplo muestra las direcciones IP de todos los servicios en el espacio de nombres de *Traefik* .
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP   PORT(S)                      AGE
@@ -92,7 +92,7 @@ az network dns record-set a add-record \
     --ipv4-address MY_EXTERNAL_IP
 ```
 
-En el ejemplo anterior se agrega un registro *A* a la zona DNS *MY_CUSTOM_DOMAIN*.
+En el ejemplo anterior se agrega un registro *A* a la zona DNS *MY_CUSTOM_DOMAIN* .
 
 En este artículo, puede usar la [aplicación de ejemplo Bike Sharing de Azure Dev Spaces](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) para demostrar el uso de Azure Dev Spaces. Clone la aplicación desde GitHub y vaya a su directorio:
 
@@ -102,8 +102,8 @@ cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
 Abra [values.yaml][values-yaml] y realice las siguientes actualizaciones:
-* Reemplace todas las instancias de *<REPLACE_ME_WITH_HOST_SUFFIX>* por *traefik.MY_CUSTOM_DOMAIN* mediante el dominio de *MY_CUSTOM_DOMAIN*. 
-* Reemplace *kubernetes.io/ingress.class: traefik-azds  # Dev Spaces-specific* por *kubernetes.io/ingress.class: traefik  # Custom Ingress*. 
+* Reemplace todas las instancias de *<REPLACE_ME_WITH_HOST_SUFFIX>* por *traefik.MY_CUSTOM_DOMAIN* mediante el dominio de *MY_CUSTOM_DOMAIN* . 
+* Reemplace *kubernetes.io/ingress.class: traefik-azds  # Dev Spaces-specific* por *kubernetes.io/ingress.class: traefik  # Custom Ingress* . 
 
 A continuación se muestra un ejemplo de un archivo `values.yaml` actualizado:
 
@@ -140,7 +140,7 @@ Implemente la aplicación de ejemplo mediante `helm install`.
 helm install bikesharingsampleapp . --dependency-update --namespace dev --atomic
 ```
 
-En el ejemplo anterior se implementa la aplicación de ejemplo en el espacio de nombres *dev*.
+En el ejemplo anterior se implementa la aplicación de ejemplo en el espacio de nombres *dev* .
 
 Muestre las direcciones URL para acceder a la aplicación de ejemplo mediante `azds list-uris`.
 
@@ -160,7 +160,7 @@ http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 Navegue hasta el servicio *bikesharingweb* abriendo la dirección URL pública con el comando `azds list-uris`. En el ejemplo anterior, la dirección URL pública para el servicio *bikesharingweb* es `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`.
 
 > [!NOTE]
-> Si ve una página de error en lugar del servicio *bikesharingweb*, compruebe que ha actualizado **tanto** la anotación *kubernetes.io/ingress.class* como el host en el archivo *values.yaml*.
+> Si ve una página de error en lugar del servicio *bikesharingweb* , compruebe que ha actualizado **tanto** la anotación *kubernetes.io/ingress.class* como el host en el archivo *values.yaml* .
 
 Use el comando `azds space select` para crear un espacio secundario en *dev* y mostrar las direcciones URL para acceder al espacio de desarrollo secundario.
 
@@ -169,7 +169,7 @@ azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-La salida siguiente muestra las direcciones URL de ejemplo de `azds list-uris` para tener acceso a la aplicación de ejemplo en el espacio de desarrollo secundario *azureuser1*.
+La salida siguiente muestra las direcciones URL de ejemplo de `azds list-uris` para tener acceso a la aplicación de ejemplo en el espacio de desarrollo secundario *azureuser1* .
 
 ```console
 Uri                                                  Status
@@ -182,7 +182,7 @@ Navegue hasta el servicio *bikesharingweb* en el espacio de desarrollo secundari
 
 ## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>Configuración del controlador de entrada de Traefik para usar HTTPS
 
-Use [cert-manager][cert-manager] para automatizar la administración del certificado TLS al configurar el controlador de entrada de Traefik para que use HTTPS. Use `helm` para instalar el gráfico *certmanager*.
+Use [cert-manager][cert-manager] para automatizar la administración del certificado TLS al configurar el controlador de entrada de Traefik para que use HTTPS. Use `helm` para instalar el gráfico *certmanager* .
 
 ```console
 kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace traefik
@@ -212,7 +212,7 @@ spec:
 ```
 
 > [!NOTE]
-> Para las pruebas, también hay un [servidor de ensayo][letsencrypt-staging-issuer] que puede usar para *ClusterIssuer*.
+> Para las pruebas, también hay un [servidor de ensayo][letsencrypt-staging-issuer] que puede usar para *ClusterIssuer* .
 
 Use `kubectl` para aplicar `letsencrypt-clusterissuer.yaml`.
 
@@ -223,7 +223,7 @@ kubectl apply -f letsencrypt-clusterissuer.yaml --namespace traefik
 Quite los *traefik* *ClusterRole* y *ClusterRoleBinding* anteriores y, a continuación, actualice traefik para usar HTTPS mediante `helm`.
 
 > [!NOTE]
-> Si el clúster de AKS no tiene habilitado RBAC, quite el parámetro *--set rbac.enabled=true*.
+> Si el clúster de AKS no tiene habilitado RBAC, quite el parámetro *--set rbac.enabled=true* .
 
 ```console
 kubectl delete ClusterRole traefik
@@ -237,7 +237,7 @@ Obtenga la dirección IP actualizada del servicio del controlador de entrada de 
 kubectl get svc -n traefik --watch
 ```
 
-La salida de ejemplo muestra las direcciones IP de todos los servicios en el espacio de nombres de *Traefik*.
+La salida de ejemplo muestra las direcciones IP de todos los servicios en el espacio de nombres de *Traefik* .
 
 ```console
 NAME      TYPE           CLUSTER-IP    EXTERNAL-IP          PORT(S)                      AGE
@@ -262,7 +262,7 @@ az network dns record-set a remove-record \
     --ipv4-address PREVIOUS_EXTERNAL_IP
 ```
 
-En el ejemplo anterior se actualiza el registro *A* en la zona DNS *MY_CUSTOM_DOMAIN* para usar *PREVIOUS_EXTERNAL_IP*.
+En el ejemplo anterior se actualiza el registro *A* en la zona DNS *MY_CUSTOM_DOMAIN* para usar *PREVIOUS_EXTERNAL_IP* .
 
 Actualice [values.yaml][values-yaml] para incluir los detalles de uso de *cert-manager* y HTTPS. A continuación se muestra un ejemplo de un archivo `values.yaml` actualizado:
 
@@ -325,7 +325,7 @@ Para corregir este error, actualice [BikeSharingWeb/azds.yaml][azds-yaml] para u
 ...
 ```
 
-Actualice [BikeSharingWeb/package.json][package-json] con una dependencia para el paquete *url*.
+Actualice [BikeSharingWeb/package.json][package-json] con una dependencia para el paquete *url* .
 
 ```json
 {

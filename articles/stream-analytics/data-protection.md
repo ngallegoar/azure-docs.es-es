@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: fa37c251e61b1f920edc55ead38f745439f2de92
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91812869"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746409"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protección de datos en Azure Stream Analytics 
 
@@ -73,10 +73,6 @@ Siga estos pasos para configurar su cuenta de almacenamiento para recursos de da
 
    ![Configuración de una cuenta de almacenamiento de datos privados](./media/data-protection/storage-account-create.png)
 
-
-
-### <a name="known-issues"></a>Problemas conocidos
-En estos momentos existen una limitación conocida en el que un trabajo que usa la clave administrada por el cliente devuelve errores cuando se usa la identidad administrada para autenticarse en cualquier entrada o salida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

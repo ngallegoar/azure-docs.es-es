@@ -4,13 +4,13 @@ description: Obtenga información sobre cómo definir la configuración de Azure
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 057c030b060343d5bc6f85c38d61feee0b01dfde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cc996988-fb4f-47, devx-track-azurecli
+ms.openlocfilehash: f597e58c70d6ac9daff753f5c0a54199c2383c42
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83122311"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746170"
 ---
 # <a name="manage-your-function-app"></a>Administración de la aplicación de funciones 
 
@@ -29,7 +29,7 @@ En este artículo se describe cómo configurar y administrar la aplicación de f
 
 1. Para comenzar, vaya a [Azure Portal] e inicie sesión en la cuenta de Azure. En la barra de búsqueda en la parte superior del portal, escriba el nombre de la aplicación de funciones y selecciónela en la lista. 
 
-2. En **Configuración** en el panel izquierdo, seleccione **Configuración**.
+2. En **Configuración** en el panel izquierdo, seleccione **Configuración** .
 
     :::image type="content" source="./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png" alt-text="Información general sobre las aplicaciones de funciones en Azure Portal":::
 
