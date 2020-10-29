@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 8464d8918ccb6351de06dcba9a355e93c2cd97cd
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 08e028ba057ad57f3d600bc59bf7595c0b1d354c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740352"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456586"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con CakeHR
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar CakeHR con Azure 
 * Permitir a los usuarios iniciar sesión automáticamente en CakeHR con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -49,15 +49,15 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de CakeHR en Azure AD, es preciso agregar CakeHR desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **CakeHR** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **CakeHR** en el cuadro de búsqueda.
 1. Seleccione **CakeHR** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-cakehr"></a>Configuración y prueba del inicio de sesión único de Azure AD para CakeHR
 
-Configure y pruebe el inicio de sesión único de Azure AD con CakeHR mediante una usuaria de prueba llamada **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de CakeHR.
+Configure y pruebe el inicio de sesión único de Azure AD con CakeHR mediante una usuaria de prueba llamada **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de CakeHR.
 
 Para configurar y probar el inicio de sesión único de Azure AD con CakeHR, es preciso completar los siguientes bloques de creación:
 
@@ -72,29 +72,29 @@ Para configurar y probar el inicio de sesión único de Azure AD con CakeHR, es
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **CakeHR**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **CakeHR** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<yourcakedomain>.cake.hr/`
+    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<yourcakedomain>.cake.hr/`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<yourcakedomain>.cake.hr/services/saml/consume`
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<yourcakedomain>.cake.hr/services/saml/consume`
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte para clientes de CakeHR](mailto:info@cake.hr) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
+1. En la sección **Certificado de firma de SAML** , haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML** .
 
     ![Edición del certificado de firma de SAML](common/edit-certificate.png)
 
-1. En la sección **Certificado de firma de SAML**, copie el valor de **HUELLA DIGITAL** y guárdelo en el Bloc de notas.
+1. En la sección **Certificado de firma de SAML** , copie el valor de **HUELLA DIGITAL** y guárdelo en el Bloc de notas.
 
     ![Copia del valor de la huella digital](common/copy-thumbprint.png)
 
-1. En la sección **Configurar CakeHR**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar CakeHR** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -102,35 +102,35 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B. Simon use el inicio de sesión único de Azure, para lo que le concederá acceso a CakeHR.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **CakeHR**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **CakeHR** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-cakehr-sso"></a>Configuración del inicio de sesión único en CakeHR
 
-1. Para automatizar la configuración en CakeHR, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+1. Para automatizar la configuración en CakeHR, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones** . Para ello, haga clic en **Instalar la extensión** .
 
     ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
 
@@ -140,23 +140,23 @@ En esta sección, va a permitir que B. Simon use el inicio de sesión único de
 
 1. Si quiere configurar CakeHR manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de CakeHR como administrador y haga lo siguiente:
 
-1. En la esquina superior derecha de la página, haga clic en su **perfil** y vaya a **Configuración**.
+1. En la esquina superior derecha de la página, haga clic en su **perfil** y vaya a **Configuración** .
 
     ![Captura de pantalla que muestra Profile (Perfil) con Settings (Configuración) seleccionado.](./media/cakehr-tutorial/config01.png)
 
-1. En la parte izquierda de la barra de menús, haga clic en **INTEGRATIONS**(INTEGRACIONES) > **SAML SSO** (SSO de SAML) y siga estos pasos:
+1. En la parte izquierda de la barra de menús, haga clic en **INTEGRATIONS** (INTEGRACIONES) > **SAML SSO** (SSO de SAML) y siga estos pasos:
 
     ![Captura de pantalla que muestra el panel Setting (Configuración) para realizar estos pasos.](./media/cakehr-tutorial/config02.png)
 
     a. En el cuadro de texto **Entity ID** (Id. de identidad), escriba `cake.hr`.
 
-    b. En el cuadro de texto **Authentication URL** (Dirección URL de autenticación), pegue el valor de **URL de inicio de sesión**, que ha copiado de Azure Portal.
+    b. En el cuadro de texto **Authentication URL** (Dirección URL de autenticación), pegue el valor de **URL de inicio de sesión** , que ha copiado de Azure Portal.
 
     c. En el cuadro de texto **Key fingerprint (SHA1 format)** [Huella digital clave (formato SHA1)], pegue el valor de **THUMBPRINT** (HUELLA DIGITAL) que copió de Azure Portal.
 
     d. Seleccione la casilla **Enable Single Sign On** (Habilitar inicio de sesión único).
 
-    e. Haga clic en **Save**(Guardar).
+    e. Haga clic en **Save** (Guardar).
 
 ### <a name="create-cakehr-test-user"></a>Creación de un usuario de prueba en CakeHR
 
@@ -166,7 +166,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en CakeHR, es precis
 
 1. Inicie sesión en CakeHR como administrador de seguridad.
 
-2. En el lado izquierdo de la barra de menús, haga clic en**COMPANY** (EMPRESA) > **ADD** (AGREGAR).
+2. En el lado izquierdo de la barra de menús, haga clic en **COMPANY** (EMPRESA) > **ADD** (AGREGAR).
 
     ![Captura de pantalla que muestra CakeHR con COMPANY (EMPRESA) y ADD (AGREGAR) seleccionados.](./media/cakehr-tutorial/config03.png)
 
@@ -184,14 +184,14 @@ Para permitir que los usuarios de Azure AD inicien sesión en CakeHR, es precis
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de CakeHR en el panel de acceso, debería iniciar sesión automáticamente en la versión de CakeHR para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de CakeHR en el panel de acceso, debería iniciar sesión automáticamente en la versión de CakeHR para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prueba de CakeHR con Azure AD](https://aad.portal.azure.com/)

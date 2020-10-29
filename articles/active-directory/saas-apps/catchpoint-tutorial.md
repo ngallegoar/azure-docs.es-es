@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 649396b81402e9229eb9ea2c627b60f249f8c601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ff7f6468b5556b56c5c2aeaba6107cac48d1ed4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88530314"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456456"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Catchpoint
 
@@ -26,7 +26,7 @@ En este tutorial aprenderá a integrar Catchpoint con Azure Active Directory (
 * Habilitar el inicio de sesión automático de Catchpoint para los usuarios con cuentas de Azure AD.
 * Administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -41,22 +41,22 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Catchpoint admite el inicio de sesión único iniciado por SP e IDP.
 * Catchpoint admite el aprovisionamiento de usuarios Just-In-Time (JIT).
-* Después de configurar Catchpoint, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión es una extensión de acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Después de configurar Catchpoint, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión es una extensión de acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-catchpoint-from-the-gallery"></a>Incorporación de Catchpoint desde la galería
 
 Para configurar la integración de Catchpoint en Azure AD, agregue Catchpoint a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta de Microsoft profesional, educativa o personal.
-1. En el panel izquierdo, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Catchpoint** en el cuadro de búsqueda.
+1. En el panel izquierdo, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **Catchpoint** en el cuadro de búsqueda.
 1. Seleccione **Catchpoint** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-catchpoint"></a>Configuración y prueba del inicio de sesión único de Azure AD para Catchpoint
 
-Para que el inicio de sesión único funcione, debe vincular un usuario de Azure AD con un usuario en Catchpoint. En este tutorial, configuraremos un usuario de prueba llamado **B.Simon**. 
+Para que el inicio de sesión único funcione, debe vincular un usuario de Azure AD con un usuario en Catchpoint. En este tutorial, configuraremos un usuario de prueba llamado **B.Simon** . 
 
 Lleve a cabo las secciones siguientes:
 
@@ -72,18 +72,18 @@ Lleve a cabo las secciones siguientes:
 Siga estos pasos en Azure Portal para habilitar el inicio de sesión único de Azure AD:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-1. En la página de integración de aplicaciones de **Catchpoint**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para editar los valores de **Configuración básica de SAML**.
+1. En la página de integración de aplicaciones de **Catchpoint** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para editar los valores de **Configuración básica de SAML** .
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
 1. Configure el modo de inicio para Catchpoint:
-   - En el modo iniciado por **IDP**, escriba los valores de los siguientes campos:
-     - En **Identificador**: `https://portal.catchpoint.com/SAML2`
-     - En **URL de respuesta**: `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
-   - En el modo Iniciado por **SP**, seleccione **Establecer direcciones URL adicionales** y escriba el siguiente valor:
-     - En **URL de inicio de sesión**: `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
+   - En el modo iniciado por **IDP** , escriba los valores de los siguientes campos:
+     - En **Identificador** : `https://portal.catchpoint.com/SAML2`
+     - En **URL de respuesta** : `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
+   - En el modo Iniciado por **SP** , seleccione **Establecer direcciones URL adicionales** y escriba el siguiente valor:
+     - En **URL de inicio de sesión** : `https://portal.catchpoint.com/ui/Entry/SingleSignOn.aspx`
 
 1. La aplicación Catchpoint espera las aserciones de SAML en un formato concreto. Agregue asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. En la tabla siguiente se incluye la lista de atributos predeterminados:
 
@@ -104,13 +104,13 @@ Siga estos pasos en Azure Portal para habilitar el inicio de sesión único de A
     | espacio de nombres | user.assignedrole |
 
     > [!NOTE]
-    > La notificación `namespace` debe asignarse con el nombre de cuenta. Este nombre de cuenta debe configurarse con un rol de Azure AD para que se devuelva en la respuesta de SAML. Para más información sobre los roles en Azure AD, consulte [Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+    > La notificación `namespace` debe asignarse con el nombre de cuenta. Este nombre de cuenta debe configurarse con un rol de Azure AD para que se devuelva en la respuesta de SAML. Para más información sobre los roles en Azure AD, consulte [Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales](../develop/active-directory-enterprise-app-role-management.md).
 
-1. Vaya a la página **Configurar el inicio de sesión único con SAML**. En la sección **Certificado de firma de SAML**, localice **Certificado (Base64)** . Seleccione **Descargar** para guardar el certificado en el equipo.
+1. Vaya a la página **Configurar el inicio de sesión único con SAML** . En la sección **Certificado de firma de SAML** , localice **Certificado (Base64)** . Seleccione **Descargar** para guardar el certificado en el equipo.
 
     ![El vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Catchpoint**, copie las direcciones URL que necesitará en un paso posterior.
+1. En la sección **Configurar Catchpoint** , copie las direcciones URL que necesitará en un paso posterior.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -118,31 +118,31 @@ Siga estos pasos en Azure Portal para habilitar el inicio de sesión único de A
 
 En esta sección, va a crear un usuario de prueba de Azure AD llamado B.Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, escriba `B.Simon@contoso.com`:
-   1. Active la casilla de verificación **Mostrar contraseña**. Anote el valor de contraseña que se muestra.
-   1. Seleccione **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, escriba `B.Simon@contoso.com`:
+   1. Active la casilla de verificación **Mostrar contraseña** . Anote el valor de contraseña que se muestra.
+   1. Seleccione **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a Catchpoint mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Catchpoint**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **Catchpoint** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+1. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Vínculo "Agregar usuario"](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista de usuarios. Haga clic en **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista de usuarios. Haga clic en **Seleccionar** en la parte inferior de la pantalla.
 1. Si espera algún valor de rol en la aserción de SAML, busque en el cuadro de diálogo **Seleccionar rol** y elija el rol del usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
 
 ## <a name="configure-catchpoint-sso"></a>Configuración del inicio de sesión único de Catchpoint
 
@@ -165,7 +165,7 @@ En esta sección, va a permitir que B.Simon acceda a Catchpoint mediante el inic
 
    También puede cargar el archivo **XML de metadatos de federación** seleccionando la opción **Upload Metadata** (Cargar metadatos).
 
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar** .
 
 ### <a name="create-a-catchpoint-test-user"></a>Creación de un usuario de prueba de Catchpoint
 
@@ -175,7 +175,7 @@ Catchpoint admite el aprovisionamiento de usuarios Just-In-Time, que está habil
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Al seleccionar el icono de Catchpoint en el portal Aplicaciones, debería iniciar sesión automáticamente en la aplicación de Catchpoint para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Al seleccionar el icono de Catchpoint en el portal Aplicaciones, debería iniciar sesión automáticamente en la aplicación de Catchpoint para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Inicio de sesión e inicio de aplicaciones desde el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 > [!NOTE]
 > Cuando inicie sesión en la aplicación Catchpoint mediante la página de inicio de sesión, después de proporcionar los valores de **Catchpoint Credentials** (Credenciales de Catchpoint), escriba el valor de **Namespace** (Espacio de nombres) válido en el campo **Company Credentials(SSO)** (Credenciales de la compañía [SSO]) y seleccione **Login** (Inicio de sesión).
@@ -184,12 +184,12 @@ Al seleccionar el icono de Catchpoint en el portal Aplicaciones, debería inicia
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Pruebe Catchpoint con Azure AD](https://aad.portal.azure.com/)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

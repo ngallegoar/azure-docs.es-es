@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 33433587f0617382cc5f05550577594d7e3f9f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb04b17db94a2abf0ab11d9b9baff65e764e472a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322032"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457051"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Tutorial: Configuración de Blink para el aprovisionamiento automático de usuarios
 
@@ -60,11 +60,11 @@ Antes de configurar Blink para el aprovisionamiento automático de usuarios con 
 
 **Para agregar Blink desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -72,7 +72,7 @@ Antes de configurar Blink para el aprovisionamiento automático de usuarios con 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Blink**, seleccione **Blink** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Blink** , seleccione **Blink** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Blink en la lista de resultados](common/search-new-app.png)
 
@@ -81,59 +81,59 @@ Antes de configurar Blink para el aprovisionamiento automático de usuarios con 
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios en Blink en función de las asignaciones de grupos o usuarios de Azure AD.
 
 > [!TIP]
-> También puede optar por habilitar el inicio de sesión único basado en SAML para Blink siguiendo las instrucciones del [tutorial de inicio de sesión único de Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+> También puede optar por habilitar el inicio de sesión único basado en SAML para Blink siguiendo las instrucciones del [tutorial de inicio de sesión único de Blink](./blink-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Blink en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Blink**.
+2. En la lista de aplicaciones, seleccione **Blink** .
 
     ![Vínculo a Blink en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento**.
+3. Seleccione la pestaña **Aprovisionamiento** .
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático** .
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://api.joinblink.com/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Blink. Si la conexión no se establece, asegúrese de que la cuenta de Blink tiene permisos de administrador y pruebe de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://api.joinblink.com/scim` en la **URL de inquilino** . Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto** . Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Blink. Si la conexión no se establece, asegúrese de que la cuenta de Blink tiene permisos de administrador y pruebe de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Blink).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Box** (Sincronizar usuarios de Azure Active Directory con Blink).
 
     ![Asignaciones de usuarios de Blink](media/blink-provisioning-tutorial/User_mappings.png)
 
-9. Examine los atributos de grupo que se sincronizan entre Azure AD y Blink en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Blink con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Examine los atributos de grupo que se sincronizan entre Azure AD y Blink en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Blink con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Atributos de usuario de Blink](media/blink-provisioning-tutorial/user-attributes.png)
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Blink, cambie la opción de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+11. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Blink, cambie la opción de **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios que desea que se aprovisionen en Blink.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios que desea que se aprovisionen en Blink.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Blink.
+Esta operación inicia la sincronización inicial de todos los usuarios definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Blink.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
@@ -145,4 +145,3 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
-
