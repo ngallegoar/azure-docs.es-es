@@ -11,17 +11,17 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
-ms.openlocfilehash: 1d4c29cdb9cf24f87df4acc3556b318a1079810a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 3f8c296860fc36772a85039e27c86a72614c2a50
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91443613"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791059"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introducción al enmascaramiento dinámico de datos de SQL Database con Azure Portal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-En este artículo se muestra cómo implementar el [enmascaramiento dinámico de datos](dynamic-data-masking-overview.md) con Azure Portal. También puede implementar el enmascaramiento dinámico de datos mediante [Cmdlets de Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) o la [API REST](https://docs.microsoft.com/rest/api/sql/).
+En este artículo se muestra cómo implementar el [enmascaramiento dinámico de datos](dynamic-data-masking-overview.md) con Azure Portal. También puede implementar el enmascaramiento dinámico de datos mediante [Cmdlets de Azure SQL Database](/powershell/module/az.sql/) o la [API REST](/rest/api/sql/).
 
 > [!NOTE]
 > Esta característica no se puede establecer para Azure Synapse mediante el portal (use PowerShell o la API REST) o Instancia administrada de SQL. Para obtener más información, vea [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
@@ -38,11 +38,11 @@ En este artículo se muestra cómo implementar el [enmascaramiento dinámico de 
 
     ![Captura de pantalla que muestra la página de configuración de Enmascaramiento dinámico de datos.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
-5. Para agregar una máscara para cualquier columna de la base de datos, en la parte superior de la hoja de configuración **Enmascaramiento dinámico de datos**, haga clic en **Agregar máscara** para abrir la página de configuración **Agregar regla de enmascaramiento**.
+5. Para agregar una máscara para cualquier columna de la base de datos, en la parte superior de la hoja de configuración **Enmascaramiento dinámico de datos** , haga clic en **Agregar máscara** para abrir la página de configuración **Agregar regla de enmascaramiento** .
 
     ![Captura de pantalla que muestra la página de configuración Agregar regla de enmascaramiento.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
-6. Seleccione los valores para **Esquema**, **Tabla** y **Columna** para definir el campo designado para enmascararse.
+6. Seleccione los valores para **Esquema** , **Tabla** y **Columna** para definir el campo designado para enmascararse.
 7. **Seleccione el método de enmascaramiento** en la lista de categorías de enmascaramiento de datos confidenciales.
 
     ![Captura de pantalla que muestra las categorías de enmascaramiento de datos confidenciales en la sección Seleccione el método de enmascaramiento.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
@@ -60,4 +60,4 @@ En este artículo se muestra cómo implementar el [enmascaramiento dinámico de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general sobre el enmascaramiento dinámico de datos, consulte [este artículo](dynamic-data-masking-overview.md).
-- También puede implementar el enmascaramiento dinámico de datos mediante [Cmdlets de Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) o la [API REST](https://docs.microsoft.com/rest/api/sql/).
+- También puede implementar el enmascaramiento dinámico de datos mediante [Cmdlets de Azure SQL Database](/powershell/module/az.sql/) o la [API REST](/rest/api/sql/).

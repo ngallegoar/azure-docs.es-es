@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0bda32aaab301fe9ed685f0bfd6d4596fab4e5db
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289776"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789019"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configuración de Azure Defender para Storage
 
@@ -37,7 +37,7 @@ En la lista siguiente se resume la disponibilidad de Azure Defender para Storage
 
 - Estado de la versión:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (disponibilidad general)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilidad general)
+  - [Azure Files](../files/storage-files-introduction.md) (disponibilidad general)
   - Azure Data Lake Storage Gen2 (disponibilidad general)
 - Nubes:<br>
     ✔ Nubes comerciales<br>
@@ -53,10 +53,10 @@ Azure Defender para Storage se puede configurar de distintas formas, que se desc
 Cuando se suscribe al nivel Estándar en Azure Security Center, Azure Defender se configura automáticamente en las cuentas de almacenamiento. Puede habilitar o deshabilitar Azure Defender para las cuentas de almacenamiento en una suscripción específica de la manera siguiente:
 
 1. Inicie **Azure Security Center** en [Azure Portal](https://portal.azure.com).
-1. En el menú principal, en **Administración**, seleccione **Precios y configuración**.
+1. En el menú principal, en **Administración** , seleccione **Precios y configuración** .
 1. Seleccione la suscripción para la que desea habilitar o deshabilitar Azure Defender.
 1. Seleccione **Azure Defender en** para habilitar Azure Defender para la suscripción.
-1. En **Select Azure Defender plan by resource type** (Seleccionar plan de Azure Defender por tipo de recurso), busque la fila **Almacenamiento** y seleccione **Habilitado** en la columna **Plan**.
+1. En **Select Azure Defender plan by resource type** (Seleccionar plan de Azure Defender por tipo de recurso), busque la fila **Almacenamiento** y seleccione **Habilitado** en la columna **Plan** .
 1. Guarde los cambios.
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
@@ -66,7 +66,7 @@ Azure Defender ya está habilitado para todas las cuentas de almacenamiento de e
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Inicie [Azure Portal](https://portal.azure.com/).
-1. Vaya a la cuenta de almacenamiento. En **Configuración**, seleccione **Seguridad avanzada**.
+1. Vaya a la cuenta de almacenamiento. En **Configuración** , seleccione **Seguridad avanzada** .
 1. Seleccione **Enable Azure Defender for Storage** (Habilitar Azure Defender para Storage).
 
     :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
@@ -82,7 +82,7 @@ Use una plantilla de Azure Resource Manager para implementar una cuenta de Azure
 Use una instancia de Azure Policy para habilitar Azure Defender en las cuentas de almacenamiento de un grupo de recursos o suscripción específicos.
 
 1. Inicie la página **Directiva: Definiciones** de Azure.
-1. Busque la directiva **Implementar Azure Defender en cuentas de Storage**.
+1. Busque la directiva **Implementar Azure Defender en cuentas de Storage** .
 
     :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Captura de pantalla que muestra cómo habilitar Azure Defender para Storage en Security Center":::
 
@@ -98,16 +98,16 @@ Use una instancia de Azure Policy para habilitar Azure Defender en las cuentas d
 
 Use comandos de la API REST para crear, actualizar u obtener la configuración de Azure Defender para una cuenta de almacenamiento específica.
 
-- [Creación de Advanced Threat Protection](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Obtención de Advanced Threat Protection](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Creación de Advanced Threat Protection](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Obtención de Advanced Threat Protection](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Use los siguientes cmdlets de PowerShell:
 
-- [Habilitación de Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Obtención de Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Deshabilitación de Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Habilitación de Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Obtención de Advanced Threat Protection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Deshabilitación de Advanced Threat Protection](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 
@@ -138,4 +138,4 @@ Las alertas las generan los intentos inusuales y potencialmente dañinos de acce
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información acerca de [Registros en cuentas de Azure Storage](/rest/api/storageservices/About-Storage-Analytics-Logging)
-- Más información acerca de [Azure Security Center](../../security-center/security-center-intro.md)
+- Más información acerca de [Azure Security Center](../../security-center/security-center-introduction.md)

@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: bf0cfd70c9850cc6a5ff4482b494d68700022ad8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978380"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790634"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Zonas horarias de Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Al especificar parámetros para una nueva instancia, seleccione una zona horaria
 
 ### <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
-Especifique la propiedad timezoneId en la [plantilla de Resource Manager](https://aka.ms/sql-mi-create-arm-posh) para establecer la zona horaria durante la creación de la instancia.
+Especifique la propiedad timezoneId en la [plantilla de Resource Manager](./scripts/create-powershell-azure-resource-manager-template.md) para establecer la zona horaria durante la creación de la instancia.
 
 ```json
 "properties": {
@@ -95,7 +95,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 
 ## <a name="limitations"></a>Limitaciones
 
-- La zona horaria de una instancia administrada existente no se puede cambiar. Como solución alternativa, cree una nueva instancia administrada con la zona horaria adecuada y, luego, haga una copia de seguridad y una restauración de forma manual, o lo que recomendamos, haga una [restauración a un momento dado entre instancias](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
+- La zona horaria de una instancia administrada existente no se puede cambiar. Como solución alternativa, cree una nueva instancia administrada con la zona horaria adecuada y, luego, haga una copia de seguridad y una restauración de forma manual, o lo que recomendamos, haga una [restauración a un momento dado entre instancias](./point-in-time-restore.md?tabs=azure-portal#restore-an-existing-database).
 - Los procesos externos que se inician desde los trabajos del Agente SQL Server no observan la zona horaria de la instancia.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de zonas horarias admitidas
@@ -243,7 +243,7 @@ No es obligatorio usar la misma zona horaria entre una instancia principal y sec
 
 ## <a name="see-also"></a>Consulte también 
 
-- [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [CURRENT_TIMEZONE_ID (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-id-transact-sql)
-- [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
-- [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)
+- [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
+- [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)
+- [AT TIME ZONE (Transact-SQL)](/sql/t-sql/queries/at-time-zone-transact-sql)
+- [sys.time_zone_info (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

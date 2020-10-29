@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ad8b4c80f4b9c2fdb3c1a14209dcf0febc89e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443468"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787149"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migración de bases de datos existentes al escalado horizontal
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -72,7 +72,7 @@ Para un modelo de un solo inquilino, cree un mapa de particiones de **asignació
 
 ![Asignación de lista][1]
 
-El modelo de varios inquilinos asigna varios inquilinos a una base de datos individual (además, puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo**.
+El modelo de varios inquilinos asigna varios inquilinos a una base de datos individual (además, puede distribuir grupos de inquilinos entre varias bases de datos). Use este modelo si espera que cada inquilino tenga pequeñas necesidades de datos. En este modelo, asigne un intervalo de inquilinos a una base de datos mediante **asignación de intervalo** .
 
 ![Asignación de intervalo][2]
 
@@ -168,7 +168,7 @@ Para más información sobre los patrones comunes de la arquitectura de datos de
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 
-Si tiene alguna pregunta, utilice la [Página de preguntas y respuestas de Microsoft sobre SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Si tiene alguna pregunta, utilice la [Página de preguntas y respuestas de Microsoft sobre SQL Database](/answers/topics/azure-sql-database.html). Para efectuar solicitudes de características, agréguelas en el [foro de comentarios sobre SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

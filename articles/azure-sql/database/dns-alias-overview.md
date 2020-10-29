@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4be3f8c6cd416743c2d1118cf2de01073c3022ff
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86145648"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790498"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias DNS en Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -71,7 +71,7 @@ Tanto las API de REST como los cmdlets de PowerShell le permiten administrar los
 
 La documentación de las API de REST está disponible cerca de la ubicación web siguiente:
 
-- [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/)
+- [API REST de Azure SQL Database](/rest/api/sql/)
 
 Además, las API de REST puede verse en GitHub en:
 
@@ -83,7 +83,7 @@ Además, las API de REST puede verse en GitHub en:
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Existen cmdlets de PowerShell que llaman a las API de REST.
 
@@ -93,10 +93,10 @@ Un ejemplo de código de cmdlets de PowerShell que se usa para administrar alias
 
 Los cmdlets usados en el ejemplo de código son los siguientes:
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): crea un nuevo alias DNS en el sistema del servicio Azure SQL Database. El alias hace referencia al servidor 1.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obtiene y enumera todos los alias DNS asignados al servidor 1.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica el nombre del servidor con el que el alias está configurado para hacer referencia, del servidor 1 al servidor 2.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): quita el alias DNS del servidor 2 mediante el nombre del alias.
+- [New-AzSqlServerDNSAlias](/powershell/module/az.Sql/New-azSqlServerDnsAlias): crea un nuevo alias DNS en el sistema del servicio Azure SQL Database. El alias hace referencia al servidor 1.
+- [Get-AzSqlServerDNSAlias](/powershell/module/az.Sql/Get-azSqlServerDnsAlias): obtiene y enumera todos los alias DNS asignados al servidor 1.
+- [Set-AzSqlServerDNSAlias](/powershell/module/az.Sql/Set-azSqlServerDnsAlias): modifica el nombre del servidor con el que el alias está configurado para hacer referencia, del servidor 1 al servidor 2.
+- [Remove-AzSqlServerDNSAlias](/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): quita el alias DNS del servidor 2 mediante el nombre del alias.
 
 ## <a name="limitations-during-preview"></a>Limitaciones durante la versión preliminar
 
@@ -104,7 +104,7 @@ Actualmente, un alias DNS tiene las siguientes limitaciones:
 
 - *Retraso de hasta 2 minutos:* un alias DNS tarda hasta 2 minutos en actualizarse o quitarse.
   - Independientemente de cualquier retraso breve, el alias deja inmediatamente de remitir las conexiones cliente al servidor heredado.
-- *Búsqueda DNS:* por ahora, la única manera autoritativa de comprobar cuál es el servidor al que hace referencia un determinado alias es realizar una [búsqueda DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *Búsqueda DNS:* por ahora, la única manera autoritativa de comprobar cuál es el servidor al que hace referencia un determinado alias es realizar una [búsqueda DNS](/windows-server/administration/windows-commands/nslookup).
 - _No se admite la auditoría de tablas:_ no se puede usar un alias DNS en un servidor que tenga habilitada la *auditoría de tablas* en una base de datos.
   - La auditoría de tablas está en desuso.
   - Se recomienda pasar a la [auditoría de blobs](../../azure-sql/database/auditing-overview.md).
@@ -112,8 +112,8 @@ Actualmente, un alias DNS tiene las siguientes limitaciones:
 ## <a name="related-resources"></a>Recursos relacionados
 
 - [Introducción a la continuidad empresarial con Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), que incluye la recuperación ante desastres.
-- [Referencia de API REST en Azure](https://docs.microsoft.com/rest/api/azure/)
-- [API de alias DNS de servidor](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
+- [Referencia de API REST en Azure](/rest/api/azure/)
+- [API de alias DNS de servidor](/rest/api/sql/serverdnsaliases)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

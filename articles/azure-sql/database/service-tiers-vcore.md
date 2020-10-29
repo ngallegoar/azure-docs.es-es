@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
-ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614434"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793150"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ Entre las opciones de nivel de servicio del modelo núcleo virtual se incluyen U
 |-|**Uso general**|**Crítico para la empresa**|**Hiperescala**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables pensando en el presupuesto. |Ofrece a las aplicaciones empresariales la mayor resistencia a los errores mediante el uso de varias réplicas aisladas y proporciona el mayor rendimiento de E/S por réplica de base de datos.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos altamente escalables de almacenamiento y escalado de lectura.  Ofrece mayor resistencia a los errores al permitir la configuración de más de una réplica de base de datos aislada. |
-|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de SQL Database**:<br/>5 GB – 4 TB<br/>**Proceso sin servidor**:<br/>5 GB - 3 TB<br/>**Instancia administrada de SQL**: 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de SQL Database**:<br/>5 GB – 4 TB<br/>**Instancia administrada de SQL**:<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
-|IOPS y rendimiento (aproximado)|**SQL Database**: vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).<br/>**Instancia administrada de SQL**: consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. IOPS y el rendimiento efectivos dependen de la carga de trabajo.|
+|Storage|Usa el almacenamiento remoto.<br/>**Proceso aprovisionado de SQL Database** :<br/>5 GB – 4 TB<br/>**Proceso sin servidor** :<br/>5 GB - 3 TB<br/>**Instancia administrada de SQL** : 32 GB - 8 TB |Usa almacenamiento local de SSD.<br/>**Proceso aprovisionado de SQL Database** :<br/>5 GB – 4 TB<br/>**Instancia administrada de SQL** :<br/>32 GB - 4 TB |Crecimiento automático flexible de almacenamiento según sea necesario. Admite hasta 100 TB de almacenamiento. Utiliza almacenamiento SSD local para la caché del grupo de búferes local y almacenamiento de datos local. Utiliza almacenamiento remoto de Azure como almacén de datos final a largo plazo. |
+|IOPS y rendimiento (aproximado)|**SQL Database** : vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).<br/>**Instancia administrada de SQL** : consulte [Introducción a los límites de recursos de Instancia administrada de Azure SQL](../managed-instance/resource-limits.md#service-tier-characteristics).|Vea los límites de recursos para [bases de datos únicas](resource-limits-vcore-single-databases.md) y [grupos elásticos](resource-limits-vcore-elastic-pools.md).|Hiperescala es una arquitectura de varios niveles con almacenamiento en caché en varios niveles. IOPS y el rendimiento efectivos dependen de la carga de trabajo.|
 |Disponibilidad|1 réplica, sin réplicas de escalado de lectura|3 réplicas, 1 [réplica de escalado de lectura](read-scale-out.md),<br/>Alta disponibilidad (HA) con redundancia de zona|1 réplica de lectura y escritura, además de 0 a 4 [réplicas de escalado de lectura](read-scale-out.md)|
 |Copias de seguridad|[Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS)](../../storage/common/geo-redundant-design.md), de 7 a 35 días (7 días de forma predeterminada)|[RA-GRS](../..//storage/common/geo-redundant-design.md), de 7 a 35 días (7 días de forma predeterminada)|Copias de seguridad basadas en instantáneas en el almacenamiento remoto de Azure. Los procesos de restauración usan estas instantáneas para conseguir una recuperación rápida. Las copias de seguridad son instantáneas y no afectan al rendimiento de E/S del proceso. Las restauraciones son rápidas y no son operaciones relacionadas con el tamaño de los datos (tardan minutos en lugar de horas o días).|
 |En memoria|No compatible|Compatible|No compatible|
@@ -111,7 +111,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Serie Fsv2     |- Procesadores Intel® 8168 (Skylake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de hasta 136 GB|
 |Serie M     |- Procesadores Intel® E7-8890 v3 de 2,5 GHz e Intel® 8280M de 2,7 GHz (Cascade Lake)<br>- Aprovisionamiento de hasta 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de hasta 3,7 TB|
 
-\* En la vista de administración dinámica [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos que usan procesadores Intel® SP-8160 (Skylake) aparece como Gen6, mientras que la generación de hardware para bases de datos que usan procesadores Intel® 8272CL (Cascade Lake) aparece como Gen7. Los límites de recursos en todas las bases de datos Gen5 son los mismos, independientemente del tipo de procesador (Broadwell, Skylake o Cascade Lake).
+\* En la vista de administración dinámica [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos que usan procesadores Intel® SP-8160 (Skylake) aparece como Gen6, mientras que la generación de hardware para bases de datos que usan procesadores Intel® 8272CL (Cascade Lake) aparece como Gen7. Los límites de recursos en todas las bases de datos Gen5 son los mismos, independientemente del tipo de procesador (Broadwell, Skylake o Cascade Lake).
 
 Para obtener más información sobre los límites de recursos, vea [Límites de recursos para bases de datos únicas (núcleo virtual)](resource-limits-vcore-single-databases.md) o [Límites de recursos para grupos elásticos (núcleo virtual)](resource-limits-vcore-elastic-pools.md).
 
@@ -123,7 +123,7 @@ En Azure Portal, puede seleccionar la generación de hardware para una base de d
 
 Para obtener información detallada, consulte [Creación de una instancia de SQL Database](single-database-create-quickstart.md).
 
-En la pestaña **Básico**, seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso + almacenamiento) y, a continuación, seleccione el vínculo **Cambiar configuración**:
+En la pestaña **Básico** , seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso + almacenamiento) y, a continuación, seleccione el vínculo **Cambiar configuración** :
 
   ![configurar base de datos](./media/service-tiers-vcore/configure-sql-database.png)
 
@@ -134,11 +134,11 @@ Seleccione la generación de hardware deseada:
 
 **Cambiar la generación de hardware de una instancia de SQL Database o un grupo SQL existente**
 
-En el caso de una base de datos, en la página de información general, seleccione el vínculo **Plan de tarifa**:
+En el caso de una base de datos, en la página de información general, seleccione el vínculo **Plan de tarifa** :
 
   ![cambiar hardware](./media/service-tiers-vcore/change-hardware.png)
 
-En la página de información general, seleccione **Configurar**.
+En la página de información general, seleccione **Configurar** .
 
 Siga los pasos para cambiar la configuración y seleccione la generación de hardware como se describe en los pasos anteriores.
 
@@ -146,7 +146,7 @@ Siga los pasos para cambiar la configuración y seleccione la generación de har
 
 Para obtener información detallada, consulte [Creación de una instancia administrada de SQL](../managed-instance/instance-create-quickstart.md).
 
-En la pestaña **Aspectos básicos**, seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso y almacenamiento) y, a continuación, seleccione la generación de hardware deseada:
+En la pestaña **Aspectos básicos** , seleccione el vínculo **Configurar base de datos** en la sección **Compute + storage** (Proceso y almacenamiento) y, a continuación, seleccione la generación de hardware deseada:
 
   ![configurar la instancia administrada de SQL](./media/service-tiers-vcore/configure-managed-instance.png)
   
@@ -168,7 +168,7 @@ Use el siguiente script de PowerShell:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Para más información, vea el comando [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance).
+Para más información, vea el comando [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance).
 
 # <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
@@ -178,7 +178,7 @@ Use el siguiente comando de la CLI:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Para más información, vea el comando [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update).
+Para más información, vea el comando [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update).
 
 ---
 
@@ -238,5 +238,4 @@ Para obtener más información sobre los tamaños específicos de proceso y alma
 
 - [Límites de recursos basados en núcleos virtuales de Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [Límites de recursos basados en núcleos virtuales de Azure SQL Database agrupada](resource-limits-vcore-elastic-pools.md).
-- [Límites de recursos basados en núcleos virtuales para Instancia administrada de Azure SQL](../managed-instance/resource-limits.md). 
-
+- [Límites de recursos basados en núcleos virtuales para Instancia administrada de Azure SQL](../managed-instance/resource-limits.md).

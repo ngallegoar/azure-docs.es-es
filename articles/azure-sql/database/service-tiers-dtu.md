@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103006"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793184"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 >
 
 > [!TIP]
-> Para ver los límites reales de la [gobernanza de recursos](resource-limits-logical-server.md#resource-governance) de una base de datos o un grupo elástico, consulte la vista [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database).
+> Para ver los límites reales de la [gobernanza de recursos](resource-limits-logical-server.md#resource-governance) de una base de datos o un grupo elástico, consulte la vista [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database).
 
 > [!NOTE]
 > Puede obtener una base de datos de Azure SQL Database gratuita en el nivel de servicio Básico junto con una cuenta gratuita de Azure para explorar Azure. Para obtener información, consulte [Cree una base de datos administrada en la nube con su cuenta gratuita de Azure](https://azure.microsoft.com/free/services/sql-database/).

@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 01/26/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 2fa5cfcf0cb6c20a8a0b64651da0b365e12a3d05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef06bb9c5b5010f3fbbe413f98d77cc8519de00
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056329"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791807"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Revisión del estado de un trabajo de Azure Import/Export con archivos de registro de copia
-Cuando el servicio Microsoft Azure Import/Export procesa las unidades que están asociadas a un trabajo de importación o exportación, escribe archivos de registro de copia en la cuenta de almacenamiento usada para la importación o exportación de blobs. El archivo de registro contiene el estado detallado de cada archivo que se importó o exportó. El servicio devuelve la dirección URL de cada archivo de registro de copia cuando se consulta el estado de un trabajo completado. Para obtener más información, consulte [Trabajo Get](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get).  
+Cuando el servicio Microsoft Azure Import/Export procesa las unidades que están asociadas a un trabajo de importación o exportación, escribe archivos de registro de copia en la cuenta de almacenamiento usada para la importación o exportación de blobs. El archivo de registro contiene el estado detallado de cada archivo que se importó o exportó. El servicio devuelve la dirección URL de cada archivo de registro de copia cuando se consulta el estado de un trabajo completado. Para obtener más información, consulte [Trabajo Get](/rest/api/storageimportexport/Jobs/Get).  
 
 ## <a name="example-urls"></a>URL de ejemplo
 
@@ -26,11 +26,11 @@ Las siguientes son direcciones URL de ejemplo de los archivos de registro de cop
 
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
 
- Vea [Formato del archivo de registro del servicio Import-Export](../storage-import-export-file-format-log.md) para consultar el formato de los registros de copia y la lista completa de códigos de estado.  
+ Vea [Formato del archivo de registro del servicio Import-Export](/previous-versions/azure/storage/common/storage-import-export-file-format-log) para consultar el formato de los registros de copia y la lista completa de códigos de estado.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
  * [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup-v1.md)   
- * [Preparación de unidades de disco duro para un trabajo de importación](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- * [Reparación de un trabajo de importación](../storage-import-export-tool-repairing-an-import-job-v1.md)   
- * [Reparación de un trabajo de exportación](../storage-import-export-tool-repairing-an-export-job-v1.md)
+ * [Preparación de unidades de disco duro para un trabajo de importación](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
+ * [Reparación de un trabajo de importación](./storage-import-export-tool-repairing-an-import-job-v1.md)   
+ * [Reparación de un trabajo de exportación](./storage-import-export-tool-repairing-an-export-job-v1.md)

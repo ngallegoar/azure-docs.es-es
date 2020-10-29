@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272028"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793082"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuración del almacenamiento para máquinas virtuales de SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -28,7 +28,7 @@ Este tema explica cómo Azure configura el almacenamiento para sus máquinas vir
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para usar la configuración del almacenamiento automática, la máquina virtual requiere las siguientes características:
 
@@ -46,19 +46,19 @@ Si aprovisiona una máquina virtual de Azure mediante una imagen de la galería 
 
 ![Configuración del almacenamiento de máquinas virtuales de SQL Server durante el aprovisionamiento](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Seleccione el tipo de carga de trabajo para el que va a implementar SQL Server en **Optimización de almacenamiento**. Con la opción de optimización **General**, de forma predeterminada tendrá un disco de datos con 5000 IOPS como máximo, y usará esta misma unidad para los datos, el registro de transacciones y el almacenamiento de TempDB. Si se seleccionan **Procesamiento de transacciones** (OLTP) o **Almacenamiento de datos** , se creará un disco independiente para los datos, un disco independiente para el registro de transacciones y se usará un disco SSD local para TempDB. No hay ninguna diferencia a nivel de almacenamiento entre **Procesamiento de transacciones** y **Almacenamiento de datos**, pero cambia la [configuración de las bandas y las marcas de seguimiento](#workload-optimization-settings). Si se elige el almacenamiento prémium, el almacenamiento en caché se establece en *ReadOnly* (Solo lectura) para la unidad de datos y en *None* (Ninguno) para la unidad de registro según los [procedimientos recomendados de rendimiento de la máquina virtual de SQL Server](performance-guidelines-best-practices.md). 
+Seleccione el tipo de carga de trabajo para el que va a implementar SQL Server en **Optimización de almacenamiento** . Con la opción de optimización **General** , de forma predeterminada tendrá un disco de datos con 5000 IOPS como máximo, y usará esta misma unidad para los datos, el registro de transacciones y el almacenamiento de TempDB. Si se seleccionan **Procesamiento de transacciones** (OLTP) o **Almacenamiento de datos** , se creará un disco independiente para los datos, un disco independiente para el registro de transacciones y se usará un disco SSD local para TempDB. No hay ninguna diferencia a nivel de almacenamiento entre **Procesamiento de transacciones** y **Almacenamiento de datos** , pero cambia la [configuración de las bandas y las marcas de seguimiento](#workload-optimization-settings). Si se elige el almacenamiento prémium, el almacenamiento en caché se establece en *ReadOnly* (Solo lectura) para la unidad de datos y en *None* (Ninguno) para la unidad de registro según los [procedimientos recomendados de rendimiento de la máquina virtual de SQL Server](performance-guidelines-best-practices.md). 
 
 ![Configuración del almacenamiento de máquinas virtuales de SQL Server durante el aprovisionamiento](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-La configuración del disco es totalmente personalizable, es decir, se pueden configurar la topología de almacenamiento, el tipo de disco y el IOPS necesarios para la carga de trabajo de SQL Server. También tiene la capacidad de usar UltraSSD (versión preliminar) como opción en **Tipo de disco** si la máquina virtual con SQL Server se encuentra en una de las regiones admitidas (Este de EE. UU. 2, Sudeste de Asia y Norte de Europa) y ha habilitado [discos Ultra para su suscripción](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+La configuración del disco es totalmente personalizable, es decir, se pueden configurar la topología de almacenamiento, el tipo de disco y el IOPS necesarios para la carga de trabajo de SQL Server. También tiene la capacidad de usar UltraSSD (versión preliminar) como opción en **Tipo de disco** si la máquina virtual con SQL Server se encuentra en una de las regiones admitidas (Este de EE. UU. 2, Sudeste de Asia y Norte de Europa) y ha habilitado [discos Ultra para su suscripción](../../../virtual-machines/disks-enable-ultra-ssd.md).  
 
-Además, tiene la capacidad de establecer el almacenamiento en caché de los discos. Las máquinas virtuales de Azure tienen una tecnología de almacenamiento en caché multinivel llamada [Blob Cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) (Caché de blob) cuando se usa con [discos Prémium](/azure/virtual-machines/windows/disks-types#premium-ssd). Blob Cache usa una combinación de la RAM de la máquina virtual y el disco SSD local para almacenar en caché. 
+Además, tiene la capacidad de establecer el almacenamiento en caché de los discos. Las máquinas virtuales de Azure tienen una tecnología de almacenamiento en caché multinivel llamada [Blob Cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) (Caché de blob) cuando se usa con [discos Prémium](../../../virtual-machines/disks-types.md#premium-ssd). Blob Cache usa una combinación de la RAM de la máquina virtual y el disco SSD local para almacenar en caché. 
 
 El almacenamiento en caché de disco para SSD Premium puede ser *ReadOnly* (Solo lectura), *ReadWrite* (Lectura y escritura) o *None* (Ninguno). 
 
 - El almacenamiento en caché de solo lectura *ReadOnly* es muy beneficioso para los archivos de datos de SQL Server almacenados en Premium Storage. El almacenamiento en caché *ReadOnly* ofrece una latencia de lectura baja y una IOPS de lectura y un rendimiento altos, ya que las lecturas se realizan desde la caché, que está dentro de la memoria de la VM y del disco SSD local. Estas lecturas son mucho más rápidas que las que se realizan del disco de datos, que proceden de Azure Blob Storage. Premium Storage no cuenta las lecturas que se atienden desde la caché para la IOPS y el rendimiento del disco. Por lo tanto, la aplicación es capaz de lograr una IOPS y un rendimiento totales mayores. 
-- La configuración de la caché *None* (Ninguno) se debe usar para los discos que hospedan el archivo de registro de SQL Server, ya que el archivo de registro se escribe secuencialmente y no se beneficia del almacenamiento en caché de solo lectura *ReadOnly*. 
-- El almacenamiento en caché de lectura y escritura *ReadWrite* no debe usarse para hospedar archivos de SQL Server, ya que SQL Server no admite la coherencia de los datos con la memoria caché de lectura y escritura *ReadWrite*. Escribe la capacidad para residuos de la memoria caché de blobs de solo lectura *ReadOnly* y las latencias aumentan ligeramente si las escrituras atraviesan las capas de la caché de blobs de solo lectura *ReadOnly*. 
+- La configuración de la caché *None* (Ninguno) se debe usar para los discos que hospedan el archivo de registro de SQL Server, ya que el archivo de registro se escribe secuencialmente y no se beneficia del almacenamiento en caché de solo lectura *ReadOnly* . 
+- El almacenamiento en caché de lectura y escritura *ReadWrite* no debe usarse para hospedar archivos de SQL Server, ya que SQL Server no admite la coherencia de los datos con la memoria caché de lectura y escritura *ReadWrite* . Escribe la capacidad para residuos de la memoria caché de blobs de solo lectura *ReadOnly* y las latencias aumentan ligeramente si las escrituras atraviesan las capas de la caché de blobs de solo lectura *ReadOnly* . 
 
 
    > [!TIP]
@@ -94,18 +94,18 @@ Puede usar la siguiente plantilla de inicio rápido para implementar una máquin
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Para las máquinas virtuales de SQL Server existentes, puede modificar algunas opciones de configuración del almacenamiento en el Portal de Azure. Abra el [recurso máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) y seleccione **Información general**. La página SQL Server Overview (Información general de SQL Server) muestra el uso del almacenamiento actual de la máquina virtual. En este gráfico se muestran todas las unidades que existen en la máquina virtual. Para cada unidad, el espacio de almacenamiento se muestra en cuatro secciones:
+Para las máquinas virtuales de SQL Server existentes, puede modificar algunas opciones de configuración del almacenamiento en el Portal de Azure. Abra el [recurso máquinas virtuales SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) y seleccione **Información general** . La página SQL Server Overview (Información general de SQL Server) muestra el uso del almacenamiento actual de la máquina virtual. En este gráfico se muestran todas las unidades que existen en la máquina virtual. Para cada unidad, el espacio de almacenamiento se muestra en cuatro secciones:
 
 * SQL data
 * Registro de SQL
 * Otros (almacenamiento que no es de SQL)
 * Disponible
 
-Para modificar la configuración de almacenamiento, seleccione **Configurar** en **Configuración**. 
+Para modificar la configuración de almacenamiento, seleccione **Configurar** en **Configuración** . 
 
 ![Configuración del almacenamiento para la máquina virtual de SQL Server existente](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
-Puede modificar la configuración de disco de las unidades que se configuraron durante el proceso de creación de la máquina virtual con SQL Server. Al seleccionar **Extender unidad**, se abre la página de modificación de la unidad, lo que permite cambiar el tipo de disco, así como agregar discos adicionales. 
+Puede modificar la configuración de disco de las unidades que se configuraron durante el proceso de creación de la máquina virtual con SQL Server. Al seleccionar **Extender unidad** , se abre la página de modificación de la unidad, lo que permite cambiar el tipo de disco, así como agregar discos adicionales. 
 
 ![Configuración del almacenamiento para la máquina virtual de SQL Server existente](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 

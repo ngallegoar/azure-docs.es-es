@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 0c6ca03f535201059f107d6b53bc423b92d1c1c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f04e4b5a44dccdc3aaeabe6b4144836b0be7354c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073368"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790787"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-managed-instance-database-to-another-geo-region"></a>Uso de PowerShell para restaurar una base de datos de Instancia administrada de Azure SQL en otra región con replicación geográfica
 
@@ -75,7 +75,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [New-AzResourceGroup](/powershell/module/az.resources/New-AzResourceGroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Crea una copia de seguridad con redundancia geográfica de una base de datos de Instancia administrada de SQL. |
 | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/Restore-AzSqlInstanceDatabase) | Crea una base de datos en Instancia administrada de SQL a partir de una copia de seguridad con replicación geográfica. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |

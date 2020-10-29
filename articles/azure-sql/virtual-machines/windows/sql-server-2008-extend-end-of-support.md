@@ -13,12 +13,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 48288ed3765fa939fc56a4469f64070315c4c6aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfc4619e8af86a89b82f32ff3bc9a39c92b355a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668753"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784871"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Ampliar la compatibilidad de SQL Server 2008 y SQL Server 2008 R2 con Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -40,7 +40,7 @@ Los clientes que usan SQL Server 2008 deberán instalarse automáticamente o a
 Las imágenes implementadas con Azure Marketplace tienen la extensión SQL IaaS preinstalada. La extensión SQL IaaS es un requisito para las licencias flexibles y la aplicación de revisiones automatizada. Los clientes que implementen máquinas virtuales autoinstaladas deberán instalar manualmente la extensión SQL IaaS. La extensión SQL IaaS no se admite en Windows Server 2008.
 
 > [!NOTE]
-> Si bien el servidor SQL Server y las hojas **Crear** y **Administrar** funcionarán con la imagen de SQL Server 2008 R2 en Azure Portal, las siguientes características _no se admiten_: Copias de seguridad automáticas, integración de Azure Key Vault, R Services y configuración de almacenamiento.
+> Si bien el servidor SQL Server y las hojas **Crear** y **Administrar** funcionarán con la imagen de SQL Server 2008 R2 en Azure Portal, las siguientes características _no se admiten_ : Copias de seguridad automáticas, integración de Azure Key Vault, R Services y configuración de almacenamiento.
 
 ## <a name="licensing"></a>Licencias
 Las implementaciones de SQL Server 2008 R2 de pago por uso se pueden convertir en [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
@@ -54,21 +54,21 @@ Puede migrar las instancias de SQL Server con finalización del soporte a una m
 
 ### <a name="azure-site-recovery"></a>Azure Site Recovery
 
-Para las migraciones masivas, se recomienda usar el servicio [Azure Site Recovery](/azure/site-recovery/site-recovery-overview). Con Azure Site Recovery, los clientes pueden replicar la máquina virtual completa, incluido SQL Server desde un entorno local a una máquina virtual de Azure.
+Para las migraciones masivas, se recomienda usar el servicio [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md). Con Azure Site Recovery, los clientes pueden replicar la máquina virtual completa, incluido SQL Server desde un entorno local a una máquina virtual de Azure.
 
 SQL Server necesita instantáneas coherentes con la aplicación de Azure Site Recovery para garantizar la recuperación. Azure Site Recovery admite instantáneas coherentes con la aplicación con un intervalo mínimo de una hora. El objetivo de punto de recuperación (RPO) mínimo posible para SQL Server con las migraciones de Azure Site Recovery es de una hora. El objetivo de tiempo de recuperación (RTO) es de dos horas más el tiempo de recuperación de SQL Server.
 
 ### <a name="database-migration-service"></a>Database Migration Service
 
-[Azure Database Migration Service](/azure/dms/dms-overview) es una opción para los clientes si migran desde un entorno local a una máquina virtual de Azure mediante la actualización de SQL Server a SQL Server 2012 y versiones posteriores.
+[Azure Database Migration Service](../../../dms/dms-overview.md) es una opción para los clientes si migran desde un entorno local a una máquina virtual de Azure mediante la actualización de SQL Server a SQL Server 2012 y versiones posteriores.
 
 ## <a name="disaster-recovery"></a>Recuperación ante desastres
 
 Las soluciones de recuperación ante desastres para SQL Server con finalización del soporte en una máquina virtual de Azure son las siguientes:
 
-- **Copias de seguridad de SQL Server**: Use Azure Backup para ayudar a proteger su instancia de EOS SQL Server 2008 y 2008 R2 contra ransomware, eliminación accidental y daños con un RPO de 15 minutos y una recuperación a un momento dado. Para más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/sql-support-matrix#scenario-support).
-- **Trasvase de registros**: puede crear una réplica de trasvase de registros en otra zona o región de Azure con restauraciones continuas para reducir el RTO. Tiene que configurar manualmente el trasvase de registros.
-- **Azure Site Recovery**: Puede replicar la VM entre zonas y regiones a través de la replicación de Azure Site Recovery. SQL Server necesita instantáneas coherentes con la aplicación para garantizar la recuperación en caso de desastre. Azure Site Recovery ofrece un RPO mínimo de una hora y un RTO de dos horas (más el tiempo de recuperación de SQL Server) para la recuperación ante desastres de SQL Server con finalización del soporte.
+- **Copias de seguridad de SQL Server** : Use Azure Backup para ayudar a proteger su instancia de EOS SQL Server 2008 y 2008 R2 contra ransomware, eliminación accidental y daños con un RPO de 15 minutos y una recuperación a un momento dado. Para más información, consulte [este artículo](../../../backup/sql-support-matrix.md#scenario-support).
+- **Trasvase de registros** : puede crear una réplica de trasvase de registros en otra zona o región de Azure con restauraciones continuas para reducir el RTO. Tiene que configurar manualmente el trasvase de registros.
+- **Azure Site Recovery** : Puede replicar la VM entre zonas y regiones a través de la replicación de Azure Site Recovery. SQL Server necesita instantáneas coherentes con la aplicación para garantizar la recuperación en caso de desastre. Azure Site Recovery ofrece un RPO mínimo de una hora y un RTO de dos horas (más el tiempo de recuperación de SQL Server) para la recuperación ante desastres de SQL Server con finalización del soporte.
 
 ## <a name="security-patching"></a>Aplicación de revisiones de seguridad
 Las actualizaciones de seguridad ampliadas para las máquinas virtuales con SQL Server se entregarán en los canales de Microsoft Update cuando la máquina virtual con SQL Server se haya registrado en el [proveedor de recursos](sql-vm-resource-provider-register.md) de máquina virtual con SQL. Las revisiones se pueden descargar manual o automáticamente.

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: 1545f9cde15f010ba3d7d52c6fea1ef233d2fac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619482"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793286"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Implementación y dexploración de una aplicación de inquilino único independiente que usa Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,16 +60,16 @@ Implemente la aplicación para los tres inquilinos proporcionados:
     > Para realizar la demostración, se ha eliminado intencionadamente la protección de varios firewalls de autenticación y del servidor. **Cree un nuevo grupo de recursos** para cada implementación de aplicación.  No use un grupo de recursos existente. No use esta aplicación, ni ninguno de los recursos que se crean, para producción. Elimine todos los grupos de recursos cuando haya terminado con la aplicación para detener la facturación relacionada con ellos.
 
     Se recomienda usar solo letras minúsculas, números y guiones en los nombres de recurso.
-    * En **Grupo de recursos**, seleccione Crear nuevo y, luego, proporcione un nombre en minúsculas para el grupo de recursos. **wingtip-sa-\<venueName\>-\<user\>** es el patrón recomendado.  Para \<venueName\>, reemplace el nombre del lugar sin espacios. Para \<user\>, reemplace el valor de usuario a continuación.  Con este patrón, los nombres de grupos de recursos podrían ser *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1* y *wingtip-sa-fabrikamjazzclub-af1*.
+    * En **Grupo de recursos** , seleccione Crear nuevo y, luego, proporcione un nombre en minúsculas para el grupo de recursos. **wingtip-sa-\<venueName\>-\<user\>** es el patrón recomendado.  Para \<venueName\>, reemplace el nombre del lugar sin espacios. Para \<user\>, reemplace el valor de usuario a continuación.  Con este patrón, los nombres de grupos de recursos podrían ser *wingtip-sa-contosoconcerthall-af1* , *wingtip-sa-dogwooddojo-af1* y *wingtip-sa-fabrikamjazzclub-af1* .
     * Seleccione una **ubicación** en la lista desplegable.
 
-    * En **Usuario**, se recomienda elegir un valor de usuario corto, como sus iniciales más un dígito, por ejemplo: *af1*.
+    * En **Usuario** , se recomienda elegir un valor de usuario corto, como sus iniciales más un dígito, por ejemplo: *af1* .
 
 
-3. **Implemente la aplicación**.
+3. **Implemente la aplicación** .
 
     * Haga clic para aceptar los términos y condiciones.
-    * Haga clic en **Comprar**.
+    * Haga clic en **Comprar** .
 
 4. Supervise el estado de las tres implementaciones, para lo que debe hacer clic en **Notificaciones** (el icono de la campana de la derecha del cuadro de búsqueda). La implementación de las aplicaciones tarda aproximadamente cinco minutos.
 
@@ -88,7 +88,7 @@ La aplicación presenta lugares que albergan eventos.  Los lugares son los inqui
 
    ![Eventos](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
-Para controlar la distribución de las solicitudes entrantes, la aplicación usa [*Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md). Cada instancia de aplicación específica del inquilino incluye el nombre del inquilino como parte del nombre de dominio de la dirección URL. Todas las direcciones URL de inquilino incluyen el valor específico de **usuario**. Las direcciones URL tienen el formato siguiente:
+Para controlar la distribución de las solicitudes entrantes, la aplicación usa [*Azure Traffic Manager*](../../traffic-manager/traffic-manager-overview.md). Cada instancia de aplicación específica del inquilino incluye el nombre del inquilino como parte del nombre de dominio de la dirección URL. Todas las direcciones URL de inquilino incluyen el valor específico de **usuario** . Las direcciones URL tienen el formato siguiente:
 - http://events.&lt;nombreDeInstalación&gt;.&lt; usuario&gt;.trafficmanager.net
 
 La **ubicación** de la base de datos de cada inquilino se incluye en la configuración de la aplicación implementada correspondiente.
@@ -102,16 +102,16 @@ Veamos algunos de los recursos que se implementaron:
 
 1. En [Azure Portal](https://portal.azure.com), navegue a la lista de los grupos de recursos.
 2. Debería ver los tres grupos de recursos de inquilino.
-3. Abra el grupo de recursos **wingtip-sa-fabrikam-&lt;usuario&gt;** que contiene los recursos para la implementación Fabrikam Jazz Club.  El servidor **fabrikamjazzclub-&lt;usuario&gt;** contiene la base de datos **fabrikamjazzclub**.
+3. Abra el grupo de recursos **wingtip-sa-fabrikam-&lt;usuario&gt;** que contiene los recursos para la implementación Fabrikam Jazz Club.  El servidor **fabrikamjazzclub-&lt;usuario&gt;** contiene la base de datos **fabrikamjazzclub** .
 
 Cada base de datos de inquilino es una base de datos *independiente* de 50 DTU.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build on the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](elastic-pool-overview.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](../../sql-database/elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](./elastic-jobs-overview.md)
 -->
 
 - Para más información acerca de aplicaciones SaaS multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino](saas-tenancy-app-design-patterns.md).
@@ -131,5 +131,3 @@ En este tutorial ha obtenido información:
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
 
 A continuación, pruebe el tutorial de [aprovisionamiento y catálogo](saas-standaloneapp-provision-and-catalog.md) en el que explorará el uso de un catálogo de inquilinos que permite una variedad de escenarios entre inquilinos, como la administración de esquemas y el análisis de inquilinos.
- 
-

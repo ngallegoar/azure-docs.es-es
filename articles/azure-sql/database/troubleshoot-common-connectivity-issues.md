@@ -12,12 +12,12 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 46d8aab74f658b039fe07acab82f324ec6ad731f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8c94e36a1a6d1f675e9d6a7dde456dbf6eb8897
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777078"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791365"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Solución de problemas de errores de conexión transitorios en SQL Database e Instancia administrada de SQL
 
@@ -31,7 +31,7 @@ En este artículo se describe cómo evitar, solucionar, diagnosticar y mitigar l
 
 Un error transitorio tiene una causa subyacente que pronto se solucionará automáticamente. Una causa ocasional de errores transitorios se produce cuando el sistema de Azure rápidamente desplaza recursos de hardware para equilibrar mejor la carga de varias cargas de trabajo. La mayoría de estos eventos de reconfiguración se completan en menos de 60 segundos. Durante este período de tiempo de reconfiguración, es posible que tenga problemas de conexión con la base de datos de SQL Database. Las aplicaciones que se conectan a la base de datos deberían crearse de modo que contemplen esos errores transitorios. Para controlarlos, implemente una lógica de reintento en el código en lugar de mostrarlas a los usuarios como errores de aplicación.
 
-Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException**.
+Si su programa cliente utiliza ADO.NET, se notifican al programa los errores transitorios a través del inicio de una excepción **SqlException** .
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -70,7 +70,7 @@ Los programas cliente que encuentran ocasionalmente un error transitorio son má
 
 Se recomienda que espere 5 segundos antes del primer reintento. Si se vuelve a intentar después de un retraso menor de 5 segundos, se correrá el riesgo de sobrecargar el servicio en la nube. Para cada intento siguiente, el retraso debería aumentar exponencialmente, hasta un máximo de 60 segundos.
 
-Para obtener una explicación del período de bloqueo para clientes que usan ADO.NET, vea [Agrupación de conexiones de SQL Server (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
+Para obtener una explicación del período de bloqueo para clientes que usan ADO.NET, vea [Agrupación de conexiones de SQL Server (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling).
 
 También puede establecer un número máximo de reintentos antes de que el programa se cierre automáticamente.
 
@@ -132,11 +132,11 @@ Si el programa cliente se conecta a la base de datos de SQL Database mediante la
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-Cuando cree la [cadena de conexión](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para su objeto **SqlConnection**, coordine los valores entre los parámetros siguientes:
+Cuando cree la [cadena de conexión](/dotnet/api/system.data.sqlclient.sqlconnection.connectionstring) para su objeto **SqlConnection** , coordine los valores entre los parámetros siguientes:
 
-- **ConnectRetryCount**:&nbsp;&nbsp;El valor predeterminado es 1. El intervalo es de 0 a 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;El valor predeterminado es 10 segundos. El intervalo es de 1 a 60.
-- **Connection Timeout**:&nbsp;&nbsp;El valor predeterminado es 15 segundos. El intervalo es de 0 a 2147483647.
+- **ConnectRetryCount** :&nbsp;&nbsp;El valor predeterminado es 1. El intervalo es de 0 a 255.
+- **ConnectRetryInterval** :&nbsp;&nbsp;El valor predeterminado es 10 segundos. El intervalo es de 1 a 60.
+- **Connection Timeout** :&nbsp;&nbsp;El valor predeterminado es 15 segundos. El intervalo es de 0 a 2147483647.
 
 Específicamente, los valores elegidos deben cumplir la siguiente igualdad: Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 
@@ -189,7 +189,7 @@ Por lo general, debe asegurarse de que solo el puerto 1433 está abierto para la
 Por ejemplo, cuando el programa cliente está hospedado en un equipo con Windows, puede usar Firewall de Windows en el host para abrir el puerto 1433.
 
 1. Abra el Panel de control.
-2. Seleccione **Todos los elementos de Panel de control** > **Firewall de Windows** > **Configuración avanzada** > **Reglas de salida** > **Acción** > **Nueva regla**.
+2. Seleccione **Todos los elementos de Panel de control** > **Firewall de Windows** > **Configuración avanzada** > **Reglas de salida** > **Acción** > **Nueva regla** .
 
 Si el programa cliente se hospeda en una máquina virtual (VM) de Azure, lea [Puertos más allá del 1433 para ADO.NET 4.5 y SQL Database](adonet-v12-develop-direct-route-ports.md).
 
@@ -207,7 +207,7 @@ Si el programa usa clases ADO.NET como **System.Data.SqlClient.SqlConnection** p
 
 #### <a name="starting-with-adonet-461"></a>A partir de ADO.NET 4.6.1
 
-- Con SQL Database, se mejora la confiabilidad si abre una conexión con el método **SqlConnection.Open**. Ahora, el método **Open** incorpora los mejores mecanismos de reintento en respuesta a errores transitorios para determinados errores dentro del período de tiempo de espera de conexión.
+- Con SQL Database, se mejora la confiabilidad si abre una conexión con el método **SqlConnection.Open** . Ahora, el método **Open** incorpora los mejores mecanismos de reintento en respuesta a errores transitorios para determinados errores dentro del período de tiempo de espera de conexión.
 - Se admite a agrupación de conexiones, que incluye una comprobación eficaz de que el objeto de conexión que ofrece el programa está funcionando.
 
 Cuando se usa un objeto de conexión desde un grupo de conexiones, se recomienda que el programa cierre temporalmente la conexión cuando no se vaya a usar de inmediato. Volver a abrir una conexión no tiene un costo alto, pero sí lo tiene crear una nueva.
@@ -227,7 +227,7 @@ Si el programa no puede conectarse a la base de datos en SQL Database, una opci�
 En cualquier equipo con Windows, puede probar estas utilidades:
 
 - SQL Server Management Studio (ssms.exe), que se conecta mediante ADO.NET
-- `sqlcmd.exe`, que se conecta mediante [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
+- `sqlcmd.exe`, que se conecta mediante [ODBC](/sql/connect/odbc/microsoft-odbc-driver-for-sql-server)
 
 Una el programa se conecte, compruebe que funciona una breve consulta SELECT de SQL.
 
@@ -268,7 +268,7 @@ A veces un problema intermitente se diagnostica mejor mediante la detección de 
 
 El cliente puede ayudar al diagnóstico mediante el registro de todos los errores que encuentra. Puede correlacionar las entradas del registro con los datos de error que SQL Database registra internamente.
 
-Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar con el registro. Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](https://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) ofrece clases administradas de .NET para ayudar con el registro. Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](/previous-versions/msp-n-p/dn440731(v=pandp.60)).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -278,8 +278,8 @@ Presentamos algunas instrucciones SELECT de Transact-SQL que consultan los regis
 
 | Consulta de un registro | Descripción |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La vista [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) proporciona información acerca de eventos individuales, que incluye algunos que pueden causar errores transitorios o errores de conectividad.<br/><br/>Idealmente, puede poner en correlación los valores **start_time** o **end_time** con información acerca de cuándo ha tenido problemas su programa cliente.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) ofrece recuentos agregados de los tipos de eventos para realizar diagnósticos adicionales.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |La vista [sys.event_log](/sql/relational-databases/system-catalog-views/sys-event-log-azure-sql-database) proporciona información acerca de eventos individuales, que incluye algunos que pueden causar errores transitorios o errores de conectividad.<br/><br/>Idealmente, puede poner en correlación los valores **start_time** o **end_time** con información acerca de cuándo ha tenido problemas su programa cliente.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |La vista [sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database) ofrece recuentos agregados de los tipos de eventos para realizar diagnósticos adicionales.<br/><br/>Tiene que conectarse a la base de datos *maestra* para ejecutar esta consulta. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -326,9 +326,9 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
 
-Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es SQL Database. Para buscar temas dedicados a cada área en la que puede ayudar EntLib60 en, vea [Enterprise Library 6 - April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx) (Enterprise Library 6: abril de 2013).
+Enterprise Library 6 (EntLib60) es un marco de clases de .NET que ayuda a implementar a clientes sólidos de servicios en la nube, uno de los cuales es SQL Database. Para buscar temas dedicados a cada área en la que puede ayudar EntLib60 en, vea [Enterprise Library 6 - April 2013](/previous-versions/msp-n-p/dn169621(v=pandp.10)) (Enterprise Library 6: abril de 2013).
 
-La lógica de reintento para controlar los errores transitorios es un área en la que puede ayudar EntLib60. Para más información, vea [4: Perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+La lógica de reintento para controlar los errores transitorios es un área en la que puede ayudar EntLib60. Para más información, vea [4: Perseverancia, el secreto de todos los triunfos: uso del bloque de aplicación de control de errores transitorios](/previous-versions/msp-n-p/dn440719(v=pandp.60)).
 
 > [!NOTE]
 > El código fuente de EntLib60 está disponible de forma pública para descargarlo desde el [Centro de descarga](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft no tiene previsto realizar más actualizaciones de mantenimiento o de característica en EntLib.
@@ -337,9 +337,9 @@ La lógica de reintento para controlar los errores transitorios es un área en l
 
 ### <a name="entlib60-classes-for-transient-errors-and-retry"></a>Clases de EntLib60 para errores transitorios y reintentos
 
-Las siguientes clases de EntLib60 son especialmente útiles para la lógica de reintento. Todas esas clases se encuentran en el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**.
+Las siguientes clases de EntLib60 son especialmente útiles para la lógica de reintento. Todas esas clases se encuentran en el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** .
 
-En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling**:
+En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling** :
 
 - **RetryPolicy**
   - **ExecuteAction**
@@ -348,7 +348,7 @@ En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultH
 - **ReliableSqlConnection**
   - **ExecuteCommand**
 
-En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport**:
+En el espacio de nombres **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.TestSupport** :
 
 - **AlwaysTransientErrorDetectionStrategy**
 - **NeverTransientErrorDetectionStrategy**
@@ -369,13 +369,13 @@ Estos son algunos vínculos a información sobre EntLib60:
   - Recopilar la información contextual es útil para la depuración y el seguimiento, así como para los requisitos de registro generales y de auditoría.
 - El bloque de registro abstrae la funcionalidad de registro desde el destino de registro para que el código de la aplicación sea coherente, con independencia de la ubicación y del tipo de almacén de registro de destino.
 
-Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
+Para más información, vea [5 - El procedimiento más sencillo: uso del bloque de aplicación de registro](/previous-versions/msp-n-p/dn440731(v=pandp.60)).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
 ### <a name="entlib60-istransient-method-source-code"></a>Código fuente del método IsTransient de EntLib60
 
-A continuación, en la clase **SqlDatabaseTransientErrorDetectionStrategy**, se encuentra el código fuente de C# para el método **IsTransient**. Desde abril de 2013, el código fuente explica qué errores se consideran transitorios y dignos de reintento.
+A continuación, en la clase **SqlDatabaseTransientErrorDetectionStrategy** , se encuentra el código fuente de C# para el método **IsTransient** . Desde abril de 2013, el código fuente explica qué errores se consideran transitorios y dignos de reintento.
 
 ```csharp
 public bool IsTransient(Exception ex)
@@ -446,11 +446,11 @@ public bool IsTransient(Exception ex)
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Bibliotecas de conexiones para SQL Database y SQL Server](connect-query-content-reference-guide.md#libraries)
-- [Agrupación de conexiones (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
+- [Agrupación de conexiones (ADO.NET)](/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Retrying* es una biblioteca de reintentos de uso general con licencia de Apache 2.0, escrita en Python,](https://pypi.python.org/pypi/retrying) para simplificar la tarea de agregar comportamiento de reintento a prácticamente todo.
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: /sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+[step-4-connect-resiliently-to-sql-with-php-p42h]: /sql/connect/php/step-4-connect-resiliently-to-sql-with-php

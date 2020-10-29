@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f45a4de2e13f936556f8dd99aa107110edc6e91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077932"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791144"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Operaciones en Azure Queue Storage con Azure PowerShell
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Recuperación de la lista de ubicaciones
 
-Si no sabe qué ubicación desea usar, puede enumerar las ubicaciones disponibles. Cuando se muestre la lista, busque la que desee usar. En este ejercicio se usará **eastus**. Guárdela en la variable **location** para usarla más adelante.
+Si no sabe qué ubicación desea usar, puede enumerar las ubicaciones disponibles. Cuando se muestre la lista, busque la que desee usar. En este ejercicio se usará **eastus** . Guárdela en la variable **location** para usarla más adelante.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -56,7 +56,7 @@ $location = "eastus"
 
 Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
-Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Guarde el nombre del grupo de recursos en una variable para usarlo más adelante. En este ejemplo se crea un grupo de recursos denominado *howtoqueuesrg* en la región *eastus*.
+Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Guarde el nombre del grupo de recursos en una variable para usarlo más adelante. En este ejemplo se crea un grupo de recursos denominado *howtoqueuesrg* en la región *eastus* .
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -86,7 +86,7 @@ $queueName = "howtoqueue"
 $queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
-Para obtener información sobre las convenciones de nomenclatura del servicio Cola de Azure, consulte [Nomenclatura de colas y metadatos](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+Para obtener información sobre las convenciones de nomenclatura del servicio Cola de Azure, consulte [Nomenclatura de colas y metadatos](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
 ## <a name="retrieve-a-queue"></a>Recuperar una cola
 
@@ -104,7 +104,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>un mensaje a una cola
 
-Las operaciones que afectan a los mensajes reales de la cola usan la biblioteca del cliente de Storage de .NET como se expone en PowerShell. Para agregar un mensaje a una cola, cree una instancia del objeto de mensaje, clase [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage). A continuación, llame al método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) . Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
+Las operaciones que afectan a los mensajes reales de la cola usan la biblioteca del cliente de Storage de .NET como se expone en PowerShell. Para agregar un mensaje a una cola, cree una instancia del objeto de mensaje, clase [Microsoft.Azure.Storage.Queue.CloudQueueMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage). A continuación, llame al método [AddMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) . Se puede crear un CloudQueueMessage a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
 
 En el siguiente ejemplo le mostraremos cómo agregar un mensaje a la cola.
 
@@ -133,7 +133,7 @@ Este **tiempo de expiración de invisibilidad** define cuánto tiempo permanece 
 
 El código lee un mensaje de la cola en dos pasos. Cuando llama al método [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage), verá el siguiente mensaje en la cola. Un mensaje devuelto por **GetMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. Para terminar de eliminar el mensaje de la cola, debe llamar al método [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage).
 
-En el ejemplo siguiente, leerá los tres mensajes de la cola y, después, esperará diez segundos (el tiempo de expiración de invisibilidad). A continuación, leerá los tres mensajes de nuevo, eliminando los mensajes tras leerlos mediante una llamada a **DeleteMessage**. Si intenta leer la cola después de que se eliminen los mensajes, se devolverá $queueMessage como NULL.
+En el ejemplo siguiente, leerá los tres mensajes de la cola y, después, esperará diez segundos (el tiempo de expiración de invisibilidad). A continuación, leerá los tres mensajes de nuevo, eliminando los mensajes tras leerlos mediante una llamada a **DeleteMessage** . Si intenta leer la cola después de que se eliminen los mensajes, se devolverá $queueMessage como NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue

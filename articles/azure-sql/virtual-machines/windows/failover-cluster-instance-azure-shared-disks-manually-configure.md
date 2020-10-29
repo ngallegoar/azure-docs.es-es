@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168246"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789767"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -192,7 +192,7 @@ Es preciso que los directorios de datos de FCI estén en los discos compartidos 
 1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
-   >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registro con el proveedor de recursos de VM de SQL

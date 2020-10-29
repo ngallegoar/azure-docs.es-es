@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324406"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791722"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnóstico de la solución de problemas de rendimiento de Hiperescala de SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Una proporción de las lecturas realizadas en RBPEX a las lecturas agregadas rea
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>E/S de datos en estadísticas de uso de recursos
 
-En una base de datos que no sea de Hiperescala, las IOPS de lectura y escritura combinadas con los archivos de datos, en relación con el límite de IOPS de datos de [gobernanza de recursos](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance), se muestran en las vistas [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) y [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), en la columna `avg_data_io_percent`. El mismo valor se muestra en el portal como _Media de porcentaje de E/S de datos_.
+En una base de datos que no sea de Hiperescala, las IOPS de lectura y escritura combinadas con los archivos de datos, en relación con el límite de IOPS de datos de [gobernanza de recursos](./resource-limits-logical-server.md#resource-governance), se muestran en las vistas [sys. dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) y [sys. resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database), en la columna `avg_data_io_percent`. El mismo valor se muestra en el portal como _Media de porcentaje de E/S de datos_ .
 
 En una base de datos de Hiperescala, esta columna informa del uso de IOPS de datos en relación con el límite para el almacenamiento local solo en la réplica de proceso, específicamente la E/S de RBPEX y `tempdb`. Un valor del 100% en esta columna indica que la gobernanza de recursos está limitando las IOPS del almacenamiento local. Si está correlacionado con un problema de rendimiento, ajuste la carga de trabajo para generar menos E/S, o bien aumente el objetivo del servicio de base de datos para aumentar el [límite](resource-limits-vcore-single-databases.md) _Max Data IOPS (IOPS de datos máximo)_ . Para la gobernanza de recursos de lecturas y escrituras de RBPEX, el sistema cuenta E/S individuales de 8 KB, en lugar de las E/S más grandes que puede indicar el motor de base de datos de SQL Server.
 

@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 806222fc522c548fd58935812d705e12c9b3cee1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d86f862dcf7973ef3e7c42b069d6734ac95274a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714426"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784090"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorización del acceso a datos en Azure Storage
 
@@ -25,7 +25,7 @@ En la tabla siguiente se describen las opciones que ofrece Azure Storage para au
 
 | Artefacto de Azure | Clave compartida (clave de cuenta de almacenamiento) | Firma de acceso compartido (SAS) | Azure Active Directory (Azure AD) | Active Directory Domain Services local (versión preliminar) | Acceso de lectura anónimo |
 | -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
-|Azure Blobs     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |[Compatible](storage-auth-aad.md)         |No compatible|[Compatible](../blobs/storage-manage-access-to-resources.md)         |
+|Azure Blobs     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |[Compatible](storage-auth-aad.md)         |No compatible|[Compatible](../blobs/anonymous-read-access-configure.md)         |
 |Azure Files (SMB)     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |No compatible         |[Admitido, solo con AAD Domain Services](../files/storage-files-active-directory-overview.md)         |[Admitido, las credenciales deben sincronizarse con Azure AD](../files/storage-files-active-directory-overview.md)|No compatible         |
 |Azure Files (REST)     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |No compatible         |No compatible |No compatibles         |
 |Colas de Azure     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |[Compatible](storage-auth-aad.md)         |No compatible | No compatible         |
@@ -41,7 +41,7 @@ Cada opción de autorización se describe brevemente a continuación:
 
 - **Autorización con clave compartida** para blobs, archivos, colas y tablas. Los clientes con clave compartida pasan un encabezado con cada solicitud que está firmado con la clave de acceso de la cuenta de almacenamiento. Para más información, consulte el artículo sobre la [Autorización con clave compartida](/rest/api/storageservices/authorize-with-shared-key/).
 - **Firmas de acceso compartido** para blobs, archivos, colas y tablas. Las firmas de acceso compartido (SAS) proporcionan acceso delegado limitado a recursos de una cuenta de almacenamiento. Agregar restricciones al periodo de validez de la firma o a los permisos que concede proporciona flexibilidad para administrar el acceso. Para obtener más información, consulte [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md).
-- **Acceso de lectura público y anónimo** para contenedores y blobs. No se necesita autorización. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/storage-manage-access-to-resources.md).  
+- **Acceso de lectura público y anónimo** para contenedores y blobs. No se necesita autorización. Para más información, consulte [Administración del acceso de lectura anónimo a contenedores y blobs](../blobs/anonymous-read-access-configure.md).  
 
 De forma predeterminada, todos los recursos de Azure Storage están protegidos y solo están disponibles para el propietario de la cuenta. Aunque puede usar cualquiera de las estrategias de autorización descritas anteriormente para conceder a los clientes acceso a los recursos de su cuenta de almacenamiento, Microsoft recomienda el uso de Azure AD siempre que sea posible para mayor seguridad y facilidad de uso.
 

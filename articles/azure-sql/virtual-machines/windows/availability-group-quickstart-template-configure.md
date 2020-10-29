@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 204c7d756a13ed0427f06abfb56e3f1256df48bc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168005"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789954"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Uso de las plantillas de inicio rápido de Azure para configurar un grupo de disponibilidad para SQL Server en una máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Si bien en este artículo se usan las plantillas de inicio rápido de Azure para
 Para automatizar la configuración de un grupo de disponibilidad Always On mediante plantillas de inicio rápido, debe cumplir los siguientes requisitos previos: 
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
 - Un grupo de recursos con un controlador de dominio. 
-- Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) en el mismo conjunto o zona de disponibilidad que se hayan [registrado con el proveedor de recursos de máquina virtual con SQL](sql-vm-resource-provider-register.md).  
+- Una o varias [máquinas virtuales en Azure, unidas a un dominio, con SQL Server 2016 (o superior) Enterprise Edition](./create-sql-vm-portal.md) en el mismo conjunto o zona de disponibilidad que se hayan [registrado con el proveedor de recursos de máquina virtual con SQL](sql-vm-resource-provider-register.md).  
 - Dos direcciones IP disponibles (que no use ninguna entidad), una para el equilibrador de carga interno y otra para la escucha de grupo de disponibilidad, dentro de la misma subred que el grupo de disponibilidad. Si se utiliza un equilibrador de carga existente, solo será necesaria una dirección IP disponible.  
 
 ## <a name="permissions"></a>Permisos
@@ -226,6 +226,3 @@ Para más información, consulte los siguientes artículos.
 * [Guía de precios para máquinas virtuales con SQL Server](pricing-guidance.md)
 * [Notas de la versión de las máquinas virtuales con SQL Server](../../database/doc-changes-updates-release-notes.md)
 * [Cambio de los modelos de licencia para una VM con SQL Server](licensing-model-azure-hybrid-benefit-ahb-change.md)
-
-
-

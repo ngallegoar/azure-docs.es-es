@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: 9b151e566f0cc3e086277c101a796e7dde059ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19cec1deeef344ea5897061db0fec88066b90b05
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442568"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791773"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configuración y administración de la referencia de contenido: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ En este artículo puede encontrar una referencia de contenido de varias guías, 
 
 - [Ajuste manual](performance-guidance.md)
 - [Uso de DMV para supervisar el rendimiento](monitoring-with-dmvs.md)
-- [Uso del almacén de consultas para supervisar el rendimiento](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Uso del almacén de consultas para supervisar el rendimiento](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Habilitación del ajuste automático](automatic-tuning-enable.md) para permitir que Azure SQL Database optimice el rendimiento de la carga de trabajo.
 - [Habilitación de las notificaciones por correo electrónico para el ajuste automático](automatic-tuning-email-notifications-configure.md) para obtener información sobre las recomendaciones de optimización.
 - [Aplicación de recomendaciones de rendimiento](database-advisor-find-recommendations-portal.md) para optimizar la base de datos.
@@ -84,7 +84,7 @@ En este artículo puede encontrar una referencia de contenido de varias guías, 
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 - [Agente de sincronización de datos](sql-data-sync-agent-overview.md)
 - [Replicación de cambios de esquema](sql-data-sync-update-sync-schema.md)
-- [Supervisión con OMS](sql-data-sync-monitor-sync.md)
+- [Supervisión con OMS](./monitor-tune-overview.md)
 - [Procedimientos recomendados para Data Sync](sql-data-sync-best-practices.md)
 - [Solución de problemas de Data Sync](sql-data-sync-troubleshoot.md)
 

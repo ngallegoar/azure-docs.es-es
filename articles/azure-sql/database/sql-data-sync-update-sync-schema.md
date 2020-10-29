@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: fb64348e53dc92ef8f5830f2649afdf9eca3a9ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9997ea737b96185b31a7f51996a396fb5fc46c4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616489"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790192"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -84,7 +84,7 @@ INSERT INTO SchemaChanges (SqlStmt, Description)
     VALUES (EVENTDATA().value('(/EVENT_INSTANCE/TSQLCommand/CommandText)[1]', 'nvarchar(max)'), 'From DDL trigger')
 ```
 
-El desencadenador inserta un registro en la tabla de seguimiento de cambios de esquema para cada comando ALTER TABLE. En este ejemplo se agrega un filtro para evitar replicar los cambios que se hicieron en el esquema **DataSync**, porque probablemente los hizo el servicio Data Sync. Agregue más filtros si solo quiere replicar ciertos tipos de cambios de esquema.
+El desencadenador inserta un registro en la tabla de seguimiento de cambios de esquema para cada comando ALTER TABLE. En este ejemplo se agrega un filtro para evitar replicar los cambios que se hicieron en el esquema **DataSync** , porque probablemente los hizo el servicio Data Sync. Agregue más filtros si solo quiere replicar ciertos tipos de cambios de esquema.
 
 También puede agregar más desencadenadores para replicar otros tipos de cambios de esquema. Por ejemplo, cree los desencadenadores CREATE_PROCEDURE, ALTER_PROCEDURE y DROP_PROCEDURE para replicar los cambios de procedimientos almacenados.
 
@@ -231,7 +231,7 @@ Para más información sobre SQL Data Sync, consulte:
         -  [Uso de PowerShell para sincronizar una base de datos de Azure SQL Database y una base de datos de una instancia de SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agente de sincronización de datos: [Agente de sincronización de datos para Azure SQL Data Sync](sql-data-sync-agent-overview.md)
 -   Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](sql-data-sync-best-practices.md)
--   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
+-   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 -   Solución de problemas: [Solución de problemas de Azure SQL Data Sync]()
 -   Actualización del esquema de sincronización
     -   Con PowerShell: [Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente](scripts/update-sync-schema-in-sync-group.md)

@@ -13,12 +13,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 06587d80851839188f8d8dcfa870d331e8fa96d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 997e867798922975757a588ef50248f0d09a96e0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293363"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789852"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Cambio en contexto de la edición de SQL Server de la máquina virtual de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Una vez que se ha cambiado internamente la edición de SQL Server a la máquina
 Para hacer un cambio local de la edición de SQL Server, necesita lo siguiente: 
 
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
-- Una [VM con SQL Server en Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada en el [proveedor de recursos de máquina virtual de SQL](sql-vm-resource-provider-register.md).
+- Una [VM con SQL Server en Windows](./create-sql-vm-portal.md) registrada en el [proveedor de recursos de máquina virtual de SQL](sql-vm-resource-provider-register.md).
 - Soporte de instalación con la **edición deseada** de SQL Server. Los clientes que tengan [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) pueden obtener el soporte de instalación en el [centro de licencias por volumen](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Los clientes que no tengan Software Assurance pueden usar el soporte de instalación de una imagen de máquina virtual con SQL Server de Azure Marketplace que tenga la edición deseada (ubicada normalmente en `C:\SQLServerFull`). 
 
 
@@ -46,11 +46,11 @@ Para hacer un cambio local de la edición de SQL Server, necesita lo siguiente:
 Para actualizar la edición de SQL Server, obtenga el soporte de instalación de SQL Server para la edición que desee y haga lo siguiente:
 
 1. Ejecute Setup.exe desde el soporte de instalación de SQL Server. 
-1. Vaya a **Mantenimiento** y elija la opción **Actualización de edición**. 
+1. Vaya a **Mantenimiento** y elija la opción **Actualización de edición** . 
 
    ![Selección de la opción Actualización de edición de SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
-1. Seleccione **Siguiente** hasta llegar a la página **Listo para actualizar la edición** y seleccione **Actualizar**. La ventana de configuración pude dejar de responder durante unos minutos mientras el cambio surte efecto. Una página **Completado** confirmará que la actualización de edición ha finalizado. 
+1. Seleccione **Siguiente** hasta llegar a la página **Listo para actualizar la edición** y seleccione **Actualizar** . La ventana de configuración pude dejar de responder durante unos minutos mientras el cambio surte efecto. Una página **Completado** confirmará que la actualización de edición ha finalizado. 
 
 Una vez actualizada la edición de SQL Server, modifique la propiedad de edición de la máquina virtual con SQL Server en Azure Portal. De este modo, se actualizarán los metadatos y la facturación asociados a esta máquina virtual.
 
@@ -79,7 +79,7 @@ Una vez que haya cambiado la edición de SQL Server con el soporte de instalaci
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Vaya al recurso de máquina virtual de SQL Server. 
-1. En **Configuración**, seleccione **Configurar**. A continuación, elija la edición de SQL Server que quiera en la lista desplegable **Edición**. 
+1. En **Configuración** , seleccione **Configurar** . A continuación, elija la edición de SQL Server que quiera en la lista desplegable **Edición** . 
 
    ![Metadatos del cambio de edición](./media/change-sql-server-edition/edition-change-in-portal.png)
 
@@ -102,5 +102,3 @@ Para más información, consulte los siguientes artículos.
 * [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.md)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
 * [Notas de la versión de SQL Server en Azure Virtual Machines](doc-changes-updates-release-notes.md)
-
-

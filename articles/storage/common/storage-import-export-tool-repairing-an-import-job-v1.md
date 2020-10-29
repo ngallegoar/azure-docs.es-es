@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d67046f799e60db3101dfeb27dee10f92f9aad79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0454e7bcc81c71cdffcddcd859bb6d335cc8aef2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052433"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791824"
 ---
 # <a name="repairing-an-import-job"></a>Reparación de un trabajo de importación
 El servicio Microsoft Azure Import/Export puede dar error al copiar algunos de los archivos o partes de un archivo en Azure Blob service. Estas son algunas razones de los errores:  
@@ -28,19 +28,19 @@ Puede ejecutar la herramienta Microsoft Azure Import/Export con los archivos de 
   
 ## <a name="repairimport-parameters"></a>Parámetros de RepairImport
 
-Se pueden modificar los parámetros siguientes con **RepairImport**: 
+Se pueden modificar los parámetros siguientes con **RepairImport** : 
   
 |||  
 |-|-|  
 |**/r:** &lt;ArchivoReparación\>|**Obligatorio.** Ruta de acceso al archivo de reparación, que realiza un seguimiento del progreso de la reparación y le permite reanudar una reparación interrumpida. Cada unidad debe tener un solo archivo de reparación. Cuando inicie una reparación para una unidad determinada, pase la ruta de acceso a un archivo de reparación, que aún no existe. Para reanudar una reparación interrumpida, debe pasar el nombre de un archivo de reparación existente. Especifique siempre el archivo de reparación correspondiente a la unidad de destino.|  
-|**/logdir:**&lt;DirectorioRegistro\>|**Opcional.** Directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica un directorio de registro, se usa el directorio actual como directorio de registro.|  
-|**/d:**&lt;DirectoriosDestino\>|**Obligatorio.** Uno o varios directorios separados por puntos y coma que contienen los archivos originales que se importaron. También se puede utilizar la unidad de importación, pero no es necesaria si están disponibles ubicaciones alternativas de los archivos originales.|  
+|**/logdir:** &lt;DirectorioRegistro\>|**Opcional.** Directorio de registro. Los archivos de registro detallados se escriben en este directorio. Si no se especifica un directorio de registro, se usa el directorio actual como directorio de registro.|  
+|**/d:** &lt;DirectoriosDestino\>|**Obligatorio.** Uno o varios directorios separados por puntos y coma que contienen los archivos originales que se importaron. También se puede utilizar la unidad de importación, pero no es necesaria si están disponibles ubicaciones alternativas de los archivos originales.|  
 |**/bk:** &lt;ClaveBitLocker\>|**Opcional.** Especifique la clave de BitLocker si desea que la herramienta desbloquee una unidad cifrada donde están disponibles los archivos originales.|  
 |**/sn:** &lt;NombreCuentaAlmacenamiento\>|**Obligatorio.** El nombre de la cuenta de almacenamiento para el trabajo de importación.|  
 |**/sk:** &lt;ClaveCuentaAlmacenamiento\>|**Necesario** únicamente si no se especifica un SAS del contenedor. La clave de cuenta para la cuenta de almacenamiento correspondiente al trabajo de importación.|  
-|**/csas:**&lt;SasContenedor\>|**Necesario** únicamente si no se especifica la clave de cuenta de almacenamiento. El SAS del contenedor para acceder a los blobs asociados al trabajo de importación.|  
-|**/CopyLogFile:**&lt;ArchivoRegistroCopiaUnidad\>|**Obligatorio.** Ruta de acceso al archivo de registro de copia de la unidad (registro detallado o registro de errores). El archivo lo genera el servicio Microsoft Windows Import/Export y se puede descargar desde el almacenamiento de blobs asociado al trabajo. El archivo de registro de copia contiene información sobre blobs con errores o archivos que deben repararse.|  
-|**/PathMapFile:**&lt;ArchivoAsignaciónRutaAccesoUnidad\>|**Opcional.** Ruta de acceso a un archivo de texto que se usa para resolver ambigüedades si tiene varios archivos con el mismo nombre que se importan en el mismo trabajo. La primera vez que se ejecuta la herramienta, se puede rellenar este archivo con todos los nombres ambiguos. Las ejecuciones posteriores de la herramienta usan este archivo para resolver las ambigüedades.|  
+|**/csas:** &lt;SasContenedor\>|**Necesario** únicamente si no se especifica la clave de cuenta de almacenamiento. El SAS del contenedor para acceder a los blobs asociados al trabajo de importación.|  
+|**/CopyLogFile:** &lt;ArchivoRegistroCopiaUnidad\>|**Obligatorio.** Ruta de acceso al archivo de registro de copia de la unidad (registro detallado o registro de errores). El archivo lo genera el servicio Microsoft Windows Import/Export y se puede descargar desde el almacenamiento de blobs asociado al trabajo. El archivo de registro de copia contiene información sobre blobs con errores o archivos que deben repararse.|  
+|**/PathMapFile:** &lt;ArchivoAsignaciónRutaAccesoUnidad\>|**Opcional.** Ruta de acceso a un archivo de texto que se usa para resolver ambigüedades si tiene varios archivos con el mismo nombre que se importan en el mismo trabajo. La primera vez que se ejecuta la herramienta, se puede rellenar este archivo con todos los nombres ambiguos. Las ejecuciones posteriores de la herramienta usan este archivo para resolver las ambigüedades.|  
   
 ## <a name="using-the-repairimport-command"></a>Uso del comando RepairImport  
 Para reparar datos de importación haciendo streaming de los datos a través de la red, debe especificar los directorios que contienen los archivos originales que se estaban importando mediante el parámetro `/d`. Especifique también el archivo de registro de copia que descargó desde la cuenta de almacenamiento. Una línea de comandos típica para reparar un trabajo de importación con errores parciales tiene el siguiente aspecto:  
@@ -100,6 +100,6 @@ Después de poner los archivos necesarios a disposición de la herramienta o act
 ## <a name="next-steps"></a>Pasos siguientes
  
 * [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-* [Preparación de unidades de disco duro para un trabajo de importación](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Preparación de unidades de disco duro para un trabajo de importación](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
-* [Reparación de un trabajo de exportación](../storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Reparación de un trabajo de exportación](./storage-import-export-tool-repairing-an-export-job-v1.md)

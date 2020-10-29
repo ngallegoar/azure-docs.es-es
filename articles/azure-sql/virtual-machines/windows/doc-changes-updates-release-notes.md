@@ -11,12 +11,12 @@ ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/15/2020
-ms.openlocfilehash: d05b603d3f854d919df43e633449e37301a5e77d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1d6eb4df91ce912832d15835a00bdb287f67e787
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168331"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789750"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -56,9 +56,9 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 
 | Cambios | Detalles |
 | --- | --- |
-| **Nombre de red distribuida (DNN)** | Ahora, SQL Server 2019 en Windows Server 2016+ ofrece en versión preliminar compatibilidad con el enrutamiento del tráfico a la instancia de clúster de conmutación por error (FCI) mediante el uso de un [nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md) en lugar de con Azure Load Balancer. Esta compatibilidad simplifica y agiliza la conexión a la solución de alta disponibilidad en Azure. | 
+| **Nombre de red distribuida (DNN)** | Ahora, SQL Server 2019 en Windows Server 2016+ ofrece en versión preliminar compatibilidad con el enrutamiento del tráfico a la instancia de clúster de conmutación por error (FCI) mediante el uso de un [nombre de red distribuida](./failover-cluster-instance-distributed-network-name-dnn-configure.md) en lugar de con Azure Load Balancer. Esta compatibilidad simplifica y agiliza la conexión a la solución de alta disponibilidad en Azure. | 
 | **FCI con discos compartidos de Azure** | Ahora es posible implementar la [instancia de clúster de conmutación por error (FCI)](failover-cluster-instance-overview.md) mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
-| **Documentos de FCI reorganizados** | La documentación sobre las [instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md) se ha vuelto a redactar y reorganizar para mayor claridad. Hemos separado parte del contenido de configuración, como los [procedimientos recomendados de configuración de clústeres](hadr-cluster-best-practices.md), cómo preparar una [máquina virtual para una FCI de SQL Server](failover-cluster-instance-prepare-vm.md) y cómo configurar [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
+| **Documentos de FCI reorganizados** | La documentación sobre las [instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md) se ha vuelto a redactar y reorganizar para mayor claridad. Hemos separado parte del contenido de configuración, como los [procedimientos recomendados de configuración de clústeres](hadr-cluster-best-practices.md), cómo preparar una [máquina virtual para una FCI de SQL Server](failover-cluster-instance-prepare-vm.md) y cómo configurar [Azure Load Balancer](./availability-group-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 
 
@@ -96,7 +96,7 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 | **Compatibilidad de instancias con nombre** | Ahora puede usar la [extensión IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md#installation) con una instancia con nombre, si la instancia predeterminada se ha desinstalado correctamente. | 
 | **Renovación del portal** | La experiencia de Azure Portal para implementar una VM con SQL Server se ha renovado para mejorar la facilidad de uso. Para más información, vea el breve [inicio rápido](sql-vm-create-portal-quickstart.md) y la guía [paso a paso](create-sql-vm-portal.md) detallada para implementar una máquina virtual con SQL Server.|
 | **Mejora del portal** | Ahora es posible cambiar el modelo de licencias para una máquina virtual con SQL Server del tipo "pago por uso" a "traiga su propia licencia" mediante [Azure Portal](licensing-model-azure-hybrid-benefit-ahb-change.md#vms-already-registered-with-the-resource-provider).|
-| **Simplificación de la implementación de un grupo de disponibilidad en una instancia de VM con SQL Server mediante la CLI de Azure** | Ahora es más fácil que nunca implementar un grupo de disponibilidad en una máquina virtual con SQL Server en Azure. Puede usar la [CLI de Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para crear el clúster de conmutación por error de Windows, el equilibrador de carga interno y los clientes de escucha de grupo de disponibilidad, todo ello desde la línea de comandos. Para más información, consulte [Uso de la CLI de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure](availability-group-az-cli-configure.md). | 
+| **Simplificación de la implementación de un grupo de disponibilidad en una instancia de VM con SQL Server mediante la CLI de Azure** | Ahora es más fácil que nunca implementar un grupo de disponibilidad en una máquina virtual con SQL Server en Azure. Puede usar la [CLI de Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid&preserve-view=true) para crear el clúster de conmutación por error de Windows, el equilibrador de carga interno y los clientes de escucha de grupo de disponibilidad, todo ello desde la línea de comandos. Para más información, consulte [Uso de la CLI de Azure para configurar un grupo de disponibilidad Always On para SQL Server en una máquina virtual de Azure](./availability-group-az-commandline-configure.md). | 
 | &nbsp; | &nbsp; |
 
 ## <a name="2018"></a>2018 
@@ -126,4 +126,4 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 * [Introducción a SQL Server en máquinas virtuales Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Aprovisionamiento de una máquina virtual Linux con SQL Server en Azure Portal](../linux/sql-vm-create-portal-quickstart.md)
 * [Preguntas más frecuentes (Linux)](../linux/frequently-asked-questions-faq.md)
-* [Documentación de SQL Server en Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Documentación de SQL Server en Linux](/sql/linux/sql-server-linux-overview)

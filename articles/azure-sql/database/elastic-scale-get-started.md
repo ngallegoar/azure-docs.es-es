@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 46eee878ba8cf1d12edf262241d5df8ef8ccc82f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fd0f91de3e936e2920d57e5bc606bb86a2437
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442939"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786724"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introducción a Elastic Database Tools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,13 +42,13 @@ Siga estos pasos para compilar los archivos JAR y empezar a trabajar con el proy
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
 
-3. Para compilar el proyecto de ejemplo, en el directorio _./sample_, ejecute el siguiente comando:
+3. Para compilar el proyecto de ejemplo, en el directorio _./sample_ , ejecute el siguiente comando:
 
     ```
     mvn install
     ```
 
-4. Para iniciar el proyecto de ejemplo, en el directorio _./sample_, ejecute el siguiente comando:
+4. Para iniciar el proyecto de ejemplo, en el directorio _./sample_ , ejecute el siguiente comando:
 
     ```
     mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
@@ -87,7 +87,7 @@ Para descargar y ejecutar el ejemplo, siga estos pasos:
 
 2. Para crear un proyecto, abra la solución *ElasticScaleStarterKit.sln* desde el directorio *C#* .
 
-3. En la solución del proyecto de ejemplo, abra el archivo *app.config*. A continuación, siga las instrucciones del archivo para agregar el nombre de servidor y la información de inicio de sesión (nombre de usuario y contraseña).
+3. En la solución del proyecto de ejemplo, abra el archivo *app.config* . A continuación, siga las instrucciones del archivo para agregar el nombre de servidor y la información de inicio de sesión (nombre de usuario y contraseña).
 
 4. Compile y ejecute la aplicación. Cuando se le pida, permita que Visual Studio restaure los paquetes NuGet de la solución. Esta acción descarga la versión más reciente de la biblioteca de cliente de Elastic Database desde NuGet.
 
@@ -98,23 +98,23 @@ Para descargar y ejecutar el ejemplo, siga estos pasos:
 Felicidades. Ha creado y ejecutado correctamente su primera aplicación con particiones mediante Elastic Database Tools en SQL Database. Use Visual Studio o SQL Server Management Studio para conectar con la base de datos y eche un vistazo rápido a las particiones creadas por el ejemplo. Observará nuevas bases de datos de particiones de ejemplo y una base de datos de administrador de mapas de particiones que ha creado el ejemplo.
 
 > [!IMPORTANT]
-> Se recomienda usar siempre la versión más reciente de Management Studio para poder estar al día de las actualizaciones de Azure y SQL Database. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+> Se recomienda usar siempre la versión más reciente de Management Studio para poder estar al día de las actualizaciones de Azure y SQL Database. [Actualice SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="key-pieces-of-the-code-sample"></a>Piezas clave del ejemplo de código
 
-* **Administración de particiones y mapas de particiones**: el código ilustra cómo trabajar con particiones, rangos y asignaciones en el archivo *ShardManagementUtils.cs*. Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).  
+* **Administración de particiones y mapas de particiones** : el código ilustra cómo trabajar con particiones, rangos y asignaciones en el archivo *ShardManagementUtils.cs* . Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).  
 
-* **Enrutamiento dependiente de los datos**: el enrutamiento de transacciones a la partición correcta se muestra en el archivo *DataDependentRoutingSample.cs*. Para más información, vea [Enrutamiento dependiente de los datos](https://go.microsoft.com/?linkid=9862596).
+* **Enrutamiento dependiente de los datos** : el enrutamiento de transacciones a la partición correcta se muestra en el archivo *DataDependentRoutingSample.cs* . Para más información, vea [Enrutamiento dependiente de los datos](https://go.microsoft.com/?linkid=9862596).
 
-* **Consultas a través de particiones múltiples**: las consultas a través de particiones se ilustran en el archivo *MultiShardQuerySample.cs*. Para más información, vea [Consultas a través de particiones múltiples](https://go.microsoft.com/?linkid=9862597).
+* **Consultas a través de particiones múltiples** : las consultas a través de particiones se ilustran en el archivo *MultiShardQuerySample.cs* . Para más información, vea [Consultas a través de particiones múltiples](https://go.microsoft.com/?linkid=9862597).
 
-* **Incorporación de particiones vacías**: la incorporación iterativa de nuevas particiones vacías se realiza mediante código en el archivo *CreateShardSample.cs*. Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).
+* **Incorporación de particiones vacías** : la incorporación iterativa de nuevas particiones vacías se realiza mediante código en el archivo *CreateShardSample.cs* . Para más información, vea [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595) (Escalado horizontal de las bases de datos mediante Shard Map Manager).
 
 ## <a name="other-elastic-scale-operations"></a>Otras operaciones de escalado elástico
 
-* **División de una partición existente**: la funcionalidad de dividir particiones se proporciona mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
+* **División de una partición existente** : la funcionalidad de dividir particiones se proporciona mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
 
-* **Combinación de particiones existentes**: las combinaciones de particiones también se realizan mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
+* **Combinación de particiones existentes** : las combinaciones de particiones también se realizan mediante la herramienta de división y combinación. Para más información, vea [Mover datos entre bases de datos en la nube escaladas horizontalmente](elastic-scale-overview-split-and-merge.md).
 
 ## <a name="cost"></a>Coste
 
@@ -134,7 +134,7 @@ Para más información sobre Elastic Database Tools, consulte los artículos sig
   * [Shard Elasticity on Script Center (Elasticidad de particiones en el Centro de scripts)](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/) (Presentación del escalado elástico)
 * Channel 9: [vídeo de introducción al escalado elástico](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Foro de debate: [Página de preguntas y respuestas de Microsoft sobre Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)
+* Foro de debate: [Página de preguntas y respuestas de Microsoft sobre Azure SQL Database](/answers/topics/azure-sql-database.html)
 * Para medir el rendimiento: [Creación de bases de datos escalables en la nube](elastic-database-client-library.md)
 
 <!--Anchors-->

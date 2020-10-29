@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f04a20b347e2672d9699551885f5dd16ceaa99c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785602"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Solución de problemas de latencia mediante registros de Storage Analytics
 
@@ -27,7 +27,7 @@ Los siguientes pasos muestran cómo identificar y solucionar problemas de latenc
 
 ## <a name="recommended-steps"></a>Pasos recomendados
 
-1. Descargue los [registros de Storage Analytics](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Descargue los [registros de Storage Analytics](./storage-analytics-logging.md#download-storage-logging-log-data).
 
 2. Use el siguiente script de PowerShell para convertir los registros de formato sin procesar en formato tabular:
 
@@ -114,7 +114,7 @@ Compruebe los siguientes valores tal como se mencionó en el paso 5 de la secci�
 * Latencia del servidor
 * Latencia de cliente
 
-En una **operación GetBlob** con **RequestStatus = Correcto**, si el **tiempo máximo** se pasa en la **latencia de cliente**, esto indica que Azure Storage pasa un gran volumen de tiempo escribiendo datos en el cliente. Este retraso indica un problema del lado cliente.
+En una **operación GetBlob** con **RequestStatus = Correcto** , si el **tiempo máximo** se pasa en la **latencia de cliente** , esto indica que Azure Storage pasa un gran volumen de tiempo escribiendo datos en el cliente. Este retraso indica un problema del lado cliente.
 
 **Recomendación:**
 
@@ -129,7 +129,7 @@ Compruebe los siguientes valores tal como se mencionó en el paso 5 de la secci�
 * Latencia del servidor
 * Latencia de cliente
 
-En una **operación GetBlob** con **RequestStatus = (SAS)NetworkError**, si el **tiempo máximo** se pasa en la **latencia de cliente**, el problema más habitual es que el cliente se desconecta antes de expirar el tiempo de espera en el servicio de almacenamiento.
+En una **operación GetBlob** con **RequestStatus = (SAS)NetworkError** , si el **tiempo máximo** se pasa en la **latencia de cliente** , el problema más habitual es que el cliente se desconecta antes de expirar el tiempo de espera en el servicio de almacenamiento.
 
 **Recomendación:**
 
@@ -144,7 +144,7 @@ Compruebe los siguientes valores tal como se mencionó en el paso 5 de la secci�
 * Latencia del servidor
 * Latencia de cliente
 
-En una **operación Put** con **RequestStatus = Correcto**, si el **tiempo máximo** se pasa en la **latencia de cliente**, esto indica que el cliente tarda más tiempo en enviar datos a Azure Storage. Este retraso indica un problema del lado cliente.
+En una **operación Put** con **RequestStatus = Correcto** , si el **tiempo máximo** se pasa en la **latencia de cliente** , esto indica que el cliente tarda más tiempo en enviar datos a Azure Storage. Este retraso indica un problema del lado cliente.
 
 **Recomendación:**
 
@@ -159,10 +159,9 @@ Compruebe los siguientes valores tal como se mencionó en el paso 5 de la secci�
 * Latencia del servidor
 * Latencia de cliente
 
-En una **operación PutBlob** con **RequestStatus = (SAS)NetworkError**, si el **tiempo máximo** se pasa en la **latencia de cliente**, el problema más habitual es que el cliente se desconecta antes de expirar el tiempo de espera en el servicio de almacenamiento.
+En una **operación PutBlob** con **RequestStatus = (SAS)NetworkError** , si el **tiempo máximo** se pasa en la **latencia de cliente** , el problema más habitual es que el cliente se desconecta antes de expirar el tiempo de espera en el servicio de almacenamiento.
 
 **Recomendación:**
 
 * Investigue el código en el cliente para comprender por qué y cuándo se desconecta el cliente del servicio de almacenamiento.
 * Utilice Wireshark, el Analizador de mensajes de Microsoft o Tcping para investigar los problemas de conectividad de red desde el cliente.
-

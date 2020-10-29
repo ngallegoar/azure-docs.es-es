@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 81a5b5d8b9cb56b41d051de52f1496e30fb4900f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168161"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790073"
 ---
 # <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Tutorial: Configuración manual de un grupo de disponibilidad (máquinas virtuales con SQL Server en Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -34,7 +34,7 @@ Si bien en este artículo se configura manualmente el entorno del grupo de dispo
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En el tutorial se da por supuesto que tiene conocimientos básicos sobre los grupos de disponibilidad AlwaysOn de SQL Server. Para más información, consulte el tema de [introducción a los grupos de disponibilidad AlwaysOn de SQL Server](https://msdn.microsoft.com/library/ff877884.aspx).
+En el tutorial se da por supuesto que tiene conocimientos básicos sobre los grupos de disponibilidad AlwaysOn de SQL Server. Para más información, consulte el tema de [introducción a los grupos de disponibilidad AlwaysOn de SQL Server](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 Antes de comenzar con este tutorial, debe [completar los requisitos previos para crear grupos de disponibilidad AlwaysOn en Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Si estos requisitos previos ya se han completado, puede ir a [Creación del clúster](#CreateCluster).
 
@@ -51,7 +51,7 @@ En la tabla siguiente se enumeran los requisitos previos que debe completar ante
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Cuenta de dominio de la instalación** | - Administrador local en cada servidor SQL Server <br/> - Miembro del rol fijo del servidor sysadmin de SQL Server para cada instancia de SQL Server  |
 
 >[!NOTE]
-> Muchos de los pasos indicados en este tutorial ahora se pueden automatizar con [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell y la CLI de Azure](availability-group-az-cli-configure.md) y las [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md).
+> Muchos de los pasos indicados en este tutorial ahora se pueden automatizar con [Azure Portal](availability-group-azure-portal-configure.md), [PowerShell y la CLI de Azure](./availability-group-az-commandline-configure.md) y las [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -114,7 +114,7 @@ Agregue el otro servidor SQL Server al clúster.
    ![Agregar nodo de confirmación](./media/availability-group-manually-configure-tutorial/46-addnodeconfirmation.png)
 
    >[!WARNING]
-   >Si utiliza espacios de almacenamiento y no desactiva la casilla **Add all eligible storage to the cluster** (Agregar todo el almacenamiento apto al clúster), Windows separa los discos virtuales durante el proceso de agrupación en clústeres. Como resultado, no aparecen en el Administrador de discos ni en el Explorador hasta que se quiten los espacios de almacenamiento del clúster y se vuelvan a asociar mediante PowerShell. Espacios de almacenamiento agrupa varios discos en grupos de almacenamiento. Para obtener más información, consulte el artículo sobre [espacios de almacenamiento](https://technet.microsoft.com/library/hh831739).
+   >Si utiliza espacios de almacenamiento y no desactiva la casilla **Add all eligible storage to the cluster** (Agregar todo el almacenamiento apto al clúster), Windows separa los discos virtuales durante el proceso de agrupación en clústeres. Como resultado, no aparecen en el Administrador de discos ni en el Explorador hasta que se quiten los espacios de almacenamiento del clúster y se vuelvan a asociar mediante PowerShell. Espacios de almacenamiento agrupa varios discos en grupos de almacenamiento. Para obtener más información, consulte el artículo sobre [espacios de almacenamiento](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831739(v=ws.11)).
    >
 
 1. Seleccione **Next** (Siguiente).
@@ -127,7 +127,7 @@ Agregue el otro servidor SQL Server al clúster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Agregar un recurso compartido de cuórum de clúster
 
-En este ejemplo, el clúster de Windows usa un recurso compartido de archivos para crear un cuórum de clúster. Este tutorial utiliza un cuórum de mayoría de recurso compartido de archivos y nodo. Para más información, consulte [Descripción de las configuraciones de cuórum en un clúster de conmutación por error](https://technet.microsoft.com/library/cc731739.aspx).
+En este ejemplo, el clúster de Windows usa un recurso compartido de archivos para crear un cuórum de clúster. Este tutorial utiliza un cuórum de mayoría de recurso compartido de archivos y nodo. Para más información, consulte [Descripción de las configuraciones de cuórum en un clúster de conmutación por error](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731739(v=ws.11)).
 
 1. Conéctese al servidor miembro de testigo de recurso compartido de archivos con una sesión de Escritorio remoto.
 
@@ -176,7 +176,7 @@ A continuación, establezca el quórum de clúster.
 1. En **Seleccionar el testigo de quórum** , seleccione **Configurar un testigo de recurso compartido de archivos** .
 
    >[!TIP]
-   >Windows Server 2016 admite un testigo en la nube. Si elige este tipo de testigo, no necesita ningún testigo de recurso compartido de archivos. Para más información, consulte [Implementación de un testigo en la nube para un clúster de conmutación por error](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Este tutorial usa un testigo de recurso compartido de archivos, que es compatible con los sistemas operativos anteriores.
+   >Windows Server 2016 admite un testigo en la nube. Si elige este tipo de testigo, no necesita ningún testigo de recurso compartido de archivos. Para más información, consulte [Implementación de un testigo en la nube para un clúster de conmutación por error](/windows-server/failover-clustering/deploy-cloud-witness). Este tutorial usa un testigo de recurso compartido de archivos, que es compatible con los sistemas operativos anteriores.
    >
 
 1. En **Configurar un testigo de recurso compartido de archivos** , escriba la ruta de acceso para el recurso compartido que creó. Seleccione **Next** (Siguiente).
@@ -347,7 +347,7 @@ Ahora ya puede configurar un grupo de disponibilidad siguiendo estos pasos:
    ![Grupo de disponibilidad en el administrador de clústeres de conmutación por error](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
-   > No trate de realizar una conmutación por error del grupo de disponibilidad desde el Administrador de clústeres de conmutación por error. Todas las operaciones de conmutación por error deben realizarse desde el **Panel AlwaysOn** de SSMS. Para obtener más información, consulte el artículo de [restricciones en el uso del Administrador de clústeres de conmutación por error con grupos de disponibilidad](https://msdn.microsoft.com/library/ff929171.aspx).
+   > No trate de realizar una conmutación por error del grupo de disponibilidad desde el Administrador de clústeres de conmutación por error. Todas las operaciones de conmutación por error deben realizarse desde el **Panel AlwaysOn** de SSMS. Para obtener más información, consulte el artículo de [restricciones en el uso del Administrador de clústeres de conmutación por error con grupos de disponibilidad](/sql/database-engine/availability-groups/windows/failover-clustering-and-always-on-availability-groups-sql-server).
     >
 
 En este punto, tiene un grupo de disponibilidad con réplicas en dos instancias de SQL Server. Puede mover el grupo de disponibilidad entre instancias. No se puede conectar al grupo de disponibilidad aún porque no tiene un cliente de escucha. En Azure Virtual Machines, el agente de escucha requiere un equilibrador de carga. El siguiente paso consiste en crear el equilibrador de carga en Azure.
@@ -535,7 +535,7 @@ Para probar la conexión:
 La conexión SQLCMD se establece automáticamente con la instancia de SQL Server en la que se hospede la réplica principal.
 
 > [!TIP]
-> Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](https://technet.microsoft.com/library/cc753558.aspx) para más información.
+> Asegúrese de que el puerto especificado esté abierto en el firewall de los dos servidores SQL Server. En estos dos servidores, es necesario definir una regla de entrada para el puerto TCP. Consulte [Agregar o editar regla de firewall](/previous-versions/orphan-topics/ws.11/cc753558(v=ws.11)) para más información.
 >
 
 ## <a name="next-steps"></a>Pasos siguientes

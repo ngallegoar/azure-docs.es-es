@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f240247cbba0f80254d504792df45be55c6a1b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448906"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790413"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Procedimiento para migrar una base de datos de SQLite a Azure SQL Database sin servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -53,13 +53,13 @@ Una vez que haya realizado los pasos que aparecen a continuación, la base de da
     - Inicie ADF (Creación y supervisión desde el servicio en Azure Portal).
     - Haga clic en la pestaña "Creación" (lápiz azul) de la izquierda.
     - Haga clic en "Conexiones" (en la parte inferior izquierda) y después en "Entornos de ejecución de integración".
-    - Agregue un nuevo entorno de ejecución de integración autohospedado, asígnele un nombre y seleccione la *Opción 2*.
+    - Agregue un nuevo entorno de ejecución de integración autohospedado, asígnele un nombre y seleccione la *Opción 2* .
 
 5. Cree un nuevo servicio vinculado para la base de datos de SQLite de origen en Data Factory.
 
     ![Captura de pantalla que muestra la hoja de servicios vinculados vacía en Azure Data Factory](./media/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial/linked-services-create.png)
 
-6. En **Conexiones**, debajo de **Servicio vinculado**, haga clic en **Nuevo**.
+6. En **Conexiones** , debajo de **Servicio vinculado** , haga clic en **Nuevo** .
 
 7. Busque y seleccione el conector "ODBC".
 
@@ -109,4 +109,4 @@ Una vez que haya realizado los pasos que aparecen a continuación, la base de da
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para comenzar, consulte [Inicio rápido: Creación de una base de datos única en Azure SQL Database con Azure Portal](single-database-create-quickstart.md).
-- Para ver los límites de recursos, consulte [Límites de recursos del nivel de proceso sin servidor](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
+- Para ver los límites de recursos, consulte [Límites de recursos del nivel de proceso sin servidor](./resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

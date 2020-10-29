@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 9a081a28d4c96e3c38986cbb3c0990bc89c5ab99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5465fa63a3dff71de2e370281df9351e2bac76c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83684468"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790532"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -37,11 +37,11 @@ Son facturables las acciones siguientes realizadas por Storage Analytics:
 * Solicitudes para crear blobs para el registro
 * Solicitudes para crear entidades de tabla para las métricas
 
-Si ha configurado una directiva de retención de datos, no se le cobrarán las transacciones de eliminación cuando Storage Analytics elimine los antiguos datos de métricas y de registro. Sin embargo, las transacciones de eliminación desde un cliente sí son facturables. Para obtener más información acerca de las directivas de retención, consulte [Establecer una directiva de retención de datos de Storage Analytics](https://msdn.microsoft.com/library/azure/hh343263.aspx).
+Si ha configurado una directiva de retención de datos, no se le cobrarán las transacciones de eliminación cuando Storage Analytics elimine los antiguos datos de métricas y de registro. Sin embargo, las transacciones de eliminación desde un cliente sí son facturables. Para obtener más información acerca de las directivas de retención, consulte [Establecer una directiva de retención de datos de Storage Analytics](/rest/api/storageservices/Setting-a-Storage-Analytics-Data-Retention-Policy).
 
 ### <a name="understanding-billable-requests"></a>Descripción de las solicitudes facturables
 
-Las solicitudes realizadas al servicio de almacenamiento de una cuenta son facturables o no facturables. Storage Analytics registra cada solicitud realizada a un servicio, incluyendo un mensaje de estado que indica cómo se administró la solicitud. De igual forma, Storage Analytics guarda las métricas para un servicio y para las operaciones de la API de dicho servicio, incluidos los porcentajes y el recuento de algunos mensajes de estado. Todas estas características pueden ayudarle a analizar las solicitudes facturables, a llevar a cabo mejoras en la aplicación y a diagnosticar problemas en las solicitudes a los servicios. Para obtener más información sobre la facturación, consulte [Descripción de la facturación de Azure Storage: ancho de banda, transacciones y capacidad](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Las solicitudes realizadas al servicio de almacenamiento de una cuenta son facturables o no facturables. Storage Analytics registra cada solicitud realizada a un servicio, incluyendo un mensaje de estado que indica cómo se administró la solicitud. De igual forma, Storage Analytics guarda las métricas para un servicio y para las operaciones de la API de dicho servicio, incluidos los porcentajes y el recuento de algunos mensajes de estado. Todas estas características pueden ayudarle a analizar las solicitudes facturables, a llevar a cabo mejoras en la aplicación y a diagnosticar problemas en las solicitudes a los servicios. Para obtener más información sobre la facturación, consulte [Descripción de la facturación de Azure Storage: ancho de banda, transacciones y capacidad](/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 Al examinar los datos de Storage Analytics, puede usar las tablas del tema [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) para determinar qué solicitudes son facturables. De esta manera, podrá comparar los datos de métricas y de registro con los mensajes de estado para ver si se le cobró por una solicitud determinada. También puede usar las tablas del tema anterior para investigar la disponibilidad de un servicio de almacenamiento o de una operación de API determinada.
 

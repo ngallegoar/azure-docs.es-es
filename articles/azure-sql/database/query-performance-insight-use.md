@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: be7e4a641e5b5ac2ef755037142cfd8063d66b5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88b777e08bc165caefa14fe28d43c498e3fefcd
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448879"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790379"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Información de rendimiento de consultas para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Información de rendimiento de consultas proporciona un análisis inteligente de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Información de rendimiento de consultas requiere que el [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx) esté activo en la base de datos. Se habilita automáticamente para todas las bases de datos de Azure SQL Database de forma predeterminada. Si el Almacén de consultas no está en ejecución, Azure Portal le pedirá que lo habilite.
+Información de rendimiento de consultas requiere que el [Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) esté activo en la base de datos. Se habilita automáticamente para todas las bases de datos de Azure SQL Database de forma predeterminada. Si el Almacén de consultas no está en ejecución, Azure Portal le pedirá que lo habilite.
 
 > [!NOTE]
 > Si aparece un mensaje en el portal que dice que el Almacén de consultas no está configurado correctamente en esta base de datos, consulte [Optimización de la configuración del almacén de consultas](#optimize-the-query-store-configuration).
@@ -41,15 +41,15 @@ Información de rendimiento de consultas requiere que el [Almacén de consultas]
 
 Necesitará los siguientes permisos de [control de acceso basado en rol de Azure (Azure RBAC)](../../role-based-access-control/overview.md) para usar Información de rendimiento de consultas:
 
-* Se requieren permisos de **lector**, **propietario**, **colaborador**, **colaborador de base de datos SQL** o **colaborador de SQL Server** para ver las consultas y los gráficos que más recursos consumen.
-* Se requieren permisos de **propietario**, **colaborador**, **colaborador de base de datos SQL** o **colaborador de SQL Server** para ver el texto de la consulta.
+* Se requieren permisos de **lector** , **propietario** , **colaborador** , **colaborador de base de datos SQL** o **colaborador de SQL Server** para ver las consultas y los gráficos que más recursos consumen.
+* Se requieren permisos de **propietario** , **colaborador** , **colaborador de base de datos SQL** o **colaborador de SQL Server** para ver el texto de la consulta.
 
 ## <a name="use-query-performance-insight"></a>Uso de Información de rendimiento de consultas
 
 Query Performance Insight es fácil de usar:
 
 1. Abra [Azure Portal](https://portal.azure.com/) y busque la base de datos que quiere examinar.
-2. En el menú izquierdo, abra **Rendimiento inteligente** > **Información de rendimiento de consultas**.
+2. En el menú izquierdo, abra **Rendimiento inteligente** > **Información de rendimiento de consultas** .
   
    ![Información de rendimiento de consultas en el menú](./media/query-performance-insight-use/tile.png)
 
@@ -61,7 +61,7 @@ Query Performance Insight es fácil de usar:
    ![Panel de rendimiento](./media/query-performance-insight-use/performance.png)
 
 > [!NOTE]
-> Para que Azure SQL Database represente la información de Información de rendimiento de consultas, el Almacén de consultas debe capturar un par de horas de datos. Si la base de datos no tiene actividad o si el Almacén de consultas no ha estado activo durante un período determinado, los gráficos estarán vacíos cuando Información de rendimiento de consultas muestre ese intervalo de tiempo. Puede habilitar el Almacén de consultas en cualquier momento si no se está ejecutando. Para más información, consulte [Procedimiento recomendado con el Almacén de consultas](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store).
+> Para que Azure SQL Database represente la información de Información de rendimiento de consultas, el Almacén de consultas debe capturar un par de horas de datos. Si la base de datos no tiene actividad o si el Almacén de consultas no ha estado activo durante un período determinado, los gráficos estarán vacíos cuando Información de rendimiento de consultas muestre ese intervalo de tiempo. Puede habilitar el Almacén de consultas en cualquier momento si no se está ejecutando. Para más información, consulte [Procedimiento recomendado con el Almacén de consultas](/sql/relational-databases/performance/best-practice-with-the-query-store).
 >
 
 Para ver las recomendaciones de rendimiento de base de datos, seleccione [Recommendations](database-advisor-implement-performance-recommendations.md) (Recomendaciones) en la hoja de navegación de Información de rendimiento de consultas.
@@ -74,7 +74,7 @@ De forma predeterminada, Información de rendimiento de consultas muestra las ci
 
 1. Use las casillas para seleccionar o deseleccionar las distintas consultas para incluirlas o excluirlas del gráfico.
 
-   La línea superior muestra el porcentaje general de DTU para la base de datos. Las barras muestran el porcentaje de CPU que consumen las consultas seleccionadas durante el intervalo seleccionado. Por ejemplo, si se selecciona **Semana anterior**, cada barra representa un solo día.
+   La línea superior muestra el porcentaje general de DTU para la base de datos. Las barras muestran el porcentaje de CPU que consumen las consultas seleccionadas durante el intervalo seleccionado. Por ejemplo, si se selecciona **Semana anterior** , cada barra representa un solo día.
 
    ![Principales consultas](./media/query-performance-insight-use/top-queries.png)
 
@@ -85,9 +85,9 @@ De forma predeterminada, Información de rendimiento de consultas muestra las ci
    >
    > Para una comparación más precisa (hasta un minuto), considere la posibilidad de crear un gráfico de utilización de DTU personalizado:
    >
-   > 1. En Azure Portal, seleccione **Azure SQL Database** > **Supervisión**.
-   > 2. Seleccione **Métricas**.
-   > 3. Seleccione **+Agregar un gráfico**.
+   > 1. En Azure Portal, seleccione **Azure SQL Database** > **Supervisión** .
+   > 2. Seleccione **Métricas** .
+   > 3. Seleccione **+Agregar un gráfico** .
    > 4. Seleccione el porcentaje de DTU en el gráfico.
    > 5. Además, seleccione **Últimas 24 horas** en el menú superior izquierdo y cámbielo a un minuto.
    >
@@ -100,7 +100,7 @@ De forma predeterminada, Información de rendimiento de consultas muestra las ci
    * La duración por consulta, que también depende de la función de agregación.
    * El número total de ejecuciones de una consulta específica.
 
-2. Si los datos se vuelven obsoletos, haga clic en el botón **Actualizar**.
+2. Si los datos se vuelven obsoletos, haga clic en el botón **Actualizar** .
 
 3. Puede usar los controles deslizantes y botones de zoom para cambiar el intervalo de observación e investigar los picos de consumo:
 
@@ -160,7 +160,7 @@ Las consultas de larga ejecución tienen el máximo potencial para bloquear recu
 Para identificar consultas de larga ejecución:
 
 1. Abra la pestaña **Custom** (Personalizado) en Información de rendimiento de consultas para la base de datos seleccionada.
-2. Cambie las métricas a **duración**.
+2. Cambie las métricas a **duración** .
 3. Seleccione el número de consultas y el intervalo de observación.
 4. Seleccione la función de agregación:
 
@@ -177,9 +177,9 @@ Para identificar consultas de larga ejecución:
    >
    > Para comprender el consumo de DTU de la base de datos con más detalle (hasta un minuto), considere la posibilidad de crear un gráfico personalizado en Azure Portal:
    >
-   > 1. Seleccione **Azure SQL Database** > **Supervisión**.
-   > 2. Seleccione **Métricas**.
-   > 3. Seleccione **+Agregar un gráfico**.
+   > 1. Seleccione **Azure SQL Database** > **Supervisión** .
+   > 2. Seleccione **Métricas** .
+   > 3. Seleccione **+Agregar un gráfico** .
    > 4. Seleccione el porcentaje de DTU en el gráfico.
    > 5. Además, seleccione **Últimas 24 horas** en el menú superior izquierdo y cámbielo a un minuto.
    >
@@ -197,7 +197,7 @@ Por ejemplo, muchos sitios web controlados por datos tienen acceso en gran medid
 Para identificar las consultas que se ejecutan con frecuencia ("fragmentadas"):
 
 1. Abra la pestaña **Custom** (Personalizado) en Información de rendimiento de consultas para la base de datos seleccionada.
-2. Cambiar las métricas a **recuento de ejecuciones**.
+2. Cambiar las métricas a **recuento de ejecuciones** .
 3. Seleccione el número de consultas y el intervalo de observación.
 4. Seleccione el botón **Go >** (Ir >) para ver la vista personalizada.
 
@@ -232,22 +232,22 @@ El primer caso sucede si el Almacén de consultas está en estado de solo lectur
 
    ![Detalles del Almacén de consultas](./media/query-performance-insight-use/qds-off.png)
 
-El segundo caso sucede cuando el Almacén de consultas no está habilitado o los parámetros no están establecidos de manera óptima. Puede cambiar la directiva de retención y captura y también habilitar el Almacén de consultas mediante la ejecución de los siguientes comandos proporcionados en [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o Azure Portal.
+El segundo caso sucede cuando el Almacén de consultas no está habilitado o los parámetros no están establecidos de manera óptima. Puede cambiar la directiva de retención y captura y también habilitar el Almacén de consultas mediante la ejecución de los siguientes comandos proporcionados en [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) o Azure Portal.
 
 ### <a name="recommended-retention-and-capture-policy"></a>Directiva de retención y captura recomendada
 
 Hay dos tipos de directivas de retención:
 
-* **Basada en el tamaño**: si se establece en **AUTOMÁTICA**, los datos se borran automáticamente cuando se haya alcanzado casi el tamaño máximo.
-* **Basada en el tiempo**: de forma predeterminada, esta directiva se establece en 30 días. Si el Almacén de consultas se queda sin espacio, eliminará la información de consultas que tenga más de 30 días.
+* **Basada en el tamaño** : si se establece en **AUTOMÁTICA** , los datos se borran automáticamente cuando se haya alcanzado casi el tamaño máximo.
+* **Basada en el tiempo** : de forma predeterminada, esta directiva se establece en 30 días. Si el Almacén de consultas se queda sin espacio, eliminará la información de consultas que tenga más de 30 días.
 
 Puede establecer la directiva de captura en:
 
-* **Todos**: el Almacén de consultas captura todas las consultas.
-* **Automático**: el Almacén de consultas ignora las consultas poco frecuentes y las consultas con una duración de ejecución y compilación insignificante. Los umbrales del recuento de ejecuciones, la duración de compilación y la duración del tiempo de ejecución se determinan internamente. Ésta es la opción predeterminada.
-* **Ninguna**: el Almacén de consultas deja de capturar nuevas consultas, pero se siguen recopilando estadísticas del tiempo de ejecución de las consultas ya capturadas.
+* **Todos** : el Almacén de consultas captura todas las consultas.
+* **Automático** : el Almacén de consultas ignora las consultas poco frecuentes y las consultas con una duración de ejecución y compilación insignificante. Los umbrales del recuento de ejecuciones, la duración de compilación y la duración del tiempo de ejecución se determinan internamente. Ésta es la opción predeterminada.
+* **Ninguna** : el Almacén de consultas deja de capturar nuevas consultas, pero se siguen recopilando estadísticas del tiempo de ejecución de las consultas ya capturadas.
 
-Se recomienda establecer todas las directivas en **Automática** y la directiva de limpieza en 30 días mediante la ejecución de los siguientes comandos desde [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o Azure Portal. (Reemplace `YourDB` por el nombre de la base de datos).
+Se recomienda establecer todas las directivas en **Automática** y la directiva de limpieza en 30 días mediante la ejecución de los siguientes comandos desde [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) o Azure Portal. (Reemplace `YourDB` por el nombre de la base de datos).
 
 ```sql
     ALTER DATABASE [YourDB]
@@ -260,7 +260,7 @@ Se recomienda establecer todas las directivas en **Automática** y la directiva 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 ```
 
-Aumente el tamaño del Almacén de consultas; para ello, conéctese a una base de datos mediante [SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) o Azure Portal y ejecute la consulta siguiente. (Reemplace `YourDB` por el nombre de la base de datos).
+Aumente el tamaño del Almacén de consultas; para ello, conéctese a una base de datos mediante [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) o Azure Portal y ejecute la consulta siguiente. (Reemplace `YourDB` por el nombre de la base de datos).
 
 ```SQL
     ALTER DATABASE [YourDB]

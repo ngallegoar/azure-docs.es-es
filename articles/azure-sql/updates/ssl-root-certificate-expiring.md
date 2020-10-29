@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: a273b9aaae083bb4566d289e9680b50c686d4e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91340080"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792538"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Descripción de los cambios en la entidad de certificación raíz en Azure SQL Database y SQL Managed Instance
 
@@ -34,7 +34,7 @@ Si actualmente no usa SSL/TLS, este cambio no afecta a la disponibilidad de apli
 
 Si el controlador de cliente utiliza el almacén de certificados del sistema operativo, como es el caso de la mayoría de los controladores, y el sistema operativo se mantiene regularmente, es probable que este cambio no le afecte, ya que el certificado raíz al que se va a cambiar debe estar disponible en el almacén de certificados raíz de confianza. Busque Baltimore CyberDigiCert GlobalRoot G2 y valide que exista.
 
-Si el controlador de cliente utiliza el almacén de certificados de archivo local, para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **¿Qué tengo que hacer para mantener la conectividad?** ](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity)
+Si el controlador de cliente utiliza el almacén de certificados de archivo local, para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados, o para actualizar un certificado que se ha revocado, consulte la sección [ **¿Qué tengo que hacer para mantener la conectividad?**](./ssl-root-certificate-expiring.md#what-do-i-need-to-do-to-maintain-connectivity)
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>¿Qué tengo que hacer para mantener la conectividad?
 
@@ -44,7 +44,7 @@ Para evitar que se interrumpa la disponibilidad de la aplicación debido a la re
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
     *   https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem
 
-*   Genere un almacén de certificados de CA combinado que incluya los certificados **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2**.
+*   Genere un almacén de certificados de CA combinado que incluya los certificados **BaltimoreCyberTrustRoot** y **DigiCertGlobalRootG2** .
 
 ## <a name="what-can-be-the-impact"></a>¿Cuál puede ser el efecto?
 Si va a validar los certificados de servidor como se documenta aquí, la disponibilidad de la aplicación puede verse interrumpida, ya que no se podrá acceder a la base de datos. Según la aplicación, puede recibir distintos mensajes de error, entre los que se incluyen los siguientes:
@@ -79,4 +79,4 @@ Puesto que esta actualización es un cambio en el lado cliente, si el cliente le
 Dado que esta configuración es en el lado cliente, la información no está disponible en el lado del servidor.
 
 ### <a name="what-if-i-have-further-questions"></a>¿Qué hago si tengo más preguntas?
-Si tiene un plan de soporte técnico y necesita ayuda técnica, cree una solicitud de soporte técnico de Azure. Para ello, consulte [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+Si tiene un plan de soporte técnico y necesita ayuda técnica, cree una solicitud de soporte técnico de Azure. Para ello, consulte [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

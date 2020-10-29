@@ -10,16 +10,16 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 05/29/2020
 ms.author: ambapat
-ms.openlocfilehash: 33249da6772d146de3e5e7351bc82c203674ddff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4ef77dee8eb3cad753aca54a77aeedd166f142
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532144"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784565"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importación de claves protegidas con HSM en Key Vault
 
-Para obtener una mayor seguridad, cuando utilice Azure Key Vault, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Con frecuencia este escenario se conoce también como *Aportar tu propia clave*, o BYOK. En Azure Key Vault se usa la familia nCipher nShield de HSM (validado con FIPS 140-2 de nivel 2) para proteger las claves.
+Para obtener una mayor seguridad, cuando utilice Azure Key Vault, puede importar o generar claves en módulos de seguridad de hardware (HSM) que no se salen nunca del límite de los HSM. Con frecuencia este escenario se conoce también como *Aportar tu propia clave* , o BYOK. En Azure Key Vault se usa la familia nCipher nShield de HSM (validado con FIPS 140-2 de nivel 2) para proteger las claves.
 
 Esta funcionalidad no está disponible para Azure China 21Vianet.
 
@@ -43,4 +43,4 @@ La transferencia de claves protegidas con HSM a Key Vault se admite a través de
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Siga [Procedimientos recomendados de Key Vault](../general/best-practices.md) para garantizar la seguridad, la durabilidad y la supervisión de las claves.
-* Consulte la [especificación de BYOK](https://docs.microsoft.com/azure/key-vault/keys/byok-specification) para obtener una descripción completa del nuevo método BYOK.
+* Consulte la [especificación de BYOK](./byok-specification.md) para obtener una descripción completa del nuevo método BYOK.

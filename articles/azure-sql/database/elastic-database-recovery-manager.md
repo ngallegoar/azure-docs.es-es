@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: fdd5f7d291d9c56361c17547628795b378091109
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bcd998849c619a328a198c97bb8c977b9d8232
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443450"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792232"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso de la clase RecoveryManager para solucionar problemas de mapas de particiones
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-La clase [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) proporciona a las aplicaciones ADO.NET la capacidad de detectar y corregir fácilmente las incoherencias entre el mapa de particiones global y el mapa de particiones local en un entorno de base de datos con particiones.
+La clase [RecoveryManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) proporciona a las aplicaciones ADO.NET la capacidad de detectar y corregir fácilmente las incoherencias entre el mapa de particiones global y el mapa de particiones local en un entorno de base de datos con particiones.
 
 Los mapas de particiones global y local realizan un seguimiento de la asignación de cada base de datos en un entorno con particiones. En ocasiones, se produce una interrupción entre el GSM y el LSM. En ese caso, utilice la clase RecoveryManager para detectar y reparar la interrupción.
 
@@ -37,7 +37,7 @@ En un entorno de base de datos particionada, hay un inquilino por base de datos 
 
 Puede que GSM y LSM no estén sincronizados por los motivos siguientes:
 
-1. La eliminación de una partición cuyo intervalo se considera que ya no está en uso o el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana**. De igual forma, una base de datos cuyo nombre cambió puede provocar una asignación de particiones huérfanas. En función de cuál sea el objetivo del cambio, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. Para recuperar una base de datos eliminada, consulte el artículo que explica cómo [restaurar una base de datos eliminada](recovery-using-backups.md).
+1. La eliminación de una partición cuyo intervalo se considera que ya no está en uso o el cambio de nombre de una partición. La eliminación de una partición da como resultado una **asignación de particiones huérfana** . De igual forma, una base de datos cuyo nombre cambió puede provocar una asignación de particiones huérfanas. En función de cuál sea el objetivo del cambio, puede que tenga que quitar la partición o simplemente actualizar la ubicación de la partición. Para recuperar una base de datos eliminada, consulte el artículo que explica cómo [restaurar una base de datos eliminada](recovery-using-backups.md).
 2. Se produce un evento de conmutación por error geográfica. Para continuar, se debe actualizar el nombre del servidor y el nombre de la base de datos del administrador de mapas de particiones en la aplicación y luego actualizar los detalles de la asignación de particiones de todas las particiones de un mapa de particiones. Si hay una conmutación por error geográfica, se debería automatizar esa lógica de recuperación en el flujo de trabajo de conmutación por error. La automatización de las acciones de recuperación permite una capacidad de administración sin contacto para bases de datos habilitadas geográficamente y evita acciones humanas manuales. Para descubrir las opciones de recuperación de una base de datos tras una posible interrupción del centro de datos, consulte los temas sobre la [continuidad empresarial](business-continuity-high-availability-disaster-recover-hadr-overview.md) y la [recuperación ante desastres](disaster-recovery-guidance.md).
 3. Se restaura la partición o la base de datos de ShardMapManager al anterior punto de tiempo. Para obtener información sobre la recuperación a un momento dado mediante copias de seguridad, consulte [este artículo](recovery-using-backups.md).
 
@@ -49,7 +49,7 @@ Para obtener más información sobre las herramientas de Elastic Database de Azu
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Recuperación de RecoveryManager desde un ShardMapManager
 
-El primer paso es crear una instancia de RecoveryManager. El [método GetRecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) devuelve Recovery Manager para la instancia de [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) actual. Para resolver las incoherencias en la asignación de particiones, primero debe recuperar RecoveryManager para el mapa de partición particular.
+El primer paso es crear una instancia de RecoveryManager. El [método GetRecoveryManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) devuelve Recovery Manager para la instancia de [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) actual. Para resolver las incoherencias en la asignación de particiones, primero debe recuperar RecoveryManager para el mapa de partición particular.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
@@ -63,7 +63,7 @@ Como este código de aplicación manipula el mapa de particiones propiamente dic
 
 ## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Supresión de una partición de ShardMap después de eliminar una partición
 
-El [método DetachShard](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) desasocia la partición determinada del mapa de particiones y elimina las asignaciones asociadas a la partición.  
+El [método DetachShard](/previous-versions/azure/dn842083(v=azure.100)) desasocia la partición determinada del mapa de particiones y elimina las asignaciones asociadas a la partición.  
 
 * El parámetro location es la ubicación de la partición, específicamente el nombre del servidor y el nombre de la base de datos de la partición que se va a desasociar.
 * El parámetro shardMapName es el nombre del mapa de particiones. Solo es necesario cuando se administran varios mapas de particiones por el mismo administrador de mapas de particiones. Opcional.
@@ -83,7 +83,7 @@ Puesto que se supone que la eliminación de la base de datos era intencionada, l
 
 ## <a name="to-detect-mapping-differences"></a>Para detectar las diferencias de asignación
 
-El [método DetectMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) selecciona y devuelve uno de los mapas de particiones (local o global) como el origen de datos y reconcilia las asignaciones en ambos mapas de particiones (global y local).
+El [método DetectMappingDifferences](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) selecciona y devuelve uno de los mapas de particiones (local o global) como el origen de datos y reconcilia las asignaciones en ambos mapas de particiones (global y local).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
@@ -94,19 +94,19 @@ El [método DetectMappingDifferences](https://docs.microsoft.com/dotnet/api/micr
 
 ## <a name="to-resolve-mapping-differences"></a>Para resolver diferencias de asignación
 
-El [método ResolveMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) selecciona uno de los mapas de particiones (local o global) como origen de datos y concilia las asignaciones en ambos mapas de particiones (global y local).
+El [método ResolveMappingDifferences](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) selecciona uno de los mapas de particiones (local o global) como origen de datos y concilia las asignaciones en ambos mapas de particiones (global y local).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
 * El parámetro *RecoveryToken* enumera las diferencias en las asignaciones entre los mapas de particiones global y local para la partición específica.
-* La enumeración [MappingDifferenceResolution](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) se usa para indicar el método para resolver la diferencia entre las asignaciones de particiones.
+* La enumeración [MappingDifferenceResolution](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) se usa para indicar el método para resolver la diferencia entre las asignaciones de particiones.
 * Se recomienda **MappingDifferenceResolution.KeepShardMapping** cuando el mapa de particiones local contenga la asignación precisa y, por tanto, se deba usar la asignación en la partición. Suele ser el caso de una conmutación por error: la partición ahora reside en un servidor nuevo. Como se debe quitar primero la partición del mapa de particiones global (mediante el método RecoveryManager.DetachShard), ya no existe una asignación en el mapa de particiones global. Por lo tanto, debe usarse el mapa de particiones local para volver a establecer la asignación de particiones.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Anexión de una partición al mapa de particiones después de restaurar una partición
 
-El [método AttachShard](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) asocia una partición determinada con el mapa de particiones. Detecta entonces cualquier inconsistencia en el mapa de particiones y actualiza las asignaciones para que coincidan con la partición en el punto de la restauración de las particiones. Se supone que la base de datos se cambia también para reflejar el nombre de la base de datos original (antes de la restauración de la partición), dado que el valor predeterminado de la restauración en un momento dado es una nueva base de datos anexada con la marca de tiempo.
+El [método AttachShard](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) asocia una partición determinada con el mapa de particiones. Detecta entonces cualquier inconsistencia en el mapa de particiones y actualiza las asignaciones para que coincidan con la partición en el punto de la restauración de las particiones. Se supone que la base de datos se cambia también para reflejar el nombre de la base de datos original (antes de la restauración de la partición), dado que el valor predeterminado de la restauración en un momento dado es una nueva base de datos anexada con la marca de tiempo.
 
    ```java
    rm.AttachShard(location, shardMapName)

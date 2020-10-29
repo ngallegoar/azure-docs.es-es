@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332991"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791450"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Procedimientos recomendados de Azure SQL Data Sync 
 
@@ -41,11 +41,11 @@ Para obtener información general acerca de SQL Data Sync, consulte [Sincronizac
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Cuentas de base de datos con los mínimos privilegios requeridos
 
--   **Para la configuración de la sincronización**. Crear/modificar tabla, modificar base de datos, crear procedimiento, seleccionar/modificar esquema, crear el tipo definido por el usuario.
+-   **Para la configuración de la sincronización** . Crear/modificar tabla, modificar base de datos, crear procedimiento, seleccionar/modificar esquema, crear el tipo definido por el usuario.
 
--   **Para la sincronización en curso**. Seleccionar/insertar/actualizar/eliminar en tablas seleccionadas para la sincronización y en tablas de seguimiento y metadatos de la sincronización, ejecutar un permiso en procedimientos almacenados creados por el servicio, ejecutar un permiso en tipos de tablas definidas por el usuario.
+-   **Para la sincronización en curso** . Seleccionar/insertar/actualizar/eliminar en tablas seleccionadas para la sincronización y en tablas de seguimiento y metadatos de la sincronización, ejecutar un permiso en procedimientos almacenados creados por el servicio, ejecutar un permiso en tipos de tablas definidas por el usuario.
 
--   **Para el desaprovisionamiento**. Modificar en tablas que formen parte de la sincronización, seleccionar/eliminar en tablas de metadatos de la sincronización, controlar en tablas de seguimiento de la sincronización, procedimientos almacenados y tipos definidos por el usuario.
+-   **Para el desaprovisionamiento** . Modificar en tablas que formen parte de la sincronización, seleccionar/eliminar en tablas de metadatos de la sincronización, controlar en tablas de seguimiento de la sincronización, procedimientos almacenados y tipos definidos por el usuario.
 
 Azure SQL Database solo admite un único conjunto de credenciales. Para realizar estas tareas dentro de esta restricción, tenga en cuenta las siguientes opciones:
 
@@ -168,7 +168,7 @@ Supervise el estado del grupo de sincronización y la base de datos con regulari
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Evitar bases de datos y grupos de sincronización obsoletos
 
-Un grupo de sincronización o una base de datos de un grupo de sincronización pueden llegar a estar obsoletos. Cuando el estado de un grupo de sincronización es **obsoleto**, deja de funcionar. Cuando el estado de la base de datos es **obsoleto**, se pueden perder datos. Es mejor evitar esta situación en lugar de intentar recuperarse de este error.
+Un grupo de sincronización o una base de datos de un grupo de sincronización pueden llegar a estar obsoletos. Cuando el estado de un grupo de sincronización es **obsoleto** , deja de funcionar. Cuando el estado de la base de datos es **obsoleto** , se pueden perder datos. Es mejor evitar esta situación en lugar de intentar recuperarse de este error.
 
 #### <a name="avoid-out-of-date-databases"></a>Evitar bases de datos obsoletas
 
@@ -238,7 +238,7 @@ Para más información acerca de SQL Data Sync, consulte:
         -  [Uso de PowerShell para sincronizar varias bases de datos de Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Uso de PowerShell para sincronizar una base de datos de SQL Database y una base de datos de una instancia de SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agente de sincronización de datos: [Agente de sincronización de datos para Azure SQL Data Sync](sql-data-sync-agent-overview.md)
--   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](sql-data-sync-monitor-sync.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
+-   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 -   Solución de problemas: [Solución de problemas de Azure SQL Data Sync](sql-data-sync-troubleshoot.md)
 -   Actualización del esquema de sincronización
     -   Con Transact-SQL: [Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync](sql-data-sync-update-sync-schema.md)
@@ -247,4 +247,4 @@ Para más información acerca de SQL Data Sync, consulte:
 Para obtener más información sobre SQL Database, vea:
 
 -   [Información general de SQL Database](sql-database-paas-overview.md)
--   [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Administración del ciclo de vida de las aplicaciones](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

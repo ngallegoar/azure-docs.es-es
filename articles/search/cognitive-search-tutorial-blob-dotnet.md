@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 340cdd97e7097a9fe6f0653d9f50f5a5cc41f890
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: da7a80842bec68fde8cc44401bb04c2dd061741f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740943"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787965"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Tutorial: Contenido de blobs de Azure con capacidad de búsqueda y generado mediante inteligencia artificial con el SDK de .NET
 
@@ -52,7 +52,7 @@ Los datos de ejemplo constan de 14 archivos de tipo de contenido mixto que se c
 
 1. Abra esta [carpeta de OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) y, en la esquina superior izquierda, haga clic en **Descargar** para copiar los archivos en el equipo. 
 
-1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo**. Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
+1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** . Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
 
 Si lo desea, puede descargar el código fuente de este tutorial. El código fuente está en la carpeta **tutorial-ai-enrichment/v11** del repositorio [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
@@ -64,7 +64,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 ### <a name="start-with-azure-storage"></a>Comienzo con Azure Storage
 
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso**.
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso** .
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
@@ -72,21 +72,21 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
-   * **Grupo de recursos**. Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
+   * **Grupo de recursos** . Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
 
-   * **Nombre de cuenta de almacenamiento**. Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus*. 
+   * **Nombre de cuenta de almacenamiento** . Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus* . 
 
-   * **Ubicación**. Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
+   * **Ubicación** . Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
 
-   * **Tipo de cuenta**. Elija el valor predeterminado, *StorageV2 (uso general v2)* .
+   * **Tipo de cuenta** . Elija el valor predeterminado, *StorageV2 (uso general v2)* .
 
 1. Haga clic en **Revisar y crear** para crear el servicio.
 
 1. Una vez creado, haga clic en **Go to the resource** (Ir al recurso) para abrir la página de información general.
 
-1. Haga clic en el servicio **Blobs**.
+1. Haga clic en el servicio **Blobs** .
 
-1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo*.
+1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo* .
 
 1. Seleccione *cog-search-demo* y haga clic en **Cargar** para abrir la carpeta en la que guardó los archivos de descarga. Seleccione los catorce archivos y haga clic en **Aceptar** para cargarlos.
 
@@ -124,11 +124,11 @@ Para interactuar con el servicio Azure Cognitive Search, necesitará la direcci�
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
-1. En **Configuración** > **Claves**, copie una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+1. En **Configuración** > **Claves** , copie una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-javascript/service-name-and-keys.png)
 
 Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
@@ -146,7 +146,7 @@ Para este proyecto, instale la versión 11 u otra versión posterior de `Azure.
 
 1. Busque [Azure.Search.Document](https://www.nuget.org/packages/Azure.Search.Documents).
 
-1. Seleccione la versión más reciente y haga clic en **Instalar**.
+1. Seleccione la versión más reciente y haga clic en **Instalar** .
 
 1. Repita los pasos anteriores para instalar [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/Microsoft.Extensions.Configuration) y [Microsoft.Extensions.Configuration.Json](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Json).
 
@@ -154,11 +154,11 @@ Para este proyecto, instale la versión 11 u otra versión posterior de `Azure.
 
 1. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y seleccione **Agregar** > **Nuevo elemento...** 
 
-1. Asigne el nombre `appsettings.json` al archivo y seleccione **Agregar**. 
+1. Asigne el nombre `appsettings.json` al archivo y seleccione **Agregar** . 
 
 1. Incluya este archivo en el directorio de salida.
-    1. Haga clic con el botón derecho en `appsettings.json` y seleccione **Propiedades**. 
-    1. Cambie el valor de **Copiar en el directorio de salida** a **Copiar si es posterior**.
+    1. Haga clic con el botón derecho en `appsettings.json` y seleccione **Propiedades** . 
+    1. Cambie el valor de **Copiar en el directorio de salida** a **Copiar si es posterior** .
 
 1. Copie el siguiente código JSON en el nuevo archivo JSON.
 
@@ -173,7 +173,7 @@ Para este proyecto, instale la versión 11 u otra versión posterior de `Azure.
 
 Agregue la información del servicio de búsqueda y de la cuenta de almacenamiento de blobs. Recuerde que puede obtener esta información en los pasos de aprovisionamiento del servicio indicados en la sección anterior.
 
-En **SearchServiceUri**, escriba la dirección URL completa.
+En **SearchServiceUri** , escriba la dirección URL completa.
 
 ### <a name="add-namespaces"></a>Agregar espacios de nombres
 
@@ -285,7 +285,7 @@ Compile y ejecute la solución. Puesto que se trata de su primera solicitud, con
 
 ### <a name="step-2-create-a-skillset"></a>Paso 2: Creación de un conjunto de aptitudes
 
-En esta sección, definirá un conjunto de pasos de enriquecimiento que quiere aplicar en los datos. Cada paso de enriquecimiento se denomina una *aptitud*, mientras que el conjunto de pasos de enriquecimiento se llama un *conjunto de aptitudes*. Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
+En esta sección, definirá un conjunto de pasos de enriquecimiento que quiere aplicar en los datos. Cada paso de enriquecimiento se denomina una *aptitud* , mientras que el conjunto de pasos de enriquecimiento se llama un *conjunto de aptitudes* . Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
 
 * [Reconocimiento óptico de caracteres](cognitive-search-skill-ocr.md) para reconocer texto escrito a mano e impreso en los archivos de imagen.
 
@@ -377,7 +377,7 @@ private static MergeSkill CreateMergeSkill()
 
 ### <a name="language-detection-skill"></a>Aptitud Detección de idioma
 
-La aptitud **Detección de idioma** detecta el idioma del texto de entrada e informa de un único código de idioma para cada documento enviado en la solicitud. Vamos a usar la salida de la aptitud **Detección de idioma** como parte de la entrada de la aptitud **División de texto**.
+La aptitud **Detección de idioma** detecta el idioma del texto de entrada e informa de un único código de idioma para cada documento enviado en la solicitud. Vamos a usar la salida de la aptitud **Detección de idioma** como parte de la entrada de la aptitud **División de texto** .
 
 ```csharp
 private static LanguageDetectionSkill CreateLanguageDetectionSkill()
@@ -580,7 +580,7 @@ En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
 Los campos de este índice se definen mediante una clase de modelo. Cada propiedad de la clase de modelo tiene atributos que determinan los comportamientos relacionados con la búsqueda del campo de índice correspondiente. 
 
-Vamos a agregar la clase del modelo a un nuevo archivo de C#. Haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento...** , seleccione "Class" y el nombre del archivo `DemoIndex.cs`. Luego, seleccione **Agregar**.
+Vamos a agregar la clase del modelo a un nuevo archivo de C#. Haga clic con el botón derecho en el proyecto y seleccione **Agregar** > **Nuevo elemento...** , seleccione "Class" y el nombre del archivo `DemoIndex.cs`. Luego, seleccione **Agregar** .
 
 Asegúrese de indicar que quiere usar tipos de los espacios de nombres `Azure.Search.Documents.Indexes` y `System.Text.Json.Serialization`.
 
@@ -826,13 +826,13 @@ En las aplicaciones de consola del tutorial de Azure Cognitive Search, normalmen
 
 La opción más sencilla es usar el [Explorador de búsqueda](search-explorer.md) en el portal. En primer lugar, puede ejecutar una consulta vacía que devuelva todos los documentos o una búsqueda más concreta que devuelva el nuevo contenido del campo creado por la canalización. 
 
-1. En Azure Portal, en la página de información general de la búsqueda, seleccione **Índices**.
+1. En Azure Portal, en la página de información general de la búsqueda, seleccione **Índices** .
 
 1. Busque **`demoindex`** en la lista. Debería tener 14 documentos. Si el número de documentos es cero, significa que el indexador se sigue ejecutando o que la página aún no se ha actualizado. 
 
-1. Seleccione **`demoindex`**. Explorador de búsqueda es la primera pestaña.
+1. Seleccione **`demoindex`** . Explorador de búsqueda es la primera pestaña.
 
-1. Se podrán realizar búsquedas en el contenido en cuanto se cargue el primer documento. Para comprobar que el contenido existe, ejecute una consulta sin especificar haciendo clic en **Buscar**. Esta consulta devuelve todos los documentos indexados actualmente, lo que le da una idea de lo que contiene el índice.
+1. Se podrán realizar búsquedas en el contenido en cuanto se cargue el primer documento. Para comprobar que el contenido existe, ejecute una consulta sin especificar haciendo clic en **Buscar** . Esta consulta devuelve todos los documentos indexados actualmente, lo que le da una idea de lo que contiene el índice.
 
 1. Luego, pegue la cadena siguiente para obtener resultados más fáciles de administrar: `search=*&$select=id, languageCode, organizations`
 

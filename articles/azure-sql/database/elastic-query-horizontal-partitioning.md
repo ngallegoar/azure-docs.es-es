@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443122"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792113"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Informes de bases de datos escaladas horizontalmente en la nube (vista previa)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Para bases de datos no particionadas, consulte [Consulta de bases de datos elás
 
 Estas instrucciones crean la representación de los metadatos de la capa de datos particionada en la base de datos de consulta elástica.
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Creación de clave maestra y credenciales con ámbito de base de datos
 
@@ -163,7 +163,7 @@ La cláusula DISTRIBUTION especifica la distribución de datos que se usa en est
 2. **REPLICATED** significa que copias idénticas de la tabla están presentes en cada base de datos. Es responsabilidad suya asegurarse de que las réplicas son idénticas en las bases de datos.
 3. **ROUND\_ROBIN** significa que la tabla tiene particiones horizontales mediante un método de distribución que depende de la aplicación.
 
-**Referencia de capa de datos**: el DDL de tabla externa hace referencia a un origen de datos externo. El origen de datos externo especifica un mapa de particiones que proporciona a la tabla externa la información necesaria para localizar todas las bases de datos en la capa de datos.
+**Referencia de capa de datos** : el DDL de tabla externa hace referencia a un origen de datos externo. El origen de datos externo especifica un mapa de particiones que proporciona a la tabla externa la información necesaria para localizar todas las bases de datos en la capa de datos.
 
 ### <a name="security-considerations"></a>Consideraciones sobre la seguridad
 
@@ -194,7 +194,7 @@ La consulta siguiente realiza una combinación en tres direcciones entre almacen
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedimiento almacenado para la ejecución remota de T-SQL: sp\_execute_remote
 
-La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a las particiones. El procedimiento almacenado se denomina [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) y sirve para ejecutar procedimientos almacenados remotos o código T-SQL en bases de datos remotas. Toma los parámetros siguientes:
+La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a las particiones. El procedimiento almacenado se denomina [sp\_execute\_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) y sirve para ejecutar procedimientos almacenados remotos o código T-SQL en bases de datos remotas. Toma los parámetros siguientes:
 
 * Nombre de origen de datos (nvarchar): nombre del origen de datos externo de tipo RDBMS.
 * Consulta (nvarchar): la consulta T-SQL que se va a ejecutar en cada partición.
@@ -228,7 +228,7 @@ Use cadenas de conexión de SQL Server normales para conectar su aplicación, su
 * Para obtener un tutorial sobre la creación de particiones verticales, consulte [Introducción a las consultas entre bases de datos (particiones verticales)](elastic-query-getting-started-vertical.md).
 * Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento vertical, consulte [Consulta de datos particionados verticalmente](elastic-query-vertical-partitioning.md)
 * Para obtener un tutorial sobre la creación de particiones horizontales (particionamiento), consulte [Introducción a las consultas elásticas para las particiones horizontales (particionamiento)](elastic-query-getting-started.md).
-* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
+* Consulte [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png

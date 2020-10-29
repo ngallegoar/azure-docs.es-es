@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 8e64e1a63b01e900988c999321423dfe92df00c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335082"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789631"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: Implementación de una base de datos distribuida geográficamente (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
 
@@ -47,9 +47,9 @@ Para completar el tutorial, asegúrese de que instaló los elementos siguientes:
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
-  > El tutorial usa la base de datos de ejemplo de *AdventureWorksLT*.
+  > El tutorial usa la base de datos de ejemplo de *AdventureWorksLT* .
 
-- Java y Maven, consulte [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)(Compilar una aplicación con SQL Server), resalte **Java**, seleccione su entorno y, después, siga los pasos.
+- Java y Maven, consulte [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/)(Compilar una aplicación con SQL Server), resalte **Java** , seleccione su entorno y, después, siga los pasos.
 
 > [!IMPORTANT]
 > Asegúrese de configurar las reglas de firewall para usar la dirección IP pública del equipo en el que está realizando los pasos de este tutorial. Las reglas de firewall a nivel de base de datos se replicarán automáticamente al servidor secundario.
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-Las opciones de configuración de replicación geográfica también pueden cambiarse en Azure Portal mediante la selección de la base de datos y, después, **Configuración** > **Replicación geográfica**.
+Las opciones de configuración de replicación geográfica también pueden cambiarse en Azure Portal mediante la selección de la base de datos y, después, **Configuración** > **Replicación geográfica** .
 
 ![Configuración de la replicación geográfica](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ Las opciones de configuración de replicación geográfica también pueden cambi
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Escriba **Y** y presione **ENTRAR**.
+1. Escriba **Y** y presione **ENTRAR** .
 
 1. Cambie los directorios al nuevo proyecto.
 
@@ -182,7 +182,7 @@ Las opciones de configuración de replicación geográfica también pueden cambi
    </build>
    ```
 
-1. Guarde y cierre el archivo *pom.xml*.
+1. Guarde y cierre el archivo *pom.xml* .
 
 1. Abra el archivo *App.java* ubicado en ..\SqlDbSample\src\main\java\com\sqldbsamples y sustituya el contenido por el código siguiente:
 
@@ -290,7 +290,7 @@ Las opciones de configuración de replicación geográfica también pueden cambi
    }
    ```
 
-1. Guarde y cierre el archivo*App.java*.
+1. Guarde y cierre el archivo *App.java* .
 
 1. En la consola de comandos, ejecute el siguiente comando:
 

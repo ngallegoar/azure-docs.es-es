@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a13c641d50a68d9661b4aa6caf8effb82d53dd7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85250721"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793235"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -62,7 +62,7 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
 
 - **Capacidad de personalización:** &nbsp; facilidad para admitir las personalizaciones del esquema que son específicas del inquilino o específicas de la clase de inquilino.
 
-El análisis de inquilinos se centra en la capa de *datos*.  Pero tenga en cuenta durante un momento la capa de *aplicación*.  La capa de aplicación se trata como una entidad monolítica.  Si se divide la aplicación en muchos componentes pequeños, podría cambiar su elección de modelo de inquilinato.  Puede tratar algunos componentes de forma diferente a otros tanto con respecto al inquilinato como a la tecnología de almacenamiento o plataforma utilizada.
+El análisis de inquilinos se centra en la capa de *datos* .  Pero tenga en cuenta durante un momento la capa de *aplicación* .  La capa de aplicación se trata como una entidad monolítica.  Si se divide la aplicación en muchos componentes pequeños, podría cambiar su elección de modelo de inquilinato.  Puede tratar algunos componentes de forma diferente a otros tanto con respecto al inquilinato como a la tecnología de almacenamiento o plataforma utilizada.
 
 ## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Aplicación de inquilino único independiente con base de datos de un solo inquilino
 
@@ -204,7 +204,7 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 
 [http-visual-studio-devops-485m]: https://www.visualstudio.com/devops/
 
-[docu-sql-svr-db-row-level-security-947w]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[docu-sql-svr-db-row-level-security-947w]: /sql/relational-databases/security/row-level-security
 
 [docu-elastic-db-client-library-536r]:elastic-database-client-library.md
 [docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]: saas-dbpertenant-get-started-deploy.md
@@ -221,4 +221,3 @@ En la tabla siguiente se resumen las diferencias entre los principales modelos d
 [image-mt-app-db-per-tenant-pool-153p]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-database-per-tenant-pool-15.png "Diseño de aplicación multiinquilino con una base de datos por inquilino mediante un grupo elástico."
 
 [image-mt-app-sharded-mt-db-174s]: media/saas-tenancy-app-design-patterns/saas-multi-tenant-app-sharded-multi-tenant-databases-17.png "Diseño de aplicación multiinquilino con bases de datos multiinquilino con particiones."
-

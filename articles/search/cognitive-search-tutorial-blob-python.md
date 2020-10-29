@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 09/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 34265552122c1f8d1bcbbcfe95948683a5750a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea1cc022cbea7dbf3d1fa12cb83cfe3084b28560
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531010"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788090"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de Python y AI para generar contenido que permita búsquedas desde blobs de Azure
 
@@ -45,7 +45,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 1. Abra esta [carpeta de OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) y, en la esquina superior izquierda, haga clic en **Descargar** para copiar los archivos en el equipo. 
 
-1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo**. Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
+1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** . Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
@@ -55,7 +55,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 ### <a name="start-with-azure-storage"></a>Comienzo con Azure Storage
 
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso**.
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso** .
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
@@ -63,21 +63,21 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
-   + **Grupo de recursos**. Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
+   + **Grupo de recursos** . Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
 
-   + **Nombre de cuenta de almacenamiento**. Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus*. 
+   + **Nombre de cuenta de almacenamiento** . Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus* . 
 
-   + **Ubicación**. Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
+   + **Ubicación** . Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
 
-   + **Tipo de cuenta**. Elija el valor predeterminado, *StorageV2 (uso general v2)* .
+   + **Tipo de cuenta** . Elija el valor predeterminado, *StorageV2 (uso general v2)* .
 
 1. Haga clic en **Revisar y crear** para crear el servicio.
 
 1. Una vez creado, haga clic en **Go to the resource** (Ir al recurso) para abrir la página de información general.
 
-1. Haga clic en el servicio **Blobs**.
+1. Haga clic en el servicio **Blobs** .
 
-1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo*.
+1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo* .
 
 1. Seleccione *cog-search-demo* y haga clic en **Cargar** para abrir la carpeta en la que guardó los archivos de descarga. Seleccione todos los archivos que no sean de imagen. Debería tener 7 archivos. Haga clic en **Aceptar** para empezar a cargar.
 
@@ -113,11 +113,11 @@ Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de a
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, obtenga el nombre del servicio de búsqueda. Para confirmar el nombre del servicio, revise la dirección URL del punto de conexión. Si la dirección URL del punto de conexión fuera `https://mydemo.search.windows.net`, el nombre del servicio sería `mydemo`.
 
-2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+2. En **Configuración** > **Claves** , obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 Todas las solicitudes enviadas al servicio necesitan una clave de API en el encabezado. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
 
@@ -188,13 +188,13 @@ print(r.status_code)
 
 La solicitud debe devolver un código de estado 201 que confirme el éxito de la operación.
 
-En Azure Portal, en la página del panel de información del servicio de búsqueda, compruebe que cogsrch-py-datasource aparece en la lista **Orígenes de datos**. Haga clic en **Actualizar**  para actualizar la página.
+En Azure Portal, en la página del panel de información del servicio de búsqueda, compruebe que cogsrch-py-datasource aparece en la lista **Orígenes de datos** . Haga clic en **Actualizar**  para actualizar la página.
 
 :::image type="content" source="media/cognitive-search-tutorial-blob-python/py-data-source-tile.png" alt-text="Creación de una cuenta de almacenamiento" border="false":::
 
 ### <a name="step-2-create-a-skillset"></a>Paso 2: Creación de un conjunto de aptitudes
 
-En este paso, definirá un conjunto de pasos de enriquecimiento para aplicar a los datos. Llamará a cada paso de enriquecimiento una *aptitud* y al conjunto de pasos de enriquecimiento, un *conjunto de aptitudes*. Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
+En este paso, definirá un conjunto de pasos de enriquecimiento para aplicar a los datos. Llamará a cada paso de enriquecimiento una *aptitud* y al conjunto de pasos de enriquecimiento, un *conjunto de aptitudes* . Este tutorial usa un conjunto de [aptitudes cognitivas integradas](cognitive-search-predefined-skills.md):
 
 + [Reconocimiento de entidades](cognitive-search-skill-entity-recognition.md) para extraer los nombres de las organizaciones del contenido del contenedor de blobs.
 
@@ -315,7 +315,7 @@ En esta sección, se define el esquema de índice. Para ello, se especifican los
 
 En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
-| field-names: | Id.         | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | ID         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165271"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792521"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creación de una FCI con Espacios de almacenamiento directo (SQL Server en Azure VM)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -81,7 +81,7 @@ Antes de completar las instrucciones de este artículo, ya debe tener:
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Para más información acerca de los pasos siguientes, consulte las instrucciones de la sección "Paso 3: Configuración de Espacios de almacenamiento directo" en [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Para más información acerca de los pasos siguientes, consulte las instrucciones de la sección "Paso 3: Configuración de Espacios de almacenamiento directo" en [Solución hiperconvergida con Espacios de almacenamiento directo en Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 
 ## <a name="validate-the-cluster"></a>Validación del clúster
@@ -150,9 +150,9 @@ Configure la solución de cuórum que mejor se adapte a sus necesidades empresar
 
 ## <a name="add-storage"></a>Agregue almacenamiento
 
-Los discos Premium para Espacios de almacenamiento directo deben estar vacíos. No pueden contener particiones u otros datos. Para limpiar los discos, siga las instrucciones de [Implementación de Espacios de almacenamiento directo](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
+Los discos Premium para Espacios de almacenamiento directo deben estar vacíos. No pueden contener particiones u otros datos. Para limpiar los discos, siga las instrucciones de [Implementación de Espacios de almacenamiento directo](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives).
 
-1. [Habilitación de Espacios de almacenamiento directo](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Habilitación de Espacios de almacenamiento directo](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    El siguiente script de PowerShell habilita los Espacios de almacenamiento directo:  
 
@@ -162,7 +162,7 @@ Los discos Premium para Espacios de almacenamiento directo deben estar vacíos. 
 
    En **Administrador de clústeres de conmutación por error** , puede ver el grupo de almacenamiento.
 
-1. [Cree un volumen](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Cree un volumen](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
    Espacios de almacenamiento directo crea automáticamente un grupo de almacenamiento cuando se habilita. Ya está listo para crear un volumen. El cmdlet de PowerShell `New-Volume` automatiza el proceso de creación de volúmenes. Este proceso incluye el formato, la incorporación del volumen al clúster y la creación de un Volumen compartido de clúster (CSV). En el ejemplo se crea un CSV de 800 gigabytes (GB):
 
@@ -211,7 +211,7 @@ Después de haber configurado el clúster de conmutación por error y todos los 
 1. Seleccione **Agregar nodo a clúster de conmutación por error de SQL Server** . Siga las instrucciones del asistente para instalar el servidor de SQL Server y agregarlo a la FCI.
 
    >[!NOTE]
-   >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Si usó una imagen de la galería de Azure Marketplace con SQL Server, las herramientas de SQL Server estaban incluidas en la imagen. Si no usó alguna de estas imágenes, instale las herramientas de SQL Server por separado. Para más información, consulte [Descargar SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 
@@ -237,7 +237,7 @@ Para enrutar el tráfico de forma adecuada al nodo principal actual, configure l
 
 ## <a name="limitations"></a>Limitaciones
 
-- Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en volúmenes compartidos en clúster (CSV) y un [equilibrador de carga estándar](../../../load-balancer/load-balancer-standard-overview.md).
+- Azure Virtual Machines admite el Coordinador de transacciones distribuidas de Microsoft (MSDTC) en Windows Server 2019 con almacenamiento en volúmenes compartidos en clúster (CSV) y un [equilibrador de carga estándar](../../../load-balancer/load-balancer-overview.md).
 - Los discos que se han conectado como discos con formato NTFS solo se pueden usar con Espacios de almacenamiento directo si la opción de elegibilidad del disco está deshabilitada o desactivada, cuando se agrega el almacenamiento al clúster. 
 - Solo se admite el registro con el proveedor de recursos de máquina virtual con SQL en [modo de administración ligero](sql-vm-resource-provider-register.md#management-modes).
 

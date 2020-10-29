@@ -9,18 +9,18 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 971f0cd74d7ccc6e2b0d8049a4441ba3d465b70a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280035"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787676"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage Analytics
 
 Storage Analytics registra información detallada sobre las solicitudes correctas y erróneas realizadas a un servicio de almacenamiento. Esta información se puede utilizar para supervisar solicitudes concretas y para diagnosticar problemas con un servicio de almacenamiento. Las solicitudes se registran en función de la mejor opción.
 
- El registro de Storage Analytics no está habilitado de forma predeterminada en la cuenta de almacenamiento. Puede habilitarlo en [Azure Portal](https://portal.azure.com/); para más información, consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](/azure/storage/storage-monitor-storage-account). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones [Obtener las propiedades de Blob service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API), [Obtener las propiedades de Queue service](https://docs.microsoft.com/rest/api/storageservices/Get-Queue-Service-Properties) y [Obtener las propiedades de Table service](https://docs.microsoft.com/rest/api/storageservices/Get-Table-Service-Properties) para habilitar Storage Analytics en cada servicio.
+ El registro de Storage Analytics no está habilitado de forma predeterminada en la cuenta de almacenamiento. Puede habilitarlo en [Azure Portal](https://portal.azure.com/); para más información, consulte [Supervisión de una cuenta de almacenamiento en Azure Portal](./storage-monitor-storage-account.md). También puede habilitar Storage Analytics mediante programación a través de la API de REST o la biblioteca de cliente. Use las operaciones [Obtener las propiedades de Blob service](/rest/api/storageservices/Blob-Service-REST-API), [Obtener las propiedades de Queue service](/rest/api/storageservices/Get-Queue-Service-Properties) y [Obtener las propiedades de Table service](/rest/api/storageservices/Get-Table-Service-Properties) para habilitar Storage Analytics en cada servicio.
 
  Las entradas del registro se crean solo si se presentan solicitudes al punto de conexión de servicio. Por ejemplo, si una cuenta de almacenamiento tiene actividad en el punto de conexión de Blob service, pero no en los puntos de conexión de Table service o Queue service, solo se crearán los registros correspondientes a Blob service.
 
@@ -57,11 +57,11 @@ Todos los registros se almacenan en blobs en bloques, en un contenedor denominad
 > [!NOTE]
 >  El contenedor `$logs` no se muestra cuando se realiza una operación para enumerar los contenedores, como la operación Lista de contenedores. Se debe tener acceso a él directamente. Por ejemplo, puede utilizar la operación Mostrar blobs para acceder a los blobs en el contenedor `$logs`.
 
-A medida que se registran las solicitudes, Storage Analytics cargará los resultados intermedios como bloques. Periódicamente, Storage Analytics confirmará estos bloques para que estén disponibles como blobs. Hasta que los datos de registro aparezcan en los blobs del contenedor **$logs**, puede transcurrir hasta una hora, dada la frecuencia con la que el servicio de almacenamiento vacía la escritura de registros. Es posible que haya entradas duplicadas en los registros creados durante la misma hora. Puede determinar si un registro es un duplicado comprobando el número **RequestId** y **Operation**.
+A medida que se registran las solicitudes, Storage Analytics cargará los resultados intermedios como bloques. Periódicamente, Storage Analytics confirmará estos bloques para que estén disponibles como blobs. Hasta que los datos de registro aparezcan en los blobs del contenedor **$logs** , puede transcurrir hasta una hora, dada la frecuencia con la que el servicio de almacenamiento vacía la escritura de registros. Es posible que haya entradas duplicadas en los registros creados durante la misma hora. Puede determinar si un registro es un duplicado comprobando el número **RequestId** y **Operation** .
 
 Si tiene un gran volumen de datos de registro con varios archivos correspondientes a cada hora, puede usar los metadatos del blob para averiguar qué datos contiene el registro (examinando para ello los campos de metadatos del blob). Esto resulta útil también porque, a veces, puede haber un retraso mientras los datos se escriben en los archivos de registro, y es que los metadatos del blob indican el contenido del blob de forma más precisa que el nombre del blob.
 
-La mayoría de las herramientas de exploración del almacenamiento permiten ver los metadatos de los blobs, si bien esta información se puede consultar también con PowerShell o mediante programación. El siguiente fragmento de código de PowerShell es un ejemplo de filtrado de la lista de blobs de registro por nombre para especificar una hora, y por metadatos para identificar únicamente aquellos registros que contengan operaciones de escritura (**write**).  
+La mayoría de las herramientas de exploración del almacenamiento permiten ver los metadatos de los blobs, si bien esta información se puede consultar también con PowerShell o mediante programación. El siguiente fragmento de código de PowerShell es un ejemplo de filtrado de la lista de blobs de registro por nombre para especificar una hora, y por metadatos para identificar únicamente aquellos registros que contengan operaciones de escritura ( **write** ).  
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -77,7 +77,7 @@ La mayoría de las herramientas de exploración del almacenamiento permiten ver 
  }  
  ```  
 
-Para obtener información sobre cómo mostrar los blobs mediante programación, vea [Enumerar recursos de blob](https://msdn.microsoft.com/library/azure/hh452233.aspx) y [Configurar y recuperar propiedades y metadatos de recursos de blob](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Para obtener información sobre cómo mostrar los blobs mediante programación, vea [Enumerar recursos de blob](/rest/api/storageservices/Enumerating-Blob-Resources) y [Configurar y recuperar propiedades y metadatos de recursos de blob](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).  
 
 ### <a name="log-naming-conventions"></a>Convenciones de nomenclatura de los registros
 
@@ -139,7 +139,7 @@ Puede especificar los servicios de almacenamiento que quiera registrar, así com
 
  Para usar PowerShell en el equipo local para configurar el registro de almacenamiento en la cuenta de almacenamiento, use el cmdlet **Get-AzStorageServiceLoggingProperty** de Azure PowerShell para recuperar la configuración actual y el cmdlet **Set-AzStorageServiceLoggingProperty** para cambiar la configuración actual.  
 
- Los cmdlets que controlan el registro de almacenamiento usan un parámetro **LoggingOperations**, que es una cadena que contiene una lista separada por comas de los tipos de solicitud que se van a registrar. Los tres tipos de solicitud posibles son **read**, **write** y **delete**. Para desactivar el registro, use el valor **none** en el parámetro **LoggingOperations**.  
+ Los cmdlets que controlan el registro de almacenamiento usan un parámetro **LoggingOperations** , que es una cadena que contiene una lista separada por comas de los tipos de solicitud que se van a registrar. Los tres tipos de solicitud posibles son **read** , **write** y **delete** . Para desactivar el registro, use el valor **none** en el parámetro **LoggingOperations** .  
 
  Con el siguiente comando se activa el registro de solicitudes de lectura, escritura y eliminación en el servicio Queue service de la cuenta de almacenamiento predeterminada, con un período de retención establecido en cinco días:  
 
@@ -153,7 +153,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,w
 Set-AzStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](/powershell/azure/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Habilitar el registro de almacenamiento mediante programación  
 
@@ -179,9 +179,9 @@ queueClient.SetServiceProperties(serviceProperties);
 ---
 
 
- Para obtener más información sobre cómo usar un lenguaje .NET para configurar el registro de almacenamiento, vea [Referencia de biblioteca de cliente de almacenamiento](https://msdn.microsoft.com/library/azure/dn261237.aspx).  
+ Para obtener más información sobre cómo usar un lenguaje .NET para configurar el registro de almacenamiento, vea [Referencia de biblioteca de cliente de almacenamiento](/previous-versions/azure/dn261237(v=azure.100)).  
 
- Para obtener información general sobre cómo configurar el registro de almacenamiento con la API de REST, vea [Habilitar y configurar Storage Analytics](https://msdn.microsoft.com/library/azure/hh360996.aspx).  
+ Para obtener información general sobre cómo configurar el registro de almacenamiento con la API de REST, vea [Habilitar y configurar Storage Analytics](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ## <a name="download-storage-logging-log-data"></a>Descargar datos de registro del registro de almacenamiento
 
@@ -204,7 +204,7 @@ En el siguiente ejemplo se muestra cómo descargar los datos de registro de Queu
 azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
 ```
 
-Para obtener más información sobre cómo descargar archivos específicos, consulte [Descarga de archivos específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
+Para obtener más información sobre cómo descargar archivos específicos, consulte [Descarga de archivos específicos](./storage-use-azcopy-blobs.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#download-specific-files).
 
 Cuando haya descargado los datos de registro, puede ver las entradas de registro en los archivos. Estos archivos de registro usan un formato de texto delimitado que muchas herramientas de lectura de registros son capaces de analizar; para más información, consulte la guía [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md). Cada herramienta tiene diferentes recursos para aplicar formato, filtrar, ordenar y buscar contenido en los archivos de registro. Para obtener más información sobre el contenido y el formato de los archivos de registro del registro de almacenamiento, vea [Formato de registros de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format) y [Operaciones registradas y mensajes de estado de Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 

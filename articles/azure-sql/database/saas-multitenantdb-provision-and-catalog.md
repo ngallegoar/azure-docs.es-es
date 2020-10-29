@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331947"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793337"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Aprovisionamiento y catalogación de nuevos inquilinos en una aplicación SaaS con una instancia de Azure SQL Database multiinquilino con particiones
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -127,9 +127,9 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-- Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps)
 
-- La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- La aplicación SaaS de base de datos multiinquilino Wingtip Tickets está implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets](./saas-multitenantdb-get-started-deploy.md)
 
 - Obtenga los scripts y el código fuente de Wingtip:
     - Los scripts y el código fuente de la aplicación SaaS de base de datos multiinquilino Wingtip Tickets están disponibles en el repositorio de GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB).
@@ -173,7 +173,7 @@ Para comprender cómo la aplicación Wingtip implementa el aprovisionamiento de 
 
 5. Siga paso a paso la ejecución del script mediante las opciones del menú **Depurar** , **F10** y **F11** , para omitir las funciones llamadas o acceder a ellas.
 
-Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Aprovisionamiento de un inquilino en su *propia* base de datos
 
@@ -263,9 +263,9 @@ Este tipo de servicio automatizado puede ser simple o complejo. Por ejemplo, la 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Biblioteca de cliente de base de datos elástica](elastic-database-client-library.md)
-- [Cómo depurar scripts en ISE de Windows PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Cómo depurar scripts en ISE de Windows PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -277,5 +277,4 @@ En este tutorial, ha aprendido cómo:
 > * Aprovisionar un lote de inquilinos adicionales
 > * Recorrer los detalles sobre cómo aprovisionar inquilinos y registrarlos en el catálogo
 
-Pruebe el [Tutorial de supervisión del rendimiento](../../sql-database/saas-multitenantdb-performance-monitoring.md).
-
+Pruebe el [Tutorial de supervisión del rendimiento](./saas-multitenantdb-performance-monitoring.md).

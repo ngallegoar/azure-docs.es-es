@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c964e3c02148c461c601eab4bc5bfb0abb4ac052
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6a1a7e19e598980b21ee6c41f6984de38d6a6f2b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013311"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791620"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Indexación de varios orígenes de datos mediante el SDK de .NET
 
@@ -66,11 +66,11 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a la página Introducción de la cuenta de Azure Cosmos DB.
 
-1. Seleccione **Explorador de datos** y luego **Nueva base de datos**.
+1. Seleccione **Explorador de datos** y luego **Nueva base de datos** .
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Crear una base de datos nueva" border="false":::
 
-1. Escriba el nombre **hotel-rooms-db**. Acepte los valores predeterminados para la configuración restante.
+1. Escriba el nombre **hotel-rooms-db** . Acepte los valores predeterminados para la configuración restante.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Crear una base de datos nueva" border="false":::
 
@@ -78,7 +78,7 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Crear una base de datos nueva" border="false":::
 
-1. Seleccione **Elementos** en **hotels**y luego haga clic en **Upload Item** (Cargar elemento) en la barra de comandos. Vaya al archivo **cosmosdb/HotelsDataSubset_CosmosDb.json** de la carpeta del proyecto y selecciónelo.
+1. Seleccione **Elementos** en **hotels** y luego haga clic en **Upload Item** (Cargar elemento) en la barra de comandos. Vaya al archivo **cosmosdb/HotelsDataSubset_CosmosDb.json** de la carpeta del proyecto y selecciónelo.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Crear una base de datos nueva" border="false":::
 
@@ -88,13 +88,13 @@ Este ejemplo utiliza dos conjuntos pequeños de datos que describen las siete ho
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com), vaya a su cuenta de Azure Storage, haga clic en **Blobs** y, después, en **+Contenedor**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com), vaya a su cuenta de Azure Storage, haga clic en **Blobs** y, después, en **+Contenedor** .
 
 1. [Cree un contenedor de blobs](../storage/blobs/storage-quickstart-blobs-portal.md) denominado **hotel-rooms** para almacenar los archivos JSON de las habitaciones de hotel de ejemplo. Puede establecer el nivel de acceso público a cualquiera de sus valores válidos.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Crear una base de datos nueva" border="false":::
 
-1. Una vez creado el contenedor, ábralo y seleccione **Cargar** en la barra de comandos. Vaya a la carpeta que contiene los archivos de ejemplo. Selecciónelos todos ellos y haga clic en **Cargar**.
+1. Una vez creado el contenedor, ábralo y seleccione **Cargar** en la barra de comandos. Vaya a la carpeta que contiene los archivos de ejemplo. Selecciónelos todos ellos y haga clic en **Cargar** .
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Crear una base de datos nueva" border="false":::
 
@@ -110,23 +110,23 @@ Para la autenticación en el servicio de búsqueda, necesitará la dirección UR
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
-1. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+1. En **Configuración** > **Claves** , obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Crear una base de datos nueva" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Crear una base de datos nueva" border="false":::
 
 Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
 ## <a name="2---set-up-your-environment"></a>2: Configuración del entorno
 
-1. Inicie Visual Studio y, en el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y **Administrar paquetes NuGet para la solución...** 
+1. Inicie Visual Studio y, en el menú **Herramientas** , seleccione **Administrador de paquetes NuGet** y **Administrar paquetes NuGet para la solución...** 
 
-1. En la pestaña **Examinar**, busque e instale **Azure.Search.Documents** (versión 11.0 o posterior). Tendrá que hacer clic en algunos cuadros de diálogo adicionales para completar la instalación.
+1. En la pestaña **Examinar** , busque e instale **Azure.Search.Documents** (versión 11.0 o posterior). Tendrá que hacer clic en algunos cuadros de diálogo adicionales para completar la instalación.
 
     :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Crear una base de datos nueva" border="false":::
 
 1. Busque los paquetes NuGet **Microsoft.Extensions.Configuration** y **Microsoft.Extensions.Configuration.Json** e instálelos también.
 
-1. Abra el archivo de solución **/v11/AzureSearchMultipleDataSources.sln**.
+1. Abra el archivo de solución **/v11/AzureSearchMultipleDataSources.sln** .
 
 1. En el Explorador de soluciones, edite el archivo **appsettings.json** para agregar información de conexión.  
 
@@ -199,7 +199,7 @@ public Room[] Rooms { get; set; }
 . . .
 ```
 
-En el archivo **Program.cs**, se define [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) con un nombre y una colección de campos generados por el método `FieldBuilder.Build`, y se crea como sigue:
+En el archivo **Program.cs** , se define [SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex) con un nombre y una colección de campos generados por el método `FieldBuilder.Build`, y se crea como sigue:
 
 ```csharp
 private static async Task CreateIndexAsync(string indexName, SearchIndexClient indexClient)
@@ -240,7 +240,7 @@ private static async Task CreateAndRunCosmosDbIndexerAsync(string indexName, Sea
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(cosmosDbDataSource);
 ```
 
-Una vez creado el origen de datos, el programa configura un indexador de Azure Cosmos DB denominado **hotel-rooms-cosmos-indexer**.
+Una vez creado el origen de datos, el programa configura un indexador de Azure Cosmos DB denominado **hotel-rooms-cosmos-indexer** .
 
 El programa actualizará los indexadores existentes con el mismo nombre y sobrescribirá el indexador existente con el contenido del código anterior. También incluye acciones de restablecimiento y ejecución, por si desea ejecutar este ejemplo más de una vez.
 
@@ -306,7 +306,7 @@ private static async Task CreateAndRunBlobIndexerAsync(string indexName, SearchI
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(blobDataSource);
 ```
 
-Una vez creado el origen de datos, el programa configura un indexador de blobs denominado **hotel-rooms-blob-indexer**, como se muestra a continuación.
+Una vez creado el origen de datos, el programa configura un indexador de blobs denominado **hotel-rooms-blob-indexer** , como se muestra a continuación.
 
 Los blobs JSON contienen un campo de clave denominado **`Id`** en lugar de **`HotelId`** . El código usa la clase `FieldMapping` para indicar al indexador que dirija el valor del campo **`Id`** a la clave de documento **`HotelId`** del índice.
 
@@ -361,13 +361,13 @@ catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 Dado que el índice ya se ha rellenado con datos de los hoteles desde la base de datos de Azure Cosmos DB, el indexador de blobs actualiza los documentos existentes en el índice y agrega los detalles de las habitaciones.
 
 > [!NOTE]
-> Si tiene los mismos campos (distintos del clave) en ambos orígenes de datos y los datos de esos campos no coinciden, el índice contendrá los valores del indexador que se ejecutara más recientemente. En nuestro ejemplo, ambos orígenes de datos contienen un campo **HotelName**. Si, por alguna razón, los datos de este campo difieren para documentos con el mismo valor de calve, los datos de **HotelName** del origen de datos que se indexara más recientemente serán los que se almacenen en el índice como valor.
+> Si tiene los mismos campos (distintos del clave) en ambos orígenes de datos y los datos de esos campos no coinciden, el índice contendrá los valores del indexador que se ejecutara más recientemente. En nuestro ejemplo, ambos orígenes de datos contienen un campo **HotelName** . Si, por alguna razón, los datos de este campo difieren para documentos con el mismo valor de calve, los datos de **HotelName** del origen de datos que se indexara más recientemente serán los que se almacenen en el índice como valor.
 
 ## <a name="5---search"></a>5: Búsqueda
 
 Puede explorar el índice de búsqueda relleno tras la ejecución del programa con el [**Explorador de búsqueda**](search-explorer.md) del portal.
 
-En Azure Portal, abra la página **Introducción** del servicio de búsqueda y busque el índice **hotel-rooms-sample** en la lista **Índices**.
+En Azure Portal, abra la página **Introducción** del servicio de búsqueda y busque el índice **hotel-rooms-sample** en la lista **Índices** .
 
   :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Crear una base de datos nueva" border="false":::
 

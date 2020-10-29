@@ -12,13 +12,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.custom: seo-lt-2019, devx-track-azurecli
+ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164574"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790107"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Uso de Azure Portal para configurar un grupo de disponibilidad (versión preliminar) para SQL Server en máquinas virtuales de Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Para configurar un grupo de disponibilidad Always On mediante Azure Portal, de
 
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
 - Un grupo de recursos con un controlador de dominio. 
-- Una o varias [máquinas virtuales de Azure con SQL Server 2016 (o posterior) Enterprise Edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) unidas a dominio en el *mismo* conjunto de disponibilidad o en zonas de disponibilidad *distintas* que se hayan [registrado en el proveedor de recursos de máquina virtual de SQL en modo de administración completa](sql-vm-resource-provider-register.md) y que usen la misma cuenta de dominio para el servicio SQL Server en cada máquina virtual.
+- Una o varias [máquinas virtuales de Azure con SQL Server 2016 (o posterior) Enterprise Edition](./create-sql-vm-portal.md) unidas a dominio en el *mismo* conjunto de disponibilidad o en zonas de disponibilidad *distintas* que se hayan [registrado en el proveedor de recursos de máquina virtual de SQL en modo de administración completa](sql-vm-resource-provider-register.md) y que usen la misma cuenta de dominio para el servicio SQL Server en cada máquina virtual.
 - Dos direcciones IP disponibles (no utilizadas por ninguna entidad). Una es para el equilibrador de carga interno. La otra es para el cliente de escucha de grupo de disponibilidad dentro de la misma subred que el grupo de disponibilidad. Si se usa un equilibrador de carga existente, solo se necesita una dirección IP disponible para la escucha de grupo de disponibilidad. 
 
 ## <a name="permissions"></a>Permisos
@@ -70,7 +70,7 @@ Si aún no tiene un clúster, créelo mediante Azure Portal con estos pasos:
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal":::
 
-1. Expanda **Windows Server Failover Cluster credentials** (Credenciales del clúster de conmutación por error de Windows Server) para proporcionar las [credenciales](https://docs.microsoft.com/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) para la cuenta de servicio de SQL Server, así como las cuentas de operador de clúster y de arranque si son diferentes a la cuenta usada para el servicio de SQL Server. 
+1. Expanda **Windows Server Failover Cluster credentials** (Credenciales del clúster de conmutación por error de Windows Server) para proporcionar las [credenciales](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) para la cuenta de servicio de SQL Server, así como las cuentas de operador de clúster y de arranque si son diferentes a la cuenta usada para el servicio de SQL Server. 
 
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Creación de un nuevo clúster mediante la selección de + Nuevo clúster en el portal"
     ```

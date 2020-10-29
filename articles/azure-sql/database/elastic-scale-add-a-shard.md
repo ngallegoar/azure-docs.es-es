@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 50e7e597a4fb02919739633529abdbf772bcecea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efab0234d428a8283845946289cdd1e8a17ded26
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792062"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Incorporación de una partición con herramientas de Elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Si el nuevo intervalo de valores de clave no forma parte todavía de una asignac
 
 ### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Ejemplo: incorporación de una partición y su intervalo a una asignación de partición existente
 
-En este ejemplo se utilizan los métodos TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard) y [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))), CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) y CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)), y se crea una instancia de la clase ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation) y [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)). En el ejemplo siguiente, se ha creado una base de datos denominada **sample_shard_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).  
+En este ejemplo se utilizan los métodos TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard) y [.NET](/previous-versions/azure/dn823929(v=azure.100))), CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard) y [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)) y CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping) y [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1)), y se crea una instancia de la clase ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation) y [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)). En el ejemplo siguiente, se ha creado una base de datos denominada **sample_shard_2** y todos los objetos de esquema necesarios en su interior para contener el intervalo [300, 400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +79,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Importante**:  Use esta técnica solo si está seguro de que el intervalo para la asignación actualizada está vacío.  Los métodos anteriores no comprueban los datos del intervalo que se va a mover, por lo que es mejor incluir comprobaciones en el código.  Si existen filas en el intervalo que se va a mover, la distribución de datos real no coincidirá con el mapa de particiones actualizado. Use la [herramienta de división y combinación](elastic-scale-overview-split-and-merge.md) para realizar la operación en su lugar en estos casos.  
+**Importante** :  Use esta técnica solo si está seguro de que el intervalo para la asignación actualizada está vacío.  Los métodos anteriores no comprueban los datos del intervalo que se va a mover, por lo que es mejor incluir comprobaciones en el código.  Si existen filas en el intervalo que se va a mover, la distribución de datos real no coincidirá con el mapa de particiones actualizado. Use la [herramienta de división y combinación](elastic-scale-overview-split-and-merge.md) para realizar la operación en su lugar en estos casos.  
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]

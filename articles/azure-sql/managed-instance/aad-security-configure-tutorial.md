@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283877"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788628"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad en Instancia administrada de Azure SQL mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ Consulte los artículos siguientes para ver ejemplos de conexión a Instancia ad
 
 1. Inicie sesión en la instancia administrada con una cuenta estándar de SQL (no de Azure AD) que sea `sysadmin` o administrador de Azure AD para Instancia administrada de SQL, mediante [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
 
-2. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
+2. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** .
 
 3. En la ventana de consulta, utilice la siguiente sintaxis para crear un inicio de sesión para una cuenta local de Azure AD:
 
@@ -120,14 +120,14 @@ Para crear otras entidades de seguridad (inicios de sesión) de un servidor de A
 
 - Para permitir que la entidad de seguridad (inicio de sesión) de un servidor de Azure AD recién creada pueda crear otros inicios de sesión para otros usuarios, grupos o aplicaciones de Azure AD, conceda el rol del servidor `sysadmin` o `securityadmin` de inicio de sesión.
 - Como mínimo, se debe conceder el permiso **ALTER ANY LOGIN** a la entidad de seguridad (inicio de sesión) de un servidor de Azure AD para crear otras entidades de seguridad (inicios de sesión) de un servidor de Azure AD.
-- De forma predeterminada, el permiso estándar concedido a las nuevas entidades de seguridad (inicios de sesión) de un servidor de Azure AD es: **CONNECT SQL** y **VIEW ANY DATABASE**.
+- De forma predeterminada, el permiso estándar concedido a las nuevas entidades de seguridad (inicios de sesión) de un servidor de Azure AD es: **CONNECT SQL** y **VIEW ANY DATABASE** .
 - El rol del servidor `sysadmin` se puede conceder a muchas entidades de seguridad (inicios de sesión) de un servidor de Azure AD dentro de una instancia administrada.
 
 Para agregar el inicio de sesión para el rol de servidor `sysadmin`:
 
 1. Vuelva a iniciar sesión en la instancia administrada o use la conexión existente con el administrador de Azure AD o la entidad de seguridad SQL que tenga el rol `sysadmin`.
 
-1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
+1. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** .
 
 1. Conceda a la entidad de seguridad (inicio de sesión) de un servidor de Azure AD el rol de servidor `sysadmin` mediante la siguiente sintaxis de T-SQL:
 
@@ -145,7 +145,7 @@ Para agregar el inicio de sesión para el rol de servidor `sysadmin`:
 
 ## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Creación de entidades de seguridad (inicios de sesión) de un servidor de Azure AD adicionales mediante SSMS
 
-Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor de Azure AD y se le han dado los privilegios `sysadmin`, dicho inicio de sesión puede crear otros inicios mediante la cláusula **FROM EXTERNAL PROVIDER** con **CREATE LOGIN**.
+Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor de Azure AD y se le han dado los privilegios `sysadmin`, dicho inicio de sesión puede crear otros inicios mediante la cláusula **FROM EXTERNAL PROVIDER** con **CREATE LOGIN** .
 
 1. Conéctese a la instancia administrada con la entidad de seguridad (inicio de sesión) de un servidor de Azure AD mediante SQL Server Management Studio. Escriba el nombre de host de Instancia administrada de SQL. Para la autenticación en SSMS, hay tres opciones para elegir al iniciar sesión con una cuenta de AD de Azure:
 
@@ -157,11 +157,11 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
 
      Para más información, vea [Autenticación universal (compatibilidad de SSMS con Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
-1. Seleccione **Active Directory - Universal compatible con MFA**. Se abre una ventana de inicio de sesión de Multi-Factor Authentication. Inicie sesión con la contraseña de Azure AD.
+1. Seleccione **Active Directory - Universal compatible con MFA** . Se abre una ventana de inicio de sesión de Multi-Factor Authentication. Inicie sesión con la contraseña de Azure AD.
 
     ![Captura de pantalla de la ventana de inicio de sesión de Multi-Factor Authentication, con el cursor en el campo para escribir la contraseña.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
-1. En el **Explorador de objetos** de SSMS, haga clic con el botón derecho en el servidor datos y elija **Nueva consulta**.
+1. En el **Explorador de objetos** de SSMS, haga clic con el botón derecho en el servidor datos y elija **Nueva consulta** .
 1. En la ventana de consulta, utilice la siguiente sintaxis para crear un inicio de sesión para otra cuenta de Azure AD:
 
     ```sql
@@ -183,8 +183,8 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
     ```
 
 1. Cree una base de datos en la instancia administrada con la sintaxis [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Esta base de datos se usará para probar los inicios de sesión de usuario en la sección siguiente.
-    1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
-    1. En la ventana de consulta, utilice la siguiente sintaxis para crear una base de datos denominada **MyMITestDB**.
+    1. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** .
+    1. En la ventana de consulta, utilice la siguiente sintaxis para crear una base de datos denominada **MyMITestDB** .
 
         ```sql
         CREATE DATABASE MyMITestDB;
@@ -205,7 +205,7 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
     ```
 
 1. Como prueba, inicie sesión en la instancia administrada con el inicio de sesión o grupo que se acaban de crear. Abra una nueva conexión a la instancia administrada y use el nuevo inicio de sesión al autenticarse.
-1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta** para la nueva conexión.
+1. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** para la nueva conexión.
 1. Compruebe los permisos del servidor para la entidad de seguridad (inicio de sesión) de un servidor de Azure AD recién creada, para lo que debe ejecutar el siguiente comando:
 
       ```sql
@@ -214,7 +214,7 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
       ```
 
 > [!NOTE]
-> Se admiten usuarios invitados de Azure AD en los inicios de sesión de Instancia administrada de SQL, pero solo cuando se agregan como parte de un grupo de Azure AD. Un usuario invitado de Azure AD es una cuenta que se ha invitado a la instancia de Azure AD a la que pertenece la instancia administrada, desde otra instancia de Azure AD. Por ejemplo, joe@contoso.com (cuenta de Azure AD) o steve@outlook.com (cuenta de Microsoft) pueden agregarse a un grupo en el dominio aadsqlmi de Azure AD. Una vez que los usuarios se agregan a un grupo, se puede crear un inicio de sesión en la base de datos **maestra** de Instancia administrada de SQL para el grupo mediante la sintaxis **CREATE LOGIN**. Los usuarios invitados que son miembros de este grupo pueden conectarse a la instancia administrada con sus inicios de sesión actuales (por ejemplo, joe@contoso.com o steve@outlook.com).
+> Se admiten usuarios invitados de Azure AD en los inicios de sesión de Instancia administrada de SQL, pero solo cuando se agregan como parte de un grupo de Azure AD. Un usuario invitado de Azure AD es una cuenta que se ha invitado a la instancia de Azure AD a la que pertenece la instancia administrada, desde otra instancia de Azure AD. Por ejemplo, joe@contoso.com (cuenta de Azure AD) o steve@outlook.com (cuenta de Microsoft) pueden agregarse a un grupo en el dominio aadsqlmi de Azure AD. Una vez que los usuarios se agregan a un grupo, se puede crear un inicio de sesión en la base de datos **maestra** de Instancia administrada de SQL para el grupo mediante la sintaxis **CREATE LOGIN** . Los usuarios invitados que son miembros de este grupo pueden conectarse a la instancia administrada con sus inicios de sesión actuales (por ejemplo, joe@contoso.com o steve@outlook.com).
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Creación de un usuario de Azure AD desde la entidad de seguridad de un servidor de Azure AD (inicio de sesión)
 
@@ -229,7 +229,7 @@ Para más información sobre la concesión de permisos de base de datos, consult
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Creación de un usuario de Azure AD y creación de una tabla de ejemplo
 
 1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
-1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
+1. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** .
 1. En la ventana de consulta, utilice la siguiente sintaxis para crear un usuario de Azure AD a partir de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD:
 
     ```sql
@@ -259,10 +259,10 @@ Para más información sobre la concesión de permisos de base de datos, consult
     GO
     ```
 
-    Todos los usuarios que pertenecen a *mygroup* pueden acceder a la base de datos **MyMITestDB**.
+    Todos los usuarios que pertenecen a *mygroup* pueden acceder a la base de datos **MyMITestDB** .
 
     > [!IMPORTANT]
-    > Cuando cree un usuario en **USER** a partir de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD, especifique valor de user_name igual que el valor de login_name que se obtiene de **LOGIN**.
+    > Cuando cree un usuario en **USER** a partir de una entidad de seguridad (inicio de sesión) de un servidor de Azure AD, especifique valor de user_name igual que el valor de login_name que se obtiene de **LOGIN** .
 
     Para más información, consulte [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -295,7 +295,7 @@ Para que el usuario vea los datos en la base de datos, hay que proporcionar [rol
 
 1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
 
-1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
+1. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** .
 
 1. Conceda al usuario de Azure AD el rol de base de datos `db_datareader` mediante la siguiente sintaxis T-SQL:
 
@@ -305,7 +305,7 @@ Para que el usuario vea los datos en la base de datos, hay que proporcionar [rol
     GO
     ```
 
-    En el ejemplo siguiente se proporciona al usuario bob@aadsqlmi.net y al grupo _mygroup_ permisos `db_datareader` en la base de datos **MyMITestDB**:
+    En el ejemplo siguiente se proporciona al usuario bob@aadsqlmi.net y al grupo _mygroup_ permisos `db_datareader` en la base de datos **MyMITestDB** :
 
     ```sql
     USE MyMITestDB
@@ -347,7 +347,7 @@ La instancia administrada de SQL admite la suplantación de las entidades de seg
 
 1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
 
-1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
+1. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** .
 
 1. En la ventana de consulta, utilice el siguiente comando para crear un procedimiento almacenado:
 
@@ -361,7 +361,7 @@ La instancia administrada de SQL admite la suplantación de las entidades de seg
     GO
     ```
 
-1. Utilice el siguiente comando para ver que el usuario que está suplantando al ejecutar el procedimiento almacenado es **bob\@aadsqlmi.net**.
+1. Utilice el siguiente comando para ver que el usuario que está suplantando al ejecutar el procedimiento almacenado es **bob\@aadsqlmi.net** .
 
     ```sql
     Exec dbo.usp_Demo
@@ -388,8 +388,8 @@ La instancia administrada de SQL admite la suplantación de las entidades de seg
 Las consultas entre bases de datos se admiten en las cuentas de Azure AD con entidades de seguridad (inicios de sesión) de un servidor de Azure AD. Para probar una consulta entre bases de datos con un grupo de Azure AD, hay que crear otra base de datos y una tabla. Puede omitir la creación de otra base de datos y tabla si ya existe una.
 
 1. Inicie sesión en la instancia administrada con una cuenta `sysadmin` mediante SQL Server Management Studio.
-1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta**.
-1. En la ventana de consulta, utilice el siguiente comando para crear una base de datos denominada **MyMITestDB2** y una tabla llamada **TestTable2**:
+1. En el **Explorador de objetos** , haga clic con el botón derecho en el servidor y elija **Nueva consulta** .
+1. En la ventana de consulta, utilice el siguiente comando para crear una base de datos denominada **MyMITestDB2** y una tabla llamada **TestTable2** :
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -405,7 +405,7 @@ Las consultas entre bases de datos se admiten en las cuentas de Azure AD con ent
     );
     ```
 
-1. En una nueva ventana de consulta, ejecute el siguiente comando para crear el usuario _mygroup_ en la nueva base de datos **MyMITestDB2** y conceda los permisos SELECT en esa base de datos a _mygroup_:
+1. En una nueva ventana de consulta, ejecute el siguiente comando para crear el usuario _mygroup_ en la nueva base de datos **MyMITestDB2** y conceda los permisos SELECT en esa base de datos a _mygroup_ :
 
     ```sql
     USE MyMITestDB2
@@ -424,7 +424,7 @@ Las consultas entre bases de datos se admiten en las cuentas de Azure AD con ent
     GO
     ```
 
-    Debería ver los resultados de la tabla en **TestTable2**.
+    Debería ver los resultados de la tabla en **TestTable2** .
 
 ## <a name="additional-supported-scenarios"></a>Escenarios admitidos adicionales
 
@@ -447,7 +447,7 @@ Consulte en el artículo [Características de seguridad de Instancia administrad
 - [Detección de amenazas](threat-detection-configure.md)
 - [Enmascaramiento de datos dinámicos](/sql/relational-databases/security/dynamic-data-masking)
 - [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security)
-- [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funcionalidades de Instancia administrada de SQL
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: a2e371ea49b9b2a0e7bd14e91a0b80c54f6c21ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e92f3e36b3dd7c407b9c490151f9b32446145771
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321527"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792776"
 ---
 # <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>Uso de PowerShell para sincronizar datos entre varias bases de datos en Azure SQL Database
 
@@ -281,7 +281,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Permite obtener toda la información del agente de sincronización. |
 | [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Agrega un nuevo miembro al grupo de sincronización. |
 | [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Actualiza la información de esquema de la base de datos. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Obtiene la información de esquema de la base de datos. |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/Get-azSqlSyncSchema) |  Obtiene la información de esquema de la base de datos. |
 | [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Actualiza el grupo de sincronización. |
 | [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Desencadena una sincronización. |
 | [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Comprueba el registro de sincronización. |
@@ -301,7 +301,7 @@ Para más información acerca de SQL Data Sync, consulte:
     - Uso de PowerShell: [Uso de PowerShell para sincronizar datos entre una base de datos de Azure SQL Database y SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync Agent: [Data Sync Agent para Azure SQL Data Sync](../sql-data-sync-agent-overview.md)
 - Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](../sql-data-sync-best-practices.md)
-- Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](../sql-data-sync-monitor-sync.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
+- Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](../monitor-tune-overview.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 - Solución de problemas: [Solución de problemas con Azure SQL Data Sync](../sql-data-sync-troubleshoot.md)
 - Actualización del esquema de sincronización
     - Uso de Transact-SQL: [Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync](../sql-data-sync-update-sync-schema.md)
@@ -310,4 +310,4 @@ Para más información acerca de SQL Data Sync, consulte:
 Para obtener más información sobre SQL Database, vea:
 
 - [Información general de SQL Database](../sql-database-paas-overview.md)
-- [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Administración del ciclo de vida de las aplicaciones](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

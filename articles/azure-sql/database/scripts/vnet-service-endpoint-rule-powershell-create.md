@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.date: 04/17/2019
 ms.custom: sqldbrb=1
 tags: azure-synapse
-ms.openlocfilehash: ae92d2000bb2c0dfd7e7a42c6070c143e5b787e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32599c9d289c8fc5e86eb8c7b0574d9703a6dd4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84170875"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792674"
 ---
 # <a name="powershell-create-a-virtual-service-endpoint-and-vnet-rule-for-azure-sql-database"></a>PowerShell: Creación de una regla de red virtual y un punto de conexión de servicio virtual para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -30,7 +30,7 @@ Las *reglas de red virtual* son una característica de firewall que controla si 
 En este artículo se muestra un script de PowerShell que realiza las siguientes acciones:
 
 1. Crea un *punto de conexión de servicio virtual* de Microsoft Azure en la subred.
-2. Agrega el punto de conexión al firewall de su servidor para crear una *regla de red virtual*.
+2. Agrega el punto de conexión al firewall de su servidor para crear una *regla de red virtual* .
 
 Para obtener más contexto, consulte [Puntos de conexión de servicio de red virtual para Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
@@ -40,20 +40,20 @@ Para obtener más contexto, consulte [Puntos de conexión de servicio de red vir
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para los [cmdlets de `Az.Sql`](/powershell/module/az.sql). Para ver el módulo anterior, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para los [cmdlets de `Az.Sql`](/powershell/module/az.sql). Para ver el módulo anterior, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 ## <a name="major-cmdlets"></a>Cmdlets principales
 
-En este artículo se resalta el cmdlet [**New-AzSqlServerVirtualNetworkRule**](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule), que agrega el punto de conexión de la subred a la lista de control de acceso (ACL) de su servidor, lo que crea una regla.
+En este artículo se resalta el cmdlet [**New-AzSqlServerVirtualNetworkRule**](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule), que agrega el punto de conexión de la subred a la lista de control de acceso (ACL) de su servidor, lo que crea una regla.
 
-En la lista siguiente se muestra la secuencia de otros cmdlets *principales* que debe ejecutar para prepararse para la llamada a **New-AzSqlServerVirtualNetworkRule**. En este artículo, estas llamadas se producen en el [script 3: "regla de red virtual"](#a-script-30):
+En la lista siguiente se muestra la secuencia de otros cmdlets *principales* que debe ejecutar para prepararse para la llamada a **New-AzSqlServerVirtualNetworkRule** . En este artículo, estas llamadas se producen en el [script 3: "regla de red virtual"](#a-script-30):
 
-1. [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig): crea un objeto de subred.
-2. [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork): crea su red virtual y le proporciona la subred.
-3. [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): asigna un punto de conexión de servicio de red virtual a la subred.
-4. [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/Set-azVirtualNetwork): conserva las actualizaciones realizadas en la red virtual.
-5. [New-AzSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): una vez que la subred sea un punto de conexión, agrega la subred como una regla de red virtual en la ACL de su servidor.
-   - Este cmdlet ofrece el parámetro **-IgnoreMissingVnetServiceEndpoint**, a partir del módulo de Azure RM PowerShell versión 5.1.1.
+1. [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig): crea un objeto de subred.
+2. [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork): crea su red virtual y le proporciona la subred.
+3. [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Set-azVirtualNetworkSubnetConfig): asigna un punto de conexión de servicio de red virtual a la subred.
+4. [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork): conserva las actualizaciones realizadas en la red virtual.
+5. [New-AzSqlServerVirtualNetworkRule](/powershell/module/az.sql/new-azsqlservervirtualnetworkrule): una vez que la subred sea un punto de conexión, agrega la subred como una regla de red virtual en la ACL de su servidor.
+   - Este cmdlet ofrece el parámetro **-IgnoreMissingVnetServiceEndpoint** , a partir del módulo de Azure RM PowerShell versión 5.1.1.
 
 ## <a name="prerequisites-for-running-powershell"></a>Requisitos previos para ejecutar PowerShell
 
@@ -376,11 +376,11 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Compruebe que la subred es un punto de conexión
 
-Es posible que tenga una subred a la que ya se haya asignado el nombre de tipo **Microsoft.Sql**, lo que significa que ya es un punto de conexión de servicio virtual. Puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una regla de red virtual desde el punto de conexión.
+Es posible que tenga una subred a la que ya se haya asignado el nombre de tipo **Microsoft.Sql** , lo que significa que ya es un punto de conexión de servicio virtual. Puede usar [Azure Portal][http-azure-portal-link-ref-477t] para crear una regla de red virtual desde el punto de conexión.
 
-O bien, es posible que no sepa con seguridad si su subred tiene el nombre de tipo **Microsoft.Sql**. Puede ejecutar el siguiente script de PowerShell para realizar estas acciones:
+O bien, es posible que no sepa con seguridad si su subred tiene el nombre de tipo **Microsoft.Sql** . Puede ejecutar el siguiente script de PowerShell para realizar estas acciones:
 
-1. Compruebe que su subred tenga el nombre de tipo **Microsoft.Sql**.
+1. Compruebe que su subred tenga el nombre de tipo **Microsoft.Sql** .
 2. En caso de que falte, puede asignar el nombre de tipo.
     - El script le pedirá su *confirmación* antes de aplicar el nombre de tipo que falta.
 
@@ -390,7 +390,7 @@ A continuación, se muestran las fases del script de PowerShell:
 
 1. Inicie sesión en su cuenta de Azure (solo debe hacerlo una vez por sesión de PS).  Asigne las variables.
 2. Busque la red virtual y, a continuación, su subred.
-3. ¿Su subred está etiquetada como tipo de servidor de punto de conexión de **Microsoft.Sql**?
+3. ¿Su subred está etiquetada como tipo de servidor de punto de conexión de **Microsoft.Sql** ?
 4. Agregue un punto de conexión del servicio virtual con el nombre de tipo **Microsoft.Sql** en su subred.
 
 > [!IMPORTANT]

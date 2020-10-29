@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6072c71fa675bd203e94f3f42814a1183b12ae8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d2d28a525f38aad3f48e439992a23abde0b7718
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597971"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786078"
 ---
 # <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Creación de una definición de SAS y captura de tokens de firma de acceso compartido en el código
 
@@ -23,7 +23,7 @@ Puede administrar su cuenta de almacenamiento con los tokens de Firma de acceso 
 > [!NOTE]
 > Se recomienda usar el [control de acceso basado en rol (RBAC)](../../storage/common/storage-auth-aad.md) para proteger la cuenta de almacenamiento y lograr una mayor seguridad y facilidad de uso mediante la autorización de claves compartidas.
 
-En este artículo se proporcionan ejemplos de código .NET que crea una definición de SAS y captura tokens de SAS. Consulte el ejemplo de [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) para obtener información completa, incluido el cliente generado para las cuentas de almacenamiento administradas por Key Vault. Para más información sobre cómo crear y almacenar tokens de SAS, consulte [Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure](overview-storage-keys.md) o [Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell](overview-storage-keys-powershell.md).
+En este artículo se proporcionan ejemplos de código .NET que crea una definición de SAS y captura tokens de SAS. Consulte el ejemplo de [ShareLink](/samples/azure/azure-sdk-for-net/share-link/) para obtener información completa, incluido el cliente generado para las cuentas de almacenamiento administradas por Key Vault. Para más información sobre cómo crear y almacenar tokens de SAS, consulte [Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure](overview-storage-keys.md) o [Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Ejemplos de código
 
@@ -41,7 +41,7 @@ Una vez creada la definición de SAS, puede recuperar los tokens de SAS como sec
 
 Si el token de la firma de acceso compartido está a punto de expirar, puede volver a capturar el mismo secreto para generar uno nuevo.
 
-Para obtener una guía sobre cómo usar el token de SAS recuperado de Key Vault para acceder a Azure Storage, consulte cómo [usar una cuenta de SAS para acceder a Blob service](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client).
+Para obtener una guía sobre cómo usar el token de SAS recuperado de Key Vault para acceder a Azure Storage, consulte cómo [usar una cuenta de SAS para acceder a Blob service](../../storage/common/storage-account-sas-create-dotnet.md#use-an-account-sas-from-a-client).
 
 > [!NOTE]
 > La aplicación debe estar preparada para actualizar SAS si recibe un mensaje 403 de Storage para que pueda controlar el caso en que se pone en peligro una clave y debe cambiarlas con más rapidez que el período de rotación normal. 

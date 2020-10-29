@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c07ad6e631482b47da674549e976953842cf983e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855929"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787472"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introducción al Almacenamiento en cola de Azure mediante .NET
 
@@ -50,8 +50,8 @@ En Visual Studio, cree una nueva aplicación de consola de Windows. Los siguient
 1. Seleccione **Archivo** > **Nuevo** > **Proyecto**
 2. Seleccione **Plataforma** > **Windows**
 3. Seleccione **Aplicación de consola (.NET Framework)**
-4. Seleccione **Siguiente**.
-5. Escriba el nombre de la aplicación en el campo **Nombre del proyecto**.
+4. Seleccione **Siguiente** .
+5. Escriba el nombre de la aplicación en el campo **Nombre del proyecto** .
 6. Seleccione **Crear**
 
 Todos los ejemplos de código de este tutorial se pueden agregar al método **Main()** del archivo **Program.cs** de la aplicación de consola.
@@ -71,7 +71,7 @@ Para completar este tutorial, es preciso que haga referencia a los siguientes cu
 
 Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 
-1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones**, y elija **Administrar paquetes NuGet**.
+1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** , y elija **Administrar paquetes NuGet** .
 1. Seleccione **Examinar**
 1. Busque "Azure.Storage.Queues" en línea y seleccione **Instalar** para instalar la biblioteca cliente de Storage y sus dependencias. También se instalarán las bibliotecas Azure.Storage.Common y Azure.Core, que son dependencias de la biblioteca de colas.
 1. Busque "System.Configuration.ConfigurationManager" en línea y seleccione **Instalar** para instalar Configuration Manager.
@@ -86,7 +86,7 @@ Para completar este tutorial, es preciso que haga referencia a los siguientes tr
 
 Puede usar NuGet para obtener estos paquetes. Siga estos pasos:
 
-1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones**, y elija **Administrar paquetes NuGet**.
+1. Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones** , y elija **Administrar paquetes NuGet** .
 1. Seleccione **Examinar**
 1. Busque "Microsoft.Azure.Storage.Queue" en línea y seleccione **Instalar** para instalar la biblioteca cliente de Storage y sus dependencias. Esto instalará también la biblioteca Microsoft.Azure.Storage.Common, que es una dependencia de la biblioteca de Queue.
 1. Busque "Microsoft.Azure.ConfigurationManager" en línea y seleccione **Instalar** para instalar Azure Configuration Manager.
@@ -113,8 +113,8 @@ El código de ejemplo debe autorizar el acceso a su cuenta de almacenamiento. Pa
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Busque su cuenta de almacenamiento.
-3. En la sección **Configuración** de la información general de la cuenta de almacenamiento, seleccione **Claves de acceso**. Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
-4. Busque el valor de **Cadena de conexión** en **key1**y haga clic en el botón **Copiar** para copiar la cadena de conexión. En el paso siguiente, agregará el valor de la cadena de conexión a una variable de entorno.
+3. En la sección **Configuración** de la información general de la cuenta de almacenamiento, seleccione **Claves de acceso** . Aparecen las claves de acceso de la cuenta, así como la cadena de conexión completa de cada clave.
+4. Busque el valor de **Cadena de conexión** en **key1** y haga clic en el botón **Copiar** para copiar la cadena de conexión. En el paso siguiente, agregará el valor de la cadena de conexión a una variable de entorno.
 
     ![Captura de pantalla que muestra cómo copiar una cadena de conexión desde Azure Portal](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
 
@@ -256,7 +256,7 @@ queue.AddMessage(message);
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
-Puede inspeccionar el mensaje de la cola sin tener que quitarlo de la misma, mediante una llamada al método [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages). Si no pasa un valor para el parámetro *maxMessages*, el valor predeterminado es inspeccionar un mensaje.
+Puede inspeccionar el mensaje de la cola sin tener que quitarlo de la misma, mediante una llamada al método [PeekMessages](/dotnet/api/azure.storage.queues.queueclient.peekmessages). Si no pasa un valor para el parámetro *maxMessages* , el valor predeterminado es inspeccionar un mensaje.
 
 :::code language="csharp" source="~/azure-storage-snippets/queues/howto/dotnet/dotnet-v12/QueueBasics.cs" id="snippet_PeekMessage":::
 
@@ -349,7 +349,7 @@ queue.DeleteMessage(retrievedMessage);
 
 ## <a name="use-async-await-pattern-with-common-queue-storage-apis"></a>Uso del patrón Async-Await con API comunes de almacenamiento de colas
 
-En este ejemplo se muestra cómo usar el patrón Async-Await con API comunes de almacenamiento de colas. El ejemplo llama a la versión asincrónica de cada uno de los métodos indicados, tal como se puede ver por el sufijo *Async* de cada método. Cuando se utiliza un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se completa la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo, lo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
+En este ejemplo se muestra cómo usar el patrón Async-Await con API comunes de almacenamiento de colas. El ejemplo llama a la versión asincrónica de cada uno de los métodos indicados, tal como se puede ver por el sufijo *Async* de cada método. Cuando se utiliza un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se completa la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo, lo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](/previous-versions/hh191443(v=vs.140)).
 
 # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
@@ -489,10 +489,10 @@ queue.Delete();
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 - Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
-  - [Referencia de la biblioteca de clientes de almacenamiento para .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  - [Referencia de API de REST](https://msdn.microsoft.com/library/azure/dd179355)
+  - [Referencia de la biblioteca de clientes de almacenamiento para .NET](/dotnet/api/overview/azure/storage)
+  - [Referencia de API de REST](/rest/api/storageservices/)
 - Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-  - [Introducción al Almacenamiento de tablas de Azure mediante .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) para almacenar datos estructurados.
-  - [Introducción al Almacenamiento de blobs de Azure mediante .NET](../blobs/storage-dotnet-how-to-use-blobs.md) para almacenar datos estructurados.
+  - [Introducción al Almacenamiento de tablas de Azure mediante .NET](../../cosmos-db/tutorial-develop-table-dotnet.md) para almacenar datos estructurados.
+  - [Introducción al Almacenamiento de blobs de Azure mediante .NET](../blobs/storage-quickstart-blobs-dotnet.md) para almacenar datos estructurados.
   - Para almacenar datos relacionales, consulte [Conexión a SQL Database mediante .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md).
 - Aprenda a simplificar el código que escriba para trabajar con Azure Storage mediante [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e7775f289e0221862d11c585ae85a5b0bc6cc27
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887657"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788557"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migración de una instancia de SQL Server a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ En un nivel alto, el proceso de migración de la base de datos es parecido a est
 
 En primer lugar, determine si Instancia administrada de SQL es compatible con los requisitos de base de datos de la aplicación. Instancia administrada de SQL se ha diseñado para poder migrar mediante lift-and-shit la mayoría de las aplicaciones existentes que usan SQL Server. Sin embargo, a veces podría necesitar características o funcionalidades que todavía no se admiten y el costo de implementar una solución alternativa es demasiado alto.
 
-Use [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. Si se ha notificado algún problema de bloqueo, quizá deba considerar una alternativa, como [SQL Server en VM de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estos son algunos ejemplos:
+Use [Data Migration Assistant](/sql/dma/dma-overview) para detectar posibles problemas de compatibilidad que afecten a la funcionalidad de la base de datos en Azure SQL Database. Si se ha notificado algún problema de bloqueo, quizá deba considerar una alternativa, como [SQL Server en VM de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Estos son algunos ejemplos:
 
 - Si necesita acceso directo al sistema operativo o al sistema de archivos, por ejemplo, para instalar agentes personalizados o de otros fabricantes en la misma máquina virtual con SQL Server.
 - Si las características tienen dependencias estrictas que aún no se admiten, por ejemplo, FileStream o FileTable, PolyBase y transacciones entre instancias.
@@ -69,8 +69,8 @@ La base de referencia del rendimiento es un conjunto de parámetros como el uso 
 Algunos de los parámetros que necesitará medir en su instancia de SQL Server son:
 
 - [Supervisión del uso de la CPU en la instancia de SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) y registro del uso medio y uso máximo de la CPU.
-- [Supervisión del uso de memoria en la instancia de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-memory-usage) y determinación de la cantidad de memoria utilizada por los distintos componentes como el grupo de búferes, la caché de planes, el grupo de almacenes de columnas, [OLTP en memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Además, debe buscar los valores promedio y máximo del contador de rendimiento de la memoria de duración prevista de la página.
-- Supervise el uso de E/S de disco en la instancia de SQL Server de origen mediante la vista [sys.dm_io_virtual_file_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) o los [contadores de rendimiento](https://docs.microsoft.com/sql/relational-databases/performance-monitor/monitor-disk-usage).
+- [Supervisión del uso de memoria en la instancia de SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) y determinación de la cantidad de memoria utilizada por los distintos componentes como el grupo de búferes, la caché de planes, el grupo de almacenes de columnas, [OLTP en memoria](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Además, debe buscar los valores promedio y máximo del contador de rendimiento de la memoria de duración prevista de la página.
+- Supervise el uso de E/S de disco en la instancia de SQL Server de origen mediante la vista [sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) o los [contadores de rendimiento](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Supervise el rendimiento de la carga de trabajo y de la consulta o la instancia de SQL Server mediante el análisis de vistas de administración dinámica o el almacén de consultas si va a migrar desde la versión SQL Server 2016 o versiones posteriores. Identifique el promedio de duración y el uso de CPU de las consultas más importantes de la carga de trabajo para compararlos con las consultas que se ejecutan en la instancia administrada.
 
 > [!Note]
@@ -116,7 +116,7 @@ Instancia administrada de SQL admite las siguientes opciones de migración de ba
 
 [Azure Database Migration Service](../../dms/dms-overview.md) es un servicio totalmente administrado diseñado para permitir migraciones completas desde varios orígenes de base de datos hasta las plataformas de datos de Azure con un tiempo de inactividad mínimo. Este servicio simplifica las tareas necesarias para mover las bases de datos existentes de SQL Server y de terceros a Azure. En la versión preliminar pública, las opciones de implementación incluyen bases de datos de Azure SQL Database y bases de datos de SQL Server en una máquina virtual de Azure. Database Migration Service es el método recomendado de migración para las cargas de trabajo de la empresa.
 
-Si usa SQL Server Integration Services (SSIS) en el servidor de SQL Server local, tenga en cuenta que el servicio Database Migration Service aún no admite la migración del catálogo de SSIS (SSISDB) que almacena paquetes SSIS; de todos modos, puede aprovisionar Azure-SSIS Integration Runtime (IR) en Azure Data Factory, para crear un nuevo SSISDB en una instancia administrada de modo que pueda volver a implementar sus paquetes en esta opción. Consulte [Creación de una instancia de Azure-SSIS IR en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
+Si usa SQL Server Integration Services (SSIS) en el servidor de SQL Server local, tenga en cuenta que el servicio Database Migration Service aún no admite la migración del catálogo de SSIS (SSISDB) que almacena paquetes SSIS; de todos modos, puede aprovisionar Azure-SSIS Integration Runtime (IR) en Azure Data Factory, para crear un nuevo SSISDB en una instancia administrada de modo que pueda volver a implementar sus paquetes en esta opción. Consulte [Creación de una instancia de Azure-SSIS IR en Azure Data Factory](../../data-factory/create-azure-ssis-integration-runtime.md).
 
 Para más información acerca de este escenario y los pasos de configuración para Database Migration Service, consulte cómo [migrar una base de datos local a Instancia administrada con Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -133,8 +133,8 @@ La siguiente tabla proporciona más información sobre los métodos que puede us
 |Paso|Motor y versión de SQL|Método de copia de seguridad y restauración|
 |---|---|---|
 |Colocar la copia de seguridad en Azure Storage|Antes de 2012 SP1 CU2|Carga del archivo .bak directamente a Azure Storage|
-||2012 SP1 CU2 - 2016|Copia de seguridad directa mediante la sintaxis [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql), ya en desuso.|
-||2016 y posteriores|Copia de seguridad directa con [WITH SAS CREDENTIAL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).|
+||2012 SP1 CU2 - 2016|Copia de seguridad directa mediante la sintaxis [WITH CREDENTIAL](/sql/t-sql/statements/restore-statements-transact-sql), ya en desuso.|
+||2016 y posteriores|Copia de seguridad directa con [WITH SAS CREDENTIAL](/sql/relational-databases/backup-restore/sql-server-backup-to-url).|
 |Restaurar de Azure Storage a Instancia administrada|[RESTORE FROM URL WITH SAS CREDENTIAL](restore-sample-database-quickstart.md)|
 
 > [!IMPORTANT]
@@ -164,7 +164,7 @@ Como requisito previo, asegúrese de que ha completado las siguientes actividade
 - Alinear la configuración de la instancia administrada con la configuración de la instancia de SQL Server de origen investigando diversos valores de configuración de la instancia, la base de datos y tempdb. Asegúrese de que no ha cambiado valores como los de los niveles de compatibilidad o el cifrado antes de ejecutar la primera comparación de rendimiento, o acepte el riesgo de que algunas de las nuevas características que ha habilitado afecten a algunas consultas. Para reducir los riesgos de la migración, cambie el nivel de compatibilidad de la base de datos solo después de supervisar el rendimiento.
 - Implementar [directrices de procedimientos recomendados de almacenamiento de uso general](https://techcommunity.microsoft.com), como preasignar el tamaño de los archivos para obtener el mejor rendimiento.
 - Obtener más información sobre las [principales diferencias del entorno que podrían producir diferencias de rendimiento entre una instancia administrada y SQL Server](https://azure.microsoft.com/blog/key-causes-of-performance-differences-between-sql-managed-instance-and-sql-server/) e identificar los riesgos que podrían afectar al rendimiento.
-- Asegurarse de que tiene habilitadas las características Almacén de consultas y Ajuste automático en la instancia administrada. Estas características le permiten medir el rendimiento de carga de trabajo y corregir automáticamente los posibles problemas de rendimiento. Aprenda a usar Almacén de consultas como herramienta ideal para obtener información sobre el rendimiento de la carga de trabajo antes y después de cambiar el nivel de compatibilidad de la base de datos, tal y como se explica en [Mantener la estabilidad del rendimiento al actualizar a una versión más reciente de SQL Server](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
+- Asegurarse de que tiene habilitadas las características Almacén de consultas y Ajuste automático en la instancia administrada. Estas características le permiten medir el rendimiento de carga de trabajo y corregir automáticamente los posibles problemas de rendimiento. Aprenda a usar Almacén de consultas como herramienta ideal para obtener información sobre el rendimiento de la carga de trabajo antes y después de cambiar el nivel de compatibilidad de la base de datos, tal y como se explica en [Mantener la estabilidad del rendimiento al actualizar a una versión más reciente de SQL Server](/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade).
 Una vez que haya preparado el entorno de forma que sea lo más parecido posible al entorno local, puede empezar a ejecutar la carga de trabajo y a medir el rendimiento. El proceso de medición debe incluir los mismos parámetros que midió [al crear la base de referencia de rendimiento de la carga de trabajo en la instancia de origen de SQL Server](#create-a-performance-baseline).
 Como resultado, debe comparar los parámetros de rendimiento con la base de referencia e identificar las diferencias más importantes.
 
@@ -194,16 +194,16 @@ Instancia administrada de SQL proporciona una gran cantidad de herramientas avan
 
 Una vez que se encuentra en una plataforma totalmente administrada y ha comprobado que el rendimiento de la carga de trabajo coincide con el rendimiento de la carga de trabajo de SQL Server, aproveche las ventajas que se proporcionan automáticamente como parte del servicio.
 
-Incluso si no ha realizado cambios en la instancia administrada durante la migración, es muy probable que haya activado algunas características nuevas mientras trabaja con la instancia para sacar partido a algunas de las mejoras más recientes del motor de base de datos. Algunos cambios se habilitan solo después de [cambiar el nivel de compatibilidad de la base de datos](https://docs.microsoft.com/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
+Incluso si no ha realizado cambios en la instancia administrada durante la migración, es muy probable que haya activado algunas características nuevas mientras trabaja con la instancia para sacar partido a algunas de las mejoras más recientes del motor de base de datos. Algunos cambios se habilitan solo después de [cambiar el nivel de compatibilidad de la base de datos](/sql/relational-databases/databases/view-or-change-the-compatibility-level-of-a-database).
 
 Por ejemplo, no tiene que crear copias de seguridad en la instancia administrada; el servicio realiza las copias de seguridad automáticamente. Ya no debe preocuparse de programar, seguir y administrar las copias de seguridad. SQL Managed Instance permite restaurar a un momento dado dentro de este período de retención mediante la [recuperación a un momento dado (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Además, no es necesario preocuparse por la configuración de la alta disponibilidad porque la [alta disponibilidad](../database/high-availability-sla.md) está integrada.
 
-Para reforzar la seguridad, considere la posibilidad de usar la [autenticación de Azure Active Directory](../database/security-overview.md), la [auditoría](auditing-configure.md), la [detección de amenazas](../database/azure-defender-for-sql.md), la [seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) y el [enmascaramiento dinámico de datos](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Para reforzar la seguridad, considere la posibilidad de usar la [autenticación de Azure Active Directory](../database/security-overview.md), la [auditoría](auditing-configure.md), la [detección de amenazas](../database/azure-defender-for-sql.md), la [seguridad de nivel de fila](/sql/relational-databases/security/row-level-security) y el [enmascaramiento dinámico de datos](/sql/relational-databases/security/dynamic-data-masking).
 
-Además de la administración avanzada y las características de seguridad, una instancia administrada ofrece un conjunto de herramientas avanzadas que pueden ayudarle a [supervisar y optimizar la carga de trabajo](../database/monitor-tune-overview.md). [Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) le permite supervisar un conjunto grande de instancias administradas y centralizar la supervisión de un gran número de instancias y bases de datos. [Ajuste automático](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) en instancias administradas supervisa continuamente el rendimiento de las estadísticas de ejecución del plan de SQL y corrige automáticamente los problemas de rendimiento identificados.
+Además de la administración avanzada y las características de seguridad, una instancia administrada ofrece un conjunto de herramientas avanzadas que pueden ayudarle a [supervisar y optimizar la carga de trabajo](../database/monitor-tune-overview.md). [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) le permite supervisar un conjunto grande de instancias administradas y centralizar la supervisión de un gran número de instancias y bases de datos. [Ajuste automático](/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) en instancias administradas supervisa continuamente el rendimiento de las estadísticas de ejecución del plan de SQL y corrige automáticamente los problemas de rendimiento identificados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre Instancia administrada de Azure SQL, consulte [¿Qué es Instancia administrada de Azure SQL?](sql-managed-instance-paas-overview.md)
 - Para ver un tutorial que incluye una restauración desde una copia de seguridad, consulte [Creación de una instancia administrada](instance-create-quickstart.md).
-- Para ver un tutorial que muestra la migración mediante Database Migration Service, consulte [Migración de la base de datos local a Azure SQL Managed Instance mediante Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).  
+- Para ver un tutorial que muestra la migración mediante Database Migration Service, consulte [Migración de la base de datos local a Azure SQL Managed Instance mediante Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).

@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: 959a58a38861075c6509fe57136d8991eeb98ce6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b51746326c2df81e2dd2bdc72bf2a9ab72b649b5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588202"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790566"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del Emulador de Azure Storage para desarrollo y pruebas
 
@@ -44,7 +44,7 @@ Existen algunas diferencias de funcionalidad entre el emulador de almacenamiento
 
 Para iniciar el Emulador de Azure Storage:
 
-1. Haga clic en el botón **Inicio** o pulse la tecla **Windows**.
+1. Haga clic en el botón **Inicio** o pulse la tecla **Windows** .
 2. Comience a escribir `Azure Storage Emulator`.
 3. Seleccione el emulador de la lista de aplicaciones mostradas.
 
@@ -95,7 +95,7 @@ Cuando haya instalado e iniciado el emulador de almacenamiento, puede probar el 
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Para más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](../storage-configure-connection-string.md).
+Para más información sobre las cadenas de conexión, consulte [Configuración de las cadenas de conexión de Azure Storage](./storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Autorización con una firma de acceso compartido
 
@@ -161,7 +161,7 @@ A partir de la versión 3.1, el emulador de almacenamiento admite la replicació
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
 
 > [!NOTE]
-> Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de clientes de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la [biblioteca del cliente de Microsoft Azure Storage para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx) si desea obtener más información.
+> Para el acceso mediante programación a la cuenta secundaria con el emulador de almacenamiento, usa la biblioteca de clientes de almacenamiento para la versión 3.2 de .NET o una versión posterior. Consulte la [biblioteca del cliente de Microsoft Azure Storage para .NET](/previous-versions/azure/dn261237(v=azure.100)) si desea obtener más información.
 >
 >
 
@@ -184,11 +184,11 @@ Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 
 | Opción | Descripción | Comando | Argumentos |
 | --- | --- | --- | --- |
-| **Iniciar** |Inicia el emulador de almacenamiento. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
+| **Iniciar** |Inicia el emulador de almacenamiento. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess* : inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
 | **Detención** |Detiene el emulador de almacenamiento. |`AzureStorageEmulator.exe stop` | |
 | **Estado** |Imprime el estado del emulador de almacenamiento. |`AzureStorageEmulator.exe status` | |
-| **Borrar** |Borra los datos de todos los servicios especificados en la línea de comandos. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: borra datos del blob. <br/>*queue*: borra datos de la cola. <br/>*table*: borra datos de la tabla. <br/>*all*: borra todos los datos de todos los servicios. |
-| **Init** |Realiza una inicialización única para configurar el emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: especifica el servidor que hospeda la instancia de SQL. <br/>*-sqlinstance instanceName*: especifica el nombre de la instancia de SQL que se usará en la instancia de servidor predeterminada. <br/>*-forcecreate*: fuerza la creación de la instancia de SQL Database, aunque ya exista. <br/>*-skipcreate*: mite la creación de la instancia de SQL Database. Esto tiene prioridad sobre -forcecreate.<br/>*-reserveports*: intenta reservar los puertos HTTP asociados con los servicios.<br/>*-unreserveports*: intenta quitar las reservas de los puertos HTTP asociados con los servicios. Esto tiene prioridad sobre -reserveports.<br/>*-inprocess*: realiza la inicialización en el proceso actual, en lugar de generar un proceso nuevo. Tiene que iniciar el proceso actual con permisos elevados si se cambian las reservas de puerto. |
+| **Borrar** |Borra los datos de todos los servicios especificados en la línea de comandos. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob* : borra datos del blob. <br/>*queue* : borra datos de la cola. <br/>*table* : borra datos de la tabla. <br/>*all* : borra todos los datos de todos los servicios. |
+| **Init** |Realiza una inicialización única para configurar el emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName* : especifica el servidor que hospeda la instancia de SQL. <br/>*-sqlinstance instanceName* : especifica el nombre de la instancia de SQL que se usará en la instancia de servidor predeterminada. <br/>*-forcecreate* : fuerza la creación de la instancia de SQL Database, aunque ya exista. <br/>*-skipcreate* : mite la creación de la instancia de SQL Database. Esto tiene prioridad sobre -forcecreate.<br/>*-reserveports* : intenta reservar los puertos HTTP asociados con los servicios.<br/>*-unreserveports* : intenta quitar las reservas de los puertos HTTP asociados con los servicios. Esto tiene prioridad sobre -reserveports.<br/>*-inprocess* : realiza la inicialización en el proceso actual, en lugar de generar un proceso nuevo. Tiene que iniciar el proceso actual con permisos elevados si se cambian las reservas de puerto. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferencias entre el emulador de almacenamiento y Azure Storage
 
@@ -310,7 +310,7 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 
 ### <a name="version-40"></a>Versión 4.0
 
-* Se ha cambiado el nombre del ejecutable del emulador de almacenamiento por *AzureStorageEmulator.exe*.
+* Se ha cambiado el nombre del ejecutable del emulador de almacenamiento por *AzureStorageEmulator.exe* .
 
 ### <a name="version-32"></a>Versión 3.2
 
@@ -329,7 +329,7 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Evalúe [Azurite](https://github.com/azure/azurite), el emulador de almacenamiento de código abierto multiplataforma mantenido por la comunidad. 
-* [Ejemplos de Azure Storage mediante .NET](../storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
+* [Ejemplos de Azure Storage mediante .NET](./storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
 * Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos de su cuenta de almacenamiento en la nube y del emulador de almacenamiento.
 
 ## <a name="see-also"></a>Consulte también

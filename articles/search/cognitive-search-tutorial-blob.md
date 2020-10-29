@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936017"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788067"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Tutorial: Uso de REST y AI para generar contenido en el que se pueden realizar búsquedas desde blobs de Azure
 
@@ -43,7 +43,7 @@ Si no tiene una suscripción a Azure, abra una [cuenta gratuita](https://azure.m
 
 1. Abra esta [carpeta de OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) y, en la esquina superior izquierda, haga clic en **Descargar** para copiar los archivos en el equipo. 
 
-1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo**. Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
+1. Haga clic con el botón derecho en el archivo ZIP y seleccione **Extraer todo** . Hay 14 archivos de varios tipos. Para este ejercicio, usará 7.
 
 ## <a name="1---create-services"></a>1: Creación de servicios
 
@@ -53,7 +53,7 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 ### <a name="start-with-azure-storage"></a>Comienzo con Azure Storage
 
-1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso**.
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y haga clic en **+ Crear un recurso** .
 
 1. Busque *cuenta de almacenamiento* y seleccione la oferta de Cuenta de almacenamiento de Microsoft.
 
@@ -61,21 +61,21 @@ Si es posible, cree los dos en la misma región y grupo de recursos para la prox
 
 1. En la pestaña Datos básicos, se necesitan los siguientes elementos. Acepte los valores predeterminados para todo lo demás.
 
-   + **Grupo de recursos**. Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
+   + **Grupo de recursos** . Seleccione un grupo existente o cree uno nuevo, pero use el mismo grupo para todos los servicios, con el fin de que pueda administrarlos colectivamente.
 
-   + **Nombre de cuenta de almacenamiento**. Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus*. 
+   + **Nombre de cuenta de almacenamiento** . Si cree que puede tener varios recursos del mismo tipo, use el nombre para diferenciarlos por tipo y región, por ejemplo *blobstoragewestus* . 
 
-   + **Ubicación**. Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
+   + **Ubicación** . Si es posible, elija la misma ubicación que se usa para Azure Cognitive Search y Cognitive Services. Una ubicación única anula los cargos de ancho de banda.
 
-   + **Tipo de cuenta**. Elija el valor predeterminado, *StorageV2 (uso general v2)* .
+   + **Tipo de cuenta** . Elija el valor predeterminado, *StorageV2 (uso general v2)* .
 
 1. Haga clic en **Revisar y crear** para crear el servicio.
 
 1. Una vez creado, haga clic en **Go to the resource** (Ir al recurso) para abrir la página de información general.
 
-1. Haga clic en el servicio **Blobs**.
+1. Haga clic en el servicio **Blobs** .
 
-1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo*.
+1. Haga clic en **+ Contenedor** para crear un contenedor y asígnele el nombre *cog-search-demo* .
 
 1. Seleccione *cog-search-demo* y haga clic en **Cargar** para abrir la carpeta en la que guardó los archivos de descarga. Seleccione todos los archivos que no sean de imagen. Debería tener 7 archivos. Haga clic en **Aceptar** para empezar a cargar.
 
@@ -111,11 +111,11 @@ Al igual que con Azure Blob Storage dedique un momento a recopilar la clave de a
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y, en la página **Información general** del servicio de búsqueda, obtenga el nombre del servicio de búsqueda. Para confirmar el nombre del servicio, revise la dirección URL del punto de conexión. Si la dirección URL del punto de conexión fuera `https://mydemo.search.windows.net`, el nombre del servicio sería `mydemo`.
 
-2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+2. En **Configuración** > **Claves** , obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
    Obtenga también la clave de consulta. Es una práctica recomendada emitir solicitudes de consulta con acceso de solo lectura.
 
-   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Obtención del nombre del servicio y las claves de consulta y administrador](media/search-get-started-javascript/service-name-and-keys.png)
 
 Todas las solicitudes enviadas al servicio necesitan una clave de API en el encabezado. Una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que la envía y el servicio que se encarga de ella.
 
@@ -123,7 +123,7 @@ Todas las solicitudes enviadas al servicio necesitan una clave de API en el enca
 
 Inicie Postman y configure una solicitud HTTP. Si no está familiarizado con esta herramienta, consulte [Exploración de las API REST de Azure Cognitive Search mediante Postman](search-get-started-postman.md).
 
-Los métodos de solicitud usados en este tutorial son **POST**, **PUT** y **GET**. Usaremos los métodos siguientes para realizar cuatro llamadas API al servicio de búsqueda: crear un origen de datos, un conjunto de aptitudes, un índice y un indexador.
+Los métodos de solicitud usados en este tutorial son **POST** , **PUT** y **GET** . Usaremos los métodos siguientes para realizar cuatro llamadas API al servicio de búsqueda: crear un origen de datos, un conjunto de aptitudes, un índice y un indexador.
 
 En Headers (Encabezados), establezca "Content-Type" en `application/json` y establezca `api-key` en la clave de API de administración de su servicio Azure Cognitive Search. Una vez que establezca los encabezados, puede usarlos para todas las solicitudes de este ejercicio.
 
@@ -143,7 +143,7 @@ Un [objeto de origen de datos](/rest/api/searchservice/create-data-source) propo
    https://[YOUR-SERVICE-NAME].search.windows.net/datasources?api-version=2020-06-30
    ```
 
-1. En el **cuerpo**de la solicitud, copie la siguiente definición de JSON y reemplace `connectionString` por la conexión real de la cuenta de almacenamiento. 
+1. En el **cuerpo** de la solicitud, copie la siguiente definición de JSON y reemplace `connectionString` por la conexión real de la cuenta de almacenamiento. 
 
    No olvide editar también el nombre del contenedor. En un paso anterior sugerimos "cog-search-demo" como nombre del contenedor.
 
@@ -173,7 +173,7 @@ Un [objeto conjunto de aptitudes](/rest/api/searchservice/create-skillset) es un
     https://[YOUR-SERVICE-NAME].search.windows.net/skillsets/cog-search-demo-sd?api-version=2020-06-30
     ```
 
-1. En el **cuerpo**de la solicitud, copie la siguiente definición de JSON. Este conjunto de aptitudes consta de las siguientes aptitudes integradas.
+1. En el **cuerpo** de la solicitud, copie la siguiente definición de JSON. Este conjunto de aptitudes consta de las siguientes aptitudes integradas.
 
    | Habilidad                 | Descripción    |
    |-----------------------|----------------|
@@ -258,7 +258,7 @@ Un [índice](/rest/api/searchservice/create-index) proporciona el esquema que se
    https://[YOUR-SERVICE-NAME].search.windows.net/indexes/cog-search-demo-idx?api-version=2020-06-30
    ```
 
-1. En el **cuerpo**de la solicitud, copie la siguiente definición de JSON. El campo `content` almacena el propio documento. Los campos adicionales para `languageCode`, `keyPhrases` y `organizations` representan la nueva información (campos y valores) creada por el conjunto de aptitudes.
+1. En el **cuerpo** de la solicitud, copie la siguiente definición de JSON. El campo `content` almacena el propio documento. Los campos adicionales para `languageCode`, `keyPhrases` y `organizations` representan la nueva información (campos y valores) creada por el conjunto de aptitudes.
 
     ```json
     {
@@ -342,7 +342,7 @@ Un [indexador](/rest/api/searchservice/create-indexer) rige la canalización. Lo
    https://[servicename].search.windows.net/indexers/cog-search-demo-idxr?api-version=2020-06-30
    ```
 
-1. En el **cuerpo**de la solicitud, copie la siguiente definición de JSON. Observe los elementos de asignación de campos; estas asignaciones son importantes porque definen el flujo de datos. 
+1. En el **cuerpo** de la solicitud, copie la siguiente definición de JSON. Observe los elementos de asignación de campos; estas asignaciones son importantes porque definen el flujo de datos. 
 
    `fieldMappings` se procesa antes que el conjunto de aptitudes y envía el contenido del origen de datos a los campos de destino de un índice. Usará asignaciones de campos para enviar contenido existente sin modificar al índice. Si los tipos y nombres de campo son los mismos en ambos extremos, no se requiere ninguna asignación.
 

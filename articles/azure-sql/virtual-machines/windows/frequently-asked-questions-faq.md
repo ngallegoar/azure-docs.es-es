@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: e1d1ffbf198a4e4c2574f93919ef98e36a90004a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566999"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786503"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Preguntas más frecuentes sobre SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -64,7 +64,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > Se recomienda que todas máquinas virtuales de Azure con SQL Server, incluidas las implementadas a partir de imágenes generalizadas personalizadas, estén [registradas con el proveedor de recursos de máquina virtual de SQL](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) para satisfacer los requisitos de cumplimiento y para usar características opcionales como la revisión automatizada y las copias de seguridad automáticas. El proveedor de recursos también le permite [especificar el tipo de licencia](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) para cada VM con SQL Server.
+   > Se recomienda que todas máquinas virtuales de Azure con SQL Server, incluidas las implementadas a partir de imágenes generalizadas personalizadas, estén [registradas con el proveedor de recursos de máquina virtual de SQL](./sql-vm-resource-provider-register.md?tabs=azure-cli%252cbash) para satisfacer los requisitos de cumplimiento y para usar características opcionales como la revisión automatizada y las copias de seguridad automáticas. El proveedor de recursos también le permite [especificar el tipo de licencia](./licensing-model-azure-hybrid-benefit-ahb-change.md?tabs=azure-portal) para cada VM con SQL Server.
 
 1. **¿Puedo usar mi propio disco duro virtual para implementar una máquina virtual con SQL Server?**
 
@@ -145,11 +145,11 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
  
    Sí, siempre que se haya implementado la máquina virtual con SQL Server en la nube pública con el modelo de Resource Manager y no con el modelo clásico. Todos los demás clientes pueden registrarse con el nuevo proveedor de recursos de máquina virtual con SQL Server. Sin embargo, solo los clientes con la ventaja de [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) pueden usar su propia licencia activando la [Ventaja híbrida de Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) en una máquina virtual con SQL Server. 
 
-1. **¿Qué ocurre con el proveedor de recursos (_Microsoft.SqlVirtualMachine_) si se mueve o se quita el recurso de la máquina virtual?** 
+1. **¿Qué ocurre con el proveedor de recursos ( _Microsoft.SqlVirtualMachine_ ) si se mueve o se quita el recurso de la máquina virtual?** 
 
    Cuando el recurso Microsoft.Compute/VirtualMachine se coloca o se mueve, se envía una notificación al recurso Microsoft.SqlVirtualMachine asociado para replicar de forma asincrónica la operación.
 
-1. **¿Qué ocurre con la máquina virtual si se quita el recurso del proveedor de recursos (_Microsoft.SqlVirtualMachine_)?**
+1. **¿Qué ocurre con la máquina virtual si se quita el recurso del proveedor de recursos ( _Microsoft.SqlVirtualMachine_ )?**
 
     El recurso Microsoft.Compute/VirtualMachine no se ve afectado cuando se coloca el recurso Microsoft.SqlVirtualMachine. Sin embargo, los cambios en las licencias devolverán el valor predeterminado al origen de la imagen original. 
 
@@ -169,7 +169,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo desinstalar la instancia predeterminada de SQL Server?**
 
-   Sí, pero debe tener en cuenta algunas consideraciones. En primer lugar, es posible que sigan aplicándose cargos por facturación asociada con SQL Server en función del modelo de licencia de la máquina virtual. En segundo lugar, tal como se ha mencionado en la respuesta anterior, hay características que dependen de la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si desinstala la instancia predeterminada sin haber eliminado la extensión IaaS, la extensión continuará buscando la instancia predeterminada y puede generar errores de registro de eventos. Estos errores proceden de los dos orígenes siguientes: **Administración de credenciales de Microsoft SQL Server** y **Agente de IaaS de Microsoft SQL Server**. Es posible que uno de los errores sea similar al siguiente:
+   Sí, pero debe tener en cuenta algunas consideraciones. En primer lugar, es posible que sigan aplicándose cargos por facturación asociada con SQL Server en función del modelo de licencia de la máquina virtual. En segundo lugar, tal como se ha mencionado en la respuesta anterior, hay características que dependen de la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Si desinstala la instancia predeterminada sin haber eliminado la extensión IaaS, la extensión continuará buscando la instancia predeterminada y puede generar errores de registro de eventos. Estos errores proceden de los dos orígenes siguientes: **Administración de credenciales de Microsoft SQL Server** y **Agente de IaaS de Microsoft SQL Server** . Es posible que uno de los errores sea similar al siguiente:
 
       Se ha producido un error relacionado con la red o específico de la instancia al establecer una conexión en SQL Server. No se encontró el servidor o no era accesible.
 
@@ -210,7 +210,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 1. **¿Puedo actualizar mi instancia de SQL Server 2008/2008 R2 después de registrarla con el proveedor de recursos de máquina virtual con SQL Server?**
 
-   Sí. Puede usar cualquier soporte de instalación para actualizar la versión y edición de SQL Server y, a continuación, puede actualizar el [modo de la extensión IaaS de SQL](sql-vm-resource-provider-register.md#management-modes)) de _sin agente_ a _completo_. Esto le dará acceso a todas las ventajas de la extensión IaaS de SQL, como la capacidad de administración de portal, las copias de seguridad automáticas y la aplicación de revisiones automatizada. 
+   Sí. Puede usar cualquier soporte de instalación para actualizar la versión y edición de SQL Server y, a continuación, puede actualizar el [modo de la extensión IaaS de SQL](sql-vm-resource-provider-register.md#management-modes)) de _sin agente_ a _completo_ . Esto le dará acceso a todas las ventajas de la extensión IaaS de SQL, como la capacidad de administración de portal, las copias de seguridad automáticas y la aplicación de revisiones automatizada. 
 
 1. **¿Cómo puedo obtener actualizaciones de seguridad ampliadas gratuitas para el fin del soporte de mis instancias de SQL Server 2008 y SQL Server 2008 R2?**
 
@@ -225,7 +225,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
    Sí. Puede instalar una instancia del clúster de conmutación por error mediante [recursos compartidos de archivos Premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) o de [espacios de almacenamiento directo (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) para el subsistema de almacenamiento. Los recursos compartidos de archivos Premium proporcionan funcionalidades de IOPS y rendimiento para responder a las necesidades de varias cargas de trabajo. Sin embargo, en el caso de cargas de trabajo con un uso intensivo de E/S, considere el uso de espacios de almacenamiento directo basado en discos o ultradiscos Premium administrados. También puede usar soluciones de agrupación en clústeres o almacenamiento de terceros como se describe en [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > En este momento, la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md) _completa_ no es compatible con FCI de SQL Server en Azure. Recomendamos que desinstale la extensión _completa_ de las máquinas virtuales que participan en la FCI y que, en su lugar, instale la extensión en modo _ligero_. Esta extensión admite características, como las copias de seguridad automáticas y la aplicación de revisiones automatizada y algunas características del portal de SQL Server. Estas características no funcionarán para las máquinas virtuales con SQL Server después de desinstalar el agente _completo_.
+   > En este momento, la [extensión Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md) _completa_ no es compatible con FCI de SQL Server en Azure. Recomendamos que desinstale la extensión _completa_ de las máquinas virtuales que participan en la FCI y que, en su lugar, instale la extensión en modo _ligero_ . Esta extensión admite características, como las copias de seguridad automáticas y la aplicación de revisiones automatizada y algunas características del portal de SQL Server. Estas características no funcionarán para las máquinas virtuales con SQL Server después de desinstalar el agente _completo_ .
 
 1. **¿Cuál es la diferencia entre las máquinas virtuales con SQL Server y el servicio SQL Database?**
 
@@ -241,7 +241,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 
 ## <a name="resources"></a>Recursos
 
-**Máquinas virtuales Windows**:
+**Máquinas virtuales Windows** :
 
 * [Introducción a SQL Server en máquinas virtuales Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Aprovisionamiento de SQL Server en una VM Windows](create-sql-vm-portal.md)
@@ -250,9 +250,9 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más comunes 
 * [Directrices de rendimiento para SQL Server en Azure Virtual Machines](performance-guidelines-best-practices.md)
 * [Estrategias de desarrollo y patrones de aplicación de SQL Server en Azure Virtual Machines](application-patterns-development-strategies.md)
 
-**Máquinas virtuales Linux**:
+**Máquinas virtuales Linux** :
 
 * [Introducción a SQL Server en máquinas virtuales Linux](../linux/sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Aprovisionamiento de SQL Server en una VM Linux](../linux/sql-vm-create-portal-quickstart.md)
 * [Preguntas más frecuentes (Linux)](../linux/frequently-asked-questions-faq.md)
-* [Documentación de SQL Server en Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Documentación de SQL Server en Linux](/sql/linux/sql-server-linux-overview)

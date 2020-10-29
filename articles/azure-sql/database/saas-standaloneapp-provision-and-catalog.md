@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332202"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793252"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar y catalogar nuevos inquilinos mediante el patrón SaaS de aplicación por inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Este artículo se divide en dos partes principales:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Patrón de aplicación independiente por inquilino
 
-El patrón de aplicación por inquilino independiente es uno de los distintos patrones para aplicaciones SaaS multiinquilino.  En este patrón se aprovisiona una aplicación independiente por cada inquilino. La aplicación consta de componentes de nivel de aplicación y una instancia de Azure SQL Database.  Cada aplicación de inquilino se puede implementar en la suscripción del proveedor.  Como alternativa, Azure ofrece un [programa de aplicaciones administradas](https://docs.microsoft.com/azure/managed-applications/overview) en el cual una aplicación se puede implementar en la suscripción del inquilino para que el proveedor la administre en nombre del inquilino.
+El patrón de aplicación por inquilino independiente es uno de los distintos patrones para aplicaciones SaaS multiinquilino.  En este patrón se aprovisiona una aplicación independiente por cada inquilino. La aplicación consta de componentes de nivel de aplicación y una instancia de Azure SQL Database.  Cada aplicación de inquilino se puede implementar en la suscripción del proveedor.  Como alternativa, Azure ofrece un [programa de aplicaciones administradas](../../azure-resource-manager/managed-applications/overview.md) en el cual una aplicación se puede implementar en la suscripción del inquilino para que el proveedor la administre en nombre del inquilino.
 
    ![patrón de aplicación por inquilino](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ Al final de este tutorial, tendrá un conjunto de aplicaciones de inquilino inde
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Se implementan las tres aplicaciones de inquilino de ejemplo. Para implementar estas aplicaciones en menos de cinco minutos, consulte el artículo [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](../../sql-database/saas-standaloneapp-get-started-deploy.md) (Implementar y explorar el patrón de la aplicación independiente SaaS Wingtip Tickets).
+* Azure PowerShell está instalado. Para más información, consulte [Introducción a Azure PowerShell](/powershell/azure/get-started-azureps)
+* Se implementan las tres aplicaciones de inquilino de ejemplo. Para implementar estas aplicaciones en menos de cinco minutos, consulte el artículo [Deploy and explore the Wingtip Tickets SaaS Standalone Application pattern](./saas-standaloneapp-get-started-deploy.md) (Implementar y explorar el patrón de la aplicación independiente SaaS Wingtip Tickets).
 
 ## <a name="provision-the-catalog"></a>Aprovisionar el catálogo
 
@@ -92,7 +92,7 @@ En esta tarea, aprenderá a aprovisionar el catálogo que se usa para registrar 
 1. Para ejecutar los scripts, presione **F5** .
 1.  Después de que la ejecución del script se detenga en el punto de interrupción, presione **F11** para ir al script New-Catalog.ps1.
 1.  Siga paso a paso la ejecución del script mediante las opciones del menú Depurar (F10 y F11) para omitir las funciones llamadas o acceder a ellas.
-    *   Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *   Para obtener más información sobre cómo depurar scripts de PowerShell, consulte [Sugerencias para trabajar con scripts de PowerShell y depurarlos](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Una vez completado el script, se creará el catálogo y todos los inquilinos de ejemplo se registrarán.
 
@@ -156,4 +156,4 @@ En este tutorial ha obtenido información:
 > * Información sobre los servidores y las bases de datos que componen la aplicación.
 > * Información sobre cómo eliminar los recursos de ejemplo para detener la facturación relacionada con ellos.
 
-Puede explorar cómo se usa el catálogo para admitir diversos escenarios entre inquilinos con la versión de base de datos por inquilino de la [aplicación SaaS Wingtip Tickets](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+Puede explorar cómo se usa el catálogo para admitir diversos escenarios entre inquilinos con la versión de base de datos por inquilino de la [aplicación SaaS Wingtip Tickets](./saas-dbpertenant-wingtip-app-overview.md).

@@ -12,17 +12,17 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: d2ea14356bf85c795769f1d406f1571f36adaa38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a47b9032ac014fa4eedde343d03d4fd343ff02
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617926"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790668"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-managed-instance"></a>Configuración de Advanced Threat Protection en Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Advanced Threat Protection](../database/threat-detection-overview.md) para una [Instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md) detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad. Advanced Threat Protection puede identificar una **posible inyección de código SQL**, **acceso desde un centro de datos o una ubicación inusuales**, **acceso desde una aplicación potencialmente peligrosa o entidad de seguridad desconocida** y **credenciales SQL por fuerza bruta**; consulte más detalles en [Alertas de Advanced Threat Protection](../database/threat-detection-overview.md#alerts).
+[Advanced Threat Protection](../database/threat-detection-overview.md) para una [Instancia administrada de Azure SQL](sql-managed-instance-paas-overview.md) detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad. Advanced Threat Protection puede identificar una **posible inyección de código SQL** , **acceso desde un centro de datos o una ubicación inusuales** , **acceso desde una aplicación potencialmente peligrosa o entidad de seguridad desconocida** y **credenciales SQL por fuerza bruta** ; consulte más detalles en [Alertas de Advanced Threat Protection](../database/threat-detection-overview.md#alerts).
 
 Puede recibir notificaciones sobre las amenazas detectadas mediante [notificaciones por correo electrónico](../database/threat-detection-overview.md#explore-detection-of-a-suspicious-event) o en [Azure Portal](../database/threat-detection-overview.md#explore-alerts-in-the-azure-portal).
 
@@ -31,7 +31,7 @@ Puede recibir notificaciones sobre las amenazas detectadas mediante [notificacio
 ##  <a name="azure-portal"></a>Azure portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
-2. Vaya a la página de configuración de la Instancia administrada de SQL que quiera proteger. En **Seguridad**, seleccione **Security Center**.
+2. Vaya a la página de configuración de la Instancia administrada de SQL que quiera proteger. En **Seguridad** , seleccione **Security Center** .
 3. En la página de configuración de Azure Defender for SQL:
    - **Active** Azure Defender for SQL.
    - Configure la **lista de direcciones de correo electrónico** que recibirán alertas de seguridad cuando se detecten actividades anómalas en las bases de datos.
@@ -44,5 +44,5 @@ Puede recibir notificaciones sobre las amenazas detectadas mediante [notificacio
 - Más información sobre [Advanced Threat Protection](../database/threat-detection-overview.md).
 - Más información sobre las instancias administradas en [¿Qué es una Instancia administrada de Azure SQL?](sql-managed-instance-paas-overview.md)
 - Más información sobre [Advanced Threat Protection para Azure SQL Database](../database/threat-detection-configure.md)
-- Más información sobre la [auditoría de Instancia administrada de SQL](https://go.microsoft.com/fwlink/?linkid=869430)
-- Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- Más información sobre la [auditoría de Instancia administrada de SQL](./auditing-configure.md)
+- Más información sobre [Azure Security Center](../../security-center/security-center-introduction.md).

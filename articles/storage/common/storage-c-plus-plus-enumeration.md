@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: b9ae42bb29d1273e4f0f9c25803e8cc97b56ad95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c8e2d2ddf6899e62bc95bc1e52c84eccdc3a91e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462418"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784105"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Enumeración de los recursos de Azure Storage en C++
 
@@ -59,8 +59,8 @@ Por lo tanto, no resulta práctico enumerar todos los objetos en una sola respue
 
 La respuesta para una operación de enumeración segmentada incluye:
 
-* *_segment*, que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
-* *continuation_token*, que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
+* *_segment* , que contiene el conjunto de resultados devueltos para una única llamada a la API de enumeración.
+* *continuation_token* , que se pasa a la siguiente llamada con el fin de obtener la siguiente página de resultados. Cuando no hay más resultados para devolver, el token de continuación es nulo.
 
 Por ejemplo, es posible que una llamada típica para enumerar todos los blobs de un contenedor tenga un aspecto similar al siguiente fragmento de código. El código está disponible en nuestros [ejemplos](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
@@ -95,7 +95,7 @@ list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, boo
     const blob_request_options& options, operation_context context)
 ```
 
-Si no se especifica el parámetro *max_results*, se devolverá el valor máximo predeterminado de hasta 5000 resultados en una sola página.
+Si no se especifica el parámetro *max_results* , se devolverá el valor máximo predeterminado de hasta 5000 resultados en una sola página.
 
 Tenga en cuenta también que una consulta en Azure Table Storage puede no devolver ningún registro o menos registros que el valor del parámetro *max_results* especificado, incluso si el token de continuación no está vacío. Una razón podría ser que la consulta no se pudo completar en cinco segundos. Siempre y cuando el token de continuación no esté vacío, la consulta debe continuar y el código no debe suponer el tamaño del resultado del segmento.
 
@@ -198,7 +198,7 @@ Para obtener más información sobre Azure Storage y la biblioteca de cliente de
 
 * [Cómo usar Blob Storage de C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Cómo usar Table Storage de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [Cómo usar Queue Storage de C++](../storage-c-plus-plus-how-to-use-queues.md)
+* [Cómo usar Queue Storage de C++](../queues/storage-c-plus-plus-how-to-use-queues.md)
 * [Documentación de la Biblioteca de cliente de Azure Storage para la API de C++.](https://azure.github.io/azure-storage-cpp/)
-* [Blog del equipo de Azure Storage](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+* [Blog del equipo de Azure Storage](/archive/blogs/windowsazurestorage/)
 * [Documentación de Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617764"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791637"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Conmutación por error manual iniciada por el usuario en SQL Managed Instance
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Use el comando de PowerShell [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) con el ejemplo siguiente para iniciar la conmutación por error del nodo principal, aplicable al nivel de servicio BC y GP.
+Use el comando de PowerShell [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) con el ejemplo siguiente para iniciar la conmutación por error del nodo principal, aplicable al nivel de servicio BC y GP.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Uso de API REST
 
-Para los usuarios avanzados, que quizás necesiten automatizar las conmutaciones por error de sus SQL Managed Instance con el fin de implementar una canalización de pruebas continua, o mitigadores de rendimiento automatizados, esta función se puede lograr mediante el inicio de la conmutación por error a través de una llamada de API. Consulte [Instancias administradas: API de REST de conmutación por error](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) para obtener más información.
+Para los usuarios avanzados, que quizás necesiten automatizar las conmutaciones por error de sus SQL Managed Instance con el fin de implementar una canalización de pruebas continua, o mitigadores de rendimiento automatizados, esta función se puede lograr mediante el inicio de la conmutación por error a través de una llamada de API. Consulte [Instancias administradas: API de REST de conmutación por error](/rest/api/sql/managed%20instances%20-%20failover/failover) para obtener más información.
 
 Para iniciar la conmutación por error mediante una llamada API de REST, primero genere el token de autenticación con el cliente de API de su elección. El token de autenticación generado se usa como propiedad de autorización en el encabezado de la solicitud de API y es obligatorio.
 
@@ -136,11 +136,11 @@ Antes de iniciar la conmutación por error, el resultado indicará la réplica p
 No podrá ver el mismo resultado con el nivel de servicio GP que el anterior que se muestra para BC. Esto se debe a que el nivel de servicio GP se basa en un solo nodo. La salida de la consulta T-SQL para el nivel de servicio GP mostrará un solo nodo antes y después de la conmutación por error. La pérdida de conectividad del cliente durante la conmutación por error, que normalmente dura menos de un minuto, será la indicación de la ejecución de la conmutación por error.
 
 > [!NOTE]
-> La finalización del proceso de conmutación por error (no de la breve falta de disponibilidad real) puede tardar varios minutos en el caso de cargas de trabajo de **alta intensidad**. Esto se debe a que el motor de la instancia se encarga de todas las transacciones actuales en la principal y se pone al día en el nodo secundario, antes de poder realizar la conmutación por error.
+> La finalización del proceso de conmutación por error (no de la breve falta de disponibilidad real) puede tardar varios minutos en el caso de cargas de trabajo de **alta intensidad** . Esto se debe a que el motor de la instancia se encarga de todas las transacciones actuales en la principal y se pone al día en el nodo secundario, antes de poder realizar la conmutación por error.
 
 > [!IMPORTANT]
 > Limitaciones funcionales de la conmutación por error manual iniciada por el usuario:
-> - Podría haber una (1) conmutación por error iniciada en la misma Instancia administrada cada **30 minutos**.
+> - Podría haber una (1) conmutación por error iniciada en la misma Instancia administrada cada **30 minutos** .
 > - En el caso de las instancias de BC, debe existir cuórum de réplicas para que se acepte la solicitud de conmutación por error.
 > - En el caso de las instancias de BC, no es posible especificar en qué réplica secundaria legible se iniciará la conmutación por error.
 

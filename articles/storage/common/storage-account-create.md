@@ -10,18 +10,18 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7faec5023abe37802d8b08980f216934d70a6ac
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333586"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92784361"
 ---
 # <a name="create-a-storage-account"></a>Creación de una cuenta de Storage
 
 Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. La cuenta de almacenamiento proporciona un espacio de nombres único para los datos de Azure Storage que es accesible desde cualquier lugar del mundo a través de HTTP o HTTPS. Los datos de la cuenta de Azure Storage son duraderos y altamente disponibles, seguros y escalables a gran escala.
 
-En este artículo de procedimientos se aprende a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), la [CLI de Azure](https://docs.microsoft.com/cli/azure) o una [plantilla de Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+En este artículo de procedimientos se aprende a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), la [CLI de Azure](/cli/azure) o una [plantilla de Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -143,7 +143,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 > [!IMPORTANT]
 > Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `-EnableHierarchicalNamespace $True` en esta lista de parámetros.
 
-Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName**.
+Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **SkuName** .
 
 |Opción Replicación  |Parámetro SkuName  |
 |---------|---------|
@@ -186,7 +186,7 @@ az storage account create \
 > [!IMPORTANT]
 > Si planea usar [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluya `--enable-hierarchical-namespace true` en esta lista de parámetros.
 
-Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **sku**.
+Para crear una cuenta de almacenamiento de uso general v2 con otra opción de replicación, sustituya el valor deseado de la tabla siguiente por el parámetro **sku** .
 
 |Opción Replicación  |Parámetro sku  |
 |---------|---------|
@@ -199,7 +199,7 @@ Para crear una cuenta de almacenamiento de uso general v2 con otra opción de re
 
 # <a name="template"></a>[Plantilla](#tab/template)
 
-Puede usar Azure PowerShell o la CLI de Azure para implementar una plantilla de Resource Manager y crear así una cuenta de almacenamiento. La plantilla empleada en este artículo de procedimientos proviene de [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para ejecutar los scripts, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar**.
+Puede usar Azure PowerShell o la CLI de Azure para implementar una plantilla de Resource Manager y crear así una cuenta de almacenamiento. La plantilla empleada en este artículo de procedimientos proviene de [Plantillas de inicio rápido de Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Para ejecutar los scripts, seleccione **Pruébelo** para abrir Azure Cloud Shell. Para pegar el script, haga clic con el botón derecho en el shell y, a continuación, seleccione **Pegar** .
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -223,7 +223,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 Para obtener información sobre cómo modificar esta plantilla o crear otras nuevas, consulte:
 
-- [Documentación de Azure Resource Manager](/azure/azure-resource-manager/).
+- [Documentación de Azure Resource Manager](../../azure-resource-manager/index.yml).
 - [Referencia de plantilla de cuenta de almacenamiento](/azure/templates/microsoft.storage/allversions).
 - [Ejemplos de plantillas de cuenta de almacenamiento adicionales](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
@@ -236,7 +236,7 @@ Si se elimina la cuenta de almacenamiento, se elimina toda la cuenta, incluidos 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Navegue hasta cuenta de almacenamiento en [Azure Portal](https://portal.azure.com).
-1. Haga clic en **Eliminar**.
+1. Haga clic en **Eliminar** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -279,7 +279,7 @@ Como alternativa, puede eliminar el grupo de recursos, que elimina la cuenta de 
 > [!WARNING]
 > No es posible restaurar una cuenta de almacenamiento eliminada ni recuperar el contenido que contenía antes de la eliminación. Asegúrese de hacer una copia de seguridad de cualquier contenido que desee guardar antes de eliminar la cuenta. Esto también es verdad para los recursos de la cuenta: cuando se elimina un blob, tabla, cola o archivo, este se eliminará definitivamente.
 >
-> Si intenta eliminar una cuenta de almacenamiento asociada a una máquina virtual de Azure, puede obtener un error sobre que la cuenta de almacenamiento aún está usándose. Para obtener ayuda para solucionar este error, consulte [Solución de errores al eliminar las cuentas de almacenamiento](../common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+> Si intenta eliminar una cuenta de almacenamiento asociada a una máquina virtual de Azure, puede obtener un error sobre que la cuenta de almacenamiento aún está usándose. Para obtener ayuda para solucionar este error, consulte [Solución de errores al eliminar las cuentas de almacenamiento](../../virtual-machines/troubleshooting/index.yml).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

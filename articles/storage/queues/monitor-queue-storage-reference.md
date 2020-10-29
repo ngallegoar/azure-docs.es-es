@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 52ee08e0cce23aebbac1564a5c3ed894d0e487d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711082"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787489"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Queue Storage
 
@@ -36,7 +36,7 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 #### <a name="queue-storage"></a>Queue Storage
 
-En esta tabla se muestran [métricas de Queue Storage](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
+En esta tabla se muestran [métricas de Queue Storage](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices).
 
 | Métrica | Descripción |
 | ------------------- | ----------------- |

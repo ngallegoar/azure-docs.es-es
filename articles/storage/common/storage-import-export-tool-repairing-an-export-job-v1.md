@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35738db5b7bd4a1ac7aaf94e2dc5f1d26a075cdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056346"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791841"
 ---
 # <a name="repairing-an-export-job"></a>Reparación de un trabajo de exportación
 Cuando haya finalizado un trabajo de exportación, puede ejecutar la herramienta Microsoft Azure Import/Export de manera local para:  
@@ -24,11 +24,11 @@ Cuando haya finalizado un trabajo de exportación, puede ejecutar la herramienta
   
 Debe tener conectividad con Azure Storage para utilizar esta funcionalidad.  
   
-El comando para reparar un trabajo de importación es **RepairExport**.
+El comando para reparar un trabajo de importación es **RepairExport** .
 
 ## <a name="repairexport-parameters"></a>Parámetros RepairExport
 
-Se pueden modificar los parámetros siguientes con **RepairExport**:  
+Se pueden modificar los parámetros siguientes con **RepairExport** :  
   
 |Parámetro|Descripción|  
 |---------------|-----------------|  
@@ -51,7 +51,7 @@ Las causas de errores de exportación incluyen las siguientes posibilidades:
   
 -   La clave de cuenta de almacenamiento cambiada durante el proceso de transferencia  
   
-Para ejecutar la herramienta en modo **RepairExport**, primero debe conectar la unidad de disco que contiene los archivos exportados al equipo. A continuación, ejecute la herramienta Azure Import/Export, especificando la ruta de acceso a esa unidad con el parámetro `/d`. También debe especificar la ruta de acceso al archivo de registro de copia de la unidad que descargó. En el siguiente ejemplo de línea de comandos se ejecuta la herramienta para reparar todos los archivos que no se pudieron exportar:  
+Para ejecutar la herramienta en modo **RepairExport** , primero debe conectar la unidad de disco que contiene los archivos exportados al equipo. A continuación, ejecute la herramienta Azure Import/Export, especificando la ruta de acceso a esa unidad con el parámetro `/d`. También debe especificar la ruta de acceso al archivo de registro de copia de la unidad que descargó. En el siguiente ejemplo de línea de comandos se ejecuta la herramienta para reparar todos los archivos que no se pudieron exportar:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
@@ -81,9 +81,9 @@ El archivo de registro de copia indica que se produjo un error mientras el servi
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Uso de RepairExport para validar el contenido de la unidad  
 También puedes usar la importación y exportación de Azure con la opción **RepairExport** para validar que el contenido de la unidad es correcto. El archivo de manifiesto de cada unidad de exportación contiene MD5 para el contenido de la unidad.  
   
-El servicio Azure Import/Export también puede guardar los archivos de manifiesto en una cuenta de almacenamiento durante el proceso de exportación. La ubicación de los archivos de manifiesto estará disponible a través de la operación [Get Job](/rest/api/storageimportexport/jobs) cuando se haya completado el trabajo. Para más información sobre el formato de un archivo de manifiesto de unidad, vea [Formato del archivo de manifiesto del servicio Import/Export](storage-import-export-file-format-metadata-and-properties.md).  
+El servicio Azure Import/Export también puede guardar los archivos de manifiesto en una cuenta de almacenamiento durante el proceso de exportación. La ubicación de los archivos de manifiesto estará disponible a través de la operación [Get Job](/rest/api/storageimportexport/jobs) cuando se haya completado el trabajo. Para más información sobre el formato de un archivo de manifiesto de unidad, vea [Formato del archivo de manifiesto del servicio Import/Export](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties).  
   
-En el ejemplo siguiente se muestra cómo ejecutar la herramienta Azure Import/Export con los parámetros **/MANIFESTFILE** y **/CopyLogFile**:  
+En el ejemplo siguiente se muestra cómo ejecutar la herramienta Azure Import/Export con los parámetros **/MANIFESTFILE** y **/CopyLogFile** :  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
@@ -153,6 +153,6 @@ Cualquier componente que no supere la comprobación lo descargará la herramient
 ## <a name="next-steps"></a>Pasos siguientes
  
 * [Configuración de la herramienta Azure Import/Export](storage-import-export-tool-setup-v1.md)   
-* [Preparación de unidades de disco duro para un trabajo de importación](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Preparación de unidades de disco duro para un trabajo de importación](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Revisión del estado del trabajo con archivos de registro de copia](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparación de un trabajo de importación](storage-import-export-tool-repairing-an-import-job-v1.md)

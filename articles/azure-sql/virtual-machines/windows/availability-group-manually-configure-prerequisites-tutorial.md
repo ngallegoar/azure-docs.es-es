@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ea9c8b91237f4590d1999c99fbb356d78994390d
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 08d3d5bcdace113d3319b5af6375fff21405159a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166903"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790022"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: Requisitos previos para crear grupos de disponibilidad en VM con SQL Server en Azure
 
@@ -37,12 +37,12 @@ En el diagrama se muestra lo que va a crear en el tutorial.
 
 ## <a name="review-availability-group-documentation"></a>Revisión de la documentación del grupo de disponibilidad
 
-En este tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Si no está familiarizado con esta tecnología, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+En este tutorial se da por supuesto que tiene conocimientos básicos de grupos de disponibilidad de SQL Server AlwaysOn. Si no está familiarizado con esta tecnología, consulte [Información general de los grupos de disponibilidad AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
 
 ## <a name="create-an-azure-account"></a>Crear una cuenta de Azure
 
-Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
+Necesitará una cuenta de Azure. Puede [abrir una cuenta gratuita de Azure](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic) o [activar las ventajas que disfrutan los suscriptores de Visual Studio](/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -144,7 +144,7 @@ En la tabla siguiente se resumen las opciones de configuración de red:
 
 ## <a name="create-availability-sets"></a>Creación de conjuntos de disponibilidad
 
-Antes de crear máquinas virtuales, debe crear conjuntos de disponibilidad. Los conjuntos de disponibilidad reducen el tiempo de inactividad de cara al mantenimiento, tanto planeado como no planeado. Un conjunto de disponibilidad de Azure es un grupo lógico de recursos que Azure coloca en dominios de error y de actualización físicos. Un dominio de error garantiza que los miembros del conjunto de disponibilidad tengan recursos de energía y red independientes. Un dominio de actualización garantiza que los miembros del conjunto de disponibilidad no pasen a inactividad por mantenimiento al mismo tiempo. Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Antes de crear máquinas virtuales, debe crear conjuntos de disponibilidad. Los conjuntos de disponibilidad reducen el tiempo de inactividad de cara al mantenimiento, tanto planeado como no planeado. Un conjunto de disponibilidad de Azure es un grupo lógico de recursos que Azure coloca en dominios de error y de actualización físicos. Un dominio de error garantiza que los miembros del conjunto de disponibilidad tengan recursos de energía y red independientes. Un dominio de actualización garantiza que los miembros del conjunto de disponibilidad no pasen a inactividad por mantenimiento al mismo tiempo. Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/manage-availability.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json).
 
 Necesita dos conjuntos de disponibilidad. El primero es para los controladores de dominio y el segundo, para las máquinas virtuales con SQL Server.
 
@@ -204,7 +204,7 @@ La siguiente tabla muestra la configuración de estas dos máquinas:
 | **Cuenta de almacenamiento de información de diagnóstico** |*Se crea automáticamente* |
 
    >[!IMPORTANT]
-   >Solo puede colocar una máquina virtual en un conjunto de disponibilidad al crearlo. Una vez creada una máquina virtual, no se puede cambiar el conjunto de disponibilidad. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/linux/manage-availability.md).
+   >Solo puede colocar una máquina virtual en un conjunto de disponibilidad al crearlo. Una vez creada una máquina virtual, no se puede cambiar el conjunto de disponibilidad. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/manage-availability.md).
 
 Azure crea las máquinas virtuales.
 
@@ -228,7 +228,7 @@ En los pasos siguientes, configurará la máquina **ad-primary-dc** como control
 6. Seleccione los roles **Active Directory Domain Services** y **Servidor DNS** . Cuando se le pida, agregue características adicionales que son necesarias para estos roles.
 
    > [!NOTE]
-   > Windows le advierte de que no hay ninguna dirección IP estática. Si está probando la configuración, seleccione **Continuar** . En los escenarios de producción, establezca la dirección IP en estática en Azure Portal o [use PowerShell para establecer la dirección IP estática de la máquina del controlador de dominio](../../../virtual-network/virtual-networks-reserved-private-ip.md).
+   > Windows le advierte de que no hay ninguna dirección IP estática. Si está probando la configuración, seleccione **Continuar** . En los escenarios de producción, establezca la dirección IP en estática en Azure Portal o [use PowerShell para establecer la dirección IP estática de la máquina del controlador de dominio](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip).
    >
 
     ![Cuadro de diálogo Agregar roles](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
@@ -376,13 +376,13 @@ Ahora que ha terminado de configurar Active Directory y los objetos de usuario, 
 
 ## <a name="create-sql-server-vms"></a>Creación de las máquinas virtuales con SQL Server
 
-Cree tres máquinas virtuales adicionales. La solución requiere dos máquinas virtuales con instancias de SQL Server. Una tercera máquina virtual funciona como testigo. Windows Server 2016 puede usar un [testigo en la nube](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness). Sin embargo, para mantener la coherencia con los sistemas operativos anteriores, en este artículo se usa una máquina virtual como testigo.  
+Cree tres máquinas virtuales adicionales. La solución requiere dos máquinas virtuales con instancias de SQL Server. Una tercera máquina virtual funciona como testigo. Windows Server 2016 puede usar un [testigo en la nube](/windows-server/failover-clustering/deploy-cloud-witness). Sin embargo, para mantener la coherencia con los sistemas operativos anteriores, en este artículo se usa una máquina virtual como testigo.  
 
 Tenga en cuenta las siguientes decisiones de diseño antes de continuar.
 
 * **Almacenamiento: Azure Managed Disks**
 
-   Para el almacenamiento de máquina virtual, use Azure Managed Disks. Microsoft recomienda el uso de Managed Disks para máquinas virtuales de SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Para obtener información específica acerca de Managed Disks en un conjunto de disponibilidad, consulte [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   Para el almacenamiento de máquina virtual, use Azure Managed Disks. Microsoft recomienda el uso de Managed Disks para máquinas virtuales de SQL Server. Managed Disks controla el almacenamiento en segundo plano. Además, cuando las máquinas virtuales con Managed Disks están en el mismo conjunto de disponibilidad, Azure distribuye los recursos de almacenamiento para proporcionar la redundancia adecuada. Para más información, consulte [Introducción a Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). Para obtener información específica acerca de Managed Disks en un conjunto de disponibilidad, consulte [Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad](../../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Red: direcciones IP privadas en producción**
 
@@ -529,7 +529,7 @@ Para agregar características de clúster de conmutación por error, realice los
 Repita los pasos en la otra máquina virtual con SQL Server.
 
   >[!NOTE]
-  > Ahora este paso, junto con la unión real de las máquinas virtuales de SQL Server al clúster de conmutación por error, se puede automatizar con la [CLI de máquina virtual de SQL de Azure](availability-group-az-cli-configure.md) y las [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md).
+  > Ahora este paso, junto con la unión real de las máquinas virtuales de SQL Server al clúster de conmutación por error, se puede automatizar con la [CLI de máquina virtual de SQL de Azure](./availability-group-az-commandline-configure.md) y las [plantillas de inicio rápido de Azure](availability-group-quickstart-template-configure.md).
   >
 
 

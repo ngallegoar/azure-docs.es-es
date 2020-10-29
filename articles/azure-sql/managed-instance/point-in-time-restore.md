@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9b4d0fadf157ce1eef6821ccbc32f5725aea611f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31be497d017cb60de6f46d7657889c9c1fabef4a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616523"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788356"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restauración de una base de datos en una Instancia administrada de Azure SQL a un momento dado anterior
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -62,12 +62,12 @@ Restaure una base de datos existente en la misma Instancia administrada de SQL 
 
     ![Restauración de una base de datos mediante Azure Portal](./media/point-in-time-restore/restore-database-to-mi.png)
 
-4. En la página **Restaurar**, seleccione el punto relativo a fecha y hora al que quiere restaurar la base de datos.
+4. En la página **Restaurar** , seleccione el punto relativo a fecha y hora al que quiere restaurar la base de datos.
 5. Seleccione **Confirmar** para restaurar la base de datos. Esta acción inicia el proceso de restauración, que crea una base de datos y la rellena con datos de la base de datos original en el momento especificado. Para más información sobre el tiempo de recuperación, consulte [Tiempo de recuperación](../database/recovery-using-backups.md#recovery-time).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Si aún no tiene instalado Azure PowerShell, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Si aún no tiene instalado Azure PowerShell, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 Para restaurar la base de datos mediante PowerShell, especifique los valores de los parámetros en el siguiente comando. A continuación, ejecute el comando:
 
@@ -106,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceName $targetInstanceName 
 ```
 
-Para obtener más información, consulte [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
+Para obtener más información, consulte [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 
@@ -128,7 +128,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Para obtener una explicación detallada de los parámetros disponibles, vea la [documentación de la CLI de para restaurar una base de datos de una Instancia administrada de SQL](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+Para obtener una explicación detallada de los parámetros disponibles, vea la [documentación de la CLI de para restaurar una base de datos de una Instancia administrada de SQL](/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -139,7 +139,7 @@ La restauración de una base de datos eliminada solo se puede realizar mediante 
 ### <a name="portal"></a>Portal 
 
 
-Para recuperar una base de datos administrada con Azure Portal, abra la página de información general de la Instancia administrada de SQL y seleccione **Bases de datos eliminadas**. Seleccione la base de datos eliminada que quiere restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados de la copia de seguridad.
+Para recuperar una base de datos administrada con Azure Portal, abra la página de información general de la Instancia administrada de SQL y seleccione **Bases de datos eliminadas** . Seleccione la base de datos eliminada que quiere restaurar y escriba el nombre de la nueva base de datos que se creará con los datos restaurados de la copia de seguridad.
 
   ![Captura de pantalla de restaurar base de datos de instancia de Azure SQL eliminada](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
@@ -205,13 +205,13 @@ DROP DATABASE WorldWideImporters;
 
 Use uno de los métodos siguientes para conectarse a su base de datos de la Instancia administrada de SQL:
 
-- [SSMS/Azure Data Studio mediante una máquina virtual de Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [De punto a sitio](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Punto de conexión público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [SSMS/Azure Data Studio mediante una máquina virtual de Azure](./connect-vm-instance-configure.md)
+- [De punto a sitio](./point-to-site-p2s-configure.md)
+- [Punto de conexión público](./public-endpoint-configure.md)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-En Azure Portal, seleccione la base de datos de la Instancia administrada de SQL y elija **Eliminar**.
+En Azure Portal, seleccione la base de datos de la Instancia administrada de SQL y elija **Eliminar** .
 
    ![Eliminación de una base de datos mediante Azure Portal](./media/point-in-time-restore/delete-database-from-mi.png)
 
@@ -247,9 +247,9 @@ ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 
 Use uno de los siguientes métodos para conectarse a la base de datos de la Instancia administrada de SQL:
 
-- [Máquina virtual de Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
-- [De punto a sitio](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Punto de conexión público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Máquina virtual de Azure](./connect-vm-instance-configure.md)
+- [De punto a sitio](./point-to-site-p2s-configure.md)
+- [Punto de conexión público](./public-endpoint-configure.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

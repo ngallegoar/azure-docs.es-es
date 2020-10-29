@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: dd77305a1b2f7d11a2e371f7682855e15739ee7d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331675"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790940"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análisis entre inquilinos mediante datos extraídos: aplicación de un solo inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -69,11 +69,11 @@ La comprensión del uso que hace cada inquilino del servicio es relevante para e
 
 Para completar este tutorial, asegúrese de cumplir estos requisitos previos:
 
-- La aplicación SaaS de Wingtip Tickets con una base de datos por inquilino debe estar implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de Wingtip](../../sql-database/saas-dbpertenant-get-started-deploy.md).
+- La aplicación SaaS de Wingtip Tickets con una base de datos por inquilino debe estar implementada. Para implementarla en menos de cinco minutos, consulte el artículo sobre la [implementación y exploración de la aplicación SaaS de Wingtip](./saas-dbpertenant-get-started-deploy.md).
 - Los scripts de la aplicación SaaS de Wingtip Tickets con una base de datos por inquilino y el [código fuente](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) de la aplicación se descargan de GitHub. Consulte las instrucciones de descarga. No olvide *desbloquear el archivo ZIP* antes de extraer su contenido. Consulte las [instrucciones generales](saas-tenancy-wingtip-app-guidance-tips.md) para saber cuáles son los pasos para descargar y desbloquear los scripts SaaS de Wingtip Tickets.
 - Power BI Desktop debe estar instalado. [Descargue Power BI Desktop](https://powerbi.microsoft.com/downloads/).
-- Se debe haber aprovisionado el loto de inquilinos adicionales; vea el [**tutorial de aprovisionamiento de inquilinos**](../../sql-database/saas-dbpertenant-provision-and-catalog.md).
-- Se deben haber creado una cuenta de trabajo y una base de datos para la cuenta de trabajo. Consulte los pasos apropiados en el [**tutorial de administración de esquemas**](../../sql-database/saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- Se debe haber aprovisionado el loto de inquilinos adicionales; vea el [**tutorial de aprovisionamiento de inquilinos**](./saas-dbpertenant-provision-and-catalog.md).
+- Se deben haber creado una cuenta de trabajo y una base de datos para la cuenta de trabajo. Consulte los pasos apropiados en el [**tutorial de administración de esquemas**](./saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Creación de datos para la demostración
 
@@ -93,7 +93,7 @@ En los pasos siguientes, se implementa el almacén de análisis, que se denomina
     - Para usar SQL Database con almacenamiento de columnas, establezca **$DemoScenario** = **3**  
 3. Presione **F5** para ejecutar el script de demostración (que llama al script *Deploy-TenantAnalytics\<XX>.ps1* ) que crea el almacén de análisis de inquilino. 
 
-Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-dpt-&lt;Usuario&gt;** y **catalog-dpt-&lt;Usuario&gt;** con las credenciales Login = *developer* y Password = *P\@ssword1* . Consulte el [tutorial de introducción](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
+Ahora que ya ha implementado la aplicación y la ha completado con datos de inquilino interesantes, use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para conectar los servidores **tenants1-dpt-&lt;Usuario&gt;** y **catalog-dpt-&lt;Usuario&gt;** con las credenciales Login = *developer* y Password = *P\@ssword1* . Consulte el [tutorial de introducción](./saas-dbpertenant-wingtip-app-overview.md) para obtener más orientación.
 
 ![Captura de pantalla que muestra la información necesaria para conectarse a SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -240,6 +240,6 @@ Felicidades.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- Otros [tutoriales basados en la aplicación SaaS de Wingtip](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Trabajos elásticos](../../sql-database/elastic-jobs-overview.md).
-- [Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino](../../sql-database/saas-multitenantdb-tenant-analytics.md)
+- Otros [tutoriales basados en la aplicación SaaS de Wingtip](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
+- [Trabajos elásticos](./elastic-jobs-overview.md).
+- [Análisis entre inquilinos mediante datos extraídos: aplicación multiinquilino](./saas-multitenantdb-tenant-analytics.md)

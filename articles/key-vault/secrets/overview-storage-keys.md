@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612190"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786282"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure
 
@@ -32,13 +32,13 @@ Cuando use la característica de clave de cuenta de almacenamiento administrada,
 
 Es recomendable usar la integración de Azure Storage con Azure Active Directory (Azure AD), el servicio de administración de acceso y de identidades basado en la nube de Microsoft. La integración de Azure AD está disponible para los [Blobs y las colas de Azure](../../storage/common/storage-auth-aad.md) y proporciona acceso basado en tokens de OAuth2 a Azure Storage (al igual que Azure Key Vault).
 
-Azure AD le permite autenticar la aplicación cliente mediante una identidad de aplicación o usuario, en lugar de las credenciales de cuenta de almacenamiento. Puede usar una [identidad administrada de Azure AD](/azure/active-directory/managed-identities-azure-resources/) cuando realice la ejecución en Azure. Las identidades administradas eliminan la necesidad de autenticación del cliente y de almacenar las credenciales en la aplicación o con ella.
+Azure AD le permite autenticar la aplicación cliente mediante una identidad de aplicación o usuario, en lugar de las credenciales de cuenta de almacenamiento. Puede usar una [identidad administrada de Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) cuando realice la ejecución en Azure. Las identidades administradas eliminan la necesidad de autenticación del cliente y de almacenar las credenciales en la aplicación o con ella.
 
 Azure AD usa el control de acceso basado en rol (RBAC) para administrar la autorización, que también es compatible con Key Vault.
 
 ## <a name="service-principal-application-id"></a>Id. de aplicación de la entidad de servicio
 
-Un inquilino de Azure AD proporciona a cada aplicación registrada una [entidad de servicio](/azure/active-directory/develop/developer-glossary#service-principal-object). La entidad de servicio se usa como id. de aplicación, que se utiliza durante la configuración de la autorización para acceder a otros recursos de Azure mediante RBAC.
+Un inquilino de Azure AD proporciona a cada aplicación registrada una [entidad de servicio](../../active-directory/develop/developer-glossary.md#service-principal-object). La entidad de servicio se usa como id. de aplicación, que se utiliza durante la configuración de la autorización para acceder a otros recursos de Azure mediante RBAC.
 
 Key Vault es una aplicación de Microsoft que previamente se ha registrado en todos los inquilinos de Azure AD. Key Vault está registrado con el mismo identificador de aplicación en cada nube de Azure.
 
@@ -48,7 +48,7 @@ Key Vault es una aplicación de Microsoft que previamente se ha registrado en to
 | Azure AD | Pública de Azure | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Otros  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar esta guía, antes debe completar los pasos siguientes:
 
@@ -163,6 +163,6 @@ La salida de este comando mostrará la cadena de definición de SAS como `value`
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre [claves, secretos y certificados](https://docs.microsoft.com/rest/api/keyvault/).
-- Revise los artículos del [blog del equipo de Azure Key Vault](https://blogs.technet.microsoft.com/kv/).
-- Consulte la documentación de referencia de [az keyvault storage](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest).
+- Más información sobre [claves, secretos y certificados](/rest/api/keyvault/).
+- Revise los artículos del [blog del equipo de Azure Key Vault](/archive/blogs/kv/).
+- Consulte la documentación de referencia de [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest).

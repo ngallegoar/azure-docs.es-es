@@ -11,24 +11,24 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b9550f365eb11ffff87add041824504488c0de15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619940"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793218"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicaciones de múltiples inquilinos con herramientas de bases de datos elásticas y seguridad de nivel de fila
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Las [herramientas de bases de datos elásticas](elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)][rls] cooperan para permitir el escalado del nivel de datos de una aplicación multiinquilino con Azure SQL Database. Este conjunto de tecnologías le ayudan a crear una aplicación que tiene una capa de datos muy escalable. El nivel de datos admite particiones multiinquilino y usa **ADO.NET SqlClient** o **Entity Framework**. Para más información, consulte [Diseño de patrones para aplicaciones SaaS multiinquilino con Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
+Las [herramientas de bases de datos elásticas](elastic-scale-get-started.md) y la [seguridad de nivel de fila (RLS)][rls] cooperan para permitir el escalado del nivel de datos de una aplicación multiinquilino con Azure SQL Database. Este conjunto de tecnologías le ayudan a crear una aplicación que tiene una capa de datos muy escalable. El nivel de datos admite particiones multiinquilino y usa **ADO.NET SqlClient** o **Entity Framework** . Para más información, consulte [Diseño de patrones para aplicaciones SaaS multiinquilino con Azure SQL Database](./saas-tenancy-app-design-patterns.md).
 
 - Las **herramientas de bases de datos elásticas** permiten a los desarrolladores escalar horizontalmente el nivel de datos con prácticas de particionamiento estándar, mediante el uso de bibliotecas de .NET y plantillas de servicios de Azure. La administración de particiones mediante la [Biblioteca cliente de Elastic Database][s-d-elastic-database-client-library] le ayuda a automatizar y simplificar muchas de las tareas de infraestructura asociadas típicamente con el particionamiento.
 - La **seguridad de nivel de fila** permite a los desarrolladores almacenar de forma segura los datos de varios inquilinos en la misma base de datos. Las directivas de seguridad RLS filtran y eliminan las filas que no pertenecen al inquilino que ejecuta una consulta. La centralización de la lógica de filtro en la propia base de datos simplifica el mantenimiento y reduce el riesgo de un error de seguridad. La alternativa de confiar en todo el código de cliente para reforzar la seguridad es arriesgada.
 
 Si estas características se usan conjuntamente, una aplicación puede almacenar los datos para varios inquilinos en la misma base de datos de la partición. El costo por inquilino es menor cuando los inquilinos comparten una base de datos. La misma aplicación puede ofrecen también a sus inquilinos premium la opción de pagar su propia partición dedicada para un único inquilino. Una de las ventajas de este aislamiento es que aporta una mayor garantía de rendimiento. En una base de datos de un único inquilino, no hay otros inquilinos que compitan por los recursos.
 
-El objetivo es usar las API de [enrutamiento dependiente de los datos](elastic-scale-data-dependent-routing.md) de la Biblioteca de cliente de Elastic Database para conectar automáticamente cada inquilino dado a la base de datos de la partición correcta. Solo una partición contiene el valor de TenantId concreto para el inquilino determinado. El valor de TenantId es la *clave de particionamiento*. Una vez establecida la conexión, una directiva de seguridad de RLS dentro de la base de datos garantiza que el inquilino dado puede acceder solo a las filas de datos que contienen su TenantId.
+El objetivo es usar las API de [enrutamiento dependiente de los datos](elastic-scale-data-dependent-routing.md) de la Biblioteca de cliente de Elastic Database para conectar automáticamente cada inquilino dado a la base de datos de la partición correcta. Solo una partición contiene el valor de TenantId concreto para el inquilino determinado. El valor de TenantId es la *clave de particionamiento* . Una vez establecida la conexión, una directiva de seguridad de RLS dentro de la base de datos garantiza que el inquilino dado puede acceder solo a las filas de datos que contienen su TenantId.
 
 > [!NOTE]
 > El identificador del inquilino puede constar de más de una columna. Por comodidad, vamos a asumir de manera informal que el valor de TenantId tiene una sola columna.
@@ -54,14 +54,14 @@ Compile y ejecute la aplicación. Esta ejecución arranca el administrador de ma
 
 Tenga en cuenta que como todavía no se ha habilitado RLS en las bases de datos de la partición, cada una de estas pruebas revela un problema: los inquilinos pueden consultar los blogs que no pertenecen a ellos y la aplicación no impide insertar un blog del inquilino incorrecto. El resto de este artículo describe cómo resolver estos problemas mediante la imposición de aislamiento de inquilinos con RLS. Hay dos pasos:
 
-1. **Capa de aplicación**: modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_CONTEXT después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo.
-2. **Capa de datos**: cree una directiva de seguridad de RLS en cada base de datos de la partición para filtrar las filas en función del valor de TenantId almacenado en SESSION\_CONTEXT. Cree una directiva para cada una de las bases de datos de la partición, ya que si no lo hace, las filas de las particiones multiinquilino no se van a filtrar.
+1. **Capa de aplicación** : modifique el código de la aplicación para establecer siempre el valor actual de TenantId en SESSION\_CONTEXT después de abrir una conexión. El proyecto de ejemplo ya establece el valor de TenantId de este modo.
+2. **Capa de datos** : cree una directiva de seguridad de RLS en cada base de datos de la partición para filtrar las filas en función del valor de TenantId almacenado en SESSION\_CONTEXT. Cree una directiva para cada una de las bases de datos de la partición, ya que si no lo hace, las filas de las particiones multiinquilino no se van a filtrar.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Capa de aplicación: establezca TenantId en SESSION\_CONTEXT
 
-En primer lugar, conéctese a una base de datos de la partición mediante la API de enrutamiento dependiente de los datos de la Biblioteca de cliente de Elastic Database. La aplicación debe indicar a la base de datos que TenantId utiliza la conexión. El valor de TenantId indica a la directiva de seguridad de RLS qué filas se deben filtrar y eliminar, ya que pertenecen a otros inquilinos. Almacenar el valor de TenantId actual en el [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) de la conexión.
+En primer lugar, conéctese a una base de datos de la partición mediante la API de enrutamiento dependiente de los datos de la Biblioteca de cliente de Elastic Database. La aplicación debe indicar a la base de datos que TenantId utiliza la conexión. El valor de TenantId indica a la directiva de seguridad de RLS qué filas se deben filtrar y eliminar, ya que pertenecen a otros inquilinos. Almacenar el valor de TenantId actual en el [SESSION\_CONTEXT](/sql/t-sql/functions/session-context-transact-sql) de la conexión.
 
-Una alternativa a SESSION\_CONTEXT es usar [CONTEXT\_INFO](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Pero es mejor la opción de SESSION\_CONTEXT. SESSION\_CONTEXT es más fácil de usar, devuelve NULL de forma predeterminada y admite pares clave-valor.
+Una alternativa a SESSION\_CONTEXT es usar [CONTEXT\_INFO](/sql/t-sql/functions/context-info-transact-sql). Pero es mejor la opción de SESSION\_CONTEXT. SESSION\_CONTEXT es más fácil de usar, devuelve NULL de forma predeterminada y admite pares clave-valor.
 
 ### <a name="entity-framework"></a>Entity Framework
 
@@ -228,7 +228,7 @@ RLS se implementa en Transact-SQL. Una función definida por el usuario define l
     - Un predicado BLOCK impide que las filas que no pasan el filtro se inserten o actualicen con INSERT o UPDATE.
     - Si SESSION\_CONTEXT no se ha establecido, la función devuelve NULL y no hay filas visibles ni que puedan insertarse.
 
-Para habilitar RLS en todas las particiones, ejecute la siguiente instrucción T-SQL con Visual Studio (SSDT), SSMS o el script de PowerShell incluido en el proyecto. O bien, si utiliza [trabajos de Elastic Database](../../sql-database/elastic-jobs-overview.md), puede automatizar la ejecución de esta instrucción T-SQL en todas las particiones.
+Para habilitar RLS en todas las particiones, ejecute la siguiente instrucción T-SQL con Visual Studio (SSDT), SSMS o el script de PowerShell incluido en el proyecto. O bien, si utiliza [trabajos de Elastic Database](./elastic-jobs-overview.md), puede automatizar la ejecución de esta instrucción T-SQL en todas las particiones.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Mantenimiento
 
-- **Agregar particiones nuevas**: ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
-- **Agregar tabla nuevas**: agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones cada vez que se cree una tabla nueva. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
+- **Agregar particiones nuevas** : ejecute el script T-SQL para habilitar RLS en las nuevas particiones; en caso contrario, no se filtran las consultas en esas particiones.
+- **Agregar tabla nuevas** : agregue un predicado FILTER y BLOCK a la directiva de seguridad en todas las particiones cada vez que se cree una tabla nueva. De lo contrario, no se filtran las consultas de la nueva tabla. Esta adición se puede automatizar mediante un desencadenador DDL, como se describe en [Apply Row-Level Security automatically to newly created tables (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393)[Aplicación de la seguridad de nivel de fila a las tablas recientemente creadas (blog)].
 
 ## <a name="summary"></a>Resumen
 
@@ -352,16 +352,16 @@ Las herramientas de base de datos elásticas y la seguridad de nivel de fila pue
 
 - [¿Qué es un grupo elástico de Azure?](elastic-pool-overview.md)
 - [Escalado horizontal con Azure SQL Database](elastic-scale-introduction.md)
-- [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md)
+- [Modelos de diseño para las aplicaciones SaaS multiinquilino con Azure SQL Database](./saas-tenancy-app-design-patterns.md)
 - [Autenticación en aplicaciones multiinquilino con Azure AD y OpenID Connect](/azure/architecture/multitenant-identity/authenticate)
 - [Aplicación Tailspin Surveys](/azure/architecture/multitenant-identity/tailspin)
 
 ## <a name="questions-and-feature-requests"></a>Preguntas y solicitudes de características
 
-Si tiene alguna pregunta, póngase en contacto con nosotros en la [Página de preguntas y respuestas de Microsoft sobre SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). Y agregue todas las solicitudes de característica al [foro de comentarios de SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Si tiene alguna pregunta, póngase en contacto con nosotros en la [Página de preguntas y respuestas de Microsoft sobre SQL Database](/answers/topics/azure-sql-database.html). Y agregue todas las solicitudes de característica al [foro de comentarios de SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-[rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[rls]: /sql/relational-databases/security/row-level-security
 [s-d-elastic-database-client-library]:elastic-database-client-library.md

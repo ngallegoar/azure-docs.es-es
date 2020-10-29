@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 0eb38dbb01e1e7d820159a5085b262dae3c04e8f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1a1e9c394f3665845b1f2bbbd605322b43f5f25d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075338"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787234"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management
 
@@ -61,28 +61,28 @@ Todas las tareas que se realizan en los recursos mediante Azure Resource Manager
     > [!NOTE]
     > Si el directorio predeterminado de Azure Active Directory no está visible en su cuenta, póngase en contacto con el administrador de la suscripción de Azure para que le conceda los permisos necesarios para su cuenta.
 
-3. Haga clic en **Nuevo registro de aplicaciones**.
+3. Haga clic en **Nuevo registro de aplicaciones** .
 
     Aparecerá la ventana **Crear** a la derecha. Es donde debe especificar la información pertinente de la aplicación de AAD.
 
 4. Escriba un nombre para la aplicación.
-5. En el tipo de aplicación, seleccione **Nativa**.
-6. Escriba una dirección URL de marcador de posición como `http://resources` para el **URI de redireccionamiento**, ya que es un campo obligatorio, pero el valor no se utiliza más adelante. Haga clic en la casilla para guardar la aplicación.
-7. Haga clic en **Crear**.
+5. En el tipo de aplicación, seleccione **Nativa** .
+6. Escriba una dirección URL de marcador de posición como `http://resources` para el **URI de redireccionamiento** , ya que es un campo obligatorio, pero el valor no se utiliza más adelante. Haga clic en la casilla para guardar la aplicación.
+7. Haga clic en **Crear** .
 
 ### <a name="add-an-application"></a>Adición de una aplicación
 
-1. Una vez creada la aplicación, haga clic en **Permisos de API**.
-2. Haga clic en **+ Agregar un permiso**.
+1. Una vez creada la aplicación, haga clic en **Permisos de API** .
+2. Haga clic en **+ Agregar un permiso** .
 4. Presione **Select Microsoft APIs** (Seleccionar API de Microsoft).
 5. Elija **Azure Service Management** (Administración de servicios de Azure).
-6. Haga clic en **Seleccionar**.
+6. Haga clic en **Seleccionar** .
 
     ![Adición de permisos](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
 7. Haga clic en **Permisos delegados** al lado de la aplicación recién agregada, active la casilla **Access Azure Service Management (preview)** [Acceso a Azure Service Management (versión preliminar)].
-8. Haga clic en **Seleccionar**.
-9. Haga clic en **Concesión de permisos**.
+8. Haga clic en **Seleccionar** .
+9. Haga clic en **Concesión de permisos** .
 
 ### <a name="configuring-your-app"></a>Configuración de la aplicación
 
@@ -115,11 +115,11 @@ namespace GetTokenResourceManagerRequests
 
 Reemplace `{tenant id}`, `{application id}` y `{redirect uri}` mediante las siguientes instrucciones:
 
-1. Reemplace `{tenant id}` por el identificador del inquilino de la aplicación de Azure Active Directory que se creó. Para acceder al identificador, haga clic en **Registros de aplicaciones** -> **Puntos de conexión**.
+1. Reemplace `{tenant id}` por el identificador del inquilino de la aplicación de Azure Active Directory que se creó. Para acceder al identificador, haga clic en **Registros de aplicaciones** -> **Puntos de conexión** .
 
     ![Puntos de conexión][api-management-endpoint]
 
-2. Reemplace `{application id}` con el valor obtenido en la página **Configuración**.
+2. Reemplace `{application id}` con el valor obtenido en la página **Configuración** .
 3. Reemplace el valor `{redirect uri}` por el valor de la pestaña **Redirect URIs** (URI de redireccionamiento) de la aplicación de Azure Active Directory.
 
     Una vez especificados los valores, el ejemplo de código debe devolver un token similar al ejemplo siguiente:
@@ -152,7 +152,7 @@ donde:
 -   `subscriptionId`: identificador de la suscripción que contiene el servicio API Management del que intenta crear una copia de seguridad
 -   `resourceGroupName` : nombre del grupo de recursos del servicio Azure API Management
 -   `serviceName` : el nombre del servicio API Management del que desea crear una copia de seguridad que se especificó durante su creación
--   `api-version`: reemplazar por `2018-06-01-preview`
+-   `api-version`: reemplazar por `2019-12-01`
 
 En el cuerpo de la solicitud, especifique el nombre de la copia de seguridad, el nombre del contenedor de blobs, la clave de acceso y el nombre de la cuenta de almacenamiento de Azure de destino:
 
@@ -171,10 +171,10 @@ La creación de una copia de seguridad es una operación de larga ejecución que
 
 #### <a name="constraints-when-making-backup-or-restore-request"></a>Restricciones al realizar una solicitud de copia de seguridad o restauración
 
--   El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real**.
--   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio**, como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
+-   El **contenedor** que se especifique en el cuerpo de la solicitud **debe ser real** .
+-   Mientras la copia de seguridad esté en curso, **evite hacer cambios de administración en el servicio** , como una actualización o un cambio a una versión anterior de una SKU, el cambio en un nombre de dominio, etc.
 -   La restauración de una **copia de seguridad se garantiza solo durante 30 días** a partir del momento en que esta se crea.
--   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan**.
+-   Es posible que los **cambios** que se realicen en la configuración del servicio (por ejemplo, las API, las directivas y la apariencia del portal para desarrolladores) mientras se está realizando la operación de copia de seguridad **no se incluyan en la copia de seguridad y se pierdan** .
 -   **Permita** el acceso desde el plano de control a la cuenta de Azure Storage si tiene el [firewall][azure-storage-ip-firewall] habilitado. El cliente debe abrir el conjunto de [direcciones IP del plano de control de Azure API Management][control-plane-ip-address] en su cuenta de almacenamiento para la copia de seguridad o la restauración. Esto se debe a que a las solicitudes a Azure Storage no se les aplica SNAT a una dirección IP pública desde Compute > (plano de control de Azure API Management). Se aplicará SNAT a la solicitud de almacenamiento entre regiones.
 
 #### <a name="what-is-not-backed-up"></a>De lo que no se hace una copia de seguridad
@@ -202,7 +202,7 @@ donde:
 -   `subscriptionId`: identificador de la suscripción que contiene el servicio API Management en el que se restaura una copia de seguridad.
 -   `resourceGroupName`: nombre del grupo de recursos que contiene el servicio Azure API Management en el que se restaura una copia de seguridad.
 -   `serviceName`: el nombre del servicio API Management que desea restaurar que se especificó durante su creación.
--   `api-version`: reemplazar por `2018-06-01-preview`
+-   `api-version`: reemplazar por `api-version=2019-12-01`
 
 En el cuerpo de la solicitud, especifique la ubicación del archivo de copia de seguridad. Es decir, agregue el nombre de la cuenta de almacenamiento de Azure, la clave de acceso, el nombre del contenedor de blob y el nombre de la copia de seguridad:
 
@@ -222,7 +222,7 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 > [!IMPORTANT]
 > **La SKU** en la que desea restaurar el servicio **debe coincidir** con la SKU del servicio del que ha creado una copia de seguridad que desea restaurar.
 >
-> Los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) con la operación de restauración en curso **pueden sobrescribirse**.
+> Los **cambios** que se realicen en la configuración del servicio (por ejemplo, en la API, las directivas o la apariencia del portal para desarrolladores) con la operación de restauración en curso **pueden sobrescribirse** .
 
 <!-- Dummy comment added to suppress markdown lint warning -->
 

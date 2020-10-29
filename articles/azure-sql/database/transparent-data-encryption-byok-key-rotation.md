@@ -5,19 +5,19 @@ description: Obtenga información sobre cómo rotar el protector de Cifrado de d
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 699434e89872b9525ea99883bc4fcbc86757ab8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619855"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788611"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rotación del protector de Cifrado de datos transparente (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -37,11 +37,11 @@ En esta guía se describen dos opciones para rotar el protector de TDE en el ser
 
 - En esta guía de procedimientos se asume que ya utiliza una clave de Azure Key Vault como protector de TDE para Azure SQL Database o Azure Synapse Analytics. Consulte [Cifrado de datos transparente con compatibilidad con BYOK](transparent-data-encryption-byok-overview.md).
 - Es preciso tener instalado y en ejecución Azure PowerShell.
-- [Recomendado pero opcional] Cree primero el material de clave para el protector de TDE en un módulo de seguridad de hardware (HSM) o en un almacén local de claves e importe el material de clave a Azure Key Vault. Siga las [instrucciones para usar un módulo de seguridad de hardware (HSM) y Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) para más información.
+- [Recomendado pero opcional] Cree primero el material de clave para el protector de TDE en un módulo de seguridad de hardware (HSM) o en un almacén local de claves e importe el material de clave a Azure Key Vault. Siga las [instrucciones para usar un módulo de seguridad de hardware (HSM) y Key Vault](../../key-vault/general/overview.md) para más información.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para obtener instrucciones sobre la instalación del módulo Az, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Para los cmdlets concretos, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Para obtener instrucciones sobre la instalación del módulo Az, consulte [Instalación de Azure PowerShell](/powershell/azure/install-az-ps). Para los cmdlets concretos, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/).
 
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager (RM) para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de AzureRM continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos. Para obtener más información sobre la compatibilidad, vea [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).

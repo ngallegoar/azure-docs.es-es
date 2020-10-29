@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4b37e2530d8716f48eae696fef8f856e8334e24b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16ac28e46e9231918f433c0e9eb077cb0d8cf230
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713670"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791178"
 ---
 # <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure
 
@@ -28,7 +28,7 @@ En este artículo se muestra cómo autorizar el acceso a los datos de blobs o co
 
 Para poder usar identidades administradas para recursos de Azure a fin de autorizar el acceso a blobs y colas desde la máquina virtual, primero debe habilitar las identidades administradas para los recursos de Azure en la máquina virtual. Para aprender a habilitar las identidades administradas para los recursos de Azure, consulte uno de estos artículos:
 
-- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure Portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [CLI de Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Plantilla de Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -163,6 +163,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](storage-auth-aad-rbac.md).
+- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](./storage-auth-aad-rbac-portal.md).
 - [Usar Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).
 - [Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a los datos de blob](../blobs/authorize-active-directory-powershell.md)

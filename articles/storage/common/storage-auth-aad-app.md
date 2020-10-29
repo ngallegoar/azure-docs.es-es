@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 6dacb1cd910c6569d94f365b34a15494dde70a4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939348"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787693"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquisición de un token de Azure AD para la autorización de solicitudes desde una aplicación cliente
 
@@ -31,33 +31,33 @@ La aplicación de ejemplo proporciona una experiencia completa que muestra cómo
 
 ## <a name="assign-a-role-to-an-azure-ad-security-principal"></a>Asignación de un rol a una entidad de seguridad de Azure AD
 
-Para autenticar una entidad de seguridad de la aplicación de Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) de Azure para esa entidad de seguridad. Azure Storage define los roles integrados que abarcan los permisos para los contenedores y las colas. Cuando el rol de Azure se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para obtener más información, consulte el artículo sobre cómo [administrar los derechos de acceso a los datos de Azure Blob y Queue con RBAC de Azure](storage-auth-aad-rbac.md).
+Para autenticar una entidad de seguridad de la aplicación de Azure Storage, primero configure los valores del control de acceso basado en roles (RBAC) de Azure para esa entidad de seguridad. Azure Storage define los roles integrados que abarcan los permisos para los contenedores y las colas. Cuando el rol de Azure se asigna a una entidad de seguridad, esta recibe acceso a ese recurso. Para obtener más información, consulte el artículo sobre cómo [administrar los derechos de acceso a los datos de Azure Blob y Queue con RBAC de Azure](./storage-auth-aad-rbac-portal.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registro de la aplicación con un inquilino de Azure AD
 
-El primer paso para usar Azure AD con el fin de autorizar el acceso a los recursos de almacenamiento es registrar la aplicación cliente con un inquilino desde [Azure Portal](https://portal.azure.com). Al registrar la aplicación cliente, facilita información acerca de la aplicación a Azure AD. Azure AD proporciona un identificador de cliente (también denominado *identificador de aplicación*) que se utiliza para asociar la aplicación con Azure AD en runtime. Para más información sobre el identificador de cliente, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Para registrar su aplicación de Azure Storage, siga los pasos mostrados en [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+El primer paso para usar Azure AD con el fin de autorizar el acceso a los recursos de almacenamiento es registrar la aplicación cliente con un inquilino desde [Azure Portal](https://portal.azure.com). Al registrar la aplicación cliente, facilita información acerca de la aplicación a Azure AD. Azure AD proporciona un identificador de cliente (también denominado *identificador de aplicación* ) que se utiliza para asociar la aplicación con Azure AD en runtime. Para más información sobre el identificador de cliente, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). Para registrar su aplicación de Azure Storage, siga los pasos mostrados en [Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
 
 En la imagen siguiente se muestra la configuración común para registrar una aplicación web. Tenga en cuenta que, en este ejemplo, el URI de redirección se establece en `http://localhost:5000/signin-oidc` para probar la aplicación de ejemplo en el entorno de desarrollo. Puede modificar esta configuración más adelante en el valor de **Autenticación** para la aplicación registrada en Azure Portal:
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration.png" alt-text="Captura de pantalla que muestra cómo registrar la aplicación de almacenamiento con Azure AD":::
 
 > [!NOTE]
-> Si registra la aplicación como una aplicación nativa, puede especificar cualquier URI válido para el **URI de redirección**. Para las aplicaciones nativas, no es necesario que este valor sea una dirección URL real. Para las aplicaciones web, el URI de redirección debe ser un URI válido, ya que especifica la dirección URL a la que se proporcionan los tokens.
+> Si registra la aplicación como una aplicación nativa, puede especificar cualquier URI válido para el **URI de redirección** . Para las aplicaciones nativas, no es necesario que este valor sea una dirección URL real. Para las aplicaciones web, el URI de redirección debe ser un URI válido, ya que especifica la dirección URL a la que se proporcionan los tokens.
 
-Una vez que ha registrado su aplicación, verá el identificador de la aplicación (o identificador de cliente) en **Configuración**:
+Una vez que ha registrado su aplicación, verá el identificador de la aplicación (o identificador de cliente) en **Configuración** :
 
 :::image type="content" source="media/storage-auth-aad-app/app-registration-client-id.png" alt-text="Captura de pantalla que muestra cómo registrar la aplicación de almacenamiento con Azure AD":::
 
-Para más información sobre cómo registrar una aplicación con Azure AD, consulte [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-v2-register-an-app.md).
+Para más información sobre cómo registrar una aplicación con Azure AD, consulte [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ### <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Concesión de permisos a la aplicación registrada para Azure Storage
 
 A continuación, conceda los permisos de aplicación para llamar a las API de Azure Storage. Este paso permite a la aplicación autorizar las solicitudes a Azure Storage con Azure AD.
 
-1. En la página **Permisos de API** de su aplicación registrada, seleccione **Agregar permisos**.
-1. En la pestaña **API de Microsoft**, seleccione **Azure Storage**.
-1. En el panel **Solicitud de permisos de API**, en **¿Qué tipo de permiso necesita la aplicación web?** , observe que el tipo de permiso disponible es **Permisos delegados**. Esta opción se selecciona automáticamente de forma predeterminada.
-1. En **Permisos**, active la casilla situada junto a **user_impersonation** y seleccione el botón **Agregar permisos**.
+1. En la página **Permisos de API** de su aplicación registrada, seleccione **Agregar permisos** .
+1. En la pestaña **API de Microsoft** , seleccione **Azure Storage** .
+1. En el panel **Solicitud de permisos de API** , en **¿Qué tipo de permiso necesita la aplicación web?** , observe que el tipo de permiso disponible es **Permisos delegados** . Esta opción se selecciona automáticamente de forma predeterminada.
+1. En **Permisos** , active la casilla situada junto a **user_impersonation** y seleccione el botón **Agregar permisos** .
 
     :::image type="content" source="media/storage-auth-aad-app/registered-app-permissions-1.png" alt-text="Captura de pantalla que muestra cómo registrar la aplicación de almacenamiento con Azure AD":::
 
@@ -72,8 +72,8 @@ En el panel **Permisos de API** se muestra ahora que la aplicación de Azure AD
 La aplicación necesita un secreto de cliente para demostrar su identidad al solicitar un token. Para agregar el secreto de cliente, siga estos pasos:
 
 1. Vaya a su registro de aplicaciones en Azure Portal.
-1. Seleccione la configuración de **Certificados y secretos**.
-1. En **Secretos de cliente**, haga clic en **Nuevo secreto de cliente** para crear un nuevo secreto.
+1. Seleccione la configuración de **Certificados y secretos** .
+1. En **Secretos de cliente** , haga clic en **Nuevo secreto de cliente** para crear un nuevo secreto.
 1. Proporcione una descripción para el secreto y elija el intervalo de expiración deseado.
 1. Copie inmediatamente el valor del nuevo secreto en una ubicación segura. El valor completo se le muestra solo una vez.
 
@@ -84,8 +84,8 @@ La aplicación necesita un secreto de cliente para demostrar su identidad al sol
 Después, configure el flujo de concesión implícita para la aplicación. Siga estos pasos:
 
 1. Vaya a su registro de aplicaciones en Azure Portal.
-1. En la sección **Administrar**, seleccione la configuración de **Autenticación**.
-1. En la sección **Concesión implícita**, active la casilla para habilitar los tokens de identificador, como se muestra en la siguiente imagen:
+1. En la sección **Administrar** , seleccione la configuración de **Autenticación** .
+1. En la sección **Concesión implícita** , active la casilla para habilitar los tokens de identificador, como se muestra en la siguiente imagen:
 
     :::image type="content" source="media/storage-auth-aad-app/enable-implicit-grant-flow.png" alt-text="Captura de pantalla que muestra cómo registrar la aplicación de almacenamiento con Azure AD":::
 
@@ -93,7 +93,7 @@ Después, configure el flujo de concesión implícita para la aplicación. Siga 
 
 Una vez que haya registrado su aplicación y le haya concedido permisos para obtener acceso a los datos en Azure Blob Storage o Queue Storage, podrá agregar código a su aplicación para autenticar una entidad de seguridad y adquirir un token de OAuth 2.0. Para autenticar y adquirir el token, puede usar una de las [bibliotecas de autenticación de la Plataforma de identidad de Microsoft](../../active-directory/develop/reference-v2-libraries.md) u otra biblioteca de código abierto que admita OpenID Connect 1.0. A continuación, su aplicación puede usar el token de acceso para autorizar una solicitud en Azure Blob Storage o Queue Storage.
 
-Para ver una lista de escenarios en los que se admite la adquisición de tokens, consulte la sección [Flujos de autenticación](/en-us/azure/active-directory/develop/msal-authentication-flows) de la documentación de la [Biblioteca de autenticación de Microsoft (MSAL)](/azure/active-directory/develop/msal-overview).
+Para ver una lista de escenarios en los que se admite la adquisición de tokens, consulte la sección [Flujos de autenticación](../../active-directory/develop/msal-authentication-flows.md) de la documentación de la [Biblioteca de autenticación de Microsoft (MSAL)](../../active-directory/develop/msal-overview.md).
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Valores conocidos para la autenticación con Azure AD
 
@@ -140,7 +140,7 @@ Una aplicación web de ejemplo completada que adquiere un token y lo usa para cr
 
 #### <a name="add-references-and-using-statements"></a>Incorporación de referencias y uso de instrucciones  
 
-En Visual Studio, instale la biblioteca cliente de Azure Storage. En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** y después **Consola del Administrador de paquetes**. Escriba los siguientes comandos en la ventana de consola para instalar los paquetes necesarios de la biblioteca cliente de Azure Storage para .NET:
+En Visual Studio, instale la biblioteca cliente de Azure Storage. En el menú **Herramientas** , seleccione **Administrador de paquetes NuGet** y después **Consola del Administrador de paquetes** . Escriba los siguientes comandos en la ventana de consola para instalar los paquetes necesarios de la biblioteca cliente de Azure Storage para .NET:
 
 # <a name="net-v12-sdk"></a>[SDK de .NET, versión 12](#tab/dotnet)
 
@@ -282,7 +282,7 @@ Actualice el archivo *appsettings.json* con sus propios valores de la siguiente 
 
 ### <a name="update-the-storage-account-and-container-name"></a>Actualización del nombre del contenedor y la cuenta de almacenamiento
 
-En el archivo *HomeController.cs*, actualice el URI que hace referencia al blob en bloques para usar el nombre de su cuenta de almacenamiento y contenedor y reemplace los valores en corchetes por los suyos:
+En el archivo *HomeController.cs* , actualice el URI que hace referencia al blob en bloques para usar el nombre de su cuenta de almacenamiento y contenedor y reemplace los valores en corchetes por los suyos:
 
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
@@ -290,6 +290,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
-- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](storage-auth-aad-rbac.md)
+- [Plataforma de identidad de Microsoft](../../active-directory/develop/index.yml)
+- [Administración de los derechos de acceso a los datos de almacenamiento con RBAC de Azure](./storage-auth-aad-rbac-portal.md)
 - [Autenticación del acceso a blobs y colas con Azure Active Directory e identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)

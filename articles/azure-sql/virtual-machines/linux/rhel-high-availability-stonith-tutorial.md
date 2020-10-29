@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06442e861a247f545ca6f22ecc82e5f5dc910553
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358991"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790243"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configuración de grupos de disponibilidad para SQL Server en máquinas virtuales de Red Hat Enterprise Linux en Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -242,7 +242,7 @@ Debería obtener los siguientes resultados cuando se complete el comando:
     done
     ```
 
-El comando anterior crea las máquinas virtuales y una red virtual predeterminada para ellas. Para más información sobre las distintas configuraciones, consulte el artículo [az vm create](https://docs.microsoft.com/cli/azure/vm).
+El comando anterior crea las máquinas virtuales y una red virtual predeterminada para ellas. Para más información sobre las distintas configuraciones, consulte el artículo [az vm create](/cli/azure/vm).
 
 Debe obtener resultados similares a los siguientes una vez que el comando se complete para cada máquina virtual:
 
@@ -304,7 +304,7 @@ Conéctese a cada nodo de máquina virtual y siga la guía siguiente para habili
 1. Actualice e instale paquetes de Pacemaker en todos los nodos mediante los siguientes comandos:
 
     > [!NOTE]
-    > **nmap** se instala como parte de este bloque de comandos como herramienta para buscar las direcciones IP disponibles en la red. No es necesario que instale **nmap**, pero será útil más adelante en este tutorial.
+    > **nmap** se instala como parte de este bloque de comandos como herramienta para buscar las direcciones IP disponibles en la red. No es necesario que instale **nmap** , pero será útil más adelante en este tutorial.
 
     ```bash
     sudo yum update -y
@@ -324,7 +324,7 @@ Conéctese a cada nodo de máquina virtual y siga la guía siguiente para habili
     sudo vi /etc/hosts
     ```
 
-    En el editor de **vi**, escriba `i` para insertar texto y, en una línea en blanco, agregue la **dirección IP privada** de la máquina virtual correspondiente. A continuación, agregue el nombre de la máquina virtual después de un espacio junto a la dirección IP. Cada línea debe tener una entrada independiente.
+    En el editor de **vi** , escriba `i` para insertar texto y, en una línea en blanco, agregue la **dirección IP privada** de la máquina virtual correspondiente. A continuación, agregue el nombre de la máquina virtual después de un espacio junto a la dirección IP. Cada línea debe tener una entrada independiente.
 
     ```output
     <IP1> <VM1>
@@ -335,7 +335,7 @@ Conéctese a cada nodo de máquina virtual y siga la guía siguiente para habili
     > [!IMPORTANT]
     > Le recomendamos que use la **dirección IP privada** anterior. El uso de la dirección IP pública en esta configuración hará que se produzca un error en la configuración y no se recomienda exponer la máquina virtual a redes externas.
 
-    Para salir del editor de **vi**, primero presione la tecla **Esc** y, a continuación, escriba el comando `:wq` para escribir en el archivo y salir.
+    Para salir del editor de **vi** , primero presione la tecla **Esc** y, a continuación, escriba el comando `:wq` para escribir en el archivo y salir.
 
 ## <a name="create-the-pacemaker-cluster"></a>Implementar un clúster de Pacemaker
 
@@ -489,11 +489,11 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  3. Haga clic en [**Registros de aplicaciones**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Haga clic en **Nuevo registro**
  5. Escriba un **nombre** como `<resourceGroupName>-app` y seleccione **Solo las cuentas de este directorio organizativo**
- 6. Seleccione el tipo de aplicación **Web**, escriba una dirección URL de inicio de sesión (por ejemplo, http://localhost) ) y haga clic en Agregar. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida. A continuación, haga clic en **Registrar**
+ 6. Seleccione el tipo de aplicación **Web** , escriba una dirección URL de inicio de sesión (por ejemplo, http://localhost) ) y haga clic en Agregar. La dirección URL de inicio de sesión no se usa y puede ser cualquier dirección URL válida. A continuación, haga clic en **Registrar**
  7. Seleccione **Certificados y secretos** para el nuevo registro de aplicaciones y, después, haga clic en **Nuevo secreto de cliente**
  8. Escriba una descripción para la nueva clave (secreto de cliente), seleccione **Nunca expira** y haga clic en **Agregar**
  9. Anote el valor del secreto. Se usa como contraseña para la entidad de servicio
-10. Seleccione **Información general**. Anote el identificador de la aplicación. Se utiliza como nombre de usuario (identificador de inicio de sesión en los pasos siguientes) de la entidad de servicio
+10. Seleccione **Información general** . Anote el identificador de la aplicación. Se utiliza como nombre de usuario (identificador de inicio de sesión en los pasos siguientes) de la entidad de servicio
  
 ### <a name="create-a-custom-role-for-the-fence-agent"></a>Creación de un rol personalizado para el agente de barrera
 
@@ -570,7 +570,7 @@ Asigne el rol personalizado `Linux Fence Agent Role-<username>` que se creó en 
 4. Haga clic en **Control de acceso (IAM)**
 5. Haga clic en **Agregar una asignación de roles**
 6. Seleccione el rol `Linux Fence Agent Role-<username>` de la lista **Rol**
-7. En la lista **Seleccionar**, escriba el nombre de la aplicación que creó anteriormente, `<resourceGroupName>-app`.
+7. En la lista **Seleccionar** , escriba el nombre de la aplicación que creó anteriormente, `<resourceGroupName>-app`.
 8. Haga clic en **Guardar**
 9. Repita los pasos anteriores para todo el nodo de clúster.
 
@@ -868,7 +868,7 @@ En todas las instancias de SQL Server, guarde las credenciales usadas para el i
     <password>
     ```
 
-    Para salir del editor de **vi**, primero presione la tecla **Esc** y, a continuación, escriba el comando `:wq` para escribir en el archivo y salir.
+    Para salir del editor de **vi** , primero presione la tecla **Esc** y, a continuación, escriba el comando `:wq` para escribir en el archivo y salir.
 
 1. Haga que solo el usuario raíz pueda leer el archivo:
 
@@ -906,7 +906,7 @@ En todas las instancias de SQL Server, guarde las credenciales usadas para el i
     GO
     ```
 
-1. Una vez que se conectan las réplicas secundarias, puede verlas en el Explorador de objetos de SSMS expandiendo el nodo de **alta disponibilidad de Always On**:
+1. Una vez que se conectan las réplicas secundarias, puede verlas en el Explorador de objetos de SSMS expandiendo el nodo de **alta disponibilidad de Always On** :
 
     ![La captura de pantalla muestra las réplicas de disponibilidad principal y secundaria.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 

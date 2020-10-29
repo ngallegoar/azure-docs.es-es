@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b09d808201d58b571b2fe5ceb2e228d4e1c21d11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28ab0a158507e3f29ecfdc026203d92d71877633
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316960"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786520"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambio del modelo de licencia de una máquina virtual de SQL en Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 
-En este artículo se describe cómo cambiar el modelo de licencia de una máquina virtual (VM) con SQL Server en Azure mediante el nuevo proveedor de recursos de VM con SQL Server, **Microsoft.SqlVirtualMachine**.
+En este artículo se describe cómo cambiar el modelo de licencia de una máquina virtual (VM) con SQL Server en Azure mediante el nuevo proveedor de recursos de VM con SQL Server, **Microsoft.SqlVirtualMachine** .
 
 Hay tres modelos de licencia para una VM que hospeda SQL Server: pago por uso, Ventaja híbrida de Azure (AHB) y recuperación ante desastres (DR). Puede modificar el modelo de licencia de la VM con SQL Server mediante Azure Portal, la CLI de Azure o PowerShell. 
 
@@ -49,7 +49,7 @@ El tipo de licencia de SQL Server se puede configurar cuando se aprovisiona la 
 El cambio del modelo de licencia de la máquina virtual con SQL Server tiene los siguientes requisitos: 
 
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
-- Una [máquina virtual con SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registrada con el [proveedor de recursos de máquina virtual con SQL](sql-vm-resource-provider-register.md).
+- Una [máquina virtual con SQL Server](./create-sql-vm-portal.md) registrada con el [proveedor de recursos de máquina virtual con SQL](sql-vm-resource-provider-register.md).
 - [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) es un requisito para usar [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). 
 
 
@@ -62,9 +62,9 @@ El cambio del modelo de licencia de la máquina virtual con SQL Server tiene lo
 El modelo de licencia se puede modificar directamente desde el portal: 
 
 1. Abra [Azure Portal](https://portal.azure.com) y el [recurso de las máquinas virtuales de SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) para su VM con SQL Server. 
-1. Seleccione **Configurar** en **Configuración**. 
+1. Seleccione **Configurar** en **Configuración** . 
 1. Seleccione la opción **Ventaja híbrida de Azure** y active la casilla para confirmar que tiene una licencia de SQL Server con Software Assurance. 
-1. Seleccione **Aplicar** en la parte inferior de la página **Configurar**. 
+1. Seleccione **Aplicar** en la parte inferior de la página **Configurar** . 
 
 ![Ventaja híbrida de Azure en el portal](./media/licensing-model-azure-hybrid-benefit-ahb-change/ahb-in-portal.png)
 
@@ -83,7 +83,7 @@ Puede usar la CLI de Azure para cambiar el modelo de licencia.
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
-**Pago por uso**: 
+**Pago por uso** : 
 
 ```azurecli-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
@@ -180,5 +180,3 @@ Para más información, consulte los siguientes artículos.
 * [Preguntas más frecuentes de SQL Server en máquinas virtuales Windows](frequently-asked-questions-faq.md)
 * [Orientación de precios de SQL Server para máquinas virtuales de Azure](pricing-guidance.md)
 * [Notas de la versión de SQL Server en Azure Virtual Machines](../../database/doc-changes-updates-release-notes.md)
-
-

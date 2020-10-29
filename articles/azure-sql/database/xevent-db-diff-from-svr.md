@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: c8f73c0789cd0211deeb66af5c7300a81d7b1be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c89dc28a330e319e18a6289e5f6759c56e46ae8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619821"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791280"
 ---
 # <a name="extended-events-in-azure-sql-database"></a>Eventos extendidos en Base de datos SQL de Azure 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,12 +66,12 @@ Los temas relacionados proporcionan dos ejemplos de código:
 - Cuando se ejecuta el comando [CREATE EVENT SESSION](/sql/t-sql/statements/create-event-session-transact-sql) en SQL Server, se usa la cláusula **ON SERVER** . Pero en Azure SQL Database se usa la cláusula **ON DATABASE** en su lugar.
 - La cláusula **ON DATABASE** se aplica también a los comandos Transact-SQL [ALTER EVENT SESSION](/sql/t-sql/statements/alter-event-session-transact-sql) y [DROP EVENT SESSION](/sql/t-sql/statements/drop-event-session-transact-sql).
 
-- Un procedimiento recomendado es incluir la opción de sesión de eventos de **STARTUP_STATE = ON** en sus instrucciones **CREATE EVENT SESSION** o **ALTER EVENT SESSION**.
+- Un procedimiento recomendado es incluir la opción de sesión de eventos de **STARTUP_STATE = ON** en sus instrucciones **CREATE EVENT SESSION** o **ALTER EVENT SESSION** .
   - El valor **= ON** admite un reinicio automático después de una reconfiguración de la base de datos lógica debida a una conmutación por error.
 
 ## <a name="new-catalog-views"></a>Nuevas vistas de catálogo
 
-La característica eventos extendidos es compatible con varias [vistas de catálogo](https://msdn.microsoft.com/library/ms174365.aspx). Las vistas de catálogo le informan sobre *metadatos o definiciones* de sesiones de eventos creadas por el usuario en la base de datos actual. Las vistas no devuelven información acerca de las instancias de sesiones de eventos activas.
+La característica eventos extendidos es compatible con varias [vistas de catálogo](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql). Las vistas de catálogo le informan sobre *metadatos o definiciones* de sesiones de eventos creadas por el usuario en la base de datos actual. Las vistas no devuelven información acerca de las instancias de sesiones de eventos activas.
 
 | Nombre de<br/>vista de catálogo | Descripción |
 |:--- |:--- |
@@ -83,9 +83,9 @@ La característica eventos extendidos es compatible con varias [vistas de catál
 
 En Microsoft SQL Server, hay vistas de catálogo similares con nombres que incluyen *.server\_* en lugar de *.database\_* . El patrón de nombre es parecido a **sys.server_event_%** .
 
-## <a name="new-dynamic-management-views-dmvs"></a>Nuevas vistas de administración dinámica [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvs"></a>Nuevas vistas de administración dinámica [(DMV)](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views)
 
-Azure SQL Database tiene [vistas de administración dinámica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) que admiten eventos extendidos. Las DMV le informan sobre las sesiones de eventos *activas* .
+Azure SQL Database tiene [vistas de administración dinámica (DMV)](/sql/relational-databases/system-dynamic-management-views/extended-events-dynamic-management-views) que admiten eventos extendidos. Las DMV le informan sobre las sesiones de eventos *activas* .
 
 | Nombre de DMV | Descripción |
 |:--- |:--- |
@@ -97,7 +97,7 @@ Azure SQL Database tiene [vistas de administración dinámica (DMV)](https://msd
 
 En Microsoft SQL Server, las vistas de catálogo similares tienen nombres sin la parte *\_database* del nombre, como:
 
-- **sys.dm_xe_sessions**, en vez del nombre<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions** , en vez del nombre<br/>**sys.dm_xe_database_sessions** .
 
 ### <a name="dmvs-common-to-both"></a>DMV comunes
 
@@ -140,22 +140,22 @@ SELECT
 
 Estos son los destinos que pueden capturar los resultados de las sesiones de eventos en Azure SQL Database:
 
-- [Destino de búfer de anillo](https://msdn.microsoft.com/library/ff878182.aspx) : guarda brevemente los datos en la memoria.
-- [Destino del contador de eventos de](https://msdn.microsoft.com/library/ff878025.aspx) :cuenta todos los eventos que se producen durante una sesión de eventos extendidos.
-- [Destino de archivo de evento](https://msdn.microsoft.com/library/ff878115.aspx) : escribe búferes completos en un contenedor de Azure Storage.
+- [Destino de búfer de anillo](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)) : guarda brevemente los datos en la memoria.
+- [Destino del contador de eventos de](/previous-versions/sql/sql-server-2016/ff878025(v=sql.130)) :cuenta todos los eventos que se producen durante una sesión de eventos extendidos.
+- [Destino de archivo de evento](/previous-versions/sql/sql-server-2016/ff878115(v=sql.130)) : escribe búferes completos en un contenedor de Azure Storage.
 
-La API [Seguimiento de eventos para Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) no está disponible para eventos extendidos en Azure SQL Database.
+La API [Seguimiento de eventos para Windows (ETW)](/dotnet/framework/wcf/samples/etw-tracing) no está disponible para eventos extendidos en Azure SQL Database.
 
 ## <a name="restrictions"></a>Restricciones
 
 Hay un par de diferencias relacionadas con la seguridad que se adaptan al entorno de nube de Azure SQL Database:
 
 - Los eventos extendidos se basan en el modelo de aislamiento de inquilino único. Una sesión de eventos en una base de datos no puede tener acceso a datos o eventos desde otra base de datos.
-- No se puede emitir una instrucción **CREATE EVENT SESSION** en el contexto de la base de datos **maestra**.
+- No se puede emitir una instrucción **CREATE EVENT SESSION** en el contexto de la base de datos **maestra** .
 
 ## <a name="permission-model"></a>Nombre del permiso
 
-Debe tener permiso de **Control** en la base de datos para emitir una instrucción **CREATE EVENT SESSION**. El propietario de la base de datos (dbo) tiene permiso de **Control** .
+Debe tener permiso de **Control** en la base de datos para emitir una instrucción **CREATE EVENT SESSION** . El propietario de la base de datos (dbo) tiene permiso de **Control** .
 
 ### <a name="storage-container-authorizations"></a>Autorizaciones de contenedor de almacenamiento
 
@@ -172,7 +172,7 @@ Existen escenarios donde un uso intensivo de eventos extendidos puede acumular m
 Si recibe un mensaje de error que indica que se aplicó un máximo de memoria, algunas acciones correctivas que puede tomar son:
 
 - Ejecutar menos sesiones de eventos simultáneas.
-- A través de sus instrucciones **CREATE** y **ALTER** para las sesiones de eventos, reducir la cantidad de memoria que especifica en la cláusula **MAX\_MEMORY**.
+- A través de sus instrucciones **CREATE** y **ALTER** para las sesiones de eventos, reducir la cantidad de memoria que especifica en la cláusula **MAX\_MEMORY** .
 
 ### <a name="network-latency"></a>Latencia de red
 
@@ -183,11 +183,11 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 ## <a name="related-links"></a>Vínculos relacionados
 
 - [Usar Azure PowerShell con Azure Storage](/powershell/module/az.storage/)
-- [Cmdlets de Azure Storage](https://docs.microsoft.com/powershell/module/Azure.Storage)
+- [Cmdlets de Azure Storage](/powershell/module/Azure.Storage)
 - [Usar Azure PowerShell con Azure Storage](/powershell/module/az.storage/)
 - [Uso del almacenamiento de blobs de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](/sql/t-sql/statements/create-credential-transact-sql)
+- [CREATE EVENT SESSION (Transact-SQL)](/sql/t-sql/statements/create-event-session-transact-sql)
 - [Las publicaciones del blog de Jonathan Kehayias acerca de los eventos extendidos en Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 - La página web de *actualizaciones del servicio* de Azure, restringida por parámetros a Azure SQL Database:
   - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
@@ -195,6 +195,6 @@ El destino del **archivo de eventos** puede experimentar latencia de red o error
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

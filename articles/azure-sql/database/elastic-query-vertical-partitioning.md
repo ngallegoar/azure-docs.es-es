@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443093"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792096"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta de bases de datos elásticas para consultas entre bases de datos (particionamiento vertical)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,10 +36,10 @@ Las bases de datos con particiones verticales usan distintos conjuntos de tablas
 > A diferencia del particionamiento horizontal, estas instrucciones DDL no dependen de la definición de una capa de datos con un mapa de particiones mediante la biblioteca de cliente de bases de datos elásticas.
 >
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Creación de clave maestra y credenciales con ámbito de base de datos
 
@@ -63,7 +63,7 @@ Sintaxis:
     CREDENTIAL = <credential_name> ) [;]
 
 > [!IMPORTANT]
-> El parámetro TYPE debe establecerse en **RDBMS**.
+> El parámetro TYPE debe establecerse en **RDBMS** .
 
 ### <a name="example"></a>Ejemplo
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 La consulta elástica amplía la sintaxis de la tabla externa existente para que incluya la definición de tablas externas que usan orígenes de datos externos de tipo RDBMS. La definición de tabla externa para el particionamiento vertical abarca los siguientes aspectos:
 
-* **Esquema**: el DDL de tabla externa define un esquema que las consultas pueden usar. El esquema proporcionado en la definición de tabla externa debe coincidir con el de las tablas de la base de datos remota donde se almacenan los datos en sí.
-* **Referencia a base de datos remota**: el DDL de tabla externa hace referencia a un origen de datos externo. El origen de datos externo especifica el nombre del servidor y el nombre de la base de datos remota donde se almacenan los datos de la tabla.
+* **Esquema** : el DDL de tabla externa define un esquema que las consultas pueden usar. El esquema proporcionado en la definición de tabla externa debe coincidir con el de las tablas de la base de datos remota donde se almacenan los datos en sí.
+* **Referencia a base de datos remota** : el DDL de tabla externa hace referencia a un origen de datos externo. El origen de datos externo especifica el nombre del servidor y el nombre de la base de datos remota donde se almacenan los datos de la tabla.
 
 Usando un origen de datos externo como se describe en la anterior sección, la sintaxis para crear tablas externas es la siguiente:
 
@@ -135,7 +135,7 @@ La siguiente instrucción DDL quita una definición de tabla externa existente d
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Permisos para CREATE/DROP EXTERNAL TABLE**: se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para el DDL de tabla externa que también se necesita para hacer referencia al origen de datos subyacente.  
+**Permisos para CREATE/DROP EXTERNAL TABLE** : se necesitan permisos ALTER ANY EXTERNAL DATA SOURCE para el DDL de tabla externa que también se necesita para hacer referencia al origen de datos subyacente.  
 
 ## <a name="security-considerations"></a>Consideraciones sobre la seguridad
 
@@ -163,7 +163,7 @@ La consulta siguiente realiza una combinación tridireccional entre las dos tabl
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Procedimiento almacenado para la ejecución remota de T-SQL: sp\_execute_remote
 
-La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a la base de datos remota. El procedimiento almacenado se denomina [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) y sirve para ejecutar procedimientos almacenados remotos o código T-SQL en la base de datos remota. Toma los parámetros siguientes:
+La consulta elástica también incluye un procedimiento almacenado que proporciona acceso directo a la base de datos remota. El procedimiento almacenado se denomina [sp\_execute\_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) y sirve para ejecutar procedimientos almacenados remotos o código T-SQL en la base de datos remota. Toma los parámetros siguientes:
 
 * Nombre de origen de datos (nvarchar): nombre del origen de datos externo de tipo RDBMS.
 * Consulta (nvarchar): la consulta T-SQL que se va a ejecutar en la base de datos remota.
@@ -195,7 +195,7 @@ Puede usar cadenas de conexión de SQL Server normales para conectar sus herrami
 * Para obtener un tutorial sobre la creación de particiones verticales, consulte [Introducción a las consultas entre bases de datos (particiones verticales)](elastic-query-getting-started-vertical.md).
 * Para obtener un tutorial sobre la creación de particiones horizontales (particionamiento), consulte [Introducción a las consultas elásticas para las particiones horizontales (particionamiento)](elastic-query-getting-started.md).
 * Para ver la sintaxis y consultas de ejemplo para los datos con particionamiento horizontal, consulte [Consulta de datos particionados horizontalmente.](elastic-query-horizontal-partitioning.md)
-* Consulte [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
+* Consulte [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) para ver un procedimiento almacenado que ejecuta una instrucción de Transact-SQL en una sola instancia remota de Azure SQL Database o un conjunto de bases de datos que actúan como particiones en un esquema de particiones horizontales.
 
 <!--Image references-->
 [1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png

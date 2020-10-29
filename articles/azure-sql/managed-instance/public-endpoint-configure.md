@@ -10,17 +10,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: f3708885759a6a353742fe89b4454b39496aeeab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619991"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788288"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configuración de un punto de conexión público en Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-El punto de conexión público para una [instancia administrada](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) habilita el acceso a datos de su instancia administrada desde fuera de la [red virtual](../../virtual-network/virtual-networks-overview.md). Puede acceder a su instancia administrada desde servicios de Azure de varios inquilinos, como Power BI, Azure App Service o una red local. Al usar el punto de conexión público en una instancia administrada, no es necesario que use una VPN, lo que puede contribuir a evitar problemas de rendimiento de la VPN.
+El punto de conexión público para una [instancia administrada](./sql-managed-instance-paas-overview.md) habilita el acceso a datos de su instancia administrada desde fuera de la [red virtual](../../virtual-network/virtual-networks-overview.md). Puede acceder a su instancia administrada desde servicios de Azure de varios inquilinos, como Power BI, Azure App Service o una red local. Al usar el punto de conexión público en una instancia administrada, no es necesario que use una VPN, lo que puede contribuir a evitar problemas de rendimiento de la VPN.
 
 En este artículo, aprenderá a:
 
@@ -42,7 +42,7 @@ Debido a la confidencialidad de los datos de una instancia administrada, la conf
 
 1. Inicie Azure Portal en <https://portal.azure.com/.>.
 1. Abra el grupo de recursos con la instancia administrada y seleccione la **instancia administrada de SQL** en la que quiera configurar el punto de conexión público.
-1. En la configuración de **seguridad**, seleccione la pestaña **Red virtual**.
+1. En la configuración de **seguridad** , seleccione la pestaña **Red virtual** .
 1. En la página de configuración de la red virtual, seleccione **Habilitar** y después el icono **Guardar** para actualizar la configuración.
 
 ![Captura de pantalla que muestra una página Red virtual de SQL Managed Instance con el punto de conexión público habilitado.](./media/public-endpoint-configure/mi-vnet-config.png)
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Permitir el tráfico del punto de conexión público en el grupo de seguridad de red
 
-1. Si todavía tiene abierta la página de configuración de la instancia administrada, vaya a la pestaña **Introducción**. En caso contrario, vuelva a su recurso **Instancia administrada de SQL**. Seleccione el vínculo **Red virtual/subred**, que le llevará a la página de configuración de la red virtual.
+1. Si todavía tiene abierta la página de configuración de la instancia administrada, vaya a la pestaña **Introducción** . En caso contrario, vuelva a su recurso **Instancia administrada de SQL** . Seleccione el vínculo **Red virtual/subred** , que le llevará a la página de configuración de la red virtual.
 
     ![Captura de pantalla que muestra la página Configuración de red virtual, donde puede encontrar el valor de red virtual o subred.](./media/public-endpoint-configure/mi-overview.png)
 
@@ -102,7 +102,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Intervalos de puertos de destino**     |3342         |Establezca el puerto de destino en 3342, que es el punto de conexión TDS público de la instancia administrada. |
     |**Protocolo**     |TCP         |Instancia administrada de SQL utiliza el protocolo TCP para TDS. |
     |**Acción**     |Allow         |Permite el tráfico entrante en la instancia administrada mediante el punto de conexión público. |
-    |**Prioridad**     |1300         |Asegúrese de que esta regla tiene más prioridad que la regla **deny_all_inbound**. |
+    |**Prioridad**     |1300         |Asegúrese de que esta regla tiene más prioridad que la regla **deny_all_inbound** . |
 
     ![Captura de pantalla que muestra las reglas de seguridad de entrada con la nueva regla public_endpoint_inbound encima de la regla deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
@@ -111,8 +111,8 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Obtener la cadena de conexión del punto de conexión público en la instancia administrada
 
-1. Vaya a la página de configuración de la instancia administrada que se ha habilitado para el punto de conexión público. Seleccione la pestaña **Cadenas de conexión** en **Configuración**.
-1. El nombre de host del punto de conexión público debe tener el formato <mi_name>.**public**.<dns_zone>.database.windows.net y el puerto usado para la conexión debe ser 3342.
+1. Vaya a la página de configuración de la instancia administrada que se ha habilitado para el punto de conexión público. Seleccione la pestaña **Cadenas de conexión** en **Configuración** .
+1. El nombre de host del punto de conexión público debe tener el formato <mi_name>. **public** .<dns_zone>.database.windows.net y el puerto usado para la conexión debe ser 3342.
 
     ![Captura de pantalla que muestra las cadenas de conexión de los puntos de conexión públicos y privados.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

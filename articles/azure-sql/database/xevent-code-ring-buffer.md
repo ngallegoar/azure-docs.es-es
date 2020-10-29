@@ -11,27 +11,27 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 57449b0bbd39b6ea04ecae5a3ad766ae5687ca0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d73efd7a64d0118cea11ca9b0a35f659ce7fee6a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619838"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791297"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-azure-sql-database"></a>Código de destino de búfer en anillo para eventos extendidos en Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Desea tener un ejemplo de código completo de la manera más rápida y fácil para capturar y notificar información de un evento extendido durante una prueba. El destino más fácil para los datos de eventos extendidos es el [destino de búfer de anillo](https://msdn.microsoft.com/library/ff878182.aspx).
+Desea tener un ejemplo de código completo de la manera más rápida y fácil para capturar y notificar información de un evento extendido durante una prueba. El destino más fácil para los datos de eventos extendidos es el [destino de búfer de anillo](/previous-versions/sql/sql-server-2016/bb630339(v=sql.130)).
 
 En este tema, se presenta un ejemplo de código de Transact-SQL que:
 
 1. Crea una tabla con datos con los cuales demostrarse.
-2. Crea una sesión para un evento extendido existente, es decir, **sqlserver.sql_statement_starting**.
+2. Crea una sesión para un evento extendido existente, es decir, **sqlserver.sql_statement_starting** .
 
    * El evento se limita a las instrucciones SQL que contienen una cadena Update determinada: **statement LIKE '%UPDATE tabEmployee%'** .
-   * Elige enviar la salida del evento a un destino de tipo búfer en anillo, es decir, **package0.ring_buffer**.
+   * Elige enviar la salida del evento a un destino de tipo búfer en anillo, es decir, **package0.ring_buffer** .
 3. Inicia la sesión de eventos.
 4. Emite un par de instrucciones SQL UPDATE simple.
 5. Emite una instrucción SQL SELECT para recuperar la salida de evento del búfer en anillo.
@@ -50,7 +50,7 @@ En este tema, se presenta un ejemplo de código de Transact-SQL que:
 * SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente.
   Puede descargar la versión más reciente de ssms.exe desde:
   
-  * El tema titulado [Descarga de SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * El tema titulado [Descarga de SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
   * [Un vínculo directo a la descarga.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Código de ejemplo
@@ -218,9 +218,9 @@ GO
 
 Se usa `ssms.exe` para ejecutar el ejemplo de código.
 
-Para ver los resultados, hemos hecho clic en la celda bajo el encabezado de columna **target_data_XML**.
+Para ver los resultados, hemos hecho clic en la celda bajo el encabezado de columna **target_data_XML** .
 
-Luego, en el panel de resultados, hemos hecho clic en la celda bajo el encabezado de columna **target_data_XML**. Al hace este clic, se creó otra pestaña de archivo en ssms.exe donde se mostró el contenido de la celda de resultado, como XML.
+Luego, en el panel de resultados, hemos hecho clic en la celda bajo el encabezado de columna **target_data_XML** . Al hace este clic, se creó otra pestaña de archivo en ssms.exe donde se mostró el contenido de la celda de resultado, como XML.
 
 El resultado se muestra en el bloque siguiente. Parece largo, pero son solo dos elementos **\<event>** .
 
@@ -349,6 +349,6 @@ Hay otros temas de ejemplo de código para eventos extendidos disponibles en los
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](/sql/relational-databases/extended-events/determine-which-queries-are-holding-locks)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](/sql/relational-databases/extended-events/find-the-objects-that-have-the-most-locks-taken-on-them)
 -->

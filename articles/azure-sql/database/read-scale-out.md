@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c09a54daa482d738ded9f7aca1c95c2b640617e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319435"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790277"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Uso de réplicas de solo lectura para descargar cargas de trabajo de consulta de solo lectura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Como parte de la [arquitectura de alta disponibilidad](high-availability-sla.md#premium-and-business-critical-service-tier-availability), cada base de datos única, base de datos de grupos elásticos e instancia administrada del nivel de servicio Premium y Crítico para la empresa se aprovisiona automáticamente con una réplica principal de lectura y escritura y varias réplicas secundarias de solo lectura. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. La característica *Escalado horizontal de lectura* le permite descargar las cargas de trabajo de solo lectura usando la capacidad de proceso de una de las réplicas de solo lectura, en lugar de ejecutarlas en la réplica de lectura y escritura. De este modo, algunas cargas de trabajo de solo lectura se pueden aislar de las cargas de trabajo principales de lectura y escritura sin que su rendimiento se vea afectado. La característica está diseñada para las aplicaciones que contienen cargas de solo lectura separadas de forma lógica; por ejemplo, análisis. En los niveles de servicio Premium y Crítico para la empresa, las aplicaciones podrían obtener ventajas de rendimiento gracias a esta capacidad sin costo adicional.
+Como parte de la [arquitectura de alta disponibilidad](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability), cada base de datos única, base de datos de grupos elásticos e instancia administrada del nivel de servicio Premium y Crítico para la empresa se aprovisiona automáticamente con una réplica principal de lectura y escritura y varias réplicas secundarias de solo lectura. Las réplicas secundarias se aprovisionan con el mismo tamaño de proceso que la réplica principal. La característica *Escalado horizontal de lectura* le permite descargar las cargas de trabajo de solo lectura usando la capacidad de proceso de una de las réplicas de solo lectura, en lugar de ejecutarlas en la réplica de lectura y escritura. De este modo, algunas cargas de trabajo de solo lectura se pueden aislar de las cargas de trabajo principales de lectura y escritura sin que su rendimiento se vea afectado. La característica está diseñada para las aplicaciones que contienen cargas de solo lectura separadas de forma lógica; por ejemplo, análisis. En los niveles de servicio Premium y Crítico para la empresa, las aplicaciones podrían obtener ventajas de rendimiento gracias a esta capacidad sin costo adicional.
 
 La característica *Escalado horizontal de lectura* también está disponible en el nivel de servicio Hiperescala cuando se crea al menos una réplica secundaria. Se pueden usar varias réplicas secundarias para el equilibrio de carga de las cargas de trabajo de solo lectura que requieren más recursos de los disponibles en una réplica secundaria.
 
@@ -36,7 +36,7 @@ La característica *Escalado horizontal de lectura* está habilitada de forma pr
 > [!NOTE]
 > El escalado horizontal de lectura siempre está habilitado en el nivel de servicio Crítico para la empresa de la Instancia administrada.
 
-Si la cadena de conexión SQL está configurada con `ApplicationIntent=ReadOnly`, la aplicación se redirigirá a una réplica de solo lectura de esa base de datos o instancia administrada. Para más información sobre la propiedad `ApplicationIntent`, consulte [Especificar el intento de la aplicación](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Si la cadena de conexión SQL está configurada con `ApplicationIntent=ReadOnly`, la aplicación se redirigirá a una réplica de solo lectura de esa base de datos o instancia administrada. Para más información sobre la propiedad `ApplicationIntent`, consulte [Especificar el intento de la aplicación](/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Si desea asegurarse de que la aplicación se conecta a la réplica principal sin tener en cuenta el valor `ApplicationIntent` de la cadena de conexión SQL, debe deshabilitar explícitamente el escalado horizontal de lectura cuando cree la base de datos o modifique su configuración. Por ejemplo, si actualiza una base de datos de nivel Estándar o De uso General al nivel Premium, Crítico para la empresa o Hiperescala y desea asegurarse de que todas las conexiones siguen estableciéndose con la réplica principal, deshabilite el escalado horizontal de lectura. Para más información acerca de cómo deshabilitarlo, consulte [Habilitar y deshabilitar el escalado horizontal de lectura](#enable-and-disable-read-scale-out).
 
@@ -87,16 +87,16 @@ Las vistas que se usan con frecuencia son:
 
 | Nombre | Propósito |
 |:---|:---|
-|[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Proporciona métricas de uso de recursos durante la última hora, incluida la CPU, la E/S de datos y el uso de la escritura de registros en relación con los límites de los objetivos de servicio.|
-|[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Proporciona estadísticas de espera agregadas para la instancia del motor de base de datos. |
-|[sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Proporciona estadísticas de sincronización y estado de mantenimiento de la réplica. La tasa y el tamaño de la cola de la fase de puesta al día sirven como indicadores de latencia de datos en la réplica de solo lectura. |
-|[sys.dm_os_performance_counters](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Proporciona contadores de rendimiento del motor de base de datos.|
-|[sys.dm_exec_query_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Proporciona estadísticas de ejecución por consulta, como el número de ejecuciones, el tiempo de CPU usado, etc.|
-|[sys.dm_exec_query_plan()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Proporciona planes de consulta almacenados en caché. |
-|[sys.dm_exec_sql_text()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Proporciona texto de consulta para un plan de consulta almacenado en caché.|
-|[sys.dm_exec_query_profiles](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Proporciona el progreso de la consulta en tiempo real mientras las consultas están en ejecución.|
-|[sys.dm_exec_query_plan_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Proporciona el último plan de ejecución real conocido, incluidas las estadísticas de tiempo de ejecución de una consulta.|
-|[sys.dm_io_virtual_file_stats()](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Proporciona las IOPS de almacenamiento, el rendimiento y las estadísticas de latencia para todos los archivos de base de datos. |
+|[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Proporciona métricas de uso de recursos durante la última hora, incluida la CPU, la E/S de datos y el uso de la escritura de registros en relación con los límites de los objetivos de servicio.|
+|[sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Proporciona estadísticas de espera agregadas para la instancia del motor de base de datos. |
+|[sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database)| Proporciona estadísticas de sincronización y estado de mantenimiento de la réplica. La tasa y el tamaño de la cola de la fase de puesta al día sirven como indicadores de latencia de datos en la réplica de solo lectura. |
+|[sys.dm_os_performance_counters](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-performance-counters-transact-sql)| Proporciona contadores de rendimiento del motor de base de datos.|
+|[sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql)| Proporciona estadísticas de ejecución por consulta, como el número de ejecuciones, el tiempo de CPU usado, etc.|
+|[sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql)| Proporciona planes de consulta almacenados en caché. |
+|[sys.dm_exec_sql_text()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql)| Proporciona texto de consulta para un plan de consulta almacenado en caché.|
+|[sys.dm_exec_query_profiles](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Proporciona el progreso de la consulta en tiempo real mientras las consultas están en ejecución.|
+|[sys.dm_exec_query_plan_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-stats-transact-sql)| Proporciona el último plan de ejecución real conocido, incluidas las estadísticas de tiempo de ejecución de una consulta.|
+|[sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql)| Proporciona las IOPS de almacenamiento, el rendimiento y las estadísticas de latencia para todos los archivos de base de datos. |
 
 > [!NOTE]
 > Las DMV `sys.resource_stats` y `sys.elastic_pool_resource_stats` de la base de datos lógica maestra devuelven información sobre uso de los recursos en la réplica principal.
@@ -109,13 +109,13 @@ Una sesión de eventos extendidos en una réplica de solo lectura que se basa en
 
 ### <a name="transaction-isolation-level-on-read-only-replicas"></a>Nivel de aislamiento de transacción en réplicas de solo lectura
 
-Las consultas que se ejecutan en réplicas de solo lectura siempre se asignan al nivel de aislamiento de transacción de [instantáneas](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server). El aislamiento de instantáneas usa las versiones de fila para evitar situaciones de bloqueo en que los lectores bloquean a los escritores.
+Las consultas que se ejecutan en réplicas de solo lectura siempre se asignan al nivel de aislamiento de transacción de [instantáneas](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server). El aislamiento de instantáneas usa las versiones de fila para evitar situaciones de bloqueo en que los lectores bloquean a los escritores.
 
-En raras ocasiones, si una transacción de aislamiento de instantánea accede a los metadatos de objeto que se han modificad en otra transacción simultánea, puede recibir el error [3961](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error): "Error de la transacción de aislamiento de instantánea en la base de datos "%.*ls" porque el objeto al que tuvo acceso la instrucción se modificó mediante una instrucción DDL de otra transacción simultánea desde el inicio de esta transacción. Está deshabilitada porque los metadatos no tienen versiones. Una actualización simultánea de los metadatos puede dar lugar a incoherencias si se combina con el aislamiento de la instantánea."
+En raras ocasiones, si una transacción de aislamiento de instantánea accede a los metadatos de objeto que se han modificad en otra transacción simultánea, puede recibir el error [3961](/sql/relational-databases/errors-events/mssqlserver-3961-database-engine-error): "Error de la transacción de aislamiento de instantánea en la base de datos "%.*ls" porque el objeto al que tuvo acceso la instrucción se modificó mediante una instrucción DDL de otra transacción simultánea desde el inicio de esta transacción. Está deshabilitada porque los metadatos no tienen versiones. Una actualización simultánea de los metadatos puede dar lugar a incoherencias si se combina con el aislamiento de la instantánea."
 
 ### <a name="long-running-queries-on-read-only-replicas"></a>Consultas de ejecución prolongada en réplicas de solo lectura
 
-Las consultas que se ejecutan en réplicas de solo lectura necesitan tener acceso a los metadatos para los objetos a los que se hace referencia en la consulta (tablas, índices, estadísticas, etc.). En raras ocasiones, si se modifica un objeto de metadatos en la réplica principal mientras una consulta mantiene un bloqueo en el mismo objeto en la réplica de solo lectura, la consulta puede [bloquear](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) el proceso que aplica los cambios de la réplica principal a la de solo lectura. Si este tipo de consulta se ejecutara durante mucho tiempo, haría que la réplica de solo lectura no estuviera sincronizada con la réplica principal. 
+Las consultas que se ejecutan en réplicas de solo lectura necesitan tener acceso a los metadatos para los objetos a los que se hace referencia en la consulta (tablas, índices, estadísticas, etc.). En raras ocasiones, si se modifica un objeto de metadatos en la réplica principal mientras una consulta mantiene un bloqueo en el mismo objeto en la réplica de solo lectura, la consulta puede [bloquear](/sql/database-engine/availability-groups/windows/troubleshoot-primary-changes-not-reflected-on-secondary#BKMK_REDOBLOCK) el proceso que aplica los cambios de la réplica principal a la de solo lectura. Si este tipo de consulta se ejecutara durante mucho tiempo, haría que la réplica de solo lectura no estuviera sincronizada con la réplica principal. 
 
 Si una consulta de ejecución prolongada en una réplica de solo lectura provoca este tipo de bloqueo, se terminará automáticamente y la sesión recibirá el error 1219: "Su sesión se ha desconectado debido a una operación DDL de elevada prioridad".
 
@@ -123,7 +123,7 @@ Si una consulta de ejecución prolongada en una réplica de solo lectura provoca
 > Si recibe el error 3961 o 1219 al ejecutar consultas en una réplica de solo lectura, vuelva a intentar la consulta.
 
 > [!TIP]
-> En los niveles de servicio Premium y Crítico para la empresa, cuando se conecta a una réplica de solo lectura, se pueden usar las columnas `redo_queue_size` y `redo_rate` de las DMV [sys.dm_database_replica_states](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) para supervisar el proceso de sincronización de datos, sirviendo como indicadores de latencia de datos en la réplica de solo lectura.
+> En los niveles de servicio Premium y Crítico para la empresa, cuando se conecta a una réplica de solo lectura, se pueden usar las columnas `redo_queue_size` y `redo_rate` de las DMV [sys.dm_database_replica_states](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-replica-states-azure-sql-database) para supervisar el proceso de sincronización de datos, sirviendo como indicadores de latencia de datos en la réplica de solo lectura.
 > 
 
 ## <a name="enable-and-disable-read-scale-out"></a>Habilitación y deshabilitación del escalado horizontal de lectura
@@ -144,7 +144,7 @@ Puede administrar la configuración de escalado horizontal de lectura en la hoja
 > [!IMPORTANT]
 > El módulo de Azure Resource Manager para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. El módulo de Azure Resource Manager continuará recibiendo correcciones de errores hasta diciembre de 2020 como mínimo.  Los argumentos para los comandos del módulo Az y los módulos de Azure Resource Manager son esencialmente idénticos. Para más información sobre la compatibilidad, consulte [Presentación del nuevo módulo Az de Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-Para administrar el escalado horizontal de lectura en Azure PowerShell se requiere la versión de Azure PowerShell de diciembre de 2016 o posterior. Para saber dónde encontrar la versión más reciente de PowerShell, consulte [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para administrar el escalado horizontal de lectura en Azure PowerShell se requiere la versión de Azure PowerShell de diciembre de 2016 o posterior. Para saber dónde encontrar la versión más reciente de PowerShell, consulte [Azure PowerShell](/powershell/azure/install-az-ps).
 
 Puede habilitar o deshabilitar la característica Escalado horizontal de lectura en Azure PowerShell invocando el cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) y pasando el valor deseado, `Enabled` o `Disabled`, al parámetro `-ReadScale`.
 
@@ -180,7 +180,7 @@ Body: {
 }
 ```
 
-Para más información, consulte [Bases de datos: crear o actualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Para más información, consulte [Bases de datos: crear o actualizar](/rest/api/sql/databases/createorupdate).
 
 ## <a name="using-the-tempdb-database-on-a-read-only-replica"></a>Uso de la base de datos `tempdb` en una réplica de solo lectura
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 66815dac145c8c30b770e831a002f6a0ee093675
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be5729320f27e38907c4de6844bf3126cf41747b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714578"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789665"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Elección de cómo autorizar el acceso a los datos de blobs o colas con la CLI de Azure
 
@@ -35,7 +35,7 @@ Los comandos de la CLI de Azure para leer y escribir datos de blobs y colas incl
 Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de Azure, versión 2.0.46 o posterior. Ejecute `az --version` para comprobar la versión instalada.
 
 > [!IMPORTANT]
-> Si omite el parámetro `--auth-mode` o lo establece en `key`, la CLI de Azure intentará usar la clave de acceso de la cuenta para la autorización. En este caso, Microsoft recomienda que proporcione la clave de acceso en el comando o en la variable de entorno **AZURE_STORAGE_KEY**. Para obtener más información sobre las variables de entorno, vea la sección titulada [Establecimiento de variables de entorno para parámetros de autorización](#set-environment-variables-for-authorization-parameters).
+> Si omite el parámetro `--auth-mode` o lo establece en `key`, la CLI de Azure intentará usar la clave de acceso de la cuenta para la autorización. En este caso, Microsoft recomienda que proporcione la clave de acceso en el comando o en la variable de entorno **AZURE_STORAGE_KEY** . Para obtener más información sobre las variables de entorno, vea la sección titulada [Establecimiento de variables de entorno para parámetros de autorización](#set-environment-variables-for-authorization-parameters).
 >
 > Si no proporciona la clave de acceso, la CLI de Azure intentará llamar al proveedor de recursos de Azure Storage para recuperarla con cada operación. La realización de numerosas operaciones de datos que requieren una llamada al proveedor de recursos puede generar una limitación. Para obtener más información sobre los límites del proveedor de recursos, consulte [Destinos de escalabilidad y rendimiento para el proveedor de recursos de Azure Storage](scalability-targets-resource-provider.md).
 
@@ -43,11 +43,11 @@ Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de 
 
 Al iniciar sesión en la CLI de Azure con credenciales de Azure AD, se devuelve un token de acceso OAuth 2.0. La CLI de Azure usa automáticamente ese token para autorizar las operaciones de datos posteriores en Blob Storage o Queue Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
-Puede asignar permisos para los datos de blob y de cola a una entidad de seguridad de Azure AD mediante el control de acceso basado en roles de Azure (RBAC). Para más información sobre los roles de Azure en Azure Storage, consulte [cómo administrar los derechos de acceso a los datos de Azure Storage mediante Azure RBAC](storage-auth-aad-rbac.md).
+Puede asignar permisos para los datos de blob y de cola a una entidad de seguridad de Azure AD mediante el control de acceso basado en roles de Azure (RBAC). Para más información sobre los roles de Azure en Azure Storage, consulte [cómo administrar los derechos de acceso a los datos de Azure Storage mediante Azure RBAC](./storage-auth-aad-rbac-portal.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Permisos para llamar a operaciones de datos
 
-Las extensiones de Azure Storage se admiten para las operaciones en datos de blob o de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en la CLI de Azure. Los permisos para contenedores o colas de Azure Storage se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol de **lector de datos de blob**, puede ejecutar comandos de scripting que lean datos de un contenedor o cola. Si se le asigna el rol de **colaborador de datos de blob**, podrá ejecutar comandos de scripting que lean, escriban o eliminen un contenedor o cola, o los datos que estos contienen.
+Las extensiones de Azure Storage se admiten para las operaciones en datos de blob o de cola. Las operaciones a las que podrá llamar dependerán de los permisos que se concedan a la entidad de seguridad de Azure AD con la que inicie sesión en la CLI de Azure. Los permisos para contenedores o colas de Azure Storage se asignan mediante Azure RBAC. Por ejemplo, si se le asigna el rol de **lector de datos de blob** , puede ejecutar comandos de scripting que lean datos de un contenedor o cola. Si se le asigna el rol de **colaborador de datos de blob** , podrá ejecutar comandos de scripting que lean, escriban o eliminen un contenedor o cola, o los datos que estos contienen.
 
 Para más información sobre los permisos requeridos para cada operación de Azure Storage en un contenedor o una cola, consulte el artículo de [Llamada a las operaciones de almacenamiento con tokens de OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
@@ -55,7 +55,7 @@ Para más información sobre los permisos requeridos para cada operación de Azu
 
 En el ejemplo siguiente se muestra cómo crear un contenedor a partir de la CLI de Azure con las credenciales de Azure AD. Para crear el contenedor, debe iniciar sesión en la CLI de Azure. Necesitará un grupo de recursos y una cuenta de almacenamiento. Para obtener información sobre cómo crear esos recursos, consulte [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac.md).
+1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, consulte [Uso de Azure Portal para asignar un rol de Azure para el acceso a datos de blobs y colas](./storage-auth-aad-rbac-portal.md).
 
     > [!IMPORTANT]
     > La propagación de las asignaciones de roles de Azure pueden tardar unos minutos.

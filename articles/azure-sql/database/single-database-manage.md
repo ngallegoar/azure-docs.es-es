@@ -4,19 +4,19 @@ description: Obtenga información sobre la creación y administración de servid
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254997"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791535"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Creación y administración de servidores y bases de datos únicas en Azure SQL Database
 
@@ -43,7 +43,7 @@ Para crear una única instancia de Azure SQL Database mediante [Azure Portal](ht
 
 ## <a name="manage-an-existing-server"></a>Administración de un servidor existente
 
-Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de la base de datos, la página **Servidores SQL Server** o la página **Todos los recursos**.
+Para administrar un servidor existente, vaya al servidor mediante una serie de métodos, como la página específica de la base de datos, la página **Servidores SQL Server** o la página **Todos los recursos** .
 
 Para administrar una base de datos existente, vaya a la página de **SQL Database** y seleccione la base de datos que desea administrar. En la captura de pantalla siguiente se muestra cómo empezar a configurar un firewall de nivel de servidor para una base de datos desde la página de **información general** de una base de datos.
 
@@ -58,7 +58,7 @@ Para administrar una base de datos existente, vaya a la página de **SQL Databas
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible con Azure SQL Database, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Para crear y administrar servidores, bases de datos únicas y agrupadas y firewalls de servidor con Azure PowerShell, use los siguientes cmdlets de PowerShell. Si necesita instalar o actualizar PowerShell, consulte [Install and configure Azure PowerShell](/powershell/azure/install-az-ps) (Instalación y configuración de Azure PowerShell).
 
@@ -74,7 +74,7 @@ Para crear y administrar servidores, bases de datos únicas y agrupadas y firewa
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Crea un grupo de recursos.|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Crea un servidor.|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Devuelve información sobre los servidores.|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Modifica las propiedades de un servidor.|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Modifica las propiedades de un servidor.|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Quita un servidor.|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Crea una regla de firewall de nivel de servidor. |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Obtiene reglas de firewall para un servidor|
@@ -84,7 +84,7 @@ Para crear y administrar servidores, bases de datos únicas y agrupadas y firewa
 
 ## <a name="the-azure-cli"></a>La CLI de Azure
 
-Para crear y administrar los servidores, bases de datos y firewalls con la [CLI de Azure](/cli/azure), use los siguientes comandos de la [CLI de Azure](/cli/azure/sql/db). Use [Cloud Shell](/azure/cloud-shell/overview) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos, consulte [Grupos elásticos](elastic-pool-overview.md).
+Para crear y administrar los servidores, bases de datos y firewalls con la [CLI de Azure](/cli/azure), use los siguientes comandos de la [CLI de Azure](/cli/azure/sql/db). Use [Cloud Shell](../../cloud-shell/overview.md) para ejecutar la CLI en el explorador o [instálela](/cli/azure/install-azure-cli) en Windows, Linux o macOS. Para crear y administrar grupos elásticos, consulte [Grupos elásticos](elastic-pool-overview.md).
 
 > [!TIP]
 > Para ver un artículo de inicio rápido de la CLI de Azure, consulte [Creación de una base de datos única de Azure SQL Database con la CLI de Azure](az-cli-script-samples-content-guide.md). Para ver los scripts de ejemplo de la CLI de Azure, consulte [Uso de la CLI para crear una base de datos en Azure SQL Database y configurar una regla de firewall de SQL Database](scripts/create-and-configure-database-cli.md) y [Uso de la CLI para supervisar y escalar una base de datos de Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
@@ -144,22 +144,22 @@ Para crear y administrar los servidores, bases de datos y firewalls, use estas s
 
 | Get-Help | Descripción |
 | --- | --- |
-|[Servers - Create or update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crea o actualiza un nuevo servidor.|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina un servidor de SQL Server.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtiene un servidor.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Devuelve una lista de servidores en una suscripción.|
-|[Servers - List by resource group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Devuelve una lista de servidores en un grupo de recursos.|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Actualiza un servidor existente.|
-|[Databases - Create or update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
-|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Permite eliminar una base de datos.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtiene una base de datos.|
-|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
-|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Actualiza una base de datos existente.|
-|[Firewall rules - Create or update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crea o actualiza una regla de firewall.|
-|[Firewall rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Elimina una regla de firewall.|
-|[Firewall rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtiene una regla de firewall.|
-|[Firewall rules - List by server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Devuelve una lista de reglas de firewall.|
+|[Servers - Create or update](/rest/api/sql/servers/createorupdate)|Crea o actualiza un nuevo servidor.|
+|[Servers - Delete](/rest/api/sql/servers/delete)|Elimina un servidor de SQL Server.|
+|[Servers - Get](/rest/api/sql/servers/get)|Obtiene un servidor.|
+|[Servers - List](/rest/api/sql/servers/list)|Devuelve una lista de servidores en una suscripción.|
+|[Servers - List by resource group](/rest/api/sql/servers/listbyresourcegroup)|Devuelve una lista de servidores en un grupo de recursos.|
+|[Servers - Update](/rest/api/sql/servers/update)|Actualiza un servidor existente.|
+|[Databases - Create or update](/rest/api/sql/databases/createorupdate)|Crea una nueva base de datos o actualiza una ya existente.|
+|[Databases - Delete](/rest/api/sql/databases/delete)|Permite eliminar una base de datos.|
+|[Databases - Get](/rest/api/sql/databases/get)|Obtiene una base de datos.|
+|[Databases - List by elastic pool](/rest/api/sql/databases/listbyelasticpool)|Devuelve una lista de bases de datos de un grupo elástico.|
+|[Databases - List by server](/rest/api/sql/databases/listbyserver)|Devuelve una lista de bases de datos de un servidor.|
+|[Databases - Update](/rest/api/sql/databases/update)|Actualiza una base de datos existente.|
+|[Firewall rules - Create or update](/rest/api/sql/firewallrules/createorupdate)|Crea o actualiza una regla de firewall.|
+|[Firewall rules - Delete](/rest/api/sql/firewallrules/delete)|Elimina una regla de firewall.|
+|[Firewall rules - Get](/rest/api/sql/firewallrules/get)|Obtiene una regla de firewall.|
+|[Firewall rules - List by server](/rest/api/sql/firewallrules/listbyserver)|Devuelve una lista de reglas de firewall.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620110"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792657"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creación de alertas para Instancia administrada de Azure SQL mediante Azure Portal
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ Las siguientes métricas de la instancia administrada están disponibles para la
 
 4. Seleccione el período de agregación: promedio, mínimo o máximo alcanzado en el período de tiempo especificado (Promedio, Mínimo o Máximo). 
 
-5. Seleccione **Nueva regla de alertas**.
+5. Seleccione **Nueva regla de alertas** .
 
 6. En el panel Crear regla de alertas, haga clic en **Nombre de la condición** (en el ejemplo se utiliza el espacio de almacenamiento usado)
 
@@ -94,7 +94,7 @@ Las siguientes métricas de la instancia administrada están disponibles para la
 
    ![Select_action_group](./media/alerts-create/mi-select-action-group-smaller-annotated.png)
 
-   * Para crear un nuevo grupo de acciones, seleccione **+Crear grupo de acciones**.
+   * Para crear un nuevo grupo de acciones, seleccione **+Crear grupo de acciones** .
 
       ![Create_action_group_alerts](./media/alerts-create/mi-create-alert-action-group-smaller-annotated.png)
    
@@ -106,7 +106,7 @@ Las siguientes métricas de la instancia administrada están disponibles para la
 
       ![Rule_description](./media/alerts-create/mi-rule-details-complete-smaller-annotated.png)
 
-   * Para completar la creación de la regla de alertas, haga clic en el botón **Crear regla de alertas**.
+   * Para completar la creación de la regla de alertas, haga clic en el botón **Crear regla de alertas** .
 
 La nueva regla de alertas se activará en unos minutos y se desencadenará según lo estipulado en la configuración.
 
@@ -145,5 +145,5 @@ Para ver, suspender, activar, modificar y eliminar las reglas de alertas existen
 * Obtenga información sobre el sistema de alertas de Azure Monitor, consulte [Información general sobre las alertas en Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
 * Para más información acerca de las alertas de métrica, consulte [Comprender cómo funcionan las alertas de métricas en Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md).
 * Para más información sobre cómo configurar un webhook en alertas, consulte [Llamada a un webhook con una alerta de métrica clásica](../../azure-monitor/platform/alerts-webhooks.md).
-* Para más información sobre la configuración y administración de alertas con PowerShell, consulte las [Reglas de acción](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2).
-* Para más información sobre la configuración y administración de alertas mediante la API, consulte la [referencia de la API REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/). 
+* Para más información sobre la configuración y administración de alertas con PowerShell, consulte las [Reglas de acción](/powershell/module/az.monitor/add-azmetricalertrulev2).
+* Para más información sobre la configuración y administración de alertas mediante la API, consulte la [referencia de la API REST de Azure Monitor](/rest/api/monitor/).

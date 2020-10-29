@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: a59e498435aab7b3e3e2ecf2e6096c044550a1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd5c6527cd6a0beea291dce94ff0e5949ba00671
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628373"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791263"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Conexión de la aplicación a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Para conectar redes virtuales hay dos opciones:
 El emparejamiento es la opción preferida porque se usa la red troncal de Microsoft y, por lo tanto, desde la perspectiva de la conectividad, no hay diferencias notables de latencia entre las máquinas virtuales de la red virtual emparejada y la propia. El emparejamiento de red virtual se admite entre las redes de la misma región. El emparejamiento de red virtual global también se admite, con la limitación descrita en la siguiente nota.  
 
 > [!IMPORTANT]
-> [El 22 de septiembre de 2020, anunciamos el emparejamiento de red virtual global para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
+> [El 22 de septiembre de 2020, anunciamos el emparejamiento de red virtual global para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
 
 ## <a name="connect-from-on-premises"></a>Conexión desde el entorno local 
 
@@ -71,10 +71,10 @@ Otro escenario implementado por los clientes es cuando una puerta de enlace de V
 
 ![Emparejamiento de redes virtuales de Azure](./media/connect-application-instance/vnet-peering.png)
 
-Una vez configurada la infraestructura básica, deberá modificar alguna configuración para que la puerta de enlace de VPN pueda ver las direcciones IP en la red virtual que hospeda Instancia administrada de SQL. Para ello, realice los siguientes cambios específicos en la **Configuración de emparejamiento**.
+Una vez configurada la infraestructura básica, deberá modificar alguna configuración para que la puerta de enlace de VPN pueda ver las direcciones IP en la red virtual que hospeda Instancia administrada de SQL. Para ello, realice los siguientes cambios específicos en la **Configuración de emparejamiento** .
 
-1. En la red virtual que hospeda la puerta de enlace de VPN, vaya a **Emparejamientos**, vaya a la conexión de red virtual emparejada de Instancia administrada de SQL y, luego, haga clic en **Permitir tránsito de puerta de enlace**.
-2. En la red virtual que hospeda Instancia administrada de SQL, vaya a **Emparejamientos**, vaya a la conexión de red virtual emparejada de la puerta de enlace de VPN y, luego, haga clic en **Usar puertas de enlace remotas**.
+1. En la red virtual que hospeda la puerta de enlace de VPN, vaya a **Emparejamientos** , vaya a la conexión de red virtual emparejada de Instancia administrada de SQL y, luego, haga clic en **Permitir tránsito de puerta de enlace** .
+2. En la red virtual que hospeda Instancia administrada de SQL, vaya a **Emparejamientos** , vaya a la conexión de red virtual emparejada de la puerta de enlace de VPN y, luego, haga clic en **Usar puertas de enlace remotas** .
 
 ## <a name="connect-azure-app-service"></a>Conexión de Azure App Service 
 
@@ -101,7 +101,7 @@ Para solucionar problemas de conectividad, consulte la siguiente información:
 
 - Si no puede conectarse a Instancia administrada de SQL desde una máquina virtual de Azure dentro de la misma red virtual, pero una subred diferente, compruebe que no haya un grupo de seguridad de red establecido en la subred de la máquina virtual que bloquee el acceso. Además, abra la conexión saliente en el puerto 1433 de SQL, así como los puertos del intervalo 11000-11999, ya que son necesarios para conectarse mediante redireccionamiento dentro del límite de Azure.
 - Asegúrese de que la propagación de BGP está establecida en **Habilitado** para la tabla de rutas asociada a la red virtual.
-- Si utiliza VPN de P2S, compruebe la configuración en Azure Portal para ver si detecta números de **entrada/salida**. Los números distintos de cero indican que Azure enruta el tráfico hacia y desde un entorno local.
+- Si utiliza VPN de P2S, compruebe la configuración en Azure Portal para ver si detecta números de **entrada/salida** . Los números distintos de cero indican que Azure enruta el tráfico hacia y desde un entorno local.
 
    ![Números de entrada/salida](./media/connect-application-instance/ingress-egress-numbers.png)
 
@@ -151,8 +151,8 @@ Si quiere conectarse a Instancia administrada de SQL, se recomiendan las siguien
 |Controlador JDBC| 6.4.0 |
 |Controlador de Node.js| 2.1.1 |
 |Controlador de OLEDB| 18.0.2.0 |
-|SSMS| 18.0 o [superior](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
-|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o superior |
+|SSMS| 18.0 o [superior](/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) o superior |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

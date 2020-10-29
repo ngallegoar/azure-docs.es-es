@@ -9,23 +9,23 @@ ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eb7984097b4edf34ed2f0214e1453246e12916f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034686"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92786758"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Escalado horizontal con Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Es muy fácil escalar horizontalmente bases de datos de Azure SQL Database mediante las herramientas de **Base de datos elástica**. Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
+Es muy fácil escalar horizontalmente bases de datos de Azure SQL Database mediante las herramientas de **Base de datos elástica** . Estas herramientas y características permiten usar los recursos de bases de datos de **Azure SQL Database** con el fin de crear soluciones para cargas de trabajo transaccionales y, especialmente, aplicaciones de software como servicio (SaaS). Las características de Elastic Database se componen de lo siguiente:
 
 * [Biblioteca de cliente de Elastic Database](elastic-database-client-library.md): la biblioteca de cliente es una característica que permite crear y mantener bases de datos particionadas.  Consulte [Introducción a las herramientas de Elastic Database](elastic-scale-get-started.md).
 * [Herramienta de división y combinación de Elastic Database](elastic-scale-overview-split-and-merge.md): mueve datos entre bases de datos particionadas. Esta herramienta es útil para mover datos de una base de datos de varios inquilinos a una de un solo inquilino (o viceversa). Consulte el [tutorial de la herramienta de división y combinación de Base de datos elástica](elastic-scale-configure-deploy-split-and-merge.md).
 * [Trabajos de Elastic Database](elastic-jobs-overview.md): use trabajos para administrar un gran número de bases de datos en Azure SQL Database. Realice fácilmente operaciones administrativas, como cambios de esquema, administración de credenciales, actualizaciones de datos de referencia, recopilación de datos de rendimiento o de trabajos de recolección de telemetría de inquilinos (cliente).
 * [Consulta de Elastic Database](elastic-query-overview.md) (versión preliminar): le permite ejecutar una consulta Transact-SQL que abarca varias bases de datos. Esto permite la conexión con herramientas de informes, como Excel, Power BI, Tableau, etc.
-* [Transacciones elásticas](elastic-transactions-overview.md): esta característica permite ejecutar transacciones que abarcan varias bases de datos. Las transacciones de bases de datos elásticas están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se emplean las clases [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Transacciones elásticas](elastic-transactions-overview.md): esta característica permite ejecutar transacciones que abarcan varias bases de datos. Las transacciones de bases de datos elásticas están disponibles para aplicaciones .NET mediante ADO .NET y se integran con la conocida experiencia de programación en la que se emplean las clases [System.Transaction](/dotnet/api/system.transactions).
 
 El siguiente gráfico muestra una arquitectura que incluye las **características de Elastic Database** en relación con una colección de bases de datos.
 
@@ -33,7 +33,7 @@ En este gráfico, los colores de la base de datos representan esquemas. Las base
 
 1. Un conjunto de **bases de datos SQL** se hospeda en Azure con la arquitectura de particionamiento.
 2. La **biblioteca de cliente de Elastic Database** se usa para administrar un conjunto de particiones.
-3. Un subconjunto de las bases de datos se coloca en un **grupo elástico**. (Consulte [¿Qué es un grupo?](elastic-pool-overview.md)).
+3. Un subconjunto de las bases de datos se coloca en un **grupo elástico** . (Consulte [¿Qué es un grupo?](elastic-pool-overview.md)).
 4. Un **trabajo de Elastic Database** ejecuta scripts de T-SQL programados o ad-hoc en todas las bases de datos.
 5. La **herramienta de división y combinación** se usa para mover datos de una partición a otra.
 6. La **consulta de Elastic Database** le permite escribir una consulta que abarque todas las bases de datos del conjunto de particiones.
@@ -104,4 +104,3 @@ Para ver los detalles del grupo elástico, consulte [Consideraciones de precio y
 [2]:./media/elastic-scale-introduction/h_versus_vert.png
 [3]:./media/elastic-scale-introduction/overview.png
 [4]:./media/elastic-scale-introduction/single_v_multi_tenant.png
-

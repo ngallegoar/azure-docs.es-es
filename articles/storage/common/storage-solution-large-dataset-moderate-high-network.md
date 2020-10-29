@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 900221bd27fe4020a927b3155c91aa8e494ca890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203848"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792929"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con ancho de banda de red moderado a elevado
  
@@ -39,8 +39,8 @@ Use la siguiente tabla para estimar el tiempo y, en base a eso, elija entre una 
 
 - Si está previsto que la transferencia de red sea demasiado lenta, debe usar un dispositivo físico. Las opciones recomendadas en este caso son los dispositivos de transferencia sin conexión de la familia de Azure Data Box o Azure Import/Export que usan sus propios discos.
 
-    - **Familia Azure Data Box para transferencias sin conexión**: use los dispositivos Data Box que proporciona Microsoft para mover grandes cantidades de datos a Azure cuando tenga límites de tiempo, de disponibilidad de red o de costos. Copie los datos locales con herramientas como Robocopy. Según el tamaño de los datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
-    - **Azure Import/Export**: use el servicio Azure Import/Export para enviar sus propias unidades de disco y así importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas al sitio local.
+    - **Familia Azure Data Box para transferencias sin conexión** : use los dispositivos Data Box que proporciona Microsoft para mover grandes cantidades de datos a Azure cuando tenga límites de tiempo, de disponibilidad de red o de costos. Copie los datos locales con herramientas como Robocopy. Según el tamaño de los datos previstos para la transferencia, puede elegir entre Data Box Disk, Data Box o Data Box Heavy.
+    - **Azure Import/Export** : use el servicio Azure Import/Export para enviar sus propias unidades de disco y así importar de forma segura grandes cantidades de datos a Azure Blob Storage y Azure Files. También se puede usar este servicio para transferir datos desde Azure Blob Storage hasta las unidades de disco y enviarlas al sitio local.
 
 - Si se prevé que la transferencia de red sea razonable, entonces puede usar cualquiera de las siguientes herramientas detalladas en [Ancho de banda de red elevado](#high-network-bandwidth).
 
@@ -49,10 +49,10 @@ Use la siguiente tabla para estimar el tiempo y, en base a eso, elija entre una 
 
 Si el ancho de banda de red disponible es elevado, use una de las siguientes herramientas.
 
-- **AzCopy**: use esta herramienta de la línea de comandos para copiar fácilmente datos desde y hacia Azure Blobs, Files y Table Storage con un rendimiento óptimo. AzCopy admite la simultaneidad y el paralelismo, y permite reanudar operaciones de copia cuando si se interrumpen.
-- **API REST/SDK de Azure Storage**: al compilar una aplicación, puede desarrollar las API REST de Azure Storage y usar los SDK de Azure que se ofrecen en varios lenguajes.
-- **Familia de Azure Data Box para transferencias en línea**: Data Box Edge y Data Box Gateway son dispositivos de red en línea que pueden mover datos dentro y fuera de Azure. Use el dispositivo físico Data Box Edge cuando exista la necesidad simultánea de ingerir y procesar de forma previa los datos antes de cargarlos. Data Box Gateway es una versión virtual del dispositivo con las mismas funcionalidades de transferencia de datos. En cada caso, es el dispositivo quien se encarga de administrar la transferencia de datos.
-- **Azure Data Factory**: se debe usar Data Factory para escalar horizontalmente una operación de transferencia y saber si existe la necesidad de tener funcionalidades de orquestación y supervisión a nivel empresarial. Use Data Factory para transferir archivos regularmente entre varios servicios de Azure, en las instalaciones o mediante una combinación de ambos. Con Data Factory puede crear y programar flujos de trabajo basados en datos (llamados canalizaciones) que ingieren datos de distintos almacenes de datos y automatizar el movimiento de datos y la transformación de datos.
+- **AzCopy** : use esta herramienta de la línea de comandos para copiar fácilmente datos desde y hacia Azure Blobs, Files y Table Storage con un rendimiento óptimo. AzCopy admite la simultaneidad y el paralelismo, y permite reanudar operaciones de copia cuando si se interrumpen.
+- **API REST/SDK de Azure Storage** : al compilar una aplicación, puede desarrollar las API REST de Azure Storage y usar los SDK de Azure que se ofrecen en varios lenguajes.
+- **Familia de Azure Data Box para transferencias en línea** : Data Box Edge y Data Box Gateway son dispositivos de red en línea que pueden mover datos dentro y fuera de Azure. Use el dispositivo físico Data Box Edge cuando exista la necesidad simultánea de ingerir y procesar de forma previa los datos antes de cargarlos. Data Box Gateway es una versión virtual del dispositivo con las mismas funcionalidades de transferencia de datos. En cada caso, es el dispositivo quien se encarga de administrar la transferencia de datos.
+- **Azure Data Factory** : se debe usar Data Factory para escalar horizontalmente una operación de transferencia y saber si existe la necesidad de tener funcionalidades de orquestación y supervisión a nivel empresarial. Use Data Factory para transferir archivos regularmente entre varios servicios de Azure, en las instalaciones o mediante una combinación de ambos. Con Data Factory puede crear y programar flujos de trabajo basados en datos (llamados canalizaciones) que ingieren datos de distintos almacenes de datos y automatizar el movimiento de datos y la transformación de datos.
 
 ## <a name="comparison-of-key-capabilities"></a>Comparación de funcionalidades clave
 
@@ -95,17 +95,17 @@ Si usa la transferencia de datos en línea, use la tabla en la sección siguient
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Aprenda a transferir datos con Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).
+- [Aprenda a transferir datos con Import/Export](./storage-import-export-data-to-blobs.md).
 - Aprenda a
 
-    - [Transferir datos con Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Transferir datos con Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-- [Transferencia de datos con AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+    - [Transferir datos con Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
+    - [Transferir datos con Data Box](../../databox/data-box-quickstart-portal.md).
+- [Transferencia de datos con AzCopy](./storage-use-azcopy-v10.md).
 - Más información:
-    - [Transferencia de datos con Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformación de datos con Data Box Edge antes del envío a Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Transferencia de datos con Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+    - [Transferencia de datos con Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transformación de datos con Data Box Edge antes del envío a Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Transferencia de datos con Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Use las API REST para transferir datos
 
-    - [En .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [En Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [En .NET](/dotnet/api/overview/azure/storage)
+    - [En Java](/java/api/overview/azure/storage)

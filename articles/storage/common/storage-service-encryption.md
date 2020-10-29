@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc0a556841c3c6ee91ae472087aaaf7c74009b67
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985767"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785789"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
@@ -30,7 +30,7 @@ Los datos de una cuenta de almacenamiento se cifran independientemente de su niv
 
 Todos los blobs en bloques, blobs en anexos o blobs en páginas que se escribieron en Azure Storage después del 20 de octubre de 2017 está cifrados. Los blobs creados antes de esta fecha se siguen cifrando mediante un proceso en segundo plano. Para forzar el cifrado de un blob creado antes del 20 de octubre de 2017, puede volver a escribir el blob. Para más información sobre cómo comprobar el estado de cifrado de un blob, consulte [Comprobación del estado de cifrado de un blob](../blobs/storage-blob-encryption-status.md).
 
-Para más información sobre de los módulos criptográficos subyacentes al cifrado de Azure Storage, vea [API de criptografía: última generación](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
+Para más información sobre de los módulos criptográficos subyacentes al cifrado de Azure Storage, vea [API de criptografía: última generación](/windows/desktop/seccng/cng-portal).
 
 Para más información sobre el cifrado y la administración de claves para Azure Managed Disks, consulte [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/windows/disk-encryption.md) para máquinas virtuales Windows o [Cifrado del lado servidor de Azure Managed Disks](../../virtual-machines/linux/disk-encryption.md) para máquinas virtuales Linux.
 
@@ -38,8 +38,8 @@ Para más información sobre el cifrado y la administración de claves para Azur
 
 Los datos de una cuenta de almacenamiento nueva se cifran con claves administradas por Microsoft de manera predeterminada. Puede seguir confiando en las claves administradas por Microsoft para el cifrado de los datos, o puede administrar el cifrado con sus propias claves. Si opta por administrar el cifrado con sus propias claves, tiene dos opciones. Puede usar cualquiera de los tipos de administración de claves, o ambos:
 
-- Puede especificar una *clave administrada por el cliente* que se usará para cifrar y descifrar datos en Blob Storage y en Azure Files.<sup>1,2</sup> Las claves administradas por el cliente se deben almacenar en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Azure Key Vault (versión preliminar). Para más información sobre las claves administradas por el cliente, consulte [Uso de claves administradas por el cliente para el cifrado de Azure Storage](encryption-customer-managed-keys.md).
-- En las operaciones de almacenamiento de blobs, puede especificar una *clave proporcionada por el cliente*. Un cliente que realiza una solicitud de lectura o escritura en el almacenamiento de blobs puede incluir una clave de cifrado en la solicitud para tener un control detallado sobre el cifrado y el descifrado de los datos de blob. Para más información sobre las claves proporcionadas por el cliente, consulte [Especificación de una clave de cifrado en una solicitud a Blob Storage](../blobs/encryption-customer-provided-keys.md).
+- Puede especificar una *clave administrada por el cliente* que se usará para cifrar y descifrar datos en Blob Storage y en Azure Files. <sup>1,2</sup> Las claves administradas por el cliente se deben almacenar en Azure Key Vault o en el modelo de seguridad de hardware (HSM) administrado de Azure Key Vault (versión preliminar). Para más información sobre las claves administradas por el cliente, consulte [Uso de claves administradas por el cliente para el cifrado de Azure Storage](./customer-managed-keys-overview.md).
+- En las operaciones de almacenamiento de blobs, puede especificar una *clave proporcionada por el cliente* . Un cliente que realiza una solicitud de lectura o escritura en el almacenamiento de blobs puede incluir una clave de cifrado en la solicitud para tener un control detallado sobre el cifrado y el descifrado de los datos de blob. Para más información sobre las claves proporcionadas por el cliente, consulte [Especificación de una clave de cifrado en una solicitud a Blob Storage](../blobs/encryption-customer-provided-keys.md).
 
 En la tabla siguiente se comparan las opciones de administración de claves para el cifrado de Azure Storage.
 
@@ -101,8 +101,8 @@ Cuando se deshabilita un ámbito de cifrado, ya no se le facturará. Deshabilite
 
 Si el ámbito de cifrado está protegido con claves administradas por el cliente para Azure Key Vault, también puede eliminar la clave asociada en el almacén de claves para deshabilitar el ámbito de cifrado. Tenga en cuenta que las claves administradas por el cliente en Azure Key Vault están protegidas por la protección de eliminación y purga temporal, y una clave eliminada está sujeta al comportamiento definido por esas propiedades. Para más información, consulte uno de los siguientes temas en la documentación de Azure Key Vault:
 
-- [Uso de la eliminación temporal con PowerShell](../../key-vault/general/soft-delete-powershell.md)
-- [Uso de la eliminación temporal con la CLI](../../key-vault/general/soft-delete-cli.md).
+- [Uso de la eliminación temporal con PowerShell](../../key-vault/general/key-vault-recovery.md)
+- [Uso de la eliminación temporal con la CLI](../../key-vault/general/key-vault-recovery.md).
 
 > [!NOTE]
 > No es posible eliminar un ámbito de cifrado.

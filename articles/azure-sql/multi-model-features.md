@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073309"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791654"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funcionalidades de varios modelos de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ La familia de productos de Azure SQL proporciona las siguientes características
 - Los [pares clave-valor](#key-value-pairs) no se admiten de forma explícita como características especiales, ya que se pueden modelar de forma nativa como tablas de dos columnas.
 
   > [!Note]
-  > Puede usar la expresión de ruta de acceso JSON, las expresiones XQuery y XPath, las funciones espaciales y las expresiones de consulta de grafos en la misma consulta de Transact-SQL para acceder a los datos almacenados en la base de datos. Además, cualquier herramienta o lenguaje de programación que puede ejecutar consultas de Transact-SQL, también puede usar esa interfaz de consulta para obtener acceso a datos de varios modelos. Esta es la diferencia clave en comparación con las bases de datos de varios modelos como [Azure Cosmos DB](/azure/cosmos-db/) que proporciona una API especializada para diferentes modelos de datos.
+  > Puede usar la expresión de ruta de acceso JSON, las expresiones XQuery y XPath, las funciones espaciales y las expresiones de consulta de grafos en la misma consulta de Transact-SQL para acceder a los datos almacenados en la base de datos. Además, cualquier herramienta o lenguaje de programación que puede ejecutar consultas de Transact-SQL, también puede usar esa interfaz de consulta para obtener acceso a datos de varios modelos. Esta es la diferencia clave en comparación con las bases de datos de varios modelos como [Azure Cosmos DB](../cosmos-db/index.yml) que proporciona una API especializada para diferentes modelos de datos.
 
 En las secciones siguientes, aprenderá las funcionalidades de varios modelos más importantes de la familia de productos de Azure SQL.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Puede personalizar esta estructura clave-valor para satisfacer sus necesidades sin restricciones. Por ejemplo, el valor puede ser el documento XML en lugar del tipo `nvarchar(max)`, si el valor es el documento JSON, puede poner la restricción `CHECK` que comprueba la validez del contenido JSON. Puede colocar cualquier número de valores relacionados con una clave en las columnas adicionales, agregar columnas calculadas e índices para simplificar y optimizar el acceso a datos, definir la tabla como tabla de solo esquema optimizado y de memoria para obtener un mejor rendimiento, etc.
 
-Consulte [Cómo BWin usa OLTP en memoria para lograr un rendimiento y escala sin precedentes](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) para su solución de almacenamiento en caché de ASP.NET que logró 1.200.000 lotes por segundo, como ejemplo de cómo un modelo relacional se puede usar eficazmente como solución de par clave-valor en la práctica.
+Consulte [Cómo BWin usa OLTP en memoria para lograr un rendimiento y escala sin precedentes](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) para su solución de almacenamiento en caché de ASP.NET que logró 1.200.000 lotes por segundo, como ejemplo de cómo un modelo relacional se puede usar eficazmente como solución de par clave-valor en la práctica.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

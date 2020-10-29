@@ -13,12 +13,12 @@ ms.author: ronmat
 ms.reviewer: vanto, sstein
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: bf228d31180f5c2223fde7433d2d9b335e2b8853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83b9515e16fcf2c2158586297545206d57e1a6e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284166"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785126"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Advanced Threat Protection para Azure SQL Database, SQL Managed Instance y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -35,7 +35,7 @@ Para obtener una experiencia de investigación completa, se recomienda habilitar
 
 ## <a name="alerts"></a>Alertas
 
-Advanced Threat Protection para Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos. Para ver una lista de las alertas de Azure SQL Database, consulte [Alertas de SQL Database y Azure Synapse Analytics (antes SQL Data Warehouse) en Azure Security Center](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
+Advanced Threat Protection para Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos. Para ver una lista de las alertas de Azure SQL Database, consulte [Alertas de SQL Database y Azure Synapse Analytics (antes SQL Data Warehouse) en Azure Security Center](../../security-center/alerts-reference.md#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Exploración de la detección de un evento sospechoso
 
@@ -65,5 +65,5 @@ Haga clic en la **alerta de Advanced Threat Protection** para iniciar la pági
 - Obtenga más información sobre [Advanced Threat Protection en Instancia administrada de Azure SQL](../managed-instance/threat-detection-configure.md).
 - Más información sobre [Azure Defender for SQL](azure-defender-for-sql.md).
 - Más información sobre las [auditorías de Azure SQL Database](../../azure-sql/database/auditing-overview.md)
-- Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- Para más información sobre los precios, consulte la [página Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  
+- Más información sobre [Azure Security Center](../../security-center/security-center-introduction.md)
+- Para más información sobre los precios, consulte la [página Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)

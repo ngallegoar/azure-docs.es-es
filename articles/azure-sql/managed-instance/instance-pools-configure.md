@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617441"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793116"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Implementación de Instancia administrada de Azure SQL en un grupo de instancias
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ En la tabla siguiente se muestran las operaciones disponibles relacionadas con l
 |Creación de una base de datos en una instancia dentro del grupo|Sí|Sí|
 |Eliminación de una base de datos en Instancia administrada de SQL|Sí|Sí|
 
-[Comandos de PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponibles:
+[Comandos de PowerShell](/powershell/module/az.sql/) disponibles:
 
 |Cmdlet |Descripción |
 |:---|:---|
@@ -52,7 +52,7 @@ En la tabla siguiente se muestran las operaciones disponibles relacionadas con l
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Devuelve información sobre el uso de grupos de Instancia administrada de SQL. |
 
 
-Para usar PowerShell, [instale la versión más reciente de PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) y siga las instrucciones para [instalar el módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Para usar PowerShell, [instale la versión más reciente de PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) y siga las instrucciones para [instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
 En el caso de las operaciones relacionadas con instancias dentro de grupos e instancias únicas, use los [comandos de instancia administrada](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances) estándar, pero la propiedad de *nombre del grupo de instancias* se debe rellenar al usar estos comandos para una instancia de un grupo.
 

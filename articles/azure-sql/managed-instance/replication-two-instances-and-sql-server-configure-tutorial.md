@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058563"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790804"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configuración de la replicación transaccional entre Instancia administrada de Azure SQL y SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Este tutorial va dirigido a un público experimentado, así que se da por hecho 
 
 
 > [!NOTE]
-> En este artículo se describe el uso de la [replicación transaccional](/sql/relational-databases/replication/transactional/transactional-replication) en la Instancia administrada de Azure SQL Database. Esto no está relacionado con los [grupos de conmutación por error](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una característica de Instancia administrada de Azure SQL que permite crear réplicas completas legibles de instancias individuales. Hay consideraciones adicionales al configurar la [replicación transaccional con grupos de conmutación por error](replication-transactional-overview.md#with-failover-groups).
+> En este artículo se describe el uso de la [replicación transaccional](/sql/relational-databases/replication/transactional/transactional-replication) en la Instancia administrada de Azure SQL Database. Esto no está relacionado con los [grupos de conmutación por error](../database/auto-failover-group-overview.md), una característica de Instancia administrada de Azure SQL que permite crear réplicas completas legibles de instancias individuales. Hay consideraciones adicionales al configurar la [replicación transaccional con grupos de conmutación por error](replication-transactional-overview.md#with-failover-groups).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -69,7 +69,7 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 Cree dos instancias administradas dentro de este nuevo grupo de recursos mediante [Azure Portal](https://portal.azure.com).
 
 - El nombre de la instancia administrada del publicador debe ser `sql-mi-publisher` (junto con algunos caracteres para la selección aleatoria) y el nombre de la red virtual debe ser `vnet-sql-mi-publisher`.
-- El nombre de la instancia administrada del distribuidor debe ser `sql-mi-distributor` (junto con algunos caracteres para la selección aleatoria) y debe estar _en la misma red virtual que la instancia administrada del publicador_.
+- El nombre de la instancia administrada del distribuidor debe ser `sql-mi-distributor` (junto con algunos caracteres para la selección aleatoria) y debe estar _en la misma red virtual que la instancia administrada del publicador_ .
 
    ![Uso de la red virtual del publicador para el distribuidor](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
@@ -155,11 +155,11 @@ Una zona DNS privada permite el enrutamiento DNS entre las instancias administra
 
    ![Creación de una zona DNS privada](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Seleccione **Revisar + crear**. Revise los parámetros de la zona DNS privada y, luego, seleccione **Crear** para crear el recurso.
+1. Seleccione **Revisar + crear** . Revise los parámetros de la zona DNS privada y, luego, seleccione **Crear** para crear el recurso.
 
 ### <a name="create-an-a-record"></a>Creación de un registro A
 
-1. Vaya a la nueva **zona DNS privada** y seleccione **Información general**.
+1. Vaya a la nueva **zona DNS privada** y seleccione **Información general** .
 1. Seleccione **+ Conjunto de registros** para crear un nuevo registro D.
 1. Proporcione el nombre de la VM con SQL Server, así como la dirección IP interna privada.
 
@@ -169,11 +169,11 @@ Una zona DNS privada permite el enrutamiento DNS entre las instancias administra
 
 ### <a name="link-the-virtual-network"></a>Vincular la red virtual
 
-1. Vaya a la nueva **zona DNS privada** y seleccione **Vínculos de red virtual**.
-1. Seleccione **+Agregar**.
+1. Vaya a la nueva **zona DNS privada** y seleccione **Vínculos de red virtual** .
+1. Seleccione **+Agregar** .
 1. Proporcione un nombre para el vínculo, como `Pub-link`.
 1. Seleccione la suscripción en la lista desplegable y, luego, seleccione la red virtual de la instancia administrada del publicador.
-1. Active la casilla junto a **Habilitar el registro automático**.
+1. Active la casilla junto a **Habilitar el registro automático** .
 
    ![Creación de un vínculo de red virtual](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
@@ -182,7 +182,7 @@ Una zona DNS privada permite el enrutamiento DNS entre las instancias administra
 
 ## <a name="create-an-azure-storage-account"></a>Creación de una cuenta de Azure Storage
 
-[Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo y, a continuación, cree un [recurso compartido de archivos](../../storage/files/storage-how-to-create-file-share.md) dentro de la cuenta de almacenamiento.
+[Cree una cuenta de Azure Storage](../../storage/common/storage-account-create.md#create-a-storage-account) para el directorio de trabajo y, a continuación, cree un [recurso compartido de archivos](../../storage/files/storage-how-to-create-file-share.md) dentro de la cuenta de almacenamiento.
 
 Copie la ruta de acceso del recurso compartido de archivos en el formato `\\storage-account-name.file.core.windows.net\file-share-name`.
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -283,19 +283,19 @@ Una vez configurada la distribución, ahora puede crear la publicación. Para ha
 
 1. Inicie SQL Server Management Studio en SQL Server.
 1. Conéctese a la instancia administrada `sql-mi-publisher`.
-1. En el **Explorador de objetos**, expanda el nodo **Replicación** y haga clic con el botón derecho en la carpeta **Local Publication** (Publicación local). Seleccione **Nueva publicación...** .
+1. En el **Explorador de objetos** , expanda el nodo **Replicación** y haga clic con el botón derecho en la carpeta **Local Publication** (Publicación local). Seleccione **Nueva publicación...** .
 1. Seleccione **Siguiente** para dejar atrás la página principal.
-1. En la página **Base de datos de publicación**, seleccione la base de datos `ReplTutorial` que creó anteriormente. Seleccione **Next** (Siguiente).
-1. En la página **Tipo de publicación**, seleccione **Publicación transaccional**. Seleccione **Next** (Siguiente).
-1. En la página **Artículos**, active la casilla situada junto a **Tablas**. Seleccione **Next** (Siguiente).
-1. En la página **Filtrar filas de tabla**, seleccione **Siguiente** sin agregar ningún filtro.
-1. En la página **Agente de instantáneas**, active la casilla junto a **Crear una instantánea inmediatamente y mantenerla disponible para inicializar suscripciones**. Seleccione **Next** (Siguiente).
-1. En la página **Seguridad del agente**, seleccione **Configuración de seguridad**. Proporcione credenciales de inicio de sesión de SQL Server para usar con el Agente de instantáneas y para conectarse al publicador. Seleccione **Aceptar** para cerrar la página **Seguridad del Agente de instantáneas**. Seleccione **Next** (Siguiente).
+1. En la página **Base de datos de publicación** , seleccione la base de datos `ReplTutorial` que creó anteriormente. Seleccione **Next** (Siguiente).
+1. En la página **Tipo de publicación** , seleccione **Publicación transaccional** . Seleccione **Next** (Siguiente).
+1. En la página **Artículos** , active la casilla situada junto a **Tablas** . Seleccione **Next** (Siguiente).
+1. En la página **Filtrar filas de tabla** , seleccione **Siguiente** sin agregar ningún filtro.
+1. En la página **Agente de instantáneas** , active la casilla junto a **Crear una instantánea inmediatamente y mantenerla disponible para inicializar suscripciones** . Seleccione **Next** (Siguiente).
+1. En la página **Seguridad del agente** , seleccione **Configuración de seguridad** . Proporcione credenciales de inicio de sesión de SQL Server para usar con el Agente de instantáneas y para conectarse al publicador. Seleccione **Aceptar** para cerrar la página **Seguridad del Agente de instantáneas** . Seleccione **Next** (Siguiente).
 
    ![Configuración de la seguridad del Agente de instantáneas](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
-1. En la página **Acciones del asistente**, elija **Crear la publicación** y (opcionalmente) elija **Generar un archivo de script con los pasos para crear la publicación** si quiere guardar este script para más tarde.
-1. En la página **Finalización del asistente**, asigne a la publicación el nombre `ReplTest` y seleccione **Siguiente** para crear la publicación.
+1. En la página **Acciones del asistente** , elija **Crear la publicación** y (opcionalmente) elija **Generar un archivo de script con los pasos para crear la publicación** si quiere guardar este script para más tarde.
+1. En la página **Finalización del asistente** , asigne a la publicación el nombre `ReplTest` y seleccione **Siguiente** para crear la publicación.
 1. Una vez creada la publicación, actualice el nodo **Replication** en el **Explorador de objetos** y expanda **Publicaciones locales** para ver la nueva publicación.
 
 ## <a name="create-the-subscription"></a>Creación de la suscripción
@@ -352,10 +352,10 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 1. Vaya a su grupo de recursos en [Azure Portal](https://portal.azure.com).
-1. Seleccione las instancias administradas y después seleccione **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**. Este proceso puede tardar algún tiempo en completarse en segundo plano y, hasta que finalice, no podrá eliminar el *clúster virtual* ni ningún otro recurso dependiente. Supervise la eliminación en la pestaña **Actividad** para confirmar que la instancia administrada se ha eliminado.
-1. Una vez que se elimine la instancia administrada, puede eliminar el *clúster virtual* si lo selecciona en el grupo de recursos y, después, elige **Eliminar**. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**.
-1. Elimine todos los recursos restantes. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar**.
-1. Para eliminar el grupo de recursos, seleccione **Eliminar grupo de recursos**, escriba el nombre del grupo de recursos (`myResourceGroup`) y, a continuación, seleccione **Eliminar**.
+1. Seleccione las instancias administradas y después seleccione **Eliminar** . Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar** . Este proceso puede tardar algún tiempo en completarse en segundo plano y, hasta que finalice, no podrá eliminar el *clúster virtual* ni ningún otro recurso dependiente. Supervise la eliminación en la pestaña **Actividad** para confirmar que la instancia administrada se ha eliminado.
+1. Una vez que se elimine la instancia administrada, puede eliminar el *clúster virtual* si lo selecciona en el grupo de recursos y, después, elige **Eliminar** . Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar** .
+1. Elimine todos los recursos restantes. Escriba `yes` en el cuadro de texto para confirmar que quiere eliminar el recurso y después seleccione **Eliminar** .
+1. Para eliminar el grupo de recursos, seleccione **Eliminar grupo de recursos** , escriba el nombre del grupo de recursos (`myResourceGroup`) y, a continuación, seleccione **Eliminar** .
 
 ## <a name="known-errors"></a>Errores conocidos
 
@@ -397,7 +397,7 @@ Posibles soluciones:
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>No hay publicaciones a las que pueda suscribirse
 
-Al agregar una nueva suscripción mediante el **Asistente para nueva suscripción**, en la página **Publicación**, es posible que no se muestren las bases de datos y las publicaciones como opciones disponibles, y podría aparecer el mensaje de error siguiente:
+Al agregar una nueva suscripción mediante el **Asistente para nueva suscripción** , en la página **Publicación** , es posible que no se muestren las bases de datos y las publicaciones como opciones disponibles, y podría aparecer el mensaje de error siguiente:
 
 `There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
 
@@ -414,7 +414,7 @@ Consulte en el artículo [¿Qué es Instancia administrada de Azure SQL?](sql-ma
 - [Detección de amenazas](threat-detection-configure.md)
 - [Enmascaramiento de datos dinámicos](/sql/relational-databases/security/dynamic-data-masking)
 - [Seguridad de nivel de fila](/sql/relational-databases/security/row-level-security)
-- [Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Cifrado de datos transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funcionalidades de Instancia administrada de SQL
 

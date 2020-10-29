@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 5fca46e7bf80504632e0894deefa1805a080b3b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4709bf901ed74e0ea7589824a280651f8b73866
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442733"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793388"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adición de una base de datos de Azure SQL Database a un grupo de conmutación por error
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -75,14 +75,14 @@ Cree el grupo de conmutación por error y agregue la base de datos mediante Azur
 
    ![Adición de un grupo de conmutación por error](./media/failover-group-add-single-database-tutorial/sqldb-add-new-failover-group.png)
 
-1. En la página **Grupo de conmutación por error**, escriba o seleccione los valores siguientes y, después, seleccione **Crear**:
+1. En la página **Grupo de conmutación por error** , escriba o seleccione los valores siguientes y, después, seleccione **Crear** :
 
    - **Nombre del grupo de conmutación por error** Escriba un nombre del grupo de conmutación por error único, como `failovergrouptutorial`.
-   - **Servidor secundario**: Seleccione la opción para *configurar los valores obligatorios* y, a continuación, elija **Crear un nuevo servidor**. Como alternativa, puede elegir un servidor ya existente como servidor secundario. Después de escribir los valores siguientes, elija **Seleccionar**.
-      - **Nombre del servidor**: Escriba un nombre único para el servidor secundario, como `mysqlsecondary`.
-      - **Inicio de sesión del administrador del servidor**: Escriba `azureuser`
-      - **Contraseña**: Escriba una contraseña compleja que cumpla los requisitos de contraseña.
-      - **Ubicación**: Elija una ubicación en la lista desplegable, como `East US`. Esta ubicación no puede ser la misma que la del servidor principal.
+   - **Servidor secundario** : Seleccione la opción para *configurar los valores obligatorios* y, a continuación, elija **Crear un nuevo servidor** . Como alternativa, puede elegir un servidor ya existente como servidor secundario. Después de escribir los valores siguientes, elija **Seleccionar** .
+      - **Nombre del servidor** : Escriba un nombre único para el servidor secundario, como `mysqlsecondary`.
+      - **Inicio de sesión del administrador del servidor** : Escriba `azureuser`
+      - **Contraseña** : Escriba una contraseña compleja que cumpla los requisitos de contraseña.
+      - **Ubicación** : Elija una ubicación en la lista desplegable, como `East US`. Esta ubicación no puede ser la misma que la del servidor principal.
 
      > [!NOTE]
      > La configuración del firewall y de inicio de sesión del servidor debe coincidir con la del servidor principal.
@@ -373,7 +373,7 @@ En esta parte del tutorial se usan los siguientes cmdlets de la CLI de Azure:
 
 | Get-Help | Notas |
 |---|---|
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 ---
 
@@ -417,7 +417,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 | [az sql failover-group create](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | Crea un grupo de conmutación por error en Azure SQL Database. |
 | [az sql failover-group list](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | Enumera los grupos de conmutación por error en un servidor en Azure SQL Database. |
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | Establece el servidor principal del grupo de conmutación por error mediante la conmutación por error de todas las bases de datos desde el servidor principal actual. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+| [az group delete](/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 
 # <a name="the-portal"></a>[Portal](#tab/azure-portal)
 

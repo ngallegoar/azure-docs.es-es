@@ -12,16 +12,16 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb162231c8cf2bf733c992de0c4aa56bf1fd1be2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031099"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791093"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Edición o revocación de permisos de aplicación en el portal Aplicaciones
 
-Cuando se usan aplicaciones organizativas en el portal **Aplicaciones**, a menudo se conceden permisos y se guarda la información de la cuenta. Para mantener los datos seguros, es posible que desee revisar y revocar los permisos o borrar las credenciales de cuenta guardadas. La eliminación de los permisos o las cuentas puede interrumpir alguna funcionalidad de la aplicación. Si tiene problemas después de quitar permisos o cuentas, póngase en contacto con el departamento de soporte técnico de su organización para obtener ayuda adicional.
+Cuando se usan aplicaciones organizativas en el portal **Aplicaciones** , a menudo se conceden permisos y se guarda la información de la cuenta. Para mantener los datos seguros, es posible que desee revisar y revocar los permisos o borrar las credenciales de cuenta guardadas. La eliminación de los permisos o las cuentas puede interrumpir alguna funcionalidad de la aplicación. Si tiene problemas después de quitar permisos o cuentas, póngase en contacto con el departamento de soporte técnico de su organización para obtener ayuda adicional.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -30,13 +30,13 @@ Cuando se usan aplicaciones organizativas en el portal **Aplicaciones**, a menud
 
 ## <a name="manage-app-accounts"></a>Administración de cuentas de aplicaciones
 
-Para ver las aplicaciones que ha consentido usted o el administrador, seleccione **...** mientras mantiene el ratón sobre una aplicación en el portal **Aplicaciones** y, después, seleccione **Administrar la aplicación**:
+Para ver las aplicaciones que ha consentido usted o el administrador, seleccione **...** mientras mantiene el ratón sobre una aplicación en el portal **Aplicaciones** y, después, seleccione **Administrar la aplicación** :
 
-![Administración de una aplicación en el portal Aplicaciones](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+![Administración de una aplicación en el portal Aplicaciones](media/my-applications-portal-permissions-saved-accounts/my-apps-home-woodgrove.png)
 
 La parte superior de la ventana de permisos muestra lo que ha consentido personalmente. Algunos ejemplos de permisos de aplicación son la capacidad de acceder al calendario, los contactos o la cámara.
 
-Puede revocar cualquiera de los permisos que ha consentido seleccionando **Revocar permisos**. Sin embargo, quitar un permiso puede romper algunas de las funcionalidades de la aplicación. Si tiene problemas después de quitar permisos o cuentas, póngase en contacto con el departamento de soporte técnico de su organización para obtener ayuda adicional.
+Puede revocar cualquiera de los permisos que ha consentido seleccionando **Revocar permisos** . Sin embargo, quitar un permiso puede romper algunas de las funcionalidades de la aplicación. Si tiene problemas después de quitar permisos o cuentas, póngase en contacto con el departamento de soporte técnico de su organización para obtener ayuda adicional.
 
 ![Revocación de los permisos para una aplicación en el portal Aplicaciones](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
 
@@ -44,14 +44,14 @@ En la parte inferior de la ventana de permisos se muestra lo que el administrado
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de administrar los permisos de la aplicación y las cuentas guardadas en el portal **Aplicaciones**, puede:
+Después de administrar los permisos de la aplicación y las cuentas guardadas en el portal **Aplicaciones** , puede:
 
 - Organizar las aplicaciones en las distintas categorías creadas y proporcionadas por la organización. Para más información, consulte [Acceso y uso de colecciones en el portal Aplicaciones](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Artículos relacionados
 
-- [Actualización de la información del perfil y de la cuenta](my-account-portal-overview.md). Instrucciones sobre cómo actualizar la información personal que aparece en el portal **Mi perfil**.
+- [Actualización de la información del perfil y de la cuenta](my-account-portal-overview.md). Instrucciones sobre cómo actualizar la información personal que aparece en el portal **Mi perfil** .
 
-- [Administración de organizaciones](my-account-portal-organizations-page.md). Instrucciones sobre cómo ver y administrar la información relacionada con la organización en la página **Organizaciones** del portal **Mi perfil**.
+- [Administración de organizaciones](my-account-portal-organizations-page.md). Instrucciones sobre cómo ver y administrar la información relacionada con la organización en la página **Organizaciones** del portal **Mi perfil** .
 
-- [Administración de los dispositivos conectados](my-account-portal-devices-page.md). Instrucciones sobre cómo administrar los dispositivos a los que está conectado con la cuenta profesional o educativa, en la página **Dispositivos** del portal **Mi perfil**.
+- [Administración de los dispositivos conectados](my-account-portal-devices-page.md). Instrucciones sobre cómo administrar los dispositivos a los que está conectado con la cuenta profesional o educativa, en la página **Dispositivos** del portal **Mi perfil** .

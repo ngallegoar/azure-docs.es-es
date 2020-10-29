@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 06763624231fde344990da6d0a4639bcccdedf00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41f3505388e72fba15277067a94cf4e473008f20
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448873"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790430"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migración de una base de datos de SQL Server a Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,11 +41,11 @@ En la lista siguiente se describe el flujo de trabajo general para una migració
 
   ![Diagrama de migración de VSSSDT](./media/migrate-to-database-from-sql-server/azure-sql-migration-sql-db.png)
 
-1. [Evalúe la compatibilidad](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) de la base de datos con la versión más reciente de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Evalúe la compatibilidad](/sql/dma/dma-assesssqlonprem) de la base de datos con la versión más reciente de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Prepare todas las correcciones necesarias como scripts de Transact-SQL.
-3. Realice una copia coherente desde un punto de vista transaccional de la base de datos de origen que se está migrando o impida que se produzcan transacciones nuevas en la base de datos de origen mientras se realiza la migración. Los métodos para realizar esta última opción incluyen deshabilitar la conectividad del cliente o crear una [instantánea de base de datos](https://msdn.microsoft.com/library/ms175876.aspx). Después de la migración, podrá usar la replicación transaccional para actualizar las bases de datos migradas con los cambios que se produjeron después del punto límite de la migración. Consulte la sección sobre cómo [migrar mediante la migración transaccional](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication).  
+3. Realice una copia coherente desde un punto de vista transaccional de la base de datos de origen que se está migrando o impida que se produzcan transacciones nuevas en la base de datos de origen mientras se realiza la migración. Los métodos para realizar esta última opción incluyen deshabilitar la conectividad del cliente o crear una [instantánea de base de datos](/sql/relational-databases/databases/create-a-database-snapshot-transact-sql). Después de la migración, podrá usar la replicación transaccional para actualizar las bases de datos migradas con los cambios que se produjeron después del punto límite de la migración. Consulte la sección sobre cómo [migrar mediante la migración transaccional](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication).  
 4. Implemente los scripts de Transact-SQL para aplicar las correcciones a la copia de la base de datos.
-5. [Migre](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) la copia de la base de datos a una nueva base de datos de Azure SQL Database mediante Data Migration Assistant.
+5. [Migre](/sql/dma/dma-migrateonpremsql) la copia de la base de datos a una nueva base de datos de Azure SQL Database mediante Data Migration Assistant.
 
 > [!NOTE]
 > En lugar de usar DMA, también puede usar un archivo BACPAC. Consulte [Importación de un archivo BACPAC a una base de datos de Azure SQL Database](database-import.md).
@@ -63,11 +63,11 @@ En la lista siguiente se incluyen recomendaciones para mejorar el rendimiento du
 
 ### <a name="optimize-performance-after-the-migration-completes"></a>Optimización del rendimiento una vez completada la migración
 
-[Actualice las estadísticas](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql) con un examen completo una vez completada la migración.
+[Actualice las estadísticas](/sql/t-sql/statements/update-statistics-transact-sql) con un examen completo una vez completada la migración.
 
 ## <a name="method-2-use-transactional-replication"></a>Método 2: Uso de la replicación transaccional
 
-Si no se puede permitir quitar la base de datos de SQL Server de producción mientras se lleva a cabo la migración, puede usar la replicación transaccional de SQL Server como solución de migración. Para usar este método, la base de datos de origen debe cumplir los [requisitos para la replicación transaccional](https://msdn.microsoft.com/library/mt589530.aspx) y ser compatible con Azure SQL Database. Para más información acerca de la replicación de SQL con AlwaysOn, consulte [Configurar la replicación para grupos de disponibilidad AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+Si no se puede permitir quitar la base de datos de SQL Server de producción mientras se lleva a cabo la migración, puede usar la replicación transaccional de SQL Server como solución de migración. Para usar este método, la base de datos de origen debe cumplir los [requisitos para la replicación transaccional](./replication-to-sql-database.md) y ser compatible con Azure SQL Database. Para más información acerca de la replicación de SQL con AlwaysOn, consulte [Configurar la replicación para grupos de disponibilidad AlwaysOn (SQL Server)](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Para usar esta solución, configurará la base de datos de Azure SQL Database como suscriptor de la instancia de SQL Server que quiere migrar. El distribuidor de la replicación transaccional sincroniza los datos de la base de datos de modo que estén sincronizados (el publicador) mientras se siguen produciendo nuevas transacciones.
 
@@ -108,22 +108,21 @@ Algunas sugerencias y diferencias para migrar a SQL Database
 Existen muchos problemas de compatibilidad que pueden surgir, en función de la versión de SQL Server de la base de datos de origen y de la complejidad de la base de datos que se migra. Las versiones anteriores de SQL Server tienen más problemas de compatibilidad. Use los siguientes recursos, además de una búsqueda específica en Internet mediante el motor de búsqueda de opciones:
 
 - [Características de Base de datos de SQL Server no admitidas en Azure SQL Database](transact-sql-tsql-differences-sql-server.md)
-- [Funcionalidad del motor de base de datos no incluida en SQL Server 2016](https://msdn.microsoft.com/library/ms144262%28v=sql.130%29)
-- [Funcionalidad del motor de base de datos no incluida en SQL Server 2014](https://msdn.microsoft.com/library/ms144262%28v=sql.120%29)
-- [Funcionalidad del motor de base de datos no incluida en SQL Server 2012](https://msdn.microsoft.com/library/ms144262%28v=sql.110%29)
-- [Funcionalidad del motor de base de datos no incluida en SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
-- [Funcionalidad del motor de base de datos no incluida en SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
+- [Funcionalidad del motor de base de datos no incluida en SQL Server 2016](/sql/database-engine/discontinued-database-engine-functionality-in-sql-server)
+- [Funcionalidad del motor de base de datos no incluida en SQL Server 2014](/sql/database-engine/discontinued-database-engine-functionality-in-sql-server?viewFallbackFrom=sql-server-2014)
+- [Funcionalidad del motor de base de datos no incluida en SQL Server 2012](/previous-versions/sql/sql-server-2012/ms144262(v=sql.110))
+- [Funcionalidad del motor de base de datos no incluida en SQL Server 2008 R2](/previous-versions/sql/sql-server-2008-r2/ms144262(v=sql.105))
+- [Funcionalidad del motor de base de datos no incluida en SQL Server 2005](/previous-versions/sql/sql-server-2005/ms144262(v=sql.90))
 
-Además de buscar en Internet y de usar estos recursos, use la [página de preguntas y respuestas de Microsoft sobre Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) o [StackOverflow](https://stackoverflow.com/).
+Además de buscar en Internet y de usar estos recursos, use la [página de preguntas y respuestas de Microsoft sobre Azure SQL Database](/answers/topics/azure-sql-database.html) o [StackOverflow](https://stackoverflow.com/).
 
 > [!IMPORTANT]
 > Instancia administrada de Azure SQL le permite migrar una instancia de SQL Server existente y sus bases de datos sin ningún problema de compatibilidad o con muy pocos. Consulte [¿Qué es una instancia administrada?](../managed-instance/sql-managed-instance-paas-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Use el script del blog de ingenieros de EMEA de Azure SQL para [supervisar el uso de tempdb durante la migración](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
-- Use el script del blog de ingenieros de EMEA de Azure SQL para [supervisar el espacio de registro de transacciones de la base de datos mientras se está produciendo la migración](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).
-- Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server.
-- Para obtener información sobre cómo trabajar con la hora UTC después de la migración, consulte cómo [modificar la zona horaria predeterminada para su zona horaria local](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
-- Para obtener información acerca de cómo cambiar el idioma predeterminado de una base de datos después de la migración, consulte [cómo cambiar el idioma predeterminado de Azure SQL Database](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
- 
+- Use el script del blog de ingenieros de EMEA de Azure SQL para [supervisar el uso de tempdb durante la migración](/archive/blogs/azuresqlemea/lesson-learned-10-monitoring-tempdb-usage).
+- Use el script del blog de ingenieros de EMEA de Azure SQL para [supervisar el espacio de registro de transacciones de la base de datos mientras se está produciendo la migración](/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).
+- Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) en el blog de Customer Advisory Team de SQL Server.
+- Para obtener información sobre cómo trabajar con la hora UTC después de la migración, consulte cómo [modificar la zona horaria predeterminada para su zona horaria local](/archive/blogs/azuresqlemea/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone).
+- Para obtener información acerca de cómo cambiar el idioma predeterminado de una base de datos después de la migración, consulte [cómo cambiar el idioma predeterminado de Azure SQL Database](/archive/blogs/azuresqlemea/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database).
