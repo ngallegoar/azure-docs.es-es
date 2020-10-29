@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 132da93bcb1e8138b63361cdb448c05b985cdf27
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: be63ea7ebf905b825ffe73dfc2b37dcdc3bb88fd
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940912"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92507625"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-moxtra"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Moxtra
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Moxtra con Azure Active Directory (Azu
 * Permitir que los usuarios inicien sesión automáticamente en Moxtra con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -49,16 +49,16 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 Para configurar la integración de Moxtra en Azure AD, es preciso agregar Moxtra desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Moxtra** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **Moxtra** en el cuadro de búsqueda.
 1. Seleccione **Moxtra** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-moxtra"></a>Configuración y prueba del inicio de sesión único de Azure AD para Moxtra
 
-Configure y pruebe el inicio de sesión único de Azure AD con Moxtra mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Moxtra.
+Configure y pruebe el inicio de sesión único de Azure AD con Moxtra mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Moxtra.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Moxtra, es preciso completar los siguientes bloques de creación:
 
@@ -73,15 +73,15 @@ Para configurar y probar el inicio de sesión único de Azure AD con Moxtra, es
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Moxtra**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Moxtra** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , especifique los valores de los siguientes campos:
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL: `https://www.moxtra.com/service/#login`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL: `https://www.moxtra.com/service/#login`
 
 1. La aplicación Moxtra espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo Atributos de usuario.
 
@@ -98,25 +98,25 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!Note]
     > El valor del atributo **idpid** no es real. Puede obtener el valor real de la sección **Set up Moxtra** (Configurar Moxtra) del paso 8. 
 
-    1. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
+    1. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario** .
 
-    1. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+    1. En el cuadro de texto **Nombre** , escriba el nombre que se muestra para la fila.
 
     1. Deje **Espacio de nombres** en blanco.
 
     1. Seleccione **Atributo** como origen.
 
-    1. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
+    1. En la lista **Atributo de origen** , escriba el valor de atributo que se muestra para esa fila.
 
-    1. Haga clic en **Aceptar**.
+    1. Haga clic en **Aceptar** .
 
-    1. Haga clic en **Save**(Guardar).
+    1. Haga clic en **Save** (Guardar).
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Moxtra**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Moxtra** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -124,31 +124,31 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a Moxtra mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Moxtra**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **Moxtra** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-moxtra-sso"></a>Configuración del inicio de sesión único en Moxtra
 
@@ -162,24 +162,24 @@ En esta sección, va a permitir que B.Simon acceda a Moxtra mediante el inicio d
    
     ![Captura de pantalla que muestra la página de SAML donde puede especificar los valores descritos.](./media/moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, *SAML*). 
+    a. En el cuadro de texto **Name** (Nombre), escriba el nombre de la configuración (por ejemplo, *SAML* ). 
   
     b. En el cuadro de texto **IdP Entity ID** (Identificador de la entidad de IdP), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal. 
  
-    c. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal. 
+    c. En el cuadro de texto **Dirección URL de inicio de sesión** , pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal. 
  
-    d. En el cuadro de texto **AuthnContextClassRef**, escriba **urn: oasis: nombres: tc: SAML:2.0:ac:classes:Password**. 
+    d. En el cuadro de texto **AuthnContextClassRef** , escriba **urn: oasis: nombres: tc: SAML:2.0:ac:classes:Password** . 
  
-    e. En el cuadro de texto **NameID format** (Formato de id. de nombre), escriba **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**. 
+    e. En el cuadro de texto **NameID format** (Formato de id. de nombre), escriba **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress** . 
  
     f. Abra el certificado que ha descargado desde Azure Portal en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificate** (Certificado).    
  
     g. En el cuadro de texto del dominio de correo electrónico SAML, escriba su dominio de correo electrónico SAML.    
   
     >[!NOTE]
-    >Para ver los pasos para comprobar el dominio, haga clic en la "**i**" a continuación.
+    >Para ver los pasos para comprobar el dominio, haga clic en la " **i** " a continuación.
 
-    h. Haga clic en **Update**(Actualizar).
+    h. Haga clic en **Update** (Actualizar).
 
 ### <a name="create-moxtra-test-user"></a>Creación de un usuario de prueba de Moxtra
 
@@ -189,39 +189,38 @@ El objetivo de esta sección es crear un usuario de prueba llamado B.Simon en Mo
 
 1. Inicie sesión en su sitio de la compañía de Moxtra como administrador.
 
-1. En la barra de herramientas de la izquierda, haga clic en **Consola de administración > Administración de usuarios** y, luego, en **Agregar usuario**.
+1. En la barra de herramientas de la izquierda, haga clic en **Consola de administración > Administración de usuarios** y, luego, en **Agregar usuario** .
    
     ![Captura de pantalla que muestra la página de User Management (Administración de usuarios) con Add User (Agregar usuario) seleccionado.](./media/moxtra-tutorial/tutorial_moxtra_10.png) 
 
 1. En el cuadro de diálogo **Agregar usuario** , realice los pasos siguientes:
   
-    a. En el cuadro de texto **Name** (Nombre), escriba **B**.
+    a. En el cuadro de texto **Name** (Nombre), escriba **B** .
   
-    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos** , escriba **Simon** .
   
     c. En el cuadro de texto **Email** (Correo electrónico), escriba la misma dirección de correo electrónico de B.Simon que en Azure Portal.
   
-    d. En el cuadro de texto **Division** (División), escriba **Dev**.
+    d. En el cuadro de texto **Division** (División), escriba **Dev** .
   
-    e. En el cuadro de texto **Department** (Departamento), escriba **IT**.
+    e. En el cuadro de texto **Department** (Departamento), escriba **IT** .
   
     f. Seleccione **Administrator** (Administrador).
   
-    g. Haga clic en **Agregar**.
+    g. Haga clic en **Agregar** .
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Moxtra en el panel de acceso, debería iniciar sesión automáticamente en la versión de Moxtra para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Moxtra en el panel de acceso, debería iniciar sesión automáticamente en la versión de Moxtra para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prueba de Moxtra con Azure AD](https://aad.portal.azure.com/)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d7aa43a94c7b49eef5b3273617ad9038fd1202e4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108548"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505753"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con PureCloud by Genesys
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar PureCloud by Genesys con Azure Active Di
 * Permitir que los usuarios inicien sesión automáticamente en PureCloud by Genesys con sus cuentas de Azure AD.
 * Administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -215,14 +215,14 @@ Para permitir que los usuarios de Azure AD inicien sesión en PureCloud by Gene
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de **PureCloud by Genesys** en el Panel de acceso, debería iniciar sesión automáticamente en la cuenta de PureCloud by Genesys para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de **PureCloud by Genesys** en el Panel de acceso, debería iniciar sesión automáticamente en la cuenta de PureCloud by Genesys para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [ Lista de tutoriales para integrar aplicaciones SaaS con Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriales para integrar aplicaciones SaaS con Azure AD](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único en Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único en Azure AD?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure AD?](../conditional-access/overview.md)
 
 - [Pruebe PureCloud by Genesis con Azure AD](https://aad.portal.azure.com/)
