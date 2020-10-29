@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.custom: contperfq2
+ms.openlocfilehash: df50231b03f71008f967c4f09ce09c5b5890802f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804274"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427645"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Configuración del consentimiento del propietario del grupo para las aplicaciones que acceden a los datos del grupo
 
@@ -30,9 +31,9 @@ Puede configurar qué usuarios pueden dar su consentimiento a las aplicaciones p
 
 Siga estos pasos para administrar el consentimiento del propietario del grupo para que las aplicaciones puedan obtener acceso a los datos del grupo:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios**.
-3. En **Consentimiento del propietario del grupo para las aplicaciones que acceden a los datos**, seleccione la opción que desea habilitar.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator).
+2. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios** .
+3. En **Consentimiento del propietario del grupo para las aplicaciones que acceden a los datos** , seleccione la opción que desea habilitar.
 4. Haga clic en **Guardar** para guardar la configuración.
 
 En este ejemplo, todos los propietarios de grupos pueden dar su consentimiento a las aplicaciones que acceden a los datos de sus grupos:

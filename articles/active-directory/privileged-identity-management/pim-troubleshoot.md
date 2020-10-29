@@ -13,12 +13,12 @@ ms.subservice: pim
 ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b02b8f3b94d191c7439aadf5a56ec0e2a1c38e28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcbebcb32e912abdf0112007c743c6890fae36e4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88782505"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372402"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Solución de un problema con Privileged Identity Management
 
@@ -41,5 +41,5 @@ Asigne el rol de administrador de acceso de usuario al nombre de entidad de segu
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Requisitos de licencia para usar Privileged Identity Management](subscription-requirements.md)
-- [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Protección del acceso con privilegios para las implementaciones híbridas y en la nube en Azure AD](../roles/security-planning.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 - [Implementación de Privileged Identity Management](pim-deployment-plan.md)

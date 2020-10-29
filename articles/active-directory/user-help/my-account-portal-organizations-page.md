@@ -11,16 +11,16 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005078"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370345"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Administración de organizaciones a las que tiene acceso en el portal Mi cuenta
 
-La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar las organizaciones (normalmente, el nombre de su organización) a las que tiene acceso. Hay dos tipos de organizaciones que se muestran en la página **Organizaciones**:
+La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar las organizaciones (normalmente, el nombre de su organización) a las que tiene acceso. Hay dos tipos de organizaciones que se muestran en la página **Organizaciones** :
 
 - **Organización principal.** La organización principal es la organización propietaria de la cuenta profesional o educativa. No puede abandonar la organización principal.
 
@@ -30,17 +30,17 @@ La página **Organizaciones** del portal **Mi cuenta** le ayuda a administrar la
 - **Otras organizaciones.** Las otras organizaciones son cualquier grupo en el que haya iniciado sesión anteriormente con la cuenta profesional o educativa. Puede salir de cualquiera de estas organizaciones en cualquier momento.
 
 >[!Important]
->Este artículo está destinado a los usuarios que intentan actualizar la información de la organización a la que accede una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](../users-groups-roles/index.yml).
+>Este artículo está destinado a los usuarios que intentan actualizar la información de la organización a la que accede una cuenta profesional o educativa. Si es un administrador que busca información acerca de la administración de grupos y usuarios para los empleados y otros usuarios, consulte [Documentación de la administración de usuarios empresariales (Azure AD)](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Visualización de las organizaciones
 
 1. Inicie sesión en su cuenta profesional o educativa y vaya a la página **Mi cuenta** (https://myaccount.microsoft.com/) ).
 
-2. Seleccione **Organizaciones** en el panel de navegación izquierdo o seleccione el vínculo **Administrar organizaciones** en el bloque **Organizaciones**.
+2. Seleccione **Organizaciones** en el panel de navegación izquierdo o seleccione el vínculo **Administrar organizaciones** en el bloque **Organizaciones** .
 
     ![Página Mi cuenta, con vínculos de Organizaciones resaltados](media/my-account-portal/my-account-portal-organizations.png)
 
-3. Revise la información de la **organización principal**.
+3. Revise la información de la **organización principal** .
 
     ![Página Organizaciones](media/my-account-portal/my-account-portal-organization-page.png)
 

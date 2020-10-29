@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 57435e703395928c4619b7c9c6bf8614269f58a0
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: b3e00c3832f243ec0190023116bbfdeaaad86c94
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825430"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370430"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -167,11 +167,11 @@ Permitir HTTPS de salida: puerto 443 | Permite los rangos correspondientes al co
 
 #### <a name="control-access-with-nsg-rules"></a>Control de acceso con reglas de grupo de seguridad de red
 
-Si se controla la conectividad de la máquina virtual mediante el filtrado de tráfico de red hacia y desde redes o subredes de Azure con [reglas de grupo de seguridad de red](../virtual-network/security-overview.md), tenga en cuenta los siguientes requisitos:
+Si se controla la conectividad de la máquina virtual mediante el filtrado de tráfico de red hacia y desde redes o subredes de Azure con [reglas de grupo de seguridad de red](../virtual-network/network-security-groups-overview.md), tenga en cuenta los siguientes requisitos:
 
 - Las reglas de grupo de seguridad de red para la región de Azure de origen deben permitir el acceso de salida para el tráfico de replicación.
 - Se recomienda crear reglas en un entorno de prueba antes de pasar a producción.
-- Use [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) en lugar de permitir direcciones IP individuales.
+- Use [etiquetas de servicio](../virtual-network/network-security-groups-overview.md#service-tags) en lugar de permitir direcciones IP individuales.
     - Las etiquetas de servicio representan un grupo de prefijos de direcciones IP que ayudan a reducir la complejidad de la creación de reglas de seguridad.
     - Microsoft actualiza periódica y automáticamente las etiquetas de servicio. 
  

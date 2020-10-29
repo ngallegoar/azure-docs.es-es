@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b2b5538df894e17449e173baa3e402d6c59654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354996"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441443"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalización de idioma en Azure Active Directory (versión preliminar)
 
@@ -37,13 +37,13 @@ De manera predeterminada, la personalización de idioma está habilitada para qu
 La personalización de idioma le permite personalizar cualquier cadena del flujo de usuario.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador de Azure AD.
-2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
-3. En el menú de la izquierda, seleccione **External Identities**.
+2. En **Servicios de Azure** , seleccione **Azure Active Directory** .
+3. En el menú de la izquierda, seleccione **External Identities** .
 4. Seleccione **Flujos de usuario (versión preliminar)** .
 3. Seleccione el flujo de usuario que quiere habilitar para las traducciones.
-4. Seleccione **Idiomas**.
+4. Seleccione **Idiomas** .
 5. En la página **Idiomas** del flujo de usuario, seleccione un idioma que desee personalizar.
-6. Expanda la **página Colección de atributos**.
+6. Expanda la **página Colección de atributos** .
 7. Seleccione **Descargar valores predeterminados** (o **Descargar invalidaciones** si ha editado anteriormente este idioma).
 
 Estos pasos le proporcionan un archivo JSON que puede usar para comenzar a editar las cadenas.
@@ -115,9 +115,9 @@ Si desea proporcionar una lista establecida de valores para respuestas, debe cre
 
 1. Una vez completados los cambios en el archivo JSON, vuelva al inquilino.
 1. Seleccione **Flujos de usuario** y haga clic en el flujo de usuario que desea habilitar para las traducciones.
-1. Seleccione **Idiomas**.
+1. Seleccione **Idiomas** .
 1. Seleccione el idioma al que quiere traducir.
-1. Seleccione la **página Colección de atributos**.
+1. Seleccione la **página Colección de atributos** .
 1. Seleccione el icono de carpeta y el archivo JSON para cargar.
 
 Este cambio se guarda en el flujo de usuario automáticamente.
@@ -146,7 +146,7 @@ Tanto Chrome como Firefox solicitan su idioma establecido. Si es un idioma admit
 
 ## <a name="supported-languages"></a>Idiomas compatibles
 
-Azure AD incluye compatibilidad con los idiomas siguientes. Azure AD proporciona los idiomas de flujo de usuario. [Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) proporciona los idiomas de notificación de autenticación multifactor (MFA).
+Azure AD incluye compatibilidad con los idiomas siguientes. Azure AD proporciona los idiomas de flujo de usuario. [Azure MFA](../authentication/concept-mfa-howitworks.md) proporciona los idiomas de notificación de autenticación multifactor (MFA).
 
 | Idioma              | Código de lenguaje | Flujos de usuario         | Notificaciones de MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

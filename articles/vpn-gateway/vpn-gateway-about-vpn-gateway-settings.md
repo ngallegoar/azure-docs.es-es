@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976219"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424296"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
 
@@ -53,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Configuración de una SKU de puerta de enlace
 
-#### <a name="azure-portal"></a>Portal de Azure
+**Azure Portal**
 
 Si usa Azure Portal para crear una puerta de enlace de red virtual de Resource Manager, puede seleccionar la SKU de la puerta de enlace con el menú desplegable. Las opciones que se presentan corresponden con el tipo de puerta de enlace y tipo de VPN que seleccione.
 
-#### <a name="powershell"></a>PowerShell
+**PowerShell**
 
 En el siguiente ejemplo de PowerShell se especifica `-GatewaySku` como VpnGw1. Al usar PowerShell para crear una puerta de enlace, antes debe crear la configuración de IP y, después, usar una variable para hacer referencia a ella. En este ejemplo, la variable de configuración es $gwipconfig.
 
@@ -67,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+**CLI de Azure**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -82,6 +82,12 @@ Si tiene una puerta de enlace VPN y desea usar una SKU de puerta de enlace disti
 3. Sin embargo, **no puede** cambiar el tamaño de las SKU de Básica/Estándar/HighPerformance a las SKU de VpnGw. En su lugar, debe [cambiar](#change) a las SKU nuevas.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Cambiar el tamaño de una puerta de enlace
+
+**Azure Portal**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 
@@ -98,7 +104,7 @@ En el modelo de implementación de Resource Manager, cada configuración requier
 * ExpressRoute
 * VPNClient
 
-En el siguiente ejemplo de PowerShell, vamos a crear una conexión de S2S que requiere el tipo de conexión *IPsec*.
+En el siguiente ejemplo de PowerShell, vamos a crear una conexión de S2S que requiere el tipo de conexión *IPsec* .
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
@@ -116,7 +122,7 @@ Una vez que se ha creado una puerta de enlace de red virtual, no puede cambiar e
 
 [!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
 
-En el siguiente ejemplo de PowerShell se especifica `-VpnType` como *RouteBased*. Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
+En el siguiente ejemplo de PowerShell se especifica `-VpnType` como *RouteBased* . Al crear una puerta de enlace, debe asegurarse de que el tipo de VPN es el correcto para su configuración.
 
 ```azurepowershell-interactive
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `

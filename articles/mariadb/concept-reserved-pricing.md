@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82732910"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427807"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pago por adelantado de recursos de proceso de Azure Database for MariaDB con capacidad reservada
 
@@ -19,13 +19,13 @@ Azure Database for MariaDB ayuda a ahorrar dinero al pagar por adelantado los
 
 No es necesario asignar la reserva a servidores concretos de Azure Database for MariaDB. Una instancia de Azure Database for MariaDB que ya está en ejecución, o las que se han implementado recientemente, obtendrán de forma automática la ventaja de los precios reservados. Al comprar una reserva, se adelanta el pago de los costos de proceso durante un período de uno a tres años. En cuanto se compra una reserva, los costos de proceso de Azure Database for MariaDB que coincidan con los atributos de reserva dejan de pagarse según las tarifas de pago por uso. La reserva no cubre los cargos por software, redes o almacenamiento asociados al servidor de bases de datos de MariaDB. Al final del plazo de reserva, la ventaja en la facturación expira y las instancias de Azure Database for MariaDB se facturan según los precios de pago por uso. Las reservas no se renuevan automáticamente. Para obtener información sobre precios, vea [Oferta de capacidad reservada de Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/mariadb/). </br>
 
-Puede comprar capacidad reservada de Azure Database for MariaDB en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/monthly-payments-reservations.md). Para comprar capacidad reservada:
+Puede comprar capacidad reservada de Azure Database for MariaDB en [Azure Portal](https://portal.azure.com/). Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/prepare-buy-reservation.md). Para comprar capacidad reservada:
 
 * Debe tener el rol de propietario al menos en una suscripción Enterprise o individual con tarifas de pago por uso.
 * En el caso de las suscripciones Enterprise, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
 * En el caso del programa del Proveedor de soluciones en la nube (CSP), los únicos que pueden comprar la capacidad reservada de Azure Database for MariaDB son los agentes de administración o de ventas. </br>
 
-Para información sobre cómo se les cobra a los clientes de empresa y a los de pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) y [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
+Para información sobre cómo se les cobra a los clientes de empresa y a los de pago por uso las compras de reservas, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) y [Información sobre el uso de reservas de Azure para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Determinación del tamaño del servidor adecuado antes de la compra
@@ -38,7 +38,7 @@ Por ejemplo, supongamos que se está ejecutando una base de datos MariaDB de pro
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Compra de capacidad reservada de Azure Database for MariaDB
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Seleccione **Todos los servicios** > **Reservations**.
+2. Seleccione **Todos los servicios** > **Reservations** .
 3.  Seleccione **Agregar** y, en el panel Comprar reservas, seleccione **Azure Database for MariaDB** para comprar una nueva reserva para las bases de datos de MariaDB.
 4.  Rellene todos los campos obligatorios. Las bases de datos existentes o nuevas que coincidan con los atributos seleccionados serán aptas para el descuento en la capacidad reservada. El número real de servidores de Azure Database for MariaDB que obtienen el descuento depende del ámbito y la cantidad seleccionados.
 
@@ -50,8 +50,8 @@ En la siguiente tabla se describen los campos obligatorios.
 
 | Campo | Descripción |
 | :------------ | :------- |
-| Suscripción   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MariaDB. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MariaDB se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
-| Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única**: el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB de esta suscripción. </br></br> **Grupo de recursos único**: el descuento de reserva se aplica a los servidores de Azure Database for MariaDB de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
+| Subscription   | La suscripción usada para pagar la reserva de capacidad reservada de Azure Database for MariaDB. Los costos anticipados por la reserva de capacidad reservada de Azure Database for MariaDB se cobran mediante el método de pago de la suscripción. El tipo de suscripción debe ser Contrato Enterprise (números de oferta: MS-AZR-0017P o MS-AZR-0148P) o un contrato individual con precios de pago por uso (números de oferta: MS-AZR-0003P o MS-AZR-0023P). Para una suscripción Enterprise, los cargos se deducen del saldo de compromiso monetario de la inscripción o se cobran como uso por encima del límite. Para una suscripción individual con precios de pago por uso, los cargos se cobran en el método de pago de la factura o la tarjeta de crédito de la suscripción.
+| Ámbito | El ámbito de la reserva de núcleos virtuales puede cubrir una suscripción o varias (ámbito compartido). Si selecciona: </br></br> **Compartido** : el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB en ejecución en cualquiera de las suscripciones en el contexto de facturación. Para los clientes Enterprise, el ámbito compartido es la inscripción e incluye todas las suscripciones que esta contiene. Para los clientes de Pago por uso, el ámbito compartido incluye todas las suscripciones de Pago por uso creadas por el administrador de la cuenta.</br></br> **Suscripción única** : el descuento por la reserva de núcleos virtuales se aplica a los servidores de Azure Database for MariaDB de esta suscripción. </br></br> **Grupo de recursos único** : el descuento de reserva se aplica a los servidores de Azure Database for MariaDB de la suscripción seleccionada y al grupo de recursos seleccionado de esa suscripción.
 | Region | La región de Azure que abarca la reserva de capacidad reservada de Azure Database for MariaDB.
 | Tipo de implementación | El tipo de recurso de Azure Database for MariaDB para el que quiere comprar la reserva.
 | Nivel de rendimiento | El nivel de servicio de los servidores de Azure Database for MariaDB.
@@ -60,7 +60,7 @@ En la siguiente tabla se describen los campos obligatorios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>Flexibilidad de tamaño del núcleo virtual
 
@@ -77,9 +77,9 @@ Para obtener información sobre cómo administrar la capacidad reservada de Azur
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-* [¿Qué es Azure Reservations?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Administración de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Información sobre el descuento de Azure Reservations](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Información sobre el uso de reservas para suscripciones de pago por uso](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)
-* [Información sobre el uso de reservas para la inscripción Enterprise](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](https://docs.microsoft.com/partner-center/azure-reservations)
+* [¿Qué es Azure Reservations?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Administración de Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Información sobre el descuento de Azure Reservations](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Información sobre el uso de reservas para suscripciones de pago por uso](../cost-management-billing/reservations/understand-reservation-charges-mariadb.md)
+* [Información sobre el uso de reservas para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](/partner-center/azure-reservations)

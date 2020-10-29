@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340640"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441885"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementos del correo electrónico de invitación para la colaboración B2B: Azure Active Directory
 
@@ -63,7 +63,7 @@ La sección siguiente del correo electrónico contiene información sobre adónd
 
 ### <a name="footer-section"></a>Sección de pie de página
 
-El pie de página contiene más información sobre la invitación que se envía. Siempre debe haber una opción para que el invitado bloquee las invitaciones futuras. Si la organización [estableció una declaración de privacidad](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), aquí debe aparecer el vínculo a dicha declaración.  De lo contrario, una nota indica que la organización no ha establecido una declaración de privacidad.
+El pie de página contiene más información sobre la invitación que se envía. Siempre debe haber una opción para que el invitado bloquee las invitaciones futuras. Si la organización [estableció una declaración de privacidad](../fundamentals/active-directory-properties-area.md), aquí debe aparecer el vínculo a dicha declaración.  De lo contrario, una nota indica que la organización no ha establecido una declaración de privacidad.
 
 ![Imagen de la sección de pie de página del correo electrónico](media/invitation-email-elements/footer-section.png)
 
@@ -85,8 +85,8 @@ Un usuario invitado puede seguir estos pasos para ver o exportar las organizacio
 
 Las opciones siguientes determinan el idioma que el usuario invitado ve en el correo electrónico de invitación. Estas opciones de configuración se muestran en el siguiente orden de prioridad. Si una opción no está configurada, la siguiente de la lista será la que determine el idioma.
 
-- La propiedad **messageLanguage** del objeto [guestUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0), si se usa la API para crear una invitación.
--   La propiedad **preferredLanguage** especificada en el [objeto de usuario](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0) del invitado.
+- La propiedad **messageLanguage** del objeto [guestUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0), si se usa la API para crear una invitación.
+-   La propiedad **preferredLanguage** especificada en el [objeto de usuario](/graph/api/resources/user?view=graph-rest-1.0) del invitado.
 -   El **idioma de notificación** establecido en las propiedades del inquilino principal del usuario invitado (solo para inquilinos de Azure AD).
 -   El **idioma de notificación** establecido en las propiedades del inquilino del recurso.
 

@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295165"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442055"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Personalización y API de colaboración B2B de Active Directory Azure
 
-Hemos tenido muchos clientes que nos han dicho que querían personalizar el proceso de invitación de una forma que se adapte menor a sus organizaciones. Con nuestra API, pueden hacer justamente eso. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Hemos tenido muchos clientes que nos han dicho que querían personalizar el proceso de invitación de una forma que se adapte menor a sus organizaciones. Con nuestra API, pueden hacer justamente eso. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Funcionalidades de la API de invitación
 
@@ -102,10 +102,10 @@ Puede utilizar las siguientes opciones:
 
 Después de enviar una invitación a un usuario externo, puede usar el cmdlet **Get-AzureADUser** para ver si ya la ha aceptado. Cuando se envía una invitación a un usuario externo, se rellenan las propiedades siguientes de Get-AzureADUser:
 
-* **UserState** indica si la invitación está en el estado **PendingAcceptance** o **Accepted**.
-* **UserStateChangedOn** muestra la marca de tiempo del cambio más reciente de la propiedad **UserState**.
+* **UserState** indica si la invitación está en el estado **PendingAcceptance** o **Accepted** .
+* **UserStateChangedOn** muestra la marca de tiempo del cambio más reciente de la propiedad **UserState** .
 
-Puede usar la opción **Filter** para filtrar los resultados por **UserState**. En el ejemplo siguiente se muestra cómo filtrar resultados para mostrar solo a los usuarios que tienen una invitación pendiente. En el ejemplo también se muestra la opción **Format-List**, que le permite especificar las propiedades que se van a mostrar. 
+Puede usar la opción **Filter** para filtrar los resultados por **UserState** . En el ejemplo siguiente se muestra cómo filtrar resultados para mostrar solo a los usuarios que tienen una invitación pendiente. En el ejemplo también se muestra la opción **Format-List** , que le permite especificar las propiedades que se van a mostrar. 
  
 
 ```powershell
@@ -117,7 +117,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>Consulte también
 
-Consulte la referencia de API de invitación en [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
+Consulte la referencia de API de invitación en [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

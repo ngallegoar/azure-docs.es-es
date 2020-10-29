@@ -7,12 +7,13 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: device-developer
+ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291610"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427867"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetría, propiedades y comandos
 
@@ -41,9 +42,9 @@ Para consultar código de dispositivo de ejemplo que muestra algunas de estas ca
 
 IoT Central permite ver los datos sin procesar que un dispositivo envía a una aplicación. Esta vista es útil para solucionar problemas con la carga enviada desde un dispositivo. Para ver los datos sin procesar que envía un dispositivo:
 
-1. Vaya al dispositivo en la página **Dispositivos**.
+1. Vaya al dispositivo en la página **Dispositivos** .
 
-1. Seleccione la pestaña **Datos sin procesar**:
+1. Seleccione la pestaña **Datos sin procesar** :
 
     :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Vista Datos sin procesar":::
 

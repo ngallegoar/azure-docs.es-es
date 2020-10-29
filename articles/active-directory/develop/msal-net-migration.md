@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: cdd93cf8751ce2e46f06020b1d18d42416f793d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21f29135cc3b94e5b8c2dfc99b0f7be26b37d123
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88166115"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425262"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migración de aplicaciones a MSAL.NET
 
@@ -29,7 +29,7 @@ Tanto Microsoft Authentication Library for .NET (MSAL.NET) como Azure AD Authent
 - la aplicación puede permitir el consentimiento incremental y es más fácil admitir el acceso condicional
 - se beneficia de la innovación.
 
-**MSAL.NET es ahora la biblioteca de autenticación recomendada para la plataforma de identidad de Microsoft**. No se implementarán nuevas características en ADAL.NET. Los trabajos se centran en mejorar MSAL.
+**MSAL.NET es ahora la biblioteca de autenticación recomendada para la plataforma de identidad de Microsoft** . No se implementarán nuevas características en ADAL.NET. Los trabajos se centran en mejorar MSAL.
 
 En este artículo se describen las diferencias entre la biblioteca de autenticación de Microsoft para .NET (MSAL.NET) y la biblioteca de autenticación de Azure AD para .NET (ADAL.NET), y contiene información para ayudarle a migrar a MSAL.
 
@@ -51,7 +51,7 @@ Para usar MSAL.NET será preciso agregar el paquete NuGet [Microsoft.Identity.Cl
 
 ### <a name="scopes-not-resources"></a>Ámbitos, no recursos
 
-ADAL.NET adquiere tokens para los *recursos*, pero MSAL.NET adquiere tokens para los *ámbitos*. Algunas invalidaciones de AcquireToken de MSAL.NET requieren un parámetro denominado scopes (`IEnumerable<string> scopes`). Este parámetro no es más que una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Los [ámbitos de Microsoft Graph](/graph/permissions-reference) son muy conocidos.
+ADAL.NET adquiere tokens para los *recursos* , pero MSAL.NET adquiere tokens para los *ámbitos* . Algunas invalidaciones de AcquireToken de MSAL.NET requieren un parámetro denominado scopes (`IEnumerable<string> scopes`). Este parámetro no es más que una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Los [ámbitos de Microsoft Graph](/graph/permissions-reference) son muy conocidos.
 
 In MSAL.NET también se puede acceder a los recursos de v1.0. Vea los detalles en [Ámbitos para una aplicación v1.0](#scopes-for-a-web-api-accepting-v10-tokens).
 
@@ -176,8 +176,8 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 Si quiere leer y escribir con MSAL.NET Azure Active Directory mediante la Microsoft Graph API (https://graph.microsoft.com/) , debe crear una lista de ámbitos, como en el siguiente fragmento de código:
 
 ```csharp
-ResourceId = "https://graph.microsoft.com/";
-var scopes = new [] { ResourceId + "Directory.Read", ResourceID + "Directory.Write"}
+string ResourceId = "https://graph.microsoft.com/"; 
+string[] scopes = { ResourceId + "Directory.Read", ResourceId + "Directory.Write" }
 ```
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Advertencia: Debe tener una o dos barras diagonales en el ámbito correspondiente a una API web v1.0

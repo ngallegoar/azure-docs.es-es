@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705476"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441375"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propiedades de un usuario de colaboración B2B de Azure Active Directory
 
@@ -28,7 +28,7 @@ En función de las necesidades de la organización invitadora, un usuario de col
 - Estado 1: alojado en una instancia externa de Azure AD y representado como un usuario invitado en la organización que invita. En este caso, el usuario de B2B inicia sesión con una cuenta de Azure AD que pertenece al inquilino invitado. Aunque la organización asociada no use Azure AD, se crea el usuario invitado en Azure AD. Los requisitos son que el usuario canjea su invitación y Azure AD comprueba su dirección de correo electrónico. Esta solución también se denomina inquilino Just-In-Time (JIT) o inquilino "viral".
 
    > [!IMPORTANT]
-   > **A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
+   > **A partir del 31 de marzo de 2021** , Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
 - Estado 2: alojado en una cuenta Microsoft u otra cuenta y representado como usuario invitado en la organización host. En este caso, el usuario invitado inicia sesión con una cuenta de Microsoft o una cuenta social (google.com o similar). La identidad del usuario invitado se crea como una cuenta de Microsoft en el directorio de la organización que invita durante el canje de la oferta.
 
@@ -43,7 +43,7 @@ Ahora, veamos cómo es un usuario de colaboración de B2B de Azure AD en Azure A
 
 ### <a name="before-invitation-redemption"></a>Antes del canje de la invitación
 
-Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invitan a colaborar con el uso de las propias credenciales de los usuarios invitados. Cuando se envía inicialmente la invitación al usuario invitado, se crea una cuenta en el directorio. Esta cuenta no tiene ninguna credencial asociada, ya que la autenticación la realiza el proveedor de identidades del usuario invitado. La propiedad **Origen** de la cuenta de usuario invitado del directorio se establece en **Usuario invitado**. 
+Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invitan a colaborar con el uso de las propias credenciales de los usuarios invitados. Cuando se envía inicialmente la invitación al usuario invitado, se crea una cuenta en el directorio. Esta cuenta no tiene ninguna credencial asociada, ya que la autenticación la realiza el proveedor de identidades del usuario invitado. La propiedad **Origen** de la cuenta de usuario invitado del directorio se establece en **Usuario invitado** . 
 
 ![Captura de pantalla que muestra las propiedades del usuario antes del canje de la oferta](media/user-properties/before-redemption.png)
 
@@ -51,15 +51,15 @@ Las cuentas de estado 1 y estado 2 resultan de los usuarios invitados que invita
 
 Una vez que el usuario invitado acepta la invitación, la propiedad **Origen** se actualiza según determine el proveedor de identidades del usuario invitado.
 
-Para los usuarios invitados en estado 1, el **origen** es **Azure Active Directory externo**.
+Para los usuarios invitados en estado 1, el **origen** es **Azure Active Directory externo** .
 
 ![Usuario invitado en estado 1 después de canjear la oferta](media/user-properties/after-redemption-state1.png)
 
-Para los usuarios invitados en estado 2, el **origen** es **Cuenta Microsoft**.
+Para los usuarios invitados en estado 2, el **origen** es **Cuenta Microsoft** .
 
 ![Usuario invitado en estado 2 después de canjear la oferta](media/user-properties/after-redemption-state2.png)
 
-Para los usuarios invitados en estado 3 y estado 4, la propiedad **Origen** se establece en **Azure Active Directory** o **Windows Server Active Directory**, como se describe en la siguiente sección.
+Para los usuarios invitados en estado 3 y estado 4, la propiedad **Origen** se establece en **Azure Active Directory** o **Windows Server Active Directory** , como se describe en la siguiente sección.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Propiedades clave del usuario de colaboración de B2B de Azure AD
 ### <a name="usertype"></a>UserType
@@ -104,11 +104,11 @@ Se pueden desactivar las limitaciones predeterminadas para que un usuario invita
 ![Captura de pantalla que muestra la opción de usuarios externos en la configuración del usuario](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>¿Puedo hacer visibles a los usuarios invitados en la lista global de direcciones de Exchange?
-Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización, pero puede usar Azure Active Directory PowerShell para que figuren. Para más información, consulte **¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?** en [Administración del acceso de invitados en grupos de Microsoft 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista global de direcciones de la organización, pero puede usar Azure Active Directory PowerShell para que figuren. Para más información, consulte **¿Puedo hacer visibles los objetos de invitado de la lista global de direcciones?** en [Administración del acceso de invitados en grupos de Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>¿Puedo actualizar la dirección de correo electrónico de un usuario invitado?
 
-Si un usuario invitado acepta su invitación y cambia posteriormente su dirección de correo electrónico, el nuevo correo electrónico no se sincroniza automáticamente con el objeto de usuario invitado en el directorio. La propiedad mail se crea a través de [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Puede actualizar la propiedad de correo electrónico mediante Microsoft Graph API, el centro de administración de Exchange o [PowerShell de Exchange Online](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). El cambio se reflejará en el objeto de usuario invitado de Azure AD.
+Si un usuario invitado acepta su invitación y cambia posteriormente su dirección de correo electrónico, el nuevo correo electrónico no se sincroniza automáticamente con el objeto de usuario invitado en el directorio. La propiedad mail se crea a través de [Microsoft Graph API](/graph/api/resources/user?view=graph-rest-1.0). Puede actualizar la propiedad de correo electrónico mediante Microsoft Graph API, el centro de administración de Exchange o [PowerShell de Exchange Online](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). El cambio se reflejará en el objeto de usuario invitado de Azure AD.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

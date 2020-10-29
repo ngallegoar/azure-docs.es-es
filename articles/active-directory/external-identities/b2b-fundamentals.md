@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907785"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442174"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Procedimientos recomendados de Azure Active Directory B2B
 Este artículo contiene recomendaciones y procedimientos recomendados para la colaboración de negocio a negocio (B2B) en Azure Active Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partir del 31 de marzo de 2021**, Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
+   > **A partir del 31 de marzo de 2021** , Microsoft dejará de admitir el canje de invitaciones mediante la creación de cuentas de Azure AD no administradas e inquilinos para escenarios de colaboración B2B. Como preparación, se recomienda a los clientes que opten por la [autenticación de código de acceso de un solo uso por correo electrónico](one-time-passcode.md). Agradecemos sus comentarios sobre esta característica en vista previa pública. Nos alegra poder crear más formas de colaborar.
 
 ## <a name="b2b-recommendations"></a>Recomendaciones de B2B
 | Recomendación | Comentarios |
@@ -31,7 +31,7 @@ Este artículo contiene recomendaciones y procedimientos recomendados para la co
 | Para una experiencia de inicio de sesión óptima, realice la federación con proveedores de identidades. | Siempre que sea posible, realice la federación directamente con los proveedores de identidades, para permitir que los usuarios invitados inicien sesión en las aplicaciones y recursos compartidos sin tener que crear cuentas de Microsoft (MSA) o cuentas de Azure AD. Puede usar la [característica de federación de Google](google-federation.md) para permitir que los usuarios invitados de B2B inicien sesión con sus cuentas de Google. O bien, puede usar la [característica de federación directa (versión preliminar)](direct-federation.md) para configurar la federación directa con cualquier organización cuyo proveedor de identidades (IdP) admita los protocolos SAML 2.0 o WS-FED. |
 | Use la característica de código de acceso de un solo uso de correo electrónico (versión preliminar) para invitados B2B que no se pueden autenticar por otros medios. | La característica de [código de acceso de un solo uso de correo electrónico (versión preliminar)](one-time-passcode.md) autentica a los usuarios invitados de B2B cuando no pueden autenticarse a través de otros medios, como Azure AD, una cuenta de Microsoft (MSA) o la federación de Google. Cuando el usuario invitado canjea una invitación o accede a un recurso compartido, puede solicitar un código temporal, que se envía a su dirección de correo electrónico. A continuación, escribe este código para continuar con el inicio de sesión. |
 | Adición de personalización de marca a la página de inicio de sesión | Puede personalizar la página de inicio de sesión de forma que resulte más intuitiva para los usuarios invitados de B2B. Consulte cómo [agregar personalización de marca de la empresa en las páginas de inicio de sesión y del Panel de acceso](../fundamentals/customize-branding.md). |
-| Agregue la declaración de privacidad a la experiencia de canje del usuario invitado de B2B. | Puede agregar la dirección URL de la declaración de privacidad de la organización al proceso de canje de invitación por primera vez, de modo que un usuario invitado deba dar su consentimiento a los términos de privacidad para continuar. Consulte [ Incorporación de información de privacidad de su organización en Azure Active Directory](https://aka.ms/adprivacystatement). |
+| Agregue la declaración de privacidad a la experiencia de canje del usuario invitado de B2B. | Puede agregar la dirección URL de la declaración de privacidad de la organización al proceso de canje de invitación por primera vez, de modo que un usuario invitado deba dar su consentimiento a los términos de privacidad para continuar. Consulte [ Incorporación de información de privacidad de su organización en Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Use la característica de invitación en bloque (versión preliminar) para invitar a varios usuarios de B2B al mismo tiempo. | Invite a varios usuarios a su organización al mismo tiempo mediante la característica en versión preliminar de invitación en bloque de Azure Portal. Esta característica permite cargar un archivo CSV para crear usuarios invitados de B2B y enviar invitaciones en bloque. Consulte el [tutorial para invitar en bloque a usuarios de B2B](tutorial-bulk-invite.md). |
 | Aplique directivas de acceso condicional para Multi-Factor Authentication (MFA). | Se recomienda aplicar las directivas de MFA en las aplicaciones que desee compartir con los usuarios de B2B de asociados. De este modo, MFA se aplicará de forma coherente en las aplicaciones del inquilino, independientemente de si la organización asociada usa MFA. Consulte [Acceso condicional para usuarios de colaboración B2B](conditional-access.md). |
 | Si va a aplicar directivas de acceso condicional basado en el dispositivo, use listas de exclusión para permitir el acceso a los usuarios de B2B. | Si la organización tiene habilitadas directivas de acceso condicional basado en el dispositivo, los dispositivos de los usuarios invitados de B2B se bloquearán porque no están administrados por su organización. Puede crear listas de exclusión que contengan usuarios de asociados específicos para excluirlos de la directiva de acceso condicional basado en el dispositivo. Consulte [Acceso condicional para usuarios de colaboración B2B](conditional-access.md). |

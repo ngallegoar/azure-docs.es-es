@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91265803"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442072"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de facturación para Azure AD for External Identities
 
-Los precios de Azure Active Directory (Azure AD) for External Identities se basan en los usuarios activos mensuales (MAU), que es el recuento de usuarios únicos con actividad de autenticación dentro de un mes natural. Este modelo de facturación se aplica tanto a la colaboración de usuarios invitados (B2B) de Azure AD como a los [inquilinos de Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/billing). La facturación de MAU le ayuda a reducir los costos al ofrecer un nivel gratis y precios flexibles y predecibles. En este artículo obtendrá información sobre la facturación de MAU y la vinculación de los inquilinos de Azure AD a una suscripción.
+Los precios de Azure Active Directory (Azure AD) for External Identities se basan en los usuarios activos mensuales (MAU), que es el recuento de usuarios únicos con actividad de autenticación dentro de un mes natural. Este modelo de facturación se aplica tanto a la colaboración de usuarios invitados (B2B) de Azure AD como a los [inquilinos de Azure AD B2C](../../active-directory-b2c/billing.md). La facturación de MAU le ayuda a reducir los costos al ofrecer un nivel gratis y precios flexibles y predecibles. En este artículo obtendrá información sobre la facturación de MAU y la vinculación de los inquilinos de Azure AD a una suscripción.
 
 > [!IMPORTANT]
 > Este artículo no contiene detalles de precios. Para conocer la información más reciente sobre la facturación por uso y los precios, consulte [Precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -45,26 +45,26 @@ El plan de tarifa que se aplica a los usuarios invitados se basa en el plan de t
 
 Se debe vincular un inquilino de Azure AD a una suscripción de Azure para una facturación adecuada y el acceso a las características. Si el directorio todavía no tiene una suscripción a la que se pueda vincular, tendrá la oportunidad de agregar una durante este proceso.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de Azure a la que se haya asignado al menos el rol [Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) dentro de la suscripción o un grupo de recursos dentro de la suscripción.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con una cuenta de Azure a la que se haya asignado al menos el rol [Colaborador](../../role-based-access-control/built-in-roles.md) dentro de la suscripción o un grupo de recursos dentro de la suscripción.
 
 2. Seleccione el directorio que desee vincular: En la barra de herramientas de Azure Portal, seleccione el icono de **Directorio + suscripción** y, luego, seleccione el directorio.
 
     ![Selección del icono de directorio y suscripción](media/external-identities-pricing/portal-mau-pick-directory.png)
 
-3. En **Servicios de Azure**, seleccione **Azure Active Directory**.
+3. En **Servicios de Azure** , seleccione **Azure Active Directory** .
 
-4. En el menú de la izquierda, seleccione **External Identities**.
+4. En el menú de la izquierda, seleccione **External Identities** .
 
-5. En **Suscripciones**, seleccione **Suscripciones vinculadas**.
+5. En **Suscripciones** , seleccione **Suscripciones vinculadas** .
 
-6. En la lista de inquilinos, active la casilla situada junto al inquilino y, a continuación, seleccione **Vinculación de la suscripción**.
+6. En la lista de inquilinos, active la casilla situada junto al inquilino y, a continuación, seleccione **Vinculación de la suscripción** .
 
     ![Selección del inquilino y vinculación de una suscripción](media/external-identities-pricing/linked-subscriptions.png)
 
-7. En el panel Vinculación de una suscripción, seleccione una **suscripción** y un **grupo de recursos**. Luego, seleccione **Aplicar**.
+7. En el panel Vinculación de una suscripción, seleccione una **suscripción** y un **grupo de recursos** . Luego, seleccione **Aplicar** .
 
    > [!NOTE]
-   > Si no aparecen suscripciones, puede [asociar una suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md). También puede agregar una nueva suscripción seleccionando el vínculo **.Si aún no tiene una suscripción, puede crear una aquí**.
+   > Si no aparecen suscripciones, puede [asociar una suscripción al inquilino](../fundamentals/active-directory-how-subscriptions-associated-directory.md). También puede agregar una nueva suscripción seleccionando el vínculo **.Si aún no tiene una suscripción, puede crear una aquí** .
 
     ![Selección de una suscripción y un grupo de recursos](media/external-identities-pricing/link-subscription-resource.png)
 

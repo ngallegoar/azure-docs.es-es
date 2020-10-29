@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6e90e9c2ebbc6ba05e5778f618a5c3de02adf3ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b622372c881997fd77a83feb8f6c393504900b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542366"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428301"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-powershell"></a>Creación y administración de réplicas de lectura en Azure Database for MariaDB mediante PowerShell
 
@@ -26,14 +26,14 @@ Puede crear y administrar réplicas de lectura mediante PowerShell.
 
 Para completar esta guía, necesita:
 
-- El [módulo Az PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) instalado localmente o [Azure Cloud Shell](https://shell.azure.com/) en el explorador
+- El [módulo Az PowerShell](/powershell/azure/install-az-ps) instalado localmente o [Azure Cloud Shell](https://shell.azure.com/) en el explorador
 - Un [servidor de Azure Database for MariaDB](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Mientras el módulo de PowerShell Az.MariaDb se encuentre en versión preliminar, debe instalarlo por separado desde el módulo Az de PowerShell con el siguiente comando: `Install-Module -Name Az.MariaDb -AllowPrerelease`.
 > Una vez que el módulo Az.MariaDb de PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az de PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
 
-Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+Si decide usar PowerShell de forma local, conéctese a su cuenta de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -54,12 +54,12 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 El comando `New-AzMariaDbServerReplica` requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | Descripción  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se crea el servidor de réplica.  |
+| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se crea el servidor de réplica.  |
 | Nombre | mydemoreplicaserver | Nombre del nuevo servidor de réplica que se crea. |
 
-Para crear una réplica de lectura entre regiones, use el parámetro **Location**. En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
+Para crear una réplica de lectura entre regiones, use el parámetro **Location** . En el siguiente ejemplo, se crea una réplica en la región **Oeste de EE. UU.** .
 
 ```azurepowershell-interactive
 Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
@@ -68,7 +68,7 @@ Get-AzMariaDbServer -Name mrdemoserver -ResourceGroupName myresourcegroup |
 
 Para más información sobre las regiones en las que puede crear una réplica, consulte el [artículo sobre los conceptos de la réplica de lectura](concepts-read-replicas.md).
 
-De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el origen, a menos que se especifique el parámetro **Sku**.
+De forma predeterminada, las réplicas de lectura se crean con la misma configuración de servidor que el origen, a menos que se especifique el parámetro **Sku** .
 
 > [!NOTE]
 > Se recomienda mantener la configuración del servidor de réplica con valores iguales o mayores que el origen para asegurarse de que la réplica trabaja al mismo nivel que el servidor maestro.
@@ -83,9 +83,9 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 El comando `Get-AzMariaDReplica` requiere los siguientes parámetros:
 
-| Configuración | Valor de ejemplo | Descripción  |
+| Configuración | Valor de ejemplo | Descripción  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
+| ResourceGroupName |  myresourcegroup |  Grupo de recursos donde se creará el servidor de réplica.  |
 | nombreDeServidor | mydemoserver | El nombre o el identificador del servidor de origen. |
 
 ### <a name="delete-a-replica-server"></a>Eliminación de un servidor de réplica

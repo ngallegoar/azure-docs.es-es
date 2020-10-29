@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146630"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372487"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planeamiento de la implementación de Aplicaciones de Azure Active Directory
 
@@ -40,15 +40,15 @@ También permite a los administradores administrar:
 
 Aplicaciones de Azure AD beneficia a las empresas de la forma siguiente:
 
-**Proporciona una experiencia de usuario intuitiva**: Aplicaciones proporciona una plataforma única para todas las aplicaciones conectadas al inicio de sesión único (SSO) de Azure. Tiene un portal unificado para encontrar la configuración actual y nuevas funcionalidades, similar a la administración de grupos y al autoservicio de restablecimiento de contraseña, a medida que se agregan. La experiencia intuitiva permite a los usuarios trabajar más rápido y ser más productivos, a la vez que se reduce su frustración.
+**Proporciona una experiencia de usuario intuitiva** : Aplicaciones proporciona una plataforma única para todas las aplicaciones conectadas al inicio de sesión único (SSO) de Azure. Tiene un portal unificado para encontrar la configuración actual y nuevas funcionalidades, similar a la administración de grupos y al autoservicio de restablecimiento de contraseña, a medida que se agregan. La experiencia intuitiva permite a los usuarios trabajar más rápido y ser más productivos, a la vez que se reduce su frustración.
 
-**Aumenta la productividad**: Todas las aplicaciones de usuario de Aplicaciones tienen habilitado el inicio de sesión único. Habilitar el inicio de sesión único en las aplicaciones empresariales y en Microsoft 365 ofrece una experiencia de inicio de sesión superior con la reducción o eliminación de los mensajes de inicio de sesión adicionales. Aplicaciones usa la pertenencia dinámica y de autoservicio y mejora la seguridad global del sistema de identidades. Aplicaciones garantiza que las personas adecuadas administran el acceso a las aplicaciones. Aplicaciones sirve como una página de aterrizaje coherente para encontrar rápidamente los recursos y continuar con las tareas del trabajo.
+**Aumenta la productividad** : Todas las aplicaciones de usuario de Aplicaciones tienen habilitado el inicio de sesión único. Habilitar el inicio de sesión único en las aplicaciones empresariales y en Microsoft 365 ofrece una experiencia de inicio de sesión superior con la reducción o eliminación de los mensajes de inicio de sesión adicionales. Aplicaciones usa la pertenencia dinámica y de autoservicio y mejora la seguridad global del sistema de identidades. Aplicaciones garantiza que las personas adecuadas administran el acceso a las aplicaciones. Aplicaciones sirve como una página de aterrizaje coherente para encontrar rápidamente los recursos y continuar con las tareas del trabajo.
 
-**Administra los costos**: la habilitación de Aplicaciones con Azure AD puede ayudar a retirar las inversiones en infraestructuras locales. Reduce los costos de soporte técnico al proporcionar un portal coherente para encontrar todas las aplicaciones, solicitar acceso a los recursos y administrar las cuentas.
+**Administra los costos** : la habilitación de Aplicaciones con Azure AD puede ayudar a retirar las inversiones en infraestructuras locales. Reduce los costos de soporte técnico al proporcionar un portal coherente para encontrar todas las aplicaciones, solicitar acceso a los recursos y administrar las cuentas.
 
-**Aumenta la flexibilidad y la seguridad**: Aplicaciones le permite acceder a la seguridad y la flexibilidad que proporciona una plataforma en la nube. Los administradores pueden cambiar fácilmente la configuración de las aplicaciones y los recursos, y adaptarse a los nuevos requisitos de seguridad sin que ello afecte a los usuarios.
+**Aumenta la flexibilidad y la seguridad** : Aplicaciones le permite acceder a la seguridad y la flexibilidad que proporciona una plataforma en la nube. Los administradores pueden cambiar fácilmente la configuración de las aplicaciones y los recursos, y adaptarse a los nuevos requisitos de seguridad sin que ello afecte a los usuarios.
 
-**Permite una eficaz auditoría y seguimiento del uso**: la auditoría y el seguimiento de uso de todas las funcionalidades del usuario final le permiten saber cuándo los usuarios usan sus recursos y le garantizan la evaluación de la seguridad.
+**Permite una eficaz auditoría y seguimiento del uso** : la auditoría y el seguimiento de uso de todas las funcionalidades del usuario final le permiten saber cuándo los usuarios usan sus recursos y le garantizan la evaluación de la seguridad.
 
 ### <a name="licensing-considerations"></a>Consideraciones acerca de las licencias
 
@@ -225,7 +225,7 @@ Hay flujos de trabajo de aprobación disponibles para la aprobación explícita 
 
 Puede permitir que los usuarios creen y administren sus propios grupos de seguridad o grupos de Microsoft 365 en Azure AD. El propietario del grupo puede aprobar o rechazar solicitudes de pertenencia y delegar el control de la pertenencia a grupos. Las características de administración de grupos de autoservicio no están disponibles para grupos de seguridad habilitados para correo electrónico o listas de distribución.
 
-Para planear la pertenencia a grupos de autoservicio, determine si va a permitir que todos los usuarios de su organización creen y administren los grupos, o solo un subconjunto de usuarios. Si solo lo va a permitir a un subconjunto de usuarios, deberá configurar un grupo al que se agreguen esas personas. Consulte [Configuración de la administración de grupos de autoservicio en Azure Active Directory](../users-groups-roles/groups-self-service-management.md) para más información sobre cómo habilitar estos escenarios.
+Para planear la pertenencia a grupos de autoservicio, determine si va a permitir que todos los usuarios de su organización creen y administren los grupos, o solo un subconjunto de usuarios. Si solo lo va a permitir a un subconjunto de usuarios, deberá configurar un grupo al que se agreguen esas personas. Consulte [Configuración de la administración de grupos de autoservicio en Azure Active Directory](../enterprise-users/groups-self-service-management.md) para más información sobre cómo habilitar estos escenarios.
 
 ## <a name="plan-reporting-and-auditing"></a>Planeación de informes y auditoría
 
@@ -299,7 +299,7 @@ Es importante planear qué hacer si la implementación no funciona según lo pre
 
 ## <a name="manage-your-implementation"></a>Administrar la implementación
 
-Use el rol con menos privilegios para realizar una tarea necesaria en Azure Active Directory. [Revise los distintos roles disponibles](../users-groups-roles/directory-assign-admin-roles.md) y elija el correcto para resolver las necesidades para cada rol de esta aplicación. Es posible que algunos roles se tengan que aplicar temporalmente y quitar una vez completada la implementación.
+Use el rol con menos privilegios para realizar una tarea necesaria en Azure Active Directory. [Revise los distintos roles disponibles](../roles/permissions-reference.md) y elija el correcto para resolver las necesidades para cada rol de esta aplicación. Es posible que algunos roles se tengan que aplicar temporalmente y quitar una vez completada la implementación.
 
 | Personas| Roles| Rol de Azure AD  |
 | - | -| -|

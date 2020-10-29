@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.custom: contperfq2
+ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91819276"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427634"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configuración del consentimiento de los usuarios finales a las aplicaciones
 
@@ -35,21 +36,21 @@ Las directivas de consentimiento de aplicaciones describen las condiciones que d
 
 Al elegir las directivas de consentimiento de aplicaciones que se aplican a todos los usuarios, puede establecer límites sobre cuándo los usuarios finales pueden conceder consentimiento a las aplicaciones y cuándo se les pedirá que soliciten la revisión y la aprobación del administrador:
 
-* **Deshabilitar el consentimiento del usuario**: los usuarios no pueden conceder permisos a las aplicaciones. Los usuarios pueden seguir iniciando sesión en las aplicaciones a las que dieron su consentimiento previamente o que los administradores autorizaron en su nombre, pero estos no podrán dar su consentimiento por sí solos a nuevos permisos ni a nuevas aplicaciones. Solo los usuarios a los que se haya concedido un rol de directorio que incluya el permiso para conceder consentimiento podrán consentir nuevas aplicaciones.
+* **Deshabilitar el consentimiento del usuario** : los usuarios no pueden conceder permisos a las aplicaciones. Los usuarios pueden seguir iniciando sesión en las aplicaciones a las que dieron su consentimiento previamente o que los administradores autorizaron en su nombre, pero estos no podrán dar su consentimiento por sí solos a nuevos permisos ni a nuevas aplicaciones. Solo los usuarios a los que se haya concedido un rol de directorio que incluya el permiso para conceder consentimiento podrán consentir nuevas aplicaciones.
 
 * **Los usuarios pueden dar su consentimiento a las aplicaciones de publicadores comprobados o de su organización, pero solo para los permisos que seleccione (versión preliminar)** : los usuarios solo pueden dar su consentimiento a las aplicaciones publicadas por un [publicador comprobado](../develop/publisher-verification-overview.md) y a las aplicaciones que están registradas en el inquilino. Los usuarios solo pueden dar su consentimiento a los permisos clasificados como de "bajo impacto". Debe [clasificar los permisos](configure-permission-classifications.md) para seleccionar aquellos a los que los usuarios pueden dar su consentimiento.
 
-* **Los usuarios pueden dar su consentimiento a todas las aplicaciones**: esta opción permite a todos los usuarios dar su consentimiento a cualquier permiso para todas las aplicaciones, siempre que este no requiera el consentimiento del administrador.
+* **Los usuarios pueden dar su consentimiento a todas las aplicaciones** : esta opción permite a todos los usuarios dar su consentimiento a cualquier permiso para todas las aplicaciones, siempre que este no requiera el consentimiento del administrador.
 
-* **Directiva de consentimiento de aplicaciones personalizada**: para obtener aún más opciones sobre las condiciones que rigen el consentimiento del usuario, puede [crear una directiva de consentimiento de aplicaciones personalizada](manage-app-consent-policies.md#create-a-custom-app-consent-policy), y configurarlas para que soliciten el consentimiento del usuario.
+* **Directiva de consentimiento de aplicaciones personalizada** : para obtener aún más opciones sobre las condiciones que rigen el consentimiento del usuario, puede [crear una directiva de consentimiento de aplicaciones personalizada](manage-app-consent-policies.md#create-a-custom-app-consent-policy), y configurarlas para que soliciten el consentimiento del usuario.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Para configurar el consentimiento del usuario en Azure Portal:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
-1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios**.
-1. En **Consentimiento del usuario para las aplicaciones**, seleccione la configuración de consentimiento que desee establecer para todos los usuarios.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Configuración del consentimiento de los usuarios** .
+1. En **Consentimiento del usuario para las aplicaciones** , seleccione la configuración de consentimiento que desee establecer para todos los usuarios.
 1. Haga clic en **Guardar** para guardar la configuración.
 
 :::image type="content" source="media/configure-user-consent/setting-for-all-users.png" alt-text="Configuración del consentimiento del usuario":::

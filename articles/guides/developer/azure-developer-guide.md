@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 770c9f7d677f739781db6290fa0c43e410761d17
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 8694c403b14234a70b0a67f9f4defb7817ba3ae3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327825"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372215"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guía de introducción para desarrolladores de Azure
 
@@ -281,7 +281,7 @@ Para crear o trabajar con una suscripción de Azure, debe tener una cuenta de Az
 
 Cada suscripción de Azure tiene una relación de confianza con una instancia de Azure AD. Esto significa que confía en ese directorio para autenticar usuarios, servicios y dispositivos. Varias suscripciones pueden confiar en el mismo directorio, pero una suscripción confía solo en un único directorio. Para más información, consulte [Asociación de las suscripciones de Azure con Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Además de definir identidades de cuenta de Azure individuales, también llamadas *usuarios* , puede definir *grupos* en Azure AD. Crear grupos de usuarios es una buena manera de administrar el acceso a los recursos de una suscripción mediante el control de acceso basado en roles de Azure (Azure RBAC). Para ver cómo crear grupos, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). También puede crear y administrar grupos [con PowerShell](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md).
+Además de definir identidades de cuenta de Azure individuales, también llamadas *usuarios* , puede definir *grupos* en Azure AD. Crear grupos de usuarios es una buena manera de administrar el acceso a los recursos de una suscripción mediante el control de acceso basado en roles (RBAC). Para ver cómo crear grupos, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). También puede crear y administrar grupos [con PowerShell](../../active-directory/enterprise-users/groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Administración de suscripciones
 

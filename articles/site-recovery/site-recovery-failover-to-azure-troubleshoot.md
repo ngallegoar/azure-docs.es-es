@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: e2ab52120e2a5db6648caac61f0228cb0be7e67b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355047"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371994"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -46,7 +46,7 @@ Site Recovery no pudo crear una máquina virtual conmutada por error en Azure. E
 
 Para mostrar todas las máquinas de Azure, el entorno de Azure requiere que algunos de los controladores tengan el estado de inicio de arranque y que servicios como DHCP tengan el estado de inicio automático. Por lo tanto, la actividad hidratación, en el momento de la conmutación por error, convierte el tipo de inicio de **atapi, intelide, storflt, vmbus, and storvsc drivers** en el inicio del arranque. También se convierte el tipo de inicio de una serie de servicios, como DHCP, para iniciarse automáticamente. Esta actividad puede producir un error debido a problemas específicos del entorno. 
 
-Para cambiar manualmente el tipo de inicio de los controladores para el **sistema operativo invitado de Windows**, siga estos pasos:
+Para cambiar manualmente el tipo de inicio de los controladores para el **sistema operativo invitado de Windows** , siga estos pasos:
 
 1. [Descargue](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) el script de no hidratación y ejecútelo de esta forma. Este script comprueba si la máquina virtual requiere hidratación.
 
@@ -55,7 +55,7 @@ Para cambiar manualmente el tipo de inicio de los controladores para el **sistem
     Proporciona el siguiente resultado si se requiere la hidratación:
 
     ```output
-    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
     This system doesn't meet no-hydration requirement.
     ```
@@ -84,11 +84,11 @@ Para obtener instrucciones detalladas para la solución de problemas de SSH, con
 
 Si el botón **Conectar** de la máquina virtual conmutada por error de Azure no está disponible y no está conectado a Azure a través de una conexión VPN Express Route o de sitio a sitio, entonces:
 
-1. Vaya a la **Máquina virtual** > **Red**, y haga clic en el nombre de la interfaz de red necesaria.  ![Captura de pantalla que muestra la página Redes de una máquina virtual con el nombre de la interfaz de red seleccionado.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Vaya a la **Máquina virtual** > **Red** , y haga clic en el nombre de la interfaz de red necesaria.  ![Captura de pantalla que muestra la página Redes de una máquina virtual con el nombre de la interfaz de red seleccionado.](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navegue hasta **Configuraciones IP** y, después, haga clic en el campo de nombre de la configuración IP necesaria. ![Captura de pantalla que muestra la página Configuraciones I P de la interfaz de red con el nombre de la configuración I P seleccionado.](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Para habilitar la dirección IP pública, haga clic en **Habilitar**. ![Habilitar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Haga clic en **Configurar los valores obligatorios** > **Crear uno nuevo**. ![Cree uno nuevo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
-5. Escriba el nombre de la dirección pública, seleccione las opciones predeterminadas para **SKU**y **asignación** y, después, haga clic en **Aceptar**.
+3. Para habilitar la dirección IP pública, haga clic en **Habilitar** . ![Habilitar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Haga clic en **Configurar los valores obligatorios** > **Crear uno nuevo** . ![Cree uno nuevo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. Escriba el nombre de la dirección pública, seleccione las opciones predeterminadas para **SKU** y **asignación** y, después, haga clic en **Aceptar** .
 6. Ahora, haga clic en **Guardar** para guardar los cambios.
 7. Cierre los paneles y navegue a la sección **Introducción** de la máquina virtual para conectar/RDP.
 
@@ -168,7 +168,7 @@ Para resolver el problema:
 
 2. Si la salida de los comandos anteriores muestra que se ha definido la configuración de http_proxy o https_proxy, use uno de los métodos siguientes para desbloquear las comunicaciones del destino maestro con el servidor de configuración:
    
-   - Descargue la [herramienta PsExec](https://aka.ms/PsExec).
+   - Descargue la [herramienta PsExec](/sysinternals/downloads/psexec).
    - Use la herramienta para acceder al contexto de usuario del sistema y determinar si la dirección del proxy está configurada. 
    - Si se ha configurado el proxy, abra Internet Explorer en un contexto de usuario del sistema mediante la herramienta PsExec.
   

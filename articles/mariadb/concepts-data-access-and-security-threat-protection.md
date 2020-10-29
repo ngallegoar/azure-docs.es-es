@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79532185"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425654"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Advanced Threat Protection en Azure Database for MariaDB
 
@@ -34,14 +34,14 @@ Advanced Threat Protection para Azure Database for MariaDB proporciona un nivel 
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertas de Advanced Threat Protection 
 Advanced Threat Protection para Azure Database for MariaDB detecta actividades anómalas, que pueden ser indicativas de intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad, y pueden desencadenar las siguientes alertas:
-- **Acceso desde una ubicación inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for MariaDB, donde alguien ha iniciado sesión en el servidor de Azure Database for MariaDB desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde un centro de datos de Azure inusual**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for MariaDB, donde alguien ha iniciado sesión en el servidor desde un centro de datos de Azure inusual que se vio en este servidor recientemente. En algunos casos, la alerta detecta una acción legítima (una aplicación nueva en Azure, Power BI). En otros casos, la alerta detecta una acción malintencionada procedente de un recurso o servicio de Azure (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde una entidad de seguridad desconocida**: esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for MariaDB, donde alguien ha iniciado sesión en el servidor utilizando una entidad de seguridad inusual (un usuario de Azure Database for MariaDB). En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
-- **Acceso desde una aplicación potencialmente dañina**: esta alerta se desencadena cuando una aplicación potencialmente dañina se utiliza para tener acceso a la base de datos. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta un ataque que se realiza con herramientas de ataque comunes.
-- **Ataques por fuerza bruta a las credenciales de Azure Database for MariaDB**: esta alerta se desencadena cuando hay un número anormalmente elevado de inicios de sesión infructuosos con distintas credenciales. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta ataques por fuerza bruta.
+- **Acceso desde una ubicación inusual** : esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for MariaDB, donde alguien ha iniciado sesión en el servidor de Azure Database for MariaDB desde una ubicación geográfica inusual. En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde un centro de datos de Azure inusual** : esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for MariaDB, donde alguien ha iniciado sesión en el servidor desde un centro de datos de Azure inusual que se vio en este servidor recientemente. En algunos casos, la alerta detecta una acción legítima (una aplicación nueva en Azure, Power BI). En otros casos, la alerta detecta una acción malintencionada procedente de un recurso o servicio de Azure (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde una entidad de seguridad desconocida** : esta alerta se desencadena cuando se produce un cambio en el patrón de acceso al servidor de Azure Database for MariaDB, donde alguien ha iniciado sesión en el servidor utilizando una entidad de seguridad inusual (un usuario de Azure Database for MariaDB). En algunos casos, la alerta detecta una acción legítima (una nueva aplicación o el mantenimiento de un desarrollador). En otros casos, la alerta detecta una acción malintencionada (por ejemplo, un antiguo empleado o un atacante externo).
+- **Acceso desde una aplicación potencialmente dañina** : esta alerta se desencadena cuando una aplicación potencialmente dañina se utiliza para tener acceso a la base de datos. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta un ataque que se realiza con herramientas de ataque comunes.
+- **Ataques por fuerza bruta a las credenciales de Azure Database for MariaDB** : esta alerta se desencadena cuando hay un número anormalmente elevado de inicios de sesión infructuosos con distintas credenciales. En algunos casos, la alerta detecta la realización de pruebas de seguridad. En otros casos, la alerta detecta ataques por fuerza bruta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Más información acerca de [Azure Security Center](../security-center/security-center-introduction.md)
 * Para obtener más información sobre los precios, vea la [página Precios de Azure Database for MariaDB](https://azure.microsoft.com/pricing/details/mariadb/) 
-* Configuración de [Advanced Threat Protection para Azure Database for MariaDB](howto-database-threat-protection-portal.md) en Azure Portal  
+* Configuración de [Advanced Threat Protection para Azure Database for MariaDB](howto-database-threat-protection-portal.md) en Azure Portal

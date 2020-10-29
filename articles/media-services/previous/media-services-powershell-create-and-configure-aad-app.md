@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7e54c89a609b39a88d2a34078aadd6bbe9308e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f9568d175d564547e58bc3584174cb0f239dd49
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268373"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425212"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Uso de PowerShell para crear una aplicación de Azure AD para usarla con la API de Azure Media Services
 
@@ -63,7 +63,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 Para más información, consulte los siguientes artículos.
 
 - [Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-- [Administración del control de acceso basado en rol con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Incorporación o eliminación de asignaciones de roles de Azure con Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Configuración manual de aplicaciones de demonio mediante certificados](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 
 ## <a name="next-steps"></a>Pasos siguientes

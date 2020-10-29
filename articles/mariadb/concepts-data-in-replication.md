@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91536620"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425573"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar datos en Azure Database for MariaDB
 
@@ -34,10 +34,10 @@ La [*base de datos del sistema mysql*](https://mariadb.com/kb/en/library/the-mys
 - Cada tabla debe tener una clave principal.
 - El servidor de origen debe usar el motor InnoDB.
 - El usuario debe tener permisos para configurar el registro binario y crear nuevos usuarios en el servidor de origen.
-- Si el servidor de origen tiene SSL habilitado, asegúrese de que el certificado de entidad de certificación de SSL proporcionado para el dominio se haya incluido en el procedimiento almacenado `mariadb.az_replication_change_master`. Consulte los [ejemplos](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) siguientes y el parámetro `master_ssl_ca`.
-- Asegúrese de que la dirección IP del servidor de origen se ha agregado a las reglas de firewall del servidor de réplica de Azure Database for MariaDB. Actualice las reglas de firewall mediante [Azure Portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) o la [CLI de Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Si el servidor de origen tiene SSL habilitado, asegúrese de que el certificado de entidad de certificación de SSL proporcionado para el dominio se haya incluido en el procedimiento almacenado `mariadb.az_replication_change_master`. Consulte los [ejemplos](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) siguientes y el parámetro `master_ssl_ca`.
+- Asegúrese de que la dirección IP del servidor de origen se ha agregado a las reglas de firewall del servidor de réplica de Azure Database for MariaDB. Actualice las reglas de firewall mediante [Azure Portal](howto-manage-firewall-portal.md) o la [CLI de Azure](howto-manage-firewall-cli.md).
 - Asegúrese de que la máquina que hospeda el servidor de origen permite el tráfico entrante y saliente en el puerto 3306.
-- Asegúrese de que el servidor de origen tenga una **dirección IP pública**, de que el DNS sea accesible públicamente o de que tenga un nombre de dominio completo (FQDN).
+- Asegúrese de que el servidor de origen tenga una **dirección IP pública** , de que el DNS sea accesible públicamente o de que tenga un nombre de dominio completo (FQDN).
 
 ### <a name="other"></a>Otros
 - La Replicación de datos de entrada solo se admite en los planes de tarifa De uso general y Optimizada para memoria.

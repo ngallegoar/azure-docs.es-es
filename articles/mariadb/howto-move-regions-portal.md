@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75fabeeb7fa879a0f2843538d34f85e5ccec40e4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542434"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425902"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Traslado de un servidor de Azure Database for MariaDB a otra región mediante Azure Portal
 
@@ -21,7 +21,7 @@ Hay varios escenarios para mover un servidor de Azure Database for MariaDB exist
 Puede usar una [réplica de lectura entre regiones](concepts-read-replicas.md#cross-region-replication) de Azure Database for MariaDB para completar el traslado a otra región. Para ello, primero cree una réplica de lectura en la región de destino. A continuación, detenga la replicación en el servidor de réplica de lectura para convertirlo en un servidor independiente que acepte el tráfico tanto de lectura como de escritura. 
 
 > [!NOTE]
-> Este artículo se centra en el traslado del servidor a otra región. Si desea mover el servidor a otro grupo de recursos o suscripción, consulte el artículo de [traslado](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription). 
+> Este artículo se centra en el traslado del servidor a otra región. Si desea mover el servidor a otro grupo de recursos o suscripción, consulte el artículo de [traslado](../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,9 +34,9 @@ Puede usar una [réplica de lectura entre regiones](concepts-read-replicas.md#cr
 Para crear un servidor de réplica de lectura entre regiones en la región de destino mediante Azure Portal, siga estos pasos:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-1. Seleccione el servidor de Azure Database for MariaDB existente que desea utilizar como servidor de origen. Esta acción abre la página **Información general**.
-1. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN**.
-1. Seleccione **Agregar réplica**.
+1. Seleccione el servidor de Azure Database for MariaDB existente que desea utilizar como servidor de origen. Esta acción abre la página **Información general** .
+1. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN** .
+1. Seleccione **Agregar réplica** .
 1. Escriba un nombre para el servidor de réplica.
 1. Seleccione la ubicación del servidor de réplica. La ubicación predeterminada es la misma que la del servidor de origen. Verifique haber seleccionado la ubicación de destino en la que desea implementar la réplica.
 1. Seleccione **Aceptar** para confirmar la creación de la réplica. Durante la creación de la réplica, los datos se copian del servidor de origen a la réplica. El tiempo de creación puede tardar varios minutos o más, en proporción con el tamaño del servidor de origen.
@@ -53,19 +53,19 @@ Para crear un servidor de réplica de lectura entre regiones en la región de de
 Detener la replicación en el servidor de réplicas hace que se convierta en servidor independiente. Para detener la replicación en la réplica desde Azure Portal, siga estos pasos:
 
 1. Una vez que se haya creado la réplica, busque y seleccione el servidor de origen de Azure Database for MariaDB. 
-1. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN**.
+1. Seleccione **Replicación** en el menú, en **CONFIGURACIÓN** .
 1. Seleccione el servidor de réplica.
-1. Seleccione **Detener replicación**.
-1. Para confirmar que desea detener la replicación, haga clic en **Aceptar**.
+1. Seleccione **Detener replicación** .
+1. Para confirmar que desea detener la replicación, haga clic en **Aceptar** .
 
 ## <a name="clean-up-source-server"></a>Limpieza del servidor de origen
 
 Puede que desee eliminar el servidor de Azure Database for MariaDB de origen. Para ello, siga estos pasos:
 
 1. Una vez que se haya creado la réplica, busque y seleccione el servidor de origen de Azure Database for MariaDB.
-1. En la ventana **Información general**, seleccione **Eliminar**.
+1. En la ventana **Información general** , seleccione **Eliminar** .
 1. Escriba el nombre del servidor de origen para confirmar que desea eliminarlo.
-1. Seleccione **Eliminar**.
+1. Seleccione **Eliminar** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

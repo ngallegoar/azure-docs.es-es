@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: contperfq2
+ms.openlocfilehash: 38bff38ebe44d9018299444b89d7743c4cc92b72
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104570"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424203"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 

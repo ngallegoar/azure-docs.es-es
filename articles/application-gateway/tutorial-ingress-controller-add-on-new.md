@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285611"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427977"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Habilitar el complemento Controlador de entrada (versión preliminar) para un nuevo clúster de AKS con una nueva instancia de Application Gateway
 
@@ -82,18 +82,18 @@ Ahora implementará un nuevo clúster de AKS con el complemento AGIC habilitado.
 > - Habilite WAF en Application Gateway a través del portal. 
 > - Cree la instancia del WAF_v2 de Application Gateway primero y luego, siga las instrucciones sobre cómo [habilitar el complemento de AGIC con un clúster de AKS existente y la instancia de Application Gateway existente](tutorial-ingress-controller-add-on-existing.md). 
 
-En el ejemplo siguiente, implementará un nuevo clúster de AKS denominado *myCluster* con [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) e [identidades administradas](https://docs.microsoft.com/azure/aks/use-managed-identity). El complemento AGIC se habilitará en el grupo de recursos que creó, *myResourceGroup*. 
+En el ejemplo siguiente, implementará un nuevo clúster de AKS denominado *myCluster* con [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) e [identidades administradas](https://docs.microsoft.com/azure/aks/use-managed-identity). El complemento AGIC se habilitará en el grupo de recursos que creó, *myResourceGroup* . 
 
 La implementación de un nuevo clúster de AKS con el complemento de AGIC habilitado sin especificar una instancia de Application Gateway existente hará referencia a la creación automática de una SKU de Standard_v2 de Application Gateway. Por lo tanto, también especificará el nombre y el espacio de direcciones de subred de la instancia de Application Gateway. El nombre de la instancia de Application Gateway será *myApplicationGateway* y el espacio de direcciones de subred que usamos es 10.2.0.0/16. Asegúrese de que agregó o actualizó la extensión aks-preview al principio de este tutorial. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 Para configurar parámetros adicionales para el comando `az aks create`, vea [estas referencias](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 
 
 > [!NOTE]
-> El clúster de AKS que creó aparecerá en el grupo de recursos que creó, *myResourceGroup*. Pero la instancia de Application Gateway creada automáticamente estará en el grupo de recursos del nodo, donde se encuentran los grupos de agentes. El grupo de recursos de nodo se denomina *MC_resource-group-name_cluster-name_location* de manera predeterminada, pero se puede modificar. 
+> El clúster de AKS que creó aparecerá en el grupo de recursos que creó, *myResourceGroup* . Pero la instancia de Application Gateway creada automáticamente estará en el grupo de recursos del nodo, donde se encuentran los grupos de agentes. El grupo de recursos de nodo se denomina *MC_resource-group-name_cluster-name_location* de manera predeterminada, pero se puede modificar. 
 
 ## <a name="deploy-a-sample-application-by-using-agic"></a>Implementar una aplicación de ejemplo con AGIC
 

@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932244"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372368"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Conexión a SQL Managed Instance habilitada para Azure Arc
 
@@ -47,7 +47,7 @@ Si usa AKS, kubeadm, OpenShift, etc., puede copiar el número de puerto y la dir
 
 Conexión con Azure Data Studio, SQL Server Management Studio o SQLCMD
 
-Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anteriores. Si usa una máquina virtual de Azure, necesitará la dirección IP _pública_, que se puede identificar según se describe en [Nota especial sobre las implementaciones de máquinas virtuales de Azure](#special-note-about-azure-virtual-machine-deployments).
+Abra Azure Data Studio y conéctese a la instancia con la dirección IP y el número de puerto del punto de conexión externo anteriores. Si usa una máquina virtual de Azure, necesitará la dirección IP _pública_ , que se puede identificar según se describe en [Nota especial sobre las implementaciones de máquinas virtuales de Azure](#special-note-about-azure-virtual-machine-deployments).
 
 Por ejemplo:
 
@@ -68,7 +68,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 Si usa una máquina virtual de Azure, la dirección IP del punto de conexión no mostrará la dirección IP pública. Para buscar la dirección IP externa, use el siguiente comando:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -78,7 +78,7 @@ Es posible que también tenga que exponer el puerto de la instancia de SQL media
 
 Para establecer una regla, deberá conocer el nombre del NSG, el cual puede encontrar mediante el comando siguiente:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -86,7 +86,7 @@ Una vez que tenga el nombre del NSG, puede agregar una regla de firewall mediant
 
 Reemplace el valor del parámetro `--destination-port-ranges` siguiente por el número de puerto que recibió del comando `azdata sql instance list` anterior.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

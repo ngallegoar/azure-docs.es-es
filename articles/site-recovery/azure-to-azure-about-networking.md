@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332049"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370447"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Acerca de las redes para la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Se requiere para la autorización y la autenticació
 Cuando utiliza un grupo de seguridad de red para controlar la conectividad de salida, deben permitirse estas etiquetas de servicio.
 
 - Para las cuentas de almacenamiento en la región de origen:
-    - Cree una regla de NSG basada en la [etiqueta del servicio Storage](../virtual-network/security-overview.md#service-tags) para la región de origen.
+    - Cree una regla de NSG basada en la [etiqueta del servicio Storage](../virtual-network/network-security-groups-overview.md#service-tags) para la región de origen.
     - Permita estas direcciones para que los datos se puedan escribir en la cuenta de almacenamiento en caché, desde la máquina virtual.
-- Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
+- Cree una regla de grupos de seguridad de red basada en la [etiqueta de servicio de Azure Active Directory (AAD)](../virtual-network/network-security-groups-overview.md#service-tags) para permitir el acceso a todas las direcciones IP correspondientes a AAD.
 - Cree una regla de NSG basada en una etiqueta de servicio EventsHub para la región de destino, lo que permite el acceso a la supervisión de Site Recovery.
 - Cree una regla de grupo de seguridad de red basada en una etiqueta de servicio AzureSiteRecovery para permitir el acceso al servicio Site Recovery en cualquier región.
 - Cree una regla de grupo de seguridad de red basada en una etiqueta de servicio AzureKeyVault. Esto solo es necesario para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal.

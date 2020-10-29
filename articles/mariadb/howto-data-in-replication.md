@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598202"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425995"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configuración de la replicación de datos de entrada en Azure Database for MariaDB
 
@@ -45,7 +45,7 @@ Revise las [limitaciones y los requisitos](concepts-data-in-replication.md#limit
 > [!NOTE]
 > Comunicación sin prejuicios
 >
-> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_. En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
+> Microsoft admite un entorno diverso e inclusivo. En este artículo se incluyen referencias a la palabra _esclavo_ . En la [guía de estilo para la comunicación sin prejuicios](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) de Microsoft se reconoce que se trata de una palabra excluyente. Se usa en este artículo por coherencia, ya que actualmente es la palabra que aparece en el software. Cuando se actualice el software para quitarla, este artículo se actualizará para que esté alineado.
 >
 
 ## <a name="configure-the-source-server"></a>Configuración del servidor de origen
@@ -54,9 +54,9 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
 1. Revise los [requisitos del servidor maestro](concepts-data-in-replication.md#requirements) antes de continuar. 
 
-2. Asegúrese de que el servidor de origen permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor de origen tiene una **dirección IP pública**, el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
+2. Asegúrese de que el servidor de origen permite el tráfico entrante y saliente en el puerto 3306 y de que el servidor de origen tiene una **dirección IP pública** , el DNS es accesible públicamente o tiene un nombre de dominio completo (FQDN). 
    
-   Pruebe la conectividad con el servidor de origen; para ello, pruebe a conectarse desde una herramienta como la línea de comandos de MySQL hospedada en otra máquina o desde la instancia de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) disponible en Azure Portal.
+   Pruebe la conectividad con el servidor de origen; para ello, pruebe a conectarse desde una herramienta como la línea de comandos de MySQL hospedada en otra máquina o desde la instancia de [Azure Cloud Shell](../cloud-shell/overview.md) disponible en Azure Portal.
 
    Si su organización tiene estrictas directivas de seguridad y no permite que todas las direcciones IP del servidor de origen permitan la comunicación desde Azure al servidor de origen, puede usar el siguiente comando para determinar la dirección IP de su servidor de Azure Database for MariaDB.
     
@@ -84,7 +84,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
       Pinging tr1830.westus1-a.worker.database.windows.net (**11.11.111.111**) 56(84) bytes of data.
       ```
 
-   5. Configure las reglas de firewall del servidor de origen para incluir la dirección IP de salida del paso anterior en el puerto 3306.
+   5. Configure las reglas de firewall del servidor de origen para incluir la dirección IP de salida del paso anterior en el puerto 3306.
 
    > [!NOTE]
    > Esta dirección IP puede cambiar debido a operaciones de mantenimiento o implementación. Este método de conectividad es solo para los clientes que no pueden permitirse que permitan todas las direcciones IP en el puerto 3306.
@@ -141,15 +141,15 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
    **MySQL Workbench**
 
-   Para crear el rol de replicación en MySQL Workbench, abra el panel **Administración** y seleccione **Usuarios y privilegios**. A continuación, seleccione **Agregar cuenta**.
+   Para crear el rol de replicación en MySQL Workbench, abra el panel **Administración** y seleccione **Usuarios y privilegios** . A continuación, seleccione **Agregar cuenta** .
  
    ![Usuarios y privilegios](./media/howto-data-in-replication/users_privileges.png)
 
-   Introduzca un nombre de usuario en el campo **Nombre de inicio de sesión**.
+   Introduzca un nombre de usuario en el campo **Nombre de inicio de sesión** .
 
    ![Usuario de sincronización](./media/howto-data-in-replication/syncuser.png)
  
-   Seleccione el panel **Roles administrativos** y, a continuación, en la lista **Privilegios globales**, seleccione **Servidor subordinado de replicación**. Seleccione **Aplicar** para crear el rol de replicación.
+   Seleccione el panel **Roles administrativos** y, a continuación, en la lista **Privilegios globales** , seleccione **Servidor subordinado de replicación** . Seleccione **Aplicar** para crear el rol de replicación.
 
    ![Servidor subordinado de replicación](./media/howto-data-in-replication/replicationslave.png)
 
@@ -212,7 +212,7 @@ En los siguientes pasos se prepara y configura el servidor MariaDB en el entorno
 
 1. Establezca el servidor de origen.
 
-   Todas las funciones de la replicación de datos internos se realizan mediante los procedimientos almacenados. Puede encontrar todos los procedimientos en [Procedimientos almacenados de replicación de datos internos](reference-data-in-stored-procedures.md). Los procedimientos almacenados se pueden ejecutar en el shell de MySQL o en MySQL Workbench.
+   Todas las funciones de la replicación de datos internos se realizan mediante los procedimientos almacenados. Puede encontrar todos los procedimientos en [Procedimientos almacenados de replicación de datos internos](reference-stored-procedures.md). Los procedimientos almacenados se pueden ejecutar en el shell de MySQL o en MySQL Workbench.
 
    Para vincular dos servidores e iniciar la replicación, inicie sesión en el servidor de réplica de destino en el servicio Azure Database for MariaDB. A continuación, establezca la instancia externa como servidor de origen mediante el uso de los procedimientos almacenados `mysql.az_replication_change_master` o `mysql.az_replication_change_master_with_gtid` en la base de datos de Azure para el servidor de MariaDB.
 

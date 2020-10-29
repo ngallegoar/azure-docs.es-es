@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998762"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92428347"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servicio de alto rendimiento con Triton Inference Server (versión preliminar) 
 
@@ -24,17 +24,17 @@ Aprenda a usar [Triton Inference Server de NVIDIA](https://developer.nvidia.com/
 
 Una de las formas de implementar un modelo para la inferencia es como servicio web. Por ejemplo, una implementación en Azure Kubernetes Service o Azure Container Instances. De manera predeterminada, Azure Machine Learning usa un marco web *de uso general* de un solo subproceso para las implementaciones de servicios web.
 
-Triton es un marco que está *optimizado para la inferencia*. Ofrece un mejor uso de las GPU y una inferencia más rentable. Del lado servidor, procesa por lotes las solicitudes entrantes y envía estos lotes para inferencia. El procesamiento por lotes mejora el uso de los recursos de GPU y es una parte fundamental del rendimiento de Triton.
+Triton es un marco que está *optimizado para la inferencia* . Ofrece un mejor uso de las GPU y una inferencia más rentable. Del lado servidor, procesa por lotes las solicitudes entrantes y envía estos lotes para inferencia. El procesamiento por lotes mejora el uso de los recursos de GPU y es una parte fundamental del rendimiento de Triton.
 
 > [!IMPORTANT]
-> El uso de Triton para la implementación desde Azure Machine Learning está actualmente en __versión preliminar__. Es posible que la funcionalidad de versión preliminar no esté incluida en el soporte técnico al cliente. Para obtener más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> El uso de Triton para la implementación desde Azure Machine Learning está actualmente en __versión preliminar__ . Es posible que la funcionalidad de versión preliminar no esté incluida en el soporte técnico al cliente. Para obtener más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!TIP]
-> Los fragmentos de código de este documento tienen fines ilustrativos y puede que no muestren una solución completa. Para ver el código de ejemplo funcional, consulte los [ejemplos integrales de Triton en Azure Machine Learning](https://aka.ms/aml-triton-sample).
+> Los fragmentos de código de este documento tienen fines ilustrativos y puede que no muestren una solución completa. Para ver el código de ejemplo funcional, consulte los [ejemplos integrales de Triton en Azure Machine Learning](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **suscripción de Azure** . Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiaridad con [cómo y dónde se implementa un modelo](how-to-deploy-and-where.md) con Azure Machine Learning.
 * El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) **o** la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) y la [extensión de Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instalación en funcionamiento de Docker para las pruebas locales. Para obtener información sobre la instalación y validación de Docker, consulte [Orientation and setup](https://docs.docker.com/get-started/) (Orientación e instalación) en la documentación de Docker.
@@ -47,14 +47,14 @@ Antes de intentar usar Triton para su propio modelo, es importante comprender c�
 
 * Se inician varios trabajos de [Gunicorn](https://gunicorn.org/) para controlar las solicitudes entrantes simultáneamente.
 * Estos trabajos controlan el procesamiento previo, la llamada al modelo y el procesamiento posterior. 
-* Las solicitudes de inferencia usan el __URI de puntuación__. Por ejemplo, `https://myserevice.azureml.net/score`.
+* Las solicitudes de inferencia usan el __URI de puntuación__ . Por ejemplo, `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Diagrama de la arquitectura de implementación normal, sin Triton":::
 
 **Implementación de la configuración de inferencia con Triton**
 
 * Se inician varios trabajos de [Gunicorn](https://gunicorn.org/) para controlar las solicitudes entrantes simultáneamente.
-* Las solicitudes se reenvían al **servidor de Triton**. 
+* Las solicitudes se reenvían al **servidor de Triton** . 
 * Triton procesa las solicitudes por lotes para maximizar el uso de la GPU.
 * El cliente usa el __URI de puntuación__ para hacer solicitudes. Por ejemplo, `https://myserevice.azureml.net/score`.
 
@@ -178,7 +178,7 @@ az ml model register --model-path='triton' \
 
 ## <a name="add-pre-and-post-processing"></a>Adición de código anterior posterior al procesamiento
 
-Después de comprobar que el servicio web funciona, puede agregar código anterior y posterior al procesamiento; para ello, defina un _script de entrada_. Este archivo se denomina `score.py`. Para obtener más información sobre los scripts de entrada, consulte [Definición de un script de entrada](how-to-deploy-and-where.md#define-an-entry-script).
+Después de comprobar que el servicio web funciona, puede agregar código anterior y posterior al procesamiento; para ello, defina un _script de entrada_ . Este archivo se denomina `score.py`. Para obtener más información sobre los scripts de entrada, consulte [Definición de un script de entrada](how-to-deploy-and-where.md#define-an-entry-script).
 
 Los dos pasos principales son inicializar un cliente HTTP de Triton en el método `init()` y llamar a ese cliente en la función `run()`.
 

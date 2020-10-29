@@ -9,17 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079632"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440457"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilice identidades administradas con Azure Machine Learning (versión preliminar)
 
-Las [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview) permiten configurar el área de trabajo con los *permisos mínimos necesarios para acceder a los recursos*. 
+Las [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview) permiten configurar el área de trabajo con los *permisos mínimos necesarios para acceder a los recursos* . 
 
 Al configurar el área de trabajo de Azure Machine Learning de forma confiable, es importante asegurarse de que los distintos servicios asociados al área de trabajo tienen el nivel de acceso correcto. Por ejemplo, durante el flujo de trabajo de Machine Learning, el área de trabajo necesita acceso a Azure Container Registry (ACR) para las imágenes de Docker y a las cuentas de almacenamiento para los datos de entrenamiento. 
 
@@ -29,7 +29,6 @@ En este artículo, aprenderá a usar las identidades administradas para:
 
  * Configurar y usar ACR para el área de trabajo de Azure Machine Learning sin tener que habilitar el acceso de usuario administrador a ACR.
  * Acceder a una instancia privada de ACR externa al área de trabajo para extraer las imágenes base para el entrenamiento o la inferencia.
- * Acceder a conjuntos de datos de entrenamiento mediante identidades administradas en lugar de claves de acceso de almacenamiento.
 
 > [!IMPORTANT]
 > El uso de identidades administradas para controlar el acceso a los recursos con Azure Machine Learning está actualmente en versión preliminar. La funcionalidad de versión preliminar se proporciona "tal cual", sin ninguna garantía de soporte técnico ni contrato de nivel de servicio. Para obtener más información, consulte [Condiciones de uso complementarias de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -39,7 +38,7 @@ En este artículo, aprenderá a usar las identidades administradas para:
 - Un área de trabajo de Azure Machine Learning. Para más información, consulte [Creación de un área de trabajo de Azure Machine Learning](how-to-manage-workspace.md).
 - La [extensión de la CLI de Azure para el servicio Machine Learning](reference-azure-machine-learning-cli.md).
 - El [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-- Para asignar roles, el inicio de sesión de la suscripción de Azure debe tener el rol de [operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) u otro rol que conceda las acciones necesarias (como el de __propietario__).
+- Para asignar roles, el inicio de sesión de la suscripción de Azure debe tener el rol de [operador de identidad administrada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) u otro rol que conceda las acciones necesarias (como el de __propietario__ ).
 - Debe estar familiarizado con la creación y el uso de [identidades administradas](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ## <a name="configure-managed-identities"></a>Configuración de identidades administradas
@@ -47,7 +46,7 @@ En este artículo, aprenderá a usar las identidades administradas para:
 En algunas situaciones, es necesario impedir el acceso de usuario administrador a Azure Container Registry. Por ejemplo, es posible que la instancia de ACR sea compartida y deba impedir el acceso de administrador a otros usuarios. O bien, que una directiva de nivel de suscripción impida la creación de ACR con el usuario administrador habilitado.
 
 > [!IMPORTANT]
-> Al usar Azure Machine Learning para la inferencia en Azure Container Instance (ACI), el acceso de usuario administrador en ACR es __obligatorio__. No lo deshabilite si planea implementar modelos en ACI con fines de inferencia.
+> Al usar Azure Machine Learning para la inferencia en Azure Container Instance (ACI), el acceso de usuario administrador en ACR es __obligatorio__ . No lo deshabilite si planea implementar modelos en ACI con fines de inferencia.
 
 Al crear una instancia de ACR sin habilitar el acceso de usuario administrador, las identidades administradas se usan para acceder a ACR con la finalidad de compilar y extraer imágenes de Docker.
 
@@ -174,7 +173,7 @@ env.python.user_managed_dependencies = True
 
 En este escenario, el servicio Azure Machine Learning crea el entorno de entrenamiento o inferencia sobre una imagen base que el usuario suministra desde una instancia de ACR privada. Dado que la tarea de creación de la imagen se lleva a cabo en la instancia de ACR del área de trabajo mediante ACR Tasks, debe realizar pasos adicionales para permitir el acceso.
 
-1. Cree una __identidad administrada asignada por el usuario__ y concédale acceso ACRPull para la __instancia de ACR privada__.  
+1. Cree una __identidad administrada asignada por el usuario__ y concédale acceso ACRPull para la __instancia de ACR privada__ .  
 1. Conceda a la __identidad administrada asignada por el sistema__ del área de trabajo el rol de operador de identidad administrada en la __identidad administrada asignada por el usuario__ del paso anterior. Este rol permite al área de trabajo asignar la identidad administrada asignada por el usuario a la tarea de ACR Tasks para crear el entorno administrado. 
 
     1. Obtenga el identificador de entidad de seguridad de la identidad administrada asignada por el sistema del área de trabajo:
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>Acceso a los datos de entrenamiento
-
-Una vez que haya creado un clúster de proceso de Machine Learning con una identidad administrada tal y como se ha descrito anteriormente, puede usar esa identidad para acceder a los datos de entrenamiento sin claves de cuenta de almacenamiento. Puede usar una identidad administrada asignada por el usuario o por el sistema para este escenario.
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>Concesión a la identidad administrada del proceso de acceso a la cuenta de almacenamiento
-
-[Conceda a la identidad administrada un rol de lector](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) en la cuenta de almacenamiento donde se almacenan los datos de entrenamiento.
-
-### <a name="register-data-store-with-workspace"></a>Registro del almacén de datos con el área de trabajo
-
-Después de asignar la identidad administrada, puede crear un almacén de datos sin tener que especificar las credenciales de almacenamiento.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>Envío de una ejecución de entrenamiento
-
-Cuando se envía una ejecución de entrenamiento mediante el almacén de datos, el proceso de Machine Learning usa su identidad administrada para obtener acceso a los datos.
 
 ## <a name="use-docker-images-for-inference"></a>Uso de imágenes de Docker para la inferencia
 

@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: d5016dbff30eb054e413acc66b1b2dfee62a5873
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: contperfq2
+ms.openlocfilehash: d23ef7b78f5e97ee8a82f46794f37f3baf05ca49
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070680"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427662"
 ---
 # <a name="configure-permission-classifications"></a>Configuración de las clasificaciones de los permisos
 
@@ -33,8 +34,8 @@ Actualmente, solo se admite la clasificación de permisos de "bajo impacto". Sol
 
 Siga estos pasos para clasificar los permisos mediante Azure Portal:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [Administrador de aplicaciones](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) o [Administrador de aplicaciones en la nube](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
-1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Clasificaciones de permisos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) como [Administrador global](../roles/permissions-reference.md#global-administrator--company-administrator), [Administrador de aplicaciones](../roles/permissions-reference.md#application-administrator) o [Administrador de aplicaciones en la nube](../roles/permissions-reference.md#cloud-application-administrator).
+1. Seleccione **Azure Active Directory** > **Aplicaciones empresariales** > **Consentimiento y permisos** > **Clasificaciones de permisos** .
 1. Elija **Agregar permisos** para clasificar otro permiso como "bajo impacto".
 1. Seleccione la API y, después, seleccione los permisos delegados.
 
