@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448282"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521040"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Administración de un HSM administrado mediante la CLI de Azure
 
 > [!NOTE]
-> Key Vault admite dos tipos de recursos: almacenes y HSM administrados. Este artículo trata sobre los **HSM administrados**. Si desea obtener información sobre cómo administrar un almacén, consulte [Administración de Key Vault mediante la CLI de Azure](../general/manage-with-cli2.md).
+> Key Vault admite dos tipos de recursos: almacenes y HSM administrados. Este artículo trata sobre los **HSM administrados** . Si desea obtener información sobre cómo administrar un almacén, consulte [Administración de Key Vault mediante la CLI de Azure](../general/manage-with-cli2.md).
 
 Para obtener información general sobre los HSM administrados, consulte [¿Qué es HSM administrado?](overview.md).
 
@@ -45,7 +45,7 @@ az login
 Para más información sobre las opciones de inicio de sesión mediante la CLI, consulte [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 > [!NOTE]
-> Todos los comandos siguientes muestran dos métodos de uso. Uno que usa los parámetros **--hsm-name** y **--name** (para el nombre de clave) y otro que usa el parámetro **--id**, donde puede especificar la dirección URL completa, incluido el nombre de clave si corresponde. El último método es útil cuando el autor de la llamada (un usuario o una aplicación) no tiene acceso de lectura en el plano de control y solo tiene acceso restringido en el plano de datos.
+> Todos los comandos siguientes muestran dos métodos de uso. Uno que usa los parámetros **--hsm-name** y **--name** (para el nombre de clave) y otro que usa el parámetro **--id** , donde puede especificar la dirección URL completa, incluido el nombre de clave si corresponde. El último método es útil cuando el autor de la llamada (un usuario o una aplicación) no tiene acceso de lectura en el plano de control y solo tiene acceso restringido en el plano de datos.
 
 ## <a name="create-an-hsm-key"></a>Creación de una clave de HSM
 
@@ -69,7 +69,7 @@ Tenga en cuenta que la operación `get` solo devuelve la clave pública y los at
 
 ### <a name="create-an-ec-key"></a>Creación de una clave EC
 
-En el ejemplo siguiente se muestra cómo crear una clave **EC** con una curva P-256 que solo se utilizará para las operaciones **sign y verify** (--ops) con dos etiquetas, **usage** y **appname**. Las etiquetas le ayudan a agregar metadatos adicionales a la clave para facilitar el seguimiento y la administración.
+En el ejemplo siguiente se muestra cómo crear una clave **EC** con una curva P-256 que solo se utilizará para las operaciones **sign y verify** (--ops) con dos etiquetas, **usage** y **appname** . Las etiquetas le ayudan a agregar metadatos adicionales a la clave para facilitar el seguimiento y la administración.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
@@ -90,7 +90,7 @@ az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decr
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
 ```
 
 ## <a name="view-key-attributes-and-tags"></a>Visualización de atributos y etiquetas de claves

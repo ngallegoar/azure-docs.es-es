@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818491"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516977"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Preguntas más frecuentes sobre Azure Container Instances
 
@@ -53,7 +53,7 @@ Consulte una [guía más detallada](container-instances-troubleshooting.md#conta
 
 ### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>¿Qué capas de imagen .NET o .NET Core debo usar en mi contenedor? 
 
-Use la imagen más pequeña que satisfaga sus requisitos. Para Linux, puede usar una imagen *runtime-alpine* de .NET Core, que se admite desde el lanzamiento de .NET Core 2.1. Para Windows, si está utilizando .NET Framework completo, deberá usar una imagen de Windows Server Core (imagen runtime-only, como, por ejemplo, *4.7.2-windowsservercore-ltsc2016*). Las imágenes runtime-only son más pequeñas pero no admiten cargas de trabajo que requieran el SDK de .NET.
+Use la imagen más pequeña que satisfaga sus requisitos. Para Linux, puede usar una imagen *runtime-alpine* de .NET Core, que se admite desde el lanzamiento de .NET Core 2.1. Para Windows, si está utilizando .NET Framework completo, deberá usar una imagen de Windows Server Core (imagen runtime-only, como, por ejemplo, *4.7.2-windowsservercore-ltsc2016* ). Las imágenes runtime-only son más pequeñas pero no admiten cargas de trabajo que requieran el SDK de .NET.
 
 ## <a name="availability-and-quotas"></a>Disponibilidad y cuotas
 
@@ -61,7 +61,7 @@ Use la imagen más pequeña que satisfaga sus requisitos. Para Linux, puede usar
 
 Realmente, esto depende de su carga de trabajo. Empiece poco a poco y pruebe el rendimiento para ver cómo funcionan los contenedores. [Supervise el uso de recursos de CPU y memoria](container-instances-monitor.md) y, a continuación, agregue núcleos o memoria en función del tipo de procesos que implementa en el contenedor.
 
-Asegúrese de comprobar también la [disponibilidad de recursos](container-instances-region-availability.md#availability---general) para la región de implementación para los límites superiores en los núcleos de CPU y memoria disponibles para cada grupo de contenedores. 
+Asegúrese de comprobar también la [disponibilidad de recursos](container-instances-region-availability.md) para la región de implementación para los límites superiores en los núcleos de CPU y memoria disponibles para cada grupo de contenedores. 
 
 > [!NOTE]
 > La infraestructura subyacente al servicio utiliza una pequeña cantidad de los recursos de un grupo de contenedores. Los contenedores pueden acceder a la mayoría de los recursos asignados al grupo, pero no a todos. Por este motivo, debe planear un pequeño búfer de recursos al solicitar los recursos para los contenedores del grupo.
@@ -80,7 +80,7 @@ Todavía no. Actualmente, estos son los valores máximos para un grupo de conten
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>¿Cuándo estará ACI en una región específica?
 
-La disponibilidad regional actual se encuentra publicada [aquí](container-instances-region-availability.md#availability---general). Si tiene un requisito para una región específica, póngase en contacto con el soporte técnico de Azure.
+La disponibilidad regional actual se encuentra publicada [aquí](container-instances-region-availability.md). Si tiene un requisito para una región específica, póngase en contacto con el soporte técnico de Azure.
 
 ## <a name="features-and-scenarios"></a>Características y escenarios
 

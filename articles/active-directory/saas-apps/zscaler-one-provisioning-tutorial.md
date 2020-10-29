@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e306c65735d8a5682cd90a1ce28fceec7d045c4d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545869"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519765"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configuración de Zscaler One para el aprovisionamiento automático de usuarios
 
 Este tutorial muestra los pasos que se deben realizar en Zscaler One y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios y grupos en Zscaler One.
 
 > [!NOTE]
-> En este tutorial se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> En este tutorial se describe un conector que se basa en el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -43,19 +43,19 @@ Antes de configurar Zscaler One para el aprovisionamiento automático de usuario
 
 Para eliminar Zscaler One de Marketplace, siga estos pasos.
 
-1. En el panel de navegación de la izquierda de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
+1. En el panel de navegación de la izquierda de [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory** .
 
     ![Icono de Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Para agregar una aplicación nueva, en la parte superior del cuadro de diálogo, seleccione **Nueva aplicación**.
+3. Para agregar una aplicación nueva, en la parte superior del cuadro de diálogo, seleccione **Nueva aplicación** .
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Zscaler One** y seleccione **Zscaler One** del panel de resultados. Para agregar la aplicación, seleccione **Agregar**.
+4. En el cuadro de búsqueda, escriba **Zscaler One** y seleccione **Zscaler One** del panel de resultados. Para agregar la aplicación, seleccione **Agregar** .
 
     ![Zscaler One en la lista de resultados](common/search-new-app.png)
 
@@ -63,7 +63,7 @@ Para eliminar Zscaler One de Marketplace, siga estos pasos.
 
 Azure Active Directory usa un concepto denominado *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de usuarios, solo se sincronizan los usuarios o grupos que se han asignado a una aplicación en Azure AD.
 
-Antes de configurar y habilitar el aprovisionamiento automático de usuarios, decida qué usuarios o grupos de Azure AD necesitan acceder a Zscaler One. Para asignar estos usuarios o grupos a Zscaler One, siga las instrucciones de [Asignación de un usuario o un grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar y habilitar el aprovisionamiento automático de usuarios, decida qué usuarios o grupos de Azure AD necesitan acceder a Zscaler One. Para asignar estos usuarios o grupos a Zscaler One, siga las instrucciones de [Asignación de un usuario o un grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-one"></a>Sugerencias importantes para asignar usuarios a Zscaler One
 
@@ -80,25 +80,25 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configuración del aprovisionamiento automático de usuarios para Zscaler One en Azure AD
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Zscaler One**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** > **Zscaler One** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Zscaler One**.
+2. En la lista de aplicaciones, seleccione **Zscaler One** .
 
     ![Vínculo de Zscaler One en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento**.
+3. Seleccione la pestaña **Aprovisionamiento** .
 
     ![Aprovisionamiento de Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-tab.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático** .
 
     ![Modo de aprovisionamiento de Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
-5. En la sección **Credenciales de administrador**, rellene los cuadros de **URL de inquilino** y **Token secreto** con las opciones de configuración para la cuenta de Zscaler One, como se describe en el paso 6.
+5. En la sección **Credenciales de administrador** , rellene los cuadros de **URL de inquilino** y **Token secreto** con las opciones de configuración para la cuenta de Zscaler One, como se describe en el paso 6.
 
-6. Para obtener los valores de la URL de inquilino y el Token secreto, vaya a **Administración** > **Configuración de autenticación** en la interfaz de usuario del portal de Zscaler One. En **Tipo de autenticación**, seleccione **SAML**.
+6. Para obtener los valores de la URL de inquilino y el Token secreto, vaya a **Administración** > **Configuración de autenticación** en la interfaz de usuario del portal de Zscaler One. En **Tipo de autenticación** , seleccione **SAML** .
 
     ![Configuración de autenticación de Zscaler One](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -106,53 +106,53 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Configuración de SAML de Zscaler One](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Seleccione **Enable SCIM-Based Provisioning** (Habilitar aprovisionamiento basado en SCIM) para recuperar la configuración de **URL base** y **Token de portador**. Después, guarde la configuración. Copie la configuración de **URL Base** en la **URL del inquilino** en Azure Portal. Copie la configuración de **Token de portador** en el **Token secreto** en Azure Portal.
+    b. Seleccione **Enable SCIM-Based Provisioning** (Habilitar aprovisionamiento basado en SCIM) para recuperar la configuración de **URL base** y **Token de portador** . Después, guarde la configuración. Copie la configuración de **URL Base** en la **URL del inquilino** en Azure Portal. Copie la configuración de **Token de portador** en el **Token secreto** en Azure Portal.
 
 7. Después de rellenar los cuadros que se muestran en el paso 5, seleccione **Probar conexión** para asegurarse de que Azure AD puede conectarse a Zscaler One. Si la conexión no se establece, asegúrese de que la cuenta de Zscaler One tiene permisos de administrador e inténtelo de nuevo.
 
     ![Prueba de conexión de Zscaler One](./media/zscaler-one-provisioning-tutorial/test-connection.png)
 
-8. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
 
     ![Notificación por correo electrónico de Zscaler One](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9. Seleccione **Guardar**.
+9. Seleccione **Guardar** .
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Zscaler One** (Sincronizar usuarios de Azure Active Directory con Zscaler One).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Zscaler One** (Sincronizar usuarios de Azure Active Directory con Zscaler One).
 
     ![Sincronización de usuarios de Zscaler One](./media/zscaler-one-provisioning-tutorial/user-mappings.png)
 
-11. Examine los atributos de usuario que se sincronizan entre Azure AD y Zscaler One en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias entre las cuentas de usuario de Zscaler One con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
+11. Examine los atributos de usuario que se sincronizan entre Azure AD y Zscaler One en la sección **Asignaciones de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias entre las cuentas de usuario de Zscaler One con el objetivo de realizar operaciones de actualización. Para guardar los cambios, seleccione **Guardar** .
 
     ![Atributos de usuario coincidentes de Zscaler One](./media/zscaler-one-provisioning-tutorial/user-attribute-mappings.png)
 
-12. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Zscaler One** (Sincronizar grupos de Azure Active Directory con Zscaler One).
+12. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Zscaler One** (Sincronizar grupos de Azure Active Directory con Zscaler One).
 
     ![Sincronización de grupos de Zscaler One](./media/zscaler-one-provisioning-tutorial/group-mappings.png)
 
-13. Examine los atributos de grupo que se sincronizan entre Azure AD y Zscaler One en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de Zscaler One para las operaciones de actualización. Para guardar los cambios, seleccione **Guardar**.
+13. Examine los atributos de grupo que se sincronizan entre Azure AD y Zscaler One en la sección **Asignaciones de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con los grupos de Zscaler One para las operaciones de actualización. Para guardar los cambios, seleccione **Guardar** .
 
     ![Atributos de grupo coincidentes de Zscaler One](./media/zscaler-one-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](./../active-directory-saas-scoping-filters.md).
+14. Para configurar filtros de ámbito, consulte las instrucciones del [tutorial sobre filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Para habilitar el servicio de aprovisionamiento de Azure AD para Zscaler One, vaya a la sección **Configuración** y cambie el valor de **Estado de aprovisionamiento** a **Activado**.
+15. Para habilitar el servicio de aprovisionamiento de Azure AD para Zscaler One, vaya a la sección **Configuración** y cambie el valor de **Estado de aprovisionamiento** a **Activado** .
 
     ![Estado de aprovisionamiento de Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-status.png)
 
-16. Defina los usuarios o grupos que quiere que se aprovisionen en Zscaler One. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**.
+16. Defina los usuarios o grupos que quiere que se aprovisionen en Zscaler One. En la sección **Configuración** , seleccione los valores que quiere incluir en el **Ámbito** .
 
     ![Ámbito de Zscaler One](./media/zscaler-one-provisioning-tutorial/scoping.png)
 
-17. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar**.
+17. Cuando esté listo para realizar el aprovisionamiento, seleccione **Guardar** .
 
     ![Ámbito de Zscaler One](./media/zscaler-one-provisioning-tutorial/save-provisioning.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Se produce aproximadamente cada 40 minutos mientras se ejecuta el servicio de aprovisionamiento de Azure AD. 
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las sincronizaciones posteriores. Se produce aproximadamente cada 40 minutos mientras se ejecuta el servicio de aprovisionamiento de Azure AD. 
 
 Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de actividad de aprovisionamiento. En el informe se describen todas las acciones que el servicio de aprovisionamiento de Azure AD realiza en Zscaler One.
 
-Para obtener información acerca de cómo leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../active-directory-saas-provisioning-reporting.md).
+Para obtener información acerca de cómo leer los registros de aprovisionamiento de Azure AD, consulte [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
@@ -161,7 +161,7 @@ Para obtener información acerca de cómo leer los registros de aprovisionamient
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../active-directory-saas-provisioning-reporting.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png

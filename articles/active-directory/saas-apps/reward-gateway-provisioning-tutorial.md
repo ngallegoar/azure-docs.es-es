@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f908e37c7785744c2f26b6a9cd542ccde228eb38
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 881be102a00badf1e03188b26514ad0eb1a9bd90
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91255768"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520785"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>Tutorial: Configuración de Reward Gateway para el aprovisionamiento automático de usuarios
 
 El objetivo de este tutorial es mostrar los pasos que se realizan en Reward Gateway y Azure Active Directory (Azure AD) para configurar Azure AD a fin de aprovisionar y cancelar automáticamente el aprovisionamiento de usuarios o grupos en Reward Gateway.
 
 > [!NOTE]
-> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+> Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Este conector está actualmente en versión preliminar pública. Para más información sobre los términos de uso generales de Microsoft Azure para las características en versión preliminar, consulte [Términos de uso complementarios para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -51,15 +51,15 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 ## <a name="setup-reward-gateway--for-provisioning"></a>Configuración de Reward Gateway para el aprovisionamiento
 Antes de configurar Reward Gateway para aprovisionar automáticamente usuarios con Azure AD, deberá habilitar el aprovisionamiento SCIM en Reward Gateway.
 
-1. Inicie sesión en la [consola de administración de Reward Gateway](https://rewardgateway.photoshelter.com/login/). Haga clic en **Integraciones**.
+1. Inicie sesión en la [consola de administración de Reward Gateway](https://rewardgateway.photoshelter.com/login/). Haga clic en **Integraciones** .
 
     ![Captura de pantalla de la consola de administración de Reward Gateway con la opción Integraciones resaltada.](media/reward-gateway-provisioning-tutorial/image00.png)
 
-2.  Seleccione **Mi integración**.
+2.  Seleccione **Mi integración** .
 
     ![Captura de pantalla de las dos opciones de Integraciones con la opción Mis integraciones resaltada.](media/reward-gateway-provisioning-tutorial/image001.png)
 
-3.  Copie los valores de **SCIM URL (v2)** y **Token de portador de OAuth**. Estos valores se escriben en el campo URL de inquilino y Token secreto de la pestaña Aprovisionamiento de la aplicación Reward Gateway en Azure Portal.
+3.  Copie los valores de **SCIM URL (v2)** y **Token de portador de OAuth** . Estos valores se escriben en el campo URL de inquilino y Token secreto de la pestaña Aprovisionamiento de la aplicación Reward Gateway en Azure Portal.
 
     ![Captura de pantalla del panel Mis integraciones con el cuadro de texto Token de portador de OAuth seleccionado.](media/reward-gateway-provisioning-tutorial/image03.png)
 
@@ -69,11 +69,11 @@ Para configurar Reward Gateway para el aprovisionamiento automático de usuarios
 
 **Para agregar Reward Gateway desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -81,7 +81,7 @@ Para configurar Reward Gateway para el aprovisionamiento automático de usuarios
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Reward Gateway**, seleccione **Reward Gateway** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Reward Gateway** , seleccione **Reward Gateway** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Reward Gateway en la lista de resultados](common/search-new-app.png)
 
@@ -94,55 +94,55 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-reward-gateway-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Reward Gateway en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Reward Gateway**.
+2. En la lista de aplicaciones, seleccione **Reward Gateway** .
 
     ![Vínculo a Reward Gateway en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento**.
+3. Seleccione la pestaña **Aprovisionamiento** .
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático** .
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba los valores de **SCIM URL (v2)** y **Token de portador de OAuth** recuperados anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Reward Gateway. Si la conexión no se establece, asegúrese de que la cuenta de Reward Gateway tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador** , escriba los valores de **SCIM URL (v2)** y **Token de portador de OAuth** recuperados anteriormente en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Reward Gateway. Si la conexión no se establece, asegúrese de que la cuenta de Reward Gateway tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Reward Gateway** (Sincronizar usuarios de Azure Active Directory con Reward Gateway).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Reward Gateway** (Sincronizar usuarios de Azure Active Directory con Reward Gateway).
 
     ![Captura de pantalla de la sección Asignaciones con la opción para sincronizar los usuarios de Azure Active Directory con Reward Gateway resaltada.](media/reward-gateway-provisioning-tutorial/user-mappings.png)
 
-9. Revise los atributos de usuario que se sincronizan entre Azure AD y Reward Gateway en la sección **Asignaciones de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Reward Gateway con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Revise los atributos de usuario que se sincronizan entre Azure AD y Reward Gateway en la sección **Asignaciones de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Reward Gateway con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Captura de pantalla de la sección Asignaciones de atributos, con seis asignaciones mostradas.](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Reward Gateway, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+11. Para habilitar el servicio de aprovisionamiento de Azure AD para Reward Gateway, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere que se aprovisionen en Reward Gateway.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere que se aprovisionen en Reward Gateway.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de la actividad de aprovisionamiento, que describe todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Reward Gateway.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos al informe de la actividad de aprovisionamiento, que describe todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Reward Gateway.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b7c8e024ac8361c08cc41195531a114bb12fcb4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620144"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522298"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -50,23 +50,23 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Oracle PeopleSoft - Protected by F5 BIG-IP APM admite el inicio de sesión único iniciado por **SP e IDP**.
+* Oracle PeopleSoft - Protected by F5 BIG-IP APM admite el inicio de sesión único iniciado por **SP e IDP** .
 
 ## <a name="adding-oracle-peoplesoft---protected-by-f5-big-ip-apm-from-the-gallery"></a>Incorporación de Oracle PeopleSoft - Protected by F5 BIG-IP APM desde la galería
 
 Para configurar la integración de Oracle PeopleSoft - Protected by F5 BIG-IP APM en Azure AD, es preciso agregar Oracle PeopleSoft - Protected by F5 BIG-IP APM desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Oracle PeopleSoft - Protected by F5 BIG-IP APM** en el cuadro de búsqueda.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
+1. En la sección **Agregar desde la galería** , escriba **Oracle PeopleSoft - Protected by F5 BIG-IP APM** en el cuadro de búsqueda.
 1. Seleccione **Oracle PeopleSoft - Protected by F5 BIG-IP APM** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Configuración y prueba del SSO de Azure AD para Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
-Configure y pruebe el inicio de sesión único de Azure AD con Oracle PeopleSoft - Protected by F5 BIG-IP APM mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Oracle PeopleSoft - Protected by F5 BIG-IP APM.
+Configure y pruebe el inicio de sesión único de Azure AD con Oracle PeopleSoft - Protected by F5 BIG-IP APM mediante un usuario de prueba llamado **B.Simon** . Para que el inicio de sesión único funcione, es necesario establecer una relación de vinculación entre un usuario de Azure AD y el usuario relacionado de Oracle PeopleSoft - Protected by F5 BIG-IP APM.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Oracle PeopleSoft - Protected by F5 BIG-IP APM, lleve a cabo los siguientes pasos:
 
@@ -81,23 +81,23 @@ Para configurar y probar el inicio de sesión único de Azure AD con Oracle Peo
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En Azure Portal, en la página de integración de aplicaciones de **Oracle PeopleSoft - Protected by F5 BIG-IP APM**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En Azure Portal, en la página de integración de aplicaciones de **Oracle PeopleSoft - Protected by F5 BIG-IP APM** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<FQDN>.peoplesoft.f5.com`
+    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `https://<FQDN>.peoplesoft.f5.com`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/post/acs`
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/post/acs`
 
-    c. En el cuadro de texto **URL de cierre de sesión**, escriba una dirección URL con el siguiente patrón: `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/redirect/slr`.
+    c. En el cuadro de texto **URL de cierre de sesión** , escriba una dirección URL con el siguiente patrón: `https://<FQDN>.peoplesoft.f5.com/saml/sp/profile/redirect/slr`.
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<FQDN>.peoplesoft.f5.com/`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<FQDN>.peoplesoft.f5.com/`
 
     > [!NOTE]
     >Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador, la dirección URL de respuesta y la dirección URL de cierre de sesión reales. Póngase en contacto con el [equipo de soporte técnico de Oracle PeopleSoft - Protected by F5 BIG-IP APM](https://support.f5.com) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -112,7 +112,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | ------------------ | --------- |
     | EMPLID | user.employeeid |
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, descargue el archivo **XML de metadatos de federación** y el **Certificado (Base64)** y guárdelos en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , descargue el archivo **XML de metadatos de federación** y el **Certificado (Base64)** y guárdelos en su equipo.
 
     ![Vínculo de descarga del certificado](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/both-certificate.png)
 
@@ -120,25 +120,25 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a Oracle PeopleSoft - Protected by F5 BIG-IP APM mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Oracle PeopleSoft - Protected by F5 BIG-IP APM**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **Oracle PeopleSoft - Protected by F5 BIG-IP APM** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol** . Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Configuración del inicio de sesión único en Oracle PeopleSoft - Protected by F5 BIG-IP APM
 
@@ -178,7 +178,7 @@ Importe el certificado de metadatos en F5; se usará más adelante en el proceso
     ![Nuevos servicios de SP de SAML](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/new-saml-sp-service.png)
 
 1. Seleccione la configuración de SP, PeopleSoftAppSSO, y haga clic en **Bind/UnBind IdP Connectors** (Enlazar/Desenlazar conectores de IDP).
-Haga clic en **Add New Row** (Agregar nueva fila) y seleccione el **Conector del IdP externo** creado en el paso anterior, haga clic en **Update**(Actualizar) y, a continuación, haga clic en **OK** (Aceptar).
+Haga clic en **Add New Row** (Agregar nueva fila) y seleccione el **Conector del IdP externo** creado en el paso anterior, haga clic en **Update** (Actualizar) y, a continuación, haga clic en **OK** (Aceptar).
 
     ![Crear servicios de SP de SAML](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/edit-saml-idp-use-sp.png)
 
@@ -244,16 +244,16 @@ Vaya a **PeopleTools > Security > User Profiles > User Profiles** (PeopleTools >
 
     ![Perfiles de usuario](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/web-profile-configuration.png)
 
-1. En **PeopleTools Application Designer** (Diseñador de aplicaciones de PeopleTools), abra el registro **FUNCLIB_LDAP**.
+1. En **PeopleTools Application Designer** (Diseñador de aplicaciones de PeopleTools), abra el registro **FUNCLIB_LDAP** .
 
     ![Configuración de perfil web](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/funclib.png)
 
-1. Actualice el encabezado de usuario con **PS_SSO_UID** para la función **OAMSSO_AUTHENTICATION**.
+1. Actualice el encabezado de usuario con **PS_SSO_UID** para la función **OAMSSO_AUTHENTICATION** .
 En la función **getWWWAuthConfig()** , reemplace el valor asignado a **&defaultUserId** por el valor **OAMPSFT** que definimos en el perfil web. Guarde la definición del registro.
 
     ![OAMSSO_AUTHENTICATION](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/record.png)
 
-1. Acceda a la página **Signon PeopleCode** (PeopleTools > Security > Security Objects > Signon PeopleCode) (PeopleCode de conexión [PeopleTools > Seguridad > Objetos de seguridad > PeopleCode de conexión]) y habilite la función **OAMSSO_AUTHENTICATION**, el PeopleCode de conexión para el inicio de sesión único de Oracle Access Manager.
+1. Acceda a la página **Signon PeopleCode** (PeopleTools > Security > Security Objects > Signon PeopleCode) (PeopleCode de conexión [PeopleTools > Seguridad > Objetos de seguridad > PeopleCode de conexión]) y habilite la función **OAMSSO_AUTHENTICATION** , el PeopleCode de conexión para el inicio de sesión único de Oracle Access Manager.
 
     ![OAMSSO_AUTHENTICATION ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/sign-on-people-soft.png)
 
@@ -329,9 +329,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 * Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Oracle PeopleSoft - Protected by F5 BIG-IP APM para la que configuró el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Oracle PeopleSoft - Protected by F5 BIG-IP APM en el Panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Oracle PeopleSoft - Protected by F5 BIG-IP APM para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Oracle PeopleSoft - Protected by F5 BIG-IP APM en el Panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Oracle PeopleSoft - Protected by F5 BIG-IP APM para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que haya configurado Oracle PeopleSoft - Protected by F5 BIG-IP APM, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Una vez que haya configurado Oracle PeopleSoft - Protected by F5 BIG-IP APM, puede aplicar el control de sesión, que protege a su organización, en tiempo real, frente a la filtración e infiltración de información confidencial. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

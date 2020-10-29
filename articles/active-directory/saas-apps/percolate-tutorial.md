@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: be9f2163813d1dc52a593c110fa4cef9b561614e
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 913ffc0670e40e749bd28382d492a16891fdc5c9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995418"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522281"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integración de Azure Active Directory con Percolate
 
@@ -28,7 +28,7 @@ Esta integración ofrece las siguientes ventajas:
 * Puede permitir que los usuarios inicien sesión automáticamente en Percolate (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -49,11 +49,11 @@ En este tutorial configurará y probará el inicio de sesión único de Azure A
 
 Para configurar la integración de Percolate en Azure AD, es preciso que agregue Percolate desde la galería a su lista de aplicaciones SaaS administradas.
 
-1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory**:
+1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory** :
 
     ![Seleccione Azure Active Directory.](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**:
+2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones** :
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,7 +61,7 @@ Para configurar la integración de Percolate en Azure AD, es preciso que agregue
 
     ![Seleccionar Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Percolate**. Seleccione **Percolate** en los resultados de búsqueda y, a continuación, seleccione **Agregar**.
+4. En el cuadro de búsqueda, escriba **Percolate** . Seleccione **Percolate** en los resultados de búsqueda y, a continuación, seleccione **Agregar** .
 
      ![Search Results](common/search-new-app.png)
 
@@ -85,36 +85,36 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure 
 
 Para configurar el inicio de sesión único de Azure AD con Percolate, haga lo siguiente:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Percolate**, seleccione **Inicio de sesión único**:
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Percolate** , seleccione **Inicio de sesión único** :
 
     ![Selección de inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Selección de un método de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**:
+3. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** :
 
     ![Icono Editar](common/edit-urls.png)
 
-4. En el cuadro de diálogo **Configuración básica de SAML**, no es necesario hacer nada para configurar la aplicación en modo iniciado por IdP. La aplicación ya está integrada con Azure.
+4. En el cuadro de diálogo **Configuración básica de SAML** , no es necesario hacer nada para configurar la aplicación en modo iniciado por IdP. La aplicación ya está integrada con Azure.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Percolate](common/preintegrated.png)
 
-5. Si quiere configurar la aplicación en modo iniciado por SP, seleccione **Establecer direcciones URL adicionales** y, en el cuadro **URL de inicio de sesión**, escriba **https://percolate.com/app/login** :
+5. Si quiere configurar la aplicación en modo iniciado por SP, seleccione **Establecer direcciones URL adicionales** y, en el cuadro **URL de inicio de sesión** , escriba **https://percolate.com/app/login** :
 
    ![Captura de pantalla que muestra la opción "Establecer direcciones U R L adicionales" seleccionada con el cuadro de texto "Dirección U R L de inicio de sesión" resaltado.](common/metadata-upload-additional-signon.png)
-6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el icono **Copiar** para copiar la **Dirección URL de metadatos de federación de aplicación**. Guarde esta dirección URL.
+6. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione el icono **Copiar** para copiar la **Dirección URL de metadatos de federación de aplicación** . Guarde esta dirección URL.
 
     ![Copia de la dirección URL de metadatos de federación de aplicación](common/copy-metadataurl.png)
 
-7. En la sección **Configurar Percolate**, copie las direcciones URL adecuadas según sus necesidades.
+7. En la sección **Configurar Percolate** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copia de las direcciones URL de configuración](common/copy-configuration-urls.png)
 
     1. **Dirección URL de inicio de sesión**
 
-    1. **Identificador de Azure AD**.
+    1. **Identificador de Azure AD** .
 
     1. **Dirección URL de cierre de sesión**
 
@@ -136,21 +136,21 @@ Para configurar el inicio de sesión único de Azure AD con Percolate, haga lo s
 
     1. En el Bloc de notas, abra el certificado codificado en base 64 que descargó de Azure Portal. Copie su contenido y péguelo en el cuadro **x509 certificates** (Certificados x509).
 
-    1. En el cuadro **Email attribute** (Atributo de correo electrónico), escriba **emailaddress**.
+    1. En el cuadro **Email attribute** (Atributo de correo electrónico), escriba **emailaddress** .
 
     1. El cuadro **Identity provider metadata URL** (URL de metadatos del proveedor de identidades) es un campo opcional. Si copió una **dirección URL de metadatos de federación de aplicación** de Azure Portal, puede pegarla en este cuadro.
 
-    1. En la lista **Should AuthNRequests be signed?** (¿Se debe firmar AuthNRequests?), seleccione **No**.
+    1. En la lista **Should AuthNRequests be signed?** (¿Se debe firmar AuthNRequests?), seleccione **No** .
 
-    1. En la lista **Enable SSO auto-provisioning** (Habilitar el aprovisionamiento automático del inicio de sesión único), seleccione **No**.
+    1. En la lista **Enable SSO auto-provisioning** (Habilitar el aprovisionamiento automático del inicio de sesión único), seleccione **No** .
 
-    1. Seleccione **Guardar**.
+    1. Seleccione **Guardar** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 En esta sección creará un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**:
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** :
 
     ![Selección de Todos los usuarios](common/users.png)
 
@@ -158,43 +158,43 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     ![Selección de Nuevo usuario](common/new-user.png)
 
-3. En el cuadro de diálogo **Usuario**, siga los pasos que se indican a continuación.
+3. En el cuadro de diálogo **Usuario** , siga los pasos que se indican a continuación.
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    1. En el cuadro **Nombre** , escriba **BrittaSimon** .
   
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
+    1. En el cuadro **Nombre de usuario** , escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
 
-    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
 
-    1. Seleccione **Crear**.
+    1. Seleccione **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, permitirá que Britta Simon use el inicio de sesión único de Azure AD, para lo cual le concederá acceso a Percolate.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Percolate**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** , **Percolate** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Percolate**.
+2. En la lista de aplicaciones, seleccione **Percolate** .
 
     ![Lista de aplicaciones](common/all-applications.png)
 
-3. En el panel izquierdo, seleccione **Usuarios y grupos**:
+3. En el panel izquierdo, seleccione **Usuarios y grupos** :
 
     ![Captura de pantalla que muestra la opción "Usuarios y grupos" seleccionada en el panel izquierdo.](common/users-groups-blade.png)
 
-4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Seleccionar Usuarios y grupos](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
 
 ### <a name="create-a-percolate-test-user"></a>Creación de un usuario de prueba en Percolate
 
@@ -214,7 +214,7 @@ Para crear una cuenta de usuario, siga estos pasos:
 
     1. En el cuadro **Email** (Correo electrónico), escriba la dirección de correo electrónico del usuario. Por ejemplo, brittasimon@contoso.com.
 
-    1. En el cuadro **Full name** (Nombre completo), escriba el nombre del usuario. Por ejemplo, **Brittasimon**.
+    1. En el cuadro **Full name** (Nombre completo), escriba el nombre del usuario. Por ejemplo, **Brittasimon** .
 
     1. Seleccione **Create users** (Crear usuarios).
 
@@ -222,12 +222,12 @@ Para crear una cuenta de usuario, siga estos pasos:
 
 Ahora, debe probar la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Percolate en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Percolate para la que configuró el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al seleccionar el icono de Percolate en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Percolate para la que configuró el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

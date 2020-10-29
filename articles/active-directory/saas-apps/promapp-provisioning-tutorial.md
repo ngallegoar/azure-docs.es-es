@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: Zhchia
-ms.openlocfilehash: b3677b16921c6954f5f99e55af9afeae9c337cce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00adf8f1559d01d6ba17692e1166c93c93fcbf8f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255834"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516654"
 ---
 # <a name="tutorial-configure-promapp-for-automatic-user-provisioning"></a>Tutorial: Configuración de Promapp para el aprovisionamiento automático de usuarios
 
@@ -72,11 +72,11 @@ Antes de configurar Promapp para el aprovisionamiento automático de usuarios co
 
 **Para agregar Promapp desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -84,7 +84,7 @@ Antes de configurar Promapp para el aprovisionamiento automático de usuarios co
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Promapp**, seleccione **Promapp** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Promapp** , seleccione **Promapp** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Promapp en la lista de resultados](common/search-new-app.png)
 
@@ -93,59 +93,59 @@ Antes de configurar Promapp para el aprovisionamiento automático de usuarios co
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD a fin de crear, actualizar y deshabilitar usuarios o grupos en Promapp en función de las asignaciones de grupos o usuarios de Azure AD.
 
 > [!TIP]
-> También puede optar por habilitar el inicio de sesión único basado en SAML para Promapp siguiendo las instrucciones del [tutorial de inicio de sesión único de Promapp](https://docs.microsoft.com/azure/active-directory/saas-apps/promapp-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+> También puede optar por habilitar el inicio de sesión único basado en SAML para Promapp siguiendo las instrucciones del [tutorial de inicio de sesión único de Promapp](./promapp-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Promapp en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Promapp**.
+2. En la lista de aplicaciones, seleccione **Promapp** .
 
     ![Vínculo a Promapp en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento**.
+3. Seleccione la pestaña **Aprovisionamiento** .
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático** .
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://api.promapp.com/api/scim` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Promapp. Si la conexión no se establece, asegúrese de que la cuenta de Promapp tiene permisos de administrador y pruebe otra vez.
+5. En la sección **Credenciales de administrador** , escriba `https://api.promapp.com/api/scim` en la **URL de inquilino** . Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto** . Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Promapp. Si la conexión no se establece, asegúrese de que la cuenta de Promapp tiene permisos de administrador y pruebe otra vez.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Promapp** (Sincronizar usuarios de Azure Active Directory con Promapp).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Promapp** (Sincronizar usuarios de Azure Active Directory con Promapp).
 
     ![Asignaciones de usuario de Promapp](media/promapp-provisioning-tutorial/usermappings.png)
 
-9. Revise los atributos de usuario que se sincronizan entre Azure AD y Promapp en la sección de **asignaciones de atributos**. Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de Promapp para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Revise los atributos de usuario que se sincronizan entre Azure AD y Promapp en la sección de **asignaciones de atributos** . Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de Promapp para las operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Atributos de usuario de Promapp](media/promapp-provisioning-tutorial/userattributes.png)
 
 11. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-12. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Promapp, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+12. Para habilitar el aprovisionamiento del servicio de aprovisionamiento de Azure AD para Promapp, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-13. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Promapp.
+13. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Promapp.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-14. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+14. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Promapp.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Promapp.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
@@ -157,4 +157,3 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
-

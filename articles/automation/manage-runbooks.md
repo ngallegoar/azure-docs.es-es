@@ -3,14 +3,14 @@ title: Administración de runbooks en Azure Automation
 description: En este artículo se explica cómo administrar runbooks en Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/10/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987589"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521074"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Administración de runbooks en Azure Automation
 
@@ -20,22 +20,21 @@ Para agregar un runbook a Azure Automation, puede crear uno o importar uno exist
 
 Cree un runbook nuevo en Azure Automation mediante Azure Portal o Windows PowerShell. Una vez creado el runbook, se puede editar siguiendo la información de las secciones siguientes:
 
-* [Edición de runbooks de texto en Azure Automation](automation-edit-textual-runbook.md) 
+* [Edición de runbooks de texto en Azure Automation](automation-edit-textual-runbook.md)
 * [Aprendizaje de los conceptos clave del flujo de trabajo de Windows PowerShell para los runbooks de Automation](automation-powershell-workflow.md)
-* [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md)
 * [Administración de paquetes de Python 2 en Azure Automation](python-packages.md)
 
 ### <a name="create-a-runbook-in-the-azure-portal"></a>Creación de un runbook en Azure Portal
 
 1. En Azure Portal, abra su cuenta de Automation.
 2. Desde el centro de conectividad, seleccione **Runbooks** en **Automatización de procesos** para abrir la lista de runbooks.
-3. Haga clic en **Crear un runbook**.
+3. Haga clic en **Crear un runbook** .
 4. Escriba un nombre para el runbook y seleccione su [tipo](automation-runbook-types.md). El nombre del runbook debe empezar por una letra y puede tener letras, números, guiones bajos y guiones.
 5. Haga clic en **Crear** para crear el runbook y abra el editor.
 
 ### <a name="create-a-runbook-with-powershell"></a>Creación de un runbook con PowerShell
 
-Use el cmdlet [New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook?view=azps-3.5.0) para crear un runbook vacío. Use el parámetro `Type` para especificar uno de los tipos de runbook definidos para `New-AzAutomationRunbook`.
+Use el cmdlet [New-AzAutomationRunbook](/powershell/module/az.automation/new-azautomationrunbook) para crear un runbook vacío. Use el parámetro `Type` para especificar uno de los tipos de runbook definidos para `New-AzAutomationRunbook`.
 
 En el ejemplo siguiente se muestra cómo crear un nuevo runbook vacío.
 
@@ -46,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importación de un runbook
 
-Puede importar un script de PowerShell o de flujo de trabajo de PowerShell ( **.ps1**), un runbook gráfico ( **.graphrunbook**) o un script de Python 2 ( **.py**) para crear su propio runbook. Necesita especificar el [tipo de runbook](automation-runbook-types.md) que se creará durante la importación teniendo en cuenta las consideraciones siguientes.
+Puede importar un script de PowerShell o de flujo de trabajo de PowerShell ( **.ps1** ), un runbook gráfico ( **.graphrunbook** ) o un script de Python 2 ( **.py** ) para crear su propio runbook. Necesita especificar el [tipo de runbook](automation-runbook-types.md) que se creará durante la importación teniendo en cuenta las consideraciones siguientes.
 
 * Puede importar un archivo **.ps1** que no contenga un flujo de trabajo, ya sea en un [runbook de PowerShell](automation-runbook-types.md#powershell-runbooks) o en un [runbook de flujo de trabajo de PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Si lo importa en un runbook de flujo de trabajo de PowerShell, se convertirá en un flujo de trabajo. En este caso, se incluyen comentarios en el runbook para describir los cambios realizados.
 
@@ -64,12 +63,12 @@ Puede usar el siguiente procedimiento para importar un archivo de script en Azur
 > Solo puede importar un archivo **.ps1** en un runbook de flujo de trabajo de PowerShell mediante el portal.
 
 1. En Azure Portal, abra su cuenta de Automation.
-2. En **Automatización de procesos**, haga clic en **Runbooks** para abrir la lista de runbooks.
-3. Haga clic en **Importar un runbook**.
+2. En **Automatización de procesos** , haga clic en **Runbooks** para abrir la lista de runbooks.
+3. Haga clic en **Importar un runbook** .
 4. Haga clic en **Archivo de runbook** y seleccione el archivo que se va a importar.
 5. Si el campo **Nombre** está habilitado, tiene la opción de cambiar el nombre del runbook. El nombre debe empezar por una letra y puede tener letras, números, guiones bajos y guiones.
 6. El [tipo de runbook](automation-runbook-types.md) se seleccionará automáticamente, pero puede cambiarlo después de tomar en cuenta las restricciones aplicables.
-7. Haga clic en **Crear**. El runbook nuevo aparece en la lista de runbooks de la cuenta de Automation.
+7. Haga clic en **Crear** . El runbook nuevo aparece en la lista de runbooks de la cuenta de Automation.
 8. Debe [publicar el runbook](#publish-a-runbook) para poder ejecutarlo.
 
 > [!NOTE]
@@ -77,7 +76,7 @@ Puede usar el siguiente procedimiento para importar un archivo de script en Azur
 
 ### <a name="import-a-runbook-with-windows-powershell"></a>Importación de un runbook con Windows PowerShell
 
-Use el cmdlet [Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook?view=azps-3.5.0) para importar un archivo de script como un runbook en borrador. Si ya existe el runbook, se producirá un error de importación, a menos que utilice el parámetro `Force` con el cmdlet.
+Use el cmdlet [Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook) para importar un archivo de script como un runbook en borrador. Si ya existe el runbook, se producirá un error de importación, a menos que utilice el parámetro `Force` con el cmdlet.
 
 En los ejemplos siguientes se muestra cómo importar un archivo de script en un runbook.
 
@@ -147,7 +146,7 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 ## <a name="track-progress"></a>Seguimiento del progreso
 
-Se recomienda crear los runbooks para que tengan una naturaleza modular, con una lógica que se pueda reutilizar y reiniciar fácilmente. El seguimiento del progreso en un runbook garantiza que la lógica de dicho runbook se ejecute correctamente si hay incidencias. 
+Se recomienda crear los runbooks para que tengan una naturaleza modular, con una lógica que se pueda reutilizar y reiniciar fácilmente. El seguimiento del progreso en un runbook garantiza que la lógica de dicho runbook se ejecute correctamente si hay incidencias.
 
 Puede realizar un seguimiento del progreso de un runbook mediante un origen externo, como una cuenta de almacenamiento, una base de datos o archivos compartidos. Cree lógica en el runbook para comprobar primero el estado de la última acción que se ha realizado. Luego, en función de los resultados de la comprobación, la lógica puede omitir o continuar tareas específicas del runbook.
 
@@ -192,35 +191,33 @@ Si el runbook se ejecuta normalmente dentro de una restricción de tiempo, haga 
 
 ## <a name="work-with-multiple-subscriptions"></a>Trabajo con varias suscripciones
 
-El runbook debe poder trabajar con [suscripciones](automation-runbook-execution.md#subscriptions). Por ejemplo, para controlar varias suscripciones, el runbook debe usar el cmdlet [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0). Este cmdlet garantiza que no se recupere el contexto de autenticación desde otro runbook que se ejecute en el mismo espacio aislado. El runbook también usa el cmdlet `Get-AzContext` para recuperar el contexto de la sesión actual y asignarlo a la variable `$AzureContext`.
+El runbook debe poder trabajar con [suscripciones](automation-runbook-execution.md#subscriptions). Por ejemplo, para controlar varias suscripciones, el runbook debe usar el cmdlet [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave). Este cmdlet garantiza que no se recupere el contexto de autenticación desde otro runbook que se ejecute en el mismo espacio aislado. El runbook también usa el cmdlet `Get-AzContext` para recuperar el contexto de la sesión actual y asignarlo a la variable `$AzureContext`.
 
 ```powershell
-# Ensures that you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave –Scope Process
+Disable-AzContextAutosave -Scope Process
 
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal `
+$AzureContext = Connect-AzAccount -ServicePrincipal `
 -Tenant $Conn.TenantID `
 -ApplicationId $Conn.ApplicationID `
--CertificateThumbprint $Conn.CertificateThumbprint
-
-$AzureContext = Get-AzContext
+-CertificateThumbprint $Conn.CertificateThumbprint `
+-Subscription $Conn.SubscriptionId
 
 $ChildRunbookName = 'ChildRunbookDemo'
 $AutomationAccountName = 'myAutomationAccount'
 $ResourceGroupName = 'myResourceGroup'
 
 Start-AzAutomationRunbook `
-    -ResourceGroupName $ResourceGroupName `
-    -AutomationAccountName $AutomationAccountName `
-    -Name $ChildRunbookName `
-    -DefaultProfile $AzureContext
+-ResourceGroupName $ResourceGroupName `
+-AutomationAccountName $AutomationAccountName `
+-Name $ChildRunbookName `
+-DefaultProfile $AzureContext
 ```
 
 ## <a name="work-with-a-custom-script"></a>Trabajo con un script personalizado
 
 > [!NOTE]
-> Normalmente no se pueden ejecutar scripts y runbooks personalizados en el host con un agente de Log Analytics instalado. 
+> Normalmente no se pueden ejecutar scripts y runbooks personalizados en el host con un agente de Log Analytics instalado.
 
 Para utilizar un script personalizado, haga lo siguiente:
 
@@ -252,12 +249,12 @@ Cuando cree o importe un runbook nuevo, debe publicarlo para poder ejecutarlo. C
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Publicación de un runbook en Azure Portal
 
 1. Abra el runbook en Azure Portal.
-2. Haga clic en **Editar**.
+2. Haga clic en **Editar** .
 3. Haga clic en el botón **Publicar** y, a continuación, en **Sí** en el mensaje de comprobación.
 
 ### <a name="publish-a-runbook-using-powershell"></a>Publicación de un runbook mediante PowerShell
 
-Utilice el cmdlet [Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook?view=azps-3.5.0) para publicar el runbook. 
+Utilice el cmdlet [Publish-AzAutomationRunbook](/powershell/module/Az.Automation/Publish-AzAutomationRunbook) para publicar el runbook. 
 
 ```azurepowershell-interactive
 $automationAccountName =  "AutomationAccount"
@@ -273,19 +270,19 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 Una vez publicado el runbook, puede programarlo para que funcione:
 
 1. Abra el runbook en Azure Portal.
-2. Seleccione **Programas** en **Recursos**.
-3. Seleccione **Agregar una programación**.
-4. En el panel Programación de un runbook, seleccione **Vincular una programación a su runbook**.
-5. En el panel Programación, seleccione **Crear una nueva programación**.
-6. Escriba un nombre, una descripción y otros parámetros en el panel Nueva programación. 
-7. Una vez creada la programación, resáltela y haga clic en **Aceptar**. Ahora debería estar vinculada a su runbook.
+2. Seleccione **Programas** en **Recursos** .
+3. Seleccione **Agregar una programación** .
+4. En el panel Programación de un runbook, seleccione **Vincular una programación a su runbook** .
+5. En el panel Programación, seleccione **Crear una nueva programación** .
+6. Escriba un nombre, una descripción y otros parámetros en el panel Nueva programación.
+7. Una vez creada la programación, resáltela y haga clic en **Aceptar** . Ahora debería estar vinculada a su runbook.
 8. Busque un correo electrónico en el buzón que le informa sobre el estado del runbook.
 
 ## <a name="obtain-job-statuses"></a>Obtención de estados del trabajo
 
 ### <a name="view-statuses-in-the-azure-portal"></a>Visualización de los estados en Azure Portal
 
-En Azure Automation, los detalles del control de trabajos se proporcionan en [Trabajos](automation-runbook-execution.md#jobs). Cuando esté listo para ver los trabajos de runbook, use Azure Portal y acceda a su cuenta de Automation. A la derecha, se puede ver un resumen de todos los trabajos de runbook en **Estadísticas de trabajo**. 
+En Azure Automation, los detalles del control de trabajos se proporcionan en [Trabajos](automation-runbook-execution.md#jobs). Cuando esté listo para ver los trabajos de runbook, use Azure Portal y acceda a su cuenta de Automation. A la derecha, se puede ver un resumen de todos los trabajos de runbook en **Estadísticas de trabajo** .
 
 ![Icono Estadísticas de trabajo](./media/manage-runbooks/automation-account-job-status-summary.png)
 
@@ -295,17 +292,17 @@ Al hacer clic en el icono aparece la página Trabajos, que incluye una lista res
 
 :::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Captura de pantalla de la página Trabajos.":::
 
-Para filtrar la lista de trabajos, puede seleccionar **Filtrar trabajos**. Filtre por un runbook específico, estado de trabajo o una opción de la lista desplegable y proporcione el intervalo de tiempo para la búsqueda.
+Para filtrar la lista de trabajos, puede seleccionar **Filtrar trabajos** . Filtre por un runbook específico, estado de trabajo o una opción de la lista desplegable y proporcione el intervalo de tiempo para la búsqueda.
 
 ![Filtrado por estado del trabajo](./media/manage-runbooks/automation-account-jobs-filter.png)
 
-Como alternativa, puede ver los detalles resumidos de los trabajos de un runbook concreto; para ello, selecciónelo en la página Runbooks de la cuenta de Automation y, después, seleccione **Trabajos**. Esta acción presenta la página Trabajos. Desde aquí, puede hacer clic en un registro del trabajo para ver sus detalles y resultados.
+Como alternativa, puede ver los detalles resumidos de los trabajos de un runbook concreto; para ello, selecciónelo en la página Runbooks de la cuenta de Automation y, después, seleccione **Trabajos** . Esta acción presenta la página Trabajos. Desde aquí, puede hacer clic en un registro del trabajo para ver sus detalles y resultados.
 
 :::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Captura de pantalla de la página Trabajos.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperación de los estados del trabajo con PowerShell
 
-Puede utilizar el cmdlet [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para recuperar los trabajos creados para un runbook y los detalles de un trabajo determinado. Si inicia un runbook mediante `Start-AzAutomationRunbook`, se devuelve el trabajo resultante. Utilice [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) para recuperar la salida del trabajo.
+Puede utilizar el cmdlet [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob) para recuperar los trabajos creados para un runbook y los detalles de un trabajo determinado. Si inicia un runbook mediante `Start-AzAutomationRunbook`, se devuelve el trabajo resultante. Utilice [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) para recuperar la salida del trabajo.
 
 En el ejemplo siguiente se recupera el último trabajo para un runbook de ejemplo y se muestra su estado, los valores proporcionados para los parámetros del runbook y la salida del trabajo.
 
@@ -340,6 +337,4 @@ foreach($item in $output)
 
 * Para obtener información detallada sobre la administración de un runbook, vea [Ejecución de un runbook en Azure Automation](automation-runbook-execution.md).
 * Para preparar un runbook de PowerShell, vea [Edición de runbooks de texto en Azure Automation](automation-edit-textual-runbook.md).
-* Para obtener ayuda sobre la escritura de un runbook de flujo de trabajo de PowerShell, vea [Aprendizaje de los conceptos básicos del flujo de trabajo de Windows PowerShell para los runbooks de Automation](automation-powershell-workflow.md).
-* Para obtener más información sobre cómo escribir runbooks gráficos, vea [Creación gráfica en Azure Automation](automation-graphical-authoring-intro.md).
 * Para solucionar problemas con la ejecución de un runbook, vea [Solución de problemas relativos a errores con runbooks](troubleshoot/runbooks.md).

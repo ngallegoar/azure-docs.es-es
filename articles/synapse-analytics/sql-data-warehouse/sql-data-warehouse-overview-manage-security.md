@@ -11,12 +11,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 06f62fd656357e16396a0458a9afee12dcfa507f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629376"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516890"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Protección de una base de datos en Azure Synapse
 
@@ -92,7 +92,7 @@ En el ejemplo siguiente, se concede acceso de lectura a un esquema definido por 
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-La administración de bases de datos y servidores lógicos desde Azure Portal o mediante la API de Azure Resource Manager la controlan las asignaciones de roles de su cuenta de usuario del portal. Para obtener más información, consulte [Control del acceso basado en roles en Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+La administración de bases de datos y servidores lógicos desde Azure Portal o mediante la API de Azure Resource Manager la controlan las asignaciones de roles de su cuenta de usuario del portal. Para más información, consulte [Incorporación o eliminación de asignaciones de roles mediante Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Cifrado
 

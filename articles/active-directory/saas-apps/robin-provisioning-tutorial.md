@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: e69b6aa5518f83dbbeba34d70b459c781b50dc9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300010"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520734"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Tutorial: Configuración de Robin para el aprovisionamiento automático de usuarios
 
@@ -50,7 +50,7 @@ Antes de configurar y habilitar el aprovisionamiento automático de usuarios, de
 
 ## <a name="set-up-robin-for-provisioning"></a>Configurar Robin para el aprovisionamiento
 
-1. Inicie sesión en la [consola de administración de Robin](https://dashboard.robinpowered.com/login). Vaya a **Administrar > Integraciones > SCIM > Administrar**.
+1. Inicie sesión en la [consola de administración de Robin](https://dashboard.robinpowered.com/login). Vaya a **Administrar > Integraciones > SCIM > Administrar** .
 
     ![Consola de administración de Robin Powered](media/robin-provisioning-tutorial/robin-admin.png)
 
@@ -68,11 +68,11 @@ Antes de configurar Robin para el aprovisionamiento automático de usuarios con 
 
 **Para agregar Robin desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Antes de configurar Robin para el aprovisionamiento automático de usuarios con 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Robin**, seleccione **Robin** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Robin** , seleccione **Robin** en el panel de resultados y luego haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Robin en la lista de resultados](common/search-new-app.png)
 
@@ -89,67 +89,67 @@ Antes de configurar Robin para el aprovisionamiento automático de usuarios con 
 Esta sección le guía por los pasos necesarios para configurar el servicio de aprovisionamiento de Azure AD para crear, actualizar y deshabilitar usuarios o grupos en Robin en función de las asignaciones de grupos o usuarios de Azure AD.
 
 > [!TIP]
-> También puede optar por habilitar el inicio de sesión único basado en SAML para Robin siguiendo las instrucciones del [tutorial de inicio de sesión único de Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
+> También puede optar por habilitar el inicio de sesión único basado en SAML para Robin siguiendo las instrucciones del [tutorial de inicio de sesión único de Robin](./robin-tutorial.md). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático de usuarios, aunque estas dos características se complementan entre sí.
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Robin en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Robin**.
+2. En la lista de aplicaciones, seleccione **Robin** .
 
     ![Enlace a Robin Powered en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento**.
+3. Seleccione la pestaña **Aprovisionamiento** .
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático** .
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba `https://api.robinpowered.com/v1.0/scim-2` en la **URL de inquilino**. Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto**. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Robin. Si la conexión no se establece, asegúrese de que la cuenta de Robin tiene permisos de administrador e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador** , escriba `https://api.robinpowered.com/v1.0/scim-2` en la **URL de inquilino** . Escriba el valor **SCIM Authentication Token** (Token de autenticación de SCIM) recuperado anteriormente en **Token secreto** . Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Robin. Si la conexión no se establece, asegúrese de que la cuenta de Robin tiene permisos de administrador e inténtelo de nuevo.
 
     ![URL de inquilino + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Robin** (Sincronizar usuarios de Azure Active Directory con Robin).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Robin** (Sincronizar usuarios de Azure Active Directory con Robin).
 
     ![Asignaciones de usuario de Robin Powered](media/robin-provisioning-tutorial/robin-user-mapping.png)
 
-9. Examine los atributos de usuario que se sincronizan entre Azure AD y Robin en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Robin con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+9. Examine los atributos de usuario que se sincronizan entre Azure AD y Robin en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades de **Coincidencia** se usan para buscar coincidencias con las cuentas de usuario de Robin con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Atributos de usuario de Robin Powered](media/robin-provisioning-tutorial/robin-user-attribute-mapping.png)
 
-10. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Groups to Robin** (Sincronizar grupos de Azure Active Directory con Robin).
+10. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Groups to Robin** (Sincronizar grupos de Azure Active Directory con Robin).
 
     ![Asignaciones de grupos de Robin Powered](media/robin-provisioning-tutorial/robin-group-mapping.png)
 
-11. Examine los atributos de grupo que se sincronizan entre Azure AD y Robin en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con los grupos en Robin a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. Examine los atributos de grupo que se sincronizan entre Azure AD y Robin en la sección **Asignación de atributos** . Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con los grupos en Robin a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Atributos de grupo de Robin Powered](media/robin-provisioning-tutorial/robin-group-attribute-mapping.png)
 
 12. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para habilitar el servicio de aprovisionamiento de Azure AD para Robin, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+13. Para habilitar el servicio de aprovisionamiento de Azure AD para Robin, cambie **Estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-14. Seleccione los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que quiere aprovisionar en Robin.
+14. Seleccione los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que quiere aprovisionar en Robin.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+15. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Robin.
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Robin.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../app-provisioning/check-status-user-account-provisioning.md).
 
@@ -163,4 +163,3 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../app-provisioning/check-status-user-account-provisioning.md)
-

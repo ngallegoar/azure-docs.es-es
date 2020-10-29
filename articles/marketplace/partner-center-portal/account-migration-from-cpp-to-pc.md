@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 09/23/2019
-ms.openlocfilehash: fbf76f846395d6bf0b02828ab1d6ad8b70c97784
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e9f3b7ea3d99de51b9398bda82b690d2c249a1d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289340"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520972"
 ---
 # <a name="how-to-migrate-your-account-from-cloud-partner-portal-to-partner-center"></a>Cómo migrar su cuenta del Cloud Partner Portal al Centro de partners
 
@@ -73,10 +73,10 @@ Para obtener información sobre lo que debe hacerse antes del **15 de octubre de
 1. Si la cuenta de pertenencia de MPN se creó originalmente en Partner Membership Center (PMC), inicie sesión en el [Centro de partners](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) para confirmar que la cuenta se ha migrado. Si ve una pantalla de perfil con el identificador de MPN, significa que ya está listo para continuar. Si no es así, debe iniciar la migración de la cuenta siguiendo las indicaciones de [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Consulte [Soporte técnico](https://partner.microsoft.com/support?issueid=100-0077) si necesita ayuda.
 2. Vaya a [Introducción al portal de Marketplace comercial en el Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Si ve "Marketplace comercial" en el panel de navegación izquierdo, significa que está inscrito y debe continuar con el paso siguiente. Si no es así, [inscríbase ahora en el Marketplace comercial](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership).
 3. Confirme que sus ofertas están en AppSource. Para ello, [busque sus ofertas](https://appsource.microsoft.com/). Si las ofertas ya están en AppSource, continúe con el paso siguiente. En el caso de las ofertas que no estén en AppSource, cree una [nueva oferta de Dynamics 365 Customer Engagement](create-new-customer-engagement-offer.md) o una [nueva oferta de Dynamics 365 Operations](create-new-operations-offer.md).
-4. En la [página de acuerdos](https://partner.microsoft.com/dashboard/account/agreements) del Centro de partners, asegúrese de haber revisado y aceptado el **anexo de ISV de Business Applications**.
+4. En la [página de acuerdos](https://partner.microsoft.com/dashboard/account/agreements) del Centro de partners, asegúrese de haber revisado y aceptado el **anexo de ISV de Business Applications** .
 5. En la [configuración de cuenta](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) del Centro de partners, asegúrese de que su información de facturación está completa.
 6. Envíe cada oferta nueva y existente de certificación y publicación, incluso si las ofertas se han certificado previamente.
-    * Complete las pantallas de información, incluido el suministro de su aplicación para la certificación, así como la información de marketing. Seleccione **Enviar** (esquina superior derecha de la pantalla) antes del **15 de octubre de 2019**. Estos pasos deben completarse para que la disponibilidad de la oferta no se vea afectada.
+    * Complete las pantallas de información, incluido el suministro de su aplicación para la certificación, así como la información de marketing. Seleccione **Enviar** (esquina superior derecha de la pantalla) antes del **15 de octubre de 2019** . Estos pasos deben completarse para que la disponibilidad de la oferta no se vea afectada.
     * Si es apto, puede solicitar participar en el nivel premium durante este proceso.
     * La certificación o la recertificación requieren que la aplicación sea compatible con la versión más reciente de nuestra plataforma Business Applications.
     * Una vez aprobada la aplicación, recibe un correo electrónico para volver a la oferta y seleccionar "publicar" a fin de permitir que la oferta se publique en Microsoft AppSource.
