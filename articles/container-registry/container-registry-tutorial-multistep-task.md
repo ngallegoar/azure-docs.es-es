@@ -3,13 +3,13 @@ title: 'Tutorial: Tarea de ACR de varios pasos'
 description: En este tutorial, aprenderá a configurar una tarea de Azure Container Registry que desencadena automáticamente un flujo de trabajo de varios pasos para compilar, ejecutar e insertar imágenes de contenedor en la nube cuando confirma el código fuente en un repositorio de Git.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402306"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739607"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Ejecución de un flujo de trabajo de contenedor de varios pasos en la nube al confirmar el código fuente
 
@@ -31,7 +31,7 @@ En este tutorial se da por hecho que ya ha realizado los pasos de los [tutoriale
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.62** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
+Si quiere usar la CLI de Azure de forma local, debe tener la versión  **2.0.62** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -316,7 +316,7 @@ Esta tarea de varios pasos hace lo siguiente:
 
 ### <a name="task-command"></a>Comando de tarea
 
-Con las variables de entorno del shell definidas anteriormente, cree la tarea con el siguiente comando [az acr task create][az-acr-task-create]. Sustituya el nombre del registro por *mycontainerregistrydate*.
+Con las variables de entorno del shell definidas anteriormente, cree la tarea con el siguiente comando [az acr task create][az-acr-task-create]. Sustituya el nombre del registro por *mycontainerregistrydate* .
 
 ```azurecli-interactive
 az acr task create \
@@ -332,7 +332,7 @@ az acr task create \
 
 Para insertar imágenes en el registro identificado por el valor de `regDate`, use el comando [az acr task credential add][az-acr-task-credential-add] para agregar las credenciales de inicio de sesión de ese registro a la tarea.
 
-En este ejemplo, se recomienda crear una [entidad de servicio](container-registry-auth-service-principal.md) con acceso al registro que tenga como ámbito el rol *AcrPush*. Para crear la entidad de servicio, consulte este [script de la CLI de Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+En este ejemplo, se recomienda crear una [entidad de servicio](container-registry-auth-service-principal.md) con acceso al registro que tenga como ámbito el rol *AcrPush* . Para crear la entidad de servicio, consulte este [script de la CLI de Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
 Pase le identificador y la contraseña de aplicación de la entidad de servicio en el siguiente comando `az acr task credential add`:
 

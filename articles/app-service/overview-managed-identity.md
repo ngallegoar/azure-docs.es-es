@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152088"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742498"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -33,17 +33,17 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 
 1. Cree una aplicación en el portal como lo haría normalmente. Navegue hasta el portal.
 
-2. Si utiliza una aplicación de función, vaya a **Características de la plataforma**. Para otros tipos de aplicación, desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
+2. Si utiliza una aplicación de función, vaya a **Características de la plataforma** . Para otros tipos de aplicación, desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
 
-3. Seleccione **Identidad**.
+3. Seleccione **Identidad** .
 
-4. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Haga clic en **Save**(Guardar).
+4. En la pestaña **Asignado por el sistema** , cambie **Estado** a **Activado** . Haga clic en **Save** (Guardar).
 
     ![Identidad administrada en App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Para encontrar la identidad administrada de la aplicación web o de ranura en Azure Portal, busque en la sección **Configuración de usuario** en **Aplicaciones empresariales**. Normalmente, el nombre de la ranura es similar a `<app name>/slots/<slot name>`.
+> Para encontrar la identidad administrada de la aplicación web o de ranura en Azure Portal, busque en la sección **Configuración de usuario** en **Aplicaciones empresariales** . Normalmente, el nombre de la ranura es similar a `<app name>/slots/<slot name>`.
 
 
 ### <a name="using-the-azure-cli"></a>Uso de la CLI de Azure
@@ -198,13 +198,13 @@ En primer lugar, tendrá que crear un recurso de identidad asignada por el usuar
 
 2. Cree una aplicación en el portal como lo haría normalmente. Navegue hasta el portal.
 
-3. Si utiliza una aplicación de función, vaya a **Características de la plataforma**. Para otros tipos de aplicación, desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
+3. Si utiliza una aplicación de función, vaya a **Características de la plataforma** . Para otros tipos de aplicación, desplácese hacia abajo hasta el grupo **Configuración** en el panel de navegación izquierdo.
 
-4. Seleccione **Identidad**.
+4. Seleccione **Identidad** .
 
-5. En la pestaña **Usuario asignado**, haga clic **Agregar**.
+5. En la pestaña **Usuario asignado** , haga clic **Agregar** .
 
-6. Busque la identidad que creó anteriormente y selecciónela. Haga clic en **Agregar**.
+6. Busque la identidad que creó anteriormente y selecciónela. Haga clic en **Agregar** .
 
     ![Identidad administrada en App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 

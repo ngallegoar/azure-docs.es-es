@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: 48a2c00f7ff487def13e9872c4f43a3ca36809ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5202145af6f60f34bdce57aa94f4fec92a8b227f
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444642"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677264"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Plantillas de Azure Resource Manager para Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 | [Azure Web App con SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database) | Este ejemplo crea una base de datos y una aplicación web de Azure gratuitas en Azure SQL Database, en el nivel de servicio "Básico".|
 | [Azure Web App y Redis Cache con SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-redis-cache-sql-database) | Esta plantilla crea una aplicación web, una instancia de Redis Cache y una base de datos en el mismo grupo de recursos y crea dos cadenas de conexión en la aplicación web para la base de datos y Redis Cache.|
 | [Importación de datos del almacenamiento de blobs mediante ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | Esta plantilla de Azure Resource Manager crea una instancia de Azure Data Factory V2 que copia datos de Azure Blob Storage a SQL Database.|
-| [Clúster de HDInsight con una base de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Esta plantilla permite crear un clúster de HDInsight, un servidor SQL lógico, una base de datos y dos tablas. Esta plantilla se usa en el artículo [Uso de Apache Sqoop con Hadoop en HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop). |
+| [Clúster de HDInsight con una base de datos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | Esta plantilla permite crear un clúster de HDInsight, un servidor SQL lógico, una base de datos y dos tablas. Esta plantilla se usa en el artículo [Uso de Apache Sqoop con Hadoop en HDInsight](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
 | [Aplicación de lógica de Azure que ejecuta un procedimiento almacenado de SQL según una programación](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | Esta plantilla permite crear una aplicación lógica que ejecutará un procedimiento almacenado de SQL de forma programada. Los argumentos para el procedimiento se pueden colocar en la sección del cuerpo de la plantilla.|
 
 ## <a name="azure-sql-managed-instance"></a>[Instancia administrada de Azure SQL](#tab/managed-instance)
@@ -54,4 +54,3 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 | [Instancia administrada de SQL con una máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Esta implementación creará una red virtual de Azure con dos subredes, `ManagedInstance` y `Management`. Instancia administrada de SQL se implementará en la subred `ManagedInstance`. La máquina virtual con la versión más reciente de SQL Server Management Studio (SSMS) se implementarán en la subred `Management`. |
 
 ---
-

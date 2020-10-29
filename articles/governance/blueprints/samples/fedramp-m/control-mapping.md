@@ -1,20 +1,20 @@
 ---
 title: 'Ejemplo de plano técnico de FedRAMP moderado: controles'
 description: Ejemplo de asignación de control del plano técnico de FedRAMP moderado. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 07/31/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: fdc605b1021ce3ab1e188a29a9deb513c2eb5816
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3963e8915903ed91f28fc49bab33d6d8eeb4b12d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929309"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675895"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Ejemplo de asignación de control del plano técnico de FedRAMP moderado
 
 En el siguiente artículo se detalla cómo se asigna el ejemplo de plano técnico de FedRAMP moderado de Azure Blueprints a los controles de FedRAMP moderado. Para obtener más información sobre los controles, vea [Base de referencia de los controles de seguridad de FedRAMP](https://www.fedramp.gov/).
 
-Las siguientes asignaciones son para los controles de **FedRAMP moderado**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: Audite los controles de FedRAMP moderado e implemente extensiones de VM específicas para admitir la iniciativa de directiva integrada de los requisitos de auditoría**.
+Las siguientes asignaciones son para los controles de **FedRAMP moderado** . Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones** . Después, busque y seleccione la **\[versión preliminar\]: Audite los controles de FedRAMP moderado e implemente extensiones de VM específicas para admitir la iniciativa de directiva integrada de los requisitos de auditoría** .
 
 > [!IMPORTANT]
 > Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-m/control-mapping.md).

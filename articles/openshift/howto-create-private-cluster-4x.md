@@ -7,13 +7,13 @@ ms.date: 03/12/2020
 author: georgewallace
 ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: eedd796e3223c6cbcd0844cc4e814a35172d6c7e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 3082f30f46a1e450a9ac42958163894c014de66d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078534"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737209"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Creación de un clúster privado de la versión 4 de Red Hat OpenShift en Azure
 
@@ -192,7 +192,7 @@ az aro create \
 Después de ejecutar el comando `az aro create`, se tarda aproximadamente 35 minutos en crear un clúster.
 
 >[!IMPORTANT]
-> Si elige especificar un dominio personalizado, por ejemplo **foo.example.com**, la consola de OpenShift estará disponible en una dirección URL como `https://console-openshift-console.apps.foo.example.com`, en lugar del dominio integrado `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Si elige especificar un dominio personalizado, por ejemplo **foo.example.com** , la consola de OpenShift estará disponible en una dirección URL como `https://console-openshift-console.apps.foo.example.com`, en lugar del dominio integrado `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
 > De forma predeterminada, OpenShift usa certificados autofirmados para todas las rutas creadas en `*.apps.<random>.<location>.aroapp.io`.  Si elige Custom DNS (DNS personalizado), después de conectarse al clúster, tendrá que seguir la documentación de OpenShift para [configurar una entidad de certificación personalizada para el controlador de entrada ](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) y [una entidad de certificación personalizada para el servidor de API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 

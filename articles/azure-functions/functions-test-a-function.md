@@ -3,15 +3,15 @@ title: Prueba de Azure Functions
 description: Creación de pruebas automatizadas para una función de C# en Visual Studio y una función de JavaScript en VS Code
 author: craigshoemaker
 ms.topic: conceptual
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-js
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: e0abfc9be0031f899071d6e5e22274481ba76e10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ff70c14310dd81a051ac27c1d6d59bb3d1deb7b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212896"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677598"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -36,12 +36,12 @@ El ejemplo siguiente describe cómo crear una aplicación de función C# en Visu
 
 Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos siguientes le ayudarán a crear las aplicaciones y funciones necesarias para admitir las pruebas:
 
-1. [Cree una nueva aplicación de Functions](./functions-create-first-azure-function.md) y asígnele el nombre **Functions**.
-2. [Cree una función HTTP a partir de la plantilla ](./functions-create-first-azure-function.md) y asígnele el nombre **MyHttpTrigger**.
-3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre **MyTimerTrigger**.
-4. [Cree una aplicación de prueba en xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) en la solución y asígnele el nombre **Functions.Test**.
+1. [Cree una nueva aplicación de Functions](./functions-create-first-azure-function.md) y asígnele el nombre **Functions** .
+2. [Cree una función HTTP a partir de la plantilla](./functions-create-first-azure-function.md) y asígnele el nombre **MyHttpTrigger** .
+3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre **MyTimerTrigger** .
+4. [Cree una aplicación de prueba en xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) en la solución y asígnele el nombre **Functions.Test** .
 5. Use NuGet para agregar referencias desde la aplicación de prueba a [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Haga referencia a la aplicación *Functions*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Tests*.
+6. [Haga referencia a la aplicación *Functions*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Tests* .
 
 ### <a name="create-test-classes"></a>Crear clases de prueba
 
@@ -107,11 +107,11 @@ namespace Functions.Tests
 
 La clase `ListLogger` implementa los siguientes miembros según los contrata la interfaz `ILogger`:
 
-- **BeginScope**: Los ámbitos agregan contexto al registro. En este caso, la prueba simplemente apunta a la instancia estática en la clase `NullScope` para permitir la prueba de la función.
+- **BeginScope** : Los ámbitos agregan contexto al registro. En este caso, la prueba simplemente apunta a la instancia estática en la clase `NullScope` para permitir la prueba de la función.
 
-- **IsEnabled**: Se proporciona un valor predeterminado de `false`.
+- **IsEnabled** : Se proporciona un valor predeterminado de `false`.
 
-- **Log**: Este método usa la función `formatter` proporcionada para dar formato al mensaje y, a continuación, agrega el texto resultante a la colección `Logs`.
+- **Log** : Este método usa la función `formatter` proporcionada para dar formato al mensaje y, a continuación, agrega el texto resultante a la colección `Logs`.
 
 La colección `Logs` es una instancia de `List<string>` y se inicializa en el constructor.
 
@@ -193,13 +193,13 @@ namespace Functions.Tests
 
 La clase `TestFactory` implementa los siguientes miembros:
 
-- **Data**: Esta propiedad devuelve una colección [IEnumerable](/dotnet/api/system.collections.ienumerable) de datos de ejemplo. Los pares clave-valor representan los valores que se pasan en una cadena de consulta.
+- **Data** : Esta propiedad devuelve una colección [IEnumerable](/dotnet/api/system.collections.ienumerable) de datos de ejemplo. Los pares clave-valor representan los valores que se pasan en una cadena de consulta.
 
-- **CreateDictionary**: Este método acepta un par clave-valor como argumento y devuelve un `Dictionary` nuevo usado para crear `QueryCollection` para representar los valores de cadena de consulta.
+- **CreateDictionary** : Este método acepta un par clave-valor como argumento y devuelve un `Dictionary` nuevo usado para crear `QueryCollection` para representar los valores de cadena de consulta.
 
-- **CreateHttpRequest**: Este método crea una solicitud HTTP que se inicializa con los parámetros de cadena de consulta indicados.
+- **CreateHttpRequest** : Este método crea una solicitud HTTP que se inicializa con los parámetros de cadena de consulta indicados.
 
-- **CreateLogger**: Según el tipo de registrador, este método devuelve una clase de registrador que se usa para las pruebas. `ListLogger` realiza un seguimiento de los mensajes registrados disponibles para su evaluación en las pruebas.
+- **CreateLogger** : Según el tipo de registrador, este método devuelve una clase de registrador que se usa para las pruebas. `ListLogger` realiza un seguimiento de los mensajes registrados disponibles para su evaluación en las pruebas.
 
 Finalmente, cree una clase nueva en el proyecto *Functions.Tests* denominada **FunctionsTests.cs** y escriba el código siguiente:
 
@@ -245,23 +245,23 @@ namespace Functions.Tests
 
 Los miembros implementados en esta clase son:
 
-- **Http_trigger_should_return_known_string**: Esta prueba crea una solicitud con los valores de la cadena de consulta de `name=Bill` en una función HTTP y comprueba que se devuelve la respuesta esperada.
+- **Http_trigger_should_return_known_string** : Esta prueba crea una solicitud con los valores de la cadena de consulta de `name=Bill` en una función HTTP y comprueba que se devuelve la respuesta esperada.
 
-- **Http_trigger_should_return_string_from_member_data**: Esta prueba usa atributos de xUnit para proporcionar datos de ejemplo a la función HTTP.
+- **Http_trigger_should_return_string_from_member_data** : Esta prueba usa atributos de xUnit para proporcionar datos de ejemplo a la función HTTP.
 
-- **Timer_should_log_message**: Esta prueba crea una instancia de `ListLogger` y la pasa a una función de temporizador. Una vez que se ejecuta la función, se comprueba el registro para garantizar que esté presente el mensaje esperado.
+- **Timer_should_log_message** : Esta prueba crea una instancia de `ListLogger` y la pasa a una función de temporizador. Una vez que se ejecuta la función, se comprueba el registro para garantizar que esté presente el mensaje esperado.
 
 Si quiere obtener acceso a la configuración de la aplicación en las pruebas, puede usar [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Ejecución de las pruebas
 
-Para ejecutar las pruebas, vaya al **Explorador de pruebas** y haga clic en **Ejecutar todas**.
+Para ejecutar las pruebas, vaya al **Explorador de pruebas** y haga clic en **Ejecutar todas** .
 
 ![Prueba de Azure Functions con C# en Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### <a name="debug-tests"></a>Depuración de pruebas
 
-Para depurar las pruebas, establezca un punto de interrupción en una prueba, vaya al **Explorador de pruebas** y haga clic en **Ejecutar > Última ejecución de depuración**.
+Para depurar las pruebas, establezca un punto de interrupción en una prueba, vaya al **Explorador de pruebas** y haga clic en **Ejecutar > Última ejecución de depuración** .
 
 ## <a name="javascript-in-vs-code"></a>JavaScript en VS Code
 
@@ -295,7 +295,7 @@ Ahora actualice _package.json_ para reemplazar el comando de prueba existente po
 
 Con el proyecto inicializado, puede crear los módulos usados para ejecutar las pruebas automatizadas. Empiece creando una nueva carpeta denominada *pruebas* para mantener la compatibilidad con los módulos.
 
-En la carpeta *pruebas*, agregue un nuevo archivo, asígnele el nombre **defaultContext.js** y agregue el código siguiente:
+En la carpeta *pruebas* , agregue un nuevo archivo, asígnele el nombre **defaultContext.js** y agregue el código siguiente:
 
 ```javascript
 module.exports = {
@@ -315,7 +315,7 @@ module.exports = {
 
 Este módulo implementa la propiedad `IsPastDue` para que permanezca como una instancia de temporizador falsa. Aquí no se requieren configuraciones de temporizador, como expresiones NCRONTAB, ya que la herramienta de ejecución de pruebas llama a la función directamente para probar el resultado.
 
-A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](/azure/developer/javascript/tutorial-vscode-serverless-node-01) y asígnele el nombre *HttpTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
+A continuación, utilice la extensión Functions de VS Code para [crear una nueva función HTTP de JavaScript](/azure/developer/javascript/tutorial-vscode-serverless-node-01) y asígnele el nombre *HttpTrigger* . Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
 
 ```javascript
 const httpFunction = require('./index');
@@ -336,7 +336,7 @@ test('Http trigger should return known text', async () => {
 
 La función HTTP de la plantilla devuelve una cadena de "Hello" concatenada con el nombre proporcionado en la cadena de consulta. Esta prueba crea una instancia falsa de una solicitud y la pasa a la función HTTP. La prueba comprueba que se llame una vez al método *log* y que el texto devuelto sea igual a "Hello Bill".
 
-A continuación, utilice la extensión Functions de VS Code para crear una nueva función de temporizador de JavaScript y asígnele el nombre *TimerTrigger*. Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
+A continuación, utilice la extensión Functions de VS Code para crear una nueva función de temporizador de JavaScript y asígnele el nombre *TimerTrigger* . Una vez creada la función, agregue un nuevo archivo en la misma carpeta denominado **index.test.js** y agregue el código siguiente:
 
 ```javascript
 const timerFunction = require('./index');
@@ -363,7 +363,7 @@ npm test
 
 ### <a name="debug-tests"></a>Depuración de pruebas
 
-Para depurar las pruebas, agregue la siguiente configuración al archivo *launch.json*:
+Para depurar las pruebas, agregue la siguiente configuración al archivo *launch.json* :
 
 ```json
 {
@@ -379,7 +379,7 @@ Para depurar las pruebas, agregue la siguiente configuración al archivo *launch
 }
 ```
 
-A continuación, establezca un punto de interrupción en la prueba y presione **F5**.
+A continuación, establezca un punto de interrupción en la prueba y presione **F5** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

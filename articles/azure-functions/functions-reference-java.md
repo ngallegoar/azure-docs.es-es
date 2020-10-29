@@ -3,13 +3,13 @@ title: Referencia para desarrolladores de Java para Azure Functions
 description: Aprenda a desarrollar funciones con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: fcacfd96ece68424c876b0349ceb49d3eaabb598
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996504"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736691"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guía de Azure Functions para desarrolladores de Java
 
@@ -45,7 +45,7 @@ Los vínculos de artículo anteriores muestran cómo crear sus primeras funcione
 
 ### <a name="project-scaffolding"></a>Creación del scaffolding del proyecto
 
-Si prefiere el desarrollo de la línea de comandos del terminal, la forma más sencilla de crear el scaffolding de los proyectos de aplicación de una función basados en Java es usar arquetipos `Apache Maven`. El arquetipo Maven de Java para Azure Functions está publicado en _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
+Si prefiere el desarrollo de la línea de comandos del terminal, la forma más sencilla de crear el scaffolding de los proyectos de aplicación de una función basados en Java es usar arquetipos `Apache Maven`. El arquetipo Maven de Java para Azure Functions está publicado en _groupId_ : _artifactId_ : [com.microsoft.azure:azure-functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/). 
 
 El siguiente comando genera un nuevo proyecto de función de Java con este arquetipo:
 
@@ -134,8 +134,6 @@ Aquí está el elemento `function.json` correspondiente que generó [azure-funct
 
 ## <a name="java-versions"></a>Versiones de Java
 
-_La compatibilidad con Java 11 se encuentra actualmente en versión preliminar_.
-
 La versión de Java que se usa al crear la aplicación de funciones en la que se ejecutan las funciones en Azure se especifica en el archivo pom.xml. En la actualidad, el arquetipo de Maven genera un archivo pom.xml para Java 8, que se puede cambiar antes de publicar. La versión de Java en el archivo pom.xml debe coincidir con la versión en la que ha desarrollado y probado localmente la aplicación. 
 
 ### <a name="supported-versions"></a>Versiones compatibles
@@ -144,14 +142,14 @@ En la tabla siguiente se muestran las versiones actuales de Java compatibles par
 
 | Versión de Functions | Versiones de Java (Windows) | Versiones de Java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (versión preliminar)<br/>8 | 11 (versión preliminar)<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | N/D |
 
 A menos que especifique una versión de Java para la implementación, el arquetipo de Maven usa como valor predeterminado Java 8 durante la implementación en Azure.
 
 ### <a name="specify-the-deployment-version"></a>Especificación de la versión de implementación
 
-Puede controlar la versión de Java de destino del arquetipo de Maven mediante el parámetro `-DjavaVersion`. El valor de este parámetro puede ser `8` o `11`. La compatibilidad con Java 11 se encuentra actualmente en versión preliminar. 
+Puede controlar la versión de Java de destino del arquetipo de Maven mediante el parámetro `-DjavaVersion`. El valor de este parámetro puede ser `8` o `11`. 
 
 El arquetipo de Maven genera un archivo pom.xml que tiene como destino la versión de Java especificada. Los siguientes elementos del archivo pom.xml indican la versión de Java que se va a usar:
 
@@ -204,7 +202,7 @@ Puede proporcionar argumentos adicionales en una configuración de la aplicació
 > [!IMPORTANT]  
 > En el plan de consumo, también debe agregar el valor WEBSITE_USE_PLACEHOLDER con un valor de 0 para que funcione la personalización. Esta configuración aumenta los tiempos de arranque en frío de las funciones Java.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 En [Azure Portal](https://portal.azure.com), utilice la pestaña [Configuración de la aplicación](functions-how-to-use-azure-function-app-settings.md#settings) para agregar la configuración `JAVA_OPTS`.
 

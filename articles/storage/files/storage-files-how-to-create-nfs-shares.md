@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions
-ms.openlocfilehash: d5b394833dbc920612f521b01f4da88af6c3e015
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: bf75537c0baf029bc3fc63e320f6290a1f41a524
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220754"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738837"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Procedimiento para crear un recurso compartido NFS
 
@@ -86,17 +86,17 @@ az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscr
 
 Ahora que ha creado una cuenta de FileStorage y ha configurado la red, puede crear un recurso compartido de archivos NFS. El proceso es similar a la creación de un recurso compartido SMB. Seleccione **NFS** en lugar de **SMB** al crear el recurso compartido.
 
-1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos**.
+1. Vaya a la cuenta de almacenamiento y seleccione **Recursos compartidos de archivos** .
 1. Seleccione **+ Recurso compartido de archivos** para crear un recurso compartido de archivos.
 1. Asigne un nombre al recurso compartido de archivos y seleccione una capacidad aprovisionada.
-1. En **Protocolo**, seleccione **NFS (versión preliminar)** .
+1. En **Protocolo** , seleccione **NFS (versión preliminar)** .
 1. Para **Squash raíz** realice una selección.
 
     - Squash raíz (predeterminado): el acceso al superusuario remoto (raíz) se asigna a UID (65534) y GID (65534).
     - Sin squash raíz: el superusuario remoto (raíz) recibe acceso como raíz.
     - Todos con squash: todo el acceso de usuario se asigna a UID (65534) y GID (65534).
     
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
     :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Captura de pantalla de la hoja de creación de recurso compartido de archivos":::
 
@@ -120,7 +120,7 @@ Ahora que ha creado una cuenta de FileStorage y ha configurado la red, puede cre
 
 1. Cierre la consola de PowerShell y vuelva a abrirla.
 
-1. Instale la versión preliminar del módulo **Az.Storage** **2.5.2-preview**.
+1. Instale la versión preliminar del módulo **Az.Storage** **2.5.2-preview** .
 
    ```powershell
    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
@@ -152,10 +152,9 @@ Para crear un recurso compartido de archivos Premium con la CLI de Azure, utilic
 
 ```azurecli-interactive
 az storage share-rm create \
-    --account-name $STORAGEACCT \
-    --account-key $STORAGEKEY \
+    --storage-account $STORAGEACCT \
     --enabled-protocol NFS \
-    --root-access RootSquash \
+    --root-squash RootSquash \
     --name "myshare" 
 ```
 ---

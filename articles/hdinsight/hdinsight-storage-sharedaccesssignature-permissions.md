@@ -6,21 +6,21 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/28/2020
-ms.openlocfilehash: ea14a67f11974c8f7cdeea9eb84e5efb2377fb15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb8201ea888b98250d452e0b0e1c48f30cbb1efc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856571"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742052"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Uso de firmas de acceso compartido de Azure Blob Storage para restringir el acceso a datos en HDInsight
 
 HDInsight tiene acceso total a los datos de las cuentas de Azure Blob Storage asociadas al clúster. Puede usar firmas de acceso compartido en el contenedor de blobs para restringir el acceso a los datos. Las firmas de acceso compartido (SAS) son una característica de las cuentas de Azure Blob Storage que permite limitar el acceso a los datos. Por ejemplo, al proporcionar acceso de solo lectura a los datos.
 
 > [!IMPORTANT]  
-> Para una solución con Apache Ranger, considere la posibilidad de usar HDInsight unido a un dominio. Para más información, consulte el documento [Configuración de clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-configure.md).
+> Para una solución con Apache Ranger, considere la posibilidad de usar HDInsight unido a un dominio. Para más información, consulte el documento [Configuración de clústeres de HDInsight unidos a un dominio](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 > [!WARNING]  
 > HDInsight debe tener acceso total al almacenamiento predeterminado para el clúster.
@@ -31,9 +31,9 @@ HDInsight tiene acceso total a los datos de las cuentas de Azure Blob Storage as
 
 * Un [contenedor de almacenamiento](../storage/blobs/storage-quickstart-blobs-portal.md) existente.  
 
-* Si usa PowerShell, necesitará el [Módulo Az](https://docs.microsoft.com/powershell/azure/).
+* Si usa PowerShell, necesitará el [Módulo Az](/powershell/azure/).
 
-* Si quiere usar la CLI de Azure y todavía no la ha instalado, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Si quiere usar la CLI de Azure y todavía no la ha instalado, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 * Si usa [Python](https://www.python.org/downloads/), versión 2.7 o superior.
 
@@ -76,7 +76,7 @@ La diferencia entre las dos formas es importante para un escenario principal: re
 
 Se recomienda usar siempre las directivas de acceso almacenadas. Al utilizar las directivas almacenadas, puede revocar las firmas o ampliar la fecha de expiración según sea necesario. Los pasos descritos en este documento utilizan directivas de acceso almacenadas para generar las SAS.
 
-Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+Para más información sobre firmas de acceso compartido, consulte [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](../storage/common/storage-sas-overview.md)
 
 ## <a name="create-a-stored-policy-and-sas"></a>Creación de una directiva almacenada y una SAS
 
@@ -207,7 +207,7 @@ Es posible que tenga que ejecutar `pip install --upgrade azure-storage` si recib
 
 1. Abra la solución en Visual Studio.
 
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASExample** y seleccione **Propiedades**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASExample** y seleccione **Propiedades** .
 
 3. Seleccione **Configuración** y agregue valores para las siguientes entradas:
 
@@ -357,8 +357,8 @@ Si tiene un clúster existente, puede agregar la SAS para la configuración **co
 
 1. Expanda la sección **Custom core-site** (Sitio principal personalizado), desplácese hasta el final y seleccione **Add property...** (Agregar propiedad...). Utilice los siguientes valores para los campos **Key** (Clave) y **Value** (Valor):
 
-    * **Clave**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Valor**: La SAS devuelta por uno de los métodos que se han ejecutado antes.
+    * **Clave** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Valor** : La SAS devuelta por uno de los métodos que se han ejecutado antes.
 
     Reemplace `CONTAINERNAME` por el nombre del contenedor que ha usado con la aplicación de C# o de SAS. Reemplace `STORAGEACCOUNTNAME` por el nombre de la cuenta de almacenamiento que ha usado.
 
@@ -373,7 +373,7 @@ Si tiene un clúster existente, puede agregar la SAS para la configuración **co
 
 1. Aparecerá una lista desplegable **Restart** (Reiniciar). Seleccione **Restart All Affected** (Reiniciar todos los afectados) en la lista desplegable y, a continuación, seleccione __Confirm Restart All__ (Confirmar reiniciar todos).
 
-    Repita este proceso para **MapReduce2** y **YARN**.
+    Repita este proceso para **MapReduce2** y **YARN** .
 
 1. Una vez reiniciados los servicios, seleccione cada uno de ellos y deshabilite el modo de mantenimiento en la lista desplegable **Service Actions** (Acciones del servicio).
 
@@ -411,7 +411,7 @@ Siga los pasos siguientes para comprobar que solo puede leer y enumerar elemento
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Este comando descarga el archivo en un archivo local denominado **testfile.txt**.
+    Este comando descarga el archivo en un archivo local denominado **testfile.txt** .
 
 5. Use el siguiente comando para cargar el archivo local en un nuevo archivo denominado **testupload.txt** en el almacenamiento de SAS:
 

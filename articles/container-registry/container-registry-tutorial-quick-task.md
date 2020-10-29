@@ -3,13 +3,13 @@ title: 'Tutorial: Creación rápida de imagen de contenedor'
 description: En este tutorial, aprenderá a compilar una imagen de contenedor de Docker en Azure con Azure Container Registry Tasks (ACR Tasks) para, después, implementarla en Azure Container Instances.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259498"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739545"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks
 
@@ -30,7 +30,7 @@ En tutoriales posteriores, aprenderá a usar ACR Tasks para compilaciones automa
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si quiere usar la CLI de Azure de forma local, debe tener la versión **2.0.46** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
+Si quiere usar la CLI de Azure de forma local, debe tener la versión  **2.0.46** u otra posterior instalada y registrada con [az login][az-login]. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure][azure-cli].
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -87,7 +87,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Ahora que tiene un registro, utilice ACR Tasks para compilar una imagen de contenedor desde el código de ejemplo. Ejecute el comando [az acr build][az-acr-build] para efectuar una *tarea rápida*:
+Ahora que tiene un registro, utilice ACR Tasks para compilar una imagen de contenedor desde el código de ejemplo. Ejecute el comando [az acr build][az-acr-build] para efectuar una *tarea rápida* :
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -203,7 +203,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-El argumento `--role` en el comando anterior configura la entidad de servicio con el rol *acrpull*, que le concede de solo extracción acceso al registro. Para conceder acceso de inserción y extracción, cambie el argumento `--role` a *acrpush*.
+El argumento `--role` en el comando anterior configura la entidad de servicio con el rol *acrpull* , que le concede de solo extracción acceso al registro. Para conceder acceso de inserción y extracción, cambie el argumento `--role` a *acrpush* .
 
 A continuación, almacene el *appId* de la entidad de servicio en el almacén, que es el **nombre de usuario** que pasa a Azure Container Registry para la autenticación:
 

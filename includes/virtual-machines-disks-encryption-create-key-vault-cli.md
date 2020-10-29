@@ -7,13 +7,13 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 06/15/2020
 ms.author: rogarana
-ms.custom: include file
-ms.openlocfilehash: 2c1f61dbb060f9df0b88f301008e3fd45a91fe8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: include file, devx-track-azurecli
+ms.openlocfilehash: 5c17c1b7fed50c311d356aadcb7ca2837cc20abd
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609404"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741753"
 ---
 1. Asegúrese de que ha instalado la versión más reciente de la [CLI de Azure](/cli/azure/install-az-cli2) e iniciado sesión en una cuenta de Azure con [az login](/cli/azure/reference-index).
 

@@ -3,13 +3,13 @@ title: Creación de un clúster de Service Fabric de Linux en Azure
 description: Obtenga información sobre cómo implementar un clúster de Service Fabric con Linux en una instancia existente de Azure Virtual Network mediante la CLI de Azure.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.custom: mvc
-ms.openlocfilehash: c4b71328ce59284f8870407c9492d24afe9acd8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 52eba2e5780b1a66f3884a764631908335372273
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586927"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738952"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Implementación de un clúster de Service Fabric de Linux en una red virtual de Azure
 
@@ -52,7 +52,7 @@ Esta plantilla implementa un clúster seguro de siete máquinas virtuales y tres
 
 ### <a name="service-fabric-cluster"></a>Clúster de Service Fabric
 
-En el recurso **Microsoft.ServiceFabric/clusters**, se ha implementado un clúster de Linux con las siguientes características:
+En el recurso **Microsoft.ServiceFabric/clusters** , se ha implementado un clúster de Linux con las siguientes características:
 
 * tres tipos de nodo
 * cinco nodos en el tipo de nodo principal (configurable en los parámetros de la plantilla), cada nodo está presente en cada uno de los otros tipos de nodo
@@ -75,7 +75,7 @@ En el recurso **Microsoft.Network/loadBalancers** se han configurado un equilibr
 
 ### <a name="virtual-network-and-subnet"></a>Red virtual y subred
 
-Los nombres de la red virtual y la subred se declaran en los parámetros de la plantilla.  Los espacios de direcciones de la red virtual y de la subred se declaran también en los parámetros de plantilla y se configuran en el recurso **Microsoft.Network/virtualNetworks**:
+Los nombres de la red virtual y la subred se declaran en los parámetros de la plantilla.  Los espacios de direcciones de la red virtual y de la subred se declaran también en los parámetros de plantilla y se configuran en el recurso **Microsoft.Network/virtualNetworks** :
 
 * espacio de direcciones de red virtual: 10.0.0.0/16
 * espacio de direcciones de subred de Service Fabric: 10.0.2.0/24

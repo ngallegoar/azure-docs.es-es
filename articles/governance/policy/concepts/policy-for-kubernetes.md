@@ -3,12 +3,12 @@ title: Información sobre Azure Policy para Kubernetes
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951543"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676709"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -25,7 +25,7 @@ Azure Policy para Kubernetes admite los entornos de clúster siguientes:
 - [AKS Engine](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
-> Los complementos para el motor de AKS y los Kubernetes habilitados para Arc están en **versión preliminar**. Azure Policy para Kubernetes solo admite grupos de nodos de Linux y definiciones de directivas integradas. Las definiciones de directivas integradas se encuentran en la categoría **Kubernetes**. Las definiciones de directiva de versión preliminar limitadas con efecto **EnforceOPAConstraint** y **EnforceRegoPolicy** y la categoría **servicio Kubernetes** relacionada están en _desuso_. En su lugar, use los efectos _audit_ y _deny_ con el modo de proveedor de recursos `Microsoft.Kubernetes.Data`.
+> Los complementos para el motor de AKS y los Kubernetes habilitados para Arc están en **versión preliminar** . Azure Policy para Kubernetes solo admite grupos de nodos de Linux y definiciones de directivas integradas. Las definiciones de directivas integradas se encuentran en la categoría **Kubernetes** . Las definiciones de directiva de versión preliminar limitadas con efecto **EnforceOPAConstraint** y **EnforceRegoPolicy** y la categoría **servicio Kubernetes** relacionada están en _desuso_ . En su lugar, use los efectos _audit_ y _deny_ con el modo de proveedor de recursos `Microsoft.Kubernetes.Data`.
 
 ## <a name="overview"></a>Información general
 
@@ -62,7 +62,7 @@ Las siguientes limitaciones generales se aplican al complemento de Azure Policy 
 Las siguientes limitaciones generales solo se aplican al complemento de Azure Policy para AKS:
 
 - [La directiva de seguridad de pod de AKS](../../../aks/use-pod-security-policies.md) y el complemento de Azure Policy para AKS no se pueden habilitar simultáneamente. Para obtener más información, consulte [Limitación de seguridad de pod de AKS](../../../aks/use-pod-security-on-azure-policy.md#limitations).
-- Los espacios de nombres se excluyen automáticamente mediante el complemento de Azure Policy para la evaluación: _kube-system_, _gatekeeper-system_ y _aks-periscope_.
+- Los espacios de nombres se excluyen automáticamente mediante el complemento de Azure Policy para la evaluación: _kube-system_ , _gatekeeper-system_ y _aks-periscope_ .
 
 ## <a name="recommendations"></a>Recomendaciones
 
@@ -80,12 +80,12 @@ La siguiente recomendación solo se aplica a AKS y al complemento de Azure Polic
 
 - Use el grupo de nodos del sistema con el valor taint `CriticalAddonsOnly` para programar pods de Gatekeeper. Para obtener más información, consulte [Uso de pods de nodos del sistema](../../../aks/use-system-pools.md#system-and-user-node-pools).
 - Proteja el tráfico saliente de sus clústeres de AKS. Para obtener más información, consulte [Control del tráfico de salida de los nodos de clúster](../../../aks/limit-egress-traffic.md).
-- Si el clúster tiene `aad-pod-identity` habilitado, los pods de Identidad administrada del nodo (NMI) modifican las tablas de IP de los nodos para interceptar las llamadas que se realizan en el punto de conexión de Azure Instance Metadata. Esta configuración hace que NMI intercepte toda solicitud realizada al punto de conexión de Metadata, incluso aunque el pod no utilice `aad-pod-identity`. La CRD de AzurePodIdentityException se puede configurar para informar a `aad-pod-identity` de que las solicitudes dirigidas al punto de conexión de Metadata que se originen en un pod que coincida con las etiquetas definidas en la CRD deben pasar por el servidor proxy sin que se procesen en NMI. Los pods del sistema con la etiqueta `kubernetes.azure.com/managedby: aks` del espacio de nombres _kube-system_ deben excluirse en `aad-pod-identity` configurando la CRD de AzurePodIdentityException. Para obtener más información, consulte este artículo acerca de [cómo deshabilitar aad-pod-identity en una aplicación o pod específicos](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Si el clúster tiene `aad-pod-identity` habilitado, los pods de Identidad administrada del nodo (NMI) modifican las tablas de IP de los nodos para interceptar las llamadas que se realizan en el punto de conexión de Azure Instance Metadata. Esta configuración hace que NMI intercepte toda solicitud realizada al punto de conexión de Metadata, incluso aunque el pod no utilice `aad-pod-identity`. La CRD de AzurePodIdentityException se puede configurar para informar a `aad-pod-identity` de que las solicitudes dirigidas al punto de conexión de Metadata que se originen en un pod que coincida con las etiquetas definidas en la CRD deben pasar por el servidor proxy sin que se procesen en NMI. Los pods del sistema con la etiqueta `kubernetes.azure.com/managedby: aks` del espacio de nombres _kube-system_ deben excluirse en `aad-pod-identity` configurando la CRD de AzurePodIdentityException. Para obtener más información, consulte este artículo acerca de [cómo deshabilitar aad-pod-identity en una aplicación o pod específicos](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Para configurar una excepción, instale [mic-exception.YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Instalación del complemento de Azure Policy para AKS
 
-Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las características del servicio, la suscripción debe habilitar los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights**.
+Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las características del servicio, la suscripción debe habilitar los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights** .
 
 1. Es preciso que esté instalada y configurada la versión 2.12.0 de la CLI de Azure, o cualquier otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
@@ -93,7 +93,7 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
 
    - Azure Portal:
 
-     Registre los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights**. Para conocer los pasos, consulte [Proveedores de recursos y sus tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Registre los proveedores de recursos **Microsoft.ContainerService** y **Microsoft.PolicyInsights** . Para conocer los pasos, consulte [Proveedores de recursos y sus tipos](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - CLI de Azure:
 
@@ -107,9 +107,9 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
      az provider register --namespace Microsoft.PolicyInsights
      ```
 
-1. Si hay definiciones de directiva de versión preliminar limitadas instaladas, quite el complemento con el botón **Deshabilitar** en el clúster de AKS en la página **Directivas**.
+1. Si hay definiciones de directiva de versión preliminar limitadas instaladas, quite el complemento con el botón **Deshabilitar** en el clúster de AKS en la página **Directivas** .
 
-1. Se debe usar la versión del clúster de AKS _1.14_ o posterior. Use el siguiente script para validar la versión del clúster de AKS:
+1. Se debe usar la versión del clúster de AKS  _1.14_ o posterior. Use el siguiente script para validar la versión del clúster de AKS:
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -124,7 +124,7 @@ Una vez que se han completado los pasos anteriores de requisitos previos, instal
 
 - Azure portal
 
-  1. Inicie el servicio AKS en Azure Portal al seleccionar **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
+  1. Inicie el servicio AKS en Azure Portal al seleccionar **Todos los servicios** ; a continuación, busque y seleccione **Servicios de Kubernetes** .
 
   1. Seleccione uno de sus clústeres de AKS.
 
@@ -160,7 +160,7 @@ kubectl get pods -n kube-system
 kubectl get pods -n gatekeeper-system
 ```
 
-Por último, para comprobar que el complemento más reciente está instalado, ejecute este comando de la CLI de Azure y reemplace `<rg>` por el nombre del grupo de recursos y `<cluster-name>` por el nombre del clúster de AKS: `az aks show -g <rg> -n <cluster-name>`. El resultado debe ser similar al siguiente y **config.version** debe ser `v2`:
+Por último, para comprobar que el complemento más reciente está instalado, ejecute este comando de la CLI de Azure y reemplace `<rg>` por el nombre del grupo de recursos y `<cluster-name>` por el nombre del clúster de AKS: `az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. El resultado debe ser similar al siguiente y **config.version** debe ser `v2`:
 
 ```output
 "addonProfiles": {
@@ -200,7 +200,7 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
 
-1. Se debe usar la versión del clúster de Kubernetes _1.14_ o posterior.
+1. Se debe usar la versión del clúster de Kubernetes  _1.14_ o posterior.
 
 1. Instale [Helm 3](https://v3.helm.sh/docs/intro/install/).
 
@@ -217,7 +217,7 @@ Antes de instalar el complemento de Azure Policy o habilitar cualquiera de las c
    |`login.windows.net` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
-1. Asigne la asignación de rol "Escritor de datos de Policy Insights (versión preliminar)" al clúster de Kubernetes habilitado para Azure Arc. Reemplace `<subscriptionId>` por el identificador de la suscripción, `<rg>` por el grupo de recursos del clúster de Kubernetes habilitado para Azure Arc y `<clusterName>` por el nombre del clúster de Kubernetes habilitado para Azure Arc. Realice el seguimiento de los valores devueltos para _appId_, _password_ y _tenant_ para los pasos de instalación.
+1. Asigne la asignación de rol "Escritor de datos de Policy Insights (versión preliminar)" al clúster de Kubernetes habilitado para Azure Arc. Reemplace `<subscriptionId>` por el identificador de la suscripción, `<rg>` por el grupo de recursos del clúster de Kubernetes habilitado para Azure Arc y `<clusterName>` por el nombre del clúster de Kubernetes habilitado para Azure Arc. Realice el seguimiento de los valores devueltos para _appId_ , _password_ y _tenant_ para los pasos de instalación.
 
    - Azure CLI
 
@@ -388,7 +388,7 @@ Siga estos pasos para buscar las directivas integradas para administrar el clús
 
 1. En el panel izquierdo de la página de Azure Policy, seleccione **Definitions** (Definiciones).
 
-1. En el cuadro de lista desplegable Categoría, use **Seleccionar todo** para borrar el filtro y seleccione **Kubernetes**.
+1. En el cuadro de lista desplegable Categoría, use **Seleccionar todo** para borrar el filtro y seleccione **Kubernetes** .
 
 1. Seleccione la definición de directiva y pulse el botón **Assign** (Asignar).
 
@@ -401,22 +401,22 @@ Siga estos pasos para buscar las directivas integradas para administrar el clús
 
 1. Establezca [Cumplimiento de directivas](./assignment-structure.md#enforcement-mode) en uno de los valores siguientes.
 
-   - **Habilitado**: aplicar la directiva en el clúster. Se deniegan las solicitudes de admisión de Kubernetes con infracciones.
+   - **Habilitado** : aplicar la directiva en el clúster. Se deniegan las solicitudes de admisión de Kubernetes con infracciones.
 
-   - **Deshabilitado**: no aplicar la directiva en el clúster. No se deniegan las solicitudes de admisión de Kubernetes con infracciones. Los resultados de la evaluación de cumplimiento siguen estando disponibles. Al implementar nuevas definiciones de directiva para ejecutar clústeres, la opción _Deshabilitado_ resulta útil para probar la definición de directiva, ya que las solicitudes de admisión con infracciones no se deniegan.
+   - **Deshabilitado** : no aplicar la directiva en el clúster. No se deniegan las solicitudes de admisión de Kubernetes con infracciones. Los resultados de la evaluación de cumplimiento siguen estando disponibles. Al implementar nuevas definiciones de directiva para ejecutar clústeres, la opción _Deshabilitado_ resulta útil para probar la definición de directiva, ya que las solicitudes de admisión con infracciones no se deniegan.
 
 1. Seleccione **Next** (Siguiente).
 
 1. Establecer **Valores de parámetros**
 
-   - Para excluir los espacios de nombres de Kubernetes de la evaluación de directivas, especifique la lista de espacios de nombres en el parámetro **Exclusiones de los espacios de nombres**. Se recomienda excluir: _kube-system_, _gatekeeper-system_ y _azure-arc_.
+   - Para excluir los espacios de nombres de Kubernetes de la evaluación de directivas, especifique la lista de espacios de nombres en el parámetro **Exclusiones de los espacios de nombres** . Se recomienda excluir: _kube-system_ , _gatekeeper-system_ y _azure-arc_ .
 
-1. Seleccione **Revisar + crear**.
+1. Seleccione **Revisar + crear** .
 
 Como alternativa, use el inicio rápido [Asignación de una directiva: Portal](../assign-policy-portal.md) para buscar y asignar una directiva de Kubernetes. Busque una definición de directiva de Kubernetes en lugar del ejemplo "audit vms".
 
 > [!IMPORTANT]
-> Las definiciones de directiva integradas están disponibles para los clústeres de Kubernetes en la categoría **Kubernetes**. Para obtener una lista de las definiciones de directiva integradas, vea [Ejemplos de Kubernetes](../samples/built-in-policies.md#kubernetes).
+> Las definiciones de directiva integradas están disponibles para los clústeres de Kubernetes en la categoría **Kubernetes** . Para obtener una lista de las definiciones de directiva integradas, vea [Ejemplos de Kubernetes](../samples/built-in-policies.md#kubernetes).
 
 ## <a name="policy-evaluation"></a>Evaluación de directiva
 
@@ -431,7 +431,7 @@ En un clúster de Kubernetes, si un espacio de nombres tiene alguna de las etiqu
 > [!NOTE]
 > Aunque es posible que un administrador de clústeres tenga permiso para crear y actualizar los recursos de plantillas y restricciones instalados por el complemento Azure Policy, estos no son escenarios admitidos, ya que las actualizaciones manuales se sobrescriben. Gatekeeper sigue evaluando las directivas que existían antes de instalar el complemento y de asignar las definiciones de directiva de Azure Policy.
 
-Cada 15 minutos, el complemento solicita un examen completo del clúster. Después de recopilar los detalles del examen completo y las evaluaciones en tiempo real que realiza Gatekeeper sobre los intentos de cambios en el clúster, el complemento proporciona los resultados a Azure Policy para los agregue en los [detalles de cumplimiento](../how-to/get-compliance-data.md) como cualquier otra asignación de Azure Policy. Solo los resultados de las asignaciones de directivas activas se devuelven durante el ciclo de auditoría. Los resultados de la auditoría también pueden verse como [infracciones](https://github.com/open-policy-agent/gatekeeper#audit) enumeradas en el campo de estado de la restricción errónea. Para obtener más información sobre recursos _no compatibles_, consulte [Detalles de los componentes de los modos de proveedor de recursos](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+Cada 15 minutos, el complemento solicita un examen completo del clúster. Después de recopilar los detalles del examen completo y las evaluaciones en tiempo real que realiza Gatekeeper sobre los intentos de cambios en el clúster, el complemento proporciona los resultados a Azure Policy para los agregue en los [detalles de cumplimiento](../how-to/get-compliance-data.md) como cualquier otra asignación de Azure Policy. Solo los resultados de las asignaciones de directivas activas se devuelven durante el ciclo de auditoría. Los resultados de la auditoría también pueden verse como [infracciones](https://github.com/open-policy-agent/gatekeeper#audit) enumeradas en el campo de estado de la restricción errónea. Para obtener más información sobre recursos _no compatibles_ , consulte [Detalles de los componentes de los modos de proveedor de recursos](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > En cada informe de cumplimiento de Azure Policy para los clústeres de Kubernetes se incluyen todas las infracciones de los últimos 45 minutos. La marca de tiempo indica cuándo se ha producido una infracción.
@@ -461,7 +461,7 @@ Para eliminar el complemento de Azure Policy del clúster de AKS, use Azure Port
 
 - Azure portal
 
-  1. Inicie el servicio AKS en Azure Portal al seleccionar **Todos los servicios**; a continuación, busque y seleccione **Servicios de Kubernetes**.
+  1. Inicie el servicio AKS en Azure Portal al seleccionar **Todos los servicios** ; a continuación, busque y seleccione **Servicios de Kubernetes** .
 
   1. Seleccione el clúster de AKS en el que quiera deshabilitar el complemento de Azure Policy.
 

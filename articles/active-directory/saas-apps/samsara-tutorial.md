@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: jeedes
-ms.openlocfilehash: b864f4204fa546fa1f06e50550376a8a899d5b8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9512287f656c6c64399cb8749b7451a5a780bba8
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91338238"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677643"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-samsara"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Samsara
 
@@ -37,27 +37,27 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Samsara admite el inicio de sesión único iniciado por **SP** e **IDP**.
-* Samsara admite el aprovisionamiento de usuarios **Just-In-Time**.
+* Samsara admite el inicio de sesión único iniciado por **SP** e **IDP** .
+* Samsara admite el aprovisionamiento de usuarios **Just-In-Time** .
 
 ## <a name="adding-samsara-from-the-gallery"></a>Adición de Samsara desde la galería
 
 Para configurar la integración de Samsara en Azure AD, será preciso que agregue Samsara desde la galería a la lista de aplicaciones SaaS administradas.
 
 1. Inicie sesión en Azure Portal con una cuenta personal, profesional o educativa de Microsoft.
-1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
+1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
     
-1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
+1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
+1. Para agregar una nueva aplicación, seleccione **Nueva aplicación** .
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-1. En la sección **Agregar desde la galería**, escriba **Samsara** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería** , escriba **Samsara** en el cuadro de búsqueda.
 
      ![OneTrust Privacy Management Software en la lista de resultados](common/search-new-app.png)
 
@@ -66,7 +66,7 @@ Para configurar la integración de Samsara en Azure AD, será preciso que agregu
 
 ## <a name="configure-and-test-azure-ad-sso-for-samsara"></a>Configuración y prueba del inicio de sesión único de Azure AD para Samsara
 
-Configure y pruebe el inicio de sesión único de Azure AD con Samsara mediante una usuaria de prueba llamada **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Samsara.
+Configure y pruebe el inicio de sesión único de Azure AD con Samsara mediante una usuaria de prueba llamada **B.Simon** . Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de Samsara.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Samsara, lleve a cabo los siguientes pasos:
 
@@ -81,34 +81,34 @@ Para configurar y probar el inicio de sesión único de Azure AD con Samsara, l
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En Azure Portal, en la página de integración de la aplicación **Samsara**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En Azure Portal, en la página de integración de la aplicación **Samsara** , busque la sección **Administrar** y seleccione **Inicio de sesión único** .
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML** .
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, especifique los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , especifique los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://cloud.samsara.com/signin/<ORGID>` para clientes de la nube de EE. UU. y `https://cloud.eu.samsara.com/signin/<ORGID>` para clientes de la nube de la UE
+    a. En el cuadro de texto **Dirección URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://cloud.samsara.com/signin/<ORGID>` para clientes de la nube de EE. UU. y `https://cloud.eu.samsara.com/signin/<ORGID>` para clientes de la nube de la UE
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `urn:auth0:samsara-dev:samlp-orgid-<ORGID>`
 
-    c. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://samsara-dev.auth0.com/login/callback?connection=samlp-orgid-<ORGID>`
+    c. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://samsara-dev.auth0.com/login/callback?connection=samlp-orgid-<ORGID>`
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, la dirección URL de respuesta y el identificador reales. Póngase en contacto con el [equipo de soporte técnico del cliente de Samsara](mailto:support@samsara.com) para obtener estos valores, o bien, en Samsara, vaya a **Configuración** > **Inicio de sesión único** > **Nueva conexión SAML** para obtener el \<ORGID\>. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **Certificado (Base64)** y seleccione **Descargar** para descargarlo y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la sección **Configurar Samsara**, copie la **dirección URL de inicio de sesión**.
+1. En la sección **Configurar Samsara** , copie la **dirección URL de inicio de sesión** .
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
     
@@ -116,29 +116,29 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
-   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
-   1. Haga clic en **Crear**.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+   1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña** .
+   1. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, va a permitir que B.Simon acceda a Samsara mediante el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones**.
-1. En la lista de aplicaciones, seleccione **Samsara**.
-1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos**.
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol**. Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En Azure Portal, seleccione sucesivamente **Aplicaciones empresariales** y **Todas las aplicaciones** .
+1. En la lista de aplicaciones, seleccione **Samsara** .
+1. En la página de información general de la aplicación, busque la sección **Administrar** y seleccione **Usuarios y grupos** .
+1. Seleccione **Agregar usuario** . A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos** .
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que se asigne un rol a los usuarios, puede seleccionarlo en la lista desplegable **Seleccionar un rol** . Si no se ha configurado ningún rol para esta aplicación, verá seleccionado el rol "Acceso predeterminado".
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ## <a name="configure-samsara-sso"></a>Configuración del inicio de sesión único de Samsara
 
-Para configurar el inicio de sesión único en **Samsara**, es preciso enviar el **Certificado (Base64)** descargado y la **Dirección URL** de Azure Portal al [equipo de soporte técnico de Samsara](mailto:support@samsara.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Samsara** , es preciso enviar el **Certificado (Base64)** descargado y la **Dirección URL** de Azure Portal al [equipo de soporte técnico de Samsara](mailto:support@samsara.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-samsara-test-user"></a>Creación de un usuario de prueba de Samsara
 
@@ -152,11 +152,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 2. Vaya directamente a la dirección URL de inicio de sesión de Samsara e inicie el flujo de inicio de sesión desde allí.
 
-3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Samsara en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de Samsara. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Samsara en el Panel de acceso, se le redirigirá a la dirección URL de inicio de sesión de Samsara. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez configurado Samsara, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Una vez configurado Samsara, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

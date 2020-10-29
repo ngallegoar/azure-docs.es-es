@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101773"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676744"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce para el aprovisionamiento automático de usuarios
 
@@ -31,13 +31,13 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 > [!IMPORTANT]
 > Si utiliza una cuenta de prueba de Salesforce.com, no podrá configurar el aprovisionamiento automático de usuarios. Las cuentas de prueba no disponen del acceso necesario a la API habilitado hasta que se adquieren. Puede evitar esta limitación utilizando una [cuenta gratuita de desarrollador](https://developer.salesforce.com/signup) para completar este tutorial.
 
-Si está utilizando un entorno de espacio aislado de Salesforce, consulte el [Tutorial de integración de espacio aislado de Salesforce](https://go.microsoft.com/fwLink/?LinkID=521879).
+Si está utilizando un entorno de espacio aislado de Salesforce, consulte el [Tutorial de integración de espacio aislado de Salesforce](./salesforce-sandbox-tutorial.md).
 
 ## <a name="assigning-users-to-salesforce"></a>Asignación de usuarios a Salesforce
 
 Azure Active Directory usa un concepto que se denomina "asignaciones" para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto del aprovisionamiento automático de cuentas de usuario, solo se sincronizarán los usuarios y grupos que se han "asignado" a una aplicación de Azure AD.
 
-Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a la aplicación de Salesforce. Una vez decidido, puede asignar estos usuarios a la aplicación Salesforce siguiendo las instrucciones de: [Asignación de un usuario o un grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a la aplicación de Salesforce. Una vez decidido, puede asignar estos usuarios a la aplicación Salesforce siguiendo las instrucciones de: [Asignación de un usuario o un grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Sugerencias importantes para asignar usuarios a Salesforce
 
@@ -122,7 +122,7 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 * El servicio de aprovisionamiento de Azure AD admite el idioma de aprovisionamiento, la configuración regional y la zona horaria para un usuario. Estos atributos se encuentran en las asignaciones de atributos predeterminadas pero no tienen un atributo de origen predeterminado. Asegúrese de seleccionar el atributo de origen predeterminado y de que el atributo de origen esté en el formato esperado por SalesForce. Por ejemplo, localeSidKey para inglés (Estados Unidos) es en_US. Revise la guía proporcionada [ aquí ](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) para determinar el formato apropiado de localeSidKey. Los formatos de languageLocaleKey se pueden encontrar [aquí](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). Además de garantizar que el formato sea correcto, es posible que deba asegurarse de que el idioma esté habilitado para sus usuarios como se describe [ aquí ](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
 * **SalesforceLicenseLimitExceeded:** No se pudo crear el usuario en la aplicación de destino porque no hay licencias disponibles para este usuario. Puede adquirir licencias adicionales para la aplicación de destino o revisar las asignaciones de usuario y la configuración de asignación de atributos para asegurarse de que se asignan los atributos correctos a los usuarios correctos.
 * **SalesforceDuplicateUserName:** No se puede aprovisionar al usuario porque tiene un 'Nombre de usuario' de Salesforce.com que está duplicado en otro inquilino de Salesforce.com.  En Salesforce.com, los valores del atributo 'Nombre de usuario' deben ser únicos en todos los inquilinos de Salesforce.com.  De forma predeterminada, el valor de userPrincipalName de un usuario en Azure Active Directory se convierte en su 'Nombre de usuario' en Salesforce.com.   Tiene dos opciones.  Una opción es buscar y cambiar el nombre del usuario con el duplicado 'Nombre de usuario' en el otro inquilino de Salesforce.com, si también administra ese otro inquilino.  La otra opción es eliminar el acceso del usuario de Azure Active Directory al inquilino de Salesforce.com con el que está integrado su directorio. Se volverá a intentar esta operación en el siguiente intento de sincronización. 
-* **SalesforceRequiredFieldMissing:** Salesforce requiere que ciertos atributos estén presentes en el usuario para crear o actualizar el usuario correctamente. A este usuario le falta uno de los atributos requeridos. Asegúrese de que atributos como correo electrónico y alias se llenen en todos los usuarios que quiera que se aprovisionen en Salesforce. Puede buscar usuarios que no tengan estos atributos mediante [filtros de alcance basados ​​en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* **SalesforceRequiredFieldMissing:** Salesforce requiere que ciertos atributos estén presentes en el usuario para crear o actualizar el usuario correctamente. A este usuario le falta uno de los atributos requeridos. Asegúrese de que atributos como correo electrónico y alias se llenen en todos los usuarios que quiera que se aprovisionen en Salesforce. Puede buscar usuarios que no tengan estos atributos mediante [filtros de alcance basados ​​en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 * La asignación de atributos predeterminada para el aprovisionamiento en Salesforce incluye la expresión SingleAppRoleAssignments para asignar appRoleAssignments en Azure AD a ProfileName en Salesforce. Asegúrese de que los usuarios no tengan varias asignaciones de roles de aplicación en Azure AD, ya que la asignación de atributos solo admite el aprovisionamiento de un rol. 
 * Salesforce requiere que las actualizaciones de correo electrónico se aprueben manualmente antes del cambio. Por tanto, es posible que vea varias entradas en los registros de aprovisionamiento para actualizar el correo electrónico del usuario (hasta que se haya aprobado el cambio de correo electrónico).
 
@@ -131,4 +131,4 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configuración del inicio de sesión único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)
+* [Configuración del inicio de sesión único](./salesforce-tutorial.md)

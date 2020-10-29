@@ -3,13 +3,13 @@ title: Implementación de una aplicación Java en un clúster de Service Fabric 
 description: En este tutorial, aprenderá a implementar una aplicación de Service Fabric para Java en un clúster de Azure Service Fabric.
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3e00e478e20fbd0bc4ff6ed17b330f0d16488be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532065"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738912"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Tutorial: Implementación de una aplicación para Java en un clúster de Service Fabric en Azure
 
@@ -61,7 +61,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
-4. Desde la carpeta *service-fabric-java-quickstart/AzureCluster*, ejecute el siguiente comando para crear un certificado de clúster en Key Vault. Este certificado se usa para proteger el clúster de Service Fabric. Proporcione la región (debe ser la misma que la del clúster de Service Fabric), el nombre del grupo de recursos del almacén de claves, el nombre del almacén de claves, una contraseña de certificado y el nombre DNS del clúster.
+4. Desde la carpeta *service-fabric-java-quickstart/AzureCluster* , ejecute el siguiente comando para crear un certificado de clúster en Key Vault. Este certificado se usa para proteger el clúster de Service Fabric. Proporcione la región (debe ser la misma que la del clúster de Service Fabric), el nombre del grupo de recursos del almacén de claves, el nombre del almacén de claves, una contraseña de certificado y el nombre DNS del clúster.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
@@ -154,7 +154,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
     ```
 
-    Copie el valor del campo **sr** del JSON devuelto. El valor del campo **sr** es el token de firma de acceso compartido de Event Hubs. La dirección URL siguiente es un ejemplo de campo **sr**:
+    Copie el valor del campo **sr** del JSON devuelto. El valor del campo **sr** es el token de firma de acceso compartido de Event Hubs. La dirección URL siguiente es un ejemplo de campo **sr** :
 
     ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
@@ -176,8 +176,8 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
     }
     ```
 
-13. Se abre **sfdeploy.parameters.json**. Cambie los parámetros siguientes y, a continuación, guarde el archivo.
-    - **clusterName**. Use solo letras minúsculas y números.
+13. Se abre **sfdeploy.parameters.json** . Cambie los parámetros siguientes y, a continuación, guarde el archivo.
+    - **clusterName** . Use solo letras minúsculas y números.
     - **adminUserName** (para un valor distinto de cero)
     - **adminPassword** (para un valor distinto de cero)
 
@@ -189,7 +189,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Implemente la aplicación en el clúster.
 
-1. Antes de implementar la aplicación, debe agregar el siguiente fragmento de código al archivo *Voting/VotingApplication/ApplicationManifest.xml*. El campo **X509FindValue** es la huella digital devuelta del paso 4 de la sección **Creación de un clúster de Service Fabric en Azure**. Este fragmento de código está anidado en el campo **ApplicationManifest** (raíz).
+1. Antes de implementar la aplicación, debe agregar el siguiente fragmento de código al archivo *Voting/VotingApplication/ApplicationManifest.xml* . El campo **X509FindValue** es la huella digital devuelta del paso 4 de la sección **Creación de un clúster de Service Fabric en Azure** . Este fragmento de código está anidado en el campo **ApplicationManifest** (raíz).
 
     ```xml
     <Certificates>
@@ -209,7 +209,7 @@ Con los pasos siguientes se crean los recursos necesarios para implementar la ap
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Para implementar la aplicación, vaya a la carpeta *Voting/Scripts* y ejecute el script **Install.sh**.
+4. Para implementar la aplicación, vaya a la carpeta *Voting/Scripts* y ejecute el script **Install.sh** .
 
     ```bash
     ./install.sh

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: e305795f4f45a0ea858eb8d74880aedca8ec538d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57afbe2ebdde7755eec659f56e402315a60ec7d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979846"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676623"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory 
 El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar usuarios de SuccessFactors Employee Central a Active Directory (AD) y Azure AD, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. 
@@ -30,13 +30,13 @@ El [servicio de aprovisionamiento de usuarios de Azure Active Directory](../app
 
 Los flujos de trabajo de aprovisionamiento de usuarios de SuccessFactors que admite el servicio de aprovisionamiento de usuarios de Azure AD permiten la automatización de los siguientes escenarios de recursos humanos y de administración del ciclo de vida de identidad:
 
-* **Contratación de nuevos empleados**: cuando se agrega un nuevo empleado a SuccessFactors, se crea automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md), con escritura diferida de la dirección de correo electrónico en SuccessFactors.
+* **Contratación de nuevos empleados** : cuando se agrega un nuevo empleado a SuccessFactors, se crea automáticamente una cuenta de usuario en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md), con escritura diferida de la dirección de correo electrónico en SuccessFactors.
 
-* **Actualizaciones de atributos y perfiles de empleados**: si se actualiza un registro de empleado en SuccessFactors (por ejemplo, el nombre, el cargo o el jefe), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
+* **Actualizaciones de atributos y perfiles de empleados** : si se actualiza un registro de empleado en SuccessFactors (por ejemplo, el nombre, el cargo o el jefe), su cuenta de usuario se actualizará automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Despidos de empleados**: cuando se prescinde de un empleado en SuccessFactors, su cuenta de usuario se deshabilita automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
+* **Despidos de empleados** : cuando se prescinde de un empleado en SuccessFactors, su cuenta de usuario se deshabilita automáticamente en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
-* **Recontrataciones de empleados**: cuando se vuelve a contratar a un empleado en SuccessFactors, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de sus preferencias) en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
+* **Recontrataciones de empleados** : cuando se vuelve a contratar a un empleado en SuccessFactors, se puede reactivar o volver a aprovisionar automáticamente su cuenta antigua (en función de sus preferencias) en Active Directory, Azure Active Directory y, opcionalmente, en Microsoft 365, así como en [otras aplicaciones SaaS compatibles con Azure AD](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>¿Para quién es más adecuada esta solución de aprovisionamiento de usuarios?
 
@@ -57,7 +57,7 @@ Esta solución de aprovisionamiento de usuarios de SuccessFactors a Active Dire
 En esta sección se describe la arquitectura de la solución de aprovisionamiento de usuarios de un extremo a otro para entornos híbridos comunes. Hay dos flujos relacionados:
 
 * **Flujo de datos de RR. HH. autorizado, desde SuccessFactors hasta Active Directory local:** en este flujo, los eventos de trabajadores (por ejemplo, nuevas contrataciones, traslados o despidos), se producen en primer lugar en la nube de SuccessFactors Employee Central y, luego, los datos de eventos fluyen hacia Active Directory local mediante Azure AD y el agente de aprovisionamiento. En función del evento, puede dar lugar a las operaciones de creación, actualización, habilitación o deshabilitación en AD.
-* **Flujo de escritura diferida de correo electrónico, de Active Directory local a SuccessFactors**: una vez finalizada la creación de la cuenta en Active Directory, se sincroniza con Azure AD mediante Azure AD Connect y el atributo de correo electrónico puede escribirse de forma diferida en SuccessFactors.
+* **Flujo de escritura diferida de correo electrónico, de Active Directory local a SuccessFactors** : una vez finalizada la creación de la cuenta en Active Directory, se sincroniza con Azure AD mediante Azure AD Connect y el atributo de correo electrónico puede escribirse de forma diferida en SuccessFactors.
 
   ![Información general](./media/sap-successfactors-inbound-provisioning/sf2ad-overview.png)
 
@@ -106,14 +106,14 @@ Trabaje con el equipo de administración de SuccessFactors o con el asociado de 
 * En Permission settings (Configuración de los permisos), haga clic en **Permission...** (Permiso), desplácese hacia abajo en la lista de permisos y haga clic en **Manage Integration Tools** (Administrar herramientas de integración). Active la casilla **Allow Admin to Access to OData API through Basic Authentication** (Permitir que el administrador acceda a la API OData mediante autenticación básica).
   > [!div class="mx-imgBorder"]
   > ![Administración de herramientas de integración](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API**. Agregue permisos, tal como se muestra a continuación, de lectura y edición mediante la API ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
+* Desplácese hacia abajo en el mismo cuadro y seleccione **Employee Central API** . Agregue permisos, tal como se muestra a continuación, de lectura y edición mediante la API ODATA. Seleccione la opción de edición si tiene previsto usar la misma cuenta para el escenario de escritura diferida en SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Permisos de lectura y escritura](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 
   >[!NOTE]
   >Para obtener la lista completa de atributos recuperados por esta aplicación de aprovisionamiento, consulte [Referencia de atributos de SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
 
-* Haga clic en **Done** (Acabado). Haga clic en **Guardar cambios**.
+* Haga clic en **Done** (Acabado). Haga clic en **Guardar cambios** .
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Creación de un grupo de permisos para el usuario de la API
 
@@ -142,7 +142,7 @@ Trabaje con el equipo de administración de SuccessFactors o con el asociado de 
 * Revise la concesión del rol de permisos al grupo de permisos. 
   > [!div class="mx-imgBorder"]
   > ![Detalles de rol y grupo de permisos](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Haga clic en **Guardar cambios**.
+* Haga clic en **Guardar cambios** .
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-active-directory"></a>Configuración del aprovisionamiento de usuarios de SuccessFactors a Active Directory
 
@@ -160,7 +160,7 @@ En esta sección se describen los pasos para el aprovisionamiento de cuentas de 
 
 1. Vaya a <https://portal.azure.com>.
 
-2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory**.
+2. En la barra de navegación de la izquierda, seleccione **Azure Active Directory** .
 
 3. Seleccione **Enterprise Applications** (Aplicaciones empresariales) y **All Applications** (Todas las aplicaciones).
 
@@ -168,9 +168,9 @@ En esta sección se describen los pasos para el aprovisionamiento de cuentas de 
 
 5. Busque **SuccessFactors to Active Directory User Provisioning** y agregue esa aplicación desde la galería.
 
-6. Una vez que se haya agregado la aplicación y se muestre la pantalla de detalles de la aplicación, seleccione **Aprovisionamiento**.
+6. Una vez que se haya agregado la aplicación y se muestre la pantalla de detalles de la aplicación, seleccione **Aprovisionamiento** .
 
-7. Cambie el **Modo de** **aprovisionamiento** a **Automático**.
+7. Cambie el **Modo de** **aprovisionamiento** a **Automático** .
 
 8. Haga clic en el banner de información que se muestra para descargar el agente de aprovisionamiento. 
    > [!div class="mx-imgBorder"]
@@ -182,18 +182,18 @@ En esta sección se describen los pasos para el aprovisionamiento de cuentas de 
 Para realizar el aprovisionamiento en Active Directory local, el agente de aprovisionamiento debe estar instalado en un servidor que tenga .NET 4.7.1+ Framework y acceso de red a los dominios de Active Directory deseados.
 
 > [!TIP]
-> Puede comprobar la versión de la plataforma de .NET en el servidor mediante las instrucciones proporcionadas [aquí](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> Puede comprobar la versión de la plataforma de .NET en el servidor mediante las instrucciones proporcionadas [aquí](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Si el servidor no tiene instalado .NET 4.7.1 o posterior, puede descargarlo [aquí](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Transfiera el instalador del agente descargado al host del servidor y siga los pasos indicados a continuación para completar la configuración del agente.
 
 1. Inicie sesión en el servidor Windows Server donde quiera instalar el nuevo agente.
 
-1. Inicie el instalador del agente de aprovisionamiento, acepte los términos y haga clic en el botón **Instalar**.
+1. Inicie el instalador del agente de aprovisionamiento, acepte los términos y haga clic en el botón **Instalar** .
 
    ![Pantalla de instalación](./media/workday-inbound-tutorial/pa_install_screen_1.png "Pantalla de instalación")
    
-1. Una vez completada la instalación, se iniciará el asistente y verá la pantalla **Conectar a Azure AD**. Haga clic en el botón **Autenticar** para conectarse a su instancia de Azure AD.
+1. Una vez completada la instalación, se iniciará el asistente y verá la pantalla **Conectar a Azure AD** . Haga clic en el botón **Autenticar** para conectarse a su instancia de Azure AD.
 
    ![Conexión de Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Conexión de Azure AD")
    
@@ -204,7 +204,7 @@ Transfiera el instalador del agente descargado al host del servidor y siga los p
    > [!NOTE]
    > Las credenciales de administrador de Azure AD se usan solo para conectarse al inquilino de Azure AD. El agente no almacena las credenciales localmente en el servidor.
 
-1. Tras una autenticación correcta con Azure AD, verá la pantalla **Conectar a Active Directory**. En este paso, escriba su nombre de dominio de AD y haga clic en el botón **Agregar directorio**.
+1. Tras una autenticación correcta con Azure AD, verá la pantalla **Conectar a Active Directory** . En este paso, escriba su nombre de dominio de AD y haga clic en el botón **Agregar directorio** .
 
    ![Agregar directorio](./media/workday-inbound-tutorial/pa_install_screen_4.png "Agregar directorio")
   
@@ -243,24 +243,24 @@ En este paso, se establece la conectividad con SuccessFactors y Active Director
 
 1. Cumplimente la sección **Credenciales de administrador** del siguiente modo:
 
-   * **Nombre de usuario de administrador**: escriba el nombre de usuario de la cuenta de usuario de SuccessFactors API, con el identificador de empresa anexado. El formato es: **username\@companyID**
+   * **Nombre de usuario de administrador** : escriba el nombre de usuario de la cuenta de usuario de SuccessFactors API, con el identificador de empresa anexado. El formato es: **username\@companyID**
 
    * **Contraseña de administrador:** escriba la contraseña de la cuenta de usuario de SuccessFactors API. 
 
-   * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor se parecerá a este: **<api-server-name>.successfactors.com**.
+   * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor se parecerá a este: **<api-server-name>.successfactors.com** .
 
-   * **Bosque de Active Directory**: el nombre de su dominio de Active Directory, según se ha registrado con el agente. Use la lista desplegable para seleccionar el dominio de destino para el aprovisionamiento. Este valor suele ser una cadena como: *contoso.com*.
+   * **Bosque de Active Directory** : el nombre de su dominio de Active Directory, según se ha registrado con el agente. Use la lista desplegable para seleccionar el dominio de destino para el aprovisionamiento. Este valor suele ser una cadena como: *contoso.com* .
 
    * **Contenedor de Active Directory:** escriba el DN del contenedor donde el agente debe crear cuentas de usuario de forma predeterminada.
         Ejemplo: *OU=Users,DC=contoso,DC=com*
         > [!NOTE]
         > Esta configuración solo entra en juego para creaciones de cuentas de usuario si el atributo *parentDistinguishedName* no está configurado en las asignaciones de atributos. Esta configuración no se usa para la búsqueda de usuarios o las operaciones de actualización. El subárbol de todo el dominio se encuentra en el ámbito de la operación de búsqueda.
 
-   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
+   * **Correo electrónico de notificación** : escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
     > [!NOTE]
-    > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+    > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](../app-provisioning/application-provisioning-quarantine-status.md).
 
-   * Haga clic en el botón **Probar conexión**. Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales de SuccessFactors y las credenciales de AD configuradas en la instalación del agente sean válidas.
+   * Haga clic en el botón **Probar conexión** . Si la prueba de conexión se lleva a cabo correctamente, haga clic en el botón **Guardar** situado en la parte superior. Si se produce un error, compruebe que las credenciales de SuccessFactors y las credenciales de AD configuradas en la instalación del agente sean válidas.
     >[!div class="mx-imgBorder"]
     >![Azure Portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
@@ -270,7 +270,7 @@ En este paso, se establece la conectividad con SuccessFactors y Active Director
 
 En esta sección, configurará cómo fluyen los datos de los usuarios de SuccessFactors a Active Directory.
 
-1. En la pestaña Aprovisionamiento, en **Asignaciones**, haga clic en **Synchronize SuccessFactors Users to On Premises Active Directory** (Sincronizar usuarios de SuccessFactors con Active Directory local).
+1. En la pestaña Aprovisionamiento, en **Asignaciones** , haga clic en **Synchronize SuccessFactors Users to On Premises Active Directory** (Sincronizar usuarios de SuccessFactors con Active Directory local).
 
 1. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de SuccessFactors que deben estar en el ámbito para el aprovisionamiento en AD; para ello, debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "todos los usuarios de SuccessFactors". Filtros de ejemplo:
 
@@ -294,9 +294,9 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
    > [!CAUTION] 
    > El comportamiento predeterminado del motor de aprovisionamiento es deshabilitar o eliminar usuarios que salen del ámbito. Puede que esta no sea la situación deseable en la integración de SuccessFactors con AD. Para invalidar este comportamiento predeterminado, consulte el artículo [Omisión de la eliminación de usuarios fuera del ámbito](../app-provisioning/skip-out-of-scope-deletions.md).
   
-1. En el campo **Acciones del objeto de destino**, puede filtrar de forma global qué acciones se realizan en Active Directory. **Crear** y **Actualizar** son las más habituales.
+1. En el campo **Acciones del objeto de destino** , puede filtrar de forma global qué acciones se realizan en Active Directory. **Crear** y **Actualizar** son las más habituales.
 
-1. En la sección **Asignaciones de atributos**, puede definir cómo se asignan los distintos atributos de SuccessFactors a los atributos de Active Directory.
+1. En la sección **Asignaciones de atributos** , puede definir cómo se asignan los distintos atributos de SuccessFactors a los atributos de Active Directory.
 
   >[!NOTE]
   >Para obtener la lista completa de atributos de SuccessFactors compatibles con la aplicación, consulte [Referencia de atributos de SuccessFactors](../app-provisioning/sap-successfactors-attribute-reference.md).
@@ -306,28 +306,28 @@ En esta sección, configurará cómo fluyen los datos de los usuarios de Success
 
       * **Tipo de asignación**
 
-         * **Directo**: escribe el valor del atributo de SuccessFactors en el atributo de AD, sin cambios.
+         * **Directo** : escribe el valor del atributo de SuccessFactors en el atributo de AD, sin cambios.
 
-         * **Constante**: escribe un valor de cadena estático y constante en el atributo de AD.
+         * **Constante** : escribe un valor de cadena estático y constante en el atributo de AD.
 
-         * **Expresión**: permite escribir un valor personalizado en el atributo de AD, en función de uno o varios atributos de SuccessFactors. [Para obtener más información, consulte este artículo sobre las expresiones](../app-provisioning/functions-for-customizing-application-data.md).
+         * **Expresión** : permite escribir un valor personalizado en el atributo de AD, en función de uno o varios atributos de SuccessFactors. [Para obtener más información, consulte este artículo sobre las expresiones](../app-provisioning/functions-for-customizing-application-data.md).
 
-      * **Atributo de origen**: el atributo de usuario de SuccessFactors.
+      * **Atributo de origen** : el atributo de usuario de SuccessFactors.
 
-      * **Valor predeterminado**: opcional. Si el atributo de origen tiene un valor vacío, la asignación escribirá este valor.
+      * **Valor predeterminado** : opcional. Si el atributo de origen tiene un valor vacío, la asignación escribirá este valor.
             La configuración más habitual consiste en dejarlo en blanco.
 
-      * **Atributo de destino**: atributo de usuario de Active Directory.
+      * **Atributo de destino** : atributo de usuario de Active Directory.
 
-      * **Hacer coincidir objetos con este atributo**: especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre SuccessFactors y Active Directory. Este valor se suele establecer en el campo Worker ID (Id. del trabajador) de SuccessFactors, que se suele asignar a uno de los atributos de identificador de empleado de Active Directory.
+      * **Hacer coincidir objetos con este atributo** : especifica si se debe usar o no esta asignación para identificar de forma unívoca a los usuarios entre SuccessFactors y Active Directory. Este valor se suele establecer en el campo Worker ID (Id. del trabajador) de SuccessFactors, que se suele asignar a uno de los atributos de identificador de empleado de Active Directory.
 
-      * **Precedencia de coincidencia**: se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
+      * **Precedencia de coincidencia** : se pueden establecer varios atributos coincidentes. Si hay varios, se evalúan en el orden definido por este campo. En el momento en que se encuentre una coincidencia, no se evaluarán más atributos coincidentes.
 
       * **Aplicar esta asignación**
 
-         * **Siempre**: esta asignación se aplica a las acciones de creación y actualización de usuarios
+         * **Siempre** : esta asignación se aplica a las acciones de creación y actualización de usuarios
 
-         * **Solo durante la creación**: esta asignación se aplica solo a las acciones de creación de usuarios
+         * **Solo durante la creación** : esta asignación se aplica solo a las acciones de creación de usuarios
 
 1. Para guardar las asignaciones, haga clic en **Guardar** en la parte superior de la sección Asignación de atributos.
 
@@ -340,15 +340,15 @@ Una vez completadas las configuraciones de la aplicación de aprovisionamiento d
 > [!TIP]
 > De forma predeterminada, al activar el servicio de aprovisionamiento, se iniciarán las operaciones de aprovisionamiento para todos los usuarios del ámbito. Si hay errores en la asignación o problemas con los datos de SuccessFactors, puede que se produzcan errores con el trabajo de aprovisionamiento y que entre en estado de cuarentena. Para evitar esto, como procedimiento recomendado, es conveniente configurar el filtro **Ámbito de objeto de origen** y probar las asignaciones de atributos con algunos usuarios de prueba antes de iniciar la sincronización completa de todos los usuarios. Una vez haya verificado que las asignaciones funcionan y que obtiene los resultados deseados, puede quitar el filtro o expandirlo gradualmente para incluir más usuarios.
 
-1. En la pestaña **Aprovisionamiento**, establezca **Estado de aprovisionamiento** en **Activado**.
+1. En la pestaña **Aprovisionamiento** , establezca **Estado de aprovisionamiento** en **Activado** .
 
-2. Haga clic en **Save**(Guardar).
+2. Haga clic en **Save** (Guardar).
 
 3. Esta operación dará comienzo a la sincronización inicial, que puede tardar una cantidad de horas variable, según el número de usuarios que haya en el inquilino de SuccessFactors. Puede consultar en la barra de progreso el seguimiento del progreso del ciclo de sincronización. 
 
 4. En cualquier momento, compruebe la pestaña **Registros de auditoría** en Azure Portal para ver las acciones que ha realizado el servicio de aprovisionamiento. Los registros de auditoría muestran todos los eventos de sincronización individuales realizados por el servicio de aprovisionamiento, por ejemplo, los usuarios que se leen fuera de SuccessFactors y que luego se agregan o actualizan en Active Directory. 
 
-5. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento**, tal y como se muestra a continuación.
+5. Una vez completada la sincronización inicial, se escribe un informe resumido de auditoría en la pestaña **Aprovisionamiento** , tal y como se muestra a continuación.
 
    > [!div class="mx-imgBorder"]
    > ![Barra de progreso de aprovisionamiento](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

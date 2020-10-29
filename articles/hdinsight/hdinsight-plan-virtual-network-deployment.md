@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 05/04/2020
-ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60bb16b0a4fd2e710d0d5fddc6cf82916f2f66af
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82786621"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741423"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planificación de una red virtual para Azure HDInsight
 
@@ -84,7 +84,7 @@ Use los pasos de esta sección para saber cómo agregar un nuevo HDInsight a una
         Para más información, vea el documento sobre [Solución de problemas de los grupos de seguridad de red](../virtual-network/diagnose-network-traffic-filter-problem.md).
 
         > [!IMPORTANT]  
-        > Se aplican reglas de grupo de seguridad de red en orden según la prioridad de la regla. Se aplica la primera regla que coincide con el patrón de tráfico y no se aplica ninguna otra para el tráfico. El orden de las reglas es de más a menos permisiva. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/security-overview.md).
+        > Se aplican reglas de grupo de seguridad de red en orden según la prioridad de la regla. Se aplica la primera regla que coincide con el patrón de tráfico y no se aplica ninguna otra para el tráfico. El orden de las reglas es de más a menos permisiva. Para más información, vea el documento [Filtrar el tráfico de red con grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
 
     * Rutas definidas por el usuario
 
@@ -148,7 +148,7 @@ Para habilitar la resolución de nombres entre la red virtual y los recursos en 
 
          * Reenvíe las demás solicitudes al servidor DNS local. El servidor DNS local administra todas las solicitudes de resolución de nombres, incluso las de recursos de Internet como Microsoft.com.
 
-     * __DNS local__: reenvíe las solicitudes para el sufijo DNS de red virtual al servidor DNS personalizado. El servidor DNS personalizado reenvía a la resolución recursiva de Azure.
+     * __DNS local__ : reenvíe las solicitudes para el sufijo DNS de red virtual al servidor DNS personalizado. El servidor DNS personalizado reenvía a la resolución recursiva de Azure.
 
        Esta configuración dirige las solicitudes de nombres de dominio completos que contienen el sufijo DNS de la red virtual al servidor DNS personalizado. Todas las demás solicitudes (incluso para las direcciones públicas de Internet) se controlan mediante el servidor DNS local.
 
@@ -210,6 +210,6 @@ Al crear un clúster de HDInsight, también se crea un equilibrador de carga. El
 * Para ver ejemplos de código y ejemplos de creación de redes virtuales de Azure, consulte [Creación de redes virtuales para clústeres de Azure HDInsight](hdinsight-create-virtual-network.md).
 * Para obtener un ejemplo integral de la configuración de HDInsight para conectarse a una red local, vea [Conexión de HDInsight a la red local](./connect-on-premises-network.md).
 * Para más información sobre las redes virtuales de Azure, vea la [información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
-* Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/security-overview.md).
+* Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
 * Para obtener más información sobre las rutas definidas por el usuario, consulte [Rutas definidas por el usuario y reenvío de IP](../virtual-network/virtual-networks-udr-overview.md).
 * Para más información sobre el control del tráfico, consulte [Control del tráfico de red](./control-network-traffic.md).

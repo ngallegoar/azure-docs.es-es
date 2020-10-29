@@ -3,13 +3,13 @@ title: 'Tutorial: Desencadenamiento de la compilación de imágenes mediante la 
 description: En este tutorial se configura una tarea de Azure Container Registry que desencadena automáticamente compilaciones de imágenes de contenedor en la nube cuando se actualiza una imagen de base en otro registro de contenedor de Azure privado.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7dda7c54c51c31e750083f302ca558ff7ef548ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270991"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739562"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor al actualizarse una imagen de base en otro registro de contenedor privado 
 

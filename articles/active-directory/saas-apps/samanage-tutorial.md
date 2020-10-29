@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 8d4c19e1ce10ed618cda167cd6fa7efedf4111d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab720430af0341f3a42d9f4d4dc19b9469872211
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707584"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-solarwinds-service-desk-previously-samanage"></a>Tutorial: Integración de Azure Active Directory con SolarWinds Service Desk (anteriormente Samanage)
 
@@ -27,7 +27,7 @@ La integración de SolarWinds con Azure AD le proporciona las siguientes ventaj
 * Permitir que los usuarios inicien sesión automáticamente en SolarWinds (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -41,7 +41,7 @@ Para configurar la integración de Azure AD con SolarWinds Service Desk (anteri
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* SolarWinds admite inicio de sesión único iniciado por **SP**.
+* SolarWinds admite inicio de sesión único iniciado por **SP** .
 
 ## <a name="adding-solarwinds-from-the-gallery"></a>Incorporación de SolarWinds desde la galería
 
@@ -49,11 +49,11 @@ Para configurar la integración de SolarWinds en Azure AD, es preciso agregar S
 
 **Para agregar SolarWinds desde la galería, siga estos pasos:**
 
-1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione el icono de **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)** , en el panel de navegación izquierdo, seleccione el icono de **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Para configurar la integración de SolarWinds en Azure AD, es preciso agregar S
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **SolarWinds**, seleccione **SolarWinds** en el panel de resultados y haga clic en el botón **Agregar** para añadir la aplicación.
+4. En el cuadro de búsqueda, escriba **SolarWinds** , seleccione **SolarWinds** en el panel de resultados y haga clic en el botón **Agregar** para añadir la aplicación.
 
      ![SolarWinds en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con SolarWinds para un usuario de prueba llamado **Britta Simon**.
+En esta sección, va a configurar y probar el inicio de sesión único de Azure AD con SolarWinds para un usuario de prueba llamado **Britta Simon** .
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vinculación entre un usuario de Azure AD y el usuario correspondiente de SolarWinds.
 
 Para configurar y probar el inicio de sesión único de Azure AD con SolarWinds, complete los siguientes bloques de creación:
@@ -85,30 +85,30 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con SolarWinds, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SolarWinds**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **SolarWinds** , haga clic en **Inicio de sesión único** .
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML** , siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Samanage](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
+    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<Company Name>.samanage.com`
 
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con la dirección URL de inicio de sesión y el identificador reales, que se explican más adelante en el tutorial. Para más información, póngase en contacto con [equipo de soporte al cliente de Samanage](https://www.samanage.com/support). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+4. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -132,7 +132,7 @@ Para configurar el inicio de sesión único de Azure AD con SolarWinds, siga es
    
     ![Panel](./media/samanage-tutorial/tutorial_samanage_001.png "Panel")
 
-3. Haga clic en **Inicio de sesión único**.
+3. Haga clic en **Inicio de sesión único** .
    
     ![Inicio de sesión único](./media/samanage-tutorial/tutorial_samanage_002.png "Inicio de sesión único")
 
@@ -140,7 +140,7 @@ Para configurar el inicio de sesión único de Azure AD con SolarWinds, siga es
    
     ![Login using SAML (Iniciar sesión con SAML)](./media/samanage-tutorial/tutorial_samanage_003.png "Login using SAML")
  
-    a. Haga clic en **Enable Single Sign-On with SAML**(Habilitar inicio de sesión único con SAML).  
+    a. Haga clic en **Enable Single Sign-On with SAML** (Habilitar inicio de sesión único con SAML).  
  
     b. En el cuadro de texto **Identity Provider URL** (URL del proveedor de identidades), pegue el valor de **Azure Ad Identifier** (Identificador de Azure AD) que copió de Azure Portal.    
  
@@ -154,13 +154,13 @@ Para configurar el inicio de sesión único de Azure AD con SolarWinds, siga es
  
     g. Haga clic en **Create users if they do not exist in SolarWinds** (Crear usuarios si no existen en SolarWinds).
  
-    h. Haga clic en **Update**(Actualizar).
+    h. Haga clic en **Update** (Actualizar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -172,38 +172,38 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon** .
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
+    b. En el campo **Nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension** .  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure al concederle acceso a SolarWinds.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **SolarWinds**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **SolarWinds** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **SolarWinds**.
+2. En la lista de aplicaciones, seleccione **SolarWinds** .
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ### <a name="create-solarwinds-test-user"></a>Creación de un usuario de prueba de SolarWinds
 
@@ -218,11 +218,11 @@ En el caso de SolarWinds, el aprovisionamiento es una tarea manual.
    
     ![Configuración](./media/samanage-tutorial/tutorial_samanage_001.png "Configurar")
 
-3. Haga clic en la pestaña **Usuarios**.
+3. Haga clic en la pestaña **Usuarios** .
    
     ![Usuarios](./media/samanage-tutorial/tutorial_samanage_006.png "Usuarios")
 
-4. Haga clic en **Nuevo usuario**.
+4. Haga clic en **Nuevo usuario** .
    
     ![New User](./media/samanage-tutorial/tutorial_samanage_007.png "Nuevo usuario") (Usuario nuevo)
 
@@ -237,13 +237,12 @@ En el caso de SolarWinds, el aprovisionamiento es una tarea manual.
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de SolarWinds en el Panel de acceso, se debería iniciar sesión automáticamente en la versión de SolarWinds para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de SolarWinds en el Panel de acceso, se debería iniciar sesión automáticamente en la versión de SolarWinds para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

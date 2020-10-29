@@ -4,15 +4,15 @@ description: Comprenda la configuración del proxy y el firewall locales de Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/24/2019
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e4f011d9286a0685f1b091b930155db969407423
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69fdfea6768a895db1f85df4c2936936a2ffd3f5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903721"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675792"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Configuración del proxy y el firewall de Azure File Sync
 Azure File Sync conecta los servidores locales a Azure Files, lo que permite sincronizar las características de niveles de nube y de sincronización multisitio. Por lo tanto, un servidor local debe estar conectado a Internet. Un administrador de TI tiene que decidir cuál es la mejor ruta de acceso para que el servidor acceda a los servicios en la nube de Azure.
@@ -44,7 +44,7 @@ Azure File Sync funciona con cualquier medio disponible que permita conectarse c
 ## <a name="proxy"></a>Proxy
 Azure File Sync admite la configuración del proxy específico de aplicación en el nivel de máquina.
 
-De este modo, se permite la **configuración de un proxy específico de la aplicación**, específicamente para el tráfico de Azure File Sync. La configuración de un proxy específico de la aplicación es compatible con la versión 4.0.1.0 o versiones posteriores, y se puede configurar durante la instalación del agente o mediante el cmdlet Set-StorageSyncProxyConfiguration de PowerShell.
+De este modo, se permite la **configuración de un proxy específico de la aplicación** , específicamente para el tráfico de Azure File Sync. La configuración de un proxy específico de la aplicación es compatible con la versión 4.0.1.0 o versiones posteriores, y se puede configurar durante la instalación del agente o mediante el cmdlet Set-StorageSyncProxyConfiguration de PowerShell.
 
 Comandos de PowerShell para configurar el proxy específico de la aplicación:
 ```powershell
@@ -121,6 +121,8 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 | Público | Este de Asia | https:\//eastasia01.afs.azure.net<br>https:\//kailani11.one.microsoft.com | Sudeste de Asia | https:\//tm-eastasia01.afs.azure.net<br>https:\//tm-kailani11.one.microsoft.com |
 | Público | Este de EE. UU. | https:\//eastus01.afs.azure.net<br>https:\//kailani1.one.microsoft.com | Oeste de EE. UU. | https:\//tm-eastus01.afs.azure.net<br>https:\//tm-kailani1.one.microsoft.com |
 | Público | Este de EE. UU. 2 | https:\//eastus201.afs.azure.net<br>https:\//kailani-ess.one.microsoft.com | Centro de EE. UU. | https:\//tm-eastus201.afs.azure.net<br>https:\//tm-kailani-ess.one.microsoft.com |
+| Público | Norte de Alemania | https:\//germanynorth01.afs.azure.net | Centro-oeste de Alemania | https:\//tm-germanywestcentral01.afs.azure.net |
+| Público | Centro-oeste de Alemania | https:\//germanywestcentral01.afs.azure.net | Norte de Alemania | https:\//tm-germanynorth01.afs.azure.net |
 | Público | Japón Oriental | https:\//japaneast01.afs.azure.net | Japón Occidental | https:\//tm-japaneast01.afs.azure.net |
 | Público | Japón Occidental | https:\//japanwest01.afs.azure.net | Japón Oriental | https:\//tm-japanwest01.afs.azure.net |
 | Público | Centro de Corea del Sur | https:\//koreacentral01.afs.azure.net/ | Corea del Sur | https:\//tm-koreacentral01.afs.azure.net/ |
@@ -143,7 +145,7 @@ Por razones de continuidad empresarial y recuperación ante desastres (BCDR), es
 
 - Si usa cuentas de almacenamiento con redundancia geográfica (GRS), habilite tres direcciones URL.
 
-**Ejemplo**: Implemente un servicio de sincronización de almacenamiento en `"West US"` y registre el servidor allí. Las direcciones URL que permiten que el servidor se comunique en este caso son:
+**Ejemplo** : Implemente un servicio de sincronización de almacenamiento en `"West US"` y registre el servidor allí. Las direcciones URL que permiten que el servidor se comunique en este caso son:
 
 > - https:\//westus01.afs.azure.net (punto de conexión principal: Oeste de EE. UU.)
 > - https:\//eastus01.afs.azure.net (región de conmutación por error emparejada: Este de EE. UU.)

@@ -7,13 +7,13 @@ ms.date: 11/14/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.custom: devx-track-csharp
-ms.openlocfilehash: fc1154a3d4cefc84f223810a1972dd85673a6b3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 48b8737fc37a183405f42b958e38c328a2ce7cb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530903"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739588"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Uso de directivas de asignación personalizadas
 
@@ -23,16 +23,16 @@ Mediante directivas de asignación personalizadas, puede definir sus propias dir
 
 Por ejemplo, quizás le interese examinar el certificado que usa un dispositivo durante el aprovisionamiento y asignar el dispositivo a un centro de IoT según una propiedad del certificado. También, es posible que tenga la información almacenada en una base de datos para los dispositivos y necesite consultarla para determinar a qué centro de IoT se debe asignar el dispositivo.
 
-En este artículo se muestra una directiva de asignación personalizada mediante una función de Azure escrita en C#. Se crean dos centros de IoT para representar una *División de tostadoras Contoso* y una *División de bombas de calor Contoso*. Los dispositivos que soliciten aprovisionamiento deben tener un identificador de registro con uno de los siguientes sufijos para que se acepte el aprovisionamiento:
+En este artículo se muestra una directiva de asignación personalizada mediante una función de Azure escrita en C#. Se crean dos centros de IoT para representar una *División de tostadoras Contoso* y una *División de bombas de calor Contoso* . Los dispositivos que soliciten aprovisionamiento deben tener un identificador de registro con uno de los siguientes sufijos para que se acepte el aprovisionamiento:
 
-* **-contoso-tstrsd-007**: División de tostadoras Contoso
-* **-contoso-hpsd-088**: División de bombas de calor de Contoso
+* **-contoso-tstrsd-007** : División de tostadoras Contoso
+* **-contoso-hpsd-088** : División de bombas de calor de Contoso
 
 Los dispositivos se aprovisionarán según el sufijo que esté presente en el identificador de registro. Estos dispositivos se simularán mediante un ejemplo de aprovisionamiento incluido en el [SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c).
 
 En este artículo, llevará a cabo los siguientes pasos:
 
-* Usará la CLI de Azure para crear dos centros de IoT para divisiones de Contoso (**división de tostadoras Contoso** y **división de bombas de calor Contoso**)
+* Usará la CLI de Azure para crear dos centros de IoT para divisiones de Contoso ( **división de tostadoras Contoso** y **división de bombas de calor Contoso** )
 * Creará una nueva inscripción de grupo mediante una función de Azure para la directiva de asignación personalizada
 * Creará claves de dispositivo para dos simulaciones de dispositivo.
 * Configurará el entorno de desarrollo del SDK de Azure IoT para C
@@ -52,7 +52,7 @@ Los siguientes requisitos previos corresponden a un entorno de desarrollo de Win
 
 ## <a name="create-the-provisioning-service-and-two-divisional-iot-hubs"></a>Creación del servicio de aprovisionamiento y dos centros de IoT de división
 
-En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisionamiento y dos centros de IoT que representan la **división de tostadoras Contoso** y la **división de bombas de calor Contoso**.
+En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisionamiento y dos centros de IoT que representan la **división de tostadoras Contoso** y la **división de bombas de calor Contoso** .
 
 > [!TIP]
 > Los comandos que se usan en este artículo crean el servicio de aprovisionamiento y otros recursos en la ubicación oeste de EE. UU. Se recomienda crear los recursos en la región más cercana que admita Device Provisioning Service. Para ver una lista de las ubicaciones disponibles, ejecute el comando `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` o vaya a la página [Estado de Azure](https://azure.microsoft.com/status/) página y busque "Servicio Device Provisioning". En los comandos, las ubicaciones se pueden especificar en formato de una palabra o de varias; por ejemplo, westus, West US, WEST US, etc. El valor no distingue mayúsculas de minúsculas. Si utiliza el formato de varias palabras para especificar la ubicación, escriba el valor entre comillas; por ejemplo, `-- location "West US"`.
@@ -60,15 +60,15 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
 1. Use Azure Cloud Shell para crear un grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create). Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure.
 
-    En el ejemplo siguiente, se crea un grupo de recursos denominado *contoso-us-resource-group* en la región *westus*. Le recomendamos que use este grupo para todos los recursos que crearemos en el artículo. De esta forma, se facilitará la limpieza al finalizar.
+    En el ejemplo siguiente, se crea un grupo de recursos denominado *contoso-us-resource-group* en la región *westus* . Le recomendamos que use este grupo para todos los recursos que crearemos en el artículo. De esta forma, se facilitará la limpieza al finalizar.
 
     ```azurecli-interactive 
     az group create --name contoso-us-resource-group --location westus
     ```
 
-2. Use Azure Cloud Shell para crear un servicio de aprovisionamiento de dispositivos con el comando [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). El servicio de aprovisionamiento se agregará a *contoso-us-resource-group*.
+2. Use Azure Cloud Shell para crear un servicio de aprovisionamiento de dispositivos con el comando [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). El servicio de aprovisionamiento se agregará a *contoso-us-resource-group* .
 
-    En el ejemplo siguiente se crea un servicio de aprovisionamiento denominado *contoso-provisioning-service-1098* en la ubicación *westus*. Debe usar un nombre de servicio único. Cree su propio sufijo en el nombre del servicio en lugar de **1098**.
+    En el ejemplo siguiente se crea un servicio de aprovisionamiento denominado *contoso-provisioning-service-1098* en la ubicación *westus* . Debe usar un nombre de servicio único. Cree su propio sufijo en el nombre del servicio en lugar de **1098** .
 
     ```azurecli-interactive 
     az iot dps create --name contoso-provisioning-service-1098 --resource-group contoso-us-resource-group --location westus
@@ -76,9 +76,9 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
     Este comando puede tardar varios minutos en completarse.
 
-3. Use Azure Cloud Shell para crear el centro de IoT para la **división de tostadoras Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). El centro de IoT se agregará al grupo *contoso-us-resource-group*.
+3. Use Azure Cloud Shell para crear el centro de IoT para la **división de tostadoras Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). El centro de IoT se agregará al grupo *contoso-us-resource-group* .
 
-    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-toasters-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. El código de ejemplo para la directiva de asignación personalizada requiere que se añada `-toasters-` en el nombre del centro.
+    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-toasters-hub-1098* en la ubicación *westus* . Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. El código de ejemplo para la directiva de asignación personalizada requiere que se añada `-toasters-` en el nombre del centro.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-toasters-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -86,9 +86,9 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
     Este comando puede tardar varios minutos en completarse.
 
-4. Use Azure Cloud Shell para crear el centro de IoT para la **división de bombas de calor Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Este centro de IoT también se agregará a *contoso-us-resource-group*.
+4. Use Azure Cloud Shell para crear el centro de IoT para la **división de bombas de calor Contoso** con el comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create). Este centro de IoT también se agregará a *contoso-us-resource-group* .
 
-    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-heatpumps-hub-1098* en la ubicación *westus*. Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. El código de ejemplo para la directiva de asignación personalizada requiere que se añada `-heatpumps-` en el nombre del centro.
+    En el ejemplo siguiente, se crea un centro de IoT denominado *contoso-heatpumps-hub-1098* en la ubicación *westus* . Debe usar un nombre de centro único. Cree su propio sufijo para reemplazar a **1098** en el nombre del centro. El código de ejemplo para la directiva de asignación personalizada requiere que se añada `-heatpumps-` en el nombre del centro.
 
     ```azurecli-interactive 
     az iot hub create --name contoso-heatpumps-hub-1098 --resource-group contoso-us-resource-group --location westus --sku S1
@@ -98,44 +98,44 @@ En esta sección, usará Azure Cloud Shell para crear un servicio de aprovisiona
 
 ## <a name="create-the-custom-allocation-function"></a>Creación de la función de asignación personalizada
 
-En esta sección, creará una función de Azure que implementa la directiva de asignación personalizada. Esta función decide en qué centro de IoT de división se debe registrar un dispositivo según contenga su identificador de registro la cadena **-contoso-tstrsd-007** o **-contoso-HPSD-088**. También establece el estado inicial del dispositivo gemelo en función de si el dispositivo es una tostadora o una bomba de calor.
+En esta sección, creará una función de Azure que implementa la directiva de asignación personalizada. Esta función decide en qué centro de IoT de división se debe registrar un dispositivo según contenga su identificador de registro la cadena **-contoso-tstrsd-007** o **-contoso-HPSD-088** . También establece el estado inicial del dispositivo gemelo en función de si el dispositivo es una tostadora o una bomba de calor.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). En la página principal, seleccione **+ Crear un recurso**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). En la página principal, seleccione **+ Crear un recurso** .
 
-2. En el cuadro de búsqueda *Buscar en Marketplace*, escriba "Function App". En la lista desplegable, seleccione **Aplicación de funciones** y, luego, seleccione **Crear**.
+2. En el cuadro de búsqueda *Buscar en Marketplace* , escriba "Function App". En la lista desplegable, seleccione **Aplicación de funciones** y, luego, seleccione **Crear** .
 
-3. En la página de creación de la **aplicación de funciones**, en la pestaña **Datos básicos**, escriba los siguientes valores para la nueva aplicación de función y seleccione **Revisar y crear**:
+3. En la página de creación de la **aplicación de funciones** , en la pestaña **Datos básicos** , escriba los siguientes valores para la nueva aplicación de función y seleccione **Revisar y crear** :
 
-    **Grupo de recursos**: seleccione **contoso-us-resource-group** para mantener en un mismo lugar todos los recursos creados en este artículo.
+    **Grupo de recursos** : seleccione **contoso-us-resource-group** para mantener en un mismo lugar todos los recursos creados en este artículo.
 
-    **Nombre de la aplicación de funciones**: escriba un nombre único de aplicación de función. En este ejemplo se usa **contoso-function-app-1098**.
+    **Nombre de la aplicación de funciones** : escriba un nombre único de aplicación de función. En este ejemplo se usa **contoso-function-app-1098** .
 
-    **Publicar**: compruebe que se ha seleccionado **Código**.
+    **Publicar** : compruebe que se ha seleccionado **Código** .
 
-    **Pila del entorno en tiempo de ejecución**: seleccione **.NET Core** en la lista desplegable.
+    **Pila del entorno en tiempo de ejecución** : seleccione **.NET Core** en la lista desplegable.
 
-    **Región**: seleccione la misma región que la del grupo de recursos. En este ejemplo se usa **West US**.
+    **Región** : seleccione la misma región que la del grupo de recursos. En este ejemplo se usa **West US** .
 
     > [!NOTE]
-    > De forma predeterminada, está habilitado Application Insights. Aunque en este artículo Application Insights no es necesario, puede ayudarle a entender y a investigar los problemas que encuentre con la asignación personalizada. Si lo prefiere, puede deshabilitar Application Insights; para ello, seleccione la pestaña **Supervisión** y, luego, seleccione **No** en **Habilitar Application Insights**.
+    > De forma predeterminada, está habilitado Application Insights. Aunque en este artículo Application Insights no es necesario, puede ayudarle a entender y a investigar los problemas que encuentre con la asignación personalizada. Si lo prefiere, puede deshabilitar Application Insights; para ello, seleccione la pestaña **Supervisión** y, luego, seleccione **No** en **Habilitar Application Insights** .
 
     ![Creación de una aplicación de funciones de Azure para hospedar la función de asignación personalizada](./media/how-to-use-custom-allocation-policies/create-function-app.png)
 
-4. En la página **Resumen**, seleccione **Crear** para crear la aplicación de funciones. La implementación puede tardar varios minutos. Cuando finalice, seleccione **Ir al recurso**.
+4. En la página **Resumen** , seleccione **Crear** para crear la aplicación de funciones. La implementación puede tardar varios minutos. Cuando finalice, seleccione **Ir al recurso** .
 
 5. En el panel izquierdo de la página **Información general** de la aplicación de funciones, seleccione **+** junto a **Funciones** para agregar una nueva función.
 
     ![Adición de una función a la aplicación de funciones](./media/how-to-use-custom-allocation-policies/create-function.png)
 
-6. En la página **Azure Functions para .NET: introducción**, en el paso **CHOOSE A DEPLOYMENT ENVIRONMENT** (Elija un entorno de implementación), seleccione el icono **En el portal** y, luego, seleccione **Continuar**.
+6. En la página **Azure Functions para .NET: introducción** , en el paso **CHOOSE A DEPLOYMENT ENVIRONMENT** (Elija un entorno de implementación), seleccione el icono **En el portal** y, luego, seleccione **Continuar** .
 
     ![Selección del entorno de desarrollo del portal](./media/how-to-use-custom-allocation-policies/function-choose-environment.png)
 
-7. En la página siguiente, en el paso **Crear una función**, seleccione el icono **Webhook y API** y, luego, seleccione **Crear**. Se crea una función denominada **HttpTrigger1** y el portal muestra el contenido del archivo de código **run.csx**.
+7. En la página siguiente, en el paso **Crear una función** , seleccione el icono **Webhook y API** y, luego, seleccione **Crear** . Se crea una función denominada **HttpTrigger1** y el portal muestra el contenido del archivo de código **run.csx** .
 
-8. Haga referencia a los paquetes Nuget necesarios. Para crear el dispositivo gemelo inicial, la función de asignación personalizada usa las clases que se definen en dos paquetes Nuget que se deben cargar en el entorno de hospedaje. Con Azure Functions, se hace referencia a los paquetes Nuget mediante un archivo *function.host*. En este paso, guardará y cargará un archivo *function.host*.
+8. Haga referencia a los paquetes Nuget necesarios. Para crear el dispositivo gemelo inicial, la función de asignación personalizada usa las clases que se definen en dos paquetes Nuget que se deben cargar en el entorno de hospedaje. Con Azure Functions, se hace referencia a los paquetes Nuget mediante un archivo *function.host* . En este paso, guardará y cargará un archivo *function.host* .
 
-    1. Copie las siguientes líneas en su editor favorito y guarde el archivo en el equipo como *function.host*.
+    1. Copie las siguientes líneas en su editor favorito y guarde el archivo en el equipo como *function.host* .
 
         ```xml
         <Project Sdk="Microsoft.NET.Sdk">  
@@ -149,15 +149,15 @@ En esta sección, creará una función de Azure que implementa la directiva de a
         </Project>
         ```
 
-    2. En la función **HttpTrigger1**, expanda la pestaña **Ver archivos** en el lado derecho de la ventana.
+    2. En la función **HttpTrigger1** , expanda la pestaña **Ver archivos** en el lado derecho de la ventana.
 
         ![Apertura de los archivos de vista](./media/how-to-use-custom-allocation-policies/function-open-view-files.png)
 
-    3. Seleccione **Cargar**, busque el archivo **function.proj** y seleccione **Abrir** para cargar el archivo.
+    3. Seleccione **Cargar** , busque el archivo **function.proj** y seleccione **Abrir** para cargar el archivo.
 
         ![Selección del archivo de carga](./media/how-to-use-custom-allocation-policies/function-choose-upload-file.png)
 
-9. Reemplace el código de la función **HttpTrigger1** por el código siguiente y seleccione **Guardar**:
+9. Reemplace el código de la función **HttpTrigger1** por el código siguiente y seleccione **Guardar** :
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -304,39 +304,39 @@ En esta sección, creará un grupo de inscripciones que use la directiva de asig
 
 2. Seleccione **Administrar inscripciones** en el panel izquierdo y, luego, seleccione el botón **Agregar grupo de inscripciones** en la parte superior de la página.
 
-3. En **Agregar grupo de inscripciones**, escriba la siguiente información y seleccione el botón **Guardar**.
+3. En **Agregar grupo de inscripciones** , escriba la siguiente información y seleccione el botón **Guardar** .
 
-    **Nombre de grupo**: escriba **contoso-custom-allocated-devices**.
+    **Nombre de grupo** : escriba **contoso-custom-allocated-devices** .
 
-    **Tipo de atestación**: seleccione **Clave simétrica**.
+    **Tipo de atestación** : seleccione **Clave simétrica** .
 
-    **Generar claves automáticamente**: ya debe estar activada esta casilla.
+    **Generar claves automáticamente** : ya debe estar activada esta casilla.
 
-    **Seleccione cómo desea asignar los dispositivos a los centros**: Seleccione **Personalizado (use la función de Azure)**
+    **Seleccione cómo desea asignar los dispositivos a los centros** : Seleccione **Personalizado (use la función de Azure)**
 
     ![Adición de un grupo de inscripciones de asignación personalizado para la atestación de clave simétrica](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
-4. En **Agregar grupo de inscripciones**, seleccione **Vincular un nuevo centro de IoT** para vincular sus dos centros de IoT de división.
+4. En **Agregar grupo de inscripciones** , seleccione **Vincular un nuevo centro de IoT** para vincular sus dos centros de IoT de división.
 
     Ejecute este paso con sus dos centros de IoT de división.
 
-    **Suscripción**: si tiene varias suscripciones, elija aquella en la que ha creado los centros de IoT de división.
+    **Suscripción** : si tiene varias suscripciones, elija aquella en la que ha creado los centros de IoT de división.
 
-    **Centro de IoT**: seleccione uno de los centros de división que ha creado.
+    **Centro de IoT** : seleccione uno de los centros de división que ha creado.
 
-    **Directiva de acceso**: elija **iothubowner**.
+    **Directiva de acceso** : elija **iothubowner** .
 
     ![Vinculación de los centros de IoT de división con el servicio de aprovisionamiento](./media/how-to-use-custom-allocation-policies/link-divisional-hubs.png)
 
-5. En **Agregar grupo de inscripciones**, una vez que haya vinculado ambos centros de IoT de división, debe seleccionarlos para que sean el grupo de IoT Hub para el grupo de inscripciones, tal y como se muestra a continuación:
+5. En **Agregar grupo de inscripciones** , una vez que haya vinculado ambos centros de IoT de división, debe seleccionarlos para que sean el grupo de IoT Hub para el grupo de inscripciones, tal y como se muestra a continuación:
 
     ![Creación del grupo de centros de división para la inscripción](./media/how-to-use-custom-allocation-policies/enrollment-divisional-hub-group.png)
 
-6. En **Agregar grupo de inscripciones**, desplácese hacia abajo hasta la sección **Seleccionar función de Azure** y seleccione la aplicación de funciones que creó en la sección anterior. Después, seleccione la función que ha creado y haga clic en Guardar para guardar el grupo de inscripción.
+6. En **Agregar grupo de inscripciones** , desplácese hacia abajo hasta la sección **Seleccionar función de Azure** y seleccione la aplicación de funciones que creó en la sección anterior. Después, seleccione la función que ha creado y haga clic en Guardar para guardar el grupo de inscripción.
 
     ![Seleccionar la función y guardar el grupo de inscripción](./media/how-to-use-custom-allocation-policies/save-enrollment.png)
 
-7. Después de guardar la inscripción, vuelva a abrirla y apunte la **clave principal**. Primero debe guardar la inscripción para que se generen las claves. Esta clave se usará para generar claves de dispositivo únicas para los dispositivos simulados más adelante.
+7. Después de guardar la inscripción, vuelva a abrirla y apunte la **clave principal** . Primero debe guardar la inscripción para que se generen las claves. Esta clave se usará para generar claves de dispositivo únicas para los dispositivos simulados más adelante.
 
 ## <a name="derive-unique-device-keys"></a>Derivación de las claves de dispositivo únicas
 
@@ -471,7 +471,7 @@ El código de ejemplo simula una secuencia de arranque de dispositivo que envía
     azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
 
-3. En la ventana del *Explorador de soluciones* de Visual Studio, desplácese hasta la carpeta **Aprovisionar\_Ejemplos**. Expanda el proyecto de ejemplo denominado **prov\_dev\_client\_sample**. Expanda **Archivos de código fuente** y abra **prov\_dev\_cliente\_sample.c**.
+3. En la ventana del *Explorador de soluciones* de Visual Studio, desplácese hasta la carpeta **Aprovisionar\_Ejemplos** . Expanda el proyecto de ejemplo denominado **prov\_dev\_client\_sample** . Expanda **Archivos de código fuente** y abra **prov\_dev\_cliente\_sample.c** .
 
 4. Busque la constante `id_scope` y reemplace el valor por el valor de **Ámbito de id.** que copió anteriormente. 
 
@@ -572,7 +572,7 @@ En la siguiente tabla se muestran los escenarios esperados y los códigos de err
 
 Si tiene previsto seguir trabajando con los recursos creados en este artículo, puede dejarlos. Si no, siga estos pasos para eliminar todos los recursos creados en este artículo para evitar cargos innecesarios.
 
-En estos pasos se supone que ha creado todos los recursos de este artículo como se ha indicado en el mismo grupo de recursos denominado **contoso-us-resource-group**.
+En estos pasos se supone que ha creado todos los recursos de este artículo como se ha indicado en el mismo grupo de recursos denominado **contoso-us-resource-group** .
 
 > [!IMPORTANT]
 > La eliminación de un grupo de recursos es irreversible. El grupo de recursos y todos los recursos contenidos en él se eliminan permanentemente. Asegúrese de no eliminar por accidente el grupo de recursos o los recursos equivocados. Si ha creado una instancia de IoT Hub en un grupo de recursos ya existente que contiene recursos que desea conservar, puede eliminar solo esa instancia en lugar de eliminar todo el grupo de recursos.
@@ -580,13 +580,13 @@ En estos pasos se supone que ha creado todos los recursos de este artículo como
 
 Para eliminar el grupo de recursos por nombre:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y después seleccione **Grupos de recursos** .
 
-2. En el cuadro de texto **Filtrar por nombre...** , escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group**. 
+2. En el cuadro de texto **Filtrar por nombre...** , escriba el nombre del grupo de recursos que contiene los recursos: **contoso-us-resource-group** . 
 
-3. A la derecha del grupo de recursos de la lista de resultados, seleccione **...** y, a continuación, **Eliminar grupo de recursos**.
+3. A la derecha del grupo de recursos de la lista de resultados, seleccione **...** y, a continuación, **Eliminar grupo de recursos** .
 
-4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba de nuevo el nombre del grupo de recursos para confirmar y, después, seleccione **Eliminar**. Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
+4. Se le pedirá que confirme la eliminación del grupo de recursos. Escriba de nuevo el nombre del grupo de recursos para confirmar y, después, seleccione **Eliminar** . Transcurridos unos instantes, el grupo de recursos y todos los recursos que contiene se eliminan.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

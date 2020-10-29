@@ -3,13 +3,13 @@ title: Supervisión de un nuevo clúster de Azure Kubernetes Service (AKS) | Mic
 description: Obtenga información sobre cómo habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS) con la suscripción de Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.custom: devx-track-terraform
-ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-terraform, devx-track-azurecli
+ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320330"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735078"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS)
 
@@ -34,7 +34,7 @@ Si va a [implementar un nuevo clúster de AKS mediante Terraform](/azure/develop
 >[!NOTE]
 >Si decide usar Terraform, debe ejecutar el proveedor de Azure RM para Terraform versión 1.17.0 o superior.
 
-Para agregar Azure Monitor para contenedores al área de trabajo, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) y complete el perfil mediante la inclusión de la [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) y especifique **oms_agent**. 
+Para agregar Azure Monitor para contenedores al área de trabajo, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) y complete el perfil mediante la inclusión de la [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) y especifique **oms_agent** . 
 
 Una vez que haya habilitado la supervisión y todas las tareas de configuración se hayan completado correctamente, puede supervisar el rendimiento de su clúster de cualquiera de estas dos maneras:
 
@@ -46,7 +46,7 @@ Una vez que haya habilitado la supervisión y todas las tareas de configuración
 Después de habilitar la supervisión, pueden pasar unos 15 minutos hasta que pueda ver la métrica de estado del clúster. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Comprobar la implementación del agente y la solución
-Con la versión del agente *06072018*, o cualquier versión posterior, puede comprobar que tanto el agente como la solución se han implementado correctamente. Con las versiones anteriores del agente, solo se puede comprobar la implementación del agente.
+Con la versión del agente *06072018* , o cualquier versión posterior, puede comprobar que tanto el agente como la solución se han implementado correctamente. Con las versiones anteriores del agente, solo se puede comprobar la implementación del agente.
 
 ### <a name="agent-version-06072018-or-later"></a>Versión 06072018 del agente, o posterior
 Ejecute el siguiente comando para comprobar que el agente se ha implementado correctamente. 

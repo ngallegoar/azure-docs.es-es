@@ -5,12 +5,12 @@ author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d480b8db69b34eda7ca1ea8e1b2755179f9c673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88d2a23104b67dae8fd480406eb9171e9f3d5652
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055180"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740007"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>Guía del desarrollador de entidades duraderas en .NET
 
@@ -67,7 +67,7 @@ public class Counter
 }
 ```
 
-La función `Run` contiene el texto reutilizable necesario para usar la sintaxis basada en clases. Debe ser una función de Azure *estática*. Se ejecuta una vez por cada mensaje de operación que procesa la entidad. Cuando se llama a `DispatchAsync<T>` y la entidad no está aún en memoria, construye un objeto de tipo `T` y rellena sus campos con el último código de JSON guardado encontrado en el almacenamiento (si existe). A continuación, invoca el método con el nombre coincidente.
+La función `Run` contiene el texto reutilizable necesario para usar la sintaxis basada en clases. Debe ser una función de Azure *estática* . Se ejecuta una vez por cada mensaje de operación que procesa la entidad. Cuando se llama a `DispatchAsync<T>` y la entidad no está aún en memoria, construye un objeto de tipo `T` y rellena sus campos con el último código de JSON guardado encontrado en el almacenamiento (si existe). A continuación, invoca el método con el nombre coincidente.
 
 > [!NOTE]
 > El estado de una entidad basada en clases se **crear implícitamente** antes de que la entidad procese una operación y se puede **eliminar** explícitamente en una operación mediante la llamada a `Entity.Current.DeleteState()`.
@@ -427,7 +427,7 @@ public class HttpEntity
     [JsonIgnore]
     private readonly HttpClient client;
 
-    public class HttpEntity(IHttpClientFactory factory)
+    public HttpEntity(IHttpClientFactory factory)
     {
         this.client = factory.CreateClient();
     }

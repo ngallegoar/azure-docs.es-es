@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
-ms.custom: mimckitt
-ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87837183"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736995"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 
@@ -29,8 +29,8 @@ Azure realiza periódicamente actualizaciones para mejorar la confiabilidad, el 
 El mantenimiento planeado que requiere un reinicio se programa en olas. Cada ola tiene un ámbito diferente (regiones):
 
 - Una ola comienza con una notificación a los clientes. De forma predeterminada, la notificación se envía al propietario de la suscripción y a los copropietarios. Con las [alertas del registro de actividad](../azure-monitor/platform/platform-logs-overview.md) de Azure puede agregar a las notificaciones destinatarios y opciones de mensajería, como correo electrónico, SMS y webhooks.  
-- Con la notificación, aparece una *ventana de autoservicio*. Durante este período, que suele ser de treinta y cinco días, puede encontrar cuál de las máquinas virtuales se incluye en la ola. Puede iniciar el mantenimiento de forma anticipada según sus propias necesidades de programación.
-- Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado*. Mientras está ventana está activa, Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
+- Con la notificación, aparece una *ventana de autoservicio* . Durante este período, que suele ser de treinta y cinco días, puede encontrar cuál de las máquinas virtuales se incluye en la ola. Puede iniciar el mantenimiento de forma anticipada según sus propias necesidades de programación.
+- Después de la ventana de autoservicio, comienza una *ventana de mantenimiento programado* . Mientras está ventana está activa, Azure programa el mantenimiento necesario y lo aplica a la máquina virtual. 
 
 El objetivo de tener dos ventanas es proporcionar tiempo suficiente para que pueda iniciar el mantenimiento y reiniciar la máquina virtual sabiendo cuándo iniciará Azure el mantenimiento automáticamente.
 
@@ -44,7 +44,7 @@ Las directrices siguientes pueden ayudarlo a decidir si iniciar el mantenimiento
 > Es posible que el mantenimiento de autoservicio no esté disponible para todas las máquinas virtuales. Para determinar si su máquina virtual se puede volver a implementar de forma proactiva, busque **Iniciar ahora** en el estado del mantenimiento. En este momento, el mantenimiento de autoservicio no está disponible para Azure Cloud Services (rol de trabajo o web) y Azure Service Fabric.
 
 
-El mantenimiento de autoservicio no se recomienda para implementaciones que usan *conjuntos de disponibilidad*. Los conjuntos de disponibilidad son configuraciones de alta disponibilidad en las que solo un dominio de actualización resulta afectado en cualquier momento. Para los conjuntos de disponibilidad:
+El mantenimiento de autoservicio no se recomienda para implementaciones que usan *conjuntos de disponibilidad* . Los conjuntos de disponibilidad son configuraciones de alta disponibilidad en las que solo un dominio de actualización resulta afectado en cualquier momento. Para los conjuntos de disponibilidad:
 
 - Deje que Azure desencadene el mantenimiento. Para el mantenimiento que requiere un reinicio, el proceso se realiza por dominio de actualización. Los dominios de actualización no reciben necesariamente el mantenimiento de forma secuencial. Hay una pausa de 30 minutos entre dominios de actualización.
 - Si una pérdida temporal de una parte de su capacidad (1/recuento de dominios de actualización) supone un problema, se puede compensar fácilmente mediante la asignación de instancias adicionales durante el período de mantenimiento.
@@ -73,11 +73,11 @@ Se recomienda usar el mantenimiento de autoservicio en los siguientes casos:
 Cuando se programa una ola de mantenimiento planeado, puede ver la lista de conjuntos de escalado de máquinas virtuales que resultan afectados por la siguiente ola de mantenimiento mediante Azure Portal. 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el menú izquierdo, seleccione **Todos los servicios** y, luego, seleccione **Conjuntos de escalado de máquinas virtuales**.
-3. En **Conjuntos de escalado de máquinas virtuales**, seleccione **Editar columnas** para abrir la lista de columnas disponibles.
-4. En la sección **Columnas disponibles**, seleccione **Mantenimiento de autoservicio** y, luego, muévalo a la lista **Columnas seleccionadas**. Seleccione **Aplicar**.  
+2. En el menú izquierdo, seleccione **Todos los servicios** y, luego, seleccione **Conjuntos de escalado de máquinas virtuales** .
+3. En **Conjuntos de escalado de máquinas virtuales** , seleccione **Editar columnas** para abrir la lista de columnas disponibles.
+4. En la sección **Columnas disponibles** , seleccione **Mantenimiento de autoservicio** y, luego, muévalo a la lista **Columnas seleccionadas** . Seleccione **Aplicar** .  
 
-    Para que el elemento **Mantenimiento de autoservicio** sea más fácil de encontrar, puede cambiar la opción de lista desplegable en la sección **Columnas disponibles** de **Todas** a **Propiedades**.
+    Para que el elemento **Mantenimiento de autoservicio** sea más fácil de encontrar, puede cambiar la opción de lista desplegable en la sección **Columnas disponibles** de **Todas** a **Propiedades** .
 
 La columna **Mantenimiento de autoservicio** aparece ahora en la lista de conjuntos de escalado de máquinas virtuales. Cada conjunto de escalado de máquinas virtuales puede tener uno de los siguientes valores para la columna de mantenimiento de autoservicio:
 
@@ -92,21 +92,21 @@ La columna **Mantenimiento de autoservicio** aparece ahora en la lista de conjun
 Azure comunica una programación para el mantenimiento planeado enviando un correo electrónico al grupo de propietario y copropietarios de la suscripción. Puede agregar destinatarios y canales a esta comunicación mediante la creación de alertas de registro de actividad. Para más información, consulte [Supervise la actividad de suscripción con Azure Activity Log](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. En el menú de la izquierda, seleccione **Monitor**. 
-3. En el panel **Monitor - Alertas (clásico)** , seleccione **+ Agregar alerta de registro de actividad**.
-4. En la página **Agregar alerta de registro de actividad**, seleccione o escriba la información solicitada. En **Criterios**, asegúrese de establecer los valores siguientes:
-   - **Categoría de eventos**: Seleccione **Service Health**.
-   - **Servicios**: Seleccione **Virtual Machine Scale Sets y Virtual Machines**.
-   - **Tipo**: Seleccione **Mantenimiento planeado**. 
+2. En el menú de la izquierda, seleccione **Monitor** . 
+3. En el panel **Monitor - Alertas (clásico)** , seleccione **+ Agregar alerta de registro de actividad** .
+4. En la página **Agregar alerta de registro de actividad** , seleccione o escriba la información solicitada. En **Criterios** , asegúrese de establecer los valores siguientes:
+   - **Categoría de eventos** : Seleccione **Service Health** .
+   - **Servicios** : Seleccione **Virtual Machine Scale Sets y Virtual Machines** .
+   - **Tipo** : Seleccione **Mantenimiento planeado** . 
     
 Para más información sobre cómo configurar las alertas de registro de actividad, consulte [Creación de alertas de registro de actividad](../azure-monitor/platform/activity-log-alerts.md).
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Inicio del mantenimiento en el conjunto de escalado de máquinas virtuales desde el portal
 
-Puede ver más detalles relacionados con el mantenimiento en la información general de los conjuntos de escalado de máquinas virtuales. Si se incluye al menos una máquina virtual del conjunto de escalado de máquinas virtuales en la ola de mantenimiento planeado, se agrega una nueva cinta de notificaciones cerca de la parte superior de la página. Seleccione la cinta de notificaciones para ir a la página **Mantenimiento**. 
+Puede ver más detalles relacionados con el mantenimiento en la información general de los conjuntos de escalado de máquinas virtuales. Si se incluye al menos una máquina virtual del conjunto de escalado de máquinas virtuales en la ola de mantenimiento planeado, se agrega una nueva cinta de notificaciones cerca de la parte superior de la página. Seleccione la cinta de notificaciones para ir a la página **Mantenimiento** . 
 
-En la página **Mantenimiento**, puede ver qué instancia de máquina virtual resulta afectada por el mantenimiento planeado. Para iniciar el mantenimiento, active la casilla que corresponde a la máquina virtual afectada. A continuación, seleccione **Iniciar el mantenimiento**.
+En la página **Mantenimiento** , puede ver qué instancia de máquina virtual resulta afectada por el mantenimiento planeado. Para iniciar el mantenimiento, active la casilla que corresponde a la máquina virtual afectada. A continuación, seleccione **Iniciar el mantenimiento** .
 
 Una vez que comience el mantenimiento, las máquinas virtuales afectadas del conjunto de escalado de máquinas virtuales se someterán a mantenimiento y no estarán disponibles temporalmente. Si perdió la ventana de autoservicio, seguirá pudiendo ver la ventana de tiempo cuando Azure mantenga el conjunto de escalado de máquinas virtuales.
  
@@ -120,7 +120,7 @@ La información de mantenimiento se devuelve solo si hay mantenimiento planeado.
 Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -InstanceView
 ```
 
-Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus**: 
+Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus** : 
 
 | Value | Descripción   |
 |-------|---------------|
@@ -135,7 +135,7 @@ Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus**:
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Inicio del mantenimiento en la instancia de máquina virtual mediante PowerShell
 
-Puede iniciar el mantenimiento en una máquina virtual si **IsCustomerInitiatedMaintenanceAllowed** está establecido en **true**. Use el cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) con el parámetro `-PerformMaintenance`.
+Puede iniciar el mantenimiento en una máquina virtual si **IsCustomerInitiatedMaintenanceAllowed** está establecido en **true** . Use el cmdlet [Set-AzVmss](/powershell/module/az.compute/set-azvmss) con el parámetro `-PerformMaintenance`.
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -165,7 +165,7 @@ Las siguientes propiedades se devuelven en **MaintenanceRedeployStatus** para ca
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Inicio del mantenimiento en la instancia de máquina virtual mediante la CLI
 
-La siguiente llamada inicia el mantenimiento en una instancia de máquina virtual si `IsCustomerInitiatedMaintenanceAllowed` está establecido en **true**:
+La siguiente llamada inicia el mantenimiento en una instancia de máquina virtual si `IsCustomerInitiatedMaintenanceAllowed` está establecido en **true** :
 
 ```azurecli
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
@@ -202,7 +202,7 @@ Para más información acerca de la alta disponibilidad, consulte [Regiones y di
 **P: No veo información de mantenimiento en mis máquinas virtuales. ¿A qué se debe?**
 
 **R:** Existen varios motivos por los que podría no ver información de mantenimiento en sus máquinas virtuales:
-   - Usa una suscripción marcada como *interna de Microsoft*.
+   - Usa una suscripción marcada como *interna de Microsoft* .
    - Las máquinas virtuales no están programadas para mantenimiento. Es posible que la ola de mantenimiento finalizara, se cancelara o modificara para que las máquinas virtuales ya no resulten afectadas por ella.
    - La columna **Mantenimiento** no se ha agregado a la vista de la lista de máquinas virtuales. Aunque hemos agregado esta columna a la vista predeterminada, si configura la vista para ver las columnas no predeterminadas, debe agregar manualmente la columna **Mantenimiento** a la vista de lista de máquinas virtuales.
 

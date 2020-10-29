@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308102"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676211"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creación de una prueba de Internet Analyzer mediante la CLI (versión preliminar)
 
@@ -29,15 +29,15 @@ La versión preliminar pública está disponible para su uso global; sin embargo
 
 ## <a name="object-model"></a>Modelo de objetos
 La CLI de Internet Analyzer expone los siguientes tipos de recursos:
-* **Pruebas**: una prueba compara el rendimiento de usuario final de dos puntos de conexión de Internet (A y B) a lo largo del tiempo.
-* **Perfiles**: las pruebas se crean en un perfil de Internet Analyzer. Los perfiles permiten agrupar las pruebas relacionadas; un único perfil puede contener una o varias pruebas.
-* **Puntos de conexión preconfigurados**: hemos configurado puntos de conexión con una variedad de configuraciones (regiones, tecnologías de aceleración, etc.). Puede usar cualquiera de estos puntos de conexión preconfigurados en las pruebas.
-* **Cuadros de mandos**: un cuadro de mandos proporciona resúmenes rápidos y significativos de los resultados de las mediciones. Consulte [Interpretación del cuadro de mandos](internet-analyzer-scorecard.md).
-* **Series temporales**: una serie temporal muestra cómo cambia una métrica con el tiempo.
+* **Pruebas** : una prueba compara el rendimiento de usuario final de dos puntos de conexión de Internet (A y B) a lo largo del tiempo.
+* **Perfiles** : las pruebas se crean en un perfil de Internet Analyzer. Los perfiles permiten agrupar las pruebas relacionadas; un único perfil puede contener una o varias pruebas.
+* **Puntos de conexión preconfigurados** : hemos configurado puntos de conexión con una variedad de configuraciones (regiones, tecnologías de aceleración, etc.). Puede usar cualquiera de estos puntos de conexión preconfigurados en las pruebas.
+* **Cuadros de mandos** : un cuadro de mandos proporciona resúmenes rápidos y significativos de los resultados de las mediciones. Consulte [Interpretación del cuadro de mandos](internet-analyzer-scorecard.md).
+* **Series temporales** : una serie temporal muestra cómo cambia una métrica con el tiempo.
 
 ## <a name="profile-and-test-creation"></a>Creación de perfiles y pruebas
 1. Obtenga acceso a la versión preliminar de Internet Analyzer siguiendo las instrucciones de **¿Cómo participar en la versión preliminar?** de las [preguntas frecuentes sobre Azure Internet Analyzer](internet-analyzer-faq.md).
-2. [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Ejecute el comando `login` para iniciar una sesión de la CLI:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ La CLI de Internet Analyzer expone los siguientes tipos de recursos:
 
 5. Seleccione el identificador de la suscripción a la que se ha concedido acceso a la versión preliminar pública de Internet Analyzer.
 
-    Después de iniciar sesión, verá una lista de suscripciones asociadas con su cuenta de Azure. La información de suscripción con `isDefault: true` es la suscripción actualmente activada después de iniciar sesión. Para seleccionar otra suscripción, utilice el comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) con el identificador de suscripción al que desea cambiar. Para más información sobre la selección de suscripción, consulte [Uso de varias suscripciones de Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Después de iniciar sesión, verá una lista de suscripciones asociadas con su cuenta de Azure. La información de suscripción con `isDefault: true` es la suscripción actualmente activada después de iniciar sesión. Para seleccionar otra suscripción, utilice el comando [az account set](/cli/azure/account#az-account-set) con el identificador de suscripción al que desea cambiar. Para más información sobre la selección de suscripción, consulte [Uso de varias suscripciones de Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    Hay varias formas de iniciar sesión de una manera no interactiva, que se describen con detalle en [Inicio de sesión con la CLI de Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Opcional]** Creación de un nuevo grupo de recursos de Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ La CLI de Internet Analyzer expone los siguientes tipos de recursos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Examine la [Referencia de la CLI de Internet Analyzer](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para ver la lista completa de comandos y ejemplos de uso admitidos.
+* Examine la [Referencia de la CLI de Internet Analyzer](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest) para ver la lista completa de comandos y ejemplos de uso admitidos.
 * Consulte las [preguntas frecuentes sobre Internet Analyzer](internet-analyzer-faq.md).
-* Más información sobre la inserción del [cliente de Internet Analyzer](internet-analyzer-embed-client.md) y la creación de un [punto de conexión personalizado](internet-analyzer-custom-endpoint.md). 
+* Más información sobre la inserción del [cliente de Internet Analyzer](internet-analyzer-embed-client.md) y la creación de un [punto de conexión personalizado](internet-analyzer-custom-endpoint.md).

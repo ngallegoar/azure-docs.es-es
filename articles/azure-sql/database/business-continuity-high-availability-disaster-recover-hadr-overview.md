@@ -13,12 +13,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eedc3dc1422d4eb6dcce80766077e8056f8509cf
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327568"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678048"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ SQL Database e Instancia administrada de SQL también proporcionan varias carac
 
 - [Tablas temporales](../temporal-tables.md) que le permiten restaurar versiones de fila desde cualquier momento dado.
 - Las [copias de seguridad automatizadas integradas](automated-backups-overview.md) y la [restauración a un momento dado](recovery-using-backups.md#point-in-time-restore) le permiten restaurar la base de datos completa a un momento dado dentro del período de retención configurado de hasta 35 días.
-- Puede [restaurar una base de datos eliminada](recovery-using-backups.md#deleted-database-restore) al momento en que se ha eliminado si el **servidor no se ha eliminado**.
+- Puede [restaurar una base de datos eliminada](recovery-using-backups.md#deleted-database-restore) al momento en que se ha eliminado si el **servidor no se ha eliminado** .
 - La [retención de copia de seguridad a largo plazo](long-term-retention-overview.md) le permite conservar las copias de seguridad hasta 10 años. Se trata de una versión preliminar pública limitada para Instancia administrada de SQL
 - La [replicación geográfica activa](active-geo-replication-overview.md) permite crear réplicas legibles y realizar una conmutación por error manual a cualquier réplica en el caso de una interrupción en el centro de datos o una actualización de la aplicación.
 - El [grupo de conmutación por error automática](auto-failover-group-overview.md#terminology-and-capabilities) permite que la aplicación se recupere automáticamente en el caso de que se produzca una interrupción en el centro de datos.
@@ -141,7 +141,7 @@ Cuando efectúe la recuperación con cualquiera de los mecanismos para llevarla 
 
 - Redirija los clientes y las aplicaciones cliente al servidor nuevo y a la base de datos restaurada.
 - Asegúrese de aplicar reglas de firewall de IP en el nivel de servidor adecuadas para que se conecten los usuarios o use [firewalls de nivel de base de datos](firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) para habilitar las reglas adecuadas.
-- Asegúrese de emplear los permisos de nivel de base de datos maestra e inicios de sesión apropiados (o bien, utilice [usuarios contenidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
+- Asegúrese de emplear los permisos de nivel de base de datos maestra e inicios de sesión apropiados (o bien, utilice [usuarios contenidos](/sql/relational-databases/security/contained-database-users-making-your-database-portable)).
 - Configure la auditoría según corresponda.
 - Configure las alertas según corresponda.
 

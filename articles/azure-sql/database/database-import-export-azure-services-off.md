@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 9b34a2435486a905923e783153ccae97628193a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be966a651df0c896ac7e1973d7783bb7fb686be3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443760"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676502"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importación o exportación de una base de datos de Azure SQL Database sin permitir que los servicios de Azure accedan al servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,30 +46,30 @@ En los pasos siguientes se muestra cómo conectarse a la máquina virtual median
 
    ![Captura de pantalla que muestra la página de información general de una máquina virtual con el botón Conectar.](./media/database-import-export-azure-services-off/vm.png)  
 
-2. Seleccione **Conectar**.
+2. Seleccione **Conectar** .
 
    Aparece un formulario de archivo de Protocolo de escritorio remoto (archivo .rdp) con la dirección IP pública y el número de puerto de la máquina virtual.
 
    ![Formulario RDP](./media/database-import-export-azure-services-off/rdp.png)  
 
-3. Seleccione **Descargar archivo RDP**.
+3. Seleccione **Descargar archivo RDP** .
 
    > [!NOTE]
    > También puede usar SSH para conectarse a la máquina virtual.
 
-4. Cierre el formulario **Conexión a la máquina virtual**.
+4. Cierre el formulario **Conexión a la máquina virtual** .
 5. Para conectarse a la máquina virtual, abra el archivo RDP descargado.
 6. Cuando se le pida, seleccione **Connect** (Conectar). En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://apps.apple.com/app/microsoft-remote-desktop-10/id1295203466?mt=12) de Mac App Store.
 
-7. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, elija **Aceptar**.
+7. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, elija **Aceptar** .
 
 8. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Elija **Sí** o en **Continuar** para continuar con la conexión.
 
 ## <a name="install-sqlpackage"></a>Instalación de SqlPackage
 
-[Descargue e instale la versión más reciente de SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+[Descargue e instale la versión más reciente de SqlPackage](/sql/tools/sqlpackage-download).
 
-Para más información, vea [SqlPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage).
+Para más información, vea [SqlPackage.exe](/sql/tools/sqlpackage).
 
 ## <a name="create-a-firewall-rule-to-allow-the-vm-access-to-the-database"></a>Creación de una regla de firewall para permitir que la máquina virtual acceda al servidor
 
@@ -77,7 +77,7 @@ Agregue la dirección IP pública de la máquina virtual al firewall del servido
 
 En los pasos siguientes se crea una regla de Firewall de IP de nivel de servidor para la dirección IP pública de la máquina virtual y se habilita la conectividad de la máquina virtual.
 
-1. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database**. Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **servername.database.windows.net**) y ofrece otras opciones de configuración.
+1. Seleccione **SQL Database** en el menú de la izquierda y seleccione la base de datos en la página **SQL Database** . Se abre la página de información general de la base de datos, que muestra el nombre completo del servidor (por ejemplo, **servername.database.windows.net** ) y ofrece otras opciones de configuración.
 
 2. Copie este nombre de servidor completo para conectarse a su servidor y a sus bases de datos.
 
@@ -89,15 +89,15 @@ En los pasos siguientes se crea una regla de Firewall de IP de nivel de servidor
 
 4. Seleccione **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP pública de la máquina virtual a la nueva regla de firewall de IP en el nivel de servidor. Esta regla de firewall puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-5. Seleccione **Guardar**. Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP pública de la máquina virtual en el servidor.
+5. Seleccione **Guardar** . Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP pública de la máquina virtual en el servidor.
 
-6. Cierre la página **Configuración de firewall**.
+6. Cierre la página **Configuración de firewall** .
 
 ## <a name="export-a-database-using-sqlpackage"></a>Exportación de una base de datos mediante SqlPackage
 
-Para exportar una base de datos de Azure SQL Database mediante la utilidad de línea de comandos [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), consulte [Parámetros y propiedades de la exportación](https://docs.microsoft.com/sql/tools/sqlpackage#export-parameters-and-properties). La utilidad SqlPackage incluye las versiones más recientes de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). También puede descargar la versión más reciente de [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+Para exportar una base de datos de Azure SQL Database mediante la utilidad de línea de comandos [SqlPackage](/sql/tools/sqlpackage), consulte [Parámetros y propiedades de la exportación](/sql/tools/sqlpackage#export-parameters-and-properties). La utilidad SqlPackage incluye las versiones más recientes de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt). También puede descargar la versión más reciente de [SqlPackage](/sql/tools/sqlpackage-download).
 
-Se recomienda usar la utilidad SqlPackage para la escala y el rendimiento en la mayoría de los entornos de producción. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server.
+Se recomienda usar la utilidad SqlPackage para la escala y el rendimiento en la mayoría de los entornos de producción. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) en el blog de Customer Advisory Team de SQL Server.
 
 Este ejemplo muestra cómo exportar una base de datos con SqlPackage.exe con Autenticación universal de Active Directory. Reemplace los valores por otros específicos de su entorno.
 
@@ -107,11 +107,11 @@ SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=<servername>.da
 
 ## <a name="import-a-database-using-sqlpackage"></a>Importación de una base de datos mediante SqlPackage
 
-Para importar una base de datos de SQL Server mediante la utilidad de línea de comandos [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage), consulte [Parámetros y propiedades de la importación](https://docs.microsoft.com/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage incluye las versiones más recientes de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt). También puede descargar la versión más reciente de [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage-download).
+Para importar una base de datos de SQL Server mediante la utilidad de línea de comandos [SqlPackage](/sql/tools/sqlpackage), consulte [Parámetros y propiedades de la importación](/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage incluye las versiones más recientes de [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) y [SQL Server Data Tools](/sql/ssdt/download-sql-server-data-tools-ssdt). También puede descargar la versión más reciente de [SqlPackage](/sql/tools/sqlpackage-download).
 
-Para el escalado y rendimiento, se recomienda usar SqlPackage en la mayoría de los entornos de producción en lugar de usar Azure Portal. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) en el blog de Customer Advisory Team de SQL Server sobre cómo migrar usuarios con archivos `BACPAC`.
+Para el escalado y rendimiento, se recomienda usar SqlPackage en la mayoría de los entornos de producción en lugar de usar Azure Portal. Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) en el blog de Customer Advisory Team de SQL Server sobre cómo migrar usuarios con archivos `BACPAC`.
 
-El siguiente comando SqlPackage importa la base de datos **AdventureWorks2017** del almacenamiento local a Azure SQL Database. Crea una base de datos llamada **myMigratedDatabase** con un nivel de servicio **Premium** y un objetivo de servicio **P6**. Cambie estos valores según corresponda para su entorno.
+El siguiente comando SqlPackage importa la base de datos **AdventureWorks2017** del almacenamiento local a Azure SQL Database. Crea una base de datos llamada **myMigratedDatabase** con un nivel de servicio **Premium** y un objetivo de servicio **P6** . Cambie estos valores según corresponda para su entorno.
 
 ```cmd
 sqlpackage.exe /a:import /tcs:"Data Source=<serverName>.database.windows.net;Initial Catalog=myMigratedDatabase>;User Id=<userId>;Password=<password>" /sf:AdventureWorks2017.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
@@ -141,11 +141,11 @@ Para obtener el mejor rendimiento, puede probar las estrategias siguientes:
 
 ## <a name="store-the-imported-or-exported-bacpac-file"></a>Almacenamiento del archivo .BACPAC importado o exportado
 
-El archivo .BACPAC se puede almacenar en [blobs de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) o [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+El archivo .BACPAC se puede almacenar en [blobs de Azure](../../storage/blobs/storage-blobs-overview.md) o [Azure Files](../../storage/files/storage-files-introduction.md).
 
 Para lograr el mejor rendimiento, utilice Azure Files. SqlPackage funciona con el sistema de archivos para que pueda acceder a Azure Files directamente.
 
-Para reducir el costo, use blobs de Azure, que cuestan menos que un recurso compartido de archivos Premium de Azure. Sin embargo, deberá copiar el [archivo .BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) entre el blob y el sistema de archivos local antes de la operación de importación o exportación. Como resultado, el proceso tardará más.
+Para reducir el costo, use blobs de Azure, que cuestan menos que un recurso compartido de archivos Premium de Azure. Sin embargo, deberá copiar el [archivo .BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) entre el blob y el sistema de archivos local antes de la operación de importación o exportación. Como resultado, el proceso tardará más.
 
 Para cargar o descargar los archivos .BACPAC, consulte [Transferir datos con AzCopy y BLOB Storage](../../storage/common/storage-use-azcopy-blobs.md) y [Transferir datos con AzCopy y almacenamiento de archivos](../../storage/common/storage-use-azcopy-files.md).
 
@@ -156,4 +156,4 @@ En función de su entorno, es posible que necesite [Configurar firewalls y redes
 - Para información sobre cómo conectarse a una base de datos SQL importada y cómo realizar consultas en ella, lea [Inicio rápido: Azure SQL Database: uso de SQL Server Management Studio para conectarse a los datos y realizar consultas en ellos](connect-query-ssms.md).
 - Consulte cómo [migrar de SQL Server a Azure SQL Database con archivos BACPAC](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407) en el blog de Customer Advisory Team de SQL Server.
 - Para información sobre el proceso de migración de bases de datos SQL Server completo, incluidas las recomendaciones relacionadas con el rendimiento, consulte [Migración de una base de datos de SQL Server a Azure SQL Database](migrate-to-database-from-sql-server.md).
-- Para obtener información sobre cómo administrar y compartir de forma segura claves de almacenamiento y firmas de acceso compartido, vea la [Guía de seguridad de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+- Para obtener información sobre cómo administrar y compartir de forma segura claves de almacenamiento y firmas de acceso compartido, vea la [Guía de seguridad de Azure Storage](../../storage/blobs/security-recommendations.md).

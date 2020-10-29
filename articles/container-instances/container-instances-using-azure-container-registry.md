@@ -4,13 +4,13 @@ description: Obtenga información acerca de cómo implementar contenedores en Az
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.custom: mvc
-ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: cca1001f0f84f4e4fc87df233f872fc1efdb3267
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173651"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736726"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implementación en Azure Container Instances desde Azure Container Registry
 
@@ -18,9 +18,9 @@ ms.locfileid: "92173651"
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-**Azure Container Registry**: se necesita una instancia de Azure Container Registry, y al menos una imagen de contenedor en el registro, para completar los pasos descritos en este artículo. Si necesita un registro, consulte [Creación de un registro de contenedor con la CLI de Azure](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure Container Registry** : se necesita una instancia de Azure Container Registry, y al menos una imagen de contenedor en el registro, para completar los pasos descritos en este artículo. Si necesita un registro, consulte [Creación de un registro de contenedor con la CLI de Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
-**CLI de Azure**: los ejemplos de línea de comandos de este artículo usan la [CLI de Azure](/cli/azure/) y tienen un formato adecuado para el shell de Bash. Puede [instalar la CLI de Azure](/cli/azure/install-azure-cli) localmente o usar [Azure Cloud Shell][cloud-shell-bash].
+**CLI de Azure** : los ejemplos de línea de comandos de este artículo usan la [CLI de Azure](/cli/azure/) y tienen un formato adecuado para el shell de Bash. Puede [instalar la CLI de Azure](/cli/azure/install-azure-cli) localmente o usar [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="limitations"></a>Limitaciones
 
@@ -70,7 +70,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-El argumento `--role` en el comando anterior configura la entidad de servicio con el rol *acrpull*, que le concede de solo extracción acceso al registro. Para conceder acceso de inserción y extracción, cambie el argumento `--role` a *acrpush*.
+El argumento `--role` en el comando anterior configura la entidad de servicio con el rol *acrpull* , que le concede de solo extracción acceso al registro. Para conceder acceso de inserción y extracción, cambie el argumento `--role` a *acrpush* .
 
 A continuación, almacene el *appId* de la entidad de servicio en el almacén, que es el **nombre de usuario** que pasa a Azure Container Registry para la autenticación.
 
@@ -147,9 +147,9 @@ Si se mantienen imágenes de contenedor en un registro de contenedor de Azure, s
 
 1. En Azure Portal, vaya al registro de contenedor.
 
-1. Para confirmar que la cuenta de administrador está habilitada, seleccione **Claves de acceso**y en **Usuario administrador** seleccione **Habilitar**.
+1. Para confirmar que la cuenta de administrador está habilitada, seleccione **Claves de acceso** y en **Usuario administrador** seleccione **Habilitar** .
 
-1. Seleccione **Repositorios**, elija el repositorio desde el que va a implementar, haga clic con el botón derecho en la etiqueta de la imagen de contenedor que desea implementar y seleccione **Ejecutar instancia**.
+1. Seleccione **Repositorios** , elija el repositorio desde el que va a implementar, haga clic con el botón derecho en la etiqueta de la imagen de contenedor que desea implementar y seleccione **Ejecutar instancia** .
 
     !["Ejecutar instancia" en Azure Container Registry de Azure Portal][acr-runinstance-contextmenu]
 

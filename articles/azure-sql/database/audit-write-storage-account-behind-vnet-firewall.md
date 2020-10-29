@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 74926411b659cf5973b03b2caca58d7666803f9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444537"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677241"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escritura de auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -48,11 +48,11 @@ Para que una auditoría escriba eventos en una cuenta de almacenamiento detrás 
 
 Conéctese a [Azure Portal](https://portal.azure.com) con su suscripción. Desplácese al grupo de recursos y al servidor.
 
-1. Haga clic en **Auditoría** en el encabezado Seguridad. Seleccione **Activado**.
+1. Haga clic en **Auditoría** en el encabezado Seguridad. Seleccione **Activado** .
 
-2. Seleccione **Storage**. Seleccione la cuenta de almacenamiento en la que se guardarán los registros. La cuenta de almacenamiento debe cumplir los requisitos enumerados en la sección [Requisitos previos](#prerequisites).
+2. Seleccione **Storage** . Seleccione la cuenta de almacenamiento en la que se guardarán los registros. La cuenta de almacenamiento debe cumplir los requisitos enumerados en la sección [Requisitos previos](#prerequisites).
 
-3. Abra **Detalles de almacenamiento**.
+3. Abra **Detalles de almacenamiento** .
 
   > [!NOTE]
   > Si la cuenta de Azure Storage seleccionada está detrás de una red virtual, verá el mensaje siguiente:
@@ -61,7 +61,7 @@ Conéctese a [Azure Portal](https://portal.azure.com) con su suscripción. Despl
   >
   >Si no ve este mensaje, la cuenta de almacenamiento no está detrás de una red virtual.
 
-4. Seleccione el número de días para el período de retención. A continuación, haga clic en **Aceptar**. Los registros anteriores al período de retención se eliminarán.
+4. Seleccione el número de días para el período de retención. A continuación, haga clic en **Aceptar** . Los registros anteriores al período de retención se eliminarán.
 
 5. Seleccione **Guardar** en la configuración de auditoría.
 
@@ -93,7 +93,7 @@ Para configurar una auditoría de SQL para que escriba eventos en una cuenta de 
    Set-AzSqlServer -ResourceGroupName <your resource group> -ServerName <azure server name> -AssignIdentity
    ```
 
-   [**API REST**](https://docs.microsoft.com/rest/api/sql/servers/createorupdate):
+   [**API REST**](/rest/api/sql/servers/createorupdate):
 
    Solicitud de ejemplo
 
@@ -117,12 +117,12 @@ Para configurar una auditoría de SQL para que escriba eventos en una cuenta de 
    }
    ```
 
-2. Abra [Azure Portal](https://portal.azure.com). Vaya a la cuenta de almacenamiento. Busque **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles**. Asigne el rol de Azure **Colaborador de datos de blobs de almacenamiento** al servidor que hospeda la base de datos que ha registrado con Azure Active Directory (Azure AD) en el paso anterior.
+2. Abra [Azure Portal](https://portal.azure.com). Vaya a la cuenta de almacenamiento. Busque **Control de acceso (IAM)** y haga clic en **Agregar asignación de roles** . Asigne el rol de Azure **Colaborador de datos de blobs de almacenamiento** al servidor que hospeda la base de datos que ha registrado con Azure Active Directory (Azure AD) en el paso anterior.
 
    > [!NOTE]
    > Solo los miembros con el privilegio Propietario pueden realizar este paso. Para conocer los distintos roles integrados de Azure, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
-3. Configure la [directiva de auditoría de blobs del servidor](/rest/api/sql/server%20auditing%20settings/createorupdate) sin especificar un elemento *storageAccountAccessKey*:
+3. Configure la [directiva de auditoría de blobs del servidor](/rest/api/sql/server%20auditing%20settings/createorupdate) sin especificar un elemento *storageAccountAccessKey* :
 
    Solicitud de ejemplo
 

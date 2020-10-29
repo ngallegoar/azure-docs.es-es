@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257323"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675630"
 ---
 # <a name="scenario-single-page-application"></a>Escenario: Aplicación de una sola página
 
@@ -34,11 +34,11 @@ Muchas aplicaciones web modernas se compilan como aplicaciones de página única
 
 La Plataforma de identidad de Microsoft ofrece **dos** opciones para que las aplicaciones de página única inicien la sesión de los usuarios y obtengan tokens para acceder a los servicios de back-end o a las API web:
 
-- [Flujo de códigos de autorización de OAuth 2.0 (con PKCE)](./v2-oauth2-auth-code-flow.md) El flujo del código de autorización permite a la aplicación intercambiar un código de autorización para los tokens de **identificador** para representar al usuario autenticado y también los tokens de **acceso** necesarios para llamar a las API protegidas. Además, devuelve tokens de **actualización** que proporcionan acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con estos. Este es el enfoque **recomendado**.
+- [Flujo de códigos de autorización de OAuth 2.0 (con PKCE)](./v2-oauth2-auth-code-flow.md) El flujo del código de autorización permite a la aplicación intercambiar un código de autorización para los tokens de **identificador** para representar al usuario autenticado y también los tokens de **acceso** necesarios para llamar a las API protegidas. Además, devuelve tokens de **actualización** que proporcionan acceso a largo plazo a los recursos en nombre de los usuarios sin necesidad de interacción con estos. Este es el enfoque **recomendado** .
 
 ![Aplicaciones de página única: autorización](./media/scenarios/spa-app-auth.svg)
 
-- [Flujo implícito de OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). El flujo de concesión implícita permite a la aplicación obtener tokens de **identificador** y de **acceso**. A diferencia del flujo del código de autorización, el flujo de concesión implícita no devuelve un **token de actualización**.
+- [Flujo implícito de OAuth 2.0](./v2-oauth2-implicit-grant-flow.md). El flujo de concesión implícita permite a la aplicación obtener tokens de **identificador** y de **acceso** . A diferencia del flujo del código de autorización, el flujo de concesión implícita no devuelve un **token de actualización** .
 
 ![Aplicaciones de página única: implícito](./media/scenarios/spa-app.svg)
 

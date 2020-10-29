@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.custom: devx-track-csharp
-ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277830"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740873"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Aprovisionamiento del rendimiento de escalabilidad automática en una base de datos o un contenedor de Azure Cosmos DB: SQL API
 
@@ -248,7 +248,7 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
-Las plantillas de Azure Resource Manager se pueden usar para aprovisionar el rendimiento de escalado automático en luna base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB. Consulte [Plantillas de Azure Resource Manager para Azure Cosmos DB](resource-manager-samples.md) para ejemplos.
+Las plantillas de Azure Resource Manager se pueden usar para aprovisionar el rendimiento de escalado automático en luna base de datos o en recursos de nivel de contenedor para todas las API de Azure Cosmos DB. Consulte [Plantillas de Azure Resource Manager para Azure Cosmos DB](./templates-samples-sql.md) para ejemplos.
 
 ## <a name="azure-cli"></a>Azure CLI
 

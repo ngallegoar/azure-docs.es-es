@@ -5,13 +5,13 @@ ms.assetid: ac50a623-c4b8-4dfd-96b2-a09420770063
 ms.topic: article
 ms.date: 06/18/2019
 ms.reviewer: dariac
-ms.custom: seodec18
-ms.openlocfilehash: efe4c07a6231e0b2c95b049db056a4e5d055db98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 9650633e1eaffdb588b3a31cd5a2f305c36e7a25
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77152999"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741311"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementación de Git local en Azure App Service
 
@@ -82,7 +82,7 @@ Use la dirección URL que vuelve a implementar la aplicación en el siguiente pa
    
 1. Acceda a la instancia remota de Azure con `git push azure master`. 
    
-1. En la ventana del **administrador de credenciales de Git**, escriba su [contraseña de usuario de implementación](#configure-a-deployment-user), no la contraseña de inicio de sesión de Azure.
+1. En la ventana del **administrador de credenciales de Git** , escriba su [contraseña de usuario de implementación](#configure-a-deployment-user), no la contraseña de inicio de sesión de Azure.
    
 1. Revise el resultado. Es posible que vea la automatización específica para el entorno de tiempo de ejecución, como MSBuild para ASP.NET, `npm install` para Node.js y `pip install` para Python. 
    
@@ -100,7 +100,7 @@ Si su cuenta tiene los permisos necesarios, puede configurar Azure Pipelines (ve
 
 Para habilitar la implementación de Git local para la aplicación con Azure Pipelines (versión preliminar):
 
-1. En [Azure Portal](https://portal.azure.com), busque y seleccione **App Services**. 
+1. En [Azure Portal](https://portal.azure.com), busque y seleccione **App Services** . 
 
 1. Seleccione la aplicación de Azure App Service y elija **Centro de implementación** en el menú de la izquierda.
    
@@ -133,7 +133,7 @@ Para habilitar la implementación de Git local para la aplicación con Azure Pip
    
 1. Acceda a la instancia remota de Azure con `git push azure master`. 
    
-1. En la página del **administrador de credenciales de GIT**, inicie sesión con su nombre de usuario de visualstudio.com. Para ver otros métodos de autenticación, consulte la [información general sobre autenticación de Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
+1. En la página del **administrador de credenciales de GIT** , inicie sesión con su nombre de usuario de visualstudio.com. Para ver otros métodos de autenticación, consulte la [información general sobre autenticación de Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
    
 1. Una vez finalizada la implementación, puede consultar el progreso de la compilación en `https://<azure_devops_account>.visualstudio.com/<project_name>/_build` y el progreso de la implementación en `https://<azure_devops_account>.visualstudio.com/<project_name>/_release`.
    
@@ -152,7 +152,7 @@ Puede ver los siguientes mensajes de error comunes cuando usa Git para publicar 
 |`No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.`|No especificó una rama durante `git push`, o no ha establecido el valor `push.default` en `.gitconfig`.|Vuelva a ejecutar `git push` y especifique la rama principal `git push azure master`.|
 |`src refspec [branchname] does not match any.`|Intentó agregar una rama que no es maestra en el repositorio remoto "azure".|Vuelva a ejecutar `git push` y especifique la rama principal `git push azure master`.|
 |`RPC failed; result=22, HTTP code = 5xx.`|este error puede producirse si se trata de insertar un repositorio Git de gran tamaño a través de HTTPS.|Cambie la configuración de Git en la máquina local para aumentar el tamaño de `postBuffer`. Por ejemplo: `git config --global http.postBuffer 524288000`.|
-|`Error - Changes committed to remote repository but your web app not updated.`|Implementó una aplicación Node.js con un archivo _package.json_ que especifica los módulos adicionales requeridos.|Revise los mensajes de error `npm ERR!` anteriores a este error para obtener más contexto sobre el error. A continuación se indican las causas conocidas de este error y los mensajes `npm ERR!`:<br /><br />**El archivo package.json tiene una estructura incorrecta**: `npm ERR! Couldn't read dependencies.`<br /><br />**Módulo nativo que no tiene una distribución binaria para Windows**:<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
+|`Error - Changes committed to remote repository but your web app not updated.`|Implementó una aplicación Node.js con un archivo _package.json_ que especifica los módulos adicionales requeridos.|Revise los mensajes de error `npm ERR!` anteriores a este error para obtener más contexto sobre el error. A continuación se indican las causas conocidas de este error y los mensajes `npm ERR!`:<br /><br />**El archivo package.json tiene una estructura incorrecta** : `npm ERR! Couldn't read dependencies.`<br /><br />**Módulo nativo que no tiene una distribución binaria para Windows** :<br />`npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1` <br />or <br />`npm ERR! [modulename@version] preinstall: \make || gmake\ `|
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

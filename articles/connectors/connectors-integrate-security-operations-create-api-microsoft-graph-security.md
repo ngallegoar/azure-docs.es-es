@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f121caddc6b629920479a34bef7b284dea117a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986375"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677496"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Mejore la protección frente a amenazas mediante la integración de las operaciones de seguridad con Microsoft Graph Security y Azure Logic Apps.
 
@@ -30,13 +30,13 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Micr
 
 El flujo de trabajo de la aplicación lógica puede usar acciones que obtengan respuestas del conector Microsoft Graph Security y permitir que esa salida esté disponible para otras acciones del flujo de trabajo. También puede tener otras acciones en el flujo de trabajo mediante la salida de las acciones del conector Microsoft Graph Security. Por ejemplo, si recibe alertas de gravedad alta a través del conector Microsoft Graph Security, puede enviar esas alertas en un mensaje de correo electrónico mediante el conector de Outlook. 
 
-Para más información sobre Microsoft Graph Security, consulte la [introducción a Microsoft Graph Security API](https://aka.ms/graphsecuritydocs). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Si busca Microsoft Flow o PowerApps, consulte [¿Qué es Flow?](https://flow.microsoft.com/) o [¿Qué es PowerApps?](https://powerapps.microsoft.com/)
+Para más información sobre Microsoft Graph Security, consulte la [introducción a Microsoft Graph Security API](/graph/security-concept-overview). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Si busca Microsoft Flow o PowerApps, consulte [¿Qué es Flow?](https://flow.microsoft.com/) o [¿Qué es PowerApps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/). 
 
-* Para usar el conector Microsoft Graph Security, debe haber *otorgado explícitamente* consentimiento al administrador de inquilinos de Azure Active Directory (AD), que es parte de los [requisitos de autenticación de Microsoft Graph Security](https://aka.ms/graphsecurityauth). Este consentimiento requiere el identificador y el nombre de la aplicación del conector Microsoft Graph Security, que también se puede encontrar en [Azure Portal](https://portal.azure.com):
+* Para usar el conector Microsoft Graph Security, debe haber *otorgado explícitamente* consentimiento al administrador de inquilinos de Azure Active Directory (AD), que es parte de los [requisitos de autenticación de Microsoft Graph Security](/graph/security-authorization). Este consentimiento requiere el identificador y el nombre de la aplicación del conector Microsoft Graph Security, que también se puede encontrar en [Azure Portal](https://portal.azure.com):
 
   | Propiedad | Value |
   |----------|-------|
@@ -94,9 +94,9 @@ En este ejemplo se muestra cómo iniciar un flujo de trabajo de aplicaciones ló
    | Propiedad | Propiedad (JSON) | Obligatorio | Tipo | Descripción |
    |----------|-----------------|----------|------|-------------|
    | **Intervalo** | `interval` | Sí | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. Estos son los intervalos mínimo y máximo: <p><p>- Mes: 1-16 meses <br>- Día: 1-500 días <br>- Hora: 1-12 000 horas <br>- Minuto: 1-72 000 minutos <br>- Segundo: 1-9 999 999 segundos <p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. |
-   | **Frecuencia** | `frequency` | Sí | String | Unidad de tiempo que se usa para la periodicidad: **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** |
+   | **Frecuencia** | `frequency` | Sí | String | Unidad de tiempo que se usa para la periodicidad: **Segundo** , **Minuto** , **Hora** , **Día** , **Semana** o **Mes** |
    | **Zona horaria** | `timeZone` | No | String | Solo se aplica cuando se especifica una hora de inicio porque este desencadenador no acepta [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Seleccione la zona horaria que desea aplicar. |
-   | **Hora de inicio** | `startTime` | No | String | Proporcione una fecha y hora de inicio en este formato: <p><p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00" y seleccione una zona horaria, como la hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [ *¿De qué formas puedo usar la fecha y hora de inicio?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Hora de inicio** | `startTime` | No | String | Proporcione una fecha y hora de inicio en este formato: <p><p>AAAA-MM-DDThh:mm:ss si selecciona una zona horaria <p>O bien <p>AAAA-MM-DDThh:mm:ssZ si no selecciona una zona horaria <p>Por ejemplo, si desea la fecha del 18 de septiembre de 2017 a las 14:00, especifique "2017-09-18T14:00:00" y seleccione una zona horaria, como la hora estándar del Pacífico. O bien, especifique "2017-09-18T14:00:00Z" sin una zona horaria. <p>**Nota:** Esta hora de inicio tiene un máximo de 49 años en el futuro y debe seguir la [especificación de fecha y hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) en [formato de fecha y hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), pero sin una [diferencia horaria con UTC](https://en.wikipedia.org/wiki/UTC_offset). Si no se selecciona una zona horaria, debe agregar la letra "Z" al final sin espacios. Esta "Z" se refiere al equivalente de [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para las programaciones simples, la hora de inicio es la primera aparición, mientras que para programaciones complejas, el desencadenador no se activa antes de la hora de inicio. [ *¿De qué formas puedo usar la fecha y hora de inicio?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  Cuando esté listo, seleccione **Guardar** en la barra de herramientas del diseñador.
@@ -142,26 +142,25 @@ Para filtrar, ordenar, u obtener los resultados más recientes, *solo* proporcio
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Para obtener más información sobre las consultas que puede usar con este conector, vea ["Parámetros de consulta opcionales" en la documentación de referencia del indicador de inteligencia sobre amenazas de seguridad de Microsoft Graph](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). Para crear experiencias mejoradas con este conector, obtenga más información sobre el [indicador de inteligencia sobre amenazas de propiedades de esquema](/graph/api/resources/tiindicator?view=graph-rest-beta) que admite el conector.
+Para obtener más información sobre las consultas que puede usar con este conector, vea ["Parámetros de consulta opcionales" en la documentación de referencia del indicador de inteligencia sobre amenazas de seguridad de Microsoft Graph](/graph/api/tiindicators-list). Para crear experiencias mejoradas con este conector, obtenga más información sobre el [indicador de inteligencia sobre amenazas de propiedades de esquema](/graph/api/resources/tiindicator) que admite el conector.
 
 | Acción | Descripción |
 |--------|-------------|
-| **Obtener indicadores de inteligencia sobre amenazas** | Obtenga indicadores de inteligencia sobre amenazas filtrados por una o varias [propiedades de indicadores de inteligencia sobre amenazas](/graph/api/resources/tiindicator?view=graph-rest-beta), por ejemplo, `threatType eq 'MaliciousUrl' or 'DDoS'`. |
+| **Obtener indicadores de inteligencia sobre amenazas** | Obtenga indicadores de inteligencia sobre amenazas filtrados por una o varias [propiedades de indicadores de inteligencia sobre amenazas](/graph/api/resources/tiindicator), por ejemplo, `threatType eq 'MaliciousUrl' or 'DDoS'`. |
 | **Obtener indicadores de inteligencia sobre amenazas por identificador** | Obtenga un indicador de inteligencia sobre amenazas específico en función del identificador. | 
-| **Crear un indicador de inteligencia sobre amenazas** | Cree un nuevo indicador de inteligencia sobre amenazas mediante su publicación en la colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para crear un indicador de inteligencia sobre amenazas](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
-| **Enviar varios indicadores de inteligencia sobre amenazas** | Cree varios indicadores de inteligencia sobre amenazas mediante la publicación de una colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para enviar varios indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
-| **Actualizar un indicador de inteligencia sobre amenazas** | Actualice un indicador de inteligencia sobre amenazas específico en función del identificador. Para asegurarse de pasar las propiedades necesarias y editables en la solicitud, vea las [propiedades editables para indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). Por ejemplo, para actualizar la acción que se va a aplicar si el indicador se combina desde la herramienta de seguridad targetProduct, puede actualizar la propiedad **action** del indicador de inteligencia sobre amenazas. |
-| **Actualizar varios indicadores de inteligencia sobre amenazas** | Actualice varios indicadores de inteligencia sobre amenazas. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para actualizar varios indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
+| **Crear un indicador de inteligencia sobre amenazas** | Cree un nuevo indicador de inteligencia sobre amenazas mediante su publicación en la colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para crear un indicador de inteligencia sobre amenazas](/graph/api/tiindicators-post). |
+| **Enviar varios indicadores de inteligencia sobre amenazas** | Cree varios indicadores de inteligencia sobre amenazas mediante la publicación de una colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para enviar varios indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-submittiindicators). |
+| **Actualizar un indicador de inteligencia sobre amenazas** | Actualice un indicador de inteligencia sobre amenazas específico en función del identificador. Para asegurarse de pasar las propiedades necesarias y editables en la solicitud, vea las [propiedades editables para indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-update). Por ejemplo, para actualizar la acción que se va a aplicar si el indicador se combina desde la herramienta de seguridad targetProduct, puede actualizar la propiedad **action** del indicador de inteligencia sobre amenazas. |
+| **Actualizar varios indicadores de inteligencia sobre amenazas** | Actualice varios indicadores de inteligencia sobre amenazas. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para actualizar varios indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-updatetiindicators). |
 | **Eliminar indicadores de inteligencia sobre amenazas por identificador** | Elimine un indicador de inteligencia sobre amenazas específico en función del identificador. |
-| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador** | Elimine varios indicadores de inteligencia sobre amenazas por sus identificadores. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
-| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador externo** | Elimine varios indicadores de inteligencia sobre amenazas por los identificadores externos. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador externo](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
+| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador** | Elimine varios indicadores de inteligencia sobre amenazas por sus identificadores. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador](/graph/api/tiindicator-deletetiindicators). |
+| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador externo** | Elimine varios indicadores de inteligencia sobre amenazas por los identificadores externos. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador externo](/graph/api/tiindicator-deletetiindicatorsbyexternalid). |
 |||
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](https://aka.ms/graphsecurityconnectorreference) del conector.
+Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/microsoftgraphsecurity/) del conector.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
-

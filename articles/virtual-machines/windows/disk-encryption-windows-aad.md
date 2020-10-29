@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836248"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742424"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption con Azure AD para máquinas virtuales Windows (versión anterior)
 
@@ -48,7 +48,7 @@ Puede habilitar el cifrado de disco en nuevas máquinas virtuales IaaS de Window
          Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
          ```
 
-     -  Seleccione la máquina virtual y haga clic en **Discos** en el encabezado **Configuración** para comprobar el estado de cifrado en el portal. En el gráfico que aparece en **Cifrado**, verá si está habilitado. 
+     -  Seleccione la máquina virtual y haga clic en **Discos** en el encabezado **Configuración** para comprobar el estado de cifrado en el portal. En el gráfico que aparece en **Cifrado** , verá si está habilitado. 
            ![Azure Portal: cifrado de disco habilitado](../media/disk-encryption/disk-encryption-fig2.png)
 
 En la tabla siguiente figuran los parámetros de la plantilla de Resource Manager para nuevas máquinas virtuales en el escenario de Marketplace con el identificador de cliente de Azure AD:
@@ -167,8 +167,8 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | AADClientID | Identificador de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
 | AADClientSecret | Secreto de cliente de la aplicación de Azure AD que tiene permisos para escribir secretos en el almacén de claves. |
 | keyVaultName | Nombre del almacén de claves en el que se que debe cargar la clave de BitLocker. Puede obtenerlo mediante el cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o el comando de la CLI de Azure `az keyvault list --resource-group "MySecureGroup"`|
-|  keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Este parámetro es opcional si selecciona **nokek** en la lista desplegable de UseExistingKek. Si selecciona **kek** en la lista desplegable de UseExistingKek, debe proporcionar el valor de _keyEncryptionKeyURL_. |
-| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. |
+|  keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se utiliza para cifrar la clave generada por BitLocker. Este parámetro es opcional si selecciona **nokek** en la lista desplegable de UseExistingKek. Si selecciona **kek** en la lista desplegable de UseExistingKek, debe proporcionar el valor de _keyEncryptionKeyURL_ . |
+| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_ , _Datos_ y _Todo_ . |
 | sequenceVersion | Versión de la secuencia de la operación de BitLocker. Incremente el número de versión cada vez que se realice una operación de cifrado de disco en la misma máquina virtual. |
 | vmName | Nombre de la máquina virtual en que se va a realizar la operación de cifrado. |
 

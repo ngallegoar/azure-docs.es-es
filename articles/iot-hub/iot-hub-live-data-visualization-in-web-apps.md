@@ -11,12 +11,13 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 35df99d0a30b0952521281fa0d6bb95ce0509695
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146672"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740999"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub en una aplicación web
 
@@ -72,7 +73,7 @@ Anote el nombre que elija, lo necesitará más adelante en este tutorial.
 
 ## <a name="get-a-service-connection-string-for-your-iot-hub"></a>Obtención de una cadena de conexión de servicio para la instancia de IoT Hub
 
-Las instancias de IoT Hub se crean con diversas directivas de acceso predeterminadas. Una directiva de este tipo es la de **servicio**, que proporciona los permisos necesarios para que un servicio lea y escriba los puntos de conexión de IoT Hub. Ejecute el siguiente comando para obtener una cadena de conexión de IoT Hub que se adhiera a la directiva del servicio:
+Las instancias de IoT Hub se crean con diversas directivas de acceso predeterminadas. Una directiva de este tipo es la de **servicio** , que proporciona los permisos necesarios para que un servicio lea y escriba los puntos de conexión de IoT Hub. Ejecute el siguiente comando para obtener una cadena de conexión de IoT Hub que se adhiera a la directiva del servicio:
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name YourIotHub --policy-name service
@@ -146,7 +147,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 Abra un explorador en `http://localhost:3000`.
 
-En la lista **Seleccionar un dispositivo**, seleccione el dispositivo para ver un gráfico de ejecución de los 50 últimos puntos de datos de temperatura y de humedad enviados por el dispositivo a IoT Hub.
+En la lista **Seleccionar un dispositivo** , seleccione el dispositivo para ver un gráfico de ejecución de los 50 últimos puntos de datos de temperatura y de humedad enviados por el dispositivo a IoT Hub.
 
 ![Página de aplicación web que muestra la temperatura y humedad en tiempo real](./media/iot-hub-live-data-visualization-in-web-apps/web-page-output.png)
 
@@ -252,9 +253,9 @@ Si encuentra algún problema con este ejemplo, pruebe los pasos descritos en las
 
 ### <a name="azure-app-service-issues"></a>Problemas de Azure App Service
 
-* En Azure Portal, vaya a la aplicación web. En **Supervisión** en el panel izquierdo, seleccione **Registros de App Service**. Active **Application Logging (File System)** [Registro de la aplicación (sistema de archivos)], establezca **Nivel** en Error y, a continuación, seleccione **Guardar**. A continuación, abra **Secuencia de registro** (bajo **Supervisión**).
+* En Azure Portal, vaya a la aplicación web. En **Supervisión** en el panel izquierdo, seleccione **Registros de App Service** . Active **Application Logging (File System)** [Registro de la aplicación (sistema de archivos)], establezca **Nivel** en Error y, a continuación, seleccione **Guardar** . A continuación, abra **Secuencia de registro** (bajo **Supervisión** ).
 
-* Desde la aplicación web en Azure Portal, en **Herramientas de desarrollo**, seleccione **Consola** y compruebe las versiones de node y npm con `node -v` y `npm -v`.
+* Desde la aplicación web en Azure Portal, en **Herramientas de desarrollo** , seleccione **Consola** y compruebe las versiones de node y npm con `node -v` y `npm -v`.
 
 * Si ve un error que indica que no se encuentra un paquete, puede haber ejecutado los pasos desordenados. Cuando se implementa el sitio (con `git push`), se ejecuta el servicio de aplicaciones `npm install`, y lo hace según la versión actual del nodo que ha configurado. Si esto se cambia en la configuración más adelante, deberá realizar un pequeño cambio en el código y volver a insertar.
 

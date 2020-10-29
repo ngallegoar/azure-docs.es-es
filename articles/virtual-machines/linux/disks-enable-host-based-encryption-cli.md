@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
-ms.openlocfilehash: ff56654981ef69648b1fa7ad11a8681c887289f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 6b523ac306feef2e4c82b3739096b26158c55fc3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816973"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741726"
 ---
 # <a name="use-the-azure-cli-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Use la CLI de Azure para habilitar el cifrado de un extremo a otro mediante el cifrado en host
 
@@ -187,7 +187,7 @@ az vmss show -n $vmssName \
 
 No se admiten los tamaños de máquina virtual heredados. Para consultar la lista de tamaños de máquina virtual admitidos, puede hacer lo siguiente:
 
-Llamar a la [API Resource Skus](/rest/api/compute/resourceskus/list) y comprobar que la capacidad `EncryptionAtHostSupported` está configurada en **True**.
+Llamar a la [API Resource Skus](/rest/api/compute/resourceskus/list) y comprobar que la capacidad `EncryptionAtHostSupported` está configurada en **True** .
 
 ```json
     {

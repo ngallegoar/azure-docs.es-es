@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: sunasing
-ms.openlocfilehash: f717903b3f953e04c793092c86802f2006de7e82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9067e2f78c8098d4a21263ac89caf03da631274
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80349800"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677490"
 ---
 # <a name="query-ingested-telemetry-data"></a>Consulta de datos de telemetría ingeridos
 
@@ -24,7 +24,7 @@ Antes de continuar con este artículo, asegúrese de que ha instalado FarmBeats 
 
 Para ingerir datos de telemetría de sensores, visite [Ingesta de datos de telemetría históricos](ingest-historical-telemetry-data-in-azure-farmbeats.md)
 
-Antes de continuar, también debe asegurarse de estar familiarizado con las API de REST de FarmBeats, ya que consultará la telemetría ingerida mediante las API. Para obtener más información sobre las API de FarmBeats, consulte [API de REST de FarmBeats](rest-api-in-azure-farmbeats.md). **Asegúrese de que puede realizar solicitudes de API a su punto de conexión del centro de datos de FarmBeats**.
+Antes de continuar, también debe asegurarse de estar familiarizado con las API de REST de FarmBeats, ya que consultará la telemetría ingerida mediante las API. Para obtener más información sobre las API de FarmBeats, consulte [API de REST de FarmBeats](rest-api-in-azure-farmbeats.md). **Asegúrese de que puede realizar solicitudes de API a su punto de conexión del centro de datos de FarmBeats** .
 
 ## <a name="query-ingested-sensor-telemetry-data"></a>Consulta de datos de telemetría de sensores ingeridos
 
@@ -111,12 +111,12 @@ En la respuesta del ejemplo anterior, la telemetría del sensor consultada propo
 
 FarmBeats utiliza [Azure Time Series Insights (TSI)](https://azure.microsoft.com/services/time-series-insights/) para ingerir, almacenar, consultar y visualizar datos a escala de IoT, muy contextualizados y optimizados para series temporales.
 
-Los datos de telemetría se reciben en EventHub y luego se procesan y se insertan en un entorno de TSI dentro del grupo de recursos de FarmBeats. Después, los datos se pueden consultar directamente desde TSI. Para obtener más información, consulte la [documentación de TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+Los datos de telemetría se reciben en EventHub y luego se procesan y se insertan en un entorno de TSI dentro del grupo de recursos de FarmBeats. Después, los datos se pueden consultar directamente desde TSI. Para obtener más información, consulte la [documentación de TSI](../../time-series-insights/time-series-insights-explorer.md).
 
 Siga los pasos para visualizar datos en TSI:
 
-1. Vaya a **Azure Portal** > **FarmBeats DataHub resource group** (Grupo de recursos de centro de datos de FarmBeats) > seleccione el entorno de **Time Series Insights** (tsi-xxxx) > **Directivas de acceso a datos**. Agregue un usuario con acceso de lector o colaborador.
-2. Vaya a la página **Información general** del entorno de **Time Series Insights** (tsi-xxxx) y seleccione **URL del Explorador de Time Series Insights**. Ahora podrá visualizar la telemetría ingerida.
+1. Vaya a **Azure Portal** > **FarmBeats DataHub resource group** (Grupo de recursos de centro de datos de FarmBeats) > seleccione el entorno de **Time Series Insights** (tsi-xxxx) > **Directivas de acceso a datos** . Agregue un usuario con acceso de lector o colaborador.
+2. Vaya a la página **Información general** del entorno de **Time Series Insights** (tsi-xxxx) y seleccione **URL del Explorador de Time Series Insights** . Ahora podrá visualizar la telemetría ingerida.
 
 Además del almacenamiento, la consulta y la visualización de la telemetría, TSI también permite la integración en un panel de Power BI. Para más información, consulte [aquí]( https://docs.microsoft.com/azure/time-series-insights/how-to-connect-power-bi).
 

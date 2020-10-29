@@ -10,13 +10,13 @@ author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
-ms.custom: how-to, racking-python
-ms.openlocfilehash: cc5bc5b2c9f78854909b965487f7b4299f3a1579
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, racking-python, devx-track-azurecli
+ms.openlocfilehash: e93db23b09e933b58d6338646e7fff6fa30bc68e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567458"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736555"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 
@@ -47,7 +47,7 @@ Con Azure Machine Learning, puede crear una imagen de Docker a partir de modelos
 
 Antes de realizar la implementación, debe definir qué necesita para ejecutar el modelo como un servicio web. En la lista siguiente se describen los principales elementos necesarios para una implementación:
 
-* Un __script de entrada__. Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
+* Un __script de entrada__ . Este script acepta solicitudes, puntúa la solicitud mediante el modelo y devuelve los resultados.
 
     > [!IMPORTANT]
     > El script de entrada es específico del modelo; debe comprender el formato de los datos de la solicitud entrante, el formato de los datos que espera el modelo y el formato de los datos que se devuelven a los clientes.
@@ -58,9 +58,9 @@ Antes de realizar la implementación, debe definir qué necesita para ejecutar e
 
 Para más información sobre el script de entrada, consulte [Definición del código de puntuación](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script).
 
-* **Dependencias**, como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
+* **Dependencias** , como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
 
-Estas entidades se encapsulan en una __configuración de inferencia__. La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
+Estas entidades se encapsulan en una __configuración de inferencia__ . La configuración de inferencia hace referencia al script de entrada y a otras dependencias.
 
 > [!IMPORTANT]
 > Al crear una configuración de inferencia para su uso con Azure Functions, debe usar un objeto [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true). Tenga en cuenta que si va a definir su propio entorno personalizado, debe enumerar azureml-defaults con la versión >= 1.0.45 como dependencia de PIP. Este paquete contiene la funcionalidad necesaria para hospedar el modelo como un servicio web. En el ejemplo siguiente se muestra cómo crear un objeto de entorno y cómo usarlo con una configuración de inferencia:
@@ -84,7 +84,7 @@ Para obtener más información sobre los entornos, consulte el tema sobre la [cr
 Para más información sobre la configuración de inferencia, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> Al realizar la implementación en Functions, no es necesario crear una __configuración de implementación__.
+> Al realizar la implementación en Functions, no es necesario crear una __configuración de implementación__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Instalación del paquete de versión preliminar de SDK para la compatibilidad con Functions
 
@@ -144,7 +144,7 @@ Si `show_output=True`, se muestra la salida del proceso de compilación de Docke
     }
     ```
 
-    Guarde el valor de __username__ y uno de los dos de __passwords__.
+    Guarde el valor de __username__ y uno de los dos de __passwords__ .
 
 1. Si aún no tiene un grupo de recursos o un plan de App Service para implementar el servicio, los siguientes comandos muestran cómo crear ambos:
 

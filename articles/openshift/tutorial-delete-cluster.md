@@ -7,12 +7,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: ae2c1072b9490931609dd61f1cac2a47f1cffef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 254a9737b805aeeae2008923a8178cd971602132
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469956"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677753"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Eliminación de un clúster de Red Hat OpenShift 4 en Azure
 
@@ -26,7 +26,7 @@ En este tutorial, la tercera parte de tres, se elimina un clúster de Red Hat Op
 
 En los tutoriales anteriores, se creó un clúster de Red Hat OpenShift en Azure y se estableció una conexión a él mediante la consola web de OpenShift. Si no ha realizado estos pasos, pero desea continuar, comience con el [Tutorial 1: Creación de un clúster de la versión 4 de Red Hat Openshift en Azure](tutorial-create-cluster.md).
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -44,13 +44,13 @@ En los tutoriales anteriores, se establecieron las siguientes variables.
 
 ```bash
 CLUSTER=yourclustername
-RESOURCE_GROUP=yourresourcegroup
+RESOURCEGROUP=yourresourcegroup
 ```
 
 Con estos valores, elimine el clúster:
 
 ```bash
-az aro delete --resource-group $RESOURCE_GROUP --name $CLUSTER
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 Después, se le pedirá que confirme si desea eliminar el clúster. Después de confirmar con `y`, la eliminación del clúster tardará varios minutos. Cuando finalice el comando, se eliminará todo el grupo de recursos y los recursos dentro de él (incluido el clúster).

@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 53e759b973a5d912474dd754876c5279cfb7bdab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: bce02917acb05c06b8f506871c1f3b8500622d61
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596458"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735518"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Inicio, supervisión y cancelación de las ejecuciones de entrenamiento en Python
 
@@ -193,7 +193,7 @@ Necesitará los siguientes elementos:
     
     1. Seleccione un número de ejecución específico.
     
-    1. En la pestaña **Registros**, puede encontrar los registros de diagnóstico y errores de la ejecución de la canalización.
+    1. En la pestaña **Registros** , puede encontrar los registros de diagnóstico y errores de la ejecución de la canalización.
     
     ---
     
@@ -236,11 +236,11 @@ Para obtener más información, consulte [az ml run cancel](https://docs.microso
 
 Para cancelar una ejecución en Studio, siga estos pasos:
 
-1. Vaya a la canalización en ejecución en la sección **Experimentos** o **Canalizaciones**. 
+1. Vaya a la canalización en ejecución en la sección **Experimentos** o **Canalizaciones** . 
 
 1. Seleccione el número de ejecución de la canalización que quiere cancelar.
 
-1. En la barra de herramientas, seleccione **Cancelar**.
+1. En la barra de herramientas, seleccione **Cancelar** .
 
 ---
 
@@ -412,7 +412,7 @@ En Azure Machine Learning, puede usar etiquetas y propiedades para ayudar a orga
     
     # <a name="studio"></a>[Estudio](#tab/azure-studio)
     
-    1. Vaya a la sección **Canalizaciones**.
+    1. Vaya a la sección **Canalizaciones** .
     
     1. Use la barra de búsqueda para filtrar las canalizaciones mediante etiquetas, descripciones, nombres de experimento y nombres de remitente.
     

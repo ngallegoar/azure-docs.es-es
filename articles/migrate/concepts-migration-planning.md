@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: ce6f0ff97b1dfa8757b05b13dff653a1d34f4531
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6629f02178b7c00ccc849e2ccfc3f0a48f419a7f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315285"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735551"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Creación de plan de migración con Azure Migrate
 
@@ -20,7 +20,7 @@ En este artículo se proporciona una guía rápida para ayudar a crear el plan d
 - [Preguntas generales](resources-faq.md) sobre Azure Migrate
 - Preguntas sobre el [dispositivo de Azure Migrate](common-questions-appliance.md)
 - Preguntas sobre la [migración de servidores](common-questions-server-migration.md)
-- Obtenga respuestas a sus preguntas en el [foro de Azure Migrate](https://aka.ms/AzureMigrateForum)
+- Obtenga respuestas a sus preguntas en el [foro de Azure Migrate](https://docs.microsoft.com/answers/topics/azure-migrate.html)
 
 ## <a name="define-the-goals-of-cloud-migration"></a>Definir los objetivos de la migración en la nube
 
@@ -75,13 +75,13 @@ Dado que Azure proporciona flexibilidad para cambiar el tamaño de la capacidad 
 ### <a name="readiness-and-suitability-analysis-for-azure"></a>Preparación y análisis de idoneidad para Azure
 Exporte el informe de evaluación de máquinas virtuales de Azure y fíltrelo por las siguientes categorías de preparación para reconocer la preparación de la máquina virtual de Azure:
 
-- **Preparada para Azure**: Puede migrar estas máquinas tal como está en Azure sin necesidad de realizar ningún cambio.  
+- **Preparada para Azure** : Puede migrar estas máquinas tal como está en Azure sin necesidad de realizar ningún cambio.  
 
-- **Condicionalmente preparada para Azure**: Puede migrar estas máquinas a Azure, pero necesitará cambios menores en estos servidores según las instrucciones de corrección que se proporcionan en la evaluación.
+- **Condicionalmente preparada para Azure** : Puede migrar estas máquinas a Azure, pero necesitará cambios menores en estos servidores según las instrucciones de corrección que se proporcionan en la evaluación.
 
-- **No está preparado para Azure**: No puede migrar estas máquinas a Azure tal cual y se necesitan corregir los problemas según las instrucciones de corrección antes de la migración.
+- **No está preparado para Azure** : No puede migrar estas máquinas a Azure tal cual y se necesitan corregir los problemas según las instrucciones de corrección antes de la migración.
 
-- **Preparación desconocida**: Azure Migrate no puede determinar la preparación de la máquina debido a que no hay metadatos suficientes.
+- **Preparación desconocida** : Azure Migrate no puede determinar la preparación de la máquina debido a que no hay metadatos suficientes.
 
 Mediante el uso de las evaluaciones de base de datos, puede evaluar la preparación para migrar los datos de SQL Server a Azure SQL Database o a Azure SQL Managed Instances. Puede ver el porcentaje de estado de preparación de la migración para cada una de las instancias de SQL Server. Además, para cada una de las instancias, puede ver el destino recomendado en Azure, los bloqueadores de migración potenciales, el recuento de cambios importantes, la preparación para Azure SQL DB o la máquina virtual de Azure SQL y el nivel de compatibilidad. Puede profundizar más para reconocer el impacto de los bloqueadores de migración y las recomendaciones para corregirlos.
 
@@ -95,19 +95,19 @@ Una vez que la máquina se marca como preparada para Azure, Server Assessment re
 
 La opción de ajuste de dimensionamiento a la derecha *basada en el rendimiento* en las evaluaciones permite optimizar las cargas de trabajo de Azure. Además de la aplicación de los derechos, hay algunas otras formas de ahorrar costos:
 
-- **Instancias reservadas**: Con las instancias reservadas, puede reducir significativamente los costos en comparación con los precios de pago por uso con términos de 1 o 3 años en Windows y Linux (máquinas virtuales).
+- **Instancias reservadas** : Con las instancias reservadas, puede reducir significativamente los costos en comparación con los precios de pago por uso con términos de 1 o 3 años en Windows y Linux (máquinas virtuales).
 
-- **Ventajas híbridas de Azure**: Puede llevar a Azure licencias locales de Windows Server con software Assurance y combinarlas con las opciones de instancias reservadas.
+- **Ventajas híbridas de Azure** : Puede llevar a Azure licencias locales de Windows Server con software Assurance y combinarlas con las opciones de instancias reservadas.
 
 - **Oferta del contrato Enterprise (EA)** : El Contrato Enterprise ofrece ahorros integrados aplicables a su suscripción.
 
-- **Ofertas**: Hay varias ofertas de Azure, por ejemplo, Desarrollo/pruebas - Pago por uso y Desarrollo/pruebas - Enterprise que proporcionan tarifas reducidas para las máquinas virtuales de desarrollo o pruebas.
+- **Ofertas** : Hay varias ofertas de Azure, por ejemplo, Desarrollo/pruebas - Pago por uso y Desarrollo/pruebas - Enterprise que proporcionan tarifas reducidas para las máquinas virtuales de desarrollo o pruebas.
 
-- **Tiempo de actividad de la máquina virtual**: puede mencionar la duración en días por mes y horas al día en que se ejecutarán las máquinas virtuales de Azure para reducir los costos (no aplicable a RI).
+- **Tiempo de actividad de la máquina virtual** : puede mencionar la duración en días por mes y horas al día en que se ejecutarán las máquinas virtuales de Azure para reducir los costos (no aplicable a RI).
 
 - **Target Region** (Región de destino): Puede crear varias evaluaciones en distintas regiones para compararlas si la migración a una región determinada en una geografía puede ser más rentable.
 
-- **Recomendaciones basadas en el rendimiento**: Como práctica recomendada, intente usar recomendaciones de máquinas virtuales de Azure con derechos que le ayuden a ahorrar costos en la nube.
+- **Recomendaciones basadas en el rendimiento** : Como práctica recomendada, intente usar recomendaciones de máquinas virtuales de Azure con derechos que le ayuden a ahorrar costos en la nube.
 
 ### <a name="visualize-data"></a>Visualización de datos
 
@@ -125,7 +125,7 @@ Ahora que tiene toda la información fundamental para tomar la decisión de la m
 
 Algunas de las estrategias de migración recomendadas son:
 
-- **Dé prioridad a sus logros rápidos**: Puede usar los informes de evaluación para identificar frutas de bajo nivel, incluidos los servidores y las bases de datos que están totalmente preparados y requieren un esfuerzo mínimo para migrar a Azure:
+- **Dé prioridad a sus logros rápidos** : Puede usar los informes de evaluación para identificar frutas de bajo nivel, incluidos los servidores y las bases de datos que están totalmente preparados y requieren un esfuerzo mínimo para migrar a Azure:
     - Preparado para Azure: Exporte el informe de evaluación y filtre todas las máquinas que estén "Preparadas para Azure". Este puede ser el primer grupo de máquinas que puede levantar y desplazar con el Azure Migrate: Herramienta de migración del servidor.
     - Finalización del soporte técnico del sistema operativo: Exporte el informe de evaluación y filtre todas las máquinas que ejecutan los sistemas operativos Windows Server 2008 y Windows Server 2008 R2. Estas SKU son el fin del soporte técnico y solo Azure proporciona actualizaciones de seguridad gratuitas durante 3 años al migrarlas a Azure. Al combinar, Ventaja híbrida de Azure y usar instancias reservadas, el almacenamiento podría ser mucho más alto.
     - Migración de SQL Server: Use las recomendaciones de evaluación de bases de datos para migrar las bases de datos preparadas para las bases de datos de Azure SQL mediante Azure Migrate: La migración de bases de datos y las bases de datos están preparadas para la máquina virtual de Azure SQL mediante Azure Migrate: Server Migration.
@@ -133,9 +133,9 @@ Algunas de las estrategias de migración recomendadas son:
     - Máquinas virtuales con aprovisionamiento excesivo: Exporte el informe de evaluación y filtre las máquinas con un uso de CPU bajo (%) y el uso de memoria (%).  Puede usar esta oportunidad para migrar a una máquina virtual con derechos en Azure y ahorrar lo que ha pagado por recursos infrautilizados.
     - Restricciones de capacidad: Exporte el informe de evaluación y filtre las máquinas con un uso de CPU alto (%) y el uso de memoria (%).  Puede evitar que las máquinas virtuales sobrecargadas interrumpan y aumenten el rendimiento mediante la migración a Azure y el uso de la capacidad de escalado automático para satisfacer la demanda. También puede consultar el informe de evaluación para reconocer las restricciones de almacenamiento mediante el análisis de la IOPS y el rendimiento del disco y encontrar el tipo de disco recomendado que mejor se adapte a sus necesidades.
 
-- **Empiece poco a poco y, después, podrá ir por más**: Comience con el traslado de aplicaciones y cargas de trabajo con un riesgo mínimo y menos complejo, para generar confianza en su estrategia de migración. También puede intersectar las recomendaciones de evaluación de Azure Migrate con el repositorio de CMDB de su organización para buscar y migrar cargas de trabajo de entorno de desarrollo/pruebas en las migraciones piloto. Los aprendizajes de estos pilotos se pueden usar al migrar cargas de trabajo de producción.  
+- **Empiece poco a poco y, después, podrá ir por más** : Comience con el traslado de aplicaciones y cargas de trabajo con un riesgo mínimo y menos complejo, para generar confianza en su estrategia de migración. También puede intersectar las recomendaciones de evaluación de Azure Migrate con el repositorio de CMDB de su organización para buscar y migrar cargas de trabajo de entorno de desarrollo/pruebas en las migraciones piloto. Los aprendizajes de estos pilotos se pueden usar al migrar cargas de trabajo de producción.  
 
-- **Cumplir los requisitos reglamentarios y del sector**: Azure mantiene la cartera de cumplimiento más grande en todo el sector, en términos de amplitud y profundidad de las ofertas. Úselo como una oportunidad para priorizar sus migraciones a Azure y cumplir con sus estándares y leyes nacionales, regionales y específicos del sector. Esto es especialmente cierto en el caso de las organizaciones que se ocupan de la información confidencial de la empresa o que están en industrias muy reguladas, en las que los estándares y las regulaciones abundan y en algunos casos pueden cambiar con frecuencia, lo que dificulta la tarea de mantener el ritmo.  
+- **Cumplir los requisitos reglamentarios y del sector** : Azure mantiene la cartera de cumplimiento más grande en todo el sector, en términos de amplitud y profundidad de las ofertas. Úselo como una oportunidad para priorizar sus migraciones a Azure y cumplir con sus estándares y leyes nacionales, regionales y específicos del sector. Esto es especialmente cierto en el caso de las organizaciones que se ocupan de la información confidencial de la empresa o que están en industrias muy reguladas, en las que los estándares y las regulaciones abundan y en algunos casos pueden cambiar con frecuencia, lo que dificulta la tarea de mantener el ritmo.  
 
 ## <a name="finalize-the-migration-planandprepare-formigration"></a>Finalización del plan de migración y preparación para la migración
 

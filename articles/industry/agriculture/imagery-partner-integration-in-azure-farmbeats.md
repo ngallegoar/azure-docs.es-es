@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e17a9f73d98f24c6c7fbb55ef38cc2bc088861
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82613292"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675942"
 ---
 # <a name="imagery-partner-integration"></a>Integración de asociados de imágenes
 
@@ -26,7 +26,7 @@ FarmBeats ofrece la posibilidad de:
 
 La siguiente información va dirigida a obtener cualquier forma de imagen en el sistema FarmBeats.
 
-Al seleccionar la sección de **imágenes de dron**, se abre un elemento emergente que muestra una imagen de alta resolución del ortomosaico del dron. Puede acceder al software del asociado, que ayuda a planear vuelos de dron y obtener datos sin procesar. El software del asociado se seguirá usando para el planeamiento de la ruta y la unión de imágenes de ortomosaico.
+Al seleccionar la sección de **imágenes de dron** , se abre un elemento emergente que muestra una imagen de alta resolución del ortomosaico del dron. Puede acceder al software del asociado, que ayuda a planear vuelos de dron y obtener datos sin procesar. El software del asociado se seguirá usando para el planeamiento de la ruta y la unión de imágenes de ortomosaico.
 
 Los asociados del dron deben permitir que los clientes vinculen su cuenta a su instancia de FarmBeats en Azure.
 
@@ -43,9 +43,9 @@ Las API contienen documentación técnica de Swagger. Consulte [Swagger](https:/
 
 ## <a name="authentication"></a>Authentication
 
-FarmBeats usa Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) (Azure AD). Azure App Service proporciona compatibilidad integrada con la autenticación y la autorización. 
+FarmBeats usa Microsoft Azure [Active Directory](../../app-service/overview-authentication-authorization.md) (Azure AD). Azure App Service proporciona compatibilidad integrada con la autenticación y la autorización. 
 
-Para más información sobre Azure AD, vea [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).   
+Para más información sobre Azure AD, vea [Azure Active Directory](../../app-service/overview-authentication-authorization.md).   
 
 El centro de datos de FarmBeats usa la autenticación de portador, que necesita las credenciales siguientes:
 

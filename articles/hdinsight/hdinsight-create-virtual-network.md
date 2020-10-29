@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/16/2020
-ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f604ba2edcc63a245a5e87d3dcb6fdd16a9d050
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074762"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741442"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Creación de redes virtuales para clústeres de Azure HDInsight
 
@@ -27,8 +27,8 @@ Antes de ejecutar cualquiera de los ejemplos de código de este artículo, debe 
 
 Otros requisitos previos de los ejemplos de este artículo son los elementos siguientes:
 
-* Si va a usar PowerShell, necesitará instalar el [módulo AZ](https://docs.microsoft.com/powershell/azure/).
-* Si desea usar la CLI de Azure y aún no la ha instalado, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Si va a usar PowerShell, necesitará instalar el [módulo AZ](/powershell/azure/).
+* Si desea usar la CLI de Azure y aún no la ha instalado, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > Si busca guías paso a paso sobre cómo conectar HDInsight con la red local mediante una instancia de Azure Virtual Network, consulte el documento [Conexión de HDInsight a la red local](connect-on-premises-network.md).
@@ -377,6 +377,6 @@ Después de completar estos pasos, puede conectarse a recursos en la red virtual
 * Para configurar la replicación geográfica de Apache HBase, consulte [Configuración de la replicación de clúster de Apache HBase en redes virtuales de Azure](hbase/apache-hbase-replication.md).
 * Para más información sobre las redes virtuales de Azure, vea la [información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/security-overview.md).
+* Para más información sobre los grupos de seguridad de red, vea [Grupos de seguridad de red](../virtual-network/network-security-groups-overview.md).
 
 * Para obtener más información sobre las rutas definidas por el usuario, consulte [Rutas definidas por el usuario y reenvío de IP](../virtual-network/virtual-networks-udr-overview.md).

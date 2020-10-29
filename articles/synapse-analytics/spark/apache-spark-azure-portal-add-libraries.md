@@ -5,16 +5,16 @@ services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 02f627c9f606ced7e1b0d991e5053dab17050292
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826731"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737997"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 
@@ -54,11 +54,11 @@ Para instalar las bibliotecas en un grupo de Spark (versión preliminar) durante
    
 1. Navegue hasta el área de trabajo de Azure Synapse Analytics desde Azure Portal.
    
-2. Seleccione **Create Apache Spark pool** (Crear grupo de Apache Spark) y, a continuación, seleccione la pestaña **Configuración adicional**. 
+2. Seleccione **Create Apache Spark pool** (Crear grupo de Apache Spark) y, a continuación, seleccione la pestaña **Configuración adicional** . 
    
 3. Cargue el archivo de configuración de entorno mediante el selector de archivos en la sección **Paquetes** de la página. 
    
-![Adición de bibliotecas de Python durante la creación de un grupo](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Adición de bibliotecas de Python")
+    ![Adición de bibliotecas de Python durante la creación de un grupo](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-add-library-python.png "Adición de bibliotecas de Python")
  
 
 #### <a name="install-packages-from-the-synapse-workspace"></a>Instalación de paquetes desde el área de trabajo de Synapse
@@ -68,11 +68,11 @@ Para actualizar o agregar bibliotecas adicionales a un grupo de Spark (versión 
    
 2.  Inicie el área de trabajo de Azure Synapse Analytics desde Azure Portal.
 
-3.  Seleccione **Administrar** en el panel de navegación principal y, a continuación, seleccione **Grupos de Apache Spark**.
+3.  Seleccione **Administrar** en el panel de navegación principal y, a continuación, seleccione **Grupos de Apache Spark** .
    
 4. Seleccione un único grupo de Spark y cargue el archivo de configuración de entorno mediante el selector de archivos de la sección **Paquetes** de la página.
 
-![Adición de bibliotecas de Python en Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png "Adición de bibliotecas de Python")
+    ![Adición de bibliotecas de Python en Synapse](./media/apache-spark-azure-portal-add-libraries/apache-spark-azure-portal-update.png)
    
 #### <a name="install-packages-from-the-azure-portal"></a>Instalación de paquetes desde Azure Portal
 Para instalar una biblioteca en un grupo de Spark (versión preliminar) directamente desde Azure Portal:
@@ -85,7 +85,7 @@ Para instalar una biblioteca en un grupo de Spark (versión preliminar) directam
 
  4. Cargue el archivo de configuración de entorno mediante el selector de archivos.
 
-![Captura de pantalla que resalta el botón de carga de un archivo de configuración de entorno.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adición de bibliotecas de Python")
+    ![Captura de pantalla que resalta el botón de carga de un archivo de configuración de entorno.](./media/apache-spark-azure-portal-add-libraries/apache-spark-add-library-azure.png "Adición de bibliotecas de Python")
 
 ### <a name="verify-installed-libraries"></a>Comprobación de las bibliotecas instaladas
 
@@ -106,13 +106,13 @@ Para actualizar o desinstalar una biblioteca:
 
 3. Navegue hasta la sección **Paquetes** y cargue un nuevo archivo de configuración de entorno.
    
-4. Una vez que guarde los cambios, deberá finalizar las sesiones activas y dejar que el grupo se reinicie. Opcionalmente, puede forzar la finalización de las sesiones activas seleccionando la casilla para **forzar configuración nueva**.
+4. Una vez que guarde los cambios, deberá finalizar las sesiones activas y dejar que el grupo se reinicie. Opcionalmente, puede forzar la finalización de las sesiones activas seleccionando la casilla para **forzar configuración nueva** .
 
-![Adición de bibliotecas de Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adición de bibliotecas de Python")
+    ![Adición de bibliotecas de Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adición de bibliotecas de Python")
    
 
 > [!IMPORTANT]
-> Al seleccionar la opción para **forzar configuración nueva**, finalizarán todas las sesiones actuales del grupo de Spark seleccionado. Una vez finalizadas las sesiones, tendrá que esperar a que el grupo se reinicie. 
+> Al seleccionar la opción para **forzar configuración nueva** , finalizarán todas las sesiones actuales del grupo de Spark seleccionado. Una vez finalizadas las sesiones, tendrá que esperar a que el grupo se reinicie. 
 >
 > Si esta opción no está seleccionada, tendrá que esperar a que la sesión de Spark actual finalice o detenerla manualmente. Una vez finalizada la sesión, deberá dejar que el grupo se reinicie. 
 

@@ -8,12 +8,13 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+- devx-track-azurecli
+ms.openlocfilehash: 7efcff5709995898a6ec950dfea6450f7e0dd48d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91578043"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736809"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan prémium de Azure Functions
 
@@ -23,7 +24,7 @@ El plan Premium de Azure Functions (a veces denominado plan Elástico Premium) e
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-También puede crear un plan Premium mediante [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) en la CLI de Azure. En el ejemplo siguiente se crea un plan de nivel _Elastic Premium 1_:
+También puede crear un plan Premium mediante [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) en la CLI de Azure. En el ejemplo siguiente se crea un plan de nivel _Elastic Premium 1_ :
 
 ```azurecli-interactive
 az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
@@ -47,14 +48,14 @@ En el plan Premium, puede hacer que la aplicación previamente activada esté si
 > [!NOTE]
 > Todos los planes Premium tendrán al menos una instancia activa (facturada) en todo momento.
 
-Puede configurar el número de instancias siempre preparadas en Azure Portal. Para ello, seleccione una aplicación de funciones en **Function App**, vaya a la pestaña **Características de la plataforma** y seleccione las opciones para **Escalar horizontalmente**. En la ventana de edición de la aplicación de funciones, las instancias siempre preparadas son específicas para esa aplicación.
+Puede configurar el número de instancias siempre preparadas en Azure Portal. Para ello, seleccione una aplicación de funciones en **Function App** , vaya a la pestaña **Características de la plataforma** y seleccione las opciones para **Escalar horizontalmente** . En la ventana de edición de la aplicación de funciones, las instancias siempre preparadas son específicas para esa aplicación.
 
 ![Configuración del escalado elástico](./media/functions-premium-plan/scale-out.png)
 
 Las instancias siempre preparadas para una aplicación también se pueden configurar con la CLI de Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="pre-warmed-instances"></a>Instancias activadas previamente
@@ -68,7 +69,7 @@ En cuanto se inicie el primer desencadenador, las cinco instancias siempre prepa
 Puede modificar el número de instancias activadas previamente para una aplicación mediante la CLI de Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
 #### <a name="maximum-instances-for-an-app"></a>Número máximo de instancias para una aplicación
@@ -99,12 +100,12 @@ Cuando se crea un plan, hay dos configuraciones de tamaño de plan: el número m
 
 Si la aplicación necesita instancias que superan las instancias siempre preparadas, puede seguir realizando el escalado horizontal hasta que el número de instancias alcance el límite máximo de ráfaga.  Las instancias que superen el tamaño del plan solo se facturarán por segundo cuando estén en ejecución y las tenga asignadas.  Se hará todo lo posible por escalar horizontalmente la aplicación hasta el límite máximo definido.
 
-Puede configurar el tamaño del plan y establecer valores máximos en Azure Portal seleccionando las opciones **Escalar horizontalmente** en el plan o una aplicación de funciones implementada en el plan (en **Características de la plataforma**).
+Puede configurar el tamaño del plan y establecer valores máximos en Azure Portal seleccionando las opciones **Escalar horizontalmente** en el plan o una aplicación de funciones implementada en el plan (en **Características de la plataforma** ).
 
 También puede aumentar el límite máximo de ráfaga mediante la CLI de Azure:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 El mínimo de cada plan será al menos una instancia.  El número mínimo real de instancias se configurará automáticamente en función de las instancias siempre preparadas que hayan solicitado las aplicaciones del plan.  Por ejemplo, si la aplicación A solicita cinco instancias siempre preparadas y la aplicación B solicita dos instancias de este tipo en el mismo plan, el tamaño mínimo del plan se calculará como cinco.  La aplicación A se ejecutará en las 5 y la aplicación B solo se ejecutará en 2.
@@ -117,12 +118,12 @@ En la mayoría de los casos, este mínimo que se calculó automáticamente debe 
 El aumento del mínimo calculado para un plan se puede realizar mediante la CLI de Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>SKU de instancias disponibles
 
-Cuando cree o escale un plan, podrá elegir entre tres tamaños de instancia.  Se le facturará la cantidad total de núcleos y memoria aprovisionada, por los segundos que tenga asignada cada instancia.  La aplicación puede escalar horizontalmente de forma automática en varias instancias cuando sea necesario.  
+Cuando cree o escale un plan, podrá elegir entre tres tamaños de instancia.  Se le facturará la cantidad total de núcleos y memoria aprovisionada, por los segundos que tenga asignada cada instancia.  La aplicación puede escalar horizontalmente de forma automática en varias instancias cuando sea necesario.
 
 |SKU|Núcleos|Memoria|Storage|
 |--|--|--|--|

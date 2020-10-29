@@ -9,13 +9,13 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: devx-track-csharp
-ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.openlocfilehash: 77845a91ed2d185c0fe05e2f40e53b2edf3d1ca7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336690"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741387"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación web de Azure con .NET
 
@@ -95,7 +95,7 @@ git commit -m "first commit"
 
 ### <a name="configure-a-deployment-user"></a>Configuración de un usuario de implementación
 
-Se puede implementar FTP y Git local en una aplicación web de Azure mediante un *usuario de implementación*. Una vez configurado este usuario de implementación, podrá usarlo en todas las implementaciones de Azure. El nombre de usuario y la contraseña en el nivel de cuenta son diferentes de las credenciales de suscripción de Azure. 
+Se puede implementar FTP y Git local en una aplicación web de Azure mediante un *usuario de implementación* . Una vez configurado este usuario de implementación, podrá usarlo en todas las implementaciones de Azure. El nombre de usuario y la contraseña en el nivel de cuenta son diferentes de las credenciales de suscripción de Azure. 
 
 Para configurar el usuario de implementación, ejecute el comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Elija un nombre de usuario y una contraseña que sigan estas siguientes directrices: 
 
@@ -112,7 +112,7 @@ Anote el nombre de usuario y la contraseña que se usarán para implementar las 
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
-Cree un plan de App Service mediante el comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) de la CLI de Azure. En el siguiente ejemplo, se crea un plan de App Service denominado `myAppServicePlan` con el plan de tarifa **Gratis**:
+Cree un plan de App Service mediante el comando [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest) de la CLI de Azure. En el siguiente ejemplo, se crea un plan de App Service denominado `myAppServicePlan` con el plan de tarifa **Gratis** :
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -323,7 +323,7 @@ git push azure master
 http://<your-webapp-name>.azurewebsites.net
 ```
 
-En los casos en los que antes vio **Hola mundo**, ahora debería ver el valor del secreto: **Correcto**
+En los casos en los que antes vio **Hola mundo** , ahora debería ver el valor del secreto: **Correcto**
 
 ## <a name="next-steps"></a>Pasos siguientes
 

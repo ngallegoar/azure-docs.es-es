@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 5c87344c4cd179beae6502901a23b2dace6591a7
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169425"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677238"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,7 +80,7 @@ La auditoría de Azure SQL Database y Azure Synapse almacena 4000 caracteres d
 En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
 
   > [!NOTE]
-  > No es posible habilitar la auditoría en un grupo de Synapse SQL en pausa. Para habilitar la auditoría, quite la pausa del grupo de Synapse SQL. Más información acerca del [grupo de Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+  > No es posible habilitar la auditoría en un grupo de Synapse SQL en pausa. Para habilitar la auditoría, quite la pausa del grupo de Synapse SQL. Más información acerca del [grupo de Synapse SQL](../../synapse-analytics/sql/best-practices-sql-pool.md).
 
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la **base de datos SQL** o el **servidor SQL** .
@@ -117,11 +117,11 @@ Para configurar la escritura de registros de auditoría en una cuenta de almacen
 #### <a name="remarks"></a>Observaciones
 
 - Los registros de auditoría se escriben en **blobs en anexos** en Azure Blob Storage en su suscripción a Azure.
-- Los registros de auditoría tienen el formato .xel y se pueden abrir con [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
-- Para configurar un almacén de registros inmutable para los eventos de auditoría de nivel de servidor o base de datos, siga las [instrucciones proporcionadas por Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes). Asegúrese de que ha seleccionado **Permitir anexiones adicionales** al configurar el almacenamiento de blobs inmutable.
+- Los registros de auditoría tienen el formato .xel y se pueden abrir con [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- Para configurar un almacén de registros inmutable para los eventos de auditoría de nivel de servidor o base de datos, siga las [instrucciones proporcionadas por Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Asegúrese de que ha seleccionado **Permitir anexiones adicionales** al configurar el almacenamiento de blobs inmutable.
 - Puede escribir registros de auditoría en una cuenta de Azure Storage detrás de un firewall o una red virtual. Para obtener instrucciones específicas, consulte cómo [escribir auditorías en una cuenta de almacenamiento detrás de una red virtual y un firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](threat-detection-overview.md).
-- Para obtener más información sobre el formato de registro, la jerarquía de la carpeta de almacenamiento y las convenciones de nomenclatura, vea la [referencia del formato de registro de auditoría de blobs](https://go.microsoft.com/fwlink/?linkid=829599).
+- Para obtener más información sobre el formato de registro, la jerarquía de la carpeta de almacenamiento y las convenciones de nomenclatura, vea la [referencia del formato de registro de auditoría de blobs](./audit-log-format.md).
 - Cuando se usa Autenticación de Azure AD, los registros de inicios de sesión con error *no* aparecerán en el registro de auditoría SQL. Para ver los registros de auditoría de inicio de sesión con error, debe visitar el [portal de Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra los detalles de estos eventos.
 - La auditoría en las [réplicas de solo lectura](read-scale-out.md) se habilita automáticamente. Para obtener más información sobre la jerarquía de las carpetas de almacenamiento, las convenciones de nomenclatura y el formato del registro, consulte el artículo sobre el [formato del registro de auditoría de SQL Database](audit-log-format.md).
 
@@ -131,7 +131,7 @@ Para configurar la escritura de registros de auditoría en un área de trabajo d
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Para obtener información más detallada sobre las áreas de trabajo de Log Analytics en Azure Monitor, consulte [Diseño de la implementación de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).
+Para obtener información más detallada sobre las áreas de trabajo de Log Analytics en Azure Monitor, consulte [Diseño de la implementación de registros de Azure Monitor](../../azure-monitor/platform/design-logs-deployment.md).
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoría para un destino del centro de eventos
 
@@ -171,7 +171,7 @@ Si eligió escribir registros de auditoría en el centro de eventos:
 
 Si eligió escribir los registros de auditoría en una cuenta de almacenamiento de Azure, hay varios métodos que puede usar para ver los registros:
 
-- Los registros de auditoría se agregan a la cuenta que eligió durante la configuración. Puede explorar los registros de auditoría con una herramienta como el [Explorador de Azure Storage](https://storageexplorer.com/). En Azure Storage, los registros de auditoría se guardan como una colección de archivos de blob dentro de un contenedor llamado **sqldbauditlogs** . Para obtener más información sobre la jerarquía de las carpetas de almacenamiento, las convenciones de nomenclatura y el formato del registro, consulte el artículo sobre el [formato del registro de auditoría de SQL Database](https://go.microsoft.com/fwlink/?linkid=829599).
+- Los registros de auditoría se agregan a la cuenta que eligió durante la configuración. Puede explorar los registros de auditoría con una herramienta como el [Explorador de Azure Storage](https://storageexplorer.com/). En Azure Storage, los registros de auditoría se guardan como una colección de archivos de blob dentro de un contenedor llamado **sqldbauditlogs** . Para obtener más información sobre la jerarquía de las carpetas de almacenamiento, las convenciones de nomenclatura y el formato del registro, consulte el artículo sobre el [formato del registro de auditoría de SQL Database](./audit-log-format.md).
 
 - Usar [Azure Portal](https://portal.azure.com).  Abra la base de datos pertinente. En la parte superior de la página **Auditoría** de la base de datos, haga clic en **Ver registros de auditoría** .
 

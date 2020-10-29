@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
-ms.openlocfilehash: aba28e867f5fdb7bfaa917547f60565c39e382dd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: d3e856256e02e2c1914aeec493a87ffe992bbf13
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977772"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740316"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
@@ -200,8 +200,8 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | vmName | Nombre de la máquina virtual para ejecutar la operación de cifrado. |
 | keyVaultName | Nombre del almacén de claves en el que se debe cargar la clave de cifrado. Para obtenerlo, use el cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o el comando de la CLI de Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
 | keyVaultResourceGroup | Nombre del grupo de recursos que contiene el almacén de claves. |
-|  keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se usa para cifrar la clave de cifrado. Este parámetro es opcional si selecciona **nokek** en la lista desplegable de UseExistingKek. Si selecciona **kek** en la lista desplegable de UseExistingKek, debe proporcionar el valor de _keyEncryptionKeyURL_. |
-| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_, _Datos_ y _Todo_. 
+|  keyEncryptionKeyURL | Dirección URL de la clave de cifrado de claves que se usa para cifrar la clave de cifrado. Este parámetro es opcional si selecciona **nokek** en la lista desplegable de UseExistingKek. Si selecciona **kek** en la lista desplegable de UseExistingKek, debe proporcionar el valor de _keyEncryptionKeyURL_ . |
+| volumeType | Tipo de volumen en que se realiza la operación de cifrado. Los valores válidos son _SO_ , _Datos_ y _Todo_ . 
 | forceUpdateTag | Cada vez que la operación tenga que ejecutarse, pase un valor único como GUID. |
 | ubicación | Ubicación para todos los recursos. |
 

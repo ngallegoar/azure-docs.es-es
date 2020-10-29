@@ -3,13 +3,13 @@ title: Eliminación de un clúster de Service Fabric en Azure
 description: En este tutorial, aprenderá a eliminar un clúster de Service Fabric hospedado en Azure y todos sus recursos. Puede eliminar el grupo de recursos que contiene el clúster o eliminar los recursos de forma selectiva.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 38ddc7173f54a34d68c41ce1180c8dbeaf3d7962
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: aa5b09b627db6bd3a3d573c32e7e68a359e2c04d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86244980"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738998"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Tutorial: Eliminación de un clúster de Service Fabric que se ejecuta en Azure
 

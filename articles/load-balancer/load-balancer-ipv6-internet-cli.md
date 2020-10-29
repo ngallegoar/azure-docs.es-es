@@ -9,17 +9,17 @@ keywords: IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 na
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: edc17b9636792ce00458716e3461077fa689b3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97fdf55032e92585d723b54e21079098cdc19636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87001580"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735910"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Creación de un equilibrador de carga público con IPv6 mediante la CLI de Azure
 
@@ -48,11 +48,11 @@ Los pasos siguientes muestran cómo crear un equilibrador de carga público medi
 
 Para implementar un equilibrador de carga, cree y configure los objetos siguientes:
 
-* **Configuración de direcciones IP de front-end**: contiene direcciones IP públicas para el tráfico de red entrante.
-* **Grupo de direcciones de back-end**: contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
-* **Reglas de equilibrio de carga**: contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto del grupo de direcciones de back-end.
-* **Reglas NAT de entrada**: contiene reglas de traslación de direcciones de red (NAT) que asignan un puerto público en el equilibrador de carga a un puerto de una máquina virtual específica en el grupo de direcciones de back-end.
-* **Sondeos**: contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
+* **Configuración de direcciones IP de front-end** : contiene direcciones IP públicas para el tráfico de red entrante.
+* **Grupo de direcciones de back-end** : contiene interfaces de red (NIC) para que las máquinas virtuales reciban tráfico de red del equilibrador de carga.
+* **Reglas de equilibrio de carga** : contiene reglas que asignan un puerto público en el equilibrador de carga a un puerto del grupo de direcciones de back-end.
+* **Reglas NAT de entrada** : contiene reglas de traslación de direcciones de red (NAT) que asignan un puerto público en el equilibrador de carga a un puerto de una máquina virtual específica en el grupo de direcciones de back-end.
+* **Sondeos** : contiene los sondeos de estado que se usan para comprobar la disponibilidad de las instancias de las máquinas virtuales del grupo de direcciones de back-end.
 
 ## <a name="set-up-azure-cli"></a>Configuración de la CLI de Azure
 
@@ -122,7 +122,7 @@ En este ejemplo, puede ejecutar las herramientas de la CLI de Azure en una venta
     > [!IMPORTANT]
     > El equilibrador de carga usa la etiqueta de dominio de la dirección IP pública como nombre de dominio completo (FQDN). Esto representa un cambio en la implementación clásica, que usa el nombre del servicio en la nube como el FQDN del equilibrador de carga.
     >
-    > En este ejemplo, el FQDN es *contoso09152016.southcentralus.cloudapp.azure.com*.
+    > En este ejemplo, el FQDN es *contoso09152016.southcentralus.cloudapp.azure.com* .
 
 ## <a name="create-front-end-and-back-end-pools"></a>Creación de grupos de servidores front-end y back-end
 

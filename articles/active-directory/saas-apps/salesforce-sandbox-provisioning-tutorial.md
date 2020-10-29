@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 38fac23b3fdc5820a7a407a4a7d89d0064cf8e93
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cc094376ed6d5a183b65a598ca9d0a55670be70e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101790"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676724"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configuración de Salesforce Sandbox para aprovisionar usuarios automáticamente
 
@@ -33,7 +33,7 @@ En la situación descrita en este tutorial se supone que ya cuenta con los eleme
 
 Azure Active Directory usa un concepto que se denomina "asignaciones" para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de cuentas de usuario, solo se sincronizarán los usuarios y grupos que se han "asignado" a una aplicación en Azure AD.
 
-Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a la aplicación de Salesforce Sandbox. Una vez decidido, puede asignar estos usuarios a la aplicación Salesforce Sandbox siguiendo las instrucciones de: [Asignación de un usuario o un grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a la aplicación de Salesforce Sandbox. Una vez decidido, puede asignar estos usuarios a la aplicación Salesforce Sandbox siguiendo las instrucciones de: [Asignación de un usuario o un grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Sugerencias importantes para asignar usuarios a Salesforce Sandbox
 
@@ -109,4 +109,4 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 * [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configuración del inicio de sesión único](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-sandbox-tutorial)
+* [Configuración del inicio de sesión único](./salesforce-sandbox-tutorial.md)
