@@ -4,12 +4,12 @@ description: Aprenda a controlar las admisiones de pods mediante PodSecurityPoli
 services: container-service
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: bec9c7b4be5c3c3e334a8e3cb3a8b2e0a7130de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9f6ead7edea7a3a6240e116d3073ea01fa9f6bb
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669309"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900106"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Versión preliminar: Protección del clúster con directivas de seguridad de pod en Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Para mejorar la seguridad del clúster de AKS, puede limitar los pods que se pue
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+Es preciso que esté instalada y configurada la versión 2.0.61 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 
@@ -46,13 +46,13 @@ az extension update --name aks-preview
 
 **Este documento y esta característica quedarán en desuso el 15 de octubre de 2020.**
 
-Para crear o actualizar un clúster de AKS para que use directivas de seguridad de pod, habilite primero una marca de características en su suscripción. Para registrar la marca de características *PodSecurityPolicyPreview*, use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
+Para crear o actualizar un clúster de AKS para que use directivas de seguridad de pod, habilite primero una marca de características en su suscripción. Para registrar la marca de características *PodSecurityPolicyPreview* , use el comando [az feature register][az-feature-register] tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+Tarda unos minutos en que el estado muestre *Registrado* . Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
@@ -80,7 +80,7 @@ Para mostrar cómo las directivas predeterminadas limitan la implementación de 
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Habilitación de una directiva de seguridad de pod en un clúster de AKS
 
-Puede habilitar o deshabilitar la directiva de seguridad de pod mediante el comando [az aks update][az-aks-update]. En el siguiente ejemplo se habilita la directiva de seguridad de pod en el clúster denominado *myAKSCluster* del grupo de recursos *myResourceGroup*.
+Puede habilitar o deshabilitar la directiva de seguridad de pod mediante el comando [az aks update][az-aks-update]. En el siguiente ejemplo se habilita la directiva de seguridad de pod en el clúster denominado *myAKSCluster* del grupo de recursos *myResourceGroup* .
 
 > [!NOTE]
 > Para el uso en el mundo real, no habilite la directiva de seguridad de pod hasta que haya definido sus propias directivas personalizadas. En este artículo se habilita la directiva de seguridad de pod como primer paso para mostrar cómo las predeterminadas limitan la implementación de pods.
@@ -94,7 +94,7 @@ az aks update \
 
 ## <a name="default-aks-policies"></a>Directivas predeterminadas de AKS
 
-Cuando se habilita la directiva de seguridad pod, AKS crea una directiva predeterminada denominada *privileged*. No modifique ni elimine la directiva predeterminada. En su lugar, cree sus propias directivas que definan la configuración que desee controlar. Primero echemos un vistazo a qué son estas directivas predeterminadas y a cómo afectan a la implementación de pods.
+Cuando se habilita la directiva de seguridad pod, AKS crea una directiva predeterminada denominada *privileged* . No modifique ni elimine la directiva predeterminada. En su lugar, cree sus propias directivas que definan la configuración que desee controlar. Primero echemos un vistazo a qué son estas directivas predeterminadas y a cómo afectan a la implementación de pods.
 
 Para ver las directivas disponibles, use el comando [kubectl get psp][kubectl-get], tal como se muestra en el siguiente ejemplo.
 
@@ -105,13 +105,13 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-La directiva de seguridad de pod *provileged* se aplica a cualquier usuario que se autentique en el clúster de AKS. Esta asignación se controla mediante ClusterRoles y ClusterRoleBindings. Use el comando [kubectl get rolebindings][kubectl-get] y busque el enlace *default:privileged:* en el espacio de nombres *kube-system*:
+La directiva de seguridad de pod *provileged* se aplica a cualquier usuario que se autentique en el clúster de AKS. Esta asignación se controla mediante ClusterRoles y ClusterRoleBindings. Use el comando [kubectl get rolebindings][kubectl-get] y busque el enlace *default:privileged:* en el espacio de nombres *kube-system* :
 
 ```console
 kubectl get rolebindings default:privileged -n kube-system -o yaml
 ```
 
-Como se muestra en la siguiente salida reducida, el valor de ClusterRole *psp:privileged* se asigna a cualquier usuario *system:authenticated*. Esta capacidad proporciona un nivel básico de privilegio sin tener directivas propias definidas.
+Como se muestra en la siguiente salida reducida, el valor de ClusterRole *psp:privileged* se asigna a cualquier usuario *system:authenticated* . Esta capacidad proporciona un nivel básico de privilegio sin tener directivas propias definidas.
 
 ```
 apiVersion: rbac.authorization.k8s.io/v1
@@ -157,8 +157,8 @@ kubectl create rolebinding \
 
 Para resaltar la diferencia entre el usuario de administrador normal al usar `kubectl` y el usuario sin derechos de administrador que creó en los pasos anteriores, cree dos alias de la línea de comandos:
 
-* El alias **kubectl-admin** es para el usuario administrador normal, para el espacio de nombres *psp-aks*.
-* El alias **kubectl nonadminuser** es para el *usuario no administrador* creado en el paso anterior, para el espacio de nombres *psp-aks*.
+* El alias **kubectl-admin** es para el usuario administrador normal, para el espacio de nombres *psp-aks* .
+* El alias **kubectl nonadminuser** es para el *usuario no administrador* creado en el paso anterior, para el espacio de nombres *psp-aks* .
 
 Cree estos dos alias tal y como se muestra en los siguientes comandos:
 
@@ -181,7 +181,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         privileged: true
 ```
@@ -216,7 +216,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
 ```
 
 Cree el pod mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
@@ -249,7 +249,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx:1.14.2
+      image: mcr.microsoft.com/oss/nginx/nginx:1.14.2-alpine
       securityContext:
         runAsUser: 2000
 ```
@@ -303,7 +303,7 @@ Cree la directiva mediante el comando [kubectl apply][kubectl-apply] y especifiq
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Para ver las directivas disponibles, use el comando [kubectl get psp][kubectl-get], tal como se muestra en el siguiente ejemplo. Compare la directiva *psp-deny-privileged* con el valor de la directiva *privilege* predeterminada que aplicó en los ejemplos anteriores para crear un pod. Su directiva solo deniega el uso del escalado *PRIV*. No hay ninguna restricción para el usuario o grupo relativa a la directiva *psp-deny-privileged*.
+Para ver las directivas disponibles, use el comando [kubectl get psp][kubectl-get], tal como se muestra en el siguiente ejemplo. Compare la directiva *psp-deny-privileged* con el valor de la directiva *privilege* predeterminada que aplicó en los ejemplos anteriores para crear un pod. Su directiva solo deniega el uso del escalado *PRIV* . No hay ninguna restricción para el usuario o grupo relativa a la directiva *psp-deny-privileged* .
 
 ```console
 $ kubectl get psp
@@ -315,7 +315,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 ## <a name="allow-user-account-to-use-the-custom-pod-security-policy"></a>Permiso par que la cuenta de usuario use la directiva de seguridad de pod personalizada
 
-En el paso anterior ha creado una directiva de seguridad de pod para rechazar los pods que soliciten acceso con privilegios. Para permitir el uso de la directiva, cree un *rol* o *ClusterRole*. Asocie uno de estos roles mediante *RoleBinding* o *ClusterRoleBinding*.
+En el paso anterior ha creado una directiva de seguridad de pod para rechazar los pods que soliciten acceso con privilegios. Para permitir el uso de la directiva, cree un *rol* o *ClusterRole* . Asocie uno de estos roles mediante *RoleBinding* o *ClusterRoleBinding* .
 
 Para este ejemplo, cree un ClusterRole que le permita *usar* la directiva *psp-deny-privileged* que creó en el paso anterior. Cree un archivo denominado `psp-deny-privileged-clusterrole.yaml` y pegue el siguiente manifiesto de YAML:
 
@@ -375,7 +375,7 @@ Con la directiva de seguridad de pod personalizada aplicado y un enlace para la 
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-Se ha programado correctamente el pod. Al activar el estado del pod mediante el comando [kubectl get pods][kubectl-get], el pod tiene el estado *En ejecución*:
+Se ha programado correctamente el pod. Al activar el estado del pod mediante el comando [kubectl get pods][kubectl-get], el pod tiene el estado *En ejecución* :
 
 ```
 $ kubectl-nonadminuser get pods
@@ -394,7 +394,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Par deshabilitar la directiva de seguridad de pod, use el comando [az aks update][az-aks-update] de nuevo. En el siguiente ejemplo se deshabilita la directiva de seguridad de pod en el clúster denominado *myAKSCluster* del grupo de recursos *myResourceGroup*:
+Par deshabilitar la directiva de seguridad de pod, use el comando [az aks update][az-aks-update] de nuevo. En el siguiente ejemplo se deshabilita la directiva de seguridad de pod en el clúster denominado *myAKSCluster* del grupo de recursos *myResourceGroup* :
 
 ```azurecli-interactive
 az aks update \
@@ -416,7 +416,7 @@ Elimine la directiva de seguridad mediante el comando [kubectl delete][kubectl-d
 kubectl delete -f psp-deny-privileged.yaml
 ```
 
-Por último, elimine el espacio de nombres *psp-aks*:
+Por último, elimine el espacio de nombres *psp-aks* :
 
 ```console
 kubectl delete namespace psp-aks

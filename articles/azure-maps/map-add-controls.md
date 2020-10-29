@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 08a3b72bb137713721345ecb52cf4e1bb7afcdc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a225d4ea19cccea114e47cc61a8055d28e8cd99
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310771"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895297"
 ---
 # <a name="add-controls-to-a-map"></a>Incorporación de controles a un mapa
 
-En este artículo se muestra cómo agregar controles a un mapa. También aprenderá a crear un mapa con todos los controles y un [selector de estilos](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+En este artículo se muestra cómo agregar controles a un mapa. También aprenderá a crear un mapa con todos los controles y un [selector de estilos](./choose-map-style.md).
 
 ## <a name="add-zoom-control"></a>Agregar un control de zoom
 
@@ -142,4 +142,3 @@ Consulte los siguientes artículos para el código completo:
 
 > [!div class="nextstepaction"]
 > [Adición de una capa de burbuja](map-add-bubble-layer.md)
-

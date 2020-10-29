@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: e6cfbef3751a7b4256f689af0e5b3524ae6fa878
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87a5dec2582796c6703bfb37b76e26e53a1192c0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037463"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895790"
 ---
 # <a name="extended-geojson-geometries"></a>Geometrías GeoJSON extendidas
 
@@ -29,7 +29,7 @@ La [especificación de GeoJSON][1] solo admite las geometrías siguientes:
 * Punto
 * Polygon
 
-Algunas API de Azure Maps aceptan geometrías que no forman parte de la [especificación de GeoJSON][1]. Por ejemplo, [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) API acepta círculos y polígonos.
+Algunas API de Azure Maps aceptan geometrías que no forman parte de la [especificación de GeoJSON][1]. Por ejemplo, [Search Inside Geometry](/rest/api/maps/search/postsearchinsidegeometry) API acepta círculos y polígonos.
 
 Este artículo proporciona una explicación detallada sobre cómo Azure Maps amplía las [especificaciones de GeoJSON][1] para representar determinadas geometrías.
 
@@ -49,7 +49,7 @@ Una geometría `Circle` representada mediante el objeto `GeoJSON Feature` __debe
 
 - SubType
 
-    La geometría del círculo también debe contener la propiedad `subType`. Esta propiedad debe formar parte de las propiedades de `GeoJSON Feature` y su valor debe ser _Circle_.
+    La geometría del círculo también debe contener la propiedad `subType`. Esta propiedad debe formar parte de las propiedades de `GeoJSON Feature` y su valor debe ser _Circle_ .
 
 #### <a name="example"></a>Ejemplo
 
@@ -81,7 +81,7 @@ Una geometría `Rectangle` representada mediante el objeto `GeoJSON Polygon Feat
 
 - SubType
 
-    La geometría del rectángulo también debe contener la propiedad `subType`. Esta propiedad debe formar parte de las propiedades de `GeoJSON Feature` y su valor debe ser _Rectangle_.
+    La geometría del rectángulo también debe contener la propiedad `subType`. Esta propiedad debe formar parte de las propiedades de `GeoJSON Feature` y su valor debe ser _Rectangle_ .
 
 ### <a name="example"></a>Ejemplo
 

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761454"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893693"
 ---
 # <a name="receipt-concepts"></a>Conceptos de recepción
 
@@ -86,7 +86,7 @@ Receipt API también devuelve la siguiente información:
 
 ## <a name="the-get-analyze-receipt-result-operation"></a>La operación Get Analyze Receipt Result
 
-El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Receipt ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto**. Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
+El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/GetAnalyzeReceiptResult). Esta operación toma como entrada el id. de resultado que la operación Analyze Receipt ha creado. Devuelve una respuesta JSON que contiene un campo de **estado** con los siguientes valores posibles. Llamará a esta operación de forma iterativa hasta que se devuelva con el valor **correcto** . Use un intervalo de 3 a 5 segundos para evitar superar la tasa de solicitudes por segundo (RPS).
 
 |Campo| Tipo | Valores posibles |
 |:-----|:----:|:----|
@@ -95,7 +95,7 @@ El segundo paso consiste en llamar a la operación [Get Analyze Receipt Result](
 | |  | failed: error en la operación de análisis. |
 | |  | succeeded: la operación de análisis se realizó correctamente. |
 
-Cuando el campo **status** tenga el valor **succeeded**, la respuesta JSON incluirá los resultados de la descripción del recibo y el reconocimiento del texto. El resultado de la descripción del recibo se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el rectángulo delimitador, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, rectángulo delimitador e información de confianza.
+Cuando el campo **status** tenga el valor **succeeded** , la respuesta JSON incluirá los resultados de la descripción del recibo y el reconocimiento del texto. El resultado de la descripción del recibo se organiza como un diccionario de valores de campo con nombre, en el que cada valor contiene el texto extraído, el valor normalizado, el rectángulo delimitador, el nivel de confianza y los elementos de la palabra correspondiente. El resultado del reconocimiento de texto se organiza como una jerarquía de líneas y palabras, con texto, rectángulo delimitador e información de confianza.
 
 ![resultados de ejemplo del recibo](./media/contoso-receipt-2-information.png)
 
@@ -437,7 +437,7 @@ Los datos extraídos con Receipt API se pueden usar para realizar varias tareas.
 
 A menudo, la tramitación de gastos empresariales implica dedicar tiempo a introducir datos de las imágenes de los recibos de forma manual. Con Receipt API, puede usar los campos extraídos para automatizar parcialmente este proceso y analizar sus recibos rápidamente.  
 
-Dado que Receipt API tiene una salida JSON sencilla, puede usar los valores de campo extraídos de varias maneras. Intégrelos con las aplicaciones de gastos internas para rellenar previamente los informes de gastos. Para obtener más información sobre este escenario, consulte cómo Acumatica usa Receipt API para [facilitar el proceso de los informes de gastos](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Dado que Receipt API tiene una salida JSON sencilla, puede usar los valores de campo extraídos de varias maneras. Intégrelos con las aplicaciones de gastos internas para rellenar previamente los informes de gastos. Para obtener más información sobre este escenario, consulte cómo Acumatica usa Receipt API para [facilitar el proceso de los informes de gastos](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### <a name="auditing-and-accounting"></a>Auditoría y contabilidad 
 

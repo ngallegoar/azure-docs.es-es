@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4a50a9d6d4a485f7d8e63adb9ae5032f49edc261
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3404c02dc159309ed1e9fcd6f9f6bb593fc7552
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310363"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896946"
 ---
 # <a name="azure-maps-supported-built-in-map-styles"></a>Estilos de mapa integrados admitidos en Azure Maps
 
@@ -27,8 +27,8 @@ Un mapa **de carreteras** es un mapa estándar que muestra las carreteras. Tambi
 
 **API correspondientes:**
 
-* [Imagen de mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Mosaico de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Imagen de mapa](/rest/api/maps/render/getmapimage)
+* [Mosaico de mapa](/rest/api/maps/render/getmaptile)
 * Control de mapa de SDK web
 * Control de mapa de Android
 * Objeto visual de Power BI
@@ -52,7 +52,7 @@ El mapa estilo **satélite** es una combinación de imágenes aéreas o por sat�
 
 **API correspondientes:**
 
-* [Mosaico de satélite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
+* [Mosaico de satélite](/rest/api/maps/render/getmapimagerytilepreview)
 * Control de mapa de SDK web
 * Control de mapa de Android
 * Objeto visual de Power BI
@@ -77,8 +77,8 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 
 **API correspondientes:**
 
-* [Imagen de mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [Mosaico de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Imagen de mapa](/rest/api/maps/render/getmapimage)
+* [Mosaico de mapa](/rest/api/maps/render/getmaptile)
 * Control de mapa de SDK web
 * Control de mapa de Android
 * Objeto visual de Power BI
@@ -114,7 +114,7 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 
 **API correspondientes:**
 
-* [Mosaico de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+* [Mosaico de mapa](/rest/api/maps/render/getmaptile)
 * Control de mapa de SDK web
 * Control de mapa de Android
 * Objeto visual de Power BI
@@ -134,4 +134,4 @@ Este estilo de mapa es un híbrido de carreteras y etiquetas que se superpone a 
 
 Aprenda a establecer un estilo de mapa en Azure Maps:
 
-[Elección de un estilo de mapa](https://docs.microsoft.com/azure/azure-maps/choose-map-style)
+[Elección de un estilo de mapa](./choose-map-style.md)

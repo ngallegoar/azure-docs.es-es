@@ -4,12 +4,12 @@ description: Aprenda a habilitar y configurar discos Ultra en un clúster de Azu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 049c2682a8f61bb658083b0418a4fcf99dc477a5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420870"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900043"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Uso de discos Ultra de Azure en Azure Kubernetes Service (versión preliminar)
 
@@ -32,7 +32,7 @@ Registro de `EnableUltraSSD` la marca de característica con el comando de [cara
 az feature register --namespace "Microsoft.ContainerService" --name "EnableUltraSSD"
 ```
 
-Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
+Tarda unos minutos en que el estado muestre *Registrado* . Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableUltraSSD')].{Name:name,State:properties.state}"
@@ -117,7 +117,7 @@ parameters:
   diskMbpsReadWrite: "320"   # minimum value: 0.032/GiB
 ```
 
-Cree la clase de almacenamiento con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-sc.yaml*:
+Cree la clase de almacenamiento con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-sc.yaml* :
 
 ```console
 $ kubectl apply -f azure-ultra-disk-sc.yaml
@@ -130,7 +130,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 Una notificación de volumen persistente (PVC) se usa para aprovisionar automáticamente el almacenamiento en función de una clase de almacenamiento. En este caso, un PVC puede usar la clase de almacenamiento creada anteriormente para crear un disco Ultra.
 
-Cree un archivo denominado `azure-ultra-disk-pvc.yaml` y cópielo en el siguiente código manifiesto. La notificación solicita un disco llamado `ultra-disk` que tiene un tamaño de *1000 GB* con acceso *ReadWriteOnce*. La clase de almacenamiento *ultra-disk-sc* se especifica como la clase de almacenamiento.
+Cree un archivo denominado `azure-ultra-disk-pvc.yaml` y cópielo en el siguiente código manifiesto. La notificación solicita un disco llamado `ultra-disk` que tiene un tamaño de *1000 GB* con acceso *ReadWriteOnce* . La clase de almacenamiento *ultra-disk-sc* se especifica como la clase de almacenamiento.
 
 ```yaml
 apiVersion: v1
@@ -146,7 +146,7 @@ spec:
       storage: 1000Gi
 ```
 
-Cree la notificación del volumen persistente con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-pvc.yaml*:
+Cree la notificación del volumen persistente con el comando [kubectl apply][kubectl-apply] y especifique su archivo *azure-ultra-disk-pvc.yaml* :
 
 ```console
 $ kubectl apply -f azure-ultra-disk-pvc.yaml
@@ -168,7 +168,7 @@ metadata:
 spec:
   containers:
   - name: nginx-ultra
-    image: nginx
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m

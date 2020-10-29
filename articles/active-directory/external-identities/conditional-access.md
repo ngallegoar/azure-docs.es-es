@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47ec082daa6eee4ab593fdb5523087f9eb5b038
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eccbbb22814788aaf06fa6fd10d8c376203c1d49
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91274153"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892458"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acceso condicional para usuarios de colaboración B2B
 
@@ -110,5 +110,5 @@ Actualmente, no se pueden aplicar directivas de inicio de sesión basadas en el 
 Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 
 * [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
-* [Concesión de licencias de colaboración B2B de Azure AD](licensing-guidance.md)
+* [Precios de identidades externas](external-identities-pricing.md)
 * [Preguntas frecuentes sobre la colaboración B2B de Azure Active Directory (P+F)](faq.md)

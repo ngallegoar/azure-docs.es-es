@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c39104912c99b199d38cf489bb61d64e83b89286
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090257"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895603"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Protección de una aplicación de página única con inicio de sesión no interactivo
 
@@ -30,15 +30,15 @@ La guía siguiente pertenece a una aplicación que usa Azure Active Directory 
 
 Cree una aplicación de servicio web segura que sea responsable de la autenticación en Azure AD. 
 
-1. Cree una función en Azure Portal. Para más información, consulte [Creación de una función de Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function).
+1. Cree una función en Azure Portal. Para más información, consulte [Creación de una función de Azure](../azure-functions/functions-create-first-azure-function.md).
 
-2. Configure la directiva CORS en la función de Azure para que la aplicación web de página única pueda acceder a ella. Esto protegerá a los clientes de explorador en los orígenes permitidos de la aplicación web. Consulte [Adición de funcionalidad CORS](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-rest-api#add-cors-functionality).
+2. Configure la directiva CORS en la función de Azure para que la aplicación web de página única pueda acceder a ella. Esto protegerá a los clientes de explorador en los orígenes permitidos de la aplicación web. Consulte [Adición de funcionalidad CORS](../app-service/app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
-3. [Agregue una identidad asignada por el sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) en la función de Azure para habilitar la creación de una entidad de servicio para autenticarse en Azure AD.  
+3. [Agregue una identidad asignada por el sistema](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) en la función de Azure para habilitar la creación de una entidad de servicio para autenticarse en Azure AD.  
 
 4. Conceda a la cuenta de Azure Maps el acceso basado en roles para la identidad asignada por el sistema. Consulte [Concesión de acceso basado en roles](#grant-role-based-access) para más información.
 
-5. Escriba código para que la función de Azure obtenga tokens de acceso de Azure Maps mediante la identidad asignada por el sistema con uno de los mecanismos admitidos o con el protocolo de REST. Consulte [Obtención de tokens para recursos de Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity).
+5. Escriba código para que la función de Azure obtenga tokens de acceso de Azure Maps mediante la identidad asignada por el sistema con uno de los mecanismos admitidos o con el protocolo de REST. Consulte [Obtención de tokens para recursos de Azure](../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity).
 
     Ejemplo de protocolo de REST:
 
@@ -64,8 +64,8 @@ Cree una aplicación de servicio web segura que sea responsable de la autenticac
 
 6. Configuración de la seguridad de la función de Azure HttpTrigger
 
-   * [Creación de una clave de acceso de la función](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#authorization-keys).
-   * [Punto de conexión HTTP seguro](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production) para la función de Azure en producción.
+   * [Creación de una clave de acceso de la función](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#authorization-keys).
+   * [Punto de conexión HTTP seguro](../azure-functions/functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production) para la función de Azure en producción.
    
 7. Configure el SDK web de Azure Maps de la aplicación web. 
 
@@ -111,16 +111,16 @@ Puede conceder el *control de acceso basado en roles de Azure (RBAC de Azure)* m
 
 2. En la pestaña **Asignaciones de roles** , en **Rol** , seleccione una definición de roles de Azure Maps integrada, como **Lector de datos de Azure Maps** o **Colaborador de datos de Azure Maps** . En **Asignar acceso a** , seleccione **Function App** . Seleccione la entidad de seguridad por nombre. Después, seleccione **Guardar** .
 
-   * Consulte más información en [Adición y eliminación de asignaciones de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+   * Consulte más información en [Adición y eliminación de asignaciones de roles](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
-> Las definiciones de roles de Azure Maps integradas proporcionan un acceso de autorización muy amplio a muchas API REST de Azure Maps. Para restringir al mínimo el acceso a las API, consulte cómo [crear una definición de roles personalizada y asignar la identidad asignada por el sistema](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) a la definición de roles personalizada. Esto proporcionará el privilegio mínimo necesario para que la aplicación acceda a Azure Maps.
+> Las definiciones de roles de Azure Maps integradas proporcionan un acceso de autorización muy amplio a muchas API REST de Azure Maps. Para restringir al mínimo el acceso a las API, consulte cómo [crear una definición de roles personalizada y asignar la identidad asignada por el sistema](../role-based-access-control/custom-roles.md) a la definición de roles personalizada. Esto proporcionará el privilegio mínimo necesario para que la aplicación acceda a Azure Maps.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre el escenario de aplicación de página única:
 > [!div class="nextstepaction"]
-> [Aplicación de página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview)
+> [Aplicación de página única](../active-directory/develop/scenario-spa-overview.md)
 
 Descubra las métricas de uso de API de la cuenta de Azure Maps:
 > [!div class="nextstepaction"]

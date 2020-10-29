@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87309348"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890520"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -21,12 +21,12 @@ Este método puede usarse al implementar nuevos recursos de Application Insights
 ## <a name="smart-detection-rule-configuration"></a>Configuración de una regla de detección inteligente
 
 Puede configurar los siguientes valores en una regla de detección inteligente:
-- Si la regla se habilita (el valor predeterminado es **true**).
-- Si no se deben enviar correos electrónicos a los usuarios asociados con los roles [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) y [Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) cuando se encuentra una detección (el valor predeterminado es **true**).
+- Si la regla se habilita (el valor predeterminado es **true** ).
+- Si no se deben enviar correos electrónicos a los usuarios asociados con los roles [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) y [Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) cuando se encuentra una detección (el valor predeterminado es **true** ).
 - Los destinatarios de correo electrónico adicionales que deben recibir una notificación cuando se encuentra una detección.
-    -  La configuración de correo electrónico no está disponible para las reglas de detección inteligente marcadas como _versión preliminar_.
+    -  La configuración de correo electrónico no está disponible para las reglas de detección inteligente marcadas como _versión preliminar_ .
 
-Para permitir la configuración de los valores de regla a través de Azure Resource Manager, la configuración de reglas de detección inteligente ahora está disponible como recurso interno en el recurso de Application Insights denominado **ProactiveDetectionConfigs**.
+Para permitir la configuración de los valores de regla a través de Azure Resource Manager, la configuración de reglas de detección inteligente ahora está disponible como recurso interno en el recurso de Application Insights denominado **ProactiveDetectionConfigs** .
 Para obtener la máxima flexibilidad, cada regla de detección inteligente puede configurarse con valores de notificación únicos.
 
 ## <a name="examples"></a>Ejemplos
@@ -44,7 +44,7 @@ Asegúrese de reemplazar el nombre de recurso de Application Insights y de espec
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -75,7 +75,7 @@ Asegúrese de reemplazar el nombre de recurso de Application Insights y de espec
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -106,7 +106,7 @@ Asegúrese de reemplazar el nombre de recurso de Application Insights y de espec
       "type": "Microsoft.Insights/components",
       "location": "[resourceGroup().location]",
       "properties": {
-        "ApplicationId": "myApplication"
+        "Application_Type": "web"
       },
       "resources": [
         {
@@ -120,7 +120,7 @@ Asegúrese de reemplazar el nombre de recurso de Application Insights y de espec
           "properties": {
             "name": "longdependencyduration",
             "sendEmailsToSubscriptionOwners": true,
-            "customEmails": ['alice@contoso.com', 'bob@contoso.com'],
+            "customEmails": ["alice@contoso.com", "bob@contoso.com"],
             "enabled": true
           }
         }

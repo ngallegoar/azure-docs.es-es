@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517304"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895382"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementación de estilos dinámicos para planos interiores de Creator
 
-El [servicio de estado de características](https://docs.microsoft.com/rest/api/maps/featurestate) de Azure Maps Creator le permite aplicar estilos basados en las propiedades dinámicas de las características de datos de los planos interiores.  Por ejemplo, puede representar las salas de reuniones de la instalación con un color específico para reflejar el estado de ocupación. En este artículo, le mostraremos cómo representar dinámicamente las características de los mapas interiores con el [servicio de estado de características](https://docs.microsoft.com/rest/api/maps/featurestate) y el [módulo web de interiores](how-to-use-indoor-module.md).
+El [servicio de estado de características](/rest/api/maps/featurestate) de Azure Maps Creator le permite aplicar estilos basados en las propiedades dinámicas de las características de datos de los planos interiores.  Por ejemplo, puede representar las salas de reuniones de la instalación con un color específico para reflejar el estado de ocupación. En este artículo, le mostraremos cómo representar dinámicamente las características de los mapas interiores con el [servicio de estado de características](/rest/api/maps/featurestate) y el [módulo web de interiores](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -66,15 +66,15 @@ En la siguiente sección, estableceremos el *estado* de ocupación de la oficina
 
  Ahora actualizaremos el estado de las dos oficinas, `UNIT26` y `UNIT27`:
 
-1. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
 
-2. Use la [API de estados de actualización de características](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) para actualizar el estado. Pase el identificador del conjunto de estados y `UNIT26` para una de las dos unidades. Anexe la clave de suscripción de Azure Maps. Esta es la URL de una solicitud **POST** para actualizar el estado:
+2. Use la [API de estados de actualización de características](/rest/api/maps/featurestate/updatestatespreview) para actualizar el estado. Pase el identificador del conjunto de estados y `UNIT26` para una de las dos unidades. Anexe la clave de suscripción de Azure Maps. Esta es la URL de una solicitud **POST** para actualizar el estado:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo** de la solicitud **POST**, escriba el siguiente JSON con las actualizaciones de características. La actualización se guardará solo si la marca de tiempo enviada es posterior a la marca de tiempo usada en las solicitudes de actualización de estado de características anteriores para el mismo `ID` de característica. Pase el `keyName` "ocupado" para actualizar su valor.
+3. En el **encabezado** de la solicitud **POST** , establezca `Content-Type` en `application/json`. En el **cuerpo** de la solicitud **POST** , escriba el siguiente JSON con las actualizaciones de características. La actualización se guardará solo si la marca de tiempo enviada es posterior a la marca de tiempo usada en las solicitudes de actualización de estado de características anteriores para el mismo `ID` de característica. Pase el `keyName` "ocupado" para actualizar su valor.
 
     ```json
     {
@@ -134,4 +134,3 @@ Consulte las referencias de las API mencionadas en este artículo:
 
 > [!div class="nextstepaction"]
 > [Servicio WFS](creator-indoor-maps.md#web-feature-service-api)
-

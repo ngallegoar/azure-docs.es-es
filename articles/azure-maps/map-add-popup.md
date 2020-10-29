@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: a67fad5d0980730eb73f4219f12eaf3a7b9ec7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 903574a8c8696f10d9903a685bab8d12b3e6395f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310482"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891043"
 ---
 # <a name="add-a-popup-to-the-map"></a>Adición de un elemento emergente al mapa
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo agregar un elemento emergente a un punto de u
 
 ## <a name="understand-the-code"></a>Comprendiendo el código
 
-El código siguiente agrega una característica de punto, que tiene las propiedades `name` y `description`, al mapa mediante una capa de símbolo. Se crea una instancia de la [clase popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup) pero no se muestra. Los eventos del mouse se agregan a la capa de símbolos para desencadenar la apertura y el cierre del elemento emergente. Cuando el mouse se mantiene sobre el símbolo del marcador, la propiedad `position` del elemento emergente se actualiza con la posición del marcador y la opción `content` se actualiza con el código HTML que contiene las propiedades `name` y `description` de la característica de puntos que se está activando. Después, se muestra el elemento emergente en el mapa mediante su función `open`.
+El código siguiente agrega una característica de punto, que tiene las propiedades `name` y `description`, al mapa mediante una capa de símbolo. Se crea una instancia de la [clase popup](/javascript/api/azure-maps-control/atlas.popup) pero no se muestra. Los eventos del mouse se agregan a la capa de símbolos para desencadenar la apertura y el cierre del elemento emergente. Cuando el mouse se mantiene sobre el símbolo del marcador, la propiedad `position` del elemento emergente se actualiza con la posición del marcador y la opción `content` se actualiza con el código HTML que contiene las propiedades `name` y `description` de la característica de puntos que se está activando. Después, se muestra el elemento emergente en el mapa mediante su función `open`.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -279,13 +279,13 @@ Consulte el fragmento de código (pen) <a href='https://codepen.io/azuremaps/pen
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup)
+> [Popup](/javascript/api/azure-maps-control/atlas.popup)
 
 > [!div class="nextstepaction"]
-> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions)
+> [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 > [!div class="nextstepaction"]
-> [PopupTemplate](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popuptemplate)
+> [PopupTemplate](/javascript/api/azure-maps-control/atlas.popuptemplate)
 
 Consulte los siguientes artículos para obtener ejemplos de código completo:
 

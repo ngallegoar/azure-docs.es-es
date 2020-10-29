@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee32749e2c6f0118507fcfc6d4994a04ea3a6d69
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335201"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896807"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
@@ -25,10 +25,10 @@ Este tutorial le guía por los aspectos básicos de la creación y el uso de los
 Azure Maps proporciona una serie de servicios que admiten el seguimiento de los equipos que entran y salen del área de construcción. En este tutorial, hizo lo siguiente:
 
 > [!div class="checklist"]
-> * Cargará los [datos GeoJSON de geovallas](geofence-geojson.md) que definen las áreas del sitio de construcción que desea supervisar. Usará [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en la cuenta de Azure Maps.
-> * Configurará dos [aplicaciones lógicas](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que, cuando se desencadenan, envían notificaciones de correo electrónico al administrador de operaciones del sitio de construcción, cuando el equipo entre y salga del área de la geovalla.
-> * Usará [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) para suscribirse a los eventos de entrada y salida de la geovalla de Azure Maps. Configurará dos suscripciones a eventos de webhook que llaman a los puntos de conexión HTTP definidos en las dos aplicaciones lógicas. A continuación, las aplicaciones lógicas enviarán las notificaciones de correo electrónico adecuadas sobre los equipos que salen o entran de la geovalla.
-> * Use [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para recibir notificaciones cuando una parte del equipo salga y entre de las áreas de la geovalla.
+> * Cargará los [datos GeoJSON de geovallas](geofence-geojson.md) que definen las áreas del sitio de construcción que desea supervisar. Usará [Data Upload API](/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en la cuenta de Azure Maps.
+> * Configurará dos [aplicaciones lógicas](../event-grid/handler-webhooks.md#logic-apps) que, cuando se desencadenan, envían notificaciones de correo electrónico al administrador de operaciones del sitio de construcción, cuando el equipo entre y salga del área de la geovalla.
+> * Usará [Azure Event Grid](../event-grid/overview.md) para suscribirse a los eventos de entrada y salida de la geovalla de Azure Maps. Configurará dos suscripciones a eventos de webhook que llaman a los puntos de conexión HTTP definidos en las dos aplicaciones lógicas. A continuación, las aplicaciones lógicas enviarán las notificaciones de correo electrónico adecuadas sobre los equipos que salen o entran de la geovalla.
+> * Use [Search Geofence Get API](/rest/api/maps/spatial/getgeofence) para recibir notificaciones cuando una parte del equipo salga y entre de las áreas de la geovalla.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,7 +42,7 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
 En este tutorial, se cargarán datos GeoJSON de geovallas que contienen el elemento `FeatureCollection`. La colección `FeatureCollection` contiene dos geovallas que definen áreas poligonales dentro del sitio de construcción. La primera geovalla no tiene ninguna restricción de tiempo ni datos de expiración. La segunda solo se puede consultar en horario comercial (9:00 AM-5:00 PM en la zona horaria del Pacífico) y dejará de ser válida después del 1 de enero de 2022. Para más información sobre el formato GeoJSON, consulte [Datos GeoJSON de geovallas](geofence-geojson.md).
 
 >[!TIP]
->Puede actualizar los datos de geovallas en cualquier momento. Para más información, consulte [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview).
+>Puede actualizar los datos de geovallas en cualquier momento. Para más información, consulte [Data Upload API](/rest/api/maps/data/uploadpreview).
 
 1. Abra la aplicación Postman. Cerca de la parte superior, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione **Create** (Crear).
 
@@ -56,7 +56,7 @@ En este tutorial, se cargarán datos GeoJSON de geovallas que contienen el eleme
 
     El parámetro `geojson` en la ruta de acceso de la dirección URL representa el formato de los datos que se cargan.
 
-4. Seleccione la pestaña **Cuerpo**. Seleccione **sin formato** y, a continuación, **JSON** como formato de entrada. Copie y pegue los siguientes datos de GeoJSON en el área de texto de **Cuerpo**:
+4. Seleccione la pestaña **Cuerpo** . Seleccione **sin formato** y, a continuación, **JSON** como formato de entrada. Copie y pegue los siguientes datos de GeoJSON en el área de texto de **Cuerpo** :
 
    ```JSON
    {
@@ -186,36 +186,36 @@ En este tutorial, se cargarán datos GeoJSON de geovallas que contienen el eleme
 
 ## <a name="create-workflows-in-azure-logic-apps"></a>Creación de flujos de trabajo en Azure Logic Apps
 
-A continuación, va a crear dos puntos de conexión de la [aplicación lógica](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que desencadenan una notificación por correo electrónico. Aquí se muestra cómo crear el primero:
+A continuación, va a crear dos puntos de conexión de la [aplicación lógica](../event-grid/handler-webhooks.md#logic-apps) que desencadenan una notificación por correo electrónico. Aquí se muestra cómo crear el primero:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-2. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso**.
+2. En la esquina superior izquierda de Azure Portal, seleccione **Crear un recurso** .
 
-3. En el campo **Buscar en el Marketplace**, escriba **Aplicación lógica**.
+3. En el campo **Buscar en el Marketplace** , escriba **Aplicación lógica** .
 
-4. En los resultados, seleccione **Aplicación lógica** > **Crear**.
+4. En los resultados, seleccione **Aplicación lógica** > **Crear** .
 
-5. En la página **Aplicación lógica**, escriba los valores siguientes:
+5. En la página **Aplicación lógica** , escriba los valores siguientes:
     * La **suscripción** que quiere usar para esta aplicación lógica.
-    * El nombre del **grupo de recursos** para esta aplicación lógica. Para el grupo de recursos, puede elegir entre **Crear nuevo** o **Usar existente**.
-    * El **nombre de la aplicación lógica**. En este caso, usaremos `Equipment-Enter` como nombre.
+    * El nombre del **grupo de recursos** para esta aplicación lógica. Para el grupo de recursos, puede elegir entre **Crear nuevo** o **Usar existente** .
+    * El **nombre de la aplicación lógica** . En este caso, usaremos `Equipment-Enter` como nombre.
 
     Para los fines de este tutorial, mantenga la configuración predeterminada del resto de los valores.
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
-6. Seleccione **Revisar + crear**. Revise la configuración y seleccione **Crear** para enviar la implementación. Cuando la implementación se complete correctamente, seleccione **Ir al recurso**. Se le dirigirá al **Diseñador de aplicación lógica**.
+6. Seleccione **Revisar + crear** . Revise la configuración y seleccione **Crear** para enviar la implementación. Cuando la implementación se complete correctamente, seleccione **Ir al recurso** . Se le dirigirá al **Diseñador de aplicación lógica** .
 
-7. Seleccione un tipo de desencadenador. Desplácese hacia abajo hasta la sección **Empezar con un desencadenador común**. Seleccione **Cuando se recibe una solicitud HTTP**.
+7. Seleccione un tipo de desencadenador. Desplácese hacia abajo hasta la sección **Empezar con un desencadenador común** . Seleccione **Cuando se recibe una solicitud HTTP** .
 
      :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
-8. En la esquina superior derecha del Diseñador de aplicación lógica, seleccione **Guardar**. La **dirección URL de HTTP POST** se genera automáticamente. Guarde la dirección URL. La necesitará en la sección siguiente para crear un punto de conexión de eventos.
+8. En la esquina superior derecha del Diseñador de aplicación lógica, seleccione **Guardar** . La **dirección URL de HTTP POST** se genera automáticamente. Guarde la dirección URL. La necesitará en la sección siguiente para crear un punto de conexión de eventos.
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
-9. Seleccione **+ Nuevo paso**. Ahora elegiremos una acción. Escriba `outlook.com email` en el cuadro de búsqueda. En la lista **Acciones**, desplácese hacia abajo y seleccione **Enviar un correo electrónico (V2)** .
+9. Seleccione **+ Nuevo paso** . Ahora elegiremos una acción. Escriba `outlook.com email` en el cuadro de búsqueda. En la lista **Acciones** , desplácese hacia abajo y seleccione **Enviar un correo electrónico (V2)** .
   
     :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
@@ -224,19 +224,19 @@ A continuación, va a crear dos puntos de conexión de la [aplicación lógica](
     :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
     >[!TIP]
-    > Puede recuperar datos de la respuesta GeoJSON, como `geometryId` o `deviceId`, en las notificaciones de correo electrónico. Puede configurar Logic Apps para leer los datos enviados por Event Grid. Para más información sobre cómo configurar Logic Apps para usar y pasar datos de eventos en notificaciones por correo electrónico, consulte [Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
+    > Puede recuperar datos de la respuesta GeoJSON, como `geometryId` o `deviceId`, en las notificaciones de correo electrónico. Puede configurar Logic Apps para leer los datos enviados por Event Grid. Para más información sobre cómo configurar Logic Apps para usar y pasar datos de eventos en notificaciones por correo electrónico, consulte [Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
-11. En la esquina superior izquierda del Diseñador de aplicación lógica, seleccione **Guardar**.
+11. En la esquina superior izquierda del Diseñador de aplicación lógica, seleccione **Guardar** .
 
 Repita los pasos del 3 al 11 para crear una segunda aplicación lógica que notifique al responsable cuando el equipo salga del sitio de construcción. Asigne a la aplicación lógica el nombre `Equipment-Exit`.
 
 ## <a name="create-azure-maps-events-subscriptions"></a>Creación de suscripciones a eventos de Azure Maps
 
-Azure Maps admite [tres tipos de eventos](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Aquí, tendremos que crear dos suscripciones a eventos diferentes: una para los eventos de entrada de la geovalla y otra para los eventos de salida de la geovalla.
+Azure Maps admite [tres tipos de eventos](../event-grid/event-schema-azure-maps.md). Aquí, tendremos que crear dos suscripciones a eventos diferentes: una para los eventos de entrada de la geovalla y otra para los eventos de salida de la geovalla.
 
 Siga estos pasos para crear una suscripción a eventos para los eventos de entrada de la geovalla. Para suscribirse a los eventos de salida de la geovalla, puede repetir los pasos de la misma manera.
 
-1. Vaya a su cuenta de Azure Maps. En el panel, seleccione **Suscripciones**. Seleccione el nombre de la suscripción y seleccione **Eventos** en el menú de configuración.
+1. Vaya a su cuenta de Azure Maps. En el panel, seleccione **Suscripciones** . Seleccione el nombre de la suscripción y seleccione **Eventos** en el menú de configuración.
 
     :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
@@ -244,29 +244,29 @@ Siga estos pasos para crear una suscripción a eventos para los eventos de entra
 
     :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
-3. En la página **Crear suscripción de eventos**, escriba los siguientes valores:
+3. En la página **Crear suscripción de eventos** , escriba los siguientes valores:
     * El **nombre** de la suscripción de eventos.
-    * El **esquema de eventos**  debe ser *Esquema de Event Grid*.
+    * El **esquema de eventos**  debe ser *Esquema de Event Grid* .
     * **Nombre de tema del sistema** de esta suscripción a eventos, que en este caso es `Contoso-Construction`.
-    * Para **Filtro para tipos de evento**, elija `Geofence Entered` como tipo de evento.
-    * Para **Tipo de punto de conexión**, elija `Web Hook`.
-    * Para **Punto de conexión**, copie la dirección URL de HTTP POST del punto de conexión de entrada de la aplicación lógica que creó en la sección anterior. Si olvidó guardarlo, simplemente puede volver al Diseñador de aplicación lógica y copiarlo desde el paso del desencadenador HTTP.
+    * Para **Filtro para tipos de evento** , elija `Geofence Entered` como tipo de evento.
+    * Para **Tipo de punto de conexión** , elija `Web Hook`.
+    * Para **Punto de conexión** , copie la dirección URL de HTTP POST del punto de conexión de entrada de la aplicación lógica que creó en la sección anterior. Si olvidó guardarlo, simplemente puede volver al Diseñador de aplicación lógica y copiarlo desde el paso del desencadenador HTTP.
 
     :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Captura de pantalla de la creación de una aplicación lógica.":::
 
-4. Seleccione **Crear**.
+4. Seleccione **Crear** .
 
 Repita los pasos 1 a 4 para el punto de conexión de salida de la aplicación lógica que creó en la sección anterior. En el paso 3, asegúrese de elegir `Geofence Exited` como tipo de evento.
 
 ## <a name="use-spatial-geofence-get-api"></a>Uso de Spatial Geofence Get API
 
-Ahora, usaremos [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificaciones por correo electrónico al responsable de operaciones cuando un elemento del equipo entre o salga de las geovallas.
+Ahora, usaremos [Spatial Geofence Get API](/rest/api/maps/spatial/getgeofence) para enviar notificaciones por correo electrónico al responsable de operaciones cuando un elemento del equipo entre o salga de las geovallas.
 
 Cada elemento del equipo tiene un `deviceId`. En este tutorial, vamos a realizar el seguimiento de un único equipo, cuyo identificador único es `device_1`.
 
-En el siguiente diagrama se muestran las cinco ubicaciones del equipo a lo largo del tiempo, empezando por la ubicación de *inicio*, que se encuentra fuera de las geovallas. Para los fines de este tutorial, la ubicación de *inicio* no está definida, ya que no se consultará el dispositivo en esa ubicación.
+En el siguiente diagrama se muestran las cinco ubicaciones del equipo a lo largo del tiempo, empezando por la ubicación de *inicio* , que se encuentra fuera de las geovallas. Para los fines de este tutorial, la ubicación de *inicio* no está definida, ya que no se consultará el dispositivo en esa ubicación.
 
-Cuando se realice una consulta a [Spatial Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una ubicación de equipo que indica la entrada o salida de la geovalla inicial, Event Grid llama al punto de conexión de la aplicación lógica adecuado para enviar una notificación por correo electrónico al responsable de operaciones.
+Cuando se realice una consulta a [Spatial Geofence Get API](/rest/api/maps/spatial/getgeofence) con una ubicación de equipo que indica la entrada o salida de la geovalla inicial, Event Grid llama al punto de conexión de la aplicación lógica adecuado para enviar una notificación por correo electrónico al responsable de operaciones.
 
 En cada una de las secciones siguientes se realizan solicitudes a la API con las cinco coordenadas de ubicación diferentes del equipo.
 
@@ -274,7 +274,7 @@ En cada una de las secciones siguientes se realizan solicitudes a la API con las
 
 ### <a name="equipment-location-1-47638237-122132483"></a>Ubicación del equipo 1 (47,638237,-122,132483)
 
-1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 1*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+1. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 1* . Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
 
 2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data).
 
@@ -314,7 +314,7 @@ En la respuesta GeoJSON anterior, la distancia negativa desde la geovalla del si
 
 ### <a name="location-2-4763800-122132531"></a>Ubicación 2 (47,63800,-122,132531)
 
-1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 2*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+1. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 2* . Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
 
 2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data).
 
@@ -354,7 +354,7 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 
 ### <a name="location-3-4763810783315048-12213336020708084"></a>Ubicación 3 (47,63810783315048,-122,13336020708084)
 
-1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 3*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+1. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 3* . Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
 
 2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data).
 
@@ -397,7 +397,7 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 
 ### <a name="location-4-47637988-1221338344"></a>Ubicación 4 (47,637988,-122,1338344)
 
-1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 4*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+1. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 4* . Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
 
 2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data).
 
@@ -431,7 +431,7 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 
 ### <a name="location-5-4763799--122134505"></a>Ubicación 5 (47,63799; -122,134505)
 
-1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 5*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+1. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Especifique *Location 5* . Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
 
 2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovallas](#upload-geofencing-geojson-data).
 
@@ -470,9 +470,9 @@ En la respuesta GeoJSON anterior, el equipo permaneció en la geovalla del sitio
 En la respuesta GeoJSON anterior, el equipo ha salido de la geovalla del sitio principal. Como resultado, el parámetro `isEventPublished` se establece en `true` y el responsable de operaciones recibe una notificación por correo electrónico que indica que el equipo ha salido de una geovalla.
 
 
-También puede consultar [Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) y [Controladores de eventos admitidos en Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers) mediante Azure Maps.
+También puede consultar [Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md) y [Controladores de eventos admitidos en Event Grid](../event-grid/event-handlers.md) mediante Azure Maps.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Administración de tipos de contenido en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
+> [Administración de tipos de contenido en Azure Logic Apps](../logic-apps/logic-apps-content-type.md)

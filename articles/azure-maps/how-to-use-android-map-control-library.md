@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cda543781118a19ba4999e774b96ae81857f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2c714c2e16cb8a7a9c530e8e458c33218b1c2b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330934"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895501"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Introducción a Android SDK para Azure Maps
 
@@ -57,7 +57,7 @@ Puede obtener más información sobre cómo configurar un AVD en la [documentaci
 
 El siguiente paso en la creación de la aplicación es instalar el Android SDK para Azure Maps. Para instalar el SDK, siga estos pasos:
 
-1. Abra el archivo**build.gradle** de nivel superior y agregue el siguiente código a la sección de bloques **all projects**, **repositories** (todos los proyectos, repositorios):
+1. Abra el archivo **build.gradle** de nivel superior y agregue el siguiente código a la sección de bloques **all projects** , **repositories** (todos los proyectos, repositorios):
 
     ```
     maven {
@@ -83,7 +83,7 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
         implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
-    4. Vaya a **Archivo** en la barra de herramientas y haga clic en **Sincronizar proyecto con archivos de Gradle**.
+    4. Vaya a **Archivo** en la barra de herramientas y haga clic en **Sincronizar proyecto con archivos de Gradle** .
 3. Agregue un fragmento de mapa a la actividad principal (recurso \> diseño \> activity\_main.xml):
     
     ```XML
@@ -103,7 +103,7 @@ El siguiente paso en la creación de la aplicación es instalar el Android SDK p
     </FrameLayout>
     ```
 
-4. En el archivo **MainActivity.java**, tendrá que hacer lo siguiente:
+4. En el archivo **MainActivity.java** , tendrá que hacer lo siguiente:
     
     * agregar las importaciones del SDK de Azure Maps
     * establecer la información de autenticación de Azure Maps
@@ -299,7 +299,7 @@ Obtenga información sobre cómo agregar datos de superposición en el mapa:
 > [Add a symbol layer to an Android map](how-to-add-symbol-to-android-map.md)(Adición de una capa de símbolo a un mapa Android)
 
 > [!div class="nextstepaction"]
-> [Adición de formas a un mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adición de formas a un mapa Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Cambio de estilos de mapa en mapas de Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Cambio de estilos de mapa en mapas de Android](./set-android-map-styles.md)

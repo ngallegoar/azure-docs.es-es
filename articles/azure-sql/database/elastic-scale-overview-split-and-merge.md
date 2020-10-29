@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034656"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793473"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ La herramienta de división y combinación se ejecuta como servicio web de Azure
 
 - **Dividir para aumentar**
 
-  Para aumentar la capacidad general de cara a controlar el crecimiento explosivo, cree capacidad adicional; para ello, particione los datos y distribúyalos entre más bases de datos de manera incremental hasta satisfacer las necesidades de capacidad. Este es un buen ejemplo de la característica de **división**.
+  Para aumentar la capacidad general de cara a controlar el crecimiento explosivo, cree capacidad adicional; para ello, particione los datos y distribúyalos entre más bases de datos de manera incremental hasta satisfacer las necesidades de capacidad. Este es un buen ejemplo de la característica de **división** .
 
 - **Combinar para reducir**
 
@@ -220,7 +220,7 @@ El servicio División y combinación usa Diagnósticos de Azure basado en el SDK
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> El módulo de Azure Resource Manager para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
+> El módulo de Azure Resource Manager para PowerShell todavía es compatible, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para estos cmdlets, consulte [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Los argumentos para los comandos del módulo Az y los módulos AzureRm son esencialmente idénticos.
 
 Para habilitar la supervisión y el diagnóstico mediante el uso de la configuración de diagnóstico para el rol web y el rol de trabajo proporcionado por el paquete NuGet, ejecute los siguientes comandos con Azure PowerShell:
 
@@ -244,7 +244,7 @@ Puede encontrar más información sobre cómo configurar e implementar la config
 
 ## <a name="retrieve-diagnostics"></a>Recuperar diagnósticos
 
-Se puede tener acceso fácilmente a los diagnósticos desde el Explorador de servidores de Visual Studio en la parte de Azure del árbol del Explorador de servidores. Abra una instancia de Visual Studio y, en la barra de menú, haga clic en Ver y en Explorador de servidores. Haga clic en el icono de Azure para conectarse a su suscripción a Azure. Luego vaya a Azure -> Storage -> `<your storage account>` -> Tablas -> WADLogsTable. Para más información, consulte [Explorador de servidores](https://msdn.microsoft.com/library/x603htbk.aspx).
+Se puede tener acceso fácilmente a los diagnósticos desde el Explorador de servidores de Visual Studio en la parte de Azure del árbol del Explorador de servidores. Abra una instancia de Visual Studio y, en la barra de menú, haga clic en Ver y en Explorador de servidores. Haga clic en el icono de Azure para conectarse a su suscripción a Azure. Luego vaya a Azure -> Storage -> `<your storage account>` -> Tablas -> WADLogsTable. Para más información, consulte [Explorador de servidores](/previous-versions/x603htbk(v=vs.140)).
 
 ![WADLogsTable][2]
 

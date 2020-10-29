@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bc3175017e5b26251d1a12d0d1e2c51c4e5f9c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd8f6bb8ce93d1d423019f792624d8bdac56ecf8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907806"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892646"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>¿Cómo pueden los usuarios de la organización invitar a usuarios invitados a una aplicación?
 
@@ -28,14 +28,14 @@ Una vez que se haya agregado un usuario invitado al directorio en Azure AD, un p
  - Configure la aplicación para el autoservicio y asigne el grupo a la aplicación
 
 > [!NOTE]
-> En este artículo se describe cómo configurar la administración autoservicio para la galería y las aplicaciones basadas en SAML que ha agregado al inquilino de Azure AD. También puede [configurar grupos de autoservicio de Microsoft 365](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) para que los usuarios puedan administrar el acceso a sus propios grupos de Microsoft 365. Para conocer más formas en las que los usuarios pueden compartir sus archivos y aplicaciones, consulte [Agregar invitados a grupos de Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) y [Uso compartido de archivos o carpetas de SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
+> En este artículo se describe cómo configurar la administración autoservicio para la galería y las aplicaciones basadas en SAML que ha agregado al inquilino de Azure AD. También puede [configurar grupos de autoservicio de Microsoft 365](../users-groups-roles/groups-self-service-management.md) para que los usuarios puedan administrar el acceso a sus propios grupos de Microsoft 365. Para conocer más formas en las que los usuarios pueden compartir sus archivos y aplicaciones, consulte [Agregar invitados a grupos de Microsoft 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6) y [Uso compartido de archivos o carpetas de SharePoint](https://support.office.com/article/share-sharepoint-files-or-folders-1fe37332-0f9a-4719-970e-d2578da4941c).
 
 ## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Invitación a un usuario invitado a una aplicación desde el panel de acceso
 
 Después de configurar una aplicación para el autoservicio, los propietarios de la aplicación pueden usar su propio panel de acceso para invitar a un usuario invitado a la aplicación que desean compartir. No es necesario que se agregue el usuario invitado a Azure AD con antelación. 
 
 1. Para abrir el panel de acceso, vaya a `https://myapps.microsoft.com`.
-2. Apunte a la aplicación, seleccione el icono de puntos suspensivos ( **...** ) y, a continuación, seleccione **Administrar aplicación**.
+2. Apunte a la aplicación, seleccione el icono de puntos suspensivos ( **...** ) y, a continuación, seleccione **Administrar aplicación** .
  
    ![Captura de pantalla que muestra el menú secundario Administrar aplicación de la aplicación de Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
@@ -43,7 +43,7 @@ Después de configurar una aplicación para el autoservicio, los propietarios de
    
    ![Captura de pantalla que muestra el signo más para agregar miembros a la aplicación](media/add-users-iw/access-panel-manage-app-add-user.png)
    
-4. En el cuadro de búsqueda **Agregar miembros**, escriba la dirección de correo electrónico para el usuario invitado. Opcionalmente, puede incluir un mensaje de bienvenida.
+4. En el cuadro de búsqueda **Agregar miembros** , escriba la dirección de correo electrónico para el usuario invitado. Opcionalmente, puede incluir un mensaje de bienvenida.
    
    ![Captura de pantalla que muestra la ventana Agregar miembros para agregar un invitado](media/add-users-iw/access-panel-invitation.png)
    
@@ -54,11 +54,11 @@ Después de configurar una aplicación para el autoservicio, los propietarios de
 
 1. Asegúrese de que es propietario del grupo de autoservicio que tiene acceso a la aplicación que desea compartir.
 2. Para abrir el panel de acceso, vaya a `https://myapps.microsoft.com`.
-3. Seleccione la aplicación **Grupos**.
+3. Seleccione la aplicación **Grupos** .
    
    ![Captura de pantalla que muestra la aplicación Grupos en el Panel de acceso](media/add-users-iw/access-panel-groups.png)
    
-4. En **Grupos de mi propiedad**, seleccione el grupo que tiene acceso a la aplicación que desea compartir.
+4. En **Grupos de mi propiedad** , seleccione el grupo que tiene acceso a la aplicación que desea compartir.
    
    ![Captura de pantalla que muestra dónde debe seleccionar un grupo en los grupos de mi propiedad](media/add-users-iw/access-panel-groups-i-own.png)
    
@@ -66,7 +66,7 @@ Después de configurar una aplicación para el autoservicio, los propietarios de
    
    ![Captura de pantalla que muestra el signo más para agregar miembros al grupo](media/add-users-iw/access-panel-groups-add-member.png)
    
-6. En el cuadro de búsqueda **Agregar miembros**, escriba la dirección de correo electrónico para el usuario invitado. Opcionalmente, puede incluir un mensaje de bienvenida.
+6. En el cuadro de búsqueda **Agregar miembros** , escriba la dirección de correo electrónico para el usuario invitado. Opcionalmente, puede incluir un mensaje de bienvenida.
    
    ![Captura de pantalla que muestra la ventana Agregar miembros para agregar un invitado](media/add-users-iw/access-panel-invitation.png)
    
@@ -75,43 +75,43 @@ Después de configurar una aplicación para el autoservicio, los propietarios de
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-La administración de autoservicio de aplicaciones requiere algo de configuración inicial por parte de un administrador global y un administrador de Azure AD. Como parte de esta configuración, deberá configurar la aplicación para el autoservicio y asignar un grupo a la aplicación que pueda administrar el propietario de la misma. También puede configurar el grupo para permitir que cualquier persona solicite la pertenencia, pero requiere la aprobación del propietario del grupo. (Más información acerca de la [administración de grupos de autoservicio](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)). 
+La administración de autoservicio de aplicaciones requiere algo de configuración inicial por parte de un administrador global y un administrador de Azure AD. Como parte de esta configuración, deberá configurar la aplicación para el autoservicio y asignar un grupo a la aplicación que pueda administrar el propietario de la misma. También puede configurar el grupo para permitir que cualquier persona solicite la pertenencia, pero requiere la aprobación del propietario del grupo. (Más información acerca de la [administración de grupos de autoservicio](../users-groups-roles/groups-self-service-management.md)). 
 
 > [!NOTE]
 > No puede agregar usuarios invitados a un grupo dinámico o a uno que se ha sincronizado con la instancia local de Active Directory.
 
 ### <a name="enable-self-service-group-management-for-your-tenant"></a>Habilite la administración de grupos de autoservicio para el inquilino
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global.
-2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. Seleccione **Grupos**.
-4. En **Configuración**, seleccione **General**.
-5. En **Administración de grupos de autoservicio**, junto a **Los propietarios pueden administrar solicitudes de pertenencia a grupos en el Panel de acceso**, seleccione **Sí**.
-6. Seleccione **Guardar**.
+2. En el panel de navegación, seleccione **Azure Active Directory** .
+3. Seleccione **Grupos** .
+4. En **Configuración** , seleccione **General** .
+5. En **Administración de grupos de autoservicio** , junto a **Los propietarios pueden administrar solicitudes de pertenencia a grupos en el Panel de acceso** , seleccione **Sí** .
+6. Seleccione **Guardar** .
 
 ### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Cree un grupo para asignar a la aplicación y hacer que el usuario sea un propietario
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global o administrador de Azure AD.
-2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. Seleccione **Grupos**.
-4. Seleccione **Nuevo grupo**.
-5. En **Tipo de grupo**, seleccione **Seguridad**.
-6. Escriba un **Nombre de grupo** y una **Descripción del grupo**.
-7. En **Tipo de pertenencia**, seleccione **Asignado**.
-8. Seleccione **Crear** y cierre la página **Grupo**.
-9. En la página **Grupos - Todos los grupos**, abra el grupo. 
-10. En **Administrar**, seleccione **Propietarios** > **Agregar propietarios**. Busque el usuario que debe administrar el acceso a la aplicación. Seleccione el usuario y luego haga clic en **Seleccionar**.
+2. En el panel de navegación, seleccione **Azure Active Directory** .
+3. Seleccione **Grupos** .
+4. Seleccione **Nuevo grupo** .
+5. En **Tipo de grupo** , seleccione **Seguridad** .
+6. Escriba un **Nombre de grupo** y una **Descripción del grupo** .
+7. En **Tipo de pertenencia** , seleccione **Asignado** .
+8. Seleccione **Crear** y cierre la página **Grupo** .
+9. En la página **Grupos - Todos los grupos** , abra el grupo. 
+10. En **Administrar** , seleccione **Propietarios** > **Agregar propietarios** . Busque el usuario que debe administrar el acceso a la aplicación. Seleccione el usuario y luego haga clic en **Seleccionar** .
 
 ### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>Configure la aplicación para el autoservicio y asigne el grupo a la aplicación
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador global o administrador de Azure AD.
-2. En el panel de navegación, seleccione **Azure Active Directory**.
-3. En **Administrar**, seleccione **Aplicaciones empresariales** > **Todas las aplicaciones**.
+2. En el panel de navegación, seleccione **Azure Active Directory** .
+3. En **Administrar** , seleccione **Aplicaciones empresariales** > **Todas las aplicaciones** .
 4. En la lista de aplicaciones, busque y abra la aplicación.
-5. En **Administrar**, seleccione **Inicio de sesión único** y configure la aplicación para el inicio de sesión único. (Para más información, consulte [Administración del inicio de sesión único para aplicaciones empresariales](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)).
-6. En **Administrar**, seleccione **Autoservicio** y configure el acceso a la aplicación de autoservicio. (Para más información, consulte [Uso del acceso de autoservicio a las aplicaciones](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)). 
+5. En **Administrar** , seleccione **Inicio de sesión único** y configure la aplicación para el inicio de sesión único. (Para más información, consulte [Administración del inicio de sesión único para aplicaciones empresariales](../manage-apps/add-application-portal-setup-sso.md)).
+6. En **Administrar** , seleccione **Autoservicio** y configure el acceso a la aplicación de autoservicio. (Para más información, consulte [Uso del acceso de autoservicio a las aplicaciones](../manage-apps/access-panel-manage-self-service-access.md)). 
 
     > [!NOTE]
     > En la opción **¿A qué grupo se deberían agregar los usuarios asignados?** seleccione el grupo que creó en la sección anterior.
-7. En **Administrar**, seleccione **Usuarios y grupos** y compruebe que el grupo de autoservicio que creó aparece en la lista.
-8. Para agregar la aplicación al panel de acceso del propietario del grupo, seleccione **Agregar usuario** > **Usuarios y grupos**. Busque al propietario del grupo y seleccione el usuario, haga clic en **Seleccionar** y luego haga clic en **Asignar** para agregar el usuario a la aplicación.
+7. En **Administrar** , seleccione **Usuarios y grupos** y compruebe que el grupo de autoservicio que creó aparece en la lista.
+8. Para agregar la aplicación al panel de acceso del propietario del grupo, seleccione **Agregar usuario** > **Usuarios y grupos** . Busque al propietario del grupo y seleccione el usuario, haga clic en **Seleccionar** y luego haga clic en **Asignar** para agregar el usuario a la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -120,4 +120,4 @@ Consulte los siguientes artículos sobre la colaboración de B2B de Azure AD:
 - [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [¿Cómo agregan los administradores de Azure Active Directory usuarios de colaboración B2B?](add-users-administrator.md)
 - [Canje de invitación de colaboración B2B](redemption-experience.md)
-- [Concesión de licencias de colaboración B2B de Azure AD](licensing-guidance.md)
+- [Precios de identidades externas](external-identities-pricing.md)

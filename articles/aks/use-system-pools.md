@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: 9c9479fca538c36f4f5eb430c4befb76e39370e6
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888958"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900023"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
-En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos*. Los grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. Los grupos de nodos del sistema y los grupos de nodos del usuario son dos modos de grupos de nodos diferentes para los clústeres de AKS. Los grupos de nodos del sistema tienen el propósito principal de hospedar los pods críticos del sistema, como `CoreDNS` y `metrics-server`. Los grupos de nodos de usuario tienen el propósito principal de hospedar los pods de aplicación. Sin embargo, se pueden programar pods de aplicación en grupos de nodos del sistema si quiere tener solo un grupo en el clúster de AKS. Cada clúster de AKS debe contener al menos un grupo de nodos del sistema con al menos un nodo.
+En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en *grupos de nodos* . Los grupos de nodos contienen las máquinas virtuales subyacentes que ejecutan las aplicaciones. Los grupos de nodos del sistema y los grupos de nodos del usuario son dos modos de grupos de nodos diferentes para los clústeres de AKS. Los grupos de nodos del sistema tienen el propósito principal de hospedar los pods críticos del sistema, como `CoreDNS` y `metrics-server`. Los grupos de nodos de usuario tienen el propósito principal de hospedar los pods de aplicación. Sin embargo, se pueden programar pods de aplicación en grupos de nodos del sistema si quiere tener solo un grupo en el clúster de AKS. Cada clúster de AKS debe contener al menos un grupo de nodos del sistema con al menos un nodo.
 
 > [!Important]
 > Si ejecuta un único grupo de nodos del sistema para el clúster de AKS en un entorno de producción, se recomienda usar al menos tres nodos para el grupo de nodos.
@@ -29,7 +29,7 @@ En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en 
 Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten grupos de nodos del sistema.
 
 * Consulte [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* El clúster de AKS debe compilarse con conjuntos de escalado de máquinas virtuales como tipo de máquina virtual y el equilibrador de carga de SKU *estándar*.
+* El clúster de AKS debe compilarse con conjuntos de escalado de máquinas virtuales como tipo de máquina virtual y el equilibrador de carga de SKU *estándar* .
 * El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. En el caso de los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
 * Se debe usar una versión de API de 2020-03-01 o superior para establecer un modo de grupo de nodos. Los clústeres creados con versiones de API anteriores a la 2020-03-01 solo contienen grupos de nodos de usuario, pero se pueden migrar para que contengan grupos de nodos del sistema si sigue las [instrucciones del actualización del modo de grupo](#update-existing-cluster-system-and-user-node-pools).
 * El modo de un grupo de nodos es una propiedad obligatoria y se debe establecer explícitamente cuando se usan plantillas de Resource Manager o llamadas API directas.
@@ -62,7 +62,7 @@ Puede hacer las siguientes operaciones con los grupos de nodos:
 
 Cuando crea un nuevo clúster de AKS, crea automáticamente un grupo de nodos del sistema con un único nodo. De forma predeterminada, el grupo de nodos inicial es del tipo sistema. Cuando crea nuevos grupos de nodos con `az aks nodepool add`, estos serán grupos de nodos del usuario a menos que especifique explícitamente lo contrario en el parámetro de modo.
 
-En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*.
+En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -193,7 +193,7 @@ En este artículo ha aprendido a crear y administrar grupos de nodos del sistema
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
-[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
+[aks-taints]: use-multiple-node-pools.md#setting-nodepool-taints
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create

@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b90f86576928e44e00c548f4f3ad3c22c27b8bb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 235efc550fd47d4244a5bf081c75d5e824a8e4b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829442"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793439"
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,18 +32,18 @@ Los certificados se configuran de dos maneras.
 
 ## <a name="to-obtain-certificates"></a>Obtención de certificados
 
-Los certificados se pueden obtener de Entidades de certificación (CA) públicas o desde el [Servicio de certificados de Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Estos son los métodos preferidos para obtener certificados.
+Los certificados se pueden obtener de Entidades de certificación (CA) públicas o desde el [Servicio de certificados de Windows](/windows/win32/seccrypto/certificate-services). Estos son los métodos preferidos para obtener certificados.
 
-Si esas opciones no están disponibles, puede generar **certificados autofirmados**.
+Si esas opciones no están disponibles, puede generar **certificados autofirmados** .
 
 ## <a name="tools-to-generate-certificates"></a>Herramientas para generar certificados
 
-* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](/previous-versions/dotnet/netframework-4.0/bfsktky3(v=vs.100))
+* [pvk2pfx.exe](/windows-hardware/drivers/devtest/pvk2pfx)
 
 ### <a name="to-run-the-tools"></a>Ejecución de las herramientas
 
-* Desde el Símbolo del sistema para desarrolladores de Visual Studio, consulte [Símbolo del sistema de Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) 
+* Desde el Símbolo del sistema para desarrolladores de Visual Studio, consulte [Símbolo del sistema de Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs) 
   
     Si está instalado, vaya a:
   
@@ -124,7 +124,7 @@ La configuración predeterminada deniega todo acceso al extremo HTTP. Esta es la
 La configuración predeterminada permite todo acceso al extremo HTTPS. Esta configuración puede ser aún más restrictiva.
 
 ### <a name="changing-the-configuration"></a>Cambio de la configuración
-El grupo de reglas de control de acceso que se aplican a un extremo se configuran en la sección **\<EndpointAcls>** del **archivo de configuración de servicio**.
+El grupo de reglas de control de acceso que se aplican a un extremo se configuran en la sección **\<EndpointAcls>** del **archivo de configuración de servicio** .
 
 ```xml
 <EndpointAcls>
@@ -441,31 +441,31 @@ Siga estos pasos:
 
 1. Ejecute mmc.exe.
 2. Archivo -> Agregar o quitar complemento…
-3. Seleccione **Certificados**.
-4. Haga clic en **Agregar**.
+3. Seleccione **Certificados** .
+4. Haga clic en **Agregar** .
 5. Elija la ubicación del almacén de certificados.
 6. Haga clic en **Finalizar**
-7. Haga clic en **OK**.
-8. Expanda **Certificados**.
+7. Haga clic en **OK** .
+8. Expanda **Certificados** .
 9. Expanda el nodo del almacén de certificados.
 10. Expanda el nodo secundario Certificado.
 11. Seleccione un certificado en la lista.
 
 ## <a name="export-certificate"></a>Exportación de certificado
-En el **asistente para exportar certificados**:
+En el **asistente para exportar certificados** :
 
-1. Haga clic en **Next**.
-2. Seleccione **Sí** y **Exportar la clave privada**.
-3. Haga clic en **Next**.
+1. Haga clic en **Next** .
+2. Seleccione **Sí** y **Exportar la clave privada** .
+3. Haga clic en **Next** .
 4. Seleccione el formato deseado del archivo de salida.
 5. Marque las opciones deseadas.
-6. Marque **Contraseña**.
+6. Marque **Contraseña** .
 7. Escriba una contraseña segura y confírmela.
-8. Haga clic en **Next**.
+8. Haga clic en **Next** .
 9. Escriba o busque un nombre de archivo donde almacenar el certificado (use una extensión .PFX).
-10. Haga clic en **Next**.
+10. Haga clic en **Next** .
 11. Haga clic en **Finalizar**
-12. Haga clic en **OK**.
+12. Haga clic en **OK** .
 
 ## <a name="import-certificate"></a>Importación de certificado
 En el asistente para importar certificados:
@@ -474,26 +474,26 @@ En el asistente para importar certificados:
    
    * Seleccione **Usuario actual** , si solo los procesos en ejecución bajo el usuario actual tendrán acceso al servicio
    * Seleccione **Máquina local** , si otros procesos de este equipo tendrán acceso al servicio
-2. Haga clic en **Next**.
+2. Haga clic en **Next** .
 3. Si se importa desde un archivo, confirme la ruta del archivo.
 4. Si se importa un archivo .PFX:
    1. Escriba la contraseña para proteger la clave privada
    2. Seleccione las opciones de importación
 5. Seleccione "Colocar" certificados en el siguiente almacén
-6. Haga clic en **Examinar**.
+6. Haga clic en **Examinar** .
 7. Seleccione el almacén deseado.
 8. Haga clic en **Finalizar**
    
-   * Si se eligió el almacén de Entidad de certificación raíz de confianza, haga clic en **Sí**.
+   * Si se eligió el almacén de Entidad de certificación raíz de confianza, haga clic en **Sí** .
 9. Haga clic en **Aceptar** en todas las ventanas de diálogo.
 
 ## <a name="upload-certificate"></a>Carga del certificado
 En [Azure Portal](https://portal.azure.com/)
 
-1. Seleccione **Cloud Services**.
+1. Seleccione **Cloud Services** .
 2. Seleccione el servicio en la nube.
-3. Haga clic en **Certificados**en el menú superior.
-4. En la barra inferior, haga clic en **Cargar**.
+3. Haga clic en **Certificados** en el menú superior.
+4. En la barra inferior, haga clic en **Cargar** .
 5. Seleccione el archivo de certificado.
 6. Si es un archivo .PFX, escriba la contraseña de la clave privada.
 7. Una vez realizado, copie la huella digital del certificado desde la entrada nueva en la lista.
@@ -508,4 +508,3 @@ La configuración TLS descrita en este documento cifra la comunicación entre el
 Las credenciales almacenadas en esta base de datos están cifradas. Sin embargo, como práctica recomendada, asegúrese de que los roles de web y de trabajo de sus implementaciones de servicio se mantienen actualizados y seguros, a medida que ambos tienen acceso a la base de datos de metadatos y el certificado usado para el cifrado y descifrado de credenciales almacenadas. 
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
-

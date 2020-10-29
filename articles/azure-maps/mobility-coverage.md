@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: d61cc94ee1b3c5d23135c033b1068aa7411761d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12548b04e5fb967572e17f1be88369b9950661c3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033264"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896300"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Cobertura de movilidad en Azure Maps
 
-El [servicio Mobility](https://aka.ms/AzureMapsMobilityService) de Azure Maps mejora el tiempo de desarrollo de las aplicaciones con características de transporte público, como las rutas del transporte y la búsqueda de paradas de transporte público cercanas. Los usuarios pueden recuperar información detallada sobre las paradas del transporte, las líneas y los horarios. El servicio Mobility también permite a los usuarios recuperar las geometrías de las paradas y las líneas, las alertas de las paradas, las líneas y las áreas de servicio, así como las llegadas de transporte público en tiempo real y las alertas del servicio. Además, Mobility Service proporciona funcionalidades de cálculo de ruta con opciones de planeamiento de trayectos mixtos. El planeamiento de trayectos mixtos incluye caminar, bicicleta y transporte público en el mismo viaje. Los usuarios pueden acceder a itinerarios paso a paso detallados y mixtos. 
+El [servicio Mobility](/rest/api/maps/mobility) de Azure Maps mejora el tiempo de desarrollo de las aplicaciones con características de transporte público, como las rutas del transporte y la búsqueda de paradas de transporte público cercanas. Los usuarios pueden recuperar información detallada sobre las paradas del transporte, las líneas y los horarios. El servicio Mobility también permite a los usuarios recuperar las geometrías de las paradas y las líneas, las alertas de las paradas, las líneas y las áreas de servicio, así como las llegadas de transporte público en tiempo real y las alertas del servicio. Además, Mobility Service proporciona funcionalidades de cálculo de ruta con opciones de planeamiento de trayectos mixtos. El planeamiento de trayectos mixtos incluye caminar, bicicleta y transporte público en el mismo viaje. Los usuarios pueden acceder a itinerarios paso a paso detallados y mixtos. 
 
 Azure Maps no ofrece el mismo nivel de información y precisión en todas las ciudades ni en todas las regiones o países. La capacidad para llamar a los datos de transporte depende del área metropolitana. Además, es posible que los datos no incluyan todas las opciones de transporte público ni todas las empresas que prestan servicio al área metropolitana.
 
@@ -159,4 +159,4 @@ Aprenda a solicitar datos en tiempo real mediante Mobility Service:
 Explore la documentación de la API Mobility Service de Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Documentación de Mobility Service API](https://aka.ms/AzureMapsMobilityService)
+> [Documentación de Mobility Service API](/rest/api/maps/mobility)

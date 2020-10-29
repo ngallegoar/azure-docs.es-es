@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80d61e69b5e8d666406c378c2d3fece28c822491
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371429"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896786"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Uso de Creator para crear planos interiores
 
@@ -44,11 +44,11 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
 
 ## <a name="upload-a-drawing-package"></a>Carga de un paquete de dibujo
 
-Use [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para cargar un paquete de dibujo a los recursos de Azure Maps.
+Use [Data Upload API](/rest/api/maps/data/uploadpreview) para cargar un paquete de dibujo a los recursos de Azure Maps.
 
 Data Upload API es una transacción de larga duración que implementa el patrón que se define aquí. Una vez completada la operación, usaremos el valor `udid` para obtener acceso al paquete cargado y poder convertirlo. Para ello, siga estos pasos para obtener el valor `udid`.
 
-1. Abra la aplicación Postman. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
+1. Abra la aplicación Postman. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
 
 2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
 
@@ -58,7 +58,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-4. En la pestaña de **encabezados**, especifique un valor para la clave `Content-Type`. El paquete de dibujo es una carpeta comprimida, por lo que debe usar el valor `application/octet-stream`. En la pestaña **Body** (Cuerpo), seleccione **binary** (binario). Haga clic en **Select File** (Seleccionar archivo) y elija un paquete de dibujo.
+4. En la pestaña de **encabezados** , especifique un valor para la clave `Content-Type`. El paquete de dibujo es una carpeta comprimida, por lo que debe usar el valor `application/octet-stream`. En la pestaña **Body** (Cuerpo), seleccione **binary** (binario). Haga clic en **Select File** (Seleccionar archivo) y elija un paquete de dibujo.
 
      ![administración de datos](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
@@ -102,7 +102,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 
  Cuando se haya cargado el paquete de dibujo, usaremos `udid` en el paquete cargado con el fin de convertirlo en datos de plano. Conversion API usa una transacción de larga duración que implementa el patrón que se define [aquí](creator-long-running-operation.md). Una vez completada la operación, usaremos el valor `conversionId` para obtener acceso los datos convertidos. Siga estos pasos para obtener el valor `conversionId`.
 
-1. Seleccione **Nuevo**. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Save**(Guardar).
+1. Seleccione **Nuevo** . En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Save** (Guardar).
 
 2. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para convertir el paquete de dibujo cargado en los datos del plano. Use el valor `udid` en el paquete cargado.
 
@@ -164,11 +164,11 @@ Tenga en cuenta que el paquete de dibujo de ejemplo debe convertirse sin errores
 
 ## <a name="create-a-dataset"></a>Crear un conjunto de datos
 
-Un conjunto de datos es una colección de características de plano, como edificios, niveles y salones. Para crear un conjunto de datos, use [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview). Dataset Create API toma el valor `conversionId` del paquete de dibujo convertido y devuelve un valor `datasetId` del conjunto de datos creado. En los pasos siguientes se muestra cómo crear un conjunto de datos.
+Un conjunto de datos es una colección de características de plano, como edificios, niveles y salones. Para crear un conjunto de datos, use [Dataset Create API](/rest/api/maps/dataset/createpreview). Dataset Create API toma el valor `conversionId` del paquete de dibujo convertido y devuelve un valor `datasetId` del conjunto de datos creado. En los pasos siguientes se muestra cómo crear un conjunto de datos.
 
-1. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
 
-2. Realice una solicitud **POST** a [Dataset Create API](https://docs.microsoft.com/rest/api/maps/dataset/createpreview) para crear un nuevo conjunto de datos. Antes de enviar la solicitud, anexe la clave de suscripción y el valor `conversionId` con el valor `conversionId` obtenidos durante el proceso de conversión en el paso 5.  La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+2. Realice una solicitud **POST** a [Dataset Create API](/rest/api/maps/dataset/createpreview) para crear un nuevo conjunto de datos. Antes de enviar la solicitud, anexe la clave de suscripción y el valor `conversionId` con el valor `conversionId` obtenidos durante el proceso de conversión en el paso 5.  La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
     ```http
     https://atlas.microsoft.com/dataset/create?api-version=1.0&conversionID={conversionId}&type=facility&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -197,7 +197,7 @@ Un conjunto de datos es una colección de características de plano, como edific
 
 Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representan en el plano. Los conjuntos de mosaicos se crean a partir de conjuntos de datos existentes. Sin embargo, un conjunto de mosaicos es independiente del conjunto de datos del que se creó. Si se elimina el conjunto de datos, el conjunto de mosaicos seguirá existiendo. Siga estos pasos para crear un conjunto de mosaicos:
 
-1. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
 
 2. Realice una solicitud **POST** en la pestaña del generador. La dirección URL de la solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
@@ -224,9 +224,9 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 
 ## <a name="query-datasets-with-wfs-api"></a>Consulta de conjuntos de datos con la API de WFS
 
- Los conjuntos de datos se pueden consultar mediante la [API de WFS](https://docs.microsoft.com/rest/api/maps/wfs). Con la API de WFS puede consultar colecciones de características, una colección específica o una característica específica con un **id.** de característica. El **id.** de característica identifica de forma única la característica en el conjunto de datos. Se usa, por ejemplo, para identificar qué estado de la característica debe actualizarse en un conjunto de estados determinado.
+ Los conjuntos de datos se pueden consultar mediante la [API de WFS](/rest/api/maps/wfs). Con la API de WFS puede consultar colecciones de características, una colección específica o una característica específica con un **id.** de característica. El **id.** de característica identifica de forma única la característica en el conjunto de datos. Se usa, por ejemplo, para identificar qué estado de la característica debe actualizarse en un conjunto de estados determinado.
 
-1. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
 
 2. Cree una solicitud **GET** para ver una lista de las colecciones del conjunto de datos. Reemplace `<dataset-id>` con `datasetId`. Use la clave principal de Azure Maps en lugar del marcador de posición. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
@@ -234,7 +234,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. El cuerpo de la respuesta se entregará en formato GeoJSON y contendrá todas las colecciones del conjunto de datos. Para simplificar, en este ejemplo solo se muestra la colección de `unit`. Para ver un ejemplo que contenga todas las colecciones, consulte [Describe Collections API de WFS](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Para obtener más información sobre cualquier colección, puede hacer clic en cualquiera de las direcciones URL del elemento `link`.
+3. El cuerpo de la respuesta se entregará en formato GeoJSON y contendrá todas las colecciones del conjunto de datos. Para simplificar, en este ejemplo solo se muestra la colección de `unit`. Para ver un ejemplo que contenga todas las colecciones, consulte [Describe Collections API de WFS](/rest/api/maps/wfs/collectiondescriptionpreview). Para obtener más información sobre cualquier colección, puede hacer clic en cualquiera de las direcciones URL del elemento `link`.
 
     ```json
     {
@@ -302,15 +302,15 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 
 ## <a name="create-a-feature-stateset"></a>Creación de un conjunto de estados de características
 
-1. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
+1. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un **nombre de solicitud** y seleccione una colección. Haga clic en **Guardar**
 
-2. Realice una solicitud **POST** en [Create Stateset API](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Use el `datasetId` del conjunto de datos que contiene el estado que quiere modificar. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
+2. Realice una solicitud **POST** en [Create Stateset API](/rest/api/maps/featurestate/createstatesetpreview). Use el `datasetId` del conjunto de datos que contiene el estado que quiere modificar. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **cuerpo**, proporcione los siguientes estilos para reflejar los cambios en los *estados* `occupied` y `temperature`. Cuando haya terminado, haga clic en **Send** (Enviar).
+3. En el **encabezado** de la solicitud **POST** , establezca `Content-Type` en `application/json`. En el **cuerpo** , proporcione los siguientes estilos para reflejar los cambios en los *estados* `occupied` y `temperature`. Cuando haya terminado, haga clic en **Send** (Enviar).
 
     ```json
     {
@@ -383,7 +383,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID={featureId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-6. En el **encabezado** de la solicitud **POST**, establezca `Content-Type` en `application/json`. En el **CUERPO** de la solicitud **POST**, copie y pegue el archivo JSON del ejemplo siguiente.
+6. En el **encabezado** de la solicitud **POST** , establezca `Content-Type` en `application/json`. En el **CUERPO** de la solicitud **POST** , copie y pegue el archivo JSON del ejemplo siguiente.
 
     ```json
     {
@@ -402,7 +402,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 
 7. Tras una actualización correcta, recibirá un código de estado HTTP `200 OK`. Si tiene un [estilo dinámico implementado](indoor-map-dynamic-styling.md) en un plano interior, la actualización se mostrará en el plano representado en la marca de tiempo especificada.
 
-[Feature Get States API](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) permite recuperar el estado de una característica mediante el `ID` de la característica. También puede eliminar el conjunto de estados y sus recursos mediante [Feature State Delete API](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview).
+[Feature Get States API](/rest/api/maps/featurestate/getstatespreview) permite recuperar el estado de una característica mediante el `ID` de la característica. También puede eliminar el conjunto de estados y sus recursos mediante [Feature State Delete API](/rest/api/maps/featurestate/deletestatesetpreview).
 
 Para obtener más información sobre los diferentes servicios de Azure Maps Creator que se describen en este artículo, consulte [Mapas de interiores de Creator](creator-indoor-maps.md).
 

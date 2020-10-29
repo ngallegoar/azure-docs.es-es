@@ -5,12 +5,12 @@ description: Aprenda a crear un volumen persistente de forma dinámica con Azure
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 515994f07e524685df014a784309cd692a9491b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad252118a56402386691d1cdf7d975ef69ec45ad
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299276"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900451"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service (AKS)
 
@@ -22,25 +22,25 @@ Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-a-storage-class"></a>Creación de una clase de almacenamiento
 
-Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de archivos de Azure. En el [grupo de recursos node][node-resource-group], se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento donde van a guardarse los recursos compartidos de archivos de Azure. Seleccione una de las siguientes [redundancias de Azure Storage][storage-skus] para *skuName*:
+Una clase de almacenamiento se utiliza para definir cómo se crea un recurso compartido de archivos de Azure. En el [grupo de recursos node][node-resource-group], se crea automáticamente una cuenta de almacenamiento para utilizarla con la clase de almacenamiento donde van a guardarse los recursos compartidos de archivos de Azure. Seleccione una de las siguientes [redundancias de Azure Storage][storage-skus] para *skuName* :
 
-* *Standard_LRS*: almacenamiento estándar con redundancia local (LRS)
-* *Standard_GRS*: almacenamiento estándar con redundancia geográfica (GRS)
-* *Standard_ZRS*: almacenamiento estándar con redundancia de zona (ZRS)
-* *Standard_RAGRS*: almacenamiento estándar con redundancia geográfica con acceso de lectura (RA-GRS)
-* *Premium_LRS*: almacenamiento con redundancia local premium (LRS)
-* *Premium_ZRS*: almacenamiento con redundancia de zona premium (ZRS)
+* *Standard_LRS* : almacenamiento estándar con redundancia local (LRS)
+* *Standard_GRS* : almacenamiento estándar con redundancia geográfica (GRS)
+* *Standard_ZRS* : almacenamiento estándar con redundancia de zona (ZRS)
+* *Standard_RAGRS* : almacenamiento estándar con redundancia geográfica con acceso de lectura (RA-GRS)
+* *Premium_LRS* : almacenamiento con redundancia local premium (LRS)
+* *Premium_ZRS* : almacenamiento con redundancia de zona premium (ZRS)
 
 > [!NOTE]
 > Azure Files admite el almacenamiento premium en clústeres de AKS que ejecutan Kubernetes 1.13 o versiones posteriores. El uso compartido de archivos premium mínimo es de 100 GB.
 
 Para más información sobre las clases de almacenamiento de Kubernetes para Azure Files, consulte las [clases de almacenamiento de Kubernetes][kubernetes-storage-classes].
 
-Cree un archivo denominado `azure-file-sc.yaml` y cópielo en el ejemplo siguiente de manifiesto. Para más información sobre *mountOptions*, consulte la sección [Opciones de montaje][mount-options].
+Cree un archivo denominado `azure-file-sc.yaml` y cópielo en el ejemplo siguiente de manifiesto. Para más información sobre *mountOptions* , consulte la sección [Opciones de montaje][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -67,7 +67,7 @@ kubectl apply -f azure-file-sc.yaml
 
 ## <a name="create-a-persistent-volume-claim"></a>Creación de una notificación de volumen persistente
 
-Una notificación de volumen persistente (PVC) usa el objeto de clase de almacenamiento para aprovisionar de forma dinámica un recurso compartido de archivos de Azure. El siguiente código de YAML puede utilizarse para crear una notificación de volumen persistente con un tamaño de *5 GB* y con acceso *ReadWriteMany*. Para más información sobre los modos de acceso, consulte la documentación sobre [volúmenes persistentes de Kubernetes][access-modes].
+Una notificación de volumen persistente (PVC) usa el objeto de clase de almacenamiento para aprovisionar de forma dinámica un recurso compartido de archivos de Azure. El siguiente código de YAML puede utilizarse para crear una notificación de volumen persistente con un tamaño de *5 GB* y con acceso *ReadWriteMany* . Para más información sobre los modos de acceso, consulte la documentación sobre [volúmenes persistentes de Kubernetes][access-modes].
 
 Ahora cree un archivo denominado `azure-file-pvc.yaml` y cópielo en el siguiente código YAML. Asegúrese de que *storageClassName* coincide con la clase de almacenamiento creada en el último paso:
 
@@ -86,7 +86,7 @@ spec:
 ```
 
 > [!NOTE]
-> Si usa la SKU *Premium_LRS* para la clase de almacenamiento, el valor mínimo de *storage* debe ser *100Gi*.
+> Si usa la SKU *Premium_LRS* para la clase de almacenamiento, el valor mínimo de *storage* debe ser *100Gi* .
 
 Cree la notificación del volumen persistente con el comando [kubectl apply][kubectl-apply]:
 
@@ -105,7 +105,7 @@ my-azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        R
 
 ## <a name="use-the-persistent-volume"></a>Uso del volumen persistente
 
-El siguiente código de YAML crea un pod que utiliza la notificación de volumen persistente *my-azurefile* para montar el recurso compartido de archivos de Azure en la ruta de acceso */mnt/azure*. En el caso de los contenedores de Windows Server, especifique un elemento *mountPath* con la convención de ruta de acceso de Windows, como *"D:"* .
+El siguiente código de YAML crea un pod que utiliza la notificación de volumen persistente *my-azurefile* para montar el recurso compartido de archivos de Azure en la ruta de acceso */mnt/azure* . En el caso de los contenedores de Windows Server, especifique un elemento *mountPath* con la convención de ruta de acceso de Windows, como *"D:"* .
 
 Cree un archivo denominado `azure-pvc-files.yaml` y cópielo en el siguiente código YAML. Asegúrese de que *claimName* coincide con la clase PVC creada en el último paso.
 
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -140,7 +140,7 @@ Cree el pod con el comando [kubectl apply][kubectl-apply].
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Ahora tiene un pod en ejecución con el recurso compartido de Azure Files montado en el directorio */mnt/azure*. Esta configuración puede verse al examinar el pod mediante `kubectl describe pod mypod`. La siguiente salida de ejemplo condensada muestra el volumen montado en el contenedor:
+Ahora tiene un pod en ejecución con el recurso compartido de Azure Files montado en el directorio */mnt/azure* . Esta configuración puede verse al examinar el pod mediante `kubectl describe pod mypod`. La siguiente salida de ejemplo condensada muestra el volumen montado en el contenedor:
 
 ```
 Containers:
@@ -165,7 +165,7 @@ Volumes:
 
 ## <a name="mount-options"></a>Opciones de montaje
 
-El valor predeterminado de *fileMode* y *dirMode* es *0777* para Kubernetes 1.13.0 y versiones posteriores. Si crea dinámicamente el volumen persistente con una clase de almacenamiento, las opciones de montaje se pueden especificar en el objeto de la clase de almacenamiento. En el ejemplo siguiente se establece *0777*:
+El valor predeterminado de *fileMode* y *dirMode* es *0777* para Kubernetes 1.13.0 y versiones posteriores. Si crea dinámicamente el volumen persistente con una clase de almacenamiento, las opciones de montaje se pueden especificar en el objeto de la clase de almacenamiento. En el ejemplo siguiente se establece *0777* :
 
 ```yaml
 kind: StorageClass

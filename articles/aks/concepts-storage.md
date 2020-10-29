@@ -4,12 +4,12 @@ description: Obtenga información sobre el almacenamiento en Azure Kubernetes Se
 services: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ed38625703397c9ba5021e84cd3118f30fa83c7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421159"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900933"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de almacenamiento de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -30,14 +30,14 @@ A menudo, las aplicaciones necesitan poder almacenar y recuperar datos. Dado que
 
 Los volúmenes tradicionales para almacenar y recuperar datos se crean como recursos de Kubernetes respaldados por Azure Storage. Puede crear manualmente estos volúmenes de datos para que se asignen directamente a los pods, o hacer que Kubernetes los cree automáticamente. Estos volúmenes de datos pueden utilizar Azure Disks o Azure Files:
 
-- *Azure Disks* puede usarse para crear un recurso *DataDisk* de Kubernetes. Azure Disks puede usar almacenamiento Premium de Azure, respaldado por SSD de alto rendimiento, o bien almacenamiento estándar de Azure, respaldado por unidades de disco duro normales. Para la mayoría de las cargas de trabajo de producción y desarrollo, utilice el almacenamiento Premium. Los discos de Azure Disks se montan como *ReadWriteOnce*, por lo que solo están disponibles para un único pod. Para los volúmenes de almacenamiento a los que pueden acceder varios pods simultáneamente, use Azure Files.
+- *Azure Disks* puede usarse para crear un recurso *DataDisk* de Kubernetes. Azure Disks puede usar almacenamiento Premium de Azure, respaldado por SSD de alto rendimiento, o bien almacenamiento estándar de Azure, respaldado por unidades de disco duro normales. Para la mayoría de las cargas de trabajo de producción y desarrollo, utilice el almacenamiento Premium. Los discos de Azure Disks se montan como *ReadWriteOnce* , por lo que solo están disponibles para un único pod. Para los volúmenes de almacenamiento a los que pueden acceder varios pods simultáneamente, use Azure Files.
 - *Azure Files* se puede usar para montar un recurso compartido de SMB 3.0 respaldado por una cuenta de Azure Storage en los pods. Azure Files permite compartir datos entre varios nodos y pods. Los archivos pueden usar almacenamiento Standard de Azure, respaldado por HDD normales o almacenamiento Premium de Azure respaldado por SSD de alto rendimiento.
 
 En Kubernetes, los volúmenes pueden representar más que un disco tradicional donde se puede almacenar y recuperar información. Los volúmenes de Kubernetes pueden utilizarse también como una forma de insertar datos en un pod para su uso en contenedores. Algunos tipos de volumen adicional comunes de Kubernetes son:
 
-- *emptyDir*: este volumen se suele utilizar como espacio temporal para un pod. Todos los contenedores dentro de un pod pueden acceder a los datos del volumen. Los datos escritos en este tipo de volumen se conservan únicamente para la duración del pod (cuando se elimina el pod, se elimina el volumen). Este volumen suele usar el almacenamiento en disco del nodo local subyacente, aunque también puede existir solo en la memoria del nodo.
-- *secreto*: este volumen se usa para insertar datos confidenciales en pods, como contraseñas. En primer lugar, cree un secreto mediante la API de Kubernetes. Al definir el pod o la implementación, puede solicitar un secreto específico. Los secretos solo se proporcionan a los nodos que tienen un pod programado que lo requiere. El secreto se almacena en el sistema *tmpfs*, no se escribe en el disco. Cuando se elimina el último pod en un nodo que requiere un secreto, el secreto se elimina del sistema tmpfs del nodo. Los secretos se almacenan en un espacio de nombres determinado y solo son accesibles para los pods del mismo espacio de nombres.
-- *configMap*: este tipo de volumen se usa para insertar las propiedades de pares clave-valor en pods, como la información de configuración de la aplicación. En lugar de definir la información de configuración de la aplicación dentro de una imagen de contenedor, puede definirla como un recurso de Kubernetes que se pueda actualizar fácilmente y aplicarse a las nuevas instancias de pods a medida que se implementan. Al igual que con un secreto, primero se crea el volumen ConfigMap mediante la API de Kubernetes. Posteriormente, el volumen ConfigMap se puede solicitar al definir un pod o una implementación. Los volúmenes ConfigMap se almacenan en un espacio de nombres determinado y solo son accesibles para los pods del mismo espacio de nombres.
+- *emptyDir* : este volumen se suele utilizar como espacio temporal para un pod. Todos los contenedores dentro de un pod pueden acceder a los datos del volumen. Los datos escritos en este tipo de volumen se conservan únicamente para la duración del pod (cuando se elimina el pod, se elimina el volumen). Este volumen suele usar el almacenamiento en disco del nodo local subyacente, aunque también puede existir solo en la memoria del nodo.
+- *secreto* : este volumen se usa para insertar datos confidenciales en pods, como contraseñas. En primer lugar, cree un secreto mediante la API de Kubernetes. Al definir el pod o la implementación, puede solicitar un secreto específico. Los secretos solo se proporcionan a los nodos que tienen un pod programado que lo requiere. El secreto se almacena en el sistema *tmpfs* , no se escribe en el disco. Cuando se elimina el último pod en un nodo que requiere un secreto, el secreto se elimina del sistema tmpfs del nodo. Los secretos se almacenan en un espacio de nombres determinado y solo son accesibles para los pods del mismo espacio de nombres.
+- *configMap* : este tipo de volumen se usa para insertar las propiedades de pares clave-valor en pods, como la información de configuración de la aplicación. En lugar de definir la información de configuración de la aplicación dentro de una imagen de contenedor, puede definirla como un recurso de Kubernetes que se pueda actualizar fácilmente y aplicarse a las nuevas instancias de pods a medida que se implementan. Al igual que con un secreto, primero se crea el volumen ConfigMap mediante la API de Kubernetes. Posteriormente, el volumen ConfigMap se puede solicitar al definir un pod o una implementación. Los volúmenes ConfigMap se almacenan en un espacio de nombres determinado y solo son accesibles para los pods del mismo espacio de nombres.
 
 ## <a name="persistent-volumes"></a>Volúmenes persistentes
 
@@ -51,7 +51,7 @@ Un volumen PersistentVolume puede crearlo *de forma estática* un administrador 
 
 ## <a name="storage-classes"></a>Clases de almacenamiento
 
-Para definir niveles de almacenamiento diferentes, como Premium y Estándar, puede crear una clase *StorageClass*. La clase StorageClass también define la directiva *reclaimPolicy*. Esta directiva reclaimPolicy controla el comportamiento del recurso de almacenamiento subyacente de Azure cuando se elimina el pod y el volumen persistente puede dejar de ser necesario. El recurso de almacenamiento subyacente se puede eliminar o conservar para su uso con un pod futuro.
+Para definir niveles de almacenamiento diferentes, como Premium y Estándar, puede crear una clase *StorageClass* . La clase StorageClass también define la directiva *reclaimPolicy* . Esta directiva reclaimPolicy controla el comportamiento del recurso de almacenamiento subyacente de Azure cuando se elimina el pod y el volumen persistente puede dejar de ser necesario. El recurso de almacenamiento subyacente se puede eliminar o conservar para su uso con un pod futuro.
 
 En AKS, se crean cuatro `StorageClasses` iniciales para el clúster mediante los complementos de almacenamiento en árbol:
 
@@ -107,7 +107,7 @@ spec:
       storage: 5Gi
 ```
 
-Cuando se crea una definición de pod, se especifica la notificación de volumen persistente para solicitar el almacenamiento deseado. A continuación, se especifica el campo *volumeMount* para que sus aplicaciones lean y escriban datos. El siguiente manifiesto YAML de ejemplo muestra cómo se puede usar la notificación de volumen persistente anterior para montar un volumen en */mnt/azure*:
+Cuando se crea una definición de pod, se especifica la notificación de volumen persistente para solicitar el almacenamiento deseado. A continuación, se especifica el campo *volumeMount* para que sus aplicaciones lean y escriban datos. El siguiente manifiesto YAML de ejemplo muestra cómo se puede usar la notificación de volumen persistente anterior para montar un volumen en */mnt/azure* :
 
 ```yaml
 kind: Pod
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume

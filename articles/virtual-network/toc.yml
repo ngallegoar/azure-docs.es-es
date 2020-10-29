@@ -112,7 +112,7 @@
         - name: Directivas de red de Kubernetes
           href: kubernetes-network-policies.md
         - name: Protección contra DDOS
-          href: ddos-protection-overview.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
         - name: TAP de red virtual
           href: virtual-network-tap-overview.md
         - name: Controles de seguridad de Azure Policy
@@ -146,7 +146,7 @@
       items:
         - name: Enrutado del tráfico de red
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: tutorial-create-route-table-portal.md
             - name: Azure PowerShell
               href: tutorial-create-route-table-powershell.md
@@ -248,7 +248,7 @@
               items:
                 - name: Creación de una dirección IP pública
                   items:
-                    - name: Azure portal
+                    - name: Azure Portal
                       href: routing-preference-portal.md
                     - name: Azure PowerShell
                       href: routing-preference-powershell.md
@@ -256,7 +256,7 @@
                       href: routing-preference-cli.md
                 - name: Configuración de una máquina virtual con preferencia de enrutamiento de Internet
                   items:
-                    - name: Azure portal
+                    - name: Azure Portal
                       href: tutorial-routing-preference-virtual-machine-portal.md
                     - name: Azure PowerShell
                       href: configure-routing-preference-virtual-machine-powershell.md
@@ -266,7 +266,7 @@
       items:
         - name: Filtrado del tráfico de red
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: tutorial-filter-network-traffic.md
             - name: Azure PowerShell
               href: tutorial-filter-network-traffic-powershell.md
@@ -276,7 +276,7 @@
           items:
             - name: Uso de puntos de conexión privados
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: ../private-link/create-private-endpoint-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Azure PowerShell
                   href: ../private-link/create-private-endpoint-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json
@@ -284,7 +284,7 @@
                   href: ../private-link/create-private-endpoint-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json
             - name: Uso de puntos de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: tutorial-restrict-network-access-to-resources.md
                 - name: Azure PowerShell
                   href: tutorial-restrict-network-access-to-resources-powershell.md
@@ -292,16 +292,16 @@
                   href: tutorial-restrict-network-access-to-resources-cli.md
             - name: Uso de directivas de punto de conexión de servicio
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: virtual-network-service-endpoint-policies-portal.md
                 - name: Azure PowerShell
                   href: virtual-network-service-endpoint-policies-powershell.md
                 - name: Azure CLI
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: Administración de protección contra DDoS
-          href: manage-ddos-protection.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
         - name: Incorporación de asociados a DDoS Protection Standard
-          href: ddos-protection-partner-onboarding.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
         - name: Administración de grupos de seguridad de red
           href: manage-network-security-group.md
         - name: Escenarios de seguridad
@@ -314,7 +314,7 @@
       items:
         - name: 'Creación de una máquina virtual: IP pública estática'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-network-deploy-static-pip-arm-portal.md
             - name: Azure PowerShell
               href: virtual-network-deploy-static-pip-arm-ps.md
@@ -326,7 +326,7 @@
               href: remove-public-ip-address-vm.md
         - name: 'Creación de una máquina virtual: IP privada estática'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-networks-static-private-ip-arm-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-arm-ps.md
@@ -334,13 +334,13 @@
               href: virtual-networks-static-private-ip-arm-cli.md
         - name: 'Creación de máquina virtual: Dirección IP privada estática (clásica)'
           items:
-            - name: Azure portal
+            - name: Portal de Azure
               href: virtual-networks-static-private-ip-classic-pportal.md
             - name: Azure PowerShell
               href: virtual-networks-static-private-ip-classic-ps.md
         - name: 'Creación de una máquina virtual: varias IP'
           items:
-            - name: Azure Portal
+            - name: Portal de Azure
               href: virtual-network-multiple-ip-addresses-portal.md
             - name: Azure PowerShell
               href: virtual-network-multiple-ip-addresses-powershell.md

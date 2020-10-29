@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888093"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896147"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creación de un trabajo de streaming de datos en Azure SQL Edge 
 
@@ -103,7 +103,7 @@ En el ejemplo siguiente se crea un objeto de transmisión externa en la base de 
 
 3. Cree un origen de datos externo con CREATE EXTERNAL DATA SOURCE. En el ejemplo siguiente:
 
-    * Se crea un origen de datos externo denominado *LocalSQLOutput*.
+    * Se crea un origen de datos externo denominado *LocalSQLOutput* .
     * Se identifica el origen de datos externo (LOCATION = '<vendor>://<server>[:<port>]'). En el ejemplo, se apunta a una instancia local de Azure SQL Edge.
     * Se usa la credencial creada antes.
 
@@ -117,7 +117,7 @@ En el ejemplo siguiente se crea un objeto de transmisión externa en la base de 
     go
     ```
 
-4. Cree el objeto de transmisión externa. En el ejemplo siguiente se crea un objeto de transmisión externo que apunta a una tabla *dbo.TemperatureMeasurements* en la base de datos *MySQLDatabase*.
+4. Cree el objeto de transmisión externa. En el ejemplo siguiente se crea un objeto de transmisión externo que apunta a una tabla *dbo.TemperatureMeasurements* en la base de datos *MySQLDatabase* .
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -233,7 +233,8 @@ exec sys.sp_get_streaming_job @name=N'StreamingJob1'
 (
        (
        name nvarchar(256),
-       status nvarchar(256)
+       status nvarchar(256),
+       error nvarchar(256)
        )
 )
 ```

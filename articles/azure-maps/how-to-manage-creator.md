@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677956"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895807"
 ---
 # <a name="manage-azure-maps-creator"></a>Administración de Azure Maps Creator
 
@@ -25,19 +25,19 @@ En este artículo le guiaremos por los pasos necesarios para crear y eliminar un
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 
-2. Seleccione la cuenta de Azure Maps. Si no puede ver su cuenta de Azure Maps en los **recursos recientes**, vaya al menú de Azure Portal. Seleccione **Todos los recursos**. Busque y seleccione la cuenta de Azure Maps.
+2. Seleccione la cuenta de Azure Maps. Si no puede ver su cuenta de Azure Maps en los **recursos recientes** , vaya al menú de Azure Portal. Seleccione **Todos los recursos** . Busque y seleccione la cuenta de Azure Maps.
 
     ![Página principal del portal de Azure Maps](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Una vez en la página de la cuenta de Azure Maps, vaya a la opción **Información general** en **Creator**. Haga clic en **Crear** para crear un recurso de Azure Maps Creator.
+3. Una vez en la página de la cuenta de Azure Maps, vaya a la opción **Información general** en **Creator** . Haga clic en **Crear** para crear un recurso de Azure Maps Creator.
 
     ![Creación de una página de Azure Maps Creator](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Escriba el nombre y la ubicación del recurso de Creator. Actualmente, Creator solo se admite el Estados Unidos. Haga clic en **Revisar + crear**.
+4. Escriba el nombre y la ubicación del recurso de Creator. Actualmente, Creator solo se admite el Estados Unidos. Haga clic en **Revisar + crear** .
 
    ![Escriba la página de información de cuenta de Creator](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Revise la configuración y haga clic en **Crear**.
+5. Revise la configuración y haga clic en **Crear** .
 
     ![Confirmación de la página de configuración de la cuenta de Creator](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,7 +45,7 @@ En este artículo le guiaremos por los pasos necesarios para crear y eliminar un
 
    ![Página de estado de la implementación de recursos](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Haga clic en **Ir al recurso**. En la página con la vista de recursos de Creator se muestra el estado del recurso de Creator y la región demográfica elegida.
+7. Haga clic en **Ir al recurso** . En la página con la vista de recursos de Creator se muestra el estado del recurso de Creator y la región demográfica elegida.
 
     ![Página de estado de Creator](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -54,7 +54,7 @@ En este artículo le guiaremos por los pasos necesarios para crear y eliminar un
 
 ## <a name="delete-creator-resource"></a>Eliminación de un recurso de Creator
 
-Para eliminar el recurso de Creator, vaya a la cuenta de Azure Maps. En **Creator**, haga clic en **Información general**. Haga clic en el botón **Eliminar** .
+Para eliminar el recurso de Creator, vaya a la cuenta de Azure Maps. En **Creator** , haga clic en **Información general** . Haga clic en el botón **Eliminar** .
 
 >[!WARNING]
 >Al eliminar el recurso de Creator de la cuenta de Azure Maps, también se eliminarán los conjuntos de datos, los conjuntos de mosaicos y los conjuntos de estados de características creados con los servicios de Creator.
@@ -69,7 +69,7 @@ Haga clic en el botón de **eliminar** y escriba su nombre de Creator para confi
 
 Creator hereda la configuración de Access Control (IAM) de Azure Maps. Todas las llamadas de API para el acceso a los datos se deben enviar con reglas de autenticación y autorización.
 
-Los datos de uso de Creator se incorporan en los gráficos de uso de Azure Maps y en el registro de actividad.  Para obtener más información, consulte [Administrar la autenticación en Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Los datos de uso de Creator se incorporan en los gráficos de uso de Azure Maps y en el registro de actividad.  Para obtener más información, consulte [Administrar la autenticación en Azure Maps](./how-to-manage-authentication.md).
 
 ## <a name="access-to-creator-services"></a>Acceso a los servicios de Creator
 

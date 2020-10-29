@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311026"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895756"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Representación de datos personalizados en un mapa de trama
 
-En este artículo se explica cómo usar el [servicio de imagen estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage) con la funcionalidad de composición de imágenes para permitir las superposiciones encima de un mapa de trama. La composición de imágenes incluye la capacidad de obtener un icono de mapa de trama con datos adicionales, como marcadores, etiquetas y superposiciones geométricas personalizadas.
+En este artículo se explica cómo usar el [servicio de imagen estática](/rest/api/maps/render/getmapimage) con la funcionalidad de composición de imágenes para permitir las superposiciones encima de un mapa de trama. La composición de imágenes incluye la capacidad de obtener un icono de mapa de trama con datos adicionales, como marcadores, etiquetas y superposiciones geométricas personalizadas.
 
-Para representar marcadores, etiquetas y superposiciones geométricas personalizadas, se puede usar la aplicación Postman. Puede usar las [API de Data Service](https://docs.microsoft.com/rest/api/maps/data) de Azure Maps para almacenar y representar superposiciones.
+Para representar marcadores, etiquetas y superposiciones geométricas personalizadas, se puede usar la aplicación Postman. Puede usar las [API de Data Service](/rest/api/maps/data) de Azure Maps para almacenar y representar superposiciones.
 
 > [!Tip]
 > A menudo es mucho más rentable usar el SDK web de Azure Maps para mostrar un mapa sencillo en una página web que usar el servicio de imágenes estáticas. El SDK web usa mosaicos de mapa y, a menos que el usuario desplace lateralmente el mapa y lo acerque, con frecuencia solo se generará una fracción de una transacción por carga del mapa. Observe que el SDK web de Azure Maps tiene opciones para deshabilitar las funciones de desplazar lateralmente y acercar. Además, ofrece un conjunto mucho más rico de opciones de visualización de datos que las de un servicio web de mapas estáticos.  
@@ -41,9 +41,9 @@ El nivel S0 de la cuenta de Azure Maps solo admite una única instancia del par
 
 Para representar los marcadores con etiquetas y una imagen personalizada, siga estos pasos:
 
-1. Cree una colección en la que vaya a almacenar las solicitudes. En la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione el botón **Create** (Crear). 
+1. Cree una colección en la que vaya a almacenar las solicitudes. En la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección). Asigne un nombre a la colección y seleccione el botón **Create** (Crear). 
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar**.
+2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para los marcadores. Seleccione la colección que creó en el paso anterior como ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar** .
     
     ![Creación de una solicitud en Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -62,7 +62,7 @@ Para representar los marcadores con etiquetas y una imagen personalizada, siga e
 > [!Note]
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S1.
 
-También puede obtener la información de ubicación de ruta de acceso y de pin mediante la [API de carga de datos](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Siga los pasos descritos a continuación para cargar los datos de la ruta de acceso y de los marcadores.
+También puede obtener la información de ubicación de ruta de acceso y de pin mediante la [API de carga de datos](/rest/api/maps/data/uploadpreview). Siga los pasos descritos a continuación para cargar los datos de la ruta de acceso y de los marcadores.
 
 1. En la aplicación Postman, abra una nueva pestaña en la colección que creó en la sección anterior. Seleccione el método POST HTTP en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud POST:
 
@@ -172,7 +172,7 @@ También puede obtener la información de ubicación de ruta de acceso y de pin 
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S1.
 
 
-Puede modificar la apariencia de un polígono mediante el uso de modificadores de estilo con el [parámetro path](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Puede modificar la apariencia de un polígono mediante el uso de modificadores de estilo con el [parámetro path](/rest/api/maps/render/getmapimage#uri-parameters).
 
 1. En la aplicación Postman, abra una nueva pestaña en la colección que creó antes. Seleccione el método GET HTTP en la pestaña del generador y escriba la siguiente dirección URL para realizar una solicitud GET a fin de representar un polígono con color y opacidad:
     
@@ -192,7 +192,7 @@ Puede modificar la apariencia de un polígono mediante el uso de modificadores d
 > El procedimiento descrito en esta sección requiere una cuenta de Azure Maps en el plan de tarifa S1.
 
 
-Puede aplicar modificadores de estilo para modificar la apariencia de los marcadores. Por ejemplo, para hacer que los marcadores y sus etiquetas sean mayores o menores, use el modificador "estilo de escala" `sc`. Este modificador toma un valor que es mayor que cero. Un valor de 1 es la escala estándar. Los valores mayores que 1 aumentarán el tamaño de los marcadores, mientras que los valores menores que 1 reducirán su tamaño. Para más información sobre los modificadores de estilo, consulte los [parámetros path del servicio de imagen estática](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Puede aplicar modificadores de estilo para modificar la apariencia de los marcadores. Por ejemplo, para hacer que los marcadores y sus etiquetas sean mayores o menores, use el modificador "estilo de escala" `sc`. Este modificador toma un valor que es mayor que cero. Un valor de 1 es la escala estándar. Los valores mayores que 1 aumentarán el tamaño de los marcadores, mientras que los valores menores que 1 reducirán su tamaño. Para más información sobre los modificadores de estilo, consulte los [parámetros path del servicio de imagen estática](/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Siga estos pasos para representar un círculo y marcadores con etiquetas personalizadas:
@@ -222,6 +222,5 @@ Del mismo modo, puede cambiar, agregar y quitar otros modificadores de estilo.
 ## <a name="next-steps"></a>Pasos siguientes
 
 
-* Explore la documentación sobre [Get Map Image API de Azure Maps Get](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
-* Para más información sobre las funcionalidades Azure Maps Data Service, consulte la [documentación sobre el servicio](https://docs.microsoft.com/rest/api/maps/data).
-
+* Explore la documentación sobre [Get Map Image API de Azure Maps Get](/rest/api/maps/render/getmapimage).
+* Para más información sobre las funcionalidades Azure Maps Data Service, consulte la [documentación sobre el servicio](/rest/api/maps/data).

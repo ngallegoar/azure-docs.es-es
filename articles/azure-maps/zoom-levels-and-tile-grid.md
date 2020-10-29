@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 618c8597f7f10ce669bb340b9f5ea4c96f5c1d3f
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 4d15f78c19b5f142f8879d54a1ae32e229ce7f50
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825305"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896589"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveles de zoom y cuadrícula de mosaico
 
@@ -74,7 +74,7 @@ var mapWidth = tileSize * Math.pow(2, zoom);
 var mapHeight = mapWidth;
 ```
 
-Dado que el ancho y la altura del mapa son diferentes en cada nivel de zoom, también lo son las coordenadas de los píxeles. El píxel situado en la esquina superior izquierda del mapa siempre tiene coordenadas de píxel (0, 0). El píxel situado en la esquina inferior derecha del mapa tiene coordenadas de píxel *(width-1, height-1)* o, haciendo referencia a las ecuaciones de la sección anterior, *(tileSize \*2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1)* . Por ejemplo, al usar mosaicos cuadrados de 512 en el nivel 2, las coordenadas de los píxeles van de (0, 0) a (2047, 2047), como se observa a continuación:
+Dado que el ancho y la altura del mapa son diferentes en cada nivel de zoom, también lo son las coordenadas de los píxeles. El píxel situado en la esquina superior izquierda del mapa siempre tiene coordenadas de píxel (0, 0). El píxel situado en la esquina inferior derecha del mapa tiene coordenadas de píxel *(width-1, height-1)* o, haciendo referencia a las ecuaciones de la sección anterior, *(tileSize \*2 <sup>zoom</sup>–1, tileSize \* 2 <sup>zoom</sup>–1)* . Por ejemplo, al usar mosaicos cuadrados de 512 en el nivel 2, las coordenadas de los píxeles van de (0, 0) a (2047, 2047), como se observa a continuación:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-width-height.png" alt-text="Mosaico de mapa del mundo":::
 
@@ -100,7 +100,7 @@ var numberOfTilesWide = Math.pow(2, zoom);
 var numberOfTilesHigh = numberOfTilesWide;
 ```
 
-Cada mosaico tiene coordenadas XY que van de (0, 0) en la esquina superior izquierda a *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* en la esquina inferior derecha. Por ejemplo, en el nivel de zoom 3, las coordenadas del mosaico van de (0, 0) a (7, 7) de la manera siguiente:
+Cada mosaico tiene coordenadas XY que van de (0, 0) en la esquina superior izquierda a *(2 <sup>zoom</sup>–1, 2 <sup>zoom</sup>–1)* en la esquina inferior derecha. Por ejemplo, en el nivel de zoom 3, las coordenadas del mosaico van de (0, 0) a (7, 7) de la manera siguiente:
 
 :::image type="content" border="false" source="./media/zoom-levels-and-tile-grid/map-tiles-x-y-coordinates-7x7.png" alt-text="Mosaico de mapa del mundo":::
 
@@ -933,20 +933,20 @@ module AzureMaps {
 
 > [!NOTE]
 > Los controles de mapa interactivos de los SDK de Azure Maps tienen funciones auxiliares para la conversión entre las posiciones geoespaciales y los píxeles de la ventanilla. 
-> - [SDK web: Cálculos de píxeles y posiciones en el mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
+> - [SDK web: Cálculos de píxeles y posiciones en el mapa](/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Acceda directamente a los mosaicos de mapa desde los servicios de REST de Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Obtener mosaicos de mapa](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
+> [Obtener mosaicos de mapa](/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
-> [Obtener mosaicos de flujo de tráfico](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
+> [Obtener mosaicos de flujo de tráfico](/rest/api/maps/traffic/gettrafficflowtile)
 
 > [!div class="nextstepaction"]
-> [Obtener mosaicos de incidentes de tráfico](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)
+> [Obtener mosaicos de incidentes de tráfico](/rest/api/maps/traffic/gettrafficincidenttile)
 
 Más información sobre los conceptos geoespaciales:
 

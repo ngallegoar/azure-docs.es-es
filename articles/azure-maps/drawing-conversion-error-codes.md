@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a43e3e2fa9ad77e11f82ff38a144a1de3add78
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361541"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895943"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Errores y advertencias de conversión de dibujos
 
-El servicio de conversión de [Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. Los paquetes de dibujos deben ajustarse a los [requisitos de los paquetes de dibujos](drawing-requirements.md). Si no se cumplen uno o más requisitos, el servicio de conversión devolverá errores o advertencias. En este artículo se enumeran los códigos de error y de advertencia de conversión, con recomendaciones sobre cómo resolverlos. También proporciona algunos ejemplos de dibujos que pueden hacer que el servicio de conversión devuelva estos códigos.
+El servicio de conversión de [Azure Maps](/rest/api/maps/conversion) permite convertir paquetes de dibujo cargados en datos de mapa. Los paquetes de dibujos deben ajustarse a los [requisitos de los paquetes de dibujos](drawing-requirements.md). Si no se cumplen uno o más requisitos, el servicio de conversión devolverá errores o advertencias. En este artículo se enumeran los códigos de error y de advertencia de conversión, con recomendaciones sobre cómo resolverlos. También proporciona algunos ejemplos de dibujos que pueden hacer que el servicio de conversión devuelva estos códigos.
 
 El servicio de conversión realizará la operación correctamente si hay advertencias de conversión. Sin embargo, se recomienda que revise y resuelva todas las advertencias. Una advertencia significa que parte de la conversión se ignoró o corrigió automáticamente. Si no se resuelven las advertencias, podrían producirse errores en procesos posteriores.
 
@@ -51,7 +51,7 @@ Inspeccione **geometryWarning** para cada entidad para comprobar que sigue las r
 
 #### <a name="description-for-unexpectedgeometryinlayer"></a>*Descripción de unexpectedGeometryInLayer*
 
-Se produce una advertencia **unexpectedGeometryInLayer** cuando el dibujo contiene geometría incompatible con el tipo de geometría esperado para una capa determinada. Cuando el servicio de conversión devuelve una advertencia **unexpectedGeometryInLayer**, omitirá esa geometría.
+Se produce una advertencia **unexpectedGeometryInLayer** cuando el dibujo contiene geometría incompatible con el tipo de geometría esperado para una capa determinada. Cuando el servicio de conversión devuelve una advertencia **unexpectedGeometryInLayer** , omitirá esa geometría.
 
 #### <a name="example-for-unexpectedgeometryinlayer"></a>*Ejemplo de unexpectedGeometryInLayer*
 
@@ -101,7 +101,7 @@ La advertencia **automaticRepairPerformed** se produce cuando el servicio de con
 
 #### <a name="how-to-fix-automaticrepairperformed"></a>*Cómo corregir automaticRepairPerformed*
 
-Para corregir una advertencia **automaticRepairPerformed**, realice las siguientes acciones:
+Para corregir una advertencia **automaticRepairPerformed** , realice las siguientes acciones:
 
 1. Inspeccione la geometría de cada advertencia y el texto de advertencia específico.
 2. Determine si la reparación automatizada es correcta.
@@ -159,7 +159,7 @@ La advertencia **redundantAttribution** se produce cuando el manifiesto contiene
 
 #### <a name="how-to-fix-redundantattribution"></a>*Cómo corregir redundantAttribution*
 
-Para corregir una advertencia **redundantAttribution*, quite las propiedades de objeto redundantes o en conflicto.
+Para corregir una advertencia * *redundantAttribution* , quite las propiedades de objeto redundantes o en conflicto.
 
 ### <a name="manifestwarning"></a>**manifestWarning**
 
@@ -175,7 +175,7 @@ Se produce una advertencia **manifestWarning** cuando el manifiesto contiene obj
 
 #### <a name="how-to-fix-manifestwarning"></a>*Cómo corregir manifestWarning*
 
-Para corregir una advertencia **manifestWarning**, quite el objeto `unitProperties` o `zoneProperties` sin usar del manifiesto, o agregue una etiqueta de unidad o zona al dibujo para que el objeto de propiedades se use durante la conversión.
+Para corregir una advertencia **manifestWarning** , quite el objeto `unitProperties` o `zoneProperties` sin usar del manifiesto, o agregue una etiqueta de unidad o zona al dibujo para que el objeto de propiedades se use durante la conversión.
 
 ## <a name="wall-warnings"></a>Advertencias de paredes
 
@@ -197,7 +197,7 @@ La advertencia **wallOutsideLevel** se produce cuando el dibujo contiene una geo
 
 #### <a name="how-to-fix-walloutsidelevel"></a>*Cómo corregir wallOutsideLevel*
 
-Para corregir una advertencia **wallOutsideLevel**, amplíe la geometría del nivel para incluir todas las paredes. O bien, modifique los límites de la pared para que quepan dentro del límite del nivel.
+Para corregir una advertencia **wallOutsideLevel** , amplíe la geometría del nivel para incluir todas las paredes. O bien, modifique los límites de la pared para que quepan dentro del límite del nivel.
 
 ## <a name="unit-warnings"></a>Advertencias de unidades
 
@@ -215,7 +215,7 @@ Se produce una advertencia **unitOutsideLevel** cuando el dibujo contiene una ge
 
 #### <a name="how-to-fix-unitoutsidelevel"></a>*Cómo corregir unitOutsideLevel*
 
-Para corregir una advertencia **unitOutsideLevel**, amplíe el límite del nivel para incluir todas las unidades. O bien, modifique la geometría de la unidad para que quepa dentro del límite del nivel.
+Para corregir una advertencia **unitOutsideLevel** , amplíe el límite del nivel para incluir todas las unidades. O bien, modifique la geometría de la unidad para que quepa dentro del límite del nivel.
 
 ### <a name="partiallyoverlappingunit"></a>**partiallyOverlappingUnit**
 
@@ -231,7 +231,7 @@ En la imagen siguiente, la unidad superpuesta se resalta en rojo. `UNIT110` y `H
 
 #### <a name="how-to-fix-partiallyoverlappingunit"></a>*Cómo corregir partiallyOverlappingUnit*
 
-Para corregir una advertencia **partiallyOverlappingUnit**, vuelva a dibujar cada unidad parcialmente superpuesta para que no se superponga a otras unidades.
+Para corregir una advertencia **partiallyOverlappingUnit** , vuelva a dibujar cada unidad parcialmente superpuesta para que no se superponga a otras unidades.
 
 ## <a name="door-warnings"></a>Advertencias de puertas
 
@@ -249,7 +249,7 @@ En la imagen siguiente, la geometría de la puerta, resaltada en rojo, se superp
 
 #### <a name="how-to-fix-dooroutsidelevel"></a>*Cómo corregir doorOutsideLevel*
 
-Para corregir una advertencia **doorOutsideLevel**, vuelva a dibujar la geometría de la puerta para que esté dentro de los límites del nivel.
+Para corregir una advertencia **doorOutsideLevel** , vuelva a dibujar la geometría de la puerta para que esté dentro de los límites del nivel.
 
 ## <a name="zone-warnings"></a>Advertencias de zonas
 
@@ -267,7 +267,7 @@ En la imagen siguiente se muestra una zona que no contiene ninguna etiqueta.
 
 #### <a name="how-to-fix-zonewarning"></a>*Cómo corregir zoneWarning*
 
-Para corregir una advertencia **zoneWarning**, compruebe que cada zona tenga una sola etiqueta.
+Para corregir una advertencia **zoneWarning** , compruebe que cada zona tenga una sola etiqueta.
 
 ## <a name="label-warnings"></a>Advertencias de etiquetas
 
@@ -291,7 +291,7 @@ En la imagen siguiente se muestra una etiqueta que se encuentra dentro de dos zo
 
 #### <a name="how-to-fix-labelwarning"></a>*Cómo corregir labelWarning*
 
-Para corregir una advertencia **labelWarning**, asegúrese de lo siguiente:
+Para corregir una advertencia **labelWarning** , asegúrese de lo siguiente:
 
 * Todas las etiquetas de unidad están dentro de unidades.
 * Todas las etiquetas de zona están dentro de zonas.
@@ -309,9 +309,9 @@ También se producirá un error **invalidArchiveFormat** si el archivo ZIP está
 
 #### <a name="how-to-fix-invalidarchiveformat"></a>*Cómo corregir invalidArchiveFormat*
 
-Para corregir un error **invalidArchiveFormat**, compruebe lo siguiente:
+Para corregir un error **invalidArchiveFormat** , compruebe lo siguiente:
 
-* El nombre del archivo de almacenamiento termina en _.zip_.
+* El nombre del archivo de almacenamiento termina en _.zip_ .
 * El archivo ZIP contiene datos.
 * Puede abrir el archivo ZIP.
 
@@ -327,7 +327,7 @@ Ha intentado cargar un paquete de dibujos con un parámetro `udid` incorrecto.
 
 #### <a name="how-to-fix-invaliduserdata"></a>*Cómo corregir invalidUserData*
 
-Para corregir un error **invalidUserData**, compruebe lo siguiente:
+Para corregir un error **invalidUserData** , compruebe lo siguiente:
 
 * Ha proporcionado un `udid` correcto para el paquete cargado.
 * Azure Maps Creator se ha habilitado para la cuenta de Azure Maps que usó para cargar el paquete de dibujos.
@@ -343,11 +343,11 @@ El error **dwgError** se produce cuando el paquete de dibujos contiene un archiv
 
 * Un archivo DWG no es un dibujo en el formato de archivo DWG de AutoCAD válido.
 * Un archivo DWG está dañado.
-* Un archivo DWG aparece en el archivo _manifest.json_, pero no está en el archivo ZIP.
+* Un archivo DWG aparece en el archivo _manifest.json_ , pero no está en el archivo ZIP.
 
 #### <a name="how-to-fix-dwgerror"></a>*Cómo corregir dwgError*
 
-Para corregir un error **dwgError**, inspeccione el archivo _manifest.json_ para confirmar lo siguiente:
+Para corregir un error **dwgError** , inspeccione el archivo _manifest.json_ para confirmar lo siguiente:
 
 * Todos los archivos DWG del archivo ZIP son dibujos válidos en el formato DWG de AutoCAD; abra cada uno de ellos en AutoCAD. Quite o corrija todos los dibujos no válidos.
 * La lista de archivos DWG en el archivo _manifest.json_ coincide con los archivos DWG del archivo ZIP.
@@ -358,13 +358,13 @@ Para corregir un error **dwgError**, inspeccione el archivo _manifest.json_ para
 
 #### <a name="description-for-invalidjsonformat"></a>Descripción de invalidJsonFormat
 
-Se produce un error **invalidJsonFormat** cuando no se puede leer el archivo _manifest.json_.
+Se produce un error **invalidJsonFormat** cuando no se puede leer el archivo _manifest.json_ .
 
 No se puede leer el archivo _manifest.json_ debido a errores de formato o sintaxis JSON. Para obtener más información sobre el formato y la sintaxis JSON, consulte [Formato de intercambio de datos de notación de objetos JavaScript (JSON)](https://tools.ietf.org/html/rfc7159)
 
 #### <a name="how-to-fix-invalidjsonformat"></a>*Cómo corregir invalidJsonFormat*
 
-Para corregir un error **invalidJsonFormat**, use un linter de JSON para detectar y resolver errores de JSON.
+Para corregir un error **invalidJsonFormat** , use un linter de JSON para detectar y resolver errores de JSON.
 
 ### <a name="missingrequiredfield"></a>**missingRequiredField**
 
@@ -374,7 +374,7 @@ Se produce un error **missingRequiredField** cuando el archivo _manifest.json_ n
 
 #### <a name="how-to-fix-missingrequiredfield"></a>*Cómo corregir missingRequiredField*
 
-Para corregir un error **missingRequiredField**, compruebe que el manifiesto contiene todas las propiedades obligatorias. Para obtener una lista completa de los objetos del manifiesto obligatorios, consulte la [sección sobre el manifiesto en los requisitos del paquete de dibujos](drawing-requirements.md#manifest-file-requirements)  
+Para corregir un error **missingRequiredField** , compruebe que el manifiesto contiene todas las propiedades obligatorias. Para obtener una lista completa de los objetos del manifiesto obligatorios, consulte la [sección sobre el manifiesto en los requisitos del paquete de dibujos](drawing-requirements.md#manifest-file-requirements)  
 
 ### <a name="missingmanifest"></a>**missingManifest**
 
@@ -385,12 +385,12 @@ El error **missingManifest** se produce cuando falta el archivo _manifest.json_ 
 El error **labelWarning** se produce debido a uno o más de los siguientes motivos:
 
 * El nombre del archivo _manifest.json_ está mal escrito.
-* Falta el archivo _manifest.json_.
+* Falta el archivo _manifest.json_ .
 * El archivo _manifest.json_ no está dentro del directorio raíz del archivo ZIP.
 
 #### <a name="how-to-fix-missingmanifest"></a>*Cómo corregir missingManifest*
 
-Para corregir un error **missingManifest**, confirme que el archivo tiene un archivo denominado _manifest.json_ en el nivel raíz del archivo ZIP.
+Para corregir un error **missingManifest** , confirme que el archivo tiene un archivo denominado _manifest.json_ en el nivel raíz del archivo ZIP.
 
 ### <a name="conflict"></a>**conflict**
 
@@ -422,7 +422,7 @@ El servicio de conversión devolverá un error **conflict** cuando se defina má
 
 #### <a name="how-to-fix-conflict"></a>*Cómo corregir conflict*
 
-Para corregir un error **conflict**, inspeccione el archivo _manifest.json_ y quite cualquier información en conflicto.
+Para corregir un error **conflict** , inspeccione el archivo _manifest.json_ y quite cualquier información en conflicto.
 
 ### <a name="invalidgeoreference"></a>**invalidGeoreference**
 
@@ -450,7 +450,7 @@ En el siguiente fragmento de JSON, la latitud está por encima del límite super
 
 #### <a name="how-to-fix-invalidgeoreference"></a>*Cómo corregir invalidGeoreference*
 
-Para corregir un error **invalidGeoreference**, compruebe que los valores de la referencia geográfica se encuentran dentro del intervalo.
+Para corregir un error **invalidGeoreference** , compruebe que los valores de la referencia geográfica se encuentran dentro del intervalo.
 
 >[!IMPORTANT]
 >En GeoJSON, el orden de las coordenadas es longitud y latitud. Si no usa el orden correcto, puede que haga referencia accidentalmente a un valor de latitud o longitud que esté fuera del intervalo.
@@ -471,7 +471,7 @@ En la imagen siguiente se muestra una característica de pared que no se superpo
 
 #### <a name="how-to-fix-wallerror"></a>*Cómo corregir wallError*
 
-Para corregir un error **wallError**, vuelva a dibujar la pared para que se superponga al menos a una unidad. O bien, cree una nueva unidad que se superponga a la pared.
+Para corregir un error **wallError** , vuelva a dibujar la pared para que se superponga al menos a una unidad. O bien, cree una nueva unidad que se superponga a la pared.
 
 ## <a name="vertical-penetration-errors"></a>Errores de penetraciones verticales
 
@@ -498,7 +498,7 @@ En la imagen siguiente se muestra un área de penetración vertical que se super
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>Cómo corregir verticalPenetrationError
 
-Para corregir un error **verticalPenetrationError**, consulte cómo usar una característica de penetración vertical en el artículo [Requisitos de los paquetes de dibujos](drawing-requirements.md).
+Para corregir un error **verticalPenetrationError** , consulte cómo usar una característica de penetración vertical en el artículo [Requisitos de los paquetes de dibujos](drawing-requirements.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

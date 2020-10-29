@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04773ef279717c7728cf1b07761c6e4c0726a877
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311315"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897133"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adición de formas a un mapa mediante el Android SDK de Azure Maps
 
@@ -21,12 +21,12 @@ En este artículo se muestra cómo representar formas en un mapa mediante el And
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
+Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](./how-to-use-android-map-control-library.md) para cargar un mapa.
 
 
 ## <a name="add-a-line-to-the-map"></a>Adición de una línea al mapa
 
-Puede agregar una línea en el mapa mediante una **capa de línea**, siga estos pasos para agregar una línea en el mapa.
+Puede agregar una línea en el mapa mediante una **capa de línea** , siga estos pasos para agregar una línea en el mapa.
 
 1. Edite **res > layout > activity_main.xml** para que su aspecto sea similar al siguiente:
 
@@ -76,7 +76,7 @@ Puede agregar una línea en el mapa mediante una **capa de línea**, siga estos 
 
     ```
     
-    En primer lugar, el fragmento de código anterior obtiene una instancia de control de mapas de Azure Maps mediante el método de devolución de llamada **onReady()** . A continuación, se crea un objeto de origen de datos mediante la clase **DataSource** y se agrega al mapa. A continuación, crea una lista objetos **Point**. Se crea un **LineString** a partir de la lista de puntos y se agrega al origen de datos. Una **capa de línea** representa objetos de línea encapsulados en un origen de datos en el mapa. A continuación, se crea una capa de línea y se le agrega el origen de datos.
+    En primer lugar, el fragmento de código anterior obtiene una instancia de control de mapas de Azure Maps mediante el método de devolución de llamada **onReady()** . A continuación, se crea un objeto de origen de datos mediante la clase **DataSource** y se agrega al mapa. A continuación, crea una lista objetos **Point** . Se crea un **LineString** a partir de la lista de puntos y se agrega al origen de datos. Una **capa de línea** representa objetos de línea encapsulados en un origen de datos en el mapa. A continuación, se crea una capa de línea y se le agrega el origen de datos.
 
     Después de agregar el fragmento de código anterior, su `MainActivity.java` debería tener un aspecto similar al siguiente:
     

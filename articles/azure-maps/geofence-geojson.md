@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 27a2fee04afc559a8564aea5e112de07e9c0dcf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e880710b93a6764df50780e685c89b5f569b4ec0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037412"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897201"
 ---
 # <a name="geofencing-geojson-data"></a>Datos GeoJSON de geovallas
 
@@ -40,7 +40,7 @@ Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` 
 
 * Todos los valores de las coordenadas se representan como [longitud, latitud] que se define en `WGS84`.
 * Para cada característica, que contiene `MultiPoint`, `MultiLineString`, `MultiPolygon` o `GeometryCollection`, las propiedades se aplican a todos los elementos. Por ejemplo: Todos los puntos de `MultiPoint` usarán el mismo radio para formar una geovalla de varios círculos.
-* En un escenario de punto-círculo, se puede representar una geometría de círculo mediante un objeto de geometría `Point` con las propiedades que se elaboran en [Extender las geometrías GeoJSON](https://docs.microsoft.com/azure/azure-maps/extend-geojson).      
+* En un escenario de punto-círculo, se puede representar una geometría de círculo mediante un objeto de geometría `Point` con las propiedades que se elaboran en [Extender las geometrías GeoJSON](./extend-geojson.md).      
 
 El siguiente es un ejemplo de cuerpo de la solicitud de una geovalla que se representa como una geometría de geovalla circular en `GeoJSON` mediante un punto central y un radio. El período de validez de los datos de la geovalla se inicia el 22-10-2018, de 9 a.m. a 5 p.m., y se repite todos los días excepto los fines de semana. `expiredTime` indica que se considerará que los datos de esta geovalla han expirado si `userTime` en la solicitud es posterior a `2019-01-01`.  
 

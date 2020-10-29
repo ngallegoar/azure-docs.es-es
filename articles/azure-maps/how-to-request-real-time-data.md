@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6f0cf663b42c8487495602e4cdbf1a88427f9daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6f6d0738cb1673b752e35761a112f2ca22a409e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895722"
 ---
 # <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Solicitud de datos públicos de tránsito en tiempo real mediante Mobility Service de Azure Maps
 
-En este artículo se muestra cómo usar [Mobility Service](https://aka.ms/AzureMapsMobilityService) de Azure Maps para solicitar datos públicos de tránsito en tiempo real.
+En este artículo se muestra cómo usar [Mobility Service](/rest/api/maps/mobility) de Azure Maps para solicitar datos públicos de tránsito en tiempo real.
 
 En este artículo, aprenderá a solicitar las siguientes llegadas en tiempo real de todas las líneas que llegan a una parada determinada.
 
@@ -30,13 +30,13 @@ Este artículo utiliza la [aplicación Postman](https://www.getpostman.com/apps)
 
 ## <a name="request-real-time-arrivals-for-a-stop"></a>Solicitud de llegadas en tiempo real en una parada
 
-Para solicitar datos de las llegadas en tiempo real para una parada de transporte público determinada, deberá realizar una solicitud a la [API de llegadas en tiempo real](https://aka.ms/AzureMapsMobilityRealTimeArrivals) de [Mobility Service](https://aka.ms/AzureMapsMobilityService) de Azure Maps. Necesitará los valores de **metroID** y **stopID** para completar la solicitud. Para más información sobre cómo solicitar estos parámetros, consulte nuestra guía para [solicitar rutas de transporte público](https://aka.ms/AMapsHowToGuidePublicTransitRouting).
+Para solicitar datos de las llegadas en tiempo real para una parada de transporte público determinada, deberá realizar una solicitud a la [API de llegadas en tiempo real](/rest/api/maps/mobility/getrealtimearrivalspreview) de [Mobility Service](/rest/api/maps/mobility) de Azure Maps. Necesitará los valores de **metroID** y **stopID** para completar la solicitud. Para más información sobre cómo solicitar estos parámetros, consulte nuestra guía para [solicitar rutas de transporte público](./how-to-request-transit-data.md).
 
 Vamos a usar "522" como metroID, que es el identificador de metro del área "Seattle – Tacoma – Bellevue, WA". Use "522---2060603" como stopID, esta parada de autobús está en "Ne 24th St & 162nd Ave Ne, Bellevue WA". Para solicitar los datos de las siguientes cinco llegadas en tiempo real de esta parada, complete los pasos siguientes:
 
-1. Abra la aplicación Postman y cree una colección para almacenar las solicitudes. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
+1. Abra la aplicación Postman y cree una colección para almacenar las solicitudes. Cerca de la parte superior de la aplicación Postman, seleccione **New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
 
-2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior, como la ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar**.
+2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior, como la ubicación en la que se va a guardar la solicitud. Después, seleccione **Guardar** .
 
     ![Creación de una solicitud en Postman](./media/how-to-request-transit-data/postman-new.png)
 
@@ -121,4 +121,4 @@ Aprenda a solicitar datos de tránsito mediante Mobility Service:
 Explore la documentación de la API de Azure Maps Mobility Service:
 
 > [!div class="nextstepaction"]
-> [Documentación de Mobility Service API](https://aka.ms/AzureMapsMobilityService)
+> [Documentación de Mobility Service API](/rest/api/maps/mobility)

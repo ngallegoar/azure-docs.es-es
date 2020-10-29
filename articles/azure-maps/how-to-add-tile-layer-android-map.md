@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: faa5e3e3177e18787a73c6b4c43aa04b6bc760b7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311097"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897099"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Incorporación de una capa de mosaico a un mapa mediante Android SDK de Azure Maps
 
@@ -39,7 +39,7 @@ La dirección URL del mosaico pasada a una capa de mosaico debe ser una direcci�
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
+Para completar el proceso en este artículo, debe instalar [Android SDK de Azure Maps](./how-to-use-android-map-control-library.md) para cargar un mapa.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Incorporación de una capa de mosaico a un mapa
@@ -179,4 +179,4 @@ Si ejecuta la aplicación ahora, debe ver una línea en el mapa tal como se mues
 Consulte el siguiente artículo para obtener más información sobre las formas de establecer estilos de mapa
 
 > [!div class="nextstepaction"]
-> [Cambio de estilos de mapa en mapas de Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Cambio de estilos de mapa en mapas de Android](./set-android-map-styles.md)

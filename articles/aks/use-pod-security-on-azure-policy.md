@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: a1fafdf1db29917982bbf136de45237459712bcd
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073468"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900130"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Protección de pods con Azure Policy
 
@@ -61,7 +61,7 @@ Las siguientes limitaciones generales se aplican al complemento de Azure Policy 
 Las siguientes limitaciones solo se aplican al complemento de Azure Policy para AKS:
 
 - La [directiva de seguridad de pod de AKS (versión preliminar)](use-pod-security-policies.md) y el complemento de Azure Policy para AKS no se pueden habilitar simultáneamente. 
-- El complemento de Azure Policy excluye automáticamente los siguientes espacios de nombres de la evaluación: _kube-system_, _gatekeeper-system_ y _aks-periscope_.
+- El complemento de Azure Policy excluye automáticamente los siguientes espacios de nombres de la evaluación: _kube-system_ , _gatekeeper-system_ y _aks-periscope_ .
 
 ### <a name="recommendations"></a>Recomendaciones
 
@@ -76,7 +76,7 @@ La siguiente recomendación solo se aplica a AKS y al complemento de Azure Polic
 
 - Use el grupo de nodos del sistema con el valor taint `CriticalAddonsOnly` para programar pods de Gatekeeper. Para obtener más información, consulte [Uso de pods de nodos del sistema](use-system-pools.md#system-and-user-node-pools).
 - Proteja el tráfico saliente de sus clústeres de AKS. Para obtener más información, consulte [Control del tráfico de salida de los nodos de clúster](limit-egress-traffic.md).
-- Si el clúster tiene `aad-pod-identity` habilitado, los pods de Identidad administrada del nodo (NMI) modifican las tablas de IP de los nodos para interceptar las llamadas que se realizan en el punto de conexión de Azure Instance Metadata. Esta configuración hace que NMI intercepte cualquier solicitud enviada al punto de conexión de Metadata, incluso aunque el pod no utilice `aad-pod-identity`. La CRD de AzurePodIdentityException se puede configurar para informar a `aad-pod-identity` de que las solicitudes dirigidas al punto de conexión de Metadata que se originen en un pod que coincida con las etiquetas definidas en la CRD deban pasar por el servidor proxy sin que se procesen en NMI. Los pods del sistema que tienen la etiqueta `kubernetes.azure.com/managedby: aks` del espacio de nombres _kube-system_ deben excluirse en `aad-pod-identity` mediante la configuración de la CRD de AzurePodIdentityException. Para más información, consulte este artículo acerca de [cómo deshabilitar aad-pod-identity en una aplicación o pod específicos](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Si el clúster tiene `aad-pod-identity` habilitado, los pods de Identidad administrada del nodo (NMI) modifican las tablas de IP de los nodos para interceptar las llamadas que se realizan en el punto de conexión de Azure Instance Metadata. Esta configuración hace que NMI intercepte cualquier solicitud enviada al punto de conexión de Metadata, incluso aunque el pod no utilice `aad-pod-identity`. La CRD de AzurePodIdentityException se puede configurar para informar a `aad-pod-identity` de que las solicitudes dirigidas al punto de conexión de Metadata que se originen en un pod que coincida con las etiquetas definidas en la CRD deban pasar por el servidor proxy sin que se procesen en NMI. Los pods del sistema que tienen la etiqueta `kubernetes.azure.com/managedby: aks` del espacio de nombres _kube-system_ deben excluirse en `aad-pod-identity` mediante la configuración de la CRD de AzurePodIdentityException. Para más información, consulte este artículo acerca de [cómo deshabilitar aad-pod-identity en una aplicación o pod específicos](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Para configurar una excepción, instale el archivo [ mic-exception.yaml](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 El complemento de Azure Policy requiere que los recursos de CPU y memoria estén operativos. Estos requisitos aumentan a medida que crece el tamaño de un clúster. Consulte las [recomendaciones de Azure Policy][policy-recommendations] para obtener instrucciones generales sobre el uso del complemento de Azure Policy.
@@ -150,7 +150,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Los pods de los espacios de nombres administrativos como kube-system deben ejecutarse para que un clúster siga con un funcionamiento correcto. Si se elimina un espacio de nombres necesario de la lista de espacios de nombres excluidos predeterminados, se pueden desencadenar infracciones de directivas debido a un pod del sistema necesario.
 
-AKS requiere que los pods del sistema se ejecuten en un clúster para proporcionar servicios críticos, como la resolución DNS. Las directivas que limitan la funcionalidad del pod pueden afectar a la estabilidad del pod del sistema. Como resultado, los siguientes espacios de nombres se **excluyen de la evaluación de directivas en las solicitudes de admisión durante la creación, actualización y auditoría de directivas**. Esto fuerza la exclusión de las directivas de Azure de las nuevas implementaciones en estos espacios de nombres.
+AKS requiere que los pods del sistema se ejecuten en un clúster para proporcionar servicios críticos, como la resolución DNS. Las directivas que limitan la funcionalidad del pod pueden afectar a la estabilidad del pod del sistema. Como resultado, los siguientes espacios de nombres se **excluyen de la evaluación de directivas en las solicitudes de admisión durante la creación, actualización y auditoría de directivas** . Esto fuerza la exclusión de las directivas de Azure de las nuevas implementaciones en estos espacios de nombres.
 
 1. kube-system
 1. gatekeeper-system
@@ -209,7 +209,7 @@ metadata:
 spec:
   containers:
     - name: nginx-privileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         privileged: true
 ```
@@ -244,7 +244,7 @@ metadata:
 spec:
   containers:
     - name: nginx-unprivileged
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 ```
 
 Cree el pod mediante el comando [kubectl apply][kubectl-apply] y especifique el nombre del manifiesto de YAML:
@@ -253,7 +253,7 @@ Cree el pod mediante el comando [kubectl apply][kubectl-apply] y especifique el 
 kubectl apply -f nginx-unprivileged.yaml
 ```
 
-Se ha programado correctamente el pod. Al activar el estado del pod mediante el comando [kubectl get pods][kubectl-get], el pod tiene el estado *En ejecución*:
+Se ha programado correctamente el pod. Al activar el estado del pod mediante el comando [kubectl get pods][kubectl-get], el pod tiene el estado *En ejecución* :
 
 ```console
 $ kubectl get pods
@@ -330,7 +330,7 @@ Para más información sobre la limitación del tráfico del pod, consulte [Prot
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
-[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
+[aad-pod-identity-exception]: https://azure.github.io/aad-pod-identity/docs/configure/application_exception
 
 <!-- LINKS - internal -->
 [policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md

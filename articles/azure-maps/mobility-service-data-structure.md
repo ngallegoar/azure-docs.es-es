@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 02d89226bd2df4bfe5d11897199c50c702e7bc1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60d45febced2f2d678d41682f7f27bf668943de2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88033230"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896317"
 ---
 # <a name="data-structures-in-azure-maps-mobility-service"></a>Estructuras de datos de Mobility Service en Azure Maps
 
-En este artículo se presenta el concepto de área metropolitana en [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService). Se describen algunos de los campos comunes que se devuelven cuando se consultan las líneas y paradas de transporte público en este servicio. Se recomienda leer este artículo antes de comenzar a desarrollar con las API de Mobility Service.
+En este artículo se presenta el concepto de área metropolitana en [Azure Maps Mobility Service](/rest/api/maps/mobility). Se describen algunos de los campos comunes que se devuelven cuando se consultan las líneas y paradas de transporte público en este servicio. Se recomienda leer este artículo antes de comenzar a desarrollar con las API de Mobility Service.
 
 ## <a name="metro-area"></a>Área metropolitana
 
 Los datos de Mobility Service se agrupan en áreas metropolitanas admitidas. Las áreas metropolitanas no siguen los límites de la ciudad. Un área metropolitana puede contener varias ciudades, ciudades con una gran densidad de población y ciudades circundantes. De hecho, un país o región puede ser un área metropolitana. 
 
-`metroID` es un identificador de área metropolitana que se puede usar para llamar a [Get Metro Area Info API](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Use "Get Metro" API de Azure Maps para solicitar tipos de transporte público, empresas de transporte público, alertas activas y detalles adicionales del área metropolitana elegida. También puede solicitar las áreas metropolitanas admitidas y identificadores metroID. Los identificadores de área metropolitana están sujetos a cambios.
+`metroID` es un identificador de área metropolitana que se puede usar para llamar a [Get Metro Area Info API](/rest/api/maps/mobility/getmetroareainfopreview). Use "Get Metro" API de Azure Maps para solicitar tipos de transporte público, empresas de transporte público, alertas activas y detalles adicionales del área metropolitana elegida. También puede solicitar las áreas metropolitanas admitidas y identificadores metroID. Los identificadores de área metropolitana están sujetos a cambios.
 
 **metroID:** 522   **Nombre:** Seattle-Tacoma-Bellevue
 
@@ -33,7 +33,7 @@ Los datos de Mobility Service se agrupan en áreas metropolitanas admitidas. Las
 
 Se puede hacer referencia a las paradas de transporte público por dos tipos de identificador: el identificador de [General Transit Feed Specification (GFTS)](http://gtfs.org/) y el identificador de parada de Azure Maps. El identificador de GFTS se conoce como stopKey y el identificador de parada de Azure Maps como stopID. Cuando se hace referencia con frecuencia a paradas de transporte público, se recomienda usar el identificador de parada de Azure Maps. stopID es más estable y es probable que permanezca igual siempre que exista la parada física. El identificador de parada de GTFS se actualiza con más frecuencia. Por ejemplo, se puede actualizar según la solicitud del proveedor de GTFS o cuando se lanza una nueva versión de GTFS. Aunque no se haya producido ningún cambio en la parada física, el identificador de parada de GTFS puede cambiar.
 
-Para empezar, puede solicitar las paradas de transporte público próximas mediante [Get Nearby Transit API](https://aka.ms/AzureMapsMobilityNearbyTransit).
+Para empezar, puede solicitar las paradas de transporte público próximas mediante [Get Nearby Transit API](/rest/api/maps/mobility/getnearbytransitpreview).
 
 ## <a name="line-groups-and-lines"></a>Líneas y grupos de líneas
 
@@ -49,7 +49,7 @@ Un grupo de líneas es una entidad que reúne todas las líneas que lógicamente
 
 Como se explicó anteriormente, cada grupo de líneas se compone de un conjunto de líneas. Cada grupo de líneas se compone de dos líneas y cada línea describe una dirección.  Sin embargo, hay casos en los que el grupo de líneas contiene un número mayor de líneas. Por ejemplo, hay una línea que a veces se desvía por un determinado barrio y otras no. En ambos casos, funciona con el mismo número de línea. Además, un grupo de líneas puede estar formado por una sola línea. Una línea circular con una dirección única es un grupo de líneas con una línea.
 
-Para empezar, puede solicitar grupos de líneas mediante [Get Transit Line API](https://aka.ms/AzureMapsMobilityTransitLine).
+Para empezar, puede solicitar grupos de líneas mediante [Get Transit Line API](/rest/api/maps/mobility/gettransitlineinfopreview).
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -67,4 +67,4 @@ Aprenda a solicitar datos en tiempo real mediante Mobility Service:
 Explore la documentación de la API Mobility Service de Azure Maps.
 
 > [!div class="nextstepaction"]
-> [Documentación de Mobility Service API](https://aka.ms/AzureMapsMobilityService)
+> [Documentación de Mobility Service API](/rest/api/maps/mobility)

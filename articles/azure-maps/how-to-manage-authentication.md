@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 57e847116febcea66e1e3ac4ba131617463b6c94
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089458"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895773"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Administración de la autenticación en Azure Maps
 
@@ -22,7 +22,7 @@ Después de crear una cuenta de Azure Maps, se crean las claves y el identificad
 
 ## <a name="view-authentication-details"></a>Visualización de los detalles de la autenticación
 
-Después de crear la cuenta de Azure Maps, se generan las claves principal y secundaria. Es recomendable que use la clave principal como clave de suscripción cuando [llame a Azure Maps mediante la autenticación de clave compartida](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Puede usar la clave secundaria, por ejemplo, para realizar cambios de clave graduales. Para más información, consulte [Autenticación con Azure Maps](https://aka.ms/amauth).
+Después de crear la cuenta de Azure Maps, se generan las claves principal y secundaria. Es recomendable que use la clave principal como clave de suscripción cuando [llame a Azure Maps mediante la autenticación de clave compartida](./azure-maps-authentication.md#shared-key-authentication). Puede usar la clave secundaria, por ejemplo, para realizar cambios de clave graduales. Para más información, consulte [Autenticación con Azure Maps](./azure-maps-authentication.md).
 
 Puede ver los datos de autenticación en Azure Portal. Una vez allí, vaya a su cuenta y seleccione **Autenticación** en el menú **Configuración** .
 
@@ -31,7 +31,7 @@ Puede ver los datos de autenticación en Azure Portal. Una vez allí, vaya a su 
 
 ## <a name="discover-category-and-scenario"></a>Detección de categoría y escenario
 
-Dependiendo de las necesidades de la aplicación, hay rutas específicas para protegerla. Azure AD define categorías para admitir una amplia gama de flujos de autenticación. Consulte las [categorías de aplicación](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#application-categories) para saber qué categoría se adapta a la aplicación.
+Dependiendo de las necesidades de la aplicación, hay rutas específicas para protegerla. Azure AD define categorías para admitir una amplia gama de flujos de autenticación. Consulte las [categorías de aplicación](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories) para saber qué categoría se adapta a la aplicación.
 
 > [!NOTE]
 > Incluso si usa la autenticación de clave compartida, la descripción de las categorías y los escenarios le ayudará a proteger la aplicación.
@@ -77,11 +77,11 @@ Solicite un token del punto de conexión de token de Azure AD. Use los siguient
 | Nube pública de Azure     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Nube de Azure Government | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-Para obtener más información sobre la solicitud de tokens de acceso de Azure AD para usuarios y entidades de servicio, consulte [Escenarios de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios) y consulte los escenarios específicos en la tabla [Escenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
+Para obtener más información sobre la solicitud de tokens de acceso de Azure AD para usuarios y entidades de servicio, consulte [Escenarios de autenticación de Azure AD](../active-directory/develop/authentication-vs-authorization.md) y consulte los escenarios específicos en la tabla [Escenarios](./how-to-manage-authentication.md#determine-authentication-and-authorization).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte el artículo sobre el [SDK web de Azure AD y Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Para más información, consulte el artículo sobre el [SDK web de Azure AD y Azure Maps](./how-to-use-map-control.md).
 
 Descubra las métricas de uso de API de la cuenta de Azure Maps:
 > [!div class="nextstepaction"]

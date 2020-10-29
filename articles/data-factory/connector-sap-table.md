@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279861"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900256"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copia de datos de una tabla de SAP mediante Azure Data Factory
 
@@ -51,9 +51,10 @@ En concreto, este conector para tablas de SAP admite las siguientes funcionalida
 - Recuperación de datos a través de RFC personalizado o predeterminado.
 
 La versión 7.01 o posterior hace referencia a la versión de SAP NetWeaver en lugar de a la versión de SAP ECC. Por ejemplo, SAP ECC 6.0 EHP 7 en general tiene una versión de NetWeaver >= 7.4. En caso de que no esté seguro de su entorno, estos son los pasos para confirmar la versión del sistema de SAP:
-1.  Use la GUI de SAP para conectarse al sistema de SAP. 
-2.  Vaya a **System** -> **Status**. 
-3.  Compruebe la versión de SAP_BASIS, asegúrese de que sea mayor o igual que 701.  
+
+1. Use la GUI de SAP para conectarse al sistema de SAP. 
+2. Vaya a **System** -> **Status** . 
+3. Compruebe la versión de SAP_BASIS, asegúrese de que sea mayor o igual que 701.  
       ![Comprobar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Prerrequisitos

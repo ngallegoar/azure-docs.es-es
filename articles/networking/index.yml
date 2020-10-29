@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: bb515afe97116041ca30de31bdb70544cfe29e69
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: e348e1e93506a668f448e834ad1eaa5ce0c36d4a
+  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91446029"
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92900311"
 highlightedContent:
   items:
   - title: ¿Qué es Redes de Azure?
@@ -268,17 +268,17 @@ conceptualContent:
       text: Ver más
   - title: Protección contra DDOS
     links:
-    - url: ../virtual-network/ddos-protection-overview.md
+    - url: ../ddos-protection/ddos-protection-overview.md
       itemType: overview
       text: ¿Qué es el estándar de Azure DDoS Protection?
-    - url: ../virtual-network/manage-ddos-protection.md
+    - url: ../ddos-protection/manage-ddos-protection.md
       itemType: how-to-guide
       text: Administración de DDoS Protection
-    - url: ../virtual-network/ddos-protection-partner-onboarding.md
+    - url: ../ddos-protection/ddos-protection-partner-onboarding.md
       itemType: concept
       text: Incorporación de asociados
     footerLink:
-      url: https://docs.microsoft.com/azure/security/fundamentals/ddos-best-practices
+      url: ../ddos-protection/index.yml
       text: Ver más
   - title: Red de entrega de contenido
     links:

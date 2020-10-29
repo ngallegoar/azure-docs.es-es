@@ -9,26 +9,26 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 25ed41be53c114c258e5c63437ff2b5df875af75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c4367e2a649f4e239e2dab374afc4fb867e517b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310737"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891200"
 ---
 # <a name="add-html-markers-to-the-map"></a>Agregar marcadores HTML al mapa
 
 En este artículo se explica cómo agregar al mapa código HTML personalizado como un archivo de imagen en forma de marcador HTML.
 
 > [!NOTE]
-> Los marcadores HTML no se conectan a los orígenes de datos. En su lugar, se agrega información de posición directamente en el marcador y el marcador se agrega a la propiedad `markers` de los mapas, que es un elemento [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
+> Los marcadores HTML no se conectan a los orígenes de datos. En su lugar, se agrega información de posición directamente en el marcador y el marcador se agrega a la propiedad `markers` de los mapas, que es un elemento [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager).
 
 > [!IMPORTANT]
 > A diferencia de la mayoría de las capas del control web de Azure Maps que usan WebGL para la representación, los marcadores HTML usan elementos DOM tradicionales para la representación. Por tanto, cuantos más marcadores HTML se agreguen a una página, más elementos DOM habrá. Se puede degradar el rendimiento después de agregar cientos de marcadores HTML. Para conjuntos de datos grandes, considere la posibilidad de agrupar los datos en clústeres o de usar una capa de símbolo o burbuja.
 
 ## <a name="add-an-html-marker"></a>Adición de un marcador HTML
 
-La clase [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker) tiene un estilo predeterminado. Puede personalizar el marcador mediante la configuración de las opciones de color y texto del marcador. El estilo predeterminado de la clase del marcador HTML es una plantilla SVG que tiene un marcador de posición `{color}` y `{text}`. Configure las propiedades de color y texto en las opciones del marcador HTML para una rápida personalización. 
+La clase [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker) tiene un estilo predeterminado. Puede personalizar el marcador mediante la configuración de las opciones de color y texto del marcador. El estilo predeterminado de la clase del marcador HTML es una plantilla SVG que tiene un marcador de posición `{color}` y `{text}`. Configure las propiedades de color y texto en las opciones del marcador HTML para una rápida personalización. 
 
 En el código siguiente se crea un marcador HTML y se establece la propiedad color en "DodgerBlue" y la propiedad text en "10". Se adjunta un elemento emergente al marcador, y el evento `click` se usa para alternar la visibilidad del elemento emergente.
 
@@ -103,13 +103,13 @@ En estos ejemplos se muestra cómo agregar eventos del mouse y de arrastrar a un
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HtmlMarker](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+> [HtmlMarkerOptions](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
+> [HtmlMarkerManager](/javascript/api/azure-maps-control/atlas.htmlmarkermanager)
 
 Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos:
 

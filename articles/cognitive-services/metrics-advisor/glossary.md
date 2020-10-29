@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 34f9d480234ecaef0d581cfecd68e2cdd1cf6fdc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6c461983053a145dfda58b9e3d26b39db0c339e5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046781"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893427"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Glosario de conceptos y vocabulario comunes de Metrics Advisor
 
@@ -33,7 +33,7 @@ Una fuente de distribución de datos es lo que Metrics Advisor ingiere del orige
 
 ## <a name="metric"></a>Métrica
 
-Una métrica es una medida cuantificable que se usa para supervisar y evaluar el estado de un proceso empresarial específico. Puede ser una combinación de varios valores de serie temporal divididos en dimensiones. Por ejemplo, una métrica de *mantenimiento de la Web* podría contener dimensiones para *recuento de usuarios* y el *mercado es-es*.
+Una métrica es una medida cuantificable que se usa para supervisar y evaluar el estado de un proceso empresarial específico. Puede ser una combinación de varios valores de serie temporal divididos en dimensiones. Por ejemplo, una métrica de *mantenimiento de la Web* podría contener dimensiones para *recuento de usuarios* y el *mercado es-es* .
 
 ## <a name="dimension"></a>Dimensión
 
@@ -139,29 +139,29 @@ Metrics Advisor proporciona varios [métodos de detección](how-tos/configure-me
 
 Detección de anomalías mediante el uso de varios algoritmos de aprendizaje automático.
 
-**Sensibilidad**: Valor numérico para ajustar la tolerancia de la detección de anomalías. Visualmente, cuanto mayor sea el valor, menor serán los límites superior e inferior de la serie temporal.
+**Sensibilidad** : Valor numérico para ajustar la tolerancia de la detección de anomalías. Visualmente, cuanto mayor sea el valor, menor serán los límites superior e inferior de la serie temporal.
 
 ### <a name="hard-threshold"></a>Umbral saturado
 
 Los valores que están fuera de los límites superior o inferior son anomalías.
 
-**Mínimo**: El límite inferior.
+**Mínimo** : El límite inferior.
 
-**Máximo**: El límite superior.
+**Máximo** : El límite superior.
 
 ### <a name="change-threshold"></a>Umbral de cambio
 
 Use el valor del punto anterior para determinar si este punto es una anomalía.
 
-**Porcentaje de cambio**: En comparación con el punto anterior, el punto actual es una anomalía si el porcentaje de cambio es mayor que este parámetro.
+**Porcentaje de cambio** : En comparación con el punto anterior, el punto actual es una anomalía si el porcentaje de cambio es mayor que este parámetro.
 
-**Cambio entre puntos**: Número de puntos que se van a examinar.
+**Cambio entre puntos** : Número de puntos que se van a examinar.
 
 ### <a name="common-parameters"></a>Parámetros comunes
 
-**Dirección**: Un punto es una anomalía solo cuando la desviación se produce en la dirección*arriba*, *abajo* o en *ambas*.
+**Dirección** : Un punto es una anomalía solo cuando la desviación se produce en la dirección *arriba* , *abajo* o en *ambas* .
 
-**Anomalía no válida hasta que**: Un punto de datos solo es una anomalía si un porcentaje especificado de puntos anteriores también son anomalías.
+**Anomalía no válida hasta que** : Un punto de datos solo es una anomalía si un porcentaje especificado de puntos anteriores también son anomalías.
 
 ## <a name="alert-settings"></a>Configuración de alertas
 
@@ -173,17 +173,17 @@ También puede crear una alerta a través de las métricas. Por ejemplo, una ale
 
 El ámbito de alerta hace referencia al ámbito al que se aplica la alerta. Hay cuatro opciones:
 
-**Anomalías de todas las series**: Las alertas se desencadenarán para las anomalías de todas las series dentro de la métrica.
+**Anomalías de todas las series** : Las alertas se desencadenarán para las anomalías de todas las series dentro de la métrica.
 
-**Anomalías del grupo de series**: Solo se desencadenarán alertas para las anomalías de dimensiones específicas del grupo de series. El número de dimensiones especificadas debe ser menor que el número total de dimensiones.
+**Anomalías del grupo de series** : Solo se desencadenarán alertas para las anomalías de dimensiones específicas del grupo de series. El número de dimensiones especificadas debe ser menor que el número total de dimensiones.
 
-**Anomalías de series favoritas**: Solo se desencadenarán alertas para las anomalías que se agreguen como favoritos. Puede elegir un grupo de series como favorito para cada configuración de detección.
+**Anomalías de series favoritas** : Solo se desencadenarán alertas para las anomalías que se agreguen como favoritos. Puede elegir un grupo de series como favorito para cada configuración de detección.
 
-**Anomalías en las N series principales de todas las series**: Las alertas solo se desencadenarán para las anomalías de las N series principales. Puede establecer parámetros para especificar el número de marcas de tiempo que se deben tener en cuenta y cuántas anomalías deben encontrarse en ellas para enviar la alerta.
+**Anomalías en las N series principales de todas las series** : Las alertas solo se desencadenarán para las anomalías de las N series principales. Puede establecer parámetros para especificar el número de marcas de tiempo que se deben tener en cuenta y cuántas anomalías deben encontrarse en ellas para enviar la alerta.
 
 ### <a name="severity"></a>Gravedad
 
-La gravedad es una calificación que Metrics Advisor utiliza para describir la gravedad del incidente; las opciones son *Alta*, *Media* y *Baja*.
+La gravedad es una calificación que Metrics Advisor utiliza para describir la gravedad del incidente; las opciones son *Alta* , *Media* y *Baja* .
 
 Actualmente, Metrics Advisor usa los siguientes factores para medir la gravedad de alerta:
 1. La proporción del valor y la proporción de la cantidad de anomalías de la métrica.
@@ -200,7 +200,7 @@ El comportamiento de la posposición se puede establecer en el nivel de métrica
 
 ### <a name="ingestion-time-offset"></a>Desfase en el tiempo de ingesta
 
-De forma predeterminada, los datos se ingieren según la granularidad (por ejemplo, *diariamente*). Mediante el uso de un entero positivo, puede retrasar la ingesta de los datos según el valor especificado. Con un número negativo, puede adelantar la ingesta según el valor especificado.
+De forma predeterminada, los datos se ingieren según la granularidad (por ejemplo, *diariamente* ). Mediante el uso de un entero positivo, puede retrasar la ingesta de los datos según el valor especificado. Con un número negativo, puede adelantar la ingesta según el valor especificado.
 
 ### <a name="max-ingestion-per-minute"></a>Ingesta máxima por minuto
 
@@ -230,7 +230,7 @@ Puede especificar el intervalo mínimo al reintentar la extracción de datos del
 > [!Note]
 > El período de gracia comienza en el tiempo de ingesta normal, más el desplazamiento de tiempo de ingesta especificado.
     
-Un período de gracia es un período de tiempo en el que Metrics Advisor seguirá capturando datos del origen de datos, pero no activará ninguna alerta. Si no se ingirió ningún dato después del período de gracia, se desencadenará la alerta *Fuente de distribución de datos no disponible*.
+Un período de gracia es un período de tiempo en el que Metrics Advisor seguirá capturando datos del origen de datos, pero no activará ninguna alerta. Si no se ingirió ningún dato después del período de gracia, se desencadenará la alerta *Fuente de distribución de datos no disponible* .
 
 ### <a name="snooze-alerts-in"></a>Posponer alertas en
 
@@ -238,7 +238,7 @@ Cuando esta opción se establece en cero, cada marca de tiempo con *No disponibl
 
 ## <a name="data-feed-permissions"></a>Permisos de fuente de distribución de datos
 
-Existen dos roles para administrar los permisos de fuente de distribución de datos: *Administrador* y *Espectador*. 
+Existen dos roles para administrar los permisos de fuente de distribución de datos: *Administrador* y *Espectador* . 
 
 * Un *administrador* tiene control total sobre la fuente de distribución de datos y las métricas que contiene. Pueden activar, pausar y eliminar la fuente de distribución de datos, así como efectuar actualizaciones en fuentes y configuraciones. Normalmente, un *administrador* es el propietario de las métricas.
 
@@ -246,5 +246,4 @@ Existen dos roles para administrar los permisos de fuente de distribución de da
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Introducción a Metrics Advisor](overview.md)
-- [Prueba del sitio de demostración](quickstarts/explore-demo.md)
 - [Uso del portal web](quickstarts/web-portal.md)

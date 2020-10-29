@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 10969e20cd7ae71cade230f6643a27d5d940ceaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd5f06a5383308ce736f2860810ebee7e5bce28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311281"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897116"
 ---
 # <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Adición de una capa de símbolo a un mapa mediante Android SDK de Azure Maps
 
@@ -21,7 +21,7 @@ En este artículo se explica cómo representar datos de punto de un origen de da
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para seguir todos los pasos en este artículo, debe instalar [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) para cargar un mapa.
+Para seguir todos los pasos en este artículo, debe instalar [Android SDK de Azure Maps](./how-to-use-android-map-control-library.md) para cargar un mapa.
 
 ## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 
@@ -180,7 +180,7 @@ En este momento, si ejecuta la aplicación debería ver un marcador en el mapa c
 Para agregar más material al mapa, consulte:
 
 > [!div class="nextstepaction"]
-> [Adición de formas a un mapa Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+> [Adición de formas a un mapa Android](./how-to-add-shapes-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Presentación de la información de características](display-feature-information-android.md)

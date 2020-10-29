@@ -8,16 +8,16 @@ ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b085fbc6e330d38b59fce0c494f672b00c712b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eb4e49e6c0e3f011015d40b8eca036d5218674c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85120505"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891706"
 ---
 # <a name="stylesobject-schema-reference-guide-for-dynamic-maps"></a>Guía de referencia del esquema de StylesObject para mapas dinámicos
 
-Este artículo es una guía de referencia del esquema JSON y la sintaxis del elemento `StylesObject`. `StylesObject` es una matriz de objetos `StyleObject` que representa los estilos del conjunto de estados. Use la [característica Servicio de estado](https://docs.microsoft.com/rest/api/maps/featurestate) de Azure Maps Creator para aplicar los estilos del conjunto de estados a las características de los datos de mapas de interiores. Una vez que haya creado los estilos del conjunto de estados y los haya asociado con las características del mapa de interiores, puede usarlos para crear mapas de interiores dinámicos. Para más información sobre la creación de mapas de interiores dinámicos, consulte [Implementación de estilos dinámicos para mapas de interiores de Creator](indoor-map-dynamic-styling.md).
+Este artículo es una guía de referencia del esquema JSON y la sintaxis del elemento `StylesObject`. `StylesObject` es una matriz de objetos `StyleObject` que representa los estilos del conjunto de estados. Use la [característica Servicio de estado](/rest/api/maps/featurestate) de Azure Maps Creator para aplicar los estilos del conjunto de estados a las características de los datos de mapas de interiores. Una vez que haya creado los estilos del conjunto de estados y los haya asociado con las características del mapa de interiores, puede usarlos para crear mapas de interiores dinámicos. Para más información sobre la creación de mapas de interiores dinámicos, consulte [Implementación de estilos dinámicos para mapas de interiores de Creator](indoor-map-dynamic-styling.md).
 
 ## <a name="styleobject"></a>StyleObject
 

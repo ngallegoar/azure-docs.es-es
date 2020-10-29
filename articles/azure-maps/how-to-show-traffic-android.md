@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272963"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895535"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visualización de los datos de tráfico en el mapa mediante el Android SDK de Azure Maps
 
@@ -21,7 +21,7 @@ Los datos de flujo y los datos de incidentes son los dos tipos de datos de tráf
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de poder mostrar el tráfico en el mapa, debe [crear una cuenta de Azure](quick-demo-map-app.md#create-an-azure-maps-account) y [obtener una clave de suscripción](quick-demo-map-app.md#get-the-primary-key-for-your-account). A continuación, debe instalar el [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) y cargar un mapa.
+Antes de poder mostrar el tráfico en el mapa, debe [crear una cuenta de Azure](quick-demo-map-app.md#create-an-azure-maps-account) y [obtener una clave de suscripción](quick-demo-map-app.md#get-the-primary-key-for-your-account). A continuación, debe instalar el [Android SDK de Azure Maps](./how-to-use-android-map-control-library.md) y cargar un mapa.
 
 ## <a name="incidents-traffic-data"></a>Datos de tráfico de incidentes
 
@@ -96,7 +96,7 @@ Para obtener los incidentes de una característica específica, puede usar el c�
    </FrameLayout>
    ```
 
-2. Agregue el código siguiente al archivo **MainActivity.java**. El paquete se incluye de forma predeterminada, así que debe asegurarse de mantener el paquete en la parte superior.
+2. Agregue el código siguiente al archivo **MainActivity.java** . El paquete se incluye de forma predeterminada, así que debe asegurarse de mantener el paquete en la parte superior.
 
    ```java
    package <yourpackagename>;
@@ -221,7 +221,7 @@ Para obtener los incidentes de una característica específica, puede usar el c�
    }
    ```
 
-3. Una vez que incorpore el código anterior en la aplicación, podrá hacer clic en una característica y ver los detalles de los incidentes de tráfico. En función de los valores de latitud, longitud y nivel de zoom que usó en el archivo **activity_main.xml**, verá resultados similares a la siguiente imagen:
+3. Una vez que incorpore el código anterior en la aplicación, podrá hacer clic en una característica y ver los detalles de los incidentes de tráfico. En función de los valores de latitud, longitud y nivel de zoom que usó en el archivo **activity_main.xml** , verá resultados similares a la siguiente imagen:
 
    <center>
 

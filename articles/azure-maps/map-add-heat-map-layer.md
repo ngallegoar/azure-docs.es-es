@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 5008e3b11a7e00e8f831333551c892113f03dd06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51df9683152d97b899150e240dee98896f8c40ee
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310635"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896385"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
@@ -24,9 +24,9 @@ La representación de decenas de miles de puntos como símbolos puede abarcar la
 
 Puede usar mapas térmicos en muchos escenarios diferentes, entre los que se incluyen:
 
-- **Datos de temperatura**: proporciona aproximaciones en las que la temperatura está entre dos puntos de datos.
-- **Datos de sensores de ruido**: no solo muestra la intensidad del ruido en el lugar donde se encuentra el sensor, sino que también puede proporcionar información sobre cómo se va disipando el ruido con la distancia. El nivel de ruido de un sitio podría no ser muy alto. Si las zonas de cobertura de diferentes sensores de ruido se solapan, podría ocurrir que los niveles de ruido fueran mayores en esta área solapada. De ese modo, el área superpuesta sería visible en el mapa térmico.
-- **Seguimiento mediante GPS**: incluye la velocidad como un mapa de altura ponderada en el que la intensidad de cada punto de datos depende de la velocidad. Por ejemplo, esta funcionalidad permitiría ver dónde aceleró un vehículo.
+- **Datos de temperatura** : proporciona aproximaciones en las que la temperatura está entre dos puntos de datos.
+- **Datos de sensores de ruido** : no solo muestra la intensidad del ruido en el lugar donde se encuentra el sensor, sino que también puede proporcionar información sobre cómo se va disipando el ruido con la distancia. El nivel de ruido de un sitio podría no ser muy alto. Si las zonas de cobertura de diferentes sensores de ruido se solapan, podría ocurrir que los niveles de ruido fueran mayores en esta área solapada. De ese modo, el área superpuesta sería visible en el mapa térmico.
+- **Seguimiento mediante GPS** : incluye la velocidad como un mapa de altura ponderada en el que la intensidad de cada punto de datos depende de la velocidad. Por ejemplo, esta funcionalidad permitiría ver dónde aceleró un vehículo.
 
 > [!TIP]
 > De forma predeterminada, las capas de los mapas térmicos representan las coordenadas de todos los objetos geométricos de un origen de datos. Para limitar la capa de forma que solo represente las características geométricas del punto, establezca la propiedad `filter` de la capa en `['==', ['geometry-type'], 'Point']`. Si desea incluir también características MultiPoint, establezca la propiedad `filter` de la capa en `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`.
@@ -120,10 +120,10 @@ Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>Consistent zo
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
+> [HeatMapLayer](/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 Para más ejemplos de código para agregar a los mapas, consulte los siguientes artículos:
 

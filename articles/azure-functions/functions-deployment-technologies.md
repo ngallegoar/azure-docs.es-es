@@ -4,12 +4,12 @@ description: Conozca las distintas formas de implementación de código en Azure
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641966"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900176"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -110,7 +110,7 @@ Puede utilizar la dirección URL del paquete externo para hacer referencia a un 
 >
 >Si usa Azure Blob Storage, utilice un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para que Functions tenga acceso al paquete. Cada vez que se reinicia la aplicación, se captura una copia del contenido. La referencia debe ser válida durante la vigencia de la aplicación.
 
->__Cuándo se debe usar__: si el usuario no quiere que se produzca una [compilación remota](#remote-build), la dirección URL del paquete externo es el único método de implementación compatible con Azure Functions que se ejecuta en Linux en el plan de Consumo. Al actualizar el archivo de paquete al que hace referencia una aplicación de funciones, debe [sincronizar manualmente los desencadenadores](#trigger-syncing) para indicar a Azure que la aplicación ha cambiado.
+>__Cuándo se debe usar__ : si el usuario no quiere que se produzca una [compilación remota](#remote-build), la dirección URL del paquete externo es el único método de implementación compatible con Azure Functions que se ejecuta en Linux en el plan de Consumo. Al actualizar el archivo de paquete al que hace referencia una aplicación de funciones, debe [sincronizar manualmente los desencadenadores](#trigger-syncing) para indicar a Azure que la aplicación ha cambiado.
 
 ### <a name="zip-deploy"></a>Implementación de archivo ZIP
 
@@ -120,7 +120,7 @@ Utilice la implementación de archivo ZIP para insertar un archivo ZIP que conti
 
 >Si realiza la implementación mediante la implementación de archivos ZIP, puede establecer la aplicación para que [se ejecute desde el paquete](run-functions-from-deployment-package.md). Para ejecutarla desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure.
 
->__Cuándo se debe usar__: La implementación de archivos ZIP es la tecnología de implementación recomendada para Azure Functions.
+>__Cuándo se debe usar__ : La implementación de archivos ZIP es la tecnología de implementación recomendada para Azure Functions.
 
 ### <a name="docker-container"></a>Contenedor de Docker
 
@@ -128,12 +128,12 @@ Puede implementar una imagen de contenedor de Linux que contenga la aplicación 
 
 >__Cómo se debe usar:__ Cree una aplicación de funciones de Linux en el plan Premium o el plan Dedicado y especifique desde qué imagen de contenedor se debe ejecutar. Puede hacerlo de dos maneras:
 >
->* Cree una aplicación de funciones de Linux en un plan de Azure App Service en Azure Portal. En **Publicar**, seleccione **Imagen de Docker** y configure el contenedor. Escriba la ubicación donde se hospeda la imagen.
+>* Cree una aplicación de funciones de Linux en un plan de Azure App Service en Azure Portal. En **Publicar** , seleccione **Imagen de Docker** y configure el contenedor. Escriba la ubicación donde se hospeda la imagen.
 >* Cree una aplicación de funciones de Linux en un plan de App Service mediante la CLI de Azure. Para obtener más información, consulte [Creación de una función en Linux con una imagen personalizada](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Para implementar una aplicación existente mediante un contenedor personalizado, use el comando [`func deploy`](functions-run-local.md#publish) de [Azure Functions Core Tools](functions-run-local.md).
 
->__Cuándo se debe usar__: Use la opción de contenedor de Docker cuando quiera tener más control sobre el entorno de Linux donde se ejecuta la aplicación de funciones. Este mecanismo de implementación solo está disponible para las instancias de Functions que se ejecutan en Linux.
+>__Cuándo se debe usar__ : Use la opción de contenedor de Docker cuando quiera tener más control sobre el entorno de Linux donde se ejecuta la aplicación de funciones. Este mecanismo de implementación solo está disponible para las instancias de Functions que se ejecutan en Linux.
 
 ### <a name="web-deploy-msdeploy"></a>Web Deploy (MSDeploy)
 
@@ -143,7 +143,7 @@ Web Deploy empaqueta e implementa las aplicaciones Windows en cualquier servido
 >
 >También puede descargar [Web Deploy 3.6](https://www.iis.net/downloads/microsoft/web-deploy) y llamar a `MSDeploy.exe` directamente.
 
->__Cuándo se debe usar__: Web Deploy se admite y no presenta problemas, pero el mecanismo preferido ahora es la [implementación de archivo ZIP con la ejecución desde el paquete habilitada](#zip-deploy). Para obtener más información, consulte la [guía de desarrollo de Visual Studio](functions-develop-vs.md#publish-to-azure).
+>__Cuándo se debe usar__ : Web Deploy se admite y no presenta problemas, pero el mecanismo preferido ahora es la [implementación de archivo ZIP con la ejecución desde el paquete habilitada](#zip-deploy). Para obtener más información, consulte la [guía de desarrollo de Visual Studio](functions-develop-vs.md#publish-to-azure).
 
 ### <a name="source-control"></a>Control de código fuente
 
@@ -151,7 +151,7 @@ Use el control de código fuente para conectar la aplicación de funciones a un 
 
 >__Cómo se debe usar:__ Use el centro de implementación del área Functions del portal para configurar la publicación desde el control de código fuente. Para más información, vea [Implementación continua para Azure Functions](functions-continuous-deployment.md).
 
->__Cuándo se debe usar__: El uso del control de código fuente es el procedimiento recomendado para los equipos que colaboran en sus aplicaciones de funciones. El control de código fuente es una buena opción de implementación que permite el uso de canalizaciones de implementación más sofisticadas.
+>__Cuándo se debe usar__ : El uso del control de código fuente es el procedimiento recomendado para los equipos que colaboran en sus aplicaciones de funciones. El control de código fuente es una buena opción de implementación que permite el uso de canalizaciones de implementación más sofisticadas.
 
 ### <a name="local-git"></a>Git local
 
@@ -159,7 +159,7 @@ Puede usar GIT local para insertar código desde la máquina local en Azure Fun
 
 >__Cómo se debe usar:__ Siga las instrucciones de [Implementación de Git local a Azure App Service](../app-service/deploy-local-git.md).
 
->__Cuándo se debe usar__: En general, se recomienda usar otro método de implementación. Al publicar desde Git local, debe [sincronizar manualmente los desencadenadores](#trigger-syncing).
+>__Cuándo se debe usar__ : En general, se recomienda usar otro método de implementación. Al publicar desde Git local, debe [sincronizar manualmente los desencadenadores](#trigger-syncing).
 
 ### <a name="cloud-sync"></a>Sincronización en la nube
 
@@ -167,7 +167,7 @@ Use la sincronización en la nube para sincronizar el contenido desde Dropbox y 
 
 >__Cómo se debe usar:__ Siga las instrucciones de [Sincronización de contenido de una carpeta de nube](../app-service/deploy-content-sync.md).
 
->__Cuándo se debe usar__: En general, se recomiendan otros métodos de implementación. Al publicar mediante la sincronización en la nube, debe [sincronizar manualmente los desencadenadores](#trigger-syncing).
+>__Cuándo se debe usar__ : En general, se recomiendan otros métodos de implementación. Al publicar mediante la sincronización en la nube, debe [sincronizar manualmente los desencadenadores](#trigger-syncing).
 
 ### <a name="ftp"></a>FTP
 
@@ -175,7 +175,7 @@ Puede usar FTP para transferir archivos directamente a Azure Functions.
 
 >__Cómo se debe usar:__ Siga las instrucciones de [Implementación de contenido mediante FTP/S](../app-service/deploy-ftp.md).
 
->__Cuándo se debe usar__: En general, se recomiendan otros métodos de implementación. Al publicar mediante FTP, debe [sincronizar manualmente los desencadenadores](#trigger-syncing).
+>__Cuándo se debe usar__ : En general, se recomiendan otros métodos de implementación. Al publicar mediante FTP, debe [sincronizar manualmente los desencadenadores](#trigger-syncing).
 
 ### <a name="portal-editing"></a>Edición del portal
 
@@ -183,7 +183,7 @@ En el editor basado en el portal, puede editar directamente los archivos que se 
 
 >__Cómo se debe usar:__ Para poder editar las funciones en Azure Portal, debe haber [creado las funciones en el portal](functions-create-first-azure-function.md). Para conservar un único origen de confianza, el uso de cualquier otro método de implementación hace que la función sea de solo lectura e impide la edición del portal de forma continuada. Para volver a un estado en el que pueda editar los archivos en Azure Portal, puede volver a activar manualmente el modo de edición en `Read/Write` y quitar la configuración de la aplicación relacionada con la implementación (como `WEBSITE_RUN_FROM_PACKAGE`).
 
->__Cuándo se debe usar__: El portal es una buena forma de empezar a trabajar con Azure Functions. Para un trabajo de desarrollo más intensivo, se recomienda usar una de las herramientas de cliente siguientes:
+>__Cuándo se debe usar__ : El portal es una buena forma de empezar a trabajar con Azure Functions. Para un trabajo de desarrollo más intensivo, se recomienda usar una de las herramientas de cliente siguientes:
 >
 >* [Visual Studio Code](functions-create-first-function-vs-code.md)
 >* [Azure Functions Core Tools (línea de comandos)](functions-run-local.md)
@@ -212,7 +212,7 @@ Si necesita más control sobre esta transición, debe usar ranuras de implementa
 
 ## <a name="deployment-slots"></a>Ranuras de implementación
 
-Al implementar la aplicación de funciones en Azure, puede implementar en una ranura de implementación independiente en lugar de directamente en producción. Para obtener más información sobre las ranuras de implementación, consulte la documentación de [ranuras de implementación de Azure Functions](../app-service/deploy-staging-slots.md).
+Al implementar la aplicación de funciones en Azure, puede implementar en una ranura de implementación independiente en lugar de directamente en producción. Para obtener más información sobre las ranuras de implementación, consulte la documentación de [ranuras de implementación de Azure Functions](functions-deployment-slots.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

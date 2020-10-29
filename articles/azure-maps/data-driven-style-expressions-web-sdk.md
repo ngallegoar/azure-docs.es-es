@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311383"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895977"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo basadas en datos (SDK web)
 
@@ -475,13 +475,13 @@ Las expresiones de color facilitan la creación y la manipulación de valores de
 
 | Expression | Tipo de valor devuelto | Descripción |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Crea un valor de color a partir de los componentes *red*, *green* y *blue* que deben oscilar entre`0` y `255`, y un componente alfa de `1`. Si alguno de los componentes está fuera del intervalo, la expresión es un error. |
-| `['rgba', number, number, number, number]` | color | Crea un valor de color a partir de los componentes *red*, *green* y *blue* que deben oscilar entre `0` y `255`, y un componente alfa dentro de un intervalo de `0` y `1`. Si alguno de los componentes está fuera del intervalo, la expresión es un error. |
-| `['to-rgba']` | \[número, número, número, número\] | Devuelve una matriz de cuatro elementos que contiene los componentes *red*, *green*, *blue* y *alfa* componentes, en ese orden. |
+| `['rgb', number, number, number]` | color | Crea un valor de color a partir de los componentes *red* , *green* y *blue* que deben oscilar entre`0` y `255`, y un componente alfa de `1`. Si alguno de los componentes está fuera del intervalo, la expresión es un error. |
+| `['rgba', number, number, number, number]` | color | Crea un valor de color a partir de los componentes *red* , *green* y *blue* que deben oscilar entre `0` y `255`, y un componente alfa dentro de un intervalo de `0` y `1`. Si alguno de los componentes está fuera del intervalo, la expresión es un error. |
+| `['to-rgba']` | \[número, número, número, número\] | Devuelve una matriz de cuatro elementos que contiene los componentes *red* , *green* , *blue* y *alfa* componentes, en ese orden. |
 
 **Ejemplo**
 
-En el ejemplo siguiente, se crea un valor de color RGB que tiene el valor `255` en *red* y valores *green* y *blue* que se calculan multiplicando `2.5` por el valor de la propiedad `temperature`. A medida que cambia la temperatura, el color cambiará a diferentes tonalidades de *red*.
+En el ejemplo siguiente, se crea un valor de color RGB que tiene el valor `255` en *red* y valores *green* y *blue* que se calculan multiplicando `2.5` por el valor de la propiedad `temperature`. A medida que cambia la temperatura, el color cambiará a diferentes tonalidades de *red* .
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -647,7 +647,7 @@ Expresiones especiales que solo se aplican a capas específicas.
 
 ### <a name="heat-map-density-expression"></a>Expresión de densidad de mapa térmico
 
-Una expresión de densidad de mapa término recupera el valor de densidad de mapa término para cada píxel de una capa de mapa térmico y se define como `['heatmap-density']`. Este valor es un número comprendido entre `0` y `1`. Se usa en combinación con una expresión `interpolation` o `step` para definir el degradado de color empleado para colorear el mapa térmico. Esta expresión solo se puede usar en la [opción de color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) de la capa de mapa térmico.
+Una expresión de densidad de mapa término recupera el valor de densidad de mapa término para cada píxel de una capa de mapa térmico y se define como `['heatmap-density']`. Este valor es un número comprendido entre `0` y `1`. Se usa en combinación con una expresión `interpolation` o `step` para definir el degradado de color empleado para colorear el mapa térmico. Esta expresión solo se puede usar en la [opción de color](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) de la capa de mapa térmico.
 
 > [!TIP]
 > El color del índice 0 de una expresión de interpolación o el color predeterminado de un paso definen el color del área donde no hay ningún dato. El color del índice 0 se puede usar para definir el color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente.
@@ -954,16 +954,16 @@ Consulte los siguientes artículos para ver más ejemplos de código que impleme
 Más información sobre las opciones de capa que admiten expresiones:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

@@ -4,12 +4,12 @@ description: Copia de seguridad y restauración de bases de datos SQL en Azure V
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 37e2336b262311ea00e833ad91fe5e8c5c1ddf1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3b943a53c1da0f6f1e938b5b234dc82541b46d
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975182"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901663"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Copia de seguridad y restauración de bases de datos SQL en máquinas virtuales de Azure con PowerShell
 
@@ -56,10 +56,10 @@ Configure PowerShell como sigue:
 
     ![Lista de cmdlets de Recovery Services](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Inicie sesión en su cuenta de Azure con el cmdlet **Connect-AzAccount**.
+4. Inicie sesión en su cuenta de Azure con el cmdlet **Connect-AzAccount** .
 5. En la página web que aparece, se le pedirá que escriba las credenciales de su cuenta.
 
-    * Como alternativa, puede incluir las credenciales de su cuenta como un parámetro en el cmdlet **Connect-AzAccount** mediante el parámetro **-Credential**.
+    * Como alternativa, puede incluir las credenciales de su cuenta como un parámetro en el cmdlet **Connect-AzAccount** mediante el parámetro **-Credential** .
     * Si es un asociado CSP que trabaja en nombre de un inquilino, especifique el cliente como inquilino usando su TenantID o su nombre de dominio principal de inquilino. Un ejemplo es **Connect-AzAccount -Tenant** fabrikam.com.
 
 6. Asocie la suscripción que quiere usar con la cuenta, dado que una cuenta puede tener varias suscripciones.
@@ -80,13 +80,13 @@ Configure PowerShell como sigue:
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. En la salida del comando, compruebe que **RegistrationState** cambia a **Registered**. En caso contrario, vuelva a ejecutar el cmdlet **Register-AzResourceProvider**.
+9. En la salida del comando, compruebe que **RegistrationState** cambia a **Registered** . En caso contrario, vuelva a ejecutar el cmdlet **Register-AzResourceProvider** .
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
 Siga estos pasos para crear un almacén de Recovery Services.
 
-El almacén de Recovery Services es un recurso de Resource Manager, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno con el cmdlet **New-AzResourceGroup**. Al crear un grupo de recursos, especifique el nombre y la ubicación.
+El almacén de Recovery Services es un recurso de Resource Manager, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno con el cmdlet **New-AzResourceGroup** . Al crear un grupo de recursos, especifique el nombre y la ubicación.
 
 1. Un almacén se coloca en un grupo de recursos. Si no tiene un grupo de recursos, cree uno con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). En el ejemplo, se crea un grupo de recursos en la región Oeste de EE. UU.
 
@@ -103,7 +103,7 @@ El almacén de Recovery Services es un recurso de Resource Manager, por lo que d
 3. Especifique el tipo de redundancia para el almacenamiento.
 
     * Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy.md#locally-redundant-storage), [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy.md#geo-redundant-storage) o [almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md#zone-redundant-storage).
-    * En el siguiente ejemplo se establece la opción **-BackupStorageRedundancy** para el cmdlet [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** se establece en **GeoRedundant**.
+    * En el siguiente ejemplo se establece la opción **-BackupStorageRedundancy** para el cmdlet [Set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) para **testvault** se establece en **GeoRedundant** .
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -137,7 +137,7 @@ Almacene el objeto de almacén en una variable y establezca el contexto de almac
 * Muchos de los cmdlets de Azure Backup requieren el objeto de almacén de Recovery Services como una entrada, por lo que es conveniente almacenar el objeto de almacén en una variable.
 * El contexto de almacén es el tipo de los datos protegidos en el almacén. Establézcalo con [Set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Una vez que se haya establecido el contexto, se aplica a todos los cmdlets posteriores.
 
-En el ejemplo siguiente se establece el contexto del almacén de **testvault**.
+En el ejemplo siguiente se establece el contexto del almacén de **testvault** .
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -172,7 +172,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > Solo tiene que proporcionar la hora de inicio en múltiplos de 30 minutos. En el ejemplo anterior, solo puede ser "01:00:00" o "02:30:00". La hora de inicio no puede ser "01:15:00".
 
-En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. A continuación, usa estas variables como parámetros para una nueva directiva (**NewSQLPolicy**). **NewSQLPolicy** toma una copia de seguridad diario "completa" diaria, la conserva durante 180 días y toma una copia de seguridad del registro cada 2 horas
+En el ejemplo siguiente se almacenan la directiva de programación y la directiva de retención en variables. A continuación, usa estas variables como parámetros para una nueva directiva ( **NewSQLPolicy** ). **NewSQLPolicy** toma una copia de seguridad diario "completa" diaria, la conserva durante 180 días y toma una copia de seguridad del registro cada 2 horas
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
@@ -310,7 +310,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 Si quiere restaurar la base de datos a un momento dado, use el cmdlet [Get AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) de PowerShell. El cmdlet devuelve una lista de fechas que representan las horas de inicio y finalización de una cadena continua, ininterrumpida de registro para ese elemento de copia de seguridad de SQL. El momento deseado debería estar dentro de este intervalo.
 
 ```powershell
-Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -VaultId $targetVault.ID
 ```
 
 El resultado será similar al ejemplo siguiente.
@@ -380,7 +380,7 @@ $AnotherInstanceWithLogConfig = Get-AzRecoveryServicesBackupWorkloadRecoveryConf
 
 ##### <a name="restore-as-files"></a>Restaurar como Archivos
 
-Para restaurar los datos de copia de seguridad como archivos .bak en lugar de una base de datos, seleccione la opción **Restaurar como archivos**. La base de datos SQL de la que se ha realizado una copia de seguridad se puede restaurar en cualquier máquina virtual de destino registrada en este almacén.
+Para restaurar los datos de copia de seguridad como archivos .bak en lugar de una base de datos, seleccione la opción **Restaurar como archivos** . La base de datos SQL de la que se ha realizado una copia de seguridad se puede restaurar en cualquier máquina virtual de destino registrada en este almacén.
 
 ```powershell
 $TargetContainer= Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppContainer -FriendlyName "VM name" -VaultId $vaultID
@@ -499,7 +499,7 @@ Si el resultado se pierde o si desea obtener el identificador de trabajo corresp
 
 ### <a name="change-policy-for-backup-items"></a>Cambio de la directiva para los elementos de copia de seguridad
 
-Puede cambiar la directiva del elemento de copia de seguridad de *Policy1* a *Policy2*. Para cambiar las directivas para un elemento de copia de seguridad, capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) con el elemento de copia de seguridad como parámetro.
+Puede cambiar la directiva del elemento de copia de seguridad de *Policy1* a *Policy2* . Para cambiar las directivas para un elemento de copia de seguridad, capture la directiva correspondiente y haga una copia de seguridad del elemento, y use el comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) con el elemento de copia de seguridad como parámetro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -600,7 +600,7 @@ Para cancelar un trabajo en curso, utilice el cmdlet [Stop-AzRecoveryServicesBac
 
 Con los grupos de disponibilidad AlwaysOn de SQL, no olvide [registrar todos los nodos](#registering-the-sql-vm) del grupo de disponibilidad (AG). Una vez que el registro se realiza para todos los nodos, se crea lógicamente un objeto de grupo de disponibilidad SQL en los elementos que se pueden proteger. Las bases de datos del grupo de disponibilidad de SQL se mostrarán como "SQLDatabase". Los nodos se mostrarán como instancias independientes y las bases de datos SQL predeterminadas en ellos se mostrarán también como las bases de datos SQL.
 
-Por ejemplo, supongamos que un grupo de disponibilidad SQL tiene dos nodos: *sql-server-0* y *sql-server-1*, y una base de datos SQL AG. Una vez que ambos nodos se registran, si [enumera los elementos que se pueden proteger](#fetching-sql-dbs), se muestran los siguientes componentes.
+Por ejemplo, supongamos que un grupo de disponibilidad SQL tiene dos nodos: *sql-server-0* y *sql-server-1* , y una base de datos SQL AG. Una vez que ambos nodos se registran, si [enumera los elementos que se pueden proteger](#fetching-sql-dbs), se muestran los siguientes componentes.
 
 * Un objeto de grupo de disponibilidad SQL: tipo de elemento que se puede proteger como SQLAvailabilityGroup
 * Una base de datos de grupo de disponibilidad de SQL: tipo de elemento que se puede proteger como SQLDatabase

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335558"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895688"
 ---
 # <a name="how-to-use-image-templates"></a>Uso de plantillas de imagen
 
@@ -24,7 +24,7 @@ Las imágenes se pueden usar con los marcadores HTML y varias capas dentro del S
  - Las capas de polígono se pueden representar con una imagen de patrón de relleno. 
  - Los marcadores HTML pueden representar puntos mediante imágenes y otros elementos HTML.
 
-Con el fin de garantizar un buen rendimiento con las capas, estas cargue las imágenes en el recurso de sprite de imagen de mapa antes de la representación. De forma predeterminada, el objeto [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) de SymbolLayer carga previamente un par de imágenes de marcador en algunos colores en el sprite de imagen de mapa. Estas imágenes de marcador y mucho más están disponibles como plantillas SVG. Se pueden usar para crear imágenes con escalas personalizadas o como color principal y secundario del cliente. En total se proporcionan 42 plantillas de imagen: 27 iconos de símbolos y 15 patrones de relleno de polígonos.
+Con el fin de garantizar un buen rendimiento con las capas, estas cargue las imágenes en el recurso de sprite de imagen de mapa antes de la representación. De forma predeterminada, el objeto [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions) de SymbolLayer carga previamente un par de imágenes de marcador en algunos colores en el sprite de imagen de mapa. Estas imágenes de marcador y mucho más están disponibles como plantillas SVG. Se pueden usar para crear imágenes con escalas personalizadas o como color principal y secundario del cliente. En total se proporcionan 42 plantillas de imagen: 27 iconos de símbolos y 15 patrones de relleno de polígonos.
 
 Se pueden agregar plantillas de imagen a los recursos de sprite de imagen de mapa mediante la función `map.imageSprite.createFromTemplate`. Esta función permite pasar hasta cinco parámetros;
 
@@ -514,10 +514,10 @@ Consulte el fragmento de código (pen) de las <a href='https://codepen.io/azurem
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [Espacio de nombres atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
+> [Espacio de nombres atlas](/javascript/api/azure-maps-control/atlas#functions
 )
 
 Consulte los artículos siguientes para obtener más ejemplos de código donde se pueden usar las plantillas de imagen:

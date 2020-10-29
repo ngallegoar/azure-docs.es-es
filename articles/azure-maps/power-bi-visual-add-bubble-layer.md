@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 4443b0f479079a4722a5d62fea40afcb4a58632d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff0d2c8e90995222af79d5be63ca3e9da24b3c45
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86261530"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896232"
 ---
 # <a name="add-a-bubble-layer"></a>Adición de una capa de burbuja
 
@@ -23,12 +23,12 @@ La **capa de burbujas** representa los datos de ubicación como círculos a esca
 > [!div class="mx-imgBorder"]
 > ![Mapa que muestra datos de punto mediante la capa de burbujas](media/power-bi-visual/bubble-layer-with-legend-color.png)
 
-Inicialmente, todas las burbujas tienen el mismo color de relleno. Si se pasa un campo al cubo **Leyenda** del panel **Campos**, las burbujas se colorearán en función de su categorización. El contorno de las burbujas es blanco de forma predeterminada, pero se puede cambiar a un nuevo color o habilitar la opción de contorno de alto contraste. La opción **High-contrast outline** (Contorno de alto contraste) asigna de forma dinámica un color al contorno que es una variante de alto contraste del color del relleno. Esto ayuda a garantizar que, independientemente del estilo del mapa, las burbujas se puedan ver claramente. A continuación se muestran los valores principales del panel **Formato** que están disponibles en la sección **Bubble layer** (Capa de burbujas).
+Inicialmente, todas las burbujas tienen el mismo color de relleno. Si se pasa un campo al cubo **Leyenda** del panel **Campos** , las burbujas se colorearán en función de su categorización. El contorno de las burbujas es blanco de forma predeterminada, pero se puede cambiar a un nuevo color o habilitar la opción de contorno de alto contraste. La opción **High-contrast outline** (Contorno de alto contraste) asigna de forma dinámica un color al contorno que es una variante de alto contraste del color del relleno. Esto ayuda a garantizar que, independientemente del estilo del mapa, las burbujas se puedan ver claramente. A continuación se muestran los valores principales del panel **Formato** que están disponibles en la sección **Bubble layer** (Capa de burbujas).
 
 | Configuración               | Descripción    |
 |-----------------------|----------------|
-| Size                  | Tamaño de cada burbuja. Esta opción está oculta cuando se pasa un campo al cubo **Tamaño** del panel **Campos**. Las opciones adicionales aparecerán como se describen en el tema [Escalado de tamaño de las burbujas](#bubble-size-scaling) más adelante en este artículo. |
-| Fill color (Color de relleno)            | Color de cada burbuja. Esta opción está oculta cuando se pasa un campo al cubo **Leyenda** del panel **Campos** y se muestra una sección independiente de **Colores de datos** en el panel **Formato**. |
+| Size                  | Tamaño de cada burbuja. Esta opción está oculta cuando se pasa un campo al cubo **Tamaño** del panel **Campos** . Las opciones adicionales aparecerán como se describen en el tema [Escalado de tamaño de las burbujas](#bubble-size-scaling) más adelante en este artículo. |
+| Fill color (Color de relleno)            | Color de cada burbuja. Esta opción está oculta cuando se pasa un campo al cubo **Leyenda** del panel **Campos** y se muestra una sección independiente de **Colores de datos** en el panel **Formato** . |
 | Fill transparency (Transparencia de relleno)     | Transparencia de cada burbuja. |
 | High-contrast outline (Contorno de alto contraste) | Hace que el color del contorno contraste con el del relleno para así mejorar la accesibilidad mediante el uso de una variante de alto contraste del color de relleno. |
 | Outline color (Color del contorno)         | Color del contorno de la burbuja. Esta opción está oculta cuando está habilitada la opción **High-contrast outline** (Contorno de alto contraste). |
@@ -43,7 +43,7 @@ Inicialmente, todas las burbujas tienen el mismo color de relleno. Si se pasa un
 
 ## <a name="bubble-size-scaling"></a>Escalado de tamaño de las burbujas
 
-Si un campo se pasa al cubo **Tamaño** del panel **Campos**, las burbujas se escalarán de forma relativa al valor de medida de cada punto de datos. La opción **Tamaño** de la sección **Bubble layer** (Capa de burbujas) del panel **Formato** desaparecerá cuando se pase un campo al cubo **Tamaño**, ya que los radios de las burbujas se escalarán entre un valor mínimo y un valor máximo. Las siguientes opciones aparecerán en la sección **Bubble layer** (Capa de burbujas) del panel **Formato** cuando un cubo **Tamaño** tiene un campo especificado.
+Si un campo se pasa al cubo **Tamaño** del panel **Campos** , las burbujas se escalarán de forma relativa al valor de medida de cada punto de datos. La opción **Tamaño** de la sección **Bubble layer** (Capa de burbujas) del panel **Formato** desaparecerá cuando se pase un campo al cubo **Tamaño** , ya que los radios de las burbujas se escalarán entre un valor mínimo y un valor máximo. Las siguientes opciones aparecerán en la sección **Bubble layer** (Capa de burbujas) del panel **Formato** cuando un cubo **Tamaño** tiene un campo especificado.
 
 | Configuración             | Descripción  |
 |---------------------|--------------|
@@ -51,7 +51,7 @@ Si un campo se pasa al cubo **Tamaño** del panel **Campos**, las burbujas se es
 | Tamaño máximo            | Tamaño máximo de la burbuja al escalar los datos.|
 | Size scaling method (Método de escalado de tamaño) | Algoritmo de escalado usado para determinar el tamaño relativo de la burbuja.<br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;• Lineal: se asigna un intervalo de datos de entrada linealmente a los tamaños mínimo y máximo. (predeterminado).<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Log: se asigna un intervalo de datos de entrada de forma logarítmica a los tamaños mínimo y máximo.<br/>&nbsp;&nbsp;&nbsp;&nbsp;• Bézier cúbica: especifica los valores X1, Y1, X2, Y2 de una curva Bézier cúbica para crear un método de escalado personalizado. |
 
-Cuando **Size scaling method** (Método de escalado de tamaño) se establece en **Log**, las siguientes opciones estarán disponibles.
+Cuando **Size scaling method** (Método de escalado de tamaño) se establece en **Log** , las siguientes opciones estarán disponibles.
 
 | Configuración   | Descripción      |
 |-----------|------------------|
@@ -90,7 +90,7 @@ Agregue más contexto al mapa:
 Personalice el objeto visual:
 
 > [!div class="nextstepaction"]
-> [Sugerencias y trucos para el formato de color en Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Sugerencias y trucos para el formato de color en Power BI](/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
-> [Personalización de los títulos, los fondos y las leyendas de las visualizaciones](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)
+> [Personalización de los títulos, los fondos y las leyendas de las visualizaciones](/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

@@ -5,13 +5,13 @@ description: Aprenda a usar la CLI de Azure para crear un clúster de Azure Kube
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543085"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899878"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creación y configuración de un clúster de Azure Kubernetes Service (AKS) para usar nodos virtuales mediante la CLI de Azure
 
@@ -21,7 +21,7 @@ En este artículo se muestra cómo crear y configurar los recursos de red virtua
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas*. De forma predeterminada, los clústeres de AKS se crean con redes *básicas*. En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
+Los nodos virtuales permiten la comunicación de red entre los pods que se ejecutan en Azure Container Instances (ACI) y el clúster de AKS. Para proporcionar esta comunicación, se crea una subred de red virtual y se asignan permisos delegados. Los nodos virtuales solo funcionan con clústeres de AKS creados mediante redes *avanzadas* . De forma predeterminada, los clústeres de AKS se crean con redes *básicas* . En este artículo se explica cómo crear una red virtual y subredes y, después, cómo implementar un clúster de AKS que usa redes avanzadas.
 
 Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su suscripción. Puede comprobar el estado de registro del proveedor de ACI mediante el comando [az provider list][az-provider-list], tal como se muestra en el siguiente ejemplo:
 
@@ -29,7 +29,7 @@ Si no ha utilizado anteriormente ACI, registre el proveedor de servicio con su s
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-El proveedor *Microsoft.ContainerInstance* debería notificar como *Registrado*, tal como se muestra en el siguiente ejemplo de salida:
+El proveedor *Microsoft.ContainerInstance* debería notificar como *Registrado* , tal como se muestra en el siguiente ejemplo de salida:
 
 ```output
 Namespace                    RegistrationState    RegistrationPolicy
@@ -37,7 +37,7 @@ Namespace                    RegistrationState    RegistrationPolicy
 Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
-Si el proveedor se muestra como *NotRegistered*, registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
+Si el proveedor se muestra como *NotRegistered* , registre el proveedor con el comando [az provider register][az-provider-register] tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -81,7 +81,7 @@ Si prefiere instalar y usar la CLI en un entorno local, para este artículo se r
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westus*.
+Un grupo de recursos de Azure es un grupo lógico en el que se implementan y administran recursos de Azure. Para crear un grupo de recursos, use el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *westus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Cree una red virtual con el comando [az network vnet create][az-network-vnet-create]. En el ejemplo siguiente se crea una red virtual denominada *myVnet* con un prefijo de dirección de *10.0.0.0/8* y una subred llamada *myAKSSubnet*. El valor predeterminado del prefijo de la dirección de esta subred es *10.240.0.0/16*:
+Cree una red virtual con el comando [az network vnet create][az-network-vnet-create]. En el ejemplo siguiente se crea una red virtual denominada *myVnet* con un prefijo de dirección de *10.0.0.0/8* y una subred llamada *myAKSSubnet* . El valor predeterminado del prefijo de la dirección de esta subred es *10.240.0.0/16* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Ahora cree una subred adicional para los nodos virtuales mediante el comando [az network vnet subnet create][az-network-vnet-subnet-create]. En el ejemplo siguiente se crea una subred llamada *myVirtualNodeSubnet* con el prefijo de dirección *10.241.0.0/16*.
+Ahora cree una subred adicional para los nodos virtuales mediante el comando [az network vnet subnet create][az-network-vnet-subnet-create]. En el ejemplo siguiente se crea una subred llamada *myVirtualNodeSubnet* con el prefijo de dirección *10.241.0.0/16* .
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +132,7 @@ La salida es similar a la del ejemplo siguiente:
 }
 ```
 
-Anote el valor de *appId* y *password*. Estos valores se usan en los pasos siguientes.
+Anote el valor de *appId* y *password* . Estos valores se usan en los pasos siguientes.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Asignación de permisos a la red virtual
 
@@ -202,7 +202,7 @@ Para comprobar la conexión al clúster, use el comando [kubectl get][kubectl-ge
 kubectl get nodes
 ```
 
-La salida de ejemplo siguiente muestra el nodo de máquina virtual único creado y luego el nodo virtual para Linux, *virtual-node-aci-linux*:
+La salida de ejemplo siguiente muestra el nodo de máquina virtual único creado y luego el nodo virtual para Linux, *virtual-node-aci-linux* :
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION
@@ -231,7 +231,7 @@ spec:
     spec:
       containers:
       - name: aci-helloworld
-        image: microsoft/aci-helloworld
+        image: mcr.microsoft.com/azuredocs/aci-helloworld
         ports:
         - containerPort: 80
       nodeSelector:

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 05a409faedb2093637b3d93045b35eb4e4929626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00628ec5a9f41b027bf90b93421f3aa1404e97a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310754"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896402"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Agregar una barra de herramientas de dibujo a un mapa
 
-Este artículo muestra cómo usar el módulo de herramientas de dibujo y mostrar la barra de herramientas de Dibujo en el mapa. El control [DrawingToolbar](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) agrega la barra de herramientas de dibujo en el mapa. Aprenderá a crear mapas con solo una y todas las herramientas de dibujo y cómo personalizar la representación de las formas de dibujo en el administrador de dibujos.
+Este artículo muestra cómo usar el módulo de herramientas de dibujo y mostrar la barra de herramientas de Dibujo en el mapa. El control [DrawingToolbar](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) agrega la barra de herramientas de dibujo en el mapa. Aprenderá a crear mapas con solo una y todas las herramientas de dibujo y cómo personalizar la representación de las formas de dibujo en el administrador de dibujos.
 
 ## <a name="add-drawing-toolbar"></a>Incorporación de la barra de herramientas Dibujo
 
@@ -143,10 +143,10 @@ Obtenga información sobre cómo usar características adicionales del módulo d
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Map](/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Barra de herramientas de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
+> [Barra de herramientas de dibujo](/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)
 
 > [!div class="nextstepaction"]
-> [Administrador de dibujo](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
+> [Administrador de dibujo](/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)

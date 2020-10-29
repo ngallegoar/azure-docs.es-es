@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8698b7bf402850e506ec126cd2a7bb6ce05823
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90972044"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896734"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servicios meteorológicos de Azure Maps
 
-En este artículo se presentan los conceptos que se aplican a los [Servicios meteorológicos de Azure Maps](https://aka.ms/AzureMapsWeatherService). Se recomienda consultar este artículo antes de empezar a usar las API meteorológicas.
+En este artículo se presentan los conceptos que se aplican a los [Servicios meteorológicos de Azure Maps](/rest/api/maps/weather). Se recomienda consultar este artículo antes de empezar a usar las API meteorológicas.
 
 ## <a name="unit-types"></a>Tipos de unidad
 
@@ -100,7 +100,7 @@ Algunas de las API del servicio Weather devuelven `iconCode` en la respuesta. `i
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de colores de imágenes de satélite y radar
 
-Mediante la [API Get Map Tile v2](https://aka.ms/AzureMapsWeatherTiles) los usuarios pueden solicitar las imágenes de satélite por infrarrojos y radar más recientes. Consulte la guía siguiente como ayuda para interpretar los colores usados para los iconos de radar y satélite.
+Mediante la [API Get Map Tile v2](/rest/api/maps/renderv2/getmaptilepreview) los usuarios pueden solicitar las imágenes de satélite por infrarrojos y radar más recientes. Consulte la guía siguiente como ayuda para interpretar los colores usados para los iconos de radar y satélite.
 
 ### <a name="radar-images"></a>Imágenes de radar
 
@@ -475,7 +475,7 @@ A continuación se muestra una paleta de color detallada para iconos de satélit
 
 ## <a name="index-ids-and-index-groups-ids"></a>Id. de índice e id. de grupos de índices
 
-La [API para obtener índices diarios](https://aka.ms/AzureMapsWeatherDailyIndices) permite a los usuarios restringir los resultados devueltos a tipos de índice o grupos de índices concretos.
+La [API para obtener índices diarios](/rest/api/maps/weather) permite a los usuarios restringir los resultados devueltos a tipos de índice o grupos de índices concretos.
 
 A continuación, se muestra una tabla de id. de índice disponibles, sus nombres y un vínculo a sus conjuntos de intervalos. Debajo de esta tabla encontrará una tabla que enumera los distintos grupos de índices.
 
@@ -547,7 +547,7 @@ A continuación, se muestra la lista de grupos de índices disponibles (indexGro
 
 ## <a name="daily-index-range-sets"></a>Conjuntos de intervalos de índices diarios
 
-La [API para obtener los índices diarios](https://aka.ms/AzureMapsWeatherDailyIndices) devuelve el valor de intervalo y su nombre de categoría asociado para cada id. de índice. Los conjuntos de intervalos no son los mismos para todos los índices. En las tablas siguientes se muestran los diversos conjuntos de intervalos utilizados por los índices admitidos que aparecen en [Id. de índices e id. de grupos de índices](#index-ids-and-index-groups-ids). Para averiguar qué índices usan los conjuntos de intervalos, vaya a la sección [Id. de índices e id. de grupos de índices](#index-ids-and-index-groups-ids) de este documento.
+La [API para obtener los índices diarios](/rest/api/maps/weather) devuelve el valor de intervalo y su nombre de categoría asociado para cada id. de índice. Los conjuntos de intervalos no son los mismos para todos los índices. En las tablas siguientes se muestran los diversos conjuntos de intervalos utilizados por los índices admitidos que aparecen en [Id. de índices e id. de grupos de índices](#index-ids-and-index-groups-ids). Para averiguar qué índices usan los conjuntos de intervalos, vaya a la sección [Id. de índices e id. de grupos de índices](#index-ids-and-index-groups-ids) de este documento.
 
 ### <a name="poor-excellent-1"></a>Malo - Excelente 1
 

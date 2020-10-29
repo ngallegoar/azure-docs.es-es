@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b3f9451a5ffd13c67232107d8db1e2da4a3891ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99821e51364eb9ffd75cda291c526c3c0b8c8f0e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524750"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895858"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Uso del visualizador de errores de dibujo de Azure Maps
 
-El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) solo devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
+El visualizador de errores de dibujo es una aplicación web independiente que muestra los [errores y advertencias de paquetes de dibujos](drawing-conversion-error-codes.md) detectados durante el proceso de conversión. La aplicación web del visualizador de errores consiste en una página estática que puede usar sin conectarse a Internet.  Puede usar el visualizador de errores para corregir errores y advertencias de acuerdo con los [requisitos del paquete de dibujos](drawing-requirements.md). La [API de conversión de Azure Maps](/rest/api/maps/conversion) solo devuelve una respuesta con un vínculo al visualizador de errores cuando se detecta un error.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -58,14 +58,14 @@ En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero
 
 En el paquete comprimido descargado del vínculo de `diagnosticPackageLocation`, encontrará dos archivos.
 
-* _VisualizationTool.zip_: Contiene el código fuente, los elementos multimedia y la página web del visualizador de errores de dibujo.
-* _ConversionWarningsAndErrors.json_: Contiene una lista con formato de advertencias, errores y detalles adicionales que usa el visualizador de errores de dibujo.
+* _VisualizationTool.zip_ : Contiene el código fuente, los elementos multimedia y la página web del visualizador de errores de dibujo.
+* _ConversionWarningsAndErrors.json_ : Contiene una lista con formato de advertencias, errores y detalles adicionales que usa el visualizador de errores de dibujo.
 
-Descomprima la carpeta _VisualizationTool.zip_. Contiene los elementos siguientes:
+Descomprima la carpeta _VisualizationTool.zip_ . Contiene los elementos siguientes:
 
-* Carpeta _assets_: contiene imágenes y archivos multimedia
-* Carpeta _static_: código fuente
-* Archivo _index.html_: aplicación web.
+* Carpeta _assets_ : contiene imágenes y archivos multimedia
+* Carpeta _static_ : código fuente
+* Archivo _index.html_ : aplicación web.
 
 Abra el archivo _index.html_ con cualquiera de los exploradores siguientes, con el número de versión correspondiente. Puede usar una versión diferente si la versión ofrece un comportamiento igualmente compatible con la versión indicada.
 
@@ -84,13 +84,13 @@ El archivo _ConversionWarningsAndErrors.json_ se ha colocado en la raíz del dir
 
 :::image type="content" source="./media/drawing-errors-visualizer/loading-data.gif" alt-text="Aplicación Visualizador de errores de dibujos: página de inicio":::
 
-Cuando se cargue el archivo _ConversionWarningsAndErrors.json_, verá una lista de errores y advertencias del paquete de dibujos. Cada error o advertencia se especifica por capa, nivel y un mensaje detallado. Para ver información detallada acerca de un error o una advertencia, haga clic en el vínculo **Detalles**. A continuación, aparecerá una sección debajo de la lista. Ahora puede ir a cada error para obtener más información sobre cómo resolverlo.
+Cuando se cargue el archivo _ConversionWarningsAndErrors.json_ , verá una lista de errores y advertencias del paquete de dibujos. Cada error o advertencia se especifica por capa, nivel y un mensaje detallado. Para ver información detallada acerca de un error o una advertencia, haga clic en el vínculo **Detalles** . A continuación, aparecerá una sección debajo de la lista. Ahora puede ir a cada error para obtener más información sobre cómo resolverlo.
 
 :::image type="content" source="./media/drawing-errors-visualizer/errors.png" alt-text="Aplicación Visualizador de errores de dibujos: página de inicio":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Una vez que el [paquete de dibujos cumpla los requisitos](drawing-requirements.md), puede usar el [servicio de conjuntos de datos de Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) para convertir el paquete de dibujos en un conjunto de datos. Después, puede usar el módulo web de planos interiores para desarrollar la aplicación. Para más información, lea los siguientes artículos:
+Una vez que el [paquete de dibujos cumpla los requisitos](drawing-requirements.md), puede usar el [servicio de conjuntos de datos de Azure Maps](/rest/api/maps/conversion) para convertir el paquete de dibujos en un conjunto de datos. Después, puede usar el módulo web de planos interiores para desarrollar la aplicación. Para más información, lea los siguientes artículos:
 
 > [!div class="nextstepaction"]
 > [Códigos de error de conversión de dibujos](drawing-conversion-error-codes.md)

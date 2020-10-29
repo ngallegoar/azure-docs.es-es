@@ -3,13 +3,13 @@ title: Integración de Azure NetApp Files con Azure Kubernetes Service
 description: Obtenga información sobre cómo integrar Azure NetApp Files con Azure Kubernetes Service.
 services: container-service
 ms.topic: article
-ms.date: 09/26/2019
-ms.openlocfilehash: c0648100e155d1462f3291a7f5f078cf316bc0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/23/2020
+ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84465650"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900416"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integración de Azure NetApp Files con Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clú
 > [!IMPORTANT]
 > Su clúster de AKS también debe estar [en una región que admita Azure NetApp Files][anf-regions].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -36,9 +36,9 @@ Las siguientes limitaciones se aplican al usar Azure NetApp Files:
 ## <a name="configure-azure-netapp-files"></a>Configuración de Azure NetApp Files
 
 > [!IMPORTANT]
-> Para poder registrar el proveedor de recursos *Microsoft.NetApp*, debe completar el [formulario de envío de listas de espera de Azure NetApp Files][anf-waitlist] para su suscripción. No puede registrar el recurso proporcionado hasta que reciba el correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
+> Para poder registrar el proveedor de recursos *Microsoft.NetApp* , debe completar el [formulario de envío de listas de espera de Azure NetApp Files][anf-waitlist] para su suscripción. No puede registrar el recurso proporcionado hasta que reciba el correo electrónico de confirmación oficial del equipo de Azure NetApp Files.
 
-Registre el proveedor de recursos *Microsoft.NetApp*:
+Registre el proveedor de recursos *Microsoft.NetApp* :
 
 ```azurecli
 az provider register --namespace Microsoft.NetApp --wait
@@ -47,7 +47,7 @@ az provider register --namespace Microsoft.NetApp --wait
 > [!NOTE]
 > Esta operación puede tardar un tiempo en finalizar.
 
-Cuando crea una cuenta de Azure NetApp para usarla con AKS, debe crearla en el grupo de recursos del **nodo**. En primer lugar, obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el clúster de AKS denominado *myAKSCluster* en el nombre del grupo de recursos *myResourceGroup*:
+Cuando crea una cuenta de Azure NetApp para usarla con AKS, debe crearla en el grupo de recursos del **nodo** . En primer lugar, obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el clúster de AKS denominado *myAKSCluster* en el nombre del grupo de recursos *myResourceGroup* :
 
 ```azurecli-interactive
 az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -57,7 +57,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeRes
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Cree una cuenta de Azure NetApp Files en el grupo de recursos del **nodo** y la misma región que su clúster de AKS mediante [az netappfiles account create][az-netappfiles-account-create]. En el siguiente ejemplo se crea una cuenta denominada *myaccount1* en el grupo de recursos *MC_myResourceGroup_myAKSCluster_eastus* y la región *eastus*:
+Cree una cuenta de Azure NetApp Files en el grupo de recursos del **nodo** y la misma región que su clúster de AKS mediante [az netappfiles account create][az-netappfiles-account-create]. En el siguiente ejemplo se crea una cuenta denominada *myaccount1* en el grupo de recursos *MC_myResourceGroup_myAKSCluster_eastus* y la región *eastus* :
 
 ```azurecli
 az netappfiles account create \
@@ -66,7 +66,7 @@ az netappfiles account create \
     --account-name myaccount1
 ```
 
-Cree un nuevo grupo de capacidad mediante el comando [az netappfiles pool create][az-netappfiles-pool-create]. En el siguiente ejemplo se crea un nuevo grupo de capacidad denominado *mypool1* con 4 TB de tamaño y nivel de servicio *Premium*:
+Cree un nuevo grupo de capacidad mediante el comando [az netappfiles pool create][az-netappfiles-pool-create]. En el siguiente ejemplo se crea un nuevo grupo de capacidad denominado *mypool1* con 4 TB de tamaño y nivel de servicio *Premium* :
 
 ```azurecli
 az netappfiles pool create \
@@ -106,7 +106,7 @@ VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAM
 SUBNET_NAME=MyNetAppSubnet
 SUBNET_ID=$(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet-name $VNET_NAME --name $SUBNET_NAME --query "id" -o tsv)
 VOLUME_SIZE_GiB=100 # 100 GiB
-UNIQUE_FILE_PATH="myfilepath2" # Please note that creation token needs to be unique within all ANF Accounts
+UNIQUE_FILE_PATH="myfilepath2" # Please note that file path needs to be unique within all ANF Accounts
 
 az netappfiles volume create \
     --resource-group $RESOURCE_GROUP \
@@ -118,7 +118,7 @@ az netappfiles volume create \
     --vnet $VNET_ID \
     --subnet $SUBNET_ID \
     --usage-threshold $VOLUME_SIZE_GiB \
-    --creation-token $UNIQUE_FILE_PATH \
+    --file-path $UNIQUE_FILE_PATH \
     --protocol-types "NFSv3"
 ```
 
@@ -217,7 +217,7 @@ metadata:
   name: nginx-nfs
 spec:
   containers:
-  - image: nginx
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: nginx-nfs
     command:
     - "/bin/sh"
@@ -247,11 +247,11 @@ kubectl describe pod nginx-nfs
 Compruebe que su volumen se ha montado en el pod mediante [kubectl exec][kubectl-exec] para conectarse a pod y, a continuación, `df -h` para comprobar si el volumen está montado.
 
 ```console
-$ kubectl exec -it nginx-nfs -- bash
+$ kubectl exec -it nginx-nfs -- sh
 ```
 
 ```output
-root@nginx-nfs:/# df -h
+/ # df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...
 10.0.0.4:/myfilepath2  100T  384K  100T   1% /mnt/azure

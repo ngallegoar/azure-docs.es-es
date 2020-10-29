@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090444"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895637"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Protección de un dispositivo con restricciones de entrada con Azure AD y las API REST de Azure Maps
 
@@ -25,7 +25,7 @@ En esta guía se describe cómo proteger aplicaciones o dispositivos públicos q
 ## <a name="create-an-application-registration-in-azure-ad"></a>Creación de un registro de aplicación en Azure AD
 
 > [!NOTE]
-> * **Requisitos de lectura:** [Escenario: aplicación de escritorio que llama a las API web](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview)
+> * **Requisitos de lectura:** [Escenario: aplicación de escritorio que llama a las API web](../active-directory/develop/scenario-desktop-overview.md)
 > * En el siguiente escenario se usa el flujo de código de dispositivo, que no necesita un explorador web para adquirir un token.
 
 Cree la aplicación basada en el dispositivo en Azure AD para habilitar el inicio de sesión de Azure AD. A esta aplicación se le concederá acceso a las API REST de Azure Maps.
@@ -35,7 +35,7 @@ Cree la aplicación basada en el dispositivo en Azure AD para habilitar el inic
     > [!div class="mx-imgBorder"]
     > ![Registro de aplicaciones](./media/how-to-manage-authentication/app-registration.png)
 
-2. Escriba un **Nombre** y elija **Solo las cuentas de este directorio organizativo.** como **Tipo de cuenta admitido** . En **URI de redirección** , especifique **Cliente público/Nativo (móvil y escritorio)** y, a continuación, agregue `https://login.microsoftonline.com/common/oauth2/nativeclient` al valor. Para más información de Azure AD, consulte [Aplicación de escritorio que llama a las API web: registro de aplicación](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). A continuación, debe **Registrar** la aplicación.
+2. Escriba un **Nombre** y elija **Solo las cuentas de este directorio organizativo.** como **Tipo de cuenta admitido** . En **URI de redirección** , especifique **Cliente público/Nativo (móvil y escritorio)** y, a continuación, agregue `https://login.microsoftonline.com/common/oauth2/nativeclient` al valor. Para más información de Azure AD, consulte [Aplicación de escritorio que llama a las API web: registro de aplicación](../active-directory/develop/scenario-desktop-app-registration.md). A continuación, debe **Registrar** la aplicación.
 
     > [!div class="mx-imgBorder"]
     > ![Agregar detalles del registro de aplicación para el nombre y el identificador URI de redirección](./media/azure-maps-authentication/devicecode-app-registration.png)
@@ -57,10 +57,10 @@ Cree la aplicación basada en el dispositivo en Azure AD para habilitar el inic
 
 6. Configure el control de acceso basado en roles de Azure (Azure RBAC) para usuarios o grupos. Consulte [Concesión de acceso basado en roles a Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
-7. Agregue el código del flujo de adquisición de tokens a la aplicación. Para obtener información detallada sobre la implementación, consulte [Flujo de código de dispositivo](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Al adquirir los tokens, haga referencia al ámbito: `user_impersonation`, que se seleccionó en los pasos anteriores.
+7. Agregue el código del flujo de adquisición de tokens a la aplicación. Para obtener información detallada sobre la implementación, consulte [Flujo de código de dispositivo](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow). Al adquirir los tokens, haga referencia al ámbito: `user_impersonation`, que se seleccionó en los pasos anteriores.
 
 > [!Tip]
-> Use la Biblioteca de autenticación de Microsoft (MSAL) para adquirir los tokens de acceso. Consulte las recomendaciones de [Aplicación de escritorio que llama a las API web: configuración del código](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-configuration)
+> Use la Biblioteca de autenticación de Microsoft (MSAL) para adquirir los tokens de acceso. Consulte las recomendaciones de [Aplicación de escritorio que llama a las API web: configuración del código](../active-directory/develop/scenario-desktop-app-configuration.md)
 
 8. Cree la solicitud HTTP con el token adquirido desde Azure AD y envíe la solicitud con un cliente HTTP válido.
 

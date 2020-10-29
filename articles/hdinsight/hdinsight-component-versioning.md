@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 282f13c89c527b096573b67b5d539de821e89032
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394336"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900796"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes y versiones de Apache disponibles para Azure HDInsight
 
@@ -96,7 +96,7 @@ En la tabla siguiente se enumeran las versiones de HDInsight que están disponib
 | HDInsight 3.6 ML Services      | 9.3               | 31 de diciembre de 2020                      | 31 de diciembre de 2020                |
 
 > [!NOTE]
-> Cuando expira la compatibilidad de una versión de clúster, es posible que deje de estar disponible en Azure Portal. En algunos casos, las versiones del clúster seguirán estando disponibles mediante el parámetro **Version** del comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) de Windows PowerShell y en el SDK de .NET hasta la fecha de retirada de la versión.
+> Cuando expira la compatibilidad de una versión de clúster, es posible que deje de estar disponible en Azure Portal. En algunos casos, las versiones del clúster seguirán estando disponibles mediante el parámetro **Version** del comando [New-AzHDInsightCluster](/powershell/module/az.hdinsight/new-azhdinsightcluster) de Windows PowerShell y en el SDK de .NET hasta la fecha de retirada de la versión.
 
 ### <a name="retired-versions"></a>Versiones retiradas
 
@@ -119,7 +119,7 @@ En la tabla siguiente se enumeran las versiones de HDInsight que no están dispo
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Contrato de nivel de servicio para las versiones de clúster de HDInsight
 
-El contrato de nivel de servicio se define en términos de _ventana de soporte técnico_. Una ventana de soporte técnico se refiere al período durante el cual la versión de HDInsight es compatible con el Soporte técnico y el Servicio al cliente de Microsoft. Si la versión tiene una _fecha de expiración de soporte técnico_ que ya ha pasado, el clúster de HDInsight está fuera de la ventana de soporte técnico. La expiración del soporte técnico de la versión X de HDInsight (después de que haya disponible una versión más reciente X + 1) es la más reciente:
+El contrato de nivel de servicio se define en términos de _ventana de soporte técnico_ . Una ventana de soporte técnico se refiere al período durante el cual la versión de HDInsight es compatible con el Soporte técnico y el Servicio al cliente de Microsoft. Si la versión tiene una _fecha de expiración de soporte técnico_ que ya ha pasado, el clúster de HDInsight está fuera de la ventana de soporte técnico. La expiración del soporte técnico de la versión X de HDInsight (después de que haya disponible una versión más reciente X + 1) es la más reciente:
 
 - **Fórmula 1:** agregue 180 días a la fecha en la que se lanzó la versión X del clúster de HDInsight.
 - **Fórmula 2:** Agregue 90 días a la fecha en la que la versión del clúster de HDInsight X + 1 se encuentra disponible en Azure Portal.
@@ -133,6 +133,6 @@ Para obtener más información sobre qué SKU de máquina virtual se deben selec
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Configuración de clúster para Apache Hadoop, Spark, etc. en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Trabajo en Apache Hadoop en HDInsight desde un equipo Windows](hdinsight-hadoop-windows-tools.md)
-- [Notas de la versión de Hortonworks asociadas a las versiones de HDInsight](./hortonworks-release-notes.md)
 - [Paquete de seguridad de la empresa](./enterprise-security-package.md)
+- [Notas de la versión de Hortonworks asociadas a las versiones de HDInsight](./hortonworks-release-notes.md)
+- [Trabajo en Apache Hadoop en HDInsight desde un equipo Windows](hdinsight-hadoop-windows-tools.md)

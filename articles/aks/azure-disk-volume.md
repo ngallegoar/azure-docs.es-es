@@ -4,12 +4,12 @@ description: Aprenda a crear manualmente un volumen con discos de Azure para usa
 services: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.openlocfilehash: 32e9da592d4c8f3997d5b1844065bf550d7d7d48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d44c8a7241308c26a3f1148ec70a7a5730dd0c89
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82207520"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900861"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación manual y uso de un volumen con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -24,13 +24,13 @@ Para más información sobre los volúmenes de Kubernetes, consulte [Opciones de
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
-También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso que esté instalada y configurada la versión 2.0.59 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-an-azure-disk"></a>Creación de un disco de Azure
 
-Cuando crea un disco de Azure para usarlo con AKS, puede crear el recurso de disco en el grupo de recursos del **nodo**. Este enfoque permite que el clúster AKS acceda y administre el recurso de disco. Si en cambio crea el disco en un grupo de recursos independiente, debe conceder a la entidad de servicio de Azure Kubernetes Service (AKS) del clúster el rol `Contributor` en el grupo de recursos del disco. De forma alternativa, puede usar la identidad administrada asignada por el sistema en los permisos en lugar de la entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
+Cuando crea un disco de Azure para usarlo con AKS, puede crear el recurso de disco en el grupo de recursos del **nodo** . Este enfoque permite que el clúster AKS acceda y administre el recurso de disco. Si en cambio crea el disco en un grupo de recursos independiente, debe conceder a la entidad de servicio de Azure Kubernetes Service (AKS) del clúster el rol `Contributor` en el grupo de recursos del disco. De forma alternativa, puede usar la identidad administrada asignada por el sistema en los permisos en lugar de la entidad de servicio. Para más información, consulte [Uso de identidades administradas](use-managed-identity.md).
 
-En este artículo, se crea el disco en el grupo de recursos del nodo. En primer lugar, obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el nombre de clúster de AKS *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
+En este artículo, se crea el disco en el grupo de recursos del nodo. En primer lugar, obtenga el nombre del grupo de recursos con el comando [az aks show][az-aks-show] y agregue el parámetro de consulta `--query nodeResourceGroup`. En este ejemplo se obtiene el grupo de recursos del nodo para el nombre de clúster de AKS *myAKSCluster* en el grupo de recursos denominado *myResourceGroup* :
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -38,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Ahora cree un disco mediante el comando [az disk create][az-disk-create]. Especifique el nombre del grupo de recursos del nodo que obtuvo en el comando anterior y, después, un nombre para el recurso de disco, como *miDiscoAKS*. En el ejemplo siguiente, se crea un disco de *20* GiB y se obtiene como salida el identificador del disco una vez creado. Si tiene que crear un disco para su uso con contenedores de Windows Server, agregue el parámetro `--os-type windows` para formatear correctamente el disco.
+Ahora cree un disco mediante el comando [az disk create][az-disk-create]. Especifique el nombre del grupo de recursos del nodo que obtuvo en el comando anterior y, después, un nombre para el recurso de disco, como *miDiscoAKS* . En el ejemplo siguiente, se crea un disco de *20*  GiB y se obtiene como salida el identificador del disco una vez creado. Si tiene que crear un disco para su uso con contenedores de Windows Server, agregue el parámetro `--os-type windows` para formatear correctamente el disco.
 
 ```azurecli-interactive
 az disk create \
@@ -68,7 +68,7 @@ metadata:
   name: mypod
 spec:
   containers:
-  - image: nginx:1.15.5
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     name: mypod
     resources:
       requests:

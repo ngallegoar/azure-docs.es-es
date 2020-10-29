@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
 manager: philmea
-ms.openlocfilehash: 5383309143302e0f3fb2052b47e4c497d9a21bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61e529e44f48343027457f18ba503e4bbb5930f1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976883"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896623"
 ---
 # <a name="azure-maps-weather-coverage"></a>Cobertura de meteorología de Azure Maps
 
-En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](https://aka.ms/AzureMapsWeatherService). Los servicios de datos meteorológicos de Azure Maps devuelven detalles como mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y el tiempo a lo largo de una ruta.
+En este artículo se proporciona información sobre la cobertura de Azure Maps [Weather Services](/rest/api/maps/weather). Los servicios de datos meteorológicos de Azure Maps devuelven detalles como mosaicos de radar, condiciones meteorológicas actuales, previsiones meteorológicas y el tiempo a lo largo de una ruta.
 
 Azure Maps no tiene el mismo nivel de información y precisión en todos los países y regiones.
 
@@ -299,4 +299,4 @@ La tabla siguiente proporciona información acerca de qué tipo de información 
 | Turquía                 | ✓ |   | | ✓| 
 | Ucrania                | ✓ |   | | ✓| 
 | Reino Unido         | ✓ | ✓ | ✓| ✓| 
-| Ciudad del Vaticano           | ✓ |   |✓ | ✓| 
+| Ciudad del Vaticano           | ✓ |   |✓ | ✓|

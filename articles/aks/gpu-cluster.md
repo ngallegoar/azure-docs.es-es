@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52fd4867532832e0304a27317b21950bf131de79
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443065"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900783"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Uso de GPU para cargas de trabajo de cálculo intensivo en Azure Kubernetes Service (AKS)
 
-Por lo general, las unidades de procesamiento gráfico (GPU) se usan para cargas de trabajo de cálculo intensivo, como cargas de trabajo de visualización y gráficos. AKS admite la creación de grupos de nodos compatibles con GPU para ejecutar estas cargas de trabajo de cálculo intensivo en Kubernetes. Para obtener más información sobre las máquinas virtuales habilitadas para GPU disponibles, consulte [Tamaños de máquinas virtuales optimizadas para GPU en Azure][gpu-skus]. Para nodos AKS, se recomienda un tamaño mínimo de *Standard_NC6*.
+Por lo general, las unidades de procesamiento gráfico (GPU) se usan para cargas de trabajo de cálculo intensivo, como cargas de trabajo de visualización y gráficos. AKS admite la creación de grupos de nodos compatibles con GPU para ejecutar estas cargas de trabajo de cálculo intensivo en Kubernetes. Para obtener más información sobre las máquinas virtuales habilitadas para GPU disponibles, consulte [Tamaños de máquinas virtuales optimizadas para GPU en Azure][gpu-skus]. Para nodos AKS, se recomienda un tamaño mínimo de *Standard_NC6* .
 
 > [!NOTE]
 > Las máquinas virtuales habilitadas para GPU contienen hardware especializado que está sujeto a una mayor disponibilidad de precios y región. Para obtener más información, consulte la herramienta de [precios][azure-pricing] y la [disponibilidad de regiones][azure-availability].
@@ -26,13 +26,13 @@ Actualmente, el uso de grupos de nodos habilitados para GPU solo está disponibl
 
 En este artículo se supone que ya tiene un clúster de AKS con nodos que admiten GPU. El clúster de AKS debe ejecutar Kubernetes 1.10 o una versión posterior. Si necesita un clúster de AKS que cumpla estos requisitos, consulte la primera sección de este artículo para [crear un clúster de AKS](#create-an-aks-cluster).
 
-También es preciso tener instalada y configurada la versión 2.0.64 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
+También es preciso tener instalada y configurada la versión 2.0.64 de la CLI de Azure u otra versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure][install-azure-cli].
 
 ## <a name="create-an-aks-cluster"></a>Creación de un clúster de AKS
 
 Si necesita un clúster de AKS que cumpla los requisitos mínimos (nodo habilitado para GPU y Kubernetes versión 1.10 o posterior), siga estos pasos. Si ya tiene un clúster de AKS que cumpla estos requisitos, [vaya a la sección siguiente](#confirm-that-gpus-are-schedulable).
 
-Primero, cree un grupo de recursos para el clúster con el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*:
+Primero, cree un grupo de recursos para el clúster con el comando [az group create][az-group-create]. En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -58,7 +58,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 Para poder usar las GPU en los nodos, debe implementar un elemento DaemonSet para el complemento de dispositivo NVIDIA. Este objeto DaemonSet ejecuta un pod en cada nodo para proporcionar los controladores requeridos para las GPU.
 
-En primer lugar, cree un espacio de nombres mediante el comando [kubectl create namespace][kubectl-create], como *gpu-resources*:
+En primer lugar, cree un espacio de nombres mediante el comando [kubectl create namespace][kubectl-create], como *gpu-resources* :
 
 ```console
 kubectl create namespace gpu-resources
@@ -97,7 +97,7 @@ spec:
         operator: Exists
         effect: NoSchedule
       containers:
-      - image: nvidia/k8s-device-plugin:1.11
+      - image: mcr.microsoft.com/oss/nvidia/k8s-device-plugin:1.11
         name: nvidia-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
@@ -134,7 +134,7 @@ Registre la característica `GPUDedicatedVHDPreview`:
 az feature register --name GPUDedicatedVHDPreview --namespace Microsoft.ContainerService
 ```
 
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado** . Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
 
 ```azurecli
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/GPUDedicatedVHDPreview')].{Name:name,State:properties.state}"
@@ -196,9 +196,9 @@ NAME                       STATUS   ROLES   AGE   VERSION
 aks-nodepool1-28993262-0   Ready    agent   13m   v1.12.7
 ```
 
-Ahora, use el comando [kubectl describe node][kubectl-describe] para confirmar que las GPU son programables. En la sección *Capacidad*, la GPU debe aparecer como `nvidia.com/gpu:  1`.
+Ahora, use el comando [kubectl describe node][kubectl-describe] para confirmar que las GPU son programables. En la sección *Capacidad* , la GPU debe aparecer como `nvidia.com/gpu:  1`.
 
-En el siguiente ejemplo reducido se muestra que una GPU está disponible en el nodo denominado *aks-nodepool1-18821093-0*:
+En el siguiente ejemplo reducido se muestra que una GPU está disponible en el nodo denominado *aks-nodepool1-18821093-0* :
 
 ```console
 $ kubectl describe node aks-nodepool1-28993262-0
@@ -289,7 +289,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 ## <a name="view-the-status-and-output-of-the-gpu-enabled-workload"></a>Ver el estado y la salida de la carga de trabajo habilitada para GPU
 
-Supervise el progreso del trabajo mediante el comando [kubectl get jobs][kubectl-get] con el argumento `--watch`. Puede tardar unos minutos en extraer primero la imagen y procesar el conjunto de datos. Cuando la columna *COMPLETIONS* (FINALIZACIONES) muestra *1/1*, significa que el trabajo ha finalizado correctamente. Salga del comando `kubetctl --watch` con *Ctrl-C*:
+Supervise el progreso del trabajo mediante el comando [kubectl get jobs][kubectl-get] con el argumento `--watch`. Puede tardar unos minutos en extraer primero la imagen y procesar el conjunto de datos. Cuando la columna *COMPLETIONS* (FINALIZACIONES) muestra *1/1* , significa que el trabajo ha finalizado correctamente. Salga del comando `kubetctl --watch` con *Ctrl-C* :
 
 ```console
 $ kubectl get jobs samples-tf-mnist-demo --watch

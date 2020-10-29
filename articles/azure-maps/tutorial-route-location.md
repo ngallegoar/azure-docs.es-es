@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321720"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896687"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Cómo mostrar direcciones de ruta mediante el servicio Route de Azure Maps y el Control de mapa
 
-En este tutorial se muestra cómo usar la [API del servicio Route](https://docs.microsoft.com/rest/api/maps/route) de Azure Maps y el [Control de mapa](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) para mostrar las direcciones de ruta de principio a fin. En este tutorial, aprenderá a:
+En este tutorial se muestra cómo usar la [API del servicio Route](/rest/api/maps/route) de Azure Maps y el [Control de mapa](./how-to-use-map-control.md) para mostrar las direcciones de ruta de principio a fin. En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear y mostrar el Control de mapa en una página web. 
 > * Definir la representación de pantalla de la ruta mediante la definición de [capas de símbolo](map-add-pin.md) y [capas de línea](map-add-line-layer.md).
 > * Crear y agregar objetos GeoJSON al mapa para representar los puntos inicial y final.
-> * Obtener las direcciones de ruta desde los puntos inicial y final mediante [Get Route directions API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+> * Obtener las direcciones de ruta desde los puntos inicial y final mediante [Get Route directions API](/rest/api/maps/route/getroutedirections).
 
 Puede obtener el código fuente completo para el ejemplo [aquí](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Se puede encontrar un ejemplo dinámico [aquí](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
@@ -39,7 +39,7 @@ Puede obtener el código fuente completo para el ejemplo [aquí](https://github.
 
 En los pasos siguientes se muestra cómo crear y mostrar el Control de mapa en una página web.
 
-1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapRoute.html**.
+1. En la máquina local, cree un nuevo archivo y asígnele el nombre **MapRoute.html** .
 2. Copie y pegue el siguiente marcado HTML en el archivo.
 
     ```HTML
@@ -170,7 +170,7 @@ En este tutorial, se representará la ruta mediante una capa de línea. Los punt
 
     Este código crea dos [objetos de punto de GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) para representar los puntos inicial y final, que se agregan al origen de datos. 
 
-    El último bloque de código establece la vista de la cámara con la latitud y longitud de los puntos inicial y final. Los puntos inicial y final se agregan al origen de datos. El rectángulo delimitador de los puntos inicial y final se calcula utilizando la función `atlas.data.BoundingBox.fromData`. Este rectángulo delimitador se usa para establecer la vista de las cámaras del mapa sobre la ruta completa mediante la función `map.setCamera`. Para compensar las dimensiones de píxeles de los iconos de símbolos, se agrega relleno. Para obtener más información sobre la propiedad setCamera del Control de mapa, vea la propiedad [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
+    El último bloque de código establece la vista de la cámara con la latitud y longitud de los puntos inicial y final. Los puntos inicial y final se agregan al origen de datos. El rectángulo delimitador de los puntos inicial y final se calcula utilizando la función `atlas.data.BoundingBox.fromData`. Este rectángulo delimitador se usa para establecer la vista de las cámaras del mapa sobre la ruta completa mediante la función `map.setCamera`. Para compensar las dimensiones de píxeles de los iconos de símbolos, se agrega relleno. Para obtener más información sobre la propiedad setCamera del Control de mapa, vea la propiedad [setCamera(CameraOptions | CameraBoundsOptions & AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
 
 3. Guarde el archivo **MapRoute.html** y actualice el explorador. Ahora el mapa se centra en Seattle. La chincheta azul en forma de lágrima marca el punto inicial. La chincheta azul redonda marca el punto final.
 
@@ -183,7 +183,7 @@ En este tutorial, se representará la ruta mediante una capa de línea. Los punt
 En esta sección se muestra cómo usar Route Directions API de Azure Maps para obtener instrucciones de ruta y el tiempo estimado de llegada de un punto a otro.
 
 >[!TIP]
->El servicio Azure Maps Route ofrece API para planear rutas según el tipo, por ejemplo, *más rápidas*, *más cortas*, *ecológicas* o *emocionantes* de acuerdo con la distancia, las condiciones de tráfico y el modo de transporte usado. El servicio también permite a los usuarios planear rutas futuras según las condiciones del tráfico histórico. Los usuarios pueden ver la predicción de las duraciones de ruta en un momento dado. Para más información, consulte [Get Route directions API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+>El servicio Azure Maps Route ofrece API para planear rutas según el tipo, por ejemplo, *más rápidas* , *más cortas* , *ecológicas* o *emocionantes* de acuerdo con la distancia, las condiciones de tráfico y el modo de transporte usado. El servicio también permite a los usuarios planear rutas futuras según las condiciones del tráfico histórico. Los usuarios pueden ver la predicción de las duraciones de ruta en un momento dado. Para más información, consulte [Get Route directions API](/rest/api/maps/route/getroutedirections).
 
 1. En la función `GetMap`, dentro del controlador de eventos `ready` del control, agregue lo siguiente al código de JavaScript.
 
@@ -198,7 +198,7 @@ En esta sección se muestra cómo usar Route Directions API de Azure Maps para o
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` crea un `SubscriptionKeyCredentialPolicy` para autenticar las solicitudes HTTP en Azure Maps con la clave de suscripción. `atlas.service.MapsURL.newPipeline()` toma la directiva `SubscriptionKeyCredential` y crea una instancia de [canalización](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` representa una dirección URL para las operaciones [Route](https://docs.microsoft.com/rest/api/maps/route) de Azure Maps.
+   `SubscriptionKeyCredential` crea un `SubscriptionKeyCredentialPolicy` para autenticar las solicitudes HTTP en Azure Maps con la clave de suscripción. `atlas.service.MapsURL.newPipeline()` toma la directiva `SubscriptionKeyCredential` y crea una instancia de [canalización](/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` representa una dirección URL para las operaciones [Route](/rest/api/maps/route) de Azure Maps.
 
 2. Después de configurar las credenciales y la dirección URL, anexe el código siguiente en el controlador de eventos `ready` del control. Este código crea la ruta desde el punto inicial hasta el punto final. `routeURL` solicita a la API del servicio Route de Azure Maps que calcule las direcciones de la ruta. Se extrae una colección de características de GeoJSON de la respuesta con el método `geojson.getFeatures()` y se agregan al origen de datos.
 

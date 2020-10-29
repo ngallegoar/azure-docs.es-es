@@ -1,5 +1,5 @@
 ---
-title: Conexión a Power BI Professional
+title: Conexión a Synapse SQL con Power BI Professional
 description: En este tutorial, veremos los pasos para conectar Power BI Desktop a SQL a petición (versión preliminar).
 services: synapse-analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288705"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899111"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conexión a Synapse SQL con Power BI Professional
 
@@ -75,7 +75,7 @@ Antes de ejecutar las consultas, es necesario crear las credenciales. El servici
 > [!NOTE]
 > Debe crear credenciales para el acceso a la cuenta de almacenamiento. Aunque con SQL a petición se puede acceder al almacenamiento desde distintas regiones, tener el almacenamiento y el área de trabajo de Azure Synapse en la misma región proporcionará una mejor experiencia de rendimiento.
 
-**Fragmento de código sobre cómo crear credenciales para contenedores de datos de censo**, ejecute:
+**Fragmento de código sobre cómo crear credenciales para contenedores de datos de censo** , ejecute:
 
 ```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
@@ -92,13 +92,13 @@ GO
 
 ## <a name="create-a-power-bi-desktop-report"></a>Creación de un informe de Power BI Desktop
 
-Abra la aplicación Power BI Desktop y seleccione la opción **Obtener datos**.
+Abra la aplicación Power BI Desktop y seleccione la opción **Obtener datos** .
 
 ![Abra la aplicación Power BI Desktop y seleccione Obtener datos.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Paso 1: Selección del origen de datos
 
-Seleccione **Azure** en el menú y, luego, **Azure SQL Database**.
+Seleccione **Azure** en el menú y, luego, **Azure SQL Database** .
 ![Seleccione el origen de datos.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Paso 2: Selección de la base de datos

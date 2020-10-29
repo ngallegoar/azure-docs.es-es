@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 446a70a4399b7ec0e16fed2d33c9ec711acfe200
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae29dcc0d334a2296199da0d8e3bc4562e275d3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310839"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895335"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adición de una capa de burbuja a un mapa
 
@@ -25,7 +25,7 @@ En este artículo, se explica cómo puede representar datos de punto procedentes
 
 ## <a name="add-a-bubble-layer"></a>Adición de una capa de burbuja
 
-En el código siguiente, se carga una matriz de puntos en un origen de datos. A continuación, conecta los puntos de datos a una [capa de burbujas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer). La capa de burbujas representa el radio de cada burbuja en cinco píxeles, el color de relleno en blanco, el color de trazo en azul y el ancho del trazo con seis píxeles. 
+En el código siguiente, se carga una matriz de puntos en un origen de datos. A continuación, conecta los puntos de datos a una [capa de burbujas](/javascript/api/azure-maps-control/atlas.layer.bubblelayer). La capa de burbujas representa el radio de cada burbuja en cinco píxeles, el color de relleno en blanco, el color de trazo en azul y el ancho del trazo con seis píxeles. 
 
 ```javascript
 //Add point locations.
@@ -83,10 +83,10 @@ La capa de burbuja solo tiene algunas opciones de estilo. Esta es una herramient
 Más información sobre las clases y los métodos utilizados en este artículo:
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
+> [BubbleLayer](/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 Para obtener más ejemplos de código para agregar a los mapas:
 
@@ -100,4 +100,4 @@ Para obtener más ejemplos de código para agregar a los mapas:
 > [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Ejemplos de código](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Ejemplos de código](/samples/browse/?products=azure-maps)

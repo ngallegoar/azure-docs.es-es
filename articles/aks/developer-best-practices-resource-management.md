@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986775"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900360"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -27,7 +27,7 @@ Este artículo de procedimientos recomendados se centra en cómo ejecutar el cl�
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definición de los límites y solicitudes de recursos del pod
 
-**Guía de procedimientos recomendados**: configure las solicitudes y los límites de pods en todos los pods de los manifiestos de YAML. Si el clúster de AKS usa *cuotas de recursos*, se puede rechazar la implementación si no define estos valores.
+**Guía de procedimientos recomendados** : configure las solicitudes y los límites de pods en todos los pods de los manifiestos de YAML. Si el clúster de AKS usa *cuotas de recursos* , se puede rechazar la implementación si no define estos valores.
 
 Una manera principal de administrar los recursos de proceso dentro de un clúster de AKS consiste en usar solicitudes y límites de pods. Estos límites y solicitudes permiten que el programador de Kubernetes sepa qué recursos de proceso deben asignarse a un pod.
 
@@ -60,7 +60,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -74,7 +74,7 @@ Para obtener más información acerca de las asignaciones y medidas de recursos,
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Desarrollo y depuración de aplicaciones en un clúster de AKS
 
-**Guía de procedimientos recomendados**: los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Bridge to Kubernetes.
+**Guía de procedimientos recomendados** : los equipos de desarrollo deben realizar la implementación y depuración en un clúster de AKS mediante Bridge to Kubernetes.
 
 Con Bridge to Kubernetes, desarrolle, depure y pruebe aplicaciones directamente en un clúster de AKS. Los desarrolladores de un equipo colaboran para realizar compilaciones y pruebas a lo largo del ciclo de vida de la aplicación. Puede seguir usando herramientas existentes, como Visual Studio o Visual Studio Code. Se instala una extensión para Bridge to Kubernetes que permite desarrollar directamente en un clúster de AKS.
 
@@ -84,7 +84,7 @@ Bridge to Kubernetes está pensado para su uso con aplicaciones que se ejecutan 
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Uso de la extensión de Visual Studio Code para Kubernetes
 
-**Guía de procedimientos recomendados**: instale y use la extensión de VS Code para Kubernetes al escribir manifiestos de YAML. También puede usar la extensión para la solución de implementación integrada, lo que puede ayudar a los propietarios de aplicaciones que interactúan con poca frecuencia con el clúster de AKS.
+**Guía de procedimientos recomendados** : instale y use la extensión de VS Code para Kubernetes al escribir manifiestos de YAML. También puede usar la extensión para la solución de implementación integrada, lo que puede ayudar a los propietarios de aplicaciones que interactúan con poca frecuencia con el clúster de AKS.
 
 La [extensión de Visual Studio Code para Kubernetes][vscode-kubernetes] le ayuda a desarrollar e implementar aplicaciones en AKS. La extensión proporciona IntelliSense para recursos de Kubernetes, así como para gráficos y plantillas de Helm. También puede explorar, implementar y modificar recursos de Kubernetes desde dentro de VS Code. La extensión también proporciona una comprobación de IntelliSense para los límites o solicitudes de recursos que se van a establecer en las especificaciones del pod:
 
@@ -92,7 +92,7 @@ La [extensión de Visual Studio Code para Kubernetes][vscode-kubernetes] le ayud
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Comprobación de forma periódica de problemas de aplicaciones con kube-advisor
 
-**Orientación con procedimientos recomendados**: Ejecute de forma periódica la versión más reciente de la herramienta de código abierto `kube-advisor` para detectar problemas en el clúster. Si aplica cuotas de recursos en un clúster de AKS existente, en primer lugar, ejecute `kube-advisor` para buscar los pods que no tienen definidos los límites y las solicitudes de recursos.
+**Orientación con procedimientos recomendados** : Ejecute de forma periódica la versión más reciente de la herramienta de código abierto `kube-advisor` para detectar problemas en el clúster. Si aplica cuotas de recursos en un clúster de AKS existente, en primer lugar, ejecute `kube-advisor` para buscar los pods que no tienen definidos los límites y las solicitudes de recursos.
 
 La herramienta [kube-advisor][kube-advisor] es un proyecto de código abierto de AKS asociado que explora un clúster de Kubernetes e informa sobre los problemas que encuentra. Una comprobación útil consiste en identificar los pods que no tienen preparados los límites y las solicitudes de recursos.
 

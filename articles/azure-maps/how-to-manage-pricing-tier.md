@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8e62734e039d0f6ceff836947519ef71ee9b8497
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9934a2660d18fdcbada1cda86f957345b2d1a8c8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311060"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895739"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Administración del plan de tarifa de la cuenta de Azure Maps
 
 Puede administrar el plan de tarifa de la cuenta de Azure Maps en Azure Portal. Después de crear una [cuenta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), puede ver o cambiar su plan de tarifa.
 
-Obtenga más información sobre [cómo elegir el plan de tarifa correcto en Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
+Obtenga más información sobre [cómo elegir el plan de tarifa correcto en Azure Maps](./choose-pricing-tier.md).
 
 ## <a name="view-your-pricing-tier"></a>Consulta del plan de tarifa
 

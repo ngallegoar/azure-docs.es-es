@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1f79add26af40abfa320bc23a3287d8246237701
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cf27319fa84ff5d693e74e90664b7a86f4d934a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037446"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897218"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 
-El [servicio Search](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps admite la geocodificación, lo que significa que la solicitud de API puede tener términos de búsqueda, como una dirección o el nombre de un lugar, y devuelve el resultado como coordenadas de latitud y longitud. Por ejemplo, [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) de Azure Maps recibe consultas que contienen información de ubicación y devuelve los resultados como coordenadas de latitud y longitud.
+El [servicio Search](/rest/api/maps/search) de Azure Maps admite la geocodificación, lo que significa que la solicitud de API puede tener términos de búsqueda, como una dirección o el nombre de un lugar, y devuelve el resultado como coordenadas de latitud y longitud. Por ejemplo, [Get Search Address API](/rest/api/maps/search/getsearchaddress) de Azure Maps recibe consultas que contienen información de ubicación y devuelve los resultados como coordenadas de latitud y longitud.
 
-Pero el [servicio Search](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región.
+Pero el [servicio Search](/rest/api/maps/search) de Azure Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región.
 
 La capacidad de obtener las coordenadas geográficas en un país o una región depende de la cobertura de los datos de las carreteras y la precisión del servicio de geocodificación. Las clasificaciones siguientes se usan para especificar el nivel de geocodificación en cada país o región.
 
-* **Puntos de dirección**: los datos de direcciones se pueden resolver en coordenadas de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). A menudo se hace referencia a los puntos de dirección como una precisión de "azotea", que es el nivel más alto de precisión disponible para las direcciones.
-* **Números de casa**: Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
-* **Nivel de calle**: Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
-* **Nivel de ciudad**: Se admiten nombres de ciudad.
+* **Puntos de dirección** : los datos de direcciones se pueden resolver en coordenadas de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). A menudo se hace referencia a los puntos de dirección como una precisión de "azotea", que es el nivel más alto de precisión disponible para las direcciones.
+* **Números de casa** : Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
+* **Nivel de calle** : Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
+* **Nivel de ciudad** : Se admiten nombres de ciudad.
 
 ## <a name="americas"></a>América
 
@@ -301,4 +301,4 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 
 Más información sobre la geocodificación de Azure Maps:
 > [!div class="nextstepaction"]
-> [Servicio Search de Azure Maps](https://docs.microsoft.com/rest/api/maps/search)
+> [Servicio Search de Azure Maps](/rest/api/maps/search)
