@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c0f5d8cdc7dda72f21fc1cf372e3796b26a3054a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127427"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545929"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Configuración de una aplicación virtual de red en Azure HDInsight
 
 > [!Important]
-> La siguiente información **solo** es necesaria si desea configurar una aplicación virtual de red (NVA) distinta a [Azure Firewall](https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic).
+> La siguiente información **solo** es necesaria si desea configurar una aplicación virtual de red (NVA) distinta a [Azure Firewall](./hdinsight-restrict-outbound-traffic.md).
 
 La etiqueta de FQDN de Azure Firewall está configurada automáticamente para permitir el tráfico para muchos de los FQDN comunes más importantes. Si usa otra aplicación virtual de red, tendrá que configurar algunas características adicionales. Tenga en cuenta los siguientes factores al configurar la aplicación virtual de red:
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74aa0bf84c19b9d663b92d529604c08bf5800c45
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902773"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544858"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Uso de sys_schema para operaciones de optimización del rendimiento y mantenimiento de bases de datos en Azure Database for MySQL
 
@@ -29,13 +29,13 @@ Hay 52 vistas en sys_schema y cada vista tiene uno de los siguientes prefijos:
 - User: los recursos que consumen y agrupan los usuarios. Algunos ejemplos son: operaciones de E/S de archivo, conexiones y memoria.
 - Wait: eventos de espera agrupados por host o usuario.
 
-Echemos un vistazo a algunos patrones de uso habituales de sys_schema. Para empezar, vamos a agrupar los patrones de uso en dos categorías: **Ajuste de rendimiento** y **Mantenimiento de la base de datos**.
+Echemos un vistazo a algunos patrones de uso habituales de sys_schema. Para empezar, vamos a agrupar los patrones de uso en dos categorías: **Ajuste de rendimiento** y **Mantenimiento de la base de datos** .
 
 ## <a name="performance-tuning"></a>Optimización del rendimiento
 
 ### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
-E/S es la operación más costosa en la base de datos. Podemos averiguar el promedio de latencia de E/S consultando la vista *sys.user_summary_by_file_io*. Con el valor predeterminado de 125 GB de almacenamiento aprovisionado, la latencia de E/S es aproximadamente de 15 segundos.
+E/S es la operación más costosa en la base de datos. Podemos averiguar el promedio de latencia de E/S consultando la vista *sys.user_summary_by_file_io* . Con el valor predeterminado de 125 GB de almacenamiento aprovisionado, la latencia de E/S es aproximadamente de 15 segundos.
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/io-latency-125GB.png" alt-text="vistas de sys_schema":::
 
@@ -45,7 +45,7 @@ Dado que Azure Database for MySQL escala E/S en relación al almacenamiento, des
 
 ### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
-A pesar de efectuar un planeamiento cuidadoso, puede que muchas consultas aún resulten en recorridos de tabla completos. Para obtener información adicional acerca de los tipos de índices y cómo optimizarlos, puede consultar este artículo: [Solución de problemas relacionados con el rendimiento de consultas](./howto-troubleshoot-query-performance.md). Los recorridos de tabla completos requieren un uso intensivo de los recursos y reducen el rendimiento de la base de datos. La forma más rápida de buscar tablas con recorridos de tabla completos es consultar la vista *sys.schema_tables_with_full_table_scans*.
+A pesar de efectuar un planeamiento cuidadoso, puede que muchas consultas aún resulten en recorridos de tabla completos. Para obtener información adicional acerca de los tipos de índices y cómo optimizarlos, puede consultar este artículo: [Solución de problemas relacionados con el rendimiento de consultas](./howto-troubleshoot-query-performance.md). Los recorridos de tabla completos requieren un uso intensivo de los recursos y reducen el rendimiento de la base de datos. La forma más rápida de buscar tablas con recorridos de tabla completos es consultar la vista *sys.schema_tables_with_full_table_scans* .
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/full-table-scans.png" alt-text="vistas de sys_schema":::
 
@@ -64,7 +64,7 @@ En este ejemplo Azure Database for MySQL empleó 53 minutos en vaciar el registr
 [!IMPORTANT]
 > La consulta de esta vista puede afectar al rendimiento. Se recomienda llevar a cabo esta solución de problemas durante el horario comercial fuera de horas punta.
 
-El grupo de búferes InnoDB reside en la memoria y es el principal mecanismo de memoria caché entre el sistema de administración de bases de datos y el almacenamiento. El tamaño del grupo de búferes InnoDB está vinculado al nivel de rendimiento y no se puede cambiar a menos que se elija una SKU de producto diferente. Al igual que con la memoria del sistema operativo, se intercambiaron páginas antiguas para dejar espacio a los datos más recientes. Para averiguar qué tablas consumen la mayor parte de la memoria del grupo de búferes InnoDB, puede consultar la vista *sys.innodb_buffer_stats_by_table*.
+El grupo de búferes InnoDB reside en la memoria y es el principal mecanismo de memoria caché entre el sistema de administración de bases de datos y el almacenamiento. El tamaño del grupo de búferes InnoDB está vinculado al nivel de rendimiento y no se puede cambiar a menos que se elija una SKU de producto diferente. Al igual que con la memoria del sistema operativo, se intercambiaron páginas antiguas para dejar espacio a los datos más recientes. Para averiguar qué tablas consumen la mayor parte de la memoria del grupo de búferes InnoDB, puede consultar la vista *sys.innodb_buffer_stats_by_table* .
 
 :::image type="content" source="./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png" alt-text="vistas de sys_schema":::
 
@@ -83,4 +83,4 @@ Los índices son unas herramientas estupendas para mejorar el rendimiento de lec
 En resumen, sys_schema es una herramienta excelente para la optimización de rendimiento y el mantenimiento de base de datos. Asegúrese de sacarle el máximo partido a esta característica en Azure Database for MySQL. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para buscar respuestas de otros usuarios a sus preguntas o publicar una nueva pregunta o respuesta, visite la [Página de pregunta y respuesta de Microsoft](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Para buscar respuestas de otros usuarios a sus preguntas o publicar una nueva pregunta o respuesta, visite la [Página de pregunta y respuesta de Microsoft](/answers/topics/azure-database-mysql.html) o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

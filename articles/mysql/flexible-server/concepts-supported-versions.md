@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: f29a34fd8916110355c0122fee9db29599a01231
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11cefb1a29f7139f137221ab6fb924cc656da15d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90931868"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547204"
 ---
 # <a name="supported-versions-for-azure-database-for-mysql---flexible-server"></a>Versiones admitidas para Azure Database for MySQL: Servidor flexible
 
@@ -33,7 +33,7 @@ Azure Database for MySQL actualmente admite las siguientes versiones:
 
 Versión de corrección de errores: 5.7.29
 
-El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de revisión sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
+El servicio aplica automáticamente revisiones al hardware, sistema operativo y motor de base de datos subyacentes. La aplicación de revisión incluye actualizaciones de seguridad y software. En el motor de MySQL, las actualizaciones de versión secundaria también se incluyen como parte de la versión de mantenimiento planeado. Los usuarios pueden configurar la programación de la aplicación de revisión para que la administre el sistema o definir su programación personalizada. Durante la programación de mantenimiento, se aplica la revisión y es posible que el servidor requiera un reinicio como parte del proceso de aplicación de revisiones para completar la actualización. Con la programación personalizada, los usuarios pueden hacer que el ciclo de aplicación de revisiones sea predecible y elegir una ventana de mantenimiento con un impacto mínimo en el negocio. En general, el servicio sigue una programación mensual de versiones como parte de la integración y publicación continuas.
 
 Consulte las [notas de la versión](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) de MySQL para más información sobre mejoras y correcciones de esta versión.
 
@@ -43,6 +43,6 @@ El servicio administra automáticamente la aplicación de partes para las actual
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
->[Compilación de una aplicación PHP en Windows con MySQL](../../app-service/app-service-web-tutorial-php-mysql.md)<br/>
->[Compilación de una aplicación PHP en Linux con MySQL](../../app-service/containers/tutorial-php-mysql-app.md)<br/>
->[Compilación de una aplicación de Spring basada en Java con MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>
+>[Compilación de una aplicación PHP en Windows con MySQL](../../app-service/tutorial-php-mysql-app.md)<br/>
+>[Compilación de una aplicación PHP en Linux con MySQL](../../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux)<br/>
+>[Compilación de una aplicación de Spring basada en Java con MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)<br/>

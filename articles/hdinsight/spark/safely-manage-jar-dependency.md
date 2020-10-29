@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834d3512c95e77e6ce45472ff8f2e1b4b2ed456
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064070"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545589"
 ---
 # <a name="safely-manage-jar-dependencies"></a>Administración segura de dependencias de JAR
 
@@ -79,6 +79,6 @@ Después, puede ejecutar `sbt clean` y `sbt assembly` para compilar el archivo J
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Uso de las herramientas de HDInsight para IntelliJ](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
+* [Uso de las herramientas de HDInsight para IntelliJ](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* [Creación de una aplicación de Scala Maven para Spark en IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)
+* [Creación de una aplicación de Scala Maven para Spark en IntelliJ](./apache-spark-create-standalone-application.md)

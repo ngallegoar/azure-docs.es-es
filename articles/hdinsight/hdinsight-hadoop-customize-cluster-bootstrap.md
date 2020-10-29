@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: eaddae04c198742007947831046139d80828534b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 246c5600da3b554ba65872780f0719a58f3f4be2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006592"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547493"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalización de los clústeres de HDInsight con Bootstrap
 
@@ -48,14 +48,14 @@ Para obtener información sobre cómo instalar componentes adicionales en el cl�
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Si usa PowerShell, necesitará el [Módulo Az](https://docs.microsoft.com/powershell/azure/).
+* Si usa PowerShell, necesitará el [Módulo Az](/powershell/azure/).
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
 
 El siguiente código de PowerShell personaliza una configuración de [Apache Hive](https://hive.apache.org/):
 
 > [!IMPORTANT]  
-> Es posible que tenga que usar el parámetro `Spark2Defaults` con [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Puede pasar valores vacíos al parámetro, como se muestra en el ejemplo de código siguiente.
+> Es posible que tenga que usar el parámetro `Spark2Defaults` con [Add-AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Puede pasar valores vacíos al parámetro, como se muestra en el ejemplo de código siguiente.
 
 ```powershell
 # hive-site.xml configuration
@@ -88,7 +88,7 @@ En el [Anexo](#appendix-powershell-sample) se incluye un script de PowerShell co
 1. Vaya a `https://CLUSTERNAME.azurehdinsight.net/`, donde `CLUSTERNAME` es el nombre del clúster.
 1. En el menú de la izquierda, vaya a **Hive** > **Configs (Configuraciones)**  > **Advanced (Avanzado)** .
 1. Expanda **Advanced hive-site** (Sitio de Hive avanzado).
-1. Busque **hive.metastore.client.socket.timeout** y confirme que el valor es **90s**.
+1. Busque **hive.metastore.client.socket.timeout** y confirme que el valor es **90s** .
 
 Otros ejemplos de cómo personalizar otros archivos de configuración:
 
@@ -108,7 +108,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>Uso del SDK de .NET
 
-Vea [SDK de Azure HDInsight para .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Vea [SDK de Azure HDInsight para .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 
@@ -143,7 +143,7 @@ Ejemplo de fragmento de código de plantilla de Resource Manager para cambiar la
 * En [Creación de clústeres de Apache Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) se proporcionan instrucciones sobre cómo crear un clúster de HDInsight con otras opciones personalizadas.
 * [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Instalación y uso de Apache Spark en clústeres de HDInsight](spark/apache-spark-jupyter-spark-sql-use-portal.md)
-* [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md).
+* [Instalación y uso de Apache Giraph en clústeres de HDInsight](./hdinsight-hadoop-hue-linux.md).
 
 ## <a name="appendix-powershell-sample"></a>Apéndice: Ejemplo de PowerShell
 

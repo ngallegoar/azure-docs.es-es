@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211304"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544518"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Preguntas frecuentes sobre el desarrollo para Azure Cache for Redis
 
@@ -55,8 +55,8 @@ Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste l
 
 * **Reintentos**
   * Para ConnectRetry y ConnectTimeout, la regla general es fracasar y responder rápido a los errores y volver a intentarlo. Esta regla se basa en la carga de trabajo y en cuánto tiempo como media tarda el cliente en enviar un comando de Redis y en recibir una respuesta.
-  * Permita que StackExchange.Redis se vuelva a conectar automáticamente en lugar de comprobar el estado de conexión y volver a conectarse. **Evite el uso de la propiedad ConnectionMultiplexer.IsConnected**.
-  * Efecto bola de nieve: a veces puede encontrarse con un problema cuando lo está intentando y este error aumenta y nunca se recupera. En este caso, debe considerar el uso de un algoritmo de reintento de retroceso exponencial, tal y como se describe en el artículo [Orientación general sobre reintentos](../best-practices-retry-general.md) publicado por el grupo de Microsoft Patterns & Practices.
+  * Permita que StackExchange.Redis se vuelva a conectar automáticamente en lugar de comprobar el estado de conexión y volver a conectarse. **Evite el uso de la propiedad ConnectionMultiplexer.IsConnected** .
+  * Efecto bola de nieve: a veces puede encontrarse con un problema cuando lo está intentando y este error aumenta y nunca se recupera. En este caso, debe considerar el uso de un algoritmo de reintento de retroceso exponencial, tal y como se describe en el artículo [Orientación general sobre reintentos](/azure/architecture/best-practices/transient-faults) publicado por el grupo de Microsoft Patterns & Practices.
   
 * **Valores de tiempo de expiración**
   * Tenga en cuenta la carga de trabajo y establezca los valores según corresponda. Si almacena valores grandes, establezca el tiempo de expiración en un valor superior.
@@ -109,7 +109,7 @@ Puede usar cualquiera de los comandos enumerados en el artículo de [Comandos de
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Las herramientas de línea de comandos de Redis no funcionan con el puerto TLS, pero puede usar una utilidad como `stunnel` para conectar de forma segura las herramientas al puerto TLS si sigue las instrucciones del artículo [Uso de la herramienta de línea de comandos de Redis con Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool).
+> Las herramientas de línea de comandos de Redis no funcionan con el puerto TLS, pero puede usar una utilidad como `stunnel` para conectar de forma segura las herramientas al puerto TLS si sigue las instrucciones del artículo [Uso de la herramienta de línea de comandos de Redis con Azure Cache for Redis](./cache-how-to-redis-cli-tool.md).
 >
 >
 

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d3d5ced5860c14e9e4d522c42ffd0bc71341a9c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac252c3898eb014885bf9a6bf6bdedb7db74fb62
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932138"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545844"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Uso de Azure Portal para configurar alertas en las métricas de un servidor flexible de Azure Database for PostgreSQL
 
@@ -30,31 +30,31 @@ Puede configurar una alerta para realizar las siguientes acciones cuando se dese
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
-* [Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#create-with-azure-portal)
-* [CLI de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli)
-* [API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure Portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [CLI de Azure](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [API de REST de Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creación de una regla de alerta sobre una métrica desde Azure Portal
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione el servidor de Azure Database for PostgreSQL que quiera supervisar.
 
-2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas**, tal y como se muestra a continuación:
+2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas** , tal y como se muestra a continuación:
 
    :::image type="content" source="./media/howto-alert-on-metrics/2-alert-rules.png" alt-text="Selección de Reglas de alerta":::
 
 3. Seleccione **Agregar alerta de métrica** (icono +).
 
-4. Se abre la página **Crear regla**, tal y como se muestra a continuación. Rellene la información necesaria:
+4. Se abre la página **Crear regla** , tal y como se muestra a continuación. Rellene la información necesaria:
 
    :::image type="content" source="./media/howto-alert-on-metrics/4-add-rule-form.png" alt-text="Selección de Reglas de alerta":::
 
-5. En la sección **Condición**, seleccione **Agregar condición**.
+5. En la sección **Condición** , seleccione **Agregar condición** .
 
 6. Seleccione una métrica de la lista de señales sobre las que desea recibir alertas. En este ejemplo, seleccione "Porcentaje de almacenamiento".
 
    :::image type="content" source="./media/howto-alert-on-metrics/6-configure-signal-logic.png" alt-text="Selección de Reglas de alerta":::
 
-7. Configure la lógica de alerta incluida la **condición** (p. ej., "Mayor que") el **umbral** (p. ej., 85 %), la **agregación de tiempo**, el **período** de tiempo de la regla de métrica que debe transcurrir para que se desencadene la alerta (p. ej., "En los últimos 30 minutos") y la **frecuencia**.
+7. Configure la lógica de alerta incluida la **condición** (p. ej., "Mayor que") el **umbral** (p. ej., 85 %), la **agregación de tiempo** , el **período** de tiempo de la regla de métrica que debe transcurrir para que se desencadene la alerta (p. ej., "En los últimos 30 minutos") y la **frecuencia** .
 
    Seleccione **Listo** cuando haya terminado.
 
@@ -62,7 +62,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
     2. También puede indicar un identificador URI válido en el campo **Webhook** si quiere llamarlo cuando se active la alerta.
 
-    3. Cuando haya terminado, seleccione **Aceptar**.
+    3. Cuando haya terminado, seleccione **Aceptar** .
 
     :::image type="content" source="./media/howto-alert-on-metrics/10-action-group-type.png" alt-text="Selección de Reglas de alerta":::
 
@@ -84,5 +84,5 @@ Una vez que haya creado una alerta, puede seleccionarla y realizar las acciones 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo [configurar webhooks en las alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-webhooks).
-* Obtenga [información general sobre la colección de métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-customize-monitoring) para garantizar que el servicio está disponible y que responder adecuadamente.
+* Obtenga más información sobre cómo [configurar webhooks en las alertas](../../azure-monitor/platform/alerts-webhooks.md).
+* Obtenga [información general sobre la colección de métricas](../../azure-monitor/platform/data-platform.md) para garantizar que el servicio está disponible y que responder adecuadamente.

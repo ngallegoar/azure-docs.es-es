@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: c3a3fae9150b6805e9bb1533f2bb585d8845b253
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f0b059a25cd9fc77a59dc0a78feb18c2c549057
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932489"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546864"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Administración de un servidor de Azure Database for MySQL mediante la CLI de Azure
 
@@ -20,13 +20,13 @@ En este artículo se muestra cómo administrar los servidores únicos implementa
 ## <a name="prerequisites"></a>Requisitos previos
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar. En este artículo es necesario que ejecute la versión 2.0 de la CLI de Azure, o cualquier versión posterior, de forma local. Para ver la versión instalada, ejecute el comando `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-Será preciso que inicie sesión en su cuenta mediante el comando [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
+Será preciso que inicie sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id** , que hace referencia al **identificador de suscripción** para su cuenta de Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list).
+Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 Si aún no ha creado un servidor, consulte esta [guía de inicio rápido](quickstart-create-mysql-server-database-using-azure-cli.md) para crear uno.
 
 ## <a name="scale-compute-and-storage"></a>Escalado de proceso y almacenamiento
-Puede escalar verticalmente su plan de tarifa de forma sencilla, así como el proceso y el almacenamiento con el siguiente comando. Puede ver todas las operaciones del servidor que puede realizar con [az mysql server overview](/cli/azure/mysql/server?view=azure-cli-latest).
+Puede escalar verticalmente su plan de tarifa de forma sencilla, así como el proceso y el almacenamiento con el siguiente comando. Puede ver todas las operaciones del servidor que puede realizar con [az mysql server overview](/cli/azure/mysql/server).
 
 ```azurecli-interactive
 az mysql server update --resource-group myresourcegroup --name mydemoserver --sku-name GP_Gen5_4 --storage-size 6144

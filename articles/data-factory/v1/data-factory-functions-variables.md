@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbc7fd22915af1c9645d915a9898679a3a7c30d0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73667649"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631519"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory: funciones y variables del sistema
 > [!NOTE]
@@ -37,7 +37,7 @@ Este artículo proporciona información sobre las funciones y las variables comp
 > 
 
 ### <a name="example-for-using-a-system-variable"></a>Ejemplo de uso de una variable del sistema
-En el siguiente ejemplo, el año, mes, día y hora de **SliceStart** se extraen en variables independientes que se usan en las propiedades **folderPath** y **fileName**.
+En el siguiente ejemplo, el año, mes, día y hora de **SliceStart** se extraen en variables independientes que se usan en las propiedades **folderPath** y **fileName** .
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -61,7 +61,7 @@ Puede usar las funciones de Data Factory junto con las variables del sistema con
    
     $$ no es necesario para especificar expresiones de dependencia de entrada.     
 
-En el ejemplo siguiente, la propiedad **sqlReaderQuery** de un archivo JSON se asigna a un valor devuelto por la función `Text.Format`. Este ejemplo también usa una variable de sistema denominada **WindowStart**, que representa la hora de inicio de la ventana de ejecución de la actividad.
+En el ejemplo siguiente, la propiedad **sqlReaderQuery** de un archivo JSON se asigna a un valor devuelto por la función `Text.Format`. Este ejemplo también usa una variable de sistema denominada **WindowStart** , que representa la hora de inicio de la ventana de ejecución de la actividad.
 
 ```json
 {
@@ -70,7 +70,7 @@ En el ejemplo siguiente, la propiedad **sqlReaderQuery** de un archivo JSON se a
 }
 ```
 
-Consulte el tema [Cadenas con formato de fecha y hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx), en el que se describen las diferentes opciones de formato que puede usar (por ejemplo: aa frente a aaaa). 
+Consulte el tema [Cadenas con formato de fecha y hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings), en el que se describen las diferentes opciones de formato que puede usar (por ejemplo: aa frente a aaaa). 
 
 ### <a name="functions"></a>Functions
 Las tablas siguientes muestran todas las funciones de Azure Data Factory:
@@ -97,7 +97,7 @@ Las tablas siguientes muestran todas las funciones de Azure Data Factory:
 | Texto |Format(X) |X: Variable de cadena |Formatea el texto (use la combinación `\\'` para aplicar el escape del carácter `'`).|
 
 > [!IMPORTANT]
-> Cuando se usa una función dentro de otra función, no es necesario usar el prefijo **$$** para la función interna. Por ejemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' y RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). En este ejemplo, observe que el prefijo **$$** no se usa para la función **Time.AddHours**. 
+> Cuando se usa una función dentro de otra función, no es necesario usar el prefijo **$$** para la función interna. Por ejemplo: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' y RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). En este ejemplo, observe que el prefijo **$$** no se usa para la función **Time.AddHours** . 
 
 #### <a name="example"></a>Ejemplo
 En el ejemplo siguiente, los parámetros de entrada y salida de la actividad de Hive se determinan mediante el uso de la función `Text.Format` y la variable del sistema SliceStart. 
@@ -227,5 +227,4 @@ Para leer los datos del día anterior en lugar del día representado por SliceSt
 }
 ```
 
-Consulte el tema [Cadenas con formato de fecha y hora personalizado](https://msdn.microsoft.com/library/8kb3ddd4.aspx), en el que se describen las diferentes opciones de formato que puede usar (por ejemplo: aa frente a aaaa). 
-
+Consulte el tema [Cadenas con formato de fecha y hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings), en el que se describen las diferentes opciones de formato que puede usar (por ejemplo: aa frente a aaaa).

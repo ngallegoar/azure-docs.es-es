@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 17e5b5eaea90b5f67ad91f0b09a51b2f1aeffd68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a5e53cab30f1adca05652a3b3b7541e12ebebbdb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322622"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631468"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformación de datos mediante la ejecución de scripts de U-SQL en Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -28,7 +28,7 @@ ms.locfileid: "91322622"
 > [!NOTE]
 > Este artículo se aplica a la versión 1 de Data Factory. Si utiliza la versión actual del servicio Data Factory, consulte [Actividad de U-SQL en V2](../transform-data-using-data-lake-analytics.md).
 
-Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Data Lake Analytics** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Azure Data Lake Analytics**. 
+Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Data Lake Analytics** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Azure Data Lake Analytics** . 
 
 Debe crear una cuenta de Azure Data Lake Analytics antes de crear una canalización con una actividad de U-SQL de este servicio. Para obtener más información sobre Azure Data Lake Analytics, consulte el artículo de [introducción a Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
@@ -48,14 +48,14 @@ En la siguiente tabla se ofrecen descripciones de las propiedades genéricas que
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| **type** |La propiedad type se debe establecer en: **AzureDataLakeAnalytics**. |Sí |
+| **type** |La propiedad type se debe establecer en: **AzureDataLakeAnalytics** . |Sí |
 | **accountName** |Nombre de la cuenta de Análisis de Azure Data Lake |Sí |
 | **dataLakeAnalyticsUri** |Identificador URI de Análisis de Azure Data Lake. |No |
 | **subscriptionId** |Identificador de suscripción de Azure |No (si no se especifica, se usa la suscripción de Data Factory). |
 | **resourceGroupName** |Nombre del grupo de recursos de Azure |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 
 ### <a name="service-principal-authentication-recommended"></a>Autenticación de la entidad de servicio (recomendada)
-Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (AAD) y concédale acceso a Data Lake Store. Consulte [Autenticación entre servicios](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
+Para usar la autenticación de la entidad de servicio, registre una entidad de aplicación en Azure Active Directory (AAD) y concédale acceso a Data Lake Store. Consulte [Autenticación entre servicios](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md) para ver los pasos detallados. Anote los siguientes valores; los usará para definir el servicio vinculado:
 * Identificador de aplicación
 * Clave de la aplicación 
 * Id. de inquilino
@@ -114,7 +114,7 @@ También puede utilizar la autenticación de credenciales de usuario para Data L
 ```
 
 #### <a name="token-expiration"></a>Expiración del token
-El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
+El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira** : Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
 
 | Tipo de usuario | Expira después de |
 |:--- |:--- |
@@ -148,7 +148,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Agregue una referencia a Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog. 
+Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService Class](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice), [AzureDataLakeAnalyticsLinkedService Class](/dotnet/api/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice) y [AuthorizationSessionGetResponse Class](/dotnet/api/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse). Agregue una referencia a Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog. 
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Actividad U-SQL de Análisis de Data Lake
 El siguiente fragmento JSON define una canalización con una actividad U-SQL de Análisis de Data Lake. La definición de actividad tiene una referencia al servicio vinculado de Análisis de Azure Data Lake que creó anteriormente.   
@@ -208,7 +208,7 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 
 | Propiedad            | Descripción                              | Obligatorio                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| type                | La propiedad type debe establecerse en **DataLakeAnalyticsU-SQL**. | Sí                                      |
+| type                | La propiedad type debe establecerse en **DataLakeAnalyticsU-SQL** . | Sí                                      |
 | linkedServiceName   | Referencia a la instancia de Azure Data Lake Analytics registrada como servicio vinculado en Data Factory. | Sí                                      |
 | scriptPath          | Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. | No (si se utiliza el script)                   |
 | scriptLinkedService | Servicio vinculado que se vincula al almacenamiento que contiene el script para la factoría de datos | No (si se utiliza el script)                   |
@@ -340,6 +340,4 @@ Es posible usar los parámetros dinámicos en su lugar. Por ejemplo:
 }
 ```
 
-En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/input; los de salida se generan en la carpeta /datalake/output. Sin embargo, los nombres de archivo son dinámicos según la hora de inicio del segmento.  
-
-
+En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/input; los de salida se generan en la carpeta /datalake/output. Sin embargo, los nombres de archivo son dinámicos según la hora de inicio del segmento.

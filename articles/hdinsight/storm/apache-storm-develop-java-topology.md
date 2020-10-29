@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: b928ea8b0d05b9e1eac3c9429ec4c0ce8f88bb22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322880"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545504"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Crear una topología de Apache Storm en Java
 
@@ -26,7 +26,7 @@ Después de completar los pasos descritos en este documento, puede implementar l
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Kit de desarrolladores de Java (JDK), versión 8](https://aka.ms/azure-jdks)
+* [Kit de desarrolladores de Java (JDK), versión 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Apache Maven](https://maven.apache.org/download.cgi) correctamente [instalado](https://maven.apache.org/install.html) según Apache.  Maven es un sistema de compilación de proyectos de Java.
 
@@ -43,7 +43,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Creación de un proyecto de Maven
 
-Especifique el siguiente comando para crear un proyecto de Maven llamado **WordCount**:
+Especifique el siguiente comando para crear un proyecto de Maven llamado **WordCount** :
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -199,9 +199,9 @@ Esta sección se usa para agregar complementos, recursos y otras opciones de con
 
     Otro complemento útil es el [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/), que se usa para cambiar las opciones de compilación. Cambie la versión de Java que usa Maven para el origen y destino de la aplicación.
 
-  * Para HDInsight __3.4 o una versión anterior__, establezca la versión de origen y destino de Java en __1.7__.
+  * Para HDInsight __3.4 o una versión anterior__ , establezca la versión de origen y destino de Java en __1.7__ .
 
-  * Para HDInsight __3.5__, establezca la versión de origen y destino de Java en __1.8__.
+  * Para HDInsight __3.5__ , establezca la versión de origen y destino de Java en __1.8__ .
 
   Agregue el siguiente texto en la sección `<plugins>` del archivo `pom.xml` para incluir el complemento Apache Maven Compiler. Este ejemplo especifica 1.8, por lo que la versión de HDInsight de destino es 3.5.
 
@@ -237,11 +237,11 @@ Este ejemplo agrega el directorio de recursos en la raíz del proyecto (`${based
 
 Una topología de Apache Storm basada en Java consta de tres componentes que debe crear (o hacer referencia) como una dependencia.
 
-* **Spouts**: lee datos de orígenes externos y emite flujos de datos a la topología.
+* **Spouts** : lee datos de orígenes externos y emite flujos de datos a la topología.
 
-* **Bolts**: realiza el procesamiento en flujos que emite spouts u otros bolts, y emite uno o varios flujos.
+* **Bolts** : realiza el procesamiento en flujos que emite spouts u otros bolts, y emite uno o varios flujos.
 
-* **Topología**: define cómo se organizan los spouts y bolts, y proporciona el punto de entrada de la topología.
+* **Topología** : define cómo se organizan los spouts y bolts, y proporciona el punto de entrada de la topología.
 
 ### <a name="create-the-spout"></a>Creación del spout
 
@@ -327,9 +327,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 Los bolts controlan el procesamiento de datos. Los bolts pueden hacer cualquier cosa; por ejemplo, cálculo, persistencia o hablar con componentes externos. Esta topología utiliza dos bolts:
 
-* **SplitSentence**: divide las frases que emite **RandomSentenceSpout** en palabras individuales.
+* **SplitSentence** : divide las frases que emite **RandomSentenceSpout** en palabras individuales.
 
-* **WordCount**: cuenta cuántas veces se ha repetido cada palabra.
+* **WordCount** : cuenta cuántas veces se ha repetido cada palabra.
 
 #### <a name="splitsentence"></a>SplitSentence
 

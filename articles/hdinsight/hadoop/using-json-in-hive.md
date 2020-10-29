@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085453"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547612"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Procesamiento y análisis de documentos JSON mediante Apache Hive en Azure HDInsight
 
@@ -94,7 +94,7 @@ La instrucción **INSERT** rellena la tabla **StudentOneLine** con los datos de 
 
 La instrucción **SELECT** solo devuelve una fila.
 
-Este es el resultado de la instrucción **SELECT**:
+Este es el resultado de la instrucción **SELECT** :
 
 ![Acoplamiento de HDInsight del documento JSON](./media/using-json-in-hive/hdinsight-flatten-json.png)
 
@@ -129,7 +129,7 @@ La función definida por el usuario get-json_object tiene algunas limitaciones:
 * Como cada campo de la consulta requiere volver a analizar la consulta, esto afecta al rendimiento.
 * **GET\_JSON_OBJECT()** devuelve la representación de cadena de una matriz. Para convertir esta matriz en una de Hive, tiene que utilizar expresiones regulares para reemplazar los corchetes "[" y "]" y llamar también a split para obtener la matriz.
 
-Esta conversión es el motivo por el que el sitio wiki de Hive recomienda **json_tuple**.  
+Esta conversión es el motivo por el que el sitio wiki de Hive recomienda **json_tuple** .  
 
 ### <a name="use-the-json_tuple-udf"></a>Uso de la función definida por el usuario json_tuple
 
@@ -146,7 +146,7 @@ Salida de este script en la consola de Hive:
 
 ![Resultados de la consulta JSON de Apache Hive](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-La UDF `json_tuple` usa la sintaxis de [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) de Hive, que permite que json\_tuple cree una tabla virtual mediante la aplicación de la función de UDT a cada fila de tabla original. Los JSON complejos se vuelven demasiado difíciles de manejar debido al uso repetido de **LATERAL VIEW**. Además, **JSON_TUPLE** no puede controlar los documentos JSON anidados.
+La UDF `json_tuple` usa la sintaxis de [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) de Hive, que permite que json\_tuple cree una tabla virtual mediante la aplicación de la función de UDT a cada fila de tabla original. Los JSON complejos se vuelven demasiado difíciles de manejar debido al uso repetido de **LATERAL VIEW** . Además, **JSON_TUPLE** no puede controlar los documentos JSON anidados.
 
 ### <a name="use-a-custom-serde"></a>Uso de un SerDe personalizado
 
@@ -154,11 +154,11 @@ Un SerDe es la mejor opción para analizar documentos JSON anidados. Le permite 
 
 ## <a name="summary"></a>Resumen
 
-El tipo de operador JSON en Hive que elija depende de su escenario. Con un documento JSON simple y un campo para buscar, elija la UDF de Hive **get_json_object**. Si tiene varias claves por las que buscar, puede usar **json_tuple**. En el caso de los documentos anidados, use **JSON SerDe**.
+El tipo de operador JSON en Hive que elija depende de su escenario. Con un documento JSON simple y un campo para buscar, elija la UDF de Hive **get_json_object** . Si tiene varias claves por las que buscar, puede usar **json_tuple** . En el caso de los documentos anidados, use **JSON SerDe** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para artículos relacionados, consulte:
 
-* [Uso de Apache Hive y HiveQL con Apache Hadoop en HDInsight para analizar un archivo de Apache Log4j de muestra](../hdinsight-use-hive.md)
+* [Uso de Apache Hive y HiveQL con Apache Hadoop en HDInsight para analizar un archivo de Apache Log4j de muestra](./hdinsight-use-hive.md)
 * [Análisis de datos de retraso de vuelos con Interactive Query en HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

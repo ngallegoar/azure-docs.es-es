@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c088188802590139ee895c45fb26959138db07e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: eba175eb831ef0c472c2e11d2d03f134a0d3b052
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939807"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547680"
 ---
 # <a name="manage-an-azure-database-for-postgresql---flexible-server-using-the-azure-cli"></a>Administración de un Servidor flexible de Azure Database for PostgreSQL mediante la CLI de Azure
 
@@ -23,13 +23,13 @@ En este artículo se muestra cómo administrar el Servidor flexible implementado
 ## <a name="prerequisites"></a>Requisitos previos
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar. En este artículo es necesario que ejecute la versión 2.0 de la CLI de Azure, o cualquier versión posterior, de forma local. Para ver la versión instalada, ejecute el comando `az --version`. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
-Será preciso que inicie sesión en su cuenta mediante el comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** para su cuenta de Azure.
+Será preciso que inicie sesión en su cuenta mediante el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id** , que hace referencia al **identificador de suscripción** para su cuenta de Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>

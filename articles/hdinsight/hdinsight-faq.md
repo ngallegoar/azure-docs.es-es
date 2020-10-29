@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0240510a2232bd12a94d5cdd59672270289e5e8f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022221"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547527"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Preguntas más frecuentes
 
@@ -24,7 +24,7 @@ En este artículo se proporcionan respuestas a algunas de las preguntas más com
 
 ### <a name="how-do-i-provision-an-hdinsight-cluster"></a>¿Cómo aprovisiono un clúster de HDInsight?
 
-Para revisar los tipos de clústeres de HDInsight y los métodos de aprovisionamiento, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters).
+Para revisar los tipos de clústeres de HDInsight y los métodos de aprovisionamiento, consulte [Configuración de clústeres en HDInsight con Apache Hadoop, Apache Spark, Apache Kafka, etc](./hdinsight-hadoop-provision-linux-clusters.md).
 
 ### <a name="how-do-i-delete-an-existing-hdinsight-cluster"></a>¿Cómo elimino un clúster de HDInsight existente?
 
@@ -38,7 +38,7 @@ Intente dejar al menos de 30 a 60 minutos entre la operación de creación y la 
 
 El número adecuado de núcleos y otras opciones de configuración dependen de diversos factores.
 
-Para más información, consulte [Planeamiento de la capacidad de los clústeres de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning).
+Para más información, consulte [Planeamiento de la capacidad de los clústeres de HDInsight](./hdinsight-capacity-planning.md).
 
 ### <a name="what-are-the-various-types-of-nodes-in-an-hdinsight-cluster"></a>¿Cuáles son los distintos tipos de nodos de un clúster de HDInsight?
 
@@ -46,11 +46,11 @@ Consulte [Tipos de recursos en clústeres de HDInsight de Azure](hdinsight-virtu
 
 ### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>¿Cuáles son los procedimientos recomendados para crear clústeres grandes de HDInsight?
 
-1. Se recomienda configurar los clústeres de HDInsight con una [base de datos de Ambari personalizada](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) para mejorar la escalabilidad del clúster.
-2. Use [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) para crear clústeres de HDInsight para aprovechar el mayor ancho de banda y otras características de rendimiento de Azure Data Lake Storage Gen2.
+1. Se recomienda configurar los clústeres de HDInsight con una [base de datos de Ambari personalizada](./hdinsight-custom-ambari-db.md) para mejorar la escalabilidad del clúster.
+2. Use [Azure Data Lake Storage Gen2](./hdinsight-hadoop-use-data-lake-storage-gen2.md) para crear clústeres de HDInsight para aprovechar el mayor ancho de banda y otras características de rendimiento de Azure Data Lake Storage Gen2.
 3. Los nodos principales deben ser lo suficientemente grandes como para dar cabida a varios servicios maestros que se ejecuten en estos nodos.
 4. Algunas cargas de trabajo específicas, como Interactive Query, también necesitarán nodos de Zookeeper más grandes. Considere VM con un mínimo de 8 núcleos.
-5. En el caso de Hive y Spark, use un [metastore de Hive externo](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
+5. En el caso de Hive y Spark, use un [metastore de Hive externo](./hdinsight-use-external-metadata-stores.md).
 
 ## <a name="individual-components"></a>Componentes individuales
 
@@ -58,11 +58,11 @@ Consulte [Tipos de recursos en clústeres de HDInsight de Azure](hdinsight-virtu
 
 Sí. Para instalar componentes adicionales o personalizar la configuración del clúster, use:
 
-- Scripts durante la creación o después. Los scripts se invocan a través de la [acción de script](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux). Una acción de script es una opción de configuración que se puede usar a partir de los cmdlets de Windows PowerShell de HDInsight, Azure Portal o el SDK de HDInsight para .NET. Esta opción de configuración se puede usar desde Azure Portal, los cmdlets de Windows PowerShell para HDInsight o el SDK de HDInsight para .NET.
+- Scripts durante la creación o después. Los scripts se invocan a través de la [acción de script](./hdinsight-hadoop-customize-cluster-linux.md). Una acción de script es una opción de configuración que se puede usar a partir de los cmdlets de Windows PowerShell de HDInsight, Azure Portal o el SDK de HDInsight para .NET. Esta opción de configuración se puede usar desde Azure Portal, los cmdlets de Windows PowerShell para HDInsight o el SDK de HDInsight para .NET.
 
 - [Plataforma de aplicaciones HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) para instalar aplicaciones.
 
-Para acceder a una lista de los componentes admitidos, consulte [¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions)
+Para acceder a una lista de los componentes admitidos, consulte [¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>¿Puedo actualizar los componentes individuales que están preinstalados en el clúster?
 
@@ -129,11 +129,11 @@ Si bloquea los puertos 22 y 23, no tendrá acceso SSH al clúster. El servicio 
 
 Para obtener más información, vea los documentos siguientes:
 
-- [Control del tráfico de red](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic)
+- [Puertos utilizados por los servicios Apache Hadoop en HDInsight](./hdinsight-hadoop-port-settings-for-services.md)
 
 - [Protección del tráfico entrante a los clústeres de HDInsight en una red virtual con un punto de conexión privado](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
 
-- [Direcciones IP de administración de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses)
+- [Direcciones IP de administración de HDInsight](./hdinsight-management-ip-addresses.md)
 
 ### <a name="can-i-deploy-an-additional-virtual-machine-within-the-same-subnet-as-an-hdinsight-cluster"></a>¿Puedo implementar una máquina virtual adicional dentro de la misma subred que un clúster de HDInsight?
 
@@ -186,7 +186,7 @@ Se recomienda usar un certificado emitido por una entidad de certificación. Per
 
 ### <a name="how-can-i-pull-login-activity-shown-in-ranger"></a>¿Cómo puedo extraer la actividad de inicio de sesión que se muestra en Ranger?
 
-En cuanto a los requisitos de auditoría, Microsoft recomienda habilitar los registros de Azure Monitor, tal como se describe en [Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial).
+En cuanto a los requisitos de auditoría, Microsoft recomienda habilitar los registros de Azure Monitor, tal como se describe en [Uso de los registros de Azure Monitor para supervisar clústeres de HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>¿Puedo deshabilitar `Clamscan` en mi clúster?
 
@@ -258,7 +258,7 @@ Actualmente no existe ningún complemento de Ranger para el almacenamiento de bl
 Puede asignar directivas de acceso a los datos a los grupos de seguridad de los usuarios mediante el Explorador de Azure Storage. Para más información, consulte:
 
 - [¿Cómo puedo establecer los permisos para que los usuarios de Azure AD consulten los datos en Data Lake Storage Gen2 mediante Hive u otros servicios?](hdinsight-hadoop-use-data-lake-storage-gen2.md#how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services)
-- [Establecimiento de permisos en el nivel de archivo y directorio mediante el Explorador de Azure Storage con Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+- [Establecimiento de permisos en el nivel de archivo y directorio mediante el Explorador de Azure Storage con Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-explorer.md)
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>¿Puedo aumentar el almacenamiento de HDFS en un clúster sin aumentar el tamaño del disco de los nodos de trabajo?
 
@@ -272,7 +272,7 @@ Consulte [Uso de nodos perimetrales vacíos en clústeres de Apache Hadoop en HD
 
 ### <a name="how-can-i-connect-to-an-edge-node"></a>¿Cómo puedo conectarme a un nodo perimetral?
 
-Después de crear un nodo perimetral, puede conectarse a él mediante SSH en el puerto 22. Puede encontrar el nombre del nodo perimetral en el portal del clúster. Los nombres normalmente terminan por *-ed*.
+Después de crear un nodo perimetral, puede conectarse a él mediante SSH en el puerto 22. Puede encontrar el nombre del nodo perimetral en el portal del clúster. Los nombres normalmente terminan por *-ed* .
 
 ### <a name="why-are-persisted-scripts-not-running-automatically-on-newly-created-edge-nodes"></a>¿Por qué los scripts persistentes no se ejecutan automáticamente en los nodos perimetrales recién creados?
 
@@ -333,11 +333,11 @@ La facturación del clúster de HDInsight se inicia una vez creado el clúster y
 
 ### <a name="how-do-i-cancel-my-subscription"></a>¿Cómo cancelo mi suscripción?
 
-Para información sobre cómo cancelar la suscripción, consulte [Cancelación de su suscripción de Azure](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription).
+Para información sobre cómo cancelar la suscripción, consulte [Cancelación de su suscripción de Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ### <a name="for-pay-as-you-go-subscriptions-what-happens-after-i-cancel-my-subscription"></a>En el caso de las suscripciones de pago por uso, ¿qué ocurre después de cancelar mi suscripción?
 
-Para información sobre la suscripción después de su cancelación, consulte [¿Qué ocurre después de cancelar la suscripción?](/azure/billing/billing-how-to-cancel-azure-subscription)
+Para información sobre la suscripción después de su cancelación, consulte [¿Qué ocurre después de cancelar la suscripción?](../cost-management-billing/manage/cancel-azure-subscription.md)
 
 ## <a name="hive"></a>Hive
 

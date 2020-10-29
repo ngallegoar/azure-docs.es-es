@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855674"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547442"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Uso de Azure Storage con clústeres de Azure HDInsight
 
@@ -44,23 +44,23 @@ No se permite compartir un contenedor de blobs como sistema de archivos predeter
 
 ## <a name="access-files-from-within-cluster"></a>Acceso a los archivos desde dentro del clúster
 
-Existen varias maneras de acceder a los archivos de Data Lake Storage desde un clúster de HDInsight. El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:* ) y acceso cifrado con TLS (con *wasbs*). Se recomienda usar *WASBS* siempre que sea posible, aunque se acceda a datos que se encuentren en la misma región de Azure.
+Existen varias maneras de acceder a los archivos de Data Lake Storage desde un clúster de HDInsight. El esquema URI proporciona acceso sin cifrar (con el prefijo *wasb:* ) y acceso cifrado con TLS (con *wasbs* ). Se recomienda usar *WASBS* siempre que sea posible, aunque se acceda a datos que se encuentren en la misma región de Azure.
 
-* **Con el nombre completo**. Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
+* **Con el nombre completo** . Con este enfoque, proporciona la ruta de acceso completa al archivo al que quiere acceder.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Con el formato abreviado de la ruta de acceso**. Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
+* **Con el formato abreviado de la ruta de acceso** . Con este enfoque, reemplazará la ruta de acceso a la raíz del clúster por:
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **Con la ruta de acceso relativa**. Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
+* **Con la ruta de acceso relativa** . Con este enfoque, solo proporciona la ruta de acceso relativa al archivo al que quiere acceder.
 
     ```
     /<file.path>/
@@ -151,7 +151,7 @@ Para obtener la ruta de acceso mediante la API REST de Ambari, consulte [Obtenci
 
 ## <a name="blob-containers"></a>Contenedores de blobs
 
-Para usar blobs, debe crear antes una [cuenta de Azure Storage](../storage/common/storage-create-storage-account.md). Como parte de este paso, especifique una región de Azure donde se crea la cuenta de almacenamiento. El clúster y la cuenta de almacenamiento deben ubicarse en la misma región. La base de datos de SQL Server de la metastore de Hive y la base de datos de SQL Server de la metastore de Apache Oozie tienen que encontrarse en la misma región.
+Para usar blobs, debe crear antes una [cuenta de Azure Storage](../storage/common/storage-account-create.md). Como parte de este paso, especifique una región de Azure donde se crea la cuenta de almacenamiento. El clúster y la cuenta de almacenamiento deben ubicarse en la misma región. La base de datos de SQL Server de la metastore de Hive y la base de datos de SQL Server de la metastore de Apache Oozie tienen que encontrarse en la misma región.
 
 Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a un contenedor de su cuenta de Azure Storage. Este contenedor puede ser un blob existente que se creó fuera de HDInsight. O puede tratarse de un contenedor que se cree para un clúster de HDInsight.
 

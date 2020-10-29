@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: d4385ccda665e9acd2d2f9fd340e675b8a9dfe6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a099a9850289a046435b4e1763d7f54a702c0d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932516"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545096"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Uso de Azure Portal para configurar alertas en las métricas de un servidor flexible de Azure Database for MySQL 
 
@@ -30,34 +30,34 @@ Puede configurar una alerta para realizar las siguientes acciones cuando se dese
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 * [Azure Portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [CLI de Azure](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
-* [API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [API de REST de Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Creación de una regla de alerta sobre una métrica desde Azure Portal
 1. En [Azure Portal](https://portal.azure.com/), seleccione el servidor flexible de Azure Database for MySQL que desea supervisar.
-2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas**.
-3. Seleccione **+ Nueva regla de alertas**.
-4. Se abre la página **Crear regla**. Rellene la información necesaria:
-5. En la sección **Condición**, elija **Seleccionar condición**.
+2. En la sección **Supervisión** de la barra lateral, seleccione **Alertas** .
+3. Seleccione **+ Nueva regla de alertas** .
+4. Se abre la página **Crear regla** . Rellene la información necesaria:
+5. En la sección **Condición** , elija **Seleccionar condición** .
 6. Verá una lista de señales compatibles. Seleccione la métrica para la que desea crear una alerta. Por ejemplo, seleccione "Porcentaje de almacenamiento".
 7. Verá un gráfico para la métrica de las últimas seis horas. Use la lista desplegable **Período del gráfico** para ver un historial más largo de la métrica.
 8. Seleccione el tipo de umbral en el campo **Umbral** (por ejemplo, "Estático" o "Dinámico"), un **operador** (por ejemplo, "Mayor que") y un **tipo de agregación** (por ejemplo, promedio). Esto determinará la lógica que evaluará la regla de alertas de métricas.
-    - Si va a usar un umbral **estático**, en **Valor de umbral** especifique un valor (por ejemplo, 85 por ciento). El gráfico de métricas puede ayudar a determinar cuál podría ser un umbral razonable.
-    - Si usa un umbral **Dinámico**, siga para definir la **Sensibilidad del umbral**. El gráfico de métricas mostrará los umbrales calculados según los datos recientes. [Más información sobre las opciones de tipo y sensibilidad de la condición de umbrales dinámicos](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
+    - Si va a usar un umbral **estático** , en **Valor de umbral** especifique un valor (por ejemplo, 85 por ciento). El gráfico de métricas puede ayudar a determinar cuál podría ser un umbral razonable.
+    - Si usa un umbral **Dinámico** , siga para definir la **Sensibilidad del umbral** . El gráfico de métricas mostrará los umbrales calculados según los datos recientes. [Más información sobre las opciones de tipo y sensibilidad de la condición de umbrales dinámicos](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
 9. Refine la condición, para lo que debe ajustar el intervalo del campo **Granularidad de agregación (período)** , en el que se agrupan los puntos de datos mediante el uso de la función del tipo de agregación (por ejemplo, "30 minutos") y el valor del campo **Frecuencia** (por ejemplo, "Cada 15 minutos").
-10. Haga clic en **Done**(Listo).
-11. Agregue un grupo de acciones. Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. En la sección **Grupos de acciones**, elija **Seleccionar grupo de acciones** para seleccionar un grupo de acciones ya existente y asociarlo a la regla de alerta.
+10. Haga clic en **Done** (Listo).
+11. Agregue un grupo de acciones. Un grupo de acciones es una colección de las preferencias de notificación que el propietario de una suscripción de Azure define. En la sección **Grupos de acciones** , elija **Seleccionar grupo de acciones** para seleccionar un grupo de acciones ya existente y asociarlo a la regla de alerta.
 12. También puede crear un nuevo grupo de acciones para recibir notificaciones de la alerta. Para más información, consulte [Creación y administración de un grupo de acciones](../../azure-monitor/platform/action-groups.md).
-13. Para crear un grupo de acciones, elija **+ Crear grupo de acciones**. Rellene el formulario "Crear grupo de acciones" con los valores de los campos **Suscripción**, **Grupo de recursos**, **Nombre del grupo de acciones** y **Nombre para mostrar**.
+13. Para crear un grupo de acciones, elija **+ Crear grupo de acciones** . Rellene el formulario "Crear grupo de acciones" con los valores de los campos **Suscripción** , **Grupo de recursos** , **Nombre del grupo de acciones** y **Nombre para mostrar** .
 14. Configure **notificaciones** del grupo de acciones.
     
-    En **Tipo de notificación**, elija "Enviar por correo electrónico al rol de Azure Resource Manager" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones. Elija el **rol de Azure Resource Manager** para enviar el correo electrónico.
+    En **Tipo de notificación** , elija "Enviar por correo electrónico al rol de Azure Resource Manager" para seleccionar los propietarios, colaboradores y lectores de la suscripción que recibirán las notificaciones. Elija el **rol de Azure Resource Manager** para enviar el correo electrónico.
     También puede elegir **Email/SMS message/Push/Voice** (Correo electrónico/mensaje SMS/notificación push/mensaje de voz) para enviar notificaciones a destinatarios concretos.
 
     Especifique un **nombre** para el tipo de notificación y seleccione **Revisar y crear** cuando haya finalizado.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
     
-15. Rellene **Detalles de la regla de alertas** con los valores de los siguientes campos: **Nombre de la regla de alertas**, **Descripción**, **Guardar regla de alerta en el grupo de recursos** y **Gravedad**.
+15. Rellene **Detalles de la regla de alertas** con los valores de los siguientes campos: **Nombre de la regla de alertas** , **Descripción** , **Guardar regla de alerta en el grupo de recursos** y **Gravedad** .
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887162"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547901"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Solución de problemas de rendimiento de Apache HBase en Azure HDInsight
 
@@ -73,9 +73,9 @@ A continuación se muestran algunos de los otros parámetros específicos que se
 
 - Aumentar el tamaño de `memstore` de forma predeterminada de 128 MB a 256 MB. Normalmente, se recomienda esta configuración para escenarios de escritura elevada.
 
-- Aumentar el número de subprocesos dedicados a la compactación, pasando de la configuración predeterminada de **1** a **4**. Esta configuración es pertinente si observamos frecuentes compactaciones menores.
+- Aumentar el número de subprocesos dedicados a la compactación, pasando de la configuración predeterminada de **1** a **4** . Esta configuración es pertinente si observamos frecuentes compactaciones menores.
 
-- Evitar el bloqueo del vaciado de `memstore` debido al límite del almacén. Para proporcionar este búfer, aumente el valor de la configuración `Hbase.hstore.blockingStoreFiles` a **100**.
+- Evitar el bloqueo del vaciado de `memstore` debido al límite del almacén. Para proporcionar este búfer, aumente el valor de la configuración `Hbase.hstore.blockingStoreFiles` a **100** .
 
 - Para controlar los vaciados, utilice la siguiente configuración:
 
@@ -104,13 +104,13 @@ A continuación se muestran algunos de los otros parámetros específicos que se
 - Tiempos de espera de RPC: **3 minutos**
 
    - Los tiempos de espera de RPC incluyen el tiempo de espera de RPC de HBase, el tiempo de espera del examen de cliente de HBase y el tiempo de espera de consulta de Phoenix. 
-   - Asegúrese de que el parámetro `hbase.client.scanner.caching` está establecido en el mismo valor en el servidor y en el cliente. Si no son iguales, esta configuración conduce a errores de cliente que están relacionados con `OutOfOrderScannerException`. Esta opción debe establecerse en un valor bajo para exámenes grandes. Establecemos este valor en **100**.
+   - Asegúrese de que el parámetro `hbase.client.scanner.caching` está establecido en el mismo valor en el servidor y en el cliente. Si no son iguales, esta configuración conduce a errores de cliente que están relacionados con `OutOfOrderScannerException`. Esta opción debe establecerse en un valor bajo para exámenes grandes. Establecemos este valor en **100** .
 
 ## <a name="other-considerations"></a>Otras consideraciones
 
 A continuación se indican los parámetros adicionales que debe tener en cuenta para optimización:
 
-- `Hbase.rs.cacheblocksonwrite`: de forma predeterminada, este valor se establece **true**.
+- `Hbase.rs.cacheblocksonwrite`: de forma predeterminada, este valor se establece **true** .
 
 - Configuración que permite diferir la compactación menor para más adelante.
 
@@ -124,4 +124,4 @@ Si el problema sigue sin resolverse, visite uno de los siguientes canales para o
 
 - Conectar con [@AzureSupport](https://twitter.com/azuresupport). Esta es la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para administración de suscripciones y facturación. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+- Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para administración de suscripciones y facturación. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

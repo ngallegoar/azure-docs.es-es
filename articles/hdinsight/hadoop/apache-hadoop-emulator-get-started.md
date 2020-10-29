@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: de2a8e6377ababadc7d42f873a816a01a8f3b77e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f19797fa1c79261dc3459e2b924ed45d0b7e36e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207462"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547969"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introducción a un espacio aislado de Apache Hadoop, un emulador en una máquina virtual
 
@@ -34,7 +34,7 @@ Aprenda a instalar el espacio aislado de Apache Hadoop desde Hortonworks en una 
 
 Para obtener instrucciones sobre cómo configurar el espacio aislado, consulte [Sandbox Deployment and Install Guide](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/) (Guía de instalación e implementación del espacio aislado).
 
-Para descargar un espacio aislado anterior de la versión de HDP, consulte los vínculos en **Versiones anteriores**.
+Para descargar un espacio aislado anterior de la versión de HDP, consulte los vínculos en **Versiones anteriores** .
 
 ## <a name="start-the-virtual-machine"></a>Inicio de la máquina virtual
 
@@ -85,7 +85,7 @@ Para descargar un espacio aislado anterior de la versión de HDP, consulte los v
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a usar Visual Studio con Sandbox de Hortonworks](../hdinsight-hadoop-emulator-visual-studio.md)
+* [Aprenda a usar Visual Studio con Sandbox de Hortonworks](./apache-hadoop-visual-studio-tools-get-started.md)
 
 * [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 

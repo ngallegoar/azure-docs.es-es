@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081073"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546082"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Administración de clústeres de HDInsight mediante la API REST de Apache Ambari
 
@@ -29,7 +29,7 @@ Apache Ambari simplifica la administración y la supervisión de los clústeres 
 
 * Un clúster de Hadoop en HDInsight. Consulte [Introducción a HDInsight en Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bash en Ubuntu en Windows 10.  Los ejemplos de este artículo usan el shell de Bash en Windows 10. Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionarán.  Los ejemplos, con algunas pequeñas modificaciones, pueden funcionar en un símbolo del sistema de Windows.  También puede usar Windows PowerShell.
+* Bash en Ubuntu en Windows 10.  Los ejemplos de este artículo usan el shell de Bash en Windows 10. Consulte la [Guía de instalación del subsistema de Windows para Linux para Windows 10](/windows/wsl/install-win10) para conocer los pasos de instalación.  Otros [shells de Unix](https://www.gnu.org/software/bash/) también funcionarán.  Los ejemplos, con algunas pequeñas modificaciones, pueden funcionar en un símbolo del sistema de Windows.  También puede usar Windows PowerShell.
 
 * jq, un procesador JSON de línea de comandos.  Vea [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
@@ -37,11 +37,11 @@ Apache Ambari simplifica la administración y la supervisión de los clústeres 
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Identificador uniforme de recursos base para la API REST de Ambari
 
- El identificador uniforme de recursos (URI) base de la API REST de Ambari en HDInsight es `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, donde `CLUSTERNAME` es el nombre del clúster.  Los nombres de clúster en los URI **distinguen mayúsculas de minúsculas**.  Si bien el nombre del clúster en la parte del nombre de dominio completo (FQDN) del URI (`CLUSTERNAME.azurehdinsight.net`) no distingue entre mayúsculas y minúsculas, otras apariciones en el identificador URI sí lo hacen.
+ El identificador uniforme de recursos (URI) base de la API REST de Ambari en HDInsight es `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, donde `CLUSTERNAME` es el nombre del clúster.  Los nombres de clúster en los URI **distinguen mayúsculas de minúsculas** .  Si bien el nombre del clúster en la parte del nombre de dominio completo (FQDN) del URI (`CLUSTERNAME.azurehdinsight.net`) no distingue entre mayúsculas y minúsculas, otras apariciones en el identificador URI sí lo hacen.
 
 ## <a name="authentication"></a>Authentication
 
-La conexión a Ambari en HDInsight requiere HTTPS. Utilice el nombre de la cuenta de administrador (el valor predeterminado es **admin**) y la contraseña que proporcionó durante la creación del clúster.
+La conexión a Ambari en HDInsight requiere HTTPS. Utilice el nombre de la cuenta de administrador (el valor predeterminado es **admin** ) y la contraseña que proporcionó durante la creación del clúster.
 
 En el caso de los clústeres de Enterprise Security Package, en lugar de `admin`, use un nombre de usuario completo, como `username@domain.onmicrosoft.com`.
 
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Análisis de datos JSON
 
-En el ejemplo siguiente se utiliza [jq](https://stedolan.github.io/jq/) o [ConvertFrom-Json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) para analizar el documento de respuesta de JSON y mostrar solo la información de `health_report` de los resultados.
+En el ejemplo siguiente se utiliza [jq](https://stedolan.github.io/jq/) o [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json) para analizar el documento de respuesta de JSON y mostrar solo la información de `health_report` de los resultados.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -253,7 +253,7 @@ El valor devuelto es similar a uno de los ejemplos siguientes:
     El valor devuelto es similar a `/clusters/CLUSTERNAME/`. Este valor es una ruta de acceso dentro de la cuenta de Data Lake Storage. Esta ruta de acceso es la raíz del sistema de archivos HDFS compatible para el clúster.  
 
 > [!NOTE]  
-> El cmdlet [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) proporcionado por [Azure PowerShell](/powershell/azure/) también devuelve la información de almacenamiento para el clúster.
+> El cmdlet [Get-AzHDInsightCluster](/powershell/module/az.hdinsight/get-azhdinsightcluster) proporcionado por [Azure PowerShell](/powershell/azure/) también devuelve la información de almacenamiento para el clúster.
 
 ### <a name="get-all-configurations"></a>Obtención de todas las configuraciones
 
@@ -269,7 +269,7 @@ $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v
 $respObj.Content
 ```
 
-Este ejemplo devuelve un documento JSON que contiene la configuración actual de los componentes instalados. Vea el valor *etiqueta*. Por ejemplo, el siguiente es un extracto de los datos devueltos de un tipo de clúster Spark.
+Este ejemplo devuelve un documento JSON que contiene la configuración actual de los componentes instalados. Vea el valor *etiqueta* . Por ejemplo, el siguiente es un extracto de los datos devueltos de un tipo de clúster Spark.
 
 ```json
 "jupyter-site" : {
@@ -335,7 +335,7 @@ Este ejemplo devuelve un documento JSON que contiene la configuración actual de
 
    * Crea un documento raíz para la nueva configuración.
 
-   * Obtiene el contenido de la matriz `.items[]` y lo agrega al elemento **desired_config**.
+   * Obtiene el contenido de la matriz `.items[]` y lo agrega al elemento **desired_config** .
 
    * Elimina los elementos `href`, `version` y `Config`, porque no son necesarios para enviar una nueva configuración.
 

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7fe0e91f30930b9aaf0fb484b3b1e74d707d8c21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84fdd3045d5a1d44ff611134d88fc9793ee203de
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307813"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545079"
 ---
 # <a name="create-and-manage-azure-database-for-mysql---flexible-server-firewall-rules-using-the-azure-cli"></a>Creación y administración de reglas de firewall para un servidor flexible de Azure Database for MySQL mediante la CLI de Azure
 
@@ -33,17 +33,17 @@ En este artículo, nos centraremos en la creación de un servidor MySQL con **Ac
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede abrir Cloud Shell en una pestaña independiente acudiendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, después, seleccione **Entrar** para ejecutarlos.
 
-Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 de la CLI de Azure o cualquier versión posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Deberá iniciar sesión en la cuenta con el comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **identificador de suscripción** de su cuenta de Azure.
+Deberá iniciar sesión en la cuenta con el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad  **id** , que hace referencia al **identificador de suscripción** de su cuenta de Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción específica en su cuenta mediante el comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set). Anote el valor **id.** de la salida de **az login** para usarlo como valor para el argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set). Anote el valor **id.** de la salida de **az login** para usarlo como valor para el argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -89,11 +89,11 @@ Consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) 
 El comando **az mysql flexible-server firewall-rule** se utiliza desde la CLI de Azure para crear, eliminar, enumerar, mostrar y actualizar reglas de firewall.
 
 Comandos:
-- **create**: crea una regla de firewall de servidor flexible.
-- **list**: enumera las reglas de firewall de servidor flexible.
-- **update**: actualiza una regla de firewall de servidor flexible.
-- **show**: muestra los detalles de una regla de firewall de servidor flexible.
-- **delete**: elimina una regla de firewall de servidor flexible.
+- **create** : crea una regla de firewall de servidor flexible.
+- **list** : enumera las reglas de firewall de servidor flexible.
+- **update** : actualiza una regla de firewall de servidor flexible.
+- **show** : muestra los detalles de una regla de firewall de servidor flexible.
+- **delete** : elimina una regla de firewall de servidor flexible.
 
 Consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos puede especificar opcionalmente el grupo de recursos.
 
@@ -121,7 +121,7 @@ az mysql flexible-server firewall-rule create --name mydemoserver --start-ip-add
 Si se realiza correctamente, en la salida de cada comando create se mostrarán los detalles de la regla de firewall que ha creado, en formato JSON (de forma predeterminada). Si se produce un error, la salida muestra el texto del mensaje de error.
 
 ### <a name="list-firewall-rules"></a>Enumerar reglas de firewall 
-Use el comando `az mysql flexible-server firewall-rule list` para mostrar las reglas de firewall de servidor existentes en el servidor. Observe que el atributo de nombre del servidor se especifica en el modificador **--name**.
+Use el comando `az mysql flexible-server firewall-rule list` para mostrar las reglas de firewall de servidor existentes en el servidor. Observe que el atributo de nombre del servidor se especifica en el modificador **--name** .
 ```azurecli-interactive
 az mysql flexible-server firewall-rule list --name mydemoserver
 ```

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: b21f7ba81a74482da6fc4a59948bf16036e5d337
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 89f7a4a23f4d1b62fe5a76fbd4625bae8bb3018f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951098"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634767"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Solución de problemas de rendimiento de la actividad de copia
 
@@ -38,10 +38,10 @@ Como referencia, actualmente las sugerencias de optimización del rendimiento pr
 | Category              | Sugerencias de optimización del rendimiento                                      |
 | --------------------- | ------------------------------------------------------------ |
 | Específica del almacén de datos   | Carga de datos en **Azure Synpase Analytics (anteriormente SQL DW)** : se recomienda usar PolyBase o la instrucción COPY si no se usa. |
-| &nbsp;                | Copia de datos de o a **Azure SQL Database**: cuando la DTU tiene un uso elevado, se recomienda actualizar a un nivel superior. |
-| &nbsp;                | Copia de datos de o a **Azure Cosmos DB**: cuando la RU tiene un uso elevado, se recomienda actualizar a una RU mayor. |
-|                       | Copia de datos de una **tabla de SAP**: al copiar una gran cantidad de datos, se recomienda aprovechar la opción de partición del conector SAP para permitir la carga paralela y aumentar el número máximo de particiones. |
-| &nbsp;                | Ingesta de datos de **Amazon Redshift**: se recomienda el uso de UNLOAD si no se usa. |
+| &nbsp;                | Copia de datos de o a **Azure SQL Database** : cuando la DTU tiene un uso elevado, se recomienda actualizar a un nivel superior. |
+| &nbsp;                | Copia de datos de o a **Azure Cosmos DB** : cuando la RU tiene un uso elevado, se recomienda actualizar a una RU mayor. |
+|                       | Copia de datos de una **tabla de SAP** : al copiar una gran cantidad de datos, se recomienda aprovechar la opción de partición del conector SAP para permitir la carga paralela y aumentar el número máximo de particiones. |
+| &nbsp;                | Ingesta de datos de **Amazon Redshift** : se recomienda el uso de UNLOAD si no se usa. |
 | Limitación del almacén de datos | Si el almacén de datos limita un número de operaciones de lectura o escritura durante la copia, se recomienda realizar una comprobación y aumentar la tasa de solicitudes permitida para el almacén de datos o reducir la carga de trabajo simultánea. |
 | Entorno de ejecución de integración  | Si usa un **entorno de ejecución de integración (IR) autohospedado** y la actividad de copia espera mucho tiempo en la cola hasta que el IR tiene disponible un recurso para la ejecución, se recomienda escalar horizontal o verticalmente el entorno de ejecución de integración. |
 | &nbsp;                | Si usa una instancia de **Azure Integration Runtime** que se encuentra en una región no óptima, lo que da lugar a una lectura y escritura lentas, se recomienda cambiar la configuración para usar el entorno de ejecución de integración de otra región. |
@@ -65,16 +65,16 @@ Siga los [pasos de optimización del rendimiento](copy-activity-performance.md#p
 
 Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere solucionar problemas de una única actividad de copia que se ejecuta en Azure Integration Runtime y aparecen [sugerencias para optimizar el rendimiento](#performance-tuning-tips) en la vista de supervisión de la copia, aplique la recomendación e inténtelo de nuevo. Si no aparecen estas sugerencias, [analice los detalles de ejecución de la actividad de copia](#understand-copy-activity-execution-details), compruebe qué fase presenta la duración **más larga** y aplique las instrucciones siguientes para aumentar el rendimiento de la copia:
 
-- **La fase de script anterior a la copia muestra una larga duración**: esto significa que el script anterior a la copia que se ejecuta en la base de datos receptora tarda mucho tiempo en finalizar. Ajuste la lógica del script anterior a la copia especificado para mejorar el rendimiento. Si necesita más ayuda para mejorar el script, póngase en contacto con el equipo de base de datos.
+- **La fase de script anterior a la copia muestra una larga duración** : esto significa que el script anterior a la copia que se ejecuta en la base de datos receptora tarda mucho tiempo en finalizar. Ajuste la lógica del script anterior a la copia especificado para mejorar el rendimiento. Si necesita más ayuda para mejorar el script, póngase en contacto con el equipo de base de datos.
 
-- **En la fase de transferencia, el tiempo hasta el primer byte muestra una larga duración de trabajo**: significa que la consulta de origen tarda mucho tiempo en devolver datos. Compruebe y optimice la consulta o el servidor. Si necesita más ayuda, póngase en contacto con el equipo del almacén de datos.
+- **En la fase de transferencia, el tiempo hasta el primer byte muestra una larga duración de trabajo** : significa que la consulta de origen tarda mucho tiempo en devolver datos. Compruebe y optimice la consulta o el servidor. Si necesita más ayuda, póngase en contacto con el equipo del almacén de datos.
 
-- **En la fase de transferencia, el listado de orígenes muestra una larga duración de trabajo**: significa que la enumeración de los archivos de origen o de las particiones de datos de la base de datos de origen es lenta.
+- **En la fase de transferencia, el listado de orígenes muestra una larga duración de trabajo** : significa que la enumeración de los archivos de origen o de las particiones de datos de la base de datos de origen es lenta.
   - Al copiar datos desde el origen basado en archivos, si usa el **filtro de comodín** en la ruta de acceso de la carpeta o en el nombre de archivo (`wildcardFolderPath` o `wildcardFileName`) o usa el **filtro de hora de última modificación del archivo** (`modifiedDatetimeStart` o `modifiedDatetimeEnd`), tenga en cuenta que dicho filtro daría lugar a que la actividad de copia enumerase todos los archivos de la carpeta especificada en el lado de cliente y después aplicase el filtro. Esta enumeración de archivos podría convertirse en el cuello de botella, especialmente cuando solo un pequeño conjunto de archivos cumple la regla del filtro.
 
     - Compruebe si puede [copiar archivos en función del nombre o la ruta de acceso del archivo con particiones de tiempo](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De este modo, no se aporta carga alguna a la enumeración del lado de origen.
 
-    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob/Azure File Storage y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
+    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente " **prefix** " para Amazon S3/Azure Blob/Azure File Storage y " **listAfter/listBefore** " para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
 
     - Considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md) o [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) como ejemplo general.
 
@@ -82,7 +82,7 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
   - Use una instancia de Azure IR en la misma región que el almacén de datos de origen o en una región próxima.
 
-- **En la fase de transferencia, la lectura desde el origen muestra una larga duración de trabajo**: 
+- **En la fase de transferencia, la lectura desde el origen muestra una larga duración de trabajo** : 
 
   - Adopte el procedimiento recomendado de carga de datos específico del conector si es aplicable. Por ejemplo, al copiar datos desde [Amazon Redshift](connector-amazon-redshift.md), realice la configuración para que use UNLOAD de Redshift.
 
@@ -96,7 +96,7 @@ Si el rendimiento de la actividad de copia no satisface sus expectativas, quiere
 
   - Use una instancia de Azure IR en la misma región que el almacén de datos de origen o en una región próxima.
 
-- **En la fase de transferencia, la escritura en el receptor muestra una larga duración de trabajo**:
+- **En la fase de transferencia, la escritura en el receptor muestra una larga duración de trabajo** :
 
   - Adopte el procedimiento recomendado de carga de datos específico del conector si es aplicable. Por ejemplo, al copiar datos en [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (anteriormente SQL DW), use PolyBase o la instrucción COPY. 
 
@@ -116,11 +116,11 @@ Siga los [pasos de optimización del rendimiento](copy-activity-performance.md#p
 
 Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar problemas de una única actividad de copia que se ejecuta en Azure Integration Runtime y aparecen [sugerencias para optimizar el rendimiento](#performance-tuning-tips) en la vista de supervisión de la copia, aplique la recomendación e inténtelo de nuevo. Si no aparecen estas sugerencias, [analice los detalles de ejecución de la actividad de copia](#understand-copy-activity-execution-details), compruebe qué fase presenta la duración **más larga** y aplique las instrucciones siguientes para aumentar el rendimiento de la copia:
 
-- **La fase de cola muestra una larga duración**: significa que la actividad de copia espera mucho tiempo en la cola hasta que la instancia de IR autohospedado tiene el recurso para la ejecución. Compruebe la capacidad y el uso de IR y [escale vertical u horizontalmente](create-self-hosted-integration-runtime.md#high-availability-and-scalability) según la carga de trabajo.
+- **La fase de cola muestra una larga duración** : significa que la actividad de copia espera mucho tiempo en la cola hasta que la instancia de IR autohospedado tiene el recurso para la ejecución. Compruebe la capacidad y el uso de IR y [escale vertical u horizontalmente](create-self-hosted-integration-runtime.md#high-availability-and-scalability) según la carga de trabajo.
 
-- **En la fase de transferencia, el tiempo hasta el primer byte muestra una larga duración de trabajo**: significa que la consulta de origen tarda mucho tiempo en devolver datos. Compruebe y optimice la consulta o el servidor. Si necesita más ayuda, póngase en contacto con el equipo del almacén de datos.
+- **En la fase de transferencia, el tiempo hasta el primer byte muestra una larga duración de trabajo** : significa que la consulta de origen tarda mucho tiempo en devolver datos. Compruebe y optimice la consulta o el servidor. Si necesita más ayuda, póngase en contacto con el equipo del almacén de datos.
 
-- **En la fase de transferencia, el listado de orígenes muestra una larga duración de trabajo**: significa que la enumeración de los archivos de origen o de las particiones de datos de la base de datos de origen es lenta.
+- **En la fase de transferencia, el listado de orígenes muestra una larga duración de trabajo** : significa que la enumeración de los archivos de origen o de las particiones de datos de la base de datos de origen es lenta.
 
   - Compruebe si la máquina del entorno de ejecución de integración autohospedado tiene una latencia baja al conectarse al almacén de datos de origen. Si el origen está en Azure, puede usar [esta herramienta](http://www.azurespeed.com/Azure/Latency) para comprobar la latencia de la máquina de IR autohospedado en la región de Azure; es mejor un valor menor.
 
@@ -128,13 +128,13 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
     - Compruebe si puede [copiar archivos en función del nombre o la ruta de acceso del archivo con particiones de tiempo](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). De este modo, no se aporta carga alguna a la enumeración del lado de origen.
 
-    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente "**prefix**" para Amazon S3/Azure Blob/Azure File Storage y "**listAfter/listBefore**" para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
+    - Compruebe si en su lugar puede usar el filtro nativo del almacén de datos, específicamente " **prefix** " para Amazon S3/Azure Blob/Azure File Storage y " **listAfter/listBefore** " para ADLS Gen1. Estos filtros son del lado servidor del almacén de datos y tendrían un rendimiento mucho mejor.
 
     - Considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md) o [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) como ejemplo general.
 
   - Compruebe si ADF notifica algún error de limitación en el origen o si el almacén de datos muestra un estado de uso elevado. Si es así, reduzca las cargas de trabajo en el almacén de datos o intente ponerse en contacto con el administrador del almacén de datos para aumentar el límite o los recursos disponibles.
 
-- **En la fase de transferencia, la lectura desde el origen muestra una larga duración de trabajo**: 
+- **En la fase de transferencia, la lectura desde el origen muestra una larga duración de trabajo** : 
 
   - Compruebe si la máquina del entorno de ejecución de integración autohospedado tiene una latencia baja al conectarse al almacén de datos de origen. Si el origen está en Azure, puede usar [esta herramienta](http://www.azurespeed.com/Azure/Latency) para comprobar la latencia de la máquina de IR autohospedado en las regiones de Azure; es mejor un valor menor.
 
@@ -158,7 +158,7 @@ Si el rendimiento de la copia no satisface sus expectativas, quiere solucionar p
 
     - En caso contrario, considere la posibilidad de dividir un conjunto de datos de gran tamaño en varios conjuntos de datos más pequeños y permitir que esos trabajos de copia se ejecuten simultáneamente, abordando cada uno de ellos una parte de los datos. Puede hacerlo con Lookup/GetMetadata + ForEach + Copy. Consulte las plantillas de solución de [Copia de archivos de varios contenedores](solution-template-copy-files-multiple-containers.md), [Migración de datos de Amazon S3 a ADLS Gen2](solution-template-migration-s3-azure.md) o [Copia masiva con una tabla de control](solution-template-bulk-copy-with-control-table.md) como ejemplo general.
 
-- **En la fase de transferencia, la escritura en el receptor muestra una larga duración de trabajo**:
+- **En la fase de transferencia, la escritura en el receptor muestra una larga duración de trabajo** :
 
   - Adopte el procedimiento recomendado de carga de datos específico del conector si es aplicable. Por ejemplo, al copiar datos en [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md) (anteriormente SQL DW), use PolyBase o la instrucción COPY. 
 
@@ -178,11 +178,11 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 
 * Azure Blob Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/blobs/scalability-targets.md) y [Lista de comprobación de escalabilidad y rendimiento para Blob Storage](../storage/blobs/storage-performance-checklist.md).
 * Azure Table Storage: [Objetivos de escalabilidad y rendimiento de Blob Storage](../storage/tables/scalability-targets.md) y [Lista de comprobación de rendimiento y de escalabilidad para Table Storage](../storage/tables/storage-performance-checklist.md).
-* Azure SQL Database: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de la unidad de transacción de base de datos (DTU).
+* Azure SQL Database: puede [supervisar el rendimiento](../azure-sql/database/monitor-tune-overview.md) y comprobar el porcentaje de la unidad de transacción de base de datos (DTU).
 * Azure Synapse Analytics (antes SQL Data Warehouse): su funcionalidad se mide en unidades de Data Warehouse (DWU). Consulte [Administración de la potencia de proceso en Azure Synapse Analytics (introducción)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [Niveles de rendimiento en Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
-* Servidor de archivos local: [Performance tuning for file servers](https://msdn.microsoft.com/library/dn567661.aspx) (Ajuste del rendimiento para los servidores de archivos).
+* SQL Server: [Supervisión y optimización del rendimiento](/sql/relational-databases/performance/monitor-and-tune-for-performance)
+* Servidor de archivos local: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)) (Ajuste del rendimiento para los servidores de archivos).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los restantes artículos acerca de la actividad de copia:

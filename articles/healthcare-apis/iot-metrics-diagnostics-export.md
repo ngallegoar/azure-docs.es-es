@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: c81dcdd2e79f5d89a0766415b47ad118874e5ad2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209305"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558557"
 ---
 # <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportación de las métricas de Azure IoT Connector para FHIR (versión preliminar) a través de la configuración de diagnóstico
 
@@ -58,7 +58,7 @@ Tener acceso a los registros de métricas es fundamental para las tareas de supe
 Consulte las preguntas más frecuentes sobre el conector de Azure IoT para FHIR
 
 >[!div class="nextstepaction"]
->[P+ del conector de Azure IoT para FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[P+ del conector de Azure IoT para FHIR](fhir-faq.md)
 
 *En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar).
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 712bf702ba355ec3b2ca6184c33da8489f8a178e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc40903de09ebfe04858c631eee0233561784418
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519871"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546915"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Conexión de Azure Kubernetes Service y Azure Database for MySQL
 
@@ -26,7 +26,7 @@ A partir de noviembre de 2018, AKS admite redes aceleradas en esas instancias de
 Puede confirmar si el clúster de AKS tiene redes aceleradas de la manera siguiente:
 1. Vaya a Azure Portal y seleccione su clúster de AKS.
 2. Seleccione la pestaña Propiedades.
-3. Copie el nombre del **grupo de recursos de infraestructura**.
+3. Copie el nombre del **grupo de recursos de infraestructura** .
 4. Use la barra de búsqueda del portal para buscar y abrir el grupo de recursos de infraestructura.
 5. Seleccione una máquina virtual de ese grupo de recursos.
 6. Vaya a la pestaña **Redes** de la máquina virtual.
@@ -44,4 +44,4 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Creación de un clúster de Azure Kubernetes Service](../aks/kubernetes-walkthrough.md)
-- Aprenda a [instalar WordPress desde un gráfico de Helm mediante OSBA y Azure Database for MySQL](../aks/integrate-azure.md).
+- Aprenda a [instalar WordPress desde un gráfico de Helm mediante OSBA y Azure Database for MySQL](../aks/index.yml).

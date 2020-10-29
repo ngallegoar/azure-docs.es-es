@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 5cd35b896419dd30a8a4a18056ac1ccd48d7df6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 70cb1297c4b47f22f9eb5cc6992e6fcd6c58b364
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331716"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545045"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-mysql---flexible-server-using-the-azure-cli"></a>Creación y administración de redes virtuales de Azure Database for MySQL: servidor flexible mediante la CLI de Azure
 
@@ -33,17 +33,17 @@ En Azure Database for MySQL: servidor flexible, solo puede implementar el servid
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede abrir Cloud Shell en una pestaña independiente acudiendo a [https://shell.azure.com/bash](https://shell.azure.com/bash). Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, después, seleccione **Entrar** para ejecutarlos.
 
-Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Si prefiere instalar y usar la CLI de forma local, en este inicio rápido se requiere la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Deberá iniciar sesión en la cuenta con el comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad **id**, que hace referencia al **id. de suscripción** de su cuenta de Azure.
+Deberá iniciar sesión en la cuenta con el comando [az login](/cli/azure/reference-index#az-login). Tenga en cuenta la propiedad  **id** , que hace referencia al **id. de suscripción** de su cuenta de Azure.
 
 ```azurecli-interactive
 az login
 ```
 
-Seleccione la suscripción específica en su cuenta mediante el comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](https://docs.microsoft.com/cli/azure/account#az-account-list).
+Seleccione la suscripción específica en su cuenta mediante el comando [az account set](/cli/azure/account#az-account-set). Anote el valor de **id** de la salida de **az login** para usarlo como valor del argumento **subscription** del comando. Si tiene varias suscripciones, elija la suscripción adecuada en la que se debe facturar el recurso. Para obtener todas las suscripciones, use [az account list](/cli/azure/account#az-account-list).
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -53,7 +53,7 @@ az account set --subscription <subscription id>
 Puede usar el comando `az mysql flexible-server` para crear el servidor flexible con *acceso privado (Integración con red virtual)* . Este comando usa acceso privado (Integración con red virtual) como método de conectividad predeterminado. Si no se proporciona ninguna, se creará una red virtual y una subred. También puede proporcionar la red virtual y la subred ya existentes con el id. de subred. <!-- You can provide the **vnet**,**subnet**,**vnet-address-prefix** or**subnet-address-prefix** to customize the virtual network and subnet.--> Existen varias opciones para crear un servidor flexible mediante la CLI, tal y como se muestra en los ejemplos siguientes.
 
 >[!Important]
-> El uso de este comando delega la subred a **Microsoft.DBforMySQL/flexibleServers**. Esta delegación significa que solo los servidores flexibles de Azure Database for MySQL pueden usar esa subred. No puede haber otros tipos de recursos de Azure en la subred delegada.
+> El uso de este comando delega la subred a **Microsoft.DBforMySQL/flexibleServers** . Esta delegación significa que solo los servidores flexibles de Azure Database for MySQL pueden usar esa subred. No puede haber otros tipos de recursos de Azure en la subred delegada.
 >
 
 Consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) de la CLI de Azure la lista completa de parámetros configurables de la CLI. Por ejemplo, en los siguientes comandos puede especificar opcionalmente el grupo de recursos.
@@ -66,7 +66,7 @@ Consulte en la [documentación de referencia](/cli/azure/mysql/flexible-server) 
     ```azurecli-interactive
     az mysql flexible-server create --vnet myVnet --subnet mySubnet
     ```-->
-- Cree un servidor flexible mediante la red virtual existente, la subred y el id. de subred. La subred proporcionada no debe tener ningún otro recurso implementado y se delega a **Microsoft.DBforMySQL/flexibleServers**, si aún no se ha delegado.
+- Cree un servidor flexible mediante la red virtual existente, la subred y el id. de subred. La subred proporcionada no debe tener ningún otro recurso implementado y se delega a **Microsoft.DBforMySQL/flexibleServers** , si aún no se ha delegado.
     ```azurecli-interactive
     az mysql flexible-server create --subnet /subscriptions/{SubID}/resourceGroups/{ResourceGroup}/providers/Microsoft.Network/virtualNetworks/{VNetName}/subnets/{SubnetName}
     ```

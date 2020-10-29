@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/18/2020
-ms.openlocfilehash: f1707c7f8d6324678c8bf5a470bbded1e58c719e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85e974d51f49bbb6742683ed253c077bb3ff69de
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77470724"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545555"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Depuración de operaciones de archivo WASB en Azure HDInsight
 
-En ocasiones querrá saber qué operaciones ha iniciado el controlador WASB con Azure Storage. En el lado del cliente, el controlador WASB genera registros para cada operación del sistema de archivos en el nivel **DEBUG**. El controlador WASB usa log4j para controlar el nivel de registro, y el valor predeterminado es el nivel **INFO**. Para obtener registros de análisis del lado del servidor de Azure Storage, consulte [Registro de análisis de Azure Storage](../../storage/common/storage-analytics-logging.md).
+En ocasiones querrá saber qué operaciones ha iniciado el controlador WASB con Azure Storage. En el lado del cliente, el controlador WASB genera registros para cada operación del sistema de archivos en el nivel **DEBUG** . El controlador WASB usa log4j para controlar el nivel de registro, y el valor predeterminado es el nivel **INFO** . Para obtener registros de análisis del lado del servidor de Azure Storage, consulte [Registro de análisis de Azure Storage](../../storage/common/storage-analytics-logging.md).
 
 Los registros generados tendrán un aspecto similar al siguiente:
 
@@ -28,13 +28,13 @@ Los registros generados tendrán un aspecto similar al siguiente:
 
 1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`, donde `CLUSTERNAME` es el nombre del clúster de Spark.
 
-1. Vaya a **advanced spark2-log4j-properties**.
+1. Vaya a **advanced spark2-log4j-properties** .
 
     1. Cambie `log4j.appender.console.Threshold=INFO` por `log4j.appender.console.Threshold=DEBUG`.
 
     1. Agregue `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
-1. Vaya a **Advanced livy2-log4j-properties**.
+1. Vaya a **Advanced livy2-log4j-properties** .
 
     Agregue `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
@@ -65,4 +65,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

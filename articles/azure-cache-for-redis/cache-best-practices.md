@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 7e6afd40266d280ae872d24b1828b6feadbee17e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47c8096893742a25904f0f7e688af2fc641166d1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007920"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544501"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Procedimientos recomendados para Azure Cache for Redis 
 Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y rentabilizar el uso de la instancia de Azure Cache for Redis.
@@ -25,26 +25,26 @@ Si sigue estos procedimientos recomendados, puede maximizar el rendimiento y ren
 
  * **Configure la opción [maxmemory-reserved](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para mejorar la capacidad de respuesta del sistema** en situaciones de presión de memoria.  Una configuración de reserva suficiente es especialmente importante para las cargas de trabajo con muchas operaciones de escritura o si almacena valores más grandes (100 KB o más) en Redis. Debe empezar con el 10 % del tamaño de la memoria caché y aumentar este porcentaje si tiene cargas con mucha actividad de escritura.
 
- * **Redis funciona mejor con valores más pequeños**, por lo que puede cortar los datos más grandes en varias claves.  En [este artículo de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/) se enumeran algunas opciones que debe considerar cuidadosamente.  Lea [este artículo](cache-troubleshoot-client.md#large-request-or-response-size) para ver un problema de ejemplo que puede deberse a valores grandes.
+ * **Redis funciona mejor con valores más pequeños** , por lo que puede cortar los datos más grandes en varias claves.  En [este artículo de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/) se enumeran algunas opciones que debe considerar cuidadosamente.  Lea [este artículo](cache-troubleshoot-client.md#large-request-or-response-size) para ver un problema de ejemplo que puede deberse a valores grandes.
 
- * **Localice su instancia de la caché y su aplicación en la misma región.**  Si se conecta a una caché de una región diferente puede aumentar significativamente la latencia y reducir la confiabilidad.  Si bien puede conectarse desde fuera de Azure, no es recomendable, *especialmente cuando se usa Redis como caché*.  Si está usando Redis solo como un almacén de clave/valor, es posible que la latencia no sea su principal preocupación. 
+ * **Localice su instancia de la caché y su aplicación en la misma región.**  Si se conecta a una caché de una región diferente puede aumentar significativamente la latencia y reducir la confiabilidad.  Si bien puede conectarse desde fuera de Azure, no es recomendable, *especialmente cuando se usa Redis como caché* .  Si está usando Redis solo como un almacén de clave/valor, es posible que la latencia no sea su principal preocupación. 
 
  * **Reutilizar las conexiones.**  La creación de nuevas conexiones es costosa y aumenta la latencia, por lo que puede reutilizar las conexiones lo máximo posible. Si prefiere crear nuevas conexiones, asegúrese de cerrar las conexiones anteriores antes de liberarlas (incluso en lenguajes de memoria administrados como .NET o Java).
 
- * **Configure su biblioteca cliente para usar un *tiempo de espera de la conexión* de al menos 15 segundos**, lo que le dará al sistema tiempo para conectarse incluso en condiciones donde la CPU se use más.  Tener un pequeño valor de tiempo de espera de conexión no garantiza que la conexión se establezca en ese plazo de tiempo.  Si algo sale mal (CPU de cliente alta, CPU de servidor alta, etc.), un valor de tiempo de espera de conexión pequeño hará que el intento de conexión falle. Este comportamiento suele empeorar una situación que ya es mala de por si.  En lugar de mejorar el problema, los tiempos de espera más cortos lo agravan, ya que obligan al sistema a reiniciar el proceso de conexión, lo que puede llevar a un bucle *conectar -> error -> reintentar*. En general, le recomendamos que deje el tiempo de espera de conexión en 15 segundos o más. Es mejor dejar que su intento de conexión tenga éxito después de 15 o 20 segundos que hacer que falle rápidamente para volver a intentarlo. Un bucle de reintentos de este tipo puede hacer que la interrupción dure más que si otorgara inicialmente más tiempo al sistema.  
+ * **Configure su biblioteca cliente para usar un *tiempo de espera de la conexión* de al menos 15 segundos** , lo que le dará al sistema tiempo para conectarse incluso en condiciones donde la CPU se use más.  Tener un pequeño valor de tiempo de espera de conexión no garantiza que la conexión se establezca en ese plazo de tiempo.  Si algo sale mal (CPU de cliente alta, CPU de servidor alta, etc.), un valor de tiempo de espera de conexión pequeño hará que el intento de conexión falle. Este comportamiento suele empeorar una situación que ya es mala de por si.  En lugar de mejorar el problema, los tiempos de espera más cortos lo agravan, ya que obligan al sistema a reiniciar el proceso de conexión, lo que puede llevar a un bucle *conectar -> error -> reintentar* . En general, le recomendamos que deje el tiempo de espera de conexión en 15 segundos o más. Es mejor dejar que su intento de conexión tenga éxito después de 15 o 20 segundos que hacer que falle rápidamente para volver a intentarlo. Un bucle de reintentos de este tipo puede hacer que la interrupción dure más que si otorgara inicialmente más tiempo al sistema.  
      > [!NOTE]
      > En esta guía se detallan los *intentos de conexión* y no está relacionada con el tiempo que está dispuesto a esperar para que se complete una *operación* como GET o SET.
  
- * **Evite las operaciones caras**: algunas operaciones de Redis, como el comando [KEYS](https://redis.io/commands/keys), son *muy* caras y deben evitarse.  Para más información, consulte algunas opciones acerca de los [comandos de larga duración](cache-troubleshoot-server.md#long-running-commands).
+ * **Evite las operaciones caras** : algunas operaciones de Redis, como el comando [KEYS](https://redis.io/commands/keys), son *muy* caras y deben evitarse.  Para más información, consulte algunas opciones acerca de los [comandos de larga duración](cache-troubleshoot-server.md#long-running-commands).
 
- * **Use el cifrado TLS**: Redis Cache requiere comunicaciones cifradas TLS de forma predeterminada.  Actualmente se admiten las versiones de TLS 1.0, 1.1 y 1.2.  Sin embargo, TLS 1.0 y 1.1 están en proceso de desuso en todo el sector, por lo que se recomienda TLS 1.2 si es posible.  Si la biblioteca o la herramienta cliente no admiten TLS, se pueden habilitar las conexiones no cifradas [mediante Azure Portal](cache-configure.md#access-ports) o las [API de administración](https://docs.microsoft.com/rest/api/redis/redis/update).  En casos en los que no es posible establecer conexiones cifradas, se recomienda colocar la caché y la aplicación cliente en una red virtual.  Para más información sobre los puertos que se usan en el escenario de caché de la red virtual, consulte esta [tabla](cache-how-to-premium-vnet.md#outbound-port-requirements).
+ * **Use el cifrado TLS** : Redis Cache requiere comunicaciones cifradas TLS de forma predeterminada.  Actualmente se admiten las versiones de TLS 1.0, 1.1 y 1.2.  Sin embargo, TLS 1.0 y 1.1 están en proceso de desuso en todo el sector, por lo que se recomienda TLS 1.2 si es posible.  Si la biblioteca o la herramienta cliente no admiten TLS, se pueden habilitar las conexiones no cifradas [mediante Azure Portal](cache-configure.md#access-ports) o las [API de administración](/rest/api/redis/redis/update).  En casos en los que no es posible establecer conexiones cifradas, se recomienda colocar la caché y la aplicación cliente en una red virtual.  Para más información sobre los puertos que se usan en el escenario de caché de la red virtual, consulte esta [tabla](cache-how-to-premium-vnet.md#outbound-port-requirements).
  
- * **Tiempo de espera de inactividad**: actualmente, Azure Redis tiene un tiempo de espera de inactividad de 10 minutos para las conexiones, por lo que debe establecerse en menos de 10 minutos.
+ * **Tiempo de espera de inactividad** : actualmente, Azure Redis tiene un tiempo de espera de inactividad de 10 minutos para las conexiones, por lo que debe establecerse en menos de 10 minutos.
  
 ## <a name="memory-management"></a>Administración de memoria
 Es posible que quiera tener en cuenta varias cosas relacionadas con el uso de la memoria dentro de la instancia del servidor de Redis.  Estas son algunas:
 
- * **Elija una [directiva de expulsión](https://redis.io/topics/lru-cache) que funcione para su aplicación.**  La directiva predeterminada de Azure Redis es *volatile-lru*, lo que significa que solo las claves que tienen un valor de TTL establecido se podrán usar en la expulsión.  Si ninguna de las claves tiene un valor de TTL, el sistema no expulsará ninguna clave.  Si quiere que el sistema permita que se expulse cualquier clave si la memoria está bajo presión, puede usar la directiva *allkeys-lru*.
+ * **Elija una [directiva de expulsión](https://redis.io/topics/lru-cache) que funcione para su aplicación.**  La directiva predeterminada de Azure Redis es *volatile-lru* , lo que significa que solo las claves que tienen un valor de TTL establecido se podrán usar en la expulsión.  Si ninguna de las claves tiene un valor de TTL, el sistema no expulsará ninguna clave.  Si quiere que el sistema permita que se expulse cualquier clave si la memoria está bajo presión, puede usar la directiva *allkeys-lru* .
 
  * **Establezca un valor de expiración en sus claves.**  Una expiración quitará las claves de forma proactiva en lugar de esperar hasta que haya presión de memoria.  Cuando la expulsión se activa debido a la presión en la memoria, esto puede causar una carga adicional en el servidor.  Para más información, consulte la documentación de los comandos [Expire](https://redis.io/commands/expire) y [EXPIREAT](https://redis.io/commands/expireat).
  
@@ -72,20 +72,20 @@ Si desea probar cómo funciona el código en condiciones de error, considere la 
  * **Use `redis-benchmark.exe`** para hacerse una idea del rendimiento/latencia posibles antes de escribir sus propias pruebas de rendimiento.  La documentación del banco de pruebas de Redis se puede encontrar [aquí](https://redis.io/topics/benchmarks).  Tenga en cuenta que el banco de pruebas de Redis no admite TLS, por lo que tendrá que [habilitar un puerto que no sea TLS a través de Azure Portal](cache-configure.md#access-ports) antes de ejecutar la prueba.  [Aquí se puede encontrar una versión compatible con Windows de redis-benchmark.exe](https://github.com/MSOpenTech/redis/releases)
  * El cliente para pruebas de VM debe estar en la **misma región** que la instancia de caché de Redis.
  * **Se recomienda usar la serie de VM Dv2** para su cliente, ya que tiene mejor hardware y logrará los mejores resultados.
- * Asegúrese de que la VM del cliente que use tenga **al menos tantos procesos y ancho de banda* como la memoria caché que se está probando. 
- * **Habilite VRSS** en el equipo cliente si usa Windows.  [Haga clic aquí para obtener información detallada](https://technet.microsoft.com/library/dn383582(v=ws.11).aspx).  Ejemplo de script de PowerShell:
+ * Asegúrese de que la VM del cliente que use tenga * *al menos tantos procesos y ancho de banda* como la memoria caché que se está probando. 
+ * **Habilite VRSS** en el equipo cliente si usa Windows.  [Haga clic aquí para obtener información detallada](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Ejemplo de script de PowerShell:
      >PowerShell -ExecutionPolicy Unrestricted Enable-NetAdapterRSS -Name (    Get-NetAdapter).Name 
      
- * **Use instancias de Redis de nivel Premium**.  Los tamaños de la caché tendrán mejor latencia de red y rendimiento porque se ejecutan en un hardware mejor de CPU y red.
+ * **Use instancias de Redis de nivel Premium** .  Los tamaños de la caché tendrán mejor latencia de red y rendimiento porque se ejecutan en un hardware mejor de CPU y red.
  
      > [!NOTE]
      > Los resultados de rendimiento observados se [publicarán aquí](cache-planning-faq.md#azure-cache-for-redis-performance) para que los tenga como referencia.   Además, tenga en cuenta que SSL/TLS agrega cierta sobrecarga, por lo que puede obtener diferentes latencias o rendimiento si está usando el cifrado de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Ejemplos del banco de pruebas de Redis
-**El programa de configuración de la prueba previa**: Prepare la instancia de caché con los datos necesarios para los comandos de prueba de latencia y rendimiento que se enumeran a continuación.
+**El programa de configuración de la prueba previa** : Prepare la instancia de caché con los datos necesarios para los comandos de prueba de latencia y rendimiento que se enumeran a continuación.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
 
-**Para probar la latencia**: Pruebe las solicitudes GET con una carga de 1 k.
+**Para probar la latencia** : Pruebe las solicitudes GET con una carga de 1 k.
 > redis-benchmark -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 
 **Para probar el rendimiento:** Solicitudes GET canalizadas con carga de 1 K.

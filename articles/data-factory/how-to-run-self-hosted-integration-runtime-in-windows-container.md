@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
-ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7035da173102e59aec9c643381bad701d6facf38
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927538"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634545"
 ---
 # <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
 
@@ -26,7 +26,7 @@ En este artículo se explica cómo ejecutar un entorno de ejecución de integrac
 Azure Data Factory proporciona la compatibilidad de contenedor oficial de Windows con los entornos de ejecución de integración autohospedados. Puede descargar el código fuente de compilación de Docker y combinar el proceso de compilación y ejecución en la canalización de entrega continua propia. 
 
 ## <a name="prerequisites"></a>Prerrequisitos 
-- [Requisitos de los contenedores de Windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
+- [Requisitos de los contenedores de Windows](/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker, versión 2.3 y posterior 
 - Entorno de ejecución de integración autohospedado, versión 4.11.7512.1 y posterior 
 ## <a name="get-started"></a>Primeros pasos 
@@ -61,7 +61,5 @@ Actualmente no se admiten las características siguientes cuando se ejecuta el e
 - Actualización automática 
 
 ### <a name="next-steps"></a>Pasos siguientes
-- Revise los [conceptos del entorno de ejecución de integración en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime).
-- Aprenda a [crear un entorno de ejecución de integración autohospedado en Azure Portal](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
-
-
+- Revise los [conceptos del entorno de ejecución de integración en Azure Data Factory](./concepts-integration-runtime.md).
+- Aprenda a [crear un entorno de ejecución de integración autohospedado en Azure Portal](./create-self-hosted-integration-runtime.md).

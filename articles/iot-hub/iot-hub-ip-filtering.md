@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 501b609d745e0a86bc1e00bccae54bb4f6e49376
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147078"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545283"
 ---
 # <a name="use-ip-filters"></a>Uso de filtros IP
 
@@ -39,21 +39,21 @@ Cualquier intento de conexión desde una dirección IP que coincida con una regl
 
 De forma predeterminada, la cuadrícula de **filtro IP** del portal para un centro de IoT está vacía. Este ajuste predeterminado indica que el centro acepta conexiones de cualquier dirección IP. Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0.
 
-Para ir a la página Configuración de filtro IP, seleccione **Redes**, **Acceso público** y, a continuación, **elija rangos IP seleccionados**:
+Para ir a la página Configuración de filtro IP, seleccione **Redes** , **Acceso público** y, a continuación, **elija rangos IP seleccionados** :
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="Configuración predeterminada de filtro de direcciones IP de IoT Hub":::
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Incorporación o edición de una regla de filtro IP
 
-Para agregar una regla de filtro IP, seleccione **+ Agregar regla de filtro IP**.
+Para agregar una regla de filtro IP, seleccione **+ Agregar regla de filtro IP** .
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Configuración predeterminada de filtro de direcciones IP de IoT Hub":::
 
-Después de seleccionar **Agregar regla de filtro IP**, rellene los campos.
+Después de seleccionar **Agregar regla de filtro IP** , rellene los campos.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Configuración predeterminada de filtro de direcciones IP de IoT Hub":::
 
-* Escriba un **nombre** para la regla de filtro IP. Debe ser una cadena única de hasta 128 caracteres alfanuméricos que no distinga mayúsculas de minúsculas. Solo se aceptan los caracteres alfanuméricos de 7 bits ASCII más `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Escriba un **nombre** para la regla de filtro IP. Debe ser una cadena única de hasta 128 caracteres alfanuméricos que no distinga mayúsculas de minúsculas. Solo se aceptan los caracteres alfanuméricos de 7 bits ASCII más `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Proporcione una única dirección IPv4 o un bloque de direcciones IP en la notación CIDR. Por ejemplo, en notación CIDR, 192.168.100.0/22 representa las direcciones IPv4 de 1024 de 192.168.100.0 a 192.168.103.255.
 
@@ -69,13 +69,13 @@ Para editar una regla existente, seleccione los datos que quiere cambiar, realic
 
 ## <a name="delete-an-ip-filter-rule"></a>Eliminación de una regla de filtro IP
 
-Para eliminar una regla de filtro IP, seleccione el icono de la papelera de esa fila y, a continuación, seleccione **Guardar**. Se quita la regla y se guarda el cambio.
+Para eliminar una regla de filtro IP, seleccione el icono de la papelera de esa fila y, a continuación, seleccione **Guardar** . Se quita la regla y se guarda el cambio.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Configuración predeterminada de filtro de direcciones IP de IoT Hub":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recuperación y actualización de los filtros IP mediante la CLI de Azure
 
-Los filtros IP de IoT Hub se pueden recuperar y actualizar con la [CLI de Azure](/cli/azure/?view=azure-cli-latest).
+Los filtros IP de IoT Hub se pueden recuperar y actualizar con la [CLI de Azure](/cli/azure/).
 
 Para recuperar los filtros IP actuales de IoT Hub, ejecute:
 
@@ -159,7 +159,7 @@ Por ejemplo, si desea aceptar las direcciones del intervalo 192.168.100.0/22 y r
 
 Puede cambiar el orden de las reglas de filtro IP en la cuadrícula al hacer clic en los tres puntos verticales situados al principio de las filas y mediante el método arrastrar y colocar.
 
-Para guardar el nuevo orden de reglas de filtro IP, haga clic en **Guardar**.
+Para guardar el nuevo orden de reglas de filtro IP, haga clic en **Guardar** .
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Configuración predeterminada de filtro de direcciones IP de IoT Hub":::
 
@@ -167,4 +167,4 @@ Para guardar el nuevo orden de reglas de filtro IP, haga clic en **Guardar**.
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Métricas de IoT Hub](iot-hub-metrics.md)
+* [Supervisión de IoT Hub](monitor-iot-hub.md)

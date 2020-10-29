@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: a19f81fab525b44f0b55244281930977e0e1f476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3241bc16c0613189faa169032632303788dac3e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85254623"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634137"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory-legacy"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory (heredados)
 
@@ -30,7 +30,7 @@ ms.locfileid: "85254623"
 >[!NOTE]
 >Obtenga información sobre el nuevo modelo en el artículo [Formato de texto delimitado](format-delimited-text.md). Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
-Si quiere leer un archivo de texto o escribir en él, establezca la propiedad `type` de la sección `format` del conjunto de datos en **TextFormat**. También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de TextFormat](#textformat-example) sobre cómo realizar la configuración.
+Si quiere leer un archivo de texto o escribir en él, establezca la propiedad `type` de la sección `format` del conjunto de datos en **TextFormat** . También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de TextFormat](#textformat-example) sobre cómo realizar la configuración.
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ Si quiere leer un archivo de texto o escribir en él, establezca la propiedad `t
 | escapeChar |carácter especial utilizado para aplicar una secuencia de escape a un delimitador de columna en el contenido de un archivo de entrada. <br/><br/>No puede especificar ambos valores escapeChar y quoteChar para una tabla. |Solo se permite un carácter. Ningún valor predeterminado. <br/><br/>Ejemplo: si usa la coma (",") como delimitador de columna, pero quiere tener el carácter de coma en el texto (ejemplo: "Hello, world"), puede definir "$" como carácter de escape y usar la cadena "Hello$, world" en el origen. |No |
 | quoteChar |carácter utilizado para citar el valor de una cadena. Los delimitadores de columna y fila de dentro de las comillas se tratan como parte del valor de la cadena. Esta propiedad es aplicable tanto al conjunto de datos de entrada como al de salida.<br/><br/>No puede especificar ambos valores escapeChar y quoteChar para una tabla. |Solo se permite un carácter. Ningún valor predeterminado. <br/><br/>Por ejemplo, si tiene la coma (',') como delimitador de columna, pero quiere tener el carácter de coma en el texto (por ejemplo: <Hello, world>), puede definir " (comillas dobles) como comillas y usar la cadena "Hello, world" en el origen. |No |
 | nullValue |uno o varios caracteres empleados para representar un valor nulo. |Uno o más caracteres. Los valores **predeterminados** son **"\N" y "NULL"** en lectura y **"\N"** en escritura. |No |
-| encodingName |permite especificar el nombre de la codificación. |Un nombre de codificación válido. Consulte la [propiedad Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8**. |No |
+| encodingName |permite especificar el nombre de la codificación. |Un nombre de codificación válido. Consulte la [propiedad Encoding.EncodingName](/dotnet/api/system.text.encoding). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es **UTF-8** . |No |
 | firstRowAsHeader |Especifica si se tendrá en cuenta la primera fila como encabezado. Para un conjunto de datos de entrada, Data Factory lee la primera fila como encabezado. Para un conjunto de datos de salida, Data Factory escribe la primera fila como encabezado. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |True<br/><b>False (valor predeterminado)</b> |No |
 | skipLineCount |Indica el número de filas **no vacías** que se omitirán al leer datos de archivos de entrada. Si se especifican ambos valores skipLineCount y firstRowAsHeader, las líneas se omiten primero y, luego, la información del encabezado se lee a partir del archivo de entrada. <br/><br/>Consulte [Escenarios de uso `firstRowAsHeader` y `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) para ver ejemplos de escenarios. |Entero |No |
 | treatEmptyAsNull |permite especificar si hay que tratar una cadena nula o vacía como un valor nulo al leer datos de un archivo de entrada. |**True (predeterminado)**<br/>False |No |
@@ -84,16 +84,16 @@ Para usar un `escapeChar` en lugar de `quoteChar`, reemplace la línea con `quot
 >[!NOTE]
 >Obtenga información sobre el nuevo modelo en el artículo [Formato JSON](format-json.md). Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
-Para **importar o exportar un archivo JSON como está en Azure Cosmos DB**, consulte la sección sobre la importación o exportación de documentos JSON en el artículo [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) (Movimiento de datos a y desde Azure Cosmos DB).
+Para **importar o exportar un archivo JSON como está en Azure Cosmos DB** , consulte la sección sobre la importación o exportación de documentos JSON en el artículo [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) (Movimiento de datos a y desde Azure Cosmos DB).
 
-Si quiere analizar los archivos JSON o escribir los datos en formato JSON, establezca la propiedad `type``format` en **JsonFormat**. También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración.
+Si quiere analizar los archivos JSON o escribir los datos en formato JSON, establezca la propiedad `type``format` en **JsonFormat** . También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración.
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects**. El valor **predeterminado** es **setOfObjects**. Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |No |
+| filePattern |Indica el patrón de los datos almacenados en cada archivo JSON. Estos son los valores permitidos: **setOfObjects** y **arrayOfObjects** . El valor **predeterminado** es **setOfObjects** . Consulte la sección [patrones de archivo JSON](#json-file-patterns) para obtener más información acerca de estos patrones. |No |
 | jsonNodeReference | Si desea iterar y extraer datos de los objetos dentro de un campo de matriz con el mismo patrón, especifique la ruta de acceso JSON de esa matriz. Esta propiedad se admite solo cuando se copian datos **desde** los archivos JSON. | No |
 | jsonPathDefinition | Especifique la expresión de ruta de acceso JSON para cada asignación de columna con un nombre de columna personalizado (que empiece con minúscula). Esta propiedad se admite solo cuando se copian datos **desde** archivos JSON y puede extraer datos del objeto o matriz. <br/><br/> Para los campos en el objeto raíz, comience por root $; para los campos dentro de la matriz elegida mediante la propiedad `jsonNodeReference`, empiece desde el elemento de matriz. Consulte la sección [Ejemplo de JsonFormat](#jsonformat-example) sobre cómo realizar la configuración. | No |
-| encodingName |permite especificar el nombre de la codificación. Para obtener la lista de nombres de codificación válidos, consulte la propiedad [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es: **UTF-8**. |No |
+| encodingName |permite especificar el nombre de la codificación. Para obtener la lista de nombres de codificación válidos, consulte la propiedad [Encoding.EncodingName](/dotnet/api/system.text.encoding). Por ejemplo: windows-1250 o shift_jis. El valor **predeterminado** es: **UTF-8** . |No |
 | nestingSeparator |Carácter que se usa para separar los niveles de anidamiento. El valor predeterminado es '.' (punto). |No |
 
 >[!NOTE]
@@ -411,7 +411,7 @@ El conjunto de datos de salida con el tipo **JsonFormat** se define de la siguie
 >[!NOTE]
 >Obtenga información sobre el nuevo modelo en el artículo [Formato Parquet](format-parquet.md). Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
-Si quiere analizar los archivos Parquet o escribir los datos en formato Parquet, establezca la propiedad `format` `type` en **ParquetFormat**. No es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
+Si quiere analizar los archivos Parquet o escribir los datos en formato Parquet, establezca la propiedad `format` `type` en **ParquetFormat** . No es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
 
 ```json
 "format":
@@ -427,15 +427,15 @@ Tenga en cuenta los siguientes puntos:
 * El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos de archivos Parquet en todos estos formatos comprimidos excepto LZO. Este usa el códec de compresión de los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
 > [!IMPORTANT]
-> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos Parquet **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
+> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos Parquet **tal y como están** , tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
 
 En el caso de las copias que se ejecutan en el IR autohospedado con la serialización o deserialización de archivos Parquet, para encontrar el entorno de ejecución de Java, ADF consulta primero el Registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* de JRE; si no lo encuentra, comprueba la variable del sistema *`JAVA_HOME`* de OpenJDK.
 
-- **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
+- **Para usar JRE** : el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Para usar OpenJDK** : se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
 
 >[!TIP]
->Si copia datos desde o hacia Parquet mediante Integration Runtime autohospedado y recibe un error que indica que "Se produjo un error al invocar Java, mensaje: **Espacio en el montón java.lang.OutOfMemoryError:Java**", puede agregar una variable de entorno `_JAVA_OPTIONS` en la máquina que hospeda IR autohospedado para ajustar el tamaño del montón mínimo y máximo para JVM a fin de facilitar dicha copia y, a continuación, volver a ejecutar la canalización.
+>Si copia datos desde o hacia Parquet mediante Integration Runtime autohospedado y recibe un error que indica que "Se produjo un error al invocar Java, mensaje: **Espacio en el montón java.lang.OutOfMemoryError:Java** ", puede agregar una variable de entorno `_JAVA_OPTIONS` en la máquina que hospeda IR autohospedado para ajustar el tamaño del montón mínimo y máximo para JVM a fin de facilitar dicha copia y, a continuación, volver a ejecutar la canalización.
 
 ![Establecimiento del tamaño del montón JVM en IR autohospedado](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
@@ -471,7 +471,7 @@ Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -
 >[!NOTE]
 >Obtenga información sobre el nuevo modelo en el artículo [Formato ORC](format-orc.md). Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
-Si quiere analizar los archivos ORC o escribir los datos en formato ORC, establezca la propiedad `format` `type` en **OrcFormat**. No es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
+Si quiere analizar los archivos ORC o escribir los datos en formato ORC, establezca la propiedad `format` `type` en **OrcFormat** . No es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
 
 ```json
 "format":
@@ -487,12 +487,12 @@ Tenga en cuenta los siguientes puntos:
 * El archivo ORC tiene tres [opciones relacionadas con la compresión](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB Y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
 > [!IMPORTANT]
-> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos ORC **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
+> En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos ORC **tal y como están** , tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
 
 En el caso de las copias que se ejecutan en el IR autohospedado con la serialización o deserialización de archivos ORC, para encontrar el entorno de ejecución de Java, ADF consulta primero el Registro *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* de JRE; si no lo encuentra, comprueba la variable del sistema *`JAVA_HOME`* de OpenJDK.
 
-- **Para usar JRE**: el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Para usar OpenJDK**: se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
+- **Para usar JRE** : el IR de 64 bits necesita JRE de 64 bits. Puede encontrarlo [aquí](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Para usar OpenJDK** : se admite desde la versión 3.13 de IR. Empaquete jvm.dll con todos los demás ensamblados de OpenJDK necesarios en la máquina del IR autohospedado y establezca la variable de entorno del sistema JAVA_HOME en el valor que corresponda.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Asignación de tipos de datos para archivos ORC
 
@@ -523,7 +523,7 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 >[!NOTE]
 >Obtenga información sobre el nuevo modelo en el artículo [Formato Avro](format-avro.md). Todavía se admiten las siguientes configuraciones en el conjunto de datos basado en archivo, porque cuentan con compatibilidad con versiones anteriores. Se sugiere usar el nuevo modelo de aquí en adelante.
 
-Si quiere analizar los archivos Avro o escribir los datos en formato Avro, establezca la propiedad `format` `type` en **AvroFormat**. No es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
+Si quiere analizar los archivos Avro o escribir los datos en formato Avro, establezca la propiedad `format` `type` en **AvroFormat** . No es preciso especificar propiedades en la sección Format de la sección typeProperties. Ejemplo:
 
 ```json
 "format":
@@ -575,25 +575,25 @@ Para especificar la compresión para un conjunto de datos, use la propiedad **co
 
 La sección **compression** tiene dos propiedades:
 
-* **Type**: el códec de compresión, que puede ser **GZIP**, **Deflate** o **BZIP2** o **ZipDeflate**. Tenga en cuenta que cuando utilice la actividad de copia para descomprimir archivos ZipDeflate y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`.
-* **Level**: la relación de compresión, que puede ser **Optimal** o **Fastest**.
+* **Type** : el códec de compresión, que puede ser **GZIP** , **Deflate** o **BZIP2** o **ZipDeflate** . Tenga en cuenta que cuando utilice la actividad de copia para descomprimir archivos ZipDeflate y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`.
+* **Level** : la relación de compresión, que puede ser **Optimal** o **Fastest** .
 
-  * **Fastest**: la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.
-  * **Optimal**: la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse.
+  * **Fastest** : la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.
+  * **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse.
 
-    Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) .
+    Para más información, consulte el tema [Nivel de compresión](/dotnet/api/system.io.compression.compressionlevel) .
 
 > [!NOTE]
-> La configuración de la compresión no se admite para los datos con los formatos **AvroFormat**, **OrcFormat** o **ParquetFormat**. Al leer archivos en estos formatos, Data Factory detecta y usa el códec de compresión en los metadatos. Sin embargo, al escribir en archivos en estos formatos, Data Factory elige el códec de compresión predeterminado para ese formato. Por ejemplo, ZLIB en el caso de OrcFormat y SNAPPY en el caso de ParquetFormat.
+> La configuración de la compresión no se admite para los datos con los formatos **AvroFormat** , **OrcFormat** o **ParquetFormat** . Al leer archivos en estos formatos, Data Factory detecta y usa el códec de compresión en los metadatos. Sin embargo, al escribir en archivos en estos formatos, Data Factory elige el códec de compresión predeterminado para ese formato. Por ejemplo, ZLIB en el caso de OrcFormat y SNAPPY en el caso de ParquetFormat.
 
 ## <a name="unsupported-file-types-and-compression-formats"></a>Formatos de compresión y tipos de archivo no admitidos
 
 Puede usar las características de extensibilidad de Azure Data Factory para transformar los archivos que no son compatibles.
 Las dos opciones incluyen Azure Functions y las tareas personalizadas con Azure Batch.
 
-Puede ver un ejemplo que usa una función de Azure para [extraer el contenido de un archivo tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Para más información, consulte la [actividad de Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+Puede ver un ejemplo que usa una función de Azure para [extraer el contenido de un archivo tar](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Para más información, consulte la [actividad de Azure Functions](./control-flow-azure-function-activity.md).
 
-También puede crear esta funcionalidad a través de una actividad de DotNet personalizada. [Aquí](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity) hay disponible más información
+También puede crear esta funcionalidad a través de una actividad de DotNet personalizada. [Aquí](./transform-data-using-dotnet-custom-activity.md) hay disponible más información
 
 ## <a name="next-steps"></a>Pasos siguientes
 

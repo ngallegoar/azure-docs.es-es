@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 0b7b09696cbbe12a57d066e452b4c8ea7a7b8f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932174"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545827"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configuración y acceso a los registros en un servidor flexible de Azure Database for PostgreSQL
 
@@ -28,14 +28,14 @@ Para habilitar los registros de recursos mediante Azure Portal:
 
 1. En el portal, vaya a *Configuración de diagnóstico*  en el menú de navegación del servidor de Postgres.
    
-2. Seleccione *Agregar configuración de diagnóstico*.
+2. Seleccione *Agregar configuración de diagnóstico* .
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Botón Agregar configuración de diagnóstico":::
 
 3. Asigne un nombre a esta configuración. 
 
 4. Seleccione el punto de conexión preferido (cuenta de almacenamiento, centro de eventos, análisis de registros). 
 
-5. Seleccione el tipo de registro **PostgreSQLLogs**.
+5. Seleccione el tipo de registro **PostgreSQLLogs** .
    :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Botón Agregar configuración de diagnóstico":::
 
 7. Guarde la configuración.
@@ -44,9 +44,9 @@ Para habilitar registros de recursos mediante PowerShell, la CLI o la API REST, 
 
 ### <a name="access-resource-logs"></a>Acceso a los registros de recursos
 
-La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../../azure-monitor/platform/resource-logs-collect-storage.md). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+La forma de acceder a los registros depende del punto de conexión que elija. Si se trata de Azure Storage, consulte el artículo sobre la [cuenta de almacenamiento de registros](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Si se trata de Event Hubs, consulte el artículo [Transmisión de los registros de Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
-Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics**, por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Si se trata de los registros de Azure Monitor, los registros se envían al área de trabajo seleccionada. Los registros de Postgres usan el modo de recopilación **AzureDiagnostics** , por lo que se pueden consultar desde la tabla AzureDiagnostics. A continuación se describen los campos de la tabla. Obtenga más información acerca de las consultas y las alertas en [Introducción a las consultas de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 A continuación se muestran consultas que puede intentar iniciar. Puede configurar alertas basadas en las consultas.
 
@@ -71,5 +71,5 @@ La consulta anterior mostrará los resultados de las últimas 6 horas para cualq
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Introducción a las consultas de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-- Información acerca de [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
+- [Introducción a las consultas de Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
+- Información acerca de [Azure Event Hubs](../../event-hubs/event-hubs-about.md)

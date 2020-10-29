@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: fc10d385df1dffed07e771d622d9bf9d8bedee39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086541"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547935"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorización de usuarios para Apache Ambari Views
 
@@ -24,7 +24,7 @@ Los usuarios de Active Directory pueden iniciar sesión en los nodos del clúste
 > [!WARNING]  
 > No cambie la contraseña del guardián Ambari (hdinsightwatchdog) en el clúster de HDInsight basado en Linux. El cambio de la contraseña impide usar acciones de script o realizar operaciones de escalado con el clúster.
 
-Si no lo ha hecho aún, siga [estas instrucciones](./domain-joined/apache-domain-joined-configure.md) para aprovisionar un nuevo clúster ESP.
+Si no lo ha hecho aún, siga [estas instrucciones](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) para aprovisionar un nuevo clúster ESP.
 
 ## <a name="access-the-ambari-management-page"></a>Acceso a la página de administración de Ambari
 
@@ -36,13 +36,13 @@ Para llegar a la **página de administración de Ambari** en la [interfaz de usu
 
 ### <a name="add-users-through-the-portal"></a>Adición de usuarios a través del portal
 
-1. En la página de administración, seleccione **Usuarios**.
+1. En la página de administración, seleccione **Usuarios** .
 
     ![Usuarios de la página de administración de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. Seleccione **+ Crear usuario local**.
+1. Seleccione **+ Crear usuario local** .
 
-1. Proporcione un **nombre de usuario** y una **contraseña**. Seleccione **Guardar**.
+1. Proporcione un **nombre de usuario** y una **contraseña** . Seleccione **Guardar** .
 
 ### <a name="add-users-through-powershell"></a>Adición de usuarios a través de PowerShell
 
@@ -167,13 +167,13 @@ curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Concesión de permisos para vistas de Apache Hive
 
-Ambari incluye instancias de vista para [Apache Hive](https://hive.apache.org/) y [Apache TEZ](https://tez.apache.org/), entre otros. Para conceder acceso a una o varias instancias de vistas de Hive, vaya a la **página de administración de Ambari**.
+Ambari incluye instancias de vista para [Apache Hive](https://hive.apache.org/) y [Apache TEZ](https://tez.apache.org/), entre otros. Para conceder acceso a una o varias instancias de vistas de Hive, vaya a la **página de administración de Ambari** .
 
 1. En la página de administración, seleccione el vínculo **Views** (Vistas) que está debajo del título del menú **Views** (Vistas) de la izquierda.
 
     ![Vínculos a vistas de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/apache-ambari-views-link.png)
 
-2. En la página de vistas, expanda la fila **HIVE**. Hay una vista de Hive personalizada que se crea cuando se agrega el servicio Hive al clúster. También puede crear más instancias de la vista de Hive según sea necesario. Seleccione una vista de Hive:
+2. En la página de vistas, expanda la fila **HIVE** . Hay una vista de Hive personalizada que se crea cuando se agrega el servicio Hive al clúster. También puede crear más instancias de la vista de Hive según sea necesario. Seleccione una vista de Hive:
 
     ![Vistas de HDInsight: vista de Apache Hive](./media/hdinsight-authorize-users-to-ambari/views-apache-hive-view.png)
 
@@ -191,14 +191,14 @@ Ambari incluye instancias de vista para [Apache Hive](https://hive.apache.org/) 
 
    * Seleccione el nombre de usuario o termine de escribirlo. Para agregar este nombre de usuario como un usuario nuevo, seleccione el botón **New** (Nuevo).
 
-   * Para guardar los cambios, seleccione la **casilla azul**.
+   * Para guardar los cambios, seleccione la **casilla azul** .
 
      ![Concesión de permisos de usuario de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Para agregar un grupo, seleccione el botón **Add Group** (Agregar grupo).
 
    * Comience a escribir el nombre del grupo. El proceso para seleccionar un nombre de grupo existente o para agregar un grupo nuevo es el mismo que el que se aplica para agregar usuarios.
-   * Para guardar los cambios, seleccione la **casilla azul**.
+   * Para guardar los cambios, seleccione la **casilla azul** .
 
      ![Concesión de permisos de Apache Ambari](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 

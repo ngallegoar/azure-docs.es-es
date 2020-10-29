@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616863"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632777"
 ---
 # <a name="data-access-strategies"></a>Estrategias de acceso a datos
 
@@ -28,7 +28,7 @@ Normalmente, un almacén de datos en la nube controla el acceso mediante los mec
 * Mecanismos de autorización que limitan los usuarios a acciones y datos específicos
 
 > [!TIP]
-> Con la [introducción del intervalo de direcciones IP estáticas](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses), ahora puede permitir la lista de intervalos IP para la región del entorno de ejecución de integración de Azure determinada para asegurarse de que no tiene que permitir todas las direcciones IP de Azure en los almacenes de datos en la nube. De este modo, puede restringir las direcciones IP a las que se les permite el acceso a los almacenes de datos.
+> Con la [introducción del intervalo de direcciones IP estáticas](./azure-integration-runtime-ip-addresses.md), ahora puede permitir la lista de intervalos IP para la región del entorno de ejecución de integración de Azure determinada para asegurarse de que no tiene que permitir todas las direcciones IP de Azure en los almacenes de datos en la nube. De este modo, puede restringir las direcciones IP a las que se les permite el acceso a los almacenes de datos.
 
 > [!NOTE] 
 > Los intervalos de direcciones IP están bloqueados para Azure Integration Runtime y actualmente solo se usan para movimiento de datos, canalización y actividades externas. Azure Integration Runtime y los flujos de datos que habilitan la red virtual administrada ahora no usan estos intervalos IP. 
@@ -37,12 +37,12 @@ Esto debería funcionar en muchos escenarios, y sabemos que es deseable una dire
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Estrategias de acceso a datos a través de Azure Data Factory
 
-* **[Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)** : puede crear una instancia de Azure Integration Runtime en la red virtual administrada de Azure Data Factory y aprovechará los puntos de conexión privados para conectarse de forma segura a los almacenes de datos compatibles. El tráfico entre la red virtual administrada y los orígenes de datos viaja por la red troncal de Microsoft y no se exponen a la red pública.
-* **[Servicio de confianza](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** : Azure Storage (BLOB, ADLS Gen2) admite la configuración del firewall que permite seleccionar servicios de la plataforma de Azure de confianza para acceder a la cuenta de almacenamiento de forma segura. Los servicios de confianza aplican la autenticación de identidad administrada, lo que garantiza que ninguna otra factoría de datos pueda conectarse a este almacenamiento, a menos que tenga la aprobación para hacerlo mediante su identidad administrada. Puede encontrar más información en **[este blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Por lo tanto, es muy seguro y recomendado. 
-* **IP estática única**: deberá configurar una instancia de entorno de ejecución de integración autohospedado para obtener una dirección IP estática para los conectores de Data Factory. Este mecanismo garantiza que puede bloquear el acceso desde todas las demás direcciones IP. 
-* **[Intervalo de direcciones IP estáticas](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** : puede usar las direcciones IP de Azure Integration Runtime para permitir que se muestren en el almacenamiento (por ejemplo, S3, Salesforce, etc.). Ciertamente, restringe las direcciones IP que se pueden conectar a los almacenes de datos, pero también se basa en las reglas de autenticación y autorización.
-* **[Etiqueta de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** : una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado (como Azure Data Factory). Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Resulta útil al filtrar el acceso a los datos de los almacenes de datos hospedados por IaaS en Virtual Network.
-* **Permitir servicios de Azure**: algunos servicios admiten permitir que todos los servicios de Azure se conecten a él en caso de que elija esta opción. 
+* **[Private Link](../private-link/private-link-overview.md)** : puede crear una instancia de Azure Integration Runtime en la red virtual administrada de Azure Data Factory y aprovechará los puntos de conexión privados para conectarse de forma segura a los almacenes de datos compatibles. El tráfico entre la red virtual administrada y los orígenes de datos viaja por la red troncal de Microsoft y no se exponen a la red pública.
+* **[Servicio de confianza](../storage/common/storage-network-security.md#exceptions)** : Azure Storage (BLOB, ADLS Gen2) admite la configuración del firewall que permite seleccionar servicios de la plataforma de Azure de confianza para acceder a la cuenta de almacenamiento de forma segura. Los servicios de confianza aplican la autenticación de identidad administrada, lo que garantiza que ninguna otra factoría de datos pueda conectarse a este almacenamiento, a menos que tenga la aprobación para hacerlo mediante su identidad administrada. Puede encontrar más información en **[este blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Por lo tanto, es muy seguro y recomendado. 
+* **IP estática única** : deberá configurar una instancia de entorno de ejecución de integración autohospedado para obtener una dirección IP estática para los conectores de Data Factory. Este mecanismo garantiza que puede bloquear el acceso desde todas las demás direcciones IP. 
+* **[Intervalo de direcciones IP estáticas](./azure-integration-runtime-ip-addresses.md)** : puede usar las direcciones IP de Azure Integration Runtime para permitir que se muestren en el almacenamiento (por ejemplo, S3, Salesforce, etc.). Ciertamente, restringe las direcciones IP que se pueden conectar a los almacenes de datos, pero también se basa en las reglas de autenticación y autorización.
+* **[Etiqueta de servicio](../virtual-network/service-tags-overview.md)** : una etiqueta de servicio representa un grupo de prefijos de direcciones IP de un servicio de Azure determinado (como Azure Data Factory). Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian, lo que minimiza la complejidad de las actualizaciones frecuentes en las reglas de seguridad de red. Resulta útil al filtrar el acceso a los datos de los almacenes de datos hospedados por IaaS en Virtual Network.
+* **Permitir servicios de Azure** : algunos servicios admiten permitir que todos los servicios de Azure se conecten a él en caso de que elija esta opción. 
 
 Para obtener más información sobre los mecanismos de seguridad de red admitidos en los almacenes de datos de Azure Integration Runtime y Integration Runtime autohospedado, consulte las dos tablas siguientes.  
 * **Azure Integration Runtime**
@@ -82,7 +82,7 @@ Para obtener más información sobre los mecanismos de seguridad de red admitido
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información, consulte los siguientes artículos:
-* [Almacenes de datos compatibles](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
-* [Servicios de confianza de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
-* [Servicios de confianza de Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Identidad administrada de Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Almacenes de datos compatibles](./copy-activity-overview.md#supported-data-stores-and-formats)
+* [Servicios de confianza de Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* [Servicios de confianza de Microsoft Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services)
+* [Identidad administrada de Data Factory](./data-factory-service-identity.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b2bad99a836da7aab64e8cc0d454423fd56ffce1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6cb3bf53db14c6c01290abea7a5c48c332a07632
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217803"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634885"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 
@@ -33,7 +33,7 @@ En este artículo se describe cómo ejecutar un paquete de SSIS desde una canali
 En el tutorial de este artículo se usa Azure SQL Database para hospedar el catálogo de SSIS. También puede usar Instancia administrada de Azure SQL.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
-Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](tutorial-create-azure-ssis-runtime-portal.md).
+Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](./tutorial-deploy-ssis-packages-azure.md).
 
 ## <a name="data-factory-ui-azure-portal"></a>Interfaz de usuario de Data Factory (Azure Portal)
 En esta sección, usará la interfaz de usuario de Data Factory para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.

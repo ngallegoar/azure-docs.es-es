@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 32efda0c97bec10f2c8aa29d6f83a28538d64468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5dd66b16674e1441865f796153e7508acc854d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496787"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543753"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-powershell"></a>Tutorial: Diseño de una instancia de Azure Database for MySQL mediante PowerShell
 
@@ -38,7 +38,7 @@ Si decide usar PowerShell de forma local, para este artículo es preciso que ins
 > Mientras el módulo de Az.MySql PowerShell se encuentra en versión preliminar, debe instalarlo por separado desde el módulo Az PowerShell con el siguiente comando: `Install-Module -Name Az.MySql -AllowPrerelease`.
 > Una vez que el módulo Az.MySql PowerShell esté disponible con carácter general, formará parte de las futuras versiones del módulo Az PowerShell y estará disponible de forma nativa en Azure Cloud Shell.
 
-Si esta es la primera vez que usa el servicio Azure Database for MySQL, debe registrar el proveedor de recursos **Microsoft.DBforMySQL**.
+Si esta es la primera vez que usa el servicio Azure Database for MySQL, debe registrar el proveedor de recursos **Microsoft.DBforMySQL** .
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMySQL
@@ -54,7 +54,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Cree un [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) con el cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
+Cree un [grupo de recursos de Azure](../azure-resource-manager/management/overview.md) con el cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un grupo de recursos es un contenedor lógico en el que se implementan y se administran recursos de Azure como un grupo.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado **myResourceGroup** en la región **Oeste de EE. UU.**
 
@@ -66,7 +66,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westus
 
 Cree un servidor de Azure Database for MySQL con el cmdlet `New-AzMySqlServer`. Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
 
-En el ejemplo siguiente se crea un servidor de MySQL en la región **Oeste de EE. UU.** denominado **mydemoserver** en el grupo de recursos **myresourcegroup** con el inicio de sesión del administrador del servidor de **myadmin**. Es un servidor de generación 5 en el plan de tarifa de uso general con dos núcleos virtuales y con copias de seguridad con redundancia geográfica habilitadas. Documente la contraseña usada en la primera línea del ejemplo, ya que se trata de la contraseña de la cuenta de administrador de MySQL Server.
+En el ejemplo siguiente se crea un servidor de MySQL en la región **Oeste de EE. UU.** denominado **mydemoserver** en el grupo de recursos **myresourcegroup** con el inicio de sesión del administrador del servidor de **myadmin** . Es un servidor de generación 5 en el plan de tarifa de uso general con dos núcleos virtuales y con copias de seguridad con redundancia geográfica habilitadas. Documente la contraseña usada en la primera línea del ejemplo, ya que se trata de la contraseña de la cuenta de administrador de MySQL Server.
 
 > [!TIP]
 > Un nombre de servidor se asigna a un nombre DNS y debe ser único en todo el mundo en Azure.
@@ -104,7 +104,7 @@ New-AzMySqlFirewallRule -Name AllowMyIP -ResourceGroupName myresourcegroup -Serv
 
 ## <a name="get-the-connection-information"></a>Obtención de la información de conexión
 
-Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host. Use el ejemplo siguiente para determinar la información de conexión. Tome nota de los valores de **FullyQualifiedDomainName** y **AdministratorLogin**.
+Para conectarse al servidor, debe proporcionar las credenciales de acceso y la información del host. Use el ejemplo siguiente para determinar la información de conexión. Tome nota de los valores de **FullyQualifiedDomainName** y **AdministratorLogin** .
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |

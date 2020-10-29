@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188164"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545946"
 ---
 # <a name="configure-apache-spark-settings"></a>Configuración de opciones de Apache Spark
 
@@ -23,13 +23,13 @@ El clúster de HDInsight Apache Spark predeterminado incluye los siguientes nodo
 
 ![Arquitectura de HDInsight Spark](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-El número de máquinas virtuales y el tamaño de las máquinas virtuales, para los nodos del clúster de HDInsight, pueden afectar a la configuración de Spark. Los valores de la configuración HDInsight no predeterminados a menudo requieren valores de configuración de Spark no predeterminados. Al crear un clúster de HDInsight Spark, se muestran los tamaños sugeridos de la máquina virtual para cada uno de los componentes. Actualmente los [tamaños de la máquina virtual Linux optimizado para memoria](../../virtual-machines/linux/sizes-memory.md) para Azure son D12 v2 o posterior.
+El número de máquinas virtuales y el tamaño de las máquinas virtuales, para los nodos del clúster de HDInsight, pueden afectar a la configuración de Spark. Los valores de la configuración HDInsight no predeterminados a menudo requieren valores de configuración de Spark no predeterminados. Al crear un clúster de HDInsight Spark, se muestran los tamaños sugeridos de la máquina virtual para cada uno de los componentes. Actualmente los [tamaños de la máquina virtual Linux optimizado para memoria](../../virtual-machines/sizes-memory.md) para Azure son D12 v2 o posterior.
 
 ## <a name="apache-spark-versions"></a>Versiones de Apache Spark
 
 Utilice la mejor versión de Spark para el clúster.  El servicio HDInsight incluye varias versiones tanto de Spark como del propio HDInsight.  Cada versión de Spark incluye un conjunto de configuración de clúster predeterminadas.  
 
-Al crear un clúster nuevo, puede elegir entre varias versiones de Spark. Para ver la lista completa, consulte [Componentes y versiones de HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+Al crear un clúster nuevo, puede elegir entre varias versiones de Spark. Para ver la lista completa, consulte [Componentes y versiones de HDInsight](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > La versión predeterminada de Apache Spark en el servicio HDInsight puede cambiar sin previo aviso. Microsoft recomienda especificar la versión particular al crear clústeres con el .NET SDK, Azure PowerShell y la CLI de Azure clásica, si tiene una dependencia de versiones.
@@ -58,9 +58,9 @@ El ejemplo mostrado antes reemplaza varios valores predeterminados en cinco par�
 
 Compruebe las opciones de configuración actuales del clúster de HDInsight antes de realizar la optimización del rendimiento en el clúster. Para iniciar el panel de HDInsight desde Azure Portal, haga clic en el vínculo **Panel** en el panel del clúster de Spark. Inicie sesión con el nombre de usuario y la contraseña del administrador del clúster.
 
-Aparece la interfaz de usuario web de Apache Ambari, con un panel de las principales métricas de uso de los recursos del clúster.  El panel de Ambari muestra la configuración de Apache Spark y otros servicios instalados. El panel incluye una pestaña con el **historial de configuración**, donde puede ver información de los servicios instalados, incluido Spark.
+Aparece la interfaz de usuario web de Apache Ambari, con un panel de las principales métricas de uso de los recursos del clúster.  El panel de Ambari muestra la configuración de Apache Spark y otros servicios instalados. El panel incluye una pestaña con el **historial de configuración** , donde puede ver información de los servicios instalados, incluido Spark.
 
-Para ver los valores de configuración de Apache Spark, seleccione **Config History** (Historial de configuración) y, después, seleccione **Spark2**.  Seleccione la pestaña **Configs** (Configuraciones) y, después, seleccione el vínculo `Spark` (o `Spark2`, dependiendo de la versión) en la lista de servicios.  Verá una lista de valores de configuración para el clúster:
+Para ver los valores de configuración de Apache Spark, seleccione **Config History** (Historial de configuración) y, después, seleccione **Spark2** .  Seleccione la pestaña **Configs** (Configuraciones) y, después, seleccione el vínculo `Spark` (o `Spark2`, dependiendo de la versión) en la lista de servicios.  Verá una lista de valores de configuración para el clúster:
 
 ![Configuraciones de Spark](./media/apache-spark-settings/spark-configurations.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.openlocfilehash: 73ca0d089ab758fb13e69d341337139d79194cc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e727bc7ad8b7f0b8a04c48f3abd1f1ac0806c66
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71121934"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545912"
 ---
 # <a name="tutorial-use-r-in-a-spark-compute-context-in-azure-hdinsight"></a>Tutorial: Uso de R en el contexto de proceso de Spark en Azure HDInsight
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Un clúster de Machine Learning Services en Azure HDInsight. Vaya al artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster**.
+* Un clúster de Machine Learning Services en Azure HDInsight. Vaya al artículo sobre la [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) y seleccione **ML Services** como **Tipo de clúster** .
 
 ## <a name="connect-to-rstudio-server"></a>Conexión a RStudio Server
 
@@ -43,7 +43,7 @@ RStudio Server se ejecuta en el nodo perimetral del clúster. Vaya al siguiente 
 https://CLUSTERNAME.azurehdinsight.net/rstudio/
 ```
 
-La primera vez que inicie sesión deberá autenticarse dos veces. En el primer mensaje de autenticación, proporcione el nombre de usuario del administrador del clúster y la contraseña (el valor predeterminado es *admin*). En el segundo, proporcione el nombre de usuario y la contraseña de SSH (el valor predeterminado es *sshuser*). En los sucesivos inicios de sesión solo se requieren las credenciales de SSH.
+La primera vez que inicie sesión deberá autenticarse dos veces. En el primer mensaje de autenticación, proporcione el nombre de usuario del administrador del clúster y la contraseña (el valor predeterminado es *admin* ). En el segundo, proporcione el nombre de usuario y la contraseña de SSH (el valor predeterminado es *sshuser* ). En los sucesivos inicios de sesión solo se requieren las credenciales de SSH.
 
 ## <a name="download-the-sample-data-to-local-storage"></a>Descarga de datos de ejemplo en el almacenamiento local
 
@@ -57,7 +57,7 @@ El *conjunto de datos Airline 2012 On-Time* consta de 12 archivos separados po
     remoteDir <- "https://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012" # location of data
     ```
 
-1. En el panel derecho, seleccione la pestaña **Entorno**. Las variables se muestran en **Valores**.
+1. En el panel derecho, seleccione la pestaña **Entorno** . Las variables se muestran en **Valores** .
 
     ![Consola web de RStudio de HDInsight](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
@@ -168,7 +168,7 @@ En un contexto de proceso de Spark, puede crear orígenes de datos mediante las 
 |`RxParquetData` | Genera un objeto de origen de datos de Parquet.|
 |`RxOrcData` | Genera un objeto de origen de datos de Orc.|
 
-Cree un objeto [RxTextData](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxtextdata) con los archivos que copió en HDFS. En RStudio, escriba el siguiente código:
+Cree un objeto [RxTextData](/machine-learning-server/r-reference/revoscaler/rxtextdata) con los archivos que copió en HDFS. En RStudio, escriba el siguiente código:
 
 ```R
 airDS <- RxTextData( airDataDir,
@@ -179,7 +179,7 @@ airDS <- RxTextData( airDataDir,
 
 ## <a name="create-a-compute-context-for-spark"></a>Crear un contexto de proceso para Spark
 
-Para cargar los datos y ejecutar análisis en nodos de trabajo, establezca el contexto de proceso del script en [RxSpark](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxspark). En este contexto, las funciones de R distribuyen automáticamente la carga de trabajo entre todos los nodos de trabajo, sin requisitos incorporados de administración de los trabajos o la cola. El contexto de proceso de Spark se establece a mediante `RxSpark` o `rxSparkConnect()` para crear el contexto de proceso de Spark y usa `rxSparkDisconnect()` para volver a un contexto de proceso local. En RStudio, escriba el siguiente código:
+Para cargar los datos y ejecutar análisis en nodos de trabajo, establezca el contexto de proceso del script en [RxSpark](/machine-learning-server/r-reference/revoscaler/rxspark). En este contexto, las funciones de R distribuyen automáticamente la carga de trabajo entre todos los nodos de trabajo, sin requisitos incorporados de administración de los trabajos o la cola. El contexto de proceso de Spark se establece a mediante `RxSpark` o `rxSparkConnect()` para crear el contexto de proceso de Spark y usa `rxSparkDisconnect()` para volver a un contexto de proceso local. En RStudio, escriba el siguiente código:
 
 ```R
 # Define the Spark compute context
@@ -191,7 +191,7 @@ rxSetComputeContext(mySparkCluster)
 
 ## <a name="fit-a-linear-model"></a>Ajustar un modelo lineal
 
-1. Use la función [rxLinMod](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxlinmod) para ajustar un modelo lineal con el origen de datos `airDS`. En RStudio, escriba el siguiente código:
+1. Use la función [rxLinMod](/machine-learning-server/r-reference/revoscaler/rxlinmod) para ajustar un modelo lineal con el origen de datos `airDS`. En RStudio, escriba el siguiente código:
 
     ```R
     system.time(
@@ -225,14 +225,14 @@ rxSetComputeContext(mySparkCluster)
     Coefficients:
                    Estimate Std. Error t value Pr(>|t|)     | Counts
     DayOfWeek=Mon   3.54210    0.03736   94.80 2.22e-16 *** | 901592
-    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 *** | 855805
-    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 *** | 868505
-    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 *** | 891674
-    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 *** | 896495
-    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 *** | 732944
-    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 *** | 858366
+    DayOfWeek=Tues  1.80696    0.03835   47.12 2.22e-16 **_ | 855805
+    DayOfWeek=Wed   2.19424    0.03807   57.64 2.22e-16 _*_ | 868505
+    DayOfWeek=Thur  4.65502    0.03757  123.90 2.22e-16 _*_ | 891674
+    DayOfWeek=Fri   5.64402    0.03747  150.62 2.22e-16 _*_ | 896495
+    DayOfWeek=Sat   0.91008    0.04144   21.96 2.22e-16 _*_ | 732944
+    DayOfWeek=Sun   2.82780    0.03829   73.84 2.22e-16 _*_ | 858366
     ---
-    Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+    Signif. codes:  0 ‘_*_’ 0.001 ‘_*’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
     
     Residual standard error: 35.48 on 6005374 degrees of freedom
     Multiple R-squared: 0.001827 (as if intercept included)
@@ -247,7 +247,7 @@ rxSetComputeContext(mySparkCluster)
 
 Como ha visto, puede analizar los archivos CSV directamente con R en Hadoop. Pero puede realizar el análisis más rápidamente si almacena los datos en un formato más eficaz. El formato XDF de R es eficiente, pero se modifica un poco para HDFS de manera que los archivos individuales sigan dentro de un único bloque HDFS. (El tamaño del bloque HDFS varía en función de la instalación, pero normalmente es 64 MB o 128 MB). 
 
-Al usar [rxImport](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rximport) en Hadoop para crear un conjunto de archivos XDF compuestos, especifique un origen de datos `RxTextData` como `AirDS` para inData y un origen de datos `RxXdfData` con el sistema de archivos como argumento outFile para crear un conjunto compuesto de archivos .xdf. Después puede usar el objeto `RxXdfData` como argumento de datos en análisis posteriores de R.
+Al usar [rxImport](/machine-learning-server/r-reference/revoscaler/rximport) en Hadoop para crear un conjunto de archivos XDF compuestos, especifique un origen de datos `RxTextData` como `AirDS` para inData y un origen de datos `RxXdfData` con el sistema de archivos como argumento outFile para crear un conjunto compuesto de archivos .xdf. Después puede usar el objeto `RxXdfData` como argumento de datos en análisis posteriores de R.
 
 1. Defina un objeto `RxXdfData`. En RStudio, escriba el siguiente código:
 
@@ -298,7 +298,7 @@ Al usar [rxImport](https://docs.microsoft.com/machine-learning-server/r-referenc
 
 ### <a name="in-a-spark-context"></a>En un contexto de Spark
 
-Si ha convertido los archivos CSV al formato de archivo XDF para una mayor eficiencia al ejecutar análisis, pero ahora desea convertir los datos a CSV de nuevo, puede hacerlo mediante [rxDataStep](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxdatastep).
+Si ha convertido los archivos CSV al formato de archivo XDF para una mayor eficiencia al ejecutar análisis, pero ahora desea convertir los datos a CSV de nuevo, puede hacerlo mediante [rxDataStep](/machine-learning-server/r-reference/revoscaler/rxdatastep).
 
 Para crear una carpeta de archivos CSV, primero cree un objeto `RxTextData` con un nombre de directorio como argumento de archivo. Este objeto representa la carpeta en la que se van a crear los archivos CSV. Este directorio se crea al ejecutar `rxDataStep`. A continuación, apunte a este objeto `RxTextData` en el argumento `outFile` de `rxDataStep`. Los archivos CSV que se crean se nombrarán en función del nombre del directorio seguido de un número.
 
@@ -366,4 +366,4 @@ Para eliminar un clúster, consulte [Eliminación de un clúster de HDInsight co
 En este tutorial ha aprendido a usar las funciones de R en Apache Spark que se ejecutan en un clúster de Machine Learning Service en Azure HDInsight. Para más información, consulte los siguientes artículos.
 
 * [Opciones de contexto de proceso para ML Services en HDInsight](r-server-compute-contexts.md)
-* [Funciones de R para Spark en Hadoop](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)
+* [Funciones de R para Spark en Hadoop](/machine-learning-server/r-reference/revoscaler/revoscaler-hadoop-functions)

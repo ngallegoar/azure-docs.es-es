@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754963"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547595"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Conexión a Apache Beeline en HDInsight o instalación local
 
@@ -104,7 +104,7 @@ Con la conexión directa desde el nodo principal del clúster o desde un recurso
 
 ## <a name="install-beeline-client"></a>Instalación de un cliente de Beeline
 
-Aunque Beeline se incluye en los nodos principales, puede que desee instalarlo localmente.  Los pasos de instalación en una máquina local se basan en un [subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Aunque Beeline se incluye en los nodos principales, puede que desee instalarlo localmente.  Los pasos de instalación en una máquina local se basan en un [subsistema de Windows para Linux](/windows/wsl/install-win10).
 
 1. Listas de actualizaciones. Escriba los comandos siguientes en su shell de Bash:
 
@@ -128,7 +128,7 @@ Aunque Beeline se incluye en los nodos principales, puede que desee instalarlo l
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Para guardar el archivo, presione **Ctrl+x**, luego **Y** y después Entrar.
+        Para guardar el archivo, presione **Ctrl+x** , luego **Y** y después Entrar.
 
 1. Descargue los archivos de Hadoop y Beeline, y escriba los siguientes comandos:
 
@@ -144,7 +144,7 @@ Aunque Beeline se incluye en los nodos principales, puede que desee instalarlo l
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Modifique aún más el archivo bashrc. Deberá identificar la ruta de acceso en la que se desempaquetan los archivos. Si usa el [subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10) y siguió los pasos de manera exacta, la ruta de acceso sería `/mnt/c/Users/user/`, donde `user` es el nombre de usuario.
+1. Modifique aún más el archivo bashrc. Deberá identificar la ruta de acceso en la que se desempaquetan los archivos. Si usa el [subsistema de Windows para Linux](/windows/wsl/install-win10) y siguió los pasos de manera exacta, la ruta de acceso sería `/mnt/c/Users/user/`, donde `user` es el nombre de usuario.
 
     1. Abra el archivo `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ Aunque Beeline se incluye en los nodos principales, puede que desee instalarlo l
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Para guardar el archivo, presione **Ctrl+x**, luego **Y** y después Entrar.
+    1. Para guardar el archivo, presione **Ctrl+x** , luego **Y** y después Entrar.
 
 1. Cierre y vuelva a abrir la sesión de Bash.
 

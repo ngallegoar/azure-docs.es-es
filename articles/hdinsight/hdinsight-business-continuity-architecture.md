@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidad
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207587"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547034"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Arquitecturas de continuidad empresarial de Azure HDInsight
 
@@ -58,7 +58,7 @@ En una arquitectura *primaria activa con secundaria en espera* , las aplicacione
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Arquitectura de Hive e Interactive Query":::
 
-Para obtener más información sobre la replicación de Hive y observar ejemplos de código, vea [Uso de la replicación de Apache Hive en clústeres de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication).
+Para obtener más información sobre la replicación de Hive y observar ejemplos de código, vea [Uso de la replicación de Apache Hive en clústeres de Azure HDInsight](./interactive-query/apache-hive-replication.md).
 
 ## <a name="apache-spark"></a>Spark de Apache
 
@@ -97,7 +97,7 @@ Las aplicaciones leen y escriben en los clústeres de Spark y Hive en la región
 
 La exportación y la replicación de HBase son formas comunes de habilitar la continuidad empresarial entre los clústeres de HDInsight HBase.
 
-La exportación de HBase es un proceso de replicación por lotes que usa la utilidad de exportación de HBase para exportar tablas del clúster primario de HBase a su almacenamiento subyacente de Azure Data Lake Storage Gen 2. Después, se puede acceder a los datos exportados desde el clúster secundario de HBase e importarlos en las tablas que deben existir previamente en el secundario. Aunque la exportación de HBase ofrece granularidad de nivel de tabla, en situaciones de actualización incremental, el motor de automatización de exportación controla el intervalo de filas incrementales que se van a incluir en cada ejecución. Para obtener más información, vea [Copia de seguridad y replicación de HDInsight HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#export-then-import).
+La exportación de HBase es un proceso de replicación por lotes que usa la utilidad de exportación de HBase para exportar tablas del clúster primario de HBase a su almacenamiento subyacente de Azure Data Lake Storage Gen 2. Después, se puede acceder a los datos exportados desde el clúster secundario de HBase e importarlos en las tablas que deben existir previamente en el secundario. Aunque la exportación de HBase ofrece granularidad de nivel de tabla, en situaciones de actualización incremental, el motor de automatización de exportación controla el intervalo de filas incrementales que se van a incluir en cada ejecución. Para obtener más información, vea [Copia de seguridad y replicación de HDInsight HBase](./hbase/apache-hbase-backup-replication.md#export-then-import).
 
 La replicación de HBase usa la replicación casi en tiempo real entre los clústeres de HBase de forma totalmente automatizada. La replicación se realiza en el nivel de tabla. Para la replicación, se pueden establecer como destino todas las tablas o tablas específicas. La replicación de HBase es coherente en última instancia, lo que significa que es posible que las ediciones recientes en una tabla de la región primaria no estén disponibles para todas las regiones secundarias de forma inmediata. Se garantiza que, en última instancia, las secundarias sean coherentes con la primaria. La replicación de HBase se puede configurar entre dos o más clústeres de HDInsight HBase si se cumple lo siguiente:
 
@@ -105,9 +105,9 @@ La replicación de HBase usa la replicación casi en tiempo real entre los clús
 * Las regiones primaria y secundaria están en diferentes redes virtuales emparejadas de la misma región.
 * Las regiones primaria y secundaria están en diferentes redes virtuales emparejadas en distintas regiones.
 
-Para obtener más información, vea [Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication).
+Para obtener más información, vea [Configuración de la replicación de clústeres de Apache HBase en redes virtuales de Azure](./hbase/apache-hbase-replication.md).
 
-Hay algunas otras formas de realizar copias de seguridad de clústeres de HBase, como [copiar la carpeta HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-the-hbase-folder) [copiar tablas](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-tables) e [instantáneas](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#snapshots).
+Hay algunas otras formas de realizar copias de seguridad de clústeres de HBase, como [copiar la carpeta HBase](./hbase/apache-hbase-backup-replication.md#copy-the-hbase-folder) [copiar tablas](./hbase/apache-hbase-backup-replication.md#copy-tables) e [instantáneas](./hbase/apache-hbase-backup-replication.md#snapshots).
 
 ### <a name="hbase-rpo--rto"></a>RPO y RTO de HBase
 
@@ -147,7 +147,7 @@ El modelo de replicación de Varias regiones o Cíclico es una extensión de la 
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
-Para habilitar la disponibilidad entre regiones, HDInsight 4.0 es compatible con Kafka MirrorMaker, que se puede usar a fin de mantener una réplica secundaria del clúster primario de Kafka en otra región. MirrorMaker actúa como un par de consumidor-productor de alto nivel, consume a partir de un tema específico en el clúster principal y genera un tema con el mismo nombre en el servidor secundario. La replicación entre clústeres para la recuperación ante desastres de alta disponibilidad mediante MirrorMaker incluye la suposición de que los productores y consumidores deben conmutar por error en el clúster de réplicas. Para obtener más información, vea [Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring).
+Para habilitar la disponibilidad entre regiones, HDInsight 4.0 es compatible con Kafka MirrorMaker, que se puede usar a fin de mantener una réplica secundaria del clúster primario de Kafka en otra región. MirrorMaker actúa como un par de consumidor-productor de alto nivel, consume a partir de un tema específico en el clúster principal y genera un tema con el mismo nombre en el servidor secundario. La replicación entre clústeres para la recuperación ante desastres de alta disponibilidad mediante MirrorMaker incluye la suposición de que los productores y consumidores deben conmutar por error en el clúster de réplicas. Para obtener más información, vea [Uso de MirrorMaker para replicar temas de Apache Kafka con Kafka en HDInsight](./kafka/apache-kafka-mirroring.md).
 
 En función de la duración del tema cuando se inicia la replicación, la replicación del tema de MirrorMaker puede conducir a distintos desplazamientos entre los temas de origen y de réplica. Los clústeres de HDInsight Kafka también admiten la replicación de particiones de temas, que es una característica de alta disponibilidad en el nivel de clúster individual.
 
@@ -192,7 +192,7 @@ Desventajas:
 
 ## <a name="hdinsight-enterprise-security-package"></a>Enterprise Security Package de Azure HDInsight
 
-Esta configuración se usa para habilitar la función de varios usuarios en los conjuntos de réplicas primario y secundario, así como en [conjuntos de réplicas de Azure AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set), a fin de asegurarse de que los usuarios puedan autenticarse en ambos clústeres. Durante las operaciones normales, es necesario configurar las directivas de Ranger en el secundario para asegurarse de que los usuarios están restringidos a las operaciones de lectura. En la arquitectura siguiente se explica el aspecto que podría tener una configuración Primaria activa-Secundaria en espera de Hive habilitada para ESP.
+Esta configuración se usa para habilitar la función de varios usuarios en los conjuntos de réplicas primario y secundario, así como en [conjuntos de réplicas de Azure AD DS](../active-directory-domain-services/tutorial-create-replica-set.md), a fin de asegurarse de que los usuarios puedan autenticarse en ambos clústeres. Durante las operaciones normales, es necesario configurar las directivas de Ranger en el secundario para asegurarse de que los usuarios están restringidos a las operaciones de lectura. En la arquitectura siguiente se explica el aspecto que podría tener una configuración Primaria activa-Secundaria en espera de Hive habilitada para ESP.
 
 Replicación del metastore de Ranger:
 

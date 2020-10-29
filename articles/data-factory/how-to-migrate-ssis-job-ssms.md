@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 6b95162d34b706b0bbb3e2940ea214e5a662655d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5566717387f6da375129a0e70c9ad825198d66b7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984910"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634613"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migración de trabajos de Agente SQL Server a ADF con SSMS
 
@@ -37,11 +37,11 @@ En general, para los trabajos del Agente SQL seleccionados con los tipos de paso
 |Paso de trabajo de SSIS|Ejecución de una actividad del paquete de SSIS|<li> El nombre de la actividad será \<step name>. <li> La cuenta de proxy usada en el paso de trabajo se migrará como autenticación de Windows de esta actividad. <li> Las *opciones de ejecución* excepto *Use 32-bit runtime* (Usar entono de ejecución de 32 bits) definidas en el paso de trabajo se omitirán en la migración. <li> La *comprobación* definida en el paso de trabajo se omitirá en la migración.|
 |schedule      |Programación de un desencadenador        |El nombre del desencadenador de programación se *generará para \<schedule name>* . <br> <br> Las siguientes opciones de programación de trabajos del Agente SQL se omitirán en la migración: <li> Intervalo de segundo nivel. <li> *Iniciar automáticamente al iniciar el Agente SQL Server.* <li> *Iniciar al quedar inactivas las CPU* <li> *día laborable* y *fin de semana* <time zone> <br> A continuación, se muestran las diferencias después de migrar la programación de trabajos del Agente SQL al desencadenador de programación de ADF: <li> La ejecución posterior del desencadenador de programación de ADF es independiente del estado de la ejecución desencadenada previa. <li> La configuración de periodicidad del desencadenador de programación de ADF difiere de la frecuencia diaria del trabajo del Agente SQL.|
 
-- generar plantillas de Azure Resource Manager (ARM) en la carpeta de salida local e implementarla directamente en la factoría de datos o más tarde manualmente. Para más información sobre las plantillas de Azure Resource Manager, consulte [Tipos de recursos de Microsoft.DataFactory](https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions).
+- generar plantillas de Azure Resource Manager (ARM) en la carpeta de salida local e implementarla directamente en la factoría de datos o más tarde manualmente. Para más información sobre las plantillas de Azure Resource Manager, consulte [Tipos de recursos de Microsoft.DataFactory](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-La característica descrita en este artículo requiere SQL Server Management Studio, versión 18.5 o posterior. Para obtener la versión más reciente de SSMS, vea [Download SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [Descargar SQL Server Management Studio (SSMS)].
+La característica descrita en este artículo requiere SQL Server Management Studio, versión 18.5 o posterior. Para obtener la versión más reciente de SSMS, vea [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15) [Descargar SQL Server Management Studio (SSMS)].
 
 ## <a name="migrate-ssis-jobs-to-adf"></a>Migración de trabajos de SSIS a ADF
 
@@ -53,14 +53,14 @@ La característica descrita en este artículo requiere SQL Server Management Stu
 
 1. Asigne las rutas de los paquetes SSIS y los archivos de configuración de trabajos de SSIS a las rutas de destino a las que pueden acceder las canalizaciones migradas. En este paso de asignación, puede:
 
-    1. Seleccionar una carpeta de origen y, luego, **Agregar asignación**.
+    1. Seleccionar una carpeta de origen y, luego, **Agregar asignación** .
     1. Actualizar la ruta a la carpeta de origen. Las rutas de acceso válidas son las rutas de acceso de carpeta o las rutas de acceso de carpeta primaria de paquetes.
     1. Actualizar la ruta de acceso a la carpeta de destino. El valor predeterminado es la ruta de acceso relativa a la cuenta de almacenamiento predeterminada, que se selecciona en el paso 1.
     1. Eliminar una asignación seleccionada mediante **Delete Mapping** (Eliminar asignación).
 ![Instantánea de la página Map SSIS Package and Configuration Paths (Asignar paquete de SSIS y rutas de configuración), donde se pueden agregar asignaciones.](media/how-to-migrate-ssis-job-ssms/step2.png)
 ![Instantánea de la página Map SSIS Package and Configuration Paths (Asignar paquete de SSIS y rutas de configuración), donde se pueden actualizar las rutas de las carpetas de origen y destino.](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
-1. Seleccione los trabajos aplicables que se van a migrar y configure la opción *Ejecutar una actividad de paquete SSIS*.
+1. Seleccione los trabajos aplicables que se van a migrar y configure la opción *Ejecutar una actividad de paquete SSIS* .
 
     - La *configuración predeterminada* se aplica de forma predeterminada a todos los pasos seleccionados. Para más información de cada propiedad, consulte la *pestaña Configuración* de [Ejecutar una actividad de paquete SSIS](how-to-invoke-ssis-package-ssis-activity.md) cuando la ubicación del paquete es *File System (Package)* (Sistema de archivos [paquete]).
     ![Instantánea de la página Select SSIS Jobs (Seleccionar trabajos de SSIS), donde se puede configurar la actividad del paquete de SSIS ejecutado correspondiente.](media/how-to-migrate-ssis-job-ssms/step3-1.png)

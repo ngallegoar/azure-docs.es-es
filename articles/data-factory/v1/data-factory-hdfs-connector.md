@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e3f158bb4e8208d00fdfbc44b4afaf067183b6d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f22d5ddd35d5d0cba48f0d236b28fabae02a966a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087323"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631604"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Movimiento de datos desde HDFS local mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -47,9 +47,9 @@ Aunque puede instalar la puerta de enlace en el mismo equipo local o en la máqu
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con actividad de copia que mueva los datos desde un origen de HDFS mediante el uso de diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar** . Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **plantilla de Azure Resource Manager**, **API de .NET** y **API de REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Azure Portal** , **Visual Studio** , **Azure PowerShell** , **plantilla de Azure Resource Manager** , **API de .NET** y **API de REST** . Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -72,7 +72,7 @@ Un servicio vinculado vincula un almacén de datos a una factoría de datos. Se 
 | userName |Nombre de usuario para la autenticación de Windows Para la autenticación Kerberos, especifique `<username>@<domain>.com`. |Sí (para la autenticación de Windows) |
 | password |Contraseña para la autenticación de Windows |Sí (para la autenticación de Windows) |
 | gatewayName |Nombre de la puerta de enlace que el servicio Factoría de datos debe usar para conectarse a HDFS. |Sí |
-| encryptedCredential |Salida de [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) de la credencial de acceso. |No |
+| encryptedCredential |Salida de [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) de la credencial de acceso. |No |
 
 ### <a name="using-anonymous-authentication"></a>Uso de autenticación anónima
 
@@ -122,14 +122,14 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 | folderPath |Ruta de acceso a la carpeta. Ejemplo: `myfolder`<br/><br/>Use el carácter de escape "\" para los caracteres especiales de la cadena. Por ejemplo: para folder\subfolder, especifique la carpeta\\\\subcarpeta y para d:\samplefolder, especifique d:\\\\samplefolder.<br/><br/>Puede combinar esta propiedad con **partitionBy** para que las rutas de acceso de carpeta se basen en las fechas y horas de inicio y finalización del segmento. |Sí |
 | fileName |Especifique el nombre del archivo en **folderPath** si quiere que la tabla haga referencia a un archivo específico de la carpeta. Si no especifica ningún valor para esta propiedad, la tabla apunta a todos los archivos de la carpeta.<br/><br/>Si no se especifica fileName para un conjunto de datos de salida, el nombre del archivo generado estaría en el siguiente formato: <br/><br/>`Data.<Guid>.txt` (por ejemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
 | partitionedBy |partitionedBy se puede usar para especificar un valor de folderPath dinámico, un nombre de archivo para datos de series temporales. Por ejemplo, folderPath se parametriza para cada hora de datos. |No |
-| format | Se admiten los tipos de formato siguientes: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
-| compression | Especifique el tipo y el nivel de compresión de los datos. Estos son los tipos que se admiten: **GZip**, **Deflate**, **BZip2** y **ZipDeflate**. Estos son los niveles que se admiten: **Optimal** y **Fastest**. Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
+| format | Se admiten los tipos de formato siguientes: **TextFormat** , **JsonFormat** , **AvroFormat** , **OrcFormat** , **ParquetFormat** . Establezca la propiedad **type** de formato en uno de los siguientes valores. Para más información, consulte las secciones [Formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [Formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [Formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format) y [Formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. |No |
+| compression | Especifique el tipo y el nivel de compresión de los datos. Estos son los tipos que se admiten: **GZip** , **Deflate** , **BZip2** y **ZipDeflate** . Estos son los niveles que se admiten: **Optimal** y **Fastest** . Para más información, consulte el artículo sobre [formatos de compresión de archivos en Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > filename y fileFilter no pueden usarse simultáneamente.
 
 ### <a name="using-partionedby-property"></a>Uso de la propiedad partitionedBy
-Como ya se ha indicado en la sección anterior, se puede especificar un valor dinámico de folderPath y filename para datos de series temporales con la propiedad **partitionedBy**, [funciones de Data Factory y las variables del sistema](data-factory-functions-variables.md).
+Como ya se ha indicado en la sección anterior, se puede especificar un valor dinámico de folderPath y filename para datos de series temporales con la propiedad **partitionedBy** , [funciones de Data Factory y las variables del sistema](data-factory-functions-variables.md).
 
 Para aprender más sobre los conjuntos de datos de series temporales [Creación de conjuntos de datos](data-factory-create-datasets.md), [Programación y ejecución](data-factory-scheduling-and-execution.md) y [Creación de canalizaciones](data-factory-create-pipelines.md) para conocer más detalles sobre los conjuntos de datos de series temporales, la programación y los segmentos.
 
@@ -308,7 +308,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Actividad de copia en una canalización con origen del sistema de archivos y receptor blob:**
 
-La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink** . La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
 
 ```JSON
 {
@@ -374,7 +374,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
     **Reinicie** la máquina después de ejecutar estos 2 comandos.
 
-2.  Compruebe la configuración con el comando **Ksetup**. La salida debe ser como la siguiente:
+2.  Compruebe la configuración con el comando **Ksetup** . La salida debe ser como la siguiente:
 
     ```cmd
     C:> Ksetup
@@ -446,7 +446,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
    Kadmin> addprinc krbtgt/REALM.COM@AD.COM
    ```
 
-3. En el archivo de configuración de servicio de HDFS **hadoop.security.auth_to_local**, agregue `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
+3. En el archivo de configuración de servicio de HDFS **hadoop.security.auth_to_local** , agregue `RULE:[1:$1@$0](.*\@AD.COM)s/\@.*//`.
 
 **En el controlador de dominio:**
 
@@ -457,7 +457,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
     C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
     ```
 
-2.  Establezca la confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad **krbtgt/REALM.COM\@AD.COM**.
+2.  Establezca la confianza entre el dominio de Windows y el dominio Kerberos. [contraseña] es la contraseña de la entidad de seguridad **krbtgt/REALM.COM\@AD.COM** .
 
     ```cmd
     C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
@@ -467,7 +467,7 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
     1. Vaya a Administrador de servidores > Administración de directivas de grupo > Dominio > Objetos de directiva de grupo > Default or Active Domain Policy (Directiva de dominio predeterminada o activa) y haga clic en Editar.
 
-    2. En la ventana emergente **Editor de administración de directivas de grupo**, vaya a Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas locales > Opciones de seguridad, y configure **Seguridad de red: Configurar tipos de cifrado permitidos para Kerberos**.
+    2. En la ventana emergente **Editor de administración de directivas de grupo** , vaya a Configuración del equipo > Directivas > Configuración de Windows > Configuración de seguridad > Directivas locales > Opciones de seguridad, y configure **Seguridad de red: Configurar tipos de cifrado permitidos para Kerberos** .
 
     3. Seleccione el algoritmo de cifrado que quiere usar al conectarse a KDC. Normalmente, puede seleccionar todas las opciones.
 
@@ -481,11 +481,11 @@ Existen dos opciones para configurar el entorno local para usar la autenticació
 
 4.  Cree la asignación entre la cuenta de dominio y la entidad de seguridad de Kerberos, a fin de usar la entidad de seguridad de Kerberos en el dominio de Windows.
 
-    1. Inicie las herramientas administrativas > **Usuarios y equipos de Active Directory**.
+    1. Inicie las herramientas administrativas > **Usuarios y equipos de Active Directory** .
 
-    2. Configure características avanzadas; para ello, haga clic en **Ver** > **Características avanzadas**.
+    2. Configure características avanzadas; para ello, haga clic en **Ver** > **Características avanzadas** .
 
-    3. Busque la cuenta a la que quiere crear asignaciones y haga clic con el botón derecho para ver **Asignaciones de nombres** > haga clic en la pestaña **Nombres de Kerberos**.
+    3. Busque la cuenta a la que quiere crear asignaciones y haga clic con el botón derecho para ver **Asignaciones de nombres** > haga clic en la pestaña **Nombres de Kerberos** .
 
     4. Agregue una entidad de seguridad del dominio Kerberos.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 021bfc0b87b0da800728eda26d9f5222bd52bc1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbae7254949eaa642b8344b4e550de4a44b2f33f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086966"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545980"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Entender y resolver errores recibidos de WebHCat en HDInsight
 
@@ -39,7 +39,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="too-many-requests"></a>Demasiadas solicitudes
 
-**Código de estado HTTP**: 429
+**Código de estado HTTP** : 429
 
 | Causa | Resolución |
 | --- | --- |
@@ -47,7 +47,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="server-unavailable"></a>Servidor no disponible
 
-**Código de estado HTTP**: 503
+**Código de estado HTTP** : 503
 
 | Causa | Resolución |
 | --- | --- |
@@ -55,7 +55,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="bad-request-content-could-not-find-job"></a>Contenido de solicitud incorrecta: no se encontró el trabajo
 
-**Código de estado HTTP**: 400
+**Código de estado HTTP** : 400
 
 | Causa | Resolución |
 | --- | --- |
@@ -65,7 +65,7 @@ Si se superan los siguientes valores predeterminados, puede degradar el rendimie
 
 ## <a name="bad-gateway"></a>Puerta de enlace incorrecta
 
-**Código de estado HTTP**: 502
+**Código de estado HTTP** : 502
 
 | Causa | Resolución |
 | --- | --- |
@@ -83,7 +83,7 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

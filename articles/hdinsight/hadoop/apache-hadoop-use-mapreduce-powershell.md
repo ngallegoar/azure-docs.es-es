@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/08/2020
-ms.openlocfilehash: ff0c7001184af58432a7915b3a7df29f900bedec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5f5a9fb8ddd25f750b19044bac7253bbff2f98
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006609"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545215"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>Ejecución de trabajos de MapReduce con Apache Hadoop en HDInsight con PowerShell
 
@@ -25,7 +25,7 @@ Este documento proporciona un ejemplo de uso de Azure PowerShell para ejecutar u
 
 * Un clúster de Apache Hadoop en HDInsight. Consulte [Creación de clústeres de Apache Hadoop mediante Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Instalación del [módulo Az](https://docs.microsoft.com/powershell/azure/) de PowerShell.
+* Instalación del [módulo Az](/powershell/azure/) de PowerShell.
 
 ## <a name="run-a-mapreduce-job"></a>Ejecución de un trabajo de MapReduce
 
@@ -37,13 +37,13 @@ Los siguientes cmdlets se utilizan al ejecutar trabajos de MapReduce en un clús
 |---|---|
 |Connect-AzAccount|autentica a Azure PowerShell en la suscripción de Azure.|
 |New-AzHDInsightMapReduceJobDefinition|crea una *definición de trabajo* mediante la información especificada de MapReduce.|
-|Start-AzHDInsightJob|envía la definición del trabajo a HDInsight e inicia el trabajo. Se devuelve un objeto *job*.|
+|Start-AzHDInsightJob|envía la definición del trabajo a HDInsight e inicia el trabajo. Se devuelve un objeto *job* .|
 |Wait-AzHDInsightJob|usa el objeto del trabajo para comprobar el estado del trabajo. Esperará hasta que el trabajo se complete o se supere el tiempo de espera.|
 |Get-AzHDInsightJobOutput|se utiliza para recuperar la salida del trabajo.|
 
 Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo en el clúster de HDInsight.
 
-1. Mediante un editor, guarde el código siguiente como **mapreducejob.ps1**.
+1. Mediante un editor, guarde el código siguiente como **mapreducejob.ps1** .
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-mapreduce/use-mapreduce.ps1?range=5-69)]
 
@@ -74,7 +74,7 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
     > [!NOTE]  
     > Si **ExitCode** es un valor distinto de 0, consulte [Solución de problemas](#troubleshooting).
 
-    En este ejemplo también se almacenarán los archivos descargados en el archivo **output.txt**, en el directorio desde el que se ejecuta el script.
+    En este ejemplo también se almacenarán los archivos descargados en el archivo **output.txt** , en el directorio desde el que se ejecuta el script.
 
 ### <a name="view-output"></a>Ver salida
 
@@ -85,7 +85,7 @@ Para ver las palabras y los recuentos generados por el trabajo, abra el archivo 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si una vez completado el trabajo no se devuelve información, consulte los errores del trabajo. Para ver información de error de este trabajo, agregue el siguiente comando al final del archivo **mapreducejob.ps1**. Después, guarde el archivo y vuelva a ejecutar el script.
+Si una vez completado el trabajo no se devuelve información, consulte los errores del trabajo. Para ver información de error de este trabajo, agregue el siguiente comando al final del archivo **mapreducejob.ps1** . Después, guarde el archivo y vuelva a ejecutar el script.
 
 ```powershell
 # Print the output of the WordCount job.

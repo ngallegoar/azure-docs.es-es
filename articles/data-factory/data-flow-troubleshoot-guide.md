@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: 47d1f3c78a303f7a45457a435fa11f074c41d7aa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8b05c7710b79f276886da8158ae5c8ce39cb44dc
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316161"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634732"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solución de problemas de los flujos de datos de asignación en Azure Data Factory
 
@@ -24,98 +24,98 @@ En este artículo se exploran métodos comunes de solución de problemas de fluj
 ## <a name="common-errors-and-messages"></a>Errores habituales y mensajes
 
 ### <a name="error-code-df-executor-sourceinvalidpayload"></a>Código de error: DF-Executor-SourceInvalidPayload
-- **Mensaje**: Data preview, debug, and pipeline data flow execution failed because container does not exist (Error en la ejecución del flujo de datos de la depuración, la canalización y la vista previa de datos porque el contenedor no existe)
-- **Causas**: cuando el conjunto de datos contiene un contenedor que no existe en el almacenamiento
+- **Mensaje** : Data preview, debug, and pipeline data flow execution failed because container does not exist (Error en la ejecución del flujo de datos de la depuración, la canalización y la vista previa de datos porque el contenedor no existe)
+- **Causas** : cuando el conjunto de datos contiene un contenedor que no existe en el almacenamiento
 - **Recomendación:** asegúrese de que el contenedor al que se hace referencia en el conjunto de datos exista o sea accesible.
 
 ### <a name="error-code-df-executor-systemimplicitcartesian"></a>Código de error: DF-Executor-SystemImplicitCartesian
 
-- **Mensaje**: Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows. (No se admite el producto cartesiano implícito para la combinación interna; utilice la combinación cruzada en su lugar. Las columnas utilizadas en la combinación deben crear una clave única para las filas).
-- **Causas**: no se admite el producto cartesiano implícito para la combinación interna entre planes lógicos. Si las columnas usadas en la combinación crean la clave única, se necesita al menos una columna de ambos lados de la relación.
+- **Mensaje** : Implicit cartesian product for INNER join is not supported, use CROSS JOIN instead. Columns used in join should create a unique key for rows. (No se admite el producto cartesiano implícito para la combinación interna; utilice la combinación cruzada en su lugar. Las columnas utilizadas en la combinación deben crear una clave única para las filas).
+- **Causas** : no se admite el producto cartesiano implícito para la combinación interna entre planes lógicos. Si las columnas usadas en la combinación crean la clave única, se necesita al menos una columna de ambos lados de la relación.
 - **Recomendación:** en el caso de las combinaciones que no se basan en la igualdad, debe optar por la combinación cruzada personalizada.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Código de error: DF-Executor-SystemInvalidJson
 
-- **Mensaje**: JSON parsing error, unsupported encoding or multiline (Error de análisis de JSON, codificación no compatible o multilínea)
-- **Causas**: posibles problemas con el archivo JSON, como codificación no admitida, bytes dañados o se usa el origen JSON como un único documento en muchas líneas anidadas.
+- **Mensaje** : JSON parsing error, unsupported encoding or multiline (Error de análisis de JSON, codificación no compatible o multilínea)
+- **Causas** : posibles problemas con el archivo JSON, como codificación no admitida, bytes dañados o se usa el origen JSON como un único documento en muchas líneas anidadas.
 - **Recomendación:** verifique que se admite la codificación del archivo JSON. En la transformación de origen que usa un conjunto de datos JSON, expanda "JSON Settings" (Configuración de JSON) y active "Documento único".
  
 ### <a name="error-code-df-executor-broadcasttimeout"></a>Código de error: DF-Executor-BroadcastTimeout
 
-- **Mensaje**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs (Error de tiempo de espera de combinación de difusión, asegúrese de que el flujo de difusión genera datos en un plazo de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos).
-- **Causas**: la difusión tiene un tiempo de espera predeterminado de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos. El flujo elegido para la difusión parece demasiado grande para generar datos dentro de este límite.
+- **Mensaje** : Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs (Error de tiempo de espera de combinación de difusión, asegúrese de que el flujo de difusión genera datos en un plazo de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos).
+- **Causas** : la difusión tiene un tiempo de espera predeterminado de 60 segundos en ejecuciones de depuración y de 300 segundos en ejecuciones de trabajos. El flujo elegido para la difusión parece demasiado grande para generar datos dentro de este límite.
 - **Recomendación:** active la pestaña Optimizar en las transformaciones de flujo de datos para Join, Exists y Lookup. La opción predeterminada para Broadcast (Difusión) es "Auto". Si se establece "Auto" o si va a configurar manualmente el lado izquierdo o derecho para difundir en "Fixed" (Fijo), puede establecer una configuración mayor de Azure Integration Runtime o desactivar la difusión. El enfoque recomendado para el mejor rendimiento en los flujos de datos es permitir que Spark realice la difusión mediante "Auto" y use una instancia de Azure IR optimizada para memoria.
 
 Si ejecuta el flujo de datos en una ejecución de pruebas de depuración desde una ejecución de la canalización de depuración, puede ejecutar en esta condición con mayor frecuencia. Esto se debe a que ADF limita el tiempo de espera de difusión a 60 segundos para mantener una experiencia de depuración más rápida. Si desea ampliarlo al tiempo de espera de 300 segundos de una ejecución desencadenada, puede usar la opción Debug > Use Activity Runtime (Depurar > Usar tiempo de ejecución de la actividad) para utilizar la instancia de Azure IR definida en su actividad de canalización Ejecución de flujo de datos.
 
 ### <a name="error-code-df-executor-conversion"></a>Código de error: DF-Executor-Conversion
 
-- **Mensaje**: Converting to a date or time failed due to an invalid character (Error al realizar la conversión a una fecha o hora porque un carácter no es válido).
-- **Causas**: los datos no tienen el formato esperado.
+- **Mensaje** : Converting to a date or time failed due to an invalid character (Error al realizar la conversión a una fecha o hora porque un carácter no es válido).
+- **Causas** : los datos no tienen el formato esperado.
 - **Recomendación:** use el tipo de datos correcto.
 
 ### <a name="error-code-df-executor-invalidcolumn"></a>Código de error: DF-Executor-InvalidColumn
 
-- **Mensaje**: Column name needs to be specified in the query, set an alias if using a SQL function (Es necesario especificar el nombre de la columna en la consulta; establezca un alias si usa una función SQL).
-- **Causas**: no se ha especificado ningún nombre de columna.
+- **Mensaje** : Column name needs to be specified in the query, set an alias if using a SQL function (Es necesario especificar el nombre de la columna en la consulta; establezca un alias si usa una función SQL).
+- **Causas** : no se ha especificado ningún nombre de columna.
 - **Recomendación:** establezca un alias si usa una función SQL, como min()/max(), etc.
 
  ### <a name="error-code-df-executor-drivererror"></a>Código de error: DF-Executor-DriverError
-- **Mensaje**: INT96 es un tipo de marca de tiempo heredado que no es compatible con el flujo de datos de ADF. Considere la posibilidad de actualizar el tipo de columna a los tipos más recientes.
-- **Causas**: error del controlador
+- **Mensaje** : INT96 es un tipo de marca de tiempo heredado que no es compatible con el flujo de datos de ADF. Considere la posibilidad de actualizar el tipo de columna a los tipos más recientes.
+- **Causas** : error del controlador
 - **Recomendación:** INT96 es un tipo de marca de tiempo heredado que no es compatible con el flujo de datos de ADF. Considere la posibilidad de actualizar el tipo de columna a los tipos más recientes.
 
  ### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Código de error: DF-Executor-BlockCountExceedsLimitError
-- **Mensaje**: el recuento de bloques sin confirmar no puede superar el límite máximo de 100 000 bloques. Compruebe la configuración de blobs.
-- **Causas**: puede haber un máximo de 100 000 bloques sin confirmar en un blob.
+- **Mensaje** : el recuento de bloques sin confirmar no puede superar el límite máximo de 100 000 bloques. Compruebe la configuración de blobs.
+- **Causas** : puede haber un máximo de 100 000 bloques sin confirmar en un blob.
 - **Recomendación:** póngase en contacto con el equipo de productos de Microsoft en relación con este problema para obtener más detalles.
 
  ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de error: DF-Executor-PartitionDirectoryError
-- **Mensaje**: la ruta de origen especificada tiene varios directorios con particiones (por ejemplo, <Source Path>/<Directorio raíz de la partición 1>/a=10/b=20, <Source Path>/<Directorio raíz de la partición 2>/c=10/d=30) o un directorio con particiones con otro archivo o directorio sin particiones (por ejemplo, <Source Path>/<Directorio raíz con particiones 1>/a=10/b=20, <Source Path>/Directorio 2/archivo1). Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
-- **Causas**: la ruta de origen tiene varios directorios con particiones o un directorio con particiones con otro archivo o directorio sin particiones.
+- **Mensaje** : la ruta de origen especificada tiene varios directorios con particiones (por ejemplo, <Source Path>/<Directorio raíz de la partición 1>/a=10/b=20, <Source Path>/<Directorio raíz de la partición 2>/c=10/d=30) o un directorio con particiones con otro archivo o directorio sin particiones (por ejemplo, <Source Path>/<Directorio raíz con particiones 1>/a=10/b=20, <Source Path>/Directorio 2/archivo1). Quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
+- **Causas** : la ruta de origen tiene varios directorios con particiones o un directorio con particiones con otro archivo o directorio sin particiones.
 - **Recomendación:** quite el directorio raíz con particiones de la ruta de origen y léalo a través de una transformación de origen independiente.
 
  ### <a name="error-code-df-executor-outofmemoryerror"></a>Código de error: DF-Executor-OutOfMemoryError
-- **Mensaje**: el clúster ha tenido un problema de memoria insuficiente durante la ejecución. Vuelva a intentar usar un entorno de ejecución de integración con un mayor recuento de núcleos o un tipo de proceso optimizado para memoria
-- **Causas**: el clúster se está quedando sin memoria
+- **Mensaje** : el clúster ha tenido un problema de memoria insuficiente durante la ejecución. Vuelva a intentar usar un entorno de ejecución de integración con un mayor recuento de núcleos o un tipo de proceso optimizado para memoria
+- **Causas** : el clúster se está quedando sin memoria
 - **Recomendación:** los clústeres de depuración están diseñados con fines de desarrollo. Aproveche el muestreo de datos, el tipo de proceso adecuado y el tamaño para ejecutar la carga. Consulte la [guía de rendimiento del flujo de datos de asignación](concepts-data-flow-performance.md) para llevar a cabo una optimización y, de este modo, lograr el mejor rendimiento.
 
  ### <a name="error-code-df-executor-illegalargument"></a>Código de error: DF-Executor-illegalArgument
-- **Mensaje**: asegúrese de que la clave de acceso del servicio vinculado es correcta
-- **Causas**: nombre de cuenta o clave de acceso incorrectos
+- **Mensaje** : asegúrese de que la clave de acceso del servicio vinculado es correcta
+- **Causas** : nombre de cuenta o clave de acceso incorrectos
 - **Recomendación:** asegúrese de que el nombre de cuenta o la clave de acceso especificados en el servicio vinculado son correctos. 
 
  ### <a name="error-code-df-executor-invalidtype"></a>Código de error: DF-Executor-InvalidType
-- **Mensaje**: asegúrese de que el tipo de parámetro coincide con el tipo de valor pasado. Actualmente no se admite el paso de parámetros float desde canalizaciones.
-- **Causas**: tipos de datos incompatibles entre el tipo declarado y el valor de parámetro real
+- **Mensaje** : asegúrese de que el tipo de parámetro coincide con el tipo de valor pasado. Actualmente no se admite el paso de parámetros float desde canalizaciones.
+- **Causas** : tipos de datos incompatibles entre el tipo declarado y el valor de parámetro real
 - **Recomendación:** compruebe que los valores de parámetro pasados a un flujo de datos coinciden con el tipo declarado.
 
  ### <a name="error-code-df-executor-columnunavailable"></a>Código de error: DF-Executor-ColumnUnavailable
-- **Mensaje**: el nombre de columna usado en la expresión no está disponible o no es válido
-- **Causas**: nombre de columna no válido o no disponible usado en expresiones
+- **Mensaje** : el nombre de columna usado en la expresión no está disponible o no es válido
+- **Causas** : nombre de columna no válido o no disponible usado en expresiones
 - **Recomendación:** compruebe los nombres de columna usados en expresiones
 
  ### <a name="error-code-df-executor-parseerror"></a>Código de error: DF-Executor-ParseError
-- **Mensaje**: no puede analizarse la expresión
-- **Causas**: la expresión tiene errores de análisis debido al formato
+- **Mensaje** : no puede analizarse la expresión
+- **Causas** : la expresión tiene errores de análisis debido al formato
 - **Recomendación:** compruebe el formato en la expresión
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Código de error: Error de GetCommand OutputAsync
 
-- **Mensaje**: Durante la depuración de Data Flow y la vista previa de datos: Error de GetCommand OutputAsync con...
-- **Causas**: Se trata de un error del servicio de back-end. Puede volver a intentar la operación y reiniciar la sesión de depuración.
+- **Mensaje** : Durante la depuración de Data Flow y la vista previa de datos: Error de GetCommand OutputAsync con...
+- **Causas** : Se trata de un error del servicio de back-end. Puede volver a intentar la operación y reiniciar la sesión de depuración.
 - **Recomendación:** Si reintentar y reiniciar no resuelven el problema, póngase en contacto con el soporte al cliente.
 
 ### <a name="error-code-hit-unexpected-exception-and-execution-failed"></a>Código de error: Se obtuvo una excepción inesperada y se produjo un error de ejecución
 
-- **Mensaje**: Durante la ejecución de una actividad de Data Flow: Se obtuvo una excepción inesperada y se produjo un error de ejecución.
-- **Causas**: Se trata de un error del servicio de back-end. Puede volver a intentar la operación y reiniciar la sesión de depuración.
+- **Mensaje** : Durante la ejecución de una actividad de Data Flow: Se obtuvo una excepción inesperada y se produjo un error de ejecución.
+- **Causas** : Se trata de un error del servicio de back-end. Puede volver a intentar la operación y reiniciar la sesión de depuración.
 - **Recomendación:** Si reintentar y reiniciar no resuelven el problema, póngase en contacto con el soporte al cliente.
 
 ### <a name="error-code-debug-data-preview-no-output-data-on-join"></a>Código de error: Debug data preview No Output Data on Join (Vista previa de datos de depuración: sin datos de salida en la combinación)
 
-- **Mensaje**: hay un gran número de valores NULL o valores que faltan, lo que puede deberse a que no se han muestreado suficientes filas. Pruebe a actualizar el límite de filas de depuración y los datos.
-- **Causas**: la condición de combinación no coincidía con ninguna fila o dio como resultado un número elevado de valores NULL durante la vista previa de los datos.
+- **Mensaje** : hay un gran número de valores NULL o valores que faltan, lo que puede deberse a que no se han muestreado suficientes filas. Pruebe a actualizar el límite de filas de depuración y los datos.
+- **Causas** : la condición de combinación no coincidía con ninguna fila o dio como resultado un número elevado de valores NULL durante la vista previa de los datos.
 - **Recomendación:** vaya a Configuración de depuración y aumente el número de filas del límite de filas de origen. Asegúrese de que ha seleccionado una instancia de Azure IR con un clúster de flujo de datos lo suficientemente grande como para administrar más datos.
 
 
@@ -131,7 +131,7 @@ Para obtener ayuda para solucionar problemas, pruebe estos recursos:
 *  [Blog de Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Solicitud de características de Data Factory](https://feedback.azure.com/forums/270578-data-factory)
 *  [Vídeos de Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
-*  [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-data-factory.html)
 *  [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
 *  [Guía de optimización y rendimiento de Mapping Data Flows](concepts-data-flow-performance.md)

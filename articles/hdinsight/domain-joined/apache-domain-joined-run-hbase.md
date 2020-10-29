@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: 89e9faeb3c67d0fd0c57adea3a3f69ec5438e3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5747de399e7ae0cfe99ba013f8da376be0ba1b2a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73044641"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544960"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configuración de directivas de Apache HBase en HDInsight con Enterprise Security Package
 
@@ -45,7 +45,7 @@ En este tutorial, aprenderá a:
 
 ## <a name="create-domain-users"></a>Crear usuarios de dominio
 
-Visite [Creación de un clúster de HDInsight con Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds) para aprender a crear los usuario del dominio **sales_user1** y **marketing_user1**. En un escenario de producción, los usuarios del dominio proceden de su inquilino de Active Directory.
+Visite [Creación de un clúster de HDInsight con Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md) para aprender a crear los usuario del dominio **sales_user1** y **marketing_user1** . En un escenario de producción, los usuarios del dominio proceden de su inquilino de Active Directory.
 
 ## <a name="create-hbase-tables-and-import-sample-data"></a>Creación de tablas de HBase e importación de datos de ejemplo
 
@@ -93,9 +93,9 @@ Puede usar SSH para conectarse a los clústeres de HBase y, después, usar el [s
 
 ## <a name="create-ranger-policies"></a>Creación de directivas de Ranger
 
-Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
+Cree una directiva de Ranger para **sales_user1** y **marketing_user1** .
 
-1. Abra la **Interfaz de usuario administrador de Ranger**. Haga clic en **\<ClusterName>_hbase** en **HBase**.
+1. Abra la **Interfaz de usuario administrador de Ranger** . Haga clic en **\<ClusterName>_hbase** en **HBase** .
 
    ![Interfaz de usuario de Apache Ranger de HDInsight](./media/apache-domain-joined-run-hbase/apache-ranger-admin-login.png)
 
@@ -123,7 +123,7 @@ Cree una directiva de Ranger para **sales_user1** y **marketing_user1**.
    ![Crear directiva de Apache Ranger, ventas](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policy-create-sales.png)
 
    >[!NOTE]
-   >Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario**.
+   >Espere unos instantes para que Ranger se sincronice con Azure AD si un usuario del dominio no se rellena automáticamente en **Seleccionar usuario** .
 
 4. Haga clic en **Agregar** para guardar la directiva.
 
@@ -191,7 +191,7 @@ Según las directivas de Ranger configuradas, **sales_user1** puede ver todos lo
 
 ### <a name="access-data-as-marketing_user1"></a>Acceso a los datos como marketing_user1
 
-1. Abra una nueva conexión SSH al clúster. Use el siguiente comando para iniciar sesión como **marketing_user1**:
+1. Abra una nueva conexión SSH al clúster. Use el siguiente comando para iniciar sesión como **marketing_user1** :
 
    ```bash
    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -236,10 +236,10 @@ Según las directivas de Ranger configuradas, **sales_user1** puede ver todos lo
 Si no va a seguir usando esta aplicación, puede eliminar el clúster HBase que creó mediante los siguientes pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight**. 
-1. Seleccione **Clústeres de HDInsight** en **Servicios**.
+2. En el cuadro **Búsqueda** en la parte superior, escriba **HDInsight** . 
+1. Seleccione **Clústeres de HDInsight** en **Servicios** .
 1. En la lista de clústeres de HDInsight que aparece, haga clic en el signo **...**  situado junto al clúster que ha creado para este tutorial. 
-1. Haga clic en **Eliminar**. Haga clic en **Sí**.
+1. Haga clic en **Eliminar** . Haga clic en **Sí** .
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/03/2020
 ms.author: ceespino
 ms.reviewer: daperlov
-ms.openlocfilehash: 9f23155df6d9e63448b35974c331bf78c3e5f90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bd0421a74679ff0c9498540d722a74ebf3d58af
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426236"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632574"
 ---
 # <a name="troubleshoot-azure-data-factory-ux-issues"></a>Solución de problemas con la experiencia de usuario de Azure Data Factory
 
@@ -120,4 +120,4 @@ Para obtener ayuda para solucionar problemas, pruebe estos recursos:
 * [Foro de Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Información de Twitter sobre Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Vídeos de Azure](https://azure.microsoft.com/resources/videos/index/)
-* [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+* [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-data-factory.html)

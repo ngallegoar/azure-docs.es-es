@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 052b12817b788ff38f0fab72a5420896b062c732
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebed7d87ba538b2f886155527bb89c1ffd2bcf58
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82857418"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545708"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Error de depuración de trabajos de Spark con Azure Toolkit for IntelliJ (versión preliminar)
 
-En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las herramientas de HDInsight de [Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij) para ejecutar aplicaciones de **depuración de errores de Spark**.
+En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las herramientas de HDInsight de [Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij) para ejecutar aplicaciones de **depuración de errores de Spark** .
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -26,7 +26,7 @@ En este artículo se proporcionan instrucciones paso a paso sobre cómo usar las
   
 * IntelliJ IDEA. En este artículo se usa [IntelliJ IDEA Community 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
-* Azure Toolkit for IntelliJ. Consulte [Instalación de Azure Toolkit for IntelliJ](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/installation).
+* Azure Toolkit for IntelliJ. Consulte [Instalación de Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation).
 
 * Conéctese al clúster de HDInsight. Vea [Conexión al clúster de HDInsight](apache-spark-intellij-tool-plugin.md).
 
@@ -46,17 +46,17 @@ Cree un proyecto de Spark 2.3.2 para continuar con la depuración de errores; us
 
    c. Seleccione **Next** (Siguiente).
 
-2. En la ventana **Nuevo proyecto**, siga estos pasos:
+2. En la ventana **Nuevo proyecto** , siga estos pasos:
 
    ![Selección de versión de Spark en nuevo proyecto de IntelliJ](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-project.png)
 
    a. Escriba un nombre y una ubicación de proyecto.
 
-   b. En la lista desplegable **Project SDK** (SDK del proyecto), seleccione **Java 1.8** para el clúster de **Spark 2.3.2**.
+   b. En la lista desplegable **Project SDK** (SDK del proyecto), seleccione **Java 1.8** para el clúster de **Spark 2.3.2** .
 
    c. En la lista desplegable **Spark Version** (Versión de Spark), seleccione **Spark 2.3.2(Scala 2.11.8)** .
 
-   d. Seleccione **Finalizar**.
+   d. Seleccione **Finalizar** .
 
 3. Seleccione **src** > **main** > **scala** para abrir el código en el proyecto. En este ejemplo se usa el script **AgeMean_Div()** .
 
@@ -72,7 +72,7 @@ Cree una aplicación Scala o Java de Spark, y después ejecútela en un clúster
 
    ![Adición de nueva configuración para IntelliJ](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. Cambie a la pestaña **Remotely Run in Cluster** (Ejecutar de forma remota en clúster). Escriba la información en los campos **Name** (Nombre), **Spark cluster** (Clúster de Spark) y **Main class name** (Nombre de clase principal). Nuestras herramientas admiten la depuración con **ejecutores**. El valor predeterminado de **numExectors** es 5, y se recomienda no establecerlo por encima de 3. Para reducir el tiempo de ejecución, puede agregar **spark.yarn.maxAppAttempts** a **job Configurations** y establecer el valor en 1. Haga clic en el botón **Aceptar** para guardar la configuración.
+3. Cambie a la pestaña **Remotely Run in Cluster** (Ejecutar de forma remota en clúster). Escriba la información en los campos **Name** (Nombre), **Spark cluster** (Clúster de Spark) y **Main class name** (Nombre de clase principal). Nuestras herramientas admiten la depuración con **ejecutores** . El valor predeterminado de **numExectors** es 5, y se recomienda no establecerlo por encima de 3. Para reducir el tiempo de ejecución, puede agregar **spark.yarn.maxAppAttempts** a **job Configurations** y establecer el valor en 1. Haga clic en el botón **Aceptar** para guardar la configuración.
 
    ![Nueva configuración de ejecución o depuración para IntelliJ](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
@@ -90,7 +90,7 @@ Cree una aplicación Scala o Java de Spark, y después ejecútela en un clúster
 
 Si se produce un error al enviar el trabajo, puede descargar el perfil de trabajo con errores en el equipo local para depurarlo más.
 
-1. Abra el **Explorador de Microsoft Azure Storage**, busque la cuenta de HDInsight del clúster del trabajo con errores, descargue los recursos del trabajo con errores desde la ubicación correspondiente: **\hdp\spark2-events\\.spark-failures\\\<application ID>** en una carpeta local. En la ventana **activities** (actividades) se mostrará el progreso de la descarga.
+1. Abra el **Explorador de Microsoft Azure Storage** , busque la cuenta de HDInsight del clúster del trabajo con errores, descargue los recursos del trabajo con errores desde la ubicación correspondiente: **\hdp\spark2-events\\.spark-failures\\\<application ID>** en una carpeta local. En la ventana **activities** (actividades) se mostrará el progreso de la descarga.
 
    ![Fallo de descarga del Explorador de Azure Storage](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
@@ -128,19 +128,19 @@ Si se produce un error al enviar el trabajo, puede descargar el perfil de trabaj
 * [Apache Spark con BI: Análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](apache-spark-use-bi-tools.md)
 * [Apache Spark con Machine Learning: uso de Apache Spark en HDInsight para analizar la temperatura de edificios con los datos del sistema de acondicionamiento de aire](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark con Machine Learning: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
+* [Análisis de registros de un sitio web mediante Apache Spark en HDInsight](./apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Creación y ejecución de aplicaciones
 
-* [Crear una aplicación independiente con Scala](../hdinsight-apache-spark-create-standalone-application.md)
+* [Crear una aplicación independiente con Scala](./apache-spark-create-standalone-application.md)
 * [Ejecución de trabajos de forma remota en un clúster de Apache Spark mediante Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Herramientas y extensiones
 
 * [Uso de Azure Toolkit for IntelliJ con el fin de crear aplicaciones Apache Spark para un clúster de HDInsight](apache-spark-intellij-tool-plugin.md)
 * [Uso de Azure Toolkit for IntelliJ para depurar de forma remota aplicaciones de Apache Spark mediante VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox](../hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](../hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Uso de las herramientas de HDInsight para IntelliJ con Hortonworks Sandbox](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
+* [Uso de las herramientas de HDInsight de Azure Toolkit for Eclipse con el fin de crear aplicaciones Apache Spark](./apache-spark-eclipse-tool-plugin.md)
 * [Uso de cuadernos de Apache Zeppelin con un clúster de Apache Spark en HDInsight](apache-spark-zeppelin-notebook.md)
 * [Kernels para Jupyter Notebook en clústeres Azure Spark en Azure HDInsight](apache-spark-jupyter-notebook-kernels.md)
 * [Uso de paquetes externos con cuadernos de Jupyter Notebook](apache-spark-jupyter-notebook-use-external-packages.md)

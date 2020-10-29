@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74771107"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543702"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutorial: Aprovisionamiento de un servidor de Azure Database for MySQL mediante las plantillas de Azure Resource Manager
 
-La [API de REST de Azure Database for MySQL](https://docs.microsoft.com/rest/api/mysql/) permite a los ingenieros de DevOps automatizar e integrar el aprovisionamiento, la configuración y las operaciones de las bases de datos y los servidores MySQL administrados en Azure.  Además, con dicha API se pueden crear, enumerar, administrar y eliminar bases de datos y servidores MySQL en el servicio Azure Database for MySQL.
+La [API de REST de Azure Database for MySQL](/rest/api/mysql/) permite a los ingenieros de DevOps automatizar e integrar el aprovisionamiento, la configuración y las operaciones de las bases de datos y los servidores MySQL administrados en Azure.  Además, con dicha API se pueden crear, enumerar, administrar y eliminar bases de datos y servidores MySQL en el servicio Azure Database for MySQL.
 
-Azure Resource Manager aprovecha la API REST subyacente para declarar y programar los recursos de Azure requeridos para las implementaciones a escala, de tal modo que se alineen con la infraestructura como concepto de código. La plantilla parametriza la configuración, el firewall, la red, la SKU y el nombre del recurso de Azure, lo que permite que se creen una vez y se utilicen varias.  Las plantillas de Azure Resource Manager se pueden crear fácilmente mediante [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) o [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Estas permiten automatizar la implementación, la estandarización y el empaquetado de aplicaciones, que se pueden integrar en la canalización de CI/CD de DevOps.  Por ejemplo, si desea implementar rápidamente una aplicación web con el servidor back-end de Azure Database for MySQL, puede realizar la implementación integral mediante esta [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) de la galería de GitHub.
+Azure Resource Manager aprovecha la API REST subyacente para declarar y programar los recursos de Azure requeridos para las implementaciones a escala, de tal modo que se alineen con la infraestructura como concepto de código. La plantilla parametriza la configuración, el firewall, la red, la SKU y el nombre del recurso de Azure, lo que permite que se creen una vez y se utilicen varias.  Las plantillas de Azure Resource Manager se pueden crear fácilmente mediante [Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) o [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI). Estas permiten automatizar la implementación, la estandarización y el empaquetado de aplicaciones, que se pueden integrar en la canalización de CI/CD de DevOps.  Por ejemplo, si desea implementar rápidamente una aplicación web con el servidor back-end de Azure Database for MySQL, puede realizar la implementación integral mediante esta [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) de la galería de GitHub.
 
 En este tutorial, usará una plantilla de Azure Resource Manager y otras utilidades para aprender a hacer lo siguiente:
 
@@ -115,7 +115,7 @@ Para conectarse al servidor, debe proporcionar las credenciales de acceso y la i
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin**.
+El resultado está en formato JSON. Tome nota de los valores de **fullyQualifiedDomainName** y **administratorLogin** .
 ```json
 {
   "administratorLogin": "myadmin",

@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553655"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558540"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Plantillas de asignación del conector de Azure IoT para FHIR (versión preliminar)
 En este artículo se detalla cómo configurar el conector de Azure IoT para FHIR* mediante plantillas de asignación.
@@ -71,8 +71,8 @@ JsonPathContentTemplate permite hacer coincidir valores de un mensaje del centro
 |**TypeMatchExpression**|Expresión de la ruta de acceso JSON que se evalúa con la carga del centro de eventos. Si se encuentra un JToken coincidente, la plantilla se considera una coincidencia. Todas las expresiones subsiguientes se evalúan con los valores JToken coincidentes de aquí.|`$..[?(@heartRate)]`
 |**TimestampExpression**|Expresión de la ruta de acceso JSON para extraer el valor de marca de tiempo para OccurenceTimeUtc de la medida.|`$.endDate`
 |**DeviceIdExpression**|Expresión de la ruta de acceso JSON para extraer el identificador de dispositivo.|`$.deviceId`
-|**PatientIdExpression**|*Opcional*: expresión de la ruta de acceso JSON para extraer el identificador del paciente.|`$.patientId`
-|**EncounterIdExpression**|*Opcional*: expresión de la ruta de acceso JSON para extraer el identificador del encuentro.|`$.encounterId`
+|**PatientIdExpression**|*Opcional* : expresión de la ruta de acceso JSON para extraer el identificador del paciente.|`$.patientId`
+|**EncounterIdExpression**|*Opcional* : expresión de la ruta de acceso JSON para extraer el identificador del encuentro.|`$.encounterId`
 |**Values[].ValueName**|Nombre que se va a asociar al valor extraído por la expresión subsiguiente. Se usa para enlazar el valor o componente necesarios en la plantilla de asignación de FHIR. |`hr`
 |**Values[].ValueExpression**|Expresión de la ruta de acceso JSON para extraer el valor necesario.|`$.heartRate`
 |**Values[].Required**|Requerirá que el valor esté presente en la carga;  si no se encuentra, no se generará ninguna medida y se producirá una excepción InvalidOperationException.|`true`
@@ -565,7 +565,7 @@ Representa el tipo de datos [CodeableConcept](http://hl7.org/fhir/datatypes.html
 Consulte las preguntas frecuentes sobre el conector de Azure IoT para FHIR (versión preliminar).
 
 >[!div class="nextstepaction"]
->[P+F del conector de Azure IoT para FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[P+F del conector de Azure IoT para FHIR](fhir-faq.md)
 
 *En Azure Portal, el conector de Azure IoT para FHIR se conoce como conector de IoT (versión preliminar).
 

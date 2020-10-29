@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: e4f4fcfa52733ec8f1f0ceedc669b8307efabf3c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50a77e240315796d0d4c98fc8fba8edfc9cd2b7d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324015"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545538"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>No se puede crear un cuaderno de Jupyter en Azure HDInsight
 
@@ -50,7 +50,7 @@ Incoherencia de versiones.
     version_info = (4, 0, 3)
     ```
 
-    Guarde los cambios escribiendo **Ctrl + X**, **Y**, **Entrar**.
+    Guarde los cambios escribiendo **Ctrl + X** , **Y** , **Entrar** .
 
 1. En un explorador web, vaya a `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`, donde `CLUSTERNAME` es el nombre del clúster.
 
@@ -64,4 +64,4 @@ Si su problema no aparece o es incapaz de resolverlo, visite uno de nuestros can
 
 * Póngase en contacto con [@AzureSupport](https://twitter.com/azuresupport), la cuenta oficial de Microsoft Azure para mejorar la experiencia del cliente. Esta cuenta pone en contacto a la comunidad de Azure con los recursos adecuados: respuestas, soporte técnico y expertos.
 
-* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico**. Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).
+* Si necesita más ayuda, puede enviar una solicitud de soporte técnico desde [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Seleccione **Soporte técnico** en la barra de menús o abra la central **Ayuda + soporte técnico** . Para obtener información más detallada, revise [Creación de una solicitud de soporte técnico de Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). La suscripción a Microsoft Azure incluye acceso al soporte técnico para facturación y administración de suscripciones. El soporte técnico se proporciona a través de uno de los [planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/).

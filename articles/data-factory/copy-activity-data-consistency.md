@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: d52d172fa4cc435235079cd88999766df93bfdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522914"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634919"
 ---
 #  <a name="data-consistency-verification-in-copy-activity-preview"></a>Comprobación de la coherencia de los datos en la actividad de copia (versión preliminar)
 
@@ -79,7 +79,7 @@ linkedServiceName | Servicio vinculado de [Azure Blob Storage](connector-azure-b
 path | Ruta de acceso de los archivos de registro. | Especifique la ruta de acceso donde quiere almacenar los archivos de registro. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para usted. | No
 
 >[!NOTE]
->- Al copiar archivos binarios desde o hacia Blob de Azure o Azure Data Lake Storage Gen2, ADF realiza la comprobación de la suma de comprobación MD5 de nivel de bloque aprovechando la [API de Blob de Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) y la [API de Azure Data Lake Storage Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si ContentMD5 en los archivos se encuentra en Blob de Azure o en Azure Data Lake Storage Gen2 como orígenes de datos, ADF realiza la comprobación de la suma de comprobación MD5 del nivel de archivo también después de leer los archivos. Después de copiar los archivos en Blob de Azure o en Azure Data Lake Storage Gen2 como destino de los datos, ADF escribe ContentMD5 en el Blob de Azure o en Azure Data Lake Storage Gen2, y las aplicaciones de nivel inferior pueden usarlo después para la comprobación de la coherencia de los datos.
+>- Al copiar archivos binarios desde o hacia Blob de Azure o Azure Data Lake Storage Gen2, ADF realiza la comprobación de la suma de comprobación MD5 de nivel de bloque aprovechando la [API de Blob de Azure](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) y la [API de Azure Data Lake Storage Gen2](/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). Si ContentMD5 en los archivos se encuentra en Blob de Azure o en Azure Data Lake Storage Gen2 como orígenes de datos, ADF realiza la comprobación de la suma de comprobación MD5 del nivel de archivo también después de leer los archivos. Después de copiar los archivos en Blob de Azure o en Azure Data Lake Storage Gen2 como destino de los datos, ADF escribe ContentMD5 en el Blob de Azure o en Azure Data Lake Storage Gen2, y las aplicaciones de nivel inferior pueden usarlo después para la comprobación de la coherencia de los datos.
 >- ADF realiza la comprobación del tamaño de archivo al copiar los archivos binarios entre almacenes de almacenamiento.
 
 ## <a name="monitoring"></a>Supervisión
@@ -106,15 +106,15 @@ Cuando la actividad de copia se ha ejecutado completamente, puede ver el resulta
 ```
 Puede ver los detalles de la comprobación de la coherencia de datos desde la "propiedad dataConsistencyVerification".
 
-Valor de **VerificationResult**: 
--   **Verified**:  se ha comprobado que los datos copiados son coherentes entre el almacén de origen y el de destino. 
--   **NotVerified**: no se ha comprobado que los datos copiados sean coherentes porque no se ha habilitado validateDataConsistency en la actividad de copia. 
--   **No admitidas**: no se ha comprobado que los datos copiados sean coherentes porque la comprobación de la coherencia de datos no se admite para este par de copia concreto. 
+Valor de **VerificationResult** : 
+-   **Verified** :  se ha comprobado que los datos copiados son coherentes entre el almacén de origen y el de destino. 
+-   **NotVerified** : no se ha comprobado que los datos copiados sean coherentes porque no se ha habilitado validateDataConsistency en la actividad de copia. 
+-   **No admitidas** : no se ha comprobado que los datos copiados sean coherentes porque la comprobación de la coherencia de datos no se admite para este par de copia concreto. 
 
-Valor de **InconsistentData**: 
--   **Found**: la actividad de copia de ADF encontró datos incoherentes. 
--   **Omitidas**: la actividad de copia de ADF encontró y omitió datos incoherentes. 
--   **Ninguna**: la actividad de copia de ADF no encontró datos incoherentes. Puede deberse a que se ha comprobado que los datos son coherentes entre el almacén de origen y el de destino, o bien porque se ha deshabilitado validateDataConsistency en la actividad de copia. 
+Valor de **InconsistentData** : 
+-   **Found** : la actividad de copia de ADF encontró datos incoherentes. 
+-   **Omitidas** : la actividad de copia de ADF encontró y omitió datos incoherentes. 
+-   **Ninguna** : la actividad de copia de ADF no encontró datos incoherentes. Puede deberse a que se ha comprobado que los datos son coherentes entre el almacén de origen y el de destino, o bien porque se ha deshabilitado validateDataConsistency en la actividad de copia. 
 
 ### <a name="session-log-from-copy-activity"></a>Registro de sesión de la actividad de copia
 
@@ -144,5 +144,3 @@ Consulte los otros artículos de la actividad de copia:
 
 - [Información general de la actividad de copia](copy-activity-overview.md)
 - [Tolerancia a errores de la actividad de copia](copy-activity-fault-tolerance.md)
-
-

@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidad
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893652"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546949"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuidad empresarial de Azure HDInsight
 
@@ -39,7 +39,7 @@ En esta sección se tratan algunos procedimientos recomendados que se deben tene
 
 * Use las herramientas de supervisión de Azure en HDInsight para detectar un comportamiento anómalo en el clúster y establecer las notificaciones de alerta correspondientes. Puede implementar las soluciones de administración específicas del clúster de HDInsight preconfiguradas que recopilan las métricas de rendimiento importantes del tipo de clúster específico. Para más información, consulte [Supervisión de Azure para HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Suscríbase a las alertas de estado de Azure para recibir notificaciones sobre problemas de servicio, mantenimiento planeado, avisos de estado y seguridad para una suscripción, un servicio o una región. Las notificaciones de estado que incluyen la causa del problema y la hora de llegada estimada resuelta le ayudan a ejecutar mejor la conmutación por error y la conmutación por recuperación. Para obtener más información, consulte [Documentación de Azure Service Health](/azure/service-health/).
+* Suscríbase a las alertas de estado de Azure para recibir notificaciones sobre problemas de servicio, mantenimiento planeado, avisos de estado y seguridad para una suscripción, un servicio o una región. Las notificaciones de estado que incluyen la causa del problema y la hora de llegada estimada resuelta le ayudan a ejecutar mejor la conmutación por error y la conmutación por recuperación. Para obtener más información, consulte [Documentación de Azure Service Health](../service-health/index.yml).
 
 ## <a name="single-region-availability"></a>Disponibilidad en una sola región
 

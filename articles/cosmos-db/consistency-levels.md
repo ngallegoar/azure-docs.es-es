@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 70077f8f0e7a951b6da8cf65c874b17eb98b416c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276387"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547085"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Niveles de coherencia en Azure Cosmos DB
 
@@ -187,8 +187,6 @@ Para más información sobre los conceptos de coherencia, lea los artículos sig
 
 Para más información sobre los niveles de coherencia de Azure Cosmos DB, lea los artículos siguientes:
 
-- [Elección del nivel de coherencia adecuado para la aplicación](consistency-levels-choosing.md)
-- [Niveles de coherencia en Azure Cosmos DB](consistency-levels-across-apis.md)
 - [Configuración del nivel de coherencia predeterminado](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Invalidación del nivel de coherencia predeterminado](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Acuerdo de Nivel de Servicio de Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

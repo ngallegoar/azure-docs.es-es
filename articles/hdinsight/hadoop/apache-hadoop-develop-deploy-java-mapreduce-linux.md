@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
 ms.date: 01/16/2020
-ms.openlocfilehash: 84d9253b865ddac6d97395af3d8632e29cc2ea24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b80616806f846951ebbaffcb2bf31ad77b96266
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323815"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546609"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>Desarrollo de programas MapReduce de Java para Apache Hadoop en HDInsight
 
@@ -21,7 +21,7 @@ Aprenda a usar Apache Maven para crear una aplicación MapReduce basada en Java 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Kit de desarrolladores de Java (JDK), versión 8](https://aka.ms/azure-jdks).
+* [Kit de desarrolladores de Java (JDK), versión 8](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * [Apache Maven](https://maven.apache.org/download.cgi) correctamente [instalado](https://maven.apache.org/install.html) según Apache.  Maven es un sistema de compilación de proyectos de Java.
 
@@ -38,13 +38,13 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Creación de un proyecto de Maven
 
-1. Especifique el siguiente comando para crear un proyecto de Maven llamado **wordcountjava**:
+1. Especifique el siguiente comando para crear un proyecto de Maven llamado **wordcountjava** :
 
    ```bash
    mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-    Esta acción creará un directorio en el directorio actual, con el nombre especificado por el parámetro `artifactID` (**hbaseapp** en este ejemplo). Este directorio raíz contiene los siguientes elementos:
+    Esta acción creará un directorio en el directorio actual, con el nombre especificado por el parámetro `artifactID` ( **hbaseapp** en este ejemplo). Este directorio raíz contiene los siguientes elementos:
 
     * `pom.xml`: el [modelo de objetos de proyectos (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) que contiene la información y los detalles de configuración para compilar el proyecto.
     * src\main\java\org\apache\hadoop\examples: Contiene el código de la aplicación.

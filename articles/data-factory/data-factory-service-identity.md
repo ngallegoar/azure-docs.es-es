@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123756"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632811"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -252,4 +252,4 @@ Consulte los siguientes temas que presentan cuándo y cómo usar la identidad ad
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)
 
-Vea [¿Qué es Managed Identities for Azure Resources?](/azure/active-directory/managed-identities-azure-resources/overview) para obtener más información sobre las identidades administradas para recursos de Azure en las que se basa la identidad administrada de Data Factory. 
+Vea [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) para obtener más información sobre las identidades administradas para recursos de Azure en las que se basa la identidad administrada de Data Factory.

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627353"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545164"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parámetros del servidor en Azure Database for MySQL
 
@@ -215,9 +215,9 @@ Consulte la [documentación de MySQL](https://dev.mysql.com/doc/refman/5.7/en/se
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", es posible que quiera desactivar el parámetro **innodb_strict_mode**. El parámetro de servidor **innodb_strict_mode** no se puede modificar globalmente en el nivel de servidor porque, si el tamaño de los datos de fila es superior a 8 KB, se truncarán los datos sin que se produzca una posible pérdida de datos. Se recomienda modificar el esquema para ajustarlo al límite de tamaño de página. 
+Si recibe un error similar a "Tamaño de la fila demasiado grande (> 8126)", es posible que quiera desactivar el parámetro **innodb_strict_mode** . El parámetro de servidor **innodb_strict_mode** no se puede modificar globalmente en el nivel de servidor porque, si el tamaño de los datos de fila es superior a 8 KB, se truncarán los datos sin que se produzca una posible pérdida de datos. Se recomienda modificar el esquema para ajustarlo al límite de tamaño de página. 
 
-Este parámetro se puede establecer en un nivel de sesión mediante `init_connect`. Para establecer **innodb_strict_mode** en el nivel de sesión, consulte cómo [ajustar un parámetro que no aparece en la lista](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+Este parámetro se puede establecer en un nivel de sesión mediante `init_connect`. Para establecer **innodb_strict_mode** en el nivel de sesión, consulte cómo [ajustar un parámetro que no aparece en la lista](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
 > Si tiene un servidor de réplica de lectura, al establecer **innodb_strict_mode** como desactivado en el nivel de sesión de un servidor de origen, se interrumpirá la replicación. Se recomienda mantener el parámetro establecido así si tiene réplicas de lectura.
