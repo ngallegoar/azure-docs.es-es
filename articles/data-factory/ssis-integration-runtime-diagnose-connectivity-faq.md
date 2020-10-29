@@ -10,12 +10,12 @@ author: meiyl
 ms.reviewer: sawinark
 manager: yidetu
 ms.date: 06/07/2020
-ms.openlocfilehash: cf41da685036770144ebf7eb2befd0c3d126362d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ede36b20353f00ed9a4f80bec2d7bc5a3512a9ea
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446028"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637962"
 ---
 # <a name="use-the-diagnose-connectivity-feature-in-the-ssis-integration-runtime"></a>Uso de la característica Diagnosticar conectividad en SSIS Integration Runtime
 
@@ -38,13 +38,13 @@ Use las secciones siguientes para obtener información sobre los errores más co
 
 ## <a name="error-code-invalidinput"></a>Código de error: InvalidInput
 
-- **Mensaje de error**: "Compruebe que la entrada es correcta".
-- **Causa posible**: la entrada es incorrecta.
+- **Mensaje de error** : "Compruebe que la entrada es correcta".
+- **Causa posible** : la entrada es incorrecta.
 - **Recomendación:** Compruebe la entrada.
 
 ## <a name="error-code-firewallornetworkissue"></a>Código de error: FirewallOrNetworkIssue
 
-- **Mensaje de error**: "Compruebe que este puerto está abierto en el firewall, el servidor o el grupo de seguridad de red y que la red es estable".
+- **Mensaje de error** : "Compruebe que este puerto está abierto en el firewall, el servidor o el grupo de seguridad de red y que la red es estable".
 - **Causas posibles:**
   - El servidor no abre el puerto.
   - El grupo de seguridad de red tiene denegado el tráfico de salida en el puerto.
@@ -56,7 +56,7 @@ Use las secciones siguientes para obtener información sobre los errores más co
 
 ## <a name="error-code-misconfigureddnssettings"></a>Código de error: MisconfiguredDnsSettings
 
-- **Mensaje de error**: "Si usa su propio servidor DNS en la red virtual unida por Azure-SSIS IR, compruebe que puede resolver el nombre de host".
+- **Mensaje de error** : "Si usa su propio servidor DNS en la red virtual unida por Azure-SSIS IR, compruebe que puede resolver el nombre de host".
 - **Causas posibles:**
   -  Hay un problema con el DNS personalizado.
   -  No usa un nombre de dominio completo (FQDN) para el nombre de host privado.
@@ -66,7 +66,7 @@ Use las secciones siguientes para obtener información sobre los errores más co
 
 ## <a name="error-code-servernotallowremoteconnection"></a>Código de error: ServerNotAllowRemoteConnection
 
-- **Mensaje de error**: "Compruebe que el servidor permite las conexiones TCP remotas a través de este puerto".
+- **Mensaje de error** : "Compruebe que el servidor permite las conexiones TCP remotas a través de este puerto".
 - **Causas posibles:**
   -  El firewall del servidor no permite conexiones TCP remotas.
   -  El servidor no está en línea.
@@ -76,7 +76,7 @@ Use las secciones siguientes para obtener información sobre los errores más co
    
 ## <a name="error-code-misconfigurednsgsettings"></a>Código de error: MisconfiguredNsgSettings
 
-- **Mensaje de error**: "Compruebe que el NSG de la red virtual permite el tráfico de salida a través de este puerto. Si usa Azure ExpressRoute o una UDR, compruebe que este puerto está abierto en el firewall o el servidor".
+- **Mensaje de error** : "Compruebe que el NSG de la red virtual permite el tráfico de salida a través de este puerto. Si usa Azure ExpressRoute o una UDR, compruebe que este puerto está abierto en el firewall o el servidor".
 - **Causas posibles:**
   -  El grupo de seguridad de red tiene denegado el tráfico de salida en el puerto.
   -  La solicitud NVA, Azure Firewall o el firewall local no abren el puerto.
@@ -86,24 +86,24 @@ Use las secciones siguientes para obtener información sobre los errores más co
 
 ## <a name="error-code-genericissues"></a>Código de error: GenericIssues
 
-- **Mensaje de error**: "Error en la conexión de prueba debido a problemas genéricos".
-- **Causa posible**: la conexión de prueba encontró un problema temporal general.
+- **Mensaje de error** : "Error en la conexión de prueba debido a problemas genéricos".
+- **Causa posible** : la conexión de prueba encontró un problema temporal general.
 - **Recomendación:** Vuelva a intentar la conexión de prueba más tarde. Si el reintento no sirve, póngase en contacto con el equipo de soporte técnico de Azure Data Factory.
 
 ## <a name="error-code-pspingexecutiontimeout"></a>Código de error: PSPingExecutionTimeout
 
-- **Mensaje de error**: "Se agotó el tiempo de espera de la conexión de prueba. Inténtelo de nuevo más tarde".
-- **Causa posible**: se agotó el tiempo de espera de la conectividad de prueba.
+- **Mensaje de error** : "Se agotó el tiempo de espera de la conexión de prueba. Inténtelo de nuevo más tarde".
+- **Causa posible** : se agotó el tiempo de espera de la conectividad de prueba.
 - **Recomendación:** Vuelva a intentar la conexión de prueba más tarde. Si el reintento no sirve, póngase en contacto con el equipo de soporte técnico de Azure Data Factory.
 
 ## <a name="error-code-networkinstable"></a>Código de error: NetworkInstable
 
-- **Mensaje de error**: "La conexión de prueba se realizó correctamente, pero con irregularidades, debido a la inestabilidad de la red".
-- **Causa posible**: problema de red transitorio.
+- **Mensaje de error** : "La conexión de prueba se realizó correctamente, pero con irregularidades, debido a la inestabilidad de la red".
+- **Causa posible** : problema de red transitorio.
 - **Recomendación:** Compruebe si la red del servidor o del firewall es estable.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Implementar un proyecto de SSIS en Azure con SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-deploy-ssms)
-- [Ejecutar paquetes de SSIS en Azure con SSMS](https://docs.microsoft.com/sql/integration-services/ssis-quickstart-run-ssms)
-- [Programar paquetes SSIS en Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)
+- [Implementar un proyecto de SSIS en Azure con SSMS](/sql/integration-services/ssis-quickstart-deploy-ssms)
+- [Ejecutar paquetes de SSIS en Azure con SSMS](/sql/integration-services/ssis-quickstart-run-ssms)
+- [Programar paquetes SSIS en Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms?view=sql-server-ver15)

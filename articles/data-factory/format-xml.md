@@ -9,18 +9,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2ca13ef3c6fa5bbd40ee239c50a023beee85a977
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334300"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637180"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML en Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Siga este artículo cuando desee **analizar los archivos XML**. 
+Siga este artículo cuando desee **analizar los archivos XML** . 
 
 El formato XML es compatible con los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md). Se admite como origen, pero no como receptor.
 
@@ -30,13 +30,13 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 | Propiedad         | Descripción                                                  | Obligatorio |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | La propiedad type del conjunto de datos debe establecerse en **Xml**. | Sí      |
-| ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos**. | Sí      |
+| type             | La propiedad type del conjunto de datos debe establecerse en **Xml** . | Sí      |
+| ubicación         | Configuración de ubicación de los archivos. Cada conector basado en archivos tiene su propio tipo de ubicación y propiedades compatibles en `location`. **Vea los detalles en el artículo de conectores -> sección de propiedades del conjunto de datos** . | Sí      |
 | encodingName     | El tipo de codificación usado para leer y escribir archivos de prueba. <br>Los valores permitidos son los siguientes: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
-| nullValue | Especifica la representación de cadena del valor null.<br/>El valor predeterminado es una **cadena vacía**. | No |
+| nullValue | Especifica la representación de cadena del valor null.<br/>El valor predeterminado es una **cadena vacía** . | No |
 | compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |
-| type<br>(*en `compression`* ) | El códec de compresión usado para leer y escribir archivos XML. <br>Los valores permitidos son **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **TarGzip**, **snappy** o **lz4**. La opción predeterminada no se comprime.<br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate".<br>**Tenga en cuenta** que, al usar la actividad de copia para descomprimir archivos **ZipDeflate**/**TarGzip** y escribir en el almacén de datos receptor basado en archivos, los archivos se extraen de manera predeterminada en la carpeta `<path specified in dataset>/<folder named as source compressed file>/`. Use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` en el [origen de la actividad de copia](#xml-as-source) para controlar si se debe conservar el nombre de los archivos comprimidos como una estructura de carpetas. | No.  |
-| level<br/>(*en `compression`* ) | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest**.<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal**: la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| type<br>( *en `compression`* ) | El códec de compresión usado para leer y escribir archivos XML. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** o **lz4** . La opción predeterminada no se comprime.<br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate".<br>**Tenga en cuenta** que, al usar la actividad de copia para descomprimir archivos **ZipDeflate**/**TarGzip** y escribir en el almacén de datos receptor basado en archivos, los archivos se extraen de manera predeterminada en la carpeta `<path specified in dataset>/<folder named as source compressed file>/`. Use `preserveZipFileNameAsFolder`/`preserveCompressionFileNameAsFolder` en el [origen de la actividad de copia](#xml-as-source) para controlar si se debe conservar el nombre de los archivos comprimidos como una estructura de carpetas. | No.  |
+| level<br/>( *en `compression`* ) | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest** .<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](/dotnet/api/system.io.compression.compressionlevel) . | No       |
 
 A continuación, se muestra un ejemplo de un conjunto de datos de XML en Azure Blob Storage:
 
@@ -71,26 +71,26 @@ Obtenga información acerca de cómo asignar datos XML y el formato o el almacé
 
 ### <a name="xml-as-source"></a>XML como origen
 
-En la sección ***\*source\**** de la actividad de copia se admiten las siguientes propiedades. Obtenga más información del [comportamiento del conector XML](#xml-connector-behavior).
+En la sección **_\_source\*** * de la actividad de copia se admiten las siguientes propiedades. Obtenga más información del [comportamiento del conector XML](#xml-connector-behavior).
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | La propiedad type del origen de la actividad de copia debe establecerse en **XmlSource**. | Sí      |
+| type          | La propiedad type del origen de la actividad de copia debe establecerse en **XmlSource** . | Sí      |
 | formatSettings | Un grupo de propiedades. Consulte la tabla **Configuración de lectura de XML** a continuación. | No       |
-| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia**. | No       |
+| storeSettings | Un grupo de propiedades sobre cómo leer datos de un almacén de datos. Cada conector basado en archivos tiene su propia configuración de lectura admitida en `storeSettings`. **Vea los detalles en el artículo de conectores -> sección de propiedades de la actividad de copia** . | No       |
 
 **Configuración de lectura de XML** admitida en `formatSettings`:
 
 | Propiedad      | Descripción                                                  | Obligatorio |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | El tipo de formatSettings debe establecerse en **XmlReadSettings**. | Sí      |
+| type          | El tipo de formatSettings debe establecerse en **XmlReadSettings** . | Sí      |
 | validationMode | Especifica si se debe validar el esquema XML.<br>Los valores permitidos son **ninguno** (predeterminado, sin validación), **xsd** (validar con XSD) y **dtd** (validar con DTD). | No |
-| espacios de nombres | Indica si habilitar el espacio de nombres al analizar los archivos XML. Los valores permitidos son: **True** (valor predeterminado) y **False**. | No |
+| espacios de nombres | Indica si habilitar el espacio de nombres al analizar los archivos XML. Los valores permitidos son: **True** (valor predeterminado) y **False** . | No |
 | namespacePrefixes | Identificador URI del espacio de nombres a la asignación del prefijo, que se usa para asignar un nombre a los campos al analizar el archivo XML.<br/>Si un archivo XML tiene un espacio de nombres y este está habilitado, de forma predeterminada, el nombre del campo es el mismo que en el documento XML.<br>Si hay un elemento definido para el URI del espacio de nombres en esta asignación, el nombre del campo es `prefix:fieldName`. | No |
-| detectDataType | Si se van a detectar tipos de datos enteros, dobles y booleanos. Los valores permitidos son: **True** (valor predeterminado) y **False**.| No |
+| detectDataType | Si se van a detectar tipos de datos enteros, dobles y booleanos. Los valores permitidos son: **True** (valor predeterminado) y **False** .| No |
 | compressionProperties | Un grupo de propiedades sobre cómo descomprimir datos para un códec de compresión determinado. | No       |
-| preserveZipFileNameAsFolder<br>(*en `compressionProperties`->`type` como `ZipDeflateReadSettings`* )  | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate**. Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en archivos ZIP de origen diferentes para evitar comportamientos acelerados o inesperados.  | No |
-| preserveCompressionFileNameAsFolder<br>(*en `compressionProperties`->`type` como `TarGZipReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **TarGzip**. Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false**, Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
+| preserveZipFileNameAsFolder<br>( *en `compressionProperties`->`type` como `ZipDeflateReadSettings`* )  | Se aplica cuando el conjunto de datos de entrada se configura con compresión **ZipDeflate** . Indica si se debe conservar el nombre del archivo ZIP de origen como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe archivos descomprimidos en `<path specified in dataset>/<folder named as source zip file>/`.<br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en archivos ZIP de origen diferentes para evitar comportamientos acelerados o inesperados.  | No |
+| preserveCompressionFileNameAsFolder<br>( *en `compressionProperties`->`type` como `TarGZipReadSettings`* ) | Se aplica cuando el conjunto de datos de entrada se configura con compresión **TarGzip** . Indica si se debe conservar el nombre del archivo de origen comprimido como estructura de carpetas durante la copia.<br>- Cuando se establece en **true (valor predeterminado)** , Data Factory escribe los archivos descomprimidos en `<path specified in dataset>/<folder named as source compressed file>/`. <br>- Cuando se establece en **false** , Data Factory escribe los archivos descomprimidos directamente en `<path specified in dataset>`. Asegúrese de que no tenga nombres de archivo duplicados en distintos archivos de origen comprimidos para evitar comportamientos acelerados o inesperados. | No |
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
@@ -98,7 +98,7 @@ En los flujos de datos de asignación, puede leer y escribir en formato XML en l
 
 ### <a name="source-properties"></a>Propiedades de origen
 
-En la tabla siguiente se enumeran las propiedades que admite un origen XML. Puede editar estas propiedades en la pestaña **Opciones del origen**. Obtenga más información del [comportamiento del conector XML](#xml-connector-behavior). Al usar un conjunto de valores alineados, verá configuraciones de archivo adicionales que son iguales a las propiedades descritas en la sección [Propiedades del conjunto de datos](#dataset-properties). 
+En la tabla siguiente se enumeran las propiedades que admite un origen XML. Puede editar estas propiedades en la pestaña **Opciones del origen** . Obtenga más información del [comportamiento del conector XML](#xml-connector-behavior). Al usar un conjunto de valores alineados, verá configuraciones de archivo adicionales que son iguales a las propiedades descritas en la sección [Propiedades del conjunto de datos](#dataset-properties). 
 
 | Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
 | ---- | ----------- | -------- | -------------- | ---------------- |

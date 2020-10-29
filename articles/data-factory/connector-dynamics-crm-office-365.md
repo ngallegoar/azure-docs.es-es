@@ -12,12 +12,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 09/23/2020
-ms.openlocfilehash: 942cbda3652692acc8eedf2ec9508bb501a60547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 204399186ae229324f9dc478e0ef58a173060013
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332107"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638183"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copia de datos desde y hacia Dynamics 365 (Common Data Service) o Dynamics CRM mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -56,14 +56,14 @@ Para Dynamics 365 en concreto, se admiten los siguientes tipos de aplicación:
 
 Este conector no admite otros tipos de aplicaciones como Finance, Operations o Talent.
 
-Este conector de Dynamics se basa en las [herramientas de Dynamics XRM](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
+Este conector de Dynamics se basa en las [herramientas de Dynamics XRM](/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools).
 
 >[!TIP]
 >Para copiar datos desde Dynamics 365 Finance and Operations, puede usar el [conector de Dynamics AX](connector-dynamics-ax.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar este conector con la autenticación de la entidad de servicio de Azure AD, debe configurar la autenticación de servidor a servidor (S2S) en Common Data Service o Dynamics. Consulte [este artículo](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) para conocer los pasos detallados.
+Para usar este conector con la autenticación de la entidad de servicio de Azure AD, debe configurar la autenticación de servidor a servidor (S2S) en Common Data Service o Dynamics. Consulte [este artículo](/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) para conocer los pasos detallados.
 
 ## <a name="get-started"></a>Introducción
 
@@ -172,7 +172,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 ### <a name="dynamics-365-and-dynamics-crm-on-premises-with-ifd"></a>Dynamics 365 y Dynamics CRM local con IFD
 
-Las propiedades adicionales, en comparación con Dynamics en línea, son **hostName** y **port**.
+Las propiedades adicionales, en comparación con Dynamics en línea, son **hostName** y **port** .
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
@@ -255,7 +255,7 @@ Para copiar datos desde Dynamics, en la sección **source** de la actividad de c
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia debe establecerse en "DynamicsSource", "DynamicsCrmSource" o "CommonDataServiceForAppsSource". | Sí |
-| Query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics en línea y en el entorno local. Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](https://msdn.microsoft.com/library/gg328332.aspx) (Creación de consultas con FetchXML). | No, si se especifica `entityName` en el conjunto de datos |
+| Query | FetchXML es un lenguaje de consulta patentado que se usa en Dynamics en línea y en el entorno local. Consulte el ejemplo siguiente. Para más información, consulte [Build queries with FetchXML](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)) (Creación de consultas con FetchXML). | No, si se especifica `entityName` en el conjunto de datos |
 
 >[!NOTE]
 >La columna PK siempre se copiará incluso si la proyección de columna que se configura en la consulta de FetchXML no la contiene.
@@ -326,12 +326,12 @@ Para copiar datos a Dynamics, la sección **sink** de la actividad de copia admi
 | writeBehavior | El comportamiento de escritura de la operación. El valor debe ser "Upsert". | Sí |
 | alternateKeyName | Nombre de clave alternativo definido en la entidad para realizar una operación de actualización e inserción. | No. |
 | writeBatchSize | El recuento de filas de datos escritos en Dynamics en cada lote. | No. El valor predeterminado es 10. |
-| ignoreNullValues | Si durante la operación de escritura se omiten los valores nulos de los datos de entrada excepto los campos de clave.<br/><br/>Los valores válidos son **TRUE** y **FALSE**:<ul><li>**TRUE**: deje los datos del objeto de destino sin cambiar cuando realice una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.</li><li>**FALSE**: actualice los datos del objeto de destino a un valor NULL cuando realice una operación de actualización e inserción, o bien de actualización. Inserte un valor NULL al realizar una operación de inserción.</li></ul> | No. El valor predeterminado es **FALSE**. |
+| ignoreNullValues | Si durante la operación de escritura se omiten los valores nulos de los datos de entrada excepto los campos de clave.<br/><br/>Los valores válidos son **TRUE** y **FALSE** :<ul><li>**TRUE** : deje los datos del objeto de destino sin cambiar cuando realice una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.</li><li>**FALSE** : actualice los datos del objeto de destino a un valor NULL cuando realice una operación de actualización e inserción, o bien de actualización. Inserte un valor NULL al realizar una operación de inserción.</li></ul> | No. El valor predeterminado es **FALSE** . |
 
 >[!NOTE]
 >El valor predeterminado tanto del receptor **writeBatchSize** como de la actividad de copia **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** del receptor de Dynamics es 10. Por lo tanto, se envían 100 registros simultáneamente de forma predeterminada a Dynamics.
 
-Para Dynamics 365 en línea, hay un límite de [dos llamadas simultáneas por lotes por organización](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Si se supera ese límite, se produce un error de "Servidor ocupado" antes incluso de que se ejecute la primera solicitud. Mantenga **writeBatchSize** en 10 o menos para evitar la limitación de llamadas simultáneas.
+Para Dynamics 365 en línea, hay un límite de [dos llamadas simultáneas por lotes por organización](/previous-versions/dynamicscrm-2016/developers-guide/jj863631(v=crm.8)#Run-time%20limitations). Si se supera ese límite, se produce un error de "Servidor ocupado" antes incluso de que se ejecute la primera solicitud. Mantenga **writeBatchSize** en 10 o menos para evitar la limitación de llamadas simultáneas.
 
 La combinación óptima de **writeBatchSize** y **parallelCopies** depende del esquema de la entidad. Los elementos del esquema incluyen el número de columnas, tamaño de las filas y número de complementos, flujos de trabajo o actividades de flujo de trabajo enlazadas a esas llamadas. La configuración predeterminada de **writeBatchSize** (10) &times; **parallelCopies** (10) es la recomendación de acuerdo con el servicio Dynamics. Este valor funciona con la mayoría de las entidades de Dynamics, aunque es posible que no ofrezca el mejor rendimiento. Para optimizar el rendimiento, ajuste la combinación en su configuración de la actividad de copia.
 
@@ -397,7 +397,7 @@ Configure el tipo de datos de Data Factory correspondiente en la estructura del 
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
 > [!NOTE]
-> Los tipos de datos **AttributeType.CalendarRules**, **AttributeType.MultiSelectPicklist** y **AttributeType.PartyList** no se admiten.
+> Los tipos de datos **AttributeType.CalendarRules** , **AttributeType.MultiSelectPicklist** y **AttributeType.PartyList** no se admiten.
 
 ## <a name="writing-data-to-a-lookup-field"></a>Escritura de datos en un campo de búsqueda
 
@@ -413,15 +413,15 @@ Para escribir datos en un campo de búsqueda con varios destinos como Customer y
 
 Por ejemplo, suponga que el origen tiene estas dos columnas:
 
-- **CustomerField** columna de tipo **GUID**, que es el valor de clave principal de la entidad de destino en Dynamics.
-- **Target** columna de tipo **String**, que es el nombre lógico de la entidad de destino.
+- **CustomerField** columna de tipo **GUID** , que es el valor de clave principal de la entidad de destino en Dynamics.
+- **Target** columna de tipo **String** , que es el nombre lógico de la entidad de destino.
 
-Supongamos también que desea copiar estos datos al campo de entidad de Dynamics receptor **CustomerField** de tipo **Customer**.
+Supongamos también que desea copiar estos datos al campo de entidad de Dynamics receptor **CustomerField** de tipo **Customer** .
 
 En la asignación de columnas de copia y actividad, asigne las dos columnas como se indica a continuación:
 
-- **CustomerField** a **CustomerField**. Se trata de la asignación de campos normal.
-- **Target** a **CustomerField\@EntityReference**. La columna de receptor es una columna virtual que representa la referencia de entidad. Escriba estos nombres de campo en una asignación, ya que no se mostrarán mediante la importación de esquemas.
+- **CustomerField** a **CustomerField** . Se trata de la asignación de campos normal.
+- **Target** a **CustomerField\@EntityReference** . La columna de receptor es una columna virtual que representa la referencia de entidad. Escriba estos nombres de campo en una asignación, ya que no se mostrarán mediante la importación de esquemas.
 
 ![Asignación de columnas de campo de búsqueda de Dynamics](./media/connector-dynamics-crm-office-365/connector-dynamics-lookup-field-column-mapping.png)
 

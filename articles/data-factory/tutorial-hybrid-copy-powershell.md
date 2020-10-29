@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9562c9fd590ea1234fb2378f03861141e58432ff
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147966"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637537"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copia de datos de una base de datos de SQL Server a Azure Blob Storage
 
@@ -50,7 +50,7 @@ Para ver los permisos que tiene en la suscripción, vaya a Azure Portal, selecci
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 y 2017
 En este tutorial, usará una base de datos de SQL Server como almacén de datos de *origen* . La canalización de Data Factory que crea en este tutorial copia los datos de esta base de datos de SQL Server (origen) a Azure Blob Storage (receptor). Luego, cree una tabla denominada **emp** en la base de datos de SQL Server e inserte un par de entradas de ejemplo en la tabla.
 
-1. Inicie SQL Server Management Studio. Si no está instalada en su equipo, vaya a [Descarga de SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Inicie SQL Server Management Studio. Si no está instalada en su equipo, vaya a [Descarga de SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Conéctese a una instancia de SQL Server con sus credenciales.
 

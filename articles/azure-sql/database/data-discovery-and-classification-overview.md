@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab974b0f68e831e672329f8af5ae1cb6a5fdbd4c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886496"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672076"
 ---
 # <a name="data-discovery--classification"></a>Clasificación y detección de datos
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ Los datos más confidenciales pueden incluir información empresarial, financier
 - Controlar el acceso y mejorar la seguridad de las bases de datos que contienen información altamente confidencial.
 
 > [!NOTE]
-> Para información sobre SQL Server local, consulte [Clasificación y detección de datos de SQL](https://go.microsoft.com/fwlink/?linkid=866999).
+> Para información sobre SQL Server local, consulte [Clasificación y detección de datos de SQL](/sql/relational-databases/security/sql-data-discovery-and-classification).
 
 ## <a name="what-is-data-discovery--classification"></a><a id="what-is-dc"></a>¿Qué es la clasificación y detección de datos?
 
@@ -44,7 +44,7 @@ La clasificación y detección de datos presenta un conjunto de servicios avanza
 
 - **Confidencialidad del conjunto de resultados de consulta:** la confidencialidad del conjunto de resultados de consulta se calcula en tiempo real con fines de auditoría.
 
-- **Visibilidad**: puede ver el estado de clasificación de la base de datos en un panel detallado en Azure Portal. Además, puede descargar un informe en formato Excel para usarlo con fines de auditoría y cumplimiento de normas, así como para otras necesidades.
+- **Visibilidad** : puede ver el estado de clasificación de la base de datos en un panel detallado en Azure Portal. Además, puede descargar un informe en formato Excel para usarlo con fines de auditoría y cumplimiento de normas, así como para otras necesidades.
 
 ## <a name="discover-classify-and-label-sensitive-columns"></a><a id="discover-classify-columns"></a>Detección, clasificación y etiquetado de columnas confidenciales
 
@@ -55,18 +55,18 @@ En esta sección se describen los pasos para:
 
 La clasificación incluye dos atributos de metadatos:
 
-- **Etiquetas**: los atributos principales de clasificación, que se usan para definir el nivel de confidencialidad de los datos almacenados en la columna.  
-- **Tipos de información**: atributos que proporcionan información más detallada sobre el tipo de datos almacenados en la columna.
+- **Etiquetas** : los atributos principales de clasificación, que se usan para definir el nivel de confidencialidad de los datos almacenados en la columna.  
+- **Tipos de información** : atributos que proporcionan información más detallada sobre el tipo de datos almacenados en la columna.
 
 ### <a name="define-and-customize-your-classification-taxonomy"></a>Definir y personalizar la taxonomía de clasificación
 
 La función de clasificación y detección de datos incluye un conjunto integrado de etiquetas de confidencialidad y un conjunto integrado de tipos de información y lógica de detección. Ahora puede personalizar esta taxonomía y definir un conjunto y la categoría de construcciones de clasificación específicamente para su entorno.
 
-Se define y personaliza la taxonomía de clasificación en una ubicación central para toda la organización de Azure. Esa ubicación se encuentra en [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), como parte de la directiva de seguridad. Solo un usuario con derechos administrativos en el grupo de administración raíz de la organización puede realizar esta tarea.
+Se define y personaliza la taxonomía de clasificación en una ubicación central para toda la organización de Azure. Esa ubicación se encuentra en [Azure Security Center](../../security-center/security-center-introduction.md), como parte de la directiva de seguridad. Solo un usuario con derechos administrativos en el grupo de administración raíz de la organización puede realizar esta tarea.
 
 Como parte de la administración de directivas de protección de la información, puede definir etiquetas personalizadas, clasificarlas y asociarlas con un conjunto seleccionado de tipos de información. También puede agregar sus propios tipos de información personalizados y configurarlos con patrones de cadena. Los patrones se agregan a la lógica de detección para identificar este tipo de datos en las bases de datos.
 
-Para más información, consulte [Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+Para más información, consulte [Personalización de la directiva de SQL Information Protection en Azure Security Center (versión preliminar)](../../security-center/security-center-info-protection-policy.md).
 
 Una vez definida la directiva de toda la organización, puede continuar con la clasificación de bases de datos individuales mediante la directiva personalizada.
 
@@ -81,7 +81,7 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
 1. Para descargar un informe en formato de Excel, seleccione **Exportar** en el menú superior del panel.
 
-1. <a id="step-4"></a>Para empezar a clasificar los datos, seleccione la pestaña **Clasificación** en la página **Clasificación y detección de datos**.
+1. <a id="step-4"></a>Para empezar a clasificar los datos, seleccione la pestaña **Clasificación** en la página **Clasificación y detección de datos** .
 
     El motor de clasificación examina la base de datos en busca de columnas que contengan datos potencialmente confidenciales y proporciona una lista de clasificaciones de columna recomendadas.
 
@@ -91,7 +91,7 @@ Una vez definida la directiva de toda la organización, puede continuar con la c
 
    - Para aceptar una recomendación para una columna específica, seleccione la casilla en la columna izquierda de la fila correspondiente. Para marcar todas las recomendaciones como aceptadas, seleccione la casilla más a la izquierda del encabezado de la tabla de recomendaciones.
 
-   - Para aplicar las recomendaciones seleccionadas, seleccione **Aceptar las recomendaciones seleccionadas**.
+   - Para aplicar las recomendaciones seleccionadas, seleccione **Aceptar las recomendaciones seleccionadas** .
 
 1. También puede clasificar las columnas manualmente, como alternativa a la clasificación basada en recomendaciones, o además de ella:
 
@@ -125,7 +125,7 @@ Estos roles integrados pueden modificar la clasificación de datos de una base d
 - Colaborador
 - Administrador de seguridad SQL
 
-Obtenga información sobre los permisos basados en roles en [RBAC de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Obtenga información sobre los permisos basados en roles en [RBAC de Azure](../../role-based-access-control/overview.md).
 
 ## <a name="manage-classifications"></a><a id="manage-classification"></a>Administración de clasificaciones
 
@@ -140,42 +140,42 @@ Puede utilizar T-SQL para agregar o quitar las clasificaciones de columna, y par
 
 Para obtener información sobre el uso de T-SQL para las clasificaciones, vea las siguientes referencias:
 
-- Para agregar o actualizar la clasificación de una o varias columnas: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql) (Agregar clasificación de confidencialidad)
-- Para quitar la clasificación de una o varias columnas: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql) (Eliminar clasificación de la confidencialidad)
-- Para ver todas las clasificaciones de la base de datos: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Para agregar o actualizar la clasificación de una o varias columnas: [ADD SENSITIVITY CLASSIFICATION](/sql/t-sql/statements/add-sensitivity-classification-transact-sql) (Agregar clasificación de confidencialidad)
+- Para quitar la clasificación de una o varias columnas: [DROP SENSITIVITY CLASSIFICATION](/sql/t-sql/statements/drop-sensitivity-classification-transact-sql) (Eliminar clasificación de la confidencialidad)
+- Para ver todas las clasificaciones de la base de datos: [sys.sensitivity_classifications](/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 ### <a name="use-powershell-cmdlets"></a>Uso de cmdlets de PowerShell
 Administre clasificaciones y las recomendaciones de Azure SQL Database e Instancia administrada de Azure SQL mediante PowerShell.
 
 #### <a name="powershell-cmdlets-for-azure-sql-database"></a>Cmdlets de PowerShell para Azure SQL Database
 
-- [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
-- [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
-- [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
-- [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
-- [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
-- [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
+- [Get-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
+- [Set-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
+- [Remove-AzSqlDatabaseSensitivityClassification](/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
+- [Get-AzSqlDatabaseSensitivityRecommendation](/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+- [Enable-AzSqlDatabaSesensitivityRecommendation](/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
+- [Disable-AzSqlDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
 #### <a name="powershell-cmdlets-for-azure-sql-managed-instance"></a>Cmdlets de PowerShell para Instancia administrada de Azure SQL
 
-- [Get-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
-- [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
-- [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
-- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
-- [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
-- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
+- [Get-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
+- [Set-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
+- [Remove-AzSqlInstanceDatabaseSensitivityClassification](/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
+- [Get-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+- [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
+- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
 ### <a name="use-the-rest-api"></a>Uso de la API de REST
 
 Puede usar las API REST para administrar las clasificaciones y recomendaciones mediante programación. Las API de REST publicadas admiten las siguientes operaciones:
 
-- [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de la columna especificada.
-- [Eliminar](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de la columna especificada.
-- [Deshabilitar la recomendación](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): deshabilita las recomendaciones de confidencialidad en la columna especificada.
-- [Habilitar la recomendación](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): habilita las recomendaciones de confidencialidad en la columna especificada. (Las recomendaciones están habilitadas de forma predeterminada en todas las columnas).
-- [Obtener](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de la columna especificada.
-- [Enumerar las actuales por base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): obtiene las etiquetas de confidencialidad actuales de la base de datos especificada.
-- [Enumerar las recomendadas por base de datos](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): obtiene las etiquetas de confidencialidad recomendadas de la base de datos especificada.
+- [Crear o actualizar](/rest/api/sql/sensitivitylabels/createorupdate): crea o actualiza la etiqueta de confidencialidad de la columna especificada.
+- [Eliminar](/rest/api/sql/sensitivitylabels/delete): elimina la etiqueta de confidencialidad de la columna especificada.
+- [Deshabilitar la recomendación](/rest/api/sql/sensitivitylabels/disablerecommendation): deshabilita las recomendaciones de confidencialidad en la columna especificada.
+- [Habilitar la recomendación](/rest/api/sql/sensitivitylabels/enablerecommendation): habilita las recomendaciones de confidencialidad en la columna especificada. (Las recomendaciones están habilitadas de forma predeterminada en todas las columnas).
+- [Obtener](/rest/api/sql/sensitivitylabels/get): obtiene la etiqueta de confidencialidad de la columna especificada.
+- [Enumerar las actuales por base de datos](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): obtiene las etiquetas de confidencialidad actuales de la base de datos especificada.
+- [Enumerar las recomendadas por base de datos](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): obtiene las etiquetas de confidencialidad recomendadas de la base de datos especificada.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Pasos siguientes
 

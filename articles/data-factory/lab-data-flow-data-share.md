@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: db5384f843173bdc795fba64f277ff8bf85dc4f5
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 1c8958062c7430f98db0925c2b3996887bfe5548
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91827140"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637367"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Integración de datos mediante Azure Data Factory y Azure Data Share
 
@@ -28,17 +28,17 @@ En este laboratorio se usan datos de taxis de la ciudad de Nueva York. Para impo
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Suscripción de Azure**: Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* **Suscripción de Azure** : Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
-* **Azure SQL Database**: si no tiene una base de datos de SQL, aprenda a [crear una cuenta de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+* **Azure SQL Database** : si no tiene una base de datos de SQL, aprenda a [crear una cuenta de Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal).
 
-* **Cuenta de almacenamiento de Azure Data Lake Storage Gen2**: si no la tiene, aprenda a [crear una cuenta de almacenamiento de ADLS Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
+* **Cuenta de almacenamiento de Azure Data Lake Storage Gen2** : si no la tiene, aprenda a [crear una cuenta de almacenamiento de ADLS Gen2](../storage/common/storage-account-create.md).
 
-* **Azure Synapse Analytics (anteriormente SQL DW)** : si no la tiene, aprenda a [crear una instancia de Azure Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/create-data-warehouse-portal).
+* **Azure Synapse Analytics (anteriormente SQL DW)** : si no la tiene, aprenda a [crear una instancia de Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
-* **Azure Data Factory**: si no la ha creado, consulte cómo [crear una factoría de datos](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+* **Azure Data Factory** : si no la ha creado, consulte cómo [crear una factoría de datos](./quickstart-create-data-factory-portal.md).
 
-* **Azure Data Share**: si no lo ha creado, consulte cómo [crear un recurso compartido de datos](https://docs.microsoft.com/azure/data-share/share-your-data#create-a-data-share-account).
+* **Azure Data Share** : si no lo ha creado, consulte cómo [crear un recurso compartido de datos](../data-share/share-your-data.md#create-a-data-share-account).
 
 ## <a name="set-up-your-azure-data-factory-environment"></a>Configuración del entorno de Azure Data Factory
 
@@ -143,7 +143,7 @@ Ha creado correctamente el conjunto de datos de origen. Asegúrese de que la con
 1. Busque **Azure Data Lake Storage Gen2** y haga clic en Continue (Continuar).
 
     ![Copia en el portal 8](media/lab-data-flow-data-share/copy8.png)
-1. En el panel de selección de formato, elija **DelimitedText**, ya que escribe en un archivo CSV. Haga clic en Continue (Continuar).
+1. En el panel de selección de formato, elija **DelimitedText** , ya que escribe en un archivo CSV. Haga clic en Continue (Continuar).
 
     ![Copia en el portal 9](media/lab-data-flow-data-share/copy9.png)
 1. Asigne el nombre "TripDataCSV" al conjunto de datos del receptor. Seleccione "ADLSGen2" como servicio vinculado. Indique dónde desea escribir el archivo CSV. Por ejemplo, puede escribir los datos en el archivo `trip-data.csv` del contenedor `staging-container`. Establezca **First row as header** (Primera fila como encabezado) en verdadero, ya que desea que los datos de salida tengan encabezados. Puesto que todavía no existe ningún archivo en el destino, establezca **Import schema** (Importar esquema) en **None** (Ninguno). Haga clic en OK (Aceptar) cuando haya finalizado.
@@ -161,7 +161,7 @@ Ha creado correctamente el conjunto de datos de origen. Asegúrese de que la con
 1. La vista de supervisión de la copia proporciona los detalles de ejecución y las características de rendimiento de la actividad. Puede ver información como los datos leídos y escritos, las filas leídas y escritas, los archivos leídos y escritos, y el rendimiento. Si ha configurado todo correctamente, debería ver 49 999 filas escritas en un archivo del receptor de ADLS.
 
     ![Copia en el portal 13](media/lab-data-flow-data-share/copy13.png)
-1. Antes de pasar a la sección siguiente, se recomienda publicar los cambios en el servicio de Azure Data Factory haciendo clic en **Publish all** (Publicar todo) en la barra superior de Azure Data Factory. Aunque no se trata en este laboratorio, Azure Data Factory admite la integración completa de Git. Esta integración permite realizar control de versiones, el almacenamiento iterativo en un repositorio y la colaboración en una factoría de datos. Para más información, consulte [Control de código fuente en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/source-control#troubleshooting-git-integration).
+1. Antes de pasar a la sección siguiente, se recomienda publicar los cambios en el servicio de Azure Data Factory haciendo clic en **Publish all** (Publicar todo) en la barra superior de Azure Data Factory. Aunque no se trata en este laboratorio, Azure Data Factory admite la integración completa de Git. Esta integración permite realizar control de versiones, el almacenamiento iterativo en un repositorio y la colaboración en una factoría de datos. Para más información, consulte [Control de código fuente en Azure Data Factory](./source-control.md#troubleshooting-git-integration).
 
     ![Publicación en el portal 1](media/lab-data-flow-data-share/publish1.png)
 
@@ -176,7 +176,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
 1. En el panel de actividades del lienzo de la canalización, abra el acordeón **Move and Transform** (Mover y transformar) y arrastre la actividad **Data flow** (Flujo de datos) al lienzo.
 
     ![Flujo de datos en el portal 1](media/lab-data-flow-data-share/dataflow1.png)
-1. En el panel lateral que se abre, seleccione **Create new data flow (Crear nuevo flujo de datos)** y elija **Mapping data flow** (Flujo de datos de asignación). Haga clic en **OK**.
+1. En el panel lateral que se abre, seleccione **Create new data flow (Crear nuevo flujo de datos)** y elija **Mapping data flow** (Flujo de datos de asignación). Haga clic en **OK** .
 
     ![Flujo de datos en el portal 2](media/lab-data-flow-data-share/dataflow2.png)
 1. Se le redirigirá al lienzo de flujo de datos, donde creará la lógica de transformación. En la pestaña General, asigne el nombre "JoinAndAggregateData" al flujo de datos.
@@ -209,7 +209,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
 1. Asigne a este origen el nombre "TripFaresSQL". Haga clic en **New** (Nuevo) junto al campo del conjunto de datos de origen para crear un nuevo conjunto de datos de Azure SQL Database.
 
     ![Flujo de datos en el portal 9](media/lab-data-flow-data-share/dataflow9.png)
-1. Seleccione el icono **Azure SQL Database** y haga clic en Continue (Continuar). *Nota: puede observar que muchos de los conectores de Azure Data Factory no se admiten en el flujo de datos de asignación. Para transformar los datos de uno de estos orígenes, realice la ingesta en un origen compatible mediante la actividad de copia*.
+1. Seleccione el icono **Azure SQL Database** y haga clic en Continue (Continuar). *Nota: puede observar que muchos de los conectores de Azure Data Factory no se admiten en el flujo de datos de asignación. Para transformar los datos de uno de estos orígenes, realice la ingesta en un origen compatible mediante la actividad de copia* .
 
     ![Flujo de datos en el portal 10](media/lab-data-flow-data-share/dataflow10.png)
 1. Llame al conjunto de datos "TripFares". Seleccione "SQLDB" como servicio vinculado. Seleccione "dbo.TripFares" en la lista desplegable de nombre de tabla. Importe el esquema con la opción **From connection/store** (Desde la conexión o almacén). Haga clic en OK (Aceptar) cuando haya finalizado.
@@ -224,7 +224,7 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
 1. Para agregar una nueva transformación, haga clic en el icono de signo más situado en la esquina inferior derecha de "TripDataCSV". En **Multiple inputs/outputs** (Varias entradas y salidas), seleccione **Join** (Combinación).
 
     ![Combinación en el portal 1](media/lab-data-flow-data-share/join1.png)
-1. Asigne a la transformación de combinación el nombre "InnerJoinWithTripFares". Seleccione "TripFaresSQL" en la lista desplegable del flujo derecho. Seleccione **Inner** (Interna) como tipo de combinación. Para más información sobre los diferentes tipos de combinación en el flujo de datos de asignación, consulte [Tipos de combinación](https://docs.microsoft.com/azure/data-factory/data-flow-join#join-types).
+1. Asigne a la transformación de combinación el nombre "InnerJoinWithTripFares". Seleccione "TripFaresSQL" en la lista desplegable del flujo derecho. Seleccione **Inner** (Interna) como tipo de combinación. Para más información sobre los diferentes tipos de combinación en el flujo de datos de asignación, consulte [Tipos de combinación](./data-flow-join.md#join-types).
 
     Seleccione en cada flujo las columnas con las que desea establecer coincidencias, a través de la lista desplegable **Join conditions** (Condiciones de combinación). Para agregar otra condición de combinación, haga clic en el icono de signo más junto a una condición existente. De forma predeterminada, todas las condiciones de combinación se unen con un operador AND, lo que significa que se deben cumplir todas las condiciones para establecer una coincidencia. En este laboratorio, deseamos establecer las coincidencias de las columnas `medallion`, `hack_license`, `vendor_id` y `pickup_datetime`.
 
@@ -241,14 +241,14 @@ El flujo de datos creado en este paso realiza una combinación interna del conju
 1. Denomine "AggregateByPaymentType" a la transformación de agregado. Seleccione `payment_type` como columna de agrupación.
 
     ![Agregación en el portal 2](media/lab-data-flow-data-share/agg2.png)
-1. Vaya a la pestaña **Agregados**. Aquí, especificará dos agregaciones:
+1. Vaya a la pestaña **Agregados** . Aquí, especificará dos agregaciones:
     * La tarifa media agrupada por tipo de pago
     * La distancia total de la carrera agrupada por tipo de pago
 
     En primer lugar, creará la expresión para la tarifa media. En el cuadro de texto con la etiqueta **Add or select a column** (Agregar o seleccionar una columna), escriba "tarifa_media".
 
     ![Agregación en el portal 3](media/lab-data-flow-data-share/agg3.png)
-1. Para especificar una expresión de agregación, haga clic en el cuadro azul con la etiqueta **Enter expression** (Escribir expresión). Se abrirá el generador de expresiones de flujo de datos, una herramienta que se usa para crear estas expresiones de forma visual mediante un esquema de entrada, funciones y operaciones integradas, y parámetros definidos por el usuario. Para más información sobre las funcionalidades del generador de expresiones, consulte la [documentación del generador de expresiones](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder).
+1. Para especificar una expresión de agregación, haga clic en el cuadro azul con la etiqueta **Enter expression** (Escribir expresión). Se abrirá el generador de expresiones de flujo de datos, una herramienta que se usa para crear estas expresiones de forma visual mediante un esquema de entrada, funciones y operaciones integradas, y parámetros definidos por el usuario. Para más información sobre las funcionalidades del generador de expresiones, consulte la [documentación del generador de expresiones](./concepts-data-flow-expression-builder.md).
 
     Para obtener la tarifa media, utilice la función de agregación `avg()` para agregar la columna `total_amount` convertida en un entero con `toInteger()`. En el lenguaje de expresiones de flujo de datos, esta operación se define como `avg(toInteger(total_amount))`. Haga clic en **Save and finish** (Guardar y finalizar) cuando haya terminado.
 
@@ -288,7 +288,7 @@ Ha creado correctamente el flujo de datos. Ahora es el momento de ejecutarlo en 
 
 ### <a name="debug-your-pipeline-end-to-end"></a>Depuración de la canalización completa
 
-1. Vuelva a la pestaña de la canalización **IngestAndTransformData**. Observe el cuadro verde en la actividad de copia "IngestIntoADLS". Arrástrela sobre la actividad de flujo de datos "JoinAndAggregateData". De este modo se crea una condición "en caso de éxito", que determina que la actividad de flujo de datos solo se ejecutará si la copia se realiza correctamente.
+1. Vuelva a la pestaña de la canalización **IngestAndTransformData** . Observe el cuadro verde en la actividad de copia "IngestIntoADLS". Arrástrela sobre la actividad de flujo de datos "JoinAndAggregateData". De este modo se crea una condición "en caso de éxito", que determina que la actividad de flujo de datos solo se ejecutará si la copia se realiza correctamente.
 
     ![Canalización en el portal 1](media/lab-data-flow-data-share/pipeline1.png)
 1. Como hicimos en la actividad de copia, haga clic en **Debug** (Depurar) para llevar a cabo una ejecución de depuración. En las ejecuciones de depuración, la actividad de flujo de datos usará el clúster de depuración activo en lugar de crear un nuevo clúster. Esta canalización tardará poco más de un minuto en ejecutarse.
@@ -310,35 +310,35 @@ Ya ha completado la parte de Azure Data Factory de este laboratorio. Publique lo
 
 En esta sección aprenderá a configurar un nuevo recurso compartido de datos mediante Azure Portal. Esto implicará la creación de un nuevo recurso compartido de datos que contendrá conjuntos de datos de Azure Data Lake Store Gen2 y Azure Synapse Analytics (anteriormente SQL Data Warehouse). Después, configurará una programación de instantáneas, que proporcionará a los consumidores de datos una opción para actualizar automáticamente los datos que se compartan con ellos. A continuación, invitará a los destinatarios al recurso compartido de datos. 
 
-Después de crear el recurso compartido de datos, cambiará su papel y se convertirá en el *consumidor de datos*. Como consumidor de datos, pasará por el flujo de aceptación de una invitación al recurso compartido de datos, la configuración de la ubicación donde quiere recibir los datos y la asignación de los conjuntos de datos a diferentes ubicaciones de almacenamiento. A continuación, desencadenará una instantánea que copiará los datos compartidos en el destino especificado. 
+Después de crear el recurso compartido de datos, cambiará su papel y se convertirá en el *consumidor de datos* . Como consumidor de datos, pasará por el flujo de aceptación de una invitación al recurso compartido de datos, la configuración de la ubicación donde quiere recibir los datos y la asignación de los conjuntos de datos a diferentes ubicaciones de almacenamiento. A continuación, desencadenará una instantánea que copiará los datos compartidos en el destino especificado. 
 
 ### <a name="sharing-data-data-provider-flow"></a>Uso compartido de datos (flujo del proveedor de datos)
 
 1. Abra Azure Portal en Microsoft Edge o Google Chrome.
 
-1. Mediante la barra de búsqueda de la parte superior de la página, busque **Recursos compartidos de datos**.
+1. Mediante la barra de búsqueda de la parte superior de la página, busque **Recursos compartidos de datos** .
 
     ![Anuncios del portal](media/lab-data-flow-data-share/portal-ads.png)
 
-1. Seleccione la cuenta de recurso compartido de datos con "Provider" en el nombre. Por ejemplo, **DataProvider0102**. 
+1. Seleccione la cuenta de recurso compartido de datos con "Provider" en el nombre. Por ejemplo, **DataProvider0102** . 
 
-1. Seleccione **Empezar a compartir los datos**.
+1. Seleccione **Empezar a compartir los datos** .
 
     ![Inicio del uso compartido](media/lab-data-flow-data-share/ads-start-sharing.png)
 
 1. Seleccione **+ Crear** para comenzar a configurar el nuevo recurso compartido de datos. 
 
-1. En **Nombre del recurso compartido**, especifique un nombre de su elección. Este es el nombre del recurso compartido que verá el consumidor de datos; por tanto, asegúrese de darle un nombre descriptivo como, por ejemplo, TaxiData.
+1. En **Nombre del recurso compartido** , especifique un nombre de su elección. Este es el nombre del recurso compartido que verá el consumidor de datos; por tanto, asegúrese de darle un nombre descriptivo como, por ejemplo, TaxiData.
 
-1. En **Descripción**, incluya una frase que describa el contenido del recurso compartido de datos. Este recurso contendrá datos de carreras de taxis de todo el mundo, guardados en una serie de almacenes entre los que se incluyen Azure Synapse Analytics y Azure Data Lake Store. 
+1. En **Descripción** , incluya una frase que describa el contenido del recurso compartido de datos. Este recurso contendrá datos de carreras de taxis de todo el mundo, guardados en una serie de almacenes entre los que se incluyen Azure Synapse Analytics y Azure Data Lake Store. 
 
-1. En **Condiciones de uso**, especifique un conjunto de condiciones que le gustaría que el consumidor de datos aceptase. Algunos ejemplos pueden ser "No distribuya estos datos fuera de la organización" o "Consulte el contrato legal". 
+1. En **Condiciones de uso** , especifique un conjunto de condiciones que le gustaría que el consumidor de datos aceptase. Algunos ejemplos pueden ser "No distribuya estos datos fuera de la organización" o "Consulte el contrato legal". 
 
     ![Detalles del recurso compartido](media/lab-data-flow-data-share/ads-details.png)
 
-1. Seleccione **Continuar**. 
+1. Seleccione **Continuar** . 
 
-1. Seleccione **Agregar conjuntos de datos**. 
+1. Seleccione **Agregar conjuntos de datos** . 
 
     ![Agregar el conjunto de datos 1](media/lab-data-flow-data-share/add-dataset.png)
 
@@ -364,21 +364,21 @@ Después de crear el recurso compartido de datos, cambiará su papel y se conver
 
 1. Seleccione **EDW** y, a continuación, seleccione **AggregatedTaxiData** para la tabla. 
 
-1. Seleccione **Agregar conjunto de datos**.
+1. Seleccione **Agregar conjunto de datos** .
 
     Ahora contamos con una tabla SQL que forma parte de nuestro conjunto de datos. A continuación, agregaremos otros conjuntos de datos desde Azure Data Lake Store. 
 
-1. Seleccione **Agregar conjunto de datos** y elija **Azure Data Lake Store Gen2**.
+1. Seleccione **Agregar conjunto de datos** y elija **Azure Data Lake Store Gen2** .
 
     ![Agregar conjunto de datos de ADLS](media/lab-data-flow-data-share/add-dataset-adls.png)
 
-1. Seleccione **Siguiente**.
+1. Seleccione **Siguiente** .
 
-1. Expanda *wwtaxidata*. Expanda *Boston Taxi Data*. Tenga en cuenta que puede compartir hasta el nivel de archivo. 
+1. Expanda *wwtaxidata* . Expanda *Boston Taxi Data* . Tenga en cuenta que puede compartir hasta el nivel de archivo. 
 
 1. Seleccione la carpeta *Boston Taxi Data* para agregarla completa a al recurso compartido de datos. 
 
-1. Seleccione **Agregar conjuntos de datos**.
+1. Seleccione **Agregar conjuntos de datos** .
 
 1. Revise los conjuntos de datos que se han agregado. Se deberían haber agregado una tabla SQL y una carpeta de ADLS Gen2 al recurso compartido de datos. 
 
@@ -394,21 +394,21 @@ Después de crear el recurso compartido de datos, cambiará su papel y se conver
 
 1. En esta pantalla, puede realizar una configuración de instantánea para el consumidor de datos. Esto les permitirá recibir actualizaciones periódicas de los datos según el intervalo que defina. 
 
-1. Marque **Programación de instantáneas** y configure una actualización cada hora de los datos mediante el menú desplegable *Periodicidad*.  
+1. Marque **Programación de instantáneas** y configure una actualización cada hora de los datos mediante el menú desplegable *Periodicidad* .  
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
     Ahora tiene un recurso compartido de datos activo. Revisemos qué puede ver como proveedor de datos cuando crea un recurso compartido de datos. 
 
-1. Seleccione el recurso compartido de datos que ha creado, de nombre **TaxiData**. Puede navegar hasta él seleccionando **Recursos compartidos enviados** en **Recurso compartido de datos**. 
+1. Seleccione el recurso compartido de datos que ha creado, de nombre **TaxiData** . Puede navegar hasta él seleccionando **Recursos compartidos enviados** en **Recurso compartido de datos** . 
 
 1. Haga clic en Programación de instantáneas. Puede deshabilitar la programación de instantáneas, si lo desea. 
 
-1. A continuación, seleccione la pestaña **Conjuntos de datos**. Puede agregar otros conjuntos de datos a este recurso compartido de datos una vez creado. 
+1. A continuación, seleccione la pestaña **Conjuntos de datos** . Puede agregar otros conjuntos de datos a este recurso compartido de datos una vez creado. 
 
-1. Seleccione la pestaña **Suscripciones a recursos compartidos**. Todavía no existen suscripciones a recursos compartidos porque el consumidor de datos aún no ha aceptado la invitación.
+1. Seleccione la pestaña **Suscripciones a recursos compartidos** . Todavía no existen suscripciones a recursos compartidos porque el consumidor de datos aún no ha aceptado la invitación.
 
-1. Vaya a la pestaña **Invitaciones**. Aquí verá una lista de las invitaciones pendientes. 
+1. Vaya a la pestaña **Invitaciones** . Aquí verá una lista de las invitaciones pendientes. 
 
     ![Invitaciones pendientes](media/lab-data-flow-data-share/pending-invites.png)
 
@@ -428,15 +428,15 @@ En el correo electrónico que debe haber recibido, haga clic en "Ver invitación
 
 Es posible que se le pida que seleccione una suscripción. Asegúrese de seleccionar la suscripción en la que ha estado trabajando para este laboratorio. 
 
-1. Haga clic en la invitación titulada *TaxiData*. 
+1. Haga clic en la invitación titulada *TaxiData* . 
 
 1. En esta pantalla de invitación, observará varios detalles sobre el recurso compartido de datos que configuró anteriormente como proveedor de datos. Revise los detalles y acepte las condiciones de uso, si se indicaron.
 
 1. Seleccione la suscripción y el grupo de recursos que ya existen para el laboratorio. 
 
-1. En **Data share account** (Cuenta de Azure Data Share), seleccione **DataConsumer**. También puede crear una nueva cuenta de Azure Data Share. 
+1. En **Data share account** (Cuenta de Azure Data Share), seleccione **DataConsumer** . También puede crear una nueva cuenta de Azure Data Share. 
 
-1. Junto a **Received share name** (Nombre de recurso compartido recibido), observará que el nombre del recurso compartido predeterminado es el nombre especificado por el proveedor de datos. Asigne al recurso compartido un nombre descriptivo para los datos que va a recibir, por ejemplo **TaxiDataShare**.
+1. Junto a **Received share name** (Nombre de recurso compartido recibido), observará que el nombre del recurso compartido predeterminado es el nombre especificado por el proveedor de datos. Asigne al recurso compartido un nombre descriptivo para los datos que va a recibir, por ejemplo **TaxiDataShare** .
 
     ![Aceptación de invitación](media/lab-data-flow-data-share/consumer-accept.png)
 
@@ -452,13 +452,13 @@ Es posible que se le pida que seleccione una suscripción. Asegúrese de selecci
 
     La opción **Desencadenar instantánea** está atenuada, pero el recurso compartido está activo. 
 
-1. Seleccione la pestaña **Conjuntos de datos**. Tenga en cuenta que cada conjunto de datos tiene el estado No asignado, lo que significa que no tiene ningún destino en el que copiar los datos. 
+1. Seleccione la pestaña **Conjuntos de datos** . Tenga en cuenta que cada conjunto de datos tiene el estado No asignado, lo que significa que no tiene ningún destino en el que copiar los datos. 
 
     ![Conjuntos de datos no asignados](media/lab-data-flow-data-share/unmapped.png)
 
-1. Seleccione la tabla de Azure Synapse Analytics y, a continuación, seleccione **+ Asignar a destino**.
+1. Seleccione la tabla de Azure Synapse Analytics y, a continuación, seleccione **+ Asignar a destino** .
 
-1. En el lado derecho de la pantalla, seleccione la lista desplegable **Tipo de datos de destino**. 
+1. En el lado derecho de la pantalla, seleccione la lista desplegable **Tipo de datos de destino** . 
 
     Puede asignar los datos de SQL a una amplia gama de almacenes de datos. En este caso, los asignaremos a una instancia de Azure SQL Database.
 
@@ -470,7 +470,7 @@ Es posible que se le pida que seleccione una suscripción. Asegúrese de selecci
     
     (Opcional) Puede elegir si recibe los datos en el lago de datos en formato CSV o Parquet. 
 
-1. Junto a **Tipo de datos de destino**, seleccione Azure SQL Database. 
+1. Junto a **Tipo de datos de destino** , seleccione Azure SQL Database. 
 
 1. Seleccione la suscripción, el grupo de recursos y la cuenta de almacenamiento con los que ha estado trabajando. 
 
@@ -480,7 +480,7 @@ Es posible que se le pida que seleccione una suscripción. Asegúrese de selecci
 
 1. Abra una nueva pestaña de Azure Portal. No cierre la pestaña existente, ya que tendrá que volver a ella en un momento. 
 
-1. En la nueva pestaña que ha abierto, vaya a **SQL Database**.
+1. En la nueva pestaña que ha abierto, vaya a **SQL Database** .
 
 1. Seleccione la base de datos SQL (solo debe haber una en la suscripción). Tenga cuidado de no seleccionar el almacenamiento de datos. 
 
@@ -492,7 +492,7 @@ Es posible que se le pida que seleccione una suscripción. Asegúrese de selecci
 
     Este comando permite al servicio Azure Data Share usar identidades administradas para que los servicios de Azure se autentiquen en la instancia de SQL Server y poder copiar datos en ella. 
 
-1. Vuelva a la pestaña original y seleccione **Asignar a destino**.
+1. Vuelva a la pestaña original y seleccione **Asignar a destino** .
 
 1. A continuación, seleccione la carpeta Azure Data Lake Gen2 que forma parte del conjunto de datos y asígnela a una cuenta de Azure Blob Storage. 
 
@@ -502,7 +502,7 @@ Es posible que se le pida que seleccione una suscripción. Asegúrese de selecci
 
     ![Asignado](media/lab-data-flow-data-share/all-mapped.png)
     
-1. Seleccione **Detalles**. 
+1. Seleccione **Detalles** . 
 
     Observe que la opción **Desencadenar instantánea** ya no está atenuada, puesto que ahora el recurso compartido de datos tiene destinos en los que copiar.
 
@@ -512,12 +512,10 @@ Es posible que se le pida que seleccione una suscripción. Asegúrese de selecci
 
     Se iniciará la copia de datos en la nueva cuenta de Azure Data Share. En un escenario real, estos datos procederían de un tercero. 
 
-    Los datos tardarán entre 3 y 5 minutos en aparecer. Para supervisar el progreso, haga clic en la pestaña **Historial**. 
+    Los datos tardarán entre 3 y 5 minutos en aparecer. Para supervisar el progreso, haga clic en la pestaña **Historial** . 
 
-    Mientras espera, vaya hasta el recurso compartido de datos original (TaxiData) y vea el estado de **Suscripciones a recursos compartidos** y la pestaña **Historial**. Observe que ahora hay una suscripción activa; como proveedor de datos, también puede supervisar cuándo el consumidor de datos ha empezado a recibir los datos compartidos con él. 
+    Mientras espera, vaya hasta el recurso compartido de datos original (TaxiData) y vea el estado de **Suscripciones a recursos compartidos** y la pestaña **Historial** . Observe que ahora hay una suscripción activa; como proveedor de datos, también puede supervisar cuándo el consumidor de datos ha empezado a recibir los datos compartidos con él. 
 
 1. Vuelva al recurso compartido de datos del consumidor de datos. Una vez que el estado del desencadenador sea correcto, vaya a la base de datos SQL de destino y al lago de datos para comprobar que los datos se han descargado en los almacenes correspondientes. 
 
 ¡Enhorabuena, ha completado el laboratorio!
-
-

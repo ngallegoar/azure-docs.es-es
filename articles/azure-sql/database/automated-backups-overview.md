@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 10/05/2020
-ms.openlocfilehash: be40cd4a0bef43d81c792fd10508014f5b886fba
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124193"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675312"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Copias de seguridad automatizadas - Azure SQL Database e Instancia administrada de SQL
 
@@ -30,7 +30,7 @@ Las copias de seguridad de base de datos son una parte esencial de cualquier est
 
 ### <a name="backup-frequency"></a>Frecuencia de copia de seguridad
 
-Tanto SQL Database como SQL Managed Instance usan tecnología de SQL Server para crear [copias de seguridad completas](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server) cada semana, [copias de seguridad diferenciales](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) cada 12 o 24 horas y [copias de seguridad del registro de transacciones](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) cada 5 o 10 minutos. La frecuencia de las copias de seguridad del registro de transacciones se basa en el tamaño de proceso y en la cantidad de actividad de la base de datos.
+Tanto SQL Database como SQL Managed Instance usan tecnología de SQL Server para crear [copias de seguridad completas](/sql/relational-databases/backup-restore/full-database-backups-sql-server) cada semana, [copias de seguridad diferenciales](/sql/relational-databases/backup-restore/differential-backups-sql-server) cada 12 o 24 horas y [copias de seguridad del registro de transacciones](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) cada 5 o 10 minutos. La frecuencia de las copias de seguridad del registro de transacciones se basa en el tamaño de proceso y en la cantidad de actividad de la base de datos.
 
 Cuando una base de datos se restaura, el servicio averigua qué copia de seguridad completa, diferencial o del registro de transacciones es necesario restaurar.
 
@@ -56,7 +56,7 @@ En el caso de una instancia de SQL Database, la redundancia del almacenamiento d
 
 Puede utilizar estas copias de seguridad para realizar lo siguiente:
 
-- **Restauración a un momento dado de una base de datos existente** - [Restaurar una base de datos existente a un momento en el tiempo pasado](recovery-using-backups.md#point-in-time-restore) dentro del período de retención mediante Azure Portal, Azure PowerShell, la CLI de Azure o una API REST. En el caso de SQL Database, esta operación crea una base de datos en el mismo servidor que la original, pero usa otro nombre para evitar sobrescribirla. Una vez finalizada la restauración, puede eliminar la base de datos original. Como alternativa, puede [cambiar el nombre](https://docs.microsoft.com/sql/relational-databases/databases/rename-a-database) de la base de datos original y, luego, de la base de datos restaurada para que tenga el nombre de la original. De igual forma, en SQL Managed Instance esta operación crea una copia de la base de datos en la misma instancia administrada (o en otra) en la misma suscripción y región.
+- **Restauración a un momento dado de una base de datos existente** - [Restaurar una base de datos existente a un momento en el tiempo pasado](recovery-using-backups.md#point-in-time-restore) dentro del período de retención mediante Azure Portal, Azure PowerShell, la CLI de Azure o una API REST. En el caso de SQL Database, esta operación crea una base de datos en el mismo servidor que la original, pero usa otro nombre para evitar sobrescribirla. Una vez finalizada la restauración, puede eliminar la base de datos original. Como alternativa, puede [cambiar el nombre](/sql/relational-databases/databases/rename-a-database) de la base de datos original y, luego, de la base de datos restaurada para que tenga el nombre de la original. De igual forma, en SQL Managed Instance esta operación crea una copia de la base de datos en la misma instancia administrada (o en otra) en la misma suscripción y región.
 - **Restauración a un momento dado de una base de datos eliminada** - [Restaurar una base de datos eliminada al momento de su eliminación](recovery-using-backups.md#deleted-database-restore) o a cualquier otro punto dentro del período de retención. La base de datos eliminada solo se puede restaurar en el mismo servidor o instancia administrada donde se ha creado la base de datos original. Al eliminar una base de datos, el servicio toma una copia de seguridad del registro de transacciones final antes de la eliminación, para evitar la pérdida de datos.
 - **Restauración geográfica** - [Restaurar una base de datos en otra región geográfica](recovery-using-backups.md#geo-restore). La restauración geográfica le permite recuperarse de un desastre en una región geográfica cuando no puede acceder a la base de datos o a las copias de seguridad en la región primaria. Crea una base de datos en cualquier servidor o instancia administrada existente, en cualquier región de Azure.
    > [!IMPORTANT]
@@ -72,11 +72,11 @@ Puede probar las operaciones de configuración de copia de seguridad y restaurac
 
 | Operación | Azure portal | Azure PowerShell |
 |---|---|---|
-| **Cambio del período de retención de copia de seguridad** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instancia administrada de SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instancia administrada de SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| **Cambio del período de retención de copia de seguridad** | [SQL Database](automated-backups-overview.md?tabs=single-database#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Instancia administrada de SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Instancia administrada de SQL](/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | **Cambio del período de retención de copia de seguridad a largo plazo** | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>SQL Managed Instance: N/D  | [SQL Database](long-term-backup-retention-configure.md)<br/>[Instancia administrada de SQL](../managed-instance/long-term-backup-retention-configure.md)  |
-| **Restauración de una base de datos desde un momento dado** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instancia administrada de SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| **Restauración de una base de datos eliminada** | [SQL Database](recovery-using-backups.md)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada de SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| **Restauración de una base de datos desde Azure Blob Storage** | SQL Database: N/D <br/>SQL Managed Instance: N/D  | SQL Database: N/D <br/>[Instancia administrada de SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| **Restauración de una base de datos desde un momento dado** | [SQL Database](recovery-using-backups.md#point-in-time-restore)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md) | [SQL Database](/powershell/module/az.sql/restore-azsqldatabase) <br/> [Instancia administrada de SQL](/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| **Restauración de una base de datos eliminada** | [SQL Database](recovery-using-backups.md)<br>[Instancia administrada de SQL](../managed-instance/point-in-time-restore.md#restore-a-deleted-database) | [SQL Database](/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Instancia administrada de SQL](/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| **Restauración de una base de datos desde Azure Blob Storage** | SQL Database: N/D <br/>SQL Managed Instance: N/D  | SQL Database: N/D <br/>[Instancia administrada de SQL](../managed-instance/restore-sample-database-quickstart.md) |
 
 ## <a name="backup-scheduling"></a>Programación de copias de seguridad
 
@@ -115,7 +115,7 @@ No se cobra el consumo de almacenamiento de copia de seguridad hasta el tamaño 
 
 - Reduzca el [período de retención de copias de seguridad](#change-the-pitr-backup-retention-period-by-using-the-azure-portal) al mínimo posible para sus necesidades.
 - Evite realizar operaciones de escritura de gran tamaño (como recompilaciones de índices) con más frecuencia de la debida.
-- En el caso de las operaciones de carga de datos de gran tamaño, considere la posibilidad de usar [índices de almacén de columnas agrupados](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview), siga los [procedimientos recomendados](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) relacionados, o bien reduzca el número de índices no agrupados.
+- En el caso de las operaciones de carga de datos de gran tamaño, considere la posibilidad de usar [índices de almacén de columnas agrupados](/sql/relational-databases/indexes/columnstore-indexes-overview), siga los [procedimientos recomendados](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) relacionados, o bien reduzca el número de índices no agrupados.
 - En el nivel de servicio De uso general, el almacenamiento de datos aprovisionado es más económico que el precio del almacenamiento de copia de seguridad. Si los costos de exceso de almacenamiento de copia de seguridad siempre son elevados, le conviene valorar aumentar el almacenamiento de datos para ahorrar en almacenamiento de copia de seguridad.
 - En la lógica de aplicación, use TempDB en lugar de tablas permanentes para almacenar resultados temporales o datos transitorios.
 - Use el almacenamiento de copia de seguridad con redundancia local siempre que sea posible (por ejemplo, entornos de desarrollo y pruebas).
@@ -249,7 +249,7 @@ El cambio de la retención de copia de seguridad de PITR para la Instancia admin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> El módulo AzureRM de PowerShell todavía es compatible con SQL Database y la Instancia administrada de SQL, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para más información, vea [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Los argumentos de los comandos del módulo Az son básicamente idénticos a los de los módulos AzureRm.
+> El módulo AzureRM de PowerShell todavía es compatible con SQL Database y la Instancia administrada de SQL, pero todo el desarrollo futuro se realizará para el módulo Az.Sql. Para más información, vea [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Los argumentos de los comandos del módulo Az son básicamente idénticos a los de los módulos AzureRm.
 
 #### <a name="sql-database"></a>[SQL Database](#tab/single-database)
 
@@ -333,7 +333,7 @@ Código de estado: 200
 }
 ```
 
-Para más información, consulte [API REST de retención de Backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Para más información, consulte [API REST de retención de Backup](/rest/api/sql/backupshorttermretentionpolicies).
 
 #### <a name="sample-request"></a>Solicitud de ejemplo
 
@@ -366,7 +366,7 @@ Código de estado: 200
 }
 ```
 
-Para más información, consulte [API REST de retención de Backup](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
+Para más información, consulte [API REST de retención de Backup](/rest/api/sql/backupshorttermretentionpolicies).
 
 ## <a name="configure-backup-storage-redundancy"></a>Configuración de la redundancia del almacenamiento de copia de seguridad
 
@@ -403,7 +403,7 @@ Para configurar la redundancia del almacenamiento de copia de seguridad al crear
 New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Geo
 ```
 
-Para obtener más información, consulte [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase).
+Para obtener más información, consulte [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase).
 
 Para actualizar la redundancia del almacenamiento de copia de seguridad de una base de datos existente, puede usar el parámetro -BackupStorageRedundancy. Los valores posibles son Geo, Zone y Local.
 Tenga en cuenta que los cambios pueden tardar hasta 48 horas en aplicarse en la base de datos. Al cambiar del almacenamiento de copia de seguridad con redundancia geográfica al almacenamiento con redundancia local o de zona se deshabilita la restauración geográfica. 
@@ -413,7 +413,7 @@ Tenga en cuenta que los cambios pueden tardar hasta 48 horas en aplicarse en la
 Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01" -ServerName "Server01" -BackupStorageRedundancy Zone
 ```
 
-Para obtener más información, consulte [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase).
+Para obtener más información, consulte [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase).
 
 > [!NOTE]
 > Para usar el parámetro -BackupStorageRedundancy con operaciones de restauración de base de datos, copia de base de datos o creación de un elemento secundario, use Azure PowerShell versión Az.Sql 2.11.0. 
@@ -427,13 +427,13 @@ Para configurar la redundancia del almacenamiento de copia de seguridad al crear
 New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Location westcentralus -AdministratorCredential (Get-Credential) -SubnetId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourcegroup01/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name" -LicenseType LicenseIncluded -StorageSizeInGB 1024 -VCore 16 -Edition "GeneralPurpose" -ComputeGeneration Gen4 -BackupStorageRedundancy Geo
 ```
 
-Para obtener más información, consulte [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+Para obtener más información, consulte [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance).
 
 ---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Uso de Azure Policy para aplicar la redundancia del almacenamiento de copia de seguridad
 
-Si tiene que cumplir requisitos de residencia de datos que le imponen que mantenga todos los datos en una única región de Azure, es posible que desee aplicar copias de seguridad con redundancia de zona o con redundancia local para sus instancias de SQL Database o Managed Instance mediante Azure Policy. Azure Policy es un servicio que puede usar para crear, asignar y administrar directivas que aplican reglas a los recursos de Azure. Azure Policy le permite mantener esos recursos conforme a lo establecido en los estándares corporativos y los contratos de nivel de servicio. Para más información, consulte la [Introducción a Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview). 
+Si tiene que cumplir requisitos de residencia de datos que le imponen que mantenga todos los datos en una única región de Azure, es posible que desee aplicar copias de seguridad con redundancia de zona o con redundancia local para sus instancias de SQL Database o Managed Instance mediante Azure Policy. Azure Policy es un servicio que puede usar para crear, asignar y administrar directivas que aplican reglas a los recursos de Azure. Azure Policy le permite mantener esos recursos conforme a lo establecido en los estándares corporativos y los contratos de nivel de servicio. Para más información, consulte la [Introducción a Azure Policy](../../governance/policy/overview.md). 
 
 ### <a name="built-in-backup-storage-redundancy-policies"></a>Directivas de redundancia del almacenamiento de copia de seguridad integradas 
 
@@ -443,14 +443,14 @@ Se han agregado las siguientes directivas integradas nuevas, que se pueden asign
 
 [Las instancias administradas de SQL deben evitar el uso de redundancia de copia de seguridad con almacenamiento con redundancia geográfica](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9934fd7-29f2-4e6d-ab3d-607ea38e9079)
 
-Puede encontrar una lista completa de las definiciones de directiva integradas para SQL Database y SQL Managed Instance [aquí](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
+Puede encontrar una lista completa de las definiciones de directiva integradas para SQL Database y SQL Managed Instance [aquí](./policy-reference.md).
 
 Si quiere aplicar los requisitos de residencia de datos en el nivel de la organización, puede asignar estas directivas a una suscripción. Una vez que se asignan en una suscripción, los usuarios de esa suscripción no podrán crear una base de datos ni una instancia administrada con almacenamiento de copia de seguridad con redundancia geográfica a través de Azure Portal o Azure PowerShell. 
 
 > [!IMPORTANT]
-> Las directivas de Azure no se aplican cuando la base de datos se crea mediante T-SQL. Para aplicar la residencia de datos al crear una base de datos mediante T-SQL, [use "LOCAL" o "ZONE" como entrada del parámetro BACKUP_STORAGE_REDUNDANCY en la instrucción CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
+> Las directivas de Azure no se aplican cuando la base de datos se crea mediante T-SQL. Para aplicar la residencia de datos al crear una base de datos mediante T-SQL, [use "LOCAL" o "ZONE" como entrada del parámetro BACKUP_STORAGE_REDUNDANCY en la instrucción CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
-Obtenga información sobre cómo asignar directivas mediante [Azure Portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) o [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell).
+Obtenga información sobre cómo asignar directivas mediante [Azure Portal](../../governance/policy/assign-policy-portal.md) o [Azure PowerShell](../../governance/policy/assign-policy-powershell.md).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

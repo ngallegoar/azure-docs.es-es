@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 50e6ce9b4c206650de72d9cdd41bdd6dd555acd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e948962a73137f78ec26a01c1d2f54d883e76783
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566608"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637452"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Compilación de la primera instancia de Data Factory mediante Azure Portal
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "91566608"
 > Este artículo se aplica a la versión 1 de Azure Data Factory, que está disponible con carácter general. Si utiliza la versión actual del servicio Data Factory, consulte el artículo [Inicio rápido: Creación de una factoría de datos con Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 > [!WARNING]
-> El editor de JSON de Azure Portal para crear e implementar canalizaciones de ADF v1 se desactivará el 31 de julio de 2019. Después del 31 de julio de 2019, puede seguir usando los [cmdlets de PowerShell de ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), el [SDK de .Net para ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), las [API REST de ADF v1](https://docs.microsoft.com/rest/api/datafactory/) para crear las canalizaciones de ADF v1.
+> El editor de JSON de Azure Portal para crear e implementar canalizaciones de ADF v1 se desactivará el 31 de julio de 2019. Después del 31 de julio de 2019, puede seguir usando los [cmdlets de PowerShell de ADF v1](/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), el [SDK de .Net para ADF v1](/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet), las [API REST de ADF v1](/rest/api/datafactory/) para crear las canalizaciones de ADF v1.
 
 En este artículo, aprenderá a usar [Azure Portal](https://portal.azure.com/) para crear su primera factoría de datos. Si desea realizar el tutorial con otras herramientas o SDK, seleccione una de las opciones de la lista desplegable. 
 
@@ -54,11 +54,11 @@ Para crear una factoría de datos, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-1. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory**.
+1. Seleccione **Nuevo** > **Data + Analytics** > **Data Factory** .
 
    ![Hoja Creación](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-1. En la hoja **Nueva factoría de datos**, en **Nombre**, escriba **GetStartedDF**.
+1. En la hoja **Nueva factoría de datos** , en **Nombre** , escriba **GetStartedDF** .
 
    ![Hoja Nueva Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -68,15 +68,15 @@ Para crear una factoría de datos, siga estos pasos:
    > El nombre de la factoría de datos se puede registrar como nombre DNS en el futuro y puede convertirse en visible públicamente.
    >
    >
-1. En **Suscripción**, seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
+1. En **Suscripción** , seleccione la suscripción de Azure en la que desea que se cree la factoría de datos.
 
-1. Seleccione un grupo de recursos existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos llamado **ADFGetStartedRG**.
+1. Seleccione un grupo de recursos existente o cree uno nuevo. Para este tutorial, cree un grupo de recursos llamado **ADFGetStartedRG** .
 
-1. En **Ubicación**, seleccione la ubicación de la factoría de datos. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
+1. En **Ubicación** , seleccione la ubicación de la factoría de datos. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
 
-1. Seleccione la casilla **Anclar al panel**.
+1. Seleccione la casilla **Anclar al panel** .
 
-1. Seleccione **Crear**.
+1. Seleccione **Crear** .
 
    > [!IMPORTANT]
    > Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
@@ -86,7 +86,7 @@ Para crear una factoría de datos, siga estos pasos:
 
    ![Estado Deploying Data Factory (Implementando Data Factory)](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-1. Tras crear la factoría de datos, se ve la página de la **factoría de datos**, que muestra su contenido.     
+1. Tras crear la factoría de datos, se ve la página de la **factoría de datos** , que muestra su contenido.     
 
     ![Hoja Factoría de datos](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -98,11 +98,11 @@ En este paso, vinculará su cuenta de Azure Storage y un clúster de HDInsight a
 ### <a name="create-a-storage-linked-service"></a>Creación de un servicio vinculado de Storage
 En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. En este tutorial, usará la misma cuenta de almacenamiento para almacenar los datos de entrada y salida, y el archivo de script de HQL.
 
-1. En la hoja de la **factoría de datos** de **GetStartedDF**, seleccione **Crear e implementar**. Aparecerá Data Factory Editor.
+1. En la hoja de la **factoría de datos** de **GetStartedDF** , seleccione **Crear e implementar** . Aparecerá Data Factory Editor.
 
    ![Icono Crear e implementar](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-1. Seleccione **Nuevo almacén de datos** y elija **Azure Storage**.
+1. Seleccione **Nuevo almacén de datos** y elija **Azure Storage** .
 
    ![Hoja Nuevo almacén de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
@@ -123,7 +123,7 @@ En este paso, vinculará su cuenta de almacenamiento con su factoría de datos. 
 ### <a name="create-an-hdinsight-linked-service"></a>Creación de un servicio vinculado de HDInsight
 En este paso, vinculará un clúster de HDInsight a petición con la factoría de datos. El clúster de HDInsight se crea automáticamente en el runtime. Después de realizar el procesamiento y permanecer inactivo durante el período de tiempo especificado se elimina.
 
-1. En Data Factory Editor, seleccione **Más** > **Nuevo proceso** > **Clúster de HDInsight a petición**.
+1. En Data Factory Editor, seleccione **Más** > **Nuevo proceso** > **Clúster de HDInsight a petición** .
 
     ![Nuevo proceso](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
@@ -159,9 +159,9 @@ En este paso, vinculará un clúster de HDInsight a petición con la factoría d
 
      b. Puede usar su propio clúster de HDInsight, en lugar de usar un clúster de HDInsight a petición. Para más información, consulte [Servicio vinculado a petición de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
-     c. El clúster de HDInsight crea un contenedor predeterminado en el almacenamiento de blobs que especificó en la propiedad JSON (**linkedServiceName**). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez que se procesa un segmento, a menos que haya un clúster existente activo (**timeToLive**). El clúster se elimina automáticamente cuando finaliza el procesamiento.
+     c. El clúster de HDInsight crea un contenedor predeterminado en el almacenamiento de blobs que especificó en la propiedad JSON ( **linkedServiceName** ). HDInsight no elimina este contenedor cuando se elimina el clúster. Este comportamiento es así por diseño. Con el servicio vinculado de HDInsight a petición se crea un clúster de HDInsight cada vez que se procesa un segmento, a menos que haya un clúster existente activo ( **timeToLive** ). El clúster se elimina automáticamente cuando finaliza el procesamiento.
 
-     A medida que se procesen más segmentos, verá numerosos contenedores en su almacenamiento de blobs. Si no los necesita para solucionar los problemas de los trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf**nombreDeFactoríaDeDatos**-**nombreDeServicioVinculado**-marcaDeFechayHora". Use herramientas como el [Explorador de Azure Storage](https://storageexplorer.com/) para eliminar los contenedores del almacenamiento de blobs.
+     A medida que se procesen más segmentos, verá numerosos contenedores en su almacenamiento de blobs. Si no los necesita para solucionar los problemas de los trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen este patrón: "adf **nombreDeFactoríaDeDatos**-**nombreDeServicioVinculado** -marcaDeFechayHora". Use herramientas como el [Explorador de Azure Storage](https://storageexplorer.com/) para eliminar los contenedores del almacenamiento de blobs.
 
      Para más información, consulte [Servicio vinculado a petición de HDInsight de Azure](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
@@ -181,7 +181,7 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
     ![Nuevo conjunto de datos](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobInput** que represente los datos de entrada para una actividad de la canalización. Además, especifique que los datos de entrada están en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **inputdata**.
+1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobInput** que represente los datos de entrada para una actividad de la canalización. Además, especifique que los datos de entrada están en el contenedor de blobs llamado **adfgetstarted** y en la carpeta llamada **inputdata** .
 
     ```JSON
     {
@@ -210,14 +210,14 @@ En este paso, creará conjuntos de datos que representan los datos de entrada y 
 
    | Propiedad | Anidada en | Descripción |
    |:--- |:--- |:--- |
-   | type | properties |La propiedad type se establece en **AzureBlob**, ya que los datos residen en el almacenamiento de blobs. |
+   | type | properties |La propiedad type se establece en **AzureBlob** , ya que los datos residen en el almacenamiento de blobs. |
    | linkedServiceName | format |Hace referencia al servicio AzureStorageLinkedService que creó anteriormente. |
    | folderPath | typeProperties | Especifica el contenedor de blobs y la carpeta que contiene los blobs de entrada. | 
    | fileName | typeProperties |Esta propiedad es opcional. Si omite esta propiedad, se seleccionan todos los archivos de folderPath. En este tutorial, solo se procesa el archivo input.log. |
-   | type | format |Los archivos de registro están en formato de texto, así que use **TextFormat**. |
+   | type | format |Los archivos de registro están en formato de texto, así que use **TextFormat** . |
    | columnDelimiter | format |Las columnas de los archivos de registro están delimitadas por una coma (`,`). |
-   | frequency/interval | availability |La frecuencia se establece en **Mes** y el intervalo es **1**, lo que significa que los segmentos de entrada estarán disponibles cada mes. |
-   | external | properties | Esta propiedad se establece en **true** si esta canalización no ha generado los datos de entrada. En este tutorial, esta canalización no genera el archivo input.log, por lo que la propiedad se establece en **true**. |
+   | frequency/interval | availability |La frecuencia se establece en **Mes** y el intervalo es **1** , lo que significa que los segmentos de entrada estarán disponibles cada mes. |
+   | external | properties | Esta propiedad se establece en **true** si esta canalización no ha generado los datos de entrada. En este tutorial, esta canalización no genera el archivo input.log, por lo que la propiedad se establece en **true** . |
 
     Para más información acerca de estas propiedades de JSON, consulte el artículo acerca del [conector de blobs de Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
@@ -228,7 +228,7 @@ Ahora, cree el conjunto de datos de salida que representa los datos de salida al
 
 1. En Data Factory Editor, seleccione **More** > **New dataset** > **Azure Blob Storage** (Más > Nuevo conjunto de datos > Azure Blob Storage).
 
-1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** para especificar la estructura de los datos que genera el script de Hive. Especifique también que los resultados se almacenen en el contenedor de blobs **adfgetstarted** y en la carpeta **partitioneddata**. La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
+1. Copie y pegue el fragmento de código siguiente en la ventana Borrador-1. En el fragmento de código JSON, cree un conjunto de datos llamado **AzureBlobOutput** para especificar la estructura de los datos que genera el script de Hive. Especifique también que los resultados se almacenen en el contenedor de blobs **adfgetstarted** y en la carpeta **partitioneddata** . La sección **availability** especifica que el conjunto de datos de salida se genera mensualmente.
 
     ```JSON
     {
@@ -319,13 +319,13 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
     En el fragmento de código JSON, cree una canalización que conste de una sola actividad que use Hive para procesar los datos de un clúster de HDInsight.
 
-    El archivo de script de Hive, **partitionweblogs.hql**, se guarda en la cuenta de almacenamiento, que especifica scriptLinkedService y que se llama **AzureStorageLinkedService**. Puede encontrarlo en la carpeta **script** del contenedor **adfgetstarted**.
+    El archivo de script de Hive, **partitionweblogs.hql** , se guarda en la cuenta de almacenamiento, que especifica scriptLinkedService y que se llama **AzureStorageLinkedService** . Puede encontrarlo en la carpeta **script** del contenedor **adfgetstarted** .
 
     La sección **defines** se usa para especificar la configuración del runtime que se pasa al script de Hive como valores de configuración de Hive. Algunos ejemplos son ${hiveconf: inputtable} y ${hiveconf:partitionedtable}.
 
     Las propiedades **start** y **end** de la canalización especifican su período activo.
 
-    En el código JSON de la actividad, especifique que el script de Hive se ejecuta en el proceso especificado por **linkedServiceName**: **HDInsightOnDemandLinkedService**.
+    En el código JSON de la actividad, especifique que el script de Hive se ejecuta en el proceso especificado por **linkedServiceName** : **HDInsightOnDemandLinkedService** .
 
    > [!NOTE]
    > Para más información acerca de las propiedades de JSON que se usan en el ejemplo, consulte la sección "JSON de canalización" en [Canalizaciones y actividades en Azure Data Factory](data-factory-create-pipelines.md).
@@ -339,7 +339,7 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
    c. Ha reemplazado **storageaccountname** por el nombre de su cuenta de almacenamiento en el archivo JSON de la canalización.
 
-1. Seleccione **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **finalización** están establecidas en el pasado e **isPaused** está establecido en **false**, la canalización (la actividad de la canalización) se ejecuta inmediatamente después de realizar la implementación.
+1. Seleccione **Implementar** en la barra de comandos para implementar la canalización. Dado que las horas de **inicio** y **finalización** están establecidas en el pasado e **isPaused** está establecido en **false** , la canalización (la actividad de la canalización) se ejecuta inmediatamente después de realizar la implementación.
 
 1. Confirme que la canalización aparece en la vista de árbol.
 
@@ -349,15 +349,15 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
 ## <a name="monitor-a-pipeline"></a>Supervisión de una canalización
 ### <a name="monitor-a-pipeline-by-using-the-diagram-view"></a>Supervisión de una canalización mediante la vista Diagrama
-1. En la hoja de la **factoría de datos**, seleccione **Diagrama**.
+1. En la hoja de la **factoría de datos** , seleccione **Diagrama** .
 
     ![Icono Diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
-1. En la vista **Diagrama**, se puede encontrar información general acerca de las canalizaciones y los conjuntos de datos que se usan en este tutorial.
+1. En la vista **Diagrama** , se puede encontrar información general acerca de las canalizaciones y los conjuntos de datos que se usan en este tutorial.
 
     ![Vista Diagrama](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-1. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y seleccione **Abrir canalización**.
+1. Para ver todas las actividades de la canalización, haga clic con el botón derecho en la canalización en el diagrama y seleccione **Abrir canalización** .
 
     ![Menú Abrir canalización](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
@@ -367,17 +367,17 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
 
     Para volver a la vista anterior, seleccione **Data Factory** en el menú superior.
 
-1. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobInput**. Confirme que el estado del segmento es **Listo**. Es posible que el segmento tarde un par de minutos en aparecer con ese estado **.** Si no aparece después de un tiempo, compruebe si el archivo de entrada (**input.log**) está en el contenedor (**adfgetstarted**) y en la carpeta (**inputdata**) correctos.
+1. En la vista **Diagrama** , haga doble clic en el conjunto de datos **AzureBlobInput** . Confirme que el estado del segmento es **Listo** . Es posible que el segmento tarde un par de minutos en aparecer con ese estado **.** Si no aparece después de un tiempo, compruebe si el archivo de entrada ( **input.log** ) está en el contenedor ( **adfgetstarted** ) y en la carpeta ( **inputdata** ) correctos.
 
    ![Segmento de entrada en estado Listo](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-1. Cierre la hoja **AzureBlobInput**.
+1. Cierre la hoja **AzureBlobInput** .
 
-1. En la vista **Diagrama**, haga doble clic en el conjunto de datos **AzureBlobOutput**. Se ve el segmento que se está procesando.
+1. En la vista **Diagrama** , haga doble clic en el conjunto de datos **AzureBlobOutput** . Se ve el segmento que se está procesando.
 
    ![Procesamiento de conjunto de datos en curso](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-1. Cuando finalice el procesamiento, verá que el segmento está en estado **Listo**.
+1. Cuando finalice el procesamiento, verá que el segmento está en estado **Listo** .
 
    ![Conjunto de datos en estado Listo](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -386,15 +386,15 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
    >
    >
 
-1. Cuando el segmento esté en estado **Listo**, busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** del almacenamiento de blobs.  
+1. Cuando el segmento esté en estado **Listo** , busque los datos de salida en la carpeta **partitioneddata** del contenedor **adfgetstarted** del almacenamiento de blobs.  
 
    ![Datos de salida](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-1. Seleccione el segmento para ver más información del mismo en una hoja **Segmento de datos**.
+1. Seleccione el segmento para ver más información del mismo en una hoja **Segmento de datos** .
 
     ![Información de Segmento de datos](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-1. En la lista **Ejecuciones de actividad**, seleccione una ejecución de actividad para obtener más información sobre ella (en este escenario, es una actividad de Hive). La información aparece en la hoja **Detalles de la ejecución de actividad**.   
+1. En la lista **Ejecuciones de actividad** , seleccione una ejecución de actividad para obtener más información sobre ella (en este escenario, es una actividad de Hive). La información aparece en la hoja **Detalles de la ejecución de actividad** .   
 
     ![Ventana Detalles de la ejecución de actividad](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -402,7 +402,7 @@ En este paso, creará la primera canalización con una actividad de Hive de HDIn
    Para más información, consulte [Monitor and manage pipelines by using Azure portal blades](data-factory-monitor-manage-pipelines.md) (Supervisión y administración de canalizaciones mediante las hojas de Azure Portal).
 
 > [!IMPORTANT]
-> El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por consiguiente, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada (**input.log**) en la carpeta **inputdata** del contenedor **adfgetstarted**.
+> El archivo de entrada se elimina cuando el segmento se procesa correctamente. Por consiguiente, si desea volver a ejecutar el segmento o volver a realizar el tutorial, cargue el archivo de entrada ( **input.log** ) en la carpeta **inputdata** del contenedor **adfgetstarted** .
 >
 >
 
@@ -413,7 +413,7 @@ Para supervisar las canalizaciones también se puede usar la aplicación Supervi
 
     ![Icono Supervisión y administración](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-1. En la aplicación Supervisión y administración, cambie el valor de **Hora de inicio** y **Hora de finalización** para que coincidan con las horas de inicio y finalización de la canalización. Seleccione **Aplicar**.
+1. En la aplicación Supervisión y administración, cambie el valor de **Hora de inicio** y **Hora de finalización** para que coincidan con las horas de inicio y finalización de la canalización. Seleccione **Aplicar** .
 
     ![Aplicación Supervisión y administración](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 

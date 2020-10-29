@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564005"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635786"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Red virtual administrada de Azure Data Factory (versión preliminar)
 
@@ -55,7 +55,7 @@ Azure Data Factory admite vínculos privados. El vínculo privado le permite acc
 
 Cuando se usa un vínculo privado, el tráfico entre los almacenes de datos y la red virtual administrada atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
 
-El punto de conexión privado usa una dirección IP privada en la red virtual administrada para incorporar el servicio de manera eficaz a la red virtual. Los puntos de conexión privados se asignan a un recurso específico de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. Más información sobre [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
+El punto de conexión privado usa una dirección IP privada en la red virtual administrada para incorporar el servicio de manera eficaz a la red virtual. Los puntos de conexión privados se asignan a un recurso específico de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. Más información sobre [vínculos privados y puntos de conexión privados](../private-link/index.yml).
 
 > [!NOTE]
 > Se recomienda crear puntos de conexión privados administrados para conectarse a todos los orígenes de datos de Azure. 
@@ -94,7 +94,8 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Este de EE. UU.
 - Este de EE. UU. 2
 - Centro-Oeste de EE. UU.
-- Oeste de EE. UU. 2
+- Oeste de EE. UU.
+- Oeste de EE. UU. 2
 - Centro-sur de EE. UU.
 - Centro de EE. UU.
 - Norte de Europa
@@ -102,6 +103,7 @@ Los orígenes de datos siguientes pueden establecer una conexión a través de u
 - Sur de Reino Unido 2
 - Sudeste de Asia
 - Este de Australia
+- Sudeste de Australia
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicaciones salientes a través del punto de conexión público desde la red virtual administrada de ADF
 - Solo se abre el puerto 443 para las comunicaciones salientes.

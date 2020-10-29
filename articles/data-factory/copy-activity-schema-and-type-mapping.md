@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: jingwang
-ms.openlocfilehash: b48fb28a56cdc1c836233cd2bd03a1f9e750a0a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96667dcdd43eb801542a4be8fa4f21ff8d1317b7
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85249659"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637265"
 ---
 # <a name="schema-and-data-type-mapping-in-copy-activity"></a>Asignación de esquemas y tipos de datos en la actividad de copia
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -54,7 +54,7 @@ Puede configurar la asignación en la interfaz de usuario de creación de Data F
 | path     | Expresión de ruta de acceso JSON de cada campo para su extracción o asignación. Aplica para el origen y el receptor jerárquicos; por ejemplo, Cosmos DB, MongoDB o conectores REST.<br>Para los campos situados bajo el objeto raíz, la ruta de acceso JSON comienza con la raíz `$`; para los campos incluidos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz sin `$`. | No       |
 | type     | Tipo de datos provisionales de Data Factory de la columna de origen o receptor. En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
 | culture  | Cultura de la columna de origen o receptor. Se aplica cuando el tipo es `Datetime` o `Datetimeoffset`. El valor predeterminado es `en-us`.<br>En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
-| format   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
+| format   | Cadena de formato que se usa cuando el tipo es `Datetime` o `Datetimeoffset`. Consulte [Cadenas con formato de fecha y hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información sobre el formato de fecha y hora. En general, no es necesario especificar ni cambiar esta propiedad. Más información sobre la [asignación de tipo de datos](#data-type-mapping). | No       |
 
 Se admiten las siguientes propiedades en `translator` además de `mappings`:
 
@@ -182,13 +182,13 @@ Puede definir dicha asignación en la interfaz de usuario de creación de Data F
 
 1. En actividad de copia > pestaña Asignación, haga clic en el botón **Importar esquema** para importar los esquemas de origen y de receptor. Ya que Data Factory muestrea los objetos más importantes al importar el esquema, si no aparece algún campo, puede agregarlo a la capa correcta en la jerarquía; para ello, mantenga el puntero sobre un nombre de campo existente y elija la opción para agregar un nodo, un objeto o una matriz.
 
-2. Seleccione la matriz en la que quiere iterar y extraer datos. Se cumplimentará automáticamente como una **referencia de colecciones**. Nota: Solo se admite una matriz única para esta operación.
+2. Seleccione la matriz en la que quiere iterar y extraer datos. Se cumplimentará automáticamente como una **referencia de colecciones** . Nota: Solo se admite una matriz única para esta operación.
 
 3. Asigne los campos necesarios al receptor. Data Factory determina automáticamente las rutas de acceso JSON correspondientes para el lado jerárquico.
 
 ![Asignación de datos jerárquicos a tabulares mediante la interfaz de usuario](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-ui.png)
 
-También puede cambiar al **Editor avanzado**, en cuyo caso puede ver y editar directamente las rutas de acceso JSON de los campos. Si decide agregar una nueva asignación en esta vista, especifique la ruta de acceso JSON.
+También puede cambiar al **Editor avanzado** , en cuyo caso puede ver y editar directamente las rutas de acceso JSON de los campos. Si decide agregar una nueva asignación en esta vista, especifique la ruta de acceso JSON.
 
 ![Asignación de datos jerárquicos a tabulares mediante el editor avanzado](media/copy-activity-schema-and-type-mapping/map-hierarchical-to-tabular-advanced-editor.png)
 
@@ -314,12 +314,12 @@ Las siguientes propiedades son compatibles con la actividad de copia para la con
 | *En `typeConversionSettings`* |                                                              |          |
 | allowDataTruncation              | Permite truncar los datos al convertir los datos del origen al receptor con un tipo diferente durante la copia; por ejemplo, de decimal a entero, de DatetimeOffset a DateTime. <br>El valor predeterminado es true. | No       |
 | treatBooleanAsNumber             | Trata los valores booleanos como números; por ejemplo, true como 1.<br>El valor predeterminado es False. | No       |
-| dateTimeFormat                   | Da formato a la cadena al realizar conversiones entre fechas sin desplazamiento de zona horaria y cadenas; por ejemplo, `yyyy-MM-dd HH:mm:ss.fff`.  Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información detallada. | No       |
-| dateTimeOffsetFormat             | Da formato a la cadena al realizar conversiones entre fechas con desplazamiento de zona horaria y cadenas; por ejemplo, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Consulte [Cadenas con formato de fecha y hora personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información detallada. | No       |
-| timeSpanFormat                   | Da formato a la cadena al realizar conversiones entre intervalos de tiempo y cadenas; por ejemplo, `dd\.hh\:mm`. Consulte [Cadenas con formato de intervalo de tiempo personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-timespan-format-strings) para obtener información detallada. | No       |
+| dateTimeFormat                   | Da formato a la cadena al realizar conversiones entre fechas sin desplazamiento de zona horaria y cadenas; por ejemplo, `yyyy-MM-dd HH:mm:ss.fff`.  Consulte [Cadenas con formato de fecha y hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información detallada. | No       |
+| dateTimeOffsetFormat             | Da formato a la cadena al realizar conversiones entre fechas con desplazamiento de zona horaria y cadenas; por ejemplo, `yyyy-MM-dd HH:mm:ss.fff zzz`.  Consulte [Cadenas con formato de fecha y hora personalizado](/dotnet/standard/base-types/custom-date-and-time-format-strings) para obtener información detallada. | No       |
+| timeSpanFormat                   | Da formato a la cadena al realizar conversiones entre intervalos de tiempo y cadenas; por ejemplo, `dd\.hh\:mm`. Consulte [Cadenas con formato de intervalo de tiempo personalizado](/dotnet/standard/base-types/custom-timespan-format-strings) para obtener información detallada. | No       |
 | culture                          | Información de referencia cultural que se va a usar al convertir tipos; por ejemplo, `en-us` o `fr-fr`. | No       |
 
-**Ejemplo**:
+**Ejemplo** :
 
 ```json
 {
@@ -411,7 +411,7 @@ En este ejemplo, el conjunto de datos de salida tiene una estructura y apunta a 
 }
 ```
 
-El siguiente fragmento JSON define una actividad de copia en una canalización. Las columnas del origen se asignan a columnas del receptor mediante la propiedad **translator** -> **columnMappings**.
+El siguiente fragmento JSON define una actividad de copia en una canalización. Las columnas del origen se asignan a columnas del receptor mediante la propiedad **translator** -> **columnMappings** .
 
 ```json
 {
@@ -455,7 +455,7 @@ Puede especificar actividad de copia -> `translator` -> `schemaMapping` para rea
 | Propiedad            | Descripción                                                  | Obligatorio |
 | :------------------ | :----------------------------------------------------------- | :------- |
 | type                | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí      |
-| schemaMapping       | Colección de pares clave-valor, que representa la relación de la asignación **del lado origen al lado receptor**.<br/>- **Clave:** representa el origen. Para un **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **origen jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar.<br>- **Valor:** representa el receptor. Para un **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **receptor jerárquico**, especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sí      |
+| schemaMapping       | Colección de pares clave-valor, que representa la relación de la asignación **del lado origen al lado receptor** .<br/>- **Clave:** representa el origen. Para un **origen tabular** , especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **origen jerárquico** , especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar.<br>- **Valor:** representa el receptor. Para un **receptor tabular** , especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para un **receptor jerárquico** , especifique la expresión de ruta de acceso JSON para todos los campos que va a extraer y asignar. <br>En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON comienza con root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, la ruta de acceso JSON empieza desde el elemento de matriz. | Sí      |
 | collectionReference | Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. Esta propiedad solo se admite si el origen son datos jerárquicos. | No       |
 
 **Ejemplo: copia de MongoDB a Oracle:**

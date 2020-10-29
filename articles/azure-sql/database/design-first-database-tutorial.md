@@ -10,18 +10,18 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae7baeac6cee2a692928642e3e38ce0adad17d1c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362170"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674879"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Tutorial: Diseño de una base de datos relacional en Azure SQL Database con SSMS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 
-Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud (Azure). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) para:
+Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Microsoft Cloud (Azure). En este tutorial, aprenderá a usar Azure Portal y [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS) para:
 
 > [!div class="checklist"]
 >
@@ -35,7 +35,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 *Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 > [!TIP]
-> El siguiente módulo de Microsoft Learn le ayuda a aprender gratis cómo [desarrollar y configurar una aplicación de ASP.net que consulta una instancia de Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/), incluida la creación de una base de datos simple.
+> El siguiente módulo de Microsoft Learn le ayuda a aprender gratis cómo [desarrollar y configurar una aplicación de ASP.net que consulta una instancia de Azure SQL Database](/learn/modules/develop-app-that-queries-azure-sql/), incluida la creación de una base de datos simple.
 > [!NOTE]
 > Para este tutorial, se utiliza Azure SQL Database. También puede usar una base de datos agrupada en un grupo elástico o una instancia administrada de SQL. Para la conectividad con una instancia administrada de SQL, consulte estos artículos de inicio rápido sobre Instancia administrada de SQL: [Inicio rápido: Configuración de una máquina virtual de Azure para una instancia administrada de Azure SQL](../managed-instance/connect-vm-instance-configure.md) e [Inicio rápido: Configuración de una conexión de punto a sitio a una instancia administrada de Azure SQL desde el entorno local](../managed-instance/point-to-site-p2s-configure.md).
 
@@ -43,7 +43,7 @@ Azure SQL Database es una base de datos como servicio (DBaaS) relacional en Micr
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (la versión más reciente)
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (la versión más reciente)
 - [BCP y SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433) (la versión más reciente)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
@@ -56,8 +56,8 @@ Se crea una base de datos en Azure SQL Database con un conjunto definido de recu
 
 Siga estos pasos para crear una base de datos en blanco.
 
-1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
-2. En la página **Nuevo**, seleccione **Bases de datos** en la sección de Microsoft Azure Marketplace y, a continuación, haga clic en **SQL Database** en la sección **Destacados**.
+1. En el menú de Azure Portal o en la **página principal** , seleccione **Crear un recurso** .
+2. En la página **Nuevo** , seleccione **Bases de datos** en la sección de Microsoft Azure Marketplace y, a continuación, haga clic en **SQL Database** en la sección **Destacados** .
 
    ![crear una base de datos en blanco](./media/design-first-database-tutorial/create-empty-database.png)
 
@@ -81,14 +81,14 @@ Siga estos pasos para crear una base de datos en blanco.
 
     ![create database-server](./media/design-first-database-tutorial/create-database-server.png)
 
-5. Haga clic en **Seleccionar**.
+5. Haga clic en **Seleccionar** .
 6. Haga clic en **Plan de tarifa** para especificar el nivel de servicio, el número de DTU o de núcleos virtuales y la cantidad de almacenamiento. Puede explorar las opciones del número de DTU o núcleos virtuales, y la cantidad de almacenamiento que están a su disposición para cada nivel de servicio.
 
-    Después de seleccionar el nivel de servicio, el número de DTU o núcleos virtuales y la cantidad de almacenamiento, haga clic en **Aplicar**.
+    Después de seleccionar el nivel de servicio, el número de DTU o núcleos virtuales y la cantidad de almacenamiento, haga clic en **Aplicar** .
 
 7. Introduzca una **intercalación** para la base de datos en blanco (para este tutorial, use el valor predeterminado). Para más información sobre las intercalaciones, vea [Collations](/sql/t-sql/statements/collations) (Intercalaciones)
 
-8. Una vez completado el formulario de **SQL Database**, haga clic en **Crear** para aprovisionar la base de datos. Esta operación puede tardar unos minutos.
+8. Una vez completado el formulario de **SQL Database** , haga clic en **Crear** para aprovisionar la base de datos. Esta operación puede tardar unos minutos.
 
 9. En la barra de herramientas, haga clic en **Notificaciones** para supervisar el proceso de implementación.
 
@@ -103,7 +103,7 @@ Azure SQL Database crea un firewall de IP en el nivel de servidor. Este firewall
 
 1. Una vez finalizada la implementación, seleccione **Bases de datos SQL** en el menú de Azure Portal o busque y seleccione *Bases de datos SQL* desde cualquier página.  
 
-1. Seleccione *yourDatabase* en la página **Bases de datos SQL**. Se abre la página de información general de la base de datos, que muestra el **nombre del servidor** (por ejemplo, `contosodatabaseserver01.database.windows.net`) y proporciona opciones para otras configuraciones.
+1. Seleccione *yourDatabase* en la página **Bases de datos SQL** . Se abre la página de información general de la base de datos, que muestra el **nombre del servidor** (por ejemplo, `contosodatabaseserver01.database.windows.net`) y proporciona opciones para otras configuraciones.
 
    ![nombre del servidor](./media/design-first-database-tutorial/server-name.png)
 
@@ -115,9 +115,9 @@ Azure SQL Database crea un firewall de IP en el nivel de servidor. Este firewall
 
 1. Haga clic en **Agregar IP de cliente** en la barra de herramientas para agregar la dirección IP actual a la nueva regla de firewall por IP. La regla de firewall de IP puede abrir el puerto 1433 para una única dirección IP o un intervalo de direcciones IP.
 
-1. Haga clic en **Save**(Guardar). Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor.
+1. Haga clic en **Save** (Guardar). Se crea una regla de firewall de IP en el nivel de servidor para el puerto 1433 de la dirección IP actual en el servidor.
 
-1. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
+1. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall** .
 
 Ahora la dirección IP puede pasar a través del firewall de IP; además, puede conectarse a la base de datos mediante SQL Server Management Studio u otra herramienta que elija. Asegúrese de usar la cuenta de administración de servidor que creó anteriormente.
 
@@ -129,25 +129,25 @@ Ahora la dirección IP puede pasar a través del firewall de IP; además, puede 
 Use [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) para establecer una conexión con la base de datos.
 
 1. Abra SQL Server Management Studio.
-2. En el cuadro de diálogo **Conectar con el servidor**, especifique la siguiente información:
+2. En el cuadro de diálogo **Conectar con el servidor** , especifique la siguiente información:
 
    | Configuración       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Tipo de servidor** | Motor de base de datos | Este valor es necesario. |
-   | **Nombre del servidor** | Nombre completo del servidor | Por ejemplo, *yourserver.database.windows.net*. |
+   | **Nombre del servidor** | Nombre completo del servidor | Por ejemplo, *yourserver.database.windows.net* . |
    | **Autenticación** | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
    | **Inicio de sesión** | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
    | **Contraseña** | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 
    ![conectar con el servidor](./media/design-first-database-tutorial/connect.png)
 
-3. Haga clic en **Opciones** en el cuadro de diálogo **Conectar con el servidor**. En la sección **Conectar con base de datos**, escriba *yourDatabase* para conectarse a esta base de datos.
+3. Haga clic en **Opciones** en el cuadro de diálogo **Conectar con el servidor** . En la sección **Conectar con base de datos** , escriba *yourDatabase* para conectarse a esta base de datos.
 
     ![conectar a base de datos en el servidor](./media/design-first-database-tutorial/options-connect-to-db.png)  
 
-4. Haga clic en **Conectar**. Se abre la ventana del **Explorador de objetos** en SSMS.
+4. Haga clic en **Conectar** . Se abre la ventana del **Explorador de objetos** en SSMS.
 
-5. En el **Explorador de objetos**, expanda **Bases de datos** y, después, expanda *yourDatabase* para ver los objetos de la base de datos de ejemplo.
+5. En el **Explorador de objetos** , expanda **Bases de datos** y, después, expanda *yourDatabase* para ver los objetos de la base de datos de ejemplo.
 
    ![Objetos de base de datos](./media/design-first-database-tutorial/connected.png)  
 
@@ -160,14 +160,14 @@ Cree un esquema de base de datos con cuatro tablas que modelan un sistema de adm
 - Estudiante
 - Créditos
 
-En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. Algunas de estas tablas hacen referencia a columnas de otras tablas. Por ejemplo, la tabla *Student* hace referencia a la columna *PersonId* de la tabla *Person*. Estudie el diagrama para entender cómo se relacionan las tablas de este tutorial entre sí. Para obtener información detallada sobre cómo crear tablas de base de datos eficaces, vea [Creación de tablas de base de datos eficaces](https://msdn.microsoft.com/library/cc505842.aspx). Para obtener información sobre cómo elegir tipos de datos, vea [Data types](/sql/t-sql/data-types/data-types-transact-sql) (Tipos de datos).
+En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. Algunas de estas tablas hacen referencia a columnas de otras tablas. Por ejemplo, la tabla *Student* hace referencia a la columna *PersonId* de la tabla *Person* . Estudie el diagrama para entender cómo se relacionan las tablas de este tutorial entre sí. Para obtener información detallada sobre cómo crear tablas de base de datos eficaces, vea [Creación de tablas de base de datos eficaces](/previous-versions/tn-archive/cc505842(v=technet.10)). Para obtener información sobre cómo elegir tipos de datos, vea [Data types](/sql/t-sql/data-types/data-types-transact-sql) (Tipos de datos).
 
 > [!NOTE]
 > También puede usar el [Diseñador de tablas de SQL Server Management Studio](/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools) para crear y diseñar las tablas.
 
 ![Relaciones de tablas](./media/design-first-database-tutorial/tutorial-database-tables.png)
 
-1. En el **Explorador de objetos**, haga clic con el botón derecho en *yourDatabase* y seleccione **Nueva consulta**. Se abre una ventana de consulta en blanco que está conectada a la base de datos.
+1. En el **Explorador de objetos** , haga clic con el botón derecho en *yourDatabase* y seleccione **Nueva consulta** . Se abre una ventana de consulta en blanco que está conectada a la base de datos.
 
 2. En la ventana de consulta, ejecute la consulta siguiente para crear cuatro tablas en la base de datos:
 
@@ -222,16 +222,16 @@ En el diagrama siguiente se muestra cómo estas tablas se relacionan entre sí. 
 
 1. Cree una carpeta denominada *sampleData* en la carpeta Descargas para almacenar datos de ejemplo para la base de datos.
 
-2. Haga clic con el botón derecho en los vínculos siguientes y guárdelos en la carpeta *sampleData*.
+2. Haga clic con el botón derecho en los vínculos siguientes y guárdelos en la carpeta *sampleData* .
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. Abra una ventana del símbolo del sistema y navegue hasta la carpeta *sampleData*.
+3. Abra una ventana del símbolo del sistema y navegue hasta la carpeta *sampleData* .
 
-4. Ejecute los comandos siguientes para insertar datos de ejemplo en las tablas y reemplace los valores de *server*, *database*, *user* y *password* por los valores correspondientes al entorno.
+4. Ejecute los comandos siguientes para insertar datos de ejemplo en las tablas y reemplace los valores de *server* , *database* , *user* y *password* por los valores correspondientes al entorno.
 
    ```cmd
    bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
@@ -244,7 +244,7 @@ De esta forma, ya ha cargado los datos de ejemplo en las tablas que ha creado an
 
 ## <a name="query-data"></a>Consultar datos
 
-Ejecute las siguientes consultas para recuperar información de las tablas de base de datos. Vea [Writing SQL Queries](https://technet.microsoft.com/library/bb264565.aspx) (Escribir consultas SQL) para más información sobre cómo escribir consultas SQL. La primera consulta combina las cuatro tablas para buscar los alumnos del profesor "Dominick Pope" que tienen una calificación superior al 75 %. La segunda consulta combina las cuatro tablas y busca los cursos en los que nunca se ha matriculado "Noe Coleman".
+Ejecute las siguientes consultas para recuperar información de las tablas de base de datos. Vea [Writing SQL Queries](/previous-versions/sql/sql-server-2005/express-administrator/bb264565(v=sql.90)) (Escribir consultas SQL) para más información sobre cómo escribir consultas SQL. La primera consulta combina las cuatro tablas para buscar los alumnos del profesor "Dominick Pope" que tienen una calificación superior al 75 %. La segunda consulta combina las cuatro tablas y busca los cursos en los que nunca se ha matriculado "Noe Coleman".
 
 1. En una ventana de consulta de SQL Server Management Studio, ejecute la siguiente consulta:
 

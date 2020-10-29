@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 4297cc83ab3fa280e15480aefcd5aef8734c65ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531052"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635378"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Generación de expresiones del flujo de datos de asignación
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución. La asignación de flujos de datos tiene una experiencia dedicada orientada a ayudarle a crear estas expresiones denominada **Generador de expresiones**. La utilización de la finalización de código de [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) para resaltar, comprobar la sintaxis y autocompletar, el generador de expresiones está diseñado para facilitar la creación de flujos de datos. En este artículo se explica cómo usar el generador de expresiones para crear eficazmente la lógica de negocios.
+En el flujo de datos de asignación, muchas propiedades de transformación se especifican como expresiones. Estas expresiones se componen de valores de columna, parámetros, funciones, operadores y literales que se evalúan como un tipo de datos de Spark en tiempo de ejecución. La asignación de flujos de datos tiene una experiencia dedicada orientada a ayudarle a crear estas expresiones denominada **Generador de expresiones** . La utilización de la finalización de código de [IntelliSense](/visualstudio/ide/using-intellisense) para resaltar, comprobar la sintaxis y autocompletar, el generador de expresiones está diseñado para facilitar la creación de flujos de datos. En este artículo se explica cómo usar el generador de expresiones para crear eficazmente la lógica de negocios.
 
 ![Generador de expresiones](media/data-flow/expresion-builder.png "Generador de expresiones")
 
@@ -32,7 +32,7 @@ En algunas transformaciones como [filtro](data-flow-filter.md), al hacer clic en
 
 ![Cuadro de expresión azul](media/data-flow/expressionbox.png "Generador de expresiones")
 
-Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción **Columna calculada**.
+Al hacer referencia a columnas en una coincidencia o grupo por condición, una expresión puede extraer valores de las columnas. Para crear una expresión, seleccione la opción **Columna calculada** .
 
 ![Opción Columna calculada](media/data-flow/computedcolumn.png "Generador de expresiones")
 

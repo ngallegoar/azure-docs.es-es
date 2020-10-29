@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 65dc9f556a9b7c257273349c056cf997973e942f
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ecca75f294cf70ba8f7d82fcce7bdd3e9611b21a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328290"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636347"
 ---
 # <a name="excel-format-in-azure-data-factory"></a>Formato Excel en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -39,7 +39,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | nullValue        | Especifica la representación de cadena del valor null. <br>El valor predeterminado es una **cadena vacía** . | No       |
 | compression | Grupo de propiedades para configurar la compresión de archivo. Configure esta sección si desea realizar la compresión o descompresión durante la ejecución de la actividad. | No |
 | type<br/>( *en `compression`* ) | El códec de compresión usado para leer y escribir archivos JSON. <br>Los valores permitidos son **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **snappy** o **lz4** . La opción predeterminada no se comprime.<br>**Tenga en cuenta** que actualmente la actividad de copia no admite "snappy" ni "lz4", y que el flujo de datos de asignación no admite "ZipDeflate".<br>**Tenga en cuenta** que cuando utilice la actividad de copia para descomprimir archivos **ZipDeflate** y escribir en el almacén de datos de receptores basado en archivos, los archivos se extraerán a la carpeta `<path specified in dataset>/<folder named as source zip file>/`. | No.  |
-| level<br/>( *en `compression`* ) | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest** .<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
+| level<br/>( *en `compression`* ) | La razón de compresión. <br>Los valores permitidos son **Optimal** o **Fastest** .<br>- **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.<br>- **Optimal** : la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. Para más información, consulte el tema [Nivel de compresión](/dotnet/api/system.io.compression.compressionlevel) . | No       |
 
 A continuación, se muestra un ejemplo de un conjunto de datos de Excel en Azure Blob Storage:
 

@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de nivel 4 de impacto del DoD
 description: Pasos de implementación para el ejemplo de plano técnico de nivel 4 de impacto del DoD, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 7ab2e5967031b52bcad7c1b6f38b546cb8a7eb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 128f47798830c6a51d8fe7a9b67b9f0d7749dc71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90978407"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669499"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementación del ejemplo de plano técnico de nivel 4 de impacto del DoD
 
@@ -25,16 +25,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En primer lugar, implemente el ejemplo de plano técnico mediante la creación de un plano técnico en su entorno tomando el ejemplo como punto de partida.
 
-1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos** .
 
-1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Crear un plano técnico_.
+1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Crear un plano técnico_ .
 
-1. Busque el ejemplo de plano técnico **Nivel 4 de impacto de DoD** en _Otros ejemplos_ y seleccione **Usar este ejemplo**.
+1. Busque el ejemplo de plano técnico **Nivel 4 de impacto de DoD** en _Otros ejemplos_ y seleccione **Usar este ejemplo** .
 
 1. Escriba los _Aspectos básicos_ del ejemplo de plano técnico:
 
-   - **Nombre del plano técnico**: proporcione un nombre para la copia del ejemplo de plano técnico de nivel 4 de impacto del DoD.
-   - **Ubicación de definición**: use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
+   - **Nombre del plano técnico** : proporcione un nombre para la copia del ejemplo de plano técnico de nivel 4 de impacto del DoD.
+   - **Ubicación de definición** : use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
@@ -44,19 +44,19 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia del ejemplo de plano técnico se puede personalizar para adecuarla a su entorno y necesidades, pero esa modificación puede apartarla de la alineación con los controles del nivel 4 de impacto del DoD.
 
-1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos** .
 
-1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
+1. En la parte izquierda, seleccione la página **Definiciones del plano técnico** . Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
-1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página de la derecha, especifique una **versión** para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. Escriba **Notas de cambios**, como "Primera versión publicada del ejemplo de plano técnico DoD IL4". A continuación, seleccione **Publicar** en la parte inferior de la página.
+1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página de la derecha, especifique una **versión** para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. Escriba **Notas de cambios** , como "Primera versión publicada del ejemplo de plano técnico DoD IL4". A continuación, seleccione **Publicar** en la parte inferior de la página.
 
 ## <a name="assign-the-sample-copy"></a>Asignación de la copia de ejemplo
 
 Una vez que la copia del ejemplo de plano técnico se haya **publicado** correctamente, se podrá asignar a una suscripción dentro del grupo de administración donde se guardó. En este paso se proporcionan los parámetros para hacer que cada implementación de la copia del ejemplo de plano técnico sea única.
 
-1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos** .
 
-1. En la parte izquierda, seleccione la página **Definiciones del plano técnico**. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
+1. En la parte izquierda, seleccione la página **Definiciones del plano técnico** . Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
 1. Seleccione **Asignar plano técnico** en la parte superior de la página de definición del plano técnico.
 
@@ -64,11 +64,11 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
    - Aspectos básicos
 
-     - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
-     - **Nombre de asignación**: el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
+     - **Suscripciones** : seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
+     - **Nombre de asignación** : el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
        Cámbielo si fuera necesario o déjelo tal cual.
-     - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versión de definición de Blueprint**: Elija una versión **publicada** de la copia del ejemplo de plano técnico.
+     - **Ubicación** : seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versión de definición de Blueprint** : Elija una versión **publicada** de la copia del ejemplo de plano técnico.
 
    - Asignación de bloqueo
 
@@ -76,7 +76,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
    - Identidad administrada
 
-     Deje la opción predeterminada de identidad administrada _asignada por el sistema_.
+     Deje la opción predeterminada de identidad administrada _asignada por el sistema_ .
 
    - Parámetros de artefacto
 
@@ -85,7 +85,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 1. Una vez que se hayan especificado todos los parámetros, seleccione **Asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comienza la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
 
 > [!WARNING]
-> El servicio Azure Blueprints y los ejemplos de plano técnico incorporados son **gratuitos**. El precio de los recursos de Azure se [calcula por producto](https://azure.microsoft.com/pricing/). Use la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados en este ejemplo de plano técnico.
+> El servicio Azure Blueprints y los ejemplos de plano técnico incorporados son **gratuitos** . El precio de los recursos de Azure se [calcula por producto](https://azure.microsoft.com/pricing/). Use la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados en este ejemplo de plano técnico.
 
 ## <a name="artifact-parameters-table"></a>Tabla de parámetros de los artefactos
 

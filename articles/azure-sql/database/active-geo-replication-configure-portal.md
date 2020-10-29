@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 5ddc79721355924f125acedd7420cab5f487c065
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71c73fec4f559b34b097556243617636acd77480
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445048"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673262"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Tutorial: Configuración de replicación geográfica activa y la conmutación por error en Azure Portal (Azure SQL Database)
 
@@ -35,7 +35,7 @@ Para configurar la replicación geográfica activa mediante Azure Portal, necesi
 * Una base de datos de Azure SQL Database: la base de datos principal que quiere replicar en una región geográfica diferente.
 
 > [!Note]
-> Al usar Azure Portal, solo se puede crear una base de datos secundaria en la misma suscripción que la principal. Si una base de datos secundaria debe estar en una suscripción diferente, use la [API de REST Create Database](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) o la [API de Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
+> Al usar Azure Portal, solo se puede crear una base de datos secundaria en la misma suscripción que la principal. Si una base de datos secundaria debe estar en una suscripción diferente, use la [API de REST Create Database](/rest/api/sql/databases/createorupdate) o la [API de Transact-SQL ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Adición de una base de datos secundaria
 
@@ -70,8 +70,8 @@ Después de crear e inicializar la base de datos secundaria, los datos comienzan
 La base de datos secundaria se puede cambiar para convertirse en la principal.  
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
-2. En la hoja SQL Database, seleccione **All settings** (Toda la configuración)  > **Replicación geográfica**.
-3. En la lista **SECUNDARIAS**, seleccione la base de datos que quiere convertir en la nueva base de datos principal y haga clic en **Conmutación por error forzada**.
+2. En la hoja SQL Database, seleccione **All settings** (Toda la configuración)  > **Replicación geográfica** .
+3. En la lista **SECUNDARIAS** , seleccione la base de datos que quiere convertir en la nueva base de datos principal y haga clic en **Conmutación por error forzada** .
 
     ![failover](./media/active-geo-replication-configure-portal/secondaries.png)
 4. Haga clic en **Sí** para iniciar la conmutación por error.
@@ -88,9 +88,9 @@ Hay un breve período durante el que ambas bases de datos no están disponibles 
 Esta operación termina de forma permanente la replicación en la base de datos secundaria y el rol de la base de datos secundaria cambia al de una base de datos de lectura y escritura normal. Si se interrumpe la conectividad con la base de datos secundaria, el comando se ejecuta correctamente, pero la base de datos secundaria no pasa a ser de lectura y escritura hasta después de restaurarse la conectividad.  
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la base de datos principal de la asociación de replicación geográfica.
-2. En la página de SQL Database, seleccione **Replicación geográfica**.
-3. En la lista **SECUNDARIAS**, seleccione la base de datos que desee quitar de la asociación de replicación geográfica.
-4. Haga clic en **Detener replicación**.
+2. En la página de SQL Database, seleccione **Replicación geográfica** .
+3. En la lista **SECUNDARIAS** , seleccione la base de datos que desee quitar de la asociación de replicación geográfica.
+4. Haga clic en **Detener replicación** .
 
     ![Quitar secundaria](./media/active-geo-replication-configure-portal/remove-secondary.png)
 5. Se abrirá una ventana de confirmación. Haga clic en **Sí** para quitar la base de datos de la asociación de replicación geográfica. (Establezca el valor en una base de datos de lectura y escritura que no forme parte de ninguna replicación).

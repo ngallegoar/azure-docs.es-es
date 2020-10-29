@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2d9be3ec005b2eb6c1cc8e530c44117ba8fbb401
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219469"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635038"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención de Azure-SSIS Integration Runtime mediante una programación
 
@@ -31,7 +31,7 @@ Como alternativa, puede crear actividades web en las canalizaciones de ADF para 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
-Si todavía no ha aprovisionado Azure-SSIS IR, hágalo ahora según las instrucciones del [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
+Si todavía no ha aprovisionado Azure-SSIS IR, hágalo ahora según las instrucciones del [tutorial](./tutorial-deploy-ssis-packages-azure.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Creación y programación de canalizaciones de ADF que inician o detienen Azure-SSIS IR
 En esta sección se muestra cómo usar las actividades web en las canalizaciones de ADF para iniciar o detener Azure-SSIS IR al programar o iniciar y detener a petición. Se le guiará para que cree tres canalizaciones: 
@@ -97,7 +97,7 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
   
     2. En **Method** (Método) seleccione **POST** . 
     3. En **Body** (Cuerpo), especifique `{"message":"Start my IR"}`. 
-    4. En **Authentication** (Autenticación), seleccione **MSI** para usar la identidad administrada de su ADF. Para más información, consulte el artículo [Identidad administrada de Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
+    4. En **Authentication** (Autenticación), seleccione **MSI** para usar la identidad administrada de su ADF. Para más información, consulte el artículo [Identidad administrada de Data Factory](./data-factory-service-identity.md).
     5. En **Recurso** , escriba `https://management.azure.com/`.
     
        ![IR de SSIS de programación de actividades web en ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)

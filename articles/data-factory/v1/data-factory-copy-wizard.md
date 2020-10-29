@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ce40d1a46a6448e678a8a86812d08e9013310d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28169e43d0e6949a16cc56c7e7d5d91d6db1ef57
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086915"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636925"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Copia o movimiento sencillos de datos con el Asistente para copia de Azure Data Factory
 > [!NOTE]
@@ -73,11 +73,11 @@ Supongamos que tiene carpetas de entrada con el siguiente formato:
 ...
 ```
 
-Haga clic en el botón **Examinar** de **Archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir**. En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla TAB. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
+Haga clic en el botón **Examinar** de **Archivo o carpeta** , vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Elegir** . En el cuadro de texto, debería aparecer `2016/03/01/02`. Sustituya **2016** por **{year}** , **03** por **{month}** , **01** por **{day}** y **02** por **{hour}** y presione la tecla TAB. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
 
 ![Uso de variables del sistema](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Como se muestra en la siguiente captura de pantalla, también puede usar una variable **personalizada** y cualquier [cadena de formato admitida](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Para seleccionar una carpeta con esa estructura, utilice primero el botón **Examinar** . A continuación, reemplace un valor por **{custom}** y presione la tecla Tabulación para ver el cuadro de texto donde puede escribir la cadena de formato.     
+Como se muestra en la siguiente captura de pantalla, también puede usar una variable **personalizada** y cualquier [cadena de formato admitida](/dotnet/standard/base-types/custom-date-and-time-format-strings). Para seleccionar una carpeta con esa estructura, utilice primero el botón **Examinar** . A continuación, reemplace un valor por **{custom}** y presione la tecla Tabulación para ver el cuadro de texto donde puede escribir la cadena de formato.     
 
 ![Uso de la variable personalizada](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 
@@ -95,4 +95,3 @@ Una operación de copia única permite el movimiento de datos desde un origen a 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si quiere ver un tutorial rápido sobre el uso del Asistente para copia de Data Factory a fin de crear una canalización con una actividad de copia, consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md).
-

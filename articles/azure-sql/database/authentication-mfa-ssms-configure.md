@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 1fb90c106c334073cea18cf014edce491029edec
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.openlocfilehash: 2de48946088316e9070e13396f124148a4ff6099
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91596172"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675018"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configuración de la autenticación multifactor para SQL Server Management Studio y Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,10 +29,10 @@ En este artículo se muestra cómo usar la autenticación multifactor (MFA) de A
 
 ## <a name="configuration-steps"></a>Pasos de configuración
 
-1. **Configuración de una instancia de Azure Active Directory**: para más información, consulte [Administración de su directorio de Azure AD](https://msdn.microsoft.com/library/azure/hh967611.aspx), [Integración de identidades locales con Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Incorporación de su nombre de dominio a Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Windows ahora admite la federación con Windows Server Active Directory) y [Administrar Azure AD mediante Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Configurar MFA**: para obtener instrucciones detalladas, consulte [¿Qué es Azure Multi-Factor Authentication?](../../active-directory/authentication/multi-factor-authentication.md), [Acceso condicional (MFA) con Azure SQL Database y Data Warehouse](conditional-access-configure.md). (El acceso condicional completo requiere la versión Premium de Azure Active Directory. MFA limitado está disponible con la versión estándar de Azure AD).
-3. **Configuración de la Autenticación de Azure AD**: para instrucciones detalladas, consulte [Conexión a SQL Database, Instancia administrada de SQL o a Azure Synapse mediante Autenticación de Azure Active Directory](authentication-aad-overview.md).
-4. **Descarga de SSMS**: en el equipo cliente, descargue la versión más reciente de SSMS, desde [Descarga de SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+1. **Configuración de una instancia de Azure Active Directory** : para más información, consulte [Administración de su directorio de Azure AD](/previous-versions/azure/azure-services/hh967611(v=azure.100)), [Integración de identidades locales con Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Incorporación de su nombre de dominio a Azure AD), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Windows ahora admite la federación con Windows Server Active Directory) y [Administrar Azure AD mediante Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)).
+2. **Configurar MFA** : para obtener instrucciones detalladas, consulte [¿Qué es Azure Multi-Factor Authentication?](../../active-directory/authentication/concept-mfa-howitworks.md), [Acceso condicional (MFA) con Azure SQL Database y Data Warehouse](conditional-access-configure.md). (El acceso condicional completo requiere la versión Premium de Azure Active Directory. MFA limitado está disponible con la versión estándar de Azure AD).
+3. **Configuración de la Autenticación de Azure AD** : para instrucciones detalladas, consulte [Conexión a SQL Database, Instancia administrada de SQL o a Azure Synapse mediante Autenticación de Azure Active Directory](authentication-aad-overview.md).
+4. **Descarga de SSMS** : en el equipo cliente, descargue la versión más reciente de SSMS, desde [Descarga de SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>Conexión mediante autenticación universal con SSMS
 
@@ -40,7 +40,7 @@ En los pasos siguientes se muestra cómo conectarse con la versión más recient
 
 [!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
-1. Para conectarse con Autenticación universal, en el cuadro de diálogo **Conectar con el servidor** de SQL Server Management Studio (SSMS), seleccione **Active Directory: Universal compatible con MFA**. (Si ve **Autenticación universal de Active Directory**, no tiene la versión más reciente de SSMS).
+1. Para conectarse con Autenticación universal, en el cuadro de diálogo **Conectar con el servidor** de SQL Server Management Studio (SSMS), seleccione **Active Directory: Universal compatible con MFA** . (Si ve **Autenticación universal de Active Directory** , no tiene la versión más reciente de SSMS).
 
    ![Captura de pantalla de la pestaña Propiedades de conexión en el cuadro de diálogo Conectar con el servidor de SSMS. La opción "MyDatabase" está seleccionada en el menú desplegable Conectar con base de datos.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
 2. Rellene el cuadro **Nombre de usuario** con las credenciales de Azure Active Directory, con el formato `user_name@domain.com`.
@@ -50,11 +50,11 @@ En los pasos siguientes se muestra cómo conectarse con la versión más recient
 
    ![Captura de pantalla de la pestaña Propiedades de conexión en el cuadro de diálogo Conectar con el servidor de SSMS. La opción "MyDatabase" está seleccionada en el menú desplegable Conectar con base de datos.](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)
 
-   Sin embargo, si va a conectarse como un usuario invitado mediante SSMS 17.x o una versión posterior, debe hacer clic en **Opciones** y, en el cuadro de diálogo **Propiedad de conexión**, rellenar el cuadro **Nombre de dominio o ID de inquilino de AD**.
+   Sin embargo, si va a conectarse como un usuario invitado mediante SSMS 17.x o una versión posterior, debe hacer clic en **Opciones** y, en el cuadro de diálogo **Propiedad de conexión** , rellenar el cuadro **Nombre de dominio o ID de inquilino de AD** .
 
    ![Captura de pantalla de la pestaña Propiedades de conexión en el cuadro de diálogo Conectar con el servidor de SSMS. La opción Nombre de dominio o ID de inquilino de AD ya está rellena.](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
-4. Seleccione **Opciones** y especifique la base de datos en el cuadro de diálogo **Opciones**. (Si el usuario conectado es un invitado (por ejemplo, joe@outlook.com), debe activar la casilla y agregar el nombre de dominio de AD actual o el identificador de inquilino como parte de las opciones). Consulte [Autenticación universal con SQL Database y Azure Synapse Analytics (compatibilidad de SSMS con MFA)](../database/authentication-mfa-ssms-overview.md). Haga clic en **Conectar**.  
+4. Seleccione **Opciones** y especifique la base de datos en el cuadro de diálogo **Opciones** . (Si el usuario conectado es un invitado (por ejemplo, joe@outlook.com), debe activar la casilla y agregar el nombre de dominio de AD actual o el identificador de inquilino como parte de las opciones). Consulte [Autenticación universal con SQL Database y Azure Synapse Analytics (compatibilidad de SSMS con MFA)](../database/authentication-mfa-ssms-overview.md). Haga clic en **Conectar** .  
 5. Cuando aparezca el cuadro de diálogo **Iniciar sesión con su cuenta** , escriba la cuenta y la contraseña de su identidad de Azure Active Directory. Si un usuario pertenece a un dominio federado con Azure AD, no se requiere contraseña.
 
    ![Captura de pantalla del cuadro de diálogo Iniciar sesión en la cuenta para Azure SQL Database y Data Warehouse. La cuenta y la contraseña ya están rellenas.](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
@@ -70,7 +70,7 @@ En los pasos siguientes se muestra cómo conectarse con la versión más recient
 7. El segundo cuadro de diálogo de un único uso que puede que aparezca le permite seleccionar los detalles del método de autenticación. El administrador configura las opciones posibles.
 
    ![Captura de pantalla del cuadro de diálogo Comprobación de seguridad adicional con opciones para seleccionar y configurar un método de autenticación.](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
-8. Azure Active Directory le envía la información de confirmación. Cuando reciba el código de verificación, escríbalo en el cuadro **Escribir código de comprobación** y haga clic en **Iniciar sesión**.
+8. Azure Active Directory le envía la información de confirmación. Cuando reciba el código de verificación, escríbalo en el cuadro **Escribir código de comprobación** y haga clic en **Iniciar sesión** .
 
    ![Captura de pantalla del cuadro de diálogo Iniciar sesión en la cuenta para Azure SQL Database y Data Warehouse con un mensaje Escribir un código de verificación.](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
 
@@ -80,5 +80,5 @@ Cuando se complete la comprobación, SSMS se conectará de manera habitual, siem
 
 - Para ver una introducción a la autenticación multifactor, consulte [Autenticación universal con SQL Database, Instancia administrada de SQL y Azure Synapse (compatibilidad de SSMS con MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Conceda a otros usuarios acceso a la base de datos: [Autenticación y autorización de SQL Database: concesión de acceso](logins-create-manage.md)  
-- Asegúrese de que otros usuarios puedan conectarse mediante el firewall: [Configuración de una regla de firewall de nivel de servidor mediante Azure Portal](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure)  
-- Cuando se usa la autenticación de **Active Directory - Universal compatible con MFA**, el seguimiento de ADAL está disponible a partir de [SSMS 17.3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Desactivado de forma predeterminada, puede activar el seguimiento de ADAL mediante el menú **Herramientas**, **Opciones**, en **Azure Services**, **Azure Cloud**, **Nivel de seguimiento de la ventana de salida de ADAL**, y habilitar seguidamente **Salida** en el menú **Ver**. Los seguimientos están disponibles en la ventana de salida al seleccionar la opción **Azure Active Directory**.
+- Asegúrese de que otros usuarios puedan conectarse mediante el firewall: [Configuración de una regla de firewall de nivel de servidor mediante Azure Portal](./firewall-configure.md)  
+- Cuando se usa la autenticación de **Active Directory - Universal compatible con MFA** , el seguimiento de ADAL está disponible a partir de [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms). Desactivado de forma predeterminada, puede activar el seguimiento de ADAL mediante el menú **Herramientas** , **Opciones** , en **Azure Services** , **Azure Cloud** , **Nivel de seguimiento de la ventana de salida de ADAL** , y habilitar seguidamente **Salida** en el menú **Ver** . Los seguimientos están disponibles en la ventana de salida al seleccionar la opción **Azure Active Directory** .

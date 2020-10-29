@@ -4,12 +4,12 @@ description: Aprenda cómo conectarse de forma privada a una cuenta de Azure Bat
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7dba3dd1d34421666821c6bc7320ef76ab77bb7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f797dbda7888eb8ea9f5c76e3b527fb98d896ee4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542145"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669013"
 ---
 # <a name="use-private-endpoints-with-azure-batch-accounts"></a>Uso de puntos de conexión privados con cuentas de Azure Batch
 
@@ -28,25 +28,25 @@ En este artículo se describen los pasos para crear una cuenta de Batch privada 
 
 Siga estos pasos para crear una cuenta de Batch privada con Azure Portal:
 
-1. En el panel **Crear un recurso**, seleccione **Servicio batch** y, a continuación, seleccione **Crear**.
-2. Escriba la suscripción, el grupo de recursos, la región y el nombre de la cuenta de Batch en la pestaña **Aspectos básicos** y, después, seleccione **Siguiente: Avanzado**.
-3. En la pestaña **Avanzado**, establezca **Public network access** (Acceso de red público) en **Deshabilitado**.
-4. En **Configuración**, seleccione **Conexiones de punto de conexión privado** y, a continuación, seleccione **+ Punto de conexión privado**.
+1. En el panel **Crear un recurso** , seleccione **Servicio batch** y, a continuación, seleccione **Crear** .
+2. Escriba la suscripción, el grupo de recursos, la región y el nombre de la cuenta de Batch en la pestaña **Aspectos básicos** y, después, seleccione **Siguiente: Avanzado** .
+3. En la pestaña **Avanzado** , establezca **Public network access** (Acceso de red público) en **Deshabilitado** .
+4. En **Configuración** , seleccione **Conexiones de punto de conexión privado** y, a continuación, seleccione **+ Punto de conexión privado** .
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Conexiones de punto de conexión privado":::
-5. En el panel **Aspectos básicos**, escriba o seleccione la suscripción, el grupo de recursos, el nombre del recurso de punto de conexión privado y los detalles de la región y, a continuación, seleccione **Siguiente: Resource** (Siguiente: Recurso).
-6. En el panel **Recurso**, establezca **Tipo de recurso** en **Microsoft.Batch/batchAccounts**. Seleccione la cuenta de Batch privada a la que desee acceder y, a continuación, seleccione **Siguiente: Configuration** (Siguiente: Configuración).
+5. En el panel **Aspectos básicos** , escriba o seleccione la suscripción, el grupo de recursos, el nombre del recurso de punto de conexión privado y los detalles de la región y, a continuación, seleccione **Siguiente: Resource** (Siguiente: Recurso).
+6. En el panel **Recurso** , establezca **Tipo de recurso** en **Microsoft.Batch/batchAccounts** . Seleccione la cuenta de Batch privada a la que desee acceder y, a continuación, seleccione **Siguiente: Configuration** (Siguiente: Configuración).
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Conexiones de punto de conexión privado":::
-7. En el panel **Configuración**, escriba o seleccione esta información:
-   - **Red virtual**: Seleccione la red virtual.
-   - **Subred**: Seleccionar la subred.
-   - **Integración con una zona DNS privada**:   Seleccione **Sí**. Para conectar de forma privada con el punto de conexión privado, necesita un registro DNS. Se recomienda integrar el punto de conexión privado con una zona DNS privada. También se pueden usar los servidores DNS propios o bien crear registros DNS con los archivos de host de las máquinas virtuales.
-   - **Zona DNS privada**:  Seleccione privatelink.<region>.batch.azure.com. La zona DNS privada se determina automáticamente. No puede cambiarla con Azure Portal.
+7. En el panel **Configuración** , escriba o seleccione esta información:
+   - **Red virtual** : Seleccione la red virtual.
+   - **Subred** : Seleccionar la subred.
+   - **Integración con una zona DNS privada** :   Seleccione **Sí** . Para conectar de forma privada con el punto de conexión privado, necesita un registro DNS. Se recomienda integrar el punto de conexión privado con una zona DNS privada. También se pueden usar los servidores DNS propios o bien crear registros DNS con los archivos de host de las máquinas virtuales.
+   - **Zona DNS privada** :  Seleccione privatelink.\<region\>.batch.azure.com. La zona DNS privada se determina automáticamente. No puede cambiarla con Azure Portal.
 8. Seleccione **Revisar y crear** y espere a que Azure valide la configuración.
-9. Cuando reciba el mensaje **Validación superada**, seleccione **Crear**.
+9. Cuando reciba el mensaje **Validación superada** , seleccione **Crear** .
 
 Después de aprovisionar el punto de conexión privado, puede acceder a la cuenta de Batch desde las máquinas virtuales de la misma red virtual mediante el punto de conexión privado. Para ver las direcciones IP desde Azure Portal:
 
-1. Seleccione **Todos los recursos**.
+1. Seleccione **Todos los recursos** .
 2. Busque el punto de conexión privado que creó anteriormente.
 3. Seleccione la pestaña **Información general** para ver la configuración de DNS y las direcciones IP.
 
@@ -54,7 +54,7 @@ Después de aprovisionar el punto de conexión privado, puede acceder a la cuent
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
 
-Al [crear una cuenta de Batch con una plantilla de Azure Resource Manager](quick-create-template.md), modifique la plantilla para establecer **publicNetworkAccess** en **Deshabilitado**, como se muestra a continuación.
+Al [crear una cuenta de Batch con una plantilla de Azure Resource Manager](quick-create-template.md), modifique la plantilla para establecer **publicNetworkAccess** en **Deshabilitado** , como se muestra a continuación.
 
 ```json
 {

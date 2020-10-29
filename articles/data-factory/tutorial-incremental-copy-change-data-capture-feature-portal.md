@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 06dd55ce400667939fca4b0f48159f8b7dde66c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd9e78b6bc3513f79b05c9522e891d346e3d31a0
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825155"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637520"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carga incremental de datos de Instancia administrada de Azure SQL a Azure Blob Storage mediante la captura de datos modificados (CDC)
 
@@ -34,7 +34,7 @@ En este tutorial, realizará los siguientes pasos:
 > * Creación, ejecución y supervisión de la canalización de copia incremental completa
 
 ## <a name="overview"></a>Información general
-La tecnología de captura de datos modificados compatible con los almacenes de datos, como Instancias administradas (MI) de Azure SQL y SQL Server, se puede usar para identificar los datos modificados.  En este tutorial se describe cómo usar Azure Data Factory con la tecnología de captura de datos modificados de SQL para cargar de forma incremental los datos diferenciales de Instancia administrada de SQL en Azure Blob Storage.  Para información más concreta sobre la tecnología de captura de datos modificados de SQL, consulte [Acerca de la captura de datos modificados (SQL Server)](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
+La tecnología de captura de datos modificados compatible con los almacenes de datos, como Instancias administradas (MI) de Azure SQL y SQL Server, se puede usar para identificar los datos modificados.  En este tutorial se describe cómo usar Azure Data Factory con la tecnología de captura de datos modificados de SQL para cargar de forma incremental los datos diferenciales de Instancia administrada de SQL en Azure Blob Storage.  Para información más concreta sobre la tecnología de captura de datos modificados de SQL, consulte [Acerca de la captura de datos modificados (SQL Server)](/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
 
 ## <a name="end-to-end-workflow"></a>Flujo de trabajo de un extremo a otro
 Estos son los pasos del flujo de trabajo típico de un extremo a otro para cargar datos de forma incremental mediante la tecnología de captura de datos modificados.
@@ -52,13 +52,13 @@ En este tutorial, creará una canalización que realiza las siguientes operacion
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **Instancia administrada de Azure SQL Database**. La base de datos se usa como almacén de datos de **origen**. Si no tiene una instancia administrada de Azure SQL Database, consulte los pasos del artículo [Creación de una instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) para crear una.
-* **Cuenta de Azure Storage**. Blob Storage se usa como almacén de datos **receptor**. Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor llamado **raw**. 
+* **Instancia administrada de Azure SQL Database** . La base de datos se usa como almacén de datos de **origen** . Si no tiene una instancia administrada de Azure SQL Database, consulte los pasos del artículo [Creación de una instancia administrada de Azure SQL Database](../azure-sql/managed-instance/instance-create-quickstart.md) para crear una.
+* **Cuenta de Azure Storage** . Blob Storage se usa como almacén de datos **receptor** . Si no tiene una cuenta de almacenamiento de Azure, consulte el artículo [Crear una cuenta de almacenamiento](../storage/common/storage-account-create.md) para ver los pasos para su creación. Cree un contenedor llamado **raw** . 
 
 ### <a name="create-a-data-source-table-in-azure-sql-database"></a>Creación de una tabla de origen de datos en Azure SQL Database
 
 1. Inicie **SQL Server Management Studio** y conéctese al servidor de Instancias administradas de Azure SQL.
-2. En el **Explorador de servidores**, haga clic con el botón derecho en la **base de datos** y elija la **Nueva consulta**.
+2. En el **Explorador de servidores** , haga clic con el botón derecho en la **base de datos** y elija la **Nueva consulta** .
 3. Ejecute el siguiente comando SQL en su base de datos de Instancias administradas de Azure SQL para crear una tabla llamada `customers` como almacén de origen de datos.  
 
     ```sql
@@ -75,7 +75,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
     > [!NOTE]
     > - Reemplace &lt;el nombre del esquema de origen&gt; por el esquema de Instancia administrada de Azure SQL que tiene la tabla customers.
-    > - La captura de datos modificados no hace nada como parte de las transacciones que cambian la tabla de la que se realiza el seguimiento. En cambio, las operaciones de inserción, actualización y eliminación se escriben en el registro de transacciones. Los datos que se depositan en las tablas de cambios crecerán hasta llegar a ser incontrolables si no se reduce su número de forma periódica y sistemática. Para más información, consulte [Habilitar la captura de datos modificados para una base de datos](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15).
+    > - La captura de datos modificados no hace nada como parte de las transacciones que cambian la tabla de la que se realiza el seguimiento. En cambio, las operaciones de inserción, actualización y eliminación se escriben en el registro de transacciones. Los datos que se depositan en las tablas de cambios crecerán hasta llegar a ser incontrolables si no se reduce su número de forma periódica y sistemática. Para más información, consulte [Habilitar la captura de datos modificados para una base de datos](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?enable-change-data-capture-for-a-database=&view=sql-server-ver15).
 
     ```sql
     EXEC sys.sp_cdc_enable_db 
@@ -102,8 +102,8 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory**:
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome** . Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+1. En el menú de la izquierda, seleccione **Crear un recurso** > **Datos y análisis** > **Data Factory** :
 
    ![Selección de la factoría de datos en el panel Nuevo](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory-menu.png)
 
@@ -111,28 +111,28 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
      ![Página New data factory (Nueva factoría de datos)](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-azure-data-factory.png)
 
-   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único de forma global** . Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
 
     *El nombre "ADFTutorialDataFactory" de factoría de datos no está disponible.*
-3. Seleccione **V2** para la **versión**.
+3. Seleccione **V2** para la **versión** .
 4. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos.
-5. Para el **grupo de recursos**, realice uno de los siguientes pasos:
+5. Para el **grupo de recursos** , realice uno de los siguientes pasos:
 
-   1. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable.
-   2. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+   1. Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable.
+   2. Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
          
     Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
 5. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
-6. Anule la selección de **Habilitar GIT**.     
-7. Haga clic en **Crear**.
-8. Una vez finalizada la implementación, haga clic en **Ir al recurso**.
+6. Anule la selección de **Habilitar GIT** .     
+7. Haga clic en **Crear** .
+8. Una vez finalizada la implementación, haga clic en **Ir al recurso** .
 
    ![La captura de pantalla muestra un mensaje que indica que la implementación ha finalizado y una opción para ir a recurso.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
 
    ![La captura de pantalla muestra la factoría de datos que ha implementado.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Haga clic en el icono **Author & Monitor** (Creación y supervisión) para iniciar la interfaz de usuario de Azure Data Factory en una pestaña independiente.
-11. En la página de **introducción**, cambie a la pestaña **Edit** (Editar) del panel izquierdo tal como se muestra en la siguiente imagen:
+11. En la página de **introducción** , cambie a la pestaña **Edit** (Editar) del panel izquierdo tal como se muestra en la siguiente imagen:
 
     ![Botón Create pipeline (Crear canalización)](./media/tutorial-incremental-copy-change-data-capture-feature-portal/get-started-page.png)
 
@@ -152,7 +152,7 @@ En este paso, vincula su cuenta de Azure Storage a la factoría de datos.
 
    1. Escriba **AzureStorageLinkedService** en **Name** (Nombre).
    2. Seleccione la cuenta de Azure Storage en **Storage account name** (Nombre de la cuenta de Storage).
-   3. Haga clic en **Save**(Guardar).
+   3. Haga clic en **Save** (Guardar).
 
    ![Configuración de la cuenta de Azure Storage](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -161,7 +161,7 @@ En este paso, vincula su cuenta de Azure Storage a la factoría de datos.
 En este paso, vinculará la base de datos de Instancia administrada de Azure SQL a la factoría de datos.
 
 > [!NOTE]
-> Para aquellos que usan Instancia administrada de SQL, consulte [aquí](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database-managed-instance#prerequisites) para información sobre el acceso a través de un punto de conexión público frente a privado. Si usa un punto de conexión privado, tendría que ejecutar esta canalización mediante un entorno de ejecución de integración autohospedado. Lo mismo se aplica a los que ejecutan SQL Server en el entorno local, en una máquina virtual o en escenarios de red virtual.
+> Para aquellos que usan Instancia administrada de SQL, consulte [aquí](./connector-azure-sql-managed-instance.md#prerequisites) para información sobre el acceso a través de un punto de conexión público frente a privado. Si usa un punto de conexión privado, tendría que ejecutar esta canalización mediante un entorno de ejecución de integración autohospedado. Lo mismo se aplica a los que ejecutan SQL Server en el entorno local, en una máquina virtual o en escenarios de red virtual.
 
 1. Haga clic en **Connections** (Conexiones) y en **+ New** (+ Nuevo).
 2. En la ventana **New Linked Service** (Nuevo servicio vinculado), seleccione **Azure SQL Database Managed Instance** (Instancia administrada de Azure SQL Database) y haga clic en **Continue** (Continuar).
@@ -193,7 +193,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos.
 3. En la pestaña **Set properties** (Establecer propiedades), establezca la información de nombre y conexión del conjunto de datos:
  
    1. Seleccione **AzureSqlMI1** en **Linked service** (Servicio vinculado).
-   2. Seleccione **[dbo].[dbo_customers_CT]** en **Table name** (Nombre de la tabla).  Nota: Esta tabla se creó automáticamente cuando se habilitó CDC en la tabla customers. Los datos modificados nunca se consultan en esta tabla directamente, sino que se extraen a través de las [funciones CDC](https://docs.microsoft.com/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15).
+   2. Seleccione **[dbo].[dbo_customers_CT]** en **Table name** (Nombre de la tabla).  Nota: Esta tabla se creó automáticamente cuando se habilitó CDC en la tabla customers. Los datos modificados nunca se consultan en esta tabla directamente, sino que se extraen a través de las [funciones CDC](/sql/relational-databases/system-functions/change-data-capture-functions-transact-sql?view=sql-server-ver15).
 
    ![Conexión de origen](./media/tutorial-incremental-copy-change-data-capture-feature-portal/source-dataset-configuration.png)
 
@@ -212,22 +212,22 @@ En este paso, creará un conjunto de datos para representar los datos que se cop
 4. En la pestaña **Set properties** (Establecer propiedades), establezca la información de nombre y conexión del conjunto de datos:
 
    1. Seleccione **AzureStorageLinkedService** en **Linked service** (Servicio vinculado).
-   2. Escriba **raw** (sin procesar) para la parte de **container** (contenedor) de **filePath**.
+   2. Escriba **raw** (sin procesar) para la parte de **container** (contenedor) de **filePath** .
    3. Habilite **First row as header** (Primera fila como encabezado).
-   4. Haga clic en **Aceptar**.
+   4. Haga clic en **Aceptar** .
 
    ![Conjunto de datos receptor: conexión](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration.png)
 
 ## <a name="create-a-pipeline-to-copy-the-changed-data"></a>Creación de una canalización para copiar los datos modificados
-En este paso, creará una canalización, que primero comprueba el número de registros modificados presentes en la tabla de cambios mediante una **actividad de búsqueda**. Una actividad de condición IF comprueba si el número de registros modificados es mayor que cero y ejecuta una **actividad de copia** para copiar los datos insertados, actualizados o eliminados de Azure SQL Database a Azure Blob Storage. Por último, se configura un desencadenador de ventana de saltos de tamaño constante y las horas de inicio y de finalización se pasarán a las actividades como parámetros de la ventana de inicio y de finalización. 
+En este paso, creará una canalización, que primero comprueba el número de registros modificados presentes en la tabla de cambios mediante una **actividad de búsqueda** . Una actividad de condición IF comprueba si el número de registros modificados es mayor que cero y ejecuta una **actividad de copia** para copiar los datos insertados, actualizados o eliminados de Azure SQL Database a Azure Blob Storage. Por último, se configura un desencadenador de ventana de saltos de tamaño constante y las horas de inicio y de finalización se pasarán a las actividades como parámetros de la ventana de inicio y de finalización. 
 
 1. En la interfaz de usuario de Data Factory, cambie a la pestaña **Edit** (Editar). Haga clic en el **signo + (más)** en el panel izquierdo y en **Pipeline** (Canalización).
 
     ![Menú New pipeline (Nueva canalización)](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-pipeline-menu.png)
-2. Verá una nueva pestaña para configurar la canalización. También verá la canalización en la vista de árbol. En la ventana **Properties** (Propiedades), cambie el nombre de la canalización a **IncrementalCopyPipeline**.
+2. Verá una nueva pestaña para configurar la canalización. También verá la canalización en la vista de árbol. En la ventana **Properties** (Propiedades), cambie el nombre de la canalización a **IncrementalCopyPipeline** .
 
     ![Nombre de la canalización](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-name.png)
-3. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **GetChangeCount**. Esta actividad obtiene el número de registros de la tabla de cambios durante un período de tiempo determinado.
+3. En el cuadro de herramientas **Activities** (Actividades), expanda **General** (General), arrastre la actividad **Lookup** (Búsqueda) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **GetChangeCount** . Esta actividad obtiene el número de registros de la tabla de cambios durante un período de tiempo determinado.
 
     ![Actividad de búsqueda: nombre](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-name.png)
 4. Cambie a la pestaña **Settings** (Configuración) de la ventana **Properties** (Propiedades):
@@ -245,12 +245,12 @@ En este paso, creará una canalización, que primero comprueba el número de reg
 5. Haga clic en el botón **Preview data** (Vista previa de datos) para asegurarse de que la actividad de búsqueda obtiene una salida válida.
 
     ![Actividad de búsqueda: vista previa](./media/tutorial-incremental-copy-change-data-capture-feature-portal/first-lookup-activity-preview.png)
-6. Expanda **Iteration & conditionals** (Iteración y condicionales) en el cuadro de herramientas **Activities** (Actividades) y arrastre y coloque la actividad **If Condition** (Condición If) en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **HasChangedRows**. 
+6. Expanda **Iteration & conditionals** (Iteración y condicionales) en el cuadro de herramientas **Activities** (Actividades) y arrastre y coloque la actividad **If Condition** (Condición If) en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **HasChangedRows** . 
 
     ![Actividad de condición If: nombre](./media/tutorial-incremental-copy-change-data-capture-feature-portal/if-condition-activity-name.png)
 7. Cambie a **Activities** (Actividades) en la ventana **Properties** (Propiedades):
 
-   1. Escriba la siguiente **expresión**.
+   1. Escriba la siguiente **expresión** .
    
     ```adf
     @greater(int(activity('GetChangeCount').output.firstRow.changecount),0)
@@ -269,7 +269,7 @@ En este paso, creará una canalización, que primero comprueba el número de reg
 8. Ejecute la canalización en modo **Debug** (Depurar) para comprobar que se ejecuta correctamente. 
 
    ![Canalización: depuración](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug.png)
-9. A continuación, vuelva al paso de condición True y elimine la actividad **Wait** (Espera). En el cuadro de herramientas **Activities** (Actividades), expanda **Move & transform** (Mover y transformar), arrastre la actividad **Copy** (Copia) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **IncrementalCopyActivity**. 
+9. A continuación, vuelva al paso de condición True y elimine la actividad **Wait** (Espera). En el cuadro de herramientas **Activities** (Actividades), expanda **Move & transform** (Mover y transformar), arrastre la actividad **Copy** (Copia) y colóquela en la superficie del diseñador de canalizaciones. Establezca el nombre de la actividad en **IncrementalCopyActivity** . 
 
    ![Actividad de copia: nombre](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-name.png)
 10. Cambie a la pestaña **Source** (Origen) de la ventana **Properties** (Propiedades) y realice los pasos siguientes:
@@ -302,14 +302,14 @@ En este paso, creará una canalización, que primero comprueba el número de reg
 15. Haga clic en Debug (Depurar) para probar la canalización y comprobar que se genera un archivo en la ubicación de almacenamiento.
 
     ![Depuración de canalización incremental 2](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-2.png)
-16. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publicar todo**. Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).
+16. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publicar todo** . Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).
 
     ![Botón Publicar](./media/tutorial-incremental-copy-change-data-capture-feature-portal/publish-button-2.png)    
 
 ### <a name="configure-the-tumbling-window-trigger-and-cdc-window-parameters"></a>Configuración del desencadenador de ventana de saltos de tamaño constante y de los parámetros de la ventana CDC 
 En este paso, creará un desencadenador de ventana de saltos de tamaño constante para ejecutar el trabajo según una programación frecuente. Usará las variables del sistema WindowStart y WindowEnd del desencadenador de ventana de saltos de tamaño constante y las pasará como parámetros a la canalización que se usará en la consulta CDC.
 
-1. Vaya a la pestaña **Parameters** (Parámetros) de la canalización **IncrementalCopyPipeline** y, con el botón **+ New** (+ Nuevo), agregue dos parámetros (**triggerStartTime** y **triggerEndTime**) a la canalización, que representan la hora de inicio y de finalización de la ventana de saltos de tamaño constante. Con fines de depuración, agregue valores predeterminados con el formato **AAAA-MM-DD HH24:MI:SS.FFF**, pero asegúrese de que triggerStartTime no sea anterior a la CDC que se habilita en la tabla o se producirá un error.
+1. Vaya a la pestaña **Parameters** (Parámetros) de la canalización **IncrementalCopyPipeline** y, con el botón **+ New** (+ Nuevo), agregue dos parámetros ( **triggerStartTime** y **triggerEndTime** ) a la canalización, que representan la hora de inicio y de finalización de la ventana de saltos de tamaño constante. Con fines de depuración, agregue valores predeterminados con el formato **AAAA-MM-DD HH24:MI:SS.FFF** , pero asegúrese de que triggerStartTime no sea anterior a la CDC que se habilita en la tabla o se producirá un error.
 
     ![Menú Trigger Now (Desencadenar ahora)](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-parameters.png)
 2. Haga clic en la pestaña de configuración de la actividad **Lookup** (Búsqueda) y configure la consulta para usar los parámetros de inicio y de finalización. Copie lo siguiente en la consulta:
@@ -348,7 +348,7 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
     ```
     ![Configuración del conjunto de datos de receptor: 3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-3.png)
 
-   4. Vuelva a la configuración de **Sink** (Receptor) de la actividad **Copy** (Copia) haciendo clic en la pestaña **IncrementalCopyPipeline**. 
+   4. Vuelva a la configuración de **Sink** (Receptor) de la actividad **Copy** (Copia) haciendo clic en la pestaña **IncrementalCopyPipeline** . 
    5. Expanda las propiedades del conjunto de datos y escriba contenido dinámico en el valor del parámetro triggerStart con la siguiente expresión:
      ```sql
      @pipeline().parameters.triggerStartTime
@@ -361,7 +361,7 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
 7. Asegúrese de que los parámetros se inserten en la consulta, para lo cual debe revisar los parámetros de entrada de la ejecución de canalización.
 
     ![Depuración de copia incremental 4](./media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-debug-4.png)
-8. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publicar todo**. Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).
+8. Para publicar entidades (servicios vinculados, conjuntos de datos y canalizaciones) en el servicio Data Factory, haga clic en el botón **Publicar todo** . Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).
 9. Por último, configure un desencadenador de ventana de saltos de tamaño constante para ejecutar la canalización a intervalos regulares y establecer los parámetros de hora de inicio y de finalización. 
    1. Haga clic en el botón **Add trigger** (Agregar desencadenador) y seleccione **New/Edit** (Nuevo/Editar).
 
@@ -380,7 +380,7 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
    ![Desencadenador de ventana de saltos de tamaño constante 2](./media/tutorial-incremental-copy-change-data-capture-feature-portal/tumbling-window-trigger-2.png)
 
 > [!NOTE]
-> Tenga en cuenta que el desencadenador solo se ejecuta una vez que se ha publicado. Además, el comportamiento esperado de la ventana de saltos de tamaño constante es ejecutar todos los intervalos históricos desde la fecha de inicio hasta ahora. Puede encontrar más información sobre los desencadenadores de ventana de saltos de tamaño constante [aquí](https://docs.microsoft.com/azure/data-factory/how-to-create-tumbling-window-trigger). 
+> Tenga en cuenta que el desencadenador solo se ejecuta una vez que se ha publicado. Además, el comportamiento esperado de la ventana de saltos de tamaño constante es ejecutar todos los intervalos históricos desde la fecha de inicio hasta ahora. Puede encontrar más información sobre los desencadenadores de ventana de saltos de tamaño constante [aquí](./how-to-create-tumbling-window-trigger.md). 
   
 10. Con **SQL Server Management Studio** realice cambios adicionales en la tabla customers mediante la ejecución del siguiente código SQL:
     ```sql
@@ -390,7 +390,7 @@ En este paso, creará un desencadenador de ventana de saltos de tamaño constant
     update customers set first_name='Elon' where customer_id=6;
     delete from customers where customer_id=5;
     ```
-11. Haga clic en el botón **Publicar todo**. Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).  
+11. Haga clic en el botón **Publicar todo** . Espere hasta ver el mensaje **Publishing succeeded** (Publicación correcta).  
 12. Al cabo de unos minutos, se habrá desencadenado la canalización y se habrá cargado un nuevo archivo en Azure Storage.
 
 

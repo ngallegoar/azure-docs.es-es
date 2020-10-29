@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: ab057e1328efbff294faa1d68f2a27c5a1f03ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98f2a8fb0ce48dab0e1e5f7610d73d55526969eb
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577516"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675109"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configuración de un grupo de conmutación por error para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,7 @@ Cree el grupo de conmutación por error y agregue la base de datos única median
 
    ![Adición de un grupo de conmutación por error](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. En la página **Grupo de conmutación por error**, escriba o seleccione los valores necesarios y, después, seleccione **Crear**.
+1. En la página **Grupo de conmutación por error** , escriba o seleccione los valores necesarios y, después, seleccione **Crear** .
 
    - **Bases de datos en el grupo** Elija la base de datos que quiere agregar a su grupo de conmutación por error. Al agregar la base de datos al grupo de conmutación por error, se iniciará automáticamente el proceso de replicación geográfica.
 
@@ -212,7 +212,7 @@ Cree el grupo de conmutación por error y agregue el grupo elástico mediante Az
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba "Azure SQL" en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo.
 1. Seleccione el grupo elástico que desea agregar al grupo de conmutación por error.
-1. En el panel **Información general**, seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
+1. En el panel **Información general** , seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
   
    ![Abra el servidor para el grupo elástico](./media/auto-failover-group-configure/server-for-elastic-pool.png)
 
@@ -220,7 +220,7 @@ Cree el grupo de conmutación por error y agregue el grupo elástico mediante Az
 
    ![Adición de un grupo de conmutación por error](./media/auto-failover-group-configure/sqldb-add-new-failover-group.png)
 
-1. En la página **Grupo de conmutación por error**, escriba o seleccione los valores necesarios y, después, seleccione **Crear**. Cree un nuevo servidor secundario o seleccione un servidor secundario existente.
+1. En la página **Grupo de conmutación por error** , escriba o seleccione los valores necesarios y, después, seleccione **Crear** . Cree un nuevo servidor secundario o seleccione un servidor secundario existente.
 
 1. Seleccione **Bases de datos en el grupo** y, a continuación, elija el grupo elástico que desea agregar al grupo de conmutación por error. Si aún no existe un grupo elástico en el servidor secundario, aparecerá una advertencia en la que se le solicita que cree un grupo elástico en el servidor secundario. Seleccione la advertencia y, a continuación, elija **Aceptar** para crear el grupo elástico en el servidor secundario.
 
@@ -284,7 +284,7 @@ Se producirá un error en el grupo de conmutación por error en el servidor secu
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba "Azure SQL" en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo.
 1. Seleccione el grupo elástico que desea agregar al grupo de conmutación por error.
-1. En el panel **Información general**, seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
+1. En el panel **Información general** , seleccione el nombre del servidor en **Nombre del servidor** para abrir la configuración del servidor.
 
    ![Abra el servidor para el grupo elástico](./media/auto-failover-group-configure/server-for-elastic-pool.png)
 1. Seleccione **Grupos de conmutación por error** en el panel **Configuración** y, a continuación, elija el grupo de conmutación por error que ha creado en la sección 2.
@@ -371,11 +371,11 @@ Si no ha configurado [ExpressRoute](../../expressroute/expressroute-howto-circui
 Cree la puerta de enlace de red virtual principal mediante Azure Portal.
 
 1. En [Azure Portal](https://portal.azure.com), navegue al grupo de recursos y seleccione el recurso **Red virtual** para la instancia administrada principal.
-1. Seleccione **Subredes** en **Configuración** y, a continuación, seleccione para agregar una nueva **Subred de puerta de enlace**. Deje los valores predeterminados.
+1. Seleccione **Subredes** en **Configuración** y, a continuación, seleccione para agregar una nueva **Subred de puerta de enlace** . Deje los valores predeterminados.
 
    ![Adición de una puerta de enlace para la instancia administrada principal](./media/auto-failover-group-configure/add-subnet-gateway-primary-vnet.png)
 
-1. Una vez creada la puerta de enlace de subred, seleccione **Crear un recurso** en el panel de navegación izquierdo y, a continuación, escriba `Virtual network gateway` en el cuadro de búsqueda. Seleccione el recurso **Puerta de enlace de red virtual** publicado por **Microsoft**.
+1. Una vez creada la puerta de enlace de subred, seleccione **Crear un recurso** en el panel de navegación izquierdo y, a continuación, escriba `Virtual network gateway` en el cuadro de búsqueda. Seleccione el recurso **Puerta de enlace de red virtual** publicado por **Microsoft** .
 
    ![Creación de una nueva puerta de enlace de red virtual](./media/auto-failover-group-configure/create-virtual-network-gateway.png)
 
@@ -388,12 +388,12 @@ Cree la puerta de enlace de red virtual principal mediante Azure Portal.
     | **Suscripción** |  Suscripción en la que reside la instancia administrada principal. |
     | **Nombre** | Nombre de la puerta de enlace de red virtual. |
     | **Región** | Región donde se encuentra la instancia administrada principal. |
-    | **Tipo de puerta de enlace** | Seleccione **VPN**. |
-    | **Tipo de VPN** | Seleccione **Basada en rutas**. |
+    | **Tipo de puerta de enlace** | Seleccione **VPN** . |
+    | **Tipo de VPN** | Seleccione **Basada en rutas** . |
     | **SKU**| Deje el valor predeterminado de `VpnGw1`. |
     | **Ubicación**| Ubicación donde se encuentran la instancia administrada secundaria y la red virtual secundaria.   |
     | **Red virtual**| Seleccione la red virtual para su instancia administrada secundaria. |
-    | **Dirección IP pública**| Seleccione **Crear nuevo**. |
+    | **Dirección IP pública**| Seleccione **Crear nuevo** . |
     | **Nombre de la dirección IP pública**| Escriba un nombre para la dirección IP. |
     | &nbsp; | &nbsp; |
 
@@ -450,12 +450,12 @@ En la tabla siguiente se muestran los valores necesarios para la puerta de enlac
    | **Suscripción** |  Suscripción en la que reside la instancia administrada secundaria. |
    | **Nombre** | Nombre de la puerta de enlace de red virtual, como `secondary-mi-gateway`. |
    | **Región** | Región donde se encuentra la instancia administrada secundaria. |
-   | **Tipo de puerta de enlace** | Seleccione **VPN**. |
-   | **Tipo de VPN** | Seleccione **Basada en rutas**. |
+   | **Tipo de puerta de enlace** | Seleccione **VPN** . |
+   | **Tipo de VPN** | Seleccione **Basada en rutas** . |
    | **SKU**| Deje el valor predeterminado de `VpnGw1`. |
    | **Ubicación**| Ubicación donde se encuentran la instancia administrada secundaria y la red virtual secundaria.   |
    | **Red virtual**| Seleccione la red virtual que se creó en la sección 2, como `vnet-sql-mi-secondary`. |
-   | **Dirección IP pública**| Seleccione **Crear nuevo**. |
+   | **Dirección IP pública**| Seleccione **Crear nuevo** . |
    | **Nombre de la dirección IP pública**| Escriba un nombre para la dirección IP, como `secondary-gateway-IP`. |
    | &nbsp; | &nbsp; |
 
@@ -507,23 +507,23 @@ La clave compartida usada para ambas conexiones debe ser la misma para cada cone
 Cree conexiones entre las dos puertas de enlace mediante Azure Portal.
 
 1. Seleccione **Crear un recurso** en [Azure Portal](https://portal.azure.com).
-1. Escriba `connection` en el cuadro de búsqueda y, después, presione Entrar para buscar. Esto lo llevará al recurso **Conexión**, publicado por Microsoft.
+1. Escriba `connection` en el cuadro de búsqueda y, después, presione Entrar para buscar. Esto lo llevará al recurso **Conexión** , publicado por Microsoft.
 1. Seleccione **Crear** para crear su conexión.
-1. En la pestaña **Aspectos básicos**, seleccione los siguientes valores y luego seleccione **Aceptar**.
-    1. Seleccione `VNet-to-VNet` para el **tipo de conexión**.
+1. En la pestaña **Aspectos básicos** , seleccione los siguientes valores y luego seleccione **Aceptar** .
+    1. Seleccione `VNet-to-VNet` para el **tipo de conexión** .
     1. Seleccione la suscripción en la lista desplegable.
     1. Seleccione el grupo de recursos de la instancia administrada en la lista desplegable.
     1. Seleccione la ubicación de la instancia administrada principal en la lista desplegable.
-1. En la pestaña **Configuración**, seleccione o escriba los valores siguientes y, después, seleccione **Aceptar**:
-    1. Elija la puerta de enlace de red principal para la **Primera puerta enlace de red virtual**, como `Primary-Gateway`.  
-    1. Elija la puerta de enlace de red secundaria para la **Segunda puerta enlace de red virtual**, como `Secondary-Gateway`.
-    1. Active la casilla situada junto a **Establecer conectividad bidireccional**.
+1. En la pestaña **Configuración** , seleccione o escriba los valores siguientes y, después, seleccione **Aceptar** :
+    1. Elija la puerta de enlace de red principal para la **Primera puerta enlace de red virtual** , como `Primary-Gateway`.  
+    1. Elija la puerta de enlace de red secundaria para la **Segunda puerta enlace de red virtual** , como `Secondary-Gateway`.
+    1. Active la casilla situada junto a **Establecer conectividad bidireccional** .
     1. Deje el nombre de la conexión principal predeterminado o cambie su nombre por un valor de su elección.
     1. Proporcione una **clave compartida (PSK)** para la conexión, como `mi1m2psk`.
 
    ![Crear una conexión de la puerta de enlace](./media/auto-failover-group-configure/create-gateway-connection.png)
 
-1. En la pestaña **Resumen**, revise la configuración de la conexión bidireccional y, después, seleccione **Aceptar** para crear la conexión.
+1. En la pestaña **Resumen** , revise la configuración de la conexión bidireccional y, después, seleccione **Aceptar** para crear la conexión.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -566,15 +566,15 @@ Cree el grupo de conmutación por error para sus Instancias administradas de SQL
 
 1. Seleccione **Azure SQL** en el menú izquierdo de [Azure Portal](https://portal.azure.com). Si **Azure SQL** no está en la lista, seleccione **Todos los servicios** y escriba Azure SQL en el cuadro de búsqueda. (Opcional) Seleccione la estrella junto a **Azure SQL** para marcarlo como favorito y agréguelo como un elemento en el panel de navegación izquierdo.
 1. Seleccione la instancia administrada principal que desea agregar al grupo de conmutación por error.  
-1. En **Configuración**, navegue a **Grupos de conmutación por error de instancias** y, después, elija **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias**.
+1. En **Configuración** , navegue a **Grupos de conmutación por error de instancias** y, después, elija **Agregar grupo** para abrir la página **Grupo de conmutación por error de instancias** .
 
    ![Adición de un grupo de conmutación por error](./media/auto-failover-group-configure/add-failover-group.png)
 
-1. En la página **Grupo de conmutación por error de instancias**, escriba el nombre del grupo de conmutación por error y después elija la instancia administrada secundaria en la lista desplegable. Seleccione **Crear** para crear el grupo de conmutación por error.
+1. En la página **Grupo de conmutación por error de instancias** , escriba el nombre del grupo de conmutación por error y después elija la instancia administrada secundaria en la lista desplegable. Seleccione **Crear** para crear el grupo de conmutación por error.
 
    ![Creación de un grupo de conmutación por error](./media/auto-failover-group-configure/create-failover-group.png)
 
-1. Una vez completada la implementación del grupo de conmutación por error, volverá a mostrarse la página **Grupo de conmutación por error**.
+1. Una vez completada la implementación del grupo de conmutación por error, volverá a mostrarse la página **Grupo de conmutación por error** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -665,7 +665,7 @@ El uso de un vínculo privado permite asociar un servidor lógico a una direcci�
 
 Para usar un vínculo privado con el grupo de conmutación por error, haga lo siguiente:
 
-1. Asegúrese de que el servidor principal y el secundarios se encuentran en una [región emparejada](/azure/best-practices-availability-paired-regions). 
+1. Asegúrese de que el servidor principal y el secundarios se encuentran en una [región emparejada](../../best-practices-availability-paired-regions.md). 
 1. Cree la red virtual y la subred en cada región para hospedar puntos de conexión privados para el servidor principal y el secundario, de modo que tengan espacios de direcciones IP que no se superpongan. Por ejemplo, el intervalo de direcciones de la red virtual principal de 10.0.0.0/16 y el intervalo de direcciones de la red virtual secundaria de 10.0.0.1/16 se superpone. Para obtener más información sobre los intervalos de direcciones de la red virtual, consulte el blog [Diseño de redes virtuales de Azure](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
 1. Cree un [punto de conexión privado y una zona DNS privada de Azure para el servidor principal](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint). 
 1. Cree también un punto de conexión privado para el servidor secundario, pero esta vez vuelva a usar la misma zona DNS privada que se creó para el servidor principal. 

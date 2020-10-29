@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3fd25753344c5ccfd21310ae01fca9962e3971
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082875"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636075"
 ---
 # <a name="what-are-wrangling-data-flows"></a>¿Qué son los flujos de datos de limpieza y transformación?
 
@@ -21,7 +21,7 @@ ms.locfileid: "87082875"
 
 Las organizaciones deben encargarse de la preparación, y la limpieza y transformación de datos para un análisis preciso de los datos complejos que crecen cada día más. La preparación de datos es necesaria para que las organizaciones puedan usar los datos en diversos procesos empresariales y reducir el plazo de amortización.
 
-Los flujos de datos de limpieza y transformación en Azure Data Factory permiten la preparación de datos sin código en la escala de nube de forma iterativa. Los flujos de datos de limpieza y transformación se integran en [Power Query Online](https://docs.microsoft.com/power-query/) y ponen las funciones de Power Query M a disposición de los usuarios de Data Factory.
+Los flujos de datos de limpieza y transformación en Azure Data Factory permiten la preparación de datos sin código en la escala de nube de forma iterativa. Los flujos de datos de limpieza y transformación se integran en [Power Query Online](/power-query/) y ponen las funciones de Power Query M a disposición de los usuarios de Data Factory.
 
 El flujo de datos de limpieza y transformación traduce el código M generado por el editor de mashups de Power Query Online en el código de Spark para la ejecución a escala de nube.
 
@@ -56,7 +56,7 @@ Analice visualmente los datos sin código para quitar los valores atípicos y la
 
 ## <a name="the-mashup-editor"></a>Editor de mashup
 
-Cuando se crea un flujo de datos de limpieza y transformación, todos los conjuntos de datos de origen se convierten en consultas de conjuntos de datos y se colocan en la carpeta **ADFResource**. De forma predeterminada, UserQuery apuntará a la primera consulta del conjunto de datos. Todas las transformaciones deben realizarse en UserQuery, ya que no se admiten ni se conservan los cambios en las consultas del conjunto de datos. Actualmente no se admiten las opciones para cambiar el nombre o agregar y eliminar consultas.
+Cuando se crea un flujo de datos de limpieza y transformación, todos los conjuntos de datos de origen se convierten en consultas de conjuntos de datos y se colocan en la carpeta **ADFResource** . De forma predeterminada, UserQuery apuntará a la primera consulta del conjunto de datos. Todas las transformaciones deben realizarse en UserQuery, ya que no se admiten ni se conservan los cambios en las consultas del conjunto de datos. Actualmente no se admiten las opciones para cambiar el nombre o agregar y eliminar consultas.
 
 ![Limpieza y transformación](media/wrangling-data-flow/editor.png)
 

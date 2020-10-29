@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: 2fdaaf153f242a25e1ad9d8f926d6ac77d285df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64bef8a1cd4353ed9602c36cf728a0d727458251
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444916"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675141"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creación de alertas para Azure SQL Database y Azure Synapse Analytics mediante Azure Portal
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -45,7 +45,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 * [Portal de Azure](../../azure-monitor/platform/alerts-classic-portal.md)
 * [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md)
 * [Interfaz de la línea de comandos (CLI)](../../azure-monitor/platform/alerts-classic-portal.md)
-* [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [API de REST de Azure Monitor](/rest/api/monitor/alertrules)
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creación de una regla de alerta de una métrica con Azure Portal
 
@@ -59,11 +59,11 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
 4. En la sección **Condition** (Condición), haga clic en **Add** (Agregar).
   ![Definir condición](./media/alerts-insights-configure-portal/create-rule.png)
-5. En la página **Configurar lógica de señal**, seleccione una señal.
+5. En la página **Configurar lógica de señal** , seleccione una señal.
   ![Selección de una señal](./media/alerts-insights-configure-portal/select-signal.png)
-6. Después de seleccionar una señal, como **Porcentaje de CPU**, aparece la página **Configurar lógica de señal**.
+6. Después de seleccionar una señal, como **Porcentaje de CPU** , aparece la página **Configurar lógica de señal** .
   ![Configurar lógica de señal](./media/alerts-insights-configure-portal/configure-signal-logic.png)
-7. En esta página, configure el tipo de umbral, operador, tipo de agregación, valor de umbral, granularidad de agregación y frecuencia de evaluación. A continuación, haga clic en **Hecho**.
+7. En esta página, configure el tipo de umbral, operador, tipo de agregación, valor de umbral, granularidad de agregación y frecuencia de evaluación. A continuación, haga clic en **Hecho** .
 8. En **Create rule** (Crear regla), seleccione un **grupo de acciones** existente o créelo. Un grupo de acciones le permite definir la acción que se va a realizar cuando se produce una condición de alerta.
   ![Definir un grupo de acciones](./media/alerts-insights-configure-portal/action-group.png)
 

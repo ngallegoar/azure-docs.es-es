@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e74361d6fb3eb1f9708f39f198506d16c7c046c4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87280807"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635106"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -73,7 +73,7 @@ La actividad Web puede usarse para llamar a un punto de conexión REST personali
 Propiedad | Descripción | Valores permitidos | Obligatorio
 -------- | ----------- | -------------- | --------
 name | Nombre de la actividad web | String | Sí
-type | Se debe establecer en **WebActivity**. | String | Sí
+type | Se debe establecer en **WebActivity** . | String | Sí
 method | Método de API de REST para el punto de conexión de destino. | String. <br/><br/>Tipos admitidos: "GET", "POST", "PUT" | Sí
 url | Punto de conexión y ruta de acceso de destino | Cadena (o expresión con un valor resultType de cadena). La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión. | Sí
 headers | Encabezados que se envían a la solicitud. Por ejemplo, para establecer el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Cadena (o expresión con un valor resultType de cadena) | Sí, el encabezado Content-type es necesario. `"headers":{ "Content-Type":"application/json"}`
@@ -81,7 +81,7 @@ body | Representa la carga útil que se envía al punto de conexión.  | Cadena 
 autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | No
 conjuntos de datos | Lista de conjuntos de datos que se pasan al punto de conexión. | Matriz de referencias de conjunto de datos. Puede ser una matriz vacía. | Sí
 linkedServices | Lista de servicios vinculados que se pasan al punto de conexión. | Matriz de referencias de servicios vinculados. Puede ser una matriz vacía. | Sí
-connectVia | El [entorno de ejecución de integración](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. | La referencia al entorno de ejecución de integración. | No 
+connectVia | El [entorno de ejecución de integración](./concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. | La referencia al entorno de ejecución de integración. | No 
 
 > [!NOTE]
 > Los puntos de conexión REST que invoca la actividad web deben devolver una respuesta de tipo JSON. La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión.
@@ -130,7 +130,7 @@ Especifique un contenido codificado en base64 de un archivo PFX y la contraseña
 
 ### <a name="managed-identity"></a>Identidad administrada
 
-Especifique el URI de recurso para el que el token de acceso se solicitará utilizando la identidad administrada para la factoría de datos. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte la página de información general [Identidades administradas de recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Especifique el URI de recurso para el que el token de acceso se solicitará utilizando la identidad administrada para la factoría de datos. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte la página de información general [Identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {

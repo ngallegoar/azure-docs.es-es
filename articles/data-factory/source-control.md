@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
-ms.openlocfilehash: 5888f2c432757b3139306df12711353859ead9e1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 43e3916e47aa0305209b8e6e32803426ac1ebe3d
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101909"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637571"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Control de código fuente en Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -50,7 +50,7 @@ La siguiente es una lista de algunas de las ventajas que ofrece la integración 
 
 ## <a name="author-with-azure-repos-git-integration"></a>Creación con la integración de Git de Azure Repos
 
-La creación visual con la integración de Git de Azure Repos admite el control del código fuente y la colaboración para trabajar en canalizaciones de factoría de datos. Puede asociar una factoría de datos con un repositorio de organizaciones de Git de Azure Repos para el control del código fuente, la colaboración, el control de versiones, etc. Una sola organización de Git de Azure Repos puede tener varios repositorios, pero un repositorio de Git de Azure Repos solo puede asociarse a una factoría de datos. Si no tiene un repositorio o una organización de Azure Repos, siga [estas instrucciones](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para crear los recursos.
+La creación visual con la integración de Git de Azure Repos admite el control del código fuente y la colaboración para trabajar en canalizaciones de factoría de datos. Puede asociar una factoría de datos con un repositorio de organizaciones de Git de Azure Repos para el control del código fuente, la colaboración, el control de versiones, etc. Una sola organización de Git de Azure Repos puede tener varios repositorios, pero un repositorio de Git de Azure Repos solo puede asociarse a una factoría de datos. Si no tiene un repositorio o una organización de Azure Repos, siga [estas instrucciones](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) para crear los recursos.
 
 > [!NOTE]
 > Puede almacenar archivos de datos y script en un repositorio de Git de Azure Repos. Sin embargo, tiene que cargar manualmente los archivos en Azure Storage. Una canalización de Data Factory no carga automáticamente archivos de script ni datos en un repositorio de Git de Azure Repos en Azure Storage.
@@ -93,13 +93,13 @@ El panel de configuración muestra la siguiente configuración del repositorio d
 
 ### <a name="use-a-different-azure-active-directory-tenant"></a>Uso de un inquilino de Azure Active Directory distinto
 
-El repositorio Git de Azure Repos puede estar en un inquilino de Azure Active Directory distinto. Para especificar otro inquilino de Azure AD, deberá tener permisos de administrador para la suscripción de Azure que utilice. Para más información, consulte [Agregar o cambiar los administradores de la suscripción de Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator#to-assign-a-user-as-an-administrator).
+El repositorio Git de Azure Repos puede estar en un inquilino de Azure Active Directory distinto. Para especificar otro inquilino de Azure AD, deberá tener permisos de administrador para la suscripción de Azure que utilice. Para más información, consulte [Agregar o cambiar los administradores de la suscripción de Azure](../cost-management-billing/manage/add-change-subscription-administrator.md#to-assign-a-user-as-an-administrator).
 
 ### <a name="use-your-personal-microsoft-account"></a>Uso de la cuenta de Microsoft personal
 
 Para usar una cuenta de Microsoft personal para la integración de Git, puede vincular el repositorio de Azure personal al entorno de Active Directory de su organización.
 
-1. Agregue la cuenta de Microsoft personal al entorno de Active Directory de su organización como invitado. Para más información, vea [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/b2b/add-users-administrator.md).
+1. Agregue la cuenta de Microsoft personal al entorno de Active Directory de su organización como invitado. Para más información, vea [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../active-directory/external-identities/add-users-administrator.md).
 
 2. Inicie sesión en Azure Portal con la cuenta de Microsoft personal. A continuación, cambie al entorno de Active Directory de su organización.
 
@@ -111,7 +111,7 @@ Para más información sobre cómo conectar Azure Repos al entorno de Active Dir
 
 ## <a name="author-with-github-integration"></a>Creación con la integración de GitHub
 
-La creación visual con la integración de GitHub admite el control del código fuente y la colaboración para trabajar en canalizaciones de factoría de datos. Puede asociar una factoría de datos con un repositorio de cuentas de GitHub para el control del código fuente, la colaboración y el control de versiones. Una sola cuenta de GitHub puede tener varios repositorios, pero un repositorio de GitHub solo puede asociarse a una factoría de datos. Si no tiene un repositorio o una cuenta de GitHub, siga  [estas instrucciones](https://github.com/join) para crear los recursos.
+La creación visual con la integración de GitHub admite el control del código fuente y la colaboración para trabajar en canalizaciones de factoría de datos. Puede asociar una factoría de datos con un repositorio de cuentas de GitHub para el control del código fuente, la colaboración y el control de versiones. Una sola cuenta de GitHub puede tener varios repositorios, pero un repositorio de GitHub solo puede asociarse a una factoría de datos. Si no tiene un repositorio o una cuenta de GitHub, siga [estas instrucciones](https://github.com/join) para crear los recursos.
 
 La integración de GitHub con Data Factory admite tanto GitHub público (es decir, [https://github.com](https://github.com)) como GitHub Enterprise. Puede usar los repositorios de GitHub públicos y privados con Data Factory siempre que tenga permisos de lectura y escritura para el repositorio en GitHub.
 

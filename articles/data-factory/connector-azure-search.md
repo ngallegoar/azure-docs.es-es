@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0484d846501ef20e5d474668c45324452d0c8fc8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418242"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638234"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copia de datos a un índice de Azure Cognitive Search mediante Azure Data Factory
 
@@ -44,7 +44,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Co
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **AzureSearch**. | Sí |
+| type | La propiedad type debe establecerse en: **AzureSearch** . | Sí |
 | url | URL del servicio de búsqueda. | Sí |
 | key | Clave de administración del servicio de búsqueda. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |No |
@@ -52,7 +52,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Co
 > [!IMPORTANT]
 > Cuando se copian datos desde un almacén de datos en la nube al índice de búsqueda, en el servicio vinculado de Azure Cognitive Search, debe hacer referencia a Azure Integration Runtime con región explícita en connactVia. Establezca como región aquella en la que reside el servicio de búsqueda. Obtenga más información acerca de [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
-**Ejemplo**:
+**Ejemplo** :
 
 ```json
 {
@@ -82,10 +82,10 @@ Para copiar datos en Azure Cognitive Search, se admiten las siguientes propiedad
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **AzureSearchIndex**. | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **AzureSearchIndex** . | Sí |
 | indexName | Nombre del índice de búsqueda. Data Factory no crea el índice. El índice debe existir en Azure Cognitive Search. | Sí |
 
-**Ejemplo**:
+**Ejemplo** :
 
 ```json
 {
@@ -110,12 +110,12 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 
 ### <a name="azure-cognitive-search-as-sink"></a>Azure Cognitive Search como receptor
 
-Si va a copiar datos a Azure Cognitive Search, establezca el tipo de origen de la actividad de copia en **AzureSearchIndexSink**. Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
+Si va a copiar datos a Azure Cognitive Search, establezca el tipo de origen de la actividad de copia en **AzureSearchIndexSink** . Se admiten las siguientes propiedades en la sección **sink** de la actividad de copia:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureSearchIndexSink**. | Sí |
-| writeBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).<br/><br/>Los valores permitidos son: **Merge** (valor predeterminado) y**Upload**. | No |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureSearchIndexSink** . | Sí |
+| writeBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).<br/><br/>Los valores permitidos son: **Merge** (valor predeterminado) y **Upload** . | No |
 | writeBatchSize | Carga datos en el índice de búsqueda cuando el tamaño del búfer alcanza el valor de writeBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información.<br/><br/>Los valores permitidos son: enteros de 1 a 1000; el valor predeterminado es 1000. | No |
 
 ### <a name="writebehavior-property"></a>Propiedad WriteBehavior
@@ -124,16 +124,16 @@ AzureSearchSink realiza una operación upsert al escribir los datos. Es decir, a
 
 AzureSearchSink proporciona los siguientes dos comportamientos de upsert (mediante el SDK de Azure Search):
 
-- **Combinar**: combina todas las columnas del nuevo documento con el existente. En las columnas con valor null del nuevo documento, se conserva el valor del existente.
-- **Cargar**: el nuevo documento reemplaza al existente. En cuanto a las columnas no especificadas en el nuevo documento, el valor se establece en null con independencia de que haya un valor distinto de null en el documento existente.
+- **Combinar** : combina todas las columnas del nuevo documento con el existente. En las columnas con valor null del nuevo documento, se conserva el valor del existente.
+- **Cargar** : el nuevo documento reemplaza al existente. En cuanto a las columnas no especificadas en el nuevo documento, el valor se establece en null con independencia de que haya un valor distinto de null en el documento existente.
 
-El comportamiento predeterminado es **Combinar**.
+El comportamiento predeterminado es **Combinar** .
 
 ### <a name="writebatchsize-property"></a>Propiedad WriteBatchSize
 
 El servicio Azure Cognitive Search permite la creación de documentos como lotes. Un lote puede contener entre 1 y 1000 acciones. Una acción controla un documento para llevar a cabo la operación de combinación o de carga.
 
-**Ejemplo**:
+**Ejemplo** :
 
 ```json
 "activities":[
@@ -180,7 +180,7 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 | Matriz de cadenas | N |
 | GeographyPoint | N |
 
-Actualmente no se admiten otros tipos de datos, por ejemplo, ComplexType. Para obtener una lista completa de los tipos de datos que admite Azure Cognitive Search, consulte [Tipos de datos admitidos (Azure Cognitive Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+Actualmente no se admiten otros tipos de datos, por ejemplo, ComplexType. Para obtener una lista completa de los tipos de datos que admite Azure Cognitive Search, consulte [Tipos de datos admitidos (Azure Cognitive Search)](/rest/api/searchservice/supported-data-types).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos que la actividad de copia de Azure Data Factory admite como orígenes y receptores.

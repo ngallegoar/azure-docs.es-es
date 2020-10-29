@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: 23a486dfe1256cea46f6722873950ffcb1bde084
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4dbedc0a30c80748ffc27bb7e17c86067ca0238
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982703"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638166"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copia de datos de Dynamics AX mediante Azure Data Factory
 
@@ -34,10 +34,10 @@ Este conector de Dynamics AX es compatible con las actividades siguientes:
 
 Puede copiar datos desde Dynamics AX en cualquier almacén de datos de receptor compatible. Para obtener una lista de almacenes de datos que la actividad de copia admite como orígenes y receptores, consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).
 
-De forma específica, este conector de Dynamics AX admite la copia de datos desde Dynamics AX mediante el **protocolo OData** con la **autenticación de la entidad de servicio**.
+De forma específica, este conector de Dynamics AX admite la copia de datos desde Dynamics AX mediante el **protocolo OData** con la **autenticación de la entidad de servicio** .
 
 >[!TIP]
->También puede usar este conector para copiar los datos desde **Dynamics 365 Finance and Operations**. Consulte la [compatibilidad con OData](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/odata) y el [método de autenticación](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication) de Dynamics 365.
+>También puede usar este conector para copiar los datos desde **Dynamics 365 Finance and Operations** . Consulte la [compatibilidad con OData](/dynamics365/unified-operations/dev-itpro/data-entities/odata) y el [método de autenticación](/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication) de Dynamics 365.
 
 ## <a name="get-started"></a>Introducción
 
@@ -63,10 +63,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** debe establecerse en **Dynamics AX**. |Sí |
+| type | La propiedad **type** debe establecerse en **Dynamics AX** . |Sí |
 | url | El extremo de OData de instancia de Dynamics AX (o Dynamics 365 Finance and Operations). |Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí |
-| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí |
+| servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault** . | Sí |
 | tenant | Especifique la información del inquilino (nombre de dominio o identificador de inquilino) en el que reside la aplicación. Para recuperarla, mantenga el puntero del mouse en la esquina superior derecha de Azure Portal. | Sí |
 | aadResourceId | Especifique el recurso de AAD para el cual solicita autorización. Por ejemplo, si es la dirección URL de Dynamics es `https://sampledynamics.sandbox.operations.dynamics.com/data/`, el recurso AAD correspondiente suele ser `https://sampledynamics.sandbox.operations.dynamics.com`. | Sí |
 | connectVia | Instancia de [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Se puede elegir Azure Integration Runtime o un Integration Runtime autohospedado (si el almacén de datos se encuentra en una red privada). Si no se especifica, se usa el valor predeterminado de Azure Integration Runtime. |No |
@@ -103,11 +103,11 @@ En esta sección se proporciona una lista de las propiedades que admite el conju
 
 Para ver una lista completa de las secciones y propiedades disponibles para definir conjuntos de datos, consulte [Conjuntos de datos y servicios vinculados](concepts-datasets-linked-services.md). 
 
-Para copiar datos desde Dynamics AX, establezca la propiedad **type** del conjunto de datos en **DynamicsAXResource**. Se admiten las siguientes propiedades:
+Para copiar datos desde Dynamics AX, establezca la propiedad **type** del conjunto de datos en **DynamicsAXResource** . Se admiten las siguientes propiedades:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del conjunto de datos debe establecerse en **DynamicsAXResource**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **DynamicsAXResource** . | Sí |
 | path | La ruta de acceso a la entidad de OData de Dynamics AX. | Sí |
 
 **Ejemplo**
@@ -137,13 +137,13 @@ Para ver una lista completa de las secciones y propiedades que hay disponibles p
 
 ### <a name="dynamics-ax-as-source"></a>Dynamics AX como origen
 
-Para copiar datos desde Dynamics AX, establezca el tipo de **origen** en actividad de copia en **DynamicsAXSource**. La sección **source** de la actividad de copia admite las siguientes propiedades:
+Para copiar datos desde Dynamics AX, establezca el tipo de **origen** en actividad de copia en **DynamicsAXSource** . La sección **source** de la actividad de copia admite las siguientes propiedades:
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **DynamicsAXSource**. | Sí |
-| Query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: El conector copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. Si no se especifica, el valor predeterminado es **00:30:00** (30 minutos). | No |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **DynamicsAXSource** . | Sí |
+| Query | Opciones de consulta de OData para filtrar datos. Ejemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota** : El conector copia datos de la dirección URL combinada: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| httpRequestTimeout | El tiempo de espera (el valor **TimeSpan** ) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. Si no se especifica, el valor predeterminado es **00:30:00** (30 minutos). | No |
 
 **Ejemplo**
 

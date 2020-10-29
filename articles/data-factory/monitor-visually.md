@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91570134"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638115"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Supervise visualmente Azure Data Factory
 
@@ -36,7 +36,7 @@ La vista de supervisión predeterminada es una lista de ejecuciones de la canali
 | Hora de inicio de la ejecución | Fecha y hora de inicio de la ejecución de la canalización (MM/DD/AAAA, HH: MM: SS a.m./p.m.) |
 | Duration | Duración de ejecución (HH) |
 | Desencadenado por | El nombre del desencadenador que inició la canalización |
-| Status | **Error**, **Correcto**, **En curso**, **Cancelado** o **En cola** |
+| Status | **Error** , **Correcto** , **En curso** , **Cancelado** o **En cola** |
 | Anotaciones | Etiquetas filtrables asociadas a una canalización  |
 | Parámetros | Parámetros para la ejecución de la canalización (nombre/pares de valor) |
 | Error | Si se ha producido un error en la canalización, el error de ejecución |
@@ -50,16 +50,16 @@ Debe seleccionar manualmente el botón **Actualizar** para actualizar la lista d
 
 ## <a name="monitor-activity-runs"></a>Supervisión de las ejecuciones de actividad
 
-Para ver las ejecuciones de actividad de cada ejecución de la canalización, seleccione el icono **Ver ejecuciones de actividad** de la columna **Acciones**. La vista de lista muestra ejecuciones de actividad correspondiente a cada ejecución de canalización.
+Para ver las ejecuciones de actividad de cada ejecución de la canalización, seleccione el icono **Ver ejecuciones de actividad** de la columna **Acciones** . La vista de lista muestra ejecuciones de actividad correspondiente a cada ejecución de canalización.
 
 | **Nombre de la columna** | **Descripción** |
 | --- | --- |
 | Nombre de actividad | Nombre de la actividad dentro de la canalización |
-| Tipo de actividad | Tipo de la actividad, como **Copy**, **ExecuteDataFlow** o **AzureMLExecutePipeline** |
+| Tipo de actividad | Tipo de la actividad, como **Copy** , **ExecuteDataFlow** o **AzureMLExecutePipeline** |
 | Acciones | Iconos que le permiten ver información de entrada JSON, información de salida JSON o experiencias de supervisión específicas de la actividad detalladas | 
 | Hora de inicio de la ejecución | Fecha y hora de inicio de la ejecución de actividad (MM/DD/AAAA, HH: MM: SS a.m./p.m.) |
 | Duration | Duración de ejecución (HH) |
-| Status | **Error**, **Correcto**, **En curso** o **Cancelado** |
+| Status | **Error** , **Correcto** , **En curso** o **Cancelado** |
 | Integration Runtime | Instancia de Integration Runtime donde se ejecutó la actividad |
 | Propiedades de usuario | Propiedades definidas por el usuario de la actividad |
 | Error | Si se ha producido un error en la actividad, el error de ejecución |
@@ -93,8 +93,8 @@ Alterne si las ejecuciones de la canalización van a estar en orden descendente 
 | **Nombre de la columna** | **Descripción** |
 | --- | --- |
 | Nombre de la canalización | Filtre por el nombre de la canalización. |
-| Hora de inicio de la ejecución |  Determine el intervalo de tiempo de las ejecuciones de la canalización mostradas. Las opciones incluyen filtros rápidos para las **últimas 24 horas**, la **última semana** y los **últimos 30 días**, o bien puede seleccionar una fecha y hora personalizadas. |
-| Estado de ejecución | Filtrar ejecuciones por estado: **Correcto**, **Error**, **En cola**, **Cancelado** o **En curso**. |
+| Hora de inicio de la ejecución |  Determine el intervalo de tiempo de las ejecuciones de la canalización mostradas. Las opciones incluyen filtros rápidos para las **últimas 24 horas** , la **última semana** y los **últimos 30 días** , o bien puede seleccionar una fecha y hora personalizadas. |
+| Estado de ejecución | Filtrar ejecuciones por estado: **Correcto** , **Error** , **En cola** , **Cancelado** o **En curso** . |
 | Anotaciones | Filtre por etiquetas aplicadas a cada canalización |
 | Ejecuciones | Filtre si desea ver canalizaciones nuevamente ejecutadas |
 
@@ -168,7 +168,7 @@ Seleccione el icono de **información** de la esquina inferior izquierda. Despu�
 
 ## <a name="alerts"></a>Alertas
 
-Puede generar alertas en función de métricas admitidas en Data Factory. Seleccione **Supervisar** > **Alertas y métricas**, en la página de supervisión de Data Factory, para empezar.
+Puede generar alertas en función de métricas admitidas en Data Factory. Seleccione **Supervisar** > **Alertas y métricas** , en la página de supervisión de Data Factory, para empezar.
 
 ![Página de supervisión de Data Factory](media/monitor-visually/start-page.png)
 
@@ -212,4 +212,4 @@ Si desea una demostración y una introducción de siete minutos de esta caracter
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la supervisión y la administración de canalizaciones, consulte el artículo [Supervisión y administración de canalizaciones mediante programación](https://docs.microsoft.com/azure/data-factory/monitor-programmatically).
+Para más información sobre la supervisión y la administración de canalizaciones, consulte el artículo [Supervisión y administración de canalizaciones mediante programación](./monitor-programmatically.md).

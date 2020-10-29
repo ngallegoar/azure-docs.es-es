@@ -13,12 +13,12 @@ ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: be5cb1c1e6ff428b3c4d4305c915e07d3880839c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c29e1e3fd42702e0eb02531f995c550738839a9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258394"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673711"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -36,10 +36,10 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. Seleccione el icono **Directorio y suscripción** en la barra de herramientas del portal.
-1. En la lista **Favoritos** o **Todos los directorios**, elija el inquilino de Active Directory en el que quiere registrar la aplicación.
-1. En Azure Portal, busque y seleccione **Azure Active Directory**.
-1. En el panel **Azure Active Directory**, seleccione **Registros de aplicaciones** para ver una lista de todas las aplicaciones.
-1. Seleccione la aplicación para la que desea definir roles de aplicación. A continuación, seleccione **Manifiesto**.
+1. En la lista **Favoritos** o **Todos los directorios** , elija el inquilino de Active Directory en el que quiere registrar la aplicación.
+1. En Azure Portal, busque y seleccione **Azure Active Directory** .
+1. En el panel **Azure Active Directory** , seleccione **Registros de aplicaciones** para ver una lista de todas las aplicaciones.
+1. Seleccione la aplicación para la que desea definir roles de aplicación. A continuación, seleccione **Manifiesto** .
 1. Localice la opción de configuración `appRoles` para editar el manifiesto de la aplicación y agregar los roles de aplicación.
 
      > [!NOTE]
@@ -76,7 +76,7 @@ El ejemplo siguiente muestra los distintos `appRoles` que se pueden asignar a `u
 > [!NOTE]
 >El elemento `displayName` puede contener espacios.
 
-Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando esté disponible para `applications`, los roles de aplicación aparecen como permisos de aplicación en la sección **Administrar** > **Permisos de API > Agregar un permiso > Mis API > Elegir una API > Permisos de la aplicación**. El ejemplo siguiente muestra un rol de aplicación dirigido a un elemento `Application`.
+Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando esté disponible para `applications`, los roles de aplicación aparecen como permisos de aplicación en la sección **Administrar** > **Permisos de API > Agregar un permiso > Mis API > Elegir una API > Permisos de la aplicación** . El ejemplo siguiente muestra un rol de aplicación dirigido a un elemento `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -101,21 +101,21 @@ El número de roles definidos afecta a los límites que tiene el manifiesto de a
 
 Una vez que haya agregado los roles de aplicación en la aplicación, puede asignar usuarios y grupos a estos roles.
 
-1. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo **Azure Active Directory**.
+1. En el panel **Azure Active Directory** , seleccione **Aplicaciones empresariales** en el menú de navegación izquierdo **Azure Active Directory** .
 1. Seleccione **Todas las aplicaciones** para ver una lista de todas las aplicaciones.
 
      Si no ve la aplicación que desea, utilice los distintos filtros de la parte superior de la lista **Registros de aplicaciones** para restringir la lista o desplácese hacia abajo en la lista para buscar la aplicación.
 
 1. Seleccione la aplicación en la que desea asignar usuarios o grupos de seguridad a los roles.
 1. Seleccione el panel **Usuarios y grupos** en el menú de navegación izquierdo de la aplicación.
-1. En la parte superior de la lista **Usuarios y grupos**, seleccione el botón **Agregar usuario** para abrir el panel **Agregar asignación**.
-1. Seleccione el selector **Usuarios y grupos** del panel **Agregar asignación**.
+1. En la parte superior de la lista **Usuarios y grupos** , seleccione el botón **Agregar usuario** para abrir el panel **Agregar asignación** .
+1. Seleccione el selector **Usuarios y grupos** del panel **Agregar asignación** .
 
      Se mostrará una lista de usuarios y grupos de seguridad junto con un cuadro de texto para buscar un usuario o grupo determinado. Esta pantalla permite seleccionar varios usuarios y grupos en una sola operación.
 
 1. Cuando haya terminado la selección de los usuarios y grupos, presione el botón **Seleccionar** en la parte inferior para desplazarse al apartado siguiente.
-1. Elija el selector **Seleccionar rol** del panel **Agregar asignación**. Se mostrarán todos los roles que se declararon previamente en el manifiesto de la aplicación.
-1. Elija un rol y presione el botón **Seleccionar**.
+1. Elija el selector **Seleccionar rol** del panel **Agregar asignación** . Se mostrarán todos los roles que se declararon previamente en el manifiesto de la aplicación.
+1. Elija un rol y presione el botón **Seleccionar** .
 1. Presione el botón **Asignar** en la parte inferior para finalizar las asignaciones de usuarios y grupos a la aplicación.
 1. Confirme que los usuarios y grupos que agregó se muestran en la lista **Usuarios y grupos** actualizada.
 
@@ -126,7 +126,7 @@ Cuando los usuarios asignados a los distintos roles de aplicación inicien sesi�
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Incorporación de autorización mediante roles de aplicación y notificaciones de roles a una aplicación web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Implementación de la autorización en las aplicaciones con la plataforma de identidad de Microsoft (vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
+- [Implementación de la autorización en las aplicaciones con la plataforma de identidad de Microsoft (vídeo)](https://www.youtube.com/watch?v=HdBSBSbgYQQ)
 - [Azure Active Directory, ahora con notificaciones de grupo y roles de aplicación](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifiesto de la aplicación de Azure Active Directory](./reference-app-manifest.md)
 - [Tokens de acceso de Azure AD](access-tokens.md)

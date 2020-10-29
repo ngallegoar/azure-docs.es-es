@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba3cc376edef1e6dc8fbf859e456219a1fd3ca60
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440514"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635769"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
 
@@ -67,10 +67,10 @@ Los usuarios también pueden usar las API REST documentadas para interactuar con
 ### <a name="iterative-development-and-debugging-by-using-visual-tools"></a>Desarrollo y depuración iterativos mediante herramientas visuales
 Las herramientas visuales de Azure Data Factory le permiten realizar un desarrollo y depuración iterativos. Puede crear canalizaciones y realizar series de pruebas con la funcionalidad **Depurar** en el lienzo de la canalización sin escribir ni una sola línea de código. Puede ver los resultados de las series de pruebas en la ventana **Salida** del lienzo de la canalización. Después de realizar correctamente una serie de pruebas, puede agregar más actividades a la canalización y continuar con la depuración de manera iterativa. También puede cancelar las series de pruebas una vez que están en curso. 
 
-No es necesario que publique los cambios en el servicio Data Factory antes de seleccionar **Depurar**. Esto resulta útil en escenarios en los que se desea garantizar que los cambios o nuevas adiciones funcionarán según lo esperado antes de actualizar los flujos de trabajo de la factoría de datos en entornos de desarrollo, pruebas o producción. 
+No es necesario que publique los cambios en el servicio Data Factory antes de seleccionar **Depurar** . Esto resulta útil en escenarios en los que se desea garantizar que los cambios o nuevas adiciones funcionarán según lo esperado antes de actualizar los flujos de trabajo de la factoría de datos en entornos de desarrollo, pruebas o producción. 
 
 ### <a name="ability-to-deploy-ssis-packages-to-azure"></a>Capacidad de Implementación de paquetes SSIS en Azure 
-Si desea mover las cargas de trabajo de SSIS, puede crear una instancia de Data Factory y aprovisionar una instancia de Integration Runtime para la integración de SSIS en Azure. Un entorno de ejecución de integración de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones paso a paso, vea el tutorial [Implementación de paquetes SSIS en Azure](tutorial-create-azure-ssis-runtime-portal.md). 
+Si desea mover las cargas de trabajo de SSIS, puede crear una instancia de Data Factory y aprovisionar una instancia de Integration Runtime para la integración de SSIS en Azure. Un entorno de ejecución de integración de SSIS de Azure es un clúster totalmente administrado de máquinas virtuales de Azure (nodos) que se dedican a ejecutar los paquetes SSIS en la nube. Para obtener instrucciones paso a paso, vea el tutorial [Implementación de paquetes SSIS en Azure](./tutorial-deploy-ssis-packages-azure.md). 
  
 ### <a name="sdks"></a>SDK
 Si es un usuario avanzado y busca una interfaz programática, Data Factory le proporciona un amplio conjunto de SDK que puede usar para crear, administrar o supervisar canalizaciones mediante su IDE favorito. Entre los lenguajes compatibles se incluye: .NET, PowerShell, Python y REST.
@@ -95,9 +95,9 @@ Desde el lanzamiento inicial de la versión preliminar pública en 2017, Data F
 ## <a name="what-is-the-integration-runtime"></a>¿Qué es el entorno de ejecución de integración?
 El entorno de ejecución de integración es la infraestructura de proceso que Azure Data Factory usa para proporcionar las siguientes funcionalidades de integración de datos en diversos entornos de red:
 
-- **Movimiento de datos**: Para el movimiento de datos, el entorno de ejecución de integración mueve los datos entre los almacenes de origen y de destino e incluye funcionalidad de conectores integrados, conversión de formato, asignación de columnas y transferencia de datos eficaz y escalable.
-- **Distribución de actividades**: Para la transformación, permite ejecutar paquetes SSIS de forma nativa.
-- **Ejecución de paquetes SSIS**: El entorno de ejecución de integración ejecuta de forma nativa paquetes SSIS en un entorno de proceso de Azure administrado. También permite distribuir y supervisar actividades de transformación que se ejecutan en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database y SQL Server.
+- **Movimiento de datos** : Para el movimiento de datos, el entorno de ejecución de integración mueve los datos entre los almacenes de origen y de destino e incluye funcionalidad de conectores integrados, conversión de formato, asignación de columnas y transferencia de datos eficaz y escalable.
+- **Distribución de actividades** : Para la transformación, permite ejecutar paquetes SSIS de forma nativa.
+- **Ejecución de paquetes SSIS** : El entorno de ejecución de integración ejecuta de forma nativa paquetes SSIS en un entorno de proceso de Azure administrado. También permite distribuir y supervisar actividades de transformación que se ejecutan en una gran variedad de servicios de proceso, como Azure HDInsight, Azure Machine Learning, Azure SQL Database y SQL Server.
 
 Puede implementar una o varias instancias del entorno de ejecución de integración, según sea necesario para mover y transformar los datos. El entorno de ejecución de integración se puede ejecutar en una red de Azure pública o en una red privada (local, Azure Virtual Network o en la nube privada virtual de Amazon Web Services [VPC]). 
 
@@ -159,7 +159,7 @@ Consulte los [detalles de precios de Azure Data Factory](https://azure.microsoft
 Para ver la información más actualizada acerca de Azure Data Factory, vaya a los sitios siguientes:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Página principal de la documentación](/azure/data-factory)
+- [Página principal de la documentación](./index.yml)
 - [Página principal del producto](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>Inmersión técnica profunda 

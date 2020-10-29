@@ -1,20 +1,20 @@
 ---
 title: Controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 description: Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP. Cada control se corresponde a una o varias definiciones de Azure Policy que ayudan en la evaluación.
-ms.date: 07/31/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 99fcb41e1961cbf7def766249940023eb2f330f7
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0b729046d44d76f71dfb520db16e6fd268d421c9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929360"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669375"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 
 En el siguiente artículo se detalla cómo se asigna el ejemplo de plano técnico con un nivel de impacto alto de FedRAMP de Azure Blueprints a los controles de nivel de impacto alto de FedRAMP. Para obtener más información sobre los controles, vea [Base de referencia de los controles de seguridad de FedRAMP](https://www.fedramp.gov/).
 
-Las siguientes asignaciones son para los controles de **nivel de impacto alto de FedRAMP**. Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones**. Después, busque y seleccione la **\[versión preliminar\]: iniciativa de directivas integradas Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de extensiones de VM específicas para admitir los requisitos de auditoría**.
+Las siguientes asignaciones son para los controles de **nivel de impacto alto de FedRAMP** . Use el panel de navegación de la derecha para ir directamente a una asignación de control específica. Muchos de los controles asignados se implementan con una iniciativa de [Azure Policy](../../../policy/overview.md). Para revisar la iniciativa completa, abra **Policy** en Azure Portal y seleccione la página **Definiciones** . Después, busque y seleccione la **\[versión preliminar\]: iniciativa de directivas integradas Auditoría de los controles de nivel de impacto alto de FedRAMP e implementación de extensiones de VM específicas para admitir los requisitos de auditoría** .
 
 > [!IMPORTANT]
 > Cada control que se muestra a continuación está asociado a una o varias definiciones de [Azure Policy](../../../policy/overview.md). Estas directivas pueden ayudarle a [evaluar el cumplimiento](../../../policy/how-to/get-compliance-data.md) mediante el control. Sin embargo, con frecuencia no hay una correspondencia completa o exacta entre un control y una o varias directivas. Como tal, el **cumplimiento** con Azure Policy solo se refiere a las propias directivas; esto no garantiza que sea totalmente compatible con todos los requisitos de un control. Además, el estándar de cumplimiento incluye controles que no se abordan con las definiciones de Azure Policy en este momento. Por lo tanto, el cumplimiento en Azure Policy es solo una vista parcial del estado general de cumplimiento. Las asociaciones entre los controles y las definiciones de Azure Policy para este ejemplo de plano técnico de cumplimiento pueden cambiar con el tiempo. Para ver el historial de cambios, consulte el [historial de confirmación de GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-h/control-mapping.md).

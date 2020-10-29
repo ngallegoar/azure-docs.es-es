@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
-ms.openlocfilehash: b7316756aab7875dce50a3783cb95ca42676b970
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 05258e201c65138e53e861f0631eb33e08c9c199
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87027094"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673585"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migración de una aplicación de página única de JavaScript desde una concesión implícita a un flujo de código de autorización
 
-La biblioteca de autenticación de Microsoft para JavaScript (MSAL. js) v2.0 proporciona compatibilidad con el flujo de código de autorización para PKCE y CORS en aplicaciones de página única en la Plataforma de identidad de Microsoft. Siga los pasos de las secciones siguientes para migrar la aplicación MSAL.js 1.x mediante la concesión implícita a MSAL.js 2.0+ (en adelante *2.x*) y el flujo de código de autenticación.
+La biblioteca de autenticación de Microsoft para JavaScript (MSAL. js) v2.0 proporciona compatibilidad con el flujo de código de autorización para PKCE y CORS en aplicaciones de página única en la Plataforma de identidad de Microsoft. Siga los pasos de las secciones siguientes para migrar la aplicación MSAL.js 1.x mediante la concesión implícita a MSAL.js 2.0+ (en adelante *2.x* ) y el flujo de código de autenticación.
 
 MSAL.js 2.x mejora MSAL.js 1.x al ser compatible con el flujo de código de autorización en el explorador, en lugar de utilizar el flujo de concesión implícita. MSAL.js 2.x **no** admite el flujo implícito.
 
@@ -29,8 +29,8 @@ MSAL.js 2.x mejora MSAL.js 1.x al ser compatible con el flujo de código de au
 
 Para actualizar su aplicación a MSAL.js 2.x y al flujo de código de autenticación, hay tres pasos principales:
 
-1. Cambie los URI de redirección del [registro de aplicación](#switch-redirect-uris-to-spa-platform) de la plataforma **web** a la plataforma de **aplicación de página única**.
-1. Actualice el [código](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x a **2.x**.
+1. Cambie los URI de redirección del [registro de aplicación](#switch-redirect-uris-to-spa-platform) de la plataforma **web** a la plataforma de **aplicación de página única** .
+1. Actualice el [código](#switch-redirect-uris-to-spa-platform) de MSAL.js 1.x a **2.x** .
 1. Desactive la [concesión implícita](#disable-implicit-grant-settings) en el registro de aplicación cuando todas las aplicaciones que comparten el registro se hayan actualizado a MSAL.js 2.x y al flujo de código de autenticación.
 
 Las siguientes secciones describen cada opción con más detalle.
@@ -39,18 +39,18 @@ Las siguientes secciones describen cada opción con más detalle.
 
 Si desea seguir usando el registro de aplicación existente para sus aplicaciones, use Azure Portal para actualizar los URI de redireccionamiento del registro a la plataforma SPA. Hacerlo así habilita el flujo de código de autorización mediante la compatibilidad con PKCE y CORS para las aplicaciones que usan el registro. Todavía es necesario que actualice el código de la aplicación a MSAL.js v2.x.
 
-Siga estos pasos con los registros de aplicaciones que están configurados actualmente con los URI de redirección de la plataforma **web**:
+Siga estos pasos con los registros de aplicaciones que están configurados actualmente con los URI de redirección de la plataforma **web** :
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione su inquilino de **Azure Active Directory**.
-1. En **Registros de aplicaciones**, seleccione la aplicación y, a continuación, **Autenticación**.
-1. En el icono de plataforma **Web** que hay debajo de **URI de redirección**, seleccione el banner de advertencia que indica que debe migrar los URI.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione su inquilino de **Azure Active Directory** .
+1. En **Registros de aplicaciones** , seleccione la aplicación y, a continuación, **Autenticación** .
+1. En el icono de plataforma **Web** que hay debajo de **URI de redirección** , seleccione el banner de advertencia que indica que debe migrar los URI.
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-01-implicit-warning-banner.png" alt-text="Banner de advertencia de flujo implícito en el icono de aplicación web en Azure Portal":::
-1. Seleccione *solo* los URI de redirección cuyas aplicaciones van a usar MSAL.js 2.x y, a continuación, **Configurar**.
+1. Seleccione *solo* los URI de redirección cuyas aplicaciones van a usar MSAL.js 2.x y, a continuación, **Configurar** .
 
     :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-02-select-redirect-uri.png" alt-text="Banner de advertencia de flujo implícito en el icono de aplicación web en Azure Portal":::.
 
-Estos URI de redirección deberían aparecer ahora en el icono de la plataforma de **aplicación de página única**, lo cual indica que la compatibilidad de CORS con el flujo de código de autorización y PKCE está habilitada para estos URI.
+Estos URI de redirección deberían aparecer ahora en el icono de la plataforma de **aplicación de página única** , lo cual indica que la compatibilidad de CORS con el flujo de código de autorización y PKCE está habilitada para estos URI.
 
 :::image type="content" source="media/migrate-spa-implicit-to-auth-code/portal-03-spa-redirect-uri-tile.png" alt-text="Banner de advertencia de flujo implícito en el icono de aplicación web en Azure Portal":::
 

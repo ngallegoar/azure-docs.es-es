@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f28d8f82796f54002312514b1a34e3dd8b666a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497178"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675254"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Ejemplos de la CLI de Azure para Azure SQL Database e Instancia administrada de SQL 
  
@@ -73,7 +73,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de script de la CLI de Az
 | [Configuración de un grupo de conmutación por error para una instancia administrada de SQL](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | Crea dos instancias administradas de SQL, las agrega a un grupo de conmutación por error y, a continuación, prueba la conmutación por error de la instancia administrada principal de SQL en la instancia administrada secundaria. |
 |||
 
-Para obtener más ejemplos de instancia administrada de SQL, consulte la información sobre [crear](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [actualizar](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [mover una base de datos](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) y [trabajar con](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
+Para obtener más ejemplos de instancia administrada de SQL, consulte la información sobre [crear](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [actualizar](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [mover una base de datos](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance) y [trabajar con](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
 
 Más información sobre la [API de la CLI de Azure de Instancia administrada de SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 

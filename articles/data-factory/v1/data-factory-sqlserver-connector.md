@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe9a50b5557e6165835abf1df67f7486c260c1c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2d69f9f70861799d941bbeaed7eb8d338fa8a5e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195920"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636177"
 ---
 # <a name="move-data-to-and-from-sql-server-using-azure-data-factory"></a>Migración de datos hacia y desde SQL Server mediante Azure Data Factory
 
@@ -37,7 +37,7 @@ Puede copiar datos **de una base de datos SQL Server** a los siguientes almacene
 
 [!INCLUDE [data-factory-supported-sink](../../../includes/data-factory-supported-sinks.md)]
 
-Puede copiar datos de los siguientes almacenes de datos **a una base de datos SQL Server**:
+Puede copiar datos de los siguientes almacenes de datos **a una base de datos SQL Server** :
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
@@ -54,13 +54,13 @@ Aunque puede instalar la puerta de enlace en la misma máquina local o una insta
 ## <a name="getting-started"></a>Introducción
 Se puede crear una canalización con una actividad de copia que mueva los datos hacia y desde una base de datos de SQL Server mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar** . Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio** , **Azure PowerShell** , una **plantilla de Azure Resource Manager** , la **API de .NET** y **API REST** . Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
-1. Crear una **factoría de datos**. Una factoría de datos puede contener una o más canalizaciones.
+1. Crear una **factoría de datos** . Una factoría de datos puede contener una o más canalizaciones.
 2. Cree **servicios vinculados** para vincular almacenes de datos de entrada y salida a la factoría de datos. Por ejemplo, si va a copiar datos de una base de datos de SQL Server a una instancia de Azure Blob Storage, cree dos servicios vinculados para vincular su base de datos de SQL Server y su cuenta de Azure Storage a su fábrica de datos. Para información sobre las propiedades de los servicios vinculados que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades del servicio vinculado](#linked-service-properties).
 3. Cree **conjuntos de datos** con el fin de representar los datos de entrada y salida para la operación de copia. En el ejemplo mencionado en el último paso, se crea un conjunto de datos para especificar la tabla SQL en la base de datos SQL Server que contiene los datos de entrada. Además, se crea otro conjunto de datos para especificar el contenedor de blobs y la carpeta que contiene los datos copiados desde la base de datos de SQL Server. Para información sobre las propiedades del conjunto de datos que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades del conjunto de datos](#dataset-properties).
 4. Cree una **canalización** con una actividad de copia que tome como entrada un conjunto de datos y un conjunto de datos como salida. En el ejemplo mencionado anteriormente, se usa SqlSource como origen y BlobSink como receptor para la actividad de copia. De igual forma, si va a copiar de Azure Blob Storage a una base de datos de SQL Server, usará BlobSource y SqlSink en la actividad de copia. Para información sobre las propiedades de actividad de copia que son específicas de la base de datos de SQL Server, consulte la sección [Propiedades de la actividad de copia](#copy-activity-properties). Para obtener más información sobre cómo usar un almacén de datos como origen o receptor, haga clic en el vínculo de la sección anterior para el almacén de datos.
@@ -76,13 +76,13 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| type |La propiedad type se debe establecer en: **OnPremisesSqlServer**. |Sí |
+| type |La propiedad type se debe establecer en: **OnPremisesSqlServer** . |Sí |
 | connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. |Sí |
 | gatewayName |Nombre de la puerta de enlace que debe usar el servicio Data Factory para conectarse a la base de datos de SQL Server. |Sí |
-| username |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\username**. |No |
+| username |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\username** . |No |
 | password |Especifique la contraseña de la cuenta de usuario especificada para el nombre de usuario. |No |
 
-Puede cifrar las credenciales con el cmdlet **New-AzDataFactoryEncryptValue** y usarlas en la cadena de conexión, como se muestra en el ejemplo siguiente (propiedad **EncryptedCredential**):
+Puede cifrar las credenciales con el cmdlet **New-AzDataFactoryEncryptValue** y usarlas en la cadena de conexión, como se muestra en el ejemplo siguiente (propiedad **EncryptedCredential** ):
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -136,7 +136,7 @@ La sección typeProperties es diferente en cada tipo de conjunto de datos y prop
 | tableName |Nombre de la tabla en la instancia de base de datos de SQL Server a la que hace referencia el servicio vinculado. |Sí |
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
-Si va a mover datos desde una base de datos de SQL Server, establezca el tipo de origen en la actividad de copia en **SqlSource**. De igual forma, si va a mover datos a una base de datos de SQL Server, establezca el tipo de receptor en la actividad de copia en **SqlSink**. Esta sección proporciona una lista de propiedades admitidas por SqlSource y SqlSink.
+Si va a mover datos desde una base de datos de SQL Server, establezca el tipo de origen en la actividad de copia en **SqlSource** . De igual forma, si va a mover datos a una base de datos de SQL Server, establezca el tipo de receptor en la actividad de copia en **SqlSink** . Esta sección proporciona una lista de propiedades admitidas por SqlSource y SqlSink.
 
 Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
@@ -146,7 +146,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
 ### <a name="sqlsource"></a>SqlSource
-Cuando el origen es una actividad de copia de tipo **SqlSource**, están disponibles las propiedades siguientes en la sección **typeProperties**:
+Cuando el origen es una actividad de copia de tipo **SqlSource** , están disponibles las propiedades siguientes en la sección **typeProperties** :
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
@@ -161,7 +161,7 @@ Como alternativa, puede indicar un procedimiento almacenado mediante la especifi
 Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas definidas en la sección sobre la estructura se usan para crear una consulta Select para ejecutarla en Base de datos de SQL Server. Si la definición del conjunto de datos no tiene la estructura, se seleccionan todas las columnas de la tabla.
 
 > [!NOTE]
-> Cuando use **sqlReaderStoredProcedureName**, necesitará especificar un valor para la propiedad **tableName** del conjunto de datos JSON. Pero no se ha realizado ninguna validación en esta tabla.
+> Cuando use **sqlReaderStoredProcedureName** , necesitará especificar un valor para la propiedad **tableName** del conjunto de datos JSON. Pero no se ha realizado ninguna validación en esta tabla.
 
 ### <a name="sqlsink"></a>SqlSink
 **SqlSink** admite las siguientes propiedades:
@@ -172,7 +172,7 @@ Si no especifica sqlReaderQuery ni sqlReaderStoredProcedureName, las columnas de
 | writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize. |Entero (número de filas) |No (valor predeterminado: 10000) |
 | sqlWriterCleanupScript |Especifique la consulta para que la actividad de copia se ejecute de tal forma que se limpien los datos de un segmento específico. Para más información, consulte la sección [copia repetible](#repeatable-copy). |Una instrucción de consulta. |No |
 | sliceIdentifierColumnName |Especifique el nombre de columna para que la rellene la actividad de copia con un identificador de segmentos generado automáticamente, que se usará para limpiar los datos de un segmento específico cuando se vuelva a ejecutar. Para más información, consulte la sección [copia repetible](#repeatable-copy). |Nombre de columna de una columna con el tipo de datos binarios (32). |No |
-| sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que define cómo aplicar datos de origen en la tabla de destino, por ejemplo, cómo realizar operaciones Upsert o transformaciones con su propia lógica de negocios. <br/><br/>Tenga en cuenta que este procedimiento almacenado se **invocará por lote**. Si desea realizar una operación que solo se ejecuta una vez y que no tiene nada que ver con los datos de origen, como por ejemplo, eliminar o truncar, use la propiedad `sqlWriterCleanupScript`. |Nombre del procedimiento almacenado. |No |
+| sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que define cómo aplicar datos de origen en la tabla de destino, por ejemplo, cómo realizar operaciones Upsert o transformaciones con su propia lógica de negocios. <br/><br/>Tenga en cuenta que este procedimiento almacenado se **invocará por lote** . Si desea realizar una operación que solo se ejecuta una vez y que no tiene nada que ver con los datos de origen, como por ejemplo, eliminar o truncar, use la propiedad `sqlWriterCleanupScript`. |Nombre del procedimiento almacenado. |No |
 | storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |No |
 | sqlWriterTableType |Especifique el nombre del tipo de tabla que se usará en el procedimiento almacenado anterior. La actividad de copia dispone que los datos que se mueven estén disponibles en una tabla temporal con este tipo de tabla. El código de procedimiento almacenado puede combinar los datos copiados con datos existentes. |Un nombre de tipo de tabla. |No |
 
@@ -310,7 +310,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 ```
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **SqlSource** y el tipo **sink**, en **BlobSink**. La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **SqlSource** y el tipo **sink** , en **BlobSink** . La consulta SQL especificada para la propiedad **SqlReaderQuery** selecciona los datos de la última hora que se van a copiar.
 
 ```json
 {
@@ -492,7 +492,7 @@ El ejemplo copia los datos a una tabla denominada "MyTable" en SQL Server. Cree 
 ```
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **SqlSink**.
+La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink** , en **SqlSink** .
 
 ```json
 {
@@ -542,20 +542,20 @@ La canalización contiene una actividad de copia que está configurada para usar
 ```
 
 ## <a name="troubleshooting-connection-issues"></a>Solución de problemas de conexión
-1. Configure su SQL Server para que acepte conexiones remotas. Inicie **SQL Server Management Studio**, haga clic con el botón derecho en **Servidor** y después en **Propiedades**. Seleccione **Conexiones** en la lista y active **Permitir conexiones remotas con este servidor**.
+1. Configure su SQL Server para que acepte conexiones remotas. Inicie **SQL Server Management Studio** , haga clic con el botón derecho en **Servidor** y después en **Propiedades** . Seleccione **Conexiones** en la lista y active **Permitir conexiones remotas con este servidor** .
 
     ![Habilitar conexiones remotas](./media/data-factory-sqlserver-connector/AllowRemoteConnections.png)
 
-    Consulte los pasos detallados de [Configurar la opción de configuración del servidor Acceso remoto](https://msdn.microsoft.com/library/ms191464.aspx) .
-2. Inicie el **Administrador de configuración de SQL Server**. Expanda **Configuración de red de SQL Server** para la instancia que desee y seleccione **Protocols for MSSQLSERVER** (Protocolos para MSSQLSERVER). Debería ver protocolos en el panel derecho. Para habilitar TCP/IP, haga clic con el botón derecho en **TCP/IP** y haga clic en **Habilitar**.
+    Consulte los pasos detallados de [Configurar la opción de configuración del servidor Acceso remoto](/sql/database-engine/configure-windows/configure-the-remote-access-server-configuration-option) .
+2. Inicie el **Administrador de configuración de SQL Server** . Expanda **Configuración de red de SQL Server** para la instancia que desee y seleccione **Protocols for MSSQLSERVER** (Protocolos para MSSQLSERVER). Debería ver protocolos en el panel derecho. Para habilitar TCP/IP, haga clic con el botón derecho en **TCP/IP** y haga clic en **Habilitar** .
 
     ![Habilitar TCP/IP](./media/data-factory-sqlserver-connector/EnableTCPProptocol.png)
 
-    Consulte [Habilitar o deshabilitar un protocolo de red de servidor](https://msdn.microsoft.com/library/ms191294.aspx) para ver información y maneras alternativas de habilitar el protocolo TCP/IP.
+    Consulte [Habilitar o deshabilitar un protocolo de red de servidor](/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol) para ver información y maneras alternativas de habilitar el protocolo TCP/IP.
 3. En la misma ventana, haga doble clic en **TCP/IP** para abrir la ventana **TCP/IP Properties** (Propiedades de TCP/IP).
-4. Cambie a la pestaña **Direcciones IP** . Desplácese hacia abajo hasta la sección **IPAll** . Anote el valor de **Puerto TCP** (el valor predeterminado es **1433**).
+4. Cambie a la pestaña **Direcciones IP** . Desplácese hacia abajo hasta la sección **IPAll** . Anote el valor de **Puerto TCP** (el valor predeterminado es **1433** ).
 5. Cree una **regla del Firewall de Windows** en la máquina para permitir el tráfico entrante a través de este puerto.
-6. **Verifique la conexión**: use SQL Server Management Studio en una máquina diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: \<machine\>\<domain\>.corp\<company\>.com,1433.
+6. **Verifique la conexión** : use SQL Server Management Studio en una máquina diferente para conectarse a SQL Server con el nombre completo. Por ejemplo: \<machine\>\<domain\>.corp\<company\>.com,1433.
 
    > [!IMPORTANT]
    > 

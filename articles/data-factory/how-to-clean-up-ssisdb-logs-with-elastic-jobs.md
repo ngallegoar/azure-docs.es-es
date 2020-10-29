@@ -11,12 +11,12 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2c308bd038f273a7cec0442e42f8a749bc4bb8fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3539b867d8f03d11e7799498d0207a65ac9db7d8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89073563"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636636"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Limpieza de los registros de SSISDB con trabajos de Azure Elastic Database
 
@@ -160,7 +160,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## <a name="clean-up-logs-with-transact-sql"></a>Limpieza de los registros con Transact-SQL
 
-Los siguientes scripts de Transact-SQL de ejemplo crean un nuevo trabajo elástico para desencadenar el procedimiento almacenado para la limpieza del registro de SSISDB. Para más información, consulte [Uso de Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database](../sql-database/elastic-jobs-tsql.md).
+Los siguientes scripts de Transact-SQL de ejemplo crean un nuevo trabajo elástico para desencadenar el procedimiento almacenado para la limpieza del registro de SSISDB. Para más información, consulte [Uso de Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database](../azure-sql/database/elastic-jobs-tsql-create-manage.md).
 
 1. Cree o identifique una base de datos de Azure SQL vacía, S0 o superior, para que sea la base de datos del trabajo SSISDBCleanup. A continuación, cree un agente de trabajos elásticos en [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 

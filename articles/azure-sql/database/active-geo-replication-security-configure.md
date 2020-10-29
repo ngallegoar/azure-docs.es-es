@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 92a0c7fd3733b5e27c34c6fd0fe157bfb466a0fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 317b530fbaa34ca5689bb505126892e4eba06bd9
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444899"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674802"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configuración y administración de la seguridad de Azure SQL Database para la restauración geográfica o la conmutación por error
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ En este artículo se describen los requisitos de autenticación para configurar 
 
 ## <a name="disaster-recovery-with-contained-users"></a>Recuperación ante desastres con usuarios contenidos
 
-A diferencia de los usuarios tradicionales, que deben asignarse a inicios de sesión en la base de datos maestra, un usuario independiente se administra completamente en la base de datos, lo que ofrece dos ventajas. En el escenario de replicación geográfica, los usuarios pueden proceder a conectarse a la nueva base de datos principal o a la base de datos recuperada mediante georrestauración, sin ninguna configuración adicional, ya que la base de datos administra los usuarios. También existen ventajas potenciales de escalabilidad y rendimiento con esta configuración desde la perspectiva del inicio de sesión. Para obtener más información, vea [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+A diferencia de los usuarios tradicionales, que deben asignarse a inicios de sesión en la base de datos maestra, un usuario independiente se administra completamente en la base de datos, lo que ofrece dos ventajas. En el escenario de replicación geográfica, los usuarios pueden proceder a conectarse a la nueva base de datos principal o a la base de datos recuperada mediante georrestauración, sin ninguna configuración adicional, ya que la base de datos administra los usuarios. También existen ventajas potenciales de escalabilidad y rendimiento con esta configuración desde la perspectiva del inicio de sesión. Para obtener más información, vea [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 
 El principal inconveniente es que la administración del proceso de recuperación ante desastres a escala es más compleja. Si tiene varias bases de datos que usan el mismo inicio de sesión, el mantenimiento de las credenciales que usan los usuarios independientes en varias bases de datos puede invalidar las ventajas de los usuarios independientes. Por ejemplo, la directiva de rotación de contraseñas requiere que se realicen cambios constantemente en varias bases de datos en lugar de cambiar la contraseña para el inicio de sesión una vez en la base de datos maestra. Por este motivo, si tiene varias bases de datos que utilizan el mismo nombre de usuario y la misma contraseña, no se recomienda usar usuarios contenidos.
 
@@ -34,7 +34,7 @@ El principal inconveniente es que la administración del proceso de recuperació
 Si usa inicios de sesión y usuarios (en lugar de usuarios contenidos), debe realizar pasos adicionales para asegurarse de que existan los mismos inicios de sesión en la base de datos maestra. En las secciones siguientes, se describen los pasos necesarios y otras consideraciones.
 
   >[!NOTE]
-  > También es posible usar inicios de sesión de Azure Active Directory (AAD) para administrar las bases de datos. Para más información, consulte [Inicios de sesión y usuarios de Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+  > También es posible usar inicios de sesión de Azure Active Directory (AAD) para administrar las bases de datos. Para más información, consulte [Inicios de sesión y usuarios de Azure SQL](./logins-create-manage.md).
 
 ### <a name="set-up-user-access-to-a-secondary-or-recovered-database"></a>Configuración del acceso de usuario a una base de datos secundaria o recuperada
 
@@ -82,7 +82,7 @@ WHERE [type_desc] = 'SQL_USER'
 ```
 
 > [!NOTE]
-> Los usuarios de **INFORMATION_SCHEMA** y **sys** tienen SID *NULL* SID, mientras que el SID de **guest** es **0x00**. El SID de **dbo** puede empezar por *0x01060000000001648000000000048454* si el creador de la base de datos era el administrador del servidor en lugar de un miembro de **DbManager**.
+> Los usuarios de **INFORMATION_SCHEMA** y **sys** tienen SID *NULL* SID, mientras que el SID de **guest** es **0x00** . El SID de **dbo** puede empezar por *0x01060000000001648000000000048454* si el creador de la base de datos era el administrador del servidor en lugar de un miembro de **DbManager** .
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3. Crear los inicios de sesión en el servidor de destino
 
@@ -106,7 +106,7 @@ SID = <desired login SID>
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre cómo administrar el acceso a la base de datos y los inicios de sesión, consulte [Seguridad de SQL Database: administrar la seguridad del inicio de sesión y el acceso a la base de datos](logins-create-manage.md).
-* Para obtener más información sobre los usuarios de base de datos independiente, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](https://msdn.microsoft.com/library/ff929188.aspx).
+* Para obtener más información sobre los usuarios de base de datos independiente, consulte [Usuarios de base de datos independiente: hacer que la base de datos sea portátil](/sql/relational-databases/security/contained-database-users-making-your-database-portable).
 * Para obtener más información sobre la replicación geográfica activa, consulte [Replicación geográfica activa](active-geo-replication-overview.md).
 * Para obtener información acerca de los grupos de conmutación por error automática, consulte [Grupos de conmutación por error automática](auto-failover-group-overview.md).
 * Para obtener información sobre cómo utilizar la funcionalidad de restauración geográfica, consulte [Restauración geográfica](recovery-using-backups.md#geo-restore)

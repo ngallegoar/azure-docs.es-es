@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
-ms.openlocfilehash: 38e4839a41ad8e58e575e552e877303a5105ff36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443662"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674762"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conexión a SQL Database mediante C y C++
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * [Visual Studio](https://www.visualstudio.com/downloads/). Debe instalar los componentes del lenguaje C++ para compilar y ejecutar este ejemplo.
-* [Visual C++ for Linux Development](https://docs.microsoft.com/cpp/linux/?view=vs-2019) (Visual C++ para el desarrollo de aplicaciones para Linux). Si está desarrollando en Linux, también debe instalar la extensión de Visual Studio para Linux.
+* [Visual C++ for Linux Development](/cpp/linux/?view=vs-2019) (Visual C++ para el desarrollo de aplicaciones para Linux). Si está desarrollando en Linux, también debe instalar la extensión de Visual Studio para Linux.
 
 ## <a name="azure-sql-database-and-sql-server-on-virtual-machines"></a><a id="AzureSQL"></a>Azure SQL Database y SQL Server en máquinas virtuales
 
@@ -39,7 +39,7 @@ Actualmente, Azure tiene dos opciones para hospedar cargas de trabajo de SQL Ser
 
 ## <a name="data-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Tecnologías de acceso a datos: ODBC y OLE DB
 
-La conexión a Azure SQL Database no es diferente y actualmente hay dos maneras de conectarse a las bases de datos: ODBC (conectividad abierta de bases de datos) y OLE DB (base de datos de vinculación e incrustación de objetos). En los últimos años, Microsoft se ha alineado con [ODBC para el acceso a datos relacionales nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/20../../microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC es relativamente sencillo y también mucho más rápido que OLE DB. El único inconveniente aquí es que ODBC utiliza una API de estilo C anterior.
+La conexión a Azure SQL Database no es diferente y actualmente hay dos maneras de conectarse a las bases de datos: ODBC (conectividad abierta de bases de datos) y OLE DB (base de datos de vinculación e incrustación de objetos). En los últimos años, Microsoft se ha alineado con [ODBC para el acceso a datos relacionales nativos](/archive/blogs/sqlnativeclient/microsoft-is-aligning-with-odbc-for-native-relational-data-access). ODBC es relativamente sencillo y también mucho más rápido que OLE DB. El único inconveniente aquí es que ODBC utiliza una API de estilo C anterior.
 
 ## <a name="step-1--creating-your-azure-sql-database"></a><a id="Create"></a>Paso 1:  Creación de un base de datos de Azure SQL
 
@@ -123,7 +123,7 @@ Lo último que queda por hacer antes de la compilación es agregar **odbc** como
 
 ![Adding ODBC as an input library](./media/develop-cplusplus-simple/lib.png)
 
-Para iniciar la aplicación, abra Linux Console desde el menú **Depurar**:
+Para iniciar la aplicación, abra Linux Console desde el menú **Depurar** :
 
 ![Linux Console](./media/develop-cplusplus-simple/linuxconsole.png)
 
@@ -143,7 +143,7 @@ Puede encontrar la solución GetStarted que contiene todos los ejemplos de este 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Información general de desarrollo de SQL Database](develop-overview.md)
-* Más información en [ODBC API Reference](https://docs.microsoft.com/sql/odbc/reference/syntax/odbc-api-reference/) (Referencia de la API de ODBC).
+* Más información en [ODBC API Reference](/sql/odbc/reference/syntax/odbc-api-reference/) (Referencia de la API de ODBC).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

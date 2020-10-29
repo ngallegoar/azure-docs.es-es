@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 83c29740bd535d9508e5458a66fc8592500ceaf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b07c53d048d60b555c33cacf42557f5da26552cc
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320983"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637486"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carga incremental de datos de varias tablas de SQL Server en Azure SQL Database mediante Azure Portal
 
@@ -42,11 +42,11 @@ En este tutorial, realizará los siguientes pasos:
 ## <a name="overview"></a>Información general
 Estos son los pasos importantes para crear esta solución: 
 
-1. **Seleccione la columna de marca de agua**.
+1. **Seleccione la columna de marca de agua** .
     
     Seleccione una columna de cada tabla del almacén de datos de origen que pueda usarse para identificar los registros nuevos o actualizados de cada ejecución. Normalmente, los datos de esta columna seleccionada (por ejemplo, last_modify_time o id.) siguen aumentando cuando se crean o se actualizan las filas. El valor máximo de esta columna se utiliza como una marca de agua.
 
-1. **Prepare el almacén de datos para almacenar el valor de marca de agua**.   
+1. **Prepare el almacén de datos para almacenar el valor de marca de agua** .   
     
     En este tutorial, el valor de marca de agua se almacena en una base de datos SQL.
 
@@ -68,14 +68,14 @@ Estos son los pasos importantes para crear esta solución:
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
-* **SQL Server**. En este tutorial, usará una base de datos de SQL Server como almacén de datos de origen. 
-* **Azure SQL Database**. Se usa una base de datos de Azure SQL Database como almacén de datos receptor. Si no tiene ninguna base de datos en SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una. 
+* **SQL Server** . En este tutorial, usará una base de datos de SQL Server como almacén de datos de origen. 
+* **Azure SQL Database** . Se usa una base de datos de Azure SQL Database como almacén de datos receptor. Si no tiene ninguna base de datos en SQL Database, consulte el artículo [Creación de una base de datos en Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) para ver los pasos y crear una. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Creación de tablas de origen en la base de datos de SQL Server
 
 1. Abra SQL Server Management Studio y conéctese a la base de datos SQL Server.
 
-1. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
+1. En el **Explorador de servidores** , haga clic con el botón derecho en la base de datos y elija **Nueva consulta** .
 
 1. Ejecute el siguiente comando SQL en la base de datos para crear las tablas denominadas `customer_table` y `project_table`:
 
@@ -115,7 +115,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 1. Abra SQL Server Management Studio y conéctese a su base de datos de Azure SQL Database.
 
-1. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
+1. En el **Explorador de servidores** , haga clic con el botón derecho en la base de datos y elija **Nueva consulta** .
 
 1. Ejecute el siguiente comando SQL en la base de datos para crear las tablas denominadas `customer_table` y `project_table`:  
     
@@ -235,26 +235,26 @@ END
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
 
-1. Inicie el explorador web **Microsoft Edge** o **Google Chrome**. Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
-2. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory**: 
+1. Inicie el explorador web **Microsoft Edge** o **Google Chrome** . Actualmente, la interfaz de usuario de Data Factory solo se admite en los exploradores web Microsoft Edge y Google Chrome.
+2. En el menú de la izquierda, seleccione **Crear un recurso** > **Analytics** > **Data Factory** : 
    
    ![Selección de la factoría de datos en el panel Nuevo](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. En la página **Nueva factoría de datos**, escriba **ADFMultiIncCopyTutorialDF** como **nombre**. 
+3. En la página **Nueva factoría de datos** , escriba **ADFMultiIncCopyTutorialDF** como **nombre** . 
  
-   El nombre de la instancia de Azure Data Factory debe ser **único de forma global**. Si ve un signo de exclamación rojo con el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFIncCopyTutorialDF) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
+   El nombre de la instancia de Azure Data Factory debe ser **único de forma global** . Si ve un signo de exclamación rojo con el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFIncCopyTutorialDF) e intente crearla de nuevo. Consulte el artículo [Azure Data Factory: reglas de nomenclatura](naming-rules.md) para conocer las reglas de nomenclatura de los artefactos de Data Factory.
   
    `Data factory name "ADFIncCopyTutorialDF" is not available`
 
 4. Seleccione la **suscripción** de Azure donde desea crear la factoría de datos. 
-5. Para el **grupo de recursos**, realice uno de los siguientes pasos:
+5. Para el **grupo de recursos** , realice uno de los siguientes pasos:
      
-    - Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
-    - Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
+    - Seleccione en primer lugar **Usar existente** y después un grupo de recursos de la lista desplegable. 
+    - Seleccione **Crear nuevo** y escriba el nombre de un grupo de recursos.   
     Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/management/overview.md).  
-6. Seleccione **V2** para la **versión**.
+6. Seleccione **V2** para la **versión** .
 7. Seleccione la **ubicación** de Data Factory. En la lista desplegable solo se muestran las ubicaciones que se admiten. Los almacenes de datos (Azure Storage, Azure SQL Database, etc.) y los procesos (HDInsight, etc.) que usa la factoría de datos pueden encontrarse en otras regiones.
-8. Haga clic en **Crear**.      
+8. Haga clic en **Crear** .      
 9. Una vez completada la creación, verá la página **Data Factory** tal como se muestra en la imagen.
    
    ![Página principal Factoría de datos](./media/doc-common-process/data-factory-home-page.png)
@@ -263,11 +263,11 @@ END
 ## <a name="create-self-hosted-integration-runtime"></a>Creación de un entorno de ejecución de integración autohospedado
 Cuando mueva datos de un almacén de datos de una privada red (local) a un almacén de datos de Azure, instale un entorno de ejecución de integración (IR) autohospedado en su entorno local. El entorno de ejecución de integración autohospedado mueve los datos entre la red privada y Azure. 
 
-1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la [pestaña Administrar](https://docs.microsoft.com/azure/data-factory/author-management-hub) en el panel izquierdo.
+1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la [pestaña Administrar](./author-management-hub.md) en el panel izquierdo.
 
    ![Botón Administrar de la página principal](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Seleccione **Entornos de ejecución de integración** en el panel izquierdo y, a continuación, seleccione **+ Nuevo**.
+1. Seleccione **Entornos de ejecución de integración** en el panel izquierdo y, a continuación, seleccione **+ Nuevo** .
 
    ![Creación de una instancia de Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
@@ -301,7 +301,7 @@ En este paso, vinculará la base de datos de SQL Server a la factoría de datos
 1. En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
 
     1. Escriba **SqlServerLinkedService** en **Name** (Nombre). 
-    1. Seleccione **MySelfHostedIR** en la opción **Connect via integration runtime** (Conectar mediante IR). Este es un paso **importante**. El entorno de ejecución de integración predeterminado no se puede conectar a un almacén de datos local. Utilice el entorno de ejecución de integración auto-hospedado que creó anteriormente. 
+    1. Seleccione **MySelfHostedIR** en la opción **Connect via integration runtime** (Conectar mediante IR). Este es un paso **importante** . El entorno de ejecución de integración predeterminado no se puede conectar a un almacén de datos local. Utilice el entorno de ejecución de integración auto-hospedado que creó anteriormente. 
     1. En **Server name** (Nombre de servidor), escriba el nombre del equipo que tiene la base de datos de SQL Server.
     1. En **Database name** (Nombre de base de datos), escriba el nombre de la base de datos de SQL Server que tiene los datos de origen. Como parte de los requisitos previos creó una tabla e insertó datos en esta base de datos. 
     1. En **Authentication type** (Tipo de autenticación), seleccione el **tipo de autenticación** que desea usar para conectarse a la base de datos. 
@@ -358,7 +358,7 @@ En este paso, creará conjuntos de datos para representar el origen de datos, el
     1. Escriba **SinkTableName** en **Name** (Nombre) and **String** en **Type** (Tipo). Este conjunto de datos toma **SinkTableName** como parámetro. El parámetro SinkTableName lo establece la canalización dinámicamente en el runtime. La actividad ForEach de la canalización recorre en iteración una lista de nombres de tabla y pasa el nombre de tabla a este conjunto de datos en cada iteración.
    
         ![Conjunto de datos receptor: propiedades](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
-1. Cambie a la pestaña **Connection** (Conexión) de la ventana de propiedades y seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). En la propiedad **Table**, haga clic en **Agregar contenido dinámico**.   
+1. Cambie a la pestaña **Connection** (Conexión) de la ventana de propiedades y seleccione **AzureSqlDatabaseLinkedService** en **Linked service** (Servicio vinculado). En la propiedad **Table** , haga clic en **Agregar contenido dinámico** .   
     
 1. En la ventana **Add Dynamic Content** (Agregar contenido dinámico), seleccione **SinkTableName** en la sección **Parameters** (Parámetros). 
  
@@ -396,15 +396,15 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 1. En el panel izquierdo, haga clic en el **signo + (más)** y en **Pipeline** (Canalización).
 
-1. En el panel General, en **Propiedades**, especifique **IncrementalCopyPipeline** en **Nombre**. A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.  
+1. En el panel General, en **Propiedades** , especifique **IncrementalCopyPipeline** en **Nombre** . A continuación, contraiga el panel; para ello, haga clic en el icono Propiedades en la esquina superior derecha.  
 
 1. En la pestaña **Parameters** (Parámetros), haga lo siguiente: 
 
-    1. Haga clic en **+ Nuevo**. 
-    1. Escriba **tableList** en el parámetro **name**. 
-    1. Seleccione **Array** (Matriz) para el parámetro **type**.
+    1. Haga clic en **+ Nuevo** . 
+    1. Escriba **tableList** en el parámetro **name** . 
+    1. Seleccione **Array** (Matriz) para el parámetro **type** .
 
-1. En el cuadro de herramientas **Activities** (Actividades), expanda **Iteration & Conditionals** (Iteraciones y condiciones), arrastre la actividad **ForEach** (Para cada uno) y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de **propiedades**, escriba **IterateSQLTables**. 
+1. En el cuadro de herramientas **Activities** (Actividades), expanda **Iteration & Conditionals** (Iteraciones y condiciones), arrastre la actividad **ForEach** (Para cada uno) y colóquela en la superficie del diseñador de canalizaciones. En la pestaña **General** de la ventana de **propiedades** , escriba **IterateSQLTables** . 
 
 1. Cambie a la pestaña **Settings** (Configuración) y escriba `@pipeline().parameters.tableList` en **Items** (Elementos). La actividad ForEach recorre en iteración una lista de tablas y realiza la operación de copia incremental. 
 
@@ -440,10 +440,10 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         ![Segunda actividad de búsqueda: configuración](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Arrastre y coloque la actividad **Copy** (Copia) del cuadro de herramientas **Activities** (Actividades) y escriba **IncrementalCopyActivity** en **Name** (Nombre). 
 
-1. Conecte las dos actividades **Lookup** (Búsqueda) con la actividad **Copy** (Copia) una a una. Para conectarse, empiece a arrastrar en el cuadro **verde** adjunto a la actividad **Lookup** (Búsqueda) y colóquela en la actividad **Copy** (Copia). Suelte el botón del mouse cuando el color del borde de la actividad de copia cambie a **azul**.
+1. Conecte las dos actividades **Lookup** (Búsqueda) con la actividad **Copy** (Copia) una a una. Para conectarse, empiece a arrastrar en el cuadro **verde** adjunto a la actividad **Lookup** (Búsqueda) y colóquela en la actividad **Copy** (Copia). Suelte el botón del mouse cuando el color del borde de la actividad de copia cambie a **azul** .
 
     ![Conexión de las actividades de búsqueda a la actividad de copia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
-1. Seleccione la actividad **Copy** (Copia) de la canalización. Cambie a la pestaña **Source** (Origen) en la ventana de **propiedades**. 
+1. Seleccione la actividad **Copy** (Copia) de la canalización. Cambie a la pestaña **Source** (Origen) en la ventana de **propiedades** . 
 
     1. Seleccione **SourceDataset** como **Source Dataset** (Conjunto de datos de origen). 
     1. Seleccione **Query** (Consulta) en **Use Query** (Usar consulta). 
@@ -458,7 +458,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         
 1. Siga estos pasos:
 
-    1. En la propiedad **Dataset properties** (Propiedades del conjunto de datos), en el parámetro **SinkTableName**, escriba `@{item().TABLE_NAME}`.
+    1. En la propiedad **Dataset properties** (Propiedades del conjunto de datos), en el parámetro **SinkTableName** , escriba `@{item().TABLE_NAME}`.
     1. En la propiedad **Stored Procedure Name** (Nombre del procedimiento almacenado), escriba `@{item().StoredProcedureNameForMergeOperation}`.
     1. En la propiedad **Table Type** (Tipo de tabla), escriba `@{item().TableType}`.
     1. En **Table type parameter name** (Nombre del parámetro de tipo de tabla), escriba `@{item().TABLE_NAME}`.
@@ -485,7 +485,7 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
         ![Actividad de procedimiento almacenado: configuración del procedimiento almacenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Seleccione **Publish All** (Publicar todo) para publicar las entidades que creó en el servicio Data Factory. 
 
-1. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver las notificaciones, haga clic en el vínculo **Show Notifications** (Mostrar notificaciones). Para cerrar la ventana de notificaciones, haga clic en la **X**.
+1. Espere a que aparezca el mensaje **Successfully published** (Publicado correctamente). Para ver las notificaciones, haga clic en el vínculo **Show Notifications** (Mostrar notificaciones). Para cerrar la ventana de notificaciones, haga clic en la **X** .
 
  
 ## <a name="run-the-pipeline"></a>Ejecución de la canalización
@@ -515,9 +515,9 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 
 ## <a name="monitor-the-pipeline"></a>Supervisar la canalización
 
-1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual**. Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
+1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual** . Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN**. Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD**. 
+1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN** . Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD** . 
 
 1. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
@@ -615,9 +615,9 @@ VALUES
 
 ## <a name="monitor-the-pipeline-again"></a>Nueva supervisión de la canalización
 
-1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual**. Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
+1. Cambie a la pestaña **Monitor** (Supervisar) de la izquierda. Verá la ejecución de canalización que ha desencadenado el **desencadenador manual** . Puede usar los vínculos de la columna **PIPELINE NAME** (Nombre de la canalización) para ver los detalles de la actividad y volver a ejecutar la canalización.
 
-1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN**. Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD**. 
+1. Para ver las ejecuciones de actividad asociadas a la ejecución de la canalización, seleccione el vínculo en la columna **NOMBRE DE CANALIZACIÓN** . Para más información sobre las ejecuciones de actividad, seleccione el vínculo **Detalles** (icono de gafas) en la columna **NOMBRE DE ACTIVIDAD** . 
 
 1. Para volver a la vista Ejecuciones de canalización, seleccione **All pipeline runs** (Todas las ejecuciones de canalización) en la parte superior. Para actualizar la vista, seleccione **Refresh** (Actualizar).
 
@@ -641,7 +641,7 @@ PersonID    Name    LastModifytime
 5           Anny    2017-09-05 08:06:00.000
 ```
 
-Observe los nuevos valores de **Nombre** y **LastModifytime** de **PersonID**: 3. 
+Observe los nuevos valores de **Nombre** y **LastModifytime** de **PersonID** : 3. 
 
 **Consultar**
 
@@ -701,5 +701,3 @@ Pase al tutorial siguiente para obtener información acerca de la transformació
 
 > [!div class="nextstepaction"]
 >[Incrementally load data from Azure SQL Database to Azure Blob Storage using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-portal.md) (Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la tecnología de control de cambios)
-
-

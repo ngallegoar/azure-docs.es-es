@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: dabb7b8cd8023fe88a8c8d6dc507a09623bd11dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537687"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637741"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning Studio (clásico) y Azure Data Factory
 
@@ -27,9 +27,9 @@ ms.locfileid: "86537687"
 
 [Azure Machine Learning Studio (clásico)](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, probar e implementar soluciones de análisis predictivo. Desde una perspectiva general, esto se realiza en tres pasos:
 
-1. **Crear un experimento de entrenamiento**. Este paso se lleva a cabo utilizando Azure Machine Learning Studio (clásico). Azure Machine Learning Studio (clásico) es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.
-2. **Convertirlo en un experimento predictivo**. Una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
-3. **Implementarlo como un servicio web**. Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.
+1. **Crear un experimento de entrenamiento** . Este paso se lleva a cabo utilizando Azure Machine Learning Studio (clásico). Azure Machine Learning Studio (clásico) es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.
+2. **Convertirlo en un experimento predictivo** . Una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
+3. **Implementarlo como un servicio web** . Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.
 
 ### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory y Azure Machine Learning Studio (clásico) juntos
 Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning Studio (clásico)](https://azure.microsoft.com/documentation/services/machine-learning) publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio (clásico) para realizar predicciones sobre los datos en el lote.
@@ -68,7 +68,7 @@ Un servicio vinculado de **Azure Machine Learning Studio (clásico)** se crea pa
 
 Vea en el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de proceso) una descripción de las propiedades en la definición de JSON.
 
-Azure Machine Learning Studio (clásico) admite los servicios web clásicos y los nuevos servicios web para el experimento predictivo. Puede elegir el servicio más adecuado desde Data Factory. Para obtener la información necesaria para crear el servicio vinculado de Azure Machine Learning Studio (clásico), vaya a https://services.azureml.net, donde se indican todos los servicios web (nuevos) y los servicios web clásicos. Seleccione el servicio web al que le gustaría tener acceso y haga clic en la página **Consumir**. Copie **Clave principal** en la propiedad **apiKey** y **Batch Requests** (Solicitudes por lotes) en la propiedad **mlEndpoint**.
+Azure Machine Learning Studio (clásico) admite los servicios web clásicos y los nuevos servicios web para el experimento predictivo. Puede elegir el servicio más adecuado desde Data Factory. Para obtener la información necesaria para crear el servicio vinculado de Azure Machine Learning Studio (clásico), vaya a https://services.azureml.net, donde se indican todos los servicios web (nuevos) y los servicios web clásicos. Seleccione el servicio web al que le gustaría tener acceso y haga clic en la página **Consumir** . Copie **Clave principal** en la propiedad **apiKey** y **Batch Requests** (Solicitudes por lotes) en la propiedad **mlEndpoint** .
 
 ![Servicios web de Azure Machine Learning Studio (clásico)](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -130,7 +130,7 @@ El siguiente fragmento JSON define una actividad de ejecución de lotes de Azure
 | :---------------- | :--------------------------------------- | :------- |
 | name              | Nombre de la actividad en la canalización     | Sí      |
 | description       | Texto que describe para qué se usa la actividad.  | No       |
-| type              | Para la actividad de U-SQL de Data Lake Analytics, el tipo de actividad es **AzureMLBatchExecution**. | Sí      |
+| type              | Para la actividad de U-SQL de Data Lake Analytics, el tipo de actividad es **AzureMLBatchExecution** . | Sí      |
 | linkedServiceName | Servicios vinculados al servicio vinculado de Azure Machine Learning Studio (clásico). Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
 | webServiceInputs  | Pares clave-valor que asignan los nombres de entradas del servicio web de Azure Machine Learning Studio (clásico). La clave debe coincidir con los parámetros de entrada definidos en el servicio web publicado de Azure Machine Learning Studio (clásico). El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de entrada. | No       |
 | webServiceOutputs | Pares clave-valor que asignan los nombres de salidas del servicio web de Azure Machine Learning Studio (clásico). La clave debe coincidir con los parámetros de salida definidos en el servicio web publicado de Azure Machine Learning Studio (clásico). El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de salida. | No       |
@@ -190,7 +190,7 @@ En este escenario, el servicio web de Azure Machine Learning Studio (clásico) r
 }
 ```
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Escenario 2: experimentos mediante módulos lector y escritor para hacer referencia a datos de varios almacenamientos
-Otro escenario común al crear experimentos de Microsoft Azure Machine Learning Studio (clásico) es usar módulos Importar datos y Exportar datos. El módulo Importar datos se usa para cargar datos en un experimento y el módulo Exportar datos se usa para guardar los datos de los experimentos. Para obtener más información sobre los módulos Importar datos y Exportar datos, vea los temas [Importar datos](https://msdn.microsoft.com/library/azure/dn905997.aspx) y [Exportar datos](https://msdn.microsoft.com/library/azure/dn905984.aspx) en MSDN Library.
+Otro escenario común al crear experimentos de Microsoft Azure Machine Learning Studio (clásico) es usar módulos Importar datos y Exportar datos. El módulo Importar datos se usa para cargar datos en un experimento y el módulo Exportar datos se usa para guardar los datos de los experimentos. Para obtener más información sobre los módulos Importar datos y Exportar datos, vea los temas [Importar datos](/azure/machine-learning/studio-module-reference/import-data) y [Exportar datos](/azure/machine-learning/studio-module-reference/export-data) en MSDN Library.
 
 Al usar los módulos Importar datos y Exportar datos, es recomendable emplear un parámetro de servicio web para cada propiedad de estos módulos. Estos parámetros web permiten configurar los valores en tiempo de ejecución. Por ejemplo, puede crear un experimento con un módulo de importación de datos que usa una base de datos de Azure SQL: XXX.database.windows.net. Una vez implementado el servicio web, quiere habilitar los consumidores del servicio web con el fin de especificar otro servidor SQL lógico denominado `YYY.database.windows.net`. Puede usar un parámetro de servicio web para permitir que se configure este valor.
 

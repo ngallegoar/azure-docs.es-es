@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ab3b5c2ba892205f87235f7f0ce009719016622d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a99e7e5f27f8c3503c7fa6124d27cfc4e7f4a4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85322133"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636772"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocación de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo invocar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -32,7 +32,7 @@ En este artículo se describe cómo invocar un paquete de SSIS desde una canaliz
 En el tutorial de este artículo se usa Azure SQL Database. También puede usar una Instancia administrada de Azure SQL.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Creación de un entorno de ejecución de integración de SSIS para Azure
-Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](../tutorial-create-azure-ssis-runtime-portal.md). Debe usar Data Factory versión 1 para crear un entorno de ejecución de integración SSIS de Azure. 
+Cree una instancia de Integration Runtime de SSIS de Azure si no tiene ninguna. Para ello, siga las instrucciones paso a paso del [tutorial: Implementación de paquetes de SSIS](../tutorial-deploy-ssis-packages-azure.md). Debe usar Data Factory versión 1 para crear un entorno de ejecución de integración SSIS de Azure. 
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 En esta sección, se usa Azure PowerShell para crear una canalización de Data Factory con una actividad de procedimiento almacenado que invoca un paquete SSIS.
@@ -79,7 +79,7 @@ Tenga en cuenta los siguientes puntos:
     ```
     The specified Data Factory name 'ADFTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario**, o de **administrador** de la suscripción de Azure.
+* Para crear instancias de Data Factory, la cuenta de usuario que use para iniciar sesión en Azure debe ser un miembro de los roles **colaborador** o **propietario** , o de **administrador** de la suscripción de Azure.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Creación de un servicio vinculado de Azure SQL Database
 Cree un servicio vinculado para vincular su base de datos de Azure SQL Database que hospeda el catálogo de SSIS con la factoría de datos. Data Factory usa la información de este servicio vinculado para conectarse a la base de datos SSISDB y ejecuta un procedimiento almacenado para ejecutar un paquete de SSIS. 
@@ -100,8 +100,8 @@ Cree un servicio vinculado para vincular su base de datos de Azure SQL Database 
         }
         }
     ```
-2. En **Azure PowerShell**, cambie a la carpeta **C:\ADF\RunSSISPackage**.
-3. Ejecute el cmdlet **New-AzDataFactoryLinkedService** para crear el servicio vinculado: **AzureSqlDatabaseLinkedService**. 
+2. En **Azure PowerShell** , cambie a la carpeta **C:\ADF\RunSSISPackage** .
+3. Ejecute el cmdlet **New-AzDataFactoryLinkedService** para crear el servicio vinculado: **AzureSqlDatabaseLinkedService** . 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -168,7 +168,7 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
     }    
     ```
 
-2. Para crear la canalización: **RunSSISPackagePipeline**, ejecute el cmdlet **New-AzDataFactoryPipeline**.
+2. Para crear la canalización: **RunSSISPackagePipeline** , ejecute el cmdlet **New-AzDataFactoryPipeline** .
 
     ```powershell
     $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
@@ -188,7 +188,7 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
-    Puede seguir ejecutando este cmdlet hasta que vea que el segmento se encuentra en el estado **Listo** o **Con error**. 
+    Puede seguir ejecutando este cmdlet hasta que vea que el segmento se encuentra en el estado **Listo** o **Con error** . 
 
     Puede ejecutar la consulta siguiente en la base de datos de SSISDB en el servidor para comprobar la ejecución del paquete. 
 
@@ -198,4 +198,3 @@ En este paso, debe crear una canalización con una actividad de procedimiento al
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de la actividad de procedimiento almacenado, consulte el artículo [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md).
-

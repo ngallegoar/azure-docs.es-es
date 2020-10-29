@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: ca76563475dfbf8d35595c1de3cdee37f80e3ce1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2f61085d3dab6d4489aa190204be4169ea5c2fb
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83690241"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638013"
 ---
 # <a name="plan-and-manage-costs-for-azure-data-factory"></a>Planeamiento y administración de los costos de Azure Data Factory
 
@@ -56,15 +56,15 @@ Ahora puede introducir 30 ejecuciones de actividad y 380 horas por DIU a la ca
 
 ## <a name="use-budgets-and-cost-alerts"></a>Uso de presupuestos y alertas de costos
 
-Puede crear [presupuestos](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets) para administrar los costos y crear alertas que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales.  Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo.  Podrá crear un presupuesto en el nivel de suscripción o en una granularidad más baja al agregar filtros adicionales, como el identificador de recurso y el nombre del medidor.  Sin embargo, no puede crear presupuestos para las canalizaciones individuales dentro de una factoría.
+Puede crear [presupuestos](../cost-management-billing/costs/tutorial-acm-create-budgets.md) para administrar los costos y crear alertas que envíen notificaciones automáticamente a las partes interesadas sobre anomalías en los gastos y riesgos de gastos adicionales.  Las alertas se basan en el gasto comparado con los umbrales de presupuesto y costo.  Podrá crear un presupuesto en el nivel de suscripción o en una granularidad más baja al agregar filtros adicionales, como el identificador de recurso y el nombre del medidor.  Sin embargo, no puede crear presupuestos para las canalizaciones individuales dentro de una factoría.
 
 ## <a name="monitor-costs-at-factory-level"></a>Supervisión de costos en el nivel de factoría
 
-Cuando comience a usar Azure Data Factory, podrá ver los costos en los que se incurre en el panel [Análisis de costos](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis) de Azure Portal.
+Cuando comience a usar Azure Data Factory, podrá ver los costos en los que se incurre en el panel [Análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md) de Azure Portal.
 
-1. Para ver el [análisis de costos](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis), abra la ventana **Administración de costos y facturación**, seleccione **Administración de costos** en el menú y, a continuación, seleccione **Abrir análisis de costos**.
+1. Para ver el [análisis de costos](../cost-management-billing/costs/quick-acm-cost-analysis.md), abra la ventana **Administración de costos y facturación** , seleccione **Administración de costos** en el menú y, a continuación, seleccione **Abrir análisis de costos** .
 2. La vista predeterminada muestra los costos acumulados del mes en curso.  Puede cambiar a un intervalo de tiempo diferente y a una granularidad diferente; por ejemplo, diaria o mensual.
-3. Para restringir los costos de un único servicio, como Azure Data Factory, seleccione **Agregar filtro** y, a continuación, seleccione **Nombre del servicio**.  A continuación, elija **Azure Data Factory v2** de la lista.
+3. Para restringir los costos de un único servicio, como Azure Data Factory, seleccione **Agregar filtro** y, a continuación, seleccione **Nombre del servicio** .  A continuación, elija **Azure Data Factory v2** de la lista.
 4. Puede agregar filtros adicionales para analizar los costos de una instancia de factoría específica y una granularidad de medidor de ADF específica.
 
    ![Análisis de costos](media/plan-manage-costs/cost-analysis.png)
@@ -81,7 +81,7 @@ Al hacer clic en el botón **Consumo** situado junto al nombre de la canalizaci�
 
 ![Detalles de consumo de la canalización](media/plan-manage-costs/pipeline-consumption-details.png)
 
-La vista del consumo de la ejecución de canalización muestra el la cantidad de cada medidor de ADF que consumió la ejecución de canalización específica, pero no muestra el precio real que se cobrará, ya que la cantidad facturada depende del tipo de cuenta de Azure y del tipo de moneda que se usará.  Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data) (Información sobre los datos de Cost Management).
+La vista del consumo de la ejecución de canalización muestra el la cantidad de cada medidor de ADF que consumió la ejecución de canalización específica, pero no muestra el precio real que se cobrará, ya que la cantidad facturada depende del tipo de cuenta de Azure y del tipo de moneda que se usará.  Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md) (Información sobre los datos de Cost Management).
 
 ## <a name="monitor-consumption-at-activity-run-level"></a>Supervisión del consumo en el nivel de ejecución de actividad
 Una vez que comprenda el consumo agregado en el nivel de ejecución de la canalización, existen escenarios en los que es necesario profundizar e identificar cuál es la actividad más costosa de la canalización.
@@ -101,5 +101,5 @@ Y este es un ejemplo de la ejecución de una actividad de flujo de datos de asig
 Consulte los siguientes artículos para obtener información sobre cómo funcionan los precios en Azure Data Factory:
 
 - [Página de precios de Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/ssis/)
-- [Información sobre Azure Data Factory a través de ejemplos](https://docs.microsoft.com/azure/data-factory/pricing-concepts)
+- [Información sobre Azure Data Factory a través de ejemplos](./pricing-concepts.md)
 - [Calculadora de precios de Azure Data Factory](https://azure.microsoft.com/pricing/calculator/?service=data-factory)

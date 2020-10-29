@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: b2c1d08656ce9ef6b76e34a943f133859b78345a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f1332255ae83a32f9b71d24d812b00fad9b7fa1
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86172033"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637928"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Solución de problemas con la administración de SSIS Integration Runtime en Azure Data Factory
 
@@ -82,7 +82,7 @@ Este tipo de mensaje de error se parece a este: "Nombre de objeto no válido 'ca
 
 ## <a name="custom-setup-issues"></a>Incidencias de instalación personalizada
 
-La instalación personalizada proporciona una interfaz para agregar sus propios pasos de instalación durante el aprovisionamiento o la reconfiguración de SSIS IR. Para más información, consulte [Instalación personalizada de Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
+La instalación personalizada proporciona una interfaz para agregar sus propios pasos de instalación durante el aprovisionamiento o la reconfiguración de SSIS IR. Para más información, consulte [Instalación personalizada de Azure-SSIS Integration Runtime](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 Asegúrese de que el contenedor incluya solo los archivos de instalación personalizada necesarios; todos los archivos del contenedor se descargarán en el nodo de trabajo de SSIS IR. Se recomienda probar el script de instalación personalizada en una máquina local para corregir cualquier problema de ejecución antes de ejecutarlo en SSIS IR.
 
@@ -114,7 +114,7 @@ Este error significa que se ha producido un error al intentar cargar los registr
 
 ## <a name="virtual-network-configuration"></a>Configuración de redes virtuales
 
-Al unir SSIS IR a Azure Virtual Network, SSIS IR usa la red virtual que se encuentra en la suscripción del usuario. Para más información, consulte [Unión de Azure-SSIS Integration Runtime a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+Al unir SSIS IR a Azure Virtual Network, SSIS IR usa la red virtual que se encuentra en la suscripción del usuario. Para más información, consulte [Unión de Azure-SSIS Integration Runtime a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md).
 Después de que SSIS IR se inicie correctamente, si detecta problemas de conexión de red, puede intentar usar la [herramienta de diagnóstico de conectividad](ssis-integration-runtime-diagnose-connectivity-faq.md) para diagnosticar el problema.
 Cuando haya una incidencia relacionada con Virtual Network, verá uno de los siguientes errores.
 
@@ -141,7 +141,7 @@ Estos errores significan que la red virtual no existe, que el servicio Azure Bat
 
 Este tipo de mensaje de error puede parecerse a este: "No se pudo aprovisionar Integration Runtime en la red virtual. Si están configurados el servidor DNS o el grupo de seguridad de red, asegúrese de que el primero sea accesible y de que el segundo esté configurado correctamente".
 
-En esta situación, es probable que tenga una configuración personalizada del servidor DNS o de NSG, lo que impide que el nombre del servidor de Azure que se requiere en SSIS IR se resuelva o se tenga acceso a él. Para más información, consulte [Configuración de Virtual Network para SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Si el problema persiste, póngase en contacto con el equipo de soporte técnico de Azure Data Factory.
+En esta situación, es probable que tenga una configuración personalizada del servidor DNS o de NSG, lo que impide que el nombre del servidor de Azure que se requiere en SSIS IR se resuelva o se tenga acceso a él. Para más información, consulte [Configuración de Virtual Network para SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md). Si el problema persiste, póngase en contacto con el equipo de soporte técnico de Azure Data Factory.
 
 ### <a name="vnetresourcegrouplockedduringupgrade"></a>VNetResourceGroupLockedDuringUpgrade
 
@@ -157,11 +157,11 @@ Cuando detenga SSIS IR, se eliminarán todos los recursos relacionados con Virtu
 
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
-Este error se produce cuando se ejecuta IR y significa que su estado ya no es correcto. Este error siempre se debe a un cambio en la configuración del servidor DNS o de NSG que impide que SSIS IR se conecte a un servicio necesario. Dado que es el cliente quien controla la configuración del servidor DNS y de NSG, debe corregir los problemas de bloqueo en su lado. Para más información, consulte [Configuración de Virtual Network para SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Si el problema persiste, póngase en contacto con el equipo de soporte técnico de Azure Data Factory.
+Este error se produce cuando se ejecuta IR y significa que su estado ya no es correcto. Este error siempre se debe a un cambio en la configuración del servidor DNS o de NSG que impide que SSIS IR se conecte a un servicio necesario. Dado que es el cliente quien controla la configuración del servidor DNS y de NSG, debe corregir los problemas de bloqueo en su lado. Para más información, consulte [Configuración de Virtual Network para SSIS IR](./join-azure-ssis-integration-runtime-virtual-network.md). Si el problema persiste, póngase en contacto con el equipo de soporte técnico de Azure Data Factory.
 
 ## <a name="static-public-ip-addresses-configuration"></a>Configuración de direcciones IP públicas estáticas
 
-Al unir Azure-SSIS IR a Azure Virtual Network, también puede traer sus propias direcciones IP públicas estáticas a IR para que este pueda acceder a los orígenes de datos que limitan el acceso a direcciones IP específicas. Para más información, consulte [Unión de Azure-SSIS Integration Runtime a una red virtual](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+Al unir Azure-SSIS IR a Azure Virtual Network, también puede traer sus propias direcciones IP públicas estáticas a IR para que este pueda acceder a los orígenes de datos que limitan el acceso a direcciones IP específicas. Para más información, consulte [Unión de Azure-SSIS Integration Runtime a una red virtual](./join-azure-ssis-integration-runtime-virtual-network.md).
 
 Además de los problemas de red virtual anteriores, puede encontrarse también con problemas relacionados con las direcciones IP públicas estáticas. Compruebe los siguientes errores para obtener ayuda.
 
@@ -172,9 +172,9 @@ Este error puede producirse por diversos motivos al iniciar Azure-SSIS IR:
 | Mensaje de error | Solución|
 |:--- |:--- |
 | La dirección IP pública estática proporcionada ya está en uso. Proporcione dos sin usar para la instancia de Azure-SSIS Integration Runtime. | Debe seleccionar dos direcciones IP públicas estáticas sin usar o quitar las referencias actuales a la dirección IP pública especificada y, luego, reiniciar Azure-SSIS IR. |
-| La dirección IP pública estática proporcionada no tiene un nombre DNS. Proporcione dos de ellas con el nombre DNS para la instancia de Azure-SSIS Integration Runtime. | Puede configurar el nombre DNS de la dirección IP pública en Azure Portal, como se muestra en la imagen siguiente. Los pasos básicos son los siguientes: (1) Abra Azure Portal y vaya a la página de recursos de esta dirección IP pública. (2) Seleccione la sección **Configuración** y configure el nombre DNS; a continuación, haga clic en el botón **Guardar**. (3) Reinicie Azure-SSIS IR. |
+| La dirección IP pública estática proporcionada no tiene un nombre DNS. Proporcione dos de ellas con el nombre DNS para la instancia de Azure-SSIS Integration Runtime. | Puede configurar el nombre DNS de la dirección IP pública en Azure Portal, como se muestra en la imagen siguiente. Los pasos básicos son los siguientes: (1) Abra Azure Portal y vaya a la página de recursos de esta dirección IP pública. (2) Seleccione la sección **Configuración** y configure el nombre DNS; a continuación, haga clic en el botón **Guardar** . (3) Reinicie Azure-SSIS IR. |
 | La red virtual y las direcciones IP públicas estáticas proporcionadas para Azure-SSIS Integration Runtime deben estar en la misma ubicación. | De acuerdo con los requisitos de la red de Azure, la dirección IP pública estática y la red virtual deben estar en la misma ubicación y suscripción. Proporcione dos direcciones IP públicas estáticas válidas y reinicie Azure-SSIS IR. |
-| La dirección IP pública estática proporcionada es una básica; proporcione dos estándar para Azure-SSIS Integration Runtime. | Consulte las [SKU de dirección IP pública](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) para obtener ayuda. |
+| La dirección IP pública estática proporcionada es una básica; proporcione dos estándar para Azure-SSIS Integration Runtime. | Consulte las [SKU de dirección IP pública](../virtual-network/public-ip-addresses.md#sku) para obtener ayuda. |
 
 ![Integration Runtime de SSIS de Azure](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
 

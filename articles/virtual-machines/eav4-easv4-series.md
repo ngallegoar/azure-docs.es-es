@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: f95ffb662d830c432d3286eca8c935e2737f8043
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9341ff9a2ee0a6bfc79d94eea99bfb9aebceadf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649565"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637044"
 ---
 # <a name="eav4-and-easv4-series"></a>Series Eav4 y Easv4
 
@@ -54,7 +54,7 @@ Los tamaños de la serie Eav4 se basan en el procesador EPYC<sup>TM</sup> 7452 d
 
 Los tamaños de la serie Easv4 se basan en el procesador EPYC<sup>TM</sup> 7452 de AMD de 2,35 Ghz que pueden alcanzar una frecuencia máxima incrementada de 3,35 Ghz y usar SSD Premium. Los tamaños de la serie Easv4 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
-| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (MBps) |
+| Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 | 1000 |
 | Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 | 2000 |

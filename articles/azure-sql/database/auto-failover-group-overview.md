@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 2035fa811ed6bb5760f2527f66e0f2ca48ccb2c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c64112e30bdaf0da2218177bd2737c3ebe688b0c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627234"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675297"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -243,7 +243,7 @@ Dado que cada instancia está aislada en su propia red virtual, se debe permitir
 
 ### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Creación de un grupo de conmutación por error entre instancias administradas en distintas suscripciones
 
-Puede crear un grupo de conmutación por error entre instancias de SQL Managed Instance en dos suscripciones diferentes, siempre que las suscripciones estén asociadas al mismo [inquilino de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Al usar la API de PowerShell, puede hacerlo especificando el parámetro `PartnerSubscriptionId` de la instancia secundaria de SQL Managed Instance. Al usar la API REST, cada identificador de instancia incluido en el parámetro `properties.managedInstancePairs` puede tener su propio subscriptionID.
+Puede crear un grupo de conmutación por error entre instancias de SQL Managed Instance en dos suscripciones diferentes, siempre que las suscripciones estén asociadas al mismo [inquilino de Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md#terminology). Al usar la API de PowerShell, puede hacerlo especificando el parámetro `PartnerSubscriptionId` de la instancia secundaria de SQL Managed Instance. Al usar la API REST, cada identificador de instancia incluido en el parámetro `properties.managedInstancePairs` puede tener su propio subscriptionID.
   
 > [!IMPORTANT]
 > Azure Portal no admite la creación de grupos de conmutación por error en distintas suscripciones. Además, para los grupos de conmutación por error existentes en distintas suscripciones o grupos de recursos, no se puede iniciar manualmente la conmutación por error a través del portal desde la Instancia administrada de SQL principal. En su lugar, se inicia desde la instancia de la base de datos geográfica secundaria.
@@ -341,8 +341,8 @@ Si el plan de continuidad empresarial requiere un proceso de conmutación por er
 1. [Cree una dirección IP pública](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
 2. [Cree un equilibrador de carga público](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) y asígnele la dirección IP pública.
 3. [Cree una red virtual y las máquinas virtuales](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) para los componentes de front-end.
-4. [Cree un grupo de seguridad de red](../../virtual-network/security-overview.md) y configure las conexiones entrantes.
-5. Asegúrese de que las conexiones salientes están abiertas para Azure SQL Database usando la [etiqueta de servicio](../../virtual-network/security-overview.md#service-tags) "Sql".
+4. [Cree un grupo de seguridad de red](../../virtual-network/network-security-groups-overview.md) y configure las conexiones entrantes.
+5. Asegúrese de que las conexiones salientes están abiertas para Azure SQL Database usando la [etiqueta de servicio](../../virtual-network/network-security-groups-overview.md#service-tags) "Sql".
 6. Cree una [regla de firewall de SQL Database](firewall-configure.md) para permitir el tráfico entrante desde la dirección IP pública que creó en el paso 1.
 
 Para más información acerca de cómo configurar el acceso de salida y qué dirección IP usar en las reglas de firewall, consulte [Conexiones salientes del equilibrador de carga](../../load-balancer/load-balancer-outbound-connections.md).
@@ -362,7 +362,7 @@ Al configurar un grupo de conmutación por error entre instancias administradas 
 - Las redes virtuales que se usan en las instancias de Instancia administrada de SQL deben estar conectadas mediante [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Si dos redes virtuales se conectan a través de una red local, asegúrese de que no haya ninguna regla de firewall bloqueando los puertos 5022 y 11000-11999. El emparejamiento de VNet global se admite con la limitación descrita en la nota siguiente.
 
    > [!IMPORTANT]
-   > [El 22 de septiembre de 2020, anunciamos el emparejamiento de red virtual global para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
+   > [El 22 de septiembre de 2020, anunciamos el emparejamiento de red virtual global para los clústeres virtuales recién creados](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Esto significa que el emparejamiento de red virtual global se admite en las instancias de SQL Managed Instance creadas en subredes vacías después de la fecha del anuncio, así como en todas las instancias administradas posteriores creadas en esas subredes. En el caso de todas las demás instancias de SQL Managed Instance, la compatibilidad con el emparejamiento se limita a las redes de la misma región debido a las [restricciones del emparejamiento de red virtual global](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Consulte también la sección correspondiente del artículo [Preguntas más frecuentes (P+F) acerca de Azure Virtual Network](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) para más información. 
 
 - Las dos redes virtuales de Instancia administrada de SQL no pueden tener direcciones IP superpuestas.
 - Debe configurar sus grupos de seguridad de red (NSG) de forma que los puertos 5022 y el intervalo 11000~12000 estén abiertos a las conexiones entrantes y salientes de la subred de la otra instancia administrada. Esto es para permitir el tráfico de replicación entre las instancias.
@@ -406,7 +406,7 @@ Tenga en cuenta las siguientes limitaciones:
 
 ## <a name="programmatically-managing-failover-groups"></a>Administración mediante programación de grupos de conmutación por error
 
-Como se ha mencionado antes, los grupos de conmutación automática por error y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) y los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure/). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
+Como se ha mencionado antes, los grupos de conmutación automática por error y la replicación geográfica activa también pueden administrarse mediante programación con Azure PowerShell y la API REST. En las tablas siguientes se describe el conjunto de comandos disponibles. La replicación geográfica activa incluye un conjunto de API de Azure Resource Manager para la administración, en el que se incluyen la [API REST de Azure SQL Database](/rest/api/sql/) y los [cmdlets de Azure PowerShell](/powershell/azure/). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="manage-sql-database-failover"></a>Administración de la conmutación por error de SQL Database
 
@@ -435,13 +435,13 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | API | Descripción |
 | --- | --- |
-| [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crea o actualiza un grupo de conmutación por error. |
-| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Quita un grupo de conmutación por error del servidor. |
-| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Desencadena la conmutación por error del servidor principal actual en el servidor secundario con sincronización de datos completa.|
-| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Desencadena la conmutación por error del servidor principal actual en el servidor secundario sin sincronización de datos. Esta operación puede ocasionar pérdida de datos. |
-| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Recupera la configuración de un grupo de conmutación por error. |
-| [Enumerar grupos de conmutación por error por servidor](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Enumera los grupos de conmutación por error en un servidor. |
-| [Actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Actualiza la configuración de un grupo de conmutación por error. |
+| [Crear o actualizar grupo de conmutación por error](/rest/api/sql/failovergroups/createorupdate) | Crea o actualiza un grupo de conmutación por error. |
+| [Eliminar grupo de conmutación por error](/rest/api/sql/failovergroups/delete) | Quita un grupo de conmutación por error del servidor. |
+| [Conmutación por error (planeada)](/rest/api/sql/failovergroups/failover) | Desencadena la conmutación por error del servidor principal actual en el servidor secundario con sincronización de datos completa.|
+| [Forzar la conmutación por error ocasiona la pérdida de datos](/rest/api/sql/failovergroups/forcefailoverallowdataloss) | Desencadena la conmutación por error del servidor principal actual en el servidor secundario sin sincronización de datos. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener grupo de conmutación por error](/rest/api/sql/failovergroups/get) | Recupera la configuración de un grupo de conmutación por error. |
+| [Enumerar grupos de conmutación por error por servidor](/rest/api/sql/failovergroups/listbyserver) | Enumera los grupos de conmutación por error en un servidor. |
+| [Actualizar grupo de conmutación por error](/rest/api/sql/failovergroups/update) | Actualiza la configuración de un grupo de conmutación por error. |
 
 ---
 
@@ -473,12 +473,12 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | API | Descripción |
 | --- | --- |
-| [Crear o actualizar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Crea o actualiza la configuración de un grupo de conmutación por error. |
-| [Eliminar grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Quita un grupo de conmutación por error de la instancia. |
-| [Conmutación por error (planeada)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Desencadena la conmutación por error del servidor principal actual en esta instancia con sincronización de datos completa. |
-| [Forzar la conmutación por error ocasiona la pérdida de datos](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Desencadena la conmutación por error de la instancia principal actual en la instancia secundaria sin sincronización de datos. Esta operación puede ocasionar pérdida de datos. |
-| [Obtener grupo de conmutación por error](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Recupera la configuración de un grupo de conmutación por error. |
-| [Lista de grupos de conmutación por error: por ubicación](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Enumera los grupos de conmutación por error de una ubicación. |
+| [Crear o actualizar grupo de conmutación por error](/rest/api/sql/instancefailovergroups/createorupdate) | Crea o actualiza la configuración de un grupo de conmutación por error. |
+| [Eliminar grupo de conmutación por error](/rest/api/sql/instancefailovergroups/delete) | Quita un grupo de conmutación por error de la instancia. |
+| [Conmutación por error (planeada)](/rest/api/sql/instancefailovergroups/failover) | Desencadena la conmutación por error del servidor principal actual en esta instancia con sincronización de datos completa. |
+| [Forzar la conmutación por error ocasiona la pérdida de datos](/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Desencadena la conmutación por error de la instancia principal actual en la instancia secundaria sin sincronización de datos. Esta operación puede ocasionar pérdida de datos. |
+| [Obtener grupo de conmutación por error](/rest/api/sql/instancefailovergroups/get) | Recupera la configuración de un grupo de conmutación por error. |
+| [Lista de grupos de conmutación por error: por ubicación](/rest/api/sql/instancefailovergroups/listbylocation) | Enumera los grupos de conmutación por error de una ubicación. |
 
 ---
 

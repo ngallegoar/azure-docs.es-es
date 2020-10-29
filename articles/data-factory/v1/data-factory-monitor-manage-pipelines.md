@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4473df318f65c0e0097aed298d0be57e3bca382b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73666980"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636942"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Supervisión y administración de canalizaciones de Azure Data Factory mediante Azure Portal y PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ En este artículo se describe cómo supervisar, administrar y depurar las canali
 > La aplicación de supervisión y administración proporciona una mejor compatibilidad con la supervisión y la administración de las canalizaciones de datos y la solución de problemas. Para más información sobre el uso de la aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la aplicación de supervisión y administración](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> La versión 1 de Azure Data Factory emplea ahora la nueva [infraestructura de alerta de Azure Monitor](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). La antigua infraestructura de alerta está en desuso. Como resultado, las alertas existentes configuradas para la las factorías de datos de la versión 1 ya no funcionan. Las alertas existentes para las factorías de datos v1 no se migran automáticamente. Deberá volver a crear estas alertas en la nueva infraestructura de alerta. Inicie sesión en Azure Portal y seleccione **Monitor** para crear nuevas alertas sobre métricas (por ejemplo, las ejecuciones erróneas o correctas) para sus factorías de datos de la versión 1.
+> La versión 1 de Azure Data Factory emplea ahora la nueva [infraestructura de alerta de Azure Monitor](../../azure-monitor/platform/alerts-metric.md). La antigua infraestructura de alerta está en desuso. Como resultado, las alertas existentes configuradas para la las factorías de datos de la versión 1 ya no funcionan. Las alertas existentes para las factorías de datos v1 no se migran automáticamente. Deberá volver a crear estas alertas en la nueva infraestructura de alerta. Inicie sesión en Azure Portal y seleccione **Monitor** para crear nuevas alertas sobre métricas (por ejemplo, las ejecuciones erróneas o correctas) para sus factorías de datos de la versión 1.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -47,10 +47,10 @@ En esta sección se describen también las transiciones de sectores de un conjun
 
 ### <a name="navigate-to-your-data-factory"></a>Navegación hasta la factoría de datos
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
-2. Haga clic en **Factorías de datos** en el menú de la izquierda. Si no ve está opción, haga clic en **Más servicios >** y luego en **Factorías de datos**, en la categoría **INTELIGENCIA Y ANÁLISIS**.
+2. Haga clic en **Factorías de datos** en el menú de la izquierda. Si no ve está opción, haga clic en **Más servicios >** y luego en **Factorías de datos** , en la categoría **INTELIGENCIA Y ANÁLISIS** .
 
    ![Examinar todo -> Factorías de datos](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
-3. En la hoja **Factorías de datos**, seleccione la factoría de datos que le interese.
+3. En la hoja **Factorías de datos** , seleccione la factoría de datos que le interese.
 
     ![Selección de la factoría de datos](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
 
@@ -59,7 +59,7 @@ En esta sección se describen también las transiciones de sectores de un conjun
    ![Hoja Factoría de datos](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
 #### <a name="diagram-view-of-your-data-factory"></a>Vista de diagrama de la factoría de datos
-La vista **Diagrama** de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos. Haga clic en **Diagrama** en la página principal de la factoría de datos para ver la vista de **diagrama**.
+La vista **Diagrama** de una factoría de datos ofrece un panel único para supervisar y administrar la factoría de datos y sus recursos. Haga clic en **Diagrama** en la página principal de la factoría de datos para ver la vista de **diagrama** .
 
 ![Vista Diagrama](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
@@ -79,7 +79,7 @@ Puede acercar, alejar, hacer zoom para ajustar, hacer zoom al 100 %, bloquear e
 ### <a name="view-the-state-of-each-activity-inside-a-pipeline"></a>Visualización del estado de cada actividad dentro de una canalización
 Puede ver el estado actual de una actividad viendo el estado de cualquiera de los conjuntos de datos que genera la actividad.
 
-Al hacer doble clic en **OutputBlobTable** en la vista **Diagrama**, puede observar todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que la actividad de copia se ejecutó correctamente durante las últimas ocho horas y generó los segmentos en el estado **Listo**.  
+Al hacer doble clic en **OutputBlobTable** en la vista **Diagrama** , puede observar todos los segmentos generados por distintas ejecuciones de actividades dentro de una canalización. Puede ver que la actividad de copia se ejecutó correctamente durante las últimas ocho horas y generó los segmentos en el estado **Listo** .  
 
 ![Estado de la canalización](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
 
@@ -144,7 +144,7 @@ Los segmentos de conjunto de datos en una factoría de datos pueden tener uno de
 
 
 
-Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos actualizados recientemente**.
+Puede ver los detalles sobre un segmento haciendo clic en la hoja **Segmentos actualizados recientemente** .
 
 ![Detalles de segmento](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
@@ -152,7 +152,7 @@ Si el segmento se ejecutó varias veces, aparecen varias filas en la lista **Eje
 
 ![Detalles de ejecución de actividad](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-Si el segmento no está en el estado **Listo**, puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos**. Esta característica resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes por las que el segmento está esperando.
+Si el segmento no está en el estado **Listo** , puede ver los segmentos ascendentes que no están en estado Listo y bloquean la ejecución del segmento actual en la lista **Segmentos ascendentes que no están listos** . Esta característica resulta muy útil cuando el segmento tiene el estado **En espera** y se quiere saber cuáles son las dependencias ascendentes por las que el segmento está esperando.
 
 ![Segmentos ascendentes que no están listos](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -163,9 +163,9 @@ Cuando se implementa una factoría de datos y las canalizaciones tienen un perí
 
 El flujo de transición de estado del conjunto de datos en la factoría de datos es el siguiente: Espera -> En curso/En curso (validando) -> Listo/error.
 
-El segmento se inicia con un estado **En espera**, mientras se espera a que se cumplan las condiciones previas que deben cumplirse antes de su ejecución. Luego, la actividad comienza a ejecutarse y el segmento pasa al estado **En curso**. La ejecución de esta actividad se completará correctamente o dará error. El segmento se marca como **Listo** o **Error** según el resultado de la ejecución.
+El segmento se inicia con un estado **En espera** , mientras se espera a que se cumplan las condiciones previas que deben cumplirse antes de su ejecución. Luego, la actividad comienza a ejecutarse y el segmento pasa al estado **En curso** . La ejecución de esta actividad se completará correctamente o dará error. El segmento se marca como **Listo** o **Error** según el resultado de la ejecución.
 
-El usuario puede restablecer el segmento para que vuelva del estado **Listo** o **Error** al estado **En espera**. El usuario también puede marcar el estado del segmento como **Omitir**, lo que impide que la actividad se ejecute, y no se procesa el segmento.
+El usuario puede restablecer el segmento para que vuelva del estado **Listo** o **Error** al estado **En espera** . El usuario también puede marcar el estado del segmento como **Omitir** , lo que impide que la actividad se ejecute, y no se procesa el segmento.
 
 ## <a name="pause-and-resume-pipelines"></a>Pausa y reanudación de canalizaciones
 Puede administrar las canalizaciones usando Azure PowerShell. Por ejemplo, puede pausar y reanudar canalizaciones ejecutando cmdlets de Azure PowerShell. 
@@ -205,19 +205,19 @@ Azure Data Factory ofrece amplias funcionalidades a través de Azure Portal y Az
 Si falla la ejecución de actividad en una canalización, el conjunto de datos generado por la canalización tiene un estado de error debido al fallo. Puede depurar y solucionar los errores en Azure Data Factory con los métodos siguientes.
 
 #### <a name="use-the-azure-portal-to-debug-an-error"></a>Uso de Azure Portal para depurar un error
-1. En la hoja **Tabla**, haga clic en el segmento problemático cuyo **Estado** sea **Error**.
+1. En la hoja **Tabla** , haga clic en el segmento problemático cuyo **Estado** sea **Error** .
 
    ![Hoja Tabla con segmentos con problemas](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
-2. En la hoja **Segmento de datos**, haga clic en la ejecución de actividad que falló.
+2. En la hoja **Segmento de datos** , haga clic en la ejecución de actividad que falló.
 
    ![Segmento de datos con un error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
-3. En la hoja **Detalles de la ejecución de actividad**, puede descargar los archivos asociados al procesamiento de HDInsight. Haga clic en **Descargar** correspondiente a Status/stderr para descargar el archivo de registro de errores que contiene detalles sobre el error.
+3. En la hoja **Detalles de la ejecución de actividad** , puede descargar los archivos asociados al procesamiento de HDInsight. Haga clic en **Descargar** correspondiente a Status/stderr para descargar el archivo de registro de errores que contiene detalles sobre el error.
 
    ![Hoja Detalles de ejecución de actividad con errores](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
 
 #### <a name="use-powershell-to-debug-an-error"></a>Uso de PowerShell para depurar un error
-1. Inicie **PowerShell**.
-2. Ejecute el comando **Get-AzDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **Error**.        
+1. Inicie **PowerShell** .
+2. Ejecute el comando **Get-AzDataFactorySlice** para ver los segmentos y sus estados. Debería ver un segmento con el estado: **Error** .        
 
     ```powershell   
     Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
@@ -288,9 +288,9 @@ En caso de que el segmento no se valide debido a un error de directiva (por ejem
 ![Corrección de errores y validación](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-Puede volver a ejecutar errores mediante el cmdlet **Set-AzDataFactorySliceStatus**. Vea el tema [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obtener información sobre la sintaxis y otros detalles del cmdlet.
+Puede volver a ejecutar errores mediante el cmdlet **Set-AzDataFactorySliceStatus** . Vea el tema [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obtener información sobre la sintaxis y otros detalles del cmdlet.
 
-**Ejemplo**:
+**Ejemplo** :
 
 En el siguiente ejemplo, el estado de todos los segmentos de la tabla "DAWikiAggregatedData" se establece en "En espera" en la factoría de datos de Azure "WikiADF".
 
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Creación de una nueva alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  Defina **Alert condition** (Condición de la alerta). (Asegúrese de seleccionar **Factorías de datos** en el campo **Filtrar por tipo de recurso**). También puede especificar valores para **Dimensiones**.
+3.  Defina **Alert condition** (Condición de la alerta). (Asegúrese de seleccionar **Factorías de datos** en el campo **Filtrar por tipo de recurso** ). También puede especificar valores para **Dimensiones** .
 
     ![Definir la condición de la alerta: Seleccione el destino](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 
@@ -317,11 +317,11 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![Definir la condición de la alerta: Agregue la lógica de alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
 
-4.  Defina los **Detalles de alertas**.
+4.  Defina los **Detalles de alertas** .
 
     ![Definir los detalles de la alerta](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
 
-5.  Defina el **Grupo de acciones**.
+5.  Defina el **Grupo de acciones** .
 
     ![Definir el grupo de acciones: Crear un nuevo grupo de acciones](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
 

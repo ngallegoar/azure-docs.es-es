@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/13/2020
-ms.openlocfilehash: d83dcc5c86f2dfed5f588738e7799dd708333da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47ee4c71abadc4d4e3cb60d54aef1d8262e41119
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076787"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637316"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copia de datos con Salesforce Service Cloud como origen y destino mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -64,7 +64,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type |La propiedad type debe establecerse en **SalesforceServiceCloud**. |Sí |
+| type |La propiedad type debe establecerse en **SalesforceServiceCloud** . |Sí |
 | environmentUrl | Especifique la dirección URL de la instancia de Salesforce Service Cloud. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |No |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | password |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
@@ -143,7 +143,7 @@ Para copiar datos con Salesforce Service Cloud como origen y destino, se admiten
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en **SalesforceServiceCloudObject**.  | Sí |
+| type | La propiedad type debe establecerse en **SalesforceServiceCloudObject** .  | Sí |
 | objectApiName | El nombre del objeto de Salesforce desde el que se van a recuperar los datos. | No para el origen, sí para el receptor |
 
 > [!IMPORTANT]
@@ -151,7 +151,7 @@ Para copiar datos con Salesforce Service Cloud como origen y destino, se admiten
 
 ![Data Factory - Conexión a Salesforce - Nombre de la API](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
-**Ejemplo**:
+**Ejemplo** :
 
 ```json
 {
@@ -172,7 +172,7 @@ Para copiar datos con Salesforce Service Cloud como origen y destino, se admiten
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable**. | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable** . | Sí |
 | tableName | Nombre de la tabla de Salesforce Service Cloud. | No (si se especifica "query" en el origen de la actividad) |
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
@@ -185,16 +185,16 @@ Para copiar datos de Salesforce Service Cloud, en la sección **source** (origen
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en **SalesforceServiceCloudSource**. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en **SalesforceServiceCloudSource** . | Sí |
 | Query |Utilice la consulta personalizada para leer los datos. Puede usar una consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Consulte más sugerencias en la sección [Sugerencias de consulta](#query-tips). Si no se especifica la consulta, se recuperarán todos los datos del objeto de Salesforce Service Cloud especificado en "objectApiName" en el conjunto de datos. | No (si se especifica "objectApiName" en el conjunto de datos) |
-| readBehavior | Indica si se van a consultar los registros existentes o todos, incluso los que se eliminaron. Si no se especifica, el comportamiento predeterminado es el primero. <br>Valores permitidos: **query** (valor predeterminado), **queryAll**.  | No |
+| readBehavior | Indica si se van a consultar los registros existentes o todos, incluso los que se eliminaron. Si no se especifica, el comportamiento predeterminado es el primero. <br>Valores permitidos: **query** (valor predeterminado), **queryAll** .  | No |
 
 > [!IMPORTANT]
 > La parte "__c" del **nombre de la API** es necesaria para cualquier objeto personalizado.
 
 ![Data Factory - Conexión a Salesforce - Lista de nombres de API](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
-**Ejemplo**:
+**Ejemplo** :
 
 ```json
 "activities":[
@@ -232,13 +232,13 @@ Para copiar datos a Salesforce Service Cloud, en la sección **source** (origen)
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **SalesforceServiceCloudSink**. | Sí |
-| writeBehavior | El comportamiento de escritura de la operación.<br/>Los valores permitidos son: **Insert** y **Upsert**. | No (el valor predeterminado es Insert) |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **SalesforceServiceCloudSink** . | Sí |
+| writeBehavior | El comportamiento de escritura de la operación.<br/>Los valores permitidos son: **Insert** y **Upsert** . | No (el valor predeterminado es Insert) |
 | externalIdFieldName | El nombre del campo de identificador externo para la operación de upsert. El campo especificado debe definirse como "Campo de identificador externo" en el objeto de Salesforce Service Cloud. No puede tener valores NULL en los datos de entrada correspondientes. | Sí para "Upsert" |
 | writeBatchSize | El recuento de filas de datos escritos en Salesforce Service Cloud en cada lote. | No (el valor predeterminado es 5000) |
-| ignoreNullValues | Indica si se omiten los valores NULL de los datos de entrada durante la operación de escritura.<br/>Los valores permitidos son **true** y **false**.<br>- **True**: deje los datos del objeto de destino sin cambiar cuando realice una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False**: actualice los datos del objeto de destino a NULL cuando realice una operación upsert o update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
+| ignoreNullValues | Indica si se omiten los valores NULL de los datos de entrada durante la operación de escritura.<br/>Los valores permitidos son **true** y **false** .<br>- **True** : deje los datos del objeto de destino sin cambiar cuando realice una operación upsert o update. Inserta un valor predeterminado definido al realizar una operación insert.<br/>- **False** : actualice los datos del objeto de destino a NULL cuando realice una operación upsert o update. Inserta un valor NULL al realizar una operación insert. | No (el valor predeterminado es false) |
 
-**Ejemplo**:
+**Ejemplo** :
 
 ```json
 "activities":[
@@ -291,7 +291,7 @@ Al copiar datos de Salesforce Service Cloud, puede usar consultas SOQL o consult
 |:--- |:--- |:--- |
 | Selección de columnas | Necesita enumerar los campos que se van a copiar en la consulta, por ejemplo `SELECT field1, filed2 FROM objectname`. | `SELECT *` se admite además de la selección de columna. |
 | Comillas | Los nombres de objetos o de campos no pueden entrecomillarse. | Los nombres de objetos o de campos no pueden entrecomillarse, por ejemplo `SELECT "id" FROM "Account"`. |
-| Formato de fecha y hora |  Consulte más detalles [aquí](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) y ejemplos en la sección siguiente. | Consulte más detalles [aquí](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) y ejemplos en la sección siguiente. |
+| Formato de fecha y hora |  Consulte más detalles [aquí](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) y ejemplos en la sección siguiente. | Consulte más detalles [aquí](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) y ejemplos en la sección siguiente. |
 | Valores booleanos | Se representan como `False` y `True`, por ejemplo, `SELECT … WHERE IsDeleted=True`. | Se representan como 0 o 1, por ejemplo `SELECT … WHERE IsDeleted=1`. |
 | Cambio del nombre de la columna | No compatible. | Admitido, por ejemplo: `SELECT a AS b FROM …`. |
 | Relación | Admitido, por ejemplo: `Account_vod__r.nvs_Country__c`. | No compatible. |
@@ -300,8 +300,8 @@ Al copiar datos de Salesforce Service Cloud, puede usar consultas SOQL o consult
 
 Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia del formato de fecha y hora. Por ejemplo:
 
-* **Ejemplo SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **Ejemplo de SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **Ejemplo SOQL** :`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **Ejemplo de SQL** : `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
 ### <a name="error-of-malformed_query-truncated"></a>Error de MALFORMED_QUERY: Truncated
 

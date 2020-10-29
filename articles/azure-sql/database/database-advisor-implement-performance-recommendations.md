@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1ef29eb71ccd945552550f64e5ae95bc85be44d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284370"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672107"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendaciones de rendimiento de Database Advisor para Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,8 +40,8 @@ Las opciones de recomendaciones de rendimiento disponibles en Azure SQL Databas
 
 | Recomendación de rendimiento | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad de base de datos de instancia |
 | :----------------------------- | ----- | ----- |
-| **Recomendaciones Crear índice**: recomienda la creación de índices que podrían mejorar el rendimiento de la carga de trabajo. | Sí | No |
-| **Recomendaciones Quitar índice**: recomienda la eliminación diaria de los índices duplicados y redundantes, excepto los índices únicos y los que no se han usado durante mucho tiempo (más de 90 días). Tenga en cuenta que esta opción no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones. No se admite la eliminación de índices sin usar para los niveles de servicio Prémium y Crítico para la empresa. | Sí | No |
+| **Recomendaciones Crear índice** : recomienda la creación de índices que podrían mejorar el rendimiento de la carga de trabajo. | Sí | No |
+| **Recomendaciones Quitar índice** : recomienda la eliminación diaria de los índices duplicados y redundantes, excepto los índices únicos y los que no se han usado durante mucho tiempo (más de 90 días). Tenga en cuenta que esta opción no es compatible con las aplicaciones que usan sugerencias de índice y la conmutación de particiones. No se admite la eliminación de índices sin usar para los niveles de servicio Prémium y Crítico para la empresa. | Sí | No |
 | **Recomendaciones Parametrizar consultas (versión preliminar)** : recomienda la parametrización forzada en aquellos casos en que hay una o varias consultas que se recompilan constantemente, pero acaban con el mismo plan de ejecución de consulta. | Sí | No |
 | **Recomendaciones Solucionar problemas de esquema (versión preliminar)** : las recomendaciones de corrección de esquema aparecen cuando Azure SQL Database detecta alguna anomalía en el número de errores de SQL relacionados con el esquema que se producen en la base de datos. Microsoft está dejando de usar las recomendaciones de corrección de problemas de esquema. | Sí | No |
 
@@ -53,11 +53,11 @@ También puede encontrar el historial completo de las acciones de ajuste que se 
 
 ## <a name="create-index-recommendations"></a>Recomendaciones Crear índice
 
-Azure SQL Database supervisa continuamente las consultas que se ejecutan e identifica los índices que podrían mejorar el rendimiento. Después de que se sabe con bastante confianza que falta un índice, se crea una nueva recomendación **Crear índice**.
+Azure SQL Database supervisa continuamente las consultas que se ejecutan e identifica los índices que podrían mejorar el rendimiento. Después de que se sabe con bastante confianza que falta un índice, se crea una nueva recomendación **Crear índice** .
 
 Para generar confianza, Azure SQL Database calcula la ganancia de rendimiento que el índice aportaría a lo largo del tiempo. Según la ganancia de rendimiento estimada, las recomendaciones se clasifican como alta, media o baja.
 
-Los índices creados mediante recomendaciones se marcan siempre como índices auto_created. Para saber cuáles son los índices que se crean automáticamente, vaya a la [vista sys.indexes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Los índices creados de forma automática no bloquean los comandos ALTER/RENAME.
+Los índices creados mediante recomendaciones se marcan siempre como índices auto_created. Para saber cuáles son los índices que se crean automáticamente, vaya a la [vista sys.indexes](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql). Los índices creados de forma automática no bloquean los comandos ALTER/RENAME.
 
 Si intenta descartar la columna que tiene un índice creado automáticamente por encima, el comando se pasa. El índice creado automáticamente también se descarta con el comando. Los índices normales bloquean el comando ALTER/RENAME en las columnas que están indexadas.
 
@@ -88,7 +88,7 @@ Las consultas con valores sin parámetros pueden llevar a una sobrecarga en el r
 
 El proceso de volver a compilar planes de ejecución usa recursos de base de datos, aumenta el tiempo de duración de la consulta y desborda la caché de planes. Estos eventos, a su vez, hacen que los planes se expulsen de la caché. Este comportamiento se puede modificar estableciendo la opción de parametrización forzada en la base de datos.
 
-Para ayudarlo a estimar el impacto de esta recomendación, se le proporciona una comparación entre el uso real y el previsto de la CPU (como si se aplicase la recomendación). Esta recomendación puede ayudarle a obtener ahorros de CPU. También puede ayudarle a reducir la duración de la consulta y la sobrecarga de la caché de planes, lo que significa que varios de los planes pueden permanecer en la caché y volverse a utilizar. Para aplicar esta recomendación rápidamente, seleccione el comando **Aplicar**.
+Para ayudarlo a estimar el impacto de esta recomendación, se le proporciona una comparación entre el uso real y el previsto de la CPU (como si se aplicase la recomendación). Esta recomendación puede ayudarle a obtener ahorros de CPU. También puede ayudarle a reducir la duración de la consulta y la sobrecarga de la caché de planes, lo que significa que varios de los planes pueden permanecer en la caché y volverse a utilizar. Para aplicar esta recomendación rápidamente, seleccione el comando **Aplicar** .
 
 Después de aplicar esta recomendación, se habilita la parametrización forzada en cuestión de minutos en la base de datos. Se inicia el proceso de supervisión, que tiene una validez de aproximadamente 24 horas. Después de este período, puede ver el informe de validación. Este informe muestra el uso de CPU de la base de datos 24 horas antes y después de haber aplicado la recomendación. Azure SQL Database Advisor cuenta con un mecanismo de seguridad que revierte automáticamente la recomendación aplicada en caso de detectarse una regresión del rendimiento.
 
@@ -114,7 +114,7 @@ Las recomendaciones "Solucionar problemas de esquema" aparecen cuando Azure SQL 
 
 ## <a name="custom-applications"></a>Aplicaciones personalizadas
 
-Los desarrolladores pueden considerar la posibilidad de desarrollar aplicaciones personalizadas con las recomendaciones de rendimiento de Azure SQL Database. Todas las recomendaciones que se muestran en el portal para una base de datos están disponibles a través de la API [Get-AzSqlDatabaseRecommendedAction](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction).
+Los desarrolladores pueden considerar la posibilidad de desarrollar aplicaciones personalizadas con las recomendaciones de rendimiento de Azure SQL Database. Todas las recomendaciones que se muestran en el portal para una base de datos están disponibles a través de la API [Get-AzSqlDatabaseRecommendedAction](/powershell/module/az.sql/get-azsqldatabaserecommendedaction).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

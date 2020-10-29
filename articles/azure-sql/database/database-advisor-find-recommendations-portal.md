@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ad8f3e146c13e7b88752b8ef6d514346542ce26
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443884"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672261"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -70,8 +70,8 @@ La base de datos permanece en línea mientras se aplica la recomendación; cuand
 
 Puede revisar y aceptar recomendaciones una a una.
 
-1. En la página **Recomendaciones**, seleccione una recomendación.
-2. En la página **Detalles**, haga clic en el botón **Aplicar**.
+1. En la página **Recomendaciones** , seleccione una recomendación.
+2. En la página **Detalles** , haga clic en el botón **Aplicar** .
 
    ![Aplicar recomendaciones](./media/database-advisor-find-recommendations-portal/apply.png)
 
@@ -82,13 +82,13 @@ Se aplican las recomendaciones seleccionadas en la base de datos.
 Si la lista de recomendaciones contiene elementos que quiere quitar de la lista, puede descartar la recomendación:
 
 1. Seleccione una recomendación en la lista **Recomendaciones** para abrir los detalles.
-2. Haga clic en **Descartar** en la página **Detalles**.
+2. Haga clic en **Descartar** en la página **Detalles** .
 
 Si quiere, puede volver a agregar elementos descartados a la lista **Recomendaciones** :
 
-1. En la página **Recomendaciones**, haga clic en **Ver descartados**.
+1. En la página **Recomendaciones** , haga clic en **Ver descartados** .
 2. Seleccione un elemento descartado de la lista para ver los detalles.
-3. También puede hacer clic en **Deshacer Descartar** para volver a agregar el índice a la lista principal de **Recomendaciones**.
+3. También puede hacer clic en **Deshacer Descartar** para volver a agregar el índice a la lista principal de **Recomendaciones** .
 
 > [!NOTE]
 > Tenga en cuenta que si el [Ajuste automático](automatic-tuning-overview.md) de SQL Database está habilitado y se ha descartado manualmente una recomendación de la lista, esta nunca se aplicará automáticamente. Descartar una recomendación es una forma práctica para que los usuarios tengan el ajuste automático habilitado en casos en que se requiera que no se aplique dicha recomendación específica.
@@ -98,7 +98,7 @@ Si quiere, puede volver a agregar elementos descartados a la lista **Recomendaci
 
 Puede establecer la base de datos para que implemente las recomendaciones de forma automática. A medida que las recomendaciones estén disponibles, estas se aplicarán de manera automática. Al igual que con todas las recomendaciones que administra el servicio, si el impacto en el rendimiento es negativo, se revierte la recomendación.
 
-1. En la página **Recomendaciones**, haga clic en **Automatizar**:
+1. En la página **Recomendaciones** , haga clic en **Automatizar** :
 
    ![Configuración del asesor](./media/database-advisor-find-recommendations-portal/settings.png)
 2. Seleccione las acciones que desee automatizar:
@@ -112,15 +112,15 @@ Cuando haya seleccionado la configuración que desee, haga clic en Aplicar.
 
 ### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicación manual de recomendaciones a través de T-SQL
 
-Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.
+Seleccione cualquier recomendación y haga clic en **Ver script** . Ejecute este script en la base de datos para aplicar la recomendación manualmente.
 
-*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql). Además, las recomendaciones aplicadas manualmente permanecerán activas y se mostrarán en la lista de recomendaciones durante un período de 24 a 48 horas antes de que el sistema las retire automáticamente. Si quiere quitar una recomendación antes, puede descartarla manualmente.
+*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](/sql/t-sql/statements/create-index-transact-sql). Además, las recomendaciones aplicadas manualmente permanecerán activas y se mostrarán en la lista de recomendaciones durante un período de 24 a 48 horas antes de que el sistema las retire automáticamente. Si quiere quitar una recomendación antes, puede descartarla manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelación de recomendaciones
 
-Las recomendaciones que se encuentran en estado **Pendiente**, **Validando** o **Correcto** pueden cancelarse. Las recomendaciones con estado **Executing** no se pueden cancelar.
+Las recomendaciones que se encuentran en estado **Pendiente** , **Validando** o **Correcto** pueden cancelarse. Las recomendaciones con estado **Executing** no se pueden cancelar.
 
-1. Seleccione una recomendación en el área **Historial de ajuste** para abrir la página de **detalles de recomendaciones**.
+1. Seleccione una recomendación en el área **Historial de ajuste** para abrir la página de **detalles de recomendaciones** .
 2. Haga clic en **Cancelar** para anular el proceso de aplicación de la recomendación.
 
 ## <a name="monitoring-operations"></a>Supervisión de operaciones
@@ -146,7 +146,7 @@ Haga clic en una recomendación en proceso de la lista para ver más informació
 Si usó las recomendaciones de rendimiento para aplicar la recomendación (es decir, no ejecutó manualmente el script T-SQL), se revierte automáticamente el cambio si detecta que afecta de manera desfavorable al rendimiento. Si tan solo quiere revertir una recomendación por el motivo que sea, realice los siguientes pasos:
 
 1. En el área **Historial de ajuste** , seleccione una recomendación que se haya aplicado correctamente.
-2. Haga clic en **Revertir** en la página de **detalles de recomendaciones**.
+2. Haga clic en **Revertir** en la página de **detalles de recomendaciones** .
 
 ![Índices recomendados](./media/database-advisor-find-recommendations-portal/details.png)
 
@@ -170,6 +170,6 @@ Supervise las recomendaciones y siga aplicándolas para refinar el rendimiento. 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Almacén de consultas](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [Almacén de consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
+* [CREATE INDEX](/sql/t-sql/statements/create-index-transact-sql)
 * [Control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md)

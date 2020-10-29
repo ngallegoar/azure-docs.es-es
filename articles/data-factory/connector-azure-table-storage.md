@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/20/2020
-ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b70c08df25f3f5d572f88879f5073756de588d52
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220489"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636483"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Copia de datos con Azure Table Storage como origen o destino mediante Azure Data Factory
 
@@ -110,7 +110,7 @@ Puede crear un servicio vinculado de Azure Storage mediante la clave de cuenta. 
 
 También puede crear un servicio vinculado de Storage mediante una firma de acceso compartido. Esto proporciona a la factoría de datos acceso restringido o limitado por el tiempo a todos los recursos o a algunos específicos del almacenamiento.
 
-Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizarla para conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos. No tiene que compartir las claves de acceso de su cuenta. La firma de acceso compartido es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la firma de acceso compartido, el cliente solo tiene que pasar la firma de acceso compartido al método o constructor adecuados. Para obtener más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS): Comprender el modelo de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Una firma de acceso compartido ofrece acceso delegado a recursos en la cuenta de almacenamiento. Puede utilizarla para conceder a un cliente permisos limitados para objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos. No tiene que compartir las claves de acceso de su cuenta. La firma de acceso compartido es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la firma de acceso compartido, el cliente solo tiene que pasar la firma de acceso compartido al método o constructor adecuados. Para obtener más información sobre las firmas de acceso compartido, consulte [Uso de firmas de acceso compartido (SAS): Comprender el modelo de firma de acceso compartido](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Data Factory ahora admite **firmas de acceso compartido de servicio** y **firmas de acceso compartido de cuenta** . Para obtener más información sobre las firmas de acceso compartido, consulte [Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)](../storage/common/storage-sas-overview.md). 
@@ -236,13 +236,13 @@ Si va a copiar datos desde Azure Table Storage, establezca el tipo de origen de 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type del origen de la actividad de copia tiene que establecerse en **AzureTableSource** . |Sí |
-| AzureTableSourceQuery |Utilice la consulta personalizada de Table Storage para leer los datos.<br/>La consulta de origen consiste en una asignación directa desde la opción de consulta `$filter`, compatible con Azure Table Storage. Obtenga más información sobre la sintaxis en [este documento](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options) y consulte los ejemplos de la siguiente [sección de azureTableSourceQuery](#azuretablesourcequery-examples). |No |
+| AzureTableSourceQuery |Utilice la consulta personalizada de Table Storage para leer los datos.<br/>La consulta de origen consiste en una asignación directa desde la opción de consulta `$filter`, compatible con Azure Table Storage. Obtenga más información sobre la sintaxis en [este documento](/rest/api/storageservices/querying-tables-and-entities#supported-query-options) y consulte los ejemplos de la siguiente [sección de azureTableSourceQuery](#azuretablesourcequery-examples). |No |
 | azureTableSourceIgnoreTableNotFound |Indica si se debe permitir la excepción de la tabla no existir.<br/>Los valores válidos son **True** y **False** (valor predeterminado). |No |
 
 ### <a name="azuretablesourcequery-examples"></a>ejemplos de azureTableSourceQuery
 
 >[!NOTE]
->Se agota el tiempo de espera de la operación de consulta de Azure Table en 30 segundos según [impone Azure Table service](https://docs.microsoft.com/rest/api/storageservices/setting-timeouts-for-table-service-operations). Aprenda a optimizar la consulta en el artículo [Diseño de consulta](../storage/tables/table-storage-design-for-query.md).
+>Se agota el tiempo de espera de la operación de consulta de Azure Table en 30 segundos según [impone Azure Table service](/rest/api/storageservices/setting-timeouts-for-table-service-operations). Aprenda a optimizar la consulta en el artículo [Diseño de consulta](../storage/tables/table-storage-design-for-query.md).
 
 En Azure Data Factory, si quiere filtrar los datos por una columna de tipo DateTime, consulte este ejemplo:
 
@@ -268,7 +268,7 @@ Para copiar datos a la Tabla de Azure, establezca el tipo de receptor de la acti
 | azureTableDefaultPartitionKeyValue |Valor predeterminado de la clave de la partición que puede usar el receptor. |No |
 | azureTablePartitionKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de partición. Si no se especifica, se utiliza "AzureTableDefaultPartitionKeyValue" como clave de la partición. |No |
 | azureTableRowKeyName |Especifique el nombre de la columna cuyos valores se usan como claves de fila. Si no se especifica, use un GUID para cada fila. |No |
-| azureTableInsertType |Modo de insertar datos en la tabla de Azure. Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Los valores permitidos son: **merge** (valor predeterminado) y **replace** . <br/><br> Esta configuración aplica en el nivel de fila, no en el nivel de tabla. Ninguna opción elimina filas de la tabla de salida que no existen en la entrada. Consulte los temas [Insert or Merge Entity](https://msdn.microsoft.com/library/azure/hh452241.aspx) (Insertar o combinar entidad) e [Insert or Replace Entity](https://msdn.microsoft.com/library/azure/hh452242.aspx) (Insertar o remplazar entidad) para más información acerca de cómo funcionan estas opciones (combinación y reemplazo). |No |
+| azureTableInsertType |Modo de insertar datos en la tabla de Azure. Esta propiedad controla si los valores de las filas existentes en la tabla de salida con claves de partición y de fila coincidentes se van a reemplazar o a combinar. <br/><br/>Los valores permitidos son: **merge** (valor predeterminado) y **replace** . <br/><br> Esta configuración aplica en el nivel de fila, no en el nivel de tabla. Ninguna opción elimina filas de la tabla de salida que no existen en la entrada. Consulte los temas [Insert or Merge Entity](/rest/api/storageservices/Insert-Or-Merge-Entity) (Insertar o combinar entidad) e [Insert or Replace Entity](/rest/api/storageservices/Insert-Or-Replace-Entity) (Insertar o remplazar entidad) para más información acerca de cómo funcionan estas opciones (combinación y reemplazo). |No |
 | writeBatchSize |Inserta datos en Azure Table cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.<br/>Los valores permitidos son: enteros (número de filas). |No (el valor predeterminado es 10 000) |
 | writeBatchTimeout |Inserta datos en Azure Table cuando se alcanza el valor de writeBatchSize o writeBatchTimeout.<br/>Los valores permitidos son intervalos de tiempo. Un ejemplo es "00:20:00" (20 minutos). |No (el valor predeterminado es 90 segundos; el tiempo de expiración predeterminado del cliente de almacenamiento) |
 
@@ -331,7 +331,7 @@ El valor "DivisionID" se especifica como clave de partición.
 
 Al copiar datos con Azure Table Storage como origen o destino, se utilizan las siguientes asignaciones de tipos de datos de Azure Table en los tipos de datos provisionales de Data Factory. Para más información acerca de la forma en que la actividad de copia asigna el tipo de datos y el esquema de origen al receptor, consulte el artículo sobre [asignaciones de tipos de datos y esquema](copy-activity-schema-and-type-mapping.md).
 
-Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones definidas por Azure Table](https://msdn.microsoft.com/library/azure/dd179338.aspx) desde tipos OData de Azure Table a tipos .NET y viceversa.
+Al mover datos a y desde Azure Table, se usan las siguientes [asignaciones definidas por Azure Table](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) desde tipos OData de Azure Table a tipos .NET y viceversa.
 
 | Tipo de datos de Azure Table Storage | Tipo de datos provisionales de Data Factory | Detalles |
 |:--- |:--- |:--- |

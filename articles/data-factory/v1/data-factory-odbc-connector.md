@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e1735c2d2ed107f7ec65d68a6826267ee83a93f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c68b1f4d76a1899ce473c57f3a6d5de1eab71c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84707385"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636874"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Movimiento de datos desde almacenes de datos ODBC mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -47,9 +47,9 @@ Aparte de Data Management Gateway, también debe instalar el controlador ODBC pa
 ## <a name="getting-started"></a>Introducción
 Puede crear una canalización con una actividad de copia que mueva datos desde un almacén de datos ODBC mediante diferentes herramientas o API.
 
-La manera más fácil de crear una canalización es usar el **Asistente para copiar**. Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
+La manera más fácil de crear una canalización es usar el **Asistente para copiar** . Consulte [Tutorial: Creación de una canalización mediante el Asistente para copia](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización utilizando el Asistente para copia de datos.
 
-Puede usar las siguientes herramientas para crear una canalización: **Visual Studio**, **Azure PowerShell**, una **plantilla de Azure Resource Manager**, la **API de .NET** y **API REST**. Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
+Puede usar las siguientes herramientas para crear una canalización: **Visual Studio** , **Azure PowerShell** , una **plantilla de Azure Resource Manager** , la **API de .NET** y **API REST** . Consulte el [tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para crear una canalización con una actividad de copia.
 
 Tanto si usa las herramientas como las API, realice los pasos siguientes para crear una canalización que mueva datos de un almacén de datos de origen a un almacén de datos receptor:
 
@@ -94,7 +94,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Uso de la autenticación básica con credenciales cifradas
-Las credenciales se pueden cifrar mediante el cmdlet [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versión 0.9 o una versión anterior de Azure PowerShell).
+Las credenciales se pueden cifrar mediante el cmdlet [New-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) (versión 1.0 de Azure PowerShell) o [New-AzureDataFactoryEncryptValue](/previous-versions/azure/dn834940(v=azure.100)) (versión 0.9 o una versión anterior de Azure PowerShell).
 
 ```json
 {
@@ -293,7 +293,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Actividad de copia en una canalización con origen ODBC (RelationalSource) y receptor blob (BlobSink)**
 
-La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
+La canalización contiene una actividad de copia que está configurada para usar estos conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink** . La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
 
 ```json
 {
@@ -346,7 +346,7 @@ Como se mencionó en el artículo sobre [actividades del movimiento de datos](da
 1. Conversión de tipos de origen nativos al tipo .NET
 2. Conversión de tipo .NET al tipo del receptor nativo
 
-Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan a tipos de .NET, tal y como se mencionó en el tema [Asignar tipos de datos ODBC](https://msdn.microsoft.com/library/cc668763.aspx) .
+Al mover datos desde almacenes de datos ODBC, los tipos de datos ODBC se asignan a tipos de .NET, tal y como se mencionó en el tema [Asignar tipos de datos ODBC](/dotnet/framework/data/adonet/odbc-data-type-mappings) .
 
 ## <a name="map-source-to-sink-columns"></a>Asignación de columnas de origen a columnas de receptor
 Para obtener más información sobre la asignación de columnas del conjunto de datos de origen a las del conjunto de datos receptor, consulte [Asignación de columnas de conjunto de datos de Azure Data Factory](data-factory-map-columns.md).
@@ -355,16 +355,16 @@ Para obtener más información sobre la asignación de columnas del conjunto de 
 Cuando se copian datos desde almacenes de datos relacionales, hay que tener presente la repetibilidad para evitar resultados imprevistos. En Azure Data Factory, puede volver a ejecutar un segmento manualmente. También puede configurar la directiva de reintentos para un conjunto de datos con el fin de que un segmento se vuelva a ejecutar cuando se produce un error. Cuando se vuelve a ejecutar un segmento, debe asegurarse de que los mismos datos se lean sin importar el número de ejecuciones. Consulte [Lectura repetible de orígenes relacionales](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="troubleshoot-connectivity-issues"></a>Solución de problemas de conectividad
-Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway**para solucionar problemas de conexión.
+Use la pestaña **Diagnósticos** del **Administrador de configuración de Data Management Gateway** para solucionar problemas de conexión.
 
-1. Inicie el **Administrador de configuración de Data Management Gateway**. Puede ejecutar C:\Archivos de programa\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway**, tal y como se muestra en la imagen siguiente.
+1. Inicie el **Administrador de configuración de Data Management Gateway** . Puede ejecutar C:\Archivos de programa\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe directamente, o bien buscar **Gateway** para encontrar un vínculo a la aplicación **Microsoft Data Management Gateway** , tal y como se muestra en la imagen siguiente.
 
     ![Buscar puerta de enlace](./media/data-factory-odbc-connector/search-gateway.png)
 2. Cambie a la pestaña **Diagnósticos** .
 
     ![Diagnóstico de puerta de enlace](./media/data-factory-odbc-connector/data-factory-gateway-diagnostics.png)
 3. Seleccione el **tipo** de almacén de datos (el servicio vinculado).
-4. Especifique la **autenticación** y escriba las **credenciales**, o bien escriba la **cadena de conexión** que se usa para conectarse al almacén de datos.
+4. Especifique la **autenticación** y escriba las **credenciales** , o bien escriba la **cadena de conexión** que se usa para conectarse al almacén de datos.
 5. Haga clic en **Probar conexión** para probar la conexión con el almacén de datos.
 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización

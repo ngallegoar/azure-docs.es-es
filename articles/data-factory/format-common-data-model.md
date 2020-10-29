@@ -7,17 +7,17 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: daperlov
-ms.openlocfilehash: 5e846ed02d1a0ac22c9c9479f3367800d1dc9dd2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 452aa3406ac09dd8342d8ade0b56b126067b7582
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042599"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636415"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato de Common Data Model en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-El sistema de metadatos de Common Data Model (CDM) permite que los datos y su significado se compartan fácilmente entre las aplicaciones y los procesos empresariales. Para obtener más información, consulte la información general de [Common Data Model](https://docs.microsoft.com/common-data-model/).
+El sistema de metadatos de Common Data Model (CDM) permite que los datos y su significado se compartan fácilmente entre las aplicaciones y los procesos empresariales. Para obtener más información, consulte la información general de [Common Data Model](/common-data-model/).
 
 En Azure Data Factory, los usuarios pueden transformar datos las entidades CDM tanto en model.json como en formato de manifiesto almacenadas en [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md) (ADLS Gen2) mediante flujo de datos de asignación. También puede recibir datos en formato CDM mediante referencias de entidad CDM que van a colocar los datos en formato CSV o Parquet en las carpetas con particiones. 
 
@@ -71,7 +71,7 @@ Si la definición de la entidad que quiere usar en la transformación de origen 
 
 #### <a name="import-schema"></a>Importar esquema
 
-CDM solo está disponible como un conjunto de datos insertado y, de forma predeterminada, no tiene un esquema asociado. Para obtener los metadatos de columna, haga clic en el botón **Importar esquema** en la pestaña **Proyección**. Esto le permitirá hacer referencia a los nombres de columna y los tipos de datos especificados por corpus. Para importar el esquema, una [sesión de depuración de flujo de datos](concepts-data-flow-debug-mode.md) debe estar activa y debe tener un archivo de definición de entidad CDM existente al que apuntar.
+CDM solo está disponible como un conjunto de datos insertado y, de forma predeterminada, no tiene un esquema asociado. Para obtener los metadatos de columna, haga clic en el botón **Importar esquema** en la pestaña **Proyección** . Esto le permitirá hacer referencia a los nombres de columna y los tipos de datos especificados por corpus. Para importar el esquema, una [sesión de depuración de flujo de datos](concepts-data-flow-debug-mode.md) debe estar activa y debe tener un archivo de definición de entidad CDM existente al que apuntar.
 
 Al asignar columnas de flujo de datos a las propiedades de entidad en la transformación del receptor, haga clic en la pestaña "Asignación" y seleccione "Importar esquema". ADF leerá la referencia a la entidad a la que apunta en las opciones del receptor, permitiéndole asignar al esquema CDM de destino.
 
@@ -112,7 +112,7 @@ source(output(
 
 ### <a name="sink-properties"></a>Propiedades del receptor
 
-En la tabla siguiente se enumeran las propiedades que admite un receptor CDM. Puede editar estas propiedades en la pestaña **Configuración**.
+En la tabla siguiente se enumeran las propiedades que admite un receptor CDM. Puede editar estas propiedades en la pestaña **Configuración** .
 
 | Nombre | Descripción | Obligatorio | Valores permitidos | Propiedad de script de flujo de datos |
 | ---- | ----------- | -------- | -------------- | ---------------- |

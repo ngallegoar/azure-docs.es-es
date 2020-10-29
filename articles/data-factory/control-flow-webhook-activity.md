@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4056550ae0a71138d136878fc7e3aa5f6f8f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ce41a5928d5b8a7c7df439ce5321cd15f0cc1d5
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417885"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92634987"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Actividad de webhook en Azure Data Factory
 
@@ -60,9 +60,9 @@ Propiedad | Descripción | Valores permitidos | Obligatorio
 **method** | El método de API REST para el punto de conexión de destino. | String. El tipo admitido es "POST". | Sí |
 **url** | Punto de conexión y ruta de acceso de destino. | Una cadena o una expresión con el valor **resultType** de una cadena. | Sí |
 **headers** | Encabezados que se envían a la solicitud. Este es un ejemplo que establece el idioma y el tipo en una solicitud: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Una cadena o una expresión con el valor **resultType** de una cadena. | Sí. Se necesita un encabezado `Content-Type` como `"headers":{ "Content-Type":"application/json"}`. |
-**body** | Representa la carga útil que se envía al punto de conexión. | JSON válido o una expresión con el valor **resultType** de JSON. Consulte la sección [Solicitar un esquema de carga](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#request-payload-schema) para ver el esquema de carga de la solicitud. | Sí |
-**autenticación** | El método de autenticación que se usa para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, consulte [Autenticación](https://docs.microsoft.com/azure/data-factory/control-flow-web-activity#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Una cadena o una expresión con el valor **resultType** de una cadena. | No |
-**timeout** | El tiempo que la actividad espera a que se invoque la devolución de llamada especificada por **callBackUri**. El valor predeterminado es 10 minutos ("00:10:00"). Los valores tienen el formato TimeSpan *d*.*hh*:*mm*:*ss*. | String | No |
+**body** | Representa la carga útil que se envía al punto de conexión. | JSON válido o una expresión con el valor **resultType** de JSON. Consulte la sección [Solicitar un esquema de carga](./control-flow-web-activity.md#request-payload-schema) para ver el esquema de carga de la solicitud. | Sí |
+**autenticación** | El método de autenticación que se usa para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, consulte [Autenticación](./control-flow-web-activity.md#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Una cadena o una expresión con el valor **resultType** de una cadena. | No |
+**timeout** | El tiempo que la actividad espera a que se invoque la devolución de llamada especificada por **callBackUri** . El valor predeterminado es 10 minutos ("00:10:00"). Los valores tienen el formato TimeSpan *d* . *hh* : *mm* : *ss* . | String | No |
 **Notificar el estado de la devolución de llamada** | Permite a un usuario informar del estado de error de una actividad de webhook. | Boolean | No |
 
 ## <a name="authentication"></a>Authentication
@@ -71,7 +71,7 @@ Una actividad de webhook admite los siguientes tipos de autenticación.
 
 ### <a name="none"></a>None
 
-Si la autenticación no es necesaria, no incluya la propiedad **authentication**.
+Si la autenticación no es necesaria, no incluya la propiedad **authentication** .
 
 ### <a name="basic"></a>Básica
 
@@ -99,7 +99,7 @@ Especifique un contenido codificado en Base64 de un archivo PFX y una contraseñ
 
 ### <a name="managed-identity"></a>Identidad administrada
 
-Use la identidad administrada de la factoría de datos para especificar el URI de recurso para el que se solicita el token de acceso. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte [Información general sobre las identidades administradas de recursos de Azure](/azure/active-directory/managed-identities-azure-resources/overview).
+Use la identidad administrada de la factoría de datos para especificar el URI de recurso para el que se solicita el token de acceso. Para llamar a la API de Azure Resource Management, use `https://management.azure.com/`. Para más información sobre cómo funcionan las identidades administradas, consulte [Información general sobre las identidades administradas de recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```json
 "authentication": {
@@ -119,11 +119,11 @@ La propia actividad de webhook produce un error cuando la llamada al punto de co
 
 Para cada llamada a la API REST, el cliente agota el tiempo de espera si el punto de conexión no responde en un minuto. Este comportamiento es el procedimiento recomendado HTTP estándar. Para corregir este problema, implemente un patrón 202. En el caso actual, el punto de conexión devuelve 202 (aceptado) y el cliente sondea.
 
-El tiempo de espera de un minuto en la solicitud no tiene nada que ver con el tiempo de espera de la actividad. El último se usa para esperar a la devolución de llamada especificada por **callbackUri**.
+El tiempo de espera de un minuto en la solicitud no tiene nada que ver con el tiempo de espera de la actividad. El último se usa para esperar a la devolución de llamada especificada por **callbackUri** .
 
 El cuerpo devuelto al URI de devolución de llamada tiene que ser un JSON válido. Establezca el encabezado `Content-Type` en `application/json`.
 
-Al usar la propiedad **Notificar el estado de la devolución de llamada**, tiene que agregar el siguiente código al cuerpo al hacer la devolución de llamada:
+Al usar la propiedad **Notificar el estado de la devolución de llamada** , tiene que agregar el siguiente código al cuerpo al hacer la devolución de llamada:
 
 ```json
 {

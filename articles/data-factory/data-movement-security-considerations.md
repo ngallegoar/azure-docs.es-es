@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/26/2020
-ms.openlocfilehash: 458336f27f01cfb0d127b96cd3df6aa40f8db0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669b49735843bf941c52aee5cc3b71d1644c01a
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440565"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635820"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -51,8 +51,8 @@ Si está interesado en el cumplimiento de Azure y en cómo Azure protege su prop
 
 En este artículo, revisamos las consideraciones de seguridad en los dos escenarios de movimiento de datos siguientes: 
 
-- **Escenario de nube**: en este escenario, el origen y el destino son públicamente accesibles a través de Internet. Por ejemplo, los servicios de almacenamiento administrado en la nube, como Azure Storage, Azure Synapse Analytics (antes SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, los servicios de SaaS como Salesforce y los protocolos de web, como FTP y OData. Encuentre una lista completa de orígenes de datos admitidos en [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Escenario híbrido**: en este escenario, el origen o el destino están detrás de un firewall o dentro de una red corporativa local. O bien el almacén de datos está en una red privada o en una red virtual (que suele ser el origen) y no se puede acceder a él públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
+- **Escenario de nube** : en este escenario, el origen y el destino son públicamente accesibles a través de Internet. Por ejemplo, los servicios de almacenamiento administrado en la nube, como Azure Storage, Azure Synapse Analytics (antes SQL Data Warehouse), Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, los servicios de SaaS como Salesforce y los protocolos de web, como FTP y OData. Encuentre una lista completa de orígenes de datos admitidos en [formatos y almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Escenario híbrido** : en este escenario, el origen o el destino están detrás de un firewall o dentro de una red corporativa local. O bien el almacén de datos está en una red privada o en una red virtual (que suele ser el origen) y no se puede acceder a él públicamente. Los servidores de base de datos hospedados en máquinas virtuales también se incluyen en este escenario.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,7 +60,7 @@ En este artículo, revisamos las consideraciones de seguridad en los dos escenar
 
 ### <a name="securing-data-store-credentials"></a>Protección de las credenciales del almacén de datos
 
-- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory**. Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../security/fundamentals/storage-overview.md).
+- **Almacenamiento de credenciales cifradas en un almacén administrado de Azure Data Factory** . Data Factory ayuda a proteger las credenciales del almacén de datos cifrándolas con certificados administrados por Microsoft. Estos certificados se alternan cada dos años (esto incluye la renovación del certificado y la migración de las credenciales). Para más información sobre la seguridad de Azure Storage, consulte [Introducción a la seguridad de Azure Storage](../storage/blobs/security-recommendations.md).
 - **Almacenamiento de credenciales en Azure Key Vault** También puede almacenar la credencial del almacén de datos en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credencial durante la ejecución de una actividad. Para obtener más información, consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Cifrado de datos en tránsito
@@ -84,7 +84,7 @@ Algunos almacenes de datos admiten el cifrado de datos en reposo. Se recomienda 
 El Cifrado de datos transparente (TDE) de Azure Synapse Analytics ayuda a protegerse frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos en reposo. Este comportamiento es transparente para el cliente. Para obtener más información, consulte [Protección de una base de datos en Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
-Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Cifrado de datos transparente para SQL Database y Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Azure SQL Database admite también el Cifrado de datos transparente (TDE), que ayuda a proteger frente a la amenaza de actividad malintencionada al realizar el cifrado y descifrado en tiempo real de los datos sin que haya que efectuar cambios en la aplicación. Este comportamiento es transparente para el cliente. Para más información, consulte [Cifrado de datos transparente para SQL Database y Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 #### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Azure Data Lake Store también ofrece el cifrado de los datos que se almacenan en la cuenta. Cuando se habilita, Data Lake Store cifrará automáticamente los datos antes de la persistencia y los descifrará antes de la recuperación, por lo que resulta un proceso completamente transparente para el cliente que accede a los datos. Para más información, consulte [Seguridad en Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
@@ -102,7 +102,7 @@ Amazon Redshift admite cifrado de clúster para datos en reposo. Para más infor
 Salesforce admite Shield Platform Encryption, que permite el cifrado de todos los archivos, datos adjuntos y campos personalizados. Para más información, consulte [Understanding the Web Server OAuth Authentication Flow](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm) (Descripción del flujo de autenticación OAuth de servidor web).  
 
 ## <a name="hybrid-scenarios"></a>Escenarios híbridos
-Los escenarios híbridos necesitan que el entorno de ejecución de integración autohospedado se instale en una red local o en una virtual (Azure), o bien dentro de una nube privada virtual (Amazon). El entorno de ejecución de integración autohospedado debe poder tener acceso a los almacenes de datos locales. Para más información acerca del entorno de ejecución de integración autohospedado, consulte [Creación y configuración de una instancia de Integration Runtime autohospedado](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime). 
+Los escenarios híbridos necesitan que el entorno de ejecución de integración autohospedado se instale en una red local o en una virtual (Azure), o bien dentro de una nube privada virtual (Amazon). El entorno de ejecución de integración autohospedado debe poder tener acceso a los almacenes de datos locales. Para más información acerca del entorno de ejecución de integración autohospedado, consulte [Creación y configuración de una instancia de Integration Runtime autohospedado](./create-self-hosted-integration-runtime.md). 
 
 ![canales del entorno de ejecución de integración autohospedado](media/data-movement-security-considerations/data-management-gateway-channels.png)
 
@@ -111,13 +111,13 @@ El canal del comandos permite la comunicación entre los servicios de movimiento
 ### <a name="on-premises-data-store-credentials"></a>Credenciales de los almacenes de datos locales
 Las credenciales se pueden almacenar en Data Factory o [Data Factory puede hacer referencia a ellas](store-credentials-in-key-vault.md) durante el tiempo de ejecución desde Azure Key Vault. Si almacena las credenciales en Data Factory, siempre se almacenan cifrada en entorno de ejecución de integración autohospedado. 
  
-- **Almacenar credenciales localmente**. Si usa directamente el cmdlet **Set-AzDataFactoryV2LinkedService** con las cadenas de conexión y las credenciales insertadas en JSON, el servicio vinculado se cifra y almacena en el entorno de ejecución de integración autohospedado.  En este caso, las credenciales atraviesan el servicio de back-end de Azure, que es muy seguro, hasta la máquina de integración autohospedada, donde finalmente se cifran y se almacenan. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales.
+- **Almacenar credenciales localmente** . Si usa directamente el cmdlet **Set-AzDataFactoryV2LinkedService** con las cadenas de conexión y las credenciales insertadas en JSON, el servicio vinculado se cifra y almacena en el entorno de ejecución de integración autohospedado.  En este caso, las credenciales atraviesan el servicio de back-end de Azure, que es muy seguro, hasta la máquina de integración autohospedada, donde finalmente se cifran y se almacenan. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) para cifrar los datos confidenciales y la información de credenciales.
 
 - **Almacenamiento de credenciales en Azure Key Vault** También puede almacenar la credencial del almacén de datos en [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory recupera la credencial durante la ejecución de una actividad. Para obtener más información, consulte el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md).
 
-- **Almacene las credenciales localmente sin transferirlas mediante el back-end de Azure al entorno de ejecución de integración autohospedado**. Si desea cifrar las credenciales y almacenarlas localmente en el entorno de ejecución de integración autohospedado sin hacer que fluyan en el back-end de Data Factory, siga los pasos descritos en [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos los conectores admiten esta opción. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) para cifrar los datos confidenciales y la información de credenciales. 
+- **Almacene las credenciales localmente sin transferirlas mediante el back-end de Azure al entorno de ejecución de integración autohospedado** . Si desea cifrar las credenciales y almacenarlas localmente en el entorno de ejecución de integración autohospedado sin hacer que fluyan en el back-end de Data Factory, siga los pasos descritos en [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md). Todos los conectores admiten esta opción. El entorno de ejecución de integración autohospedado utiliza Windows [DPAPI](/previous-versions/ms995355(v=msdn.10)) para cifrar los datos confidenciales y la información de credenciales. 
 
-   Use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** para cifrar las credenciales del servicio vinculado e información confidencial en el servicio vinculado. Después, puede usar el código JSON devuelto (con el elemento **EncryptedCredential** en la cadena de conexión) para crear un servicio vinculado mediante el cmdlet **Set-AzDataFactoryV2LinkedService**.  
+   Use el cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** para cifrar las credenciales del servicio vinculado e información confidencial en el servicio vinculado. Después, puede usar el código JSON devuelto (con el elemento **EncryptedCredential** en la cadena de conexión) para crear un servicio vinculado mediante el cmdlet **Set-AzDataFactoryV2LinkedService** .  
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Puertos utilizados durante el cifrado del servicio vinculado en Integration Runtime autohospedado
@@ -159,7 +159,7 @@ Las siguientes imágenes muestran el uso del entorno de ejecución de integraci�
 > Puede que tenga que administrar puertos o configurar la lista de admitidos en los dominios a nivel del firewall corporativo, en función de lo que requiera cada origen de datos. En esta tabla, Azure SQL Database, Azure Synapse Analytics y Azure Data Lake Store solo se usan a modo de ejemplo.
 
 > [!NOTE] 
-> Para obtener detalles sobre las estrategias de acceso a datos a través de Azure Data Factory, consulte [este artículo](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+> Para obtener detalles sobre las estrategias de acceso a datos a través de Azure Data Factory, consulte [este artículo](./data-access-strategies.md#data-access-strategies-through-azure-data-factory).
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para redes locales o privadas    
 En una empresa, se ejecuta un firewall corporativo en el enrutador central de la organización. El Firewall de Windows se ejecuta como demonio en la máquina local con Integration Runtime autohospedado instalado. 
@@ -185,9 +185,9 @@ Algunos almacenes de datos de la nube también requieren que permita la direcci�
 Los siguientes almacenes de datos en la nube requieren que permita la dirección IP de la máquina el entorno de ejecución de integración autohospedado. De forma predeterminada, es posible que algunos de estos almacenes de datos no necesiten lista de admitidas. 
 
 - [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
-- [Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
-- [Azure Cosmos DB](../cosmos-db/firewall-support.md)
+- [Azure Cosmos DB](../cosmos-db/how-to-configure-firewall.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
@@ -204,4 +204,3 @@ Integration Runtime autohospedado establece conexiones basadas en HTTP para acce
 ## <a name="next-steps"></a>Pasos siguientes
 Para información sobre el rendimiento de la actividad de copia de Azure Data Factory, consulte la [Guía de optimización y rendimiento de la actividad de copia](copy-activity-performance.md).
 
- 
