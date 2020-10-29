@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 623ec6999add175e85f117e547fba61734d2b892
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a3c2567cf1799bca5750e90fbe5d89f6da952ff5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91286019"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514899"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configuración de Smartsheet para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es mostrar los pasos que se realizan en Smartsheet y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios o grupos en [Smartsheet](https://www.smartsheet.com/pricing). Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md). 
+El objetivo de este tutorial es mostrar los pasos que se realizan en Smartsheet y Azure Active Directory (Azure AD) para configurar Azure AD con el objetivo de aprovisionar y desaprovisionar automáticamente usuarios o grupos en [Smartsheet](https://www.smartsheet.com/pricing). Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funcionalidades admitidas
@@ -37,21 +37,21 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Smartsheet 
 
 En el escenario descrito en este tutorial se supone que ya cuenta con los requisitos previos siguientes:
 
-* [Un inquilino de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Una cuenta de usuario en Azure AD con [permiso](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
+* [Un inquilino de Azure AD](../develop/quickstart-create-new-tenant.md).
+* Una cuenta de usuario en Azure AD con [permiso](../users-groups-roles/directory-assign-admin-roles.md) para configurar el aprovisionamiento (por ejemplo, Administrador de aplicaciones, Administrador de aplicaciones en la nube, Propietario de la aplicación o Administrador global).
 * [Un inquilino de Smartsheet](https://www.smartsheet.com/pricing).
 * Una cuenta de usuario en un plan de Smartsheet Enterprise o Premier Enterprise con permisos de administrador del sistema.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Paso 1. Planeación de la implementación de aprovisionamiento
-1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quién estará en el [ámbito de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine qué datos quiere [asignar entre Azure AD y Smartsheet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Obtenga información sobre [cómo funciona el servicio de aprovisionamiento](../app-provisioning/user-provisioning.md).
+2. Determine quién estará en el [ámbito de aprovisionamiento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Determine qué datos quiere [asignar entre Azure AD y Smartsheet](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-smartsheet-to-support-provisioning-with-azure-ad"></a>Paso 2. Configuración de Smartsheet para admitir el aprovisionamiento con Azure AD
 
 Antes de configurar Smartsheet para el aprovisionamiento automático de usuarios con Azure AD, deberá habilitar el aprovisionamiento SCIM en Smartsheet.
 
-1. Inicie sesión como **SysAdmin** en el **[portal de Smartsheet](https://app.smartsheet.com/b/home)** y vaya a **Administrador de cuenta**.
+1. Inicie sesión como **SysAdmin** en el **[portal de Smartsheet](https://app.smartsheet.com/b/home)** y vaya a **Administrador de cuenta** .
 
     ![Administrador de cuenta de Smartsheet](media/smartsheet-provisioning-tutorial/smartsheet-accountadmin.png)
 
@@ -71,11 +71,11 @@ Antes de configurar Smartsheet para el aprovisionamiento automático de usuarios
 
     ![Captura de pantalla de la página de administración de Smartsheet con el avatar de usuario y la opción de aplicaciones e integraciones resaltados.](media/smartsheet-provisioning-tutorial/Smartsheet05.png)
 
-6. Elija el **acceso a la API**. Haga clic en **Generate new access token** (Generar nuevo token de acceso).
+6. Elija el **acceso a la API** . Haga clic en **Generate new access token** (Generar nuevo token de acceso).
 
     ![Captura de pantalla del cuadro de diálogo Configuración personal con las opciones de acceso de API y de generación de un nuevo token de acceso resaltadas.](media/smartsheet-provisioning-tutorial/Smartsheet06.png)
 
-7. Defina el nombre del token de acceso de la API. Haga clic en **OK**.
+7. Defina el nombre del token de acceso de la API. Haga clic en **OK** .
 
     ![Captura de pantalla del paso 1 de 2: generación de token de acceso de API con la opción Aceptar resaltada.](media/smartsheet-provisioning-tutorial/Smartsheet07.png)
 
@@ -85,13 +85,13 @@ Antes de configurar Smartsheet para el aprovisionamiento automático de usuarios
 
 ## <a name="step-3-add-smartsheet-from-the-azure-ad-application-gallery"></a>Paso 3. Adición de Smartsheet desde la galería de aplicaciones de Azure AD
 
-Para empezar a administrar el aprovisionamiento en Smartsheet, agregue Smartsheet desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Smartsheet para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Para empezar a administrar el aprovisionamiento en Smartsheet, agregue Smartsheet desde la galería de aplicaciones de Azure AD. Si ha configurado previamente Smartsheet para el inicio de sesión único, puede usar la misma aplicación. Sin embargo, se recomienda que cree una aplicación independiente al probar la integración inicialmente. Puede encontrar más información sobre cómo agregar una aplicación desde la galería [aquí](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Paso 4. Determinar quién estará en el ámbito de aprovisionamiento 
 
-El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+El servicio de aprovisionamiento de Azure AD le permite definir quién se aprovisionará, en función de la asignación a la aplicación y de los atributos del usuario o grupo. Si elige el ámbito del que se aprovisionará en la aplicación en función de la asignación, puede usar los pasos [siguientes](../manage-apps/assign-user-or-group-access-portal.md) para asignar usuarios y grupos a la aplicación. Si elige el ámbito del que se aprovisionará en función únicamente de los atributos del usuario o grupo, puede usar un filtro de ámbito, tal como se describe [aquí](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Al asignar usuarios y grupos a Smartsheet, debe seleccionar un rol que no sea **Default Access** (Acceso predeterminado). Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para agregar roles adicionales. 
+* Al asignar usuarios y grupos a Smartsheet, debe seleccionar un rol que no sea **Default Access** (Acceso predeterminado). Los usuarios con el rol de acceso predeterminado se excluyen del aprovisionamiento y se marcarán como no autorizados en los registros de aprovisionamiento. Si el único rol disponible en la aplicación es el rol de acceso predeterminado, puede [actualizar el manifiesto de aplicación](../develop/howto-add-app-roles-in-azure-ad-apps.md) para agregar roles adicionales. 
 
 * Para garantizar la paridad en las asignaciones de roles de usuario entre Smartsheet y Azure AD, se recomienda usar las mismas asignaciones de roles que se encuentran en la lista completa de usuarios de Smartsheet. Para recuperar esta lista de usuarios de Smartsheet, vaya a **Account Admin > User Management > More Actions > Download User List (csv)** (Administrador de cuenta > Administración de usuarios > Más acciones > Descargar lista de usuarios).
 
@@ -99,7 +99,7 @@ El servicio de aprovisionamiento de Azure AD le permite definir quién se aprov
 
 *  Si un usuario tiene varios roles asignados en Smartsheet, **DEBE** asegurarse de que estas asignaciones de roles se replican en Azure AD para evitar un escenario en el que los usuarios puedan perder el acceso a los objetos de Smartsheet de forma permanente. Cada rol único en Smartsheet **DEBE** asignarse a un grupo diferente en Azure AD. El usuario **DEBE** agregarse a cada uno de los grupos correspondientes a los roles deseados. 
 
-* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Empiece por algo pequeño. Pruebe con un pequeño conjunto de usuarios y grupos antes de implementarlo en todos. Cuando el ámbito del aprovisionamiento se define en los usuarios y grupos asignados, puede controlarlo asignando uno o dos usuarios o grupos a la aplicación. Cuando el ámbito se establece en todos los usuarios y grupos, puede especificar un [filtro de ámbito basado en atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-smartsheet"></a>Paso 5. Configurar el aprovisionamiento automático de usuarios para Smartsheet 
 
@@ -107,33 +107,33 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 ### <a name="to-configure-automatic-user-provisioning-for-smartsheet-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Smartsheet en Azure AD, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones**.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Seleccione **Aplicaciones empresariales** y luego **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Smartsheet**.
+2. En la lista de aplicaciones, seleccione **Smartsheet** .
 
     ![Vínculo a Smartsheet en la lista de aplicaciones](common/all-applications.png)
 
-3. Seleccione la pestaña **Aprovisionamiento**.
+3. Seleccione la pestaña **Aprovisionamiento** .
 
     ![Captura de pantalla de las opciones de administración con la opción Aprovisionamiento seleccionada.](common/provisioning.png)
 
-4. Establezca el **modo de aprovisionamiento** en **Automático**.
+4. Establezca el **modo de aprovisionamiento** en **Automático** .
 
     ![Captura de pantalla de la lista desplegable Modo de aprovisionamiento con la opción Automático seleccionada.](common/provisioning-automatic.png)
 
-5. En la sección **Credenciales de administrador**, escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente desde Smartsheet en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Smartsheet. Si la conexión no se establece, asegúrese de que la cuenta de Smartsheet tiene permisos de administrador del sistema e inténtelo de nuevo.
+5. En la sección **Credenciales de administrador** , escriba los valores de **URL base de SCIM 2.0 y token de acceso** que recuperó anteriormente desde Smartsheet en **URL de inquilino** y **Token secreto** respectivamente. Haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Smartsheet. Si la conexión no se establece, asegúrese de que la cuenta de Smartsheet tiene permisos de administrador del sistema e inténtelo de nuevo.
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+6. En el campo **Correo electrónico de notificación** , escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error** .
 
     ![Correo electrónico de notificación](common/provisioning-notification-email.png)
 
-7. Haga clic en **Save**(Guardar).
+7. Haga clic en **Save** (Guardar).
 
-8. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Smartsheet** (Sincronizar usuarios de Azure Active Directory con Smartsheet).
+8. En la sección **Asignaciones** , seleccione **Synchronize Azure Active Directory Users to Smartsheet** (Sincronizar usuarios de Azure Active Directory con Smartsheet).
 
 9. Revise los atributos de usuario que se sincronizan entre Azure AD y Smartsheet en la sección **Attribute Mapping** (Asignación de atributos). Los atributos seleccionados como propiedades **Matching** se usan para buscar coincidencias con las cuentas de usuario de Smartsheet con el objetivo de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
 
@@ -160,26 +160,26 @@ Esta sección le guiará por los pasos necesarios para configurar el servicio de
 
 10. Para configurar filtros de ámbito, consulte las siguientes instrucciones, que se proporcionan en el artículo [Aprovisionamiento de aplicaciones basado en atributos con filtros de ámbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Para habilitar el servicio de aprovisionamiento de Azure AD para Smartsheet, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
+11. Para habilitar el servicio de aprovisionamiento de Azure AD para Smartsheet, cambie el **estado de aprovisionamiento** a **Activado** en la sección **Configuración** .
 
     ![Estado de aprovisionamiento activado](common/provisioning-toggle-on.png)
 
-12. Elija los valores deseados en **Ámbito**, en la sección **Configuración**, para definir los usuarios o grupos que desea que se aprovisionen en Smartsheet.
+12. Elija los valores deseados en **Ámbito** , en la sección **Configuración** , para definir los usuarios o grupos que desea que se aprovisionen en Smartsheet.
 
     ![Ámbito del aprovisionamiento](common/provisioning-scope.png)
 
-13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar**.
+13. Cuando esté listo para realizar el aprovisionamiento, haga clic en **Guardar** .
 
     ![Guardar la configuración de aprovisionamiento](common/provisioning-configuration-save.png)
 
-Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
+Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración** . La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Paso 6. Supervisión de la implementación
 Una vez configurado el aprovisionamiento, use los recursos siguientes para supervisar la implementación:
 
-1. Use los [registros de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
-2. Consulte la [barra de progreso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
-3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Use los [registros de aprovisionamiento](../reports-monitoring/concept-provisioning-logs.md) para determinar qué usuarios se han aprovisionado correctamente o sin éxito.
+2. Consulte la [barra de progreso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver el estado del ciclo de aprovisionamiento y cuánto falta para que finalice.
+3. Si la configuración de aprovisionamiento parece estar en mal estado, la aplicación pasará a estar en cuarentena. Más información sobre los estados de cuarentena [aquí](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="connector-limitations"></a>Limitaciones del conector
 

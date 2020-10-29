@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 0eec8d9d88b286e386bd310c98d03737e56e05b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f48f7cf9507afae31e3c36aef517aab7b7d77ccf
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553740"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515379"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>Tutorial: Integración de Azure Active Directory con Predictix Ordering
 
@@ -27,7 +27,7 @@ Esta integración ofrece las siguientes ventajas:
 * Puede permitir que los usuarios inicien sesión automáticamente en Predictix Ordering (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para más información acerca de la integración de aplicaciones SaaS con Azure AD, consulte [Inicio de sesión único en aplicaciones de Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -48,11 +48,11 @@ En este tutorial configurará y probará el inicio de sesión único de Azure A
 
 Para configurar la integración de Predictix Ordering en Azure AD, deberá agregar la aplicación desde la galería a la lista de aplicaciones SaaS administradas.
 
-1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory**:
+1. En [Azure Portal](https://portal.azure.com), en el panel izquierdo, seleccione **Azure Active Directory** :
 
     ![Seleccione Azure Active Directory.](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**:
+2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones** :
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Para configurar la integración de Predictix Ordering en Azure AD, deberá agre
 
     ![Seleccionar Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Predictix Ordering**. Seleccione **Predictix Ordering** en los resultados de búsqueda y, después, **Agregar**.
+4. En el cuadro de búsqueda, escriba **Predictix Ordering** . Seleccione **Predictix Ordering** en los resultados de búsqueda y, después, **Agregar** .
 
      ![Search Results](common/search-new-app.png)
 
@@ -84,23 +84,23 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure 
 
 Para configurar el inicio de sesión único de Azure AD con Predictix Ordering, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Predictix Ordering**, seleccione **Inicio de sesión único**:
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Predictix Ordering** , seleccione **Inicio de sesión único** :
 
     ![Seleccionar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccione un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Selección de un método de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**:
+3. En la página **Configurar el inicio de sesión único con SAML** , seleccione el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** :
 
     ![Icono Editar](common/edit-urls.png)
 
-4. En el cuadro de diálogo **Configuración básica de SAML**, siga los pasos que se indican a continuación.
+4. En el cuadro de diálogo **Configuración básica de SAML** , siga los pasos que se indican a continuación.
 
     ![Cuadro de diálogo Configuración básica de SAML](common/sp-identifier.png)
 
-    1. En el cuadro **URL de inicio de sesión**, escriba una dirección URL con el siguiente formato:
+    1. En el cuadro **URL de inicio de sesión** , escriba una dirección URL con el siguiente formato:
 
        `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Ordering,
     > [!NOTE]
     > Estos valores son marcadores de posición. Debe utilizar la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Predictix Ordering](https://www.predix.io/support/) para obtener estos valores. También puede consultar los patrones que se muestran en el cuadro de diálogo **Configuración básica de SAML** de Azure Portal.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione el vínculo **Descargar** situado junto a **Certificado (Base64)** , según sus requisitos, y guarde el certificado en el equipo:
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione el vínculo **Descargar** situado junto a **Certificado (Base64)** , según sus requisitos, y guarde el certificado en el equipo:
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único de Azure AD con Predictix Ordering,
 
     1. **Dirección URL de inicio de sesión**
 
-    2. **Identificador de Azure AD**.
+    2. **Identificador de Azure AD** .
 
     3. **Dirección URL de cierre de sesión**
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único en Predictix Ordering, es preciso en
 
 En esta sección creará un usuario de prueba llamado Britta Simon en Azure Portal.
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**:
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** :
 
     ![Selección de Todos los usuarios](common/users.png)
 
@@ -144,43 +144,43 @@ En esta sección creará un usuario de prueba llamado Britta Simon en Azure Por
 
     ![Selección de Nuevo usuario](common/new-user.png)
 
-3. En el cuadro de diálogo **Usuario**, siga los pasos que se indican a continuación.
+3. En el cuadro de diálogo **Usuario** , siga los pasos que se indican a continuación.
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    1. En el cuadro **Nombre**, escriba **BrittaSimon**.
+    1. En el cuadro **Nombre** , escriba **BrittaSimon** .
   
-    1. En el cuadro **Nombre de usuario**, escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
+    1. En el cuadro **Nombre de usuario** , escriba **BrittaSimon@\<yourcompanydomain>.\<extension>** (Por ejemplo, BrittaSimon@contoso.com).
 
-    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    1. Seleccione **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña** .
 
-    1. Seleccione **Crear**.
+    1. Seleccione **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección se habilita que Britta Simon use el inicio de sesión único de Azure AD concediéndole acceso a Predictix Ordering.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Predictix Ordering**:
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **Predictix Ordering** :
 
     ![Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **Predictix Ordering**.
+2. En la lista de aplicaciones, seleccione **Predictix Ordering** .
 
     ![Lista de aplicaciones](common/all-applications.png)
 
-3. En el panel izquierdo, seleccione **Usuarios y grupos**:
+3. En el panel izquierdo, seleccione **Usuarios y grupos** :
 
     ![Seleccionar Usuarios y grupos](common/users-groups-blade.png)
 
-4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Seleccione **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Selección de Agregar usuario](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+6. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. Haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar** .
 
 ### <a name="create-a-predictix-ordering-test-user"></a>Creación de un usuario de prueba de Predictix Ordering
 
@@ -190,12 +190,12 @@ A continuación debe crear un usuario llamado Britta Simon en Predictix Ordering
 
 Ahora, debe probar la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Predictix Ordering en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Ordering para la que configurara el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al seleccionar el icono de Predictix Ordering en el panel de acceso, debería iniciar sesión automáticamente en la instancia de Predictix Ordering para la que configurara el inicio de sesión único. Para más información, consulte [Acceso y uso del aplicaciones en el portal Aplicaciones](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

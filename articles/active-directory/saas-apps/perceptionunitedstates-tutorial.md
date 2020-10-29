@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7581dd52cb9affa3295bfbc00c14535ee72de5be
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3fc16a869c176074467a0b21880937d7753602b2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995468"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515532"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integración de Azure Active Directory con Perception Estados Unidos (no UltiPro)
 
@@ -27,7 +27,7 @@ La integración de Perception Estados Unidos (no UltiPro) con Azure AD proporcio
 * Puede permitir que los usuarios inicien sesión automáticamente en Perception Estados Unidos (no UltiPro) (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -49,11 +49,11 @@ Para configurar la integración de Perception Estados Unidos (no UltiPro) en Azu
 
 **Para agregar Perception Estados Unidos (no UltiPro) desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)** , haga clic en el icono de **Azure Active Directory** .
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -67,7 +67,7 @@ Para configurar la integración de Perception Estados Unidos (no UltiPro) en Azu
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Perception Estados Unidos (no UltiPro) con un usuario de prueba llamado **Britta Simon**.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Perception Estados Unidos (no UltiPro) con un usuario de prueba llamado **Britta Simon** .
 Para que funcione el inicio de sesión único, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Perception Estados Unidos (no UltiPro).
 
 Para configurar y probar el inicio de sesión único de Azure AD con Perception Estados Unidos (no UltiPro), es preciso completar los siguientes bloques de creación:
@@ -85,15 +85,15 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Perception Estados Unidos (no UltiPro), realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Perception Estados Unidos (no UltiPro)** , seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Perception Estados Unidos (no UltiPro)** , seleccione **Inicio de sesión único** .
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML** .
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
@@ -101,9 +101,9 @@ Para configurar el inicio de sesión único de Azure AD con Perception Estados U
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Perception Estados Unidos (no UltiPro)](common/idp-intiated.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://perception.kanjoya.com/sp`
+    a. En el cuadro de texto **Identificador** , escriba una dirección URL: `https://perception.kanjoya.com/sp`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     c. La aplicación **Perception United States (no UltiPro)** requiere que el valor de **Identificador de Azure AD** como <entity_id>, que puede obtener de la sección **Configuración de Perception United States (Non-UltiPro)** , esté codificado en URI. Para obtener el valor codificado como URI, use el siguiente vínculo: **http://www.url-encode-decode.com/** .
 
@@ -111,9 +111,9 @@ Para configurar el inicio de sesión único de Azure AD con Perception Estados U
 
     `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
     
-    e. Pegue el valor anterior en el cuadro de texto **Dirección URL de respuesta**.
+    e. Pegue el valor anterior en el cuadro de texto **Dirección URL de respuesta** .
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -139,13 +139,13 @@ Para configurar el inicio de sesión único de Azure AD con Perception Estados U
 
     ![Usuario de Perception Estados Unidos (no UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-    a. En el cuadro de texto **Company Name** (Nombre de la empresa), escriba el nombre de la **empresa**.
+    a. En el cuadro de texto **Company Name** (Nombre de la empresa), escriba el nombre de la **empresa** .
     
-    b. En el cuadro de texto **Account Name** (Nombre de la cuenta), escriba el nombre de la **cuenta**.
+    b. En el cuadro de texto **Account Name** (Nombre de la cuenta), escriba el nombre de la **cuenta** .
 
     c. En el cuadro de texto **Default Reply-To Email** (Correo electrónico de respuesta predeterminado), escriba un **correo electrónico** válido.
 
-    d. Seleccione **SSO Identity Provider** (Proveedor de identidades de SSO) como **SAML 2.0**.
+    d. Seleccione **SSO Identity Provider** (Proveedor de identidades de SSO) como **SAML 2.0** .
 
 4. En la página **SSO Configuration** (Configuración de SSO), realice los siguientes pasos:
 
@@ -153,21 +153,21 @@ Para configurar el inicio de sesión único de Azure AD con Perception Estados U
 
     a. Seleccione **SAML NameID Type** (Tipo de identificador de nombre de SAML) como **EMAIL** (correo electrónico).
 
-    b. En el cuadro de texto **SSO Configuration Name** (nombre de configuración de SSO), escriba el nombre de su **configuración**.
+    b. En el cuadro de texto **SSO Configuration Name** (nombre de configuración de SSO), escriba el nombre de su **configuración** .
     
-    c. En el cuadro de texto **Nombre del proveedor de identidad**, pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal. 
+    c. En el cuadro de texto **Nombre del proveedor de identidad** , pegue el valor de **Identificador de Azure AD** que ha copiado de Azure Portal. 
 
     d. En el cuadro de texto **SAML Domain** (dominio de SAML), escriba el dominio, por ejemplo @contoso.com.
 
-    e. Haga clic en **Upload Again** (cargar de nuevo) para cargar el archivo **XML de metadatos**.
+    e. Haga clic en **Upload Again** (cargar de nuevo) para cargar el archivo **XML de metadatos** .
 
-    f. Haga clic en **Update**(Actualizar).
+    f. Haga clic en **Update** (Actualizar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios** .
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -179,19 +179,19 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon** .
   
-    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario** , escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Haga clic en **Crear**.
+    d. Haga clic en **Crear** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Perception Estados Unidos (no UltiPro).
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y luego **Perception Estados Unidos (no UltiPro)** .
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y luego **Perception Estados Unidos (no UltiPro)** .
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -199,19 +199,19 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Vínculo a Perception Estados Unidos (no UltiPro) en la lista de aplicaciones](common/all-applications.png)
 
-3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos** .
 
     ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación** .
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar** .
 
 ### <a name="create-perception-united-states-non-ultipro-test-user"></a>Creación de un usuario de prueba de Perception Estados Unidos (no UltiPro)
 
@@ -221,13 +221,12 @@ En esta sección, creará un usuario llamado Britta Simon en Perception Estados 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Perception Estados Unidos (no UltiPro) en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Perception Estados Unidos (no UltiPro) para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Perception Estados Unidos (no UltiPro) en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Perception Estados Unidos (no UltiPro) para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
