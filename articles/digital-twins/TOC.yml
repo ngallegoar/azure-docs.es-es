@@ -45,12 +45,12 @@
           href: how-to-use-cli.md
         - name: Configuración de una instancia y autenticación
           items:
-            - name: Versión con scripts
-              href: how-to-set-up-instance-scripted.md
-            - name: Versión de la CLI
-              href: how-to-set-up-instance-cli.md
             - name: Versión del portal
               href: how-to-set-up-instance-portal.md
+            - name: Versión de la CLI
+              href: how-to-set-up-instance-cli.md
+            - name: Versión con scripts
+              href: how-to-set-up-instance-scripted.md
         - name: Escritura de código de autenticación de aplicación
           href: how-to-authenticate-client.md
         - name: Crear un registro de aplicación

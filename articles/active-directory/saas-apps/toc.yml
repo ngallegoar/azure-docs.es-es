@@ -19,7 +19,7 @@
           href: 4me-tutorial.md
         - name: 8X8
           href: 8x8virtualoffice-tutorial.md
-    - name: A
+    - name: Un
       items:
         - name: ABBYY FlexiCapture Cloud
           href: abbyy-flexicapture-cloud-tutorial.md
@@ -1974,6 +1974,8 @@
           href: bitabiz-provisioning-tutorial.md
         - name: Blink
           href: blink-provisioning-tutorial.md
+        - name: BlogIn
+          href: blogin-provisioning-tutorial.md
         - name: BlueJeans
           href: bluejeans-provisioning-tutorial.md
         - name: Bonusly
