@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91745497"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755962"
 ---
 | Resource | Gratuito | Compartido | Básica | Estándar | Premium (v3) | Aislado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -32,6 +32,7 @@ ms.locfileid: "91745497"
 | Conexiones híbridas | | | 5 por plan | 25 por plan | 200 por aplicación | 200 por aplicación |
 | [Integración de Virtual Network](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Equilibrador de carga integrado | |X |X |X |X |X<sup>10</sup> |
+| [Restricciones de acceso](../articles/app-service/networking-features.md#access-restrictions) | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación | 512 reglas por aplicación |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Copias de seguridad programadas](../articles/app-service/manage-backup.md) | | | | Copias de seguridad programadas cada 2 horas, con un máximo de 12 copias de seguridad al día (manuales y programadas). | Copias de seguridad programadas cada hora, con un máximo de 50 copias de seguridad al día (manuales y programadas). | Copias de seguridad programadas cada hora, con un máximo de 50 copias de seguridad al día (manuales y programadas). |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |

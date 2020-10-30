@@ -23,8 +23,6 @@
   items:
     - name: Modelos personalizados
       href: concepts-models.md
-    - name: Conversión de modelos estándar del sector
-      href: concepts-convert-models.md
     - name: Gemelos digitales y el grafo de gemelos
       href: concepts-twins-graph.md
     - name: Lenguaje de consulta
@@ -63,6 +61,8 @@
       items:
         - name: Administración de modelos personalizados
           href: how-to-manage-model.md
+        - name: Conversión de modelos estándar del sector
+          href: how-to-convert-models.md
         - name: Análisis y validación de modelos
           href: how-to-parse-models.md
         - name: Incorporación de etiquetas
@@ -176,11 +176,15 @@
             - name: 'SDK de Java: origen'
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: 'SDK de JavaScript: npm'
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: 'SDK de JavaScript: referencia'
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: 'SDK de JavaScript: origen'
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: 'SDK de Python: PyPi'
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: 'SDK de Python: origen'
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: CLI de Digital Twins
       items:
         - name: Referencia de la CLI de Digital Twins

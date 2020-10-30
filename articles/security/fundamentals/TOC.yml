@@ -56,8 +56,8 @@
       href: network-overview.md
     - name: Procedimientos recomendados
       href: network-best-practices.md
-    - name: Protección contra DDOS
-      href: ddos-best-practices.md
+    - name: Procedimientos recomendados de DDoS Protection
+      href: 'https://docs.microsoft.com/azure/ddos-protection/fundamental-best-practices'
     - name: Línea base de seguridad de DDoS Protection
       href: ddos-protection-security-baseline.md
     - name: Adquisición de DNS y subdominio pendiente

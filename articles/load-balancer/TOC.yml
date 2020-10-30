@@ -13,6 +13,7 @@
     - name: 'Creación de un equilibrador de carga público: CLI de Azure'
       href: quickstart-load-balancer-standard-public-cli.md
     - name: 'Creación de un equilibrador de carga público: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: 'Creación de un equilibrador de carga interno: Azure Portal'
       href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
     - name: 'Creación de un equilibrador de carga interno: CLI de Azure'
       href: quickstart-load-balancer-standard-internal-cli.md
     - name: 'Creación de un equilibrador de carga interno: plantilla de Resource Manager'
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutoriales
@@ -53,6 +55,8 @@
       items:
         - name: Sondeos de estado
           href: load-balancer-custom-probe-overview.md
+        - name: Azure Monitor Insights para Load Balancer
+          href: load-balancer-insights.md
         - name: Diagnósticos y métrica de Load Balancer estándar
           href: load-balancer-standard-diagnostics.md
         - name: Registros de Azure Monitor para Load Balancer básico

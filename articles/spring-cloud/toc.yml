@@ -1,7 +1,7 @@
 - name: Documentación de Azure Spring Cloud
   href: index.yml
   displayName: Azure Spring Cloud
-- name: Introducción
+- name: Información general
   items:
     - name: ¿Qué es Azure Spring Cloud?
       href: spring-cloud-overview.md
@@ -63,9 +63,9 @@
       href: spring-cloud-concept-app-status.md
     - name: Planear la recuperación ante desastres
       href: disaster-recovery.md
-- name: Guías de procedimientos
+- name: Guías paso a paso
   items:
-    - name: Preparación de una aplicación Java Spring para la implementación
+    - name: Preparación de una aplicación para la implementación
       href: spring-cloud-tutorial-prepare-app-deployment.md
     - name: Inicio de una aplicación Java desde el código fuente
       href: spring-cloud-howto-launch-from-source.md

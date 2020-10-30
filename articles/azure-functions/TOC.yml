@@ -79,7 +79,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Azure CLI
-      href: functions-cli-samples.md
+      items:
+        - name: Índice de ejemplos de la CLI
+          href: functions-cli-samples.md
+        - name: Crear instancia de Function App
+          items:
+            - name: Aplicación de funciones sin servidor
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: Aplicación de Python sin servidor
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: Aplicación de un plan Premium escalable
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: Aplicación de un plan dedicado (App Service)
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integración de servicios
+          items:
+            - name: Conectar Azure Storage
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: "Conexión a Azure Cosmos\_DB"
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Recurso compartido de archivos de montaje de Python
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Implementación continua
+          items:
+            - name: Implementación de GitHub
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: Implementación de DevOps
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Conceptos
   items:
     - name: Comparación de versiones del runtime
@@ -183,7 +209,7 @@
           items:
             - name: Desencadenador HTTP
               items:
-                - name: Azure portal
+                - name: Portal de Azure
                   href: functions-create-first-azure-function.md
                 - name: Línea de comandos
                   href: ./functions-create-first-azure-function-azure-cli.md
@@ -391,7 +417,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: Azure Cosmos DB
+        - name: "Azure Cosmos\_DB"
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

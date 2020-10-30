@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828805"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755838"
 ---
 Puede asociar un número de discos de datos a una máquina virtual de Azure. Según los objetivos de escalabilidad y rendimiento de los discos de datos de una máquina virtual, puede determinar el número y el tipo de disco necesarios para satisfacer sus requisitos de capacidad y rendimiento.
 
@@ -18,7 +18,7 @@ Puede asociar un número de discos de datos a una máquina virtual de Azure. Seg
 
 **Para discos administrados de Azure:**
 
-En la tabla siguiente se muestran los límites predeterminado y máximo del número de recursos por región y suscripción. No hay ningún límite en el número de discos administrados, instantáneas e imágenes por grupo de recursos.  
+En la tabla siguiente se muestran los límites predeterminado y máximo del número de recursos por región y suscripción. Los límites siguen siendo los mismos, independientemente de que los discos estén cifrados con claves administradas por la plataforma o claves administradas por el cliente. No hay ningún límite en el número de discos administrados, instantáneas e imágenes por grupo de recursos.  
 
 > | Resource | Límite |
 > | --- | --- |
