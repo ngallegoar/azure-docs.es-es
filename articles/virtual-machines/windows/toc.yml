@@ -322,7 +322,7 @@
         - name: Diseño para alto rendimiento
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Seguridad de disco
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Objetivos de escalabilidad para discos
           href: disk-scalability-targets.md
         - name: Copia de seguridad y recuperación ante desastres para discos
@@ -1055,7 +1055,7 @@
   href: ../troubleshooting/index.yml
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/vm
     - name: Azure PowerShell
       href: /powershell/azure/

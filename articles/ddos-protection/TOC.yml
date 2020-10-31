@@ -44,7 +44,7 @@
       href: ddos-protection-partner-onboarding.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: 'https://docs.microsoft.com/cli/azure/network/ddos-protection?view=azure-cli-latest'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/Az.Network/New-AzDdosProtectionPlan?view=azps-2.8.0'
@@ -62,6 +62,8 @@
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/overview'
 - name: Recursos
   items:
+    - name: Preguntas más frecuentes
+      href: ddos-faq.md
     - name: Precios
       href: 'https://azure.microsoft.com/en-us/pricing/details/ddos-protection/'
     - name: Disponibilidad regional

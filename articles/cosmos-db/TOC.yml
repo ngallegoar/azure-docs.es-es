@@ -731,6 +731,10 @@
               items:
                 - name: "Solución de problemas de la versión 4\_ del SDK de Java"
                   href: troubleshoot-java-sdk-v4-sql.md
+                - name: Solución del problema de tiempo de expiración de solicitud
+                  href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+                - name: Solución del problema de que el servicio no está disponible
+                  href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
                 - name: 'Solución de problemas: versión 2 del SDK de Java sincrónico'
                   href: troubleshoot-java-async-sdk.md
         - name: Fuente de cambios
@@ -877,8 +881,6 @@
         - name: Plantilla de Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
-        - name: Notas de la versión del emulador
-          href: local-emulator-release-notes.md
         - name: Elementos integrados de Azure Policy
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -1279,6 +1281,8 @@
               href: emulator-command-line-parameters.md
             - name: Solución de problemas del emulador
               href: troubleshoot-local-emulator.md
+            - name: Notas de la versión del emulador
+              href: local-emulator-release-notes.md
             - name: Extensión de Visual Studio Code
               href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
         - name: Configuración de la canalización de CI/CD de Azure DevOps
