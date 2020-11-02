@@ -37,6 +37,8 @@
       items:
         - name: 'Conexión a un servidor de SQL Server: Azure Portal'
           href: tutorial-private-endpoint-sql-portal.md
+        - name: 'Conexión a un servidor de SQL Server: PowerShell'
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: Conceptos
   items:
     - name: Punto de conexión privado

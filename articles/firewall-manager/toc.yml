@@ -28,6 +28,8 @@
       href: deployment-overview.md
     - name: Proveedores de seguridad asociados
       href: trusted-security-partners.md
+    - name: Protección de centros mediante Check Point Cloudguard Connect
+      href: check-point-overview.md
     - name: Grupos de IP
       href: ip-groups.md
     - name: Lógica de procesamiento de reglas
@@ -52,7 +54,7 @@
       href: rule-hierarchy.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/ext/azure-firewall/network/firewall/policy
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewallpolicy

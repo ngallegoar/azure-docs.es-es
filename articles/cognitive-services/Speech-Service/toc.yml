@@ -39,6 +39,8 @@
           href: how-to-automatic-language-detection.md
         - name: Uso de la API de transcripciones de Azure Batch
           href: batch-transcription.md
+        - name: Evaluación de la pronunciación
+          href: how-to-pronunciation-assessment.md
     - name: Tutoriales
       items:
         - name: Reconocimiento de voz almacenada en Blob Storage

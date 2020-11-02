@@ -1,33 +1,12 @@
 - name: Azure Synapse (versión preliminar para áreas de trabajo)
   href: sql-data-warehouse/index.yml
-- name: Cambio a Azure Synapse (SQL DW)
+- name: Cambio a Azure Synapse (anteriormente SQL DW)
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Información general
   items:
     - name: ¿Qué es Azure Synapse?
       href: overview-what-is.md
-    - name: Introducción
-      items:
-        - name: Introducción
-          href: get-started.md
-        - name: 1 Creación de un área de trabajo de Synapse
-          href: get-started-create-workspace.md
-        - name: 2 Análisis mediante un grupo de SQL
-          href: get-started-analyze-sql-pool.md
-        - name: 3 Análisis mediante Spark
-          href: get-started-analyze-spark.md
-        - name: 4 Análisis mediante SQL a petición
-          href: get-started-analyze-sql-on-demand.md
-        - name: 5 Análisis de los datos de una cuenta de almacenamiento
-          href: get-started-analyze-storage.md
-        - name: 6 Integración con canalizaciones
-          href: get-started-pipelines.md
-        - name: 7 Visualización con Power BI
-          href: get-started-visualize-power-bi.md
-        - name: 8 Supervisión
-          href: get-started-monitor.md
-        - name: 9 Exploración del Centro de conocimientos
-          href: get-started-knowledge-center.md
+      displayName: overview
     - name: Hoja de referencia rápida
       href: overview-cheat-sheet.md
     - name: Preguntas más frecuentes
@@ -36,64 +15,60 @@
       href: release-notes.md
 - name: Guías de inicio rápido
   items:
-    - name: Creación de un área de trabajo de Synapse mediante Azure Portal
-      href: quickstart-create-workspace.md
-    - name: Creación de un área de trabajo de Synapse mediante la CLI de Azure
-      href: quickstart-create-workspace-cli.md
-    - name: Creación de un área de trabajo de Synapse mediante Azure PowerShell
-      href: quickstart-create-workspace-powershell.md
-    - name: Implementación con una plantilla de Resource Manager
-      displayName: Resource Manager
-      href: quickstart-deployment-template-workspaces.md
-    - name: Vinculación de un área de trabajo de Power BI
-      href: quickstart-power-bi.md
-    - name: Creación de grupos
-      items:
-        - name: Creación de cuadernos de Apache Spark mediante herramientas web
-          href: quickstart-apache-spark-notebook.md
-        - name: Creación de grupos de Apache Spark mediante Azure Portal
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Creación de un grupo de Apache Spark mediante Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
-        - name: Creación de un grupo de SQL mediante Azure Portal
-          href: quickstart-create-sql-pool-portal.md
-        - name: Creación de un grupo de SQL mediante Synapse Studio
-          href: quickstart-create-sql-pool-studio.md
-    - name: Carga de datos con grupos de SQL
-      items:
-        - name: Instrucción COPY
-          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Ejemplos de instrucción COPY
-          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Synapse Studio
-          href: quickstart-load-studio-sql-pool.md
-    - name: Uso de SQL a petición
-      href: quickstart-sql-on-demand.md
-    - name: "Conexión a Synapse Link para Cosmos\_DB"
-      href: quickstart-connect-synapse-link-cosmos-db.md
-    - name: Conectarse al Explorador de datos de Azure
-      href: quickstart-connect-azure-data-explorer.md
-- name: Tutoriales
+    - name: Introducción
+      href: get-started.md
+      displayName: 'get, started, quickstart'
+    - name: 1 Creación de un área de trabajo de Synapse
+      href: get-started-create-workspace.md
+      displayName: 'get, started'
+    - name: 2 Análisis mediante un grupo de SQL
+      href: get-started-analyze-sql-pool.md
+      displayName: 'get, started'
+    - name: 3 Análisis mediante Spark
+      href: get-started-analyze-spark.md
+      displayName: 'get, started'
+    - name: 4 Análisis mediante SQL a petición
+      href: get-started-analyze-sql-on-demand.md
+      displayName: 'get, started'
+    - name: 5 Análisis de los datos de una cuenta de almacenamiento
+      href: get-started-analyze-storage.md
+      displayName: 'get, started'
+    - name: 6 Integración con canalizaciones
+      href: get-started-pipelines.md
+      displayName: 'get, started'
+    - name: 7 Visualización con Power BI
+      href: get-started-visualize-power-bi.md
+      displayName: 'get, started'
+    - name: 8 Supervisión
+      href: get-started-monitor.md
+      displayName: 'get, started'
+    - name: 9 Exploración del Centro de conocimientos
+      href: get-started-knowledge-center.md
+      displayName: 'get, started'
+- name: Área de trabajo
   items:
-    - name: Ejecución de aplicaciones de Apache Spark
-      href: ./spark/intellij-tool-synapse.md
-    - name: Definiciones de trabajos de Spark
-      href: ./spark/apache-spark-job-definitions.md
-    - name: Power BI Desktop
-      href: ./sql/tutorial-connect-power-bi-desktop.md
-    - name: Científico de datos
+    - name: Guías de inicio rápido
       items:
-        - name: Creación de un modelo de clasificación mediante Apache Spark MLlib
-          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-    - name: Analista de datos
-      items:
-        - name: Uso de SQL a petición para analizar datos
-          href: ./sql/tutorial-data-analyst.md
-- name: Ejemplos
-  href: 'https://github.com/Azure-Samples/Synapse'
-- name: Conceptos
-  items:
-    - name: Área de trabajo
+        - name: Creación de un área de trabajo de Synapse mediante Azure Portal
+          href: quickstart-create-workspace.md
+          displayName: quickstart
+        - name: Creación de un área de trabajo de Synapse mediante la CLI de Azure
+          href: quickstart-create-workspace-cli.md
+          displayName: quickstart
+        - name: Creación de un área de trabajo de Synapse mediante Azure PowerShell
+          href: quickstart-create-workspace-powershell.md
+          displayName: quickstart
+        - name: Implementación con una plantilla
+          href: quickstart-deployment-template-workspaces.md
+          displayName: quickstart
+        - name: Vinculación de un área de trabajo de Power BI
+          href: quickstart-power-bi.md
+          displayName: quickstart
+        - name: Conectarse al Explorador de datos de Azure
+          href: quickstart-connect-azure-data-explorer.md
+          displayName: quickstart
+      '-name': null
+    - name: Conceptos
       items:
         - name: Administración de metadatos compartidos
           items:
@@ -111,152 +86,119 @@
                   href: ./spark/apache-spark-development-using-notebooks.md
                 - name: Script de SQL
                   href: ./sql/author-sql-script.md
+                  displayname: author
                 - name: Flujo de datos de asignación
                   href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Programación de mantenimiento
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Supervisión
-      items:
-        - name: Supervisión de grupos
+        - name: Seguridad
           items:
-            - name: Grupo de SQL
+            - name: Línea de base de seguridad
+              href: security-baseline.md
+            - name: Seguridad de redes
+              items:
+                - name: Reglas de firewall de IP del área de trabajo de Synapse
+                  href: ./security/synapse-workspace-ip-firewall.md
+                - name: Red virtual administrada del área de trabajo de Synapse
+                  href: ./security/synapse-workspace-managed-vnet.md
+                  displayname: vnet
+                - name: Puntos de conexión privados administrados del área de trabajo de Synapse
+                  href: ./security/synapse-workspace-managed-private-endpoints.md
+            - name: Autenticación y paso a través
+              items:
+                - name: Azure Active Directory
+                  href: ./sql/active-directory-authentication.md
+                  displayname: authentication
+                - name: Multi-Factor Authentication
+                  href: ./sql/mfa-authentication.md
+                - name: Autorización de SQL
+                  href: ./sql/sql-authentication.md
+            - name: Control de acceso
               items:
                 - name: Información general
-                  href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Utilización de recursos y actividad de consultas
-                  href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Servidor del historial de grupos de Spark
-              href: ./spark/apache-spark-history-server.md
-    - name: Seguridad
+                  href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Identidad administrada del área de trabajo de Synapse
+                  href: ./security/synapse-workspace-managed-identity.md
+                - name: Grupo y a petición
+                  href: ./sql/access-control.md
+                  displayname: 'access, control'
+        - name: 'Integración de herramientas (IA, ETL, BI)'
+          items:
+            - name: Solución de problemas de Synapse Studio
+              href: troubleshoot/troubleshoot-synapse-studio.md
+            - name: Solución de problemas de conectividad de Synapse Studio
+              href: troubleshoot/troubleshoot-synapse-studio-powershell.md
+              displayname: powershell
+    - name: Guías paso a paso
       items:
-        - name: Línea de base de seguridad
-          href: security-baseline.md
-        - name: Seguridad de redes
+        - name: Seguridad
           items:
-            - name: Reglas de firewall de IP del área de trabajo de Synapse
-              href: ./security/synapse-workspace-ip-firewall.md
-            - name: Red virtual administrada del área de trabajo de Synapse
-              href: ./security/synapse-workspace-managed-vnet.md
-            - name: Puntos de conexión privados administrados del área de trabajo de Synapse
-              href: ./security/synapse-workspace-managed-private-endpoints.md
-        - name: Autenticación y paso a través
-          items:
-            - name: Azure Active Directory
-              href: ./sql/active-directory-authentication.md
-            - name: Multi-factor Authentication
-              href: ./sql/mfa-authentication.md
-            - name: Autorización de SQL
-              href: ./sql/sql-authentication.md
-        - name: Control de acceso
-          items:
-            - name: Información general
-              href: ../sql-database/sql-database-control-access.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Identidad administrada del área de trabajo de Synapse
-              href: ./security/synapse-workspace-managed-identity.md
-            - name: Grupo y a petición
-              href: ./sql/access-control.md
-            - name: data
+            - name: Administración del control de acceso
               items:
-                - name: Seguridad de nivel de columna
-                  href: ./sql-data-warehouse/column-level-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Seguridad de nivel de fila
-                  href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Cifrado de datos
-          items:
-            - name: Introducción a Cifrado de datos transparente
-              href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Cifrado de datos transparente con Bring Your Own Key
-              href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Integración
-      items:
-        - name: Canalización y actividad
-          href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Servicios vinculados
-          href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Conjuntos de datos
-          href: ../data-factory/concepts-datasets-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Ejecución y desencadenador
-          href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Tiempo de ejecución de integración
-          href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Flujos de datos
-          items:
-            - name: Introducción a Mapping Data Flow
-              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Modo de depuración
-              href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Desfase de esquema
-              href: ../data-factory/concepts-data-flow-schema-drift.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Patrones de columnas
-              href: ../data-factory/concepts-data-flow-column-pattern.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Supervisión de Data Flow
-              href: ../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Rendimiento de flujo de datos
-              href: ../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Administración de grafo
-              href: ../data-factory/concepts-data-flow-manage-graph.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Generador de expresiones
-              href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Lenguaje de expresiones
-              href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Diferencias con respecto a Azure Data Factory
-          href: ./data-integration/concepts-data-factory-differences.md
-    - name: Spark
-      items:
-        - name: Información general
-          items:
-            - name: Introducción a Apache Spark
-              href: ./spark/apache-spark-overview.md
-            - name: Conceptos de Apache Spark
-              href: ./spark/apache-spark-concepts.md
-            - name: ¿Qué es Delta Lake?
-              href: ./spark/apache-spark-what-is-delta-lake.md
-            - name: Introducción a las funciones de Delta Lake
-              href: ./spark/apache-spark-delta-lake-overview.md
-            - name: Rendimiento de Apache Spark
-              href: ./spark/apache-spark-performance.md
-            - name: Optimización del rendimiento de Apache Spark mediante índices de Hiperescala
-              href: ./spark/apache-spark-performance-hyperspace.md
-            - name: Comportamiento del escalado automático de Apache Spark
-              href: ./spark/apache-spark-autoscale.md
-        - name: Desarrollo
-          items:
-            - name: Bibliotecas
+                - name: Configuración de permisos para la identidad administrada del área de trabajo de Azure Synapse
+                  href: security/how-to-grant-workspace-managed-identity-permissions.md
+                  displayname: grant
+                - name: Configuración del control de acceso
+                  href: security/how-to-set-up-access-control.md
+            - name: Administración de puntos de conexión privados
               items:
-                - name: Adición y administración de bibliotecas
-                  href: ./spark/apache-spark-azure-portal-add-libraries.md
-                - name: Compatibilidad de la biblioteca y del lenguaje del runtime
-                  href: ./spark/apache-spark-version-support.md
-            - name: Cuadernos de Azure Synapse Studio
-              href: ./spark/apache-spark-development-using-notebooks.md
-            - name: Protección de credenciales mediante TokenLibrary
-              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
-            - name: ".NET para Apache\_Spark"
-              href: ./spark/spark-dotnet.md
-            - name: Aprendizaje automático de Apache Spark
-              items:
-                - name: Creación de una canalización de aprendizaje automático de Apache Spark
-                  href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-    - name: SQL de Synapse
+                - name: Configuración de puntos de conexión privados administrados a los orígenes de datos
+                  href: security/how-to-create-managed-private-endpoints.md
+                - name: Conexión al área de trabajo de Azure Synapse con puntos de conexión privados
+                  href: security/how-to-connect-to-workspace-with-private-links.md
+                  displayname: links
+                - name: Aprovisionamiento y protección de un servicio vinculado con una red virtual administrada
+                  href: ./data-integration/linked-service.md
+- name: SQL de Synapse
+  items:
+    - name: Información general
       items:
-        - name: Información general
+        - name: Arquitectura de SQL de Synapse
+          href: sql/overview-architecture.md
+          displayName: overview
+        - name: SQL a petición
+          href: sql/on-demand-workspace-overview.md
+          displayname: overview
+        - name: Grupo de SQL
+          href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          displayname: overview
+        - name: Architecture
+          href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Introducción a las características
+          href: sql/overview-features.md
+        - name: Modelos de consumo de recursos
+          href: sql/resource-consumption-models.md
+        - name: Procedimientos recomendados de SQL a petición
+          href: sql/best-practices-sql-on-demand.md
+        - name: Procedimientos recomendados de grupos de SQL
+          href: sql/best-practices-sql-pool.md
+    - name: Guías de inicio rápido
+      items:
+        - name: Creación de un grupo de SQL mediante Synapse Studio
+          href: quickstart-create-sql-pool-studio.md
+        - name: Creación de un grupo de SQL mediante Azure Portal
+          href: quickstart-create-sql-pool-portal.md
+        - name: Carga de datos con grupos de SQL
           items:
-            - name: Arquitectura de SQL de Synapse
-              href: sql/overview-architecture.md
-            - name: SQL a petición
-              href: sql/on-demand-workspace-overview.md
-            - name: Grupo de SQL
-              href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Architecture
-              href: ./sql-data-warehouse/massively-parallel-processing-mpp-architecture.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Introducción a las características
-              href: sql/overview-features.md
-            - name: Modelos de consumo de recursos
-              href: sql/resource-consumption-models.md
-            - name: Procedimientos recomendados de SQL a petición
-              href: sql/best-practices-sql-on-demand.md
-            - name: Procedimientos recomendados de grupos de SQL
-              href: sql/best-practices-sql-pool.md
+            - name: Instrucción COPY
+              href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'bulk, load'
+            - name: Ejemplos de instrucción COPY
+              href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'bulk, load'
+            - name: Synapse Studio
+              href: quickstart-load-studio-sql-pool.md
+              displayname: sql pool
+        - name: Uso de SQL a petición
+          href: quickstart-sql-on-demand.md
+    - name: Tutoriales
+      items:
+        - name: Uso de SQL a petición para analizar datos
+          href: ./sql/tutorial-data-analyst.md
+        - name: Power BI Desktop
+          href: ./sql/tutorial-connect-power-bi-desktop.md
+    - name: Conceptos
+      items:
         - name: Copia de seguridad y restauración
           href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Ingesta y preparación de datos
@@ -281,8 +223,10 @@
                   href: sql/develop-materialized-view-performance-tuning.md
                 - name: Crear
                   href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'materialized, view'
                 - name: Modificar
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'materialized, view'
             - name: Reglas de almacenamiento en caché
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Predicciones de Machine Learning
@@ -331,26 +275,48 @@
                   href: sql/develop-variable-assignment.md
                 - name: Vistas
                   href: sql/develop-views.md
-        - name: Consultas
-          items:
-            - name: SQL dinámico
-              href: sql/develop-dynamic-sql.md
-            - name: Opciones de Agrupar por
-              href: sql/develop-group-by-options.md
-            - name: Etiquetas
-              href: sql/develop-label.md
-            - name: Archivos de almacenamiento
+            - name: Consultas
               items:
-                - name: Información general
-                  href: sql/develop-storage-files-overview.md
-                - name: Control de almacenamiento al almacenamiento
-                  href: sql/develop-storage-files-storage-access-control.md
-                - name: Tablas externas de Apache Spark para Azure Synapse
-                  href: sql/develop-storage-files-spark-tables.md
+                - name: SQL dinámico
+                  href: sql/develop-dynamic-sql.md
+                - name: Opciones de Agrupar por
+                  href: sql/develop-group-by-options.md
+                - name: Etiquetas
+                  href: sql/develop-label.md
+                - name: Archivos de almacenamiento
+                  items:
+                    - name: Información general
+                      href: sql/develop-storage-files-overview.md
+                    - name: Control de almacenamiento al almacenamiento
+                      href: sql/develop-storage-files-storage-access-control.md
+                    - name: Tablas externas de Apache Spark para Azure Synapse
+                      href: sql/develop-storage-files-spark-tables.md
+        - name: Supervisión
+          items:
+            - name: Información general
+              href: ./sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Utilización de recursos y actividad de consultas
+              href: ./sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Seguridad
+          items:
+            - name: Seguridad de los datos
+              items:
+                - name: Seguridad de nivel de columna
+                  href: ./sql-data-warehouse/column-level-security.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Seguridad de nivel de fila
+                  href: /sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Cifrado de datos
+              items:
+                - name: Introducción a Cifrado de datos transparente
+                  href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                - name: Cifrado de datos transparente con Bring Your Own Key
+                  href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'transparent, data, encryption'
         - name: Administración de cargas de trabajo
           items:
             - name: Información general
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'workload, management'
             - name: Clasificación de la carga de trabajo
               href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Importancia de la carga de trabajo
@@ -361,69 +327,13 @@
               href: ./sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Límites de memoria y simultaneidad
               href: ./sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: 'workload, management'
             - name: Clases de recursos
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Synapse Link
+              displayname: 'workload, management'
+    - name: Guías paso a paso
       items:
-        - name: "Synapse Link para Azure Cosmos\_DB"
-          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Introducción analítica a Microsoft Store
-          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Características que admite Synapse Link
-          href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
-        - name: Preguntas frecuentes sobre Synapse Link
-          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Casos de uso de Synapse Link
-          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Machine Learning
-      items:
-        - name: Información general
-          items:
-            - name: ¿Qué es el aprendizaje automático en Synapse Analytics?
-              href: machine-learning/what-is-machine-learning.md
-        - name: Guías de inicio rápido
-          items:
-            - name: Creación de un servicio vinculado de Azure Machine Learning
-              href: machine-learning/quickstart-integrate-azure-machine-learning.md
-        - name: Tutoriales
-          items:
-            - name: Asistente para puntuación de modelos para grupos de SQL
-              href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Ejecución de un experimento de regresión mediante Azure AutoML
-              href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-    - name: 'Integración de herramientas (IA, ETL, BI)'
-      items:
-        - name: Solución de problemas de Synapse Studio
-          href: troubleshoot/troubleshoot-synapse-studio.md
-        - name: Solución de problemas de conectividad de Synapse Studio
-          href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-- name: Procedimientos
-  items:
-    - name: Seguridad
-      items:
-        - name: Administración del control de acceso
-          items:
-            - name: Configuración de permisos para la identidad administrada del área de trabajo de Azure Synapse
-              href: security/how-to-grant-workspace-managed-identity-permissions.md
-            - name: Configuración del control de acceso
-              href: security/how-to-set-up-access-control.md
-        - name: Administración de puntos de conexión privados
-          items:
-            - name: Configuración de puntos de conexión privados administrados a los orígenes de datos
-              href: security/how-to-create-managed-private-endpoints.md
-            - name: Conexión al área de trabajo de Azure Synapse con puntos de conexión privados
-              href: security/how-to-connect-to-workspace-with-private-links.md
-            - name: Aprovisionamiento y protección de un servicio vinculado con una red virtual administrada
-              href: ./data-integration/linked-service.md
-    - name: Administración y supervisión
-      items:
-        - name: Ejecuciones de la canalización
-          href: monitoring/how-to-monitor-pipeline-runs.md
-        - name: Aplicaciones de Apache Spark
-          href: monitoring/how-to-monitor-spark-applications.md
-        - name: Detalles de aplicaciones de Apache Spark
-          href: monitoring/apache-spark-applications.md
-        - name: SQL de Synapse
+        - name: Administración y supervisión
           items:
             - name: Supervisión de la memoria caché de Gen2
               href: ./sql-data-warehouse/sql-data-warehouse-how-to-monitor-cache.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -441,11 +351,9 @@
                   href: ./sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Actualización a Gen2
               href: ./sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Ingesta y preparación de datos
-      items:
-        - name: En el almacenamiento de datos
+        - name: Ingesta y preparación de datos
           items:
-            - name: SQL
+            - name: En el almacenamiento de datos
               items:
                 - name: Azure Data Lake Storage
                   href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -455,109 +363,201 @@
                   href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: SSIS
                   href: /sql/integration-services/load-data-to-sql-data-warehouse
+                  displayname: 'integration, services'
                 - name: Datos de taxi de Nueva York
                   href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'load, blob'
                 - name: Datos públicos de Contoso
                   href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+                  displayname: 'load, blob'
                 - name: Carga de WideWorldImporters
                   href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
                 - name: Con la actividad de copia
                   href: data-integration/data-integration-sql-pool.md
-            - name: Spark
+            - name: En el lago de datos
+              items:
+                - name: Con la actividad de copia
+                  href: data-integration/data-integration-data-lake.md
+        - name: Consulta de datos externos
+          items:
+            - name: Información general
+              href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: query
+            - name: Consulta de archivo CSV
+              href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta de archivos de Parquet
+              href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta de archivo JSON
+              href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta de tipos anidados
+              href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta de carpetas y varios archivos
+              href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              displayname: csv
+            - name: Consulta de archivos con particiones mediante metadatos de archivos
+              href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Creación y uso de vistas
+              href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Creación y uso de tablas externas
+              href: sql/create-use-external-tables.md
+            - name: Almacenamiento de los resultados de las consultas en Storage
+              href: sql/create-external-table-as-select.md
+        - name: Conexión de herramientas a áreas de trabajo de Synapse
+          items:
+            - name: Información general
+              href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta con Azure Data Studio
+              href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Cadenas de conexión
+              href: sql/connection-strings.md
+            - name: Consulta con sqlcmd
+              href: sql/get-started-connect-sqlcmd.md
+            - name: Consulta con SSMS
+              href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Consulta con Visual Studio
+              href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Conexión con Power BI Desktop
+              href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+- name: Spark de Apache
+  items:
+    - name: Información general
+      items:
+        - name: Introducción a Apache Spark
+          href: ./spark/apache-spark-overview.md
+    - name: Guías de inicio rápido
+      items:
+        - name: Creación de un cuaderno
+          href: quickstart-apache-spark-notebook.md
+        - name: Creación de un grupo de Spark con Azure Portal
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Creación de un grupo de Spark mediante Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
+    - name: Tutoriales
+      items:
+        - name: Ejecución de aplicaciones de Apache Spark
+          href: ./spark/intellij-tool-synapse.md
+          displayname: intellij
+        - name: Ejecución de PySpark para grupos de Spark
+          href: ./spark/vscode-tool-synapse.md
+        - name: Definiciones de trabajos de Spark
+          href: ./spark/apache-spark-job-definitions.md
+    - name: Conceptos
+      items:
+        - name: Conceptos de Apache Spark
+          href: ./spark/apache-spark-concepts.md
+        - name: ¿Qué es Delta Lake?
+          href: ./spark/apache-spark-what-is-delta-lake.md
+        - name: Introducción a las funciones de Delta Lake
+          href: ./spark/apache-spark-delta-lake-overview.md
+        - name: Rendimiento de Apache Spark
+          href: ./spark/apache-spark-performance.md
+        - name: Optimización del rendimiento de Apache Spark mediante índices de Hiperescala
+          href: ./spark/apache-spark-performance-hyperspace.md
+        - name: Comportamiento del escalado automático de Apache Spark
+          href: ./spark/apache-spark-autoscale.md
+        - name: Desarrollo
+          items:
+            - name: Bibliotecas
+              items:
+                - name: Adición y administración de bibliotecas
+                  href: ./spark/apache-spark-azure-portal-add-libraries.md
+                - name: Compatibilidad de la biblioteca y del lenguaje del runtime
+                  href: ./spark/apache-spark-version-support.md
+            - name: Cuadernos de Azure Synapse Studio
+              href: ./spark/apache-spark-development-using-notebooks.md
+            - name: Protección de credenciales mediante TokenLibrary
+              href: ./spark/apache-spark-secure-credentials-with-tokenlibrary.md
+            - name: ".NET para Apache\_Spark"
+              href: ./spark/spark-dotnet.md
+        - name: Supervisión
+          items:
+            - name: Servidor del historial de grupos de Spark
+              href: ./spark/apache-spark-history-server.md
+    - name: Guías paso a paso
+      items:
+        - name: Administración y supervisión
+          items:
+            - name: Aplicaciones de Apache Spark
+              href: monitoring/how-to-monitor-spark-applications.md
+            - name: Detalles de aplicaciones de Apache Spark
+              href: monitoring/apache-spark-applications.md
+            - name: Análisis de JSON con Apache Spark
+              href: how-to-analyze-complex-schema.md
+        - name: Ingesta y preparación de datos
+          items:
+            - name: En el almacenamiento de datos
               items:
                 - name: Importación y exportación de datos con Apache Spark
                   href: ./spark/synapse-spark-sql-pool-import-export.md
-        - name: En el lago de datos
-          items:
-            - name: Con la actividad de copia
-              href: data-integration/data-integration-data-lake.md
-    - name: Transformación y análisis de datos
+- name: Synapse Link
+  items:
+    - name: Guías de inicio rápido
       items:
-        - name: Análisis de matrices y estructuras anidadas
-          href: how-to-analyze-complex-schema.md
-        - name: Synapse Link
+        - name: "Conexión a Synapse Link para Cosmos\_DB"
+          href: quickstart-connect-synapse-link-cosmos-db.md
+    - name: Conceptos
+      items:
+        - name: "Synapse Link para Azure Cosmos\_DB"
+          href: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Introducción analítica a Microsoft Store
+          href: ../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Características que admite Synapse Link
+          href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
+        - name: Preguntas frecuentes sobre Synapse Link
+          href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Casos de uso de Synapse Link
+          href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Guías paso a paso
+      items:
+        - name: Configuración de Synapse Link
+          href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: "Conexión a Azure Synapse Link para Cosmos\_DB"
+          href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+        - name: "Uso de Power\_BI y un grupo de SQL sin servidor para analizar Azure Cosmos\_DB"
+          href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark"
+          href: ./synapse-link/how-to-query-analytical-store-spark.md
+        - name: Copia de datos de Synapse Link a un grupo de SQL mediante Apache Spark
+          href: ./synapse-link/how-to-copy-to-sql-pool.md
+        - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con SQL a petición"
+          href: sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+- name: Canalización y flujo de datos
+  items:
+    - name: Conceptos
+      items:
+        - name: Canalización y actividad
+          href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Servicios vinculados
+          href: ../data-factory/concepts-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Conjuntos de datos
+          href: ../data-factory/concepts-datasets-linked-services.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Ejecución y desencadenador
+          href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Tiempo de ejecución de integración
+          href: ../data-factory/concepts-integration-runtime.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Flujos de datos
           items:
-            - name: Configuración de Synapse Link
-              href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Conexión a Azure Synapse Link para Cosmos\_DB"
-              href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-            - name: "Uso de Power\_BI y un grupo de SQL sin servidor para analizar Azure Cosmos\_DB"
-              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Consulta de datos de Azure Cosmos\_DB con un grupo de SQL sin servidor"
-              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Consulta de un almacén analítico de Azure Cosmos\_DB con Apache Spark"
-              href: ./synapse-link/how-to-query-analytical-store-spark.md
-            - name: Copia de datos de Synapse Link a un grupo de SQL mediante Apache Spark
-              href: ./synapse-link/how-to-copy-to-sql-pool.md
-        - name: SQL de Synapse
-          items:
-            - name: Consulta de los datos en el almacenamiento
-              items:
-                - name: Información general
-                  href: sql/query-data-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Consulta de archivo CSV
-                  href: sql/query-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Consulta de archivos de Parquet
-                  href: sql/query-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Consulta de tipos anidados de Parquet
-                  href: sql/query-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Consulta de archivo JSON
-                  href: sql/query-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Consulta de carpetas y varios archivos
-                  href: sql/query-folders-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Uso de metadatos de archivos
-                  href: sql/query-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Creación y uso de vistas
-                  href: sql/create-use-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-                - name: Creación y uso de tablas externas
-                  href: sql/create-use-external-tables.md
-                - name: Almacenamiento de los resultados de las consultas en Storage
-                  href: sql/create-external-table-as-select.md
-        - name: Flujo de datos e ingesta de datos
-          items:
-            - name: Introducción a las transformaciones
-              href: ../data-factory/data-flow-transformation-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Agregado
-              href: ../data-factory/data-flow-aggregate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Alteración de fila
-              href: ../data-factory/data-flow-alter-row.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: División condicional
-              href: ../data-factory/data-flow-conditional-split.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Columna derivada
-              href: ../data-factory/data-flow-derived-column.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Exists
-              href: ../data-factory/data-flow-exists.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Filter
-              href: ../data-factory/data-flow-filter.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Acoplar
-              href: ../data-factory/data-flow-flatten.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Join
-              href: ../data-factory/data-flow-join.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Búsqueda
-              href: ../data-factory/data-flow-lookup.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Nueva rama
-              href: ../data-factory/data-flow-new-branch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Dinamización
-              href: ../data-factory/data-flow-pivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Rango
-              href: ../data-factory/data-flow-rank.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Seleccionar
-              href: ../data-factory/data-flow-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Receptor
-              href: ../data-factory/data-flow-sink.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Sort
-              href: ../data-factory/data-flow-sort.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Source
-              href: ../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Clave suplente
-              href: ../data-factory/data-flow-surrogate-key.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Union
-              href: ../data-factory/data-flow-union.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Anulación de dinamización
-              href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Periodo
-              href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Integrate
+            - name: Introducción a Mapping Data Flow
+              href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Modo de depuración
+              href: ../data-factory/concepts-data-flow-debug-mode.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Desfase de esquema
+              href: ../data-factory/concepts-data-flow-schema-drift.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Patrones de columnas
+              href: ../data-factory/concepts-data-flow-column-pattern.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Supervisión de Data Flow
+              href: ../data-factory/concepts-data-flow-monitoring.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Rendimiento de flujo de datos
+              href: ../data-factory/concepts-data-flow-performance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Administración de grafo
+              href: ../data-factory/concepts-data-flow-manage-graph.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Generador de expresiones
+              href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Lenguaje de expresiones
+              href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Diferencias con respecto a Azure Data Factory
+              href: ./data-integration/concepts-data-factory-differences.md
+    - name: Guías paso a paso
       items:
         - name: Autor
           items:
@@ -599,7 +599,7 @@
               href: ../data-factory/connector-azure-database-for-postgresql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Azure File Storage
               href: ../data-factory/connector-azure-file-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: "Azure\_SQL\_Database"
+            - name: Azure SQL Database
               href: ../data-factory/connector-azure-sql-database.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Instancia administrada de Azure SQL
               href: ../data-factory/connector-azure-sql-database-managed-instance.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -860,6 +860,50 @@
               href: ../data-factory/control-flow-web-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Actividad de webhook
               href: ../data-factory/control-flow-webhook-activity.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Transformaciones de flujos de datos
+          items:
+            - name: Introducción a las transformaciones
+              href: ../data-factory/data-flow-transformation-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Agregado
+              href: ../data-factory/data-flow-aggregate.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Alteración de fila
+              href: ../data-factory/data-flow-alter-row.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: División condicional
+              href: ../data-factory/data-flow-conditional-split.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Columna derivada
+              href: ../data-factory/data-flow-derived-column.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Exists
+              href: ../data-factory/data-flow-exists.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Filter
+              href: ../data-factory/data-flow-filter.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Acoplar
+              href: ../data-factory/data-flow-flatten.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Join
+              href: ../data-factory/data-flow-join.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Búsqueda
+              href: ../data-factory/data-flow-lookup.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Nueva rama
+              href: ../data-factory/data-flow-new-branch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Dinamización
+              href: ../data-factory/data-flow-pivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Rango
+              href: ../data-factory/data-flow-rank.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Seleccionar
+              href: ../data-factory/data-flow-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Receptor
+              href: ../data-factory/data-flow-sink.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Sort
+              href: ../data-factory/data-flow-sort.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Source
+              href: ../data-factory/data-flow-source.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Clave suplente
+              href: ../data-factory/data-flow-surrogate-key.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Union
+              href: ../data-factory/data-flow-union.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Anulación de dinamización
+              href: ../data-factory/data-flow-unpivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Periodo
+              href: ../data-factory/data-flow-window.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Parametrizar
           items:
             - name: Parametrizar servicios vinculados
@@ -870,6 +914,10 @@
               href: ../data-factory/control-flow-system-variables.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Parámetros de flujo de datos
               href: ../data-factory/parameters-data-flow.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Administración y supervisión
+          items:
+            - name: Ejecuciones de la canalización
+              href: monitoring/how-to-monitor-pipeline-runs.md
         - name: Creación de tiempo de ejecución de integración
           items:
             - name: Tiempo de ejecución de integración de Azure
@@ -892,26 +940,31 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Solución de problemas del conector
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Solución de problemas de la herramienta Copiar datos
+              href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Solución de problemas de los entornos de ejecución de integración autohospedados
               href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Conexión de herramientas a áreas de trabajo de Synapse
+- name: Machine Learning
+  items:
+    - name: Información general
       items:
-        - name: SQL de Synapse
-          items:
-            - name: Información general
-              href: sql/connect-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Consulta con Azure Data Studio
-              href: sql/get-started-azure-data-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Cadenas de conexión
-              href: sql/connection-strings.md
-            - name: Consulta con sqlcmd
-              href: sql/get-started-connect-sqlcmd.md
-            - name: Consulta con SSMS
-              href: sql/get-started-ssms.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Consulta con Visual Studio
-              href: sql/get-started-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Conexión con Power BI Desktop
-              href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: ¿Qué es el aprendizaje automático en Synapse Analytics?
+          href: machine-learning/what-is-machine-learning.md
+    - name: Guías de inicio rápido
+      items:
+        - name: Creación de un servicio vinculado de Azure Machine Learning
+          href: machine-learning/quickstart-integrate-azure-machine-learning.md
+    - name: Tutoriales
+      items:
+        - name: Asistente para puntuación de modelos para grupos de SQL
+          href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+          displayname: machine learning
+        - name: Ejecución de un experimento de regresión mediante Azure AutoML
+          href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+          displayname: machine learning
+        - name: Creación de una aplicación de aprendizaje automático de Apache Spark
+          href: ./spark/apache-spark-machine-learning-mllib-notebook.md
+          displayname: machine learning
 - name: Referencia
   items:
     - name: Azure CLI
@@ -926,6 +979,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: API de REST
       href: /rest/api/synapse/
+    - name: Ejemplos
+      href: 'https://github.com/Azure-Samples/Synapse'
     - name: Vistas del sistema
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: T-SQL

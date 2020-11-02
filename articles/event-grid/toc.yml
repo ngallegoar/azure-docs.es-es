@@ -106,7 +106,7 @@
       items:
         - name: Introducción a los temas del sistema
           href: system-topics.md
-        - name: Orígenes de eventos
+        - name: Orígenes de eventos (editores)
           items:
             - name: Azure App Configuration
               href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
               href: event-schema-azure-signalr.md
             - name: Suscripciones de Azure
               href: event-schema-subscriptions.md
-    - name: Temas de asociados
+    - name: Eventos de asociado
       items:
-        - name: Introducción a los temas de asociados
-          href: partner-topics-overview.md
-        - name: Auth0
-          href: auth0-overview.md
-        - name: Convertirse en asociado de Event Grid
+        - name: Introducción a los eventos de asociado
+          href: partner-events-overview.md
+        - name: Orígenes de eventos (editores)
+          items:
+            - name: Auth0
+              href: auth0-overview.md
+        - name: Introducción a la incorporación de asociados
           href: partner-onboarding-overview.md
     - name: Dominios de eventos
       href: event-domains.md
@@ -210,12 +212,16 @@
           href: create-view-manage-system-topics-cli.md
         - name: Plantilla del Administrador de recursos de Azure
           href: create-view-manage-system-topics-arm.md
+    - name: Eventos de asociado
+      items:
+        - name: Incorporación como asociado
+          href: onboard-partner.md
+        - name: Suscripción a eventos de Auth0
+          href: auth0-how-to.md
     - name: Obtención de claves de acceso de temas o dominios
       href: get-access-keys.md
     - name: Publicación en tema personalizado
       href: post-to-custom-topic.md
-    - name: Suscripción a eventos de Auth0
-      href: auth0-how-to.md
     - name: Recepción de eventos en un punto de conexión de HTTP
       href: receive-events.md
     - name: Establecimiento de una ubicación para los eventos fallidos y de una directiva de reintentos
@@ -272,7 +278,7 @@
           href: set-alerts.md
 - name: Referencia
   items:
-    - name: Azure CLI
+    - name: CLI de Azure
       href: /cli/azure/eventgrid
     - name: PowerShell
       href: /powershell/module/az.eventgrid
