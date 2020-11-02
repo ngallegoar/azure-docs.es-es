@@ -6,6 +6,8 @@
     - name: ¿Qué es Content Moderator?
       href: overview.md
       expanded: true
+    - name: Novedades
+      href: whats-new.md
 - name: Guías de inicio rápido
   items:
     - name: Cómo familiarizarse con Content Moderator en la web

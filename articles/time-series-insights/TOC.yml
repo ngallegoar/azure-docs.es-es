@@ -97,12 +97,10 @@
           items:
             - name: Aprovisionamiento y administración
               href: how-to-provision-manage.md
-            - name: Diagnóstico y solución de problemas
-              href: how-to-diagnose-troubleshoot.md
-        - name: Entrada y almacenamiento
-          items:
             - name: Selección de un TSID
               href: how-to-select-tsid.md
+            - name: Diagnóstico y solución de problemas
+              href: how-to-diagnose-troubleshoot.md
         - name: Modelo
           items:
             - name: Edición de un modelo
