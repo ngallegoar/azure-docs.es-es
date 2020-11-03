@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945920"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521312"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Compatibilidad con la migración de máquinas virtuales de Azure entre regiones de Azure
 
@@ -107,7 +107,7 @@ Imágenes de la galería de Azure (publicadas por Microsoft) | Compatible | Se a
 Imágenes de la galería de Azure (publicadas por terceros)  | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
 Imágenes personalizadas (publicadas por terceros)| Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
 Máquinas virtuales con Site Recovery | No compatible | Mueva los recursos de las máquinas virtuales entre regiones mediante Site Recovery en el back-end. Si ya está usando Site Recovery, deshabilite la replicación y luego inicie el proceso de preparación.
-Directivas RBAC | No compatible | Las directivas de control de acceso basado en rol (RBAC) de las máquinas virtuales no se copian en la máquina virtual de la región de destino.
+Directivas de RBAC de Azure | No compatible | Las directivas del control de acceso basado en roles de Azure (RBAC de Azure) de las máquinas virtuales no se copian en la máquina virtual de la región de destino.
 Extensiones | No compatible | Las extensiones no se copian en la máquina virtual de la región de destino. Instálelas manualmente una vez completada la migración.
 
 

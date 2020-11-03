@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507681"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424683"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimización de la nube privada de CloudSimple para la instalación de Oracle RAC
 
@@ -79,7 +79,7 @@ Cada máquina virtual de Oracle está configurada con varios discos para el sist
 * El uso compartido se establece en **No sharing** (Sin uso compartido).
 * La redundancia se define en el almacenamiento mediante directivas de vSAN.  
 
-![Configuración del grupo de discos de datos de Oracle RAC](media/oracle-vm-os-disks.png)
+![Diagrama que muestra la configuración física del disco del sistema operativo de Oracle RAC.](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Configuración del disco de datos
 
@@ -148,7 +148,7 @@ El área de recuperación rápida (FRA) es el sistema de archivos administrado p
 * Los discos deben configurarse como un grupo de discos de ASM.  
 * La redundancia de ASM se establece en redundancia **externa**.
 
-![Configuración del grupo de discos de votación de Oracle RAC](media/oracle-vm-fra-disks.png)
+![Diagrama que muestra la configuración del grupo de discos de votación de Oracle RAC.](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Implementación del clúster de vSphere de nube privada de CloudSimple
 
@@ -174,9 +174,9 @@ Las directivas de vSAN definen los errores tolerables y la fragmentación de dis
 3. En el menú de la izquierda, seleccione **VM Storage Policies** (Directivas de almacenamiento de VM) y, a continuación, seleccione **Create a VM storage Policy** (Crear una directiva de almacenamiento de VM).
 4. Escriba un nombre descriptivo para la directiva y haga clic en **SIGUIENTE**.
 5. En la sección **Policy structure** (Estructura de la directiva), seleccione **Enable rules for vSAN storage** (Habilitar reglas para el almacenamiento de vSAN) y haga clic en **SIGUIENTE**.
-6. En la sección **vSAN** > **Disponibilidad**, seleccione **Ninguno** para la tolerancia ante desastres de sitios. En el caso de los errores tolerables, seleccione la opción **RAID - Mirroring** (RAID: creación de reflejo) para el valor de FTT deseado.
+6. En la sección **vSAN** > **Disponibilidad** , seleccione **Ninguno** para la tolerancia ante desastres de sitios. En el caso de los errores tolerables, seleccione la opción **RAID - Mirroring** (RAID: creación de reflejo) para el valor de FTT deseado.
     ![Configuración de vSAN](media/oracle-rac-storage-wizard-vsan.png).
-7. En la sección **Avanzado**, seleccione el número de bandas de disco por objeto. En Reserva del espacio de objetos, seleccione **Aprovisionamiento grueso**. Seleccione **Disable object checksum** (Deshabilitar la suma de comprobación de objetos). Haga clic en **SIGUIENTE**.
+7. En la sección **Avanzado** , seleccione el número de bandas de disco por objeto. En Reserva del espacio de objetos, seleccione **Aprovisionamiento grueso**. Seleccione **Disable object checksum** (Deshabilitar la suma de comprobación de objetos). Haga clic en **SIGUIENTE**.
 8. Siga las instrucciones que se muestran en la pantalla para ver la lista de almacenes de datos de vSAN compatibles, revisar la configuración y finalizar la instalación.
 
 ## <a name="create-oracle-vms-and-create-shared-vm-disks-for-oracle"></a>Creación de VM de Oracle y de discos de VM compartidos para Oracle
@@ -220,7 +220,7 @@ Oracle utiliza discos compartidos para almacenar los datos, registros y archivos
 9. Para compartir, especifique **Multi-writer** (Multiescritor).
 10. Para el nodo de dispositivo virtual, seleccione la nueva controladora SCSI que se creó en el paso 2.
 
-    ![Creación de discos en la primera VM](media/oracle-rac-new-hard-disk.png)
+    ![Captura de pantalla en la que se resaltan los campos necesarios para crear discos en la primera máquina virtual.](media/oracle-rac-new-hard-disk.png)
 
 Repita los pasos del 2 al 10 para todos los discos nuevos necesarios para los datos, registros y registros de fase de puesta al día.
 

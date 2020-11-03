@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: aaddev devx-track-js
+ms.openlocfilehash: 327280c193c3c2fb829e468bccfc352f35edfdb5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119798"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92673510"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Uso de la biblioteca de autenticación de Microsoft para JavaScript a fin de trabajar con Azure AD B2C
 
@@ -56,16 +56,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>Paso 3: Configurar la autenticación
 
-1. Abra el archivo `config.js` del ejemplo.
+1. Abra el archivo *config.json* en el ejemplo.
 
-2. Configure el ejemplo con las credenciales de la aplicación que obtuvo anteriormente al registrar la aplicación. Cambie las líneas de código siguiente reemplazando los valores por los nombres de clientID, host, tenantId y nombre de la directiva.
+2. Configure el ejemplo con las credenciales de la aplicación que obtuvo anteriormente al registrar la aplicación. Cambie las siguientes líneas de código reemplazando los valores con el nombre del inquilino, el id. de cliente y el nombre de la directiva.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 Para más información, consulte este [ejemplo de API web B2C de Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
@@ -163,7 +169,7 @@ En los pasos siguientes se da por hecho que ya se han seguido los pasos descrito
 
 ### <a name="step-2-catch-and-handle-authentication-errors-in-your-login-method"></a>Paso 2: Detectar y controlar errores de autenticación en el método de inicio de sesión
 
-Cuando un usuario selecciona **Contraseña olvidada**, la aplicación produce un error que se debe detectar en el código y, después, controlar mediante la presentación del flujo de usuario adecuado. En este caso, el flujo de restablecimiento de contraseña `b2c_1_reset`.
+Cuando un usuario selecciona **Contraseña olvidada** , la aplicación produce un error que se debe detectar en el código y, después, controlar mediante la presentación del flujo de usuario adecuado. En este caso, el flujo de restablecimiento de contraseña `b2c_1_reset`.
 
 1. Amplíe el método de inicio de sesión de la siguiente manera:
 
@@ -201,7 +207,7 @@ Cuando un usuario selecciona **Contraseña olvidada**, la aplicación produce un
 
     Después de restablecer la contraseña, se devuelve al usuario a la aplicación para iniciar sesión de nuevo.
 
-    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Pantalla de inicio de sesión que muestra Azure AD B2C" border="false":::
+    :::image type="content" source="media/msal-b2c-overview/user-journey-02-password-reset.png" alt-text="Pantallas de flujo de restablecimiento de contraseña que muestra Azure AD B2C" border="false":::
 
     Para obtener más información sobre los códigos de error y el control de excepciones, vea [Códigos de excepción y de error de MSAL](msal-handling-exceptions.md).
 

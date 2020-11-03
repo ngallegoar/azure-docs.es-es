@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
-ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19f88da6a678221cde66bf61668d16ba9ab998a4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505785"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677311"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Uso de Azure Active Directory (Azure AD) Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos
 
@@ -67,7 +67,7 @@ Cuando finaliza la revisión, la página **Resultados** muestra una visión gene
 
 ## <a name="disable-and-delete-external-identities-with-azure-ad-access-reviews-preview"></a>Deshabilitación y eliminación de identidades externas con las revisiones de acceso de Azure AD (versión preliminar)
 
-Además de la opción de eliminar las identidades externas no deseadas de recursos como grupos o aplicaciones, las revisiones de acceso de Azure AD pueden impedir que las identidades externas inicien sesión en el inquilino y eliminar las identidades externas del inquilino después de 30 días.
+Además de la opción de eliminar las identidades externas no deseadas de recursos como grupos o aplicaciones, las revisiones de acceso de Azure AD pueden impedir que las identidades externas inicien sesión en el inquilino y eliminar las identidades externas del inquilino después de 30 días. Una vez que seleccione **Bloquear el inicio de sesión del usuario durante 30 días y después quitar el usuario del inquilino** , la revisión permanecerá en el estado "Aplicando" durante 30 días. Durante este período, la configuración, los resultados, los revisores o los registros de auditoría de la revisión actual no se podrán ver ni configurar. 
 
 ![Configuración de finalización](media/access-reviews-external-users/upon-completion-settings.png)
 

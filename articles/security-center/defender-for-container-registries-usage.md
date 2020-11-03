@@ -1,18 +1,18 @@
 ---
 title: Uso de Azure Defender para registros de contenedor
-description: Obtenga información sobre el uso de Azure Defender para registros de contenedor para examinar imágenes en sus registros.
+description: Obtenga información sobre el uso de Azure Defender para registros de contenedor para examinar imágenes de Linux en los registros hospedados en Linux.
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342083"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370549"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Uso de Azure Defender para registros de contenedor para examinar las imágenes en busca de vulnerabilidades
 
@@ -28,7 +28,8 @@ Cuando en detector notifica vulnerabilidades a Security Center, este presenta lo
 |----|:----|
 |Estado de la versión:|Disponible con carácter general|
 |Precios:|**Azure Defender para registros de contenedor** se factura como se muestra en la [página de precios](security-center-pricing.md).|
-|Registros e imágenes compatibles:|![Sí](./media/icons/yes-icon.png) Registros de control de acceso hospedados en Linux a los que se puede acceder desde la red pública de Internet y proporcionan acceso a la shell.<br>![No](./media/icons/no-icon.png) Registros de control de acceso hospedados en Windows.<br>![No](./media/icons/no-icon.png) Registros "privados": Security Center requiere que se pueda acceder a los registros desde la red pública de Internet. En estos momentos, Security Center no puede conectarse a, ni examinar, registros con acceso limitado con un firewall, un punto de conexión de servicio o puntos de conexión privados, como Azure Private Link.<br>![No](./media/icons/no-icon.png) Imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen una aplicación y sus dependencias en tiempo de ejecución sin un administrador de paquetes, shell o sistema operativo.|
+|Registros e imágenes compatibles:|Imágenes de Linux en registros de ACR accesibles desde la red pública de Internet con acceso al shell|
+|Registros e imágenes no compatibles:|Imágenes de Windows<br>Registros "privados"<br>Registros con acceso limitado con un firewall, un punto de conexión de servicio o puntos de conexión privados, como Azure Private Link.<br>Imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen una aplicación y sus dependencias en tiempo de ejecución sin un administrador de paquetes, shell o sistema operativo.|
 |Roles y permisos necesarios:|**Rol de lector de seguridad** y [de lector Azure Container Registry](../container-registry/container-registry-roles.md)|
 |Nubes:|![Sí](./media/icons/yes-icon.png) Nubes comerciales<br>![No](./media/icons/no-icon.png) Nacionales o soberanas (US Gov, China Gov, otros gobiernos)|
 |||
@@ -36,14 +37,12 @@ Cuando en detector notifica vulnerabilidades a Security Center, este presenta lo
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identificación de vulnerabilidades en las imágenes de los registros de contenedor de Azure 
 
-1. Para habilitar exámenes de vulnerabilidades de las imágenes almacenadas en la instancia de Azure Container Registry basada en Azure Resource Manager:
+Para habilitar exámenes de vulnerabilidades de las imágenes almacenadas en la instancia de Azure Container Registry basada en Azure Resource Manager:
 
-    1. Habilite **Azure Defender para registros de contenedor** para su suscripción.
+1. Habilite **Azure Defender para registros de contenedor** para su suscripción. Security Center ya está listo para examinar imágenes en los registros.
 
-        Security Center ya está listo para examinar imágenes en los registros.
-
-        >[!NOTE]
-        > Esta característica se cobra por imagen.
+    >[!NOTE]
+    > Esta característica se cobra por imagen.
 
 1. Los recorridos de imagen se desencadenan en cada una de las inserciones o importaciones, y si la imagen se ha extraído en los últimos 30 días. 
 
@@ -140,7 +139,7 @@ Puede utilizar cualquiera de los criterios siguientes:
 
 Para crear una regla:
 
-1. En la página de detalles de recomendaciones de **Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse**, seleccione **Deshabilitar regla**.
+1. En la página de detalles de recomendaciones de **Las vulnerabilidades de las imágenes de Azure Container Registry deben corregirse** , seleccione **Deshabilitar regla**.
 1. Seleccione el ámbito pertinente.
 1. Defina los criterios.
 1. Seleccione **Aplicar regla**.
@@ -150,7 +149,7 @@ Para crear una regla:
 1. Para ver, invalidar o eliminar una regla: 
     1. Seleccione **Deshabilitar regla**.
     1. En la lista de ámbitos, las suscripciones con reglas activas se muestran como **Regla aplicada**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Creación de una regla de deshabilitación para los resultados de VA en el registro":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificación o eliminación de una regla existente":::
     1. Para ver o eliminar la regla, seleccione el menú de puntos suspensivos ("...").
 
 

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator service, translate text, transliterate text, language detection
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318847"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517045"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Inicio rápido: Introducción a Translator
 
@@ -59,7 +59,7 @@ En este inicio rápido, aprenderá a usar el servicio Translator a través de RE
 # <a name="java"></a>[Java](#tab/java)
 
 * Cree un directorio de trabajo para el proyecto. Por ejemplo: `mkdir sample-project`.
-* Inicialice el proyecto con Gradle: `gradle init --type basic`. Cuando se le solicite que elija un **DSL**, seleccione **Kotlin**.
+* Inicialice el proyecto con Gradle: `gradle init --type basic`. Cuando se le solicite que elija un **DSL** , seleccione **Kotlin**.
 * Actualice `build.gradle.kts`. Tenga en cuenta que necesitará actualizar `mainClassName` en función del ejemplo.
   ```java
   plugins {
@@ -2440,6 +2440,12 @@ Si realiza una llamada correcta, debería ver la siguiente respuesta. Para más 
     }
 ]
 ```
+
+## <a name="troubleshooting"></a>Solución de problemas
+
+### <a name="java-users"></a>Usuarios de Java
+
+Si tiene problemas de conexión, puede ser debido a que el certificado SSL ha expirado. Para resolver este problema, instale [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) en su almacén privado. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

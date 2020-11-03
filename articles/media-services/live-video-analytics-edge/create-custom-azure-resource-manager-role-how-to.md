@@ -3,12 +3,12 @@ title: Creación de un rol personalizado de Azure Resource Manager y asignación
 description: En este artículo se proporcionan instrucciones sobre cómo crear un rol personalizado de Azure Resource Manager y asignarlo a una entidad de servicio para Análisis de vídeos en vivo en IoT Edge mediante la CLI de Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526585"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425725"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Creación de un rol personalizado de Azure Resource Manager y asignación a una entidad de servicio
 
@@ -230,7 +230,7 @@ Busque "roleDefinitionName" y compruebe que su valor está establecido en "LVAEd
 
 Esto confirma que se ha vinculado el rol de usuario personalizado a la entidad de servicio que se usa para nuestra aplicación.
 
-### <a name="test-the-service-principal-rbac"></a>Prueba del rol RBAC de la entidad de servicio  
+### <a name="test-the-service-principal-access-control"></a>Prueba del control de acceso de la entidad de servicio
 
 1. Inicie sesión con la entidad de servicio. Para ello, se necesitan tres fragmentos de información para que Azure Active Directory nos otorgue el token de acceso adecuado que podemos obtener de la salida del paso [Creación de una entidad de servicio](#create-service-principal):
     1. AadClientID 

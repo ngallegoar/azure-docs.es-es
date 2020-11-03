@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/19/2020
+ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b481a1ccf36120a30bf7c923e2d59c5782433567
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e9b27224058b41e34995fc0ea8104301c426ea9a
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282506"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676073"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Uso de Azure para hospedar y ejecutar escenarios de carga de trabajo de SAP
 
@@ -79,6 +79,8 @@ En esta sección, encontrará documentos sobre la integración de PowerBI en or�
 
 ## <a name="change-log"></a>Registro de cambios
 
+- 26/10/2020: cambio de algunas tablas para la configuración de Azure Premium Storage y así poder aclarar el rendimiento aprovisionado frente al de ráfaga en las [configuraciones de almacenamiento de máquinas virtuales de Azure de SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage).
+- 22/10/2020: cambio en la [alta disponibilidad de SAP NW en las VM de Azure en SLES para aplicaciones de SAP](./high-availability-guide-suse.md), en la [alta disponibilidad de SAP NW en las VM de Azure en SLES con ANF](./high-availability-guide-suse-netapp-files.md), en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL para aplicaciones de SAP](./high-availability-guide-rhel.md) y en la [alta disponibilidad de SAP NW en las VM de Azure en RHEL con ANF](./high-availability-guide-rhel-netapp-files.md) para ajustar la recomendación para net.ipv4.tcp_keepalive_time.  
 - 16/10/2020: Cambio en [Alta disponibilidad de IBM DB2 LUW en máquinas virtuales de Azure en SLES con Pacemaker](./dbms-guide-ha-ibm.md), [Alta disponibilidad para SAP NW en máquinas virtuales de Azure en RHEL para SAP Applications](./high-availability-guide-rhel.md), [Alta disponibilidad de IBM DB2 LUW en máquinas virtuales de Azure en RHEL](./high-availability-guide-rhel-ibm-db2-luw.md), la [guía de alta disponibilidad de varios SID para SAP NW en máquinas virtuales de Azure en RHEL](./high-availability-guide-rhel-multi-sid.md), [Alta disponibilidad para SAP NW en máquinas virtuales de Azure en RHEL con ANF](./high-availability-guide-rhel-netapp-files.md), [Alta disponibilidad para SAP NW en las máquinas virtuales de Azure en SLES para SAP Applications](./high-availability-guide-suse.md), la [guía de alta disponibilidad de varios SID para SAP NNW en máquinas virtuales de Azure en SLES](./high-availability-guide-suse-multi-sid.md), [Alta disponibilidad de SAP NW en máquinas virtuales de Azure en SLES con ANF para SAP Applications](./high-availability-guide-suse-netapp-files.md), [Alta disponibilidad para NFS en máquinas virtuales de Azure en SLES](./high-availability-guide-suse-nfs.md), [Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en SLES](./sap-hana-high-availability.md), [Alta disponibilidad del escalado vertical de SAP HANA con ANF en RHEL](./sap-hana-high-availability-netapp-files-red-hat.md), [Alta disponibilidad de SAP HANA en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-rhel.md), [HSR de escalado horizontal de SAP HANA con Pacemaker en máquinas virtuales de Azure en RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [Preparación de la infraestructura de Azure para ASCS/SCS de SAP con WSFC y disco compartido](./sap-high-availability-infrastructure-wsfc-shared-disk.md), la [guía de alta disponibilidad de varios SID para ASCS/SCS de SAP con WSFC y disco compartido de Azure](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) y la [guía de alta disponibilidad de varios SID para ASCS/SCS de SAP con WSFC y disco compartido](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) para incorporar la instrucción de que no se admite la IP flotante en escenarios de equilibrio de carga en IP secundarias 
 - 16/10/2020: Adición de documentación para controlar las instantáneas de almacenamiento de instancias grandes de HANA en [Copia de seguridad y restauración de SAP HANA en instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
 - 15/10/2020: Publicación de la documentación de la plataforma SAP BusinessObjects BI en Azure, [Guía de planificación e implementación de la plataforma de inteligencia empresarial SAP BusinessObjects en Azure](businessobjects-deployment-guide.md) y [Guía de implementación de la plataforma de inteligencia empresarial SAP BusinessObjects para Linux en Azure](businessobjects-deployment-guide-linux.md)

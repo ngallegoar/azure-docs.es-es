@@ -8,12 +8,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 235d82e54c79350f110ab0cda4f4b672e396c61d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652013"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674028"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Ejecución de tareas en segundo plano con WebJobs en Azure App Service
 
@@ -61,13 +61,16 @@ Several steps in the three "Create..." sections are identical;
 when making changes in one don't forget the other two.
 -->
 
+> [!IMPORTANT]
+> Si tiene el control de código fuente configurado con la aplicación, los trabajos web se deben implementar como parte de la integración del control de código fuente. Una vez configurado el control de código fuente con la aplicación, no se puede agregar un trabajo web desde Azure Portal.
+
 1. En [Azure Portal](https://portal.azure.com), vaya a la página **App Service** de la aplicación web, la aplicación de API o la aplicación móvil de App Service.
 
 2. Seleccione **WebJobs**.
 
    ![Selección de WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. En la página **WebJobs**, seleccione **Agregar**.
+2. En la página **WebJobs** , seleccione **Agregar**.
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -75,7 +78,7 @@ when making changes in one don't forget the other two.
 
    ![Captura de pantalla que muestra la configuración de Agregar WebJob que necesita establecer.](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
-   | Configuración      | Valor de ejemplo   | Descripción  |
+   | Configuración      | Valor de ejemplo   | Descripción  |
    | ------------ | ----------------- | ------------ |
    | **Nombre** | myContinuousWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_". |
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
@@ -105,7 +108,7 @@ when making changes in one don't forget the other two.
 
    ![Selección de WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. En la página **WebJobs**, seleccione **Agregar**.
+2. En la página **WebJobs** , seleccione **Agregar**.
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -113,7 +116,7 @@ when making changes in one don't forget the other two.
 
    ![Captura de pantalla que muestra la configuración que debe establecerse para crear un WebJob desencadenado manualmente.](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
-   | Configuración      | Valor de ejemplo   | Descripción  |
+   | Configuración      | Valor de ejemplo   | Descripción  |
    | ------------ | ----------------- | ------------ |
    | **Nombre** | myTriggeredWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_".|
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
@@ -143,7 +146,7 @@ when making changes in one don't forget the other two.
 
    ![Selección de WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. En la página **WebJobs**, seleccione **Agregar**.
+2. En la página **WebJobs** , seleccione **Agregar**.
 
    ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -151,7 +154,7 @@ when making changes in one don't forget the other two.
 
    ![Página Agregar WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
-   | Configuración      | Valor de ejemplo   | Descripción  |
+   | Configuración      | Valor de ejemplo   | Descripción  |
    | ------------ | ----------------- | ------------ |
    | **Nombre** | myScheduledWebJob | Nombre único dentro de una aplicación de App Service. Debe comenzar con una letra o un número y no puede contener caracteres especiales salvo "-" y "_". |
    | **Carga de archivos** | ConsoleApp.zip | Archivo *ZIP* que contiene el archivo de script o el archivo ejecutable así como cualquier archivo complementario necesario para ejecutar el programa o script. Los tipos de archivo de script o de archivo ejecutable compatibles aparecen en la sección [Tipos de archivo admitidos](#acceptablefiles). |
@@ -185,11 +188,11 @@ Para más información, consulte [Programar un trabajo Web desencadenado](webjob
    
    ![Botón Registros](./media/web-sites-create-web-jobs/wjbladelogslink.png)
 
-2. En la página **Detalles del WebJob**, seleccione una hora para ver los detalles de una ejecución.
+2. En la página **Detalles del WebJob** , seleccione una hora para ver los detalles de una ejecución.
    
    ![Detalles del WebJob](./media/web-sites-create-web-jobs/webjobdetails.png)
 
-3. En la página **Detalles de ejecución del WebJob**, seleccione **Alternar salida** para ver el texto del contenido del registro.
+3. En la página **Detalles de ejecución del WebJob** , seleccione **Alternar salida** para ver el texto del contenido del registro.
    
     ![Detalles de ejecución del trabajo web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 

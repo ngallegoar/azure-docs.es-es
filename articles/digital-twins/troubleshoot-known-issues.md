@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311672"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489020"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemas conocidos en Azure Digital Twins
 
@@ -34,7 +34,7 @@ Como alternativa, puede abrir el panel de Cloud Shell en Azure Portal y completa
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista del Azure Portal con el icono de &quot;Cloud Shell&quot; resaltado; y Cloud Shell aparece indicado en la parte inferior de la ventana del portal.":::
 
-Otra alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en su máquina para poder ejecutar localmente comandos de la CLI de Azure. La CLI local no experimenta este problema.
+Otra alternativa consiste en [instalar la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) en su máquina para poder ejecutar localmente comandos de la CLI de Azure. La CLI local no experimenta este problema.
 
 ### <a name="possible-causes"></a>Causas posibles
 
@@ -46,7 +46,9 @@ Esto no afecta a los comandos de Azure Digital Twins de los grupos de comandos `
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Asignación de roles que faltan después de la instalación con script
 
-Algunos usuarios pueden experimentar problemas con la parte de asignación de roles que se describe en el tutorial [*Procedimiento: Configuración de una instancia y autenticación (con scripts)*](how-to-set-up-instance-scripted.md). El script no indica un error, pero el rol *Propietario de Azure Digital Twins (versión preliminar)* no se ha asignado correctamente al usuario, lo que afectará a la posibilidad de crear otros recursos más adelante.
+Algunos usuarios pueden experimentar problemas con la parte de asignación de roles que se describe en el tutorial [*Procedimiento: Configuración de una instancia y autenticación (con scripts)*](how-to-set-up-instance-scripted.md). El script no indica un error, pero el rol *Propietario de datos de Azure Digital Twins* no se ha asignado correctamente al usuario, lo que afectará a la posibilidad de crear otros recursos más adelante.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Para determinar si la asignación de roles se configuró correctamente después de ejecutar el script, siga las instrucciones de la sección [*Comprobación de la asignación de roles de usuario*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) del artículo de configuración. Si el usuario no se muestra con este rol, este problema le afecta.
 
@@ -64,9 +66,9 @@ En el caso de los usuarios que iniciaron sesión con una [cuenta Microsoft (MSA)
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema con la autenticación interactiva del explorador
 
-Al escribir código de autenticación en las aplicaciones de Azure Digital Twins con la versión **1.2.0** de la biblioteca **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet)** , puede experimentar problemas con el método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet).
+Al escribir código de autenticación en las aplicaciones de Azure Digital Twins con la versión **1.2.0** de la biblioteca **[Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** , puede experimentar problemas con el método [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true).
 
-Esta no es la versión más reciente de la biblioteca. La versión más reciente es **1.2.2** .
+Esta no es la versión más reciente de la biblioteca. La versión más reciente es **1.2.2**.
 
 El método afectado se usa en los artículos siguientes: 
 * [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)
@@ -77,7 +79,7 @@ El problema incluye una respuesta de error de "Azure.Identity.AuthenticationFail
 
 ### <a name="troubleshooting-steps"></a>Pasos para solucionar problemas
 
-Para resolver el problema, actualice las aplicaciones de modo que usen la versión de `Azure.Identity` **1.2.2** . Con esta versión de la biblioteca, el explorador se cargará y autenticará según lo previsto.
+Para resolver el problema, actualice las aplicaciones de modo que usen la versión de `Azure.Identity` **1.2.2**. Con esta versión de la biblioteca, el explorador se cargará y autenticará según lo previsto.
 
 ### <a name="possible-causes"></a>Causas posibles
 

@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852334"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424851"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Uso de Notification Hubs desde Python
 
@@ -414,7 +414,7 @@ Observe que el encabezado HTTP de etiquetas se agrega a la solicitud HTTP (en el
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Captura de pantalla de una consola con detalles de la solicitud HTTP y el formato de notificación de Service Bus, etiquetas de notificación de Service Bus y los valores de tipo X W N S resaltados en rojo.][3]
+![Captura de pantalla de una consola con detalles de la solicitud H T T P y el formato de notificación de Service Bus, una etiqueta de notificación de Service Bus y los valores de tipo X W N S resaltados en rojo.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Enviar notificación que especifica varias etiquetas
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Captura de pantalla de una consola con detalles de la solicitud HTTP y el formato de notificación de Service Bus, etiquetas de notificación de Service Bus y los valores de tipo X W N S resaltados en rojo.][4]
+![Captura de pantalla de una consola con detalles de la solicitud H T T P y el formato de notificación de Service Bus, varias etiquetas de notificación de Service Bus y los valores de tipo X W N S resaltados en rojo.][4]
 
 ### <a name="templated-notification"></a>Notificación de plantilla
 

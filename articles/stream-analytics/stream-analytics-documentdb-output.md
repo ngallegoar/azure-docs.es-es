@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596570"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424778"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Salida de Azure Stream Analytics a Azure Cosmos DB  
-Azure Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida JSON, lo que permite el archivo de datos y las consultas de latencia baja en datos JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
+Azure Stream Analytics puede tener como destino [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para la salida JSON, lo que permite el archivo de datos y las consultas de latencia baja en datos JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración. Se recomienda establecer el trabajo en el nivel de compatibilidad 1.2 al usar Azure Cosmos DB como salida.
 
 Si no está familiarizado con Azure Cosmos DB, consulte la [documentación de Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para comenzar. 
 
@@ -58,7 +58,7 @@ Si el documento JSON entrante tiene un campo de id. existente, ese campo se util
 - Los identificadores duplicados y el **Identificador de documento** establecido en **Id.** provocan una operación upsert.
 - Los identificadores duplicados y el **Identificador de documento** no establecido provocan un error después del primer documento
 
-Si quiere guardar *todos* los documentos, incluidos los que tienen un identificador duplicado, cambie el nombre del campo Id. en la consulta (mediante la palabra clave **AS**). Permita que Azure Cosmos DB cree el campo Id. o reemplace el identificador por el valor de otra columna (mediante la palabra clave **AS** o la opción **Id. de documento** ).
+Si quiere guardar *todos* los documentos, incluidos los que tienen un identificador duplicado, cambie el nombre del campo Id. en la consulta (mediante la palabra clave **AS** ). Permita que Azure Cosmos DB cree el campo Id. o reemplace el identificador por el valor de otra columna (mediante la palabra clave **AS** o la opción **Id. de documento** ).
 
 ## <a name="data-partitioning-in-azure-cosmos-db"></a>Creación de particiones en Azure Cosmos DB
 Azure Cosmos DB escala automáticamente las particiones según la carga de trabajo. Por lo tanto, se recomiendan [contenedores](../cosmos-db/partition-data.md) ilimitados como método para crear particiones de los datos. Al escribir en contenedores ilimitados, Stream Analytics usa tantos escritores paralelos como el esquema de partición de entrada o el paso de consulta anterior.
@@ -66,7 +66,7 @@ Azure Cosmos DB escala automáticamente las particiones según la carga de traba
 > [!NOTE]
 > Azure Stream Analytics solo admite contenedores ilimitados con claves de partición en el nivel superior. Por ejemplo, se admite `/region`. No se admiten las claves de partición anidadas (por ejemplo, `/region/name`). 
 
-Según la clave de partición que elija, es posible que reciba esta _advertencia_:
+Según la clave de partición que elija, es posible que reciba esta _advertencia_ :
 
 `CosmosDB Output contains multiple rows and just one row per partition key. If the output latency is higher than expected, consider choosing a partition key that contains at least several hundred records per partition key.`
 
@@ -137,3 +137,17 @@ En caso de un error transitorio, indisponibilidad del servicio o limitación al 
 - NotFound (código de error HTTP 404)
 - Forbidden (código de error HTTP 403)
 - BadRequest (código de error HTTP 400)
+
+## <a name="common-issues"></a>Problemas comunes
+
+1. Se ha agregado una restricción de índice único a la colección y los datos de salida de Stream Analytics infringen esta restricción. Asegúrese de que los datos de salida de Stream Analytics no infringen las restricciones únicas o elimine las restricciones. Para más información, consulte [Restricciones de clave única de Azure Cosmos DB](../cosmos-db/unique-keys.md).
+
+2. La columna `PartitionKey` no existe.
+
+3. La columna `Id` no existe.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Información sobre las salidas desde Azure Stream Analytics](stream-analytics-define-outputs.md) 
+* [Salida de Azure Stream Analytics a Azure SQL Database](stream-analytics-sql-output-perf.md)
+* [Particionamiento de la salida de blobs personalizada en Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md)

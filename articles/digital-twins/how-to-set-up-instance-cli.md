@@ -80,7 +80,7 @@ El resultado de este comando es la información de salida acerca de la asignaci�
 >
 > Use la [página de Azure Portal de usuarios de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) para seleccionar la cuenta de usuario y abrir los detalles. Copie el *id. de objeto* del usuario:
 >
-> :::image type="content" source="media/includes/user-id.png" alt-text="Ventana Comandos con la creación correcta del grupo de recursos y la instancia de Azure Digital Twins" lightbox="media/includes/user-id.png":::
+> :::image type="content" source="media/includes/user-id.png" alt-text="Vista de la página de usuario en Azure Portal en la que se resalta el GUID en el campo &quot;Id. de objeto&quot;" lightbox="media/includes/user-id.png":::
 >
 > A continuación, repita el comando de lista de asignación de roles con el *id. de objeto* del usuario para el parámetro `assignee` anterior.
 

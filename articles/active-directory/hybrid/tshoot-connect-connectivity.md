@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 56e9820c5e3a750a35b7271b86750df00eb4784e
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91317519"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677054"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Solución de problemas de conectividad de Azure AD
 Este artículo explica cómo funciona la conectividad entre Azure AD Connect y Azure AD y cómo solucionar los problemas de conectividad. Estos problemas suelen aparecer en un entorno con un servidor proxy.
@@ -52,9 +52,17 @@ De ellas, la tabla siguiente es el mínimo necesario para poder conectarse a Azu
 | \*.windows.net |HTTPS/443 |Se utiliza para iniciar sesión en Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Se utiliza para MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Se utiliza para configurar el directorio de Azure AD, así como para importar y exportar datos. |
+| \*.crl3.digicert.com |HTTP/80 |Se usa para comprobar los certificados. |
+| \*.crl4.digicert.com |HTTP/80 |Se usa para comprobar los certificados. |
+| \*.ocsp.digicert.com |HTTP/80 |Se usa para comprobar los certificados. |
+| \*. www.d-trust.net |HTTP/80 |Se usa para comprobar los certificados. |
+| \*.root-c3-ca2-2009.ocsp.d-trust.net |HTTP/80 |Se usa para comprobar los certificados. |
+| \*.crl.microsoft.com |HTTP/80 |Se usa para comprobar los certificados. |
+| \*.oneocsp.microsoft.com |HTTP/80 |Se usa para comprobar los certificados. |
+| \*.ocsp.msocsp.com |HTTP/80 |Se usa para comprobar los certificados. |
 
 ## <a name="errors-in-the-wizard"></a>Errores en el asistente
-El asistente para la instalación usa dos contextos de seguridad diferentes. En la página **Conectar con Azure AD**, se utiliza el usuario que ha iniciado sesión actualmente. En la página **Configurar**, se cambia a la [cuenta que está ejecutando el servicio del motor de sincronización](reference-connect-accounts-permissions.md#adsync-service-account). Si hay algún error, lo más probable es que ya aparezca en la página **Conectar con Azure AD** del asistente, ya que la configuración del proxy es global.
+El asistente para la instalación usa dos contextos de seguridad diferentes. En la página **Conectar con Azure AD** , se utiliza el usuario que ha iniciado sesión actualmente. En la página **Configurar** , se cambia a la [cuenta que está ejecutando el servicio del motor de sincronización](reference-connect-accounts-permissions.md#adsync-service-account). Si hay algún error, lo más probable es que ya aparezca en la página **Conectar con Azure AD** del asistente, ya que la configuración del proxy es global.
 
 Los siguientes errores son los más comunes que se pueden encontrar en el Asistente para instalación.
 
@@ -66,7 +74,7 @@ Este error aparece cuando al propio asistente no puede establecer conexión con 
 * Si es correcta, siga los pasos descritos en [Comprobación de la conectividad de proxy](#verify-proxy-connectivity) para ver si el problema está presente también fuera del asistente.
 
 ### <a name="a-microsoft-account-is-used"></a>Se usa una cuenta Microsoft
-Si utiliza una **cuenta Microsoft** en lugar de una cuenta **educativa o profesional**, aparece un error genérico.
+Si utiliza una **cuenta Microsoft** en lugar de una cuenta **educativa o profesional** , aparece un error genérico.
 ![Se usa una cuenta Microsoft](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>No se puede alcanzar el punto de conexión de MFA
@@ -87,7 +95,7 @@ PowerShell usa la configuración de machine.config para establecer conexión con
 
 Si el servidor proxy está configurado correctamente, debe obtener un estado correcto:  ![Captura de pantalla que muestra el estado correcto cuando el proxy está configurado adecuadamente.](./media/tshoot-connect-connectivity/invokewebrequest200.png)
 
-Si recibe **No es posible conectar con el servidor remoto**, PowerShell está intentando realizar una llamada directa sin utilizar el servidor proxy o DNS no está configurado correctamente. Asegúrese de que el archivo **machine.config** está configurado correctamente.
+Si recibe **No es posible conectar con el servidor remoto** , PowerShell está intentando realizar una llamada directa sin utilizar el servidor proxy o DNS no está configurado correctamente. Asegúrese de que el archivo **machine.config** está configurado correctamente.
 ![unabletoconnect](./media/tshoot-connect-connectivity/invokewebrequestunable.png)
 
 Si el proxy no está configurado correctamente, se producirá un error: ![proxy200](./media/tshoot-connect-connectivity/invokewebrequest403.png)
@@ -109,7 +117,7 @@ Si ha seguido todos los pasos anteriores y aún no se puede conectar, en este mo
 * Los puntos de conexión adminwebservice y provisioningapi son los puntos de conexión de detección y se usan para buscar el punto de conexión real que se usará. Estos puntos de conexión difieren en función de la región.
 
 ### <a name="reference-proxy-logs"></a>Registros de proxy de referencia
-Este es un volcado de un registro de proxy real y la página del asistente para instalación desde la que se tomó (se quitaron las entradas duplicadas al mismo punto de conexión). Esta sección se puede usar como referencia para su propio proxy y los registros de red. Los puntos de conexión reales pueden variar en su entorno (en concreto, las direcciones URL que están en *cursiva*).
+Este es un volcado de un registro de proxy real y la página del asistente para instalación desde la que se tomó (se quitaron las entradas duplicadas al mismo punto de conexión). Esta sección se puede usar como referencia para su propio proxy y los registros de red. Los puntos de conexión reales pueden variar en su entorno (en concreto, las direcciones URL que están en *cursiva* ).
 
 **Conectarse a Azure AD**
 
@@ -117,26 +125,26 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 | --- | --- |
 | 11/1/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 11/1/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 11/1/2016 8:32 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 | 11/1/2016 8:32 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
-| 11/1/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 11/1/2016 8:33 |connect:// *bwsc02-relay*.microsoftonline.com:443 |
 
 **Configuración**
 
 | Time | URL |
 | --- | --- |
 | 11/1/2016 8:43 |connect://login.microsoftonline.com:443 |
-| 11/1/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 11/1/2016 8:43 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 | 11/1/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 11/1/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 11/1/2016 8:44 |connect:// *bba900-anchor*.microsoftonline.com:443 |
 | 11/1/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 11/1/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 11/1/2016 8:44 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 | 11/1/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 11/1/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
-| 11/1/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
+| 11/1/2016 8:46 |connect:// *bwsc02-relay*.microsoftonline.com:443 |
 
 **Sincronización inicial**
 
@@ -144,8 +152,8 @@ Este es un volcado de un registro de proxy real y la página del asistente para 
 | --- | --- |
 | 11/1/2016 8:48 |connect://login.windows.net:443 |
 | 11/1/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 11/1/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
-| 11/1/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 11/1/2016 8:49 |connect:// *bba900-anchor*.microsoftonline.com:443 |
+| 11/1/2016 8:49 |connect:// *bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Errores de autenticación
 Esta sección trata los errores que pueden devolverse desde ADAL (la biblioteca de autenticación usada por Azure AD Connect) y PowerShell. El error que se explica debe ayudarle a comprender los pasos siguientes a seguir.
@@ -186,7 +194,7 @@ La autenticación fue correcta, pero Azure AD PowerShell tiene un problema de au
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Se necesita el rol de administrador global de Azure AD
-El usuario se autenticó correctamente. Sin embargo, el usuario no tiene asignado el rol de administrador global. Aquí se indica [cómo se puede asignar el rol de administrador global](../users-groups-roles/directory-assign-admin-roles.md) al usuario.
+El usuario se autenticó correctamente. Sin embargo, el usuario no tiene asignado el rol de administrador global. Aquí se indica [cómo se puede asignar el rol de administrador global](../roles/permissions-reference.md) al usuario.
 
 <div id="privileged-identity-management">
 <!--

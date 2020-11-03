@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135753"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424819"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replicación de máquinas virtuales de Azure mediante la ejecución de Espacios de almacenamiento directo en otra región
 
@@ -49,12 +49,12 @@ En el diagrama siguiente se muestra un clúster de conmutación por error de má
 1. Seleccione la directiva de replicación con la coherencia de la aplicación desactivada* (solo está disponible la compatibilidad con coherencia frente a bloqueos).
 1. Habilite la replicación.
 
-   ![protección de storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![Captura de pantalla que muestra dónde configurar las opciones de replicación.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Vaya a los elementos replicados y podrá ver el estado de ambas máquinas virtuales.
 3. Ambas máquinas virtuales están protegidas y también se muestran como parte del grupo de coherencia de varias VM.
 
-   ![protección de storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![Captura de pantalla que muestra que las máquinas virtuales están protegidas y forman parte de un grupo de coherencia de varias máquinas virtuales.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>Creación de un plan de recuperación
 Un plan de recuperación admite la secuenciación de distintas capas en una aplicación de varios niveles durante una conmutación por error. La secuenciación ayuda a mantener la coherencia de la aplicación. Cuando cree un plan de recuperación para una aplicación web de varios niveles, complete los pasos descritos en [Creación de un plan de recuperación mediante Site Recovery](site-recovery-create-recovery-plans.md).

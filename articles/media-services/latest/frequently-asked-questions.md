@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: aa33319f146ac57ab4d253696c94308a43b5db2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 50a0fe0fa5dece41ac9e343d5a8939e8d9dc634e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019620"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426884"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
@@ -30,11 +30,11 @@ En este artículo se ofrecen respuestas a preguntas frecuentes sobre Azure Media
 
 Puede usar [Azure Portal](https://portal.azure.com/) para administrar los eventos en directo de la versión 3, ver los recursos y trabajos de la versión 3, obtener información sobre el acceso a las API y cifrar contenido. <br/>Para las tareas de administración restantes (por ejemplo, administración de transformaciones y trabajos o análisis de contenido de la versión 3), use la [API REST](/rest/api/media/accountfilters), la [CLI](/cli/azure/ams), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
-Si el vídeo se ha cargado previamente en la cuenta de Media Services con la API de Media Services v3 o si el contenido se ha generado a partir de una salida en directo, no verá los botones **Codificar**, **Analizar** o **Cifrar** en Azure Portal. Use las API de Media Services v3 para realizar estas tareas.  
+Si el vídeo se ha cargado previamente en la cuenta de Media Services con la API de Media Services v3 o si el contenido se ha generado a partir de una salida en directo, no verá los botones **Codificar** , **Analizar** o **Cifrar** en Azure Portal. Use las API de Media Services v3 para realizar estas tareas.  
 
 ### <a name="what-azure-roles-can-perform-actions-on-azure-media-services-resources"></a>¿Qué roles de Azure pueden realizar acciones en recursos de Azure Media Services? 
 
-Vea [Control de acceso basado en roles (RBAC) para cuentas de Media Services](rbac-overview.md).
+Consulte [Control de acceso basado en roles de Azure (RBAC de Azure) para cuentas de Media Services](rbac-overview.md).
 
 ### <a name="how-do-i-stream-to-apple-ios-devices"></a>¿Cómo hago streaming a dispositivos de Apple iOS?
 
@@ -255,9 +255,9 @@ Los dos conjuntos de niveles de seguridad se definen mediante Google Widevine. L
 
 | **Niveles de seguridad definidos en la arquitectura de Widevine** |**Niveles de seguridad utilizados en la API de Widevine**|
 |---|---| 
-| **Nivel de seguridad 1**: todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad podría realizarse en chips diferentes.|**security_level=5**: La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de un TEE con respaldo de hardware.<br/><br/>**security_level=4**: La criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.|
-**Nivel de seguridad 2**: La criptografía (pero no el procesamiento de vídeo) se realiza dentro de TEE. Los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de un TEE.| **security_level=3**: Las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware. |
-| **Nivel de seguridad 3**: No hay ningún TEE en el dispositivo. Se pueden adoptar las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también podría incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad. | **security_level=2**: Se requiere criptografía de software y un descodificador de ofuscación.<br/><br/>**security_level=1**: Se requiere criptografía white-box basada en software.|
+| **Nivel de seguridad 1** : todo el procesamiento de contenido, la criptografía y el control se realizan en un entorno de ejecución de confianza (TEE). En algunos modelos de implementación, el procesamiento de seguridad podría realizarse en chips diferentes.|**security_level=5** : La criptografía, la descodificación y todo el tratamiento de los medios (comprimidos y descomprimidos) deben administrarse dentro de un TEE con respaldo de hardware.<br/><br/>**security_level=4** : La criptografía y la descodificación del contenido deben realizarse dentro de un TEE con respaldo de hardware.|
+**Nivel de seguridad 2** : La criptografía (pero no el procesamiento de vídeo) se realiza dentro de TEE. Los búferes descifrados se devuelven al dominio de aplicación y se procesan a través de software o hardware de vídeo independiente. En el nivel 2, sin embargo, la información criptográfica se sigue procesando solo dentro de un TEE.| **security_level=3** : Las operaciones de criptografía y material clave deben realizarse en un TEE con respaldo de hardware. |
+| **Nivel de seguridad 3** : No hay ningún TEE en el dispositivo. Se pueden adoptar las medidas adecuadas para proteger la información criptográfica y el contenido descifrado en el sistema operativo del host. Una implementación de nivel 3 también podría incluir un motor de cifrado de hardware, pero esto solo mejora el rendimiento, no la seguridad. | **security_level=2** : Se requiere criptografía de software y un descodificador de ofuscación.<br/><br/>**security_level=1** : Se requiere criptografía white-box basada en software.|
 
 #### <a name="why-does-content-download-take-so-long"></a>¿Por qué la descarga de contenido tarda tanto tiempo?
 

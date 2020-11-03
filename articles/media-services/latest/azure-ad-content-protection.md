@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839544"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427208"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Protección de contenido de un extremo a otro con Azure AD
 
@@ -155,13 +155,13 @@ Elija un inquilino de Azure AD para usarlo en el ejemplo de un extremo a otro. 
 1. Seleccione **Registros de aplicaciones** en el menú.
 1. Haga clic en **+ Nuevo registro**.
 1. Asigne a la aplicación el nombre *LicenseDeliveryResource2* (donde 2 indica puntos de conexión v2 de AAD).
-1. Seleccione **Cuentas de este directorio organizativo solo ([*nombreDelInquilino*]: inquilino único)** . Si desea habilitar el acceso a varios inquilinos, seleccione una de las otras opciones multiinquilino.
+1. Seleccione **Cuentas de este directorio organizativo solo ([ *nombreDelInquilino* ]: inquilino único)** . Si desea habilitar el acceso a varios inquilinos, seleccione una de las otras opciones multiinquilino.
 1. El **identificador URI de redirección** es opcional y se puede cambiar más adelante.
 1. Haga clic en **Registrar**. Aparecerá la vista Registros de aplicaciones.
 1. Seleccione **Manifiesto** en el menú. Aparecerá la vista Manifiesto.
 1. Cambie el valor de `accessTokenAcceptedVersion` a *2* (sin comillas).
 1. Cambie el valor de `groupMembershipClaims` a *"SecurityGroup"* (con comillas).
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save** (Guardar).
 1. Seleccione **Exponer una API** en el menú. Aparecerá la vista Agregar un ámbito. (Azure proporciona un identificador URI de identificador de aplicación, pero si desea cambiarlo, puede editarlo en el campo URI de id. de aplicación).
 1. Haga clic en **Guardar y continuar**. La vista cambiará. Para cada uno de los valores de la columna Configuración de la tabla siguiente, escriba el valor en la columna Valor y, a continuación, haga clic en **Agregar ámbito**.
 
@@ -182,7 +182,7 @@ Elija un inquilino de Azure AD para usarlo en el ejemplo de un extremo a otro. 
 1. Seleccione **Registros de aplicaciones** en el menú.
 1. Haga clic en **+ Nuevo registro**.
 1. Asigne un nombre a la aplicación cliente, por ejemplo, *AMS AAD Content Protection*.
-1. Seleccione **Cuentas de este directorio organizativo solo ([*nombreDelInquilino*]: inquilino único)** . Si desea habilitar el acceso a varios inquilinos, seleccione una de las otras opciones multiinquilino.
+1. Seleccione **Cuentas de este directorio organizativo solo ([ *nombreDelInquilino* ]: inquilino único)** . Si desea habilitar el acceso a varios inquilinos, seleccione una de las otras opciones multiinquilino.
 1. El **identificador URI de redirección** es opcional y se puede cambiar más adelante.
 1. Haga clic en **Registrar**.
 1. En el menú, seleccione **Permisos de API**.
@@ -209,7 +209,7 @@ Elija un inquilino de Azure AD para usarlo en el ejemplo de un extremo a otro. 
     > [!NOTE]
     > En este momento, aún no tiene la dirección URL de la aplicación de reproducción.  Si ejecuta la aplicación desde el servidor web localhost, puede usar solo el par de valores de localhost. Una vez implementada la aplicación de reproducción, puede agregar la entrada aquí con la dirección URL implementada.  Si olvida hacerlo, verá un mensaje de error en el inicio de sesión de Azure AD.
 
-1. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save** (Guardar).
 1. Por último, para comprobar que la configuración es correcta, seleccione **Autenticación**.  Aparecerá la vista Autenticación. La aplicación cliente aparecerá como una aplicación de página única (SPA), se mostrará el identificador URI de redirección y el tipo de concesión será Flujo de código de autorización con PKCE.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Configuración de la directiva de clave de contenido de la cuenta de Media Services y las directivas de streaming
@@ -250,7 +250,7 @@ Cambie los valores de `ida_AADOpenIdDiscoveryDocument`, `ida_audience` y `ida_is
 1. Seleccione el inquilino de AAD que usó anteriormente, haga clic en **Registros de aplicaciones** en el menú y, a continuación, haga clic en el vínculo **Puntos de conexión**.
 1. Seleccione y copie el valor del campo **Documento de metadatos de OpenIdConnect** y péguelo en el código como el valor de `ida_AADOpenIdDiscoveryDocument`.
 1. El valor de `ida_audience` es el identificador de aplicación (cliente) de la aplicación registrada *LicenseDeliveryResource2*.
-1. El valor de `ida_issuer` es la dirección URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Reemplace [*tenant_id*] por el identificador del inquilino.
+1. El valor de `ida_issuer` es la dirección URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Reemplace [ *tenant_id* ] por el identificador del inquilino.
 
 ## <a name="set-up-the-sample-player-app"></a>Configuración de la aplicación de reproducción de ejemplo
 
@@ -269,7 +269,7 @@ Tiene dos opciones para configurar la aplicación de reproducción:
 1. Reemplace `OAUTH2_CONST.CLIENT_ID` por el valor de `client_id` de la aplicación cliente registrada en el inquilino de AAD.  Puede encontrar el valor de `client_id` en la sección Información general de la aplicación registrada en Azure Portal. Nota: Es el identificador de cliente, no el identificador de objeto.
 1. Reemplace `OAUTH2_CONST.TENANT_ID` por el valor de `tenant_id` del inquilino de Azure AD. Para encontrar el valor de `tenant_id`, haga clic en el menú de Azure Active Directory. El valor de tenant_id aparecerá en la sección Información general.
 1. Reemplace `OAUTH2_CONST.SCOPE` por el ámbito que agregó en la aplicación cliente registrada. Para encontrar el ámbito, vaya a la aplicación cliente registrada en el menú de **Registros de aplicaciones** y, a continuación, seleccione la aplicación cliente:
-    1. Seleccione la aplicación cliente, haga clic en el menú **Permisos de API** y, a continuación, seleccione el ámbito *DRM.License.Delivery* en el permiso de API *LicenseDeliveryResource2*. El permiso debe tener un formato similar a *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Importante**: Mantenga el espacio delante de `offline_access` en `OAUTH2_CONST.SCOPE`.
+    1. Seleccione la aplicación cliente, haga clic en el menú **Permisos de API** y, a continuación, seleccione el ámbito *DRM.License.Delivery* en el permiso de API *LicenseDeliveryResource2*. El permiso debe tener un formato similar a *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Importante** : Mantenga el espacio delante de `offline_access` en `OAUTH2_CONST.SCOPE`.
 1. Reemplace las dos cadenas constantes por `AMS_CONST`, como se muestra a continuación. Una es la dirección URL de streaming protegida del recurso de prueba y la otra es la dirección URL del certificado de aplicación de FPS, si desea incluir el caso de prueba FairPlay. En caso contrario, puede dejarlo como está para `AMS_CONST.APP_CERT_URL`. A continuación, haga clic en **Guardar**.
 
 ```javascript
@@ -307,13 +307,13 @@ Si tiene previsto usar otro IDE o plataforma web o un servidor web, como IIS, qu
 1. Copie las *carpetas* que se encuentran en la carpeta *public* a la carpeta raíz del nuevo directorio.
 1. Cambie las extensiones de los archivos `.ejs` a `.html`. (No se usa ninguna variable del servidor, por lo que puede cambiarlo de forma segura).
 1. Abra *index.html* en VSC (u otro editor de código) y cambie las rutas de acceso de `<script>` y `<link>` para que reflejen dónde se encuentran los archivos.  Si siguió los pasos anteriores, solo tiene que eliminar la barra `\` en la ruta de acceso.  Por ejemplo, `<script type="text/javascript" src="/javascript/constants.js"></script>` se convierte en `<script type="text/javascript" src="javascript/constants.js"></script>`.
-1. Personalice las constantes del archivo *javascript/constants.js*, como en la opción 1.
+1. Personalice las constantes del archivo *javascript/constants.js* , como en la opción 1.
 
 ## <a name="common-customer-scenarios"></a>Escenarios de cliente comunes
 
 Ahora que ha completado el tutorial y tiene un subsistema en funcionamiento, puede intentar modificarlo para los siguientes escenarios de cliente:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Control de acceso basado en roles (RBAC) para la entrega de licencias mediante la pertenencia a grupos de Azure AD
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Control de acceso basado en rol (Azure RBAC) de Azure para la entrega de licencias mediante la pertenencia a grupos de Azure AD
 
 Hasta ahora, el sistema permite obtener una licencia válida y reproducir el contenido protegido a cualquier usuario que pueda iniciar sesión.
 
@@ -323,12 +323,12 @@ Es un requisito habitual de los clientes que un subconjunto de usuarios autentic
 
 1. Configure dos cuentas en el inquilino. Se pueden llamar *premium_user* y *basic_user*.
 1. Cree un grupo de usuarios y llámelo *PremiumGroup*.
-1. Agregue a *premium_user* como miembro de *PremiumGroup*, pero no agregue al usuario *basic_user* al grupo.
+1. Agregue a *premium_user* como miembro de *PremiumGroup* , pero no agregue al usuario *basic_user* al grupo.
 1. Tome nota del **identificador de objeto** del grupo *PremiumGroup*.
 
 #### <a name="set-up-the-media-services-account"></a>Configuración de la cuenta de Media Services
 
-Modifique `ContentKeyPolicyRestriction` (como se muestra en la sección anterior en la configuración de la cuenta de Media Services); para ello, agregue una notificación llamada *groups*, en la que `ida_EntitledGroupObjectId` tiene el identificador de objeto de *PremiumGroup* como su valor:
+Modifique `ContentKeyPolicyRestriction` (como se muestra en la sección anterior en la configuración de la cuenta de Media Services); para ello, agregue una notificación llamada *groups* , en la que `ida_EntitledGroupObjectId` tiene el identificador de objeto de *PremiumGroup* como su valor:
 
 ```dotnetcli
 

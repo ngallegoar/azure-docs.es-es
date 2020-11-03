@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Vea cómo recuperar, actualizar y eliminar relaciones y gemelos individuales.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c522ac9e1aedbcdfdb4564d17b506b1b490da0c3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150391"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494776"
 ---
 # <a name="manage-digital-twins"></a>Administración de Digital Twins
 
-Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [**API de DigitalTwins**](how-to-use-apis-sdks.md), el [SDK de .NET ( C# )](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Las entidades de su entorno se representan mediante [gemelos digitales](concepts-twins-graph.md). La administración de los gemelos digitales puede incluir las operaciones de creación, modificación y eliminación. Para realizar estas operaciones, puede usar las [**API de DigitalTwins**](/rest/api/digital-twins/dataplane/twins), el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 Este artículo se centra en la administración de gemelos digitales; para trabajar con relaciones y con el [grafo de gemelos](concepts-twins-graph.md) en conjunto, consulte [*Procedimiento: Administración del grafo de gemelos con relaciones*](how-to-manage-graph.md).
 
@@ -25,29 +25,32 @@ Este artículo se centra en la administración de gemelos digitales; para trabaj
 
 ## <a name="create-a-digital-twin"></a>Creación de un gemelo digital
 
-Para crear un gemelo, use el método `CreateDigitalTwin` en el cliente de servicio de la siguiente manera:
+Para crear un gemelo, use el método `CreateDigitalTwin()` en el cliente de servicio de la siguiente manera:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myNewTwinID", initData);
+await client.CreateDigitalTwinAsync("myTwinId", initData);
 ```
 
 Para crear un gemelo digital, debe proporcionar lo siguiente:
 * El identificador deseado para el gemelo digital.
-* El [modelo](concepts-models.md) que quiere usar. 
+* El [modelo](concepts-models.md) que quiere usar.
 
 Opcionalmente, puede proporcionar los valores iniciales de todas las propiedades del gemelo digital. 
 
 Los valores de las propiedades del modelo e iniciales se proporcionan a través del parámetro `initData`, que es una cadena JSON que contiene los datos pertinentes. Para más información sobre cómo estructurar este objeto, vaya a la sección siguiente.
 
 > [!TIP]
-> Después de crear o actualizar un gemelo, puede haber una latencia de hasta 10 segundos antes de que los cambios se reflejen en las [consultas](how-to-query-graph.md). La API de `GetDigitalTwin` (que se describe [más adelante en este artículo](#get-data-for-a-digital-twin)) no experimenta este retraso, por lo que debe usar la llamada API en lugar de realizar una consulta para ver los gemelos recién creados si necesita una respuesta instantánea. 
+> Después de crear o actualizar un gemelo, puede haber una latencia de hasta 10 segundos antes de que los cambios se reflejen en las [consultas](how-to-query-graph.md). La API `GetDigitalTwin` (que se describe [más adelante en este artículo](#get-data-for-a-digital-twin)) no experimenta este retraso, por lo que debe usar la llamada a la API en lugar de realizar una consulta para ver los gemelos recién creados si necesita una respuesta instantánea. 
 
 ### <a name="initialize-model-and-properties"></a>Inicialización del modelo y las propiedades
 
 La API de creación de gemelos acepta un objeto serializado en una descripción JSON válida de las propiedades gemelas. Consulte [*Conceptos: Gemelos digitales y el grafo de gemelos*](concepts-twins-graph.md) para obtener una descripción del formato JSON de un gemelo. 
 
-Primero, creará un objeto de datos para representar el gemelo y sus datos de propiedad. A continuación, puede usar `JsonSerializer` para pasar una versión serializada de este a la llamada API para el parámetro `initdata`.
+En primer lugar, puede crear un objeto de datos para representar el gemelo y los datos de sus propiedades. A continuación, puede usar `JsonSerializer` para pasar una versión serializada de este objeto a la llamada a la API para el parámetro `initdata`, como se muestra a continuación:
 
+```csharp
+await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+```
 Puede crear un objeto de parámetro manualmente o mediante una clase auxiliar proporcionada. A continuación se muestra un ejemplo de cada opción.
 
 #### <a name="create-twins-using-manually-created-data"></a>Creación de gemelos con datos creados manualmente
@@ -58,7 +61,7 @@ Sin el uso de ninguna clase auxiliar personalizada, puede representar las propie
 
 #### <a name="create-twins-with-the-helper-class"></a>Creación de gemelos con la clase auxiliar
 
-La clase auxiliar `BasicDigitalTwin` permite almacenar los campos de propiedades en un objeto "gemelo" más directamente. Aún puede crear la lista de propiedades mediante un elemento `Dictionary<string, object>`, que luego se puede agregar al objeto gemelo como su `CustomProperties` directamente.
+La clase auxiliar `BasicDigitalTwin` permite almacenar los campos de propiedades directamente en un objeto "gemelo". Aún puede crear la lista de propiedades mediante un elemento `Dictionary<string, object>`, que luego se puede agregar al objeto gemelo como su `CustomProperties` directamente.
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
@@ -70,38 +73,48 @@ props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> Los objetos `BasicDigitalTwin` contienen un campo `Id`. Puede dejar este campo vacío, pero si agrega un valor de id., debe coincidir con el parámetro de id. pasado a la llamada `CreateDigitalTwin`. Para el ejemplo anterior, sería:
+> Los objetos `BasicDigitalTwin` contienen un campo `Id`. Puede dejar este campo vacío, pero si agrega un valor de id., debe coincidir con el parámetro de id. pasado a la llamada `CreateDigitalTwin()`. Por ejemplo:
 >
 >```csharp
->twin.Id = "myNewRoomID";
+>twin.Id = "myRoomId";
 >```
 
 ## <a name="get-data-for-a-digital-twin"></a>Obtención de datos para un gemelo digital
 
-Puede acceder a los datos completos de cualquier gemelo digital mediante una llamada a:
+Puede acceder a los detalles de cualquier gemelo digital mediante una llamada al método `GetDigitalTwin()`, como se describe a continuación:
 
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
+Esta llamada devuelve los datos de gemelos como una cadena JSON. Este es un ejemplo de cómo se usa para ver los detalles del gemelo:
 
-Esta llamada devuelve los datos de gemelos como una cadena JSON. 
-
-Solo se devuelven las propiedades que se han establecido al menos una vez cuando se recupera un gemelo con `GetDigitalTwin`.
+```csharp
+Response<string> res = client.GetDigitalTwin("myRoomId");
+twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+foreach (string prop in twin.CustomProperties.Keys)
+{
+  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  Console.WriteLine($"Property '{prop}': {value}");
+}
+```
+Solo se devuelven las propiedades que se han establecido al menos una vez cuando se recupera un gemelo con el método `GetDigitalTwin()`.
 
 >[!TIP]
 >El `displayName` para un gemelo es parte de sus metadatos del modelo, por lo que no se mostrará al obtener los datos de la instancia gemela. Para ver este valor, puede [recuperarlo del modelo](how-to-manage-model.md#retrieve-models).
 
 Para recuperar varios gemelos mediante una única llamada API, consulte los ejemplos de la API de consulta en [*Procedimiento: Consulta del grafo de gemelos*](how-to-query-graph.md).
 
-Tenga en cuenta el siguiente modelo, escrito en el [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL), que define un objeto *Moon*:
+Tenga en cuenta el siguiente modelo, escrito en el [lenguaje de definición de gemelos digitales (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL), que define un objeto *Moon* :
 
 ```json
 {
-    "@id": " dtmi:com:contoso:Moon;1",
+    "@id": "dtmi:example:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "contents": [
@@ -120,8 +133,7 @@ Tenga en cuenta el siguiente modelo, escrito en el [lenguaje de definición de g
     ]
 }
 ```
-
-El resultado de llamar a `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` en un gemelo de tipo *Moon* puede ser similar al siguiente:
+El resultado de llamar a `object result = await client.GetDigitalTwinAsync("my-moon");` en un gemelo de tipo *Moon* puede ser similar al siguiente:
 
 ```json
 {
@@ -130,7 +142,7 @@ El resultado de llamar a `object result = await client.DigitalTwins.GetByIdAsync
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "dtmi:com:contoso:Moon;1",
+    "$model": "dtmi:example:Moon;1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -162,7 +174,7 @@ Puede analizar el JSON devuelto para el gemelo mediante una biblioteca de análi
 También puede usar la clase auxiliar de serialización `BasicDigitalTwin` que se incluye con el SDK, que devolverá los metadatos y las propiedades de gemelos principales en formato analizado previamente. Este es un ejemplo:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
+Response<string> res = client.GetDigitalTwin(twin_Id);
 BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 foreach (string prop in twin.CustomProperties.Keys)
@@ -176,7 +188,7 @@ Puede obtener más información sobre las clases auxiliares de serialización en
 
 ## <a name="update-a-digital-twin"></a>Actualización de un gemelo digital
 
-Para actualizar las propiedades de un gemelo digital, escriba la información que quiere reemplazar en formato de [revisión de JSON](http://jsonpatch.com/). De esta manera, puede reemplazar varias propiedades a la vez. A continuación, pase el documento de revisión de JSON a un método `Update`:
+Para actualizar las propiedades de un gemelo digital, escriba la información que quiere reemplazar en formato de [revisión de JSON](http://jsonpatch.com/). De esta manera, puede reemplazar varias propiedades a la vez. A continuación, pase el documento de revisión de JSON a un método `UpdateDigitalTwin()`:
 
 ```csharp
 await client.UpdateDigitalTwin(id, patch);
@@ -203,7 +215,6 @@ Este es un ejemplo de código de revisión de JSON. En este documento se reempla
   }
 ]
 ```
-
 Puede crear revisiones manualmente o mediante una clase auxiliar de serialización en el [SDK](how-to-use-apis-sdks.md). A continuación se muestra un ejemplo de cada opción.
 
 #### <a name="create-patches-manually"></a>Creación manual de revisiones
@@ -216,7 +227,10 @@ twinData.Add(new Dictionary<string, object>() {
     { "value", 25.0}
 });
 
-await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData));
+await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+Console.WriteLine("Updated twin properties");
+FetchAndPrintTwin(twin_Id, client);
+}
 ```
 
 #### <a name="create-patches-using-the-helper-class"></a>Creación de revisiones con la clase auxiliar
@@ -224,14 +238,14 @@ await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData
 ```csharp
 UpdateOperationsUtility uou = new UpdateOperationsUtility();
 uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
+await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 ```
 
 ### <a name="update-properties-in-digital-twin-components"></a>Actualización de propiedades en componentes de gemelos digitales
 
 Recuerde que un modelo puede contener componentes, lo que permite que esté formado por otros modelos. 
 
-Para revisar las propiedades de los componentes de un gemelo digital, usará la sintaxis de la ruta de acceso en la revisión de JSON:
+Para revisar las propiedades de los componentes de un gemelo digital, puede usar la sintaxis de ruta de acceso en la revisión de JSON:
 
 ```json
 [
@@ -245,7 +259,7 @@ Para revisar las propiedades de los componentes de un gemelo digital, usará la 
 
 ### <a name="update-a-digital-twins-model"></a>Actualización de un modelo de gemelo digital
 
-La función `Update` también puede usarse para migrar un gemelo digital a un modelo diferente. 
+La función `UpdateDigitalTwin()` también puede usarse para migrar un gemelo digital a un modelo diferente. 
 
 Por ejemplo, tenga en cuenta el siguiente documento de revisión de JSON que reemplaza el campo `$model` de los metadatos del gemelo digital:
 
@@ -254,7 +268,7 @@ Por ejemplo, tenga en cuenta el siguiente documento de revisión de JSON que ree
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "dtmi:com:contoso:foo;1"
+    "value": "dtmi:example:foo;1"
   }
 ]
 ```
@@ -273,7 +287,7 @@ La revisión para esta situación debe actualizar tanto el modelo como la propie
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "dtmi:com:contoso:foo_new"
+    "value": "dtmi:example:foo_new"
   },
   {
     "op": "add",
@@ -298,9 +312,9 @@ Las dos llamadas que modifican *Gemelo1* se ejecutan una tras otra, y se generan
 
 ## <a name="delete-a-digital-twin"></a>Eliminación de un gemelo digital
 
-Puede eliminar gemelos con `DeleteDigitalTwin(ID)`. Sin embargo, solo puede eliminar un gemelo si este no tiene más relaciones. Primero debe eliminar todas las relaciones. 
+Puede eliminar gemelos con el método `DeleteDigitalTwin()`. Sin embargo, solo puede eliminar un gemelo si este no tiene más relaciones. Por lo tanto, elimine primero las relaciones de entrada y salida del gemelo.
 
-A continuación se muestra un ejemplo del código para realizar esta operación:
+Este es un ejemplo de código para eliminar gemelos y sus relaciones:
 
 ```csharp
 static async Task DeleteTwin(string id)
@@ -344,7 +358,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
     try
     {
-        // GetRelationshipssAsync will throw an error if a problem occurs
+        // GetRelationshipsAsync will throw an error if a problem occurs
         AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
         await foreach (IncomingRelationship incomingRel in incomingRels)
@@ -359,20 +373,199 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     }
 }
 ```
-
 ### <a name="delete-all-digital-twins"></a>Eliminación de todos los gemelos digitales
 
-Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue la aplicación de ejemplo que se usa en el [*Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllTwins`.
+Para obtener un ejemplo de cómo eliminar todos los gemelos a la vez, descargue la aplicación de ejemplo que se usa en [Tutorial: Exploración de los conceptos básicos con una aplicación cliente de ejemplo](tutorial-command-line-app.md). El archivo *CommandLoop.cs* realiza esta acción en una función `CommandDeleteAllTwins()`.
+
+## <a name="manage-twins-using-runnable-code-sample"></a>Administración de gemelos mediante el ejemplo de código ejecutable
+
+Puede usar el ejemplo de código ejecutable siguiente para crear un gemelo, actualizar sus detalles y eliminar el gemelo. 
+
+### <a name="set-up-the-runnable-sample"></a>Configuración del ejemplo ejecutable
+
+En el fragmento de código se usa la definición de modelo [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) de [*Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). Puede usar este vínculo para ir directamente al archivo o descargarlo como parte del proyecto de ejemplo completo de un extremo a otro [aquí](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+
+Antes de ejecutar el ejemplo, haga lo siguiente:
+1. Descargue el archivo del modelo, colóquelo en el proyecto y reemplace el marcador de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
+2. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
+3. Agregue estos paquetes al proyecto:
+    ```cmd/sh
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+    dotnet add package Azure.identity
+    ```
+
+También necesitará configurar las credenciales locales si desea ejecutar el ejemplo directamente. La siguiente sección le indicará cómo hacerlo.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Ejecución del ejemplo
+
+Después de completar los pasos anteriores, puede ejecutar directamente el siguiente código de ejemplo.
+
+```csharp
+using System;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections.Generic;
+using Azure;
+using Azure.DigitalTwins.Core.Serialization;
+using System.Text.Json;
+
+namespace minimal
+{
+    class Program
+    {
+
+        public static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+
+            //Create the Azure Digital Twins client for API calls
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            Console.WriteLine($"Service client created – ready to go");
+            Console.WriteLine();
+
+            //Upload models
+            Console.WriteLine($"Upload a model");
+            Console.WriteLine();
+            string dtdl = File.ReadAllText("<path-to>/Room.json");
+            var typeList = new List<string>();
+            typeList.Add(dtdl);
+            // Upload the model to the service
+            await client.CreateModelsAsync(typeList);
+
+            //Create new digital twin
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            string twin_Id = "myRoomId";
+            twin.Metadata = new DigitalTwinMetadata();
+            twin.Metadata.ModelId = "dtmi:example:Room;1";
+            // Initialize properties
+            Dictionary<string, object> props = new Dictionary<string, object>();
+            props.Add("Temperature", 35.0);
+            props.Add("Humidity", 55.0);
+            twin.CustomProperties = props;
+            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            Console.WriteLine("Twin created successfully");
+            Console.WriteLine();
+
+            //Print twin
+            Console.WriteLine("--- Printing twin details:");
+            twin = FetchAndPrintTwin(twin_Id, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+
+            //Update twin data
+            List<object> twinData = new List<object>();
+            twinData.Add(new Dictionary<string, object>() 
+            {
+                { "op", "add"},
+                { "path", "/Temperature"},
+                { "value", 25.0}
+            });
+            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+            Console.WriteLine("Twin properties updated");
+            Console.WriteLine();
+
+            //Print twin again
+            Console.WriteLine("--- Printing twin details (after update):");
+            FetchAndPrintTwin(twin_Id, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+
+            //Delete twin
+            await DeleteTwin(client, twin_Id);
+        }
+
+        private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
+        {
+            BasicDigitalTwin twin;
+            Response<string> res = client.GetDigitalTwin(twin_Id);
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+            foreach (string prop in twin.CustomProperties.Keys)
+            {
+                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                    Console.WriteLine($"Property '{prop}': {value}");
+            }
+
+            return twin;
+        }
+        private static async Task DeleteTwin(DigitalTwinsClient client, string id)
+        {
+            await FindAndDeleteOutgoingRelationshipsAsync(client, id);
+            await FindAndDeleteIncomingRelationshipsAsync(client, id);
+            try
+            {
+                await client.DeleteDigitalTwinAsync(id);
+                Console.WriteLine("Twin deleted successfully");
+            }
+            catch (RequestFailedException exc)
+            {
+                Console.WriteLine($"*** Error:{exc.Message}");
+            }
+        }
+
+        private static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+
+                await foreach (string relJson in relsJson)
+                {
+                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+                    await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+       private static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+
+                await foreach (IncomingRelationship incomingRel in incomingRels)
+                {
+                    await client.DeleteRelationshipAsync(incomingRel.SourceId, incomingRel.RelationshipId).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted incoming relationship {incomingRel.RelationshipId} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"_*_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+    }
+}
+
+```
+Esta es la salida de consola del programa anterior: 
+
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Salida de consola que muestra que el gemelo se crea, se actualiza y se elimina" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## <a name="manage-twins-with-cli"></a>Administración de gemelos con la CLI
 
-Los gemelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+Los gemelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [Procedimiento: Uso de la CLI de Azure Digital Twins](how-to-use-cli.md).
 
 ## <a name="view-all-digital-twins"></a>Visualización de todos los gemelos digitales
 
-Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](how-to-use-apis-sdks.md) o los [comandos de la CLI](how-to-use-cli.md).
+Para ver todos los gemelos digitales de la instancia, use una [consulta](how-to-query-graph.md). Puede ejecutar una consulta con las [API de consulta](/rest/api/digital-twins/dataplane/query) o los [comandos de la CLI](how-to-use-cli.md).
 
 Este es el cuerpo de la consulta básica que devolverá una lista de todos los gemelos digitales en la instancia:
 

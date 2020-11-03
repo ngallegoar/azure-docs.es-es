@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996340"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426640"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Intercambio de mensajes en la nube con Azure Logic Apps y Azure Service Bus
 
@@ -47,20 +47,20 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
-1. Vaya al *espacio de nombres* de Service Bus. En la página del espacio de nombres, en **Configuración**, seleccione **Directivas de acceso compartido**. En **Notificaciones**, compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
+1. Vaya al *espacio de nombres* de Service Bus. En la página del espacio de nombres, en **Configuración** , seleccione **Directivas de acceso compartido**. En **Notificaciones** , compruebe que tenga permisos de **Administrador** para ese espacio de nombres.
 
    ![Administración de permisos para el espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
 1. Obtenga la cadena de conexión para el espacio de nombres de Service Bus. La necesita al proporcionar la información de conexión en la aplicación lógica.
 
-   1. En el panel **Directivas de acceso compartido**, seleccione **RootManageSharedAccessKey**.
+   1. En el panel **Directivas de acceso compartido** , seleccione **RootManageSharedAccessKey**.
 
    1. Al lado de la cadena de conexión principal, elija el botón de copia. Guarde la cadena de conexión para usarla más adelante.
 
       ![Copia de la cadena de conexión del espacio de nombres de Service Bus](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar si la cadena de conexión está asociada al espacio de nombres de Service Bus o a una entidad de mensajería, como una cola, compruebe la cadena de conexión del parámetro `EntityPath` . Si encuentra este parámetro, la cadena de conexión es para una entidad específica y no es la correcta para la aplicación lógica.
+   > Para confirmar si la cadena de conexión está asociada al espacio de nombres de Service Bus o a una entidad de mensajería, como una cola, compruebe la cadena de conexión del parámetro `EntityPath`. Si encuentra este parámetro, la cadena de conexión es para una entidad específica y no es la correcta para la aplicación lógica.
 
 ## <a name="add-service-bus-trigger"></a>Adición del desencadenador de Service Bus
 
@@ -68,18 +68,22 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en blanco en el Diseñador de aplicación lógica.
 
-1. En el cuadro de búsqueda, escriba "Azure Service Bus" como filtro. En la lista de desencadenadores, seleccione el desencadenador que desee.
+1. En el cuadro de búsqueda del portal, escriba `azure service bus`. Seleccione el desencadenador que desee en la lista de desencadenadores que aparece.
 
    Por ejemplo, para desencadenar la aplicación lógica cuando un nuevo elemento se envía a una cola de Service Bus, seleccione el desencadenador **Cuando se recibe un mensaje en una cola (autocompletar)** .
 
    ![Selección de un desencadenador de Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Todos los desencadenadores de Service Bus son desencadenadores de *sondeo prolongado*. Esto significa que, cuando se activa un desencadenador, este procesa todos los mensajes y espera 30 segundos a que aparezcan más en la suscripción del tema o la cola. Si no es el caso, se omite la ejecución del desencadenador. De lo contrario, el desencadenador sigue leyendo mensajes hasta que la suscripción del tema o de la cola se queda vacía. El siguiente sondeo del desencadenador se basa en el intervalo de periodicidad especificado en las propiedades del desencadenador.
+   Estas son algunas consideraciones que se deben tener en cuenta cuando se usa un desencadenador de Service Bus:
 
-   Algunos desencadenadores, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** , pueden devolver uno o más mensajes. Cuando se activan estos desencadenadores, devuelven entre uno y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
+   * Todos los desencadenadores de Service Bus son desencadenadores de *sondeo prolongado*. Esto significa que, cuando se activa un desencadenador, este procesa todos los mensajes y espera 30 segundos a que aparezcan más en la suscripción del tema o la cola. Si no es el caso, se omite la ejecución del desencadenador. De lo contrario, el desencadenador sigue leyendo mensajes hasta que la suscripción del tema o de la cola se queda vacía. El siguiente sondeo del desencadenador se basa en el intervalo de periodicidad especificado en las propiedades del desencadenador.
 
-    > [!NOTE]
-    > El desencadenador de autocompletar completa automáticamente un mensaje, pero el completado solo se produce en la siguiente llamada a Service Bus. Este comportamiento puede afectar al diseño de la aplicación lógica. Por ejemplo, evite cambiar la simultaneidad en el desencadenador de Autocompletar, ya que este cambio podría dar lugar a mensajes duplicados si la aplicación lógica entra en un estado limitado. El cambio del control de simultaneidad crea estas condiciones: los desencadenadores limitados se omiten con el código `WorkflowRunInProgress`, no se produce la operación de finalización y la siguiente ejecución del desencadenador se produce después del intervalo de sondeo. Debe establecer la duración del bloqueo de Service Bus en un valor que sea mayor que el intervalo de sondeo. Pero a pesar de esta configuración, el mensaje todavía podría no completarse si la aplicación lógica permanece en un estado limitado en el siguiente intervalo de sondeo.
+   * Algunos desencadenadores, como **Cuando llegan uno o más mensajes a una cola (autocompletar)** , pueden devolver uno o más mensajes. Cuando se activan estos desencadenadores, devuelven entre uno y el número de mensajes especificados por la propiedad **Recuento máximo de mensajes** del desencadenador.
+
+     > [!NOTE]
+     > El desencadenador de autocompletar completa automáticamente un mensaje, pero el completado solo se produce en la siguiente llamada a Service Bus. Este comportamiento puede afectar al diseño de la aplicación lógica. Por ejemplo, evite cambiar la simultaneidad en el desencadenador de Autocompletar, ya que este cambio podría dar lugar a mensajes duplicados si la aplicación lógica entra en un estado limitado. El cambio del control de simultaneidad crea estas condiciones: los desencadenadores limitados se omiten con el código `WorkflowRunInProgress`, no se produce la operación de finalización y la siguiente ejecución del desencadenador se produce después del intervalo de sondeo. Debe establecer la duración del bloqueo de Service Bus en un valor que sea mayor que el intervalo de sondeo. Pero a pesar de esta configuración, el mensaje todavía podría no completarse si la aplicación lógica permanece en un estado limitado en el siguiente intervalo de sondeo.
+
+   * Si [activa la configuración de simultaneidad](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) para un desencadenador de Service Bus, el valor predeterminado de la propiedad `maximumWaitingRuns` es 10. Según la configuración de duración de bloqueo de la entidad de Service Bus y la duración de ejecución de la instancia de la aplicación lógica, este valor predeterminado podría ser demasiado grande y podría producir una excepción de tipo "bloqueo perdido". Para encontrar el valor óptimo para su escenario, inicie las pruebas con un valor de 1 o 2 para la propiedad `maximumWaitingRuns`. Para cambiar el valor máximo de ejecuciones en espera, consulte [Cambio del límite de ejecuciones de espera](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
 1. Si el desencadenador se conecta a su espacio de nombres de Service Bus por primera vez, siga estos pasos cuando el Diseñador de aplicación lógica le pida información de conexión.
 
@@ -113,13 +117,13 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el Diseñador de aplicación lógica.
+1. En [Azure Portal](https://portal.azure.com), abra la aplicación lógica en Diseñador de aplicación lógica.
 
 1. En el paso en el que quiera agregar una acción, seleccione **Nuevo paso**.
 
    También, para agregar una acción entre un paso y otro, mueva el puntero por encima de la flecha entre ellos. Seleccione el signo más ( **+** ) que aparece y elija **Agregar una acción**.
 
-1. En **Elegir una acción**, en el cuadro de búsqueda, escriba "Azure Service Bus" como filtro. En la lista de acciones, seleccione la que desee. 
+1. En **Elegir una acción** , en el cuadro de búsqueda, escriba `azure service bus`. Seleccione la acción que desee en la lista de acciones que aparece. 
 
    En este ejemplo, seleccione la acción **Enviar mensaje**.
 
@@ -161,7 +165,7 @@ Confirme que la aplicación lógica tiene permiso para acceder al espacio de nom
 
 Cuando necesite enviar mensajes relacionados en un orden específico, puede usar el patrón [*convoy secuencial*](/azure/architecture/patterns/sequential-convoy) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
 
-Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por orden correlacionada mediante sesiones de Service Bus**, que implementa el patrón de convoy secuencial. Para más información, vea [Enviar mensajes relacionados en orden](../logic-apps/send-related-messages-sequential-convoy.md).
+Al crear una aplicación lógica, puede seleccionar la plantilla **Entrega por orden correlacionada mediante sesiones de Service Bus** , que implementa el patrón de convoy secuencial. Para más información, vea [Enviar mensajes relacionados en orden](../logic-apps/send-related-messages-sequential-convoy.md).
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Retrasos en el efecto de las actualizaciones de la aplicación lógica
 

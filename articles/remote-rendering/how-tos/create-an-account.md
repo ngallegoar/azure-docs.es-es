@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fb321aeeae1f0ef5aaadce22e228024895176143
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202657"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427484"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Creación de una cuenta de Azure Remote Rendering
 
@@ -30,8 +30,8 @@ Los siguientes pasos son necesarios para crear una cuenta para el servicio de Az
     1. Establezca "Grupo de recursos" en el grupo de recursos que desee.
     1. Seleccione una región de la lista desplegable de "ubicación" en la que se debe crear este recurso. Vea los comentarios en las [regiones de la cuenta](create-an-account.md#account-regions) a continuación.
 1. Una vez creada la cuenta, vaya a ella y:
-    1. En la pestaña *Información general*, anote el identificador de cuenta.
-    1. En la pestaña *Configuración > Claves de acceso*, anote la clave principal, que es la clave de cuenta secreta de la cuenta.
+    1. En la pestaña *Información general* , anote el identificador de cuenta.
+    1. En la pestaña *Configuración > Claves de acceso* , anote la clave principal, que es la clave de cuenta secreta de la cuenta.
 
 ### <a name="account-regions"></a>Regiones de la cuenta
 La ubicación que se especifica durante el tiempo de creación de una cuenta determina la región a la que se asigna el recurso de la cuenta. Esto no se puede cambiar después de la creación. Sin embargo, la cuenta se puede usar para conectarse a una sesión de Remote Rendering en cualquier [región admitida](./../reference/regions.md), independientemente de la ubicación de la cuenta.
@@ -85,14 +85,14 @@ Ahora se supone que tiene una cuenta de almacenamiento. Vaya a ella en el portal
 
 ![IAM de la cuenta de almacenamiento: Agregar asignación de roles](./media/azure-add-role-assignment.png)
 
-* El primer rol que se va a asignar es el de **Propietario**, como se muestra en la captura de pantalla anterior.
+* El primer rol que se va a asignar es el de **Propietario** , como se muestra en la captura de pantalla anterior.
 * Seleccione la cuenta **Remote Rendering** en la lista desplegable de **Asignar acceso a**.
 * Seleccione la suscripción y la cuenta de Remote Rendering en las últimas listas desplegables.
 
 > [!WARNING]
 > En caso de que la cuenta de Remote Rendering no aparezca en la lista, consulte la [sección de solución de problemas](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
-Repita la adición de nuevos roles dos veces más para las selecciones correspondientes en la lista desplegable **Rol**:
+Repita la adición de nuevos roles dos veces más para las selecciones correspondientes en la lista desplegable **Rol** :
 
 * **Colaborador de la cuenta de almacenamiento**
 * **Colaborador de datos de blobs de almacenamiento**
@@ -101,7 +101,7 @@ Las demás listas desplegables se seleccionan como en el primer paso.
 
 Si ha agregado los tres roles, la cuenta de Azure Remote Rendering tiene acceso a la cuenta de almacenamiento mediante las identidades de servicio administradas asignadas por el sistema.
 > [!IMPORTANT]
-> Azure Storage almacena en caché las asignaciones de roles de Azure, por lo que puede haber un retraso de hasta 30 minutos entre el momento en que se concede acceso a la cuenta de representación remota y el momento en que se puede usar para acceder a la cuenta de almacenamiento. Para más información, consulte la [documentación sobre el control de acceso basado en rol](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected).
+> Azure Storage almacena en caché las asignaciones de roles de Azure, por lo que puede haber un retraso de hasta 30 minutos entre el momento en que se concede acceso a la cuenta de representación remota y el momento en que se puede usar para acceder a la cuenta de almacenamiento. Consulte [Documentación del control de acceso basado en roles de Azure (RBAC de Azure)](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) para más información.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -5,12 +5,12 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a13713f01a6bdb0ffcd787ef9c1d2f9a0336f63c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318516"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369563"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integración de la compatibilidad de Apache Kafka Connect en Azure Event Hubs (versión preliminar) con Debezium para operaciones de captura de datos modificados
 
@@ -98,6 +98,10 @@ consumer.sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModul
 
 plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka release
 ```
+
+> [!IMPORTANT]
+> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de la cadena de conexión de un centro de eventos](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 
 ### <a name="run-kafka-connect"></a>Ejecución de Kafka Connect
 En este paso, un trabajo de Kafka Connect se inicia localmente en modo distribuido, con Event Hubs para mantener el estado del clúster.
@@ -277,7 +281,7 @@ Kafka Connect crea temas de centro de eventos para almacenar las configuraciones
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Event Hubs para Kafka, vea los artículos siguientes:  
+Para obtener más información acerca de Event Hubs para Kafka, consulte los artículos siguientes:  
 
 - [Reflejo de un agente de Kafka en un centro de eventos](event-hubs-kafka-mirror-maker-tutorial.md)
 - [Conexión de Apache Spark a un centro de eventos](event-hubs-kafka-spark-tutorial.md)

@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c71a7d4737ad34c43df1aa302d9517c61ed400b2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019025"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440797"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Descripción de los modelos gemelos de Azure Digital Twins
 
 Una característica clave de Azure Digital Twins es la capacidad de definir su propio vocabulario y crear el grafo de gemelos en los términos de la empresa definidos de manera automática. Esta funcionalidad la proporcionan los **modelos** definidos por el usuario. Puede considerar los modelos como los nombres de una descripción de su mundo. 
 
-Un modelo es similar a una **clase** en un lenguaje de programación orientado a objetos, el que define una forma de datos para un concepto determinado en el entorno de trabajo real. Los modelos tienen nombres (como *Sala* o *SensorDeTemperatura*) y contienen elementos como propiedades, telemetría/eventos y comandos que describen lo que puede hacer este tipo de entidad en el entorno. Más adelante usará estos modelos para crear [**gemelos digitales**](concepts-twins-graph.md) que representen entidades específicas que cumplan con esta descripción de tipo.
+Un modelo es similar a una **clase** en un lenguaje de programación orientado a objetos, el que define una forma de datos para un concepto determinado en el entorno de trabajo real. Los modelos tienen nombres (como *Sala* o *SensorDeTemperatura* ) y contienen elementos como propiedades, telemetría/eventos y comandos que describen lo que puede hacer este tipo de entidad en el entorno. Más adelante usará estos modelos para crear [**gemelos digitales**](concepts-twins-graph.md) que representen entidades específicas que cumplan con esta descripción de tipo.
 
 Los modelos se escriben con el **lenguaje de definición de gemelos digitales (DTDL)** basado en JSON-LD.  
 
@@ -38,18 +38,18 @@ Azure Digital Twins usa la **_versión 2_ de DTDL**. Para más información sobr
 Dentro de una definición de modelo, el elemento de código de nivel superior es una **interfaz**. Encapsula todo el modelo y el resto del modelo se define dentro de la interfaz. 
 
 Una interfaz de modelo de DTDL puede contener cero, uno o varios de los campos siguientes:
-* **Propiedad**: las propiedades son campos de datos que representan el estado de una entidad (como las propiedades de muchos lenguajes de programación orientados a objetos). Las propiedades tienen almacenamiento de seguridad y se pueden leer en cualquier momento.
-* **Telemetría**: los campos de telemetría representan medidas o eventos y a menudo se usan para describir las lecturas de los sensores del dispositivo. A diferencia de las propiedades, la telemetría no se almacena en un gemelo digital; es una serie de eventos de datos con límites temporales, que deben administrarse a medida que se producen. Para obtener más información sobre las diferencias entre propiedades y telemetría, consulte la sección [*Propiedades frente a telemetría*](#properties-vs-telemetry) a continuación.
-* **Componente**: los componentes permiten compilar la interfaz de modelo como un ensamblado de otras interfaces, si lo desea. Un ejemplo de componente es una interfaz *cámaraFrontal* (y otra interfaz de componente *cámaraPosterior*) que se usa para definir un modelo para un *teléfono*. Primero debe definir una interfaz para *cámaraFrontal* como si fuera su propio modelo y, luego, puede hacer referencia a ella al definir el *Teléfono*.
+* **Propiedad** : las propiedades son campos de datos que representan el estado de una entidad (como las propiedades de muchos lenguajes de programación orientados a objetos). Las propiedades tienen almacenamiento de seguridad y se pueden leer en cualquier momento.
+* **Telemetría** : los campos de telemetría representan medidas o eventos y a menudo se usan para describir las lecturas de los sensores del dispositivo. A diferencia de las propiedades, la telemetría no se almacena en un gemelo digital; es una serie de eventos de datos con límites temporales, que deben administrarse a medida que se producen. Para obtener más información sobre las diferencias entre propiedades y telemetría, consulte la sección [*Propiedades frente a telemetría*](#properties-vs-telemetry) a continuación.
+* **Componente** : los componentes permiten compilar la interfaz de modelo como un ensamblado de otras interfaces, si lo desea. Un ejemplo de componente es una interfaz *cámaraFrontal* (y otra interfaz de componente *cámaraPosterior* ) que se usa para definir un modelo para un *teléfono*. Primero debe definir una interfaz para *cámaraFrontal* como si fuera su propio modelo y, luego, puede hacer referencia a ella al definir el *Teléfono*.
 
     Use un componente para describir algo que es una parte integral de la solución, pero no necesita una identidad independiente y no es necesario crearla, eliminarla ni reorganizarla en el grafo de gemelos de forma independiente. Si quiere que las entidades tengan existencias independientes en el grafo de gemelos, represéntelas como gemelos digitales independientes de distintos modelos, conectadas por *relaciones* (consulte la viñeta siguiente).
     
     >[!TIP] 
     >Los componentes también se pueden usar para la organización, a fin de agrupar conjuntos de propiedades relacionadas dentro de una interfaz de modelo. En esta situación, puede considerar cada componente como un espacio de nombres o "carpeta" dentro de la interfaz.
-* **Relación**: las relaciones permiten representar cómo un gemelo digital puede estar implicado con otros gemelos digitales. Las relaciones pueden representar distintos significados semánticos, como *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Las relaciones permiten que la solución proporcione un grafo de las entidades interrelacionadas.
+* **Relación** : las relaciones permiten representar cómo un gemelo digital puede estar implicado con otros gemelos digitales. Las relaciones pueden representar distintos significados semánticos, como *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Las relaciones permiten que la solución proporcione un grafo de las entidades interrelacionadas.
 
 > [!NOTE]
-> La [especificación de DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) también define **comandos**, que son métodos que se pueden ejecutar en un gemelo digital (como un comando de restablecimiento o un comando para encender o apagar un ventilador). Sin embargo, *en este momento no se admiten comandos en Azure Digital Twins*.
+> La [especificación de DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) también define **comandos** , que son métodos que se pueden ejecutar en un gemelo digital (como un comando de restablecimiento o un comando para encender o apagar un ventilador). Sin embargo, *en este momento no se admiten comandos en Azure Digital Twins*.
 
 ### <a name="properties-vs-telemetry"></a>Propiedades frente a telemetría
 
@@ -84,9 +84,9 @@ Azure Digital Twins tampoco observa el atributo `writable` en las propiedades o 
 
 Los modelos de tipo gemelo se pueden escribir en cualquier editor de texto. El lenguaje DTDL sigue la sintaxis JSON, por lo que debe almacenar los modelos con la extensión *.json*. El uso de la extensión JSON permitirá que muchos editores de texto de programación proporcionen comprobación de sintaxis básica y resaltado para los documentos de DTDL. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/).
 
-Esta sección contiene un ejemplo de un modelo típico, escrito como una interfaz DTDL. El modelo describe los **planetas**, cada uno con un nombre, una masa y una temperatura.
+Esta sección contiene un ejemplo de un modelo típico, escrito como una interfaz DTDL. El modelo describe los **planetas** , cada uno con un nombre, una masa y una temperatura.
  
-Tenga en cuenta que los planetas también pueden interactuar con **lunas**, que son sus satélites, y pueden contener **cráteres**. En el ejemplo siguiente, el modelo `Planet` expresa las conexiones con estas otras entidades haciendo referencia a dos modelos externos: `Moon` y `Crater`. Estos modelos también se definen en el código de ejemplo siguiente, pero se mantienen muy simples para no restar valor al ejemplo principal `Planet`.
+Tenga en cuenta que los planetas también pueden interactuar con **lunas** , que son sus satélites, y pueden contener **cráteres**. En el ejemplo siguiente, el modelo `Planet` expresa las conexiones con estas otras entidades haciendo referencia a dos modelos externos: `Moon` y `Crater`. Estos modelos también se definen en el código de ejemplo siguiente, pero se mantienen muy simples para no restar valor al ejemplo principal `Planet`.
 
 ```json
 [
@@ -144,10 +144,10 @@ Los campos del modelo son los siguientes:
 | `@type` | Identifica el tipo de información que se describe. En el caso de una interfaz, el tipo es *Interfaz*. |
 | `@context` | Establece el [contexto](https://niem.github.io/json/reference/json-ld/context/) del documento JSON. Los modelos deben usar `dtmi:dtdl:context;2`. |
 | `displayName` | [opcional] Permite asignar un nombre descriptivo al modelo, si lo desea. |
-| `contents` | Todos los datos restantes de la interfaz se colocan aquí, como una matriz de definiciones de atributo. Cada atributo debe proporcionar un elemento `@type` (*Propiedad*, *Telemetría*, *Comando*, *Relación* o *Componente*) para identificar el tipo de información de interfaz que describe y, luego, un conjunto de propiedades que definen el atributo real (por ejemplo, `name` y `schema` para definir una *Propiedad*). |
+| `contents` | Todos los datos restantes de la interfaz se colocan aquí, como una matriz de definiciones de atributo. Cada atributo debe proporcionar un elemento `@type` ( *Propiedad* , *Telemetría* , *Comando* , *Relación* o *Componente* ) para identificar el tipo de información de interfaz que describe y, luego, un conjunto de propiedades que definen el atributo real (por ejemplo, `name` y `schema` para definir una *Propiedad* ). |
 
 > [!NOTE]
-> Tenga en cuenta que la interfaz de componente (em este ejemplo, *Cráter*) se define en la misma matriz que la interfaz que la usa (*Planeta*). Los componentes se deben definir de esta manera en las llamadas API para encontrar la interfaz.
+> Tenga en cuenta que la interfaz de componente (em este ejemplo, *Cráter* ) se define en la misma matriz que la interfaz que la usa ( *Planeta* ). Los componentes se deben definir de esta manera en las llamadas API para encontrar la interfaz.
 
 ### <a name="possible-schemas"></a>Esquemas posibles
 
@@ -222,7 +222,7 @@ En este ejemplo, *CuerpoCelestial* aporte un nombre, una masa y una temperatura 
 
 Una vez que se aplica la herencia, la interfaz de extensión expone todas las propiedades de toda la cadena de herencia.
 
-La interfaz de extensión no puede cambiar ninguna de las definiciones de las interfaces primarias; solo puede agregar a ellas. Tampoco puede volver a definir una funcionalidad que ya esté definida en ninguna de sus interfaces primarias (incluso si las funcionalidades están definidas para ser iguales). Por ejemplo, si una interfaz primaria define una propiedad `double` *masa*, la interfaz de extensión no puede contener una declaración de *masa*, incluso si también es `double`.
+La interfaz de extensión no puede cambiar ninguna de las definiciones de las interfaces primarias; solo puede agregar a ellas. Tampoco puede volver a definir una funcionalidad que ya esté definida en ninguna de sus interfaces primarias (incluso si las funcionalidades están definidas para ser iguales). Por ejemplo, si una interfaz primaria define una propiedad `double` *masa* , la interfaz de extensión no puede contener una declaración de *masa* , incluso si también es `double`.
 
 ## <a name="validating-models"></a>Validación de modelos
 
@@ -230,7 +230,7 @@ La interfaz de extensión no puede cambiar ninguna de las definiciones de las in
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte cómo administrar modelos con las API DigitalTwinsModels:
+Consulte cómo administrar modelos con las API DigitalTwinModels:
 * [*Procedimiento: Administración de modelos personalizados*](how-to-manage-model.md)
 
 O bien aprenda cómo los gemelos digitales se crean basados en modelos:

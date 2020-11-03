@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267642"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424737"
 ---
 # <a name="scenario-isolating-vnets"></a>Escenario: Aislamiento de redes virtuales
 
@@ -26,10 +26,10 @@ En este escenario, la carga de trabajo dentro de una red virtual concreta perman
 
 | De |   A |  *Redes virtuales* | *Ramas* |
 | -------------- | -------- | ---------- | ---|
-| Redes virtuales     | &#8594;|           |     X    |
-| Ramas   | &#8594;|    X     |     X    |
+| Redes virtuales     | &#8594;| Directo |   Directo    |
+| Ramas   | &#8594;|  Directo  |   Directo    |
 
-Cada una de las celdas de la tabla anterior describe si una conexión de Virtual WAN (el lado "From" del flujo, los encabezados de fila) aprende un prefijo de destino (el lado "To" del flujo, los encabezados de columna en cursiva) para un flujo de tráfico concreto, donde una "X" significa que la conectividad la proporciona Virtual WAN.
+En cada una de las celdas de la tabla anterior se describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila) se comunica con un prefijo de destino (el lado "A" del flujo, los encabezados de columna en cursiva). En este escenario no hay ningún firewall ni dispositivo virtual de red, por lo que la comunicación fluye directamente mediante Virtual WAN (de ahí la palabra "Directo" en la tabla).
 
 Esta matriz de conectividad nos proporciona dos patrones de fila diferentes, que se traducen en dos tablas de enrutamiento. Virtual WAN ya tiene una tabla de enrutamiento predeterminada, por lo que hará falta otra. En este ejemplo, se asignará el nombre **RT_VNET** a la tabla de enrutamiento.
 
@@ -42,7 +42,7 @@ Las redes virtuales se asociarán a la tabla de enrutamiento **RT_VNET**. Como n
   * Tabla de enrutamiento asociada: **Valor predeterminado**
   * Propagación a tablas de enrutamiento: **RT_VNET** y **Valor predeterminado**
 
-Tenga en cuenta que, puesto que las ramas son los únicos elementos que se propagan a la tabla de enrutamiento **RT_VNET**, serán los únicos prefijos que aprenderán las redes virtuales y no las de otras redes virtuales.
+Tenga en cuenta que, puesto que las ramas son los únicos elementos que se propagan a la tabla de enrutamiento **RT_VNET** , serán los únicos prefijos que aprenderán las redes virtuales y no las de otras redes virtuales.
 
 Para obtener información sobre el enrutamiento de centros virtuales, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 
@@ -51,10 +51,10 @@ Para obtener información sobre el enrutamiento de centros virtuales, consulte [
 Para poder configurar este escenario, tenga en cuenta los siguientes pasos:
 
 1. Cree una tabla de enrutamiento personalizada en cada centro. En el ejemplo, la tabla de ruta es **RT_VNet**. Para crear una tabla de rutas, consulte [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md). Para obtener más información sobre las tablas de rutas, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
-2. Cuando cree la tabla de rutas **RT_VNet**, configure las siguientes opciones:
+2. Cuando cree la tabla de rutas **RT_VNet** , configure las siguientes opciones:
 
-   * **Asociación**: Seleccione las redes virtuales que desea aislar.
-   * **Propagación**: Seleccione la opción para las ramas, e indique que las conexiones de rama (VPN/ER/P2S) propagarán las rutas a esta tabla de rutas.
+   * **Asociación** : Seleccione las redes virtuales que desea aislar.
+   * **Propagación** : Seleccione la opción para las ramas, e indique que las conexiones de rama (VPN/ER/P2S) propagarán las rutas a esta tabla de rutas.
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="Redes virtuales aisladas":::
 

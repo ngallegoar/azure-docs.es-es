@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dc7c343087e4fc11aef20e95bc9cafea20a99b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776056"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92672855"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Protección de un área de trabajo de Azure Machine Learning con redes virtuales
 
@@ -43,12 +43,12 @@ En este artículo aprenderá a habilitar los siguientes recursos de áreas de tr
 
 + Una red virtual y una subred existentes que se usarán con los recursos de proceso.
 
-+ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en rol (RBAC) de Azure:
++ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en roles de Azure (Azure RBAC):
 
     - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
-    Para obtener más información sobre RBAC con redes, vea los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
+    Para obtener más información sobre Azure RBAC con redes, consulte los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Protección del área de trabajo con punto de conexión privado
@@ -78,14 +78,19 @@ Para usar una cuenta de Azure Storage para el área de trabajo en una red virtua
 
    ![El área "Firewalls y redes virtuales" de la página de Azure Storage de Azure Portal](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
 
-1. En la página __Firewalls y redes virtuales__, realice las acciones siguientes:
+1. En la página __Firewalls y redes virtuales__ , realice las acciones siguientes:
     1. Seleccione __Redes seleccionadas__.
-    1. En __Redes virtuales__, seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside el proceso (vea el paso 1).
+    1. En __Redes virtuales__ , seleccione el vínculo __Agregar red virtual existente__. Esta acción agrega la red virtual en la que reside el proceso (vea el paso 1).
 
         > [!IMPORTANT]
         > La cuenta de almacenamiento debe estar en la misma red virtual y subred que las instancias de proceso o clústeres usados para entrenamiento o inferencia.
 
-    1. Seleccione la casilla __Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento__.
+    1. Seleccione la casilla __Permitir que los servicios de Microsoft de confianza accedan a esta cuenta de almacenamiento__. Esto no concede a todos los servicios de Azure acceso a su cuenta de almacenamiento.
+    
+        * Los recursos de algunos servicios, cuando **están registrados en la suscripción** , pueden obtener acceso a la cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones. Por ejemplo, operaciones de escritura de registros o creación de copias de seguridad.
+        * Los recursos de algunos servicios pueden conceder acceso explícito a su cuenta de almacenamiento. Para ello, __asignan un rol de Azure__ a su identidad administrada asignada por el sistema.
+
+        Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md#trusted-microsoft-services).
 
     > [!IMPORTANT]
     > Al trabajar con el SDK de Azure Machine Learning, el entorno de desarrollo debe poder conectarse a la cuenta de Azure Storage. Si la cuenta de almacenamiento se encuentra dentro de una red virtual, el firewall debe permitir el acceso desde la dirección IP del entorno de desarrollo.
@@ -170,11 +175,11 @@ Para usar las funcionalidades de experimentación de Azure Machine Learning con 
 
 1. Vaya a la instancia de Key Vault asociada al área de trabajo.
 
-1. En la página de __Key Vault__, en el panel izquierdo, seleccione __Redes__.
+1. En la página de __Key Vault__ , en el panel izquierdo, seleccione __Redes__.
 
-1. En la pestaña __Firewalls y redes virtuales__, realice las acciones siguientes:
-    1. En __Permitir el acceso desde__, seleccione __Punto de conexión privado y redes seleccionadas__.
-    1. En __Redes virtuales__, seleccione __Agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
+1. En la pestaña __Firewalls y redes virtuales__ , realice las acciones siguientes:
+    1. En __Permitir el acceso desde__ , seleccione __Punto de conexión privado y redes seleccionadas__.
+    1. En __Redes virtuales__ , seleccione __Agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
     1. En __¿Quiere permitir que los servicios de confianza de Microsoft puedan omitir este firewall?__ , seleccione __Sí__.
 
    [![Sección "Firewalls y redes virtuales" del panel de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
@@ -281,6 +286,13 @@ Una vez cumplidos estos requisitos, siga los pasos que se indican a continuació
     ]
     }
     ```
+
+    Esta plantilla crea un _punto de conexión privado_ para obtener acceso a la red desde el área de trabajo a su ACR. En la captura de pantalla siguiente se muestra un ejemplo de este punto de conexión privado.
+
+    :::image type="content" source="media/how-to-secure-workspace-vnet/acr-private-endpoint.png" alt-text="Configuración del punto de conexión privado de ACR":::
+
+    > [!IMPORTANT]
+    > ¡No elimine este punto de conexión! Si lo elimina accidentalmente, puede volver a aplicar la plantilla en este paso para crear uno nuevo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

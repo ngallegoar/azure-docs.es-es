@@ -3,18 +3,18 @@ title: Planificación de la implementación de Azure VMware Solution
 description: En este artículo se describe el flujo de trabajo de implementación de Azure VMware Solution.  El resultado final es un entorno listo para la creación y migración de máquinas virtuales (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147987"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517368"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planificación de la implementación de Azure VMware Solution
 
-En este artículo, le proporcionamos el proceso de planificación para identificar y recopilar los datos que se usan durante la implementación. Cuando planee la implementación, asegúrese de documentar la información que recopila para facilitar la referencia durante la implementación.
+En este artículo, se proporciona el proceso de planeamiento para identificar y recopilar los datos que se usan durante la implementación. Cuando planee la implementación, asegúrese de documentar la información que recopila para facilitar la referencia durante la implementación.
 
-Los procesos de este inicio rápido generan un entorno listo para la producción, para la creación de máquinas virtuales (VM) y la migración. 
+Los procesos de este inicio rápido generan un entorno listo para producción para la creación de máquinas virtuales (VM) y la migración. 
 
 >[!IMPORTANT]
 >Antes de crear el recurso de Azure VMware Solution, siga el artículo [Habilitación del recurso de Azure VMware Solution](enable-azure-vmware-solution.md) para enviar una incidencia de soporte técnico y que le asignen los nodos. Una vez que el equipo de soporte técnico recibe su solicitud, se tarda hasta cinco días laborables en confirmar su solicitud y asignar los nodos. Si tiene una nube privada de Azure VMware Solution existente y desea asignar más nodos, repasará el mismo proceso. 
@@ -73,13 +73,13 @@ Para más información, consulte [Lista de comprobación de planificación de la
 
 Identifique un segmento IP para crear su primera red (segmento NSX) en la nube privada.  Dicho de otra forma, debe crear un segmento de red en Azure VMware Solution para que pueda implementar máquinas virtuales en Azure VMware Solution.   
 
-Incluso si solo tiene previsto extender las redes L2, cree un segmento de red que será útil para validar el entorno.
+Incluso si solo tiene previsto extender las redes L2, cree un segmento de red que valide el entorno.
 
 Recuerde que los segmentos IP creados deben ser únicos en la superficie de Azure y local.  
 
 **Ejemplo** : 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificación: segmento de dirección IP" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificación: segmento de dirección IP para cargas de trabajo de máquina virtual" border="false":::     
 
 ## <a name="optional-extend-networks"></a>(Opcional) Extensión de redes
 
@@ -92,11 +92,11 @@ Tenga en cuenta que:
 
 ## <a name="expressroute-global-reach-peering-network"></a>Red de emparejamiento ExpressRoute Global Reach
 
-Identifique un bloque de direcciones de la red CIDR `/29`, que es necesario para el emparejamiento de ExpressRoute Global Reach. Recuerde que los segmentos IP creados deben ser únicos en la superficie de Azure VMware Solution y local. Las direcciones IP de este segmento se usan en cada extremo de la conexión de ExpressRoute Global Reach para conectar el circuito ExpressRoute de Azure VMware Solution con el circuito ExpressRoute local. 
+Identifique un bloque de direcciones de red CIDR `/29`, que es necesario para el emparejamiento de Global Reach de ExpressRoute. Recuerde que los segmentos IP creados deben ser únicos en la superficie de Azure VMware Solution y local. Las direcciones IP de este segmento se usan en cada extremo de la conexión de ExpressRoute Global Reach para conectar el circuito ExpressRoute de Azure VMware Solution con el circuito ExpressRoute local. 
 
 **Ejemplo** : 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificación: segmento de dirección IP" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificación: red de emparejamiento de ExpressRoute Global Reach" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Azure Virtual Network para conectar Azure VMware Solution
 
@@ -119,7 +119,7 @@ En cualquier caso, documente lo que quiere hacer en este paso.
 >[!NOTE]
 >El entorno local y Azure VMware Solution ven esta red virtual, por lo que debe asegurarse de que el segmento IP que use en esa red virtual y las subredes no se superponen.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificación: segmento de dirección IP" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificación: Azure Virtual Network para conectar Azure VMware Solution" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>Segmentos de red de VMware HCX
 
@@ -128,7 +128,7 @@ VMware HCX es una tecnología incluida en Azure VMware Solution. Los casos de us
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha recopilado y documentado la información necesaria, continúe en la siguiente sección para crear la nube privada de Azure VMware Solution.
+Ahora que ha recopilado y documentado la información necesaria, continúe con la siguiente sección para crear la nube privada de Azure VMware Solution.
 
 > [!div class="nextstepaction"]
 > [Implementación de Azure VMware Solution](deploy-azure-vmware-solution.md)

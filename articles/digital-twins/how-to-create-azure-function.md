@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048328"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495916"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Conexión de aplicaciones de Azure Functions para el procesamiento de datos
 
@@ -32,25 +32,25 @@ Se trata de una introducción a los pasos que contiene:
 
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Creación de una aplicación de Azure Functions en Visual Studio
 
-En Visual Studio 2019, seleccione _Archivo > Nuevo > Proyecto_, busque la plantilla _Azure Functions_ y seleccione _Siguiente_.
+En Visual Studio 2019, seleccione _Archivo > Nuevo > Proyecto_ , busque la plantilla _Azure Functions_ y seleccione _Siguiente_.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
 
 Especifique un nombre para la aplicación de funciones y seleccione _Crear_.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configuración de un proyecto nuevo":::
 
 Seleccione el tipo de *desencadenador de Event Grid* de la aplicación de funciones y seleccione _Crear_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: cuadro de diálogo del desencadenador del proyecto de función de Azure":::
 
 Una vez creada la aplicación de funciones, Visual Studio tendrá un ejemplo de código rellenado automáticamente en **function.cs** en la carpeta del proyecto. Esta breve función de Azure se usa para registrar eventos.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: Ventana de proyecto con código de ejemplo":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Escritura de una función de Azure con un desencadenador de Event Grid
 
-Para escribir una función de Azure, agregue el SDK a la aplicación de funciones. La aplicación de funciones interactúa con Azure Digital Twins mediante la [biblioteca de cliente de Azure IoT Digital Twins para .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+Para escribir una función de Azure, agregue el SDK a la aplicación de funciones. La aplicación de funciones interactúa con Azure Digital Twins mediante el [SDK de Azure Digital Twins para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
 
 Para poder usar el SDK, debe incluir los siguientes paquetes en el proyecto. Puede instalar los paquetes mediante el administrador de paquetes NuGet de Visual Studio o agregar los paquetes mediante la herramienta de línea de comandos `dotnet`. Elija cualquiera de estos métodos: 
 
@@ -160,19 +160,19 @@ Para publicar la aplicación de funciones en Azure, haga clic con el botón dere
 > [!IMPORTANT] 
 > La publicación de una función de Azure incurrirá en cargos adicionales por su suscripción, independientemente de Azure Digital Twins.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publicar una función de Azure":::
 
 Seleccione **Azure** como el destino de publicación y, a continuación, elija **Siguiente**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: cuadro de diálogo de publicación de función de Azure; seleccione Azure ":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: cuadro de diálogo de publicación de función de Azure; seleccione Aplicación de funciones de Azure (Windows) o (Linux) en función de su máquina":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: cuadro de diálogo de publicación de función; Creación de una nueva función de Azure":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: cuadro de diálogo de publicación de función; rellene los campos y seleccione Crear":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: cuadro de diálogo de publicación de función; seleccione la aplicación de funciones en la lista y, a continuación, Finalizar":::
 
 En la página siguiente, escriba el nombre que desee para la nueva aplicación de funciones, un grupo de recursos y otros detalles.
 Para que la aplicación de Functions pueda acceder a Azure Digital Twins, debe tener una identidad administrada por el sistema y disponer de permisos para acceder a la instancia de Azure Digital Twins.
@@ -186,26 +186,28 @@ Puede configurar el acceso de seguridad para la aplicación de funciones de Azur
 
 El esqueleto de la función de Azure de los ejemplos anteriores requiere que se le pase un token de portador para poder autenticarse con Azure Digital Twins. Para asegurarse de que se pasa este token de portador, debe configurar [Managed Service Identity (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para la aplicación de funciones. Esto solo debe realizarse una vez para cada aplicación de funciones.
 
-Puede crear una identidad administrada por el sistema y asignar la identidad de la aplicación de funciones al rol _Propietario de Azure Digital Twins (versión preliminar)_ para la instancia de Azure Digital Twins. Esto proporcionará el permiso de la aplicación de funciones en la instancia para realizar actividades del plano de datos. A continuación, haga que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función mediante la definición de una variable de entorno.
+Puede crear una identidad administrada por el sistema y asignar la identidad de la aplicación de funciones al rol _**Propietario de datos de Azure Digital Twins**_ para la instancia de Azure Digital Twins. Esto proporcionará el permiso de la aplicación de funciones en la instancia para realizar actividades del plano de datos. A continuación, haga que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función mediante la definición de una variable de entorno.
 
- Use [Azure Cloud Shell](https://shell.azure.com) para ejecutar los comandos.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Use [Azure Cloud Shell](https://shell.azure.com) para ejecutar los comandos.
 
 Use el siguiente comando para crear la identidad administrada por el sistema. Anote el valor del campo _principalId_ de la salida.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-Use el valor de _principalId_ en el siguiente comando para asignar la identidad de la aplicación de funciones al rol _Propietario de Azure Digital Twins (versión preliminar)_ en la instancia de Azure Digital Twins.
+Use el valor de _principalId_ en el siguiente comando para asignar la identidad de la aplicación de funciones al rol _Propietario de datos de Azure Digital Twins_ en la instancia de Azure Digital Twins.
 
-```azurecli 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Por último, puede hacer que la dirección URL de la instancia de Azure Digital Twins sea accesible para la función si establece una variable de entorno. Para obtener más información sobre la configuración de variables de entorno, consulte [*Variables de entorno*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > Para crear la dirección URL de la instancia de Azure Digital Twins, agregue *https://* al principio del *nombre de host* de la instancia de Azure Digital Twins. Para ver el nombre de host, junto con todas las propiedades de la instancia, puede ejecutar `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Opción 2: Configuración del acceso de seguridad para la aplicación de funciones de Azure mediante Azure Portal
@@ -214,38 +216,38 @@ Una identidad administrada asignada por el sistema permite que los recursos de A
 
 En [Azure Portal](https://portal.azure.com/), busque _aplicación de funciones_ en la barra de búsqueda con el nombre de la aplicación de funciones que creó anteriormente. Seleccione la *Aplicación de funciones* en la lista. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Azure Portal: buscar aplicaciones de funciones":::
 
 En la ventana de la aplicación de funciones, seleccione _Identidad_ en la barra de navegación de la izquierda para habilitar la identidad administrada.
-En la pestaña _Asignada por el sistema_, cambie el _Estado_ a Activado y _Guarde_. Verá un menú emergente para _Habilitar identidad administrada asignada por el sistema_.
+En la pestaña _Asignada por el sistema_ , cambie el _Estado_ a Activado y _Guarde_. Verá un menú emergente para _Habilitar identidad administrada asignada por el sistema_.
 Seleccione el botón _Sí_. 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Azure Portal: habilitar la identidad administrada por el sistema":::
 
 Puede comprobar en las notificaciones que la función se ha registrado correctamente con Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Azure Portal: notificaciones":::
 
 Anote también el **id. de objeto** que se muestra en la página _Identidad_ , ya que se usará en la sección siguiente.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copiar el id. de objeto para usarlo en el futuro":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Asignación de roles de acceso mediante Azure Portal
 
 Seleccione el botón _Asignaciones de roles de Azure_ para abrir la página *Asignaciones de roles de Azure*. Luego, seleccione _+ Agregar asignación de roles (versión preliminar)_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure Portal: agregar asignación de roles":::
 
 En la ventana _Agregar asignación de roles (versión preliminar)_ que se abre, seleccione:
 
-* _Ámbito_: grupo de recursos
-* _Suscripción_: seleccione su suscripción de Azure.
-* _Grupo de recursos_: seleccione el grupo de recursos en la lista desplegable.
-* _Rol_: seleccione _Propietario de Azure Digital Twins (versión preliminar)_ en el menú desplegable
+* _Ámbito_ : grupo de recursos
+* _Suscripción_ : seleccione su suscripción de Azure.
+* _Grupo de recursos_ : seleccione el grupo de recursos en la lista desplegable.
+* _Rol_ : seleccione _Propietario de datos de Azure Digital Twins_ en el menú desplegable.
 
 Luego, presione el botón _Guardar_ para guardar los detalles.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure Portal: agregar asignación de roles (versión preliminar) ":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Configuración de las opciones de la aplicación mediante Azure Portal
 
@@ -255,37 +257,37 @@ Necesitará ADT_INSTANCE_URL para crear una configuración de aplicación.
 
 Para obtener ADT_INSTANCE_URL, anexe **_https://_** al nombre de host de la instancia. En Azure Portal, para encontrar el nombre del host de la instancia de Digital Twins, busque su instancia en la barra de búsqueda. A continuación, seleccione _Información general_ en la barra de navegación izquierda para ver el _Nombre de host_. Para crear una opción de aplicación, copie este valor.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Azure Portal: Información general -> Copie el nombre de host para usarlo en el campo _Value_.":::
 
 Ahora puede seguir estos pasos para crear una configuración de la aplicación:
 
 * Busque la función de Azure con el nombre de la función en la barra de búsqueda y seleccione la función en la lista.
 * Seleccione _Configuración_ en la barra de navegación de la izquierda para crear una nueva configuración de la aplicación.
-* En la pestaña _Configuración de la aplicación_, seleccione _+ Nueva configuración de la aplicación_
+* En la pestaña _Configuración de la aplicación_ , seleccione _+ Nueva configuración de la aplicación_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Azure Portal: buscar una función de Azure existente":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Azure Portal: Configuración de la aplicación":::
 
 En la ventana que se abre, use el valor copiado anteriormente para crear una configuración de la aplicación. \
-_Nombre_: URL_SERVICIO_ADT \
-_Valor_: https://{nombre-de-host-de-azure-digital-twins}
+_Nombre_ : URL_SERVICIO_ADT \
+_Valor_ : https://{nombre-de-host-de-azure-digital-twins}
 
 Seleccione _Aceptar_ para crear una configuración de la aplicación.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Azure Portal: agregar la configuración de la aplicación.":::
 
 Puede ver la configuración de la aplicación con el nombre de la aplicación bajo el campo _Nombre_ . A continuación, para guardar la configuración de la aplicación, seleccione el botón _Guardar_.
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Azure Portal: visualizar la aplicación creada y reiniciarla":::
 
 Cualquier cambio en la configuración de la aplicación requiere que se reinicie la aplicación. Seleccione _Continuar_ para reiniciar la aplicación.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Azure Portal: guardar la configuración de la aplicación":::
 
 Para ver que la configuración de la aplicación se actualiza, seleccione el icono _Notificaciones_. Si no se crea la configuración de la aplicación, puede volver a intentar agregar una configuración de aplicación siguiendo el proceso anterior.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Visual Studio: cuadro de diálogo Nuevo proyecto":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Azure Portal: notificaciones para actualizar la configuración de la aplicación":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

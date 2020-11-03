@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2d7701e215011165ffef33353de7f9372b1142cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15b61653fcd9428abe41f61ac89b2a37302983c7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440752"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369255"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -137,7 +137,7 @@ En la tabla siguiente se describen las propiedades en la definición JSON de la 
 | type | Tipo de la actividad. Consulte los artículos [Actividades de movimiento de datos](#data-movement-activities) y [Actividades de transformación de datos](#data-transformation-activities) para ver los diferentes tipos de actividades. |Sí |
 | inputs |Tablas de entrada utilizadas por la actividad<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Sí |
 | outputs |Tablas de salida utilizadas por la actividad.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Sí |
-| linkedServiceName |Nombre del servicio vinculado utilizado por la actividad. <br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. |Sí para actividad de HDInsight y actividad de puntuación por lotes de Azure Machine Learning <br/><br/>No para todos los demás |
+| linkedServiceName |Nombre del servicio vinculado utilizado por la actividad. <br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. |Sí para actividad de HDInsight y actividad de puntuación por lotes de Azure Machine Learning Studio (clásico) <br/><br/>No para todos los demás |
 | typeProperties |Las propiedades de la sección **typeProperties** dependen del tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No |
 | policy |Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Si no se especifica, se usan las directivas predeterminadas. |No |
 | scheduler | La propiedad "scheduler" se utiliza para definir la programación deseada para la actividad. Sus subpropiedades son las mismas que las de la [propiedad availability de un conjunto de datos](data-factory-create-datasets.md#dataset-availability). |No |
@@ -204,8 +204,8 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in
 Tenga en cuenta los siguientes puntos:
 
 * En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**.
-* La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](data-factory-create-datasets.md) para definir conjuntos de datos en JSON.
-* En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o un receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
+* La entrada de la actividad está establecida en **InputDataset** , mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](data-factory-create-datasets.md) para definir conjuntos de datos en JSON.
+* En la sección **typeProperties** , **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o un receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
 
 Para obtener un tutorial completo de creación de esta canalización, consulte [Tutorial: Copia de datos de Blob Storage en SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
@@ -260,7 +260,7 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsight
 Tenga en cuenta los siguientes puntos:
 
 * En la sección de actividades, solo hay una actividad con **type** establecido en **HDInsightHive**.
-* El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada **AzureStorageLinkedService**) en una carpeta denominada **script** del contenedor **adfgetstarted**.
+* El archivo de script de Hive, **partitionweblogs.hql** , se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada **AzureStorageLinkedService** ) en una carpeta denominada **script** del contenedor **adfgetstarted**.
 * La sección `defines` se usa para especificar la configuración de tiempo de ejecución que se pasa al script de Hive como valores de configuración de Hive (por ejemplo, `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 La sección **typeProperties** es diferente para cada actividad de transformación. Para obtener información sobre las propiedades de tipo compatibles con una actividad de transformación, haga clic en la actividad de transformación de la tabla [Actividades de transformación de datos](#data-transformation-activities).
@@ -347,7 +347,7 @@ Puede crear y programar una canalización que se ejecute periódicamente (por ej
 Tenga en cuenta lo siguiente:
 
 * No se especifican las horas de **inicio** y **finalización** de la canalización.
-* La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.
+* La disponibilidad ( **availability** ) de los conjuntos de datos de entrada y salida se especifica ( **frequency** e **interval** ), incluso aunque Data Factory no use los valores.
 * La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
 * Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 

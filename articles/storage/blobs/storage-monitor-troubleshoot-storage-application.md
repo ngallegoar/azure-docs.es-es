@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652159"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676786"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Supervisión de una aplicación de almacenamiento en la nube y solución de sus problemas
 
@@ -37,13 +37,13 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Activar el registro y las métricas
 
-En el menú izquierdo, seleccione **Grupos de recursos**, seleccione **myResourceGroup** y luego seleccione la cuenta de almacenamiento en la lista de recursos.
+En el menú izquierdo, seleccione **Grupos de recursos** , seleccione **myResourceGroup** y luego seleccione la cuenta de almacenamiento en la lista de recursos.
 
 En **Configuración de diagnóstico (clásica)** establezca **Estado** en **Activado**. Asegúrese de que todas las opciones que aparecen en **Propiedades del blob** estén habilitadas.
 
 Cuando haya terminado, haga clic en **Guardar**.
 
-![Panel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Captura de pantalla que resalta la sección que contiene los valores de configuración para activar el registro y las métricas.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Habilitación de alertas
 
@@ -51,9 +51,9 @@ Las alertas proporcionan una manera de enviar correos electrónicos a los admini
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Vaya a la cuenta de almacenamiento en Azure Portal.
 
-En la sección **Supervisión**, seleccione **Alertas (clásico)** .
+En la sección **Supervisión** , seleccione **Alertas (clásico)** .
 
-Seleccione **Agregar alerta de métrica (clásica)** y complete el formulario **Agregar regla** rellenando la información necesaria. En la lista desplegable **Métrica**, seleccione `SASClientOtherError`. Para permitir que la alerta se desencadene tras el primer error, en la lista desplegable **Condición** seleccione **Mayor o igual que**.
+Seleccione **Agregar alerta de métrica (clásica)** y complete el formulario **Agregar regla** rellenando la información necesaria. En la lista desplegable **Métrica** , seleccione `SASClientOtherError`. Para permitir que la alerta se desencadene tras el primer error, en la lista desplegable **Condición** seleccione **Mayor o igual que**.
 
 ![Panel Diagnósticos](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
@@ -97,7 +97,7 @@ En el cuadro de diálogo **File Selector** (Selector de archivos), seleccione **
 
 Cuando esté conectado, expanda los contenedores de la vista de árbol de almacenamiento para ver los blobs de registro. Seleccione el registro más reciente y haga clic en **Aceptar**.
 
-![Microsoft Message Analyzer - Cuadro de diálogo Agregar conexión de almacenamiento de Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Captura de pantalla que muestra Microsoft Message Analyzer y resalta el archivo de registro seleccionado.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 En el cuadro de diálogo **New Session** (Nueva sesión), haga clic en **Start** (Iniciar) para ver el registro.
 

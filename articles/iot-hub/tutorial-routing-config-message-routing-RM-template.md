@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74084402"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480112"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Tutorial: Uso de una plantilla de Azure Resource Manager para configurar el enrutamiento de mensajes de IoT Hub
 
@@ -46,49 +46,49 @@ En la siguiente sección se explican los parámetros usados.
 
 La mayoría de estos parámetros tiene valores predeterminados. Los que terminan con **_in** se concatenan con *randomValue* para que sean globalmente únicos. 
 
-**randomValue**: este valor se genera a partir de la fecha y hora actuales al implementar la plantilla. Este campo no está en el archivo de parámetros, ya que se genera en la propia plantilla.
+**randomValue** : este valor se genera a partir de la fecha y hora actuales al implementar la plantilla. Este campo no está en el archivo de parámetros, ya que se genera en la propia plantilla.
 
-**subscriptionId**: este campo se establece en la suscripción en la que se va a implementar la plantilla. Este campo no está en el archivo de parámetros, ya que se establece automáticamente.
+**subscriptionId** : este campo se establece en la suscripción en la que se va a implementar la plantilla. Este campo no está en el archivo de parámetros, ya que se establece automáticamente.
 
-**IoTHubName_in**: este campo es el nombre de IoT Hub base, que se concatena con randomValue para que sea globalmente único.
+**IoTHubName_in** : este campo es el nombre de IoT Hub base, que se concatena con randomValue para que sea globalmente único.
 
-**location**: este campo es la región de Azure en la que se va a realizar la implementación, por ejemplo, "westus".
+**location** : este campo es la región de Azure en la que se va a realizar la implementación, por ejemplo, "westus".
 
-**consumer_group**: este campo es el grupo de consumidores establecido para los mensajes que llegan a través del punto de conexión de enrutamiento. Sirve para filtrar los resultados de Azure Stream Analytics. Por ejemplo, está la secuencia entera donde obtiene todo, o si tiene datos que llegan con consumer_group establecido en **Contoso**, puede configurar una secuencia de Azure Stream Analytics (y el informe de Power BI) para mostrar solo esas entradas. Este campo se usa en la parte 2 de este tutorial.
+**consumer_group** : este campo es el grupo de consumidores establecido para los mensajes que llegan a través del punto de conexión de enrutamiento. Sirve para filtrar los resultados de Azure Stream Analytics. Por ejemplo, está la secuencia entera donde obtiene todo, o si tiene datos que llegan con consumer_group establecido en **Contoso** , puede configurar una secuencia de Azure Stream Analytics (y el informe de Power BI) para mostrar solo esas entradas. Este campo se usa en la parte 2 de este tutorial.
 
-**sku_name**: este campo es la escala de IoT Hub. Este valor debe ser S1 o superior; un nivel gratis no sirve para este tutorial porque no admite varios puntos de conexión.
+**sku_name** : este campo es la escala de IoT Hub. Este valor debe ser S1 o superior; un nivel gratis no sirve para este tutorial porque no admite varios puntos de conexión.
 
-**sku_units**: este campo se queda con el valor de **sku_name**, y es el número de unidades de IoT Hub que se pueden usar.
+**sku_units** : este campo se queda con el valor de **sku_name** , y es el número de unidades de IoT Hub que se pueden usar.
 
-**d2c_partitions**: este campo es el número de particiones usadas para la secuencia de eventos.
+**d2c_partitions** : este campo es el número de particiones usadas para la secuencia de eventos.
 
-**storageAccountName_in**: este campo es el nombre de la cuenta de almacenamiento que se va a crear. Los mensajes se enrutan a un contenedor de la cuenta de almacenamiento. Este campo se concatena con randomValue para que sea globalmente único.
+**storageAccountName_in** : este campo es el nombre de la cuenta de almacenamiento que se va a crear. Los mensajes se enrutan a un contenedor de la cuenta de almacenamiento. Este campo se concatena con randomValue para que sea globalmente único.
 
-**storageContainerName**: este campo es el nombre del contenedor en el que se almacenan los mensajes enrutados a la cuenta de almacenamiento.
+**storageContainerName** : este campo es el nombre del contenedor en el que se almacenan los mensajes enrutados a la cuenta de almacenamiento.
 
-**storage_endpoint**: este campo es el nombre del punto de conexión de la cuenta de almacenamiento que usa el enrutamiento de mensajes.
+**storage_endpoint** : este campo es el nombre del punto de conexión de la cuenta de almacenamiento que usa el enrutamiento de mensajes.
 
-**service_bus_namespace_in**: este campo es el nombre del espacio de nombres de Service Bus que se va a crear. Este valor se concatena con randomValue para que sea globalmente único.
+**service_bus_namespace_in** : este campo es el nombre del espacio de nombres de Service Bus que se va a crear. Este valor se concatena con randomValue para que sea globalmente único.
 
-**service_bus_queue_in**: este campo es el nombre de la cola de Service Bus que se usa para el enrutamiento de mensajes. Este valor se concatena con randomValue para que sea globalmente único.
+**service_bus_queue_in** : este campo es el nombre de la cola de Service Bus que se usa para el enrutamiento de mensajes. Este valor se concatena con randomValue para que sea globalmente único.
 
-**AuthRules_sb_queue**: este campo son las reglas de autorización de la cola de Service Bus que se usan para recuperar la cadena de conexión de la cola.
+**AuthRules_sb_queue** : este campo son las reglas de autorización de la cola de Service Bus que se usan para recuperar la cadena de conexión de la cola.
 
 ### <a name="variables"></a>variables
 
 Estos valores se usan en la plantilla y se derivan principalmente de los parámetros.
 
-**queueAuthorizationRuleResourceId**: este campo es el valor de ResourceId de la regla de autorización de la cola de Service Bus. ResourceId se usa a su vez para recuperar la cadena de conexión de la cola.
+**queueAuthorizationRuleResourceId** : este campo es el valor de ResourceId de la regla de autorización de la cola de Service Bus. ResourceId se usa a su vez para recuperar la cadena de conexión de la cola.
 
-**iotHubName**: este campo es el nombre de IoT Hub después de haber concatenado randomValue. 
+**iotHubName** : este campo es el nombre de IoT Hub después de haber concatenado randomValue. 
 
-**storageAccountName**: este campo es el nombre de la cuenta de almacenamiento después de haber concatenado randomValue. 
+**storageAccountName** : este campo es el nombre de la cuenta de almacenamiento después de haber concatenado randomValue. 
 
-**service_bus_namespace**: este campo es el espacio de nombres después de haber concatenado randomValue.
+**service_bus_namespace** : este campo es el espacio de nombres después de haber concatenado randomValue.
 
-**service_bus_queue**: este campo es el nombre de la cola de Service Bus después de haber concatenado randomValue.
+**service_bus_queue** : este campo es el nombre de la cola de Service Bus después de haber concatenado randomValue.
 
-**sbVersion**: la versión de la API de Service Bus que se usará. En este caso, es "2017-04-01".
+**sbVersion** : la versión de la API de Service Bus que se usará. En este caso, es "2017-04-01".
 
 ### <a name="resources-storage-account-and-container"></a>Recursos: Cuenta de almacenamiento y contenedor
 
@@ -358,7 +358,7 @@ Para implementar la plantilla en Azure, cargue la plantilla y el archivo de par�
 
 Para cargar los archivos, seleccione el icono **Upload/Download files** (Cargar/Descargar archivos) en la barra de menús y, luego, elija Upload (Cargar).
 
-![Barra de menús de Cloud Shell con Upload/Download files (Cargar/Descargar archivos) resaltado](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Captura de pantalla que resalta el icono Cargar/Descargar archivos.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
 Use el Explorador de archivos que aparece para buscar los archivos en el disco local, selecciónelos y elija **Open** (Abrir).
 

@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630209"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521516"
 ---
 # <a name="what-is-the-speech-service"></a>¿Qué es Speech Service?
 
 El servicio de voz es la unificación de las funcionalidades de conversión de voz a texto, conversión de texto a voz y traducción de voz en una sola suscripción de Azure. Con la [CLI de Voz](spx-overview.md), el [SDK de voz](speech-sdk-reference.md), el [SDK de dispositivos de voz](https://aka.ms/sdsdk-quickstart), [Speech Studio](https://speech.microsoft.com/) o las [API REST](rest-apis.md) es fácil habilitar aplicaciones, herramientas y dispositivos para el uso de la voz.
 
 > [!IMPORTANT]
-> El servicio de voz ha reemplazado a Bing Speech API y Translator Speech. Consulte _Guías de procedimientos > Migración_ para obtener instrucciones de migración.
+> El servicio de voz ha reemplazado a Bing Speech API y Translator Speech. Consulte la sección de _migración_ para obtener instrucciones sobre migración.
 
 Las siguientes características forman parte del servicio Speech. Use los vínculos de esta tabla para obtener más información sobre los casos de uso comunes de cada característica o para examinar la referencia de API.
 
@@ -61,9 +61,9 @@ Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con la cuenta Microsoft.
 
-1. Seleccione **Crear un recurso** en la parte superior izquierda del portal. Si no ve **Crear un recurso**, siempre puede encontrarlo al seleccionar el menú contraído en la parte superior izquierda.
+1. Seleccione **Crear un recurso** en la parte superior izquierda del portal. Si no ve **Crear un recurso** , siempre puede encontrarlo al seleccionar el menú contraído en la parte superior izquierda.
 
-1. En la ventana **Nuevo**, escriba "speech" en el cuadro de búsqueda y presione ENTRAR.
+1. En la ventana **Nuevo** , escriba "speech" en el cuadro de búsqueda y presione ENTRAR.
 
 1. En los resultados de la búsqueda, seleccione **Voz**.
 
@@ -81,7 +81,21 @@ Para agregar un recurso de servicio de voz (plan gratuito o de pago) a la cuenta
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-La implementación del recurso de voz nuevo puede tardar unos instantes. Una vez completada la implementación, seleccione **Ir al recurso** y, en el panel de navegación izquierdo, seleccione **Claves** para mostrar las claves de suscripción del servicio Voz. Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Para copiar y pegar rápidamente una clave en el editor de código o en otra ubicación, seleccione el botón Copiar que se encuentra junto a cada clave, cambie de ventana para pegar el contenido del portapapeles en la ubicación deseada.
+La implementación del recurso de voz nuevo puede tardar unos instantes. 
+
+### <a name="find-keys-and-region"></a>Búsqueda de las claves y la región
+
+Para buscar las claves y la región de una implementación completa, siga estos pasos:
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/) con la cuenta Microsoft.
+
+2. Seleccione **Todos los recursos** y el nombre del recurso de Cognitive Services.
+
+3. En el panel izquierdo, en **ADMINISTRACIÓN DE RECURSOS** , seleccione **Claves y punto de conexión**.
+
+Cada suscripción tiene dos claves; puede usar cualquiera de ellas en la aplicación. Para copiar y pegar una clave en el editor de código o en otra ubicación, seleccione el botón Copiar que se encuentra junto a cada clave y cambie de ventana para pegar el contenido del portapapeles en la ubicación deseada.
+
+Además, copie el valor de `LOCATION`, que es el identificador de región (por ejemplo, `westus`, `westeurope`) para las llamadas de SDK.
 
 > [!IMPORTANT]
 > Estas claves de suscripción se usan para tener acceso a la API de Cognitive Services. No comparta las claves. Almacénelas de forma segura, por ejemplo, con Azure Key Vault. También se recomienda regenerar estas claves periódicamente. Solo se necesita una clave para realizar una llamada API. Al volver a generar la primera clave, puede usar la segunda clave para seguir teniendo acceso al servicio.

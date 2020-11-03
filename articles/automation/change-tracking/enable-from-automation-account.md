@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c3630105e70ac28e7e9041aa9d5400f724401a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 50188ad5fea0ee34a6896f0045e3bbcbfb553aaa
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92209296"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677294"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Habilitación de Change Tracking e Inventario desde una cuenta de Automation
 
@@ -31,15 +31,15 @@ Inicie sesión en Azure en https://portal.azure.com.
 
 ## <a name="enable-change-tracking-and-inventory"></a>Habilitación de Change Tracking e Inventario
 
-1. Vaya a la cuenta de Automation y seleccione **Inventory** o **Change Tracking** en **Administración de configuración** .
+1. Vaya a la cuenta de Automation y seleccione **Inventory** o **Change Tracking** en **Administración de configuración**.
 
-2. Para habilitar Change Tracking e Inventario, elija el área de trabajo de Log Analytics y la cuenta de Automation, y haga clic en **Habilitar** . La instalación tarda hasta 15 minutos en completarse.
+2. Para habilitar Change Tracking e Inventario, elija el área de trabajo de Log Analytics y la cuenta de Automation, y haga clic en **Habilitar**. La instalación tarda hasta 15 minutos en completarse.
 
     ![Habilitación de Change Tracking e Inventario](media/enable-from-automation-account/enable-feature.png)
 
 ## <a name="enable-azure-vms"></a>Habilitar máquinas virtuales de Azure
 
-1. En la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración** .
+1. En la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración**.
 
 2. Haga clic en **+ Agregar máquinas virtuales de Azure** y seleccione una o varias máquinas virtuales en la lista. Las máquinas virtuales que no se pueden habilitar aparecen atenuadas y no se pueden seleccionar. Las VM de Azure pueden existir en cualquier región, con independencia de la ubicación de la cuenta de Automation. 
 
@@ -49,25 +49,25 @@ Inicie sesión en Azure en https://portal.azure.com.
 
 ## <a name="enable-non-azure-vms"></a>Habilitación de máquinas virtuales que no son de Azure
 
-Las máquinas que no estén en Azure se deben agregar manualmente.
+Las máquinas que no estén en Azure se deben agregar manualmente. Se recomienda instalar el agente de Log Analytics para Windows o Linux. Para ello, primero debe conectar la máquina a los [servidores habilitados para Azure Arc](../../azure-arc/servers/overview.md) y, a continuación, debe usar Azure Policy para asignar el [agente de Log Analytics a la directiva integrada de las máquinas de Azure Arc de *Linux* o de *Windows*](../../governance/policy/samples/built-in-policies.md#monitoring). Si también planea supervisar las máquinas con Azure Monitor para VM, en su lugar, use la iniciativa para [habilitar Azure Monitor para VM](../../governance/policy/samples/built-in-initiatives.md#monitoring).
 
-1. Desde la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración** .
+1. Desde la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración**.
 
-2. Haga clic en **Agregar un equipo que no es de Azure** . Esta acción abre una nueva ventana del explorador con las [instrucciones para instalar y configurar el agente de Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md) de forma que la máquina pueda empezar a notificar operaciones de Change Tracking e Inventario. Si va a habilitar una máquina administrada actualmente por Operations Manager, no se necesita un agente nuevo y la información del área de trabajo se escribe en el agente existente.
+2. Haga clic en **Agregar un equipo que no es de Azure**. Esta acción abre una nueva ventana del explorador con las [instrucciones para instalar y configurar el agente de Log Analytics para Windows](../../azure-monitor/platform/log-analytics-agent.md) de forma que la máquina pueda empezar a notificar operaciones de Change Tracking e Inventario. Si va a habilitar una máquina administrada actualmente por Operations Manager, no se necesita un agente nuevo y la información del área de trabajo se escribe en el agente existente.
 
 ## <a name="enable-machines-in-the-workspace"></a>Habilitación de máquinas en el área de trabajo
 
 Las máquinas instaladas manualmente o las que ya envían notificaciones al área de trabajo se deben agregar a Azure Automation para poder habilitar Change Tracking e Inventario.
 
-1. En la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración** .
+1. En la cuenta de Automation, seleccione **Inventario** o **Change Tracking** en **Administración de configuración**.
 
-2. Seleccione **Administrar máquinas** . Es posible que, si previamente seleccionó la opción **Habilitar en todas las máquinas disponibles y futuras** , la opción **Administrar máquinas** esté atenuada.
+2. Seleccione **Administrar máquinas**. Es posible que, si previamente seleccionó la opción **Habilitar en todas las máquinas disponibles y futuras** , la opción **Administrar máquinas** esté atenuada.
 
     ![Búsquedas guardadas](media/enable-from-automation-account/manage-machines.png)
 
-3. Para habilitar el Seguimiento de cambios e inventario en todas las máquinas disponibles, seleccione **Habilitar en todas las máquinas disponibles** en la página **Administrar máquinas** . Esta acción deshabilita el control para agregar máquinas individualmente y agrega todas las máquinas que informan al área de trabajo a la consulta de búsqueda guardada del grupo de equipos. Cuando se selecciona, esta acción deshabilita la opción **Administrar máquinas** .
+3. Para habilitar el Seguimiento de cambios e inventario en todas las máquinas disponibles, seleccione **Habilitar en todas las máquinas disponibles** en la página **Administrar máquinas**. Esta acción deshabilita el control para agregar máquinas individualmente y agrega todas las máquinas que informan al área de trabajo a la consulta de búsqueda guardada del grupo de equipos. Cuando se selecciona, esta acción deshabilita la opción **Administrar máquinas**.
 
-4. Para habilitar la característica en todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras** . Esta opción elimina la búsqueda guardada y la configuración de ámbito del área de trabajo y abre la característica para todas las máquinas de Azure y que no son de Azure que envían notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente la opción **Administrar máquinas** , ya que no queda ninguna configuración de ámbito.
+4. Para habilitar la característica en todas las máquinas disponibles y futuras, seleccione **Habilitar en todas las máquinas disponibles y futuras**. Esta opción elimina la búsqueda guardada y la configuración de ámbito del área de trabajo y abre la característica para todas las máquinas de Azure y que no son de Azure que envían notificaciones al área de trabajo. Cuando está seleccionada, esta acción deshabilita permanentemente la opción **Administrar máquinas** , ya que no queda ninguna configuración de ámbito.
 
     > [!NOTE]
     > Dado que esta opción elimina la búsqueda guardada y la configuración de ámbito dentro de Log Analytics, es importante quitar todos los bloqueos de eliminación en el área de trabajo de Log Analytics antes de seleccionar esta opción. Si no lo hace, la opción no quitará las configuraciones y deberá hacerlo manualmente.

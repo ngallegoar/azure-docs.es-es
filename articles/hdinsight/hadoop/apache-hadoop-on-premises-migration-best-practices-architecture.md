@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 7a76ac3bbe62d48de67815d09e1c8d75f03caa36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af9b1f42140c5656c5f55a98c2d635d59e130db5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077905"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533740"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Procedimientos recomendados de arquitectura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
 
@@ -43,9 +43,9 @@ La tabla siguiente muestra los distintos métodos que se pueden usar para crear 
 |[CLI de Azure (ver 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[SDK de .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
-|[SDK de Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[SDK de Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[SDK de .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[SDK de Python](/python/api/overview/azure/hdinsight)||||X|
+|[SDK de Java](/java/api/overview/azure/hdinsight)||||X|
 |[Plantillas del Administrador de recursos de Azure](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 Para obtener más información, vea el artículo [Tipos de clúster de HDInsight](../hadoop/apache-hadoop-introduction.md).
@@ -107,7 +107,7 @@ Estos son algunos procedimientos recomendados para Hive Metastore en HDInsight:
 
 ## <a name="best-practices-for-different-workloads"></a>Procedimientos recomendados para las distintas cargas de trabajo
 
-- Considere el uso del clúster LLAP para consultas de Hive interactivas con tiempo de respuesta mejorada [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) es una característica nueva en Hive 2.0 que permite el almacenamiento en caché en memoria de consultas. LLAP hace que las consultas de Hive sean mucho más rápidas, hasta  [26 veces más que Hive 1.x en algunos casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Considere el uso del clúster de LLAP para consultas de Hive interactivas con tiempo de respuesta mejorado. [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) es una característica nueva en Hive 2.0 que permite el almacenamiento en caché en memoria de las consultas. LLAP hace que las consultas de Hive sean mucho más rápidas, hasta [26 más que Hive 1.x en algunos casos](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Considere la posibilidad de utilizar trabajos de Spark en lugar de trabajos de Hive.
 - Considere la posibilidad de reemplazar las consultas basadas en Impala por consultas LLAP.
 - Considere la posibilidad de reemplazar los trabajos de MapReduce por trabajos de Spark.

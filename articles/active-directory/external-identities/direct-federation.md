@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87907733"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442089"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federación directa con AD FS y proveedores de terceros para usuarios invitados (versión preliminar)
 
@@ -45,7 +45,7 @@ Con la federación directa, los usuarios invitados inician sesión en el inquili
 ## <a name="limitations"></a>Limitaciones
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>Dominios comprobados por DNS en Azure AD
-El dominio con el que desea federarse ***no*** puede estar verificado por DNS en Azure AD. Se puede realizar una federación directa en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
+El dominio con el que desea federarse * **no** _ puede estar verificado por DNS en Azure AD. Se puede realizar una federación directa en los inquilinos no administrados (comprobados por correo electrónico o "viral") de Azure AD porque no están comprobados por DNS.
 
 ### <a name="authentication-url"></a>Dirección URL de autenticación
 La federación directa solo se permite para las directivas en las que el dominio de la dirección URL de autenticación coincide con el dominio de destino, o en las que la dirección URL de autenticación es uno de estos proveedores de identidades permitidos (esta lista está sujeta a cambios):
@@ -60,20 +60,20 @@ La federación directa solo se permite para las directivas en las que el dominio
 -   federation.exostar.com
 -   federation.exostartest.com
 
-Por ejemplo, al configurar la federación directa para **fabrikam.com**, la dirección URL de autenticación `https://fabrikam.com/adfs` pasará la validación. Un host en el mismo dominio también pasará, por ejemplo `https://sts.fabrikam.com/adfs`. Sin embargo, la dirección URL de autenticación `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` para el mismo dominio no pasará.
+Por ejemplo, al configurar la federación directa para _*fabrikam.com**, la dirección URL de autenticación `https://fabrikam.com/adfs` pasará la validación. Un host en el mismo dominio también pasará, por ejemplo `https://sts.fabrikam.com/adfs`. Sin embargo, la dirección URL de autenticación `https://fabrikamconglomerate.com/adfs` o `https://fabrikam.com.uk/adfs` para el mismo dominio no pasará.
 
 ### <a name="signing-certificate-renewal"></a>Renovación del certificado de firma
 Si especifica la dirección URL de metadatos en la configuración del proveedor de identidades, Azure AD renovará automáticamente el certificado de firma cuando expire. Sin embargo, si el certificado se gira por cualquier razón antes de la hora de expiración, o si no proporciona una dirección URL de metadatos, Azure AD no podrá renovarlo. En este caso, deberá actualizar manualmente el certificado de firma.
 
 ### <a name="limit-on-federation-relationships"></a>Límite de relaciones de federación
-Actualmente, se admite un máximo de 1000 relaciones de federación. Este límite incluye tanto las [federaciones internas](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) como las federaciones directas.
+Actualmente, se admite un máximo de 1000 relaciones de federación. Este límite incluye tanto las [federaciones internas](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) como las federaciones directas.
 
 ### <a name="limit-on-multiple-domains"></a>Límite de varios dominios
 Actualmente no se admite la federación directa con varios dominios del mismo inquilino.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>¿Puedo configurar la federación directa con un dominio para el que existe un inquilino no administrado (verificado por correo electrónico)? 
-Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [adquisición de administración](../users-groups-roles/domains-admin-takeover.md), puede configurar una federación directa con el dominio. Los inquilinos no administrados o comprobados por correo electrónico se crean cuando un usuario canjea una invitación B2B o realiza un registro de autoservicio para Azure AD mediante un dominio que no existe actualmente. Puede configurar la federación directa con estos dominios. Si intenta configurar la federación directa con un dominio comprobado por DNS, ya sea en Azure Portal o con PowerShell, verá un error.
+Sí. Si el dominio no se ha comprobado y el inquilino no ha experimentado una [adquisición de administración](../enterprise-users/domains-admin-takeover.md), puede configurar una federación directa con el dominio. Los inquilinos no administrados o comprobados por correo electrónico se crean cuando un usuario canjea una invitación B2B o realiza un registro de autoservicio para Azure AD mediante un dominio que no existe actualmente. Puede configurar la federación directa con estos dominios. Si intenta configurar la federación directa con un dominio comprobado por DNS, ya sea en Azure Portal o con PowerShell, verá un error.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Si la federación directa y la autenticación con código de acceso de un solo uso por correo electrónico están habilitadas, ¿qué método tiene prioridad?
 Cuando se establece la federación directa con una organización asociada, tiene prioridad sobre la autenticación con código de acceso de un solo uso por correo electrónico para los nuevos usuarios invitados de esa organización. Si un usuario invitado ha canjeado una invitación mediante la autenticación de código de acceso de un solo uso antes de configurar la federación directa, seguirá utilizando la autenticación de código de acceso de un solo uso. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>¿La federación directa se ocupa de los problemas de inicio de sesión debido a un inquilinato parcialmente sincronizado?
@@ -87,7 +87,7 @@ En primer lugar, la organización asociada debe configurar el proveedor de ident
 
 ### <a name="saml-20-configuration"></a>Configuración de SAML 2.0
 
-Azure AD B2B se puede configurar para federarse con proveedores de identidades que usan el protocolo SAML con los requisitos específicos que se indican a continuación. Para más información sobre cómo establecer una confianza entre su proveedor de identidades SAML y Azure AD, consulte [Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+Azure AD B2B se puede configurar para federarse con proveedores de identidades que usan el protocolo SAML con los requisitos específicos que se indican a continuación. Para más información sobre cómo establecer una confianza entre su proveedor de identidades SAML y Azure AD, consulte [Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > El dominio de destino para la federación directa no debe ser comprobado por DNS en Azure AD. El dominio de la URL de autenticación debe coincidir con el dominio de destino o debe ser el dominio de un proveedor de identidades permitido. Consulte la sección [Limitaciones](#limitations) para obtener más información. 
@@ -150,7 +150,7 @@ A continuación, va a configurar la federación con el proveedor de identidades 
 
     ![Captura de pantalla que muestra el botón para agregar un nuevo proveedor de identidades de SAML o WS-Fed](media/direct-federation/new-saml-wsfed-idp.png)
 
-4. En la página **New SAML/WS-Fed IdP** (Nuevo proveedor de identidades de SAMS/WS-FED), en **Protocolo de proveedor de identidades**, seleccione **SAML** o **WS-FED**.
+4. En la página **New SAML/WS-Fed IdP** (Nuevo proveedor de identidades de SAMS/WS-FED), en **Protocolo de proveedor de identidades** , seleccione **SAML** o **WS-FED**.
 
     ![Captura de pantalla que muestra el botón de análisis en la página del proveedor de identidades de SAML o WS-Fed](media/direct-federation/new-saml-wsfed-idp-parse.png)
 

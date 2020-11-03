@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331760"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503324"
 ---
 # <a name="secure-azure-digital-twins"></a>Protección de Azure Digital Twins
 
@@ -20,7 +20,7 @@ Por seguridad, Azure Digital Twins permite el control de acceso preciso sobre da
 
 Azure Digital Twins también admite el cifrado de datos en reposo.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Concesión de permisos con Azure RBAC
+## <a name="roles-and-permissions-with-azure-rbac"></a>Roles y permisos con RBAC de Azure
 
 Azure RBAC se proporciona en Azure Digital Twins mediante la integración con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
@@ -28,7 +28,7 @@ Puede usar Azure RBAC para conceder permisos a una *entidad de seguridad* , que 
 
 ### <a name="authentication-and-authorization"></a>Autenticación y autorización
 
-Con Azure AD, el acceso es un proceso de dos pasos. Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta acceder a Azure Digital Twins, la solicitud se debe *autenticar* y *autorizar* . 
+Con Azure AD, el acceso es un proceso de dos pasos. Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta acceder a Azure Digital Twins, la solicitud se debe *autenticar* y *autorizar*. 
 
 1. En primer lugar, se *autentica* la identidad de la entidad de seguridad y se devuelve un token de OAuth 2.0.
 2. Luego, el token se pasa como parte de una solicitud al servicio Azure Digital Twins para *autorizar* el acceso al recurso especificado.
@@ -47,20 +47,32 @@ Con las identidades administradas, la plataforma Azure administra esta identidad
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Autorización: Roles de Azure para Azure Digital Twins
 
-Azure proporciona los siguientes roles de Azure integrados para autorizar el acceso a un recurso de Azure Digital Twins:
-* *Propietario de Azure Digital Twins (versión preliminar)* : use este rol para proporcionar acceso completo a los recursos de Azure Digital Twins.
-* *Lector de Azure Digital Twins (versión preliminar)* : use este rol para proporcionar acceso de solo lectura a los recursos de Azure Digital Twins.
+Azure proporciona **dos roles integrados de Azure** para autorizar el acceso a las [API del plano de datos](how-to-use-apis-sdks.md#overview-data-plane-apis) de Azure Digital Twins. Puede hacer referencia a los roles por nombre o por identificador:
 
-> [!TIP]
-> Ahora, el rol de *lector de Azure Digital Twins (versión preliminar)* también admite la exploración de relaciones.
+| Rol integrado | Descripción | ID | 
+| --- | --- | --- |
+| Propietario de datos de Azure Digital Twins | Proporciona acceso completo a los recursos de Azure Digital Twins. | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Lector de datos de Azure Digital Twins | Proporciona acceso de solo lectura a los recursos de Azure Digital Twins. | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
-Para más información sobre cómo se definen los roles integrados, consulte [*Descripción de definiciones de roles*](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para más información acerca de la creación de roles personalizados de Azure, consulte [*Roles personalizados en los recursos de Azure*](../role-based-access-control/custom-roles.md).
+>[!NOTE]
+> Se ha cambiado el nombre de estos roles recientemente respecto a los nombres anteriores en la versión preliminar:
+> * *Propietario de datos de Azure Digital Twins* era anteriormente *Propietario de Azure Digital Twins (versión preliminar)* .
+> * *Lector de datos de Azure Digital Twins* era anteriormente *Lector de Azure Digital Twins (versión preliminar)* .
 
 Puede asignar roles de dos maneras:
 * mediante el panel de control de acceso (IAM) de Azure Digital Twins en Azure Portal (consulte [*Incorporación o eliminación de asignaciones de roles de Azure mediante Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * mediante comandos de la CLI para agregar o quitar un rol
 
 Para obtener pasos más detallados sobre cómo hacerlo, pruébelo en el [*Tutorial de Azure Digital Twins: Conexión de una solución de un extremo a otro*](tutorial-end-to-end.md).
+
+Para más información sobre cómo se definen los roles integrados, consulte [*Descripción de definiciones de roles*](../role-based-access-control/role-definitions.md) en la documentación de RBAC de Azure. Para más información acerca de la creación de roles personalizados de Azure, consulte [*Roles personalizados en los recursos de Azure*](../role-based-access-control/custom-roles.md).
+
+##### <a name="automating-roles"></a>Automatización de roles
+
+Al hacer referencia a los roles en escenarios automatizados, se recomienda hacer referencia a ellos por sus **identificadores** en lugar de sus nombres. Los nombres pueden cambiar entre versiones, pero los identificadores no, lo que los convierte en una referencia más estable en la automatización.
+
+> [!TIP]
+> Si se asignan roles con un cmdlet, como `New-AzRoleAssignment` ([referencia](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), puede usar el parámetro `-RoleDefinitionId` en lugar de `-RoleDefinitionName` para pasar un identificador en lugar de un nombre para el rol.
 
 ### <a name="permission-scopes"></a>Ámbitos de permiso
 

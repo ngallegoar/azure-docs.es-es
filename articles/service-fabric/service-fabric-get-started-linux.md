@@ -4,12 +4,12 @@ description: Instale el SDK y el motor en tiempo de ejecución, y cree un clúst
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: f8639287ea65347319cb438a5ff6e8c96c8279e1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168416"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675271"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
@@ -17,9 +17,9 @@ ms.locfileid: "92168416"
 > * [Linux](service-fabric-get-started-linux.md)
 > * [Mac OS X](service-fabric-get-started-mac.md)
 
-Para implementar y ejecutar (aplicaciones de Azure Service Fabric)[service-fabric-application-model.md] en la máquina de desarrollo de Linux, instale el runtime y el SDK común. También puede instalar SDK opcionales para el desarrollo con Java y .NET Core. 
+Para implementar y ejecutar [aplicaciones de Azure Service Fabric](service-fabric-application-model.md) en la máquina de desarrollo de Linux, instale el motor de tiempo de ejecución y el SDK común. También puede instalar SDK opcionales para el desarrollo con Java y .NET Core. 
 
-En los pasos descritos en este artículo se supone que va a instalar de forma nativa en Linux o que va a usar la (imagen de contenedor de Service Fabric OneBox)[https://hub.docker.com/_/microsoft-service-fabric-onebox ], es decir, `mcr.microsoft.com/service-fabric/onebox:u18`.
+En los pasos descritos en este artículo se supone que va a instalar de forma nativa en Linux o que va a usar la [imagen de contenedor de Service Fabric OneBox](https://hub.docker.com/_/microsoft-service-fabric-onebox), es decir, `mcr.microsoft.com/service-fabric/onebox:u18`.
 
 Puede administrar las entidades de Service Fabric hospedadas en la nube o en el entorno local mediante la interfaz de la línea de comandos (CLI) de Azure Service Fabric. Para más información acerca de cómo instalar la CLI, consulte [Configuración de la CLI de Service Fabric](./service-fabric-cli.md).
 
@@ -302,13 +302,13 @@ El complemento de Eclipse para Service Fabric se puede instalar desde el IDE de 
 
 2. Para instalar el complemento de Service Fabric, seleccione **Help** > **Install New Software** (Ayuda > Instalar nuevo software).
 
-3. En el cuadro **Trabajar con** , escriba **https:\//dl.microsoft.com/eclipse** .
+3. En el cuadro **Trabajar con** , escriba **https:\//dl.microsoft.com/eclipse**.
 
-4. Seleccione **Agregar** .
+4. Seleccione **Agregar**.
 
     ![Página de software disponible][sf-eclipse-plugin]
 
-5. Seleccione el complemento **ServiceFabric** y, a continuación, seleccione **Siguiente** .
+5. Seleccione el complemento **ServiceFabric** y, a continuación, seleccione **Siguiente**.
 
 6. Realice los pasos de instalación. Después, acepte el contrato de licencia para el usuario final.
 

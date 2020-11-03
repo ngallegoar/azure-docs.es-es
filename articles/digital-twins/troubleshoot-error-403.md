@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331505"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495899"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Error en la solicitud del servicio. Estado: 403 (Prohibido)
 
@@ -25,7 +25,9 @@ Este error puede producirse en muchos tipos de solicitudes de servicio que requi
 
 ### <a name="cause-1"></a>Causa 1
 
-A menudo, este error indica que los permisos de control de acceso basado en rol (RBAC de Azure) para el servicio no están configurados correctamente. Muchas acciones de Azure Digital Twins requieren el rol de *propietario de Azure Digital Twins (versión preliminar)* **en la instancia que intente administrar** . 
+A menudo, este error indica que los permisos de control de acceso basado en rol (RBAC de Azure) para el servicio no están configurados correctamente. Muchas acciones para una instancia de Azure Digital Twins requieren que tenga el rol *Propietario de datos de Azure Digital Twins* **en la instancia que intenta administrar**. 
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>Causa 2
 
@@ -37,11 +39,12 @@ Este registro de aplicación debe tener configurados los permisos de acceso a la
 
 ### <a name="solution-1"></a>Solución 1
 
-La primera solución es comprobar que el usuario de Azure tenga el rol de _**propietario de Azure Digital Twins (versión preliminar)**_ en la instancia que intente administrar. Si no tiene este rol, establézcalo.
+La primera solución es comprobar que el usuario de Azure tenga el rol _**Propietario de datos de Azure Digital Twins**_ en la instancia que intenta administrar. Si no tiene este rol, establézcalo.
 
 Tenga en cuenta que este rol es diferente del...
-* rol de *propietario* de toda la suscripción de Azure El rol de *propietario de Azure Digital Twins (versión preliminar)* es un rol dentro de Azure Digital Twins y se limita a esa instancia en concreto.
-* rol de *propietario* en Azure Digital Twins. Son dos roles de administración distintos de Azure Digital Twins; *propietario de Azure Digital Twins (versión preliminar)* es el rol que debe usar para la administración durante la versión preliminar.
+* nombre anterior de este rol durante la versión preliminar, *Propietario de Azure Digital Twins (versión preliminar)* (el rol es el mismo, pero el nombre ha cambiado)
+* rol de *propietario* de toda la suscripción de Azure *Propietario de datos de Azure Digital Twins* es un rol dentro de Azure Digital Twins y tiene el ámbito de esa instancia individual de Azure Digital Twins.
+* rol de *propietario* en Azure Digital Twins. Son dos roles de administración distintos de Azure Digital Twins; *Propietario de datos de Azure Digital Twins* es el rol que debe usar para la administración durante la versión preliminar.
 
 #### <a name="check-current-setup"></a>Comprobación de la configuración actual
 
@@ -49,12 +52,12 @@ Tenga en cuenta que este rol es diferente del...
 
 #### <a name="fix-issues"></a>Corrección de problemas 
 
-Si no tiene esta asignación de roles, alguien con un rol de propietario en la **suscripción de Azure** debe ejecutar el siguiente comando para proporcionar al usuario de Azure el rol de *propietario de Azure Digital Twins (versión preliminar)* en la **instancia de Azure Digital Twins** . 
+Si no tiene esta asignación de roles, alguien con el rol de propietario en la **suscripción de Azure** debe ejecutar el siguiente comando para proporcionar al usuario de Azure el rol *Propietario de datos de Azure Digital Twins* en la **instancia de Azure Digital Twins**. 
 
 Si es propietario de la suscripción, puede ejecutar este comando usted mismo. Si no es así, póngase en contacto con un propietario para que ejecute este comando por usted.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
 Para más información sobre este requisito de rol y el proceso de asignación, consulte la [*sección de Configuración de los permisos de acceso del usuario en el artículo*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de *Procedimiento de configuración de una instancia y de la autenticación (mediante la CLI o el portal)* .
@@ -77,11 +80,11 @@ Verá que aparece en la lista el registro de aplicaciones que acaba de crear. Se
 
 En primer lugar, compruebe que la configuración de permisos de Azure Digital Twins se estableció correctamente en el registro. Para ello, seleccione *Manifiesto* en la barra de menús para ver el código del manifiesto del registro de la aplicación. Desplácese hasta la parte inferior de la ventana de código y busque estos campos en `requiredResourceAccess`. Los valores deben coincidir con los de la siguiente captura de pantalla:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Página Registros de aplicaciones en Azure Portal":::
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Vista del portal del manifiesto para el registro de aplicaciones de Azure AD":::
 
 A continuación, seleccione *Permisos de API* en la barra de menús para comprobar que este registro de aplicaciones contiene permisos de lectura y escritura para Azure Digital Twins. Debería ver una entrada como la siguiente:
 
-:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Página Registros de aplicaciones en Azure Portal":::
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Vista del portal de los permisos de API para el registro de la aplicación de Azure AD que muestra &quot;Acceso de lectura y escritura&quot; para Azure Digital Twins":::
 
 #### <a name="fix-issues"></a>Corrección de problemas
 

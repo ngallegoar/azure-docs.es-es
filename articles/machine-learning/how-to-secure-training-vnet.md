@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629733"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425103"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Protección de un entorno de entrenamiento de Azure Machine Learning con redes virtuales
 
@@ -42,12 +42,12 @@ En este artículo aprenderá a proteger los siguientes recursos de proceso de en
 
 + Una red virtual y una subred existentes que se usarán con los recursos de proceso.
 
-+ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en los controles de acceso basados en rol (RBAC) de Azure:
++ Para implementar recursos en una red virtual o subred, la cuenta de usuario debe tener permisos para realizar las siguientes acciones en el control de acceso basado en roles de Azure (RBAC de Azure):
 
     - "Microsoft.Network/virtualNetworks/join/action" en el recurso de red virtual.
     - "Microsoft.Network/virtualNetworks/subnet/join/action" en el recurso de subred.
 
-    Para obtener más información sobre RBAC con redes, vea los [roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
+    Para más información sobre RBAC de Azure con redes, consulte [Roles integrados de redes](/azure/role-based-access-control/built-in-roles#networking).
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Clústeres e instancias de proceso 
@@ -110,8 +110,8 @@ Si no quiere usar las reglas de salida predeterminadas y quiere limitar el acces
 
 - Deniegue la conexión saliente a Internet mediante las reglas de NSG.
 
-- En el caso de una __instancia de proceso__ o un __clúster de proceso__, limite el tráfico saliente a los siguientes elementos:
-   - Azure Storage, mediante la __etiqueta de servicio__ de __Storage.RegionName__, donde `{RegionName}` es el nombre de una región de Azure.
+- En el caso de una __instancia de proceso__ o un __clúster de proceso__ , limite el tráfico saliente a los siguientes elementos:
+   - Azure Storage, mediante la __etiqueta de servicio__ de __Storage.RegionName__ , donde `{RegionName}` es el nombre de una región de Azure.
    - Azure Container Registry, mediante la __etiqueta de servicio__ de __AzureContainerRegistry.RegionName__ donde `{RegionName}` es el nombre de una región de Azure.
    - Azure Machine Learning, mediante la __etiqueta de servicio__ de __AzureMachineLearning__
    - Azure Resource Manager, mediante la __etiqueta de servicio__ de __AzureResourceManager__
@@ -122,7 +122,7 @@ La configuración de la regla de NSG en Azure Portal se muestra en la siguiente 
 [![Reglas de grupo de seguridad de red de salida para Proceso de Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Si planea usar las imágenes de Docker predeterminadas proporcionadas por Microsoft y habilitar las dependencias administradas por el usuario, también debe usar las siguientes __etiquetas de servicio__:
+> Si planea usar las imágenes de Docker predeterminadas proporcionadas por Microsoft y habilitar las dependencias administradas por el usuario, también debe usar las siguientes __etiquetas de servicio__ :
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -176,7 +176,7 @@ Hay dos maneras en que puede lograrlo:
         > * [Intervalos de direcciones IP y etiquetas de servicio de Azure para Azure Government](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Intervalos de direcciones IP y etiquetas de servicio de Azure para Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    Cuando agregue las rutas definidas por el usuario, defina la ruta del prefijo de cada dirección IP de Batch relacionada y en __Tipo del próximo salto__, seleccione __Internet__. En la imagen siguiente se muestra un ejemplo de esta UDR en Azure Portal:
+    Cuando agregue las rutas definidas por el usuario, defina la ruta del prefijo de cada dirección IP de Batch relacionada y en __Tipo del próximo salto__ , seleccione __Internet__. En la imagen siguiente se muestra un ejemplo de esta UDR en Azure Portal:
 
     ![Ejemplo de una ruta definida por el usuario para un prefijo de dirección](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -198,13 +198,13 @@ Para crear un clúster de Proceso de Machine Learning, siga los pasos siguientes
 
 1. Seleccione __Clústeres de entrenamiento__ en el centro y, después, seleccione __+__ .
 
-1. En el cuadro de diálogo __Nuevo clúster de entrenamiento__, expanda la sección __Configuración avanzada__.
+1. En el cuadro de diálogo __Nuevo clúster de entrenamiento__ , expanda la sección __Configuración avanzada__.
 
-1. Para configurar este recurso de proceso para que use una red virtual, realice las acciones siguientes en la sección __Configurar la red virtual__:
+1. Para configurar este recurso de proceso para que use una red virtual, realice las acciones siguientes en la sección __Configurar la red virtual__ :
 
-    1. En la lista desplegable __Grupo de recursos__, seleccione el grupo de recursos que contiene la red virtual.
-    1. En la lista desplegable __Red virtual__, seleccione la red que contiene la subred.
-    1. En la lista desplegable __Subred__, seleccione la subred que se va a usar.
+    1. En la lista desplegable __Grupo de recursos__ , seleccione el grupo de recursos que contiene la red virtual.
+    1. En la lista desplegable __Red virtual__ , seleccione la red que contiene la subred.
+    1. En la lista desplegable __Subred__ , seleccione la subred que se va a usar.
 
    ![Configuración de la red virtual de Proceso de Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -285,21 +285,21 @@ Cree una máquina virtual o un clúster de HDInsight mediante Azure Portal o la 
 
 Permita que Azure Machine Learning se comunique con el puerto SSH en la máquina virtual o el clúster y configure una entrada de origen para el grupo de seguridad de red. El puerto SSH suele ser el 22. Para permitir el tráfico desde este origen, realice las acciones siguientes:
 
-1. En la lista desplegable __Origen__, seleccione __Etiqueta de servicio__.
+1. En la lista desplegable __Origen__ , seleccione __Etiqueta de servicio__.
 
 1. En la lista desplegable __Etiqueta de servicio de origen__ , seleccione __AzureMachineLearning__.
 
     ![Reglas de entrada para realizar la experimentación en una máquina virtual o un clúster de HDInsight dentro de una red virtual](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
-1. En la lista desplegable __Intervalos de puertos de origen__, seleccione __*__ .
+1. En la lista desplegable __Intervalos de puertos de origen__ , seleccione __*__ .
 
-1. En la lista desplegable __Destino__, seleccione __Cualquiera__.
+1. En la lista desplegable __Destino__ , seleccione __Cualquiera__.
 
-1. En la lista desplegable __Intervalos de puertos de destino__, seleccione __22__.
+1. En la lista desplegable __Intervalos de puertos de destino__ , seleccione __22__.
 
-1. En __Protocolo__, seleccione __Cualquiera__.
+1. En __Protocolo__ , seleccione __Cualquiera__.
 
-1. En __Acción__, seleccione __Permitir__.
+1. En __Acción__ , seleccione __Permitir__.
 
 Conserve las reglas de salida predeterminadas para el grupo de seguridad de red. Para más información, consulte las reglas de seguridad predeterminadas en [Grupos de seguridad](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 

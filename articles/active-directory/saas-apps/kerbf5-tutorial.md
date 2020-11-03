@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: fe0f2b0efa3f089398493cf30012e34097e065ec
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 161348f7566ff64858d563f34ad8f3f4c7511adf
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944309"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459115"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
 
@@ -26,7 +26,7 @@ En este tutorial, obtendrá información sobre cómo integrar F5 con Azure Acti
 * Permitir que los usuarios inicien sesión automáticamente en F5 con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -117,7 +117,7 @@ Para configurar la integración de F5 en Azure AD, será preciso agregar F5 des
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **F5** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería** , escriba **F5** en el cuadro de búsqueda.
 1. Seleccione **F5** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-f5"></a>Configuración y prueba del inicio de sesión único de Azure AD para F5
@@ -137,26 +137,26 @@ Para configurar y probar el inicio de sesión único de Azure AD con F5, es pre
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **F5**, busque la sección **Administrar** y seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **F5** , busque la sección **Administrar** y seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono de edición o con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , si desea configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente: `https://<YourCustomFQDN>.f5.com/`
+    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el patrón siguiente: `https://<YourCustomFQDN>.f5.com/`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<YourCustomFQDN>.f5.com/`
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<YourCustomFQDN>.f5.com/`
 
-1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YourCustomFQDN>.f5.com/`
+    En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<YourCustomFQDN>.f5.com/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y **Certificado (Base 64)** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación** y **Certificado (Base 64)** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -168,11 +168,11 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
 En esta sección, va a crear un usuario de prueba llamado B.Simon en Azure Portal.
 
-1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En el panel izquierdo de Azure Portal, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
    1. Haga clic en **Crear**.
 
@@ -186,13 +186,13 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
 
    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. A continuación, en el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
 
     ![Vínculo de Agregar usuario](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
-1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** de la lista de usuarios y haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+1. Si espera que haya un valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione en la lista el rol adecuado para el usuario y haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 1. Haga clic en **Acceso condicional**.
 1. Haga clic en **Nueva directiva**.
 1. Ahora puede ver la aplicación F5 como un recurso para la directiva de CA y aplicar cualquier acceso condicional, como la autenticación multifactor, el control de acceso basado en dispositivo o la directiva de protección de identidades.
@@ -299,7 +299,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
    * Especifique los **controladores de dominio** del grupo; para ello, escriba la dirección IP y el nombre de host de cada uno y haga clic en el botón **Add** (Agregar).
 
-   * Para supervisar el estado del servidor de AAA, tiene la opción de seleccionar un monitor de estado: en este caso, solo es adecuado el monitor **gateway_icmp**; puede seleccionarlo en la lista **Server Pool Monitor** (Monitor del grupo de servidores).
+   * Para supervisar el estado del servidor de AAA, tiene la opción de seleccionar un monitor de estado: en este caso, solo es adecuado el monitor **gateway_icmp** ; puede seleccionarlo en la lista **Server Pool Monitor** (Monitor del grupo de servidores).
 
 8. En el campo **Admin Name** (Nombre del administrador), escriba un nombre con distinción entre mayúsculas y minúsculas para un administrador que tenga permisos administrativos en Active Directory. APM usa la información de los campos **Admin Name** (Nombre del administrador) y **Admin Password** (Contraseña del administrador) para la consulta de AD. Si Active Directory está configurado para consultas anónimas, no es necesario proporcionar un nombre de administrador. De lo contrario, APM necesita una cuenta con privilegios suficientes para enlazar a un servidor de Active Directory, capturar información del grupo de usuarios y capturar las directivas de contraseñas de Active Directory para admitir la funcionalidad relacionada con la contraseña. (APM debe capturar directivas de contraseñas, por ejemplo, si selecciona la opción Preguntar al usuario si desea cambiar la contraseña antes de la expiración en una acción de consulta de AD). Si no proporciona la información de la cuenta de administrador en esta configuración, APM usa la cuenta de usuario para capturar la información. Esto funciona si la cuenta de usuario tiene privilegios suficientes.
 
@@ -356,7 +356,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
      ![Captura de pantalla que muestra el botón "Bind/Unbind I d P Connectors" (Enlazar/Desenlazar conectores del I d P) seleccionado.](./media/kerbf5-tutorial/configure27.png)
 
-     c. Haga clic en **Add New Row** (Agregar nueva fila) y seleccione el **Conector del IdP externo** creado en el paso anterior, haga clic en **Update**(Actualizar) y, a continuación, haga clic en **OK** (Aceptar).
+     c. Haga clic en **Add New Row** (Agregar nueva fila) y seleccione el **Conector del IdP externo** creado en el paso anterior, haga clic en **Update** (Actualizar) y, a continuación, haga clic en **OK** (Aceptar).
 
      ![Captura de pantalla que muestra la ventana "Edit S A M L I d Ps that use this S P" (Editar los I d P de S A M L que usan este S P) con el botón "Add New Row" (Agregar nueva fila) seleccionado.](./media/kerbf5-tutorial/configure28.png)
 
@@ -451,7 +451,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
 *  **Paso 1:** Creación de una cuenta de delegación
 
-    **Ejemplo**:
+    **Ejemplo** :
     * Nombre de dominio: **superdemo.live**
 
     * Nombre de cuenta de SAM: **big-ipuser**
@@ -460,7 +460,7 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
 * **Paso 2:** Establecer SPN (en la cuenta de delegación de APM)
 
-    **Ejemplo**:
+    **Ejemplo** :
     * setspn –A **host/big-ipuser.superdemo.live** big-ipuser
 
 * **Paso 3:** La delegación de SPN (para la cuenta de App Service) configura la delegación adecuada para la cuenta de delegación de F5.
@@ -472,25 +472,24 @@ Configure un servidor de AAA de Active Directory en el Administrador de directi
 
 ### <a name="create-f5-test-user"></a>Creación de un usuario de prueba de F5
 
-En esta sección, creará un usuario llamado B.Simon en F5. Trabaje con el  [equipo de soporte técnico del cliente de F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para agregar los usuarios a la plataforma de F5. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
+En esta sección, creará un usuario llamado B.Simon en F5. Trabaje con el [equipo de soporte técnico del cliente de F5](https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM45) para agregar los usuarios a la plataforma de F5. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único. 
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de F5 en el panel de acceso, debería iniciar sesión automáticamente en la versión de F5 para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de F5 en el panel de acceso, debería iniciar sesión automáticamente en la versión de F5 para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prueba de F5 con Azure AD](https://aad.portal.azure.com/)
 
 - [Configuración del inicio de sesión único de F5 para la aplicación basada en encabezados](headerf5-tutorial.md)
 
 - [Configuración del inicio de sesión único de F5 para la aplicación Kerberos avanzada](advance-kerbf5-tutorial.md)
-

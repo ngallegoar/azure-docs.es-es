@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 10/23/2020
 ms.author: aahi
-ms.openlocfilehash: 856e73181ee02fe2bb21c4317ec8c733e2536d53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 14b4e7217b6e902023e5e82f8dbd404e43b36ef0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973129"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676164"
 ---
 # <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migración a los contenedores OCR de Read v3.x
 
@@ -29,21 +29,11 @@ Si usa la versión 2 del contenedor OCR de Read de Computer Vision, utilice este
 
 ## <a name="api-changes"></a>Cambios de API
 
-Los contenedores de Read v3.x emplean la versión 3 de la API Computer Vision y tienen los siguientes puntos de conexión:
-
-#### <a name="version-31-preview"></a>[Versión 3.1: versión preliminar](#tab/version-3-1)
+El contenedor de Read v3.1 emplean la versión 3 de la API Computer Vision y tiene los siguientes puntos de conexión:
 
 * `/vision/v3.1-preview.2/read/analyzeResults/{operationId}`
 * `/vision/v3.1-preview.2/read/analyze`
 * `/vision/v3.1-preview.2/read/syncAnalyze`
-
-#### <a name="version-30-preview"></a>[Versión 3.0 (versión preliminar)](#tab/version-3)
-
-* `/vision/v3.0/read/analyzeResults/{operationId}`
-* `/vision/v3.0/read/analyze`
-* `/vision/v3.0/read/syncAnalyze`
-
----
 
 Consulte la [guía de migración de la API REST Computer Vision v3](https://docs.microsoft.com/azure/cognitive-services/computer-vision/upgrade-api-versions) para más información sobre cómo actualizar las aplicaciones para que usen la versión 3 de la API Read basada en la nube. Esta información también se aplica al contenedor. Tenga en cuenta que las operaciones de sincronización solo se admiten en contenedores.
 
@@ -53,8 +43,7 @@ Los requisitos y las recomendaciones se basan en pruebas comparativas con una ú
 
 |Contenedor  |Mínima | Recomendado  |
 |---------|---------|------|
-|Read 3.0: versión preliminar     | 8 núcleos, 16 GB de memoria         | 8 núcleos, 24 GB de memoria
-|Read 3.1: versión preliminar | 8 núcleos, 16 GB de memoria         | 8 núcleos, 24 GB de memoria
+|Read 3.1: versión preliminar | 8 núcleos, 16 GB de memoria         | 8 núcleos, 24 GB de memoria |
 
 Cada núcleo debe ser de 2,6 gigahercios (GHz) como mínimo.
 

@@ -28,17 +28,15 @@ En este inicio rápido, aprenderá a iniciar una llamada mediante la biblioteca 
 
 En Android Studio, seleccione Start a new Android Studio project (Iniciar un nuevo proyecto de Android Studio).
 
-:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-new-project.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.":::
 
-Seleccione la plantilla de proyecto &quot;Actividad vacía" en "Teléfono y tableta".
+Seleccione la plantilla de proyecto "Actividad vacía" en "Teléfono y tableta".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Captura de pantalla que muestra la opción &quot;Actividad vacía&quot; seleccionada en la pantalla de la plantilla de proyecto.":::
 
-Seleccione la plantilla de proyecto &quot;Actividad vacía" o una versión posterior.
+Seleccione la biblioteca cliente mínima de la "API 26: Android 8.0 (Oreo)" o una versión posterior.
 
-:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
-
-Seleccione la plantilla de proyecto &quot;Actividad vacía":::
+:::image type="content" source="../media/android/studio-calling-min-api.png" alt-text="Captura de pantalla que muestra la opción &quot;Actividad vacía&quot; seleccionada en la pantalla 2 de la plantilla de proyecto.":::
 
 
 ### <a name="install-the-package"></a>Instalar el paquete
@@ -315,9 +313,7 @@ private void startCall() {
 
 Ahora se puede iniciar la aplicación con el botón "Ejecutar aplicación" de la barra de herramientas (Mayús + F10). Para verificar que puede realizar llamadas, llame a `8:echo123`. Se reproducirá un mensaje grabado previamente y, luego, se repetirá su mensaje.
 
-:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de pantalla que muestra el botón &quot;Start a new Android Studio Project&quot; (&quot;Iniciar un nuevo proyecto de Android Studio&quot;) seleccionado en Android Studio.&quot;:::
-
-Seleccione la plantilla de proyecto &quot;Actividad vacía":::
+:::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Captura de pantalla que muestra la aplicación completada.":::
 
 ## <a name="sample-code"></a>Código de ejemplo
 

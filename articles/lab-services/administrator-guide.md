@@ -2,13 +2,13 @@
 title: 'Azure Lab Services: guía del administrador | Microsoft Docs'
 description: Esta guía ayuda a los administradores que crean y administran cuentas de laboratorio mediante Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444155"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425297"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services: guía del administrador
 Los administradores de tecnología de la información (TI) que administran los recursos en la nube de una universidad suelen ser también responsables de configurar la cuenta de laboratorio en su institución. Una vez configurada una cuenta de laboratorio, los administradores o educadores crean laboratorios educativos que están incluidos en la cuenta de laboratorio. En este artículo se proporciona información general de alto nivel sobre los recursos de Azure relacionados e instrucciones para crearlos.
@@ -114,9 +114,9 @@ Cuando empiece a trabajar con Azure Lab Services, se recomienda establecer conve
 
 | Tipo de recurso | Role | Patrón sugerido | Ejemplos |
 | ------------- | ---- | ----------------- | -------- | 
-| Resource group | Contiene una o varias cuentas de laboratorio y una o varias galerías de imágenes compartidas. | \<organization short name\>-\<environment\>-rg<ul><li>**Nombre corto de la organización**: identifica el nombre de la organización que admite el grupo de recursos.</li><li>**Entorno**: identifica el entorno del recurso, por ejemplo, piloto o producción.</li><li>**Rg**: significa el tipo de recurso: grupo de recursos (del inglés resource group).</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
-| Cuenta de laboratorio | Contiene uno o varios laboratorios. | \<organization short name\>-\<environment\>-la<ul><li>**Nombre corto de la organización**: identifica el nombre de la organización que admite el grupo de recursos.</li><li>**Entorno**: identifica el entorno del recurso, por ejemplo, piloto o producción.</li><li>**La**: significa el tipo de recurso: cuenta de laboratorio (del inglés lab account).</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
-| Laboratorio educativo | Contiene una o varias máquinas virtuales. |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nombre de clase**: identifica el nombre de la clase que admite el laboratorio.</li><li>**Período de tiempo**: identifica el período de tiempo en el que se ofrece la clase.</li>**Identificador del educador**: identifica el educador que posee el laboratorio.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
+| Resource group | Contiene una o varias cuentas de laboratorio y una o varias galerías de imágenes compartidas. | \<organization short name\>-\<environment\>-rg<ul><li>**Nombre corto de la organización** : identifica el nombre de la organización que admite el grupo de recursos.</li><li>**Entorno** : identifica el entorno del recurso, por ejemplo, piloto o producción.</li><li>**Rg** : significa el tipo de recurso: grupo de recursos (del inglés resource group).</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
+| Cuenta de laboratorio | Contiene uno o varios laboratorios. | \<organization short name\>-\<environment\>-la<ul><li>**Nombre corto de la organización** : identifica el nombre de la organización que admite el grupo de recursos.</li><li>**Entorno** : identifica el entorno del recurso, por ejemplo, piloto o producción.</li><li>**La** : significa el tipo de recurso: cuenta de laboratorio (del inglés lab account).</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
+| Laboratorio educativo | Contiene una o varias máquinas virtuales. |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Nombre de clase** : identifica el nombre de la clase que admite el laboratorio.</li><li>**Período de tiempo** : identifica el período de tiempo en el que se ofrece la clase.</li>**Identificador del educador** : identifica el educador que posee el laboratorio.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
 | Galería de imágenes compartidas | Contiene una o más versiones de imágenes de máquina virtual. | \<organization short name\>gallery | contosouniversitylabsgallery |
 
 Para más información sobre la asignación de nombres a otros recursos de Azure, consulte las [convenciones de nomenclatura para recursos de Azure](/azure/architecture/best-practices/naming-conventions).
@@ -144,11 +144,11 @@ La ubicación en la que existe un laboratorio educativo varía en función de es
     > [!NOTE]
     > Cuando una cuenta de laboratorio se empareja con una red virtual, la configuración **Permitir al creador del laboratorio seleccionar la ubicación correspondiente** está deshabilitada. Encontrará información adicional sobre esta opción en el artículo: [Selección de la ubicación del laboratorio por parte del creador de este en Azure Lab Services](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **No hay ninguna red virtual emparejada ***y*** los creadores del laboratorio no pueden elegir la ubicación del laboratorio.**
+  - No hay ninguna red virtual emparejada *_y_* los creadores del laboratorio no pueden elegir la ubicación del laboratorio.
   
     Cuando **no** hay ninguna red virtual emparejada con la cuenta de laboratorio *y* los [creadores del laboratorio **no** pueden elegir la ubicación del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), los laboratorios educativos se crean automáticamente en una región que tiene capacidad de VM disponible.  En concreto, Azure Lab Services busca disponibilidad en [regiones que se encuentran en la misma geografía que la cuenta de laboratorio](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - **No hay ninguna red virtual emparejada ***y*** los creadores del laboratorio pueden elegir la ubicación del laboratorio**
+  - No hay ninguna red virtual emparejada *_y_* los creadores del laboratorio no pueden elegir la ubicación del laboratorio.
        
     Cuando **no** hay ninguna red virtual emparejada y [los creadores del laboratorio pueden elegir la ubicación del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), el creador del laboratorio puede seleccionar las ubicaciones según la capacidad disponible.
 
@@ -171,14 +171,14 @@ Cuando los administradores o creadores de laboratorios crean un laboratorio educ
 | Media | <ul><li>4 núcleos</li><li>7 GB de RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria. |
 | Mediano (virtualización anidada) | <ul><li>4 núcleos</li><li>16 GB de RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamaño es el más adecuado para bases de datos relacionales, análisis y almacenamiento en caché en memoria.
 | grande | <ul><li>8 núcleos</li><li>16 GB de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes.  Este tamaño admite la virtualización anidada. |
-| Grande (virtualización anidada) | <ul><li>8 núcleos</li><li>16 GB de RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. |
+| Grande (virtualización anidada) | <ul><li>8 núcleos</li><li>32 GB de RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Este tamaño es ideal para aplicaciones que necesitan CPU más rápidas, un mejor rendimiento de los discos locales, bases de datos grandes y memorias caché grandes. |
 | GPU pequeña (visualización) | <ul><li>6 núcleos</li><li>56 GB de RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
 | GPU pequeña (proceso) | <ul><li>6 núcleos</li><li>56 GB de RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamaño es más adecuado para aplicaciones de proceso intensivo, como la inteligencia artificial y el aprendizaje profundo. |
 | GPU mediana (visualización) | <ul><li>12 núcleos</li><li>112 GB de RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamaño es más adecuado para visualización remota, streaming, juegos y codificación mediante plataformas como OpenGL y DirectX. |
 
 ## <a name="manage-identity"></a>Administración de identidades
 
-Con el [control de acceso basado en roles de Azure](https://docs.microsoft.com/azure/role-based-access-control/overview), se pueden asignar los siguientes roles para conceder acceso a las cuentas de laboratorio y a los laboratorios educativos:
+Con el [control de acceso basado en roles de Azure (RBAC de Azure)](https://docs.microsoft.com/azure/role-based-access-control/overview), se pueden asignar los siguientes roles para conceder acceso a las cuentas de laboratorio y a los laboratorios educativos:
 
 - **Propietario de la cuenta del laboratorio**
 

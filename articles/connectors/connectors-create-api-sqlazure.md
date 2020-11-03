@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169394"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426611"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatización de flujos de trabajo en una base de datos SQL mediante Azure Logic Apps
 
@@ -84,7 +84,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
 
    ![Captura de pantalla que muestra la ventana de conexión "SQL Server" con la lista "Tipo de autenticación" abierta y la opción "Azure AD integrado" seleccionada.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. Después de seleccionar **Azure AD integrado** , seleccione **Iniciar sesión** . En función de si usa Azure SQL Database o Azure SQL Managed Instance, seleccione las credenciales de usuario para la autenticación.
+1. Después de seleccionar **Azure AD integrado** , seleccione **Iniciar sesión**. En función de si usa Azure SQL Database o Azure SQL Managed Instance, seleccione las credenciales de usuario para la autenticación.
 
 1. Seleccione estos valores para la base de datos:
 
@@ -152,7 +152,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
 
    ![Creación de una conexión a SQL Server finalizada](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
 
-1. Cuando esté listo, seleccione **Crear** .
+1. Cuando esté listo, seleccione **Crear**.
 
 1. Ahora, continúe con los pasos que todavía no haya completado en [Adición de un desencadenador de SQL](#add-sql-trigger) o [Incorporación de una acción de SQL](#add-sql-action).
 
@@ -162,7 +162,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
 
 1. En [Azure Portal](https://portal.azure.com) o Visual Studio, cree una aplicación lógica en blanco que abra el Diseñador de aplicación lógica. Este ejemplo continúa con Azure Portal.
 
-1. En el cuadro de búsqueda del diseñador, escriba `sql server`. En la lista de desencadenadores, seleccione el desencadenador de SQL que desee. En este ejemplo se usa el desencadenador **Cuando se crea un elemento** .
+1. En el cuadro de búsqueda del diseñador, escriba `sql server`. En la lista de desencadenadores, seleccione el desencadenador de SQL que desee. En este ejemplo se usa el desencadenador **Cuando se crea un elemento**.
 
    ![Selección del desencadenador "Cuando se crea un elemento"](./media/connectors-create-api-sqlazure/select-sql-server-trigger.png)
 
@@ -170,7 +170,7 @@ La primera vez que agregue un [desencadenador SQL](#add-sql-trigger) o una [acci
 
 1. En el desencadenador, especifique el intervalo y la frecuencia con que el desencadenador comprueba la tabla.
 
-1. Para agregar el resto de propiedades disponibles para este desencadenador, abra la lista **Agregar nuevo parámetro** .
+1. Para agregar el resto de propiedades disponibles para este desencadenador, abra la lista **Agregar nuevo parámetro**.
 
    Este desencadenador solo devuelve una fila de la tabla seleccionada. Para realizar otras tareas, continúe agregando una [acción de conector SQL](#add-sql-action) u [otra acción](../connectors/apis-list.md) que lleve a cabo la siguiente tarea que desee en el flujo de trabajo de la aplicación lógica.
    
@@ -188,11 +188,11 @@ En este ejemplo, la aplicación lógica empieza con el [desencadenador de period
 
 1. En [Azure Portal](https://portal.azure.com) o Visual Studio, abra la aplicación lógica en el Diseñador de aplicación lógica. Este ejemplo continúa en Azure Portal.
 
-1. En el desencadenador o la acción donde quiera agregar la acción de SQL, seleccione **Nuevo paso** .
+1. En el desencadenador o la acción donde quiera agregar la acción de SQL, seleccione **Nuevo paso**.
 
    ![Incorporación de una acción a la aplicación lógica](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   O bien, para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción** .
+   O bien, para agregar una acción entre los pasos existentes, mueva el mouse sobre la flecha de conexión. Seleccione el signo más ( **+** ) que aparece y, luego, seleccione **Agregar una acción**.
 
 1. En **Elegir una acción** , en el cuadro de búsqueda, escriba `sql server`. En la lista de acciones, seleccione la acción SQL que quiera. En este ejemplo se usa la acción **Obtener fila** , que obtiene un único registro.
 
@@ -214,19 +214,16 @@ En este ejemplo, la aplicación lógica empieza con el [desencadenador de period
 
 En ocasiones, tendrá que trabajar con conjuntos de resultados tan grandes que el conector no devuelva todos los resultados al mismo tiempo, o necesitará un mayor control sobre el tamaño y la estructura de los conjuntos de resultados. A continuación se indican algunas maneras de controlar conjuntos de resultados tan grandes:
 
-* Para ayudarle a administrar los resultados como conjuntos más pequeños, active la *paginación* . Para obtener más información, consulte el tema sobre la [obtención de datos masivos, registros y elementos mediante la paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* Para ayudarle a administrar los resultados como conjuntos más pequeños, active la *paginación*. Para obtener más información, consulte el tema sobre la [obtención de datos masivos, registros y elementos mediante la paginación](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Para más información, consulte [Paginación de SQL para la transferencia de datos masiva con Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
-* Cree un procedimiento almacenado que organice los resultados como desee.
+* Cree un [*procedimiento almacenado*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) que organice los resultados como desee. El conector de SQL proporciona muchas características de back-end a las que se puede acceder mediante el uso de Azure Logic Apps para que pueda automatizar más fácilmente las tareas empresariales que funcionan con tablas de una base de datos SQL.
 
   Al obtener o insertar varias filas, la aplicación lógica puede iterar a través de estas filas mediante un [*bucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dentro de estos [límites](../logic-apps/logic-apps-limits-and-config.md). No obstante, si su aplicación lógica tiene que trabajar con conjuntos de registros tan grandes, por ejemplo, con miles o millones de filas, y quiere minimizar los costos de las llamadas a la base de datos.
 
-  Para organizar los resultados de la manera deseada, puede crear un [*procedimiento almacenado*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) que se ejecute en la instancia de SQL y use la instrucción **SELECT - ORDER BY** . Esta solución le permite tener mayor control sobre el tamaño y la estructura de los resultados. La aplicación lógica llama al procedimiento almacenado mediante la acción **Ejecutar procedimiento almacenado** del conector de SQL Server.
+  Para organizar los resultados de la manera deseada, puede crear un procedimiento almacenado que se ejecute en la instancia de SQL y use la instrucción **SELECT - ORDER BY**. Esta solución le permite tener mayor control sobre el tamaño y la estructura de los resultados. La aplicación lógica llama al procedimiento almacenado mediante la acción **Ejecutar procedimiento almacenado** del conector de SQL Server. Para más información, consulte [Cláusula SELECT: ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
-  Para más información sobre las soluciones, consulte estos artículos:
-
-  * [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx) (Paginación de SQL para la transferencia de datos masiva con Logic Apps)
-
-  * [Cláusula SELECT - ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  > [!NOTE]
+  > Con este conector, la ejecución de un procedimiento almacenado está limitada a un [límite de tiempo de espera inferior a 2 minutos](/connectors/sql/#known-issues-and-limitations). Algunos procedimientos almacenados pueden tardar más que este límite en procesarse y finalizar completamente, lo que genera un error `504 TIMEOUT`. En realidad, algunos procesos de ejecución prolongada se codifican como procedimientos almacenados explícitamente para este fin. Llamar a estos procedimientos desde Azure Logic Apps podría crear problemas debido a este límite de tiempo de espera. Aunque el conector de SQL no admite de forma nativa el modo asincrónico, puede simular este modo mediante el uso de un desencadenador de finalización de SQL, una consulta de paso a través de SQL nativa, una tabla de estado y trabajos del lado servidor mediante el [Agente de trabajos elásticos de Azure](../azure-sql/database/elastic-jobs-overview.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Manipulación de datos dinámicos masivos
 
@@ -236,16 +233,16 @@ Cuando llama a un procedimiento almacenado con el conector de SQL Server, a vece
 
 1. Para ver el formato de salida, realice una serie de pruebas. Copie y guarde la salida del ejemplo.
 
-1. En el diseñador, en la acción para llamar al procedimiento almacenado, seleccione **Nuevo paso** .
+1. En el diseñador, en la acción para llamar al procedimiento almacenado, seleccione **Nuevo paso**.
 
 1. En **Elegir una acción** , busque la acción [**Analizar JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) y selecciónela.
 
-1. En la acción **Análisis del archivo JSON** , seleccione **Usar una carga de ejemplo para generar el esquema** .
+1. En la acción **Análisis del archivo JSON** , seleccione **Usar una carga de ejemplo para generar el esquema**.
 
-1. En la ventana **Enter or paste a sample JSON payload** (Especificar o pegar una carga JSON de ejemplo), proporcione una salida de ejemplo y seleccione **Listo** .
+1. En la ventana **Enter or paste a sample JSON payload** (Especificar o pegar una carga JSON de ejemplo), proporcione una salida de ejemplo y seleccione **Listo**.
 
    > [!NOTE]
-   > Si recibe un error que dice que Logic Apps no puede generar un esquema, compruebe que la sintaxis de la salida de ejemplo tiene el formato correcto. Si sigue sin poder generar el esquema, escríbalo manualmente en el cuadro **Esquema** .
+   > Si recibe un error que dice que Logic Apps no puede generar un esquema, compruebe que la sintaxis de la salida de ejemplo tiene el formato correcto. Si sigue sin poder generar el esquema, escríbalo manualmente en el cuadro **Esquema**.
 
 1. En la barra de herramientas del diseñador, seleccione **Save** (Guardar).
 
@@ -253,13 +250,13 @@ Cuando llama a un procedimiento almacenado con el conector de SQL Server, a vece
 
 ## <a name="troubleshoot-problems"></a>Solucionar problemas
 
-Se suelen producir problemas de conexión, por lo que para solucionar este tipo de problemas, revise [Solución de problemas de conectividad en SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Estos son algunos ejemplos:
+* Se suelen producir problemas de conexión, por lo que para solucionar este tipo de problemas, revise [Solución de problemas de conectividad en SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Estos son algunos ejemplos:
 
-* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
-* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Detalles específicos del conector
 

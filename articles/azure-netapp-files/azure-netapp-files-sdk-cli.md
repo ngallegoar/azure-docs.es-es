@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 10/21/2020
 ms.author: b-juche
-ms.openlocfilehash: 61978566eba792a1d5b1db45ea4a9e8d6e84a543
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: f7b9cabdc7c2c706ff3b8dd5a0b3b5f7ed3666d6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931043"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369036"
 ---
-# <a name="azure-netapp-files-sdks-and-cli-tools"></a>SDK y herramientas de la CLI de Azure NetApp Files
+# <a name="azure-netapp-files-sdks-cli-tools-and-arm-templates"></a>SDK, herramientas de la CLI y plantillas de ARM para Azure NetApp Files
 
-En este artículo, se muestran los SDK y las herramientas de línea de comandos (CLI) compatibles con Azure NetApp Files.
+En este artículo se muestran los SDK, las herramientas de la línea de comandos (CLI) y las plantillas de Azure Resource Manager (ARM) compatibles con Azure NetApp Files.
 
 ## <a name="supported-sdks"></a>SDK admitidos 
 
@@ -44,12 +44,18 @@ En la tabla siguiente, se muestran las herramientas de la CLI compatibles junto 
 
 |    Herramienta    |    Referencia de comandos    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest)    |
-|    PowerShell   |    [Azure PowerShell para Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
+|    PowerShell   |    [Azure PowerShell para Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
 
 ## <a name="code-samples"></a>Ejemplos de código
 
 Consulte [ejemplos de código para Azure NetApp Files](/samples/browse/?filter-products=netapp&products=azure-netapp-files).
+
+## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure  
+
+Azure Resource Manager (ARM) le permite aprovisionar sus aplicaciones mediante una plantilla declarativa. En una plantilla, puede implementar varios servicios junto con sus dependencias. Use la misma plantilla para implementar su aplicación de forma repetida durante cada fase de su ciclo de vida.   
+
+Consulte [Plantillas de ARM disponibles para Azure NetApp Files](https://azure.microsoft.com/resources/templates/?term=anf).
 
 ## <a name="next-steps"></a>Pasos siguientes   
  [Descargas de SDK de Azure](https://azure.microsoft.com/downloads/)

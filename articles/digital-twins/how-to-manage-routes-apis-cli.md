@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c6c0ee775ec1405fa76424e6b0ad57436d2d233e
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340111"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494823"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Administración de puntos de conexión y rutas en Azure Digital Twins (API y CLI)
 
@@ -20,7 +20,7 @@ ms.locfileid: "92340111"
 
 En Azure Digital Twins, se pueden enrutar [notificaciones de eventos](how-to-interpret-event-data.md) a los servicios de bajada o recursos de proceso conectados. Para ello, primero se configuran los **puntos de conexión** que pueden recibir los eventos. Después, puede crear [**rutas de eventos**](concepts-route-events.md) que especifiquen qué eventos generados por Azure Digital Twins se entregan a los puntos de conexión.
 
-Los puntos de conexión y las rutas se administran con las [API EventRoutes](how-to-use-apis-sdks.md), el [SDK de .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas a través de estos mecanismos.
+Los puntos de conexión y las rutas se pueden administrar con las [API Event Routes](/rest/api/digital-twins/dataplane/eventroutes), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). Este artículo le guiará a través del proceso de creación de puntos de conexión y rutas a través de estos mecanismos.
 
 También se pueden administrar a través de [Azure Portal](https://portal.azure.com). Para obtener una versión de este artículo que usa el portal en su lugar, consulte [*Procedimiento: Administración de puntos de conexión y rutas (portal)*](how-to-manage-routes-portal.md).
 
@@ -48,19 +48,19 @@ En el siguiente ejemplo se muestra cómo crear un punto de conexión de tipo Eve
 
 Primero, cree un tema de Event Grid. Puede usar el siguiente comando o, para ver los pasos con más detalle, visite [la sección *Creación de un tema personalizado*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) de la guía de inicio rápido de *eventos personalizados* de Event Grid.
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
 ```
 
 > [!TIP]
 > Para generar una lista de nombres de regiones de Azure que se pueden utilizar en los comandos de la CLI de Azure, ejecute este comando:
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
 Una vez creado el tema, se puede vincular a Azure Digital Twins con el [comando siguiente de la CLI de Azure Digital Twins](how-to-use-cli.md):
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
@@ -71,24 +71,24 @@ Ahora, el tema de Event Grid está disponible como punto de conexión dentro de 
 El proceso de creación de puntos de conexión de Event Hubs o Service Bus es similar al proceso de Event Grid que se muestra anteriormente.
 
 En primer lugar, cree los recursos que usará como punto de conexión. A continuación, si indica lo que se necesita:
-* Service Bus: un _espacio de nombres de Service Bus_ , un _tema de Service Bus_ y una _regla de autorización_ .
-* Event Hubs: un _espacio de nombres de Event Hubs_ , un _centro de eventos_ y una _regla de autorización_ .
+* Service Bus: un _espacio de nombres de Service Bus_ , un _tema de Service Bus_ y una _regla de autorización_.
+* Event Hubs: un _espacio de nombres de Event Hubs_ , un _centro de eventos_ y una _regla de autorización_.
 
 A continuación, use los siguientes comandos para crear los puntos de conexión en Azure Digital Twins: 
 
 * Agregar punto de conexión del tema de Service Bus (requiere un recurso de Service Bus creado previamente).
-```azurecli 
+```azurecli-interactive 
 az dt endpoint create servicebus --endpoint-name <Service-Bus-endpoint-name> --servicebus-resource-group <Service-Bus-resource-group-name> --servicebus-namespace <Service-Bus-namespace> --servicebus-topic <Service-Bus-topic-name> --servicebus-policy <Service-Bus-topic-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 * Agregar punto de conexión de Event Hubs (requiere un recurso de Event Hubs creado previamente).
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --eventhub-resource-group <Event-Hub-resource-group> --eventhub-namespace <Event-Hub-namespace> --eventhub <Event-Hub-name> --eventhub-policy <Event-Hub-policy> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creación de un punto de conexión con colas de mensajes fallidos
 
-Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos** .
+Cuando un punto de conexión no puede entregar un evento en un período de tiempo determinado o después de haber intentado entregarlo un número determinado de veces, podrá enviar el evento sin entregar a una cuenta de almacenamiento. Este proceso se conoce como **colas de mensajes fallidos**.
 
 Para crear un punto de conexión con la opción de poner en cola los mensajes fallidos, debe usar las [API de ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) para crear el punto de conexión. 
 
@@ -152,9 +152,9 @@ A continuación se muestra un ejemplo de un mensaje fallido en cola de una [noti
 
 ## <a name="create-an-event-route"></a>Crear una ruta de eventos
 
-Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir una **ruta de eventos** . Las **API EventRoutes** de Azure Digital Twins permiten a los desarrolladores conectar el flujo de eventos a lo largo del sistema y a los servicios de bajada. Obtenga más información sobre las rutas de eventos en [*Conceptos: Enrutamiento de eventos de Azure Digital Twins*](concepts-route-events.md).
+Para enviar datos de Azure Digital Twins a un punto de conexión, debe definir una **ruta de eventos**. Las **API EventRoutes** de Azure Digital Twins permiten a los desarrolladores conectar el flujo de eventos a lo largo del sistema y a los servicios de bajada. Obtenga más información sobre las rutas de eventos en [*Conceptos: Enrutamiento de eventos de Azure Digital Twins*](concepts-route-events.md).
 
-Los ejemplos de esta sección usan el [SDK de .NET (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core).
+Los ejemplos de esta sección usan el [SDK de .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
 
 **Requisito previo** : Debe crear puntos de conexión como se describió anteriormente en este artículo para poder continuar con la creación de una ruta. Puede continuar con la creación de una ruta de evento una vez finalizada la configuración de los puntos de conexión.
 
@@ -242,8 +242,6 @@ Estos son los filtros de ruta admitidos. Use los detalles de la columna *Filtrar
 ## <a name="manage-endpoints-and-routes-with-cli"></a>Administración de puntos de conexión y rutas con la CLI
 
 Los puntos de conexión y las rutas también se pueden administrar mediante la CLI de Azure Digital Twins. Para obtener más información sobre el uso de la CLI y los comandos disponibles, consulte [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 [!INCLUDE [digital-twins-route-metrics](../../includes/digital-twins-route-metrics.md)]
 

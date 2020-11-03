@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823594"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521057"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Transformación Anular dinamización en el flujo de datos de asignación
 
@@ -28,27 +28,27 @@ Use Anular dinamización en un flujo de datos de asignación de ADF como una for
 
 ![Transformación Anular dinamización](media/data-flow/unpivot5.png "Opciones de anulación de dinamización 2")
 
-En primer lugar, establezca las columnas que desea agrupar para la agregación dinámica. Establezca una o varias columnas para desagrupar con el + situado junto a la lista de columnas.
+En primer lugar, establezca las columnas por las que desea desagrupar la agregación de anulación de dinamización. Establezca una o varias columnas para desagrupar con el + situado junto a la lista de columnas.
 
 ## <a name="unpivot-key"></a>Clave de anulación de dinamización
 
 ![Transformación Anular dinamización](media/data-flow/unpivot6.png "Opciones de anulación de dinamización 3")
 
-La clave dinámica es la columna que ADF dinamizará de fila a columna. De forma predeterminada, cada valor único del conjunto de datos de este campo se dinamizará en una columna. Sin embargo, también puede escribir los valores del conjunto de datos que desea dinamizar en valores de columna.
+La clave de anulación de dinamización es la columna que ADF utilizará para dinamizar de columna a fila. De forma predeterminada, cada valor único del conjunto de datos de este campo se dinamizará en una fila. Sin embargo, también puede escribir los valores del conjunto de datos que desea dinamizar en valores de fila.
 
 ## <a name="unpivoted-columns"></a>Columnas con dinamización anulada
 
 ![Transformación Anular dinamización](media/data-flow//unpivot7.png "Opciones de anulación de dinamización 4")
 
-Por último, elija la agregación que se va a usar para los valores dinamizados y cómo desea que las columnas se muestren en la nueva proyección de salida de la transformación.
+Por último, elija el nombre de columna para almacenar los valores de las columnas no dinamizadas que se transforman en filas.
 
-(Opcional) Puede establecer un patrón de nomenclatura con un prefijo, un término intermedio y el sufijo que se agregará a los nuevos nombres de columna creados a partir de los valores de fila.
+(Opcional) Puede eliminar las filas con valores NULL.
 
-Por ejemplo, dinamizar "Ventas" por "Región" simplemente daría lugar a nuevos valores de columna a partir de cada valor de ventas. Por ejemplo: "25", "50", "1000", etc. Sin embargo, si establece un valor de prefijo "Ventas", "Ventas" se usará como prefijo de los valores.
+Por ejemplo, SumCost es el nombre de columna que se eligió en el ejemplo compartido anterior.
 
 ![Imagen que muestra las columnas PO, Vendor y Fruit antes y después de una transformación de tipo unipivot que usa la columna Fruit como clave unipivot.](media/data-flow/unpivot3.png)
 
-Al establecer la organización de la columna en "Normal", se agruparán todas las columnas dinámicas con sus valores agregados. Al establecer la organización de las columnas en "Lateral", se alternará entre columna y valor.
+Al establecer la organización de la columna en "Normal", se agruparán todas las nuevas columnas no dinamizadas a partir de un único valor. Al establecer la organización de las columnas en "Lateral", se agruparán las nuevas columnas no dinamizadas generadas a partir de una columna existente.
 
 ![Transformación Anular dinamización](media/data-flow//unpivot7.png "Opciones de anulación de dinamización 5")
 

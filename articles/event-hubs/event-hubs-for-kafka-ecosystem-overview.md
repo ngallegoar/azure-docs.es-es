@@ -3,12 +3,12 @@ title: 'Uso del centro de eventos desde una aplicación de Apache Kafka: Azure E
 description: En este artículo se proporciona información sobre la compatibilidad de Apache Kafka con Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2b101adf173f3d623bb85d811ba5832020313f14
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327304"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369597"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Uso de Azure Event Hubs desde aplicaciones de Apache Kafka
 Event Hubs proporciona un punto de conexión compatible con las API de productor y consumidor de Apache Kafka® que pueden usar la mayoría de las aplicaciones cliente de Apache Kafka existentes como alternativa a la ejecución de su propio clúster de Apache Kafka. Event Hubs admite clientes de API de productor y consumidor de Apache Kafka en la versión 1.0 y posteriores.
@@ -60,9 +60,9 @@ Azure Event Hubs proporciona varias opciones para autorizar el acceso a los recu
 - Firma de acceso compartido (SAS)
 
 #### <a name="oauth-20"></a>OAuth 2.0
-Event Hubs se integra con Azure Active Directory (Azure AD), lo que proporciona un servidor de autorización centralizado compatible con **OAuth 2.0** . Con Azure AD, puede usar el control de acceso basado en rol de Azure (RBAC de Azure) para aplicar personalización avanzada de permisos a las identidades de cliente. Puede usar esta característica con los clientes de Kafka si especifica **SASL_SSL** para el protocolo y **OAUTHBEARER** para el mecanismo. Para obtener detalles sobre los roles y los niveles de Azure para el control de acceso, consulte [Autorización del acceso con Azure AD](authorize-access-azure-active-directory.md).
+Event Hubs se integra con Azure Active Directory (Azure AD), lo que proporciona un servidor de autorización centralizado compatible con **OAuth 2.0**. Con Azure AD, puede usar el control de acceso basado en rol de Azure (RBAC de Azure) para aplicar personalización avanzada de permisos a las identidades de cliente. Puede usar esta característica con los clientes de Kafka si especifica **SASL_SSL** para el protocolo y **OAUTHBEARER** para el mecanismo. Para obtener detalles sobre los roles y los niveles de Azure para el control de acceso, consulte [Autorización del acceso con Azure AD](authorize-access-azure-active-directory.md).
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
@@ -73,15 +73,19 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
 #### <a name="shared-access-signature-sas"></a>Firma de acceso compartido (SAS)
 Event Hubs también proporciona **firmas de acceso compartido (SAS)** para el acceso delegado a recursos de Event Hubs para Kafka. La autorización del acceso mediante el mecanismo basado en tokens de OAuth 2.0 proporciona una mayor seguridad y facilidad de uso que SAS. Los roles integrados también pueden eliminar la necesidad de autorización basada en ACL, que el usuario debe mantener y administrar. Puede usar esta característica con los clientes de Kafka si especifica **SASL_SSL** para el protocolo y **PLAIN** para el mecanismo. 
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
+> [!IMPORTANT]
+> Reemplace `{YOUR.EVENTHUBS.CONNECTION.STRING}` por la cadena de conexión para el espacio de nombres de Event Hubs. Para obtener instrucciones sobre cómo obtener la cadena de conexión, consulte [Obtención de la cadena de conexión de un centro de eventos](event-hubs-get-connection-string.md). A continuación se muestra un ejemplo de configuración: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 > [!NOTE]
 > Al usar la autenticación de SAS con los clientes de Kafka, las conexiones establecidas no se desconectan cuando se vuelve a generar la clave SAS. 
+
 
 #### <a name="samples"></a>Ejemplos 
 Para leer un **tutorial** con instrucciones paso a paso para crear un centro de eventos y acceder a él mediante SAS u OAuth, consulte [Inicio rápido: Streaming de datos con Event Hubs mediante el protocolo de Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md).

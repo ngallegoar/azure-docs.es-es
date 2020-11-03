@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: f46d41c8287d03cbe9582ed560244cbd85cdeeaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81759597"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538279"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -26,7 +26,7 @@ En este artículo se describen las causas y las soluciones de los errores **4010
 
 ### <a name="symptom-1"></a>Síntoma 1
 
-En los registros de diagnóstico verá un patrón de dispositivos que se están desconectando con **401003 IoTHubUnauthorized**, seguido de **404104 DeviceConnectionClosedRemotely** y que se conectan correctamente poco después.
+En los registros, verá un patrón de dispositivos que se están desconectando con el error **401003 IoTHubUnauthorized** , seguido de **404104 DeviceConnectionClosedRemotely** y que se conectan correctamente poco después.
 
 ### <a name="symptom-2"></a>Síntoma 2
 
@@ -45,8 +45,8 @@ Las solicitudes a IoT Hub producen un error con uno de los siguientes mensajes d
 Con el protocolo MQTT, algunos SDK se basan en IoT Hub para emitir la desconexión cuando el token de SAS expira para saber cuándo actualizarlo. Por lo tanto, 
 
 1. el token de SAS expira,
-1. IoT Hub lo reconoce y desconecta el dispositivo con **401003 IoTHubUnauthorized**,
-1. el dispositivo completa la desconexión con **404104 DeviceConnectionClosedRemotely**,
+1. IoT Hub lo reconoce y desconecta el dispositivo con **401003 IoTHubUnauthorized** ,
+1. el dispositivo completa la desconexión con **404104 DeviceConnectionClosedRemotely** ,
 1. el SDK de IoT genera un nuevo token de SAS y
 1. el dispositivo se vuelve a conectar con IoT Hub correctamente.
 

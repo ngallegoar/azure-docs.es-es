@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 035bc13ee44a8a003ae860eb2bdd67432fa91f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7841f09b113b4bdf7eacddbbfc5f054bf69b1750
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542531"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517827"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Tableau Online
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Tableau Online con Azure Active Direct
 * Permitir que los usuarios inicien sesión automáticamente en Tableau Online con sus cuentas de Azure AD.
 * Administrar las cuentas desde una ubicación central (Azure Portal).
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Tableau Online admite SSO iniciado por **SP**
-* Una vez configurado Tableau Online, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad).
+* Una vez configurado Tableau Online, puede aplicar el control de sesión, que protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
 
 ## <a name="adding-tableau-online-from-the-gallery"></a>Incorporación de Tableau Online desde la galería
 
@@ -50,7 +50,7 @@ Para configurar la integración de Tableau Online en Azure AD, será preciso que
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Tableau Online** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería** , escriba **Tableau Online** en el cuadro de búsqueda.
 1. Seleccione **Tableau Online** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
@@ -73,30 +73,30 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Tableau Online, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Tableau Online**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Tableau Online** , seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML** , siga estos pasos:
 
     ![Información del dominio y las direcciones URL de inicio de sesión único de Tableau Online](common/sp-identifier.png)
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. En el cuadro de texto **Dirección URL de inicio de sesión** , escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`.
 
     > [!NOTE]
     > El valor `<entityid>` lo obtendrá en la sección **Configuración de Tableau Online** de este tutorial. El valor del Id. de entidad será el valor de **Identificador de Azure AD** de la sección **Configuración de Tableau Online**.
 
-5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+5. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Online, siga
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -126,9 +126,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
+    b. En el campo **Nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo, BrittaSimon\@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -139,7 +139,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Tableau Online.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Tableau Online**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **Tableau Online**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -155,43 +155,43 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ## <a name="configure-tableau-online-sso"></a>Configuración del inicio de sesión único de Tableau Online
 
 1. En una ventana de explorador diferente, inicie sesión en su aplicación de Tableau Online como administrador. Vaya a **Settings** (Configuración) y luego a **Authentication** (Autenticación).
 
-    ![Configurar inicio de sesión único](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![Captura de pantalla que muestra la opción Authentication (Autenticación) seleccionada en el menú de configuración.](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
 
 2. Para habilitar SAML, en la sección **Authentication types** (Tipos de autenticación) seleccione **Enable an additional authentication method** (Habilitar un método de autenticación adicional) y, después, seleccione la casilla **SAML**.
 
-    ![Configurar inicio de sesión único](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![Captura de pantalla que muestra la sección Tipos de autenticación, en la que puede seleccionar valores.](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
 3. Desplácese hacia abajo hasta la sección **Import metadata file into Tableau Online** (Importar archivo de metadatos en Tableau Online).  Haga clic en Examinar e importe el archivo de metadatos que ha descargado desde Azure AD. A continuación, haga clic en **Aplicar**.
 
-   ![Configurar inicio de sesión único](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![Captura de pantalla que muestra la sección en la que puede importar el archivo de metadatos.](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
-4. En la sección **Match assertions** (Aserciones de coincidencia), inserte el nombre de aserción del proveedor de identidades correspondiente para la **dirección de correo electrónico**, el **nombre** y los **apellidos**. Para obtener esta información a partir de Azure AD: 
+4. En la sección **Match assertions** (Aserciones de coincidencia), inserte el nombre de aserción del proveedor de identidades correspondiente para la **dirección de correo electrónico** , el **nombre** y los **apellidos**. Para obtener esta información a partir de Azure AD: 
   
     a. Vaya a la página de integración de aplicaciones de **Tableau Online** de Azure Portal.
 
     b. En la sección **User Attributes & Claims** (Atributos de usuario y notificaciones), haga clic en el icono de edición.
 
-   ![Configurar inicio de sesión único](./media/tableauonline-tutorial/attributesection.png)
+   ![Captura de pantalla que muestra la sección de atributos y notificaciones del usuario, desde donde puede seleccionar el icono de edición.](./media/tableauonline-tutorial/attributesection.png)
 
     c. Copie el valor del espacio de nombres de estos atributos: givenname, email y surname mediante los pasos siguientes:
 
-   ![Inicio de sesión único de Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Captura de pantalla que muestra los atributos Givenname, Surname y Emailaddress.](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
 
     d. Haga clic en el valor **user.givenname**
 
     e. Copie el valor del cuadro de texto **Namespace** (Espacio de nombres).
 
-    ![Configurar inicio de sesión único](./media/tableauonline-tutorial/attributesection2.png)
+    ![Captura de pantalla que muestra la sección Administrar las notificaciones del usuario, en la que puede especificar el espacio de nombres.](./media/tableauonline-tutorial/attributesection2.png)
 
     f. Para copiar los valores del espacio de nombres del correo electrónico y el apellido, repita los pasos anteriores.
 
@@ -203,19 +203,19 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     * Apellidos: **surname**
 
-    ![Configurar inicio de sesión único](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![Captura de pantalla que muestra la sección Match attributes (Coincidencia de atributos), en la que puede especificar los valores.](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### <a name="create-tableau-online-test-user"></a>Creación de un usuario de prueba en Tableau Online
 
 En esta sección, creará una usuaria llamada Britta Simon en Tableau Online.
 
-1. En **Tableau Online**, haga clic en **Settings** (Configuración) y en la sección **Authentication** (Autenticación). Desplácese hacia abajo hasta la sección **Manage Users** (Administrar usuarios). Haga clic en **Add users** (Agregar usuarios) y, después, en **Enter Email Addresses** (Especificar direcciones de correo electrónico).
+1. En **Tableau Online** , haga clic en **Settings** (Configuración) y en la sección **Authentication** (Autenticación). Desplácese hacia abajo hasta la sección **Manage Users** (Administrar usuarios). Haga clic en **Add users** (Agregar usuarios) y, después, en **Enter Email Addresses** (Especificar direcciones de correo electrónico).
   
-    ![Creación de un usuario de prueba de Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
+    ![Captura de pantalla que muestra la sección Administrar usuarios, en la que puede seleccionar Agregar usuarios.](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Seleccione **Add users for (SAML) authentication** [Agregar usuarios para la autenticación (SAML)]. En el cuadro de texto **Especificar direcciones de correo electrónico**, agregue britta.simon\@contoso.com.
+2. Seleccione **Add users for (SAML) authentication** [Agregar usuarios para la autenticación (SAML)]. En el cuadro de texto **Especificar direcciones de correo electrónico** , agregue britta.simon\@contoso.com.
   
-    ![Creación de un usuario de prueba de Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+    ![Captura de pantalla que muestra la página Agregar usuarios, en la que puede especificar una dirección de correo electrónico.](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
 3. Haga clic en **Agregar usuarios**.
 
@@ -223,14 +223,14 @@ En esta sección, creará una usuaria llamada Britta Simon en Tableau Online.
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Tableau Online en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Tableau Online para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Tableau Online en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Tableau Online para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
-- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [¿Qué es el control de sesiones en Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

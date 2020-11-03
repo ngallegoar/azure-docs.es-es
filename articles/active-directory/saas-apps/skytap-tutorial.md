@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/13/2020
 ms.author: jeedes
-ms.openlocfilehash: 8d34ca8ed01144ee282f6411640894807a09ef08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a6b902f1c6b7e06b1a72b183007fbb9fe05c3c
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527883"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515957"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-single-sign-on-for-skytap"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Single Sign-on for Skytap
 
@@ -26,7 +26,7 @@ En este tutorial, aprenderá a integrar Single Sign-on for Skytap con Azure Act
 * Permitir que los usuarios inicien sesión automáticamente en Single Sign-on for Skytap con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central, Azure Portal.
 
-Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+Para más información sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -40,7 +40,7 @@ Para empezar, necesita los siguientes elementos:
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Single Sign-on for Skytap admite el inicio de sesión único iniciado por SP e IDP.
-* Después de configurar Single Sign-on for Skytap, puede aplicar el control de sesión. Esto protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Después de configurar Single Sign-on for Skytap, puede aplicar el control de sesión. Esto protege la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-single-sign-on-for-skytap-from-the-gallery"></a>Adición de Single Sign-on for Skytap desde la galería
 
@@ -50,7 +50,7 @@ Para configurar la integración de Single Sign-on for Skytap en Azure AD, es pr
 1. En el panel de navegación de la izquierda, seleccione el servicio **Azure Active Directory**.
 1. Vaya a **Aplicaciones empresariales** y seleccione **Todas las aplicaciones**.
 1. Para agregar una nueva aplicación, seleccione **Nueva aplicación**.
-1. En la sección **Agregar desde la galería**, escriba **Single Sign-on for Skytap** en el cuadro de búsqueda.
+1. En la sección **Agregar desde la galería** , escriba **Single Sign-on for Skytap** en el cuadro de búsqueda.
 1. Seleccione **Single Sign-on for Skytap** en el panel de resultados y agregue la aplicación. Espere unos segundos mientras la aplicación se agrega al inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-single-sign-on-for-skytap"></a>Configuración y prueba del inicio de sesión único de Azure AD para Single Sign-on for Skytap
@@ -73,33 +73,33 @@ Estos son los pasos generales para configurar y probar el inicio de sesión úni
 
 Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azure Portal.
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Single Sign-on for Skytap**, busque la sección **Administrar**. Seleccione **Inicio de sesión único**.
-1. En la página **Seleccione un método de inicio de sesión único**, elija **SAML**.
-1. En la página **Configuración del inicio de sesión único con SAML**, seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **Single Sign-on for Skytap** , busque la sección **Administrar**. Seleccione **Inicio de sesión único**.
+1. En la página **Seleccione un método de inicio de sesión único** , elija **SAML**.
+1. En la página **Configuración del inicio de sesión único con SAML** , seleccione el icono con forma de lápiz para abrir el cuadro de diálogo **Configuración básica de SAML** y modificar la configuración.
 
    ![Captura de pantalla de la página Configurar el inicio de sesión único con SAML, con el icono de lápiz resaltado](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, escriba los valores de los siguientes campos:
+1. En la sección **Configuración básica de SAML** , si quiere configurar la aplicación en modo iniciado por **IDP** , escriba los valores de los siguientes campos:
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://pingone.com/<custom EntityID>`.
+    a. En el cuadro de texto **Identificador** , escriba una dirección URL con el siguiente patrón: `http://pingone.com/<custom EntityID>`.
 
-    b. En el cuadro de texto **Dirección URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`.
+    b. En el cuadro de texto **Dirección URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`.
 
-1. Seleccione **Establecer direcciones URL adicionales** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
+1. Seleccione **Establecer direcciones URL adicionales** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP** :
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`.
+    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://sso.connect.pingidentity.com/sso/sp/initsso?saasid=<saasid>&idpid=<idpid>`.
 
     
-    b. En el cuadro de texto **Estado de la retransmisión**, escriba una dirección URL que siga este patrón: `https://pingone.com/1.0/<custom ID>`.
+    b. En el cuadro de texto **Estado de la retransmisión** , escriba una dirección URL que siga este patrón: `https://pingone.com/1.0/<custom ID>`.
 
     > [!NOTE]
     > Estos valores no son reales. Actualícelos con el identificador real, la dirección URL de respuesta, la dirección URL de inicio de sesión y el estado de la retransmisión. Póngase en contacto con el [equipo de soporte técnico al cliente de Single Sign-on for Skytap](mailto:support@skytap.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la página **Configuración del inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación**. Seleccione **Descargar** para descargar el archivo de metadatos y guárdelo en el equipo.
+1. En la página **Configuración del inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , busque **XML de metadatos de federación**. Seleccione **Descargar** para descargar el archivo de metadatos y guárdelo en el equipo.
 
     ![Captura de pantalla del vínculo de descarga del certificado](common/metadataxml.png)
 
-1. En la sección **Configurar Single Sign-on for Skytap**, copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Configurar Single Sign-on for Skytap** , copie las direcciones URL adecuadas según sus necesidades.
 
     ![Captura de pantalla de la copia de las direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -109,9 +109,9 @@ En esta sección va a crear un usuario de prueba llamado B.Simon en Azure Portal
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 1. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
-1. En las propiedades del **usuario**, siga estos pasos:
-   1. En el campo **Nombre**, escriba `B.Simon`.  
-   1. En el campo **Nombre de usuario**, escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
+1. En las propiedades del **usuario** , siga estos pasos:
+   1. En el campo **Nombre** , escriba `B.Simon`.  
+   1. En el campo **Nombre de usuario** , escriba username@companydomain.extension. Por ejemplo, `B.Simon@contoso.com`.
    1. Seleccione la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el campo **Contraseña**.
    1. Seleccione **Crear**.
 
@@ -125,13 +125,13 @@ En esta sección va a permitir que B.Simon acceda a Single Sign-on for Skytap me
 
    ![Captura de pantalla de la sección Administrar, con la opción Usuarios y grupos resaltada](common/users-groups-blade.png)
 
-1. Seleccione **Agregar usuario**. En el cuadro de diálogo **Agregar asignación**, seleccione **Usuarios y grupos**.
+1. Seleccione **Agregar usuario**. En el cuadro de diálogo **Agregar asignación** , seleccione **Usuarios y grupos**.
 
     ![Captura de pantalla de la página Usuarios y grupos, con Agregar usuario resaltado](common/add-assign-user.png)
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **B.Simon** en la lista de usuarios. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
-1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
-1. En el cuadro de diálogo **Agregar asignación**, seleccione **Asignar**.
+1. En el cuadro de diálogo **Usuarios y grupos** , seleccione **B.Simon** en la lista de usuarios. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
+1. Si espera algún valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. A continuación, elija el botón **Seleccionar** situado en la parte inferior de la pantalla.
+1. En el cuadro de diálogo **Agregar asignación** , seleccione **Asignar**.
 
 ## <a name="configure-single-sign-on-for-skytap-sso"></a>Configuración del inicio de sesión único en Single Sign-on for Skytap
 
@@ -140,21 +140,20 @@ Para configurar el inicio de sesión único en Single Sign-on for Skytap, es pre
 
 ### <a name="create-single-sign-on-for-skytap-test-user"></a>Creación de un usuario de prueba en Single Sign-on for Skytap
 
-En esta sección, va a crear un usuario llamado B.Simon en Single Sign-on for Skytap. Colabore con el [equipo de soporte técnico de Single Sign-on for Skytap](mailto:support@skytap.com) para agregar los usuarios en la plataforma de Single Sign-on for Skytap. No puede usar el inicio de sesión único hasta que cree y active los usuarios.
+En esta sección, va a crear un usuario llamado B.Simon en Single Sign-on for Skytap. Trabaje con el [equipo de soporte técnico al cliente de Single Sign-on for Skytap](mailto:support@skytap.com) para agregar los usuarios a la plataforma de Single Sign-on for Skytap. No puede usar el inicio de sesión único hasta que cree y active los usuarios.
 
 ## <a name="test-sso"></a>Prueba de SSO 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al seleccionar el icono de Single Sign-on for Skytap en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Single Sign-on for Skytap para la que configuró el inicio de sesión único. Para más información, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al seleccionar el icono de Single Sign-on for Skytap en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de Single Sign-on for Skytap para la que configuró el inicio de sesión único. Para más información, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriales para integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)
 
 - [Pruebe Slack con Azure AD](https://aad.portal.azure.com/)
-

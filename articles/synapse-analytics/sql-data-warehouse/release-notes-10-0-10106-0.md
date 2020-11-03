@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b3c941139b12fdf19bf1080b4dddecb8ab761568
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89457998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676122"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de la versión de Azure Synapse Analytics
 
@@ -39,6 +39,13 @@ Para obtener mejoras de las herramientas, asegúrese de tener instalada la versi
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
+
+## <a name="oct-2020"></a>Octubre de 2020
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+|**Funciones con valores de tabla insertados de T-SQL (versión preliminar)**|Con esta versión puede crear funciones con valores de tabla insertadas mediante Transact-SQL y consultar sus resultados como lo haría con una tabla. Esta característica se encuentra actualmente en versión preliminar y se admitirá en las herramientas de GA. Para obtener más información, consulte [CREACIÓN DE UNA FUNCIÓN (Azure Synapse Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest).|
+|**Comando MERGE (versión preliminar)**|Con este comando puede ejecutar operaciones de inserción, actualización o eliminación en una tabla de destino a partir de los resultados de una combinación con una tabla de origen. Por ejemplo, puede sincronizar dos tablas insertando, actualizando o eliminando las filas de una tabla según las diferencias que se encuentren en la otra.  Consulte [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) para obtener más detalles.|
 
 ## <a name="aug-2020"></a>Agosto de 2020
 
@@ -144,7 +151,7 @@ Para obtener mejoras de las herramientas, asegúrese de tener instalada la versi
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-|**Clasificación y detección de datos**:|La clasificación y detección de datos se encuentra en versión preliminar pública para SQL de Synapse. Es crítico para proteger los datos confidenciales y la privacidad de sus clientes. A medida que crecen su negocio y los recursos de datos de cliente, es imposible de administrar para detectar, clasificar y proteger los datos. La característica de clasificación y detección de datos que estamos introduciendo de forma nativa con SQL de Synapse facilita la administración de la protección de datos. Las ventajas generales de esta funcionalidad son las siguientes:<br/>&bull; &nbsp; Cumplir los requisitos de cumplimiento normativo y los estándares relacionados con la privacidad de datos.<br/>&bull; &nbsp; Restricción del acceso y mejora de la seguridad de los almacenes de datos que contienen información altamente confidencial.<br/>&bull; &nbsp; Supervisión y alerta del acceso anómalo a datos confidenciales.<br/>&bull; &nbsp; Visualización de datos confidenciales en un panel central de Azure Portal. </br></br>La detección y clasificación de datos está disponible en todas las regiones de Azure. Forma parte de Advanced Data Security e incluye Evaluación de vulnerabilidad y Detección de amenazas. Para más información sobre Clasificación y detección de datos, consulte la [entrada de blog](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) y nuestra [documentación en línea](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).|
+|**Clasificación y detección de datos** :|La clasificación y detección de datos se encuentra en versión preliminar pública para SQL de Synapse. Es crítico para proteger los datos confidenciales y la privacidad de sus clientes. A medida que crecen su negocio y los recursos de datos de cliente, es imposible de administrar para detectar, clasificar y proteger los datos. La característica de clasificación y detección de datos que estamos introduciendo de forma nativa con SQL de Synapse facilita la administración de la protección de datos. Las ventajas generales de esta funcionalidad son las siguientes:<br/>&bull; &nbsp; Cumplir los requisitos de cumplimiento normativo y los estándares relacionados con la privacidad de datos.<br/>&bull; &nbsp; Restricción del acceso y mejora de la seguridad de los almacenes de datos que contienen información altamente confidencial.<br/>&bull; &nbsp; Supervisión y alerta del acceso anómalo a datos confidenciales.<br/>&bull; &nbsp; Visualización de datos confidenciales en un panel central de Azure Portal. </br></br>La detección y clasificación de datos está disponible en todas las regiones de Azure. Forma parte de Advanced Data Security e incluye Evaluación de vulnerabilidad y Detección de amenazas. Para más información sobre Clasificación y detección de datos, consulte la [entrada de blog](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) y nuestra [documentación en línea](../../azure-sql/database/data-discovery-and-classification-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).|
 |**GROUP BY ROLLUP**|ROLLUP es ahora una opción admitida de GROUP BY.   GROUP BY ROLLUP crea un grupo para cada combinación de expresiones de columna. GROUP BY también "acumula" los resultados en subtotales y totales generales. La función GROUP BY procesa de derecha a izquierda y reduce el número de expresiones de columna en el que crea grupos y agregaciones.  El orden de las columnas afecta a la salida de ROLLUP y puede afectar al número de filas del conjunto de resultados.<br/><br/>Para más información sobre GROUP BY ROLLUP, consulte [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 |**Precisión mejorada para las métricas de DWU usadas y del portal de CPU**|SQL de Synapse mejora considerablemente la precisión de las métricas en Azure Portal.  Esta versión incluye una corrección para la definición de métricas de CPU y DWU usadas para reflejar correctamente la carga de trabajo en todos los nodos de proceso. Antes de esta corrección, los valores de métrica no se notificaban suficientemente. Se puede esperar un aumento en las métricas de DWU usadas y CPU en Azure Portal. |
 |**Seguridad de nivel de fila**|Volvimos a introducir la capacidad Seguridad de nivel de fila en noviembre de 2017. Ahora también hemos ampliado la compatibilidad con esta funcionalidad a las tablas externas. Además, hemos agregado compatibilidad con la llamada a funciones no deterministas en las funciones con valores de tabla en línea (TVF en línea) necesarias para definir un predicado de filtro de seguridad. Esta adición permite especificar IS_ROLEMEMBER(), USER_NAME(), etc., en el predicado de filtro de seguridad. Para más información, vea los ejemplos de la [documentación sobre seguridad de nivel de fila](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).|

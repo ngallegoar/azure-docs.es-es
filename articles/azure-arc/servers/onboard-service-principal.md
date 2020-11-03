@@ -3,12 +3,12 @@ title: Conexión de máquinas híbridas a Azure a gran escala
 description: En este artículo, obtendrá información sobre cómo conectar máquinas a Azure mediante servidores habilitados para Azure Arc con una entidad de servicio.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: d789061c741b8a0da2edabcb56a67898ea28ec90
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f71bbc46ccac533db39176363f206ab033e60316
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108922"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360128"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Conexión de máquinas híbridas a Azure a gran escala
 
@@ -16,7 +16,7 @@ Puede activar los servidores habilitados para Azure Arc para varias máquinas Wi
 
 Los métodos de instalación para instalar y configurar el agente Connected Machine requieren que el método automatizado que se use tenga permisos de administrador en las máquinas. En Linux, mediante la cuenta raíz y, en Windows, como miembro del grupo local de administradores.
 
-Antes de comenzar, asegúrese de revisar los [requisitos previos](agent-overview.md#prerequisites) y compruebe que su suscripción y sus recursos los cumplen.
+Antes de comenzar, asegúrese de revisar los [requisitos previos](agent-overview.md#prerequisites) y compruebe que su suscripción y sus recursos los cumplen. Para obtener información sobre las regiones admitidas y otras consideraciones relacionadas, consulte [Regiones de Azure admitidas](overview.md#supported-regions).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -79,7 +79,7 @@ A continuación, se muestran los valores que se configuran en el comando `azcmag
 * `subscription-id`: el identificador de suscripción (GUID) de la suscripción de Azure en la que quiere que estén las máquinas.
 * `resource-group`: el nombre del grupo de recursos al que desea que pertenezcan las máquinas conectadas.
 * `location`: consulte [Regiones de Azure compatibles](overview.md#supported-regions). Esta ubicación puede ser la misma u otra diferente que la del grupo de recursos.
-* `resource-name`: (*opcional*) Se usa para la representación de recursos de Azure de la máquina local. Si no especifica este valor, se usa el nombre de host de la máquina.
+* `resource-name`: ( *opcional* ) Se usa para la representación de recursos de Azure de la máquina local. Si no especifica este valor, se usa el nombre de host de la máquina.
 
 Para obtener más información sobre la herramienta de línea de comandos `azcmagent`, revise la [referencia de Azcmagent](./manage-agent.md).
 

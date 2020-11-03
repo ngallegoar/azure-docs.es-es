@@ -4,21 +4,21 @@ titleSuffix: Azure Digital Twins
 description: Consulte cómo administrar un grafo de gemelos digitales conectándolos con relaciones.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8c698cdf5b26cb1682eec2828922517cf4272275
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048447"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495771"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
-El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph.md) que representa todo el entorno. El grafo de gemelos se compone de gemelos digitales individuales conectados a través de **relaciones**.
+El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph.md) que representa todo el entorno. El grafo de gemelos se compone de gemelos digitales individuales conectados mediante **relaciones**. 
 
-Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](how-to-use-apis-sdks.md) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-portal.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
 Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [*Procedimiento: Administración de Digital Twins*](how-to-manage-twin.md).
 
@@ -28,208 +28,421 @@ Este artículo está centrado en la administración de las relaciones y el grafo
 
 Las relaciones describen cómo los diferentes gemelos digitales se conectan entre sí, lo que constituye la base del grafo de gemelos.
 
-Las relaciones se crean mediante la llamada a `CreateRelationship`. 
+Las relaciones se crean mediante la llamada a `CreateRelationship()`. 
 
 Para crear una relación, debe especificar:
-* El id. del gemelo de origen (el gemelo en el que se origina la relación)
-* El id. del gemelo de destino (el gemelo al que llega la relación)
-* Un nombre de relación
-* Un id. de relación
+* El identificador del gemelo de origen (`srcId` en el ejemplo de código siguiente): identificador del gemelo en el que se origina la relación.
+* El identificador del gemelo de destino (`targetId` en el ejemplo de código siguiente): identificador del gemelo al que llega la relación.
+* Un nombre de relación (`relName` en el ejemplo de código siguiente): tipo genérico de relación, algo como _contains_ (contiene).
+* Un identificador de relación (`relId` en el ejemplo de código siguiente): nombre específico de esta relación, algo como _Relationship1_.
 
 El id. de relación debe ser único dentro del gemelo de origen especificado. No es necesario que sea único globalmente.
-Por ejemplo, para el gemelo *foo*, cada id. de relación específico debe ser único. Sin embargo, otro gemelo *bar* puede tener una relación de salida que coincida con el mismo id. de relación de *foo*. 
+Por ejemplo, para el gemelo *foo* , cada id. de relación específico debe ser único. Sin embargo, otro gemelo *bar* puede tener una relación de salida que coincida con el mismo id. de relación de *foo*.
 
-En el ejemplo de código siguiente se muestra cómo agregar una relación a la instancia de Azure Digital Twins.
+En el ejemplo de código siguiente se muestra cómo crear una relación en la instancia de Azure Digital Twins.
 
 ```csharp
-public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
-{
-    var relationship = new BasicRelationship
-    {
-        TargetId = targetId,
-        Name = "contains"
-    };
+public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId, string relName)
+        {
+            var relationship = new BasicRelationship
+            {
+                TargetId = targetId,
+                Name = relName
+            };
 
-    try
-    {
-        string relId = $"{srcId}-contains->{targetId}";
-        await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
-        Console.WriteLine("Created relationship successfully");
-    }
-    catch (RequestFailedException rex) {
-        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-    }
-}
+            try
+            {
+                string relId = $"{srcId}-{relName}->{targetId}";
+                await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
+                Console.WriteLine($"Created {relName} relationship successfully");
+            }
+            catch (RequestFailedException rex)
+            {
+                Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
+            }
+            
+        }
 ```
+En el método main, ahora puede llamar a la función `CreateRelationship()` para crear una relación de tipo _contains_ de la siguiente forma: 
 
-Para obtener más información sobre la clase auxiliar `BasicRelationship`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
+```csharp
+await CreateRelationship(client, srcId, targetId, "contains");
+```
+Si desea crear varias relaciones, puede repetir las llamadas al mismo método, con tipos de relación diferentes en el argumento. 
+
+Para obtener más información sobre la clase auxiliar `BasicRelationship`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md#serialization-helpers).
 
 ### <a name="create-multiple-relationships-between-twins"></a>Creación de varias relaciones entre gemelos
+
+Las relaciones se pueden clasificar como: 
+
+* Relaciones de salida: relaciones que pertenecen a este gemelo que apuntan hacia afuera para conectarlo con otros gemelos. El método `GetRelationshipsAsync()` se usa para obtener las relaciones de salida de un gemelo.
+* Relaciones de entrada: relaciones que pertenecen a otros gemelos que apuntan hacia este gemelo para crear un vínculo "entrante". El método `GetIncomingRelationshipsAsync()` se usa para obtener las relaciones de entrada de un gemelo.
 
 No hay ninguna restricción en el número de relaciones que puede tener entre dos gemelos: puede tener tantas como desee. 
 
 Esto significa que puede expresar varios tipos diferentes de relaciones entre dos gemelos a la vez. Por ejemplo, el *gemelo A* puede tener una relación de *almacenamiento* y una relación de *fabricación* con el *gemelo B*.
 
-También puede crear varias instancias del mismo tipo de relación entre los mismos dos gemelos, si lo desea. En este ejemplo, eso significa que el *gemelo A* podría tener dos relaciones de *almacenamiento* distintas con el *gemelo B*.
+También puede crear varias instancias del mismo tipo de relación entre los mismos dos gemelos, si lo desea. En este ejemplo, el *gemelo A* podría tener dos relaciones *almacenadas* diferentes con el *gemelo B* , siempre y cuando las relaciones tengan identificadores de relación diferentes.
 
 ## <a name="list-relationships"></a>Enumeración de las relaciones
 
-Para acceder a la lista de relaciones de **salida** procedente de un gemelo determinado en el grafo, puede usar:
+Para acceder a la lista de relaciones de **salida** de un gemelo determinado del grafo, puede usar el método `GetRelationships()` de la siguiente forma:
 
 ```csharp
-await client.GetRelationshipsAsync(id);
+await client.GetRelationships()
 ```
 
-Devuelve un elemento `Azure.Pageable<T>` o `Azure.AsyncPageable<T>`, en función de si se usa la versión sincrónica o asincrónica de la llamada.
+Esto devuelve un elemento `Azure.Pageable<T>` o `Azure.AsyncPageable<T>`, en función de si se usa la versión sincrónica o asincrónica de la llamada.
 
-Este es un ejemplo completo que recupera una lista de relaciones:
+Este es un ejemplo que recupera una lista de relaciones:
 
 ```csharp
-public async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(string dtId)
-{
-    // Find the relationships for the twin
-    try
-    {
-        // GetRelationshipsAsync will throw if an error occurs
-        AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
-        List<BasicRelationship> results = new List<BasicRelationship>();
-        await foreach (string relJson in relsJson)
+public static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
         {
-            var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
-            results.Add(rel);
-        }
-        return results;
-    }
-    catch (RequestFailedException ex)
-    {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving relationships for {dtId} due to {ex.Message}");
-        return null;
-    }
-}
-```
+            // Find the relationships for the twin
+            try
+            {
+                // GetRelationshipsAsync will throw if an error occurs
+                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+                List<BasicRelationship> results = new List<BasicRelationship>();
+                await foreach (string relJson in relsJson)
+                {
+                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+                    results.Add(rel);
+                    Console.WriteLine(relJson);
+                }
 
-Puede usar las relaciones recuperadas para navegar a otros gemelos del grafo. Para ello, lea el campo `target` de la relación que se devuelve y úselo como id. de la siguiente llamada a `GetDigitalTwin`. 
+                return results;
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving relationships for {dtId} due to {ex.Message}");
+                return null;
+            }
+        }
+
+```
+Ahora puede llamar a este método para ver las relaciones de salida de los gemelos como se muestra a continuación:
+
+```csharp
+await FindOutgoingRelationshipsAsync(client, twin_Id);
+```
+Puede usar las relaciones recuperadas para navegar a otros gemelos del grafo. Para ello, lea el campo `target` de la relación que se devuelve y úselo como id. de la siguiente llamada a `GetDigitalTwin()`.
 
 ### <a name="find-incoming-relationships-to-a-digital-twin"></a>Búsqueda de relaciones de entrada para un gemelo digital
 
-Azure Digital Twins también dispone de una API para buscar todas las relaciones de **entrada** para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
+Azure Digital Twins también dispone de una API para buscar todas las relaciones de *entrada* * para un gemelo determinado. Suele ser útil para la navegación inversa o cuando se elimina un gemelo.
 
-El ejemplo de código anterior se centró en buscar relaciones de salida desde un gemelo. El ejemplo siguiente está estructurado de manera similar, pero en su lugar busca relaciones de *entrada* para el gemelo.
+El ejemplo de código anterior se centraba en buscar relaciones de salida desde un gemelo. El ejemplo siguiente está estructurado de manera similar, pero en su lugar busca relaciones de *entrada* para el gemelo.
 
 Tenga en cuenta que las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación.
 
 ```csharp
-async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
-{
-    // Find the relationships for the twin
-    try
-    {
-        // GetRelationshipsAsync will throw an error if a problem occurs
-        AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+public static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
-        List<IncomingRelationship> results = new List<IncomingRelationship>();
-        await foreach (IncomingRelationship incomingRel in incomingRels)
-            results.Add(incomingRel);
-    }
-    catch (RequestFailedException ex)
-    {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving incoming relationships for {dtId} due to {ex.Message}");
-    }
-}
+                List<IncomingRelationship> results = new List<IncomingRelationship>();
+                await foreach (IncomingRelationship incomingRel in incomingRels)
+                {
+                    results.Add(incomingRel);
+                    Console.WriteLine(incomingRel);
+
+                }
+                return results;
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"*** Error {ex.Status}/{ex.ErrorCode} retrieving incoming relationships for {dtId} due to {ex.Message}");
+                return null;
+            }
+        }
 ```
 
-## <a name="delete-relationships"></a>Eliminar relaciones
+Ahora puede llamar a este método para ver las relaciones de entrada de los gemelos como se muestra a continuación:
 
-Puede eliminar relaciones mediante `DeleteRelationship(source, relId);`.
+```csharp
+await FindIncomingRelationshipsAsync(client, twin_Id);
+```
+### <a name="list-all-twin-properties-and-relationships"></a>Enumeración de todas las propiedades y relaciones de un gemelo
+
+Con los métodos anteriores para mostrar las relaciones de salida y de entrada de un gemelo, puede crear un método que imprima la información completa del gemelo, incluidas las propiedades del gemelo y ambos tipos de relaciones. Este es un método de ejemplo, llamado `FetchAndPrintTwinAsync()`, que muestra cómo hacerlo.
+
+```csharp  
+private static async Task FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_Id)
+        {
+            BasicDigitalTwin twin;
+            Response<string> res = client.GetDigitalTwin(twin_Id);
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            
+            await FindOutgoingRelationshipsAsync(client, twin_Id);
+            await FindIncomingRelationshipsAsync(client, twin_Id);
+
+            return;
+        }
+```
+
+Ahora puede llamar a esta función en el método main de la siguiente manera: 
+
+```csharp
+await FetchAndPrintTwinAsync(client, targetId);
+```
+## <a name="delete-relationships"></a>Eliminar relaciones
 
 El primer parámetro especifica el gemelo de origen (el gemelo en el que se origina la relación). El otro parámetro es el id. de relación. Necesita tanto el id. de gemelo como el id. de relación, ya que los id. de relación solo son únicos dentro del ámbito de un gemelo.
 
-## <a name="create-a-twin-graph"></a>Creación de un grafo de gemelos 
+```csharp
+private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId, string relId)
+        {
+            try
+            {
+                Response response = await client.DeleteRelationshipAsync(srcId, relId);
+                await FetchAndPrintTwinAsync(srcId, client);
+                Console.WriteLine("Deleted relationship successfully");
+            }
+            catch (RequestFailedException Ex)
+            {
+                Console.WriteLine($"Error {Ex.ErrorCode}");
+            }
+        }
+```
 
-En el siguiente fragmento de código se usan las operaciones de relación de este artículo para crear un grafo de gemelos con gemelos digitales y relaciones.
+Ahora puede llamar a este método para eliminar una relación de la siguiente forma:
 
 ```csharp
-static async Task CreateTwins()
+await DeleteRelationship(client, srcId, relId);
+```
+## <a name="create-a-twin-graph"></a>Creación de un grafo de gemelos 
+
+En el siguiente fragmento de código ejecutable se usan las operaciones de relación de este artículo para crear un grafo de gemelos a partir de gemelos digitales y relaciones.
+
+### <a name="set-up-the-runnable-sample"></a>Configuración del ejemplo ejecutable
+
+En el fragmento de código se usan las definiciones de modelo [*Room.json*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) y [*Floor.json*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) de [*Tutorial: Exploración de Azure Digital Twins con una aplicación cliente de ejemplo*](tutorial-command-line-app.md). Puede usar estos vínculos para ir directamente a los archivos o descargarlos como parte del proyecto de ejemplo completo de un extremo a otro [aquí](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
+
+Antes de ejecutar el ejemplo, haga lo siguiente:
+1. Descargue los archivos del modelo, colóquelos en el proyecto y reemplace los marcadores de posición `<path-to>` en el código siguiente para indicar al programa dónde encontrarlos.
+2. Reemplace el marcador de posición `<your-instance-hostname>` por el nombre de host de la instancia de Azure Digital Twins.
+3. Agregue estos paquetes al proyecto:
+    ```cmd/sh
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+    dotnet add package Azure.identity
+    ```
+
+También necesitará configurar las credenciales locales si desea ejecutar el ejemplo directamente. La siguiente sección le indicará cómo hacerlo.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Ejecución del ejemplo
+
+Después de completar los pasos anteriores, puede ejecutar directamente el siguiente código de ejemplo.
+
+```csharp 
+using System;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections.Generic;
+using Azure;
+using Azure.DigitalTwins.Core.Serialization;
+using System.Text.Json;
+
+namespace minimal
 {
-    // Create twins - see utility functions below 
-    await CreateRoom("Room01", 68, 50, false, "");
-    await CreateRoom("Room02", 70, 66, true, "EId-00124");
-    await CreateFloorOrBuilding("Floor01", makeFloor:true);
+    class Program
+    {
 
-    // Create relationships
-    await AddRelationship("Floor01", "contains", "Floor-to-Room01", "Room01");
-    await AddRelationship("Floor01", "contains", "Floor-to-Room02", "Room02");
-}
+        public static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
 
-static async Task<bool> AddRelationship(string source, string relationship, string id, string target)
-{
-    var relationship = new BasicRelationship
-    {
-        TargetId = target,
-        Name = relationship
-    };
+            //Create the Azure Digital Twins client for API calls
+            DigitalTwinsClient client = createDTClient();
+            Console.WriteLine($"Service client created – ready to go");
+            Console.WriteLine();
 
-    try
-    {
-        string relId = $"{source}-contains->{target}";
-        await client.CreateRelationshipAsync(source, relId, JsonSerializer.Serialize(relationship));
-        Console.WriteLine("Created relationship successfully");
-        return true;
-    }
-    catch (RequestFailedException rex) {
-        Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
-        return false;
-    }
-}
+            //Upload models
+            Console.WriteLine($"Upload models");
+            Console.WriteLine();
+            string dtdl = File.ReadAllText("<path-to>/Room.json");
+            string dtdl1 = File.ReadAllText("<path-to>/Floor.json");
+            var typeList = new List<string>();
+            typeList.Add(dtdl);
+            typeList.Add(dtdl1);
+            // Upload the models to the service
+            await client.CreateModelsAsync(typeList);
 
-static async Task<bool> CreateRoom(string id, double temperature, double humidity)
-{
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Metadata = new DigitalTwinMetadata();
-    twin.Metadata.ModelId = "dtmi:com:contoso:Room;2";
-    // Initialize properties
-    Dictionary<string, object> props = new Dictionary<string, object>();
-    props.Add("Temperature", temperature);
-    props.Add("Humidity", humidity);
-    twin.CustomProperties = props;
-    
-    try
-    {
-        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin)); 
-        return true;       
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-        return false;
-    }
-}
+            //Create new (Floor) digital twin
+            BasicDigitalTwin floorTwin = new BasicDigitalTwin();
+            string srcId = "myFloorID";
+            floorTwin.Metadata = new DigitalTwinMetadata();
+            floorTwin.Metadata.ModelId = "dtmi:example:Floor;1";
+            //Floor twins have no properties, so nothing to initialize
+            //Create the twin
+            await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(floorTwin));
+            Console.WriteLine("Twin created successfully");
 
-static async Task<bool> CreateFloorOrBuilding(string id, bool makeFloor=true)
-{
-    string type = "dtmi:com:contoso:Building;3";
-    if (makeFloor==true)
-        type = "dtmi:com:contoso:Floor;2";
-    BasicDigitalTwin twin = new BasicDigitalTwin();
-    twin.Metadata = new DigitalTwinMetadata();
-    twin.Metadata.ModelId = type;
-    // Initialize properties
-    Dictionary<string, object> props = new Dictionary<string, object>();
-    props.Add("AverageTemperature", 0);
-    twin.CustomProperties = props;
-    
-    try
-    {
-        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));  
-        return true;      
-    }
-    catch (ErrorResponseException e)
-    {
-        Console.WriteLine($"*** Error creating twin {id}: {e.Response.StatusCode}"); 
-        return false;
+            //Create second (Room) digital twin
+            BasicDigitalTwin roomTwin = new BasicDigitalTwin();
+            string targetId = "myRoomID";
+            roomTwin.Metadata = new DigitalTwinMetadata();
+            roomTwin.Metadata.ModelId = "dtmi:example:Room;1";
+            // Initialize properties
+            Dictionary<string, object> props = new Dictionary<string, object>();
+            props.Add("Temperature", 35.0);
+            props.Add("Humidity", 55.0);
+            roomTwin.CustomProperties = props;
+            //Create the twin
+            await client.CreateDigitalTwinAsync(targetId, JsonSerializer.Serialize<BasicDigitalTwin>(roomTwin));
+            
+            //Create relationship between them
+            await CreateRelationship(client, srcId, targetId, "contains");
+            Console.WriteLine();
+
+            //Print twins and their relationships
+            Console.WriteLine("--- Printing details:");
+            Console.WriteLine("Outgoing relationships from source twin:");
+            await FetchAndPrintTwinAsync(srcId, client);
+            Console.WriteLine();
+            Console.WriteLine("Incoming relationships to target twin:");
+            await FetchAndPrintTwinAsync(targetId, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+
+            //Delete the relationship
+            Console.WriteLine("Deleting the relationship");
+            await DeleteRelationship(client, srcId, $"{srcId}-contains->{targetId}");
+            Console.WriteLine();
+
+            //Print twins and their relationships again
+            Console.WriteLine("--- Printing details:");
+            Console.WriteLine("Outgoing relationships from source twin:");
+            await FetchAndPrintTwinAsync(srcId, client);
+            Console.WriteLine();
+            Console.WriteLine("Incoming relationships to target twin:");
+            await FetchAndPrintTwinAsync(targetId, client);
+            Console.WriteLine("--------");
+            Console.WriteLine();
+        }
+
+        private static DigitalTwinsClient createDTClient()
+        {
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            return client;
+        }
+        private async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId, string relName)
+        {
+            // Create relationship between twins
+            var relationship = new BasicRelationship
+            {
+                TargetId = targetId,
+                Name = relName
+            };
+
+            try
+            {
+                string relId = $"{srcId}-{relName}->{targetId}";
+                await client.CreateRelationshipAsync(srcId, relId, JsonSerializer.Serialize(relationship));
+                Console.WriteLine($"Created {relName} relationship successfully");
+            }
+            catch (RequestFailedException rex)
+            {
+                Console.WriteLine($"Create relationship error: {rex.Status}:{rex.Message}");
+            }
+
+        }
+
+        private static async Task FetchAndPrintTwinAsync(string twin_Id, DigitalTwinsClient client)
+        {
+            BasicDigitalTwin twin;
+            Response<string> res = client.GetDigitalTwin(twin_Id);
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            await FindOutgoingRelationshipsAsync(client, twin_Id);
+            await FindIncomingRelationshipsAsync(client, twin_Id);
+
+            return;
+        }
+
+        private static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+            
+            try
+            {
+                // GetRelationshipsAsync will throw if an error occurs
+                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+                List<BasicRelationship> results = new List<BasicRelationship>();
+                await foreach (string relJson in relsJson)
+                {
+                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+                    results.Add(rel);
+                    Console.WriteLine(relJson);
+                }
+
+                return results;
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"*** Error {ex.Status}/{ex.ErrorCode} retrieving relationships for {dtId} due to {ex.Message}");
+                return null;
+            }
+        }
+
+        private static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+            
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+
+                List<IncomingRelationship> results = new List<IncomingRelationship>();
+                await foreach (IncomingRelationship incomingRel in incomingRels)
+                {
+                    results.Add(incomingRel);
+                    Console.WriteLine(incomingRel.RelationshipId);
+
+                }
+                return results;
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving incoming relationships for {dtId} due to {ex.Message}");
+                return null;
+            }
+        }
+
+        private static async Task DeleteRelationship(DigitalTwinsClient client, string srcId, string relId)
+        {
+            try
+            {
+                Response response = await client.DeleteRelationshipAsync(srcId, relId);
+                await FetchAndPrintTwinAsync(srcId, client);
+                Console.WriteLine("Deleted relationship successfully");
+            }
+            catch (RequestFailedException Ex)
+            {
+                Console.WriteLine($"Error {Ex.ErrorCode}");
+            }
+        }
     }
 }
 ```
+
+Esta es la salida de consola del programa anterior: 
+
+:::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Salida de consola que muestra los detalles de los gemelos y las relaciones entrantes y salientes de los gemelos." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
+
+> [!TIP]
+> El grafo de gemelos es un concepto de creación de relaciones entre gemelos. Si desea ver la representación visual del grafo de gemelos, consulte la sección [Visualización](how-to-manage-graph.md#visualization) de este artículo. 
 
 ### <a name="create-a-twin-graph-from-a-spreadsheet"></a>Creación de un grafo de gemelos a partir de una hoja de cálculo
 
@@ -237,15 +450,12 @@ En casos de uso prácticos, las jerarquías de gemelos se crean a menudo a parti
 
 Tenga en cuenta la siguiente tabla de datos, que describe un conjunto de gemelos digitales y las relaciones que se van a crear.
 
-| Modelo    | ID | Parent | Nombre de relación | Otros datos |
+| Id. de modelo| Identificador del gemelo (debe ser único) | Nombre de relación | Identificador del gemelo de destino | Datos de inicialización del gemelo |
 | --- | --- | --- | --- | --- |
-| floor    | Floor01 | | | … |
-| room    | Room10 | Floor01 | contains | … |
-| room    | Room11 | Floor01 | contains | … |
-| room    | Room12 | Floor01 | contains | … |
-| floor    | Floor02 | | | … |
-| room    | Room21 | Floor02 | contains | … |
-| room    | Room22 | Floor02 | contains | … |
+| dtmi:example:Floor;1 | Floor1 |  contiene | Room1 |{"Temperature": 80, "Humidity": 60}
+| dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70, "Humidity": 30}
+| dtmi:example:Room;1  | Room1 | 
+| dtmi:example:Room;1  | Room0 |
 
 En el código siguiente se usa [Microsoft Graph API](/graph/overview) para leer una hoja de cálculo y construir un grafo de gemelos de Azure Digital Twins a partir de los resultados.
 
@@ -255,20 +465,22 @@ JsonDocument data = JsonDocument.Parse(range.values);
 List<BasicRelationship> RelationshipRecordList = new List<BasicRelationship>();
 foreach (JsonElement row in data.RootElement.EnumerateArray())
 {
-    string type = row[0].GetString();
-    string id = row[1].GetString();
-    string relSource = row[2].GetString();
-    string relName = row[3].GetString();
+    string modelId = row[0].GetString();
+    string sourceId = row[1].GetString();
+    string relName = row[2].GetString();
+    string targetId = row[3].GetString();
+    string initData = row[4].GetString();
+    
     // Parse spreadsheet extra data into a JSON string to initialize the digital twin
     // Left out for compactness
     Dictionary<string, object> initData = new Dictionary<string, object>() { ... };
 
-    if (relSource != null)
+    if (sourceId != null)
     {
         BasicRelationship br = new BasicRelationship()
         {
-            SourceId = relSource,
-            TargetId = id,
+            SourceId = sourceId,
+            TargetId = targetId,
             Name = relName
         };
         RelationshipRecordList.Add(br);
@@ -277,32 +489,24 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
     BasicDigitalTwin twin = new BasicDigitalTwin();
     twin.CustomProperties = initData;
     // Set the type of twin to be created
-    switch (type)
-    {
-        case "room":
-            twin.Metadata = new DigitalTwinMetadata() { ModelId = "dtmi:com:contoso:Room;2" };
-            break;
-        case "floor":
-            twin.Metadata = new DigitalTwinMetadata() { ModelId = "dtmi:com:contoso:Floor;2" };
-            break;
-        ... handle additional types
-    }
+    twin.Metadata = new DigitalTwinMetadata() { ModelId = modelId };
+    
     try
     {
-        client.CreateDigitalTwin(id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+        await client.CreateDigitalTwinAsync(sourceId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
     }
     catch (RequestFailedException e)
     {
-        Log.Error($"Error {e.Status}: {e.Message}");
+       Console.WriteLine($"Error {e.Status}: {e.Message}");
     }
     foreach (BasicRelationship rec in RelationshipRecordList)
     { 
         try { 
-            client.CreateRelationship(rec.SourceId, Guid.NewGuid().ToString(), JsonSerializer.Serialize<BasicRelationship>(rec));
+            await client.CreateRelationshipAsync(rec.sourceId, Guid.NewGuid().ToString(), JsonSerializer.Serialize<BasicRelationship>(rec));
         }
         catch (RequestFailedException e)
         {
-            Log.Error($"Error {e.Status}: {e.Message}");
+            Console.WriteLine($"Error {e.Status}: {e.Message}");
         }
     }
 }

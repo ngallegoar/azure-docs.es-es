@@ -4,12 +4,12 @@ description: Aprenda a crear una directiva de Configuración de invitado de Azur
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9ecf798a18f28c490d95b28c6ea8f02c6f22eee8
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893244"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676634"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Creación de directivas de Configuración de invitado para Linux
 
@@ -24,8 +24,6 @@ Solo se puede usar la [configuración de invitados de Azure Policy](../concepts/
 Use las siguientes acciones para crear su propia configuración para validar el estado de una máquina de Azure o que no sea de Azure.
 
 > [!IMPORTANT]
-> Las directivas personalizadas con la configuración de invitados son una característica en vista previa (GB).
->
 > La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala en todas las máquinas Linux, asigne las siguientes definiciones de directiva: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## <a name="install-the-powershell-module"></a>Instalación del módulo de PowerShell
@@ -118,6 +116,9 @@ Guarde este archivo con el nombre `linux-path.rb` en una nueva carpeta denominad
 Por último, cree una configuración, importe el módulo de recursos **PSDesiredStateConfiguration** y compile la configuración.
 
 ```powershell
+# import PSDesiredStateConfiguration module
+import-module PSDesiredStateConfiguration
+
 # Define the configuration and import GuestConfiguration
 Configuration AuditFilePathExists
 {
@@ -133,7 +134,6 @@ Configuration AuditFilePathExists
 }
 
 # Compile the configuration to create the MOF files
-import-module PSDesiredStateConfiguration
 AuditFilePathExists -out ./Config
 ```
 
@@ -148,7 +148,7 @@ Ahora debería tener una estructura de proyecto como la siguiente:
     / Config
         AuditFilePathExists.mof
     / linux-path
-        linux-path.yml
+        inspec.yml
         / controls
             linux-path.rb 
 ```
@@ -157,10 +157,10 @@ Los archivos auxiliares deben empaquetarse juntos. La configuración de invitado
 
 El cmdlet `New-GuestConfigurationPackage` crea el paquete. Parámetros del cmdlet `New-GuestConfigurationPackage` al crear el contenido de Linux:
 
-- **Name**: nombre del paquete de configuración de invitados.
-- **Configuración**: Ruta de acceso completa del documento de configuración compilado.
-- **Ruta de acceso**: ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
-- **ChefProfilePath**: ruta de acceso completa al perfil de InSpec. Este parámetro solo se admite cuando se crea contenido para auditar Linux.
+- **Name** : nombre del paquete de configuración de invitados.
+- **Configuración** : Ruta de acceso completa del documento de configuración compilado.
+- **Ruta de acceso** : ruta de acceso de la carpeta de salida. Este parámetro es opcional. Si no se especifica, el paquete se crea en el directorio actual.
+- **ChefProfilePath** : ruta de acceso completa al perfil de InSpec. Este parámetro solo se admite cuando se crea contenido para auditar Linux.
 
 Ejecute el siguiente comando para crear un paquete con la configuración proporcionada en el paso anterior:
 
@@ -177,9 +177,9 @@ Dado que el agente en realidad está evaluando el entorno local, en la mayoría 
 
 Parámetros del cmdlet `Test-GuestConfigurationPackage`:
 
-- **Name**: Nombre de la directiva de Configuración de invitado.
-- **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
-- **Ruta de acceso**: ruta de acceso completa del paquete de configuración de invitados.
+- **Name** : Nombre de la directiva de Configuración de invitado.
+- **Parámetro** : Parámetros de directiva proporcionados en formato de tabla hash.
+- **Ruta de acceso** : ruta de acceso completa del paquete de configuración de invitados.
 
 Ejecute el siguiente comando para probar el paquete creado en el paso anterior:
 
@@ -194,73 +194,23 @@ El cmdlet también admite la entrada de la canalización de PowerShell. Canaliza
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-El siguiente paso consiste en publicar el archivo en Azure Blob Storage. El script siguiente contiene una función que puede usar para automatizar esta tarea. Los comandos usados en la función `publish` requieren el módulo `Az.Storage`.
+El siguiente paso consiste en publicar el archivo en Azure Blob Storage.  El comandos `Publish-GuestConfigurationPackage` requiere el módulo `Az.Storage`.
 
 ```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditFilePathExists.zip `
-  -blobName 'AuditFilePathExists'
+Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
+
 Una vez que se ha creado y cargado un paquete de directivas personalizadas de Configuración de invitado, cree la definición de la directiva de Configuración de invitado. El cmdlet `New-GuestConfigurationPolicy` toma un paquete de directivas personalizado y crea una definición de directivas.
 
 Parámetros del cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri**: Uri de http(s) público del paquete de contenido de configuración de invitados.
-- **DisplayName**: Nombre para mostrar de la directiva.
-- **Descripción**: Descripción de la directiva.
-- **Parámetro**: Parámetros de directiva proporcionados en formato de tabla hash.
-- **Versión**: Versión de la directiva.
-- **Ruta de acceso**: Ruta de acceso de destino donde se crean las definiciones de directiva.
-- **Plataforma**: Plataforma de destino (Windows/Linux) para la directiva de configuración de invitados y el paquete de contenido.
+- **ContentUri** : Uri de http(s) público del paquete de contenido de configuración de invitados.
+- **DisplayName** : Nombre para mostrar de la directiva.
+- **Descripción** : Descripción de la directiva.
+- **Parámetro** : Parámetros de directiva proporcionados en formato de tabla hash.
+- **Versión** : Versión de la directiva.
+- **Ruta de acceso** : Ruta de acceso de destino donde se crean las definiciones de directiva.
+- **Plataforma** : Plataforma de destino (Windows/Linux) para la directiva de configuración de invitados y el paquete de contenido.
 - **Tag** agrega uno o varios filtros de etiquetas a la definición de directiva.
 - **Category** establece el campo de metadatos de categoría en la definición de directiva.
 
@@ -280,8 +230,6 @@ New-GuestConfigurationPolicy `
 `New-GuestConfigurationPolicy` se encarga de crear los siguientes archivos:
 
 - **auditIfNotExists.json**
-- **deployIfNotExists.json**
-- **Initiative.json**
 
 La salida del cmdlet devuelve un objeto que contiene el nombre para mostrar de la iniciativa y la ruta de acceso de los archivos de directiva.
 
@@ -291,7 +239,7 @@ Para ejecutar el comando Publish, necesita acceso para crear directivas en Azure
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
-  -Path '.\policyDefinitions'
+  -Path './policies'
 ```
 
  El cmdlet `Publish-GuestConfigurationPolicy` acepta la ruta de acceso de la canalización de PowerShell. Esta característica significa que puede crear los archivos de directiva y publicarlos en un único conjunto de comandos canalizados.
@@ -305,25 +253,7 @@ Publish-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
  ```
 
-Con la directiva creada en Azure, el último paso es asignar la iniciativa. Consulte cómo puede asignar la iniciativa con el [portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
-
-> [!IMPORTANT]
-> Las directivas de configuración de invitados **siempre** se deben asignar mediante la iniciativa que combina las directivas _AuditIfNotExists_ y _DeployIfNotExists_. Si solo se asigna la directiva _AuditIfNotExists_, los requisitos previos no se implementan y la directiva siempre muestra que los servidores "0" son compatibles.
-
-La asignación de una definición de directiva con el efecto _DeployIfNotExists_ requiere un nivel de acceso adicional. Para conceder el privilegio mínimo, puede crear una definición de rol personalizada que amplíe **Colaborador de la directiva de recursos**. En el ejemplo siguiente se crea un rol denominado **Resource Policy Contributor DINE** con el permiso adicional _Microsoft.Authorization/roleAssignments/write_.
-
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
+Con la directiva creada en Azure, el último paso es asignar la definición. Consulte cómo puede asignar la definición con el [Portal](../assign-policy-portal.md), la [CLI de Azure](../assign-policy-azurecli.md) y [Azure PowerShell](../assign-policy-powershell.md).
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Usar parámetros en directivas de configuración de invitados personalizadas
 
@@ -391,8 +321,8 @@ Configuration AuditFilePathExists
 
 Para publicar una actualización de la definición de la directiva, hay dos campos que requieren atención.
 
-- **Versión**: al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente. La propiedad actualiza la versión de la asignación de Configuración de invitado para que el agente reconozca el paquete actualizado.
-- **contentHash**: el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri**, la extensión no aceptará el paquete de contenido.
+- **Versión** : al ejecutar el cmdlet `New-GuestConfigurationPolicy`, debe especificar un número de versión mayor que el que se ha publicado actualmente. La propiedad actualiza la versión de la asignación de Configuración de invitado para que el agente reconozca el paquete actualizado.
+- **contentHash** : el cmdlet `New-GuestConfigurationPolicy` actualiza automáticamente esta propiedad. Es un valor hash del paquete que creó `New-GuestConfigurationPackage`. La propiedad debe ser correcta para el archivo `.zip` que se publica. Si solo se actualiza la propiedad **contentUri** , la extensión no aceptará el paquete de contenido.
 
 La manera más fácil de publicar un paquete actualizado es repetir el proceso que se describe en este artículo y proporcionar un número de versión actualizado. Este proceso garantiza que todas las propiedades se hayan actualizado correctamente.
 
@@ -436,8 +366,8 @@ Para usar la característica de validación de firmas, ejecute el cmdlet `Protec
 
 Parámetros del cmdlet `Protect-GuestConfigurationPackage`:
 
-- **Ruta de acceso**: ruta de acceso completa del paquete de configuración de invitados.
-- **PublicGpgKeyPath**: ruta de acceso de la clave GPG pública. Este parámetro solo se admite cuando se firma contenido para Linux.
+- **Ruta de acceso** : ruta de acceso completa del paquete de configuración de invitados.
+- **PublicGpgKeyPath** : ruta de acceso de la clave GPG pública. Este parámetro solo se admite cuando se firma contenido para Linux.
 
 Una buena referencia para la creación de claves GPG para usarlas con máquinas Linux se proporciona en el artículo de Github [Generar una clave GPG nueva](https://help.github.com/en/articles/generating-a-new-gpg-key).
 

@@ -5,20 +5,22 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 41dc4e97e847e9e7d9863631cdb20b72d3f35d9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 10/25/2020
+ms.openlocfilehash: 4df9543e5e747de640562b7e5be224e257e0cfd1
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269376"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676102"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Administración del entorno del servicio de integración (ISE) en Azure Logic Apps
 
 En este artículo se muestra cómo realizar tareas de administración para el [entorno del servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), por ejemplo:
 
 * Administrar los recursos como aplicaciones lógicas, conexiones, cuentas de integración y conectores en el ISE.
+
 * Comprobar el estado de la red del ISE.
+
 * Agregar capacidad, reiniciar el ISE o eliminar el ISE. Siga los pasos descritos en este tema. Para agregar estos artefactos al ISE, consulte [Adición de artefactos al entorno del servicio de integración](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## <a name="view-your-ise"></a>Ver su ISE
@@ -39,9 +41,17 @@ En este artículo se muestra cómo realizar tareas de administración para el [e
 
 ## <a name="check-network-health"></a>Comprobación del estado de la red
 
-En el menú de ISE, en **Configuración**, seleccione **Estado de la red**. Este panel muestra el estado de mantenimiento de las subredes y las dependencias de salida en otros servicios.
+En el menú de ISE, en **Configuración** , seleccione **Estado de la red**. Este panel muestra el estado de mantenimiento de las subredes y las dependencias de salida en otros servicios.
 
 ![Comprobación del estado de la red](./media/ise-manage-integration-service-environment/ise-check-network-health.png)
+
+> [!CAUTION]
+> Si la red del ISE es incorrecta, la instancia interna de App Service Environment (ASE) que usa el ISE también puede ser incorrecta. Si la instancia de ASE es incorrecta durante más de siete días, esta se suspende. Para resolver este estado, compruebe la configuración de la red virtual. Resuelva los problemas que encuentre y reinicie el ISE. De lo contrario, pasados 90 días se elimina la instancia de ASE suspendida y el ISE deja de ser utilizable. Por lo tanto, asegúrese de mantener correctamente el ISE para permitir el tráfico necesario.
+> 
+> Para más información, consulte los temas siguientes:
+>
+> * [Introducción a diagnósticos de Azure App Service](../app-service/overview-diagnostics.md)
+> * [Registro de mensajes para Azure App Service Environment](../app-service/environment/using-an-ase.md#logging)
 
 <a name="find-logic-apps"></a>
 
@@ -49,7 +59,7 @@ En el menú de ISE, en **Configuración**, seleccione **Estado de la red**. Este
 
 Puede ver y administrar las aplicaciones lógicas que se encuentran en el ISE.
 
-1. En el menú de ISE, en **Configuración**, seleccione **Aplicaciones lógicas**.
+1. En el menú de ISE, en **Configuración** , seleccione **Aplicaciones lógicas**.
 
    ![Ver aplicaciones lógicas](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
@@ -65,7 +75,7 @@ Puede ver y administrar las aplicaciones lógicas que se encuentran en el ISE.
 
 Puede ver y administrar las conexiones creadas por las aplicaciones lógicas que se ejecutan en el ISE.
 
-1. En el menú de ISE, en **Configuración**, seleccione **Conexiones de API**.
+1. En el menú de ISE, en **Configuración** , seleccione **Conexiones de API**.
 
    ![Ver conexiones de API](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
 
@@ -77,7 +87,7 @@ Puede ver y administrar las conexiones creadas por las aplicaciones lógicas que
 
 Puede ver y administrar los conectores de API que se han implementado en el ISE.
 
-1. En el menú de ISE, en **Configuración**, seleccione **Conectores administrados**.
+1. En el menú de ISE, en **Configuración** , seleccione **Conectores administrados**.
 
    ![Ver conectores administrados](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
 
@@ -89,7 +99,7 @@ Puede ver y administrar los conectores de API que se han implementado en el ISE.
 
 Puede ver y administrar los conectores personalizados que implementó en el ISE.
 
-1. En el menú de ISE, en **Configuración**, seleccione **Conectores personalizados**.
+1. En el menú de ISE, en **Configuración** , seleccione **Conectores personalizados**.
 
    ![Buscar conectores personalizados](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
@@ -99,7 +109,7 @@ Puede ver y administrar los conectores personalizados que implementó en el ISE.
 
 ## <a name="manage-integration-accounts"></a>Administración de cuentas de integración
 
-1. En el menú de ISE, en **Configuración**, seleccione **Cuentas de integración**.
+1. En el menú de ISE, en **Configuración** , seleccione **Cuentas de integración**.
 
    ![Buscar cuentas de integración](./media/ise-manage-integration-service-environment/ise-find-integration-accounts.png)
 
@@ -117,7 +127,7 @@ La unidad base del ISE Premium tiene una capacidad fija, por lo que si necesita 
 
    ![Ver el uso de ISE](./media/ise-manage-integration-service-environment/integration-service-environment-usage.png)
 
-1. En **Configuración**, seleccione **Escalar horizontalmente**. En el panel **Configurar**, seleccione una de estas opciones:
+1. En **Configuración** , seleccione **Escalar horizontalmente**. En el panel **Configurar** , seleccione una de estas opciones:
 
    * [**Escala manual**](#manual-scale): el escalado se hace según el número de unidades de procesamiento que desee usar.
    * [**Custom autoscale**](#custom-autoscale) (Escalabilidad automática personalizada): el escalado se hace según las métricas de rendimiento, seleccionando entre varios criterios y especificando las condiciones del umbral para cumplir con esos criterios.
@@ -128,7 +138,7 @@ La unidad base del ISE Premium tiene una capacidad fija, por lo que si necesita 
 
 ### <a name="manual-scale"></a>Escala manual
 
-1. Después de seleccionar **Escala manual**, en **Additional capacity** (Capacidad adicional), seleccione el número de unidades de escalado que desea usar.
+1. Después de seleccionar **Escala manual** , en **Additional capacity** (Capacidad adicional), seleccione el número de unidades de escalado que desea usar.
 
    ![Seleccionar el tipo de escalado deseado](./media/ise-manage-integration-service-environment/select-manual-scale-out-units.png)
 
@@ -142,21 +152,21 @@ La unidad base del ISE Premium tiene una capacidad fija, por lo que si necesita 
 
    ![Proporcionar un nombre para la configuración de escalabilidad automática y seleccionar grupo de recursos](./media/ise-manage-integration-service-environment/select-custom-autoscale.png)
 
-1. En cuanto a la condición **Predeterminada**, seleccione **Scale based on a metric** (Escalado según una métrica) o **Scale to a specific instance count** (Escalado a un recuento de instancias específico).
+1. En cuanto a la condición **Predeterminada** , seleccione **Scale based on a metric** (Escalado según una métrica) o **Scale to a specific instance count** (Escalado a un recuento de instancias específico).
 
    * Si elige el basado en instancias, escriba el número de unidades de procesamiento, entre 0 y 10.
 
    * Si elige en función de las métricas, siga estos pasos:
 
-     1. En la sección **Reglas**, seleccione **Agregar una regla**.
+     1. En la sección **Reglas** , seleccione **Agregar una regla**.
 
      1. En el panel **Scale rule** (Regla de escalado), configure los criterios y la acción que se realizará cuando se active la regla.
 
      1. En **Instance limits** (Límites de instancias), especifique estos valores:
 
-        * **Mínimos**: el número mínimo de unidades de procesamiento que se va a usar.
-        * **Maximum**: el número máximo de unidades de procesamiento que se va a usar.
-        * **Valor predeterminado**: si ocurre algún problema al leer las métricas de los recursos y la capacidad actual es inferior a la predeterminada, el escalado automático realiza el escalado horizontal hasta el número de unidades de procesamiento predeterminado. Sin embargo, si la capacidad actual es superior a la predeterminada, el escalado automático no realiza la reducción horizontal.
+        * **Mínimos** : el número mínimo de unidades de procesamiento que se va a usar.
+        * **Maximum** : el número máximo de unidades de procesamiento que se va a usar.
+        * **Valor predeterminado** : si ocurre algún problema al leer las métricas de los recursos y la capacidad actual es inferior a la predeterminada, el escalado automático realiza el escalado horizontal hasta el número de unidades de procesamiento predeterminado. Sin embargo, si la capacidad actual es superior a la predeterminada, el escalado automático no realiza la reducción horizontal.
 
 1. Para agregar otra condición, seleccione **Add scale condition** (Agregar condición de escalado).
 

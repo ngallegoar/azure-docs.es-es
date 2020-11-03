@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533187"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integración de Azure Active Directory con Uberflip
 
@@ -28,7 +28,7 @@ La integración de Uberflip con Azure AD proporciona las siguientes ventajas:
 * Puede permitir que los usuarios inicien sesión automáticamente en Uberflip (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para más información sobre la integración de aplicaciones de software como servicio (SaaS) con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -86,19 +86,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con Uberflip, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Uberflip**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Uberflip** , seleccione **Inicio de sesión único**.
 
     ![Configuración de la opción de inicio de sesión único](common/select-sso.png)
 
-1. En el panel **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+1. En el panel **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML**, seleccione **Editar** (icono de lápiz) para abrir el panel **Configuración básica de SAML**.
+1. En la página **Configurar el inicio de sesión único con SAML** , seleccione **Editar** (icono de lápiz) para abrir el panel **Configuración básica de SAML**.
 
-   ![Edición de la configuración básica de SAML](common/edit-urls.png)
+   ![Captura de pantalla que muestra la configuración básica de SAML, en la que puede incluir una URL de respuesta.](common/edit-urls.png)
 
-1. En el panel **Configuración básica de SAML**, realice uno de los pasos siguientes, según el modo de inicio de sesión único que quiera configurar:
+1. En el panel **Configuración básica de SAML** , realice uno de los pasos siguientes, según el modo de inicio de sesión único que quiera configurar:
 
    * Para configurar la aplicación en modo de inicio de sesión único con IDP iniciado, en el cuadro **Dirección URL de respuesta (URL del Servicio de consumidor de aserciones)** , escriba una dirección URL mediante el siguiente patrón:
 
@@ -109,17 +109,17 @@ Para configurar el inicio de sesión único de Azure AD con Uberflip, siga estos
      > [!NOTE]
      > Este valor no es real. Actualice este valor con la dirección URL de respuesta real. Para obtener los valores reales, póngase en contacto con el [equipo de soporte técnico de Uberflip](mailto:support@uberflip.com). También puede hacer referencia a los patrones que se muestran en el panel **Configuración básica de SAML** de Azure Portal.
 
-   * Para configurar la aplicación en modo SSO con SP iniciado, seleccione **Establecer direcciones URL adicionales** y, en el cuadro **URL de inicio de sesión**, escriba esta dirección URL:
+   * Para configurar la aplicación en modo SSO con SP iniciado, seleccione **Establecer direcciones URL adicionales** y, en el cuadro **URL de inicio de sesión** , escriba esta dirección URL:
 
      `https://app.uberflip.com/users/login`
 
-     ![Información sobre dominio y direcciones URL de inicio de sesión único de Uberflip](common/both-signonurl.png)
+     ![Captura de pantalla que muestra Establecer direcciones U R L adicionales donde puede escribir una U R L de inicio de sesión.](common/both-signonurl.png)
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, seleccione **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas y guárdelo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , seleccione **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas y guárdelo en el equipo.
 
    ![Opción de descarga del XML de metadatos de federación](common/metadataxml.png)
 
-1. En el panel **Configurar Uberflip**, copie las direcciones URL que necesite:
+1. En el panel **Configurar Uberflip** , copie las direcciones URL que necesite:
 
    * **Dirección URL de inicio de sesión**
    * **Identificador de Azure AD**
@@ -143,13 +143,13 @@ En esta sección, creará un usuario de prueba llamado B. Simon en Azure Porta
 
     ![Nueva opción de usuario](common/new-user.png)
 
-1. En el panel **Usuario**, realice los pasos siguientes:
+1. En el panel **Usuario** , realice los pasos siguientes:
 
     ![Panel Usuario](common/user-properties.png)
 
-    1. En el cuadro **Nombre**, escriba **BSimon**.
+    1. En el cuadro **Nombre** , escriba **BSimon**.
   
-    1. En el cuadro **Nombre de usuario**, escriba **BSimon\@\<yourcompanydomain>.\<extension>** . Por ejemplo, **BSimon\@contoso.com**.
+    1. En el cuadro **Nombre de usuario** , escriba **BSimon\@\<yourcompanydomain>.\<extension>** . Por ejemplo, **BSimon\@contoso.com**.
 
     1. Active la casilla **Show password** (Mostrar contraseña) y, después, anote el valor que se muestra en el cuadro **Contraseña**.
 
@@ -175,11 +175,11 @@ En esta sección, habilitará a B. Simon para que use el inicio de sesión únic
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. En el panel **Usuarios y grupos**, seleccione **B Simon** en la lista **Usuarios** y, luego, elija **Seleccionar** en la parte inferior del panel.
+1. En el panel **Usuarios y grupos** , seleccione **B Simon** en la lista **Usuarios** y, luego, elija **Seleccionar** en la parte inferior del panel.
 
-1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol**, seleccione el rol adecuado para el usuario en la lista. Elija **Seleccionar** en la parte inferior del panel.
+1. Si espera algún valor de rol en la aserción de SAML, en el panel **Seleccionar rol** , seleccione el rol adecuado para el usuario en la lista. Elija **Seleccionar** en la parte inferior del panel.
 
-1. En el panel **Agregar asignación**, seleccione **Asignar**.
+1. En el panel **Agregar asignación** , seleccione **Asignar**.
 
 ### <a name="create-an-uberflip-test-user"></a>Creación de un usuario de prueba de Uberflip
 
@@ -192,12 +192,12 @@ Ahora se crea un usuario llamado B. Simon en Uberflip. No tiene que hacer nada p
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el portal Aplicaciones.
 
-Al seleccionar **Uberflip** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de Uberflip para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
+Al seleccionar **Uberflip** en el portal Aplicaciones, debería iniciar sesión automáticamente en la suscripción de Uberflip para la que configuró el inicio de sesión único. Para más información acerca del portal Aplicaciones, consulte [Access and use apps on the My Apps portal](../user-help/my-apps-portal-end-user-access.md) (Uso de aplicaciones y acceso a ellas en el portal Aplicaciones).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista de tutoriales para integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-* [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

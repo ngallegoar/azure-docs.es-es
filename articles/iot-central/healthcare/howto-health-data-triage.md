@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127087"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542427"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Creación de un panel de proveedor de Power BI
 
@@ -164,26 +164,26 @@ El siguiente paso consiste en analizar los datos procedentes del centro de event
     >[!div class="mx-imgBorder"] 
     >![Control Dividir](media/split-by-interface.png)
 
-8. En el caso de **Smart Vitals Patch**, agregue una acción **Analizar JSON**. Para el contenido, elija **Contenido** procedente del centro de eventos. Copie y pegue las cargas de ejemplo del dispositivo Smart Vitals Patch anterior para generar el esquema.
+8. En el caso de **Smart Vitals Patch** , agregue una acción **Analizar JSON**. Para el contenido, elija **Contenido** procedente del centro de eventos. Copie y pegue las cargas de ejemplo del dispositivo Smart Vitals Patch anterior para generar el esquema.
 
 9. Agregue una acción **Establecer variable** y actualice la variable **Body** con el elemento **Body** del código JSON analizado en el paso 7.
 
-10. Agregue un control **Condición** como la siguiente acción y establezca la condición en **Body**, **contiene**, **HeartRate** (Ritmo cardíaco). Esto garantizará que tiene el conjunto de datos correcto procedente del dispositivo Smart Vitals Patch antes de rellenar el conjunto de datos de Power BI. Los pasos del 7 al 9 tendrán el siguiente aspecto:
+10. Agregue un control **Condición** como la siguiente acción y establezca la condición en **Body** , **contiene** , **HeartRate** (Ritmo cardíaco). Esto garantizará que tiene el conjunto de datos correcto procedente del dispositivo Smart Vitals Patch antes de rellenar el conjunto de datos de Power BI. Los pasos del 7 al 9 tendrán el siguiente aspecto:
 
     >[!div class="mx-imgBorder"] 
     >![Condición de adición de Smart Vitals](media/smart-vitals-pbi.png)
 
-11. En el caso de que la condición sea **True**, agregue una acción que llame a la funcionalidad de Power BI**Agregar filas a un conjunto de datos**. Tendrá que iniciar sesión en Power BI para ello. En el caso de que sea **False**, puede volver a usar el control **Finalizar**.
+11. En el caso de que la condición sea **True** , agregue una acción que llame a la funcionalidad de Power BI **Agregar filas a un conjunto de datos**. Tendrá que iniciar sesión en Power BI para ello. En el caso de que sea **False** , puede volver a usar el control **Finalizar**.
 
-12. Elija el **Área de trabajo**, **Conjunto de datos** y **Tabla** adecuados. Asigne los parámetros que especificó al crear el conjunto de datos de streaming en Power BI a los valores JSON analizados que proceden del centro de eventos. Las acciones rellenadas deben tener este aspecto:
+12. Elija el **Área de trabajo** , **Conjunto de datos** y **Tabla** adecuados. Asigne los parámetros que especificó al crear el conjunto de datos de streaming en Power BI a los valores JSON analizados que proceden del centro de eventos. Las acciones rellenadas deben tener este aspecto:
 
     >[!div class="mx-imgBorder"] 
     >![Agregar filas a Power BI](media/add-rows-yesenia.png)
 
-13. En el caso del conmutador **Smart Knee Brace**, agregue una acción **Analizar JSON** para analizar el contenido, de forma similar al paso 7. A continuación, **Agregar filas a un conjunto de datos** para actualizar el conjunto de datos de Teddy Silvers en Power BI.
+13. En el caso del conmutador **Smart Knee Brace** , agregue una acción **Analizar JSON** para analizar el contenido, de forma similar al paso 7. A continuación, **Agregar filas a un conjunto de datos** para actualizar el conjunto de datos de Teddy Silvers en Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Condición de adición de Smart Vitals](media/knee-brace-pbi.png)
+    >![Captura de pantalla que muestra cómo agregar filas a un conjunto de datos.](media/knee-brace-pbi.png)
 
 14. Presione **Guardar** y, después, ejecute la aplicación lógica.
 

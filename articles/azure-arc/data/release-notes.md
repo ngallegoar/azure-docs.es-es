@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3c20bbd3ab02cd1eccd00e2d36c14eebf2f63205
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319738"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360328"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de la versión: servicios de datos habilitados para Azure Arc (versión preliminar)
 
@@ -33,9 +33,9 @@ Para obtener instrucciones, consulte [¿Qué son los servicios de datos habilita
 
 Los problemas siguientes se aplican a esta versión:
 
-* **Eliminación de un grupo de servidores de Hiperescala de PostgreSQL**: Si ha cambiado la configuración del grupo de servidores o de la instancia, espere a que la operación de edición se complete antes de eliminar un grupo de servidores de Hiperescala de PostgreSQL.
+* **Eliminación de un grupo de servidores de Hiperescala de PostgreSQL** : Si ha cambiado la configuración del grupo de servidores o de la instancia, espere a que la operación de edición se complete antes de eliminar un grupo de servidores de Hiperescala de PostgreSQL.
 
-* **`azdata notebook run` puede producir un error**: para solucionar este problema, ejecute `azdata notebook run` en un entorno virtual de Python. Este problema también se manifiesta cuando se produce un error al intentar crear una instancia administrada de SQL o un grupo de servidores de Hiperescala de PostgreSQL mediante el Asistente para implementar Azure Data Studio. En este caso, puede abrir el cuaderno y hacer clic en el botón **Ejecutar todo** en la parte superior del cuaderno.
+* **`azdata notebook run` puede producir un error** : para solucionar este problema, ejecute `azdata notebook run` en un entorno virtual de Python. Este problema también se manifiesta cuando se produce un error al intentar crear una instancia administrada de SQL o un grupo de servidores de Hiperescala de PostgreSQL mediante el Asistente para implementar Azure Data Studio. En este caso, puede abrir el cuaderno y hacer clic en el botón **Ejecutar todo** en la parte superior del cuaderno.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -62,3 +62,8 @@ Los problemas siguientes se aplican a esta versión:
 - No se admite la _reducción_ del número de nodos de trabajo de Hiperescala de Postgres.
 - No se admite la actualización a una versión de Kubernetes más reciente si usa el motor de Azure Kubernetes Service (Motor de AKS) en Azure Stack Hub con el controlador de datos de Azure Arc e instancias de base de datos. Desinstale el controlador de datos de Azure Arc y todas las instancias de base de datos antes de actualizar el clúster de Kubernetes.
 - La versión preliminar no admite la copia de seguridad y restauración de la versión 11 del motor Postgres. Solo admite la copia de seguridad y restauración de la versión 12 de Postgres.
+- Azure Kubernetes Service (AKS), los clústeres que abarcan [varias zonas de disponibilidad](../../aks/availability-zones.md) no se admiten actualmente para los servicios de datos habilitados para Azure Arc. Para evitar este problema, al crear el clúster de AKS en Azure Portal, si selecciona una región en la que hay zonas disponibles, desactive todas las zonas del control de selección. Consulte la siguiente imagen:
+
+   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Desactive las casillas de cada zona para no especificar ninguna.":::
+
+  

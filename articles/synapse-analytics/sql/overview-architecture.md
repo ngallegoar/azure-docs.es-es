@@ -1,6 +1,6 @@
 ---
 title: Arquitectura de SQL de Synapse
-description: Obtenga información acerca de cómo SQL de Azure Synapse combina el procesamiento paralelo masivo (MPP) con Azure Storage para lograr un alto rendimiento y escalabilidad.
+description: Obtenga información acerca de cómo combina Azure Synapse SQL las funcionalidades de procesamiento de consultas distribuidas con Azure Storage para lograr un alto rendimiento y escalabilidad.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046864"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476015"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitectura de SQL de Azure Synapse 
 
@@ -35,7 +35,7 @@ En el caso de SQL a petición, al ser sin servidor, el escalado se realiza autom
 
 SQL de Synapse usa una arquitectura basada en nodos. Las aplicaciones se conectan y emiten comandos de T-SQL a un nodo de control, que es el único punto de entrada de SQL de Synapse. 
 
-El nodo de control del grupo de SQL utiliza el motor de MPP que optimiza las consultas para el procesamiento en paralelo y, después, pasa las operaciones a los nodos de ejecución para hacer su trabajo en paralelo. 
+El nodo de control de Azure Synapse SQL utiliza un motor de consultas distribuidas para optimizar las consultas para el procesamiento en paralelo y, después, pasa las operaciones a los nodos de ejecución para hacer su trabajo en paralelo. 
 
 El nodo de control de SQL a petición utiliza el motor de procesamiento de consultas distribuidas (DQP) para optimizar y orquestar la ejecución distribuida de consultas de usuario mediante su división en consultas más pequeñas que se ejecutarán en nodos de ejecución. Cada consulta pequeña se denomina "tarea", que representa una unidad de ejecución distribuida. Lee los archivos del almacenamiento, combina los resultados de otras tareas, agrupa u ordena los datos recuperados de otras tareas. 
 
@@ -61,7 +61,7 @@ SQL a petición le permite consultar los archivos de su lago de datos en modo de
 
 El nodo de control es el cerebro de la arquitectura. Es el front-end que interactúa con todas las aplicaciones y conexiones. 
 
-En un grupo de SQL, el motor de MPP se ejecuta en el nodo de control para optimizar y coordinar las consultas en paralelo. Al enviar una consulta T-SQL a un grupo de SQL, el nodo de control la transforma en consultas que se ejecutan en cada distribución en paralelo.
+En Synapse SQL, el motor de consultas distribuidas se ejecuta en el nodo de control para optimizar y coordinar las consultas en paralelo. Al enviar una consulta T-SQL a un grupo de SQL, el nodo de control la transforma en consultas que se ejecutan en cada distribución en paralelo.
 
 En SQL a petición, el motor de DQP se ejecuta en el nodo de control para optimizar y coordinar la ejecución distribuida de consultas de usuario mediante su división en consultas más pequeñas que se ejecutarán en nodos de ejecución. También asigna conjuntos de archivos para que cada nodo los procese.
 
@@ -69,7 +69,7 @@ En SQL a petición, el motor de DQP se ejecuta en el nodo de control para optimi
 
 Los nodos de proceso proporcionan la eficacia de cálculo. 
 
-En un grupo de SQL, las distribuciones se asignan a nodos de ejecución para su procesamiento. Al pagar por más recursos de proceso, el grupo reasigna las distribuciones a los nodos de ejecución disponibles. El número de nodos de ejecución va de 1 a 60, y viene determinado por el nivel de servicio del grupo de SQL. Cada nodo de cálculo tiene un identificador de nodo que está visible en las vistas del sistema. Para ver el identificador del nodo de ejecución, busque la columna node_id en las vistas del sistema cuyos nombres comiencen por sys.pdw_nodes. Para obtener una lista de las vistas del sistema, consulte la [MPP system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest) (Vistas del sistema de MPP).
+En un grupo de SQL, las distribuciones se asignan a nodos de ejecución para su procesamiento. Al pagar por más recursos de proceso, el grupo reasigna las distribuciones a los nodos de ejecución disponibles. El número de nodos de ejecución va de 1 a 60, y viene determinado por el nivel de servicio del grupo de SQL. Cada nodo de cálculo tiene un identificador de nodo que está visible en las vistas del sistema. Para ver el identificador del nodo de ejecución, busque la columna node_id en las vistas del sistema cuyos nombres comiencen por sys.pdw_nodes. Para obtener una lista de las vistas del sistema, consulte [Vistas de catálogo de Azure Synapse Analytics y Almacenamiento de datos paralelos](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 En SQL a petición, a cada nodo de ejecución se le asigna una tarea y un conjunto de archivos en los que se ejecutará la tarea. La tarea es una unidad de ejecución de consulta distribuida que, en realidad, es parte de la consulta enviada por el usuario. El escalado automático está en vigor para asegurarse de que se utilicen suficientes nodos de ejecución para ejecutar la consulta del usuario.
 

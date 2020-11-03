@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292929"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425779"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>Referencia de API del Cloud Partner Portal
 
 > [!NOTE]
 > Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los [cambios de las API de Cloud Partner Portal](#changes-to-cpp-apis-after-the-migration-to-partner-center) enumerados en este documento para asegurarse de que el código sigue funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
-Las API de REST de Cloud Partner Portal permiten la recuperación y la manipulación mediante programación de las cargas de trabajo, ofertas y perfiles del publicador. Las API de usan el control de acceso basado en roles (RBAC) para exigir los permisos correctos en el tiempo de procesamiento.
+Las API de REST de Cloud Partner Portal permiten la recuperación y la manipulación mediante programación de las cargas de trabajo, ofertas y perfiles del publicador. Las API usan el control de acceso basado en roles de Azure (RBAC de Azure) para exigir los permisos correctos en tiempo de procesamiento.
 
 Esta referencia proporciona los detalles técnicos de las API de REST de Cloud Partner Portal. Los ejemplos de carga en este documento son solo para referencia y están sujetos a cambios a medida que se agregan nuevas funcionalidades.
 

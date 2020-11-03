@@ -3,19 +3,19 @@ title: Implementación de Horizon en Azure VMware Solution
 description: Aprenda a implementar VMware Horizon en Azure VMware Solution.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 9f8951c1c346eb15ac981b99a4dbf1541f3e3eed
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078891"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369019"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementación de Horizon en Azure VMware Solution 
 
 >[!NOTE]
->Este documento se centra en el producto VMware Horizon. Anteriormente se conocía como Horizon 7, pero el nombre del producto ha cambiado a Horizon. Horizon es una solución distinta a Horizon Cloud en Azure, aunque tienen algunos componentes compartidos. Las principales ventajas de Azure VMware Solution incluyen un método de ajuste de tamaño más sencillo y que la administración de VMware Cloud Foundation está integrada en Azure Portal.
+>Este documento se centra en el producto VMware Horizon, anteriormente conocido como Horizon 7. Horizon es una solución distinta a Horizon Cloud en Azure, aunque tienen algunos componentes compartidos. Las principales ventajas de Azure VMware Solution incluyen un método de ajuste de tamaño más directo y la integración de la administración de VMware Cloud Foundation en Azure Portal.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)® es una plataforma de escritorio virtual y aplicaciones que se ejecuta en el centro de datos y que facilita a TI una administración sencilla y centralizada. Proporciona escritorios virtuales y aplicaciones a los usuarios finales en cualquier dispositivo y en cualquier lugar. Horizon permite crear y administrar conexiones a escritorios virtuales Windows, escritorios virtuales Linux, aplicaciones hospedadas de Servidor de Escritorio remoto (RDS), escritorios y máquinas físicas.
+[VMware Horizon](https://www.vmware.com/products/horizon.html)®, una plataforma de escritorio virtual y aplicaciones, se ejecuta en el centro de datos y proporciona una administración sencilla y centralizada. Proporciona escritorios virtuales y aplicaciones en cualquier dispositivo y en cualquier lugar. Horizon permite crear y administrar conexiones a escritorios virtuales Windows y Linux, aplicaciones hospedadas de Servidor de Escritorio remoto (RDS), escritorios y máquinas físicas.
 
 Este artículo se centra específicamente en la implementación de Horizon en Azure VMware Solution. Para obtener información general sobre VMware Horizon, vea la documentación de producción de Horizon:
 
@@ -27,18 +27,18 @@ Este artículo se centra específicamente en la implementación de Horizon en Az
 
 Con la incorporación de Horizon a Azure VMware Solution, ya hay dos soluciones de infraestructura de escritorio virtual (VDI) en la plataforma Azure. En el diagrama siguiente se resumen las principales diferencias generales.
 
-:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
+:::image type="content" source="media/horizon/difference-horizon-azure-vmware-solution-horizon-cloud-azure.png" alt-text="Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
 
 Horizon 2006 y las versiones posteriores de la línea de versiones de Horizon 8 admiten implementación local e implementación de Azure VMware Solution. Hay algunas características de Horizon que se admiten en local pero no en Azure VMware Solution. También se admiten productos adicionales del ecosistema de Horizon. Para obtener información, vea [Interoperabilidad y paridad de características](https://kb.vmware.com/s/article/80850).
 
 ## <a name="deploy-horizon-in-a-hybrid-cloud"></a>Implementación de Horizon en una nube híbrida
 
-Es posible implementar Horizon en un entorno de nube híbrida si se usa la arquitectura de pods en la nube (CPA) de Horizon para interconectar centros de datos locales y centros de datos de Azure. CPA se usa normalmente para escalar verticalmente la implementación, compilar una nube híbrida y proporcionar redundancia para la continuidad empresarial y recuperación ante desastres. Para una explicación detallada de la guía de continuidad empresarial de VMware Horizon, vea [Expansión de entornos existentes de Horizon 7](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+Es posible implementar Horizon en un entorno de nube híbrida si se usa la arquitectura de pods en la nube (CPA) de Horizon para interconectar los centros de datos locales y de Azure. CPA escala verticalmente la implementación, crea una nube híbrida y proporciona redundancia para la continuidad empresarial y recuperación ante desastres.  Para más información, consulte [Expansión de los entornos de Horizon 7 existentes](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
 
 >[!IMPORTANT]
 >CPA no es una implementación extendida; cada pod de Horizon es distinto, y todos los servidores de conexión que pertenecen a cada uno de los pods individuales deben encontrarse en una única ubicación y ejecutarse en el mismo dominio de transmisión desde una perspectiva de red.
 
-Al igual que un centro de datos local o privado, Horizon se puede implementar en una nube privada de Azure VMware Solution. En las secciones siguientes se habla de las diferencias principales entre la implementación de Horizon en local y en Azure VMware Solution.
+Al igual que un centro de datos local o privado, Horizon se puede implementar en una nube privada de Azure VMware Solution. En las secciones siguientes se describen las diferencias principales entre la implementación de Horizon en el entorno local y en Azure VMware Solution.
 
 La nube privada de Azure es conceptualmente igual que el SDDC de VMware, un término que se usa habitualmente en la documentación de Horizon. En el resto de este documento se usan los términos nube privada de Azure y SDDC de VMware indistintamente.
 
@@ -71,9 +71,9 @@ Un diseño de arquitectura típico de Horizon usa una estrategia de pods y bloqu
 
 Cada nube tiene su propio esquema de conectividad de red. En combinación con NSX Edge o redes de SDDC de VMware, la conectividad de red de Azure VMware Solution presenta requisitos únicos para implementar Horizon que difieren del entorno local.
 
-Cada nube privada de Azure o SDDC es capaz de controlar 4000 sesiones de escritorio o de aplicación, lo que implica lo siguiente:
+Cada nube privada de Azure y SDDC pueden controlar 4000 sesiones de escritorio o de aplicación, suponiendo que:
 
-* El tráfico de cargas de trabajo se alinea con el del perfil de trabajo de la tarea LoginVSI.
+* El tráfico de las cargas de trabajo se alinea con el perfil de trabajo de la tarea LoginVSI.
 
 * Solo se tiene en cuenta el tráfico de protocolos, sin datos de usuario.
 
@@ -82,51 +82,51 @@ Cada nube privada de Azure o SDDC es capaz de controlar 4000 sesiones de escrit
 >[!NOTE]
 >El perfil de las cargas de trabajo y las necesidades pueden diferir, por lo que los resultados pueden variar en función del caso de uso. Los volúmenes de datos de usuario pueden reducir los límites de escala en el contexto de la carga de trabajo. Ajuste el tamaño de la implementación y planéela en consecuencia. Para obtener más información, vea las instrucciones de ajuste de tamaño en la sección [Ajuste del tamaño de los hosts de Azure VMware Solution para implementaciones de Horizon](#size-azure-vmware-solution-hosts-for-horizon-deployments).
 
-Dado el límite máximo de nube privada de Azure o SDDC, se recomienda una arquitectura de implementación en la que los servidores de conexión de Horizon y las puertas de enlace de acceso unificado (UAG) de VMware se ejecuten dentro de Azure Virtual Network. En la práctica, esto convierte a cada nube privada de Azure o SDDC en un bloque. Esto, a su vez, maximiza la escalabilidad de Horizon en Azure VMware Solution.
+Dado el límite máximo de la nube privada de Azure y SDDC, se recomienda una arquitectura de implementación en la que los servidores de conexión de Horizon y las puertas de enlace de acceso unificado (UAG) de VMware se ejecuten dentro de Azure Virtual Network. En la práctica, esto convierte a cada nube privada de Azure y SDDC en un bloque. Como resultado, se maximiza la escalabilidad de Horizon en Azure VMware Solution.
 
 La conexión desde Azure Virtual Network a las nubes privadas de Azure o SDDC debe configurarse con FastPath de ExpressRoute. En el diagrama siguiente se muestra una implementación de pods de Horizon básica.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Implementación típica de pods de Horizon mediante FastPath de ExpressRoute" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Conectividad de red para escalar Horizon en Azure VMware Solution
 
-En esta sección se presenta la arquitectura de red general para escalar Horizon en Azure VMware Solution con algunos ejemplos de implementación comunes. El contenido se centra específicamente en elementos críticos de las redes.
+En esta sección se presenta la arquitectura de red general con algunos ejemplos de implementación comunes para ayudarle a escalar Horizon en Azure VMware Solution. El contenido se centra específicamente en los elementos críticos de las redes. 
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Pod único de Horizon en Azure VMware Solution
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Pod único de Horizon en Azure VMware Solution" border="false":::
 
-Un pod único de Horizon es el escenario de implementación más simple. En este ejemplo se decide implementar un solo pod de Horizon en la región Este de EE. UU. Dado que se estima que cada nube privada o SDDC controla aproximadamente el tráfico de 4000 sesiones de escritorio, para implementar el tamaño máximo de pod de Horizon puede planear la implementación de hasta tres nubes privadas o SDDC.
+El escenario de implementación más directo es un único pod de Horizon, porque implementa solo un pod de Horizon en la región Este de EE. UU.  Puesto que se estima que cada nube privada y SDDC pueden controlar 4000 sesiones de escritorio, se implementa el tamaño máximo del pod de Horizon.  Puede planear la implementación de hasta tres nubes privadas o SDDC.
 
-Así, en este ejemplo, en combinación con las máquinas virtuales (VM) de infraestructura de Horizon implementadas en Azure Virtual Network, puede alcanzar 12 000 sesiones por pod de Horizon en función de las necesidades de cargas de trabajo y datos. La conexión entre cada nube privada o SDDC y Azure Virtual Network es FastPath de ExpressRoute, de modo que no se necesita ningún tráfico de este a oeste entre nubes privadas.
+Con las máquinas virtuales de infraestructura de Horizon implementadas en Azure Virtual Network, puede llegar hasta 12 000 sesiones por pod de Horizon. La conexión entre cada nube privada o SDDC y Azure Virtual Network es una ruta rápida de ExpressRoute.  No se necesita tráfico Este-Oeste entre las nubes privadas. 
 
 Las principales suposiciones de este ejemplo de implementación básica son que:
 
 * No se tiene un pod de Horizon local que se quiera conectar a este nuevo pod mediante la arquitectura de pods en la nube (CPA).
 
-* Los usuarios finales se conectan a sus escritorios virtuales a través de Internet (en lugar de hacerlo a través de un centro de datos local).
+* Los usuarios finales se conectan a sus escritorios virtuales mediante Internet (en lugar de hacerlo a través de un centro de datos local).
 
-En este ejemplo básico puede conectar el controlador de dominio de AD de Azure Virtual Network a la instancia local de Active Directory a través de VPN o un circuito de ExpressRoute.
+Puede conectar el controlador de dominio de AD de Azure Virtual Network con la instancia local de AD mediante VPN o un circuito de ExpressRoute.
 
-Una variación del ejemplo básico descrito podría ser admitir la conectividad de recursos locales. Podrían ser usuarios accediendo a escritorios y generando tráfico de aplicaciones de escritorio virtual o conectándose a un pod local de Horizon mediante CPA.
+Una variación del ejemplo básico podría ser admitir la conectividad de los recursos locales. Por ejemplo, los usuarios acceden a los escritorios y generan tráfico de aplicaciones de escritorio virtual o se conectan a un pod de Horizon local mediante CPA.
 
-El diagrama siguiente muestra cómo se puede hacer.  Para conectar la red corporativa a Azure Virtual Network, se necesita ExpressRoute.  También es necesario conectar la red corporativa a cada una de las nubes privadas o SDDC mediante Global Reach, que permite la conectividad desde el SDDC a los recursos de ExpressRoute y locales.
+En el diagrama se muestra cómo admitir la conectividad de los recursos locales. Para conectar la red corporativa a Azure Virtual Network, necesitará un circuito de ExpressRoute.  También necesitará conectar la red corporativa con cada una de las nubes privadas y los SDDC mediante ExpressRoute Global Reach.  Permite la conectividad desde el SDDC al circuito de ExpressRoute y los recursos locales. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Conexión de la red corporativa a una instancia de Azure Virtual Network" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Varios pods de Horizon en Azure VMware Solution en varias regiones
 
-Para observar otro ejemplo de pod de Horizon, veamos un ejemplo que muestra el escalado de Horizon en varios pods.  En este ejemplo se van a implementar dos pods de Horizon en dos regiones diferentes y se van a federar mediante CPA.  La configuración de red es como la del ejemplo anterior, con algunos vínculos entre regiones adicionales. 
+Otro escenario es el escalado de Horizon en varios pods.  En este escenario, se implementan dos pods de Horizon en dos regiones diferentes y se federan mediante CPA. Es similar a la configuración de red del ejemplo anterior, pero con algunos vínculos cruzados entre regiones adicionales. 
 
-Hay que conectar la instancia de Azure Virtual Network de cada región a las nubes privadas o SDDC de la otra región, permitiendo a los servidores de conexión de Horizon que forman parte de la federación de CPA conectarse a todos los escritorios que se están administrando.  La incorporación de nubes privadas o SDDC adicionales a esta configuración permitiría escalar hasta 24 000 sesiones en total. 
+Conectará la instancia de Azure Virtual Network de cada región a las nubes privadas o los SDDC de la otra región. Esto permite que los servidores de conexión de Horizon que forman parte de la federación de CPA se conecten a todos los escritorios que administran. La incorporación de nubes privadas o SDDC adicionales a esta configuración le permitiría escalar hasta 24 000 sesiones en total. 
 
-Aunque en este ejemplo se muestran varias regiones, se aplicaría el mismo principio si se quisieran implementar dos pods de Horizon en la misma región. Tenga en cuenta que debería asegurarse de que el segundo pod de Horizon se implementara en una *instancia independiente de Azure Virtual Network*.  Por último, de la misma forma que en el ejemplo anterior de un único pod, puede conectar la red corporativa y el pod local a este ejemplo de varios pods o regiones mediante ExpressRoute y Global Reach.
+Se aplican los mismos principios si se implementan dos pods de Horizon en la misma región.  Asegúrese de implementar el segundo pod de Horizon en una instancia independiente de *Azure Virtual Network*. Al igual que en el ejemplo de un único pod, puede conectar la red corporativa y el pod local a este ejemplo de varios pods o regiones mediante ExpressRoute y Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Diferencias entre Horizon en Azure VMware Solution y Horizon Cloud en Azure" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Varios pods de Horizon en Azure VMware Solution en varias regiones" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Ajuste del tamaño de los hosts de Azure VMware Solution para implementaciones de Horizon 
 
-La metodología de ajuste de tamaño de Horizon en un host que se ejecuta en Azure VMware Solution es más sencilla que Horizon local, ya que la instancia de host de Azure VMware Solution está normalizada. Un ajuste de tamaño preciso del host ayuda a determinar el número de hosts necesarios para admitir los requisitos de VDI y es fundamental a la hora de determinar el costo por escritorio.
+La metodología de dimensionamiento de Horizon en un host que se ejecuta en Azure VMware Solution es más sencilla que en Horizon local.  Esto se debe a que el host de Azure VMware Solution está estandarizado.  El dimensionamiento exacto del host ayuda a determinar el número de hosts necesarios para admitir los requisitos de VDI.  Es fundamental para determinar el costo por escritorio.
 
 ### <a name="azure-vmware-solution-host-instance"></a>Instancia de host de Azure VMware Solution
 
@@ -146,7 +146,7 @@ La metodología de ajuste de tamaño de Horizon en un host que se ejecuta en Azu
 
 ### <a name="horizon-sizing-inputs"></a>Entradas de ajuste de tamaño de Horizon
 
-Averigüe lo siguiente sobre la carga de trabajo planeada:
+Esto es lo que necesitará recopilar para la carga de trabajo planeada:
 
 * Número de escritorios simultáneos
 
@@ -156,13 +156,13 @@ Averigüe lo siguiente sobre la carga de trabajo planeada:
 
 * Almacenamiento requerido por escritorio
 
-En general, las implementaciones de VDI están restringidas por CPU o RAM, ya que esos factores determinan el tamaño del host. Veamos el siguiente ejemplo de un tipo de trabajador del conocimiento LoginVSI de carga de trabajo validado con pruebas de rendimiento:
+En general, las implementaciones de VDI están restringidas por CPU o RAM, lo que determina el tamaño del host. Veamos el siguiente ejemplo de un tipo de trabajador del conocimiento LoginVSI de carga de trabajo validado con pruebas de rendimiento:
 
 * Implementación de 2000 escritorios simultáneos
 
 * 2 vCPU por escritorio
 
-* 4 GB de vRAM por escritorio
+* 4 GB de vRAM por escritorio.
 
 * 50 GB de almacenamiento por escritorio
 
@@ -189,13 +189,13 @@ Hay dos licencias disponibles para su uso con Azure VMware Solution, Usuario sim
 
 Si solo implementa Horizon en Azure VMware Solution para el futuro inmediato, use la licencia de suscripción de Horizon, ya que su costo es inferior.
 
-Si va a implementar Horizon en Azure VMware Solution y en el entorno local, como en un caso de uso de recuperación ante desastres, elija la licencia de suscripción Universal de Horizon. La licencia Universal tiene un costo mayor porque incluye una licencia de vSphere para la implementación local.
+Si se ha implementado en Azure VMware Solution y en el entorno local, como en el caso de uso de recuperación ante desastres, elija la licencia de suscripción Universal de Horizon. Incluye una licencia de vSphere para la implementación local, por lo que tiene un costo mayor.
 
 Trabaje con el equipo de ventas de VMware EUC para determinar el costo de la licencia de Horizon en función de sus necesidades.
 
 ### <a name="cost-of-the-horizon-infrastructure-vms-on-azure-virtual-network"></a>Costo de las máquinas virtuales de infraestructura de Horizon en Azure Virtual Network
 
-En función de la arquitectura de implementación estándar, las máquinas virtuales de infraestructura de Horizon se componen de servidores de conexión, UAG y administradores de volúmenes de aplicaciones, y se implementan en la instancia de Azure Virtual Network del cliente. Se necesitan instancias nativas de Azure adicionales para admitir servicios de alta disponibilidad (HA), Microsoft SQL o Microsoft Active Directory (AD) en Azure. Esta es una lista de instancias de Azure en función de un ejemplo de implementación de 2000 escritorios. 
+En función de la arquitectura de implementación estándar, las máquinas virtuales de infraestructura de Horizon se componen de servidores de conexión, UAG y administradores de volúmenes de aplicaciones. Se implementan en la instancia de Azure Virtual Network del cliente. Se necesitan instancias nativas de Azure adicionales para admitir servicios de alta disponibilidad (HA), Microsoft SQL o Microsoft Active Directory (AD) en Azure. En la tabla se enumeran las instancias de Azure en función de un ejemplo de implementación de 2000 escritorios. 
 
 >[!NOTE]
 >Para poder controlar los errores, implemente un servidor más de los necesarios para el número de conexiones (n+1). El número mínimo recomendado de instancias del servidor de conexión, UAG y el administrador de volúmenes de aplicaciones es 2, y el número requerido aumentará en función de la cantidad de usuarios admitidos por el entorno.  Un solo servidor de conexión admite un máximo de 4000 sesiones, aunque se recomiendan 2000 como procedimiento recomendado. Se admiten hasta siete servidores de conexión por pod, con una recomendación de 12 000 sesiones activas en total por pod. Para obtener los números más recientes, consulte el [artículo de base de conocimientos de VMware sobre los límites y recomendaciones de tamaño de VMware Horizon 7](https://kb.vmware.com/s/article/2150348).
@@ -210,4 +210,4 @@ En función de la arquitectura de implementación estándar, las máquinas virtu
 | Base de datos MS-SQL                  | D4sv3          | 2       | *Opción de usar el servicio SQL en Azure*     |
 | Recurso compartido de archivos de Windows               | D4sv3          |         | *Opcional*                               |
 
-El costo de las máquinas virtuales de infraestructura es de \$0,36 por usuario y mes para la implementación de 2000 escritorios del ejemplo anterior. Tenga en cuenta que en este ejemplo se usan los precios de instancia de Azure de la región Este de EE. UU. a junio de 2020. Los precios pueden variar en función de la región, las opciones seleccionadas y el tiempo.
+El costo de las máquinas virtuales de infraestructura es de \$0,36 por usuario y mes para la implementación de 2000 escritorios del ejemplo anterior. En este ejemplo se usan los precios de junio de 2020 para instancias de Azure en la región Este de EE. UU. Los precios pueden variar en función de la región, las opciones seleccionadas y el tiempo.

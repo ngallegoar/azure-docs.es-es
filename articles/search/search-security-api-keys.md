@@ -7,17 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: 60c5051b403d3072292a03c60d7cba95bd0cf1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 5935bc3f59585b19fc3b45bdfd567bb1f9404234
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740639"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675580"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Creación y administración de claves de API para un servicio de Azure Cognitive Search
 
-Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave de API de solo lectura generada de forma específica para el servicio. Dicha clave de API es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda y se debe incluir en todas las solicitudes. En las [soluciones REST](search-get-started-postman.md) la clave de API se especifica normalmente en un encabezado de solicitud. En las [soluciones .NET](search-howto-dotnet-sdk.md#core-scenarios), se especifica a menudo una clave como valor de configuración y, posteriormente, se pasa como [Credentials](/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clave de administración) o [SearchCredentials](/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clave de consulta) en [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient).
+Todas las solicitudes que se realizan a un servicio de búsqueda necesitan una clave `api-key` de solo lectura generada de forma específica para el servicio. Dicha clave `api-key` es el único mecanismo para autenticar el acceso del punto de conexión de su servicio de búsqueda y se debe incluir en todas las solicitudes. 
+
++ En las [soluciones de REST](search-get-started-postman.md), la clave de API se especifica normalmente en un encabezado de solicitud.
+
++ En las [soluciones de .NET](search-howto-dotnet-sdk.md), una clave suele especificarse como un valor de configuración y pasarse como un valor [AzureKeyCredential](/dotnet/api/azure.azurekeycredential).
 
 Las claves se crean con el servicio de búsqueda durante el aprovisionamiento de este. Puede ver y obtener los valores de clave en [Azure Portal](https://portal.azure.com).
 
@@ -47,7 +51,7 @@ Puede obtener las claves de acceso en el portal o mediante la [API de REST de ad
 2. Obtenga la lista de los [servicios de búsqueda](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) de su suscripción.
 3. Seleccione el servicio y, en la página de información general, haga clic en **Configuración** >**Claves** para ver las claves de administración y de consulta.
 
-   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Página del portal, recuperar configuración, sección de claves" border="false":::
+   :::image type="content" source="media/search-security-overview/settings-keys.png" alt-text="Página del portal, ver configuración, sección de claves" border="false":::
 
 ## <a name="create-query-keys"></a>Creación de claves de consulta
 
@@ -61,7 +65,7 @@ Restringir el acceso y las operaciones en las aplicaciones cliente es esencial p
 4. Haga clic en **Administrar claves de consulta**.
 5. Use la clave de consulta ya generada para el servicio o cree hasta 50 claves de consulta nuevas. La clave de consulta predeterminada no tiene nombre, pero se puede asignar un nombre a las claves de consulta adicionales para facilitar la administración.
 
-   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Página del portal, recuperar configuración, sección de claves" border="false":::
+   :::image type="content" source="media/search-security-overview/create-query-key.png" alt-text="Creación o uso de una clave de consulta" border="false":::
 
 > [!Note]
 > Un ejemplo de código que muestra el uso de claves de consulta puede encontrarse en [Consulta de un índice de Azure Cognitive Search en C#](./search-get-started-dotnet.md).
@@ -72,7 +76,7 @@ Restringir el acceso y las operaciones en las aplicaciones cliente es esencial p
 
 Se crean dos claves de administración para cada servicio para que pueda rotar una clave principal mediante la clave secundaria para la continuidad empresarial.
 
-1. En la página **Configuración** >**Claves**, copie la clave secundaria.
+1. En la página **Configuración** >**Claves** , copie la clave secundaria.
 2. Para todas las aplicaciones, actualice la configuración de la clave de API para usar la clave secundaria.
 3. Regenere la clave principal
 4. Actualice todas las aplicaciones para usar la nueva clave principal.
@@ -95,6 +99,6 @@ Los miembros de los roles siguientes pueden ver y regenerar las claves: Propieta
 
 ## <a name="see-also"></a>Consulte también
 
-+ [Control de acceso basado en rol en Azure Cognitive Search](search-security-rbac.md)
++ [Control de acceso basado en roles de Azure en Azure Cognitive Search](search-security-rbac.md)
 + [Administración mediante PowerShell](search-manage-powershell.md) 
 + [Artículo de rendimiento y optimización](search-performance-optimization.md)

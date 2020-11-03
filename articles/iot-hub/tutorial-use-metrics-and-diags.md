@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 47cca5019277b2f4d0025ccb6743589a21dfaafa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149186"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480129"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configuración y uso de métricas y registros de diagnóstico con una instancia de IoT Hub
 
@@ -138,10 +138,10 @@ Los [registros de diagnóstico](../azure-monitor/platform/platform-logs-overview
 
 2. Busque la sección **Supervisión** en la hoja IoT Hub. Haga clic en **Configuración de diagnóstico**. 
 
-   ![Captura de pantalla que muestra la parte de configuración de diagnóstico de la hoja de IoT Hub.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+   ![Captura de pantalla que resalta la opción Configuración de diagnóstico en la sección Supervisión.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
-3. Asegúrese de que la suscripción y el grupo de recursos sean correctos. En **Tipo de recurso**, desactive **Seleccionar todo**, luego, busque y active **IoT Hub**. (Se vuelve a colocar la marca de verificación junto a *Seleccionar todo*; no haga caso). En **Recursos**, seleccione el nombre del centro. La pantalla debería mostrar esta imagen: 
+3. Asegúrese de que la suscripción y el grupo de recursos sean correctos. En **Tipo de recurso** , desactive **Seleccionar todo** , luego, busque y active **IoT Hub**. (Se vuelve a colocar la marca de verificación junto a *Seleccionar todo* ; no haga caso). En **Recursos** , seleccione el nombre del centro. La pantalla debería mostrar esta imagen: 
 
    ![Captura de pantalla que muestra la parte de configuración de diagnóstico de la hoja de IoT Hub.](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
@@ -151,11 +151,11 @@ Los [registros de diagnóstico](../azure-monitor/platform/platform-logs-overview
 
    ![Captura de pantalla que muestra la configuración de los diagnósticos para archivar en una cuenta de almacenamiento.](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
-    Haga clic en **Configurar** para ver la pantalla **Seleccione una cuenta de almacenamiento**, seleccione la de la derecha (*contosostoragemon*) y haga clic en **Aceptar** para volver al panel de configuración de diagnósticos. 
+    Haga clic en **Configurar** para ver la pantalla **Seleccione una cuenta de almacenamiento** , seleccione la de la derecha ( *contosostoragemon* ) y haga clic en **Aceptar** para volver al panel de configuración de diagnósticos. 
 
    ![Captura de pantalla que muestra la configuración de los registros de diagnóstico para archivar en una cuenta de almacenamiento.](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
-6. En **LOG**, active **Conexiones** y **Telemetría de dispositivo** y establezca **Retención (días)** en 7 días para cada uno. La pantalla de configuración de diagnóstico se parecerá ahora a la de esta imagen:
+6. En **LOG** , active **Conexiones** y **Telemetría de dispositivo** y establezca **Retención (días)** en 7 días para cada uno. La pantalla de configuración de diagnóstico se parecerá ahora a la de esta imagen:
 
    ![Captura de pantalla que muestra la configuración de registro de diagnóstico final.](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
 
@@ -169,30 +169,30 @@ Ahora, configure algunas métricas para inspeccionar cuándo se envían los mens
 
 1. En el panel de configuración del centro de IoT, haga clic en la opción **Métricas** de la sección **Supervisión**.
 
-2. En la parte superior de la pantalla, haga clic en **Last 24 hours (Automatic)** (Últimas 24 horas [Automático]). En la lista desplegable que aparece, seleccione **Últimas 4 horas** en **Intervalo de tiempo** y establezca **Granularidad de tiempo** en **1 minuto**, hora local. Haga clic en **Aplicar** para guardar la configuración. 
+2. En la parte superior de la pantalla, haga clic en **Last 24 hours (Automatic)** (Últimas 24 horas [Automático]). En la lista desplegable que aparece, seleccione **Últimas 4 horas** en **Intervalo de tiempo** y establezca **Granularidad de tiempo** en **1 minuto** , hora local. Haga clic en **Aplicar** para guardar la configuración. 
 
    ![Captura de pantalla que muestra la configuración de tiempo de las métricas.](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
-3. Hay una entrada de métrica de forma predeterminada. Deje el grupo de recursos como predeterminado y el espacio de nombres de la métrica. En la lista desplegable **Métrica**, seleccione **Telemetry messages sent** (Mensajes de telemetría enviados). Establezca **Agregación** en **Suma**.
+3. Hay una entrada de métrica de forma predeterminada. Deje el grupo de recursos como predeterminado y el espacio de nombres de la métrica. En la lista desplegable **Métrica** , seleccione **Telemetry messages sent** (Mensajes de telemetría enviados). Establezca **Agregación** en **Suma**.
 
    ![Captura de pantalla que muestra cómo se agrega una métrica para los mensajes de telemetría enviados.](./media/tutorial-use-metrics-and-diags/07-metrics-telemetry-messages-sent.png)
 
 
-4. Ahora haga clic en **Agregar métrica** para agregar otra métrica al gráfico. Seleccione el grupo de recursos (**ContosoTestHub**). En **Métrica**, seleccione **Total number of messages used** (Número total de mensajes usados). En **Agregación**, seleccione **Promedio**. 
+4. Ahora haga clic en **Agregar métrica** para agregar otra métrica al gráfico. Seleccione el grupo de recursos ( **ContosoTestHub** ). En **Métrica** , seleccione **Total number of messages used** (Número total de mensajes usados). En **Agregación** , seleccione **Promedio**. 
 
    Ahora la pantalla muestra la métrica minimizada de *Telemetry messages sent* (Mensajes de telemetría enviados), más la nueva métrica de *Total number of messages used* (Número total de mensajes usados).
 
-   ![Captura de pantalla que muestra cómo se agrega una métrica para los mensajes de telemetría enviados.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   ![Captura de pantalla que resalta el botón Anclar al panel.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
    Haga clic en **Anclar al panel**. Se anclará al panel de Azure Portal, de modo que puede acceder a ella de nuevo. Si no la ancla al panel, no se conserva su configuración.
 
 ## <a name="set-up-alerts"></a>Configuración de alertas
 
-Vaya al centro en el portal. Haga clic en **Grupos de recursos**, seleccione *ContosoResources* y, luego, seleccione el centro de IoT *ContosoTestHub*. 
+Vaya al centro en el portal. Haga clic en **Grupos de recursos** , seleccione *ContosoResources* y, luego, seleccione el centro de IoT *ContosoTestHub*. 
 
 IoT Hub no se ha migrado aún a las [métricas de Azure Monitor](../azure-monitor/platform/data-platform.md#metrics); para ello, tiene que usar [alertas clásicas](../azure-monitor/platform/alerts-classic.overview.md).
 
-1. En **Supervisión**, haga clic en **Alertas**; se muestra la pantalla principal de alertas. 
+1. En **Supervisión** , haga clic en **Alertas** ; se muestra la pantalla principal de alertas. 
 
    ![Captura de pantalla que muestra cómo buscar alertas clásicas.](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
 
@@ -202,27 +202,27 @@ IoT Hub no se ha migrado aún a las [métricas de Azure Monitor](../azure-monito
 
     Rellene los campos: 
 
-    **Suscripción**: deje este campo establecido en su suscripción actual.
+    **Suscripción** : deje este campo establecido en su suscripción actual.
 
-    **Origen**: establezca este campo en *Métricas*.
+    **Origen** : establezca este campo en *Métricas*.
 
-    **Grupo de recursos**: establezca este campo en su actual grupo de recursos, *ContosoResources*. 
+    **Grupo de recursos** : establezca este campo en su actual grupo de recursos, *ContosoResources*. 
 
-    **Tipo de recurso**: establezca este campo en IoT Hub. 
+    **Tipo de recurso** : establezca este campo en IoT Hub. 
 
-    **Recursos**: seleccione su centro de IoT, *ContosoTestHub*.
+    **Recursos** : seleccione su centro de IoT, *ContosoTestHub*.
 
 3. Haga clic en **Agregar una alerta de métrica (clásica)** para configurar una nueva alerta.
 
     Rellene los campos:
 
-    **Name**: proporcione un nombre para la regla de alerta, como *mensajes-telemetría*.
+    **Name** : proporcione un nombre para la regla de alerta, como *mensajes-telemetría*.
 
-    **Descripción**: proporcione una descripción de la alerta, como *avisar cuando se hayan enviado 1000 mensajes de telemetría*. 
+    **Descripción** : proporcione una descripción de la alerta, como *avisar cuando se hayan enviado 1000 mensajes de telemetría*. 
 
-    **Origen**: establezca esta opción en *Métricas*.
+    **Origen** : establezca esta opción en *Métricas*.
 
-    **Suscripción**, **Grupo de recursos** y **Recursos** se deben establecer en los valores que ha seleccionado en la pantalla **Ver alertas clásicas**. 
+    **Suscripción** , **Grupo de recursos** y **Recursos** se deben establecer en los valores que ha seleccionado en la pantalla **Ver alertas clásicas**. 
 
     Establezca **Métrica** en *Telemetry messages sent* (Mensajes de telemetría enviados).
 
@@ -230,13 +230,13 @@ IoT Hub no se ha migrado aún a las [métricas de Azure Monitor](../azure-monito
 
 4. Después del gráfico, establezca los campos siguientes:
 
-   **Condición**: establézcalo en *Mayor que*.
+   **Condición** : establézcalo en *Mayor que*.
 
-   **Umbral**: establézcalo en 1000.
+   **Umbral** : establézcalo en 1000.
 
-   **Período**: establézcalo en *En los últimos 5 minutos*.
+   **Período** : establézcalo en *En los últimos 5 minutos*.
 
-   **Destinatarios del correo electrónico de notificación**: ponga aquí la dirección de correo electrónico. 
+   **Destinatarios del correo electrónico de notificación** : ponga aquí la dirección de correo electrónico. 
 
    ![Captura de pantalla que muestra la mitad inferior de la pantalla de alertas.](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
@@ -244,27 +244,27 @@ IoT Hub no se ha migrado aún a las [métricas de Azure Monitor](../azure-monito
 
 5. Ahora, configure otra alerta para *Total number of messages used* (Número total de mensajes usados). Esta métrica es útil si quiere enviar una alerta cuando el número de mensajes usado se aproxime a la cuota del centro de IoT; de este modo, sabrá que el centro comenzará pronto a rechazar mensajes.
 
-   En la pantalla **Ver alertas clásicas**, haga clic en **Agregar alerta de métrica (clásica)** y, luego, rellene estos campos en el panel **Agregar regla**.
+   En la pantalla **Ver alertas clásicas** , haga clic en **Agregar alerta de métrica (clásica)** y, luego, rellene estos campos en el panel **Agregar regla**.
 
-   **Name**: proporcione un nombre para la regla de alerta, como *número-de-mensajes-usados*.
+   **Name** : proporcione un nombre para la regla de alerta, como *número-de-mensajes-usados*.
 
-   **Descripción**: proporcione una descripción de la alerta, como *avisar cuando se acerque a la cuota*.
+   **Descripción** : proporcione una descripción de la alerta, como *avisar cuando se acerque a la cuota*.
 
-   **Origen**: establezca este campo en *Métricas*.
+   **Origen** : establezca este campo en *Métricas*.
 
-    **Suscripción**, **Grupo de recursos** y **Recursos** se deben establecer en los valores que ha seleccionado en la pantalla **Ver alertas clásicas**. 
+    **Suscripción** , **Grupo de recursos** y **Recursos** se deben establecer en los valores que ha seleccionado en la pantalla **Ver alertas clásicas**. 
 
     Establezca **Métrica** en *Total number of messages used* (Número total de mensajes usados).
 
 6. Debajo del gráfico, rellene los campos siguientes:
 
-   **Condición**: establézcalo en *Mayor que*.
+   **Condición** : establézcalo en *Mayor que*.
 
-   **Umbral**: establézcalo en 1000.
+   **Umbral** : establézcalo en 1000.
 
-   **Período**: establezca este campo en *En los últimos 5 minutos*. 
+   **Período** : establezca este campo en *En los últimos 5 minutos*. 
 
-   **Destinatarios del correo electrónico de notificación**: ponga aquí la dirección de correo electrónico. 
+   **Destinatarios del correo electrónico de notificación** : ponga aquí la dirección de correo electrónico. 
 
    Haga clic en **Aceptar** para guardar la regla. 
 
@@ -310,7 +310,7 @@ Abra las métricas desde el panel. Cambie los valores de tiempo a *Últimos 30 m
 
 ### <a name="see-the-alerts"></a>Visualización de las alertas
 
-Vuelva a las alertas. Haga clic en **Grupos de recursos**, seleccione *ContosoResources* y, luego, seleccione el centro *ContosoTestHub*. En la página de propiedades que se muestra para el centro, seleccione **Alertas** y, luego, **Ver alertas clásicas**. 
+Vuelva a las alertas. Haga clic en **Grupos de recursos** , seleccione *ContosoResources* y, luego, seleccione el centro *ContosoTestHub*. En la página de propiedades que se muestra para el centro, seleccione **Alertas** y, luego, **Ver alertas clásicas**. 
 
 Cuando el número de mensajes enviados supere el límite, comenzará a recibir alertas por correo electrónico. Para ver si hay alguna alerta activa, vaya al centro y seleccione **Alertas**. Se muestran las alertas que están activas, y si hay alguna advertencia. 
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/26/2020
-ms.openlocfilehash: cc52358af203bafc87c5f9ac3ae1f237c0c7ae6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597793"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676417"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creación de flujos de trabajo con estado o sin estado en Visual Studio Code con la extensión Azure Logic Apps (versión preliminar)
 
@@ -22,7 +22,7 @@ Para crear flujos de trabajo de aplicaciones lógicas que se integren entre apli
 
 ![Captura de pantalla que muestra Visual Studio Code y el flujo de trabajo de una aplicación lógica.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-logic-apps-overview.png)
 
-Las aplicaciones lógicas que se crean con la extensión en versión preliminar pública usan el nuevo tipo de recurso **Logic Apps (versión preliminar)** y se basan en el runtime de [Azure Functions](../azure-functions/functions-overview.md) en su entorno local. Este nuevo tipo de recurso puede incluir varios flujos de trabajo y, en cierta medida, es similar al tipo de recurso **Aplicación de funciones**, que puede incluir varias funciones.
+Las aplicaciones lógicas que se crean con la extensión en versión preliminar pública usan el nuevo tipo de recurso **Logic Apps (versión preliminar)** y se basan en el runtime de [Azure Functions](../azure-functions/functions-overview.md) en su entorno local. Este nuevo tipo de recurso puede incluir varios flujos de trabajo y, en cierta medida, es similar al tipo de recurso **Aplicación de funciones** , que puede incluir varias funciones.
 
 Mientras tanto, el tipo de recurso **Logic Apps** original aún existe para que lo cree y use en Visual Studio Code y en Azure Portal. Sin embargo, las experiencias del tipo de recurso original son independientes del nuevo tipo de recurso. En este momento, los tipos de recursos **Logic Apps** y **Logic Apps (versión preliminar)** pueden existir al mismo tiempo en Visual Studio Code y en Azure Portal. Puede ver todas las aplicaciones lógicas implementadas en la suscripción de Azure, y acceder a ellas, pero aparecen y se mantienen por separado en sus propias categorías y secciones.
 
@@ -74,7 +74,7 @@ La extensión Azure Logic Apps (versión preliminar) aporta muchas funcionalidad
 
   Cree aplicaciones lógicas sin estado cuando no necesite guardar ni revisar datos de eventos anteriores, ni hacer referencia a ellos en almacenamiento externo para una revisión posterior. Estas aplicaciones lógicas mantienen la entrada y la salida de cada acción y sus estados de flujo de trabajo solo en la memoria, en lugar de transferir esta información al almacenamiento externo. Como consecuencia, las aplicaciones lógicas sin estado tienen ejecuciones más cortas que normalmente no duran más de 5 minutos, un rendimiento más rápido con menores tiempos de respuesta, mayor rendimiento y costos de ejecución menores, ya que los detalles y el historial de ejecución no se mantienen en el almacenamiento externo. Sin embargo, si se producen interrupciones, las ejecuciones interrumpidas no se restauran automáticamente, por lo que el autor de la llamada tiene que volver a enviar manualmente las ejecuciones interrumpidas. Estas aplicaciones lógicas solo se pueden ejecutar sincrónicamente y, para facilitar la depuración, puede [habilitar el historial de ejecuciones](#run-history), lo que afecta al rendimiento.
 
-  Los flujos de trabajo sin estado solo admiten actualmente acciones para [conectores administrados](../connectors/apis-list.md#managed-api-connectors), no para desencadenadores. Para iniciar el flujo de trabajo, seleccione el [desencadenador integrado Solicitud, Event Hubs o Service Bus](../connectors/apis-list.md#built-ins). Para obtener más información acerca de los desencadenadores, las acciones y los conectores no admitidos, consulte [Funcionalidades no admitidas](#unsupported).
+  Actualmente, los flujos de trabajo sin estado solo admiten *acciones* de [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure, y no desencadenadores. Para iniciar el flujo de trabajo, seleccione la [Solicitud integrada, Event Hubs o el desencadenador de Service Bus](../connectors/apis-list.md#built-ins), que se ejecutan de forma nativa en el entorno de ejecución de Logic Apps. Para obtener más información acerca de los desencadenadores, las acciones y los conectores no admitidos, consulte [Funcionalidades no admitidas o no disponibles](#unsupported).
 
 Para obtener información sobre el diferente comportamiento de las aplicaciones lógicas anidadas entre las aplicaciones lógicas con estado y sin estado, consulte [Diferencias de comportamiento anidado entre aplicaciones lógicas con estado y sin estado](#nested-behavior).
 
@@ -104,9 +104,9 @@ Para esta versión preliminar pública, estas funcionalidades no están disponib
 
 * Todavía no se admiten todas las regiones de Azure. Para ver las regiones disponibles actualmente, consulte la [lista de regiones](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions).
 
-* Para iniciar el flujo de trabajo, use el [desencadenador Solicitud, HTTP, Event Hubs o Service Bus](../connectors/apis-list.md). Actualmente, esta versión preliminar no admite los [conectores de empresa](../connectors/apis-list.md#enterprise-connectors), los [desencadenadores de puerta de enlace de datos local](../connectors/apis-list.md#on-premises-connectors), los desencadenadores basados en webhook, el desencadenador de ventana deslizante, los [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors), las cuentas de integración, los artefactos y [sus conectores](../connectors/apis-list.md#integration-account-connectors). La funcionalidad para llamar a una función de Azure no está disponible, por lo que, por ahora, use la *acción* HTTP para llamar a la dirección URL de solicitud de la función de Azure.
+* Para iniciar el flujo de trabajo, seleccione la [Solicitud integrada, HTTP, Event Hubs o el desencadenador de Service Bus](../connectors/apis-list.md), que se ejecutan de forma nativa en el entorno de ejecución de Logic Apps. Actualmente, esta versión preliminar no admite los [conectores de empresa](../connectors/apis-list.md#enterprise-connectors), los [desencadenadores de puerta de enlace de datos local](../connectors/apis-list.md#on-premises-connectors), los desencadenadores basados en webhook, el desencadenador de ventana deslizante, los [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors), las cuentas de integración, los artefactos y [sus conectores](../connectors/apis-list.md#integration-account-connectors). La funcionalidad para llamar a una función de Azure no está disponible, por lo que, por ahora, use la *acción* HTTP para llamar a la dirección URL de solicitud de la función de Azure.
 
-  Los flujos de trabajo de aplicación lógica sin estado, solo puede usar acciones para [conectores administrados](../connectors/apis-list.md#managed-api-connectors), no para desencadenadores. Excepto en el caso de los desencadenadores especificados anteriormente, los flujos de trabajo con estado pueden usar tanto desencadenadores como acciones para los conectores administrados.
+  Excepto en el caso de los desencadenadores especificados anteriormente, los flujos de trabajo *con estado* pueden usar tanto desencadenadores como acciones para los [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure. Sin embargo, los flujos de trabajo *sin estado* solo admiten actualmente *acciones* para conectores administrados, no para desencadenadores. Aunque tiene la opción de habilitar conectores en Azure para el flujo de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda seleccionarlo.
 
 * Solo puede implementar el nuevo tipo de recurso **Aplicación lógica (versión preliminar)** en un plan de hospedaje [Premium o de App Service en Azure](#publish-azure), o en un [contenedor de Docker](#deploy-docker), y no en [entornos de servicios de integración (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Los planes de hospedaje de **consumo** no son compatibles ni están disponibles para implementar este tipo de recurso.
 
@@ -159,13 +159,13 @@ Para esta versión preliminar pública, estas funcionalidades no están disponib
     >
     > Por lo tanto, antes de instalar la extensión de versión preliminar pública, asegúrese de desinstalar las versiones anteriores y eliminar estos artefactos:
     >
-    > * La carpeta **Microsoft.Azure.Functions.ExtensionBundle.Workflows**, que contiene los conjuntos de extensiones anteriores y se encuentra en una de estas rutas de acceso:
+    > * La carpeta **Microsoft.Azure.Functions.ExtensionBundle.Workflows** , que contiene los conjuntos de extensiones anteriores y se encuentra en una de estas rutas de acceso:
     >
     >   * `C:\Users\{userName}\AppData\Local\Temp\Functions\ExtensionBundles`
     >
     >   * `C:\Users\{userName}.azure-functions-core-tools\Functions\ExtensionBundles`
     >
-    > * La carpeta **microsoft.azure.workflows.webjobs.extension**, que es la memoria caché de [NuGet](/nuget/what-is-nuget) para la extensión de versión preliminar privada y se encuentra en esta ruta de acceso:
+    > * La carpeta **microsoft.azure.workflows.webjobs.extension** , que es la memoria caché de [NuGet](/nuget/what-is-nuget) para la extensión de versión preliminar privada y se encuentra en esta ruta de acceso:
     >
     >   `C:\Users\{userName}\.nuget\packages`
 
@@ -193,9 +193,9 @@ Para esta versión preliminar pública, estas funcionalidades no están disponib
 
    Para seleccionar esta configuración, realice estos pasos:
 
-   1. En el menú **Archivo**, vaya a **Preferencias** **>** **Configuración**.
+   1. En el menú **Archivo** , vaya a **Preferencias** **>** **Configuración**.
 
-   1. En la pestaña **Usuario**, vaya a **Características** **>** **Extensiones**.
+   1. En la pestaña **Usuario** , vaya a **Características** **>** **Extensiones**.
 
    1. Confirme que las opciones **Auto Check Updates** (Comprobar actualizaciones automáticamente) y **Actualización automática** estén seleccionadas.
 
@@ -204,11 +204,11 @@ Para esta versión preliminar pública, estas funcionalidades no están disponib
    * **Azure Logic Apps V2: Modo de panel**
    * **Azure Logic Apps V2: Project Runtime** (Runtime del proyecto)
 
-   1. En el menú **Archivo**, vaya a **Preferencias** **>** **Configuración**.
+   1. En el menú **Archivo** , vaya a **Preferencias** **>** **Configuración**.
 
-   1. En la pestaña **Usuario**, vaya a **>** **Extensiones** **>** **Azure Logic Apps (versión preliminar)** .
+   1. En la pestaña **Usuario** , vaya a **>** **Extensiones** **>** **Azure Logic Apps (versión preliminar)** .
 
-   1. En **Azure Logic Apps V2: Modo de panel**, confirme que la opción **Enable panel mode** (Habilitar modo de panel) esté seleccionada. En **Azure Logic Apps V2: Project Runtime** (Runtime del proyecto), establezca la versión en **~3** o **~2**, en función de la [versión de Azure Functions Core Tools](#prerequisites) que instaló anteriormente.
+   1. En **Azure Logic Apps V2: Modo de panel** , confirme que la opción **Enable panel mode** (Habilitar modo de panel) esté seleccionada. En **Azure Logic Apps V2: Project Runtime** (Runtime del proyecto), establezca la versión en **~3** o **~2** , en función de la [versión de Azure Functions Core Tools](#prerequisites) que instaló anteriormente.
 
       > [!IMPORTANT]
       > Si desea usar la [acción **Código en línea**](../logic-apps/logic-apps-add-run-inline-code.md) para ejecutar código JavaScript, asegúrese de usar la versión 3 del runtime del proyecto porque la acción no admite la versión 2. Además, esta acción no se admite actualmente en los sistemas operativos Linux.
@@ -227,7 +227,7 @@ Para esta versión preliminar pública, estas funcionalidades no están disponib
 
    ![Captura de pantalla que muestra el panel de Azure y el vínculo seleccionado para el inicio de sesión de Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
-   Después de iniciar sesión, el panel de Azure muestra las suscripciones de la cuenta de Azure. Si tiene la extensión de Logic Apps publicada, puede encontrar cualquier recurso de Logic Apps original que haya creado con la extensión original en la sección **Logic Apps** de la extensión publicada, no en la sección **Logic Apps (versión preliminar)** de la extensión en versión preliminar.
+   Después de iniciar sesión, el panel de Azure muestra las suscripciones de la cuenta de Azure. Si tiene la extensión de Logic Apps publicada, puede encontrar cualquier recurso de Logic Apps original que haya creado mediante la extensión original en la sección **Logic Apps** de la extensión publicada, pero no en la sección **Logic Apps (versión preliminar)** de la extensión en versión preliminar.
    
    Si no aparecen las suscripciones esperadas o si desea que el panel muestre solo suscripciones específicas, siga estos pasos:
 
@@ -294,7 +294,7 @@ Antes de poder crear la aplicación lógica, cree un proyecto local para que pue
    }
    ```
 
-   Asegúrese de que agrega de forma explícita ese archivo **global.json** al proyecto en la ubicación raíz desde Visual Studio Code, de lo contrario, el diseñador no se abrirá.
+   Asegúrese de que agrega de forma explícita el archivo **global.json** al proyecto en la ubicación raíz desde Visual Studio Code. de lo contrario, el diseñador no se abrirá.
 
 1. Si Visual Studio Code se está ejecutando en Windows o Linux, asegúrese de que el emulador de Azure Storage se esté ejecutando. Para obtener más información, revise los [requisitos previos](#prerequisites).
 
@@ -306,9 +306,9 @@ Antes de poder crear la aplicación lógica, cree un proyecto local para que pue
 
    En Visual Studio Code, compruebe la salida de la extensión de versión preliminar.
 
-   1. En el menú **Ver**, seleccione **Salida**.
+   1. En el menú **Ver** , seleccione **Salida**.
 
-   1. En la lista de la barra de título **Salida**, seleccione **Azure Logic Apps** para que pueda ver la salida de la extensión de versión preliminar, por ejemplo:
+   1. En la lista de la barra de título **Salida** , seleccione **Azure Logic Apps** para que pueda ver la salida de la extensión de versión preliminar, por ejemplo:
 
       ![Captura de pantalla que muestra la ventana Salida de Visual Studio Code con la opción "Azure Logic Apps" seleccionada.](./media/create-stateful-stateless-workflows-visual-studio-code/check-outout-window-azure-logic-apps.png)
 
@@ -328,9 +328,12 @@ Antes de poder crear la aplicación lógica, cree un proyecto local para que pue
 
       Este error puede producirse si previamente se ha intentado abrir el diseñador y, a continuación, se ha suspendido o eliminado el proyecto. Para resolver este error, elimine la carpeta **ExtensionBundles** en esta ubicación **…\Users\\{su-nombre-de-usuario}\AppData\Local\Temp\Functions\ExtensionBundles** y vuelva a intentar abrir el archivo **workflow.json** en el diseñador.
 
-1. En la lista **Enable connectors in Azure** (Habilitar conectores en Azure), seleccione **Use connectors from Azure** (Usar conectores de Azure), que se aplica a todos los conectores administrados que están disponibles en Azure Portal, no solo a los conectores para servicios de Azure.
+1. En la lista **Enable connectors in Azure** (Habilitar conectores en Azure), seleccione la opción **Use connectors from Azure** (Usar conectores de Azure) que se aplica a todos los conectores administrados que están disponibles e implementados en Azure, no solo a los conectores de los servicios de Azure.
 
    ![Captura de pantalla que muestra el panel del Explorador con la lista "Habilitar conectores en Azure" abierta y  la opción "Usar conectores de Azure" seleccionada.](./media/create-stateful-stateless-workflows-visual-studio-code/use-connectors-from-azure.png)
+
+   > [!NOTE]
+   > Actualmente, los flujos de trabajo sin estado solo admiten *acciones* de [conectores administrados](../connectors/apis-list.md#managed-api-connectors) que se implementan en Azure, y no desencadenadores. Aunque tiene la opción de habilitar conectores en Azure para el flujo de trabajo sin estado, el diseñador no muestra ningún desencadenador de conector administrado para que pueda seleccionarlo.
 
 1. En la lista del grupo de recursos, seleccione **Crear un nuevo grupo de recursos**.
 
@@ -362,11 +365,11 @@ Antes de poder crear la aplicación lógica, cree un proyecto local para que pue
 
 ## <a name="add-a-trigger-and-actions"></a>Adición de un desencadenador y acciones
 
-Después de abrir el Diseñador de aplicación lógica desde el menú contextual del archivo **workflow.json**, aparece la solicitud **Elegir una operación** en el diseñador y está seleccionada de manera predeterminada. Ahora puede empezar a crear el flujo de trabajo agregando un desencadenador y acciones.
+Después de abrir el Diseñador de aplicación lógica desde el menú contextual del archivo **workflow.json** , aparece la solicitud **Elegir una operación** en el diseñador y está seleccionada de manera predeterminada. Ahora puede empezar a crear el flujo de trabajo agregando un desencadenador y acciones.
 
 El flujo de trabajo de la aplicación lógica de este ejemplo usa este desencadenador y estas acciones:
 
-* El [desencadenar Solicitud](../connectors/connectors-native-reqres.md) integrado, **Cuando se recibe una solicitud HTTP**, que recibe llamadas o solicitudes entrantes y crea un punto de conexión al que pueden llamar otros servicios o aplicaciones lógicas.
+* El [desencadenar Solicitud](../connectors/connectors-native-reqres.md) integrado, **Cuando se recibe una solicitud HTTP** , que recibe llamadas o solicitudes entrantes y crea un punto de conexión al que pueden llamar otros servicios o aplicaciones lógicas.
 
 * La [acción de Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), **Enviar correo electrónico**.
 
@@ -374,9 +377,9 @@ El flujo de trabajo de la aplicación lógica de este ejemplo usa este desencade
 
 ### <a name="add-the-request-trigger"></a>Adición del desencadenador Request
 
-1. Junto al diseñador, en el panel **Agregar un desencadenador**, en el cuadro de búsqueda **Elegir una operación**, asegúrese de que **Integrado** esté seleccionado para que pueda seleccionar un desencadenador que se ejecute de forma nativa.
+1. Junto al diseñador, en el panel **Agregar un desencadenador** , en el cuadro de búsqueda **Elegir una operación** , asegúrese de que **Integrado** esté seleccionado para que pueda seleccionar un desencadenador que se ejecute de forma nativa.
 
-1. En el cuadro de búsqueda **Elegir una operación**, escriba `when a http request` y seleccione el desencadenador Solicitud integrado denominado **Cuando se recibe una solicitud HTTP**.
+1. En el cuadro de búsqueda **Elegir una operación** , escriba `when a http request` y seleccione el desencadenador Solicitud integrado denominado **Cuando se recibe una solicitud HTTP**.
 
    ![Captura de pantalla que muestra el Diseñador de aplicación lógica y el panel **Agregar un desencadenador** con el desencadenador "Cuando se recibe una solicitud HTTP" seleccionado.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
 
@@ -403,7 +406,7 @@ El flujo de trabajo de la aplicación lógica de este ejemplo usa este desencade
 
    Aparece la solicitud **Elegir una operación** en el diseñador, y se vuelve a abrir el **panel Agregar una acción** para que pueda seleccionar la acción siguiente.
 
-1. En el panel **Agregar una acción**, en el cuadro de búsqueda **Elegir una operación**, seleccione **Azure** para poder buscar y seleccionar una acción para un conector administrado que esté implementado en Azure.
+1. En el panel **Agregar una acción** , en el cuadro de búsqueda **Elegir una operación** , seleccione **Azure** para poder buscar y seleccionar una acción para un conector administrado que esté implementado en Azure.
 
    En este ejemplo se selecciona y usa la acción de Office 365 Outlook, **Enviar correo electrónico (V2)** .
 
@@ -439,7 +442,7 @@ El flujo de trabajo de la aplicación lógica de este ejemplo usa este desencade
 
 1. En el diseñador, si la acción **Enviar correo electrónico** no aparece seleccionada, seleccione esa acción.
 
-1. En el panel de detalles de la acción, en la pestaña **Parámetros**, proporcione la información necesaria para la acción, por ejemplo:
+1. En el panel de detalles de la acción, en la pestaña **Parámetros** , proporcione la información necesaria para la acción, por ejemplo:
 
    ![Captura de pantalla que muestra el Diseñador de aplicación lógica con detalles para la acción "Enviar correo electrónico" de Office 365 Outlook.](./media/create-stateful-stateless-workflows-visual-studio-code/send-email-action-details.png)
 
@@ -451,7 +454,7 @@ El flujo de trabajo de la aplicación lógica de este ejemplo usa este desencade
    ||||
 
    > [!NOTE]
-   > Si quiere hacer cambios en el panel de detalles de la pestaña **Configuración**, **Ejecutar después de** o **Resultado estático**, asegúrese de seleccionar **Listo** para confirmar dichos cambios antes de cambiar de pestaña o cambiar el foco al diseñador. De lo contrario, Visual Studio Code no conservará los cambios. Para obtener más información, consulte la [página de problemas conocidos en de GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md) para la extensión en versión preliminar.
+   > Si quiere hacer cambios en el panel de detalles de la pestaña **Configuración** , **Ejecutar después de** o **Resultado estático** , asegúrese de seleccionar **Listo** para confirmar dichos cambios antes de cambiar de pestaña o cambiar el foco al diseñador. De lo contrario, Visual Studio Code no conservará los cambios. Para obtener más información, consulte la [página de problemas conocidos en de GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md) para la extensión en versión preliminar.
 
 1. En el diseñador, seleccione **Guardar**.
 
@@ -465,7 +468,7 @@ Para probar la aplicación lógica, siga estos pasos para iniciar una sesión de
 
 1. Para que le resulte más fácil depurar un flujo de trabajo de aplicación lógica sin estado, puede [habilitar el historial de ejecución para ese flujo de trabajo](#run-history).
 
-1. En la barra de herramientas de Visual Studio Code, abra el menú **Ejecutar** y seleccione **Iniciar depuración** (F5).
+1. En la barra de herramientas de Visual Studio Code, abra el menú **Ejecutar** y seleccione **Iniciar depuración**  (F5).
 
    Se abre la ventana **Terminal** para que pueda revisar la sesión de depuración.
 
@@ -473,11 +476,11 @@ Para probar la aplicación lógica, siga estos pasos para iniciar una sesión de
 
    1. Vuelva a abrir el panel del Explorador para que pueda ver el proyecto.
 
-   1. En el menú contextual del archivo **workflow.json**, seleccione **Información general**.
+   1. En el menú contextual del archivo **workflow.json** , seleccione **Información general**.
 
       ![Captura de pantalla que muestra el panel del Explorador y la ventana contextual del archivo workflow.json con la opción "Información general" seleccionada.](./media/create-stateful-stateless-workflows-visual-studio-code/open-workflow-overview.png)
 
-   1. Busque el valor **URL de devolución de llamadas**, que tiene un aspecto similar a esta dirección URL para el desencadenador Solicitud de ejemplo:
+   1. Busque el valor **URL de devolución de llamadas** , que tiene un aspecto similar a esta dirección URL para el desencadenador Solicitud de ejemplo:
 
       `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
@@ -497,7 +500,7 @@ Para probar la aplicación lógica, siga estos pasos para iniciar una sesión de
 
    1. En **Select a collection or folder to save to** (Seleccionar una colección o carpeta donde guardar), seleccione **Create Collection** (Crear colección).
 
-   1. En **All Collections** (Todas las colecciones), escriba un nombre para la colección que se va a crear para organizar las solicitudes, presione ENTRAR y, a continuación, seleccione **Save to <*nombre-de-la-colección*>** (Guardar en <nombre de la colección>). En este ejemplo se usa `Logic Apps requests` como nombre de la colección.
+   1. En **All Collections** (Todas las colecciones), escriba un nombre para la colección que se va a crear para organizar las solicitudes, presione ENTRAR y, a continuación, seleccione **Save to < *nombre-de-la-colección*>** (Guardar en <nombre de la colección>). En este ejemplo se usa `Logic Apps requests` como nombre de la colección.
 
       Se abre el panel de solicitudes de Postman para que pueda enviar una solicitud a la URL de devolución de llamada para el desencadenador Solicitud.
 
@@ -515,24 +518,64 @@ Para probar la aplicación lógica, siga estos pasos para iniciar una sesión de
 
 1. En Visual Studio Code, vuelva a la página de información general del flujo de trabajo.
 
-   Si creó un flujo de trabajo con estado, después de que la solicitud que envió desencadene el flujo de trabajo, la página de información general mostrará el estado y el historial de ejecución del flujo de trabajo. Para obtener más información sobre los estados de ejecución, consulte [Revisión del historial de ejecuciones](../logic-apps/monitor-logic-apps.md#review-runs-history).
+   Si creó un flujo de trabajo con estado, después de que la solicitud que envió desencadene el flujo de trabajo, la página de información general mostrará el estado y el historial de ejecución del flujo de trabajo.
+
+   > [!TIP]
+   > Si el estado de ejecución no aparece, intente actualizar la página de información general seleccionando **Actualizar**. No se produce ninguna ejecución para un desencadenador que se omite debido a criterios que no se cumplen o si no se encuentra ningún dato.
 
    ![Captura de pantalla que muestra la página de información general del flujo de trabajo con el estado y el historial de ejecución.](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
-   > [!TIP]
-   > Si el estado de ejecución no aparece, intente actualizar la página de información general seleccionando **Actualizar**.
+   | Estado de la ejecución | Descripción |
+   |------------|-------------|
+   | **Anulado** | La ejecución se ha detenido o no ha finalizado debido a problemas externos; por ejemplo, una interrupción del sistema o una suscripción de Azure vencida. |
+   | **Cancelado** | La ejecución se ha desencadenado y se ha iniciado, pero ha recibido una solicitud de cancelación. |
+   | **Erróneo** | Se ha producido un error en al menos en una acción de la ejecución. No se ha configurado ninguna acción posterior en el flujo de trabajo para controlar el error. |
+   | **Ejecución** | La ejecución se ha desencadenado y está en curso, pero este estado también puede aparecer para una ejecución que está limitada debido a los [límites de acción](logic-apps-limits-and-config.md) o al [plan de precios actual](https://azure.microsoft.com/pricing/details/logic-apps/). <p><p>**Sugerencia** : Si se configura un [registro de diagnóstico](monitor-logic-apps-log-analytics.md), se puede obtener información sobre los eventos de limitación que se produzcan. |
+   | **Correcto** | La ejecución se ha completado correctamente. Si se ha producido un error en alguna acción, se ha controlado mediante una acción posterior en el flujo de trabajo. |
+   | **Tiempo de espera agotado** | Se ha agotado el tiempo de espera de la ejecución porque la duración actual ha superado el límite de duración de la ejecución, que se controla mediante el valor [**Retención del historial de ejecución en días**](logic-apps-limits-and-config.md#run-duration-retention-limits). La duración de una ejecución se calcula mediante su hora de inicio y su límite de duración en esa hora de inicio. <p><p>**Nota** : Si la duración de la ejecución también supera el *límite de retención del historial de ejecución actual* , que también se controla mediante la opción [**Retención del historial de ejecución en días**](logic-apps-limits-and-config.md#run-duration-retention-limits), la ejecución se borra del historial de ejecuciones mediante un trabajo de limpieza diaria. Con independencia de que la ejecución agote el tiempo de espera o se complete, el período de retención siempre se calcula mediante la hora de inicio de la ejecución y el límite de retención *actual*. Por tanto, si reduce el límite de duración de una ejecución en curso, se agota su tiempo de espera. Sin embargo, la ejecución se mantiene o se borra del historial de ejecución en función de si su duración supera el límite de retención. |
+   | **En espera** | La ejecución no se ha iniciado o está en pausa, por ejemplo, debido a un flujo de trabajo anterior que sigue en ejecución. |
+   |||
 
 1. Para revisar los estados de cada paso de una ejecución específica, y las entradas y salidas del paso, seleccione el botón de puntos suspensivos ( **…** ) para esa ejecución y seleccione **Mostrar la ejecución**.
 
    ![Captura de pantalla que muestra la fila del historial de ejecución del flujo de trabajo con el botón de puntos suspensivos y la opción "Mostrar la ejecución" seleccionada.](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
-   Visual Studio Code muestra los estados de ejecución de cada acción.
+   Visual Studio Code abre la vista de supervisión y muestra el estado de cada paso de la ejecución.
 
-1. Para revisar las entradas y salidas de cada paso, expanda el paso que quiere inspeccionar. Para revisar aún más las entradas y salidas sin procesar para ese paso, seleccione **Mostrar entradas sin procesar** o **Mostrar salidas sin procesar**.
+   ![Captura de pantalla que muestra cada paso de la ejecución del flujo de trabajo y su estado.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-action-status.png)
+
+   Estos son los posibles estados que puede tener cada paso del flujo de trabajo:
+
+   | Estado de la acción | Icono | Descripción |
+   |---------------|------|-------------|
+   | Anulado | ![Icono de estado de la acción "Anulado"][aborted-icon] | La acción se ha detenido o no ha finalizado debido a problemas externos; por ejemplo, una interrupción del sistema o una suscripción de Azure vencida. |
+   | Cancelado | ![Icono de estado de la acción "Cancelado"][cancelled-icon] | La acción se estaba ejecutando pero recibió una solicitud de cancelación. |
+   | Con error | ![Icono de estado de la acción "Con error"][failed-icon] | Se produjo un error en la acción. |
+   | En ejecución | ![Icono de estado de la acción "En ejecución"][running-icon] | La acción se está ejecutando actualmente. |
+   | Omitido | ![Icono de estado de la acción "Omitido"][skipped-icon] | La acción se omitió porque se produjo un error en la acción inmediatamente anterior. Una acción tiene una condición `runAfter` que requiere que la acción anterior finalice correctamente antes de que se pueda ejecutar la acción actual. |
+   | Correcto | ![Icono de estado de la acción "Correcto"][succeeded-icon] | La acción se realizó correctamente. |
+   | Se realizó correctamente con reintentos | ![Icono de estado de la acción "Correcto con reintentos"][succeeded-with-retries-icon] | La acción se realizó correctamente, pero solo después de uno o varios reintentos. Para revisar el historial de reintentos en la vista de detalles del historial de ejecución, seleccione esa acción para que pueda ver las entradas y salidas. |
+   | Tiempo de espera agotado | ![Icono de estado de la acción "Tiempo de espera agotado"][timed-out-icon] | La acción se detuvo debido al límite de tiempo de espera que especificó la configuración de la acción. |
+   | En espera | ![Icono de estado de la acción "En espera"][waiting-icon] | Se aplica a una acción de webhook que está esperando una solicitud entrante de un autor de llamada. |
+   ||||
+
+   [aborted-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/aborted.png
+   [cancelled-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/cancelled.png
+   [failed-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/failed.png
+   [running-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/running.png
+   [skipped-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/skipped.png
+   [succeeded-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded.png
+   [succeeded-with-retries-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/succeeded-with-retries.png
+   [timed-out-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/timed-out.png
+   [waiting-icon]: ./media/create-stateful-stateless-workflows-visual-studio-code/waiting.png
+
+1. Para revisar las entradas y salidas de cada paso, seleccione el paso que quiere inspeccionar.
 
    ![Captura de pantalla que muestra el estado de cada paso del flujo de trabajo más las entradas y salidas de la acción "Enviar correo electrónico" expandida.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details.png)
 
-1. Para detener la sesión de depuración, en el menú **Ejecutar**, seleccione **Detener depuración** (Mayús+F5).
+1. Para revisar aún más las entradas y salidas sin procesar para ese paso, seleccione **Mostrar entradas sin procesar** o **Mostrar salidas sin procesar**.
+
+1. Para detener la sesión de depuración, en el menú **Ejecutar** , seleccione **Detener depuración**  (Mayús+F5).
 
 <a name="return-response"></a>
 
@@ -540,11 +583,11 @@ Para probar la aplicación lógica, siga estos pasos para iniciar una sesión de
 
 Para devolver una respuesta al autor de la llamada que envió una solicitud a la aplicación lógica, puede usar la [acción Respuesta](../connectors/connectors-native-reqres.md) integrada para un flujo de trabajo que se inicie con el desencadenador Solicitud.
 
-1. En el Diseñador de aplicación lógica, en la acción **Enviar correo electrónico**, seleccione **Nuevo paso**.
+1. En el Diseñador de aplicación lógica, en la acción **Enviar correo electrónico** , seleccione **Nuevo paso**.
 
    Aparece la solicitud **Elegir una operación** en el diseñador, y se vuelve a abrir el **panel Agregar una acción** para que pueda seleccionar la acción siguiente.
 
-1. En el panel **Agregar una acción**, en el cuadro de búsqueda **Elegir una acción**, asegúrese de que **Integrado** esté seleccionado. En el cuadro de búsqueda, escriba `response` y seleccione la acción **Respuesta**.
+1. En el panel **Agregar una acción** , en el cuadro de búsqueda **Elegir una acción** , asegúrese de que **Integrado** esté seleccionado. En el cuadro de búsqueda, escriba `response` y seleccione la acción **Respuesta**.
 
    ![Captura de pantalla que muestra el Diseñador de aplicación lógica con la acción Respuesta seleccionada.](./media/create-stateful-stateless-workflows-visual-studio-code/add-response-action.png)
 
@@ -552,7 +595,7 @@ Para devolver una respuesta al autor de la llamada que envió una solicitud a la
 
    ![Captura de pantalla que muestra el Diseñador de aplicación lógica con el panel de detalles de la acción "Respuesta" abierto y la propiedad "Cuerpo" establecida en el valor de la propiedad "Cuerpo" de la acción "Enviar correo electrónico".](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details.png)
 
-1. En la pestaña **Parámetros**, proporcione la información necesaria para la función a la que quiere llamar.
+1. En la pestaña **Parámetros** , proporcione la información necesaria para la función a la que quiere llamar.
 
    En este ejemplo se devuelve el valor de propiedad **Cuerpo** que se obtiene de la acción **Enviar correo electrónico**.
 
@@ -560,7 +603,7 @@ Para devolver una respuesta al autor de la llamada que envió una solicitud a la
 
       ![Captura de pantalla que muestra el panel de detalles de la acción "Respuesta" con el puntero del mouse dentro de la propiedad "Cuerpo" para que aparezca la lista de contenido dinámico.](./media/create-stateful-stateless-workflows-visual-studio-code/open-dynamic-content-list.png)
 
-   1. En la lista de contenido dinámico, en **Enviar correo electrónico**, seleccione **Cuerpo**.
+   1. En la lista de contenido dinámico, en **Enviar correo electrónico** , seleccione **Cuerpo**.
 
       ![Captura de pantalla que muestra la lista de contenido dinámico abierta. En la lista, en el encabezado "Enviar correo electrónico", el valor de salida "Cuerpo" está seleccionado.](./media/create-stateful-stateless-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
@@ -576,7 +619,7 @@ Para devolver una respuesta al autor de la llamada que envió una solicitud a la
 
 Después de realizar actualizaciones en la aplicación lógica, puede ejecutar otra prueba volviendo a ejecutar el depurador en Visual Studio y enviando otra solicitud para desencadenar la aplicación lógica actualizada, de forma similar a los pasos descritos en [Depuración y prueba de la aplicación lógica](#debug-test-locally).
 
-1. En la barra de herramientas de Visual Studio Code, abra el menú **Ejecutar** y seleccione **Iniciar depuración** (F5).
+1. En la barra de herramientas de Visual Studio Code, abra el menú **Ejecutar** y seleccione **Iniciar depuración**  (F5).
 
 1. En Postman o en la herramienta para crear y enviar solicitudes, envíe otra solicitud para desencadenar el flujo de trabajo.
 
@@ -586,13 +629,13 @@ Después de realizar actualizaciones en la aplicación lógica, puede ejecutar o
 
    ![Captura de pantalla que muestra el estado de cada paso del flujo de trabajo actualizado más las entradas y salidas de la acción "Respuesta" expandida.](./media/create-stateful-stateless-workflows-visual-studio-code/run-history-details-rerun.png)
 
-1. Para detener la sesión de depuración, en el menú **Ejecutar**, seleccione **Detener depuración** (Mayús+F5).
+1. Para detener la sesión de depuración, en el menú **Ejecutar** , seleccione **Detener depuración**  (Mayús+F5).
 
 <a name="publish-azure"></a>
 
 ## <a name="publish-to-azure"></a>Publicar en Azure
 
-Desde Visual Studio Code, puede implementar el proyecto directamente en Azure, que publica la aplicación lógica con el nuevo tipo de recurso **Logic Apps (versión preliminar**). De forma similar al recurso de la aplicación de funciones en Azure Functions, la implementación de este nuevo tipo de recurso requiere que seleccione un [plan de hospedaje y plan de tarifa](../app-service/overview-hosting-plans.md), que puede configurar durante la implementación. Para obtener más información sobre los planes de hospedaje y los precios, revise estos temas:
+Desde Visual Studio Code, puede implementar el proyecto directamente en Azure, que publica la aplicación lógica con el nuevo tipo de recurso **Logic Apps (versión preliminar** ). De forma similar al recurso de la aplicación de funciones en Azure Functions, la implementación de este nuevo tipo de recurso requiere que seleccione un [plan de hospedaje y plan de tarifa](../app-service/overview-hosting-plans.md), que puede configurar durante la implementación. Para obtener más información sobre los planes de hospedaje y los precios, revise estos temas:
 
 * [Escalado vertical de una aplicación en Azure App Service](../app-service/manage-scale-up.md)
 * [Escalado y hospedaje de Azure Functions](../azure-functions/functions-scale.md)
@@ -654,7 +697,7 @@ Puede publicar la aplicación lógica como nuevo recurso, lo que crea automátic
       },
       ```
 
-      Este es el aspecto que podría tener el archivo **host.json**:
+      Este es el aspecto que podría tener el archivo **host.json** :
 
       ```json
       {
@@ -675,7 +718,7 @@ Puede publicar la aplicación lógica como nuevo recurso, lo que crea automátic
 
    Cuando haya terminado, Visual Studio Code comienza a crear e implementar los recursos necesarios para publicar la aplicación lógica.
 
-1. Para revisar y supervisar el proceso de implementación, en el menú **Ver**, seleccione **Salida**. En la lista de la barra de herramientas de la ventana Salida, seleccione **Azure Logic Apps**.
+1. Para revisar y supervisar el proceso de implementación, en el menú **Ver** , seleccione **Salida**. En la lista de la barra de herramientas de la ventana Salida, seleccione **Azure Logic Apps**.
 
    ![Captura de pantalla que muestra la ventana Salida con "Azure Logic Apps" seleccionado en la lista de la barra de herramientas junto con el progreso y los estados de la implementación.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
@@ -738,7 +781,7 @@ En Azure Portal, puede ver todas las aplicaciones lógicas implementadas en la s
 
 Para buscar aplicaciones lógicas que tengan el tipo de recurso **Logic Apps (versión preliminar)** , siga estos pasos:
 
-1. En el cuadro de búsqueda de Azure Portal, escriba `logic app preview`. Cuando aparezca la lista de resultados, en **Servicios**, seleccione **Logic Apps (versión preliminar)** .
+1. En el cuadro de búsqueda de Azure Portal, escriba `logic app preview`. Cuando aparezca la lista de resultados, en **Servicios** , seleccione **Logic Apps (versión preliminar)** .
 
    ![Captura de pantalla que muestra el cuadro de búsqueda de Azure Portal con el texto de búsqueda "logic app preview".](./media/create-stateful-stateless-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
@@ -756,7 +799,7 @@ Para buscar aplicaciones lógicas que tengan el tipo de recurso **Logic Apps (ve
 
    ![Captura de pantalla que muestra una página de recurso "Logic Apps (versión preliminar)" con el panel "Flujos de trabajo" abierto y el flujo de trabajo implementado.](./media/create-stateful-stateless-workflows-visual-studio-code/deployed-logic-app-workflows-pane.png)
 
-1. Para ver un flujo de trabajo, en el panel **Flujos de trabajo**, seleccione ese flujo de trabajo.
+1. Para ver un flujo de trabajo, en el panel **Flujos de trabajo** , seleccione ese flujo de trabajo.
 
    Se abre el panel del flujo de trabajo y muestra más información y tareas que puede realizar en ese flujo de trabajo.
 
@@ -776,13 +819,13 @@ A través de Azure Portal, puede agregar flujos de trabajo vacíos a un recurso 
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione el recurso **Logic Apps (versión preliminar)** implementado.
 
-1. En el menú de la aplicación lógica, seleccione **Flujos de trabajo**. En el panel **Flujos de trabajo**, seleccione **Agregar**.
+1. En el menú de la aplicación lógica, seleccione **Flujos de trabajo**. En el panel **Flujos de trabajo** , seleccione **Agregar**.
 
    ![Captura de pantalla que muestra el panel "Flujos de trabajo" de la aplicación lógica seleccionada y la barra de herramientas con el comando "Agregar" seleccionado.](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. En el panel **Nuevo flujo de trabajo**, indique el nombre del flujo de trabajo. Seleccione **Con estado** o **Sin estado** **>** **Crear**.
+1. En el panel **Nuevo flujo de trabajo** , indique el nombre del flujo de trabajo. Seleccione **Con estado** o **Sin estado** **>** **Crear**.
 
-   Una vez que Azure implemente el nuevo flujo de trabajo, que aparece en el panel **Flujos de trabajo**, seleccione ese flujo de trabajo para realizar la administración y otras tareas, como abrir el Diseñador de aplicación lógica o la vista de código.
+   Una vez que Azure implemente el nuevo flujo de trabajo, que aparece en el panel **Flujos de trabajo** , seleccione ese flujo de trabajo para realizar la administración y otras tareas, como abrir el Diseñador de aplicación lógica o la vista de código.
 
    ![Captura de pantalla que muestra el flujo de trabajo seleccionado con opciones de administración y revisión.](./media/create-stateful-stateless-workflows-visual-studio-code/view-new-workflow.png)
 
@@ -823,21 +866,21 @@ Si ya ha implementado el proyecto en Azure Portal, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com), busque y abra el recurso **Logic Apps (versión preliminar)** .
 
-1. En el menú de la aplicación lógica, en **Configuración**, seleccione **Configuración**.
+1. En el menú de la aplicación lógica, en **Configuración** , seleccione **Configuración**.
 
-1. En la pestaña **Configuración de la aplicación**, seleccione **Nueva configuración de la aplicación**
+1. En la pestaña **Configuración de la aplicación** , seleccione **Nueva configuración de la aplicación**
 
-1. En el panel **Agregar o editar la configuración de la aplicación**, en el cuadro **Nombre**, escriba el nombre de opción de operación: 
+1. En el panel **Agregar o editar la configuración de la aplicación** , en el cuadro **Nombre** , escriba el nombre de opción de operación: 
 
    `Workflows.{yourWorkflowName}.OperationOptions`
 
-1. En el cuadro **Valor**, escriba el siguiente valor: `WithStatelessRunHistory`
+1. En el cuadro **Valor** , escriba el siguiente valor: `WithStatelessRunHistory`
 
    Por ejemplo:
 
    ![Captura de pantalla que muestra Azure Portal y el recurso Logic Apps (versión preliminar) con el panel "Configuración" > "Nueva configuración de la aplicación" < "Agregar o editar la configuración de la aplicación" abierto y la opción "Workflow.{nombreDelFlujoDeTrabajo}.OperationOptions" establecida en "WithStatelessRunHistory".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 
-1. Cuando finalice, seleccione **Aceptar**. En el panel **Configuración**, seleccione **Guardar**.
+1. Cuando finalice, seleccione **Aceptar**. En el panel **Configuración** , seleccione **Guardar**.
 
 Para habilitar la supervisión en el recurso Logic Apps (versión preliminar) implementado, continúe con la siguiente sección.
 
@@ -849,11 +892,11 @@ Para habilitar la supervisión en un recurso **Logic Apps (versión preliminar)*
 
 1. En [Azure Portal](https://portal.azure.com), busque y seleccione el recurso **Logic Apps (versión preliminar)** implementado.
 
-1. En el menú de ese recurso, en **API**, seleccione **CORS**.
+1. En el menú de ese recurso, en **API** , seleccione **CORS**.
 
-1. En el panel **CORS**, en **Orígenes permitidos**, agregue el carácter comodín (*).
+1. En el panel **CORS** , en **Orígenes permitidos** , agregue el carácter comodín (*).
 
-1. Cuando esté listo, en la barra de herramientas de **CORS**, seleccione **Guardar**.
+1. Cuando esté listo, en la barra de herramientas de **CORS** , seleccione **Guardar**.
 
    ![Captura de pantalla que muestra Azure Portal con un recurso Logic Apps (versión preliminar) implementado. En el menú de recursos, "CORS" está seleccionado con una nueva entrada para "Orígenes permitidos" establecida en el carácter comodín "*".](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 
@@ -921,7 +964,7 @@ Con la [herramienta de interfaz de la línea de comandos (CLI) de .NET Core](/
 
    `POST /runtime/webhooks/workflow/api/management/workflows/{workflow-name}/triggers/{trigger-name}/listCallbackUrl?api-version=2019-10-01-edge-preview&code={master-key}`
 
-   El valor <*master-key*> se define en la cuenta de Azure Storage que se establece para `AzureWebJobsStorage` en el archivo, **azure-webjobs-secrets/{nombre-de-implementación}/host.json**, donde puede encontrar el valor en esta sección:
+   El valor < *master-key* > se define en la cuenta de Azure Storage que se establece para `AzureWebJobsStorage` en el archivo, **azure-webjobs-secrets/{nombre-de-implementación}/host.json** , donde puede encontrar el valor en esta sección:
 
    ```json
    {

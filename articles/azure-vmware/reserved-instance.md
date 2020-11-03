@@ -3,52 +3,53 @@ title: Ahorro de costos con la instancia reservada de Azure VMware Solution
 description: Obtenga información sobre cómo comprar una instancia reservada para Azure VMware Solution.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bac2497c637a301c7ce8cbc44fc6945c3ef43b06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951424"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370685"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Ahorro de costos con Azure VMware Solution
 
-Al confirmar una instancia reservada de Azure VMware Solution, puede ahorrar dinero. El descuento de la reserva se aplica automáticamente al número de hosts de Azure VMware Solution en ejecución que coinciden con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a un host dedicado para obtener los descuentos. La compra de una instancia reservada cubre solo la parte de proceso de su uso e incluye los costos de licencia de software. Consulte la  [información general sobre Azure VMware Solution](introduction.md).
+Al comprometerse a una instancia reservada de [Azure VMware Solution](introduction.md), ahorra dinero. El descuento de la reserva se aplica automáticamente a los hosts de Azure VMware Solution en ejecución que coinciden con el ámbito y los atributos de la reserva. No es necesario asignar una reserva a un host dedicado para obtener los descuentos. La compra de una instancia reservada cubre solo la parte de proceso de su uso e incluye los costos por licencias de software. 
+
 
 ## <a name="purchase-restriction-considerations"></a>Consideraciones sobre restricciones de compra
 
 Las instancias reservadas están disponibles con algunas excepciones:
 
--   **Nubes**: las reservas solo están disponibles en las regiones enumeradas en la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
+-   **Nubes** : las reservas solo están disponibles en las regiones enumeradas en la página [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=azure-vmware).
 
--   **Cuota insuficiente**: una reserva cuyo ámbito sea de una suscripción única o compartida debe tener cuota de hosts disponible en la suscripción para la nueva instancia reservada. Puede  [cursar una solicitud de aumento de la cuota](enable-azure-vmware-solution.md) para resolver este problema.
+-   **Cuota insuficiente** : una reserva cuyo ámbito sea de una suscripción única o compartida debe tener cuota de hosts disponible en la suscripción para la nueva instancia reservada. Puede [crear una solicitud de aumento de la cuota](enable-azure-vmware-solution.md) para resolver este problema.
 
--   **Idoneidad de la oferta**: necesitará un  [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
+-   **Elegibilidad de la oferta** : necesitará un [Contrato Enterprise (EA) de Azure](../cost-management-billing/manage/ea-portal-agreements.md) con Microsoft.
 
--   **Restricciones de capacidad**: en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas a los SKU de hosts de Azure VMware Solution debido a que la capacidad en una región es baja.
+-   **Restricciones de capacidad** : en algunas circunstancias poco frecuentes, Azure limita la compra de nuevas reservas para las SKU de host de Azure VMware Solution debido a que la capacidad en una región es baja.
 
 ## <a name="buy-a-reservation"></a>Adquisición de una reserva
 
-Puede comprar una instancia reservada de una instancia de host de Azure VMware Solution en  [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
+Puede comprar una instancia reservada de una instancia de host de Azure VMware Solution en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22VirtualMachines%22%7D).
 
-Pague la reserva [ por adelantado o de manera mensual](../cost-management-billing/reservations/prepare-buy-reservation.md).
+Pague la reserva [por adelantado o mensualmente](../cost-management-billing/reservations/prepare-buy-reservation.md).
 
 Estos requisitos se aplican a la compra de una instancia reservada de host dedicado:
 
 -   Debe tener un rol de propietario en al menos una suscripción de EA o en una suscripción con una tarifa de pago por uso.
 
--   En el caso de las suscripciones de EA, la opción  **Agregar instancias reservadas** debe estar habilitada en el  [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
+-   En el caso de las suscripciones de EA, la opción **Agregar instancias reservadas** debe estar habilitada en el [portal de EA](https://ea.azure.com/). O bien, si esa opción está deshabilitada, debe ser un administrador de EA en la suscripción.
 
 Para comprar una instancia:
 
-1. Inicie sesión en  [Azure Portal](https://portal.azure.com/).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
-2. Seleccione  **Todos los servicios** > **Reservas**.
+2. Seleccione **Todos los servicios** > **Reservations**.
 
-3. Seleccione **Agregar** para comprar una nueva reserva y, luego, haga clic en**Azure VMware Solution**.
+3. Seleccione **Agregar** para comprar una nueva reserva y, a continuación, seleccione **Azure VMware Solution**.
 
-4. Rellene los campos obligatorios. Los hosts de Azure VMware Solution en ejecución que coinciden con los atributos seleccionados cumplen los requisitos para obtener el descuento de la reserva. El número real de hosts de Azure VMware Solution que obtienen el descuento depende del ámbito y la cantidad que se seleccionen.
+4. Escriba los campos obligatorios. Los hosts de Azure VMware Solution en ejecución que coinciden con los atributos seleccionados cumplen los requisitos para obtener el descuento de la reserva. El número real de hosts de Azure VMware Solution que obtienen el descuento depende del ámbito y la cantidad que se seleccionen.
 
-   Si tiene un Contrato Enterprise, puede usar la opción  **Agregar más** para agregar rápidamente instancias adicionales. La opción no está disponible para otros tipos de suscripciones.
+   Si tiene un Contrato Enterprise, puede usar la opción **Agregar más** para agregar rápidamente instancias adicionales. La opción no está disponible para otros tipos de suscripciones.
 
    | Campo        |  Descripción |
    | ------------ | ------------ |
@@ -59,11 +60,14 @@ Para comprar una instancia:
    | Término         | Un año o tres años.  |
    | Cantidad     | Número de instancias que se compran dentro de la reserva. La cantidad es el número de hosts de Azure VMware Solution en ejecución a los que se aplica el descuento de facturación.    |
 
-## <a name="usage-data-and-reservation-utilization"></a>Datos de uso y utilización de la reserva
+## <a name="usage-data-and-reservation-usage"></a>Datos de uso y uso de la reserva
 
-Los datos de uso que obtienen un descuento de reserva tienen un precio efectivo de cero. Puede ver qué instancia de Azure VMware Solution recibió el descuento de reserva para cada reserva.
+El uso que obtiene un descuento de reserva tienen un precio efectivo de cero. Puede ver qué instancia de Azure VMware Solution recibió el descuento de reserva para cada reserva.
 
-Para obtener más información sobre cómo aparecen los descuentos de reserva en los datos de uso, y si es un cliente de EA, consulte  [Obtención del uso y los costos de reservas de Contrato Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md). Si tiene una suscripción individual, consulte  [Descripción del uso de reservas para su suscripción individual de pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
+Para más información sobre cómo aparecen los descuentos de reserva en los datos de uso:
+
+- Para clientes de EA, consulte [Información sobre el uso de reservas de Azure para la inscripción Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md).
+- Para suscripciones individuales, consulte [Descripción del uso de reservas para su suscripción individual de Pago por uso](../cost-management-billing/reservations/understand-reserved-instance-usage.md).
 
 ## <a name="change-a-reservation-after-purchase"></a>Cambiar una reserva después de la compra
 
@@ -85,8 +89,8 @@ También puede dividir una reserva en fragmentos más pequeños y combinar reser
 > - Cantidad
 > - Duration
 >
->Pero sí se puede  *intercambiar* una reserva si quiere realizar cambios.
+>Pero sí se puede *intercambiar* una reserva si quiere realizar cambios.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelación, intercambio o reembolso de reservas
 
-Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte  [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
+Puede cancelar, intercambiar o reembolsar reservas con ciertas limitaciones. Para más información, consulte [Autoservicio de intercambios y reembolsos de reservas de Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).

@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: f25aae64e117452cd689b68c5478e7431d1a21bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1833a606f3dbbc9826858bac4f3ba056b5b7ad8a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249372"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369869"
 ---
 # <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hyperspace: un subsistema de indexación para Apache Spark
 
@@ -410,7 +410,7 @@ FROM T
 WHERE Y = 2
 ```
 
-X puede ser una columna de índice e Y puede ser una columna incluida.
+Y puede ser una columna de índice y X puede ser una columna incluida.
 
 :::zone pivot = "programming-language-scala"
 
@@ -726,8 +726,8 @@ El resultado es:
 
 Hyperspace proporciona las API para habilitar o deshabilitar el uso de índices con Spark.
 
-* Mediante el uso del comando **enableHyperspace**, las reglas de optimización de Hyperspace se vuelven visibles para el optimizador de Spark y aprovecharán los índices de Hyperspace existentes para optimizar las consultas de usuario.
-* Mediante el uso del comando **disableHyperspace**, las reglas de Hyperspace ya no se aplican durante la optimización de las consultas. La deshabilitación de Hyperspace no afecta a los índices creados porque permanecen intactos.
+* Mediante el uso del comando **enableHyperspace** , las reglas de optimización de Hyperspace se vuelven visibles para el optimizador de Spark y aprovecharán los índices de Hyperspace existentes para optimizar las consultas de usuario.
+* Mediante el uso del comando **disableHyperspace** , las reglas de Hyperspace ya no se aplican durante la optimización de las consultas. La deshabilitación de Hyperspace no afecta a los índices creados porque permanecen intactos.
 
 En la celda siguiente se muestra cómo puede usar estos comandos para habilitar o deshabilitar Hyperspace. En la salida se muestra una referencia a la sesión de Spark existente cuya configuración se ha actualizado.
 
@@ -1381,7 +1381,7 @@ Si cambian los datos originales en los que se creó un índice, este ya no captu
 
 En las dos celdas siguientes se muestra un ejemplo de este escenario:
 
-* En la primera celda se agregan dos departamentos más a los datos de los departamentos originales. Lee e imprime una lista de departamentos para comprobar que los nuevos departamentos se han agregado correctamente. En la salida se muestran seis departamentos en total: cuatro antiguos y dos nuevos. Al invocar **refreshIndex**, se actualiza "deptIndex1", por lo que el índice captura nuevos departamentos.
+* En la primera celda se agregan dos departamentos más a los datos de los departamentos originales. Lee e imprime una lista de departamentos para comprobar que los nuevos departamentos se han agregado correctamente. En la salida se muestran seis departamentos en total: cuatro antiguos y dos nuevos. Al invocar **refreshIndex** , se actualiza "deptIndex1", por lo que el índice captura nuevos departamentos.
 * En la segunda celda se ejecuta nuestro ejemplo de consulta de selección de intervalo. Los resultados deberían contener ahora cuatro departamentos: dos son los que se han visto antes al ejecutar la consulta anterior y dos son los nuevos departamentos que se acaban de agregar.
 
 ### <a name="specific-index-refresh"></a>Actualización de un índice específico

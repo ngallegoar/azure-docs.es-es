@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585940"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440525"
 ---
 # <a name="azure-key-vault-backup"></a>Copia de seguridad de Azure Key Vault
 
@@ -30,6 +30,9 @@ Key Vault mantiene la disponibilidad en escenarios de desastre y realizará auto
 Si desea protección contra la eliminación accidental o malintencionada de los secretos, configure las características de eliminación temporal y protección de purga en el almacén de claves. Para más información, consulte el artículo [Información general sobre la eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Limitaciones
+
+> [!IMPORTANT]
+> Key Vault no ofrece la posibilidad de realizar copias de seguridad de más de 500 versiones anteriores para un objeto de clave, secreto o certificado. Al intentar hacer una copia de seguridad de un objeto de clave, secreto o certificado, se puede producir un error. No es posible eliminar versiones anteriores de una clave, un secreto o un certificado.
 
 Key Vault no proporciona actualmente una forma de realizar una copia de seguridad de un almacén de claves completo en una sola operación. Cualquier intento de usar los comandos enumerados en este documento para realizar una copia de seguridad automatizada de un almacén de claves puede producir errores y no será admitida por Microsoft ni el equipo de Azure Key Vault. 
 

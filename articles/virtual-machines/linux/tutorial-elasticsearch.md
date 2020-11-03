@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80066540"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475063"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Instalación de Elastic Stack en una máquina virtual de Azure
 
@@ -228,7 +228,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Abra la consola de Kibana y seleccione **Crear** para generar un índice predeterminado en función de los datos de Syslog que envió previamente a Elasticsearch. 
 
-![Examinar los eventos de Syslog en Kibana](media/elasticsearch-install/kibana-index.png)
+![Captura de pantalla que muestra la consola de Kibana y resalta el botón Create (Crear).](media/elasticsearch-install/kibana-index.png)
 
 Seleccione **Discover**  (Detectar) en la consola de Kibana para buscar, examinar y filtrar a través de los eventos de Syslog.
 

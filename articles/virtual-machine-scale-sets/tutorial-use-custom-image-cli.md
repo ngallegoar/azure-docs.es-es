@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: dd0cf450ca63349d29aba3d65f3c76f40a44be2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503640"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518720"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutorial: Creación y uso de una imagen personalizada para conjuntos de escalado de máquinas virtuales con la CLI de Azure
 Al crear el conjunto de escalado, se especifica la imagen que se usará cuando se implementen las instancias de máquina virtual. Para reducir el número de tareas después de implementar las instancias de máquina virtual, puede usar una imagen de máquina virtual personalizada. Esta imagen de máquina virtual personalizada incluye la instalación o configuración de las aplicaciones necesarias. Las instancias de máquina virtual creadas en el conjunto de escalado usan la imagen de máquina virtual personalizada y están listas para atender el tráfico de la aplicación. En este tutorial, aprenderá a:
@@ -41,7 +41,7 @@ Shared Image Gallery le permite compartir sus imágenes de máquina virtual pers
 
 ## <a name="create-and-configure-a-source-vm"></a>Creación y configuración de una máquina virtual de origen
 
-En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group) y luego cree una máquina virtual con [az vm create](/cli/azure/vm). Esta máquina virtual se usa después como origen de la imagen. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup*:
+En primer lugar, cree un grupo de recursos con [az group create](/cli/azure/group) y luego cree una máquina virtual con [az vm create](/cli/azure/vm). Esta máquina virtual se usa después como origen de la imagen. En el ejemplo siguiente, se crea una máquina virtual llamada *myVM* en el grupo de recursos llamado *myResourceGroup* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -118,7 +118,7 @@ az sig image-definition create \
 
 Cree una versión de la imagen desde la máquina virtual con [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
-Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*.*VersiónSecundaria*.*Revisión*.
+Los caracteres permitidos para la versión de una imagen son números y puntos. Los números deben estar dentro del rango de un entero de 32 bits. Formato: *VersiónPrincipal*. *VersiónSecundaria*. *Revisión*.
 
 En este ejemplo, la versión de la imagen es *1.0.0* y vamos a crear una réplica en la región *Centro-sur de EE. UU.* y otra réplica en la región *Este de EE. UU. 2*. Las regiones de replicación deben incluir la región donde se encuentra la máquina virtual de origen.
 
@@ -165,7 +165,7 @@ Se tardan unos minutos en crear y configurar todos los recursos de conjunto de e
 
 
 ## <a name="test-your-scale-set"></a>Prueba del conjunto de escalado
-Para permitir que el tráfico llegue al conjunto de escalado y comprobar que el servidor web funciona correctamente, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb* que permite tráfico en el puerto *TCP* *80*:
+Para permitir que el tráfico llegue al conjunto de escalado y comprobar que el servidor web funciona correctamente, cree una regla del equilibrador de carga con [az network lb rule create](/cli/azure/network/lb/rule). En el ejemplo siguiente, se crea una regla denominada *myLoadBalancerRuleWeb* que permite tráfico en el puerto *TCP* *80* :
 
 ```azurecli-interactive
 az network lb rule create \
@@ -197,7 +197,7 @@ Escriba la dirección IP pública en un explorador web. Se muestra la página we
 
 ## <a name="share-the-gallery"></a>Uso compartido de la galería
 
-Puede compartir imágenes entre suscripciones mediante el Control de acceso basado en roles (RBAC). Puede compartir imágenes en la galería, la definición de la imagen o la versión de la imagen. Cualquier usuario que tenga permisos de lectura para una versión de la imagen, incluso entre suscripciones, podrá implementar una máquina virtual con la versión de la imagen.
+Puede compartir imágenes entre suscripciones mediante el control de acceso basado en rol (Azure RBAC) de Azure. Puede compartir imágenes en la galería, la definición de la imagen o la versión de la imagen. Cualquier usuario que tenga permisos de lectura para una versión de la imagen, incluso entre suscripciones, podrá implementar una máquina virtual con la versión de la imagen.
 
 Se recomienda que el uso compartido con otros usuarios se realice en el nivel de la galería. Para obtener el identificador de objeto de la galería, use [az sig show](/cli/azure/sig#az-sig-show).
 
@@ -217,7 +217,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Para más información sobre cómo compartir recursos con RBAC, consulte [Administración del acceso mediante RBAC y la CLI de Azure](../role-based-access-control/role-assignments-cli.md).
+Para más información sobre cómo compartir recursos con Azure RBAC, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](../role-based-access-control/role-assignments-cli.md).
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

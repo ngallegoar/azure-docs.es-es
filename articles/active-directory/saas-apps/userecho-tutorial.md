@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 6708fcbe6f756a92984ee8aa48c181e1103f2046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be52d220848a27c1307e71fdb7cc4dccfaeb9618
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532898"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92509489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: integración de Azure Active Directory con UserEcho
 
@@ -27,7 +27,7 @@ Integrar UserEcho con Azure AD proporciona las siguientes ventajas:
 * Puede permitir que los usuarios inicien sesión automáticamente en UserEcho (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -61,7 +61,7 @@ Para configurar la integración de UserEcho en Azure AD, deberá agregar UserEch
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **UserEcho**, seleccione **UserEcho** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **UserEcho** , seleccione **UserEcho** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![UserEcho en la lista de resultados](common/search-new-app.png)
 
@@ -85,30 +85,30 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 Para configurar el inicio de sesión único de Azure AD con UserEcho, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **UserEcho**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **UserEcho** , haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML** , siga estos pasos:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de UserEcho](common/sp-identifier.png)
 
-    a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.userecho.com/`
+    a. En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.userecho.com/`
 
     b. En el cuadro de texto **Identificador (id. de entidad)** , escriba una dirección URL con el siguiente patrón: `https://<companyname>.userecho.com/saml/metadata/`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de UserEcho](https://feedback.userecho.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+4. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
@@ -128,21 +128,21 @@ Para configurar el inicio de sesión único de Azure AD con UserEcho, siga estos
 
 2. En la barra de herramientas de la parte superior, haga clic en el nombre de usuario para expandir el menú y, después, haga clic en **Instalación**.
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Captura de pantalla que muestra Setup (Configuración) seleccionado en el sitio de UserEcho.](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Haga clic en **Integraciones**.
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Captura de pantalla que muestra la opción Integrations (Integraciones) seleccionada en el menú Settings (Configuración).](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Haga clic en **Sitio web** y, después, en **Inicio de sesión único (SAML2)** .
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Captura de pantalla que muestra la opción Single sign-on SAML2 (Inicio de sesión único [S A M L 2]) seleccionada en el menú Integrations (Integraciones).](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. Siga estos pasos en la página **Inicio de sesión único (SAML)** :
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Captura de pantalla que muestra la página Single Sign-on SAML (Inicio de sesión único [S A M L]), donde puede escribir los valores descritos.](./media/userecho-tutorial/tutorial_userecho_09.png)
     
-    a. En **Habilitado para SAML**, seleccione **Sí**.
+    a. En **Habilitado para SAML** , seleccione **Sí**.
     
     b. Pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal en el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML).
     
@@ -150,13 +150,13 @@ Para configurar el inicio de sesión único de Azure AD con UserEcho, siga estos
     
     d. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado X.509** .
     
-    e. Haga clic en **Save**(Guardar).
+    e. Haga clic en **Save** (Guardar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -168,9 +168,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario** , escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -180,7 +180,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, concederá acceso a Britta Simon a UserEcho para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y luego **UserEcho**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y luego **UserEcho**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -196,11 +196,11 @@ En esta sección, concederá acceso a Britta Simon a UserEcho para que use el in
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
 6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , haga clic en el botón **Asignar**.
 
 ### <a name="create-userecho-test-user"></a>Creación de un usuario de prueba en UserEcho
 
@@ -212,27 +212,27 @@ El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon
 
 2. En la barra de herramientas de la parte superior, haga clic en el nombre de usuario para expandir el menú y, después, haga clic en **Instalación**.
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Captura de pantalla que muestra Setup (Configuración) seleccionado en el sitio de UserEcho.](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. Haga clic en **Usuarios** para expandir la sección **Usuarios**.
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Captura de pantalla que muestra la opción Users (Usuarios) seleccionada en el menú Settings (Configuración).](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Haga clic en **Usuarios**.
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Captura de pantalla que muestra la pestaña Users (Usuarios) seleccionada.](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Haga clic en **Invitar a un nuevo usuario**.
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Captura de pantalla que muestra la opción Invite a new user (Invitar a un nuevo usuario).](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. En el cuadro de diálogo **Invitar a un nuevo usuario** , realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Invite a new user (Invitar a un nuevo usuario), donde puede especificar los datos del usuario.](./media/userecho-tutorial/tutorial_userecho_13.png)
 
-    a. En el cuadro de texto **Nombre**, escriba el nombre de un usuario, por ejemplo, Britta Simon.
+    a. En el cuadro de texto **Nombre** , escriba el nombre de un usuario, por ejemplo, Britta Simon.
     
-    b.  En el cuadro de texto **Correo electrónico**, escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
+    b.  En el cuadro de texto **Correo electrónico** , escriba la dirección de correo electrónico de un usuario, por ejemplo, Brittasimon@contoso.com.
     
     c. Haga clic en **Invitar**.
 
@@ -240,13 +240,12 @@ El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de UserEcho en el Panel de acceso, debería iniciar sesión automáticamente en la versión de UserEcho para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de UserEcho en el Panel de acceso, debería iniciar sesión automáticamente en la versión de UserEcho para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

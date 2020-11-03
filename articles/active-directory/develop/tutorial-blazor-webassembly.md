@@ -35,10 +35,10 @@ En este tutorial, aprenderá lo siguiente:
 
 Todas las aplicaciones que utilizan Azure Active Directory (Azure AD) para la autenticación deben registrarse con Azure AD. Siga las instrucciones de [Registro de una aplicación](quickstart-register-app.md) con estas especificaciones:
 
-- Para la opción **Tipos de cuenta admitidos** , seleccione **Solo las cuentas de este directorio organizativo** .
+- Para la opción **Tipos de cuenta admitidos** , seleccione **Solo las cuentas de este directorio organizativo**.
 - Deje la lista desplegable **URI de redirección** establecida en **web** y escriba `https://localhost:5001/authentication/login-callback`. El puerto predeterminado de una aplicación que se ejecuta en Kestrel es 5001. Si la aplicación está disponible en un puerto diferente, especifique el número de puerto en lugar de `5001`.
 
-Cuando el registro haya finalizado, en **Autenticación** > **Concesión implícita** , seleccione las casillas de **Tokens de acceso** y **Tokens de id.** y, a continuación, seleccione el botón **Guardar** .
+Cuando el registro haya finalizado, en **Autenticación** > **Concesión implícita** , seleccione las casillas de **Tokens de acceso** y **Tokens de id.** y, a continuación, seleccione el botón **Guardar**.
 
 ## <a name="create-the-app-using-the-net-core-cli"></a>Creación de la aplicación mediante la CLI de .NET Core
 
@@ -82,11 +82,11 @@ Ahora se actualizará el registro y el código de la aplicación para extraer lo
 
 En primer lugar, agregue el permiso de API `Mail.Read` al registro de la aplicación para que Azure AD sea consciente de que la aplicación solicitará acceso al correo electrónico de sus usuarios.
 
-1. En Azure Portal, seleccione la aplicación en **Registros de aplicaciones** .
-1. En **Administrar** , seleccione **Permisos de API** .
-1. Seleccione **Agregar un permiso** > **Microsoft Graph** .
-1. Seleccione **Permisos delegados** y, a continuación, busque y seleccione el permiso **Mail.Read** .
-1. Seleccione **Agregar permisos** .
+1. En Azure Portal, seleccione la aplicación en **Registros de aplicaciones**.
+1. En **Administrar** , seleccione **Permisos de API**.
+1. Seleccione **Agregar un permiso** > **Microsoft Graph**.
+1. Seleccione **Permisos delegados** y, a continuación, busque y seleccione el permiso **Mail.Read**.
+1. Seleccione **Agregar permisos**.
 
 A continuación, agregue la siguiente línea al archivo *.csproj* del proyecto dentro de **ItemGroup** netstandard2.1. Esto le permitirá crear el HttpClient personalizado en el paso siguiente.
 

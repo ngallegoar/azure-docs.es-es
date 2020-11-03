@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139331"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538500"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Supervisión de operaciones de IoT Hub (en desuso)
 
 La supervisión de operaciones de IoT Hub permite supervisar el estado de las operaciones de su centro de IoT en tiempo real. IoT Hub realiza el seguimiento de eventos a través de varias categorías de operaciones. Se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.
 
 >[!NOTE]
->**La supervisión de operaciones de IoT Hub está en desuso y se quitará de IoT Hub el 10 de marzo de 2019.** Para supervisar las operaciones y el mantenimiento de IoT Hub, consulte [Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente](iot-hub-monitor-resource-health.md). Para más información sobre la escala de tiempo de desuso, consulte [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health) (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
+>**La supervisión de operaciones de IoT Hub está en desuso y se quitará de IoT Hub el 10 de marzo de 2019.** Para supervisar las operaciones y el estado de IoT Hub, consulte [Supervisión de IoT Hub](monitor-iot-hub.md). Para más información sobre la escala de tiempo de desuso, consulte [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health) (Supervisión de las soluciones de Azure IoT con Azure Monitor y Azure Resource Health).
 
 IoT Hub supervisa seis categorías de eventos:
 
@@ -48,7 +48,7 @@ IoT Hub supervisa seis categorías de eventos:
     ![Configurar operaciones de supervisión en la instancia de IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
-> Al seleccionar el tipo de supervisión **Detallado** en la categoría **Conexiones**, IoT Hub generará más mensajes de diagnóstico. Para el resto de las categorías, la configuración **Detallado** cambia la cantidad de información que IoT Hub incluye en cada mensaje de error.
+> Al seleccionar el tipo de supervisión **Detallado** en la categoría **Conexiones** , IoT Hub generará más mensajes de diagnóstico. Para el resto de las categorías, la configuración **Detallado** cambia la cantidad de información que IoT Hub incluye en cada mensaje de error.
 
 ## <a name="event-categories-and-how-to-use-them"></a>Categorías de eventos y su uso
 
@@ -197,11 +197,11 @@ Para conectarse al punto de conexión de supervisión, necesita una cadena de co
 
 1. En el portal, vaya a la hoja de recursos de IoT Hub.
 
-2. Elija **Supervisión de operaciones** y anote los valores del **nombre compatible con el centro de eventos** y el **punto de conexión compatible con centro de eventos**:
+2. Elija **Supervisión de operaciones** y anote los valores del **nombre compatible con el centro de eventos** y el **punto de conexión compatible con centro de eventos** :
 
     ![Valores del punto de conexión compatible con centro de eventos](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Elija **Directivas de acceso compartido** y, a continuación, elija **servicio**. Anote el valor de la **clave principal**:
+3. Elija **Directivas de acceso compartido** y, a continuación, elija **servicio**. Anote el valor de la **clave principal** :
 
     ![Clave principal de directiva de acceso compartido del servicio](./media/iot-hub-operations-monitoring/service-key.png)
 

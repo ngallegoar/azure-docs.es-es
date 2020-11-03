@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c9a610eb30b33adb82cebda74e99c37f84dacf9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 302f1a081ca44cf6436f2c318b03e227f6640489
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319431"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543090"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Usar las herramientas Spark y Hive para Visual Studio Code
 
@@ -29,7 +29,7 @@ Los elementos siguientes son necesarios para completar los pasos indicados en es
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono solo es obligatorio para Linux y macOS.
 - [Un entorno interactivo de PySpark para Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- Un directorio local. En este artículo, se usa **C:\HD\HDexample** .
+- Un directorio local. En este artículo, se usa **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Instalar Spark & Hive Tools
 
@@ -37,9 +37,9 @@ Después de completar los requisitos previos, puede instalar Spark & Hive Tools 
 
 1. Abra Visual Studio Code.
 
-2. En la barra de menús, vaya a **Ver** > **Extensiones** .
+2. En la barra de menús, vaya a **Ver** > **Extensiones**.
 
-3. En el cuadro de búsqueda, escriba **Spark & Hive** .
+3. En el cuadro de búsqueda, escriba **Spark & Hive**.
 
 4. Seleccione **Spark & Hive Tools** en los resultados de búsqueda y seleccione **Instalar** :
 
@@ -51,19 +51,19 @@ Después de completar los requisitos previos, puede instalar Spark & Hive Tools 
 
 Para abrir una carpeta de trabajo y crear un archivo en Visual Studio Code, siga estos pasos:
 
-1. En la barra de menús, vaya a **Archivo** > **Abrir carpeta...**  > **C:\HD\HDexample** y, luego, seleccione el botón **Seleccionar carpeta** . La carpeta se mostrará en la vista **Explorador** de la parte izquierda.
+1. En la barra de menús, vaya a **Archivo** > **Abrir carpeta...**  > **C:\HD\HDexample** y, luego, seleccione el botón **Seleccionar carpeta**. La carpeta se mostrará en la vista **Explorador** de la parte izquierda.
 
 2. En la vista **Explorador** , seleccione la carpeta, **HDexample** y, a continuación, el icono **Nuevo archivo** situado junto a la carpeta de trabajo:
 
    ![Icono de archivo nuevo de Visual Studio Code](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. Asigne al nuevo archivo la extensión de archivo `.hql` (consultas de Hive) o `.py` (script de Spark). En este ejemplo se utiliza **HelloWorld.hql** .
+3. Asigne al nuevo archivo la extensión de archivo `.hql` (consultas de Hive) o `.py` (script de Spark). En este ejemplo se utiliza **HelloWorld.hql**.
 
 ## <a name="set-the-azure-environment"></a>Establecimiento del entorno de Azure
 
 Para usuarios de la nube nacional, siga los pasos para configurar el entorno de Azure en primer lugar y, a continuación, use el comando **Azure: Sign In** para iniciar sesión en Azure:
 
-1. Vaya a **Archivo** > **Preferencias** > **Configuración** .
+1. Vaya a **Archivo** > **Preferencias** > **Configuración**.
 2. Busque la siguiente cadena: **Azure: Cloud** (Azure: nube).
 3. Seleccione la nube nacional de la lista:
 
@@ -89,11 +89,11 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
    ![Paleta de comandos, comando de vinculación de clúster](./media/hdinsight-for-vscode/link-cluster-command.png)
 
-2. Seleccione el tipo de clúster vinculado **Azure HDInsight** .
+2. Seleccione el tipo de clúster vinculado **Azure HDInsight**.
 
 3. Escriba la dirección URL del clúster de HDInsight.
 
-4. Escriba el nombre de usuario de Ambari; el valor predeterminado es **admin** .
+4. Escriba el nombre de usuario de Ambari; el valor predeterminado es **admin**.
 
 5. Escriba la contraseña de Ambari.
 
@@ -101,7 +101,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 7. Establezca el nombre para mostrar del clúster (opcional).
 
-8. Revise la vista **SALIDA** .
+8. Revise la vista **SALIDA**.
 
    > [!NOTE]  
    > Si el clúster se registró en la suscripción de Azure y se vinculó, se usan el nombre de usuario y la contraseña vinculados.  
@@ -114,13 +114,13 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 3. Escriba el punto de conexión de Livy genérico. Por ejemplo, http\://10.172.41.42:18080.
 
-4. Seleccione el tipo de autorización **Básica** o **Ninguna** .  Si selecciona **Básico** :  
+4. Seleccione el tipo de autorización **Básica** o **Ninguna**.  Si selecciona **Básico** :  
    
-   1. Escriba el nombre de usuario de Ambari; el valor predeterminado es **admin** .  
+   1. Escriba el nombre de usuario de Ambari; el valor predeterminado es **admin**.  
 
    2. Escriba la contraseña de Ambari.
 
-5. Revise la vista **SALIDA** .
+5. Revise la vista **SALIDA**.
 
 ## <a name="list-clusters"></a>Lista de clústeres
 
@@ -128,7 +128,7 @@ Puede vincular un clúster normal mediante un nombre de usuario administrado de 
 
 2. Seleccione la suscripción que desea.
 
-3. Revise la ventana de **SALIDA** . Esta vista muestra el clúster vinculado (o los clústeres vinculados) y todos los clústeres de su suscripción de Azure:
+3. Revise la ventana de **SALIDA**. Esta vista muestra el clúster vinculado (o los clústeres vinculados) y todos los clústeres de su suscripción de Azure:
 
    ![Establecer una configuración de clúster predeterminado](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
@@ -211,7 +211,7 @@ Para usar el comando de PySpark Interactive con el fin de enviar las consultas, 
 
    ![pyspark se ha instalado correctamente](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
 
-7. En la barra de menús, vaya a **View** (Ver)  > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Python: Seleccione Interpreter (Intérprete) para iniciar el servidor de Jupyter** .
+7. En la barra de menús, vaya a **View** (Ver)  > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Python: Seleccione Interpreter (Intérprete) para iniciar el servidor de Jupyter**.
 
    ![Seleccionar Interpreter para iniciar el servidor de Jupyter](./media/hdinsight-for-vscode/select-interpreter-to-start-jupyter-server.png)
 
@@ -219,7 +219,7 @@ Para usar el comando de PySpark Interactive con el fin de enviar las consultas, 
 
    ![Elija la opción siguiente](./media/hdinsight-for-vscode/choose-the-below-option.png)
     
-9. En la barra de menús, vaya a **View** (Ver) > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Desarrollador: Recargar ventana** .
+9. En la barra de menús, vaya a **View** (Ver) > **Command Palette** (Paleta de comandos) o use el método abreviado de teclado **Mayús + Ctrl + P** y escriba **Desarrollador: Recargar ventana**.
 
    ![Recargar ventana](./media/hdinsight-for-vscode/reload-window.png)
 
@@ -299,13 +299,13 @@ La herramienta también admite la consulta **Spark SQL** :
 
 4. [Conéctese](#connect-to-an-azure-account) a su cuenta de Azure o vincule un clúster si no lo ha hecho aún.
 
-5. Haga clic con el botón derecho en el editor de scripts y, después, seleccione **Spark: PySpark Batch** (Spark: lote de PySpark) o **Synapse: PySpark Batch*** (Synapse: lote de PySpark).
+5. Haga clic con el botón derecho en el editor de scripts y, después, seleccione **Spark: PySpark Batch** o **Synapse: PySpark Batch** _.
 
 6. Seleccione un clúster o grupo de Spark para enviar el trabajo de PySpark a:
 
    ![Enviar la salida del resultado del trabajo de Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Después de enviar trabajo de Python, los registros de envío se muestran en la ventana de **SALIDA** en Visual Studio Code. También se muestran la dirección URL de interfaz de usuario de Spark y la dirección URL de interfaz de usuario de Yarn. Si envía el trabajo por lotes a un grupo de Apache Spark, también se muestran la dirección URL de la interfaz de usuario del historial de Spark y la dirección URL de la interfaz de usuario de la aplicación de trabajo de Spark. Para realizar un seguimiento del estado del trabajo, puede abrir la URL en un explorador web.
+Después de enviar un trabajo de Python, los registros de envío se muestran en la ventana _ *SALIDA* * en Visual Studio Code. También se muestran la dirección URL de interfaz de usuario de Spark y la dirección URL de interfaz de usuario de Yarn. Si envía el trabajo por lotes a un grupo de Apache Spark, también se muestran la dirección URL de la interfaz de usuario del historial de Spark y la dirección URL de la interfaz de usuario de la aplicación de trabajo de Spark. Para realizar un seguimiento del estado del trabajo, puede abrir la URL en un explorador web.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integración con HDInsight Identity Broker (HIB)
 
@@ -329,13 +329,13 @@ La [configuración de Apache Livy](https://livy.incubator.apache.org/) es compat
 
 ### <a name="method-1"></a>Método 1  
 
-1. En la barra de menús, vaya a **Archivo** > **Preferencias** > **Configuración** .
-2. En el cuadro de texto **Configuración de la búsqueda** escriba **HDInsight Job Submission: configuración de Livy** .  
+1. En la barra de menús, vaya a **Archivo** > **Preferencias** > **Configuración**.
+2. En el cuadro de texto **Configuración de la búsqueda** escriba **HDInsight Job Submission: configuración de Livy**.  
 3. Seleccione **Editar en settings.json** para el resultado de la búsqueda relevante.
 
 ### <a name="method-2"></a>Método 2
 
-Envíe un archivo y observe que la carpeta `.vscode` se agrega automáticamente a la carpeta de trabajo. Puede encontrar la configuración de Livy si selecciona **.vscode\settings.json** .
+Envíe un archivo y observe que la carpeta `.vscode` se agrega automáticamente a la carpeta de trabajo. Puede encontrar la configuración de Livy si selecciona **.vscode\settings.json**.
 
 - Configuración del proyecto:
 
@@ -390,11 +390,11 @@ Puede obtener una vista previa de la tabla de Hive directamente en los clústere
 
 2. Seleccione el icono **Azure** de la columna situada en el extremo izquierdo.
 
-3. En el panel izquierdo, expanda **AZURE: HDINSIGHT** . Aparecen las suscripciones y clústeres disponibles.
+3. En el panel izquierdo, expanda **AZURE: HDINSIGHT**. Aparecen las suscripciones y clústeres disponibles.
 
 4. Expanda el clúster para ver el esquema de base de datos y tablas de metadatos de Hive.
 
-5. Haga clic con el botón derecho en la tabla de Hive. Por ejemplo: **hivesampletable** . Seleccione **Vista previa** .
+5. Haga clic con el botón derecho en la tabla de Hive. Por ejemplo: **hivesampletable**. Seleccione **Vista previa**.
 
    ![Tabla de Hive con la vista previa de Hive y Spark para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -422,18 +422,18 @@ Puede obtener una vista previa de la tabla de Hive directamente en los clústere
 
 Hive y Spark para Visual Studio Code admite también las siguientes características:
 
-- **Autocompletar de IntelliSense** . Aparecen sugerencias para palabras clave, métodos, variables y otros elementos de programación. Los distintos iconos representan diferentes tipos de objetos:
+- **Autocompletar de IntelliSense**. Aparecen sugerencias para palabras clave, métodos, variables y otros elementos de programación. Los distintos iconos representan diferentes tipos de objetos:
 
     ![Objetos de IntelliSense de las herramientas de Spark y Hive para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-auto-complete-objects.png)
 
-- **Marcador de error de IntelliSense** . El servicio de lenguaje subraya los errores de edición del script de Hive.     
-- **Sintaxis resaltada** . El servicio de lenguaje usa colores diferentes para diferenciar variables, palabras clave, tipos de datos, funciones y otros elementos de programación:
+- **Marcador de error de IntelliSense**. El servicio de lenguaje subraya los errores de edición del script de Hive.     
+- **Sintaxis resaltada**. El servicio de lenguaje usa colores diferentes para diferenciar variables, palabras clave, tipos de datos, funciones y otros elementos de programación:
 
     ![Sintaxis resaltada de Spark & Hive Tools para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-syntax-highlights.png)
 
 ## <a name="reader-only-role"></a>Rol de solo lectura
 
-Los usuarios a los que se haya asignado el rol de solo lector para el clúster ya no pueden enviar trabajos al clúster de HDInsight ni pueden ver la base de datos de Hive. Póngase en contacto con el administrador de clústeres para actualizar el rol a [**operador de clústeres de HDInsight**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) en [Azure Portal](https://portal.azure.com/). Si tiene credenciales de Ambari válidas, puede vincular manualmente el clúster siguiendo estas instrucciones.
+Los usuarios a los que se haya asignado el rol de solo lector para el clúster ya no pueden enviar trabajos al clúster de HDInsight ni pueden ver la base de datos de Hive. Póngase en contacto con el administrador de clústeres para actualizar el rol a [**operador de clústeres de HDInsight**](./hdinsight-migrate-granular-access-cluster-configurations.md#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) en [Azure Portal](https://portal.azure.com/). Si tiene credenciales de Ambari válidas, puede vincular manualmente el clúster siguiendo estas instrucciones.
 
 ### <a name="browse-the-hdinsight-cluster"></a>Examen del clúster de HDInsight  
 
@@ -476,7 +476,7 @@ Envíe un trabajo a un clúster de HDInsight con Data Lake Storage Gen2. Se le p
 
 ## <a name="unlink-cluster"></a>Desvincular clúster
 
-1. En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Spark / Hive: desvincular un clúster** .  
+1. En la barra de menús, vaya a **Vista** > **Paleta de comandos** y escriba **Spark / Hive: desvincular un clúster**.  
 
 2. Seleccione el clúster que desea desvincular.  
 

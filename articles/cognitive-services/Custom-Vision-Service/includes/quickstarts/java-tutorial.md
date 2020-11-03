@@ -1,141 +1,216 @@
 ---
-author: areddish
+author: PatrickFarley
 ms.custom: devx-track-java
-ms.author: areddish
+ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 09/15/2020
-ms.openlocfilehash: f4b64c25bff93683c79aa1aa3eb556988c798cb0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/13/2020
+ms.openlocfilehash: ea8f56202ab62954a065428e20c97d5b7c555614
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604993"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548103"
 ---
-En esta guía se proporciona información y un ejemplo de código que pueden ayudarle a empezar a utilizar la biblioteca cliente de Custom Vision con Java para crear un modelo de clasificación de imágenes. Podrá crear un proyecto, agregar etiquetas, entrenar el proyecto y utilizar la dirección URL del punto de conexión de predicción del proyecto para probarlo mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
+Comience a usar la biblioteca cliente de Custom Vision para Java con el fin de crear un modelo de clasificación de imágenes. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas. Utilice este ejemplo como plantilla para crear su propia aplicación de reconocimiento de imágenes.
 
 > [!NOTE]
 > Si desea crear y entrenar un modelo de clasificación _sin_ escribir código, consulte la [guía basada en explorador](../../getting-started-build-a-classifier.md) en su lugar.
 
-## <a name="prerequisites"></a>Prerrequisitos
+Use la biblioteca cliente de Custom Vision para Java realizar las siguientes tareas:
 
-- El IDE de Java que prefiera
-- [JDK 7 u 8](https://aka.ms/azure-jdks) instalado.
-- [Maven](https://maven.apache.org/) instalado
-- [!INCLUDE [create-resources](../../includes/create-resources.md)]
+* Creación de un proyecto de Custom Vision
+* Adición de etiquetas al proyecto
+* Carga y etiquetado de imágenes
+* Entrenamiento del proyecto
+* Publicación de la iteración actual
+* Prueba del punto de conexión de la predicción
 
-## <a name="get-the-custom-vision-client-library"></a>Obtención de la biblioteca cliente de Custom Vision
+[Documentación de referencia](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | Código fuente de la biblioteca [(entrenamiento)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(predicción)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction) | Artefacto (Maven) [(entrenamiento)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) [(predicción)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar) | 
+[Ejemplos](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision)
 
-Para escribir una aplicación de análisis de imágenes con Custom Vision para Java, necesitará los paquetes maven de Custom Vision. que están incluidos en el proyecto de ejemplo que descargará, pero puede acceder a ellos individualmente aquí.
+## <a name="prerequisites"></a>Requisitos previos
 
-La biblioteca cliente de Custom Vision se encuentra en el repositorio central de Maven:
+* Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/cognitive-services/).
+* La versión actual de [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* La [herramienta de compilación de Gradle](https://gradle.org/install/) u otro administrador de dependencias.
+* Una vez que tenga la suscripción de Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision"  title="Creación de un recurso de Custom Vision"  target="_blank">cree un recurso de Custom Vision <span class="docon docon-navigate-external x-hidden-focus"></span></a> en Azure Portal para crear un recurso de entrenamiento y predicción y obtener las claves y el punto de conexión. Espere a que se implemente y haga clic en el botón **Ir al recurso**.
+    * Necesitará la clave y el punto de conexión de los recursos que cree para conectar la aplicación a Custom Vision. En una sección posterior de este mismo inicio rápido pegará la clave y el punto de conexión en el código siguiente.
+    * Puede usar el plan de tarifa gratis (`F0`) para probar el servicio y actualizarlo más adelante a un plan de pago para producción.
 
-- [SDK de aprendizaje](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
-- [SDK de predicción](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
+## <a name="setting-up"></a>Instalación
 
-Clone o descargue el proyecto [Ejemplos del SDK de Cognitive Services para Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). Vaya a la carpeta **Vision/CustomVision/**.
+### <a name="create-a-new-gradle-project"></a>Creación de un proyecto de Gradle
 
-Este proyecto Java crea un nuevo proyecto de clasificación de imágenes de Custom Vision denominado __Sample Java Project__, al que se puede acceder en el [sitio web de Custom Vision](https://customvision.ai/). A continuación, carga las imágenes para entrenar y probar un clasificador. En este proyecto, el clasificador pretende determinar si un árbol es un __abeto__ o un __cerezo japonés__.
+En una ventana de la consola (como cmd, PowerShell o Bash), cree un directorio para la aplicación y vaya a él. 
 
-[!INCLUDE [get-keys](../../includes/get-keys.md)]
-
-El programa está configurado para hacer referencia a los datos clave como variables de entorno. Vaya a la carpeta **Vision/CustomVision** y escriba los comandos de PowerShell siguientes para establecer las variable de entorno. 
-
-> [!NOTE]
-> Si utiliza un sistema operativo distinto de Windows, consulte [Configuración de las variables de entorno](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows#configure-an-environment-variable-for-authentication) para instrucciones.
-
-```powershell
-$env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
-$env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
+```console
+mkdir myapp && cd myapp
 ```
 
-## <a name="examine-the-code"></a>Examen del código
+Ejecute el comando `gradle init` desde el directorio de trabajo. Este comando creará archivos de compilación esenciales para Gradle, como *build.gradle.kts* , que se usa en tiempo de ejecución para crear y configurar la aplicación.
 
-Cargue el proyecto `Vision/CustomVision` en el IDE de Java y abra el archivo _CustomVisionSamples.java_. Busque el método **runSample** y convierta en comentario la llamada al método **ObjectDetection_Sample**. Así se ejecuta el escenario de detección de objetos, que no se trata en esta guía. El método **ImageClassification_Sample** implementa la funcionalidad principal de este ejemplo; vaya a su definición e inspeccione el código.
+```console
+gradle init --type basic
+```
+
+Cuando se le solicite que elija un **DSL** , seleccione **Kotlin**.
+
+### <a name="install-the-client-library"></a>Instalación de la biblioteca cliente
+
+Busque *build.gradle.kts* y ábralo con el IDE o el editor de texto que prefiera. A continuación, cópielo en la siguiente configuración de compilación. Esta configuración define el proyecto como una aplicación Java cuyo punto de entrada es la clase **CustomVisionQuickstart**. Importa las bibliotecas de Custom Vision.
+
+```kotlin
+plugins {
+    java
+    application
+}
+application { 
+    mainClassName = "CustomVisionQuickstart"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile(group = "com.azure", name = "azure-cognitiveservices-customvision-training", version = "1.1.0-preview.2")
+    compile(group = "com.azure", name = "azure-cognitiveservices-customvision-prediction", version = "1.1.0-preview.2")
+}
+```
+
+### <a name="create-a-java-file"></a>Creación de un archivo Java
+
+
+En el directorio de trabajo, ejecute el siguiente comando para crear una carpeta de origen del proyecto:
+
+```console
+mkdir -p src/main/java
+```
+
+Vaya a la nueva carpeta y cree un archivo denominado *CustomVisionQuickstart.java*. Ábralo en el editor o el IDE que prefiera y agregue las siguientes instrucciones `import`:
+
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_imports)]
+
+> [!TIP]
+> ¿Desea ver todo el archivo de código de inicio rápido de una vez? Puede encontrarlo en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java), que contiene los ejemplos de código de este inicio rápido.
+
+
+En la clase **CustomVisionQuickstart** de la aplicación, cree variables para las claves y el punto de conexión del recurso.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_creds)]
+
+
+> [!IMPORTANT]
+> Vaya a Azure Portal. Si el recurso de [nombre del producto] que ha creado en la sección **Requisitos previos** se ha implementado correctamente, haga clic en el botón **Ir al recurso** en **Pasos siguientes**. Puede encontrar su clave y punto de conexión en la página de **clave y punto de conexión** del recurso, en **Administración de recursos**. 
+>
+> Recuerde quitar la clave del código cuando haya terminado y no hacerla nunca pública. En el caso de producción, considere la posibilidad de usar alguna forma segura de almacenar las credenciales, y acceder a ellas. Para más información, consulte el artículo sobre la [seguridad](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Cognitive Services.
+
+En el método **main** de la aplicación, agregue llamadas para los métodos que se usan en este inicio rápido. Se definirán más adelante.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_maincalls)]
+
+## <a name="object-model"></a>Modelo de objetos
+
+Las siguientes clases e interfaces determinan algunas de las características principales de la biblioteca cliente de Custom Vision para Java.
+
+|Nombre|Descripción|
+|---|---|
+|[CustomVisionTrainingClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | Esta clase controla la creación, el entrenamiento y la publicación de los modelos. |
+|[CustomVisionPredictionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| Esta clase controla la consulta de las predicciones de clasificación de imágenes en los modelos.|
+|[ImagePrediction](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| Esta clase define una sola predicción en una sola imagen. Incluye las propiedades para el identificador y el nombre de objeto, y una puntuación de confianza.|
+
+## <a name="code-examples"></a>Ejemplos de código
+
+Estos fragmentos de código muestran cómo realizar las siguientes tareas con la biblioteca cliente de Custom Vision para Java:
+
+* [Autenticar el cliente](#authenticate-the-client)
+* [Creación de un proyecto de Custom Vision](#create-a-new-custom-vision-project)
+* [Adición de etiquetas al proyecto](#add-tags-to-the-project)
+* [Carga y etiquetado de imágenes](#upload-and-tag-images)
+* [Entrenamiento del proyecto](#train-the-project)
+* [Publicación de la iteración actual](#publish-the-current-iteration)
+* [Prueba del punto de conexión de la predicción](#test-the-prediction-endpoint)
+
+## <a name="authenticate-the-client"></a>Autenticar el cliente
+
+En el método **main** , cree instancias de clientes de entrenamiento y predicción mediante su punto de conexión y claves.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_auth)]
+
 
 ## <a name="create-a-custom-vision-project"></a>Creación de un proyecto de Custom Vision
 
-Este primer fragmento de código crea un proyecto de clasificación de imágenes. El proyecto creado se mostrará en el [sitio web de Custom Vision](https://customvision.ai/) que ha visitado anteriormente. Consulte las sobrecargas del método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Compilación de un clasificador](../../getting-started-build-a-classifier.md)).
+Creación de un proyecto de Custom Vision
 
-[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create)]
+Este método crea un proyecto de clasificación de imágenes. El proyecto creado se mostrará en el [sitio web de Custom Vision](https://customvision.ai/) que ha visitado anteriormente. Consulte las sobrecargas del método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) para especificar otras opciones al crear el proyecto (explicadas en la guía del portal web [Creación de un detector](../../get-started-build-detector.md)).
 
-## <a name="create-tags-in-the-project"></a>Creación de etiquetas en el proyecto
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_create)]
 
-[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_tags)]
+## <a name="add-tags-to-your-project"></a>Adición de etiquetas al proyecto
+
+Este método define las etiquetas en las que se va a entrenar el modelo.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_tags)]
 
 ## <a name="upload-and-tag-images"></a>Carga y etiquetado de imágenes
 
-Las imágenes de ejemplo se incluyen en la carpeta **src/main/resources** del proyecto. Desde allí se leen y se cargan en el servicio con sus etiquetas correspondientes.
+En primer lugar, descargue las imágenes de ejemplo de este proyecto. Guarde el contenido de la [carpeta de imágenes de ejemplo](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) en el dispositivo local.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_upload)]
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_upload)]
 
 El fragmento de código anterior usa dos funciones auxiliares que recuperan las imágenes como flujos de recursos y las cargan en el servicio (puede cargar hasta 64 imágenes en un único lote).
 
-[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_helpers)]
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_helpers)]
 
-## <a name="train-and-publish-the-project"></a>Entrenamiento y publicación del proyecto
+## <a name="train-the-project"></a>Entrenamiento del proyecto
 
-Este código crea la primera iteración del modelo de predicción y, después, publica dicha iteración en el punto de conexión de la predicción. El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de la predicción hasta que se publica.
+Este método crea la primera iteración de entrenamiento del proyecto. Se consulta el servicio hasta que finaliza el entrenamiento.
 
-[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train)]
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_train)]
 
-## <a name="use-the-prediction-endpoint"></a>Uso del punto de conexión de la predicción
 
-El punto de conexión de la predicción, representado aquí por el objeto `predictor`, es la referencia que utiliza para enviar una imagen al modelo actual y obtener una predicción de clasificación. En este ejemplo, `predictor` se define en otra parte mediante la variable de entorno de la clave de predicción.
+## <a name="publish-the-current-iteration"></a>Publicación de la iteración actual
 
-[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_predict)]
+Este método hace que la iteración actual del modelo esté disponible para realizar consultas. Puede usar el nombre del modelo como referencia para enviar solicitudes de predicción. Debe escribir su propio valor para `predictionResourceId`. Puede encontrar el identificador de recurso de predicción en la pestaña **Información general** del recurso en Azure Portal, que aparece como **Id. de suscripción**.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_publish)]
+
+## <a name="test-the-prediction-endpoint"></a>Prueba del punto de conexión de la predicción
+
+Este método carga la imagen de prueba, consulta el punto de conexión del modelo y envía los datos de la predicción a la consola.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?name=snippet_predict)]
+
+
+## <a name="run-the-application"></a>Ejecutar la aplicación
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
-Para compilar y ejecutar la solución con Maven, vaya el directorio del proyecto (**Vision/CustomVision**) en un símbolo del sistema y ejecute el comando run:
-
-```bash
-mvn compile exec:java
-```
-
-La salida de la consola de la aplicación debería tener una apariencia similar al ejemplo siguiente:
+Puede compilar la aplicación con:
 
 ```console
-Creating project...
-Adding images...
-Adding image: hemlock_1.jpg
-Adding image: hemlock_2.jpg
-Adding image: hemlock_3.jpg
-Adding image: hemlock_4.jpg
-Adding image: hemlock_5.jpg
-Adding image: hemlock_6.jpg
-Adding image: hemlock_7.jpg
-Adding image: hemlock_8.jpg
-Adding image: hemlock_9.jpg
-Adding image: hemlock_10.jpg
-Adding image: japanese_cherry_1.jpg
-Adding image: japanese_cherry_2.jpg
-Adding image: japanese_cherry_3.jpg
-Adding image: japanese_cherry_4.jpg
-Adding image: japanese_cherry_5.jpg
-Adding image: japanese_cherry_6.jpg
-Adding image: japanese_cherry_7.jpg
-Adding image: japanese_cherry_8.jpg
-Adding image: japanese_cherry_9.jpg
-Adding image: japanese_cherry_10.jpg
-Training...
-Training status: Training
-Training status: Training
-Training status: Completed
-Done!
-        Hemlock: 93.53%
-        Japanese Cherry: 0.01%
+gradle build
 ```
 
-A continuación, puede comprobar que la predicción de la imagen de prueba (las últimas líneas de la salida) es correcta.
+Ejecute la aplicación con el comando `gradle run`:
+
+```console
+gradle run
+```
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si quiere limpiar y eliminar una suscripción a Cognitive Services, puede eliminar el recurso o grupo de recursos. Al eliminar el grupo de recursos, también se elimina cualquier otro recurso que esté asociado a él.
+
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [CLI de Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha visto cómo todos los pasos del proceso de detección de objetos se pueden realizar en código. En este ejemplo se ejecuta una sola iteración de entrenamiento, pero a menudo necesitará entrenar y probar el modelo varias veces para hacerlo más preciso.
+Ya ha visto que todos los pasos del proceso de clasificación de imágenes se pueden realizar mediante código. En este ejemplo se ejecuta una sola iteración de entrenamiento, pero a menudo necesitará entrenar y probar el modelo varias veces para hacerlo más preciso.
 
 > [!div class="nextstepaction"]
 > [Prueba y reentrenamiento del modelo](../../test-your-model.md)
 
 * ¿Qué es Custom Vision?
-* * [Documentación de referencia del SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable)
+* El código fuente correspondiente a este ejemplo se encuentra disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java).

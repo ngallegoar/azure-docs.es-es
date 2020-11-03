@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088778"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426733"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Uso de IntelliJ para implementar aplicaciones de Azure Spring Cloud
 
@@ -25,10 +25,10 @@ Antes de ejecutar este ejemplo, puede probar la [guía de inicio rápido básica
 ## <a name="prerequisites"></a>Requisitos previos
 * [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, Community/Ultimate Edition, versión 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, versión 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Instalación del complemento
-Puede agregar Azure Toolkit for IntelliJ IDEA 3.35.0 desde la opción **Plugins** (Complementos) de la interfaz de usuario de IntelliJ.
+Puede agregar Azure Toolkit for IntelliJ IDEA 3.43.0 desde la opción **Plugins** (Complementos) de la interfaz de usuario de IntelliJ.
 
 1. Inicie IntelliJ.  Si anteriormente ha abierto un proyecto, ciérrelo para mostrar el cuadro de diálogo de bienvenida. Seleccione **Configure** (Configurar) en el vínculo inferior derecho y, luego, haga clic en **Plugins** (Complementos) para abrir el cuadro de diálogo de configuración de complementos. Elija **Install Plugins from disk** (Instalar complementos desde el disco).
 
@@ -64,7 +64,7 @@ Para realizar la implementación en Azure, debe iniciar sesión con su cuenta de
     ![Implementación en Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1.png)
 
 1. Acepte el nombre de la aplicación en el campo **Name** (Nombre). El **nombre** hace referencia a la configuración, no al nombre de la aplicación. Normalmente, los usuarios no tienen que cambiarlo.
-1. En **Artifact**(Artefacto), acepte el identificador del proyecto.
+1. En **Artifact** (Artefacto), acepte el identificador del proyecto.
 1. Seleccione **App:** (Aplicación:) y, luego, haga clic en **Create app...** (Crear aplicación...).
 
     ![Implementación en Azure 2](media/spring-cloud-intellij-howto/deploy-to-azure-2.png)

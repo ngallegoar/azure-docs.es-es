@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77087131"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424667"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Configuración de una conexión VPN en la nube privada de CloudSimple
 
@@ -63,7 +63,7 @@ En el ejemplo siguiente se muestra cómo importar la conexión mediante el **cli
 
 4. Seleccione el archivo de configuración OpenVPN (.ovpn) para el protocolo que desea usar y haga clic en **Abrir**.
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![Captura de pantalla en la que se resaltan los archivos de configuración de OpenVPN que puede seleccionar.](media/import-p2s-vpn-config-choose-ovpn.png)
 
 La conexión aparecerá ahora en el menú de Viscosity.
 
@@ -71,7 +71,7 @@ La conexión aparecerá ahora en el menú de Viscosity.
 
 Para conectarse a una VPN mediante el cliente Viscosity OpenVPN, seleccione la conexión en el menú. El icono del menú se actualiza para indicar que se ha establecido la conexión.
 
-![VPN](media/vis03.png)
+![Captura de pantalla que muestra el estado de conectividad de VPN de CloudSimple.](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>Conexión a varias nubes privadas
 

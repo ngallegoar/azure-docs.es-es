@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743285"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426982"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Preparación de la implementación de Azure Stack Edge Pro con GPU 
 
@@ -113,7 +113,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     ![Creación de un recurso 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-4. Seleccione el tipo de dispositivo. En **Azure Stack Edge Pro**, elija **Azure Stack Edge Pro con GPU** y, luego, elija **Seleccionar**. Si ve algún problema o no puede seleccionar el tipo de dispositivo, vaya a [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
+4. Seleccione el tipo de dispositivo. En **Azure Stack Edge Pro** , elija **Azure Stack Edge Pro con GPU** y, luego, elija **Seleccionar**. Si ve algún problema o no puede seleccionar el tipo de dispositivo, vaya a [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 
     ![Creación de un recurso 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
@@ -121,7 +121,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     ![Creación de un recurso 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
-6. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
+6. En la pestaña **Datos básicos** , escriba o seleccione los siguientes **detalles del proyecto**.
     
     |Configuración  |Valor  |
     |---------|---------|
@@ -137,7 +137,6 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
     ![Creación de un recurso 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-
 8. Seleccione **Siguiente: Dirección de envío**.
 
     - Si ya tiene un dispositivo, seleccione el cuadro combinado **I have a Azure Stack Edge Pro device** (Tengo un dispositivo de Azure Stack Edge Pro).
@@ -150,7 +149,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 9. Seleccione **Siguiente: Etiquetas**. También tiene la opción de proporcionar etiquetas para clasificar los recursos y consolidar la facturación. Seleccione **Siguiente: Review + create** (Revisar y crear).
 
-10. En la pestaña **Revisar y crear**, revise la información de **Detalles de precios**, **Términos de uso** y los detalles de su recurso. Seleccione el cuadro combinado **I have reviewed the privacy terms** (He revisado los términos de privacidad).
+10. En la pestaña **Revisar y crear** , revise la información de **Detalles de precios** , **Términos de uso** y los detalles de su recurso. Seleccione el cuadro combinado **I have reviewed the privacy terms** (He revisado los términos de privacidad).
 
     ![Creación de un recurso 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -168,6 +167,9 @@ Tras realizar el pedido, Microsoft lo revisa y se pone en contacto con usted (po
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
 
+> [!NOTE]
+>Si quiere crear varios pedidos al mismo tiempo o clonar un pedido existente, puede usar los [scripts de Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). Para más información, consulte el archivo LÉAME.
+
 Si surgen problemas durante el proceso de pedido, consulte [Solución de problemas de pedidos](azure-stack-edge-troubleshoot-ordering.md).
 
 ## <a name="get-the-activation-key"></a>Obtención de la clave de activación
@@ -178,7 +180,7 @@ Cuando el recurso de Azure Stack Edge esté en funcionamiento, tendrá que obten
 
     ![Selección de instalación del dispositivo](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. En el icono **Activar**, proporcione un nombre para Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres. 
+2. En el icono **Activar** , proporcione un nombre para Azure Key Vault o acepte el nombre predeterminado. El nombre puede tener entre 3 y 24 caracteres. 
 
     Se crea un almacén de claves para cada recurso de Azure Stack Edge que se activa con el dispositivo. El almacén de claves permite almacenar los secretos y acceder a ellos; por ejemplo, la clave de integridad del canal (CIK) del servicio se almacena en el almacén de claves. 
 

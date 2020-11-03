@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205596"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495013"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configuración de una instancia de Azure Digital Twins y autenticación (con scripts)
 
@@ -31,9 +31,9 @@ En esta versión de este artículo se completan estos pasos mediante la ejecuci�
 
 El script de ejemplo se escribe en PowerShell. Forma parte de los [**ejemplos completos de Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), que puede descargar en la máquina. Para ello, vaya a ese vínculo de ejemplo y seleccione el botón *Descargar archivo ZIP* situado debajo del título.
 
-Se descargará el proyecto de ejemplo en la máquina como _**Azure_Digital_Twins_end_to_end_samples.zip**_ . Vaya a la carpeta en la máquina y descomprímala para extraer los archivos.
+Se descargará el proyecto de ejemplo en la máquina como _**Azure_Digital_Twins_end_to_end_samples.zip**_. Vaya a la carpeta en la máquina y descomprímala para extraer los archivos.
 
-En la carpeta descomprimida, el script de implementación se encuentra en _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_ .
+En la carpeta descomprimida, el script de implementación se encuentra en _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,50 +43,46 @@ En este artículo se usa un ejemplo de código de Azure Digital Twins para imple
 
 Estos son los pasos para ejecutar el script de implementación en Cloud Shell.
 1. Vaya a una ventana de [Azure Cloud Shell](https://shell.azure.com/) en el explorador. Inicie sesión con este comando:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     Si la CLI puede abrir el explorador predeterminado, lo hará y cargará una página de inicio de sesión de Azure. En caso contrario, abra una página del explorador en *https://aka.ms/devicelogin* y escriba el código de autorización que se muestra en el terminal.
  
 2. En la barra de iconos de Cloud Shell, asegúrese de que Cloud Shell está establecido para ejecutar la versión de PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Ventana de Cloud Shell que muestra la selección de la versión de PowerShell&quot;:::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Ventana de Cloud Shell que muestra la selección de la versión de PowerShell":::
 
-1. Seleccione el icono &quot;Cargar/Descargar archivos" y elija "Cargar".
+1. Seleccione el icono "Cargar/Descargar archivos" y elija "Cargar".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana de Cloud Shell que muestra la selección de la versión de PowerShell&quot;:::
-
-1. Seleccione el icono &quot;Cargar/Descargar archivos":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Ventana de Cloud Shell que muestra la selección del icono Cargar":::
 
     Vaya al archivo _**deploy.ps1**_ en la máquina (en _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_ ) y presione "Abrir". Con esta acción se cargará el archivo en Cloud Shell para que pueda ejecutarlo en la ventana de Cloud Shell.
 
 4. Ejecute el script mediante el envío del comando `./deploy.ps1` en la ventana de Cloud Shell. Puede copiar el comando siguiente (recuerde que, para pegar contenido en Cloud Shell, puede usar **Control + Mayús + V** en Windows y Linux, o **Cmd + Mayús + V** en macOS. También puede utilizar el menú contextual).
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    El script creará una instancia de Azure Digital Twins y asignará al usuario de Azure el rol de *Propietario de Azure Digital Twins (versión preliminar)* en la instancia.
+    El script creará una instancia de Azure Digital Twins y asignará al usuario de Azure el rol *Propietario de datos de Azure Digital Twins* en la instancia.
 
     Cuando el script se ejecuta a través de los pasos de configuración automatizada, se le solicitará que pase los valores siguientes:
     * Por ejemplo, el *identificador de suscripción* de la suscripción de Azure.
     * Por ejemplo, una *ubicación* en la que quiera implementar la instancia. Para ver qué regiones admiten Azure Digital Twins, visite [*Productos de Azure disponibles por región*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-    * Por ejemplo, el nombre de un *grupo de recursos* . Puede usar un grupo de recursos existente o escribir un nuevo nombre para crear uno.
+    * Por ejemplo, el nombre de un *grupo de recursos*. Puede usar un grupo de recursos existente o escribir un nuevo nombre para crear uno.
     * Por ejemplo, un *nombre* para la instancia de Azure Digital Twins. El nombre de la nueva instancia debe ser único dentro de la región de la suscripción (lo que significa que si la suscripción tiene otra instancia de Azure Digital Twins en la región que ya usa el nombre elegido, se le solicitará que elija otro nombre).
 
 A continuación se muestra un extracto del registro de salida del script:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Ventana de Cloud Shell que muestra la selección de la versión de PowerShell&quot;:::
-
-1. Seleccione el icono &quot;Cargar/Descargar archivos" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Ventana de Cloud Shell que muestra el registro de entrada y salida a través de la ejecución del script de implementación" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Si el script se completa correctamente, la copia impresa final indicará `Deployment completed successfully`. De lo contrario, solucione el mensaje de error y vuelva a ejecutar el script. Omitirá los pasos que ya ha completado y volverá a solicitar la entrada en el punto en el que se quedó.
 
 > [!NOTE]
-> Actualmente, el script asigna el rol de administración necesario en Azure Digital Twins ( *Propietario de Azure Digital Twins (versión preliminar)* ) al mismo usuario que ejecuta el script desde Cloud Shell. Si tiene que asignar este rol a otra persona que vaya a administrar la instancia, puede hacerlo ahora a través de Azure Portal ([instrucciones](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o la CLI ([instrucciones](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> Actualmente, el script asigna el rol de administración necesario en Azure Digital Twins ( *Propietario de datos de Azure Digital Twins* ) al mismo usuario que ejecuta el script desde Cloud Shell. Si tiene que asignar este rol a otra persona que vaya a administrar la instancia, puede hacerlo ahora a través de Azure Portal ([instrucciones](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) o la CLI ([instrucciones](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->Actualmente hay un **problema conocido** con la instalación con scripts, por el que algunos usuarios (especialmente los usuarios de las [cuentas de Microsoft personales o MSA](https://account.microsoft.com/account)) pueden encontrar que no se creó la **asignación de roles para el _Propietario de Azure Digital Twins (versión preliminar)_** .
+>Actualmente hay un **problema conocido** con la instalación con scripts, por el que algunos usuarios (especialmente los usuarios de las [cuentas de Microsoft personales o MSA](https://account.microsoft.com/account)) pueden encontrar que no se creó la **asignación de roles para el _Propietario de datos de Azure Digital Twins_**.
 >
 >Puede comprobar la asignación de roles mediante la sección [*Comprobación de la asignación de roles de usuario*](#verify-user-role-assignment) que aparece más adelante en este artículo y, si es necesario, configurar la asignación de roles manualmente mediante [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) o la [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >
@@ -108,11 +104,9 @@ Si la comprobación no se ha realizado correctamente, puede volver a intentar la
 
 ### <a name="collect-instance-values"></a>Recopilación de valores de la instancia
 
-Seleccione el nombre de la instancia en la [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir la página *Información general* de la instancia. Anote su *Nombre* , *Grupo de recursos* y *Nombre de host* . Puede necesitarlos más adelante para identificar la instancia y conectarse a ella.
+Seleccione el nombre de la instancia en la [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) para abrir la página *Información general* de la instancia. Anote su *Nombre* , *Grupo de recursos* y *Nombre de host*. Puede necesitarlos más adelante para identificar la instancia y conectarse a ella.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Ventana de Cloud Shell que muestra la selección de la versión de PowerShell&quot;:::
-
-1. Seleccione el icono &quot;Cargar/Descargar archivos":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Resaltado de los valores importantes en la página de información general de la instancia":::
 
 ### <a name="verify-user-role-assignment"></a>Comprobación de la asignación de roles de usuario
 

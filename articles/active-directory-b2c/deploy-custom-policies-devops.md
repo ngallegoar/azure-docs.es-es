@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388687"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363936"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Implementar directivas personalizadas con Azure Pipelines
 
@@ -33,7 +33,7 @@ Son necesarios tres pasos principales para permitir que Azure Pipelines administ
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Inquilino de Azure AD B2C](tutorial-create-tenant.md) y credenciales para un usuario en el directorio con el rol [Administrador de directivas IEF de B2C](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Inquilino de Azure AD B2C](tutorial-create-tenant.md) y credenciales para un usuario en el directorio con el rol [Administrador de directivas IEF de B2C](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Directivas personalizadas](custom-policy-get-started.md) cargadas en el inquilino
 * [Aplicación de administración](microsoft-graph-get-started.md) registrada en el inquilino con el permiso de Microsoft Graph API *Policy.ReadWrite.TrustFramework*
 * [Canalización de Azure](https://azure.microsoft.com/services/devops/pipelines/) y acceso a un [proyecto de Azure DevOps Services][devops-create-project]
@@ -58,7 +58,7 @@ Una vez registrada la aplicación de administración, está listo para configura
 1. [Cree un nuevo proyecto][devops-create-project] o seleccione uno existente.
 1. En el proyecto, navegue hasta **Repos** y seleccione la página **Archivos**. Seleccione un repositorio existente o cree uno para este ejercicio.
 1. Cree una carpeta denominada *B2CAssets*. Asigne al archivo de marcador de posición necesario el nombre *README.md* y **confirme** el archivo. Puede quitar este archivo más adelante, si lo desea.
-1. Agregue los archivos de directiva de Azure AD B2C a la carpeta *B2CAssets*. Entre ellos se incluyen *TrustFrameworkBase.xml*, *TrustFrameworkExtensions.xml*, *SignUpOrSignin.xml*, *ProfileEdit.xml* y *PasswordReset.xml* y otras directivas que ha creado. Registre el nombre de archivo de cada archivo de directiva de Azure AD B2C para usarlo en un paso posterior (se usan como argumentos de script de PowerShell).
+1. Agregue los archivos de directiva de Azure AD B2C a la carpeta *B2CAssets*. Entre ellos se incluyen *TrustFrameworkBase.xml* , *TrustFrameworkExtensions.xml* , *SignUpOrSignin.xml* , *ProfileEdit.xml* y *PasswordReset.xml* y otras directivas que ha creado. Registre el nombre de archivo de cada archivo de directiva de Azure AD B2C para usarlo en un paso posterior (se usan como argumentos de script de PowerShell).
 1. Cree una carpeta denominada *Scripts* en el directorio raíz del repositorio, asigne al archivo de marcador de posición el nombre *DeployToB2c.ps1*. No confirme el archivo en este momento, lo hará en un paso posterior.
 1. Pegue el siguiente script de PowerShell en *DeployToB2c.ps1* y, después, **confirme** el archivo. El script adquiere un token de Azure AD y llama a Microsoft Graph API para cargar las directivas dentro de la carpeta *B2CAssets* en el inquilino de Azure AD B2C.
 
@@ -115,9 +115,9 @@ Con el repositorio inicializado y rellenado con los archivos de directivas perso
 
 1. Inicie sesión en su organización de Azure DevOps Services y vaya a su proyecto.
 1. En el proyecto, seleccione **Canalizaciones** > **Versiones** > **Nueva canalización**.
-1. En **Seleccionar una plantilla**, seleccione **Empty job** (Trabajo vacío).
-1. Escriba un **Nombre de fase**, por ejemplo, *DeployCustomPolicies*, y luego cierre el panel.
-1. Seleccione **Agregar un artefacto** y, en **Tipo de origen**, seleccione **Azure Repository** (Repositorio de Azure).
+1. En **Seleccionar una plantilla** , seleccione **Empty job** (Trabajo vacío).
+1. Escriba un **Nombre de fase** , por ejemplo, *DeployCustomPolicies* , y luego cierre el panel.
+1. Seleccione **Agregar un artefacto** y, en **Tipo de origen** , seleccione **Azure Repository** (Repositorio de Azure).
     1. Elija el repositorio de origen que contiene la carpeta *Scripts* que ha rellenado con el script de PowerShell.
     1. Seleccione una **Rama predeterminada**. Si ha creado un nuevo repositorio en la sección anterior, la rama predeterminada es *maestro*.
     1. Deje la configuración de **Versión predeterminada** en *Más reciente desde la rama predeterminada*.
@@ -148,11 +148,11 @@ A continuación, agregue una tarea para implementar un archivo de directiva.
 1. Busque y seleccione **PowerShell**. No seleccione "Azure PowerShell", "PowerShell en equipos de destino" ni otra entrada de PowerShell.
 1. Seleccione la tarea **Script de PowerShell** recién agregada.
 1. Escriba los siguientes valores para la tarea Script de PowerShell:
-    * **Versión de la tarea**: 2.*
-    * **Nombre para mostrar**: El nombre de la directiva que debe cargar esta tarea. Por ejemplo, *B2C_1A_TrustFrameworkBase*.
-    * **Tipo**: Ruta del archivo
-    * **Ruta de acceso del script**: Seleccione los puntos suspensivos (***...***), navegue hasta la carpeta *Scripts* y, a continuación, seleccione el archivo *DeployToB2C.ps1*.
-    * **Argumentos**:
+    * **Versión de la tarea** : 2.*
+    * **Nombre para mostrar** : El nombre de la directiva que debe cargar esta tarea. Por ejemplo, *B2C_1A_TrustFrameworkBase*.
+    * **Tipo** : Ruta del archivo
+    * **Ruta de acceso del script** : Seleccione los puntos suspensivos (* *_..._* _), vaya a la carpeta _Scripts* y, a continuación, seleccione el archivo *DeployToB2C.ps1*.
+    * **Argumentos** :
 
         Escriba los siguientes valores para **Argumentos**. Reemplace `{alias-name}` por el alias que especificó en la sección anterior.
 
@@ -161,7 +161,7 @@ A continuación, agregue una tarea para implementar un archivo de directiva.
         -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/{alias-name}/B2CAssets/TrustFrameworkBase.xml
         ```
 
-        Por ejemplo, si el alias especificado es *policyRepo*, la línea de argumento debe ser:
+        Por ejemplo, si el alias especificado es *policyRepo* , la línea de argumento debe ser:
 
         ```PowerShell
         # After
@@ -170,11 +170,11 @@ A continuación, agregue una tarea para implementar un archivo de directiva.
 
 1. Seleccione **Guardar** para guardar el trabajo de agente.
 
-La tarea que acaba de agregar carga *un* archivo de directiva en Azure AD B2C. Antes de continuar, desencadene manualmente el trabajo (**Crear versión**) para asegurarse de que se completa correctamente antes de crear tareas adicionales.
+La tarea que acaba de agregar carga *un* archivo de directiva en Azure AD B2C. Antes de continuar, desencadene manualmente el trabajo ( **Crear versión** ) para asegurarse de que se completa correctamente antes de crear tareas adicionales.
 
 Si la tarea se completa correctamente, agregue tareas de implementación siguiendo los pasos anteriores para cada uno de los archivos de directiva personalizada. Modifique los valores de los argumentos `-PolicyId` y `-PathToFile` para cada directiva.
 
-`PolicyId` es un valor que se encuentra al principio de un archivo de directiva XML dentro del nodo TrustFrameworkPolicy. Por ejemplo, `PolicyId` en el siguiente XML de directiva es *B2C_1A_TrustFrameworkBase*:
+`PolicyId` es un valor que se encuentra al principio de un archivo de directiva XML dentro del nodo TrustFrameworkPolicy. Por ejemplo, `PolicyId` en el siguiente XML de directiva es *B2C_1A_TrustFrameworkBase* :
 
 ```xml
 <TrustFrameworkPolicy

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e0fc50647e926ea919f70b888f3efc303713fe1e
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088676"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631196"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implementación de Azure Spring Cloud en una red virtual de Azure (inserción de red virtual)
 
@@ -35,14 +35,14 @@ az provider register --namespace Microsoft.AppPlatform
 ## <a name="virtual-network-requirements"></a>Requisitos de red virtual
 La red virtual en la que se implementa la instancia de servicio de Azure Spring Cloud debe cumplir los siguientes requisitos:
 
-* **Ubicación**: la red virtual debe residir en la misma ubicación que la instancia de servicio de Azure Spring Cloud.
-* **Suscripción**: la red virtual debe estar en la misma suscripción que la instancia de servicio de Azure Spring Cloud.
-* **Subredes**: la red virtual debe incluir dos subredes dedicadas para una instancia de servicio de Azure Spring Cloud: 
+* **Ubicación** : la red virtual debe residir en la misma ubicación que la instancia de servicio de Azure Spring Cloud.
+* **Suscripción** : la red virtual debe estar en la misma suscripción que la instancia de servicio de Azure Spring Cloud.
+* **Subredes** : la red virtual debe incluir dos subredes dedicadas para una instancia de servicio de Azure Spring Cloud: 
     * Una para el entorno de ejecución del servicio
     * Una para las aplicaciones de microservicios de Spring Boot. 
     * Hay una relación uno a uno entre estas subredes y una instancia de servicio de Azure Spring Cloud. Debe usar una nueva subred para cada instancia de servicio que implemente, y cada subred solo puede incluir una única instancia de servicio.
-* **Espacio de direcciones**: un bloque CIDR de hasta /28 para la subred del entorno de ejecución del servicio y otro bloque CIDR de hasta /24 para la subred de aplicaciones de microservicios de Spring Boot.
-* **Tabla de rutas**: las subredes no deben tener asociada una tabla de rutas existente.
+* **Espacio de direcciones** : un bloque CIDR de hasta /28 para la subred del entorno de ejecución del servicio y otro bloque CIDR de hasta /24 para la subred de aplicaciones de microservicios de Spring Boot.
+* **Tabla de rutas** : las subredes no deben tener asociada una tabla de rutas existente.
 
 Los procedimientos siguientes describen la configuración de la red virtual para que contenga la instancia de Azure Spring Cloud.
 
@@ -51,7 +51,7 @@ Si ya tiene una red virtual para hospedar la instancia de servicio de Azure Spri
 
 1. En el menú de Azure Portal, seleccione **Crear un recurso**. En Azure Marketplace, seleccione **Redes** > **Red virtual**.
 
-1. En el cuadro de diálogo **Crear red virtual**, escriba o seleccione la siguiente información:
+1. En el cuadro de diálogo **Crear red virtual** , escriba o seleccione la siguiente información:
 
     |Configuración          |Valor                                             |
     |-----------------|--------------------------------------------------|
@@ -66,7 +66,7 @@ Si ya tiene una red virtual para hospedar la instancia de servicio de Azure Spri
 
 1. Seleccione **Agregar subred** y, a continuación, escriba *service-runtime-subnet* para **Nombre de subred** y 10.1.0.0/24 para **Intervalo de direcciones de subred**. A continuación, haga clic en **Agregar**.
 
-1. Seleccione de nuevo **Agregar subred** y escriba *apps-subnet* para **Nombre de subred** y 10.1.1.0/24 para **Intervalo de direcciones de subred**.  Haga clic en **Agregar**.
+1. Seleccione de nuevo **Agregar subred** y, luego, escriba los valores de **Nombre de subred** e **Intervalo de direcciones de subred** , por ejemplo, *apps-subnet* y 10.1.1.0/24.  Haga clic en **Agregar**.
 
 1. Haga clic en **Revisar + crear**. Deje el resto de campos con los valores predeterminados y haga clic en **Aceptar**.
 
@@ -78,7 +78,7 @@ Seleccione la red virtual *azure-spring-cloud-vnet* que creó anteriormente.
 
     ![Control de acceso para la red virtual](./media/spring-cloud-v-net-injection/access-control.png)
 
-2. En el cuadro de diálogo **Agregar asignación de roles**, escriba o seleccione esta información:
+2. En el cuadro de diálogo **Agregar asignación de roles** , escriba o seleccione esta información:
 
     |Configuración  |Valor                                             |
     |---------|--------------------------------------------------|
@@ -110,7 +110,7 @@ az role assignment create \
 
 1. En el cuadro de búsqueda de la parte superior, busque **Azure Spring Cloud** y seleccione **Azure Spring Cloud** en el resultado.
 
-1. En la página **Azure Spring Cloud**, seleccione **+ Add** (+ Agregar).
+1. En la página **Azure Spring Cloud** , seleccione **+ Add** (+ Agregar).
 
 1. Rellene el formulario en la página **Crear** de Azure Spring Cloud. 
 
@@ -135,11 +135,11 @@ az role assignment create \
 
 Después de la implementación, se crearán dos grupos de recursos adicionales en la suscripción para hospedar los recursos de red de la instancia de servicio de Azure Spring Cloud.  Vaya a **Inicio** y seleccione **Grupos de recursos** en los elementos del menú superior para buscar los siguientes nuevos grupos de recursos.
 
-El grupo de recursos llamado *azure-spring-cloud-service-runtime_{nombre de la instancia de servicio}_{región de la instancia de servicio}* contiene los recursos de red del entorno de ejecución del servicio de la instancia de servicio.
+El grupo de recursos llamado *ap-svc-rt_{nombre de la instancia del servicio}_{región de la instancia del servicio}* contiene los recursos de red del entorno de ejecución de servicio de la instancia de servicio.
 
   ![Entorno de ejecución del servicio](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
-El grupo de recursos llamado *azure-spring-cloud-service-runtime_{nombre de la instancia de servicio}_{región de la instancia de servicio}* contiene los recursos de red de las aplicaciones de microservicios de Spring Boot de la instancia de servicio.
+El grupo de recursos llamado *ap-app_{nombre de la instancia de servicio}_{región de la instancia de servicio}* contiene los recursos de red de las aplicaciones de microservicios de Spring Boot de la instancia de servicio.
 
   ![Grupo de recursos de aplicaciones](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 

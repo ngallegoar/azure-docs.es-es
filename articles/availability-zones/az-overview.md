@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 5178bf6955203c6a5625b941dd0102f2f4458abc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 771635baa3c49c07d0d796cf6ef3be7b870de3e1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078381"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425441"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiones y Availability Zones en Azure
 
@@ -47,8 +47,8 @@ Una zona de disponibilidad de una región de Azure es una combinación de un dom
 
 Coloque sus recursos de proceso, almacenamiento, red y datos dentro de una zona y replíquelos en otras para conseguir una alta disponibilidad en la arquitectura de sus aplicaciones. Los servicios de Azure que admiten zonas de disponibilidad se dividen en dos categorías:
 
-- **Servicios de zona**: donde un recurso se ancla a una zona específica (por ejemplo, máquinas virtuales, discos administrados o direcciones IP estándar) o
-- **Servicios con redundancia de zona**: cuando la plataforma de Azure se replica automáticamente entre zonas (por ejemplo, almacenamiento con redundancia de zona y SQL Database).
+- **Servicios de zona** : donde un recurso se ancla a una zona específica (por ejemplo, máquinas virtuales, discos administrados o direcciones IP estándar) o
+- **Servicios con redundancia de zona** : cuando la plataforma de Azure se replica automáticamente entre zonas (por ejemplo, almacenamiento con redundancia de zona y SQL Database).
 
 Para lograr una continuidad del negocio integral en Azure, cree la arquitectura de aplicación mediante la combinación de zonas de disponibilidad y pares de regiones de Azure. Puede replicar de forma sincrónica las aplicaciones y los datos mediante zonas de disponibilidad dentro de una región de Azure para conseguir alta disponibilidad, y replicar de forma asincrónica entre regiones de Azure para la protección de recuperación ante desastres.
  
@@ -61,16 +61,16 @@ Para lograr una continuidad del negocio integral en Azure, cree la arquitectura 
 
 El enfoque de Azure sobre la disponibilidad de los servicios de Azure entre regiones se describe mejor al expresar los servicios disponibles en las regiones recomendadas y alternativas.
 
-- **Región recomendada**: una región que proporciona la gama más amplia de capacidades de servicio que está diseñada para admitir Availability Zones ahora o en el futuro. Se designan en Azure Portal como **Recomendado**.
+- **Región recomendada** : una región que proporciona la gama más amplia de capacidades de servicio que está diseñada para admitir Availability Zones ahora o en el futuro. Se designan en Azure Portal como **Recomendado**.
 - **Región alternativa (otra)** : una región que extiende la superficie de Azure dentro de un límite de residencia de datos donde también existe una región recomendada. Las regiones alternativas ayudan a optimizar la latencia y proporcionan una segunda región para las necesidades de recuperación ante desastres. No están diseñadas para admitir Availability Zones (aunque Azure realiza una evaluación periódica de estas regiones para determinar si deben convertirse en regiones recomendadas). Se designan en Azure Portal como **Otras**.
 
 ### <a name="comparing-region-types"></a>Comparación de tipos de regiones
 
 Los servicios de Azure se agrupan en tres categorías: servicios fundamentales, estándar y especializados. La directiva general de Azure sobre la implementación de servicios en una región determinada se basa principalmente en el tipo de región, las categorías de servicio y la demanda del cliente:
 
-- **Fundamentales**: están disponibles en todas las regiones recomendadas y alternativas cuando la región está disponible con carácter general, o en un plazo de 12 meses después de que un nuevo servicio fundamental esté disponible con carácter general.
-- **Estándar**: disponibles en todas las regiones recomendadas en un plazo de 12 meses a partir de la disponibilidad general de la región o del servicio; se basan en la demanda en las regiones alternativas (muchos ya están implementados en un gran subconjunto de regiones alternativas).
-- **Especializados**: ofertas de servicio dirigidas, a menudo centradas en el sector o respaldadas por hardware personalizado o especializado. Disponibilidad basada en la demanda entre regiones (muchos ya están implementados en un gran subconjunto de regiones recomendadas).
+- **Fundamentales** : están disponibles en todas las regiones recomendadas y alternativas cuando la región está disponible con carácter general, o en un plazo de 12 meses después de que un nuevo servicio fundamental esté disponible con carácter general.
+- **Estándar** : disponibles en todas las regiones recomendadas en un plazo de 12 meses a partir de la disponibilidad general de la región o del servicio; se basan en la demanda en las regiones alternativas (muchos ya están implementados en un gran subconjunto de regiones alternativas).
+- **Especializados** : ofertas de servicio dirigidas, a menudo centradas en el sector o respaldadas por hardware personalizado o especializado. Disponibilidad basada en la demanda entre regiones (muchos ya están implementados en un gran subconjunto de regiones recomendadas).
 
 Para ver los servicios que se implementan en una región determinada, así como la futura hoja de ruta de la versión preliminar o la disponibilidad general de los servicios de una región, vea [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
@@ -170,10 +170,10 @@ No hay ningún costo adicional asociado a las máquinas virtuales implementadas 
 - [Creación de una máquina virtual](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Agregación de un disco administrado mediante PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Creación de un conjunto de escalado de máquinas virtuales con redundancia de zona](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Equilibrio de carga de máquinas virtuales en distintas zonas con un equilibrador de carga estándar con un front-end con redundancia de zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Equilibrio de carga de máquinas virtuales dentro de una zona con un equilibrador de carga estándar con un front-end de zona](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
-- [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy.md)
-- [SQL Database](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
+- [Equilibrio de carga de máquinas virtuales en distintas zonas con un equilibrador de carga estándar con un front-end con redundancia de zona](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Equilibrio de carga de máquinas virtuales dentro de una zona con un equilibrador de carga estándar con un front-end de zona](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Almacenamiento con redundancia de zona](../storage/common/storage-redundancy-zrs.md)
+- [Nivel de uso general de SQL Database](../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
 - [Recuperación ante desastres geográfica de Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Recuperación ante desastres geográfica de Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Crear una puerta de enlace de red virtual con redundancia de zona](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

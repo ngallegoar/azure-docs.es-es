@@ -2,17 +2,24 @@
 title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
-ms.date: 07/20/2020
-ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079458"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675386"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
-En este artículo se describe cómo usar el botón **Implementar en Azure** para implementar plantillas desde un repositorio de GitHub. Puede agregar el botón directamente al archivo README.md en el repositorio de GitHub o a una página web que haga referencia al repositorio. Este método solo admite la implementación de nivel de grupo de recursos.
+En este artículo se describe cómo usar el botón **Implementar en Azure** para implementar plantillas desde un repositorio de GitHub. Puede agregar el botón directamente al archivo README.md en el repositorio de GitHub. O bien, puede agregar el botón a una página web que haga referencia al repositorio.
+
+El ámbito de implementación viene determinado por el esquema de plantilla. Para más información, consulte:
+
+* [resource groups](deploy-to-resource-group.md)
+* [subscriptions](deploy-to-subscription.md)
+* [grupos de administración](deploy-to-management-group.md)
+* [inquilinos](deploy-to-tenant.md).
 
 ## <a name="use-common-image"></a>Uso de una imagen común
 
@@ -38,7 +45,7 @@ El formato de la dirección URL es:
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-A continuación, codifíquela como una URL. Puede usar un codificador en línea o ejecutar un comando. En el siguiente ejemplo de PowerShell se muestra cómo codificar un valor como una dirección URL.
+A continuación, convierta la dirección URL en un valor con codificación URL. Puede usar un codificador en línea o ejecutar un comando. En el siguiente ejemplo de PowerShell se muestra cómo codificar un valor como una dirección URL.
 
 ```powershell
 [uri]::EscapeDataString($url)

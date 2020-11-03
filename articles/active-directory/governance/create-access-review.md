@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602938"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362780"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos y las aplicaciones en las revisiones de acceso de Azure AD
 
@@ -57,20 +57,20 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
     ![Creación de una revisión de acceso: fechas de inicio y de finalización](./media/create-access-review/start-end-dates.png)
 
-1. Para que la revisión de acceso sea periódica, cambie la opción **Frecuencia** de **Una vez** a **Semanal**, **Mensual**,  **Trimestral**, **Semestral** o **Anual**. Use el control deslizante o el cuadro de texto **Duración** para definir cuántos días se abrirá cada revisión de la serie periódica para que los revisores escriban datos. Por ejemplo, la duración máxima que puede establecer para una revisión mensual es 27 días, con el fin de evitar la superposición de revisiones.
+1. Para que la revisión de acceso sea periódica, cambie la opción **Frecuencia** de **Una vez** a **Semanal** , **Mensual** ,  **Trimestral** , **Semestral** o **Anual**. Use el control deslizante o el cuadro de texto **Duración** para definir cuántos días se abrirá cada revisión de la serie periódica para que los revisores escriban datos. Por ejemplo, la duración máxima que puede establecer para una revisión mensual es 27 días, con el fin de evitar la superposición de revisiones.
 
 1. Use el valor **Fin** para especificar cómo finalizar la serie de revisión de acceso periódica. La serie puede finalizar de tres formas: 
     1. Se ejecuta continuamente para iniciar revisiones de manera indefinida
     1. Hasta una fecha específica,
     1. Hasta después de que se haya completado un número definido de repeticiones. 
   
-    Un administrador de usuarios o un administrador de empresa puede detener la serie después de su creación cambiando la fecha en **Configuración**, de manera que termine en esa fecha.
+    Un administrador de usuarios o un administrador de empresa puede detener la serie después de su creación cambiando la fecha en **Configuración** , de manera que termine en esa fecha.
 
-1. En la sección **Usuarios**, especifique los usuarios a los que se aplica esa revisión de acceso. Las revisiones de acceso pueden ser de los miembros de un grupo o de los usuarios que se hayan asignado a una aplicación. Puede limitar aún más el ámbito de la revisión de acceso para revisar solo los usuarios invitados que sean miembros (o se hayan asignado a la aplicación), en lugar de revisar todos los usuarios miembros o que tengan acceso a la aplicación.
+1. En la sección **Usuarios** , especifique los usuarios a los que se aplica esa revisión de acceso. Las revisiones de acceso pueden ser de los miembros de un grupo o de los usuarios que se hayan asignado a una aplicación. Puede limitar aún más el ámbito de la revisión de acceso para revisar solo los usuarios invitados que sean miembros (o se hayan asignado a la aplicación), en lugar de revisar todos los usuarios miembros o que tengan acceso a la aplicación.
 
     ![Creación de una revisión de acceso: usuarios](./media/create-access-review/users.png)
 
-1. En la sección **grupo**, seleccione uno o varios grupos cuya pertenencia le gustaría revisar.
+1. En la sección **grupo** , seleccione uno o varios grupos cuya pertenencia le gustaría revisar.
 
     > [!NOTE]
     > Si selecciona más de uno, se crearán varias revisiones de acceso. Por ejemplo, al seleccionar cinco grupos, se crearán cinco revisiones de acceso independientes.
@@ -84,11 +84,11 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
     
     ![Creación de una revisión de acceso: selección de la aplicación](./media/create-access-review/select-application.png)
 
-1. En la sección **Revisores**, seleccione una o más personas para revisar todos los usuarios del ámbito. También puede seleccionar que los miembros revisen su propio acceso. Si el recurso es un grupo, puede pedir a sus propietarios que hagan la revisión. También puede requerir que los revisores proporcionen un motivo cuando aprueben el acceso.
+1. En la sección **Revisores** , seleccione una o más personas para revisar todos los usuarios del ámbito. También puede seleccionar que los miembros revisen su propio acceso. Si el recurso es un grupo, puede pedir a sus propietarios que hagan la revisión. También puede requerir que los revisores proporcionen un motivo cuando aprueben el acceso.
 
     ![Creación de una revisión de acceso: revisores](./media/create-access-review/reviewers.png)
 
-1. En la sección **Programas**, seleccione el programa que desea usar. El **programa predeterminado** siempre está presente.
+1. En la sección **Programas** , seleccione el programa que desea usar. El **programa predeterminado** siempre está presente.
 
     ![Creación de una revisión de acceso: programas](./media/create-access-review/programs.png)
 
@@ -106,10 +106,10 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 
 3. Use la lista **Si los revisores no responden** para especificar lo que ocurre con los usuarios a los que el revisor no ha revisado dentro del período de revisión. Este valor no afecta a los usuarios que los revisores revisaron manualmente. Si la decisión final del revisor es Denegar, se quitará el acceso del usuario.
 
-    - **Sin cambios**: dejar el acceso del usuario sin cambios
-    - **Quitar acceso**: quitar el acceso del usuario
-    - **Aprobar acceso**: aprobar el acceso del usuario
-    - **Aceptar recomendaciones**: aceptar la recomendación del sistema sobre la denegación o aprobación del acceso continuo del usuario
+    - **Sin cambios** : dejar el acceso del usuario sin cambios
+    - **Quitar acceso** : quitar el acceso del usuario
+    - **Aprobar acceso** : aprobar el acceso del usuario
+    - **Aceptar recomendaciones** : aceptar la recomendación del sistema sobre la denegación o aprobación del acceso continuo del usuario
 
     ![Creación de una revisión de acceso: configuración avanzada](./media/create-access-review/advanced-settings-preview-new.png)
 
@@ -120,7 +120,7 @@ Para obtener más información, consulte [Requisitos de licencia](access-reviews
 Para más información sobre los procedimientos recomendados para eliminar los usuarios invitados que ya no tienen acceso a los recursos de su organización, consulte el artículo titulado [Uso de Azure AD Identity Governance para revisar y eliminar usuarios externos que ya no tienen acceso a los recursos](access-reviews-external-users.md).
 
 >[!NOTE]
-> La opción Acción que se aplicará a los usuarios denegados solo funciona si previamente se ha determinado el ámbito de una revisión a solo los usuarios invitados (consulte el paso 8 de la sección **Creación de una o varias revisiones de acceso**).
+> La opción Acción que se aplicará a los usuarios denegados solo funciona si previamente se ha determinado el ámbito de una revisión a solo los usuarios invitados (consulte el paso 8 de la sección **Creación de una o varias revisiones de acceso** ).
 
 ### <a name="advanced-settings"></a>Configuración avanzada
 
@@ -130,7 +130,7 @@ Para más información sobre los procedimientos recomendados para eliminar los u
 
 1. Establezca **Requerir motivo de la aprobación** en **Habilitar** para requerir que el revisor proporcione un motivo para la aprobación.
 
-1. Establezca **Notificaciones de correo** en **Habilitar**para que Azure AD envíe notificaciones de correo electrónico a los revisores cuando se inicia una revisión de acceso y a los administradores cuando se complete.
+1. Establezca **Notificaciones de correo** en **Habilitar** para que Azure AD envíe notificaciones de correo electrónico a los revisores cuando se inicia una revisión de acceso y a los administradores cuando se complete.
 
 1. Establezca **Avisos** en **Habilitar** para que Azure AD envíe recordatorios de revisiones de acceso en curso a los revisores que no hayan completado su revisión. 
 
@@ -164,6 +164,7 @@ Si ha asignado como revisores a invitados y no han aceptado la invitación, no r
 |Revisado automáticamente | El sistema ha registrado decisiones para todos los usuarios que no se han revisado. La revisión está lista para continuar con **Aplicando** si está habilitada la opción de aplicación automática. |
 |Aplicando | No habrá ningún cambio en el acceso para los usuarios que se han aprobado. |
 |Aplicado | Los usuarios denegados, si los hay, se han quitado del recurso o directorio. |
+|Con error | La revisión no pudo progresar. Este error puede estar relacionado con la eliminación del inquilino, un cambio en las licencias u otros cambios internos del inquilino. |
 
 ## <a name="create-reviews-via-apis"></a>Creación de revisiones mediante API
 

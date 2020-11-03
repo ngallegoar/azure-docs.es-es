@@ -1,6 +1,6 @@
 ---
 title: Transformación de datos
-description: Transforme o procese datos en Azure Data Factory mediante Hadoop, Machine Learning o Azure Data Lake Analytics.
+description: Transformación de datos o procesamiento de datos en Azure Data Factory con Hadoop, Azure Machine Learning Studio (clásico) o Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37eac4acab7232e44f94e852b1c04c5549447b09
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442792"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637690"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "89442792"
 > * [de Hadoop](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md) 
 > * [Procedimiento almacenado](transform-data-using-stored-procedure.md)
 > * [U-SQL de análisis con Data Lake](transform-data-using-data-lake-analytics.md)
 > * [Notebook de Databricks](transform-data-databricks-notebook.md)
@@ -49,7 +49,7 @@ La asignación de flujos de datos es una transformación de datos diseñada visu
 
 ### <a name="wrangling-data-flows"></a>Flujos de datos de limpieza y transformación
 
-Los flujos de datos de limpieza y transformación en Azure Data Factory permiten la preparación de datos sin código en la escala de nube de forma iterativa. Los flujos de datos de limpieza y transformación se integran en [Power Query Online](https://docs.microsoft.com/power-query/) y ponen las funciones de Power Query M a disposición para la limpieza y transformación de datos en la escala de nube a través de la ejecución de Spark. Para más información, consulte [Flujos de datos de limpieza y transformación](wrangling-data-flow-overview.md).
+Los flujos de datos de limpieza y transformación en Azure Data Factory permiten la preparación de datos sin código en la escala de nube de forma iterativa. Los flujos de datos de limpieza y transformación se integran en [Power Query Online](/power-query/) y ponen las funciones de Power Query M a disposición para la limpieza y transformación de datos en la escala de nube a través de la ejecución de Spark. Para más información, consulte [Flujos de datos de limpieza y transformación](wrangling-data-flow-overview.md).
 
 ## <a name="external-transformations"></a>Transformaciones externas
 
@@ -70,12 +70,12 @@ La actividad de streaming de HDInsight en una canalización de Data Factory ejec
 ### <a name="hdinsight-spark-activity"></a>Actividad de HDInsight Spark
 La actividad de Spark de HDInsight en una canalización de Data Factory ejecuta consultas de Spark en su propio clúster de HDInsight. Consulte [Invoke Spark programs from Azure Data Factory](transform-data-using-spark.md) (Invocar programas Spark desde Data Factory de Azure) para obtener información detallada. 
 
-### <a name="machine-learning-activities"></a>Actividades de Machine Learning
-Azure Data Factory permite crear fácilmente canalizaciones que utilizan un servicio web de Azure Machine Learning publicado para realizar análisis predictivos. Con la [actividad de ejecución de lotes](transform-data-using-machine-learning.md) en una canalización de Azure Data Factory puede invocar un servicio web Machine Learning para realizar predicciones sobre los datos en el lote.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Actividades de Azure Machine Learning Studio (clásico)
+Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de Azure Machine Learning Studio (clásico) publicado para realizar análisis predictivos. Mediante la [actividad de ejecución de lotes](transform-data-using-machine-learning.md) en una canalización de Azure Data Factory, puede invocar un servicio web de Studio (clásico) para realizar predicciones sobre los datos del lote.
 
-Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Machine Learning tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Machine Learning que volvió a entrenar. Puede usar la [actividad de recursos de actualización](update-machine-learning-models.md) para actualizar el servicio web con el modelo recién entrenado.  
+Con el tiempo, los modelos predictivos de los experimentos de puntuación de Studio (clásico) se tienen que volver a entrenar con nuevos conjuntos de datos de entrada. Después de terminar con el nuevo entrenamiento, tendrá que actualizar el servicio web de puntuación con el modelo de Machine Learning que volvió a entrenar. Puede usar la [actividad de recursos de actualización](update-machine-learning-models.md) para actualizar el servicio web con el modelo recién entrenado.  
 
-Consulte [Usar actividades de Machine Learning](transform-data-using-machine-learning.md) para obtener más información sobre estas actividades de Machine Learning. 
+Consulte [Uso de actividades de Azure Machine Learning Studio (clásico)](transform-data-using-machine-learning.md) para más información sobre estas actividades de Studio (clásico). 
 
 ### <a name="stored-procedure-activity"></a>Actividad de procedimiento almacenado
 Puede usar la actividad de procedimiento almacenado de SQL Server en una canalización de Data Factory para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos: Azure SQL Database, Azure Synapse Analytics (antes SQL Data Warehouse) y SQL Server Database en una empresa o una máquina virtual de Azure. Vea el artículo [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md) para más información.  
@@ -103,8 +103,8 @@ Puede crear una actividad personalizada para ejecutar scripts de R en su clúste
 ### <a name="compute-environments"></a>Entornos de proceso
 Deberá crear un servicio vinculado para el entorno de proceso y después usar el servicio vinculado al definir una actividad de transformación. La Factoría de datos admite dos tipos de entornos de proceso. 
 
-- **A petición**: en este caso, el entorno informático es completamente administrado por Data Factory. El servicio Factoría de datos lo crea automáticamente antes de que se envíe un trabajo para procesar los datos y que se quite cuando finalice el trabajo. Los usuarios pueden configurar y controlar la configuración granular del entorno de proceso a petición para la ejecución del trabajo, la administración del clúster y las acciones de arranque. 
-- **Traiga el suyo propio**: en este caso, puede registrar su propio entorno informático (por ejemplo, clúster de HDInsight) como servicio vinculado en la Factoría de datos. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades. 
+- **A petición** : en este caso, el entorno informático es completamente administrado por Data Factory. El servicio Factoría de datos lo crea automáticamente antes de que se envíe un trabajo para procesar los datos y que se quite cuando finalice el trabajo. Los usuarios pueden configurar y controlar la configuración granular del entorno de proceso a petición para la ejecución del trabajo, la administración del clúster y las acciones de arranque. 
+- **Traiga el suyo propio** : en este caso, puede registrar su propio entorno informático (por ejemplo, clúster de HDInsight) como servicio vinculado en la Factoría de datos. El usuario administra el entorno de procesos y el servicio Factoría de datos lo usa para ejecutar las actividades. 
 
 Vea el artículo [Servicios vinculados de procesos](compute-linked-services.md) para obtener información sobre los servicios vinculados de proceso compatibles con Data Factory. 
 

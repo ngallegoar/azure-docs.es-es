@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996637"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534080"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -101,11 +101,11 @@ Puede consultar los primeros cinco eventos de primer plano cronometrados, que in
 
 Por ejemplo, en el diagrama siguiente, la sincronización de archivos de registro está en la primera posición. Indica el número de esperas necesarias para que LGWR escriba el búfer de registro en el archivo de registro de puesta al día. Estos resultados indican que son necesarios almacenamiento o discos de mejor rendimiento. Además, también se muestra en el diagrama el número de CPU (núcleos) y la memoria.
 
-![Captura de pantalla de la página del informe de AWR](./media/oracle-design/cpu_memory_info.png)
+![Captura de pantalla que muestra la sincronización del archivo de registro en la parte superior de la tabla.](./media/oracle-design/cpu_memory_info.png)
 
 El siguiente diagrama muestra el total de E/S de lectura y escritura. Hubo 59 GB de lectura y 247,3 GB de escritura durante la realización del informe.
 
-![Captura de pantalla de la página del informe de AWR](./media/oracle-design/io_info.png)
+![Captura de pantalla que muestra el total de E/S de lectura y escritura.](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. Elegir una máquina virtual
 
@@ -143,13 +143,13 @@ En función de los requisitos de ancho de banda de red, puede elegir diferentes 
 
 ### <a name="disk-types-and-configurations"></a>Tipos y configuraciones de disco
 
-- *Discos de sistema operativo predeterminados*: estos tipos de disco ofrecen datos persistentes y almacenamiento en caché. Estos discos están optimizados para el acceso del sistema operativo en tiempo de inicio y no están diseñados para cargas de trabajo transaccionales o de almacenamiento de datos (analíticas).
+- *Discos de sistema operativo predeterminados* : estos tipos de disco ofrecen datos persistentes y almacenamiento en caché. Estos discos están optimizados para el acceso del sistema operativo en tiempo de inicio y no están diseñados para cargas de trabajo transaccionales o de almacenamiento de datos (analíticas).
 
-- *Discos no administrados*: con estos tipos de disco, administra las cuentas de almacenamiento que almacenan los archivos de disco duro virtual (VHD) que se corresponden con los discos de la máquina virtual. Los archivos VHD se almacenan como blobs de páginas en las cuentas de Azure Storage.
+- *Discos no administrados* : con estos tipos de disco, administra las cuentas de almacenamiento que almacenan los archivos de disco duro virtual (VHD) que se corresponden con los discos de la máquina virtual. Los archivos VHD se almacenan como blobs de páginas en las cuentas de Azure Storage.
 
-- *Managed Disks*: Azure administra las cuentas de almacenamiento utilizadas para los discos de la máquina virtual. Especifique el tipo de disco (Premium o Standard) y el tamaño de disco que necesite. Azure crea y administra el disco en su nombre.
+- *Managed Disks* : Azure administra las cuentas de almacenamiento utilizadas para los discos de la máquina virtual. Especifique el tipo de disco (Premium o Standard) y el tamaño de disco que necesite. Azure crea y administra el disco en su nombre.
 
-- *Discos de Premium Storage*: estos tipos de disco son más adecuados para las cargas de trabajo de producción. Premium Storage admite discos de máquina virtual que se pueden conectar a series específicas de máquina virtual, como las series DS, DSv2, GS y F. El disco Premium tiene diferentes tamaños entre los que puede elegir, desde 32 GB a 4,096 GB. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM.
+- *Discos de Premium Storage* : estos tipos de disco son más adecuados para las cargas de trabajo de producción. Premium Storage admite discos de máquina virtual que se pueden conectar a series específicas de máquina virtual, como las series DS, DSv2, GS y F. El disco Premium tiene diferentes tamaños entre los que puede elegir, desde 32 GB a 4,096 GB. Cada tamaño de disco tiene sus propias especificaciones de rendimiento. En función de los requisitos de la aplicación puede conectar uno o varios discos a la VM.
 
 Cuando se crea un nuevo disco administrado desde el portal, puede elegir el **Tipo de cuenta** para el tipo de disco que quiere usar. Es importante saber que en el menú desplegable no se muestran todos los discos disponibles. Después de elegir un tamaño de máquina virtual determinado, el menú muestra solo las SKU de Premium Storage disponibles que se basan en ese tamaño de máquina virtual.
 
@@ -186,9 +186,9 @@ Una vez que se haya hecho una idea de los requisitos de E/S, puede elegir la com
 
 Existen tres opciones para el almacenamiento en caché de host:
 
-- *ReadOnly*: todas las solicitudes se almacenan en caché para lecturas futuras. Todas las escrituras se guardan de modo permanente directamente en Azure Blob Storage.
+- *ReadOnly* : todas las solicitudes se almacenan en caché para lecturas futuras. Todas las escrituras se guardan de modo permanente directamente en Azure Blob Storage.
 
-- *ReadWrite*: se trata de un algoritmo de "lectura anticipada". Las lecturas y las escrituras se almacenan en caché para lecturas futuras. Si no son escrituras a través, se guardan primero en la caché local. También proporciona la menor latencia de disco para cargas de trabajo ligeras. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
+- *ReadWrite* : se trata de un algoritmo de "lectura anticipada". Las lecturas y las escrituras se almacenan en caché para lecturas futuras. Si no son escrituras a través, se guardan primero en la caché local. También proporciona la menor latencia de disco para cargas de trabajo ligeras. El uso de la memoria caché ReadWrite con una aplicación que no administre la persistencia de los datos necesarios puede provocar la pérdida de los datos, si se bloquea la máquina virtual.
 
 - *Ninguno* (deshabilitado): con esta opción, puede omitir la memoria caché. Todos los datos se transfieren al disco y se guardan en Azure Storage. Este método proporciona la mayor velocidad de E/S para cargas de trabajo intensivas de E/S. También debe tener en cuenta el "costo de transacción".
 
@@ -196,7 +196,7 @@ Existen tres opciones para el almacenamiento en caché de host:
 
 Para maximizar el rendimiento, se recomienda comenzar con la opción **Ninguno** para el almacenamiento en caché de host. En el caso de Premium Storage, es importante tener en cuenta que debe deshabilitar las "barreras" al montar el sistema de archivos con las opciones **Solo lectura** o **Ninguno**. Actualice el archivo/etc/fstab con el UUID en los discos.
 
-![Captura de pantalla de la página de disco administrado](./media/oracle-design/premium_disk02.png)
+![Captura de pantalla de la página del disco administrado que muestra las opciones Solo lectura y Ninguno.](./media/oracle-design/premium_disk02.png)
 
 - En los discos del sistema operativo, use el almacenamiento en caché predeterminado **Lectura y escritura**.
 - En el caso de SYSTEM, TEMP y UNDO, use la opción **Ninguno** para el almacenamiento en caché.
@@ -208,9 +208,9 @@ Una vez que se haya guardado la configuración del disco de datos, no se puede c
 
 Después de que se instala y configura el entorno de Azure, el siguiente paso es proteger la red. Estas son algunas recomendaciones:
 
-- *Directiva del NSG*: el grupo de seguridad de red (NSG) se puede definir como una subred o NIC. Es más fácil controlar el acceso en el nivel de subred para garantizar la seguridad y forzar el enrutamiento de elementos como el firewall de aplicaciones.
+- *Directiva del NSG* : el grupo de seguridad de red (NSG) se puede definir como una subred o NIC. Es más fácil controlar el acceso en el nivel de subred para garantizar la seguridad y forzar el enrutamiento de elementos como el firewall de aplicaciones.
 
-- *Jumpbox*: Para un acceso más seguro, los administradores no deben conectarse directamente con el servicio de aplicación o la base de datos. Se usa un Jumpbox como un medio entre la máquina del administrador y los recursos de Azure.
+- *Jumpbox* : Para un acceso más seguro, los administradores no deben conectarse directamente con el servicio de aplicación o la base de datos. Se usa un Jumpbox como un medio entre la máquina del administrador y los recursos de Azure.
 ![Captura de pantalla de la página de topología de Jumpbox](./media/oracle-design/jumpbox.png)
 
     La máquina del administrador debería tener un acceso restringido a la dirección IP del Jumpbox únicamente. El Jumpbox debe tener acceso a la aplicación y la base de datos.

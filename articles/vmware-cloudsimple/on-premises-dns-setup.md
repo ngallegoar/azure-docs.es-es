@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79225512"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424713"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configuración de DNS para la resolución de nombres en el acceso a vCenter de la nube privada desde estaciones de trabajo en el entorno local
 
@@ -25,7 +25,7 @@ Para acceder a vCenter Server en una nube privada de CloudSimple desde estacione
 
 2. Vaya a **Recursos** > **Nubes privadas** y seleccione la nube privada a la que desee conectarse.
 
-3. En la página **Resumen** de la nube privada, en **Información básica**, copie la dirección IP del servidor DNS de la nube privada.
+3. En la página **Resumen** de la nube privada, en **Información básica** , copie la dirección IP del servidor DNS de la nube privada.
 
     ![Servidores DNS de la nube privada](media/private-cloud-dns-server.png)
 
@@ -58,19 +58,19 @@ zone "az.cloudsimple.io"
 
 1. Haga clic con el botón derecho en el servidor DNS y seleccione **Nueva zona**. 
   
-    ![Nueva zona](media/DNS01.png)
+    ![Captura de pantalla en la que se resalta la opción de menú Nueva zona.](media/DNS01.png)
 2. Seleccione **Zona de rutas internas** y haga clic en **Siguiente**.
 
-    ![Nueva zona](media/DNS02.png)
+    ![Captura de pantalla en la que se resalta la opción Zona de rutas internas.](media/DNS02.png)
 3. Seleccione la opción adecuada en función de su entorno y haga clic en **Siguiente**.
 
-    ![Nueva zona](media/DNS03.png)
+    ![Captura de pantalla que muestra las opciones de replicación de datos de zona.](media/DNS03.png)
 4. Seleccione **Zona de búsqueda directa** y haga clic en **Siguiente**.
 
-    ![Nueva zona](media/DNS01.png)
+    ![Captura de pantalla en la que se resalta la opción Zona de búsqueda directa.](media/DNS01.png)
 5. Escriba el nombre de la zona y haga clic en **Siguiente**.
 
-    ![Nueva zona](media/DNS05.png)
+    ![Captura de pantalla que muestra dónde escribir el nombre de la zona.](media/DNS05.png)
 6. Escriba las direcciones IP de los servidores DNS de la nube privada que obtuvo en el portal de CloudSimple.
 
     ![Nueva zona](media/DNS06.png)

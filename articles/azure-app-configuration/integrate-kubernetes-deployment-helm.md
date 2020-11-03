@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074845"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426708"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integración con la implementación de Kubernetes mediante Helm
 
@@ -51,16 +51,16 @@ En este tutorial se da por supuesto que tiene conocimientos básicos sobre la ad
     Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.
 
 ## <a name="add-a-key-vault-reference-to-app-configuration"></a>Incorporación de una referencia de Key Vault a App Configuration
-1. Inicie sesión en [Azure Portal ](https://portal.azure.com) y agregue un secreto a [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) con el nombre **Password** y el valor **miContraseña**. 
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y agregue un secreto a [Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) con el nombre **Password** y el valor **miContraseña**. 
 2. Seleccione la instancia del almacén de App Configuration que creó en la sección anterior.
 
 3. Seleccione **Explorador de configuración**.
 
 4. Seleccione **+ Crear** > **Referencia del almacén de claves** y, a continuación, especifique los valores siguientes:
-    - **Clave**: Seleccione **secrets.password**.
-    - **Etiqueta**: deje este valor en blanco.
-    - **Suscripción**, **Grupo de recursos** y **Key Vault**: escriba los valores correspondientes a los del almacén de claves que creó en el paso anterior.
-    - **Secreto**: seleccione el secreto llamado **Password** que creó en la sección anterior.
+    - **Clave** : Seleccione **secrets.password**.
+    - **Etiqueta** : deje este valor en blanco.
+    - **Suscripción** , **Grupo de recursos** y **Key Vault** : escriba los valores correspondientes a los del almacén de claves que creó en el paso anterior.
+    - **Secreto** : seleccione el secreto llamado **Password** que creó en la sección anterior.
 
 ## <a name="create-helm-chart"></a>Creación de un gráfico de Helm ##
 En primer lugar, cree un gráfico de Helm de ejemplo con el siguiente comando:
@@ -229,9 +229,9 @@ Compruebe que las configuraciones y los secretos se establecieron correctamente;
 
 ![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/kubernetes-dashboard-env-variables.png)
 
-Un secreto, **password**, se almacena como referencia de Key Vault en App Configuration y también se agregó a los secretos de Kubernetes. 
+Un secreto, **password** , se almacena como referencia de Key Vault en App Configuration y también se agregó a los secretos de Kubernetes. 
 
-![Inicio de la aplicación del artículo de inicio rápido en un entorno local](./media/kubernetes-dashboard-secrets.png)
+![Captura de pantalla que resalta la contraseña en la sección de datos.](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089169"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426936"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Conexión de un módulo IoT Plug and Play (C#)
 
@@ -35,13 +35,13 @@ Use la herramienta del explorador de Azure IoT para agregar un nuevo dispositivo
 
 Agregue un módulo denominado **my-module** a **my-module-device** :
 
-1. En la herramienta del explorador de Azure IoT, vaya hasta el dispositivo **my-module-device** .
+1. En la herramienta del explorador de Azure IoT, vaya hasta el dispositivo **my-module-device**.
 
-1. Seleccione **Identidad del módulo** y, a continuación, seleccione **+ Agregar** .
+1. Seleccione **Identidad del módulo** y, a continuación, seleccione **+ Agregar**.
 
-1. Escriba **my-module** como nombre de la identidad de módulo y seleccione **Guardar** .
+1. Escriba **my-module** como nombre de la identidad de módulo y seleccione **Guardar**.
 
-1. En la lista de identidades de módulo, seleccione **my-module** . Copie la cadena de conexión principal. Usará esta cadena de conexión del módulo más adelante en este tutorial.
+1. En la lista de identidades de módulo, seleccione **my-module**. Copie la cadena de conexión principal. Usará esta cadena de conexión del módulo más adelante en este tutorial.
 
 1. Seleccione la pestaña **Módulo gemelo** y observe que no hay ninguna propiedad deseada o notificada:
 
@@ -169,7 +169,7 @@ Si ejecuta el código y, a continuación, usa el explorador de Azure IoT para ve
 
 Los SDK del servicio le permiten recuperar el id. de modelo de los dispositivos y módulos de IoT Plug and Play conectados. Puede usar los SDK del servicio para establecer propiedades de escritura y comandos de llamada:
 
-1. En otra instancia de Visual Studio, abra el proyecto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* .
+1. En otra instancia de Visual Studio, abra el proyecto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj*.
 
 1. En Visual Studio, vaya a **Project > Thermostat Properties > Debug** (Proyecto > Propiedades del termostato > Depurar). Después, agregue las siguientes variables de entorno al proyecto:
 

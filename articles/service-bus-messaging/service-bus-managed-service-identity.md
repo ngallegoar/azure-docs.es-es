@@ -2,13 +2,13 @@
 title: Identidades administradas para recursos de Azure con Service Bus
 description: En este artículo se describe cómo usar identidades administradas para obtener acceso a entidades de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079865"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425532"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus
 [Identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) es una característica de Azure que permite crear una identidad segura asociada a la implementación en la que se ejecuta el código de la aplicación. A continuación, puede asociar esa identidad con los roles de control de acceso que conceden permisos personalizados para acceder a recursos específicos de Azure que la aplicación necesita.
@@ -45,7 +45,7 @@ Antes de asignar un rol de Azure a una entidad de seguridad, determine el ámbit
 
 En la lista siguiente se describen los niveles en los que puede definir el ámbito de acceso a recursos Service Bus, empezando por el ámbito más restringido:
 
-- **Cola**, **tema** o **suscripción**: la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles de Azure de Service Bus en el nivel de suscripción. Este es un ejemplo del uso del comando de la CLI de Azure [az-role-assignment-create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) para asignar una identidad a un rol de Azure de Service Bus: 
+- **Cola** , **tema** o **suscripción** : la asignación de roles se aplica a la entidad de Service Bus específica. Actualmente, Azure Portal no admite la asignación de usuarios, grupos o identidades administradas a los roles de Azure de Service Bus en el nivel de suscripción. Este es un ejemplo del uso del comando de la CLI de Azure [az-role-assignment-create](/cli/azure/role/assignment?#az-role-assignment-create) para asignar una identidad a un rol de Azure de Service Bus: 
 
     ```azurecli
     az role assignment create \
@@ -53,9 +53,9 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
         --assignee $assignee_id \
         --scope /subscriptions/$subscription_id/resourceGroups/$resource_group/providers/Microsoft.ServiceBus/namespaces/$service_bus_namespace/topics/$service_bus_topic/subscriptions/$service_bus_subscription
     ```
-- **Espacio de nombres de Service Bus**: la asignación de roles abarca toda la topología de Service Bus en el espacio de nombres y el grupo de consumidores que tiene asociado.
-- **Grupo de recursos**: la asignación de roles se aplica a todos los recursos de Service Bus del grupo de recursos.
-- **Suscripción**: la asignación de roles se aplica a todos los recursos de Service Bus de todos los grupos de recursos de la suscripción.
+- **Espacio de nombres de Service Bus** : la asignación de roles abarca toda la topología de Service Bus en el espacio de nombres y el grupo de consumidores que tiene asociado.
+- **Grupo de recursos** : la asignación de roles se aplica a todos los recursos de Service Bus del grupo de recursos.
+- **Suscripción** : la asignación de roles se aplica a todos los recursos de Service Bus de todos los grupos de recursos de la suscripción.
 
 > [!NOTE]
 > Tenga en cuenta que las asignaciones de roles de Azure pueden tardar hasta cinco minutos en propagarse. 
@@ -91,6 +91,9 @@ Una vez creada la aplicación, siga estos pasos:
 
 Una vez habilitada esta configuración, se crea una identidad de servicio en Azure Active Directory (Azure AD) y se configura en el host de App Service.
 
+> [!NOTE]
+> Cuando se usa una identidad administrada, la cadena de conexión debe tener el formato: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity`.
+
 Ahora, asigne esta identidad de servicio a un rol en el ámbito requerido en los recursos de Service Bus.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Para asignar roles de Azure mediante Azure Portal
@@ -105,7 +108,7 @@ Para asignar un rol a un espacio de nombres de Service Bus, vaya al espacio de n
 1. Seleccione **Access Control (IAM)** en el menú de la izquierda para mostrar la configuración de control de acceso para el espacio de nombres de Service Bus.
 1.  Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
 3.  Seleccione **Agregar** para agregar un rol nuevo.
-4.  En la página **Agregar asignación de roles**, seleccione los roles de Azure Service Bus que quiere asignar. A continuación, busque la identidad del servicio que ha registrado para asignar el rol.
+4.  En la página **Agregar asignación de roles** , seleccione los roles de Azure Service Bus que quiere asignar. A continuación, busque la identidad del servicio que ha registrado para asignar el rol.
     
     ![Página Agregar asignación de roles](./media/service-bus-managed-service-identity/add-role-assignment-page.png)
 5.  Seleccione **Guardar**. La identidad a la que ha asignado el rol aparece enumerada debajo de ese rol. Por ejemplo, la siguiente imagen muestra que la identidad del servicio tiene al propietario de los datos de Azure Service Bus.
@@ -114,8 +117,10 @@ Para asignar un rol a un espacio de nombres de Service Bus, vaya al espacio de n
 
 Una vez que haya asignado el rol, la aplicación web tendrá acceso a las entidades de Service Bus en el ámbito definido. 
 
-### <a name="run-the-app"></a>Ejecución la aplicación
 
+
+
+### <a name="run-the-app"></a>Ejecución la aplicación
 Ahora, modifique la página predeterminada de la aplicación de ASP.NET que ha creado. Puede utilizar el código de la aplicación web de [este repositorio de GitHub](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 La página Default.aspx es su página de destino. El código puede encontrarse en el archivo Default.aspx.cs. El resultado es una aplicación web básica con unos cuantos campos de entrada y con los botones **enviar** y **recibir** que se conectan a Service Bus para enviar o recibir mensajes.

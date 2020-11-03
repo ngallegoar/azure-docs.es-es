@@ -7,22 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102500"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494852"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Administración de modelos de Azure Digital Twins
 
-Puede administrar los [modelos](concepts-models.md) que la instancia de Azure Digital Twins conoce mediante las [**API DigitalTwinsModels**](how-to-use-apis-sdks.md), el [SDK de .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
+Puede administrar los [modelos](concepts-models.md) que la instancia de Azure Digital Twins conoce mediante las [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), el [SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) o la [CLI de Azure Digital Twins](how-to-use-cli.md). 
 
 Las operaciones de administración incluyen la carga, validación, recuperación y eliminación de modelos. 
 
 ## <a name="create-models"></a>Crear modelos
 
-Los modelos de Azure Digital Twins se escriben en DTDL y se guardan como archivos *.json* . También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/), que proporciona validación de sintaxis y otras características para facilitar la escritura de documentos DTDL.
+Los modelos de Azure Digital Twins se escriben en DTDL y se guardan como archivos *.json*. También hay una [extensión de DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponible para [Visual Studio Code](https://code.visualstudio.com/), que proporciona validación de sintaxis y otras características para facilitar la escritura de documentos DTDL.
 
 Considere un ejemplo en el que un hospital quiere representar digitalmente sus habitaciones. Cada habitación contiene un dispensador de jabón inteligente para supervisar el lavado de manos y sensores para controlar el tráfico en la habitación.
 
@@ -200,7 +200,7 @@ Cuando se crea un gemelo, dado que la nueva versión del modelo y la versión de
 
 Esto también significa que la carga de una nueva versión de un modelo no afecta automáticamente a los gemelos que ya existan. Los gemelos existentes simplemente conservarán las instancias de la versión antigua del modelo.
 
-Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [*Actualización de un modelo de gemelo digital*](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins* . Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo** .
+Puede actualizar estos gemelos a la nueva versión del modelo aplicándole revisiones, tal como se describe en la sección [*Actualización de un modelo de gemelo digital*](how-to-manage-twin.md#update-a-digital-twins-model) de *Procedimientos: Administración de Digital Twins*. Dentro de la misma revisión, debe actualizar los **identificadores de modelo** (a la nueva versión) y los **campos que deben modificarse para que se ajusten al nuevo modelo**.
 
 ### <a name="remove-models"></a>Eliminación de modelos
 
@@ -285,8 +285,6 @@ Azure Digital Twins no impide este estado, por lo que debe asegurarse de revisar
 ## <a name="manage-models-with-cli"></a>Administración de modelos con la CLI
 
 Los modelos también se pueden administrar con la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

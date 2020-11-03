@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613992"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441681"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adición de un conector de API a un flujo de usuario
 
@@ -25,7 +25,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 ## <a name="create-an-api-connector"></a>Creación de un conector de API
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de Azure AD.
-2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
+2. En **Servicios de Azure** , seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **External Identities**.
 4. Seleccione **All API connectors (Preview)** (Todos los conectores de API [versión preliminar]) y, después, seleccione **New API connector** (Nuevo conector de API).
 
@@ -35,7 +35,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 6. Proporcione el valor de **Dirección URL del punto de conexión** de la llamada API.
 7. Indique la información de autenticación de la API.
 
-   - Actualmente solo se admite la autenticación básica. Si desea usar una API sin autenticación básica con fines de desarrollo, solo tiene que escribir un **Nombre de usuario** y una **Contraseña** ficticios que la API pueda omitir. Si se utiliza con una función de Azure y una clave de API, puede incluir el código como un parámetro de consulta en **Dirección URL del punto de conexión** (por ejemplo, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+   - Actualmente solo se admite la autenticación básica. Si desea usar una API sin autenticación básica con fines de desarrollo, solo tiene que escribir un **Nombre de usuario** y una **Contraseña** ficticios que la API pueda omitir. Si se utiliza con una función de Azure y una clave de API, puede incluir el código como un parámetro de consulta en **Dirección URL del punto de conexión** (por ejemplo, https []()://contoso.azurewebsites.net/api/endpoint <b>?code=0123456789</b>).
 
    ![Configuración de un conector de API nuevo](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 8. Seleccione **Guardar**.
@@ -44,7 +44,7 @@ Para usar un [conector de API](api-connectors-overview.md), primero debe crear e
 > Anteriormente, tenía que configurar los atributos de usuario que se enviaban a la API ("Claims to send") y los atributos de usuario que se aceptaban de la API ("Claims to receive"). Ahora, todos los atributos de usuario se envían de forma predeterminada si tienen un valor y la API puede devolver cualquier atributo de usuario en una respuesta de "continuación".
 
 ## <a name="the-request-sent-to-your-api"></a>Solicitud enviada a la API
-Un conector de API se materializa como una solicitud **HTTP POST** y envía los atributos de usuario ("claims") como pares de clave y valor en un cuerpo JSON. Los atributos se serializan de forma similar a las propiedades de usuario de [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties). 
+Un conector de API se materializa como una solicitud **HTTP POST** y envía los atributos de usuario ("claims") como pares de clave y valor en un cuerpo JSON. Los atributos se serializan de forma similar a las propiedades de usuario de [Microsoft Graph](/graph/api/resources/user#properties). 
 
 **Solicitud de ejemplo**
 ```http
@@ -85,14 +85,14 @@ Además, en todas las solicitudes se envía de forma predeterminada la notificac
 > Si una notificación para enviar no tiene un valor en el momento en que se llama al punto de conexión de la API, la notificación no se enviará a la API. La API debe estar diseñada para comprobar explícitamente el valor que espera.
 
 > [!TIP] 
-> La API puede utilizar notificaciones de [**identidades ("identities")** ](https://docs.microsoft.com/graph/api/resources/objectidentity) y de **dirección de correo electrónico ("email")** para identificar a un usuario antes de que tenga una cuenta en el inquilino. La notificación "identities" se envía cuando un usuario se autentica con un proveedor de identidades como Google o Facebook. Siempre se envía "email".
+> La API puede utilizar notificaciones de [**identidades ("identities")**](/graph/api/resources/objectidentity) y de **dirección de correo electrónico ("email")** para identificar a un usuario antes de que tenga una cuenta en el inquilino. La notificación "identities" se envía cuando un usuario se autentica con un proveedor de identidades como Google o Facebook. Siempre se envía "email".
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Habilitación del conector de API en un flujo de usuario
 
 Siga estos pasos para agregar el conector de API a un flujo de usuario de autoservicio de registro.
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador de Azure AD.
-2. En **Servicios de Azure**, seleccione **Azure Active Directory**.
+2. En **Servicios de Azure** , seleccione **Azure Active Directory**.
 3. En el menú de la izquierda, seleccione **External Identities**.
 4. Seleccione **Flujos de usuario (versión preliminar)** y, después, seleccione el flujo de usuario para el que desea habilitar el conector de API.
 5. Seleccione **Conectores de API** y, después, seleccione los puntos de conexión de API que desea invocar en los pasos siguientes del flujo de usuario:
@@ -106,7 +106,7 @@ Siga estos pasos para agregar el conector de API a un flujo de usuario de autose
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Después de iniciar sesión con un proveedor de identidades
 
-Inmediatamente después de que el usuario se autentique con un proveedor de identidades (Google, Facebook, Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la ***página de recopilación de atributos***, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. 
+Inmediatamente después de que el usuario se autentique con un proveedor de identidades (Google, Facebook, Azure AD), se invoca un conector de API en este paso del proceso de registro. Este paso precede a la * *_página de recopilación de atributos_* _, que es el formulario que se muestra al usuario para recopilar los atributos de usuario. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -248,7 +248,7 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sí      | La versión de la API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Sí      | El valor debe ser `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | No       | Los valores se pueden almacenar en el directorio si están seleccionados como **Claim to receive** (Notificación para recibir) en la configuración del conector de API y **User attribute** (Atributo de usuario) de un flujo de usuario. Los valores se pueden devolver en el token si están seleccionados como **Application claim** (Notificación de aplicación).                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Los valores se pueden almacenar en el directorio si están seleccionados como _ *Claim to receive* * (Notificación para recibir) en la configuración del conector de API y **User attributes** (Atributos de usuario) de un flujo de usuario. Los valores se pueden devolver en el token si están seleccionados como **Application claim** (Notificación de aplicación).                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | No es necesario que la notificación devuelta contenga `_<extensions-app-id>_`. Los valores se almacenan almacenar en el directorio si están seleccionados como **Claim to receive** (Notificación para recibir) en la configuración del conector de API y **User attribute** (Atributo de usuario) de un flujo de usuario. Los atributos personalizados no se pueden devolver en el token. |
 
 ### <a name="example-of-a-blocking-response"></a>Ejemplo de una respuesta de bloqueo

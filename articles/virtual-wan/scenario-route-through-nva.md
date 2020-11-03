@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976254"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424753"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Escenario: Enrutamiento del tráfico a través de una aplicación virtual de red
 
@@ -41,12 +41,12 @@ En la siguiente matriz de conectividad se resumen los flujos admitidos en este e
 
 | From             | A:|   *Radios de NVA*|*VNet de NVA*|*VNet no de NVA*|*Ramas*|
 |---|---|---|---|---|---|
-| **Radios de NVA**   | &#8594; | 0/0 UDR  |  Emparejamiento |   0/0 UDR    |  0/0 UDR  |
-| **VNet de NVA**    | &#8594; |   estática |      X   |        X     |      X    |
-| **VNet no de NVA**| &#8594; |   estática |      X   |        X     |      X    |
-| **Ramas**     | &#8594; |   estática |      X   |        X     |      X    |
+| **Radios de NVA**   | &#8594; | Sobre la red virtual de la NVA | Emparejamiento | Sobre la red virtual de la NVA | Sobre la red virtual de la NVA |
+| **VNet de NVA**    | &#8594; | Emparejamiento | Directo | Directo | Directo |
+| **VNet no de NVA**| &#8594; | Sobre la red virtual de la NVA | Directo | Directo | Directo |
+| **Ramas**     | &#8594; | Sobre la red virtual de la NVA | Directo | Directo | Directo |
 
-Cada una de las celdas de la matriz de conectividad describe si una conexión de Virtual WAN (el lado "De" del flujo, los encabezados de fila de la tabla) aprende un prefijo de destino (el lado "A" del flujo, los encabezados de columna en cursiva de la tabla) para un flujo de tráfico concreto. Una "X" significa que la conectividad se proporciona de forma nativa por Virtual WAN y "estática" significa que la conectividad se proporciona mediante Virtual WAN mediante rutas estáticas. Tenga en cuenta lo siguiente.
+Cada una de las celdas de la matriz de conectividad describe cómo se comunica una red virtual o una rama (el lado "De" del flujo, los encabezados de fila de la tabla) con una red virtual o una rama de destino (el lado "A" del flujo, los encabezados de columna en cursiva de la tabla). "Directo" significa que Virtual WAN proporciona la conectividad de forma nativa, "Emparejamiento" significa que la conectividad la proporciona una ruta definida por el usuario en la red virtual, "Sobre la red virtual de la NVA" significa que la conectividad atraviesa la NVA implementada en la red virtual de la NVA. Tenga en cuenta lo siguiente.
 
 * Los radios de NVA no están administrados por Virtual WAN. Como consecuencia, el usuario mantiene los mecanismos con los que se comunicarán con otras redes virtuales o ramas. La conectividad a la red virtual de NVA se proporciona mediante un emparejamiento de VNet, y una ruta predeterminada a 0.0.0.0/0 que apunta a la NVA como próximo salto debe cubrir la conectividad a Internet, a otros radios y a las ramas.
 * Las redes virtuales de NVA sabrán sobre sus propios radios de NVA, pero no sobre los radios de NVA conectados a otras redes virtuales de NVA. Por ejemplo, en la tabla 1, VNet 2 sabe sobre VNet 5 y VNet 6, pero no sobre otros radios, como VNet 7 y VNet 8. Se requiere una ruta estática para insertar los prefijos de otros radios en redes virtuales de NVA
@@ -61,7 +61,7 @@ Teniendo en cuenta que los radios de NVA no están administrados por Virtual WAN
   * Tabla de enrutamiento asociada: **Valor predeterminado**
   * Propagación a tablas de enrutamiento: **Valor predeterminado**
 
-Sin embargo, en este escenario debemos pensar en qué rutas estáticas se deben configurar. Cada ruta estática tendrá dos componentes, una parte en el centro de Virtual WAN que indica a los componentes de Virtual WAN qué conexión usar para cada radio, y otra en esa conexión específica que apunta a la dirección IP concreta asignada a la NVA (o a un equilibrador de carga delante de varias NVA), como se muestra en la **Ilustración 1**:
+Sin embargo, en este escenario debemos pensar en qué rutas estáticas se deben configurar. Cada ruta estática tendrá dos componentes, una parte en el centro de Virtual WAN que indica a los componentes de Virtual WAN qué conexión usar para cada radio, y otra en esa conexión específica que apunta a la dirección IP concreta asignada a la NVA (o a un equilibrador de carga delante de varias NVA), como se muestra en la **Ilustración 1** :
 
 **Ilustración 1**
 
@@ -87,7 +87,7 @@ Ahora las redes virtuales de NVA, las redes virtuales que no son de NVA y las ra
 
 ## <a name="architecture"></a><a name="architecture"></a>Arquitectura
 
-En la **Ilustración 2**, hay dos centros: **Hub 1** y **Hub 2**.
+En la **Ilustración 2** , hay dos centros: **Hub 1** y **Hub 2**.
 
 * **Hub 1** y **Hub 2** están conectados directamente a las redes virtuales de NVA **VNet 2** y **VNet 4**.
 
@@ -99,13 +99,13 @@ En la **Ilustración 2**, hay dos centros: **Hub 1** y **Hub 2**.
 
 **Ilustración 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Ilustración 1" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Ilustración 2" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Flujo de trabajo del escenario
 
 Para configurar el enrutamiento a través de NVA, estos son los pasos que debe tener en cuenta:
 
-1. Identifique la conexión de red virtual de radio de NVA. En la **Ilustración 2**, son la **conexión VNet 2 (eastusconn)** y la **conexión VNet 4 (weconn)** .
+1. Identifique la conexión de red virtual de radio de NVA. En la **Ilustración 2** , son la **conexión VNet 2 (eastusconn)** y la **conexión VNet 4 (weconn)** .
 
    Asegúrese de que se han configurado rutas definidas por el usuario:
    * De VNet 5 y VNet 6 a la IP de NVA de VNet 2
@@ -117,7 +117,7 @@ Virtual WAN no admite un escenario en el que VNet 5 y 6 se conectan a un concent
 
 2. Incorpore una entrada de ruta estática agregada para VNet 2, 5 y 6 a la tabla de rutas predeterminada de Hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Ilustración 1":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Ejemplo":::
 
 3. Configure una ruta estática para VNet 5 y 6 en la conexión de red virtual de VNet 2. Para establecer la configuración de enrutamiento para una conexión de red virtual, vea [Enrutamiento de centros virtuales](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Esto hará que la configuración de enrutamiento cambie como se muestra en la **
 
 **Ilustración 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Ilustración 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Ilustración 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

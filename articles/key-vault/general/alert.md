@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589017"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427013"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Supervisión y alertas de Azure Key Vault
 
@@ -36,15 +36,15 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 + Total de visitas de la API de servicio (filtrar por tipo de actividad) 
 + Códigos de error (filtrar por código de estado) 
 
-**Disponibilidad del almacén**: esta métrica siempre debe estar en el 100 %. Esta es una métrica importante para la supervisión ya que puede mostrar rápidamente si el almacén de claves ha sufrido una interrupción. 
+**Disponibilidad del almacén** : esta métrica siempre debe estar en el 100 %. Esta es una métrica importante para la supervisión ya que puede mostrar rápidamente si el almacén de claves ha sufrido una interrupción. 
 
-**Saturación del almacén**: el número de solicitudes por segundo que puede procesar un almacén de claves se basa en el tipo de operación que se realiza. Algunas operaciones del almacén tienen un umbral inferior de solicitudes por segundo. Esta métrica suma el uso total del almacén de claves de todos los tipos de operaciones para obtener un valor porcentual que indica el uso actual del almacén de claves. Para obtener una lista completa de los límites del servicio Key Vault, consulte el siguiente documento. [Límites de servicio de Azure Key Vault](service-limits.md)
+**Saturación del almacén** : el número de solicitudes por segundo que puede procesar un almacén de claves se basa en el tipo de operación que se realiza. Algunas operaciones del almacén tienen un umbral inferior de solicitudes por segundo. Esta métrica suma el uso total del almacén de claves de todos los tipos de operaciones para obtener un valor porcentual que indica el uso actual del almacén de claves. Para obtener una lista completa de los límites del servicio Key Vault, consulte el siguiente documento. [Límites de servicio de Azure Key Vault](service-limits.md)
 
-**Latencia de la API de servicio**: esta métrica muestra la latencia media de una llamada al almacén de claves. Aunque el almacén de claves puede estar dentro de los límites del servicio, un uso elevado del almacén podría generar una latencia que provoque un error en las aplicaciones de nivel inferior. 
+**Latencia de la API de servicio** : esta métrica muestra la latencia media de una llamada al almacén de claves. Aunque el almacén de claves puede estar dentro de los límites del servicio, un uso elevado del almacén podría generar una latencia que provoque un error en las aplicaciones de nivel inferior. 
 
-**Total de visitas de la API**: esta métrica muestra todas las llamadas realizadas al almacén de claves. Esto le ayudará a identificar qué aplicaciones realizan llamadas a su almacén de claves. 
+**Total de visitas de la API** : esta métrica muestra todas las llamadas realizadas al almacén de claves. Esto le ayudará a identificar qué aplicaciones realizan llamadas a su almacén de claves. 
 
-**Códigos de error**: esta métrica le mostrará si el almacén de claves está experimentando una cantidad de errores inusual. Para obtener una lista completa de los códigos de error y la guía de solución de problemas, consulte el siguiente documento. [Códigos de error de la API REST de Azure Key Vault](rest-error-codes.md)
+**Códigos de error** : esta métrica le mostrará si el almacén de claves está experimentando una cantidad de errores inusual. Para obtener una lista completa de los códigos de error y la guía de solución de problemas, consulte el siguiente documento. [Códigos de error de la API REST de Azure Key Vault](rest-error-codes.md)
 
 ## <a name="how-to-configure-metrics-and-create-a-dashboard"></a>Configuración de las métricas y creación de un panel
 
@@ -53,7 +53,7 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 3. Seleccione **Métricas** en **Supervisión**. 
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-1.png)
+> ![Captura de pantalla en la que se resalta la opción Métricas en la sección Supervisión.](../media/alert-1.png)
 
 4. Actualice el título del gráfico a aquel que desee ver en el panel. 
 5. Seleccione el ámbito. En este ejemplo, se seleccionará un único almacén de claves. 
@@ -61,7 +61,7 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 7. Actualice el intervalo de tiempo a las últimas 24 horas y actualice la granularidad de tiempo a 1 minuto. 
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-2.png)
+> ![Captura de pantalla que muestra la métrica Disponibilidad total del almacén.](../media/alert-2.png)
 
 8. Repita los pasos anteriores para las métricas de saturación del almacén y latencia de la API de servicio. Seleccione **Anclar al panel** para guardar las métricas en un panel. 
 
@@ -71,19 +71,19 @@ Una vez que haya empezado a usar Key Vault para almacenar los secretos de produc
 9. Para supervisar todos los tipos de operaciones en el almacén de claves, use la métrica **Total de visitas de la API de servicio** y seleccione **Aplicar división por tipo de actividad**.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-3.png)
+> ![Captura de pantalla que muestra el botón Aplicar división.](../media/alert-3.png)
 
 10. Para supervisar los códigos de error en el almacén de claves, use la métrica **Número total de resultados de la API de servicio** y seleccione **Aplicar división por tipo de actividad**.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-4.png)
+> ![Captura de pantalla que muestra la métrica Número total de resultados de la API de servicio seleccionada.](../media/alert-4.png)
 
 Ahora tendrá un panel con el aspecto siguiente. Puede hacer clic en los tres puntos de la parte superior derecha de cada icono y puede reorganizar y cambiar el tamaño de los iconos según sea necesario. 
 
 Una vez que guarde y publique el panel, se creará un nuevo recurso en la suscripción de Azure. Podrá verlo en cualquier momento si busca "panel compartido". 
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-5.png)
+> ![Captura de pantalla que muestra el panel publicado.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Configuración de alertas en Key Vault 
 
@@ -101,20 +101,20 @@ Un grupo de acciones es una lista configurable de notificaciones y propiedades.
 3. Seleccione **Administrar acciones**.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-6.png)
+> ![Captura de pantalla en la que se resalta el botón Administrar acciones.](../media/alert-6.png)
 
 4. Seleccione **+ Agregar grupo de acciones**.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-7.png)
+> ![Captura de pantalla en la que se resalta el botón + Agregar grupo de acciones.](../media/alert-7.png)
 
 5. Elija el **tipo de acción** para el grupo de acciones. En este ejemplo, vamos a crear una alerta por correo electrónico.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-8.png)
+> ![Captura de pantalla en la que se resaltan los campos necesarios para agregar un grupo de acciones.](../media/alert-8.png)
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-9.png)
+> ![Captura de pantalla que muestra los campos que se necesitan para agregar una alerta por correo electrónico o mensaje SMS.](../media/alert-9.png)
 
 6. Haga clic en **Aceptar** en la parte inferior de la página. Ha creado un grupo de acciones correctamente. 
 
@@ -125,12 +125,12 @@ Ahora que ha configurado un grupo de acciones, vamos a configurar los umbrales d
 1. Seleccione el recurso de Key Vault en Azure Portal y seleccione **Alertas** en **Supervisión**.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-10.png)
+> ![Captura de pantalla que muestra la opción de menú Alertas en la sección Supervisión.](../media/alert-10.png)
 
 2. Seleccione **Nueva regla de alertas**.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-11.png)
+> ![Captura de pantalla que muestra el botón + Nueva regla de alertas.](../media/alert-11.png)
 
 3. Seleccione el ámbito de la regla de alertas. Puede seleccionar un solo almacén o varios. 
 
@@ -138,7 +138,7 @@ Ahora que ha configurado un grupo de acciones, vamos a configurar los umbrales d
 > Tenga en cuenta que si se seleccionan varios almacenes para el ámbito de las alertas, todos ellos deben estar en la misma región. Tendrá que configurar reglas de alerta independientes para almacenes en regiones diferentes. 
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-12.png)
+> ![Captura de pantalla que muestra cómo se puede seleccionar un almacén.](../media/alert-12.png)
 
 4. Seleccione las condiciones de las alertas. Puede elegir cualquiera de las siguientes señales y definir la lógica de las alertas. El equipo de Key Vault recomienda configurar los siguientes umbrales de alerta. 
 
@@ -149,13 +149,13 @@ Ahora que ha configurado un grupo de acciones, vamos a configurar los umbrales d
     + Códigos de error totales superiores al promedio (umbral dinámico) 
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-13.png)
+> ![Captura de pantalla que muestra dónde se seleccionan las condiciones para las alertas.](../media/alert-13.png)
 
 ### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Ejemplo 1: Configuración de un umbral de alerta estático para la latencia
 
 Seleccione **Latencia general de la API de servicio** como el nombre de la señal
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-14.png)
+> ![Captura de pantalla que muestra el nombre de señal Latencia general de la API de servicio.](../media/alert-14.png)
 
 Consulte los siguientes parámetros de configuración.
 
@@ -168,14 +168,14 @@ Consulte los siguientes parámetros de configuración.
 + Seleccione **Listo**  
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-15.png)
+> ![Captura de pantalla en la que se resalta la lógica de alerta configurada.](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Ejemplo 2: Configuración de un umbral de alerta dinámico para la saturación del almacén 
 
 Si usa una alerta dinámica, podrá ver los datos históricos del almacén de claves que ha seleccionado. El área azul representa el uso medio del almacén de claves. El área roja muestra los picos que habrían desencadenado una alerta, siempre que se cumplan otros criterios de la configuración de la alerta. Los puntos rojos muestran instancias de infracciones en las que se han cumplido los criterios de la alerta durante la ventana de tiempo agregada. Puede establecer una alerta para que se active después de un determinado número de infracciones en un período de tiempo establecido. Si no desea incluir datos pasados, hay una opción para excluir los datos antiguos en la configuración avanzada. 
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-16.png)
+> ![Captura de pantalla que muestra un gráfico de la saturación total del almacén.](../media/alert-16.png)
 
 Consulte los siguientes parámetros de configuración.
 
@@ -194,12 +194,12 @@ Consulte los siguientes parámetros de configuración.
 5. Agregue el grupo de acciones que ha configurado.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-18.png)
+> ![Captura de pantalla que muestra cómo agregar un grupo de acciones.](../media/alert-18.png)
 
 6. Habilite la alerta y asigne una gravedad.
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-19.png)
+> ![Captura de pantalla que muestra dónde habilitar la alerta y asignar una gravedad.](../media/alert-19.png)
 
 7. Crear la alerta 
 
@@ -211,4 +211,4 @@ Enhorabuena, ha creado correctamente un panel de supervisión y configurado las 
 ### <a name="example-email-alert"></a>Ejemplo de alerta por correo electrónico 
 
 > [!div class="mx-imgBorder"]
-> ![Captura de pantalla de Azure Portal](../media/alert-20.png)
+> ![Captura de pantalla en la que se resalta la información necesaria para configurar una alerta por correo electrónico.](../media/alert-20.png)

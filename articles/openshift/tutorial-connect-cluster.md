@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 132a9b7ad3eef17f4ca27fb76a0c05f94c82fd37
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469123"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428284"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Conexión a un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -63,7 +63,7 @@ Inicie la dirección URL de la consola en un explorador e inicie sesión con las
 
 Cuando haya iniciado sesión en la consola web de OpenShift, haga clic en el signo **?** en la parte superior derecha y, luego, en **Command Line Tools** (Herramientas de línea de comandos). Descargue la versión adecuada para su máquina.
 
-![Pantalla de inicio de sesión de Red Hat OpenShift en Azure](media/aro4-download-cli.png)
+![Captura de pantalla que resalta la opción Command Line Tools (Herramientas de línea de comandos) en la lista al seleccionar la interrogación (?) .](media/aro4-download-cli.png)
 
 También puede descargar la versión más reciente de la CLI adecuada en su máquina desde <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

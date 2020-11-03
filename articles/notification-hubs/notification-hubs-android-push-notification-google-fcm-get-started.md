@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268832"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428385"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Tutorial: Envío de notificaciones push a dispositivos Android mediante el SDK de Firebase versión 0.6
 
@@ -75,7 +75,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 ### <a name="configure-firebase-cloud-messaging-settings-for-the-hub"></a>Configuración de los valores de Firebase Cloud Messaging para el centro
 
-1. En el panel izquierdo, en **Configuración**, haga clic en **Google (GCM/FCM)** . 
+1. En el panel izquierdo, en **Configuración** , haga clic en **Google (GCM/FCM)** . 
 2. Escriba la **clave de servidor** para el proyecto FCM que ha guardado anteriormente. 
 3. En la barra de herramientas, seleccione **Guardar**. 
 
@@ -95,7 +95,7 @@ El centro está ahora configurado para trabajar con Firebase Cloud Messaging. Ta
 3. Seleccione **Google APIs** (API de Google), si aún no está instalado este componente.
 
     ![Android SDK Manager: Google APIs seleccionado](./media/notification-hubs-android-studio-add-google-play-services/googole-apis-selected.png)
-4. Cambie a la pestaña **SDK Tools**. Si no ha instalado todavía Google Play Services, seleccione **Google Play Services**, tal como se muestra en la imagen siguiente. A continuación, seleccione **Apply** (Aplicar) para realizar la instalación. Tome nota de la ruta de acceso del SDK para usarla en el paso siguiente.
+4. Cambie a la pestaña **SDK Tools**. Si no ha instalado todavía Google Play Services, seleccione **Google Play Services** , tal como se muestra en la imagen siguiente. A continuación, seleccione **Apply** (Aplicar) para realizar la instalación. Tome nota de la ruta de acceso del SDK para usarla en el paso siguiente.
 
     ![Android SDK Manager: Google Play Services seleccionado](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
 3. Si ve el cuadro de diálogo **Confirm Change** (Confirmar cambio), seleccione **OK** (Aceptar). El instalador de componentes se instala los componentes solicitados. Seleccione **Finish** (Finalizar) una vez instalados los componentes.
@@ -171,12 +171,12 @@ El centro está ahora configurado para trabajar con Firebase Cloud Messaging. Ta
 
 ### <a name="add-code"></a>Incorporación de código
 
-1. En la Vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java**, seleccione **Nuevo** y, a continuación, seleccione **Clase Java**. Escriba **NotificationSettings** para el nombre y, a continuación, seleccione **Aceptar**.
+1. En la Vista de proyecto, expanda **app** > **src** > **main** > **java**. Haga clic con el botón derecho en la carpeta del paquete en **java** , seleccione **Nuevo** y, a continuación, seleccione **Clase Java**. Escriba **NotificationSettings** para el nombre y, a continuación, seleccione **Aceptar**.
 
     Asegúrese de actualizar estos tres marcadores de posición en el código siguiente para la clase `NotificationSettings`:
 
-   * **HubListenConnectionString**: la cadena de conexión **DefaultListenAccessSignature** del centro. Para copiar dicha cadena de conexión, haga clic en **Directivas de acceso** en su centro en [Azure Portal].
-   * **HubName**: use el nombre del centro de notificaciones que aparece en la página del centro de [Azure Portal].
+   * **HubListenConnectionString** : la cadena de conexión **DefaultListenAccessSignature** del centro. Para copiar dicha cadena de conexión, haga clic en **Directivas de acceso** en su centro en [Azure Portal].
+   * **HubName** : use el nombre del centro de notificaciones que aparece en la página del centro de [Azure Portal].
 
      `NotificationSettings` :
 
@@ -405,13 +405,13 @@ El centro está ahora configurado para trabajar con Firebase Cloud Messaging. Ta
     }
     ```
 
-9. El método `ToastNotify` usa el control *"Hola mundo"* `TextView` para informar del estado y de las notificaciones de forma persistente en la aplicación. En el diseño **res** > **layout** > **activity_main.xml**, agregue el siguiente identificador para ese control.
+9. El método `ToastNotify` usa el control *"Hola mundo"* `TextView` para informar del estado y de las notificaciones de forma persistente en la aplicación. En el diseño **res** > **layout** > **activity_main.xml** , agregue el siguiente identificador para ese control.
 
     ```java
     android:id="@+id/text_hello"
     ```
 
-    ![Azure Notification Hubs: envío de prueba](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+    ![Captura de pantalla que muestra el identificador android:id="@+id/text_hello" aplicado al control TextView.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 10. A continuación, agregue una subclase para el receptor que definió en AndroidManifest.xml. Agregue otra clase nueva, llamada `FirebaseService`, al proyecto.
 
@@ -541,7 +541,7 @@ El centro está ahora configurado para trabajar con Firebase Cloud Messaging. Ta
 Para enviar notificaciones push desde [Azure Portal] realice las siguientes acciones:
 
 1. En Azure Portal, en la página Notification Hubs del centro, seleccione **Envío de prueba** en la sección **Solución de problemas**.
-3. En **Plataformas**, seleccione **Android**.
+3. En **Plataformas** , seleccione **Android**.
 4. Seleccione **Enviar**.  No verá aún ninguna notificación en el dispositivo Android, porque no ha ejecutado la aplicación móvil en él. Después de ejecutar la aplicación móvil, vuelva a seleccionar el botón **Enviar** para ver el mensaje de notificación.
 5. Vea el resultado de la operación en la lista de la parte inferior.
 
