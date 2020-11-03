@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959849"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542614"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Consultas guardadas en Log Analytics de Azure Monitor
 
@@ -23,9 +23,9 @@ Si no está familiarizado con Log Analytics o con el lenguaje de consulta KQL, l
 
 La nueva experiencia filtra y sugiere consultas en contexto. Es decir, el sistema muestra de forma automática solo las consultas pertinentes para el ámbito que haya seleccionado.
 
-- Para un **solo recurso**: las consultas se filtran según el tipo de recurso.
-- Para un **grupo de recursos**: las consultas se filtran según los recursos del grupo de recursos específico.
-- Para un **área de trabajo**: las consultas se filtran según las soluciones instaladas en el área de trabajo.
+- Para un **solo recurso** : las consultas se filtran según el tipo de recurso.
+- Para un **grupo de recursos** : las consultas se filtran según los recursos del grupo de recursos específico.
+- Para un **área de trabajo** : las consultas se filtran según las soluciones instaladas en el área de trabajo.
 
 Este comportamiento es coherente para todos los ámbitos de Log Analytics. Si no ve una consulta de ejemplo para el tipo de recurso que quiere, es posible que se deba a filtros locales. En una sección posterior se describe cómo quitar el ámbito local para que pueda ver todas las consultas posibles.
 
@@ -54,7 +54,7 @@ Cada consulta de ejemplo se representa mediante una tarjeta. Puede examinar ráp
 
 Se puede acceder a la misma funcionalidad de la experiencia del cuadro de diálogo desde el panel Consultas de la barra lateral izquierda de Log Analytics. Puede mantener el mouse sobre el nombre de una consulta para obtener su descripción y funciones adicionales.
 
-![Barra lateral](media/saved-queries/sidebar-3.png)
+![Captura de pantalla que muestra el panel de consultas.](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>Búsqueda y filtrado de consultas
 
@@ -73,16 +73,16 @@ Aunque la experiencia del cuadro de diálogo de consulta filtra para mostrar sol
 
 ### <a name="group-by"></a>Agrupar por
 
-Para cambiar la agrupación de las consultas, haga clic en la lista desplegable *Agrupar por*:
+Para cambiar la agrupación de las consultas, haga clic en la lista desplegable *Agrupar por* :
 
 ![Agrupar por en la pantalla de consultas de ejemplo](media/saved-queries/example-query-groupby.png)
 
 El cuadro de diálogo admite la agrupación por:
 
-- **Tipo de recurso**: un recurso como se define en Azure, como una máquina virtual. Vea la [Referencia de tabla de Azure Monitor](/azure/azure-monitor/reference/tables/tables-resourcetype) para obtener una asignación completa entra las tablas de registros de Azure Monitor y Log Analytics, y el tipo de recurso.  
-- **Categoría**: un tipo de información como *Seguridad* o *Auditoría*. Las categorías son idénticas a las que se definen en el panel lateral Tablas. Para obtener una lista completa de las categorías, vea la [ referencia de tabla de Azure Monitor](/azure/azure-monitor/reference/tables/tables-category).  
-- **Solución**: una solución de Azure Monitor asociada a las consultas
-- **Tema**: el tema de la consulta de ejemplo, como *Registros de actividad* o *Registros de aplicación*. La propiedad de tema es exclusiva de las consultas de ejemplo y puede diferir según el tipo de recurso específico.
+- **Tipo de recurso** : un recurso como se define en Azure, como una máquina virtual. Vea la [Referencia de tabla de Azure Monitor](/azure/azure-monitor/reference/tables/tables-resourcetype) para obtener una asignación completa entra las tablas de registros de Azure Monitor y Log Analytics, y el tipo de recurso.  
+- **Categoría** : un tipo de información como *Seguridad* o *Auditoría*. Las categorías son idénticas a las que se definen en el panel lateral Tablas. Para obtener una lista completa de las categorías, vea la [ referencia de tabla de Azure Monitor](/azure/azure-monitor/reference/tables/tables-category).  
+- **Solución** : una solución de Azure Monitor asociada a las consultas
+- **Tema** : el tema de la consulta de ejemplo, como *Registros de actividad* o *Registros de aplicación*. La propiedad de tema es exclusiva de las consultas de ejemplo y puede diferir según el tipo de recurso específico.
 
 Los valores de agrupación también actúan como una tabla de contenido activa. Al hacer clic en uno de los valores en el lado izquierdo de la pantalla, la vista de consultas se desplaza directamente al elemento en el que haya hecho clic.
 

@@ -4,12 +4,12 @@ description: Obtenga información sobre las novedades y actualizaciones reciente
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ed2347d2d322e272b4fb7f4dfd697f3499419124
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314577"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545181"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novedades de Azure Migrate
 
@@ -22,6 +22,7 @@ ms.locfileid: "92314577"
 - El análisis de dependencias (sin agente) ahora se puede ejecutar simultáneamente en mil máquinas virtuales.
 - El análisis de dependencias (sin agente) ahora se puede habilitar o deshabilitar a escala mediante scripts de PowerShell. [Más información.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualice las conexiones de red en Power BI con los datos recopilados mediante el análisis de dependencias (sin agente). [Más información.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Ahora se admite la migración de máquinas virtuales de VMware con un tamaño de disco de datos de hasta 32 TB mediante Azure Migrate: Método de migración de VMware sin agente de Server Migration. 
 
 ## <a name="update-august-2020"></a>Actualización (agosto de 2020)
 
@@ -64,8 +65,8 @@ Ahora hay disponible una instalación basada en scripts para configurar el [disp
 
 Se han agregado varias características nuevas a Azure Migrate:
 
-- **Evaluación de servidores físicos** . Ahora se admite la evaluación de servidores físicos locales, además de la migración de servidores físicos que ya se admite.
-- **Evaluación basada en la importación** . Ahora se admite la evaluación de máquinas con metadatos y datos de rendimiento proporcionados en un archivo CSV.
+- **Evaluación de servidores físicos**. Ahora se admite la evaluación de servidores físicos locales, además de la migración de servidores físicos que ya se admite.
+- **Evaluación basada en la importación**. Ahora se admite la evaluación de máquinas con metadatos y datos de rendimiento proporcionados en un archivo CSV.
 - **Detección de aplicaciones** : Azure Migrate admite ahora la detección en el nivel de aplicación de aplicaciones, roles y características mediante el uso del dispositivo Azure Migrate. Actualmente solo se admite para máquinas virtuales de VMware y solo se limita a la detección (actualmente no se admite la evaluación). [Más información](how-to-discover-applications.md)
 - **Visualización de dependencias sin agentes** : Ya no necesita instalar agentes explícitamente para la visualización de dependencias. Ahora se admiten tanto sin agente como basados en agente.
 - **Virtual Desktop** : Use herramientas de ISV para evaluar y migrar la infraestructura de escritorio virtual (VDI) local a Windows Virtual Desktop en Azure.
@@ -96,7 +97,7 @@ La versión actual de Azure Migrate (publicada en julio de 2019) proporciona var
 
 ## <a name="azure-migrate-previous-version"></a>Versión anterior de Azure Migrate
 
-Si usaba la versión anterior de Azure Migrate (solo se admitía la valoración de máquinas virtuales de VMware locales), ahora debería usar la versión actual. En la versión anterior, ya no puede crear nuevos proyectos de Azure Migrate ni realizar nuevas detecciones. Todavía puede obtener acceso a los proyectos existentes. Para hacerlo, en Azure Portal > **Todos los servicios** , busque **Azure Migrate** . En las notificaciones de Azure Migrate, hay un vínculo para acceder a antiguos proyectos de Azure Migrate.
+Si usaba la versión anterior de Azure Migrate (solo se admitía la valoración de máquinas virtuales de VMware locales), ahora debería usar la versión actual. En la versión anterior, ya no puede crear nuevos proyectos de Azure Migrate ni realizar nuevas detecciones. Todavía puede obtener acceso a los proyectos existentes. Para hacerlo, en Azure Portal > **Todos los servicios** , busque **Azure Migrate**. En las notificaciones de Azure Migrate, hay un vínculo para acceder a antiguos proyectos de Azure Migrate.
 
 
 

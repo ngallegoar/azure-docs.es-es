@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 26644d42e0e51d59c6c28daaba5447a65a43b6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b5c106c1464ec6d77305b1985cc8dbd51e2b4db
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460648"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519484"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Uso de identidades administradas para acceder a Azure SQL Database desde un trabajo de Azure Stream Analytics (versión preliminar)
 
@@ -44,7 +44,7 @@ En primer lugar, debe crear una identidad administrada para el trabajo de Azure 
 
    ![Id. de objeto mostrado como id. de entidad de seguridad](./media/sql-db-output-managed-identity/principal-id.png)
 
-   La entidad de servicio se llama igual que el trabajo de Stream Analytics. Por ejemplo, si es el nombre del trabajo es *MyASAJob*, el nombre de la entidad de servicio también será *MyASAJob*.
+   La entidad de servicio se llama igual que el trabajo de Stream Analytics. Por ejemplo, si es el nombre del trabajo es *MyASAJob* , el nombre de la entidad de servicio también será *MyASAJob*.
 
 ## <a name="select-an-active-directory-admin"></a>Selección de un administrador de Active Directory
 
@@ -60,7 +60,7 @@ Después de crear una identidad administrada, seleccione un administrador de Act
 
    ![Adición de un administrador de Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-   En la hoja Administrador de Active Directory se muestran todos los miembros y grupos de Active Directory. Los usuarios o grupos que aparecen atenuados no se pueden seleccionar porque no se admiten como administradores de Azure Active Directory. Vea la lista de administradores admitidos en la sección  **Características y limitaciones de Azure Active Directory** de  [Uso de la autenticación de Azure Active Directory con SQL Database o Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). El control de acceso basado en rol (RBAC) se aplica solo al portal y no se propaga a SQL Server. Además, el usuario o grupo seleccionado es el usuario que podrá crear el **usuario de base de datos independiente** en la sección siguiente.
+   En la hoja Administrador de Active Directory se muestran todos los miembros y grupos de Active Directory. Los usuarios o grupos que aparecen atenuados no se pueden seleccionar porque no se admiten como administradores de Azure Active Directory. Vea la lista de administradores admitidos en la sección  **Características y limitaciones de Azure Active Directory** de  [Uso de la autenticación de Azure Active Directory con SQL Database o Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). El control de acceso basado en rol de Azure (RBAC de Azure) se aplica solo al portal y no se propaga a SQL Server. Además, el usuario o grupo seleccionado es el usuario que podrá crear el **usuario de base de datos independiente** en la sección siguiente.
 
 1. Seleccione **Guardar** en la página **Administrador de Active Directory**. El proceso para cambiar el administrador tarda unos minutos.
 
@@ -84,7 +84,7 @@ A continuación, cree un usuario de base de datos independiente en su instancia 
 
    ![Ventana Nueva regla de firewall](./media/sql-db-output-managed-identity/new-firewall-rule.png)
 
-   1. En ese caso, vaya al recurso de SQL Server en Azure Portal. En la sección **Seguridad**, abra la página **Firewalls y redes virtuales**. 
+   1. En ese caso, vaya al recurso de SQL Server en Azure Portal. En la sección **Seguridad** , abra la página **Firewalls y redes virtuales**. 
    1. Agregue una nueva regla con cualquier nombre.
    1. Use la dirección IP *De* de la ventana **Nueva regla de firewall** para *IP de inicio*.
    1. Use la dirección IP de *A* de la ventana **Nueva regla de firewall** para *IP final*. 

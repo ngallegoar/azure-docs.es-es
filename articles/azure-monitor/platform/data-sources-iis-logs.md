@@ -1,20 +1,23 @@
 ---
-title: Registros de IIS en Azure Monitor | Microsoft Docs
+title: Recopilación de registros de IIS con el agente de Log Analytics en Azure Monitor
 description: Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar.  En este artículo se describe cómo configurar la recopilación de registros de IIS y detalles de los registros que crean en Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: 0bca809d6c25594c1c614f694e71e39a4f61e2a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: ca3cf93329ea84183ef11eec8f8fac52cd84d445
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87008190"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461199"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>Recopilación de registros de IIS en Azure Monitor
-Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar y almacenar como [datos de registro](data-platform.md).
+# <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros de IIS con el agente de Log Analytics en Azure Monitor
+Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que el agente de Log Analytics puede recopilar y almacenar en [Registros de Azure Monitor](data-platform.md).
+
+> [!IMPORTANT]
+> En este artículo se trata la recopilación de registros de IIS con el [agente de Log Analytics](log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 ![Registros IIS](media/data-sources-iis-logs/overview.png)
 
@@ -23,7 +26,7 @@ Azure Monitor recopila entradas de archivos de registro creados por IIS, por lo 
 
 Azure Monitor solo admite archivos de registro de IIS almacenados en el formato W3C y no admite campos personalizados ni Advanced Logging de IIS. No recopila registros en formato nativo IIS o NCSA.
 
-Configure los registros de IIS en Azure Monitor e el [menú Configuración avanzada](agent-data-sources.md#configuring-data-sources).  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files**(Recopilar archivos de registro de IIS en formato W3C).
+Configure los registros de IIS en Azure Monitor en el [menú Configuración avanzada](agent-data-sources.md#configuring-data-sources) del agente de Log Analytics.  No se requiere otra configuración que seleccionar **Collect W3C format IIS log files** (Recopilar archivos de registro de IIS en formato W3C).
 
 
 ## <a name="data-collection"></a>datos, recopilación

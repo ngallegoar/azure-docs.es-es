@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142239"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535797"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Características de las solicitudes de datos de clientes para dispositivos de Azure IoT Hub
 
@@ -30,7 +30,7 @@ Si usa la característica de enrutamiento del servicio Azure IoT Hub para reenvi
 
 Si usa la característica de integración Azure Event Grid del servicio de Azure IoT Hub, entonces, el administrador de inquilinos debe realizar solicitudes de datos para cada suscriptor de estos eventos. Para obtener más información, consulte la sección sobre cómo [responder a eventos de IoT Hub mediante el uso de Event Grid](iot-hub-event-grid.md).
 
-Si usa la característica de integración Azure Monitor del servicio de Azure IoT Hub para crear registros de diagnóstico, entonces, el administrador de inquilinos debe realizar solicitudes de datos para cada registro almacenado. Para obtener más información, consulte [Supervisión del mantenimiento de Azure IoT Hub](iot-hub-monitor-resource-health.md).
+Si usa la característica de integración de Azure Monitor del servicio Azure IoT Hub para crear registros de recursos, entonces el administrador de inquilinos debe realizar las solicitudes de datos con los registros almacenados. Para más información, consulte [Supervisión de IoT Hub](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Eliminación de datos del cliente
 

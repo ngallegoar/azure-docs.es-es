@@ -1,14 +1,14 @@
 ---
 title: Experiencias de administración entre inquilinos
 description: La administración de recursos delegados de Azure habilita una experiencia de administración entre inquilinos.
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315927"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460672"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiencias de administración entre inquilinos
 
@@ -42,7 +42,7 @@ En la API REST de Azure, los comandos [Subscriptions - Get](/rest/api/resources/
 > [!NOTE]
 > Además de la información de inquilinos relacionada con Azure Lighthouse, los inquilinos que se muestran en estas API también pueden reflejar los inquilinos de asociados de Azure Databricks o de las aplicaciones administradas de Azure.
 
-También se proporcionan API específicas para realizar tareas de administración de Azure Lighthouse. Para obtener más información, consulte la sección **Referencia** .
+También se proporcionan API específicas para realizar tareas de administración de Azure Lighthouse. Para obtener más información, consulte la sección **Referencia**.
 
 ## <a name="enhanced-services-and-scenarios"></a>Servicios y escenarios mejorados
 
@@ -81,6 +81,10 @@ La mayoría de las tareas y servicios se pueden realizar en recursos delegados a
 [Azure Kubernetes Service (AKS)](../../aks/index.yml):
 
 - administre los entornos de Kubernetes hospedados e implemente y administre aplicaciones en contenedores en inquilinos de clientes
+
+[Azure Migrate](../../migrate/index.yml):
+
+- Crear proyectos de migración en el inquilino del cliente y migrar máquinas virtuales
 
 [Azure Monitor](../../azure-monitor/index.yml):
 
@@ -160,7 +164,7 @@ Solicitudes de soporte técnico:
 Con todos los escenarios, tenga en cuenta las siguientes limitaciones actuales:
 
 - Las solicitudes controladas por Azure Resource Manager pueden realizarse mediante Azure Lighthouse. Los URI de operación de estas solicitudes comienzan por `https://management.azure.com`. Sin embargo, las solicitudes que se administran mediante una instancia de un tipo de recurso (por ejemplo, acceso a los secretos de Key Vault o acceso a datos de almacenamiento) no son compatibles con Azure Lighthouse. Los URI de la operación para estas solicitudes suelen empezar con una dirección que es única para la instancia, como `https://myaccount.blob.core.windows.net` o `https://mykeyvault.vault.azure.net/`. Esta última también suelen ser operaciones de datos, en lugar de operaciones de administración.
-- Las asignaciones de roles deben usar [roles integrados](../../role-based-access-control/built-in-roles.md) de control de acceso basado en rol (RBAC). Actualmente, todos los roles integrados se admiten con la administración de recursos delegados de Azure, excepto el rol Propietario o los roles integrados con el permiso [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). El rol administrador de acceso de usuario solo se admite para uso limitado en la [asignación de roles a identidades administradas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
+- Las asignaciones de roles deben usar [roles integrados de Azure](../../role-based-access-control/built-in-roles.md). Actualmente, todos los roles integrados se admiten con la administración de recursos delegados de Azure, excepto el rol Propietario o los roles integrados con el permiso [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions). El rol administrador de acceso de usuario solo se admite para uso limitado en la [asignación de roles a identidades administradas](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  No se admiten los roles personalizados ni [los roles de administrador de suscripciones clásicas](../../role-based-access-control/classic-administrators.md).
 - Aunque puede incorporar suscripciones que usan Azure Databricks, los usuarios del inquilino de administración no pueden iniciar áreas de trabajo de Azure Databricks en una suscripción delegada en este momento.
 - Aunque puede incorporar suscripciones y grupos de recursos que tengan bloqueos de recursos, dichos bloqueos no impedirán que los usuarios realicen acciones en el inquilino de administración. Las [asignaciones de denegación](../../role-based-access-control/deny-assignments.md) que protegen los recursos administrados por el sistema, como los que crean Azure Managed Applications o Azure Blueprints (asignaciones de denegación asignadas por el sistema), impiden que los usuarios del inquilino de administración actúen en esos recursos; sin embargo, actualmente, los usuarios del inquilino del cliente no pueden crear sus propias asignaciones de denegación (asignaciones de denegación asignadas por el usuario).
 

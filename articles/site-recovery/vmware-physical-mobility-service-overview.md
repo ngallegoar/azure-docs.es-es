@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530070"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547663"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -27,7 +27,7 @@ Al configurar la recuperación ante desastres para máquinas virtuales de VMware
 
 ## <a name="antivirus-on-replicated-machines"></a>Antivirus en máquinas replicadas
 
-Si las máquinas que desea replicar están ejecutando un software antivirus, excluya la carpeta de instalación del servicio Mobility, _C:\ProgramData\ASR\agent_, de las operaciones del antivirus. Esta exclusión garantiza que la replicación funcionará según lo esperado.
+Si las máquinas que desea replicar están ejecutando un software antivirus, excluya la carpeta de instalación del servicio Mobility, _C:\ProgramData\ASR\agent_ , de las operaciones del antivirus. Esta exclusión garantiza que la replicación funcionará según lo esperado.
 
 ## <a name="push-installation"></a>Instalación de inserción
 
@@ -78,22 +78,22 @@ Durante una instalación de inserción del servicio Mobility, se realizan los si
 > No use el método de instalación con interfaz de usuario si va a replicar una máquina virtual de infraestructura como servicio (IaaS) de Azure de una región de Azure a otra. Use la instalación desde el [símbolo del sistema](#install-the-mobility-service-using-command-prompt).
 
 1. Copie el archivo de instalación en el equipo y ejecútelo.
-1. En **Opción de instalación**, seleccione **Instalar Mobility Service**.
+1. En **Opción de instalación** , seleccione **Instalar Mobility Service**.
 1. Elija la ubicación de instalación y seleccione **Instalar**.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility1.png" alt-text="Página Opción de instalación del servicio Mobility":::.
 
 1. Supervise la instalación en **Progreso de la instalación**. Una vez completada la instalación, seleccione **Continuar con la configuración** para registrar el servicio en el servidor de configuración.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Página Opción de instalación del servicio Mobility":::.
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Captura de pantalla que muestra el progreso de la instalación y el botón Proceed to Configuration (Continuar con la configuración) activo cuando finaliza esta.":::
 
 1. En **Configuration Server Details** (Detalles del servidor de configuración), especifique la dirección IP y la frase de contraseña que ha configurado.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Página Opción de instalación del servicio Mobility":::.
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Página de registro del servicio Mobility":::.
 
 1. Seleccione **Registrar** para finalizar el registro.
 
-    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Página Opción de instalación del servicio Mobility":::.
+    :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility5.png" alt-text="Página de registro final del servicio Mobility":::.
 
 ## <a name="install-the-mobility-service-using-command-prompt"></a>Instalación del servicio Mobility mediante el símbolo del sistema
 
@@ -104,7 +104,7 @@ Durante una instalación de inserción del servicio Mobility, se realizan los si
 
 ### <a name="windows-machine"></a>Un equipo Windows
 
-- En un símbolo del sistema, ejecute los siguientes comandos para copiar el instalador en una carpeta local como, por ejemplo, _C:\Temp_, en el servidor que desea proteger. Reemplace el nombre de archivo del instalador por el nombre de archivo real.
+- En un símbolo del sistema, ejecute los siguientes comandos para copiar el instalador en una carpeta local como, por ejemplo, _C:\Temp_ , en el servidor que desea proteger. Reemplace el nombre de archivo del instalador por el nombre de archivo real.
 
   ```cmd
   cd C:\Temp
@@ -148,7 +148,7 @@ Registros de configuración del agente | `%ProgramData%\ASRSetupLogs\ASRUnifiedA
 
 ### <a name="linux-machine"></a>En un equipo Linux
 
-1. Desde una sesión terminal, copie el instalador en una carpeta local (por ejemplo, _/tmp_) del servidor que desea proteger. Reemplace el nombre de archivo del instalador por el nombre de archivo real de la distribución de Linux y, a continuación, ejecute los comandos.
+1. Desde una sesión terminal, copie el instalador en una carpeta local (por ejemplo, _/tmp_ ) del servidor que desea proteger. Reemplace el nombre de archivo del instalador por el nombre de archivo real de la distribución de Linux y, a continuación, ejecute los comandos.
 
    ```shell
    cd /tmp ;
@@ -187,8 +187,8 @@ Sintaxis | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<
 
 ## <a name="azure-virtual-machine-agent"></a>Agente de máquina virtual de Azure
 
-- **Máquinas virtuales Windows**: desde la versión 9.7.0.0 de Mobility Service, el instalador de Mobility Service instala el [agente de máquina virtual de Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). De este forma se garantiza que, cuando un equipo conmuta por error a Azure, la máquina virtual de Azure cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
-- **Máquinas virtuales Linux**: [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) debe instalarse manualmente en la máquina virtual Azure después de la conmutación por error.
+- **Máquinas virtuales Windows** : desde la versión 9.7.0.0 de Mobility Service, el instalador de Mobility Service instala el [agente de máquina virtual de Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent). De este forma se garantiza que, cuando un equipo conmuta por error a Azure, la máquina virtual de Azure cumple el requisito previo de instalación del agente para usar cualquier extensión de máquina virtual.
+- **Máquinas virtuales Linux** : [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) debe instalarse manualmente en la máquina virtual Azure después de la conmutación por error.
 
 ## <a name="locate-installer-files"></a>Búsqueda de archivos del instalador
 
@@ -232,7 +232,7 @@ Como **requisito previo para actualizar o proteger las máquinas con SUSE Linux 
 3. Vaya al servidor de configuración y copie el instalador del agente para SUSE Linux Enterprise Server 11 SP3 en la ruta de acceso: INSTALL_DIR\home\svsystems\pushinstallsvc\repository.
 1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall. 
 1. Ahora, vaya a los servidores de proceso de escalabilidad horizontal asociados y repita los pasos 3 y 4.
-1. **Por ejemplo**, si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
+1. **Por ejemplo** , si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
     1. C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ### <a name="rhel-5-or-centos-5-server"></a>Servidor RHEL 5 o CentOS 5
@@ -244,7 +244,7 @@ Como **requisito previo para actualizar o proteger las máquinas con RHEL 5** a
 3. Vaya al servidor de configuración y copie el instalador del agente para RHEL 5 o CentOS 5 en la ruta de acceso: INSTALL_DIR\home\svsystems\pushinstallsvc\repository.
 1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall. 
 1. Ahora, vaya a los servidores de proceso de escalabilidad horizontal asociados y repita los pasos 3 y 4.
-1. **Por ejemplo**, si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
+1. **Por ejemplo** , si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
     1. C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="debian-7-server"></a>Servidor Debian 7
@@ -256,7 +256,7 @@ Como **requisito previo para actualizar o proteger las máquinas con Debian 7**
 3. Vaya al servidor de configuración y copie el instalador del agente para Debian 7 en la ruta de acceso: INSTALL_DIR\home\svsystems\pushinstallsvc\repository.
 1. Después de copiar el instalador más reciente, reinicie el servicio InMage PushInstall. 
 1. Ahora, vaya a los servidores de proceso de escalabilidad horizontal asociados y repita los pasos 3 y 4.
-1. **Por ejemplo**, si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
+1. **Por ejemplo** , si la ruta de acceso de instalación es C:\Archivos de programa (x86)\Microsoft Azure Site Recovery, los directorios mencionados anteriormente serán
     1. C:\Archivos de programa (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="next-steps"></a>Pasos siguientes

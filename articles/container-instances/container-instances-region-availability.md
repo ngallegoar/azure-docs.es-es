@@ -3,59 +3,93 @@ title: Disponibilidad de recursos por región
 description: Disponibilidad de recursos de proceso y memoria para el servicio Azure Container Instances en diferentes regiones de Azure.
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: 97baa5199a1803bd967c0b55c846908ea5a2ddcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565436"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521465"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidad de recursos para Azure Container Instances en las regiones de Azure
 
-En este artículo se detalla la disponibilidad de los recursos de proceso, memoria y almacenamiento de Azure Container Instances en las regiones de Azure y del sistema operativo de destino. 
+En este artículo se detalla la disponibilidad de los recursos de proceso, memoria y almacenamiento de Azure Container Instances en las regiones de Azure y del sistema operativo de destino. Para obtener una lista general de las regiones disponibles para Azure Container Instances, consulte las [regiones disponibles](https://azure.microsoft.com/regions/services/).
 
-Los valores que se presentan son los recursos máximos disponibles por cada implementación de un [grupo de contenedores](container-instances-container-groups.md). Los valores están actualizados en el momento de la publicación. 
+Los valores que se presentan son los recursos máximos disponibles por cada implementación de un [grupo de contenedores](container-instances-container-groups.md). Los valores están actualizados en el momento de la publicación.
 
 > [!NOTE]
 > Los grupos de contenedores creados dentro de estos límites de recursos están sujetos a disponibilidad en la región de implementación. Cuando una región está sometida a mucha carga, puede experimentar un error al implementar instancias. Para mitigar este tipo de error de implementación, intente implementar las instancias con una configuración de menos recursos o bien pruebe a realizar la implementación en un momento posterior o en una región diferente con los recursos disponibles.
 
 Para obtener información sobre las cuotas y otros límites en las implementaciones, vea [Cuotas y límites de Azure Container Instances](container-instances-quotas.md).
 
-## <a name="availability---general"></a>Disponibilidad: general
+## <a name="linux-container-groups"></a>Grupos de contenedores de Linux
 
-Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con Linux y contenedores basados en Windows Server 2016 [admitidos](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Están disponibles las siguientes regiones y recursos máximos para los grupos de contenedores con contenedores de Linux en implementaciones generales, implementaciones de [red virtual de Azure](container-instances-vnet.md) e implementaciones con [recursos de GPU](container-instances-gpu.md) (versión preliminar).
 
-| Regions | SO | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
-| -------- | -- | :---: | :-----------: | :---: |
-| Sur de Brasil, Centro de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU., Este de EE. UU. 2, Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste de Europa, Oeste de EE. UU., Oeste de EE. UU. 2 | Linux | 4 | 16 | 50 |
-| Este de Australia, Japón Oriental | Linux | 2 | 8 | 50 |
-| Centro-Norte de EE. UU | Linux | 2 | 3,5 | 50 |
-| Sur de Brasil, Japón Oriental, Oeste de Europa | Windows | 4 | 16 | 20 |
-| Este de EE. UU., Oeste de EE. UU. | Windows | 4 | 14 | 20 |
-| Este de Australia, Centro de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU. 2, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste de EE. UU. 2 | Windows | 2 | 3,5 | 20 |
+> [!IMPORTANT]
+> El número máximo de recursos de una región es diferente en función de la implementación. Por ejemplo, una región puede tener un tamaño de CPU y memoria máximo diferente en una implementación de red virtual de Azure que en una implementación general. Esa misma región también puede tener un conjunto diferente de valores máximos para una implementación con recursos de GPU. Compruebe el tipo de implementación antes de buscar los valores máximos de la región en las tablas siguientes.
 
-## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Disponibilidad: implementaciones de la versión 1809 para Windows Server 2019 LTSC (versión preliminar)
+| Region | Uso máximo de CPU | Memoria máxima (GB) | CPU máxima de VNET | Memoria máxima de VNET (GB) | Almacenamiento (GB) | SKU de GPU (versión preliminar) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
+| Este de Australia | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Sur de Brasil | 4 | 16 | 2 | 8 | 50 | No aplicable |
+| Centro de Canadá | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Centro de la India | 4 | 16 | No aplicable | No aplicable | 50 | V100 |
+| Centro de EE. UU. | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Este de Asia | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Este de EE. UU. | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Este de EE. UU. 2 | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Japón Oriental | 2 | 8 | 4 | 16 | 50 | No aplicable |
+| Centro de Corea del Sur | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
+| Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 50 | No aplicable |
+| Norte de Europa | 4 | 16 | 4 | 16 | 50 | K80 |
+| Centro-sur de EE. UU. | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Sudeste de Asia | 4 | 16 | 4 | 16 | 50 | P100, V100 |
+| Sur de la India | 4 | 16 | No aplicable | No aplicable | 50 | No aplicable |
+| Sur de Reino Unido | 4 | 16 | 4 | 16 | 50 | No aplicable |
+| Centro-Oeste de EE. UU.| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Oeste de Europa | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Oeste de EE. UU. | 4 | 16 | 2 | 4 | 16| No aplicable |
+| Oeste de EE. UU. 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
-Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores basados en Windows Server 2019 (versión preliminar).
+Los recursos máximos siguientes están disponibles para un grupo de contenedores implementado con [recursos de GPU](container-instances-gpu.md) (versión preliminar).
 
-| Regions | SO | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
-| -------- | -- | :---: | :-----------: | :---: |
-| Este de Australia, Sur de Brasil, Centro de Canadá, Centro de la India, Centro de EE. UU., Este de Asia, Este de EE. UU., Este de Japón, Centro-norte de EE. UU., Norte de Europa, Centro-sur de EE. UU., Sudeste de Asia, Sur de la India, Sur de Reino Unido, Oeste de Europa | Windows | 4 | 16 | 20 |
-| Este de EE. UU. 2, Oeste de EE. UU. 2 | Windows | 2 | 3,5 | 20 |
+| SKU de GPU | Recuento de GPU | Uso máximo de CPU | Memoria máxima (GB) | Almacenamiento (GB) |
+| --- | --- | --- | --- | --- |
+| K80 | 1 | 6 | 56 | 50 |
+| K80 | 2 | 12 | 112 | 50 |
+| K80 | 4 | 24 | 224 | 50 |
+| P100, V100 | 1 | 6 | 112 | 50 |
+| P100, V100 | 2 | 12 | 224 | 50 |
+| P100, V100 | 4 | 24 | 448 | 50 |
 
+## <a name="windows-container-groups"></a>Grupos de contenedor de Windows
 
-## <a name="availability---virtual-network-deployment"></a>Disponibilidad: implementación de red virtual
+Las siguientes regiones y recursos máximos están disponibles para los grupos de contenedores con contenedores de Windows Server [admitidos y en versión preliminar](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
-Las regiones y los recursos máximos siguientes están disponibles para un grupo de contenedores implementado en una [red virtual de Azure](container-instances-vnet.md).
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
-
-## <a name="availability---gpu-resources-preview"></a>Disponibilidad: recursos de GPU (versión preliminar)
-
-Las regiones y los recursos máximos siguientes están disponibles para un grupo de contenedores implementado con [recursos de GPU](container-instances-gpu.md) (versión preliminar).
-
-[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
-[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
+| Region | CPU máxima en Windows Server 2016 | Memoria máxima (GB) de Windows Server 2016 | CPU máxima de LTSC de Windows Server 2019 | Memoria máxima (GB) de LTSC de Windows Server 2019 | Almacenamiento (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Este de Australia | 2 | 3,5 | 4 | 16 | 20 |
+| Sur de Brasil | 4 | 16 | 4 | 16 | 20 |
+| Centro de Canadá | 2 | 3,5 | 4 | 16 | 20 |
+| Centro de la India | 2 | 3,5 | 4 | 16 | 20 |
+| Centro de EE. UU. | 2 | 3,5 | 4 | 16 | 20 |
+| Este de Asia | 2 | 3,5 | 4 | 16 | 20 |
+| Este de EE. UU. | 2 | 8 | 4 | 16 | 20 |
+| Este de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| Centro de Francia | 4 | 16 | 4 | 16 | 20 |
+| Japón Oriental | 4 | 16 | 4 | 16 | 20 |
+| Centro de Corea del Sur | 4 | 16 | 4 | 16 | 20 |
+| Centro-Norte de EE. UU | 2 | 3,5 | 4 | 16 | 20 |
+| Norte de Europa | 2 | 3,5 | 4 | 16 | 20 |
+| Centro-sur de EE. UU. | 2 | 3,5 | 4 | 16 | 20 |
+| Sur de la India | 2 | 3,5 | 4 | 16 | 20 |
+| Sudeste de Asia | 2 | 3,5 | 4 | 16 | 20 |
+| Sur de Reino Unido | 2 | 3,5 | 4 | 16 | 20 |
+| Centro-Oeste de EE. UU. | 4 | 16 | 4 | 16 | 20 |
+| Oeste de Europa | 4 | 16 | 4 | 16 | 20 |
+| Oeste de EE. UU. | 4 | 14 | No aplicable | N/D | 20 |
+| Oeste de EE. UU. 2 | 2 | 3,5 | 2 | 3,5 | 20 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147712"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547765"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Descripción del registro de identidades de un centro de IoT
 
@@ -99,7 +99,7 @@ El registro de identidades de IoT Hub contiene un campo llamado **connectionStat
 Si la solución de IoT necesita saber si un dispositivo está conectado, debe implementar el *patrón de latido*.
 En el patrón de latido, el dispositivo envía mensajes de dispositivo a la nube al menos una vez en un período de tiempo predeterminado (por ejemplo, al menos una vez cada hora). Por lo tanto, incluso si un dispositivo no tiene ningún dato que enviar, seguirá enviando un mensaje de dispositivo a la nube vacío (normalmente con una propiedad que lo identifica como un latido). En el lado del servicio, la solución mantiene un mapa con el último latido recibido para cada dispositivo. Si solución si no recibe del dispositivo un mensaje de latido en el tiempo esperado, da por supuesto que hay un problema con un dispositivo.
 
-Una implementación más compleja podría incluir la información de [Azure Monitor](../azure-monitor/index.yml) y [Azure Resource Health](../service-health/resource-health-overview.md) para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Consulte la guía [Monitor con diagnósticos](iot-hub-monitor-resource-health.md). Al implementar el patrón de latidos, asegúrese de echar un vistazo a [las cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md).
+Una implementación más compleja podría incluir la información de [Azure Monitor](../azure-monitor/index.yml) y [Azure Resource Health](../service-health/resource-health-overview.md) para identificar los dispositivos que están intentando conectarse o comunicarse sin éxito. Para más información, consulte [Supervisión de IoT Hub](monitor-iot-hub.md) y [Comprobación del estado de los recursos de IoT Hub](iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health). Al implementar el patrón de latido, asegúrese de echar un vistazo a las [cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 > [!NOTE]
 > Si una solución de IoT utiliza el estado de conexión de los dispositivos únicamente para determinar si enviar mensajes de la nube a los dispositivos y los mensajes no se difunden a grandes conjuntos de dispositivos, considere usar el patrón más sencillo de un *tiempo de expiración breve*. Con este patrón se consigue el mismo resultado que con el mantenimiento de un registro del estado de la conexión de los dispositivos con el patrón de latido, a la vez que resulta más eficiente. Cuando solicita confirmaciones de mensajes, IoT Hub puede notificarle sobre qué dispositivos pueden recibir mensajes y cuáles no.
@@ -108,7 +108,7 @@ Una implementación más compleja podría incluir la información de [Azure Moni
 
 IoT Hub puede notificar a la solución de IoT la creación o eliminación de la identidad de un dispositivo mediante el envío de notificaciones de ciclo de vida de dispositivo. Para ello, la solución de IoT debe crear una ruta y establecer el origen de datos igual a *DeviceLifecycleEvents* o *ModuleLifecycleEvents*. De forma predeterminada, no se envían notificaciones de ciclo de vida, es decir, no existen previamente tales rutas. El mensaje de notificaciones incluye propiedades y el cuerpo.
 
-Propiedades: Las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
+Propiedades: las propiedades del sistema de mensajes tienen como prefijo el símbolo `$`.
 
 Mensaje de notificación del dispositivo:
 
@@ -124,7 +124,7 @@ Mensaje de notificación del dispositivo:
 |operationTimestamp | Marca de tiempo ISO8601 de operación |
 |iothub-message-schema | deviceLifecycleNotification |
 
-Cuerpo: Esta sección está en formato JSON y representa el dispositivo gemelo de la identidad del dispositivo creada. Por ejemplo,
+Cuerpo: esta sección está en formato JSON y representa el dispositivo gemelo de la identidad del dispositivo creada. Por ejemplo,
 
 ```json
 {
@@ -191,14 +191,14 @@ Las identidades de dispositivos se representan como documentos JSON con las prop
 | Propiedad | Opciones | Descripción |
 | --- | --- | --- |
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
-| generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
+| generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId** , cuando se han eliminado y vuelto a crear. |
 | ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
 | auth.symkey |opcional |Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
-| status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado**, el dispositivo se puede conectar. Si está **Dishabilitado**, este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
+| status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado** , el dispositivo se puede conectar. Si está **Dishabilitado** , este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
 | statusReason |opcional |Una cadena de 128 caracteres que almacena el motivo del estado de identidad del dispositivo. Se permiten todos los caracteres UTF-8. |
 | statusUpdateTime |solo lectura |Un indicador temporal, que muestra la fecha y hora de la última actualización de estado. |
-| connectionState |solo lectura |Un campo que indica el estado de la conexión: **Conectado** o **Desconectado**. Este campo representa la vista de IoT Hub del estado de conexión del dispositivo. **Importante**: Este campo debe usarse solo para fines de desarrollo o depuración. El estado de conexión se actualiza solo para dispositivos que usen AMQP o MQTT. Además, se basa en pings de nivel de protocolo (pings MQTT o pings AMQP) y puede tener un retraso de 5 minutos como máximo. Por estos motivos es posible que haya falsos positivos, como dispositivos que se notifican como conectados pero que están desconectados. |
+| connectionState |solo lectura |Un campo que indica el estado de la conexión: **Conectado** o **Desconectado**. Este campo representa la vista de IoT Hub del estado de conexión del dispositivo. **Importante** : Este campo debe usarse solo para fines de desarrollo o depuración. El estado de conexión se actualiza solo para dispositivos que usen AMQP o MQTT. Además, se basa en pings de nivel de protocolo (pings MQTT o pings AMQP) y puede tener un retraso de 5 minutos como máximo. Por estos motivos es posible que haya falsos positivos, como dispositivos que se notifican como conectados pero que están desconectados. |
 | connectionStateUpdatedTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que se actualizó el estado de conexión. |
 | lastActivityTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que el dispositivo se conectó, recibió o envió un mensaje. |
 
@@ -216,14 +216,14 @@ Las identidades de módulos se representan como documentos JSON con las propieda
 | --- | --- | --- |
 | deviceId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
 | moduleId |necesarias, de solo lectura en actualizaciones |Una cadena que distingue entre mayúsculas y minúsculas (de hasta 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits más determinados caracteres especiales: `- . + % _ # * ? ! ( ) , : = @ $ '`. |
-| generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId**, cuando se han eliminado y vuelto a crear. |
+| generationId |requerido, de solo lectura |Una cadena de hasta 128 caracteres que distingue mayúsculas y minúsculas generada por el centro de IoT. Este valor se usa para distinguir dispositivos con el mismo **deviceId** , cuando se han eliminado y vuelto a crear. |
 | ETag |requerido, de solo lectura |Una cadena que representa un valor de ETag débil para la identidad del dispositivo, como [RFC7232](https://tools.ietf.org/html/rfc7232). |
 | auth |opcional |Un objeto compuesto que contiene material de seguridad e información de autenticación. |
 | auth.symkey |opcional |Un objeto compuesto que contiene una clave principal y una secundaria, almacenadas en formato base64. |
-| status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado**, el dispositivo se puede conectar. Si está **Dishabilitado**, este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
+| status |requerido |Indicador de acceso Puede ser **Habilitado** o **Deshabilitado**. Si está **Habilitado** , el dispositivo se puede conectar. Si está **Dishabilitado** , este dispositivo no puede obtener acceso a ningún punto de conexión accesible desde el dispositivo. |
 | statusReason |opcional |Una cadena de 128 caracteres que almacena el motivo del estado de identidad del dispositivo. Se permiten todos los caracteres UTF-8. |
 | statusUpdateTime |solo lectura |Un indicador temporal, que muestra la fecha y hora de la última actualización de estado. |
-| connectionState |solo lectura |Un campo que indica el estado de la conexión: **Conectado** o **Desconectado**. Este campo representa la vista de IoT Hub del estado de conexión del dispositivo. **Importante**: Este campo debe usarse solo para fines de desarrollo o depuración. El estado de conexión se actualiza solo para dispositivos que usen AMQP o MQTT. Además, se basa en pings de nivel de protocolo (pings MQTT o pings AMQP) y puede tener un retraso de 5 minutos como máximo. Por estos motivos es posible que haya falsos positivos, como dispositivos que se notifican como conectados pero que están desconectados. |
+| connectionState |solo lectura |Un campo que indica el estado de la conexión: **Conectado** o **Desconectado**. Este campo representa la vista de IoT Hub del estado de conexión del dispositivo. **Importante** : Este campo debe usarse solo para fines de desarrollo o depuración. El estado de conexión se actualiza solo para dispositivos que usen AMQP o MQTT. Además, se basa en pings de nivel de protocolo (pings MQTT o pings AMQP) y puede tener un retraso de 5 minutos como máximo. Por estos motivos es posible que haya falsos positivos, como dispositivos que se notifican como conectados pero que están desconectados. |
 | connectionStateUpdatedTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que se actualizó el estado de conexión. |
 | lastActivityTime |solo lectura |Un indicador temporal que muestra la fecha y hora de la última vez que el dispositivo se conectó, recibió o envió un mensaje. |
 

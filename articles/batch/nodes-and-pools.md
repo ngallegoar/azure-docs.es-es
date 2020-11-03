@@ -2,17 +2,17 @@
 title: Nodos y grupos en Azure Batch
 description: Obtenga información sobre los grupos y nodos de proceso, y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385762"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371450"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodos y grupos en Azure Batch
 
-En un flujo de trabajo de Azure Batch, un *nodo de proceso* (o *nodo*) es una máquina virtual que procesa una parte de la carga de trabajo de la aplicación. Un *grupo* es una colección de estos nodos para que la aplicación se ejecute. En este artículo se ofrece más información sobre nodos y grupos, junto con consideraciones al crearlos y usarlos en un flujo de trabajo de Azure Batch.
+En un flujo de trabajo de Azure Batch, un *nodo de proceso* (o *nodo* ) es una máquina virtual que procesa una parte de la carga de trabajo de la aplicación. Un *grupo* es una colección de estos nodos para que la aplicación se ejecute. En este artículo se ofrece más información sobre nodos y grupos, junto con consideraciones al crearlos y usarlos en un flujo de trabajo de Azure Batch.
 
 ## <a name="nodes"></a>Nodos
 
@@ -26,7 +26,7 @@ Todos los nodos de proceso en Batch también incluyen:
 
 - Una [estructura de carpetas](files-and-directories.md) estándar y [variables de entorno](jobs-and-tasks.md) asociadas, disponibles para que las tareas hagan referencia a ellas.
 - **firewall** para controlar el acceso.
-- [Acceso remoto](error-handling.md#connect-to-compute-nodes) a nodos de Windows (Protocolo de escritorio remoto (RDP)) y nodos de Linux (Secure Shell (SSH)).
+- [Acceso remoto](error-handling.md#connect-to-compute-nodes) a nodos de Windows (Protocolo de escritorio remoto [RDP]) y nodos de Linux (Secure Shell [SSH]) (a menos que [cree su grupo con el acceso remoto deshabilitado](pool-endpoint-configuration.md)).
 
 De forma predeterminada, los nodos pueden comunicarse entre sí, pero no pueden comunicarse con máquinas virtuales que no forman parte del mismo grupo. Para permitir que los nodos se comuniquen de manera segura con otras máquinas virtuales o con una red local, puede aprovisionar el grupo [en una subred de una red de Azure Virtual Network (VNet)](batch-virtual-network.md). Al hacerlo, se puede tener acceso a los nodos a través de direcciones IP públicas. Batch crea estas direcciones IP públicas, que pueden cambiar durante la vigencia del grupo. También puede [crear un grupo con direcciones IP públicas estáticas](create-pool-public-ip.md) bajo su control, lo que garantiza que no cambiarán de forma inesperada.
 
@@ -127,7 +127,7 @@ Una fórmula de escalado puede basarse en las siguientes métricas:
 
 - **Métricas de tiempo** : se basan en las estadísticas recopiladas cada cinco minutos en el número especificado de horas.
 - **Métricas de recursos** : se basan en el uso de CPU, ancho de banda y memoria y en el número de nodos.
-- **Métricas de tareas**: se basan en el estado de la tarea, como *Activa* (en cola), *En ejecución* o *Completada*.
+- **Métricas de tareas** : se basan en el estado de la tarea, como *Activa* (en cola), *En ejecución* o *Completada*.
 
 Cuando el escalado automático reduce el número de nodos de proceso en un grupo, debe considerar cómo administrará las tareas que se están ejecutando en el momento en que se realiza la operación de reducción. Para ello, Batch proporciona una [*opción de desasignación de nodos*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que se puede incluir en las fórmulas. Por ejemplo, puede especificar que las tareas en ejecución se detengan de inmediato y se vuelvan a poner en cola para ejecutarlas en otro nodo o se dejen finalizar antes de que se quite el nodo del grupo. Tenga en cuenta que si se establece la opción de desasignación de nodos en `taskcompletion` o `retaineddata`, se evitarán las operaciones de cambio de tamaño de los grupos hasta que se completen todas las tareas o hasta que expiren todos los períodos de retención de tareas, respectivamente.
 
@@ -148,7 +148,7 @@ También puede especificar un *tipo de relleno* que determina si el servicio Bat
 
 En la mayoría de los escenarios, las tareas funcionan de forma independiente y no necesitan comunicarse entre sí. Sin embargo, hay algunas aplicaciones en las que las tareas deben comunicarse, como en los [escenarios MPI](batch-mpi.md).
 
-Puede configurar un grupo que permita la **comunicación entre nodos**, de manera que los nodos de un grupo se puedan comunicar en tiempo de ejecución. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Cloud Services pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
+Puede configurar un grupo que permita la **comunicación entre nodos** , de manera que los nodos de un grupo se puedan comunicar en tiempo de ejecución. Cuando se habilita la comunicación entre nodos, los nodos en grupos de configuración de Cloud Services pueden comunicarse entre sí en los puertos superiores a 1100, mientras que los grupos de configuración de máquina virtual no restringen el tráfico en ningún puerto.
 
 Habilitar la comunicación entre nodos también afecta a la colocación de los nodos dentro de los clústeres y puede limitar el número máximo de nodos en un grupo a causa de las restricciones de implementación. Si la aplicación no requiere comunicación entre los nodos, el servicio Batch puede asignar un número potencialmente alto de nodos al grupo desde muchos clústeres y centros de datos diferentes para permitir el aumento de la potencia del procesamiento paralelo.
 

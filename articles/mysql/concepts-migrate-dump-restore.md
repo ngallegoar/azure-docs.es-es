@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905900"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484600"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migre su Base de datos MySQL a Azure Database for MySQL mediante el volcado y la restauración.
 
@@ -28,13 +28,17 @@ Para seguir esta guía de procedimientos, necesita lo siguiente:
 - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) u otra herramienta de MySQL de terceros para ejecutar los comandos de volcado y restauración.
 
 > [!TIP]
-> Si desea migrar bases de datos de gran tamaño con tamaños de base de datos superiores a 1 TB, considere la posibilidad de usar herramientas de la comunidad como **mydumper/myloader**, que admite la importación y exportación paralelas. Aprenda [cómo migrar bases de datos de MySQL grandes](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
+> Si desea migrar bases de datos de gran tamaño con tamaños de base de datos superiores a 1 TB, considere la posibilidad de usar herramientas de la comunidad como **mydumper/myloader** , que admite la importación y exportación paralelas. Aprenda [cómo migrar bases de datos de MySQL grandes](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
+
 
 ## <a name="common-use-cases-for-dump-and-restore"></a>Casos de uso comunes de volcado y restauración
-Puede emplear utilidades de MySQL, como **mysqldump** y **mysqlpump** para realizar un volcado de las bases de datos y cargarlas en una base de datos de Azure MySQL en varios escenarios comunes. En otros escenarios, puede usar en su lugar el enfoque de [importación y exportación](concepts-migrate-import-export.md).
 
-- **Use volcados de base de datos cuando vaya a migrar toda la base de datos**. Esta recomendación es adecuada si va a mover una gran cantidad de datos de MySQL o si quiere reducir la interrupción del servicio en sitios o aplicaciones dinámicos.
--  **Use el volcado de base de datos si todas las tablas de la base de datos usan el motor de almacenamiento InnoDB**. Azure Database for MySQL solo admite el motor de almacenamiento InnoDB y, por tanto, no es compatible con otros alternativos. Si las tablas están configuradas con otros motores de almacenamiento, conviértalos al formato del motor InnoDB antes de realizar la migración a Azure Database for MySQL.
+Los casos de uso más comunes son:
+
+- **Transferencia desde otro proveedor de servicios administrados** : es posible que la mayoría de proveedores de servicios administrados no proporcione acceso al archivo de almacenamiento físico por motivos de seguridad, por lo que la copia de seguridad y restauración lógica es la única opción para migrar.
+- **Migración desde el entorno o la máquina virtual local** : Azure Database for MySQL no admite la restauración de copias de seguridad físicas, lo que hace que la copia de seguridad y restauración lógica sea el ÚNICO enfoque.
+- **Transferencia del almacenamiento de copia de seguridad de un almacenamiento con redundancia local a un almacenamiento con redundancia geográfica** : Azure Database for MySQL permite configurar el almacenamiento con redundancia local o con redundancia geográfica para la copia de seguridad solo durante la creación del servidor. Una vez que se ha aprovisionado el servidor, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad. Para trasladar el almacenamiento de copia de seguridad del almacenamiento con redundancia local a otro con redundancia geográfica, la ÚNICA opción es el volcado y restauración. 
+-  **Migración desde motores de almacenamiento alternativos a InnoDB** : Azure Database for MySQL solo admite el motor de almacenamiento InnoDB y, por tanto, no es compatible con otros alternativos. Si las tablas están configuradas con otros motores de almacenamiento, conviértalos al formato del motor InnoDB antes de realizar la migración a Azure Database for MySQL.
 
     Por ejemplo, si tiene una aplicación WordPress o WebApp que usa las tablas MyISAM, convierta primero esas tablas; para ello, mígrelas al formato InnoDB antes de restaurarlas en Azure Database for MySQL. Use la cláusula `ENGINE=InnoDB` para configurar el motor utilizado al crear una nueva tabla y luego transfiera los datos a la tabla compatible antes de la restauración.
 
@@ -67,7 +71,7 @@ Para conectarse, busque la información de conexión en la página **Introducci�
 
 Agregue la información de conexión a MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Obtención de la información de conexión en Azure Portal":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Cadena de conexión de MySQL Workbench":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Preparación del servidor de Azure Database for MySQL de destino para cargas de datos rápidas
 Para preparar el servidor de Azure Database for MySQL de destino para cargas de datos más rápidas, es necesario cambiar los siguientes parámetros y configuración del servidor.
@@ -123,12 +127,12 @@ mysql -h [hostname] -u [uname] -p[pass] [db_to_restore] < [backupfile.sql]
 ```
 En este ejemplo, restaure los datos en la base de datos recién creada en el servidor de destino de Azure Database for MySQL server.
 
-Este es un ejemplo de cómo usar este elemento **mysql** para un **servidor único**:
+Este es un ejemplo de cómo usar este elemento **mysql** para un **servidor único** :
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
-Este es un ejemplo de cómo usar este elemento **mysql** para el **servidor flexible**:
+Este es un ejemplo de cómo usar este elemento **mysql** para el **servidor flexible** :
 
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin -p testdb < testdb_backup.sql
@@ -165,3 +169,4 @@ Para obtener información sobre problemas conocidos, sugerencias y trucos, le re
 ## <a name="next-steps"></a>Pasos siguientes
 - [Conexión de aplicaciones a Azure Database for MySQL](./howto-connection-string.md)
 - Para más información sobre cómo migrar bases de datos a Azure Database for MySQL, consulte la [Guía de migración de base de datos](https://aka.ms/datamigration).
+- Si desea migrar bases de datos de gran tamaño con tamaños de base de datos superiores a 1 TB, considere la posibilidad de usar herramientas de la comunidad como **mydumper/myloader** , que admite la importación y exportación paralelas. Aprenda [cómo migrar bases de datos de MySQL grandes](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

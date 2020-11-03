@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277804"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489241"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
 En Azure Cosmos DB, cada contenedor tiene una directiva de indexación que determina cómo se deben indexar los elementos del contenedor. La directiva de indexación predeterminada para los contenedores recién creados indexa cada propiedad de cada elemento y exige que se usen índices de intervalo para todas las cadenas o números. Esto permite obtener un rendimiento elevado de consultas sin tener que pensar en la indexación y administración de índices por adelantado.
 
-En algunas situaciones, puede que quiera invalidar este comportamiento automático para ajustarse mejor a sus requerimientos. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación* e incluir o excluir las *rutas de acceso de propiedad* .
+En algunas situaciones, puede que quiera invalidar este comportamiento automático para ajustarse mejor a sus requerimientos. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación* e incluir o excluir las *rutas de acceso de propiedad*.
 
 > [!NOTE]
 > El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga más información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
@@ -30,11 +30,11 @@ Azure Cosmos DB admite dos modos de indexación:
 - **Ninguna** : La indexación está deshabilitada en el contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. También se puede usar para mejorar el rendimiento de las operaciones masivas. Una vez completadas las operaciones masivas, el modo de índice se puede establecer en Coherente y supervisarse mediante [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) hasta que se complete.
 
 > [!NOTE]
-> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos** . Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. En junio de 2020, se incluyó un cambio que ya no permite que los nuevos contenedores se establezcan en el modo de indexación diferida. Si la cuenta de Azure Cosmos DB ya contiene al menos un contenedor con indexación diferida, esta cuenta se excluye automáticamente del cambio. También puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md) que no admite la indexación diferida).
+> Azure Cosmos DB también admite un modo de indexación diferida. La indexación diferida realiza actualizaciones en el índice con un nivel de prioridad mucho menor cuando el motor no realiza ningún otro trabajo. Esto puede producir resultados de consulta **incoherentes o incompletos**. Si tiene previsto consultar un contenedor de Cosmos, no debe seleccionar la indexación diferida. En junio de 2020, se incluyó un cambio que ya no permite que los nuevos contenedores se establezcan en el modo de indexación diferida. Si la cuenta de Azure Cosmos DB ya contiene al menos un contenedor con indexación diferida, esta cuenta se excluye automáticamente del cambio. También puede ponerse en contacto con el [servicio de soporte técnico de Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para solicitar una exención (excepto si usa una cuenta de Azure Cosmos en modo [sin servidor](serverless.md) que no admite la indexación diferida).
 
 De forma predeterminada, la directiva de indexación se establece en `automatic`. Esto se consigue al establecer la propiedad `automatic` de la directiva de indexación en `true`. Al establecer esta propiedad en `true`, se permite que Azure Cosmos DB indexe automáticamente los documentos a medida que se escriben.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inclusión y exclusión de rutas de acceso de propiedad
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inclusión y exclusión de rutas de acceso de propiedad
 
 Una directiva de indexación personalizada puede especificar rutas de acceso de propiedad que se incluyen o excluyen de forma explícita de la indexación. Al optimizar el número de rutas de acceso que están indexadas, puede reducir considerablemente la latencia y el cargo de RU de las operaciones de escritura. Estas rutas de acceso se definen siguiendo [el método descrito en la sección de introducción a la indexación](index-overview.md#from-trees-to-property-paths), con las siguientes adiciones:
 

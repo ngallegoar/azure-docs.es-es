@@ -2,14 +2,14 @@
 title: Selección de los tamaños de máquina virtual para grupos
 description: Cómo elegir uno de los tamaños de máquina virtual disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107511"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517062"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -31,17 +31,19 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | A básico | Todos los tamaños *excepto* Basic_A0 (A0) |
 | A | Todos los tamaños *excepto* Standard_A0 |
 | Av2 | Todos los tamaños |
-| B | None |
-| DC | None |
+| B | No compatible |
+| DC | No compatible |
 | Dv2, DSv2 | Todos los tamaños |
 | Dv3, Dsv3 | Todos los tamaños |
 | Dav4<sup>1</sup> | Todos los tamaños |
 | Dav4<sup>1</sup> | Todos los tamaños |
 | Ddv4, Ddsv4 |  Todos los tamaños |
+| Dv4, Dsv4 | No compatible |
 | Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 |
 | Eav4<sup>1</sup> | Todos los tamaños |
 | Easv4<sup>1</sup> | Todos los tamaños |
 | Edv4, Edsv4 |  Todos los tamaños |
+| Ev4, Esv4 | No compatible |
 | F, Fs | Todos los tamaños |
 | Fsv2 | Todos los tamaños |
 | G, Gs | Todos los tamaños |
@@ -56,12 +58,13 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | NC | Todos los tamaños |
 | NCv2<sup>1</sup> | Todos los tamaños |
 | NCv3<sup>1</sup> | Todos los tamaños |
+| NCasT4_v3 | Ninguno: no disponible todavía |
 | ND<sup>1</sup> | Todos los tamaños |
 | NDv2<sup>1</sup> | Ninguno: no disponible todavía |
 | NV | Todos los tamaños |
 | NVv3<sup>1</sup> | Todos los tamaños |
-| NVv4 | Ninguno: no disponible todavía |
-| SAP HANA | None |
+| NVv4<sup>1</sup> | Todos los tamaños |
+| SAP HANA | No compatible |
 
 <sup>1</sup> Estas series de máquina virtual se pueden asignar en grupos de Batch en la configuración de la máquina virtual, pero debe crear una cuenta de Batch y solicitar un [aumento de cuota](batch-quota-limit.md#increase-a-quota) específico. Esta limitación se eliminará una vez que la cuota de vCPU por serie de máquinas virtuales sea totalmente compatible con las cuentas de Batch.
 
@@ -81,17 +84,17 @@ Los grupos de Batch en la configuración de Cloud Services son compatibles con t
 
 ## <a name="size-considerations"></a>Consideraciones de tamaño
 
-* **Requisitos de aplicación**: tenga en cuenta las características y los requisitos de la aplicación que se va a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Para varias instancias de [cargas de trabajo MPI](batch-mpi.md) o aplicaciones CUDA, considere la posibilidad de tamaños de máquina virtual especializados [HPC](../virtual-machines/sizes-hpc.md) o [habilitado GPU](../virtual-machines/sizes-gpu.md), respectivamente. (Consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md)).
+* **Requisitos de aplicación** : tenga en cuenta las características y los requisitos de la aplicación que se va a ejecutar en los nodos. Aspectos tales como si la aplicación es multiproceso y cuánta memoria consume pueden ayudar a determinar el tamaño de nodo más adecuado y rentable. Para varias instancias de [cargas de trabajo MPI](batch-mpi.md) o aplicaciones CUDA, considere la posibilidad de tamaños de máquina virtual especializados [HPC](../virtual-machines/sizes-hpc.md) o [habilitado GPU](../virtual-machines/sizes-gpu.md), respectivamente. (Consulte [Uso de instancias compatibles con RDMA o habilitadas para GPU en grupos de Batch](batch-pool-compute-intensive-sizes.md)).
 
-* **Tareas por nodo**: normalmente, se selecciona un tamaño de nodo bajo el supuesto de que no se ejecutará más que una sola tarea a la vez en un nodo. No obstante, puede tener ventajas [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en varios nodos de proceso durante la ejecución del trabajo. En este caso, es habitual elegir un tamaño de nodo de varios núcleos para acomodar el aumento de la demanda por la ejecución de tareas en paralelo.
+* **Tareas por nodo** : normalmente, se selecciona un tamaño de nodo bajo el supuesto de que no se ejecutará más que una sola tarea a la vez en un nodo. No obstante, puede tener ventajas [ejecutar en paralelo](batch-parallel-node-tasks.md) varias tareas y, por tanto, varias instancias de la aplicación, en varios nodos de proceso durante la ejecución del trabajo. En este caso, es habitual elegir un tamaño de nodo de varios núcleos para acomodar el aumento de la demanda por la ejecución de tareas en paralelo.
 
-* **Niveles de carga para diferentes tareas**: todos los nodos en un grupo tienen el mismo tamaño. Si va a ejecutar aplicaciones con requisitos del sistema o niveles de carga diferentes, es recomendable usar grupos separados.
+* **Niveles de carga para diferentes tareas** : todos los nodos en un grupo tienen el mismo tamaño. Si va a ejecutar aplicaciones con requisitos del sistema o niveles de carga diferentes, es recomendable usar grupos separados.
 
-* **Disponibilidad por regiones**: una serie o tamaño de máquina virtual, podría no estar disponible en las regiones en las que cree las cuentas de Batch. Para comprobar que un tamaño está disponible, vea [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
+* **Disponibilidad por regiones** : una serie o tamaño de máquina virtual, podría no estar disponible en las regiones en las que cree las cuentas de Batch. Para comprobar que un tamaño está disponible, vea [Productos disponibles por región](https://azure.microsoft.com/regions/services/).
 
-* **Cuotas**: la [cuota de núcleos](batch-quota-limit.md#resource-quotas) en su cuenta de Batch puede limitar el número de nodos de un tamaño específico que se puede agregar a un grupo de Batch. Para solicitar un aumento de la cuota, consulte [este artículo](batch-quota-limit.md#increase-a-quota). 
+* **Cuotas** : la [cuota de núcleos](batch-quota-limit.md#resource-quotas) en su cuenta de Batch puede limitar el número de nodos de un tamaño específico que se puede agregar a un grupo de Batch. Para solicitar un aumento de la cuota, consulte [este artículo](batch-quota-limit.md#increase-a-quota). 
 
-* **Configuración de grupo**: por lo general, tiene más opciones de tamaño de máquina virtual cuando crea un grupo en la configuración de máquina virtual, en comparación con la configuración de Cloud Service.
+* **Configuración de grupo** : por lo general, tiene más opciones de tamaño de máquina virtual cuando crea un grupo en la configuración de máquina virtual, en comparación con la configuración de Cloud Service.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

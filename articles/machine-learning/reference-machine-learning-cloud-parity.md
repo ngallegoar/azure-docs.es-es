@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892984"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426533"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Paridad de nube soberana de Azure Machine Learning
 
@@ -122,7 +122,7 @@ Nos esforzamos por proporcionar la máxima paridad entre nuestra nube pública y
 | Acceso de SSH y raíz a los recursos de proceso                                          | SÍ | SÍ |  |
 | Mantenimiento de la seguridad de los sistemas implementados (instancias, puntos de conexión, etc.), incluida la protección de puntos de conexión, la revisión y el registro |  PARTIAL|  PARTIAL |ACI detrás de VNet y punto de conexión privado no disponibles actualmente |                                  
 | Control (deshabilitación, limitación o restricción) del uso de la integración de ACI/AKS                    | PARTIAL| PARTIAL |ACI detrás de VNet y punto de conexión privado no disponibles actualmente|
-| Control de acceso basado en rol (RBAC): creaciones de roles personalizados                           | SÍ | SÍ |  |
+| Control de acceso basado en rol de Azure (RBAC de Azure): creaciones de roles personalizados                           | SÍ | SÍ |  |
 | Control de acceso a imágenes de ACR utilizadas por el servicio de ML (proporcionado o mantenido por Azure frente a personalizado)  |PARTIAL|  PARTIAL | ACR detrás del punto de conexión privado y la red virtual no se admiten en Azure Government |
 | **Uso general de Machine Learning Service** |  | | |
 | Capacidad de tener un entorno de desarrollo para crear un modelo, entrenar ese modelo, hospedarlo como punto de conexión y consumirlo a través de una aplicación web     | SÍ | SÍ |  |

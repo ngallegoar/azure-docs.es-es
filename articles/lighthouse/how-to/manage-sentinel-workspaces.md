@@ -3,12 +3,12 @@ title: Administración de áreas de trabajo de Azure Sentinel a gran escala
 description: Obtenga información sobre cómo a administrar de forma eficaz Azure Sentinel en recursos delegados de clientes.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596944"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424096"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Administración de áreas de trabajo de Azure Sentinel a gran escala
 
@@ -39,7 +39,7 @@ Este modelo centralizado de implementación presenta las siguientes ventajas:
 > [!NOTE]
 > Puede administrar recursos delegados que estén ubicados en diferentes [regiones](../../availability-zones/az-overview.md#regions). Sin embargo, no se admite la delegación de suscripciones entre una [nube nacional](../../active-directory/develop/authentication-national-cloud.md) y la nube pública de Azure o entre dos nubes nacionales independientes.
 
-## <a name="granular-role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC) pormenorizado.
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Control de acceso basado en rol de Azure (RBAC de Azure) detallado
 
 Cada suscripción de cliente que administrará un MSSP debe [incorporarse a Azure Lighthouse](onboard-customer.md). Esto permite a los usuarios designados del inquilino de administración tener acceso y realizar operaciones de administración en áreas de trabajo de Azure Sentinel implementadas en inquilinos del cliente.
 

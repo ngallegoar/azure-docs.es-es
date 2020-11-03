@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2020
 ms.author: kumud
-ms.openlocfilehash: 416ca556e298fa088916a554860d05725bc1cf72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ea65e94e97b69e24c6935328cc01c2295adc5a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045508"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518643"
 ---
 # <a name="plan-virtual-networks"></a>Planear redes virtuales
 
@@ -105,7 +105,7 @@ Los recursos de una red virtual no pueden resolver los nombres de los recursos d
 
 ## <a name="permissions"></a>Permisos
 
-Azure usa el [control de acceso basado en roles](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) para los recursos. Se asignan permisos a un [ámbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) según la siguiente jerarquía: grupo de administración, suscripción, grupo de recursos y recurso individual. Para obtener más información acerca de la jerarquía, consulte [Organización de los recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabajar con redes virtuales de Azure y todas sus capacidades relacionadas, como el emparejamiento, los grupos de seguridad de red, los puntos de conexión de servicio y las tablas de rutas, puede asignar miembros de la organización a los roles integrados [Propietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) o [Colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y, a continuación, asignar uno de esos roles a un ámbito adecuado. Si quiere asignar permisos específicos para un subconjunto de capacidades de red virtual, cree un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y asigne al rol los permisos específicos necesarios para [redes virtuales](manage-virtual-network.md#permissions), [subredes y puntos de conexión de servicio](virtual-network-manage-subnet.md#permissions), [interfaces de red](virtual-network-network-interface.md#permissions), [emparejamientos](virtual-network-manage-peering.md#permissions), [grupos de seguridad de aplicaciones y red](manage-network-security-group.md#permissions) o [tablas de rutas](manage-route-table.md#permissions).
+Azure usa el [control de acceso basado en rol de Azure](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC de Azure) para los recursos. Se asignan permisos a un [ámbito](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) según la siguiente jerarquía: grupo de administración, suscripción, grupo de recursos y recurso individual. Para obtener más información acerca de la jerarquía, consulte [Organización de los recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabajar con redes virtuales de Azure y todas sus capacidades relacionadas, como el emparejamiento, los grupos de seguridad de red, los puntos de conexión de servicio y las tablas de rutas, puede asignar miembros de la organización a los roles integrados [Propietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) o [Colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) y, a continuación, asignar uno de esos roles a un ámbito adecuado. Si quiere asignar permisos específicos para un subconjunto de capacidades de red virtual, cree un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y asigne al rol los permisos específicos necesarios para [redes virtuales](manage-virtual-network.md#permissions), [subredes y puntos de conexión de servicio](virtual-network-manage-subnet.md#permissions), [interfaces de red](virtual-network-network-interface.md#permissions), [emparejamientos](virtual-network-manage-peering.md#permissions), [grupos de seguridad de aplicaciones y red](manage-network-security-group.md#permissions) o [tablas de rutas](manage-route-table.md#permissions).
 
 ## <a name="policy"></a>Directiva
 

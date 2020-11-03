@@ -9,12 +9,12 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 9ed3a4b0827e81b3f779d95a6eab1dc341e69bb1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569471"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503273"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carga de datos de forma segura mediante el uso de Synapse SQL
 
@@ -97,7 +97,7 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
     > [!IMPORTANT]
     > Especifique los roles de Azure **Propietario, Colaborador o Lector** de los **datos de Storage Blob**. Estos roles son diferentes de los roles integrados de Azure de Propietario, Colaborador y Lector. 
 
-    ![Concesión de permiso de RBAC para carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Concesión de permiso de RBAC de Azure para la carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 4. Ya puede ejecutar la instrucción COPY especificando "Identity administrada":
 
@@ -118,7 +118,7 @@ La autenticación de Identidad administrada es necesaria cuando la cuenta de alm
     > [!IMPORTANT]
     > Especifique los roles de Azure **Propietario, Colaborador o Lector** de los **datos de Storage Blob**. Estos roles son diferentes de los roles integrados de Azure de Propietario, Colaborador y Lector.
 
-    ![Concesión de permiso de RBAC para carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
+    ![Concesión de permiso de RBAC de Azure para la carga](./media/quickstart-bulk-load-copy-tsql-examples/rbac-load-permissions.png)
 
 2. Para configurar la autenticación de Azure AD, consulte la siguiente [documentación](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#create-an-azure-ad-administrator-for-azure-sql-server). 
 

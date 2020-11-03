@@ -21,7 +21,7 @@ ms.locfileid: "92546269"
 ---
 # <a name="what-are-azure-cognitive-services"></a>¿Qué es Azure Cognitive Services?
 
-Azure Cognitive Services son servicios basados en la nube con API de REST y SDK de biblioteca cliente disponibles para ayudarle a integrar inteligencia cognitiva en sus aplicaciones. Puede agregar características cognitivas a sus aplicaciones sin tener conocimientos sobre inteligencia artificial (IA) o ciencia de datos. Azure Cognitive Services incluye varios servicios de inteligencia artificial que le permiten desarrollar soluciones cognitivas con capacidad de ver, oír, hablar, comprender e incluso tomar decisiones.
+Azure Cognitive Services son servicios basados en la nube con API REST y SDK de biblioteca cliente disponibles para ayudarle a integrar inteligencia cognitiva en sus aplicaciones. Puede agregar características cognitivas a sus aplicaciones sin tener conocimientos sobre inteligencia artificial (IA) o ciencia de datos. Azure Cognitive Services incluye varios servicios de inteligencia artificial que le permiten desarrollar soluciones cognitivas con capacidad de ver, oír, hablar, comprender e incluso tomar decisiones.
 
 ## <a name="categories-of-cognitive-services"></a>Categorías de Cognitive Services
 
@@ -102,7 +102,7 @@ Con Azure y Cognitive Services, dispone de varias opciones de desarrollo, como l
 * Contenedores de Cognitive Services para el acceso seguro.
 * Herramientas como Apache Spark, Azure Databricks, Azure Synapse Analytics y Azure Kubernetes Service para escenarios de macrodatos. 
 
-Para obtener más información, consulte [Opciones de desarrollo de Cognitive Services](./cognitive-services-development-options.md).
+Para más información, consulte [Opciones de desarrollo de Cognitive Services](./cognitive-services-development-options.md).
 
 ## <a name="learn-with-the-quickstarts"></a>Aprenda con las guías de inicio rápido
 

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Uso de GitOps para una configuración de clúster habilitada para Azure Arc (versión preliminar)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714193"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371263"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementación de configuraciones mediante GitOps en clústeres de Kubernetes habilitados para Arc (versión preliminar)
 
@@ -98,17 +98,16 @@ Estos son los escenarios admitidos para el valor del parámetro --repository-url
 
 | Escenario | Formato | Descripción |
 | ------------- | ------------- | ------------- |
-| Repositorio privado de GitHub: SSH | git@github.com:username/repo | Par de claves SSH generado por Flux.  El usuario debe agregar la clave pública a la cuenta de GitHub como clave de implementación. |
-| Repositorio público de GitHub | `http://github.com/username/repo` o git://github.com/username/repo   | Repositorio público de Git  |
+| Repositorio público de Git | http[s]://server/repo.git o git://server/repo.git   | Repositorio público de Git  |
+| Repositorio de Git privado - SSH - claves creadas por Flux | ssh://[user@]server/repo.git o [user@]server:repo.git | La clave pública generada por Flux se debe agregar a la cuenta de usuario o repositorio en el proveedor de servicios de Git. [aquí](#apply-configuration-from-a-private-git-repository) |
 
-Estos escenarios son compatibles con Flux pero todavía no lo son con sourceControlConfiguration. 
+Estos escenarios son compatibles con Flux pero todavía no lo son con sourceControlConfiguration.
 
 | Escenario | Formato | Descripción |
 | ------------- | ------------- | ------------- |
-| Repositorio privado de GitHub: HTTPS | `https://github.com/username/repo` | Flux no genera el par de claves SSH.  [Instrucciones](https://docs.fluxcd.io/en/1.17.0/guides/use-git-https.html) |
-| Host privado de Git | user@githost:path/to/repo | [Instrucciones](https://docs.fluxcd.io/en/1.18.0/guides/use-private-git-host.html) |
-| Repositorio privado de GitHub: SSH (Bring Your Own Key) | git@github.com:username/repo | [Uso de un par de claves SSH propio](https://docs.fluxcd.io/en/1.17.0/guides/provide-own-ssh-key.html) |
-
+| Repositorio de Git privado: HTTPS | https://server/repo.git | Próximamente (será compatible con nombre de usuario/contraseña, nombre de usuario/token, certificado) |
+| Repositorio de Git privado - SSH - claves proporcionadas por el usuario | ssh://[user@]server/repo.git o [user@]server:repo.git | Próximamente |
+| Host de Git privado - SSH - known_hosts personalizado | ssh://[user@]server/repo.git o [user@]server:repo.git | Próximamente |
 
 #### <a name="additional-parameters"></a>Parámetros adicionales
 
@@ -225,7 +224,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 **Adición de la clave pública como clave de implementación al repositorio de Git**
 
-1. Abra GitHub, navegue hasta la bifurcación, después a **Settings** (Configuración) y luego a **Deploy keys** (Implementar claves).
+1. Abra GitHub, navegue hasta repositorio, después a **Settings** (Configuración) y luego a **Deploy keys** (Implementar claves).
 2. Haga clic en **Add deploy key** (Agregar clave de implementación).
 3. Proporcione un título.
 4. Active **Allow write access** (Permitir acceso de escritura).
@@ -237,7 +236,7 @@ Vea la documentación de GitHub para obtener más información sobre cómo admin
 **Si usa un repositorio de Azure DevOps, agregue la clave a las claves SSH**
 
 1. En **User Settings** (Configuración de usuario) en la parte superior derecha (junto a la imagen de perfil), haga clic en **SSH public keys** (Claves públicas de SSH).
-1. Seleccione **+ New Key**(+ Nueva clave).
+1. Seleccione **+ New Key** (+ Nueva clave).
 1. Proporcione un nombre.
 1. Pegue la clave pública sin las comillas.
 1. Haga clic en **Agregar**.

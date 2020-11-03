@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126333"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461148"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introducción al ejemplo de elementos principales de una llamada
 
@@ -25,12 +25,12 @@ ms.locfileid: "92126333"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Este ejemplo está disponible en GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
 En el **ejemplo de elementos principales de llamada grupal** de Azure Communication Services se muestra cómo se puede usar la biblioteca cliente web de llamadas de Communication Services para crear una experiencia de llamada grupal.
 
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
-
-> [!IMPORTANT]
-> [Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero).
 
 ## <a name="overview"></a>Información general
 
@@ -42,11 +42,17 @@ El ejemplo tendrá una apariencia similar a la siguiente:
 
 Cuando se presiona el botón "Start a call", la aplicación web captura un token de acceso de usuario de la aplicación del lado servidor. A continuación, este token se usa para conectar la aplicación cliente con Azure Communication Services. Una vez recuperado el token, se le pedirá que especifique la cámara y el micrófono que quiere usar. Podrá deshabilitar o habilitar los dispositivos con los controles de alternancia:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Captura de pantalla que muestra la página de aterrizaje de la aplicación de ejemplo.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Captura de pantalla que muestra la pantalla anterior a la llamada en la aplicación de ejemplo.":::
 
 Una vez que configure el nombre para mostrar y los dispositivos, puede unirse a la sesión de llamada. Ahora verá el lienzo de llamada principal en el que se encuentra la experiencia de llamada principal.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Captura de pantalla que muestra la página de aterrizaje de la aplicación de ejemplo." de la esquina superior derecha. En la barra lateral de participantes se mostrará una lista de participantes y un vínculo para invitar a más usuarios a conversar. La barra lateral de configuración permite configurar las opciones del micrófono y la cámara.
+:::image type="content" source="./media/calling/main-app.png" alt-text="Captura de pantalla que muestra la pantalla principal de la aplicación de ejemplo.":::
+
+Componentes de la pantalla principal de llamada:
+
+1. **Galería multimedia** : la fase principal en la que se muestran los participantes. Si un participante tiene habilitada la cámara, aquí se muestra su fuente de vídeo. Cada participante tiene un icono individual que muestra su nombre para mostrar y la transmisión de vídeo (si hay alguna).
+2. **Encabezado** : aquí es donde se encuentran los controles de llamada principales para ajustar la configuración y la barra lateral de participantes, activar o desactivar el vídeo y mezclas, compartir la pantalla y abandonar la llamada.
+3. **Barra lateral** : aquí es donde se muestran los participantes y la información de configuración cuando se ajustan con los controles del encabezado. El componente se puede descartar con la "X" de la esquina superior derecha. En la barra lateral de participantes se mostrará una lista de participantes y un vínculo para invitar a más usuarios a conversar. La barra lateral de configuración permite configurar las opciones del micrófono y la cámara.
 
 A continuación encontrará más información sobre los requisitos previos y los pasos para configurar el ejemplo.
 
@@ -102,7 +108,6 @@ Si quiere limpiar y quitar una suscripción a Communication Services, puede elim
 Para más información, consulte los siguientes artículos.
 
 - Familiarícese con [el uso de la biblioteca cliente de llamada](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Más información sobre las [funcionalidades de la biblioteca cliente de llamada](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Más información sobre [cómo funciona la llamada](../concepts/voice-video-calling/about-call-types.md)
 
 ## <a name="additional-reading"></a>Lecturas adicionales

@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90528606"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426377"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Aprovisionamiento de un dispositivo de Python con claves simétricas
 
-En este inicio rápido, aprenderá a aprovisionar una máquina de desarrollo Windows como un dispositivo en un centro de IoT mediante Python. Este dispositivo utilizará una clave simétrica a fin de autenticarse con una instancia de Device Provisioning Service (DPS) para ser asignado a un centro de IoT. DPS reconocerá el dispositivo autenticado en función de una inscripción individual y, después, el dispositivo se asignará a un centro de IoT. Se usará código de ejemplo del [SDK de Python de Azure IoT](https://github.com/Azure/azure-iot-sdk-python) para aprovisionar el dispositivo. 
+En este inicio rápido, aprenderá a aprovisionar una máquina de desarrollo Windows como un dispositivo en un centro de IoT mediante Python. Este dispositivo utilizará una clave simétrica y una inscripción individual para autenticarse con una instancia del servicio Device Provisioning (DPS) para ser asignado a un centro de IoT. Se usará código de ejemplo del [SDK de Python de Azure IoT](https://github.com/Azure/azure-iot-sdk-python) para aprovisionar el dispositivo. 
 
 Aunque en este artículo se muestra el aprovisionamiento con una inscripción individual, también puede usar grupos de inscripción. Hay algunas diferencias al usar los grupos de inscripción. Por ejemplo, debe usar una clave de dispositivo derivada con un identificador de registro único para el dispositivo. Aunque los grupos de inscripción de clave simétrica no se limitan a los dispositivos heredados, en [Cómo aprovisionar dispositivos heredados con la atestación de clave simétrica](how-to-legacy-device-symm-key.md) se proporciona un ejemplo de grupo de inscripción. Para obtener más información, consulte [Inscripciones de grupo para la atestación de clave simétrica](concepts-symmetric-key-attestation.md#group-enrollments).
 
@@ -42,7 +42,7 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 
 ## <a name="prepare-the-python-sdk-environment"></a>Preparación del entorno del SDK de Python 
 
-1. Asegúrese de que Git está instalado en la máquina y se ha agregado a las variables de entorno accesibles desde la ventana de comandos. Consulte las [herramientas de cliente de Git de Software Freedom Conservancy](https://git-scm.com/download/) para instalar la versión más reciente de las herramientas `git`, lo que incluye **Git Bash**, la aplicación de línea de comandos que puede usar para interactuar con su repositorio de Git local. 
+1. Asegúrese de que Git está instalado en la máquina y se ha agregado a las variables de entorno accesibles desde la ventana de comandos. Consulte las [herramientas de cliente de Git de Software Freedom Conservancy](https://git-scm.com/download/) para instalar la versión más reciente de las herramientas `git`, lo que incluye **Git Bash** , la aplicación de línea de comandos que puede usar para interactuar con su repositorio de Git local. 
 
 2. Abra un símbolo del sistema. Clone el repositorio de GitHub para el SDK de Python de Azure IoT:
     
@@ -67,19 +67,19 @@ Este artículo está orientado a una estación de trabajo basada en Windows. No 
 
 2. Seleccione la pestaña **Administrar inscripciones** y, después, seleccione el botón **Agregar inscripción individual** de la parte superior. 
 
-3. En el panel **Agregar inscripción**, escriba la siguiente información y presione el botón **Guardar**.
+3. En el panel **Agregar inscripción** , escriba la siguiente información y presione el botón **Guardar**.
 
    - **Mecanismo:** seleccione **Clave simétrica** como *mecanismo* de atestación de identidad.
 
-   - **Generar claves automáticamente**: marque esta casilla.
+   - **Generar claves automáticamente** : marque esta casilla.
 
-   - **Identificador de registro**: escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-python-device-008**.
+   - **Identificador de registro** : escriba un identificador de registro para identificar la inscripción. Use únicamente caracteres alfanuméricos en minúsculas y guiones (“-”). Por ejemplo, **symm-key-python-device-008**.
 
    - **Id. de dispositivo de IoT Hub:** escriba un identificador de dispositivo. Por ejemplo, **python-device-008**.
 
      ![Agregar una inscripción individual para la atestación de clave simétrica en el portal](./media/quick-create-device-symm-key-python/create-individual-enrollment-python.png)
 
-4. Cuando haya guardado la inscripción, se generarán la **clave principal** y la **clave secundaria**, y se agregarán a la entrada de la inscripción. La inscripción del dispositivo con clave simétrica se muestra como **symm-key-phyton-device-008** en la columna *Id. de registro* de la pestaña *Inscripciones individuales*. 
+4. Cuando haya guardado la inscripción, se generarán la **clave principal** y la **clave secundaria** , y se agregarán a la entrada de la inscripción. La inscripción del dispositivo con clave simétrica se muestra como **symm-key-phyton-device-008** en la columna *Id. de registro* de la pestaña *Inscripciones individuales*. 
 
 5. Abra la inscripción y copie el valor de su **clave principal** generada. Usará estos valores de clave e **Id. de registro** más adelante cuando agregue variables de entorno para usarlas con el código de ejemplo de aprovisionamiento de dispositivos.
 

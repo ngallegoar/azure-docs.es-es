@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206040"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461811"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>¿Qué supervisa Azure Monitor?
 En este artículo se describen las distintas aplicaciones y servicios que se supervisan mediante Azure Monitor. 
@@ -170,6 +170,19 @@ En la tabla siguiente se enumeran los servicios de Azure y los datos que estos r
 |VPN Gateway | Sí | Sí | No |  |
 |Windows Virtual Desktop | No | No | No |  |
 
+## <a name="virtual-machine-agents"></a>Agentes de máquina virtual
+En la tabla siguiente se enumeran los agentes que pueden recopilar datos del sistema operativo invitado de máquinas virtuales y enviar datos a Monitor. Cada agente puede recopilar datos diferentes y enviarlos a métricas o registros en Azure Monitor. 
+
+Consulte [Información general sobre los agentes de Azure Monitor](platform/agents-overview.md) para obtener más información sobre los datos que puede recopilar cada agente.
+
+| Agente |  Métricas | Registros |
+|:---|:---|:---|:---|
+| [Agente de Azure Monitor (versión preliminar)](platform/azure-monitor-agent-overview.md) | Sí | Sí |
+| [Agente de Log Analytics](platform/log-analytics-agent.md) | No | Sí|
+| [Extensión de diagnóstico](platform/diagnostics-extension-overview.md) | Sí | No |
+| [Agente Telegraf](platform/collect-custom-metrics-linux-telegraf.md) | Sí | No |
+| [Dependency Agent](insights/vminsights-enable-overview.md) | No | Sí |
+
 
 ## <a name="product-integrations"></a>Integraciones de productos
 Los servicios y las soluciones de la tabla siguiente almacenan sus datos en un área de trabajo de Log Analytics para que se puedan analizar con otros datos de registro recopilados por Azure Monitor.
@@ -217,7 +230,7 @@ Hay otras soluciones disponibles para supervisar diferentes aplicaciones y servi
 ## <a name="resources-outside-of-azure"></a>Recursos fuera de Azure
 Azure Monitor puede recopilar datos de recursos fuera de Azure mediante los métodos que se enumeran en la tabla siguiente.
 
-| Resource | Método |
+| Recurso | Método |
 |:---|:---|
 | APLICACIONES | Supervise las aplicaciones web fuera de Azure mediante Application Insights. Vea [¿Qué es Application Insights?](./app/app-insights-overview.md). |
 | Máquinas virtuales | Use los agentes para recopilar datos del sistema operativo invitado de máquinas virtuales en otros entornos en la nube o locales. Consulte [Información general sobre los agentes de Azure Monitor](platform/agents-overview.md). |

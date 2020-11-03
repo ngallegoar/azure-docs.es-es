@@ -3,12 +3,12 @@ title: Compatibilidad con la migración de VMware en Azure Migrate
 description: Aprenda sobre la compatibilidad con la migración de máquinas virtuales de VMware en Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 87733cac23d0336e4b9319f2a325e8d844e6e5b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a7713021683c394e609a302a1aa6fcb282484e5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651962"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544212"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de compatibilidad para la migración de VMware
 
@@ -19,8 +19,8 @@ En este artículo se resumen los valores de compatibilidad y las limitaciones pa
 
 Puede migrar máquinas virtuales de VMware de dos maneras:
 
-- **Uso de la migración sin agente**: Las máquinas virtuales se migran sin necesidad de instalar nada en ellas. Se implementa el [dispositivo de Azure Migrate](migrate-appliance.md) para la migración sin agente.
-- **Uso de la migración basada en agente**: Instale un agente en la máquina virtual para su replicación. En el caso de la migración basada en agente, implemente un [dispositivo de replicación](migrate-replication-appliance.md).
+- **Uso de la migración sin agente** : Las máquinas virtuales se migran sin necesidad de instalar nada en ellas. Se implementa el [dispositivo de Azure Migrate](migrate-appliance.md) para la migración sin agente.
+- **Uso de la migración basada en agente** : Instale un agente en la máquina virtual para su replicación. En el caso de la migración basada en agente, implemente un [dispositivo de replicación](migrate-replication-appliance.md).
 
 Revise [este artículo](server-migrate-overview.md) para averiguar qué método desea usar.
 
@@ -41,7 +41,7 @@ En la tabla se resumen los requisitos del hipervisor de VMware.
 --- | ---
 **VMware vCenter Server** | Versión 5.5, 6.0, 6.5, 6.7, 7.0.
 **Host ESXI de VMware vSphere** | Versión 5.5, 6.0, 6.5, 6.7, 7.0.
-**Permisos de vCenter Server** | La migración sin agentes utiliza el [dispositivo de Azure Migrate](migrate-appliance.md). El dispositivo necesita estos permisos en vCenter Server:<br/><br/> - **Datastore.Browse**: Permite examinar los archivos de registro de máquina virtual para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **Datastore.FileManagement**: Permite operaciones de lectura, escritura, eliminación y cambio de nombre en el explorador del almacén de datos para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **VirtualMachine.Config.ChangeTracking**: Permite habilitar o deshabilitar el seguimiento de cambios de los discos de máquina virtual para extraer los bloques de datos cambiados entre instantáneas.<br/><br/> - **VirtualMachine.Config.DiskLease**: Permite operaciones de concesión de discos para una máquina virtual, para leer el disco mediante el kit de desarrollo de discos virtuales de VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess**: (específicamente para vSphere 6.0 y versiones posteriores) permite abrir un disco en una máquina virtual para obtener acceso de lectura aleatorio en el disco mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess**: Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles**: Permite operaciones de lectura en los archivos asociados con una máquina virtual, para descargar los registros y solucionar problemas si se produce un error.<br/><br/> - **VirtualMachine.State.\*** : Permite la creación y la administración de instantáneas de máquina virtual para la replicación.<br/><br/> - **VirtualMachine.Interact.PowerOff**: Permite apagar la máquina virtual durante la migración a Azure.
+**Permisos de vCenter Server** | La migración sin agentes utiliza el [dispositivo de Azure Migrate](migrate-appliance.md). El dispositivo necesita estos permisos en vCenter Server:<br/><br/> - **Datastore.Browse** : Permite examinar los archivos de registro de máquina virtual para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **Datastore.FileManagement** : Permite operaciones de lectura, escritura, eliminación y cambio de nombre en el explorador del almacén de datos para solucionar problemas de creación y eliminación de instantáneas.<br/><br/> - **VirtualMachine.Config.ChangeTracking** : Permite habilitar o deshabilitar el seguimiento de cambios de los discos de máquina virtual para extraer los bloques de datos cambiados entre instantáneas.<br/><br/> - **VirtualMachine.Config.DiskLease** : Permite operaciones de concesión de discos para una máquina virtual, para leer el disco mediante el kit de desarrollo de discos virtuales de VMware vSphere (VDDK).<br/><br/> - **VirtualMachine.Provisioning.DiskAccess** : (específicamente para vSphere 6.0 y versiones posteriores) permite abrir un disco en una máquina virtual para obtener acceso de lectura aleatorio en el disco mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomRead** : Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.DiskRandomAccess** : Permite abrir un disco en una máquina virtual para leerlo mediante VDDK.<br/><br/> - **VirtualMachine.Provisioning.GetVmFiles** : Permite operaciones de lectura en los archivos asociados con una máquina virtual, para descargar los registros y solucionar problemas si se produce un error.<br/><br/> - **VirtualMachine.State.\* *: permite la creación y administración de instantáneas de máquinas virtuales para la replicación.<br/><br/> -* VirtualMachine.Interact.PowerOff** : Permite apagar la máquina virtual durante la migración a Azure.
 
 
 
@@ -53,10 +53,10 @@ En la tabla se resumen los requisitos de migración sin agente para las VM de VM
 --- | ---
 **Sistemas operativos compatibles** | Puede migrar los sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) y [Linux](../virtual-machines/linux/endorsed-distros.md) que admite Azure.
 **VM Windows en Azure** | Es posible que tenga que [realizar algunos cambios](prepare-for-migration.md#verify-required-changes-before-migrating) en las VM antes de la migración. 
-**VM Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
+**VM Linux en Azure** | Es posible que algunas máquinas virtuales requieran cambios para poder ejecutarse en Azure.<br/><br/> En el caso de Linux, Azure Migrate realiza los cambios automáticamente para estos sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS y 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> En el caso de otros sistemas operativos, realice [los cambios necesarios](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Arranque de Linux** | Si/boot está en una partición dedicada, debe residir en el disco del sistema operativo y no distribuirse en varios discos.<br/> Si /boot forma parte de la partición raíz (/), la partición "/" debe estar en el disco del sistema operativo y no abarcar otros discos.
 **Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de generación 2 de Azure. 
-**Tamaño del disco** | Disco del sistema operativo de 2 TB (arranque del BIOS); disco del sistema operativo de 4 TB (arranque UEFI); 8 TB para discos de datos.
+**Tamaño del disco** | Disco del sistema operativo de 2 TB (arranque del BIOS); disco del sistema operativo de 4 TB (arranque UEFI); 32 TB para discos de datos.
 **Límites del disco** |  Hasta 60 discos por máquina virtual.
 **Discos/volúmenes cifrados** | Las máquinas virtuales con volúmenes o discos cifrados no se admiten para la migración.
 **Clúster de discos compartido** | No compatible.
@@ -116,7 +116,7 @@ En la tabla se resume la compatibilidad de las máquinas virtuales de VMware con
 **Red y almacenamiento** | Para conocer la información más reciente, revise los requisitos previos de [red](../site-recovery/vmware-physical-azure-support-matrix.md#network) y [almacenamiento](../site-recovery/vmware-physical-azure-support-matrix.md#storage) de Site Recovery. Azure Migrate proporciona requisitos idénticos de red y almacenamiento.
 **Requisitos de Azure** | Para conocer la información más reciente, revise los requisitos de [red](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [almacenamiento](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage) y [proceso](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) de Azure para Site Recovery. Azure Migrate tiene requisitos idénticos para la migración de VMware.
 **Servicio de movilidad** | El agente del servicio de movilidad se debe instalar en cada máquina virtual que quiera migrar.
-**Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de generación 2 de Azure. 
+**Arranque UEFI** | Compatible. Las máquinas virtuales basadas en UEFI se migrarán a máquinas virtuales de segunda generación de Azure. 
 **UEFI: arranque seguro**         | No se admiten para la migración.
 **Disco de destino** | Las VM solo se pueden migrar a discos administrados (HDD Estándar, SSD estándar, SSD Premium) en Azure.
 **Tamaño del disco** | Disco del sistema operativo de 2 TB (arranque del BIOS); disco del sistema operativo de 4 TB (arranque UEFI); 8 TB para discos de datos.
@@ -169,7 +169,7 @@ VHD compartido | No compatible.
 Disco FC | No compatible. 
 BitLocker | No compatible.<br/><br/> Se debe deshabilitar BitLocker antes de migrar la máquina.
 Nombre de la máquina virtual | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. 
-Conexión después de la migración: Windows | Para conectarse a máquinas virtuales de Azure que se ejecutan en Windows después de la migración, siga estos pasos:<br/><br/> -Antes de la migración, habilite RDP en la máquina virtual local.<br/><br/> Asegúrese de que se hayan agregado las reglas de TCP y UDP para el perfil **Público**, y que RDP se permite en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.<br/><br/> Para el acceso a VPN de sitio a sitio, habilite RDP y permítalo en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas**.<br/><br/> Además, compruebe que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](prepare-for-migration.md).
+Conexión después de la migración: Windows | Para conectarse a máquinas virtuales de Azure que se ejecutan en Windows después de la migración, siga estos pasos:<br/><br/> -Antes de la migración, habilite RDP en la máquina virtual local.<br/><br/> Asegúrese de que se hayan agregado las reglas de TCP y UDP para el perfil **Público** , y que RDP se permite en **Firewall de Windows** > **Aplicaciones permitidas** para todos los perfiles.<br/><br/> Para el acceso a VPN de sitio a sitio, habilite RDP y permítalo en **Firewall de Windows** -> **Aplicaciones y características permitidas** para redes de **dominio y privadas**.<br/><br/> Además, compruebe que la directiva SAN del sistema operativo está establecida en **OnlineAll**. [Más información](prepare-for-migration.md).
 Conexión después de la migración: Linux | Para conectarse a máquinas virtuales de Azure después de la migración mediante SSH, siga estos pasos:<br/><br/> Antes de la migración, en la máquina local, compruebe que el servicio Secure Shell está establecido en Iniciar y que las reglas de firewall permiten una conexión SSH.<br/><br/> Tras la conmutación por error, en la máquina virtual de Azure, permita conexiones entrantes al puerto SSH para las reglas del grupo de seguridad de red de la máquina virtual conmutada por error y para la subred de Azure a la que esta se conecta.<br/><br/> Además, agregue una dirección IP pública para la máquina virtual.  
 
 

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249474"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368611"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimización de trabajos de Apache Spark (versión preliminar) en Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Las versiones anteriores de Spark usan RDD para abstraer datos; Spark 1.3 y 1.
 
 Spark admite muchos formatos, como csv, json, xml, parquet, orc y avro. Spark se puede ampliar para la compatibilidad con muchos más formatos con orígenes de datos externos; para más información, consulte los [paquetes de Apache Spark](https://spark-packages.org).
 
-El mejor formato para el rendimiento es parquet con *compresión eficiente*, que es el valor predeterminado en Spark 2.x. Parquet almacena datos en formato de columnas y está muy optimizado en Spark. Además, la *compresión eficiente* puede dar lugar a archivos más grandes que la compresión con GZIP. Debido a la naturaleza divisible de esos archivos, se descomprimen más rápido.
+El mejor formato para el rendimiento es parquet con *compresión eficiente* , que es el valor predeterminado en Spark 2.x. Parquet almacena datos en formato de columnas y está muy optimizado en Spark. Además, la *compresión eficiente* puede dar lugar a archivos más grandes que la compresión con GZIP. Debido a la naturaleza divisible de esos archivos, se descomprimen más rápido.
 
 ## <a name="use-the-cache"></a>Uso de la caché
 
@@ -178,6 +178,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Ajuste de Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+- [Ajuste de Apache Spark](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [How to Actually Tune Your Apache Spark Jobs So They Work](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work) (Cómo ajustar realmente los trabajos de Spark para que funcionen)
 - [Serialización de Kryo](https://github.com/EsotericSoftware/kryo)

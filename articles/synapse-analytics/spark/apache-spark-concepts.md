@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 74e85906742207d6cde0b7c4cc5c021c23ee4c7b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260145"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480486"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Conceptos básicos de Apache Spark en Azure Synapse Analytics
 
@@ -60,7 +60,40 @@ Cuando se envía un segundo trabajo, si hay capacidad en el grupo, la instancia 
 - Otro usuario, U2, envía un trabajo, J3, que usa 10 nodos y una nueva instancia de Spark, SI2, se crea para procesar el trabajo.
 - Ahora va a enviar otro trabajo, J2, que usa 10 nodos porque todavía hay capacidad en el grupo y la instancia, J2, la procesa SI1.
 
+## <a name="quotas-and-resource-constraints-in-apache-spark-for-azure-synapse"></a>Cuotas y restricciones de recursos en Apache Spark para Azure Synapse
+
+### <a name="workspace-level"></a>Nivel de área de trabajo
+
+Cada área de trabajo de Azure Synapse incluye una cuota predeterminada de núcleos virtuales que se puede usar para Spark. La cuota se divide entre la cuota de usuario y la cuota de flujo de trabajo para que ninguno de los patrones de uso utilice los núcleos virtuales del área de trabajo. La cuota es diferente según el tipo de suscripción, pero es simétrica entre el usuario y el flujo de entrada. Sin embargo, si solicita más núcleos virtuales de los que quedan en el área de trabajo, obtendrá el siguiente error:
+
+```console
+Failed to start session: [User] MAXIMUM_WORKSPACE_CAPACITY_EXCEEDED
+Your Spark job requested 480 vcores.
+However, the workspace only has xxx vcores available out of quota of yyy vcores.
+Try reducing the numbers of vcores requested or increasing your vcore quota. Click here for more information - https://go.microsoft.com/fwlink/?linkid=213499
+```
+
+El vínculo del mensaje apunta a este artículo.
+
+En el siguiente artículo se describe cómo solicitar un aumento en la cuota del área de trabajo del núcleo virtual.
+
+- Seleccione "Azure Synapse Analytics" como el tipo de servicio.
+- En la ventana detalles de la cuota, seleccione Apache Spark (núcleo virtual) por área de trabajo.
+
+[Solicitud de un aumento de la cuota estándar desde Ayuda y soporte técnico](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests#request-a-standard-quota-increase-from-help--support)
+
+### <a name="spark-pool-level"></a>Nivel de grupo de Spark
+
+Al definir un grupo de Spark, se define de forma eficaz una cuota por usuario para ese grupo, si se ejecutan varios cuadernos o trabajos, o una combinación de dos, es posible agotar la cuota del grupo. Si lo hace, se generará un mensaje de error similar al siguiente:
+
+```console
+Failed to start session: Your Spark job requested xx vcores.
+However, the pool is consuming yy vcores out of available zz vcores.Try ending the running job(s) in the pool, reducing the numbers of vcores requested, increasing the pool maximum size or using another pool
+```
+
+Para solucionar este problema, debe reducir el uso de los recursos del grupo antes de enviar una nueva solicitud de recursos mediante la ejecución de un cuaderno o un trabajo.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
-- [Documentación de Apache Spark](https://spark.apache.org/docs/2.4.4/)
+- [Documentación de Apache Spark](https://spark.apache.org/docs/2.4.5/)

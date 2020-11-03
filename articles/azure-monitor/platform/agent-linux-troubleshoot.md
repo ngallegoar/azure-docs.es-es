@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531197"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460876"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
 
@@ -23,7 +23,37 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 * Los clientes con contratos de soporte técnico de Azure pueden abrir una solicitud de soporte técnico [en Azure Portal](https://manage.windowsazure.com/?getsupport=true).
 * Diagnostique los problemas de OMI con la [Guía de solución de problemas de OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Registre un [problema de GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visite la página de comentarios de Log Analytics para revisar los errores e ideas enviadas [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) o registre uno nuevo.  
+* Visite la página de comentarios de Log Analytics para revisar los errores e ideas enviadas [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) o registre uno nuevo. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Herramienta de solución de problemas de Log Analytics
+
+La herramienta de solución de problemas de Linux del agente de Log Analytics es un script diseñado para ayudar a buscar y diagnosticar problemas con el agente de Log Analytics. Se incluye automáticamente con el agente en la instalación. La ejecución de la herramienta debe ser el primer paso para diagnosticar un problema.
+
+### <a name="how-to-use"></a>Cómo se usa
+La herramienta de solución de problemas se puede ejecutar pegando el siguiente comando en una ventana de terminal en un equipo con el agente de Log Analytics: `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>Instalación manual
+La herramienta de solución de problemas se incluye automáticamente al instalar el agente de Log Analytics. Sin embargo, si se produce algún error en la instalación, también se puede instalar manualmente siguiendo estos pasos.
+
+1. Copie el paquete del solucionador de problemas en el equipo: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Desempaquete el paquete: `tar -xzvf omsagent_tst.tar.gz`
+3. Ejecute la instalación manual: `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>Escenarios descritos
+A continuación se muestra una lista de escenarios comprobados por la herramienta de solución de problemas:
+
+1. El agente tiene un estado incorrecto, el latido no funciona correctamente.
+2. El agente no se inicia, no se puede conectar a los servicios de Log Analytics.
+3. El syslog del agente no funciona.
+4. El agente tiene un uso elevado de CPU/memoria.
+5. El agente tiene problemas de instalación.
+6. Los registros personalizados del agente no funcionan.
+7. Recopilación de registros del agente
+
+Para obtener más información, consulte la [documentación de github](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md).
+
+ >[!NOTE]
+ >Ejecute la herramienta de recopilador de registros cuando experimente un problema. Disponer inicialmente de los registros ayudará a nuestro equipo de soporte técnico a solucionar el problema más rápido.
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Ubicaciones de registro importantes y herramienta de recopilador de registros
 
@@ -53,9 +83,9 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 | NOT_DEFINED | Dado que las dependencias necesarias no están instaladas, no se instalará el complemento de auoms auditd | No se pudo instalar auoms, instale el paquete auditd. |
 | 2 | Opción no válida proporcionada a la agrupación de shell. Ejecute `sudo sh ./omsagent-*.universal*.sh --help` para el uso |
 | 3 | Ninguna opción proporcionada a la agrupación de shell. Ejecute `sudo sh ./omsagent-*.universal*.sh --help` para el uso. |
-| 4 | Tipo de paquete no válido o configuración de proxy no válida; los paquetes omsagent-*rpm*.sh solo pueden instalarse en sistemas basados en RPM, y los paquetes omsagent-*deb*.sh solo pueden instalarse en sistemas basados en Debian. Se recomienda usar el instalador universal de la [versión más reciente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Además, revise para comprobar la configuración de proxy. |
+| 4 | Tipo de paquete no válido o configuración de proxy no válida; los paquetes omsagent- *rpm*.sh solo pueden instalarse en sistemas basados en RPM, y los paquetes omsagent- *deb*.sh solo pueden instalarse en sistemas basados en Debian. Se recomienda usar el instalador universal de la [versión más reciente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Además, revise para comprobar la configuración de proxy. |
 | 5 | La agrupación de shell se debe ejecutar como raíz, o bien se devolvió el error 403 durante la incorporación. Ejecute el comando con `sudo`. |
-| 6 | Arquitectura de paquete no válida, o bien se devolvió el error 200 durante la incorporación; los paquetes omsagent-*x64.sh solo pueden instalarse en sistemas de 64 bits, y los paquetes omsagent-* x86.sh solo pueden instalarse en sistemas de 32 bits. Descargue el paquete correcto para su arquitectura de la [versión más reciente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
+| 6 | Arquitectura de paquete no válida, o bien se devolvió el error 200 durante la incorporación; los paquetes omsagent- *x64.sh solo pueden instalarse en sistemas de 64 bits, y los paquetes omsagent-* x86.sh solo pueden instalarse en sistemas de 32 bits. Descargue el paquete correcto para su arquitectura de la [versión más reciente](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest). |
 | 17 | No se pudo instalar el paquete de OMS. Examine el resultado del comando para conocer el error raíz. |
 | 19 | No se pudo instalar el paquete de OMI. Examine el resultado del comando para conocer el error raíz. |
 | 20 | No se pudo instalar el paquete de SCX. Examine el resultado del comando para conocer el error raíz. |

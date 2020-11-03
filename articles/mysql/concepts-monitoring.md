@@ -6,19 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 8/13/2020
-ms.openlocfilehash: 9e1bd3f555873503aa1f6ed9c804aced3620fb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: b2670862814495ab04f92d8f34a757d3ede6cf4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627523"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546881"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Supervisión en Azure Database for MySQL
 La supervisión de los datos sobre los servidores le permite solucionar problemas y optimizar la carga de trabajo. Azure Database for MySQL proporciona diversas métricas que proporcionan información sobre el comportamiento del servidor.
 
 ## <a name="metrics"></a>Métricas
-Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Todas las métricas de Azure tienen una frecuencia de un minuto y cada métrica proporciona 30 días de historial. Puede configurar alertas en las métricas. Para obtener instrucciones paso a paso, consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas). Otras tareas incluyen la configuración de acciones automatizadas, la realización de análisis avanzados y el archivo del historial. Para obtener más información, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas están disponibles para Azure Database for MySQL:
@@ -42,7 +42,7 @@ Estas métricas están disponibles para Azure Database for MySQL:
 |backup_storage_used|Almacenamiento de copia de seguridad utilizado|Bytes|Cantidad de almacenamiento de copia de seguridad utilizado. Esta métrica representa la suma del almacenamiento consumido por todas las copias de seguridad de base de datos completas, copias de seguridad diferenciales y copias de seguridad de registros, conservadas según el período de retención de copia de seguridad establecido para el servidor. La frecuencia de las copias de seguridad la administra el servicio, y se explicó en el [artículo sobre los conceptos](concepts-backup.md). En el caso del almacenamiento con redundancia geográfica, el uso del almacenamiento de copia de seguridad es dos veces el del almacenamiento con redundancia local.|
 
 ## <a name="server-logs"></a>Registros del servidor
-Puede habilitar el registro de consultas lentas y el registro de auditoría en el servidor. Estos registros también están disponibles mediante los registros de diagnóstico de Azure en los registros de Azure Monitor, Event Hubs y la cuenta de almacenamiento. Para obtener más información sobre el registro, visite los artículos sobre  [registros de auditoría](concepts-audit-logs.md) y [registros de consultas lentas](concepts-server-logs.md).
+Puede habilitar el registro de consultas lentas y el registro de auditoría en el servidor. Estos registros también están disponibles mediante los registros de diagnóstico de Azure en los registros de Azure Monitor, Event Hubs y la cuenta de almacenamiento. Para más información sobre el registro, visite los artículos sobre [registros de auditoría](concepts-audit-logs.md) y [registros de consultas lentas](concepts-server-logs.md).
 
 ## <a name="query-store"></a>Almacén de consultas
 [Almacén de consultas](concepts-query-store.md) es una característica que realiza un seguimiento del rendimiento de las consultas a lo largo del tiempo, lo que incluye estadísticas en tiempo de ejecución y eventos de espera de consultas. La característica conserva la información de rendimiento del entorno de ejecución de consulta en el esquema **mysql**. Puede controlar la recopilación y el almacenamiento de datos mediante diversos botones de configuración.
@@ -55,30 +55,12 @@ La característica [Recomendaciones de rendimiento](concepts-performance-recomme
 
 ## <a name="planned-maintenance-notification"></a>Notificación de mantenimiento planeado
 
-Las **notificaciones de mantenimiento planeado** le permiten recibir alertas de mantenimiento planeado futuro para su instancia de Azure Database for MySQL. Estas notificaciones se integran con el mantenimiento planeado de [Service Health](../service-health/overview.md) y le permiten ver todo el mantenimiento programado para sus suscripciones en un mismo lugar. También ayuda a escalar la notificación a las audiencias adecuadas de distintos grupos de recursos, ya que puede tener distintos contactos responsables para los distintos recursos. Recibirá la notificación sobre el próximo mantenimiento 72 horas antes del evento.
+Las [notificaciones de mantenimiento planeado](./concepts-planned-maintenance-notification.md) le permiten recibir alertas de mantenimiento planeado futuro para su instancia de Azure Database for MySQL. Estas notificaciones se integran con el mantenimiento planeado de [Service Health](../service-health/overview.md) y le permiten ver todo el mantenimiento programado para sus suscripciones en un mismo lugar. También ayuda a escalar la notificación a las audiencias adecuadas de distintos grupos de recursos, ya que puede tener distintos contactos responsables para los distintos recursos. Recibirá la notificación sobre el próximo mantenimiento 72 horas antes del evento.
 
-Durante el mantenimiento planeado, es posible que el servidor se reinicie y se produzcan [errores transitorios](concepts-connectivity.md#transient-errors). El sistema mitiga automáticamente la mayoría de estos eventos en menos de 60 segundos.
-
-> [!IMPORTANT]
-> Actualmente, las notificaciones de mantenimiento planeado están disponibles en su versión preliminar pública para todas las regiones, **menos** en el Centro-oeste de EE. UU.
-
-### <a name="to-receive-planned-maintenance-notification"></a>Para recibir una notificación de mantenimiento planeado
-
-1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
-2. En la sección **Alertas**, seleccione **Alertas de estado**.
-3. Seleccione **+ Añadir alerta de Service Health** y rellene los campos.
-4. Rellene los campos obligatorios. 
-5. Elija la opción de **Tipo de evento** y elija **Mantenimiento planeado** o **Seleccionar todo**.
-6. En **Grupos de acciones** defina cómo quiere recibir la alerta (obtener un correo electrónico, desencadenar una aplicación lógica, etc.).  
-7. Asegúrese de que Habilitar regla tras la creación esté establecido en Sí.
-8. Seleccione **Crear regla de alertas** para completar la alerta.
-
-Para conocer los pasos detallados sobre cómo crear **alertas de Service Health**, consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!Note]
-> Intentaremos por todos los medios proporcionar la **notificación de mantenimiento planeado** con una antelación de 72 horas para todos los eventos. Sin embargo, en los casos de revisiones críticas o de seguridad, es posible que las notificaciones se envíen más cerca del evento o se omitan.
+Puede encontrar más información sobre cómo configurar notificaciones en el documento de [notificaciones de mantenimiento planeado](./concepts-planned-maintenance-notification.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [How to set up alerts](howto-alert-on-metric.md) (Configuración de alertas) para obtener instrucciones sobre cómo crear una alerta en una métrica.
-- Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API de REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Para obtener más información sobre cómo acceder a las métricas y exportarlas con Azure Portal, la API de REST o la CLI, consulte [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform.md).
 - Lea nuestro blog sobre [procedimientos recomendados para supervisar el servidor](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).
+- Más información sobre las [notificaciones de mantenimiento planeado](./concepts-planned-maintenance-notification.md) en Azure Database for MySQL: servidor único.

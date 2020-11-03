@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146638"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490329"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
 
@@ -72,15 +72,15 @@ Cree un espacio de nombres de Service Bus y una cola. Más adelante en este tema
 
 1. En [Azure Portal](https://portal.azure.com/), seleccione **+Crear un recurso** > **Integración** > **Service Bus**.
 
-1. En el panel **Crear espacio de nombres**, proporcione la siguiente información:
+1. En el panel **Crear espacio de nombres** , proporcione la siguiente información:
 
-   **Name**: el nombre del espacio de nombres de Service Bus. El nombre debe ser único en todo Azure.
+   **Name** : el nombre del espacio de nombres de Service Bus. El nombre debe ser único en todo Azure.
 
-   **Plan de tarifa**: Seleccione **Básica** de la lista desplegable. El nivel Básico es suficiente para este tutorial.
+   **Plan de tarifa** : Seleccione **Básica** de la lista desplegable. El nivel Básico es suficiente para este tutorial.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
+   **Grupo de recursos** : use el mismo grupo de recursos que usa el centro de IoT.
 
-   **Ubicación**: use la misma ubicación que emplea el centro de IoT.
+   **Ubicación** : use la misma ubicación que emplea el centro de IoT.
 
    ![Crear un espacio de nombres de Service Bus en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1-create-service-bus-namespace-azure-portal.png)
 
@@ -90,13 +90,13 @@ Cree un espacio de nombres de Service Bus y una cola. Más adelante en este tema
 
 1. Abra el espacio de nombre de Service Bus. La manera más fácil abrir el espacio de nombres de Service Bus es seleccionar **Grupos de recursos** del panel recursos, seleccionar el grupo de recursos y luego seleccionar el espacio de nombres de Service Bus de la lista de recursos.
 
-1. En el panel **Espacio de nombres de Service Bus**, seleccione **+ Cola**.
+1. En el panel **Espacio de nombres de Service Bus** , seleccione **+ Cola**.
 
 1. Escriba un nombre para la cola y haga clic en **Crear**. Cuando la cola se haya creado correctamente, el panel **Crear cola** se cierra.
 
    ![Agregar una cola de Service Bus en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-queue.png)
 
-1. En el panel **Espacio de nombres de Service Bus**, en **Entidades**, seleccione **Colas**. Abra la cola de Service Bus de la lista y seleccione **Directivas de acceso compartido** >  **+ Agregar**.
+1. En el panel **Espacio de nombres de Service Bus** , en **Entidades** , seleccione **Colas**. Abra la cola de Service Bus de la lista y seleccione **Directivas de acceso compartido** >  **+ Agregar**.
 
 1. Escriba un nombre para la directiva, active **Administrar** y luego haga clic en **Crear**.
 
@@ -110,17 +110,17 @@ Agregue un punto de conexión personalizado para la cola de Service Bus al centr
 
 1. Abra el IoT Hub. La manera más fácil llegar al centro de IoT es seleccionar **Grupos de recursos** en el panel recursos, seleccionar el grupo de recursos y luego seleccionar el centro de IoT de la lista de recursos.
 
-1. En **Mensajes**, seleccione **Enrutamiento de mensajes**. En el panel **Enrutamiento de mensajes**, seleccione la pestaña **Puntos de conexión personalizados** y luego seleccione **+ Agregar**. En la lista desplegable, seleccione **Cola de Service Bus**.
+1. En **Mensajes** , seleccione **Enrutamiento de mensajes**. En el panel **Enrutamiento de mensajes** , seleccione la pestaña **Puntos de conexión personalizados** y luego seleccione **+ Agregar**. En la lista desplegable, seleccione **Cola de Service Bus**.
 
-   ![Agregar un punto de conexión a IoT Hub en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Captura de pantalla que resalta la opción de cola de Service Bus.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
-1. En el panel **Agregar un punto de conexión de Service Bus**, escriba la siguiente información:
+1. En el panel **Agregar un punto de conexión de Service Bus** , escriba la siguiente información:
 
-   **Nombre del punto de conexión**: Nombre del punto de conexión.
+   **Nombre del punto de conexión** : Nombre del punto de conexión.
 
-   **Espacio de nombres de Service Bus**: seleccione el espacio de nombres que creó.
+   **Espacio de nombres de Service Bus** : seleccione el espacio de nombres que creó.
 
-   **Cola de Service Bus**: seleccione la cola que creó.
+   **Cola de Service Bus** : seleccione la cola que creó.
 
    ![Agregar un punto de conexión a IoT Hub en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3-add-iot-hub-endpoint-azure-portal.png)
 
@@ -128,17 +128,17 @@ Agregue un punto de conexión personalizado para la cola de Service Bus al centr
 
 ### <a name="add-a-routing-rule"></a>Agregar una regla de enrutamiento
 
-1. En el panel **Enrutamiento de mensajes**, seleccione la pestaña **Rutas** y seleccione **+ Agregar**.
+1. En el panel **Enrutamiento de mensajes** , seleccione la pestaña **Rutas** y seleccione **+ Agregar**.
 
-1. En el panel **Agregar una ruta**, escriba la siguiente información:
+1. En el panel **Agregar una ruta** , escriba la siguiente información:
 
-   **Name**: nombre de la regla de enrutamiento.
+   **Name** : nombre de la regla de enrutamiento.
 
-   **Punto de conexión**: seleccione el punto de conexión que creó.
+   **Punto de conexión** : seleccione el punto de conexión que creó.
 
-   **Origen de datos**: seleccione **Mensajes de telemetría del dispositivo**.
+   **Origen de datos** : seleccione **Mensajes de telemetría del dispositivo**.
 
-   **Consulta de enrutamiento**: Escriba `temperatureAlert = "true"`.
+   **Consulta de enrutamiento** : Escriba `temperatureAlert = "true"`.
 
    ![Agregar una regla de enrutamiento en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4-add-routing-rule-azure-portal.png)
 
@@ -154,11 +154,11 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
 
 1. Escriba la siguiente información:
 
-   **Name**: nombre de la aplicación lógica.
+   **Name** : nombre de la aplicación lógica.
 
-   **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
+   **Grupo de recursos** : use el mismo grupo de recursos que usa el centro de IoT.
 
-   **Ubicación**: use la misma ubicación que emplea el centro de IoT.
+   **Ubicación** : use la misma ubicación que emplea el centro de IoT.
 
    ![Crear una aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-a-logic-app.png)
 
@@ -176,20 +176,20 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
 
    ![Seleccionar Service Bus para empezar a crear la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6-select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. En **Desencadenadores**, seleccione **Cuando llegan uno o más mensajes a una cola (autocompletar)** .
+1. En **Desencadenadores** , seleccione **Cuando llegan uno o más mensajes a una cola (autocompletar)** .
 
    ![Seleccionar el desencadenador para la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-service-bus-trigger.png)
 
 1. Cree una conexión de Service Bus.
    1. Escriba un nombre de conexión y seleccione el espacio de nombres de Service Bus de la lista. Se abre la pantalla siguiente.
 
-      ![Crear una conexión de Service Bus para la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Captura de pantalla que resalta la opción Cuando llegan uno o más mensajes a una cola (autocompletar).](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Seleccione la directiva de Service Bus (RootManageSharedAccessKey). Luego seleccione **Crear**.
 
       ![Crear una conexión de Service Bus para la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7-create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. En la pantalla final, para **Nombre de cola**, seleccione la cola que creó de la lista desplegable. Escriba `175` para **Recuento máximo de mensajes**.
+   1. En la pantalla final, para **Nombre de cola** , seleccione la cola que creó de la lista desplegable. Escriba `175` para **Recuento máximo de mensajes**.
 
       ![Especificar el recuento máximo de mensajes de la conexión de Service Bus en la aplicación lógica](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8-specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
 
@@ -199,7 +199,7 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
 
 1. Cree una conexión de servicio SMTP.
 
-   1. Seleccione **Nuevo paso**. En **Elegir una acción**, seleccione la pestaña **Todo**.
+   1. Seleccione **Nuevo paso**. En **Elegir una acción** , seleccione la pestaña **Todo**.
 
    1. Escriba `smtp` en el cuadro de búsqueda, seleccione el servicio **SMTP** en el resultado de búsqueda y luego seleccione **Enviar correo electrónico**.
 
@@ -214,11 +214,11 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
       > [!NOTE]
       > Es posible que sea necesario deshabilitar TLS/SSL para establecer la conexión. Si es así y desea volver a habilitar TLS una vez establecida la conexión, consulte el paso opcional al final de esta sección.
 
-   1. En el elemento desplegable **Agregar nuevo parámetro** del paso **Enviar correo electrónico**, seleccione **De**, **Para**, **Asunto** y **Cuerpo**. Haga clic o pulse en cualquier parte en la pantalla para cerrar el cuadro de selección.
+   1. En el elemento desplegable **Agregar nuevo parámetro** del paso **Enviar correo electrónico** , seleccione **De** , **Para** , **Asunto** y **Cuerpo**. Haga clic o pulse en cualquier parte en la pantalla para cerrar el cuadro de selección.
 
       ![Elegir los campos de correo electrónico de conexión SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
 
-   1. Escriba la dirección de correo electrónico en **De** y **Para** y `High temperature detected` en **Asunto** y **Cuerpo**. Si se abre el cuadro de diálogo **Agregue contenido dinámico de las aplicaciones y conectores que se usan en este flujo**, seleccione **Ocultar** para cerrarlo. No use contenido dinámico en este tutorial.
+   1. Escriba la dirección de correo electrónico en **De** y **Para** y `High temperature detected` en **Asunto** y **Cuerpo**. Si se abre el cuadro de diálogo **Agregue contenido dinámico de las aplicaciones y conectores que se usan en este flujo** , seleccione **Ocultar** para cerrarlo. No use contenido dinámico en este tutorial.
 
       ![Rellenar los campos de correo electrónico de conexión SMTP](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
 
@@ -226,13 +226,13 @@ En la sección anterior, configuró el centro de IoT para enrutar los mensajes q
 
 1. (Opcional) Si tuviera que deshabilitar TLS para establecer una conexión con el proveedor de correo electrónico y desea volver a habilitarla, siga estos pasos:
 
-   1. En el panel **Aplicación lógica**, en **Herramientas de desarrollo**, seleccione **Conexiones de API**.
+   1. En el panel **Aplicación lógica** , en **Herramientas de desarrollo** , seleccione **Conexiones de API**.
 
    1. En la lista de conexiones de API, seleccione la conexión SMTP.
 
-   1. En el panel **smtp API Connection** (Conexión de API SMTP), en **General**, seleccione **Editar la conexión de API**.
+   1. En el panel **smtp API Connection** (Conexión de API SMTP), en **General** , seleccione **Editar la conexión de API**.
 
-   1. En el panel **Editar la conexión de API**, seleccione **¿Quiere habilitar SSL?** , vuelva a escribir la contraseña de su cuenta de correo electrónico y seleccione **Guardar**.
+   1. En el panel **Editar la conexión de API** , seleccione **¿Quiere habilitar SSL?** , vuelva a escribir la contraseña de su cuenta de correo electrónico y seleccione **Guardar**.
 
       ![Editar una conexión de API de SMTP en la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/re-enable-smtp-connection-ssl.png)
 

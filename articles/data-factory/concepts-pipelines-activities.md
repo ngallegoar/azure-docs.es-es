@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562016"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371195"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 
@@ -56,7 +56,7 @@ Actividad de transformación de datos | Entorno de procesos
 [de Hadoop](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Actividades de Machine Learning: ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) | Azure VM
+[Actividades de Estudio de Azure Machine Learning (clásico): ejecución de lotes y recurso de actualización](transform-data-using-machine-learning.md) | Azure VM
 [Procedimiento almacenado](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (anteriormente, SQL Data Warehouse) o SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análisis con Azure Data Lake
 [Actividad personalizada](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -146,7 +146,7 @@ Etiqueta | Descripción | Obligatorio
 name | Nombre de la actividad. Especifique un nombre que represente la acción que realizará la actividad. <br/><ul><li>Número máximo de caracteres: 55</li><li>Debe empezar por una letra, un número o un carácter de subrayado (\_)</li><li>No se permiten los caracteres siguientes: ".", "+", "?", "/", "<",">","*"," %"," &",":"," \" | Sí</li></ul>
 description | Texto que describe para qué se usa la actividad. | Sí
 type | Tipo de la actividad. Consulte las secciones [Actividades de movimiento de datos](#data-movement-activities), [Actividades de transformación de datos](#data-transformation-activities) y [Actividades de control](#control-flow-activities) para ver los diferentes tipos de actividades. | Sí
-linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad Scoring de Azure Machine Learning y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
+linkedServiceName | Nombre del servicio vinculado utilizado por la actividad.<br/><br/>Una actividad puede requerir que especifique el servicio vinculado que enlaza con el entorno de procesos necesario. | Sí para la actividad de HDInsight, la actividad de puntuación por lotes de Estudio de Azure Machine Learning (clásico) y la actividad de procedimiento almacenado. <br/><br/>No para todos los demás
 typeProperties | Las propiedades en la sección typeProperties dependen de cada tipo de actividad. Para ver las propiedades de tipo de una actividad, haga clic en vínculos a la actividad de la sección anterior. | No
 policy | Directivas que afectan al comportamiento en tiempo de ejecución de la actividad. Esta propiedad incluye un comportamiento de tiempo de espera y reintento. Si no se especifica, se usan los valores predeterminados. Para obtener más información, consulte la sección [Directiva de actividades](#activity-policy). | No
 dependsOn | Esta propiedad se utiliza para definir las dependencias de actividad, y cómo las actividades siguientes dependen de actividades anteriores. Para obtener más información, consulte [Dependencia de actividades](#activity-dependency). | No
@@ -221,10 +221,10 @@ Las distintas condiciones de dependencia son: Correcto, Error, Omitido, Completa
 
 Por ejemplo, si una canalización tiene la actividad A -> actividad B, los distintos escenarios que pueden ocurrir son:
 
-- La actividad B tiene una condición de dependencia en la actividad A con **correcto**: la actividad B solo se ejecuta si la actividad A tiene un estado final correcto.
-- La actividad B tiene una condición de dependencia en la actividad A con **error**: la actividad B solo se ejecuta si la actividad A tiene un estado final de error.
-- La actividad B tiene una condición de dependencia en la actividad A con **completado**: la actividad B se ejecuta si la actividad A tiene un estado final correcto o de error.
-- La actividad B tiene una condición de dependencia de la actividad A con **omitido**: la actividad B se ejecuta si la actividad A tiene un estado final de omitido. La omisión se produce en el escenario de la actividad X -> actividad Y -> actividad Z, donde cada actividad se ejecuta solo si la actividad anterior se realiza correctamente. Si se produce un error en la actividad X, la actividad Y tiene un estado de "Omitido" porque nunca se ejecuta. De forma similar, la actividad Z también tiene un estado de "Omitido".
+- La actividad B tiene una condición de dependencia en la actividad A con **correcto** : la actividad B solo se ejecuta si la actividad A tiene un estado final correcto.
+- La actividad B tiene una condición de dependencia en la actividad A con **error** : la actividad B solo se ejecuta si la actividad A tiene un estado final de error.
+- La actividad B tiene una condición de dependencia en la actividad A con **completado** : la actividad B se ejecuta si la actividad A tiene un estado final correcto o de error.
+- La actividad B tiene una condición de dependencia de la actividad A con **omitido** : la actividad B se ejecuta si la actividad A tiene un estado final de omitido. La omisión se produce en el escenario de la actividad X -> actividad Y -> actividad Z, donde cada actividad se ejecuta solo si la actividad anterior se realiza correctamente. Si se produce un error en la actividad X, la actividad Y tiene un estado de "Omitido" porque nunca se ejecuta. De forma similar, la actividad Z también tiene un estado de "Omitido".
 
 #### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Ejemplo: La actividad 2 depende de que la actividad 1 se realice correctamente
 
@@ -311,8 +311,8 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in
 Tenga en cuenta los siguientes puntos:
 
 - En la sección de actividades, solo hay una actividad con **type** establecido en **Copy**.
-- La entrada de la actividad está establecida en **InputDataset**, mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](concepts-datasets-linked-services.md) para definir conjuntos de datos en JSON.
-- En la sección **typeProperties**, **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
+- La entrada de la actividad está establecida en **InputDataset** , mientras que la salida está establecida en **OutputDataset**. Vea el artículo [Conjuntos de datos](concepts-datasets-linked-services.md) para definir conjuntos de datos en JSON.
+- En la sección **typeProperties** , **BlobSource** se especifica como el tipo de origen y **SqlSink** como el tipo de receptor. En la sección [Actividades de movimiento de datos](#data-movement-activities), haga clic en el almacén de datos que quiere usar como origen o receptor para obtener más información sobre cómo mover datos con ese almacén de datos como origen o destino.
 
 Para obtener un tutorial completo de creación de esta canalización, consulte el [Inicio rápido: Create a data factory](quickstart-create-data-factory-powershell.md) (Crear una factoría de datos).
 
@@ -358,7 +358,7 @@ En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsight
 Tenga en cuenta los siguientes puntos:
 
 - En la sección de actividades, solo hay una actividad con **type** establecido en **HDInsightHive**.
-- El archivo de script de Hive, **partitionweblogs.hql**, se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada AzureStorageLinkedService) y en una carpeta de script en el contenedor `adfgetstarted`.
+- El archivo de script de Hive, **partitionweblogs.hql** , se almacena en la cuenta de Azure Storage (especificada por la propiedad scriptLinkedService, llamada AzureStorageLinkedService) y en una carpeta de script en el contenedor `adfgetstarted`.
 - La sección `defines` se usa para especificar la configuración de runtime n que se pasa al script de Hive como valores de configuración de Hive (por ejemplo, $`{hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 La sección **typeProperties** es diferente para cada actividad de transformación. Para obtener información sobre las propiedades de tipo compatibles con una actividad de transformación, haga clic en la actividad de transformación en [Actividades de transformación de datos](#data-transformation-activities).

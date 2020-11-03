@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460554"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486946"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Diseño de tablas en el grupo de SQL de Synapse
 
@@ -79,7 +79,7 @@ El grupo de SQL admite los tipos de datos más usados habitualmente. Para obtene
 
 ## <a name="distributed-tables"></a>Tablas distribuidas
 
-Una característica fundamental del grupo de SQL es la forma en que puede almacenar y operar en tablas de varias [distribuciones](massively-parallel-processing-mpp-architecture.md#distributions).  El grupo de SQL admite tres métodos para distribuir datos: round-robin (predeterminado), hash y replicado.
+Una característica fundamental de Synapse SQL es la forma en que puede almacenar y operar en tablas de varias [distribuciones](massively-parallel-processing-mpp-architecture.md#distributions). Synapse SQL admite tres métodos para distribuir datos: round-robin (predeterminado), hash y replicado.
 
 ### <a name="hash-distributed-tables"></a>Tablas distribuidas mediante una función hash
 

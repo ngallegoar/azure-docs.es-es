@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ab6561b1dc0e8b977fc69d259c5f26366f355ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511728"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481336"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creación o actualización de roles personalizados de Azure mediante Azure Portal
 
@@ -37,7 +37,7 @@ Azure tiene miles de permisos que se pueden incluir en el rol personalizado. A c
 | --- | --- |
 | Examinar roles existentes | Puede consultar los roles existentes para ver qué permisos se están usando. Para más información, consulte [Roles integrados en Azure](built-in-roles.md). |
 | Buscar permisos por palabra clave | Al crear un rol personalizado mediante Azure Portal, puede buscar permisos por palabra clave. Por ejemplo, puede buscar permisos de *máquina virtual* o de *facturación*. Esta funcionalidad de búsqueda se describe más adelante en el [Paso 4: Permisos](#step-4-permissions). |
-| Descargar todos los permisos | Al crear un rol personalizado mediante Azure Portal, puede descargar todos los permisos como un archivo CSV y, a continuación, buscar en este archivo. En el panel **Agregar permisos**, haga clic en el botón **Download all permissions** (Descargar todos los permisos) para descargar todos los permisos. Para más información sobre el panel Agregar permisos, consulte el [Paso 4: Permisos](#step-4-permissions). |
+| Descargar todos los permisos | Al crear un rol personalizado mediante Azure Portal, puede descargar todos los permisos como un archivo CSV y, a continuación, buscar en este archivo. En el panel **Agregar permisos** , haga clic en el botón **Download all permissions** (Descargar todos los permisos) para descargar todos los permisos. Para más información sobre el panel Agregar permisos, consulte el [Paso 4: Permisos](#step-4-permissions). |
 | Ver los permisos en los documentos | Puede ver los permisos disponibles en [Operaciones del proveedor de recursos de Azure Resource Manager](resource-provider-operations.md). |
 
 ## <a name="step-2-choose-how-to-start"></a>Paso 2: Decidir cómo comenzar
@@ -134,7 +134,7 @@ Si lo prefiere, puede especificar la mayoría de los valores del rol personaliza
     }
     ```
     
-1. En Azure Portal, abra la página**Control de acceso (IAM)** .
+1. En Azure Portal, abra la página **Control de acceso (IAM)** .
 
 1. Haga clic en **Agregar** y, a continuación, haga clic en **Agregar rol personalizado**.
 
@@ -142,7 +142,7 @@ Si lo prefiere, puede especificar la mayoría de los valores del rol personaliza
 
     Se abrirá el editor de roles personalizados.
 
-1. En la pestaña Aspectos básicos, en **Permisos de línea base**, seleccione **Start from JSON** (Empezar desde JSON).
+1. En la pestaña Aspectos básicos, en **Permisos de línea base** , seleccione **Start from JSON** (Empezar desde JSON).
 
 1. Junto al cuadro Seleccionar un archivo, haga clic en el botón de carpeta para acceder el cuadro de diálogo Abrir.
 
@@ -152,11 +152,11 @@ Si lo prefiere, puede especificar la mayoría de los valores del rol personaliza
 
 ## <a name="step-3-basics"></a>Paso 3: Aspectos básicos
 
-En la pestaña **Aspectos básicos**, especifique el nombre, la descripción y los permisos de línea base para el rol personalizado.
+En la pestaña **Aspectos básicos** , especifique el nombre, la descripción y los permisos de línea base para el rol personalizado.
 
-1. En el cuadro **Nombre de rol personalizado**, especifique un nombre para el rol personalizado. El nombre debe ser único en el directorio de Azure AD. Puede incluir letras, números, espacios y caracteres especiales.
+1. En el cuadro **Nombre de rol personalizado** , especifique un nombre para el rol personalizado. El nombre debe ser único en el directorio de Azure AD. Puede incluir letras, números, espacios y caracteres especiales.
 
-1. En el cuadro **Descripción**, especifique una descripción opcional para el rol personalizado. Se convertirá en la información sobre herramientas para él.
+1. En el cuadro **Descripción** , especifique una descripción opcional para el rol personalizado. Se convertirá en la información sobre herramientas para él.
 
     La opción **Permisos de línea base** debe estar ya establecida en función del paso anterior, pero puede cambiarla.
 
@@ -164,7 +164,7 @@ En la pestaña **Aspectos básicos**, especifique el nombre, la descripción y l
 
 ## <a name="step-4-permissions"></a>Paso 4: Permisos
 
-En la pestaña **Permisos**, especifique los permisos para el rol personalizado. En función de si ha clonado un rol o si ha empezado con JSON, es posible que en la pestaña Permisos ya se muestren algunos permisos.
+En la pestaña **Permisos** , especifique los permisos para el rol personalizado. En función de si ha clonado un rol o si ha empezado con JSON, es posible que en la pestaña Permisos ya se muestren algunos permisos.
 
 ![Pestaña Permisos en la creación de un rol personalizado](./media/custom-roles-portal/permissions.png)
 
@@ -174,9 +174,9 @@ Siga los pasos que se indican a continuación para agregar o quitar permisos par
 
 1. Si desea agregar permisos, haga clic en **Agregar permisos** para abrir el panel Agregar permisos.
 
-    En este panel se muestran todos los permisos disponibles, agrupados en categorías diferentes con formato de tarjeta. Cada categoría representa un *proveedor de recursos*, que es un servicio que proporciona recursos de Azure.
+    En este panel se muestran todos los permisos disponibles, agrupados en categorías diferentes con formato de tarjeta. Cada categoría representa un *proveedor de recursos* , que es un servicio que proporciona recursos de Azure.
 
-1. En el cuadro **Buscar un permiso**, escriba una cadena para buscar permisos. Por ejemplo, busque *factura* para buscar los permisos relacionados con la factura.
+1. En el cuadro **Buscar un permiso** , escriba una cadena para buscar permisos. Por ejemplo, busque *factura* para buscar los permisos relacionados con la factura.
 
     Se mostrará una lista de tarjetas de proveedores de recursos en función de la cadena de búsqueda. Para obtener una lista de cómo se asignan los proveedores de recursos a los servicios de Azure, consulte [Proveedores de recursos para servicios de Azure](../azure-resource-manager/management/azure-services-resource-providers.md).
 
@@ -188,7 +188,7 @@ Siga los pasos que se indican a continuación para agregar o quitar permisos par
 
     ![Lista de incorporación de permisos](./media/custom-roles-portal/add-permissions-list.png)
 
-1. Si busca permisos que se apliquen al plano de datos, haga clic en **Acciones de datos**. De lo contrario, deje la opción de alternancia establecida en **Acciones**, para que se muestren los permisos que se aplican al plano de administración. Para más información acerca de las diferencias entre el plano de administración y el plano de datos, consulte [Operaciones de administración y datos](role-definitions.md#management-and-data-operations).
+1. Si busca permisos que se apliquen al plano de datos, haga clic en **Acciones de datos**. De lo contrario, deje la opción de alternancia establecida en **Acciones** , para que se muestren los permisos que se aplican al plano de administración. Para más información acerca de las diferencias entre el plano de administración y el plano de datos, consulte [Operaciones de administración y datos](role-definitions.md#management-and-data-operations).
 
 1. Si es necesario, actualice la cadena de búsqueda para refinar aún más la búsqueda.
 
@@ -259,7 +259,7 @@ En la pestaña **Ámbitos asignables** se especifica dónde está disponible el 
 
 ## <a name="step-6-json"></a>Paso 6: JSON
 
-En la pestaña **JSON**, verá el rol personalizado con formato JSON. Si lo desea, puede editar directamente el archivo JSON. Si desea agregar un permiso con caracteres comodín (`*`), debe usar esta pestaña.
+En la pestaña **JSON** , verá el rol personalizado con formato JSON. Si lo desea, puede editar directamente el archivo JSON. Si desea agregar un permiso con caracteres comodín (`*`), debe usar esta pestaña.
 
 1. Para editar el archivo JSON, haga clic en **Editar**.
 
@@ -273,7 +273,7 @@ En la pestaña **JSON**, verá el rol personalizado con formato JSON. Si lo dese
 
 ## <a name="step-7-review--create"></a>Paso 7: Revisar y crear
 
-En la pestaña **Revisar y crear**, puede revisar la configuración del rol personalizado.
+En la pestaña **Revisar y crear** , puede revisar la configuración del rol personalizado.
 
 1. Revise la configuración del rol personalizado.
 
@@ -301,7 +301,7 @@ Siga estos pasos para ver los roles personalizados.
 
 1. Haga clic en la pestaña **Roles** para ver una lista de todos los roles integrados y personalizados.
 
-1. En la lista **Tipo**, seleccione **CustomRole** para ver solo los roles personalizados.
+1. En la lista **Tipo** , seleccione **CustomRole** para ver solo los roles personalizados.
 
     Si acaba de crear el rol personalizado y no lo ve en la lista, haga clic en **Actualizar**.
 
@@ -331,7 +331,7 @@ Siga estos pasos para ver los roles personalizados.
 
 1. Haga clic en los puntos suspensivos ( **...** ) del rol personalizado que desee eliminar y, a continuación, haga clic en **Eliminar**.
 
-    ![Menú del rol personalizado](./media/custom-roles-portal/delete-menu.png)
+    ![Captura de pantalla que muestra una lista de roles personalizados que se pueden seleccionar para su eliminación.](./media/custom-roles-portal/delete-menu.png)
 
     El rol personalizado puede tardar unos minutos en eliminarse por completo.
 

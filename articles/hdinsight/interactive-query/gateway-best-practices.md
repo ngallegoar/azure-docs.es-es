@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 924b1132efeb3ee4211593da190f5b7251029ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db411df69a754857220867865522f8e4fa24030
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80587332"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546014"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Análisis detallado y procedimientos recomendados de puerta de enlace para Apache Hive en Azure HDInsight
 
@@ -46,7 +46,7 @@ En el siguiente diagrama se ilustran los pasos implicados en una consulta SELECT
 
 Apache Hive es una abstracción relacional sobre un sistema de archivos compatible con HDFS. Esta abstracción significa que las instrucciones **SELECT** en Hive se corresponden con operaciones **READ** en el sistema de archivos. Las operaciones **READ** se traducen en el esquema adecuado antes de notificarse al usuario. La latencia de este proceso aumenta con el tamaño de los datos y los saltos totales necesarios para llegar al usuario final.
 
-Se puede producir un comportamiento similar al ejecutar instrucciones **CREATE** o **INSERT** de datos de gran tamaño, ya que estos comandos se corresponden con operaciones **WRITE** en el sistema de archivos subyacente. Considere la posibilidad de escribir datos, como ORC sin formato, en filesystem/datalake en lugar de cargarlos mediante**INSERT** o **LOAD**.
+Se puede producir un comportamiento similar al ejecutar instrucciones **CREATE** o **INSERT** de datos de gran tamaño, ya que estos comandos se corresponden con operaciones **WRITE** en el sistema de archivos subyacente. Considere la posibilidad de escribir datos, como ORC sin formato, en filesystem/datalake en lugar de cargarlos mediante **INSERT** o **LOAD**.
 
 En los clústeres habilitados para Enterprise Security Pack, las directivas de Apache Ranger suficientemente complejas pueden ralentizar el tiempo de compilación de la consulta, lo que puede provocar un tiempo de espera de puerta de enlace. Si se observa un tiempo de espera de puerta de enlace en un clúster de ESP, considere la posibilidad de reducir o combinar el número de directivas de Ranger.
 
@@ -56,9 +56,9 @@ Existen múltiples lugares para mitigar y comprender los problemas de rendimient
 
 * Use la cláusula **LIMIT** al ejecutar las consultas **SELECT** de gran tamaño. La cláusula **LIMIT** reducirá el número total de filas que se envían al host del cliente. La cláusula **LIMIT** solo afecta a la generación de resultados y no cambia el plan de consulta. Para aplicar la cláusula **LIMIT** al plan de consulta, use la configuración `hive.limit.optimize.enable`. **LIMIT** se puede combinar con un desplazamiento mediante el formato de argumento **LIMIT x,y**.
 
-* Asigne un nombre a las columnas que le interesen al ejecutar consultas **SELECT** en lugar de usar **SELECT \*** . Al seleccionar menos columnas se reducirá la cantidad de datos leídos.
+* Asigne un nombre a las columnas que le interesen cuando se ejecutan consultas **SELECT** en lugar de usar *SELECT \** . Al seleccionar menos columnas se reducirá la cantidad de datos leídos.
 
-* Pruebe a ejecutar la consulta de interés a través de Apache Beeline. Si la recuperación de resultados a través de Apache Beeline tarda demasiado tiempo, es de esperar que se produzcan retrasos al recuperar los mismos resultados a través de herramientas externas.
+Pruebe a ejecutar la consulta de interés mediante Apache Beeline. Si la recuperación de resultados a través de Apache Beeline tarda demasiado tiempo, es de esperar que se produzcan retrasos al recuperar los mismos resultados a través de herramientas externas.
 
 * Pruebe una consulta de Hive básica para asegurarse de que se puede establecer una conexión con la puerta de enlace de HDInsight. Pruebe a ejecutar una consulta básica desde dos o más herramientas externas para asegurarse de que ninguna herramienta individual está teniendo problemas.
 
@@ -80,7 +80,7 @@ Existen múltiples lugares para mitigar y comprender los problemas de rendimient
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Apache Beeline en HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-beeline)
-* [Pasos de solución de problemas de tiempo de espera de HDInsight Gateway](https://docs.microsoft.com/azure/hdinsight/interactive-query/troubleshoot-gateway-timeout)
-* [Redes virtuales para HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)
-* [HDInsight con ExpressRoute](https://docs.microsoft.com/azure/hdinsight/connect-on-premises-network)
+* [Apache Beeline en HDInsight](../hadoop/apache-hadoop-use-hive-beeline.md)
+* [Pasos de solución de problemas de tiempo de espera de HDInsight Gateway](./troubleshoot-gateway-timeout.md)
+* [Redes virtuales para HDInsight](../hdinsight-plan-virtual-network-deployment.md)
+* [HDInsight con ExpressRoute](../connect-on-premises-network.md)

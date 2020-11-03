@@ -11,18 +11,18 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0533e76863d01675cee7aaca79e32821e5efc749
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075032"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92507810"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estrategias de carga de datos para el grupo de SQL de Synapse
 
-Los grupos de SQL de SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. El grupo de SQL de Synapse de Azure Synapse Analytics tienen una arquitectura de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento.
+Los grupos de SQL de SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. Synapse SQL, en Azure Synapse Analytics, usa una arquitectura de procesamiento de consultas distribuidas que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento.
 
-El uso de un proceso de extracción, carga y transformación (ELT) aprovecha MPP y elimina los recursos necesarios para la transformación de datos antes de la carga.
+El uso de un proceso de extracción, carga y transformación (ELT) aprovecha las ventajas de las funcionalidades integradas de procesamiento de consultas distribuidas y elimina los recursos necesarios para transformar los datos antes de cargarlos.
 
 Aunque el grupo de SQL admite muchos métodos de carga, entre los que se incluyen las conocidas opciones de SQL Server como [bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) y [SqlBulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), la manera más rápida y escalable de cargar datos es mediante tablas externas de PolyBase y la [instrucción COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
@@ -113,12 +113,14 @@ Use la asignación siguiente de tipo de datos SQL al cargar archivos de Parquet:
 |                            INT64                             |            INT(64,   true)            |      bigint      |
 |                            INT64                             |           INT(64, false  )            |  decimal(20,0)   |
 |                            INT64                             |                DECIMAL                |     Decimal      |
-|                            INT64                             |         TIME (MICROS / NANOS)         |       time       |
-|                            INT64                             | TIMESTAMP   (MILLIS / MICROS / NANOS) |    datetime2     |
+|                            INT64                             |         TIME (MILLIS)                 |       time       |
+|                            INT64                             | TIMESTAMP   (MILLIS)                  |    datetime2     |
 | [Tipo complejo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LISTA                  |   ntext   |
 | [Tipo complejo](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAP                  |   ntext   |
 
-
+>[!IMPORTANT] 
+> - Los grupos dedicados de SQL no admiten actualmente tipos de datos Parquet con precisión MICROS y NANOS. 
+> - Puede experimentar el siguiente error si los tipos no coinciden entre Parquet y SQL, o si tiene tipos de datos Parquet no admitidos:  **"HdfsBridge::recordReaderFillBuffer: Error inesperado al rellenar el búfer del lector de registros: ClassCastException: ..."**
 
 Para obtener un ejemplo de creación de objetos externos, vea [Creación de tablas externas](https://docs.microsoft.com/azure/synapse-analytics/sql/develop-tables-external-tables?tabs=sql-pool).
 

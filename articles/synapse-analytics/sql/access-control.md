@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289487"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503290"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Administración del acceso a áreas de trabajo, datos y canalizaciones
 
 Aprenda a administrar el control de acceso a áreas de trabajo, datos y canalizaciones en un área de trabajo de Azure Synapse Analytics (versión preliminar).
 
 > [!NOTE]
-> En el caso de la disponibilidad general, RBAC se desarrollará más a través de la introducción de roles de Azure específicos de Synapse
+> En el caso de la disponibilidad general, RBAC de Azure se desarrollará más mediante la introducción de roles de Azure específicos de Synapse
 
 ## <a name="access-control-for-workspace"></a>Control de acceso para un área de trabajo
 
@@ -144,7 +144,7 @@ Para conceder acceso total a un usuario a **todas** las bases de datos de SQL On
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>Grupos de SQL

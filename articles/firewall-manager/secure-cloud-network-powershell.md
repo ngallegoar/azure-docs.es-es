@@ -32,9 +32,9 @@ En este tutorial, aprenderá a:
 - PowerShell 7
 
    En este tutorial, es preciso ejecutar Azure PowerShell de forma local en PowerShell 7. Para instalar PowerShell 7, consulte [Migración de Windows PowerShell 5.1 a PowerShell 7](https://docs.microsoft.com/powershell/scripting/install/migrating-from-windows-powershell-51-to-powershell-7?view=powershell-7).
-- Az.Network, versión 3.2.0
+- Az.Network, versión 3.2.0
 
-    Si tiene la versión 3.4.0 o posterior de Az.Network, deberá cambiar a una versión anterior para usar algunos de los comandos de este tutorial. Puede comprobar la versión del módulo Az.Network con el comando `Get-InstalledModule -Name Az.Network`. Para desinstalar el módulo Az.Network, ejecute `Uninstall-Module -name az.network`. Para instalar el módulo Az.Network 3.2.0, ejecute `Install-Module az.network -RequiredVersion 3.2.0 -force`.
+    Si tiene la versión 3.4.0 o posterior de Az.Network, deberá cambiar a una versión anterior para usar algunos de los comandos de este tutorial. Puede comprobar la versión del módulo Az.Network con el comando `Get-InstalledModule -Name Az.Network`. Para desinstalar el módulo Az.Network, ejecute `Uninstall-Module -name az.network`. Para instalar el módulo Az.Network 3.2.0, ejecute `Install-Module az.network -RequiredVersion 3.2.0 -force`.
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -201,7 +201,7 @@ Get-AzEffectiveRouteTable -ResourceGroupName $RG -NetworkInterfaceName $NIC1.Nam
 Get-AzEffectiveRouteTable -ResourceGroupName $RG -NetworkInterfaceName $NIC2.Name | ft
 ```
 
-Ahora, genere tráfico de una máquina virtual a otra y compruebe que se ha eliminado en Azure Firewall. En los siguientes comandos de SSH, debe aceptar las huellas digitales de las máquinas virtuales y proporcionar la contraseña que definió al crear estas. En este ejemplo, va a enviar cinco paquetes de solicitudes de eco ICMP de la máquina virtual de spoke1 a spoke2, más un intento de conexión TCP en el puerto 22 mediante la utilidad de Linux `nc` (con las marcas `-vz` simplemente se envía una solicitud de conexión y se muestra el resultado). Verá que la operación de hacer ping ha dado error y que el intento de conexión TCP en el puerto 22 se ha realizado correctamente, ya que así lo permite la regla de red que configuró anteriormente:
+Ahora, genere tráfico de una máquina virtual a otra y compruebe que se ha eliminado en Azure Firewall. En los siguientes comandos de SSH, debe aceptar las huellas digitales de las máquinas virtuales y proporcionar la contraseña que definió al crear estas. En este ejemplo, va a enviar cinco paquetes de solicitudes de eco ICMP de la máquina virtual de spoke1 a spoke2, más un intento de conexión TCP en el puerto 22 mediante la utilidad de Linux `nc` (con las marcas `-vz` simplemente se envía una solicitud de conexión y se muestra el resultado). Verá que la operación de hacer ping ha dado error y que el intento de conexión TCP en el puerto 22 se ha realizado correctamente, ya que así lo permite la regla de red que configuró anteriormente:
 
 ```azurepowershell
 # Connect to one VM and ping the other. It shouldnt work, because the firewall should drop the traffic, since no rule for ICMP is configured

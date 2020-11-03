@@ -3,20 +3,20 @@ title: Creación de desencadenadores de ventana de saltos de tamaño constante e
 description: Obtenga información acerca de cómo crear un desencadenador en Azure Data Factory para que ejecute una canalización en una ventana de saltos de tamaño constante.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: c35fa28457e3cb9a063fa29c20d8651fcb4eeb45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/25/2020
+ms.openlocfilehash: 3d02210559e3da0d42f7de96157cbbe886b16082
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856492"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558619"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Creación de un desencadenador que ejecuta una canalización en una ventana de saltos de tamaño constante
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -97,10 +97,10 @@ En la tabla siguiente se muestra una descripción general de los elementos JSON 
 | Elemento JSON | Descripción | Tipo | Valores permitidos | Obligatorio |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | El tipo del desencadenador. El tipo es el valor fijo "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Sí |
-| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota**: Este elemento es \<readOnly>. | String | "Started," "Stopped," "Disabled" | Sí |
-| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency**, las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute", "hour"  | Sí |
-| **interval** | Un entero positivo que indica el intervalo para el valor **frequency**, que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. <br/>**Nota**: El intervalo de ventana mínimo es de 5 minutos. | Entero | Un número entero positivo. | Sí |
-| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es (**startTime**, **startTime** + **interval**). | DateTime | Un valor DateTime. | Sí |
+| **runtimeState** | Estado actual del tiempo de ejecución del desencadenador.<br/>**Nota** : Este elemento es \<readOnly>. | String | "Started," "Stopped," "Disabled" | Sí |
+| **frequency** | Una cadena que representa la unidad de frecuencia (minutos u horas) con que se repite el desencadenador. Si los valores de fecha **startTime** son más granulares que el valor **frequency** , las fechas **startTime** se tienen en cuenta para calcular los límites de ventana. Por ejemplo, si el valor **frequency** es cada hora y el valor **startTime** es 2017-09-01T10:10:10Z, la primera ventana es (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minute", "hour"  | Sí |
+| **interval** | Un entero positivo que indica el intervalo para el valor **frequency** , que determina la frecuencia con la que se ejecuta el desencadenador. Por ejemplo, si **interval** es 3 y **frequency** es "hour", el desencadenador se repite cada tres horas. <br/>**Nota** : El intervalo de ventana mínimo es de 5 minutos. | Entero | Un número entero positivo. | Sí |
+| **startTime**| La primera repetición, que puede ser en el pasado. El primer intervalo de desencadenador es ( **startTime** , **startTime** + **interval** ). | DateTime | Un valor DateTime. | Sí |
 | **endTime**| La última repetición, que puede ser en el pasado. | DateTime | Un valor DateTime. | Sí |
 | **delay** | La cantidad de tiempo para retrasar el inicio del procesamiento de datos de la ventana. La ejecución de la canalización se inicia después del tiempo de ejecución esperado más el tiempo de retraso establecido en **delay**. **delay** define el tiempo de espera del desencadenador antes de desencadenar una nueva ejecución. El valor de **delay** no altera el valor de **startTime** de la ventana. Por ejemplo, un valor **delay** de 00:10:00 implica un retraso de diez minutos. | TimeSpan<br/>(hh:mm:ss)  | Un valor de intervalo de tiempo donde el valor predeterminado es 00:00:00. | No |
 | **maxConcurrency** | Número de ejecuciones simultáneas del desencadenador que se activan para las ventanas que están listas. Por ejemplo, reponer las ejecuciones cada hora para el día de ayer genera veinticuatro ventanas. Si **maxConcurrency** = 10, los eventos del desencadenador se activan solo para las diez primeras ventanas (00:00-01:00 - 09:00-10:00). Una vez completadas las diez primeras ejecuciones de canalización desencadenadas, se activan las ejecuciones del desencadenador para las diez siguientes (10:00-11:00 - 19:00-20:00). Siguiendo con el ejemplo de **maxConcurrency** = 10, si hay diez ventanas listas, habrá también diez ejecuciones de canalización en total. Si solo hay una ventana lista, solo se producirá una ejecución de canalización. | Entero | Un número entero comprendido entre uno y cincuenta. | Sí |
@@ -162,7 +162,20 @@ En caso de errores de canalización, el desencadenador de ventana de saltos de t
 
 ### <a name="tumbling-window-trigger-dependency"></a>Dependencia de un desencadenador de ventana de saltos de tamaño constante
 
-Si quiere asegurarse de que un desencadenador de ventana de saltos de tamaño constante se ejecute solo después de la correcta ejecución de otro desencadenador de ventana de saltos de tamaño constante en la factoría de datos, [cree una dependencia de desencadenador de ventana de saltos de tamaño constante](tumbling-window-trigger-dependency.md). 
+Si quiere asegurarse de que un desencadenador de ventana de saltos de tamaño constante se ejecute solo después de la correcta ejecución de otro desencadenador de ventana de saltos de tamaño constante en la factoría de datos, [cree una dependencia de desencadenador de ventana de saltos de tamaño constante](tumbling-window-trigger-dependency.md).
+
+### <a name="cancel-tumbling-window-run"></a>Cancelación de la ejecución de la ventana de saltos de tamaño constante
+
+Puede cancelar las ejecuciones de un desencadenador de ventana de saltos de tamaño constante si la ventana específica está en estado _Waiting_ (En espera), _Waiting on Dependency_ (En espera de dependencia) o _Running_ (En ejecución).
+
+* Si la ventana se encuentra en estado **Running** (En ejecución), cancele la _ejecución de canalización_ asociada y la ejecución del desencadenador se marcará después como _Canceled_ (Cancelada).
+* Si la ventana está en estado **Waiting** (En espera) o **Waiting on Dependency** (En espera de dependencia), puede cancelar la ventana desde Supervisión:
+
+![Cancelación de un desencadenador de ventana de saltos de tamaño constante desde la página Supervisión](media/how-to-create-tumbling-window-trigger/cancel-tumbling-window-trigger.png)
+
+También puede volver a ejecutar una ventana cancelada. En esta nueva ejecución se tomarán las definiciones publicadas _más recientes_ del desencadenador, y las dependencias de la ventana especificada se _volverán a evaluar_ después.
+
+![Nueva ejecución de un desencadenador de ventana de saltos de tamaño constante para las ejecuciones canceladas anteriormente](media/how-to-create-tumbling-window-trigger/rerun-tumbling-window-trigger.png)
 
 ## <a name="sample-for-azure-powershell"></a>Ejemplo para Azure PowerShell
 
@@ -206,25 +219,25 @@ En esta sección se muestra cómo usar Azure PowerShell para crear, iniciar y su
     }
     ```
 
-2. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger**:
+2. Cree un desencadenador mediante el cmdlet **Set-AzDataFactoryV2Trigger** :
 
     ```powershell
     Set-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger" -DefinitionFile "C:\ADFv2QuickStartPSH\MyTrigger.json"
     ```
     
-3. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+3. Confirme que el estado del desencadenador es **Detenido** mediante el cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-4. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger**:
+4. Inicie el desencadenador mediante el cmdlet **Start-AzDataFactoryV2Trigger** :
 
     ```powershell
     Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"
     ```
 
-5. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger**:
+5. Confirme que el estado del desencadenador es **Iniciado** mediante el cmdlet **Get-AzDataFactoryV2Trigger** :
 
     ```powershell
     Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name "MyTrigger"

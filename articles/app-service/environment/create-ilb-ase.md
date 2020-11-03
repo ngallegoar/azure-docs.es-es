@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: baf528e1b4ab7e323b69574729669d09692741cc
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148161"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503528"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Creación y uso de un entorno de una instancia de Azure App Service Environment de Load Balancer 
 
@@ -96,7 +96,7 @@ Crea una aplicación en un ASE con un ILB del mismo modo que crea una aplicació
 
 ### <a name="web-jobs-functions-and-the-ilb-ase"></a>Trabajos web, Functions y ASE de ILB 
 
-Functions y los trabajos web se admiten en un ASE de ILB, pero para que el portal funcione con ellos, debe tener acceso a la red para el sitio de SCM.  Esto significa que el explorador debe estar en un host que se encuentre en la red virtual o conectado a ella. Si la instancia de ASE de ILB tiene un nombre de dominio que no finaliza en *appserviceenvironment.net*, deberá conseguir que el explorador confíe en el certificado HTTPS que se usa en el sitio SCM.
+Functions y los trabajos web se admiten en un ASE de ILB, pero para que el portal funcione con ellos, debe tener acceso a la red para el sitio de SCM.  Esto significa que el explorador debe estar en un host que se encuentre en la red virtual o conectado a ella. Si la instancia de ASE de ILB tiene un nombre de dominio que no finaliza en *appserviceenvironment.net* , deberá conseguir que el explorador confíe en el certificado HTTPS que se usa en el sitio SCM.
 
 ## <a name="dns-configuration"></a>Configuración de DNS 
 
@@ -104,22 +104,22 @@ Cuando se usa un ASE externo, las aplicaciones realizadas en el ASE se registran
 
 Para configurar DNS en su propio servidor DNS con el ASE de ILB:
 
-1. cree una zona para <ASE name>.appserviceenvironment.net.
+1. Cree una zona para el &lt;nombre de ASE&gt;.appserviceenvironment.net.
 2. Cree un registro D en esa zona que apunte * a la dirección IP de ILB.
 3. Cree un registro D en esa zona que apunte a la dirección IP de ILB.
-4. cree una zona en <ASE name>.appserviceenvironment.net llamada SCM.
+4. Cree una zona en el &lt;nombre de ASE&gt;.appserviceenvironment.net denominada SCM.
 5. Cree un registro D en la zona SCM que apunte * a la dirección IP de ILB.
 
 Para configurar DNS en las zonas privadas de Azure DNS:
 
-1. cree una zona privada de Azure DNS denominada <ASE name>.appserviceenvironment.net.
+1. Cree una zona privada de Azure DNS denominada &lt;ASE name&gt;.appserviceenvironment.net.
 2. Cree un registro D en esa zona que apunte * a la dirección IP de ILB.
 3. Cree un registro D en esa zona que apunte a la dirección IP de ILB.
 4. cree un registro A en esa zona que apunte *.scm a la dirección IP de ILB.
 
-La configuración de DNS para el sufijo de dominio predeterminado de ASE no restringe las aplicaciones para que solo puedan acceder a ellas esos nombres. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE con un ILB. Si desea crear una zona denominada contoso.net, puede hacerlo y hacer que apunte a la dirección IP de ILB. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en <appname>.scm.<asename>.appserviceenvironment.net.
+La configuración de DNS para el sufijo de dominio predeterminado de ASE no restringe las aplicaciones para que solo puedan acceder a ellas esos nombres. Puede establecer un nombre de dominio personalizado sin ninguna validación en las aplicaciones de un ASE con un ILB. Si desea crear una zona denominada contoso.net, puede hacerlo y hacer que apunte a la dirección IP de ILB. El nombre de dominio personalizado funciona para las solicitudes de aplicación, pero no para el sitio SCM. El sitio SCM solo está disponible en &lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net.
 
-La zona denominada .<asename>.appserviceenvironment.net es globalmente única. Antes de mayo de 2019, los clientes podían especificar el sufijo de dominio del ASE con ILB. Si quería usar .contoso.com como sufijo de dominio, podía hacerlo y eso incluiría el sitio SCM. Había problemas con ese modelo, entre los que se incluían la administración del certificado SSL predeterminado, la falta de inicio de sesión único con el sitio SCM y la obligatoriedad de usar un certificado comodín. El proceso de actualización de certificados predeterminados del ASE con ILB también se ha interrumpido y ha provocado el reinicio de la aplicación. Para solucionar estos problemas, el comportamiento del ASE con ILB se ha modificado para que use un sufijo de dominio basado en el nombre del ASE y un sufijo propiedad de Microsoft. El cambio en el comportamiento del ASE con ILB solo afecta a aquellos ASE creados después de mayo de 2019. Los ASE con ILB existentes anteriormente deben todavía administrar el certificado predeterminado del ASE y su configuración de DNS.
+La zona denominada .&lt;asename&gt;.appserviceenvironment.net es globalmente única. Antes de mayo de 2019, los clientes podían especificar el sufijo de dominio del ASE con ILB. Si quería usar .contoso.com como sufijo de dominio, podía hacerlo y eso incluiría el sitio SCM. Había problemas con ese modelo, entre los que se incluían la administración del certificado SSL predeterminado, la falta de inicio de sesión único con el sitio SCM y la obligatoriedad de usar un certificado comodín. El proceso de actualización de certificados predeterminados del ASE con ILB también se ha interrumpido y ha provocado el reinicio de la aplicación. Para solucionar estos problemas, el comportamiento del ASE con ILB se ha modificado para que use un sufijo de dominio basado en el nombre del ASE y un sufijo propiedad de Microsoft. El cambio en el comportamiento del ASE con ILB solo afecta a aquellos ASE creados después de mayo de 2019. Los ASE con ILB existentes anteriormente deben todavía administrar el certificado predeterminado del ASE y su configuración de DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicación con un ASE con un ILB
 
@@ -129,7 +129,7 @@ El nombre del sitio SCM le lleva a la consola de Kudu, denominada **Advanced Por
 
 Los sistemas de CI basados en Internet, como GitHub y Azure DevOps, seguirán funcionando con un ASE de ILB si se puede acceder al agente de compilación a través de Internet y este está en la misma red que ASE de ILB. Por tanto, en el caso de Azure DevOps, si el agente de compilación se crea en la misma red virtual que el ASE de ILB (también puede usar una red virtual diferente), podrá extraer el código del repositorio Git de Azure DevOps e implementarlo en el ASE de ILB. Si no desea crear su propio agente de compilación, deberá usar un sistema de CI que use un modelo de extracción como Dropbox.
 
-Los puntos de conexión de publicación para las aplicaciones en un ASE con un ILB usan el dominio con el que se creó el ASE con un ILB. Este dominio aparece en el perfil de publicación de la aplicación y en la hoja del portal de la aplicación (en **Información general** > **Información esencial** y también en **Propiedades**). Si tiene una instancia de ASE de ILB con el sufijo de dominio *&lt;nombre de ASE&gt;.appserviceenvironment.net* y una aplicación llamada *mytest*, use *mytest.&lt;nombre de ASE&gt;.appserviceenvironment.net* para FTP y *mytest.scm.contoso.net* para la implementación web.
+Los puntos de conexión de publicación para las aplicaciones en un ASE con un ILB usan el dominio con el que se creó el ASE con un ILB. Este dominio aparece en el perfil de publicación de la aplicación y en la hoja del portal de la aplicación (en **Información general** > **Información esencial** y también en **Propiedades** ). Si tiene una instancia de ASE de ILB con el sufijo de dominio *&lt;nombre de ASE&gt;.appserviceenvironment.net* y una aplicación llamada *mytest* , use *mytest.&lt;nombre de ASE&gt;.appserviceenvironment.net* para FTP y *mytest.scm.contoso.net* para la implementación web.
 
 ## <a name="configure-an-ilb-ase-with-a-waf-device"></a>Configuración de una instancia de ASE de ILB con un dispositivo WAF ##
 

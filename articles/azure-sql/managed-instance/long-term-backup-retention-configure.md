@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: 4249e7df61c7f1f090b6377114bcab6ce1d40b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b0d6665b440516d29cc9aeb0b6e50f509528574
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619090"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503443"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Administración de la retención de copias de seguridad a largo plazo de la instancia administrada de Azure SQL (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-En la instancia administrada de Azure SQL, puede configurar una directiva de [retención de copias de seguridad a largo plazo](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) como característica en vista previa (GB) pública limitada. Esto permite conservar automáticamente copias de seguridad de bases de datos en contenedores de Azure Blob Storage independientes durante un máximo de 10 años. Posteriormente, puede recuperar una base de datos mediante estas copias de seguridad con PowerShell.
+En la instancia administrada de Azure SQL, puede configurar una directiva de [retención de copias de seguridad a largo plazo](../database/long-term-retention-overview.md#sql-managed-instance-support) (LTR) como característica en vista previa (GB) pública limitada. Esto permite conservar automáticamente copias de seguridad de bases de datos en contenedores de Azure Blob Storage independientes durante un máximo de 10 años. Posteriormente, puede recuperar una base de datos mediante estas copias de seguridad con PowerShell.
 
    > [!IMPORTANT]
    > LTR para instancias administradas se encuentra actualmente en versión preliminar limitada y está disponible para las suscripciones de EA y CSP en cada caso. Para solicitar la inscripción, cree un [vale de soporte de Azure](https://azure.microsoft.com/support/create-ticket/). En Tipo de problema, seleccione Problema técnico, en Servicio elija Instancia administrada de SQL Database y, en Tipo de problema, seleccione **Copia de seguridad, restauración y continuidad empresarial/Retención de copias de seguridad a largo plazo**. En la solicitud, indique que le gustaría inscribirse en la versión preliminar pública limitada de LTR para la instancia administrada.
@@ -30,7 +30,7 @@ En las siguientes secciones se explica cómo usar PowerShell para configurar la 
 
 ## <a name="azure-roles-to-manage-long-term-retention"></a>Roles de Azure para administrar la retención a largo plazo
 
-En **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** y **Restore-AzSqlInstanceDatabase**, deberá tener uno de los siguientes roles:
+En **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** y **Restore-AzSqlInstanceDatabase** , deberá tener uno de los siguientes roles:
 
 - Rol de propietario de la suscripción o
 - rol de colaborador de instancia administrada o
@@ -39,7 +39,7 @@ En **Get-AzSqlInstanceDatabaseLongTermRetentionBackup** y **Restore-AzSqlInstanc
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read`
   - `Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/read`
 
-En **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup**, deberá tener uno de los roles siguientes:
+En **Remove-AzSqlInstanceDatabaseLongTermRetentionBackup** , deberá tener uno de los roles siguientes:
 
 - Rol de propietario de la suscripción o
 - Rol personalizado con el permiso siguiente:

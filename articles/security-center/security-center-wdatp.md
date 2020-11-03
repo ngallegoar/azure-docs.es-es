@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342151"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368099"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja los puntos de conexión con la solución EDR integrada de Security Center: Microsoft Defender para punto de conexión
 
@@ -31,9 +31,9 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 - Servicios de búsqueda administrados.
 
 > [!TIP]
-> Originalmente se inició como **ATP de Windows Defender** , pero se cambió el nombre de este producto de Detección y respuesta de puntos de conexión (EDR) en 2019 a **ATP de Microsoft Defender** .
+> Originalmente se inició como **ATP de Windows Defender** , pero se cambió el nombre de este producto de Detección y respuesta de puntos de conexión (EDR) en 2019 a **ATP de Microsoft Defender**.
 >
-> En Ignite 2020, lanzamos el [conjunto Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) y se cambió el nombre del componente EDR a **Microsoft Defender para punto de conexión** .
+> En Ignite 2020, lanzamos el [conjunto Microsoft Defender XDR](https://www.microsoft.com/security/business/threat-protection) y se cambió el nombre del componente EDR a **Microsoft Defender para punto de conexión**.
 
 
 ## <a name="availability"></a>Disponibilidad
@@ -53,17 +53,17 @@ Microsoft Defender para punto de conexión es una solución integral de segurida
 
 Microsoft Defender para punto de conexión proporciona lo siguiente:
 
-- **Sensores de detección avanzados posteriores a las brechas** . Los sensores de Defender para punto de conexión para máquinas de Windows recopilan una amplia gama de señales de comportamiento.
+- **Sensores de detección avanzados posteriores a las brechas**. Los sensores de Defender para punto de conexión para máquinas de Windows recopilan una amplia gama de señales de comportamiento.
 
-- **Detección posterior a las brechas basada en el análisis y con tecnología de nube** . Defender para punto de conexión se adapta rápidamente a las amenazas cambiantes. Utiliza análisis avanzados y macrodatos. Asimismo, se amplía gracias a la eficacia de Intelligent Security Graph con señales a través de Windows, Azure y Office para detectar amenazas desconocidas. Proporciona alertas que requieren intervención y le permite responder rápidamente.
+- **Detección posterior a las brechas basada en el análisis y con tecnología de nube**. Defender para punto de conexión se adapta rápidamente a las amenazas cambiantes. Utiliza análisis avanzados y macrodatos. Asimismo, se amplía gracias a la eficacia de Intelligent Security Graph con señales a través de Windows, Azure y Office para detectar amenazas desconocidas. Proporciona alertas que requieren intervención y le permite responder rápidamente.
 
-- **Información sobre amenazas** . Defender para punto de conexión crea alertas cuando identifica las herramientas, las técnicas y los procedimientos de los atacantes. Usa datos generados por los equipos de seguridad y los buscadores de amenazas de Microsoft, con la ayuda de mecanismos de inteligencia que aportan los partners.
+- **Información sobre amenazas**. Defender para punto de conexión crea alertas cuando identifica las herramientas, las técnicas y los procedimientos de los atacantes. Usa datos generados por los equipos de seguridad y los buscadores de amenazas de Microsoft, con la ayuda de mecanismos de inteligencia que aportan los partners.
 
 Mediante la integración de Defender para punto de conexión con Security Center, también puede beneficiarse de las siguientes funcionalidades adicionales:
 
-- **Incorporación automatizada** . Security Center habilita automáticamente el sensor de Microsoft Defender para punto de conexión en todos los servidores Windows que supervisa (a menos que ejecuten Windows Server 2019).
+- **Incorporación automatizada**. Security Center habilita automáticamente el sensor de Microsoft Defender para punto de conexión en todos los servidores Windows que supervisa (a menos que ejecuten Windows Server 2019).
 
-- **Panel único** . la consola de Security Center muestra las alertas de Microsoft Defender para punto de conexión. Para obtener más detalles, use las páginas del portal de Microsoft Defender para punto de conexión, donde verá información adicional, como el árbol de procesos de alerta y el gráfico de incidentes. También puede ver una escala de tiempo de la máquina detallada que muestra cada comportamiento durante un período histórico de hasta seis meses.
+- **Panel único**. la consola de Security Center muestra las alertas de Microsoft Defender para punto de conexión. Para obtener más detalles, use las páginas del portal de Microsoft Defender para punto de conexión, donde verá información adicional, como el árbol de procesos de alerta y el gráfico de incidentes. También puede ver una escala de tiempo de la máquina detallada que muestra cada comportamiento durante un período histórico de hasta seis meses.
 
     :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Security Center en Microsoft Defender para punto de conexión" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
@@ -76,18 +76,18 @@ Una vez configurada la ubicación, no se puede cambiar. Si necesita mover los da
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Habilitar la integración de Microsoft Defender para punto de conexión
 
-1. Habilite **Azure Defender para los servidores** . Consulte los [Precios de Azure Security Center](security-center-pricing.md#enable-azure-defender).
+1. Habilite **Azure Defender para los servidores**. Consulte los [Precios de Azure Security Center](security-center-pricing.md#enable-azure-defender).
 
     > [!NOTE]
     > Para proteger las máquinas habilitadas para Azure Arc, siga las instrucciones de [Inicio rápido: Conexión de una máquina híbrida con servidores habilitados para Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Si ya ha obtenido una licencia e implementado Microsoft defender para punto de conexión en sus servidores, quítelo mediante el procedimiento descrito en la [Retirada de servidores de Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
-1. En el menú de Security Center, seleccione **Precios y configuración** .
+1. En el menú de Security Center, seleccione **Precios y configuración**.
 1. Seleccione la suscripción que desea cambiar.
-1. Seleccione **Detección de amenazas** .
-1. Seleccione **Permitir que ATP de Windows Defender tenga acceso a mis datos** y **Guardar** .
+1. Seleccione **Detección de amenazas**.
+1. Seleccione **Permitir que Microsoft Defender for Endpoint acceda a mis datos** y luego **Guardar**.
 
-    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Security Center en Microsoft Defender para punto de conexión":::
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Habilitar la integración entre Azure Security Center y la solución EDR de Microsoft, Microsoft Defender para punto de conexión":::
 
     Azure Security Center incorporará automáticamente los servidores en Microsoft Defender para punto de conexión. Este proceso de incorporación puede tardar hasta 24 horas.
 
@@ -112,7 +112,7 @@ Para generar una alerta de prueba benigna de Microsoft Defender para punto de co
     ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Security Center en Microsoft Defender para punto de conexión":::
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="Ventana del símbolo del sistema con el comando para generar una alerta de prueba.":::
 
 1. Si el comando se ejecuta correctamente, verá una nueva alerta en el panel de Azure Security Center y el portal de Microsoft Defender para punto de conexión. Esta alerta puede tardar unos minutos en aparecer.
 1. Para revisar la alerta en Security Center, vaya a **Security Alerts (Alertas de seguridad)**  > **Suspicious Powershell CommandLine (Línea de comandos de PowerShell sospechosa)** .
@@ -123,7 +123,7 @@ Para generar una alerta de prueba benigna de Microsoft Defender para punto de co
 
 ### <a name="what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint"></a>¿Cuáles son los requisitos de licencia de Microsoft Defender para punto de conexión?
 
-Defender para punto de conexión se incluye sin costo adicional en los **servidores de Azure Defender** . Como alternativa, se puede adquirir por separado para 50 máquinas o más.
+Defender para punto de conexión se incluye sin costo adicional en los **servidores de Azure Defender**. Como alternativa, se puede adquirir por separado para 50 máquinas o más.
 
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>¿Cómo puedo cambiar una herramienta de EDR de terceros?

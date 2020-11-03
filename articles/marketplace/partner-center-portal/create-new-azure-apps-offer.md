@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710726"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428218"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -113,10 +113,10 @@ Para información sobre los requisitos de publicación de cada plan de aplicaci�
 
     ![Muestra el menú de navegación izquierdo.](./media/new-offer-azure-app.png)
 
-1. En la página **Nueva oferta**, escriba un **identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
+1. En la página **Nueva oferta** , escriba un **identificador de oferta**. Se trata de un identificador único para cada oferta de su cuenta.
 
      * Se muestra a los clientes en la dirección web de la oferta de Marketplace y en las plantillas de Azure Resource Manager, si procede.
-     * Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1**, la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+     * Use solo letras minúsculas y números. Puede incluir guiones y caracteres de subrayado, pero no espacios, y está limitado a 50 caracteres. Por ejemplo, si escribe **test-offer-1** , la dirección web de la oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
      * El identificador de oferta no se puede cambiar después de seleccionar **Crear**.
 
 1. Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta en el Centro de partners.
@@ -193,7 +193,7 @@ A continuación se muestra un ejemplo de cómo aparece la información en Azure 
 
 <br>Este es un ejemplo de cómo aparece la información de la oferta en Azure Portal:
 
-:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Marketplace.":::
+:::image type="content" source="media/example-virtual-machine-container-iot-edge-saas.png" alt-text="Ilustración de cómo aparece esta oferta en Azure Portal.":::
 
 #### <a name="call-out-descriptions"></a>Descripciones destacadas
 
@@ -236,7 +236,7 @@ Puede agregar vínculos a documentos en línea complementarios si selecciona **+
 
 ### <a name="contact-information"></a>Información de contacto
 
-Proporcione el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico**, un **contacto de ingeniería** o un **contacto del Programa de CSP**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP. Algunos contactos pueden necesitar información adicional.
+Proporcione el nombre, el correo electrónico y el número de teléfono de un **contacto de soporte técnico** , un **contacto de ingeniería** o un **contacto del Programa de CSP**. Esta información no se muestra a los clientes, pero estará disponible para Microsoft y puede proporcionarse a los asociados de CSP. Algunos contactos pueden necesitar información adicional.
 
 ### <a name="marketplace-media"></a>Elementos multimedia del marketplace
 
@@ -323,21 +323,21 @@ Una vez creados, verá los nombres de los planes, los identificadores, la dispon
 
 Las **acciones** disponibles en **Información general del plan** varían en función del estado actual del plan y pueden incluir:
 
-* Si el estado del plan es **Borrador**: eliminar borrador.
-* Si el estado del plan es **Activo**: detener venta del plan o sincronizar público privado.
+* Si el estado del plan es **Borrador** : eliminar borrador.
+* Si el estado del plan es **Activo** : detener venta del plan o sincronizar público privado.
 
 ### <a name="create-new-plan"></a>Creación de un nuevo plan
 
-***Identificador de plan***: cree un identificador de plan único para cada plan de esta oferta. Este identificador será visible para los clientes en la dirección URL del producto.  Use solo caracteres alfanuméricos en minúscula, guiones o caracteres de subrayado. El identificador de este plan no puede tener más de 50 caracteres. Este identificador no se puede modificar después de seleccionar que se cree.
+**_Identificador de plan_* _: cree un identificador de plan único para cada plan de esta oferta. Este identificador será visible para los clientes en la dirección URL del producto.  Use solo caracteres alfanuméricos en minúscula, guiones o caracteres de subrayado. El identificador de este plan no puede tener más de 50 caracteres. Este identificador no se puede modificar después de seleccionar que se cree.
 
-***Nombre del plan***: los clientes verán este nombre al decidir qué plan van a seleccionar en su oferta. Cree un nombre de oferta único para cada uno de los planes de esta oferta. El nombre del plan se usa para diferenciar planes de software que pueden formar parte de la misma oferta (por ejemplo, nombre de la oferta: Windows Server; planes: Windows Server 2016, Windows Server 2019).
+_*_Nombre del plan_*_ : los clientes verán este nombre al decidir qué plan van a seleccionar en su oferta. Cree un nombre de oferta único para cada uno de los planes de esta oferta. El nombre del plan se usa para diferenciar planes de software que pueden formar parte de la misma oferta (por ejemplo, nombre de la oferta: Windows Server; planes: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Configuración del plan
 
 Esta pestaña permite establecer la configuración de alto nivel del tipo de plan, aunque reutilice paquetes de otro plan, así como las nubes donde debe estar disponible el plan. Sus respuestas de esta pestaña afectarán a los campos mostrados en otras pestañas para el mismo plan.
 
 #### <a name="plan-type"></a>Tipo de plan
-Seleccione el tipo de plan de la oferta. El cliente administra completamente los planes de **plantillas de soluciones**. Un plan de **aplicación administrada** permite que los anunciantes administren la aplicación en nombre del cliente. Para más información, consulte [Tipos de planes de aplicación de Azure](#types-of-azure-application-plans).
+Seleccione el tipo de plan de la oferta. El cliente administra completamente los planes de _ *plantillas de soluciones* *. Un plan de **aplicación administrada** permite que los anunciantes administren la aplicación en nombre del cliente. Para más información, consulte [Tipos de planes de aplicación de Azure](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Reutilización de la configuración técnica
 
@@ -459,7 +459,7 @@ Esta pestaña le permite cargar el paquete de implementación que posibilitará 
 
 Esta pestaña le permite editar la versión de borrador de la configuración técnica.
 
-**Versión**: asigne la versión actual de la configuración técnica.  Incremente esta versión cada vez que publique un cambio en esta página. La versión debe tener el formato `{integer}.{integer}.{integer}`.
+**Versión** : asigne la versión actual de la configuración técnica.  Incremente esta versión cada vez que publique un cambio en esta página. La versión debe tener el formato `{integer}.{integer}.{integer}`.
 
 **Archivo de paquete** (.zip): este paquete contiene todos los archivos de plantilla necesarios para este plan, así como recursos adicionales, empaquetados como un archivo `.zip`.
 
@@ -495,8 +495,8 @@ Seleccione esta opción para habilitar acceso Just-In-Time (JIT) para este plan.
 
 Seleccione si desea configurar el **modo de implementación incremental** o **completo** al implementar este plan: 
 
-* En el **modo completo**, una reimplementación de la aplicación del cliente provocará la eliminación de recursos en el grupo de recursos administrados si los recursos no se definen en `mainTemplate.json`. 
-* En el **modo incremental**, una reimplementación de la aplicación deja los recursos existentes sin cambios.
+* En el **modo completo** , una reimplementación de la aplicación del cliente provocará la eliminación de recursos en el grupo de recursos administrados si los recursos no se definen en `mainTemplate.json`. 
+* En el **modo incremental** , una reimplementación de la aplicación deja los recursos existentes sin cambios.
 
 Para obtener más información sobre los modos de implementación, consulte [Modos de implementación de Azure Resource Manager](../../azure-resource-manager/deployment-modes.md).
 
@@ -508,17 +508,17 @@ Especifique un punto de conexión de webhook de HTTPS para recibir notificacione
 
 Seleccione esta opción para especificar qué acciones pueden realizar los clientes en los recursos administrados, además de las acciones "`*/read`" que están disponibles de forma predeterminada.
 
-Enumere las acciones adicionales que desea permitir a su cliente realizar aquí, separadas por signos de punto y coma.  Para más información, consulte [Descripción de las asignaciones de denegación para recursos de Azure](../../role-based-access-control/deny-assignments.md). Puede consultar las acciones disponibles en [Operaciones del proveedor de recursos de Azure Resource Manager](../../role-based-access-control/resource-provider-operations.md). Por ejemplo, para permitir que los consumidores reinicien las máquinas virtuales, agregue `Microsoft.Compute/virtualMachines/restart/action` a las acciones permitidas.
+Enumere las acciones adicionales que desea permitir a su cliente realizar aquí, separadas por signos de punto y coma.  Para más información, consulte [Descripción de las asignaciones de denegación para recursos de Azure](../../role-based-access-control/deny-assignments.md). Puede consultar las acciones disponibles en [Operaciones del proveedor de recursos de Azure](../../role-based-access-control/resource-provider-operations.md). Por ejemplo, para permitir que los consumidores reinicien las máquinas virtuales, agregue `Microsoft.Compute/virtualMachines/restart/action` a las acciones permitidas.
 
 #### <a name="global-azure--azure-government-cloud"></a>Azure global o nube de Azure Government
 
 Indique quién debe tener acceso de administración a esta aplicación administrada en cada nube compatible. Los usuarios, grupos o aplicaciones a los que quiere conceder permiso para el grupo de recursos administrados se identifican mediante identidades de Azure Active Directory (AAD).
 
-**Id. de inquilino de Azure Active Directory**: el identificador de inquilino de Azure AD (también conocido como identificador de directorio) que contiene las identidades de los usuarios, grupos o aplicaciones a los que quiere conceder permisos. Encontrará su identificador de inquilino de Azure AD en la página [Propiedades de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), en Azure Portal.
+**Id. de inquilino de Azure Active Directory** : el identificador de inquilino de Azure AD (también conocido como identificador de directorio) que contiene las identidades de los usuarios, grupos o aplicaciones a los que quiere conceder permisos. Encontrará su identificador de inquilino de Azure AD en la página [Propiedades de Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties), en Azure Portal.
 
-**Autorizaciones**: agregue el identificador de objeto de Azure Active Directory del usuario, grupo o aplicación a los que quiere conceder permiso para el grupo de recursos administrados. Identifique al usuario por su identificador de entidad de seguridad, que encontrará en la [hoja Usuarios de Azure Active Directory, en Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
+**Autorizaciones** : agregue el identificador de objeto de Azure Active Directory del usuario, grupo o aplicación a los que quiere conceder permiso para el grupo de recursos administrados. Identifique al usuario por su identificador de entidad de seguridad, que encontrará en la [hoja Usuarios de Azure Active Directory, en Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada entidad de seguridad, seleccione uno de los roles integrados de Azure AD de la lista (Propietario o Colaborador). El rol que seleccione describirá los permisos que tendrá la entidad de seguridad en los recursos de la suscripción del cliente. Para más información, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md). Para obtener más información sobre el control de acceso basado en rol (RBAC), consulte [Introducción al control de acceso basado en rol en Azure Portal](../../role-based-access-control/overview.md).
+Para cada entidad de seguridad, seleccione uno de los roles integrados de Azure AD de la lista (Propietario o Colaborador). El rol que seleccione describirá los permisos que tendrá la entidad de seguridad en los recursos de la suscripción del cliente. Para más información, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md). Para más información acerca del control de acceso basado en rol de Azure (RBAC de Azure), consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../../role-based-access-control/overview.md)
 
 >[!Note]
 >Aunque puede agregar hasta 100 autorizaciones por nube, suele ser más fácil crear un grupo de usuarios de Active Directory y especificar su id. en "ID de la entidad de seguridad". Esta opción le permitirá agregar más usuarios al grupo de administración una vez implementado el plan y reducir la necesidad de actualizar el plan solo para agregar más autorizaciones.
@@ -559,7 +559,7 @@ Para implementar la versión de prueba en su nombre, cree y proporcione una susc
 * **Id. de inquilino de Azure AD** (obligatorio): escriba el [identificador de inquilino](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para encontrarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en el menú de la izquierda, seleccione **Propiedades** y busque el número de **Id. de directorio** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e). El id. de inquilino de su organización también lo puede buscar mediante la dirección URL de su nombre de dominio en: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 * **Nombre del inquilino de Azure AD** (obligatorio para Dynamic 365): escriba su nombre en Azure Active Directory (AD). Para buscar este nombre, inicie sesión en [Azure Portal](https://portal.azure.com/) y en la esquina superior derecha se mostrará su nombre del inquilino, debajo de su nombre de cuenta.
 * **Identificador de aplicación de Azure AD** (obligatorio): escriba el [identificador de la aplicación](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) de Azure Active Directory (AD). Para encontrarlo, inicie sesión en [Azure Portal](https://portal.azure.com/), seleccione la pestaña Active Directory en el menú de la izquierda, seleccione **Registros de aplicaciones** y busque el número de **Id. de aplicación** que aparece (por ejemplo, 50c464d3-4930-494c-963c-1e951d15360e).
-* **Secreto de cliente de la aplicación de Azure Active Directory** (obligatorio): escriba el [secreto de cliente](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de la aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos**, seleccione **Nuevo secreto de cliente**, escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. Asegúrese de copiar el valor antes de abandonar esta página.
+* **Secreto de cliente de la aplicación de Azure Active Directory** (obligatorio): escriba el [secreto de cliente](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) de la aplicación de Azure AD. Para encontrar este valor, inicie sesión en [Azure Portal](https://portal.azure.com/). Seleccione la pestaña **Azure Active Directory** en el menú izquierdo, seleccione **Registros de aplicaciones** y, después, seleccione la versión de prueba de su aplicación. A continuación, seleccione **Certificados y secretos** , seleccione **Nuevo secreto de cliente** , escriba una descripción, seleccione **Nunca** en **Expira** y, después, elija **Agregar**. Asegúrese de copiar el valor antes de abandonar esta página.
 
 Seleccione **Guardar borrador** antes de continuar.
 
@@ -584,9 +584,9 @@ Seleccione **Guardar borrador** antes de continuar.
 Cuando haya completado todas las secciones necesarias de la oferta, seleccione **Revisar y publicar** en la esquina superior derecha del portal.
 
 Revise el estado de finalización de cada sección de la oferta.
-    - *No iniciada*: significa que la sección no se ha modificado y se debe completar.
-    - *Incompleta*: significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
-    - *Completa*: significa que la sección está completa, que se ha proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+    - *No iniciada* : significa que la sección no se ha modificado y se debe completar.
+    - *Incompleta* : significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
+    - *Completa* : significa que la sección está completa, que se ha proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 
 Si esta es la primera vez que publica esta oferta, puede proporcionar instrucciones de prueba al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 

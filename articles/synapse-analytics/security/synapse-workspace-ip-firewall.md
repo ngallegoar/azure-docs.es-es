@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87503929"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480554"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reglas de firewall de IP de Azure Synapse Analytics (versión preliminar)
 
@@ -27,7 +27,7 @@ Las reglas de firewall de IP conceden o deniegan el acceso al área de trabajo d
 
 Hay dos maneras de agregar reglas de firewall de IP a un área de trabajo de Synapse. Para agregar un firewall de IP al área de trabajo, seleccione **Security + networking** (Seguridad y redes) y active **Uso permitido de conexiones de todas las direcciones IP** durante la creación del área de trabajo.
 
-![Configuración de IP del área de trabajo de Synapse en Azure Portal.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
+![Captura de pantalla que resalta el botón Seguridad y redes.](./media/synpase-workspace-ip-firewall/ip-firewall-1.png)
 
 ![Configuración de IP del área de trabajo de Synapse en Azure Portal.](./media/synpase-workspace-ip-firewall/ip-firewall-2.png)
 

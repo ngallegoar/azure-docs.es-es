@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362272"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541288"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste del rendimiento con la copia en caché del conjunto de resultados
 
@@ -36,11 +36,15 @@ Cuando se habilita el almacenamiento en caché del conjunto de resultados, Synap
 
 Una vez activada la copia en caché del conjunto de resultados de una base de datos, se copian en caché los resultados de todas las consultas hasta que la memoria caché está llena, excepto en el caso de las siguientes consultas:
 
-- Consultas con funciones no deterministas como DateTime.Now()
+- Consultas con funciones integradas o expresiones en tiempo de ejecución que no son deterministas, incluso cuando no hay ningún cambio en los datos o la consulta de las tablas base. Por ejemplo, DateTime.Now(), GetDate().
 - Consultas con funciones definidas por el usuario
 - Consultas que usan tablas con la seguridad de nivel de fila o la seguridad de nivel de columna habilitadas
 - Consultas que devuelven datos con un tamaño de fila superior a 64 kB
 - Consultas que devuelven datos de gran tamaño (más de 10 GB) 
+>[!NOTE]
+> - Algunas funciones no deterministas y expresiones en tiempo de ejecución pueden ser deterministas para consultas repetitivas con los mismos datos. Por ejemplo, ROW_NUMBER().  
+> - Utilice ORDER BY en la consulta si el orden o la secuencia de las filas del conjunto de resultados de la consulta es importante para la lógica de la aplicación.
+> - Si los datos de las columnas ORDER BY no son únicos, no se garantiza ningún orden de fila para las filas con los mismos valores en las columnas ORDER BY, con independencia de si el almacenamiento en caché del conjunto de resultados está habilitado o deshabilitado.
 
 > [!IMPORTANT]
 > Las operaciones para crear la caché del conjunto de resultados y recuperar datos de la caché se producen en el nodo de control de una instancia de grupo de SQL de Synapse.

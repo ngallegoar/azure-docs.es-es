@@ -4,18 +4,18 @@ description: El artículo proporciona un aviso a los usuarios sobre la migració
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004279"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427113"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migración de tráfico de Azure SQL Database a puertas de enlace más recientes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,13 +36,13 @@ Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones:
 Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente el 12 de octubre de 2020. 
 
 ### <a name="september-2020"></a>Septiembre de 2020
-Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **15 de septiembre de 2020**:
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **15 de septiembre de 2020** :
 
 - Sudeste de Australia: 13.77.48.10
 - Este de Canadá: 40.86.226.166, 52.242.30.154
 - Sur de Reino Unido: 51.140.184.11, 51.105.64.0
 
-Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **15 de septiembre de 2020**:
+Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **15 de septiembre de 2020** :
 
 - Sudeste de Australia: 191.239.192.109 y 13.73.109.251
 - Centro de EE. UU.: 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 y 104.208.21.1
@@ -55,19 +55,19 @@ Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las si
 - Sudeste de Asia: 104.43.15.0, 23.100.117.95 y 40.78.232.3
 - Oeste de EE. UU.: 104.42.238.205, 23.99.34.75 y 13.86.216.196
 
-Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **10 de septiembre de 2020**:
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **10 de septiembre de 2020** :
 
 - Centro-oeste de EE. UU.: 13.78.248.43 
 - Norte de Sudáfrica: 102.133.120.2  
 
-Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020**:
+Se están agregando nuevas puertas de enlace de SQL a las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020** :
 
 - Norte de Europa: 13.74.104.113 
 - Oeste de EE. UU. 2: 40.78.248.10 
 - Oeste de Europa: 52.236.184.163 
 - Centro y Sur de EE. UU.: 20.45.121.1, 20.49.88.1 
 
-Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020**:
+Las puertas de enlace de SQL existentes comenzarán a aceptar tráfico en las siguientes regiones. Estas puertas de enlace de SQL comenzarán a aceptar el tráfico del cliente a partir del **1 de septiembre de 2020** :
 - Este de Japón: 40.79.184.8, 40.79.192.5
 
 # <a name="completed"></a>[Completado](#tab/completed-ip)
@@ -108,7 +108,8 @@ Puede verse afectado si:
 
 - Ha codificado de forma rígida la dirección IP de una puerta de enlace determinada en el firewall local.
 - Tiene subredes que usan Microsoft.SQL como punto de conexión de servicio, pero no se puede comunicar con las direcciones IP de puerta de enlace.
-- Usa la [configuración con redundancia de zona](high-availability-sla.md#zone-redundant-configuration) para la base de datos
+- Use la [configuración con redundancia de zona para el nivel De uso general](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Use la [configuración con redundancia de zona para los niveles de servicio Premium y Crítico para la empresa](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 No se verá afectado en los siguientes casos:
  

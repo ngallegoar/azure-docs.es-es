@@ -3,13 +3,13 @@ title: Actualización de un clúster de Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo actualizar un clúster de Azure Kubernetes Service (AKS) para obtener las últimas características y actualizaciones de seguridad.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050621"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461454"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Actualización de un clúster de Azure Kubernetes Service (AKS)
 
@@ -26,20 +26,20 @@ Para este artículo es preciso usar la versión 2.0.65 de la CLI de Azure, o cua
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Compruebe las actualizaciones disponibles del clúster de AKS
 
-Para comprobar qué versiones de Kubernetes están disponibles para su clúster, use el comando [az aks get-upgrades][az-aks-get-upgrades]. En el ejemplo siguiente se comprueba si hay actualizaciones disponibles para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup*:
+Para comprobar qué versiones de Kubernetes están disponibles para su clúster, use el comando [az aks get-upgrades][az-aks-get-upgrades]. En el ejemplo siguiente se comprueba si hay actualizaciones disponibles para el clúster denominado *myAKSCluster* en el grupo de recursos denominado *myResourceGroup* :
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
 > [!NOTE]
-> Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x*, pero no entre *1.12.x* -> *1.14.x*.
+> Cuando se actualiza un clúster de AKS compatible, no pueden omitirse las versiones secundarias de Kubernetes. Por ejemplo, se permiten las actualizaciones entre *1.12.x* -> *1.13.x* o *1.13.x* -> *1.14.x* , pero no entre *1.12.x* -> *1.14.x*.
 >
-> Para actualizar de *1.12.x* -> *1.14.x*, la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
+> Para actualizar de *1.12.x* -> *1.14.x* , la primera actualización sería de *1.12.x* -> *1.13.x* y, después, de *1.13.x* -> *1.14.x*.
 >
-> Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, si se actualiza de la versión *1.10.x*, que no es compatible, a la versión *1.15.x*, que sí lo es.
+> Solo se pueden omitir varias versiones cuando se actualiza de una versión que no es compatible a otra que sí lo es. Por ejemplo, si se actualiza de la versión *1.10.x* , que no es compatible, a la versión *1.15.x* , que sí lo es.
 
-La siguiente salida de ejemplo muestra que el clúster puede actualizarse a las versiones *1.13.9* y *1.13.10*:
+La siguiente salida de ejemplo muestra que el clúster puede actualizarse a las versiones *1.13.9* y *1.13.10* :
 
 ```console
 Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Actualización de un clúster de AKS
 
-Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. En el proceso de actualización, AKS agrega un nuevo nodo al clúster que ejecuta la versión de Kubernetes especificada y después [acordona y purga][kubernetes-drain] uno de los nodos antiguos para minimizar las interrupciones de las aplicaciones en ejecución. Cuando se confirma que el nuevo nodo ejecuta pods de aplicación, el anterior se elimina. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster.
+Con una lista de las versiones disponibles para el clúster de AKS, use el comando [az aks upgrade][az-aks-upgrade] para realizar la actualización. Durante el proceso de actualización, AKS agrega un nuevo nodo de búfer (o tantos nodos como los configurados en la [sobrecarga máxima](#customize-node-surge-upgrade-preview)) al clúster que ejecuta la versión de Kubernetes especificada. A continuación, [acordonará y purgará][kubernetes-drain] uno de los nodos antiguos para minimizar la interrupción de las aplicaciones en ejecución (si usa la sobrecarga máxima, [acordonará y purgará][kubernetes-drain] tantos nodos al mismo tiempo como el número de nodos de búfer especificados). Cuando el nodo anterior se ha purgado por completo, se restablecerá la imagen inicial para recibir la nueva versión y se convertirá en el nodo de búfer para el siguiente nodo que se va a actualizar. Este proceso se repite hasta que se hayan actualizado todos los nodos del clúster. Al final del proceso, se eliminará el último nodo purgado, manteniendo el número de nodos de agente existentes.
 
 ```azurecli-interactive
 az aks upgrade \
@@ -127,7 +127,7 @@ Para confirmar que la actualización se ha realizado correctamente, use el coman
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-En la salida de ejemplo siguiente se muestra que el clúster ahora ejecuta la versión *1.13.10*:
+En la salida de ejemplo siguiente se muestra que el clúster ahora ejecuta la versión *1.13.10* :
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

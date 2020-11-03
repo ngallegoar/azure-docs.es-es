@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 9/29/2020
-ms.openlocfilehash: 70f2cf183a9bd93b6066516cb68e99ee21cdc1ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c082c797c75ba912bafead15d24ea3941cfc25e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91569625"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534199"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Inicio rápido: Uso de Azure Portal para crear una instancia de Azure Database for MySQL con la opción Servidor flexible
 
@@ -28,36 +28,36 @@ Abra el explorador web y vaya a [Azure Portal](https://portal.azure.com/). Intro
 
 ## <a name="create-an-azure-database-for-mysql-flexible-server"></a>Creación de una instancia de Azure Database for MySQL con la opción Servidor flexible
 
-Puede crear un servidor flexible mediante un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-storage.md). Cree el servidor dentro en un [grupo de recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview).
+Puede crear un servidor flexible mediante un conjunto definido de [recursos de proceso y almacenamiento](./concepts-compute-storage.md). Cree el servidor dentro en un [grupo de recursos de Azure](../../azure-resource-manager/management/overview.md).
 
 Siga estos pasos para crear un servidor flexible.
 
-1. En la esquina superior izquierda del portal, seleccione **Crear un recurso** (+).
+1. Busque "Azure Database for MySQL" en el portal, utilice el cuadro de búsqueda para encontrar el servicio. 
+    
+    > :::image type="content" source="./media/quickstart-create-server-portal/find-mysql-portal.png" alt-text="Buscar Azure Database for MySQL":::
 
-2. Seleccione **Bases de datos** > **Azure Database for MySQL**. También puede escribir **MySQL** en el cuadro de búsqueda para encontrar el servicio.
+2. Seleccione **Agregar**. 
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/navigate-to-mysql.png" alt-text="Opción Azure Database for MySQL":::
-
-3. Seleccione **Servidor flexible** como opción de implementación.
+3. En la página "Seleccionar opción de implementación", seleccione **Servidor flexible** como opción de implementación.
      
-    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Opción Azure Database for MySQL":::.    
+    > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Elija la opción de implementación":::.    
 
 4. Complete el formulario de **aspectos básicos** con la información siguiente: 
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Opción Azure Database for MySQL"::: 
+    > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Formulario de creación del servidor"::: 
                                     
     |**Configuración**|**Valor sugerido**|**Descripción**|
     |---|---|---|
     Subscription|Nombre de la suscripción|La suscripción de Azure que desea usar para el servidor. Si tiene varias suscripciones, elija aquella en la que quiere que se le facture el recurso.|
     Resource group|*myresourcegroup*| Un nuevo nombre de grupo de recursos o uno existente de la suscripción.|
     Nombre de servidor |*mydemoserver*|Escriba un nombre único que identifique su servidor flexible. El nombre de dominio *mysql.database.azure.com* se anexa al nombre del servidor proporcionado. El servidor solo puede contener letras minúsculas, números y el carácter de guion (-). Debe contener al menos entre tres y 63 caracteres.|
-    Nombre de usuario administrador |*mydemouser*| Su propia cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ni **public**.|
+    Nombre de usuario administrador |*mydemouser*| Su propia cuenta de inicio de sesión para usarla al conectarse al servidor. El nombre de inicio de sesión de administrador no puede ser **azure_superuser** , **admin** , **administrator** , **root** , **guest** ni **public**.|
     Contraseña |La contraseña| Una contraseña nueva para la cuenta de administrador del servidor. Debe tener entre 8 y 128 caracteres. La contraseña debe contener caracteres de tres de las siguientes categorías: Letras del alfabeto inglés mayúsculas y minúsculas, números (0 a 9) y caracteres no alfanuméricos (!, $, #, %, etc.).|
     Region|Región más cercana a los usuarios| La ubicación más cercana a los usuarios.|
     Versión|5.7| Versión principal de MySQL.|
-    Proceso y almacenamiento | **Flexible**, **Standard_B1ms**, **10 GiB** y **7 días** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. *Flexible*, *Standard_B1ms*, *10 GiB*y *7 días* son los valores predeterminados para el **nivel de proceso**, el **tamaño de proceso**, el **almacenamiento** y el **período de retención de copia de seguridad**. Puede dejar esos controles deslizantes tal como están o ajustarlos. Para guardar este proceso y la selección de almacenamiento, seleccione **Guardar** a fin de continuar con las configuraciones. En la captura de pantalla siguiente se muestran las opciones de proceso y almacenamiento.|
+    Proceso y almacenamiento | **Flexible** , **Standard_B1ms** , **10 GiB** y **7 días** | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Configurar servidor**. *Flexible* , *Standard_B1ms* , *10 GiB* y *7 días* son los valores predeterminados para el **nivel de proceso** , el **tamaño de proceso** , el **almacenamiento** y el **período de retención de copia de seguridad**. Puede dejar esos controles deslizantes tal como están o ajustarlos. Para guardar este proceso y la selección de almacenamiento, seleccione **Guardar** a fin de continuar con las configuraciones. En la captura de pantalla siguiente se muestran las opciones de proceso y almacenamiento.|
     
-    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Opción Azure Database for MySQL":::
+    > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Proceso y almacenamiento":::
 
 5. Configuración de opciones de redes
 
@@ -66,15 +66,15 @@ Siga estos pasos para crear un servidor flexible.
     > [!NOTE]
     > El método de conectividad no se puede cambiar después de crear el servidor. Por ejemplo, si seleccionó la opción *Acceso público (direcciones IP permitidas)* durante la creación, no podrá cambiar a la opción *Acceso público (direcciones IP permitidas)* después de la creación. Se recomienda encarecidamente crear un servidor con acceso privado para acceder de forma segura a su servidor mediante la integración con la red virtual. Obtenga más información sobre el acceso privado en el [artículo de conceptos](./concepts-networking.md).
 
-    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Opción Azure Database for MySQL":::  
+    > :::image type="content" source="./media/quickstart-create-server-portal/networking.png" alt-text="Configuración de las redes":::  
 
 6. Seleccione **Revisar y crear** para revisar la configuración del servidor flexible.
 
 7. Seleccione **Crear** para realizar el aprovisionamiento del servidor. El aprovisionamiento puede tardar unos minutos.
 
-8. Haga clic en **Notificaciones** en la barra de herramientas (icono de campana) para supervisar el proceso de implementación. Una vez realizada la implementación, puede seleccionar **Anclar al panel** para crear un icono para este servidor flexible en el panel de Azure Portal como un acceso directo a la página **Información general** del servidor. Al seleccionar **Ir al recurso**, se abre la página **Información general** del servidor.
+8. Haga clic en **Notificaciones** en la barra de herramientas (icono de campana) para supervisar el proceso de implementación. Una vez realizada la implementación, puede seleccionar **Anclar al panel** para crear un icono para este servidor flexible en el panel de Azure Portal como un acceso directo a la página **Información general** del servidor. Al seleccionar **Ir al recurso** , se abre la página **Información general** del servidor.
 
-De forma predeterminada, se crean las bases de datos siguientes en el servidor: **information_schema**, **mysql**, **performance_schema** y **sys**.
+De forma predeterminada, se crean las bases de datos siguientes en el servidor: **information_schema** , **mysql** , **performance_schema** y **sys**.
 
 > [!NOTE]
 > Compruebe si la red permite el tráfico de salida por el puerto 3306 que usa Azure Database for MySQL con la opción Servidor flexible para evitar problemas de conectividad.  
@@ -103,7 +103,7 @@ Ha creado correctamente una instancia de Azure Database for MySQL con la opción
 Para eliminar el servidor, puede hacer clic en botón **Eliminar** de la página **Información general** del servidor, como se muestra a continuación:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Opción Azure Database for MySQL":::
+> :::image type="content" source="./media/quickstart-create-server-portal/delete-server.png" alt-text="Eliminación de los recursos":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 

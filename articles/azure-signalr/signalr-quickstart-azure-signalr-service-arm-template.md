@@ -7,22 +7,22 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/02/2020
-ms.openlocfilehash: 04d0a98863dded93216f5fc669b8148f710f5f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f38bd6ed91788343c028ec5834ba28f4bad3ba43
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858848"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487830"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Inicio rápido: Uso de una plantilla de Resource Manager para implementar Azure SignalR Service
 
-En este inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure SignalR Service. Puede implementar la instancia de Azure SignalR Service mediante Azure Portal, PowerShell o la CLI.
+En este inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una instancia de Azure SignalR Service. Azure SignalR Service se puede implementar mediante Azure Portal, PowerShell o la CLI.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal tras el inicio de sesión.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botón para implementar una instancia de Azure SignalR Service en Azure mediante una plantilla de Resource Manager en Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botón para implementar Azure SignalR Service en Azure mediante una plantilla de Resource Manager en Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -58,26 +58,26 @@ La plantilla define un recurso de Azure:
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Seleccione el siguiente vínculo para implementar la instancia de Azure SignalR Service mediante la plantilla de Resource Manager en Azure Portal:
+Seleccione el siguiente vínculo para implementar Azure SignalR Service mediante la plantilla de Resource Manager en Azure Portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botón para implementar una instancia de Azure SignalR Service en Azure mediante una plantilla de Resource Manager en Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botón para implementar Azure SignalR Service en Azure mediante la plantilla de Resource Manager en Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
-En la página **Deploy an Azure SignalR service**:
+En la página **Implementación de Azure SignalR Service** :
 
 1. Si lo desea, cambie el valor predeterminado de **Suscripción**.
 
-2. En **Grupo de recursos**, seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
+2. En **Grupo de recursos** , seleccione **Crear nuevo** y, después, especifique un nombre válido para el nuevo grupo de recursos y seleccione **Aceptar**.
 
 3. Si ha creado un grupo de recursos, seleccione un valor de **Región** para el grupo de recursos.
 
-4. Si lo desea, escriba nuevos valores de **Name** (Nombre) y **Location** (Ubicación) (por ejemplo, **eastus2**) para la instancia de Azure SignalR Service. Si no especifica un nombre, se genera automáticamente. La ubicación de Azure SignalR Service puede ser igual a la de la región del grupo de recursos o diferente. Si no especifica una ubicación, se establece en la misma región que la del grupo de recursos.
+4. Si lo desea, escriba un nuevo **nombre** y la **ubicación** (por ejemplo, **eastus2** ) de Azure SignalR Service. Si no especifica un nombre, se genera automáticamente. La ubicación de Azure SignalR Service puede ser la misma que la de la región del grupo de recursos, o bien otra diferente. Si no especifica una ubicación, se establece en la misma región que la del grupo de recursos.
 
-5. En **Pricing Tier** (Plan de tarifa), elija (**Free_F1** o **Standard_S1**), escriba el valor de **Capacity** (Capacidad) (número de unidades de SignalR) y, en **Service Mode** (Modo de servicio), elija **Default** (Predeterminado) (se requiere un servidor concentrador), **Serverless** (Sin servidor) (no permite ninguna conexión de servidor) o **Classic** (Clásico) (se enruta al servidor concentrador solo si el concentrador tiene conexión de servidor). Luego, elija entre **Enable Connectivity Logs** (Habilitar registros de conectividad) o **Enable Messaging Logs** (Habilitar registros de mensajería).
+5. En **Pricing Tier** (Plan de tarifa), elija ( **Free_F1** o **Standard_S1** ), escriba el valor de **Capacity** (Capacidad) (número de unidades de SignalR) y, en **Service Mode** (Modo de servicio), elija **Default** (Predeterminado) (se requiere un servidor concentrador), **Serverless** (Sin servidor) (no permite ninguna conexión de servidor) o **Classic** (Clásico) (se enruta al servidor concentrador solo si el concentrador tiene conexión de servidor). Luego, elija entre **Enable Connectivity Logs** (Habilitar registros de conectividad) o **Enable Messaging Logs** (Habilitar registros de mensajería).
 
     > [!NOTE]
-    > En el plan de tarifa **Free_F1**, la capacidad está limitada a una unidad.
+    > En el plan de tarifa **Free_F1** , la capacidad está limitada a una unidad.
 
-    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Botón para implementar una instancia de Azure SignalR Service en Azure mediante una plantilla de Resource Manager en Azure Portal.":::
+    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Captura de pantalla de la plantilla de Resource Manager para crear una instancia de Azure SignalR Service en Azure Portal.":::
 
 6. Seleccione **Revisar + crear**.
 
@@ -88,19 +88,19 @@ En la página **Deploy an Azure SignalR service**:
 > [!NOTE]
 > Si desea ejecutar los scripts de PowerShell en la máquina local, primero escriba `Connect-AzAccount` para configurar las credenciales de Azure.
 
-Use el código siguiente para implementar la instancia de Azure SignalR Service mediante la plantilla de Resource Manager. El código le pedirá los siguientes elementos:
+Use el siguiente código para implementar Azure SignalR Service mediante la plantilla de Resource Manager. El código le pedirá los siguientes elementos:
 
 * El nombre y la región de la nueva instancia de Azure SignalR Service
 * El nombre y la región de un nuevo grupo de recursos
-* El plan de tarifa de Azure (**Free_F1** o **Standard_S1**)
+* El plan de tarifa de Azure ( **Free_F1** o **Standard_S1** )
 * La capacidad de la unidad de SignalR (1, 2, 5, 10, 20, 50 o 100)
   > [!NOTE]
-  > En el plan de tarifa **Free_F1**, la capacidad está limitada a una unidad.
+  > En el plan de tarifa **Free_F1** , la capacidad está limitada a una unidad.
 * El modo de servicio: **Default** (Predeterminado) para exigir un servidor concentrador, **Serverless** (Sin servidor) para no permitir ninguna conexión de servidor o **Classic** (Clásico) para el enrutamiento a un servidor concentrador solo si el concentrador tiene una conexión de servidor.
-* Si se habilitan los registros de conectividad o de mensajería (**true** o **false**).
+* Si se habilitan los registros de conectividad o de mensajería ( **true** o **false** ).
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter a name for the new Azure SignalR Service"
 $serviceLocation = Read-Host -Prompt "Enter an Azure region (for example, westus2) for the service"
 $resourceGroupName = Read-Host -Prompt "Enter a name for the new resource group to contain the service"
 $resourceGroupRegion = Read-Host -Prompt "Enter an Azure region (for example, centralus) for the resource group"
@@ -124,7 +124,7 @@ $paramObjHashTable = @{
     enableMessagingLogs = $enableMessageLogs
 }
 
-Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR service using an ARM template" -Verbose
+Write-Verbose "Run New-AzResourceGroupDeployment to create an Azure SignalR Service using an ARM template" -Verbose
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
     -TemplateParameterObject $paramObjHashTable `
     -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json
@@ -133,19 +133,19 @@ Read-Host "Press [ENTER] to continue"
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-Use el código siguiente para implementar la instancia de Azure SignalR Service mediante la plantilla de Resource Manager. El código le pedirá los siguientes elementos:
+Use el siguiente código para implementar Azure SignalR Service mediante la plantilla de Resource Manager. El código le pedirá los siguientes elementos:
 
 * El nombre y la región de la nueva instancia de Azure SignalR Service
 * El nombre y la región de un nuevo grupo de recursos
-* El plan de tarifa de Azure (**Free_F1** o **Standard_S1**)
+* El plan de tarifa de Azure ( **Free_F1** o **Standard_S1** )
 * La capacidad de la unidad de SignalR (1, 2, 5, 10, 20, 50 o 100)
     > [!NOTE]
-    > En el plan de tarifa **Free_F1**, la capacidad está limitada a una unidad.
+    > En el plan de tarifa **Free_F1** , la capacidad está limitada a una unidad.
 * El modo de servicio: **Default** (Predeterminado) para exigir un servidor concentrador, **Serverless** (Sin servidor) para no permitir ninguna conexión de servidor o **Classic** (Clásico) para el enrutamiento a un servidor concentrador solo si el concentrador tiene una conexión de servidor.
-* Si se habilitan los registros de conectividad o de mensajería (**true** o **false**).
+* Si se habilitan los registros de conectividad o de mensajería ( **true** o **false** ).
 
 ```azurecli-interactive
-read -p "Enter a name for the new Azure SignalR service: " serviceName &&
+read -p "Enter a name for the new Azure SignalR Service: " serviceName &&
 read -p "Enter an Azure region (for example, westus2) for the service: " serviceLocation &&
 read -p "Enter a name for the new resource group to contain the service: " resourceGroupName &&
 read -p "Enter an Azure region (for example, centralus) for the resource group: " resourceGroupRegion &&
@@ -157,7 +157,7 @@ read -p "Specify whether to enable messaging logs (true or false): " enableMessa
 params='name='$serviceName' location='$serviceLocation' pricingTier='$priceTier' capacity='$unitCapacity' serviceMode='$servicingMode' enableConnectivityLogs='$enableConnectionLogs' enableMessagingLogs='$enableMessageLogs &&
 echo "CREATE RESOURCE GROUP:  az group create --name $resourceGroupName --location $resourceGroupRegion" &&
 az group create --name $resourceGroupName --location $resourceGroupRegion &&
-echo "RUN az deployment group create, which creates an Azure SignalR service using an ARM template" &&
+echo "RUN az deployment group create, which creates an Azure SignalR Service using an ARM template" &&
 az deployment group create --resource-group $resourceGroupName --parameters $params --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-signalr/azuredeploy.json &&
 read -p "Press [ENTER] to continue: "
 ```
@@ -165,7 +165,7 @@ read -p "Press [ENTER] to continue: "
 ---
 
 > [!NOTE]
-> La implementación puede tardar unos minutos en completarse. Anote los nombres de la instancia de Azure SignalR Service y del grupo de recursos, ya que los usará para revisar más tarde los recursos implementados.
+> La implementación puede tardar unos minutos en completarse. Anote los nombres de la instancia de Azure SignalR Service y del grupo de recursos, que se usa para revisar más adelante los recursos implementados.
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
@@ -182,7 +182,7 @@ Para ver información general de la nueva instancia de Azure SignalR Service, si
 Ejecute el siguiente código interactivo para ver los detalles de la instancia de Azure SignalR Service. Tendrá que escribir el nombre y el grupo de recursos del nuevo servicio.
 
 ```azurepowershell-interactive
-$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR service"
+$serviceName = Read-Host -Prompt "Enter the name of your Azure SignalR Service"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Write-Verbose "Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName" -Verbose
 Get-AzSignalR -ResourceGroupName $resourceGroupName -Name $serviceName
@@ -194,7 +194,7 @@ Read-Host "Press [ENTER] to continue"
 Ejecute el siguiente código interactivo para ver los detalles de la instancia de Azure SignalR Service. Tendrá que escribir el nombre y el grupo de recursos del nuevo servicio.
 
 ```azurecli-interactive
-read -p "Enter the name of your Azure SignalR service: " serviceName &&
+read -p "Enter the name of your Azure SignalR Service: " serviceName &&
 read -p "Enter the resource group name: " resourceGroupName &&
 echo "SHOW SERVICE DETAILS:  az signalr show --resource-group $resourceGroupName --name $serviceName" &&
 az signalr show --resource-group $resourceGroupName --name $serviceName &&

@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658357"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457998"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Inicio de sesión único de conexión directa de Azure Active Directory
 
@@ -64,18 +64,20 @@ SSO de conexión directa se puede combinar con los métodos de inicio de sesión
 | SO\Explorador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
 |Windows 10|Sí\*|Sí|Sí|Sí\*\*\*|N/D
-|Windows 8.1|Sí\*|N/D|Sí|Sí\*\*\*|N/D
+|Windows 8.1|Sí\*|Sí*\*\*\*|Sí|Sí\*\*\*|N/D
 |Windows 8|Sí\*|N/D|Sí|Sí\*\*\*|N/D
 |Windows 7|Sí\*|N/D|Sí|Sí\*\*\*|N/D
 |Windows Server 2012 R2 o versiones posteriores|Sí\*\*|N/D|Sí|Sí\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sí\*\*\*|Sí\*\*\*|Sí\*\*\*
 
 
-\*Requiere Internet Explorer versión 10 o versiones posteriores
+\*Requiere Internet Explorer versión 10 o posterior.
 
-\*\*Requiere Internet Explorer versión 10 o versiones posteriores. Deshabilitar el modo de protección mejorada
+\*\*Requiere Internet Explorer versión 10 o posterior. Deshabilite el modo de protección mejorada.
 
-\*\*\*Requiere [configuración adicional](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Requiere [configuración adicional](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Requiere la versión 77 o posterior de Microsoft Edge.
 
 >[!NOTE]
 >En el caso de Windows 10, la recomendación es usar [Azure AD Join](../devices/concept-azure-ad-join.md) para que la experiencia de inicio de sesión único con Azure AD sea óptima.

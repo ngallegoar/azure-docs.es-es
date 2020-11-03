@@ -7,27 +7,27 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f043a1cb870d003e371d2f20d0e1f6614c9201e
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89668777"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92628990"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Cifrado IPSec en tránsito para Azure HDInsight
 
 En este artículo se describe la implementación del cifrado en tránsito para la comunicación entre los nodos de clúster de Azure HDInsight.
 
 > [!Note]
-> Actualmente, el cifrado en tránsito está habilitado para las siguientes regiones: Este de EE. UU., Centro-sur de EE. UU. y Oeste de EE. UU 2. 
+> Actualmente, el cifrado en tránsito está habilitado para las siguientes regiones: Este de EE. UU., Centro-sur de EE. UU. y Oeste de EE. UU 2.
 
 ## <a name="background"></a>Información previa
 
 Azure HDInsight ofrece una variedad de características de seguridad para proteger los datos empresariales. Estas soluciones se agrupan bajo los pilares de la seguridad perimetral, la autenticación, la autorización, la auditoría, el cifrado y el cumplimiento. El cifrado se puede aplicar a los datos en reposo y en tránsito.
 
-El cifrado en reposo se realiza mediante el cifrado del lado servidor en las cuentas de almacenamiento de Azure, así como el cifrado de disco en las VM de Azure que forman parte del clúster de HDInsight.
+El cifrado en reposo abarca el cifrado en el lado servidor que se realiza en las cuentas de almacenamiento de Azure, así como el cifrado de disco que tiene lugar en las máquinas virtuales de Azure que forman parte del clúster de HDInsight.
 
-El cifrado de datos en tránsito en HDInsight se consigue con la [Seguridad de la capa de transporte (TLS)](https://docs.microsoft.com/azure/hdinsight/transport-layer-security) para acceder a las puertas de enlace de clúster y con el [Protocolo de seguridad de Internet (IPSec)](https://en.wikipedia.org/wiki/IPsec) entre nodos del clúster. IPSec se puede habilitar opcionalmente entre todos los nodos principales, de trabajo, perimetrales y de Zookeeper. No está habilitado para el tráfico entre nodos de puerta de enlace o de [agente de identidad](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker), que son máquinas virtuales basadas en Windows y otros nodos basados en Linux en el clúster.
+El cifrado de datos en tránsito en HDInsight se consigue con la [Seguridad de la capa de transporte (TLS)](../transport-layer-security.md) para acceder a las puertas de enlace de clúster y con el [Protocolo de seguridad de Internet (IPSec)](https://wikipedia.org/wiki/IPsec) entre los nodos del clúster. IPSec se puede habilitar opcionalmente entre todos los nodos principales, de trabajo, perimetrales y de Zookeeper. No está habilitado para el tráfico entre nodos de puerta de enlace o de [agente de identidad](./identity-broker.md), que son máquinas virtuales basadas en Windows y otros nodos basados en Linux en el clúster.
 
 ## <a name="enable-encryption-in-transit"></a>Habilitar el cifrado en tránsito
 
@@ -40,9 +40,9 @@ Para crear un nuevo clúster con el cifrado en tránsito habilitado mediante Azu
 
     :::image type="content" source="media/encryption-in-transit/create-cluster-security-networking-tab.png" alt-text="Creación del clúster: pestaña Seguridad y redes.":::
 
-1. En la pestaña **Seguridad y redes**, haga clic en la casilla **Habilitar el cifrado en tránsito**.
+1. En la pestaña **Seguridad y redes** , active la casilla **Enable encryption in transit** (Habilitar el cifrado en tránsito).
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Creación del clúster: pestaña Seguridad y redes.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Creación del clúster: habilitar el cifrado en tránsito.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Cree un clúster con el cifrado en tránsito habilitado mediante la CLI de Azure
 

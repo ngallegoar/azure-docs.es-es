@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: b762b77788c3df05fbd0db349457abadcbe39b51
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 64821819530e142eb207c001d3e3ccfe349cf917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147728"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547782"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -24,7 +24,7 @@ ms.locfileid: "92147728"
 
 El enrutamiento de mensajes le permite enviar mensajes desde los dispositivos a los servicios en la nube de forma automatizada, escalable y confiable. El enrutamiento de mensajes se puede usar para: 
 
-* **Enviar mensajes de telemetría del dispositivo y eventos**, es decir, eventos del ciclo de vida del dispositivo y eventos de cambio de dispositivo gemelo al punto de conexión integrado y a los puntos de conexión personalizados. Obtenga información sobre los [puntos de conexión de enrutamiento](#routing-endpoints).
+* **Enviar mensajes de telemetría del dispositivo y eventos** , es decir, eventos del ciclo de vida del dispositivo y eventos de cambio de dispositivo gemelo al punto de conexión integrado y a los puntos de conexión personalizados. Obtenga información sobre los [puntos de conexión de enrutamiento](#routing-endpoints).
 
 * **Filtrar los datos antes de enrutarlos a los diferentes puntos de conexión** mediante la aplicación de consultas enriquecidas. El enrutamiento de mensajes le permite realizar consultas sobre las propiedades de los mensajes y el cuerpo del mensaje, así como las etiquetas del dispositivo gemelo y las propiedades del dispositivo gemelo. Más información sobre el uso de [consultas en el enrutamiento de mensajes](iot-hub-devguide-routing-query-syntax.md).
 
@@ -34,7 +34,7 @@ IoT Hub define un [formato común](iot-hub-devguide-messages-construct.md) para 
 
 ## <a name="routing-endpoints"></a>Puntos de conexión de enrutamiento
 
-Un centro de IoT tiene un punto de conexión integrado predeterminado (**mensajes y eventos**) que es compatible con Event Hubs. Puede crear [puntos de conexión personalizados](iot-hub-devguide-endpoints.md#custom-endpoints) a los que enrutar mensajes vinculando otros servicios de la suscripción al centro de IoT. 
+Un centro de IoT tiene un punto de conexión integrado predeterminado ( **mensajes y eventos** ) que es compatible con Event Hubs. Puede crear [puntos de conexión personalizados](iot-hub-devguide-endpoints.md#custom-endpoints) a los que enrutar mensajes vinculando otros servicios de la suscripción al centro de IoT. 
 
 Cada mensaje se enruta a todos los puntos de conexión cuyas consultas se correspondan con el mensaje. En otras palabras, un mensaje se puede enrutar a varios puntos de conexión.
 
@@ -49,7 +49,7 @@ IoT Hub admite actualmente los siguientes puntos de conexión:
 
 ## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Punto de conexión integrado como punto de conexión de enrutamiento
 
-Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-read-builtin.md) estándar para recibir mensajes del dispositivo a la nube desde el punto de conexión integrado (**mensajes y eventos**). Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión.
+Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-read-builtin.md) estándar para recibir mensajes del dispositivo a la nube desde el punto de conexión integrado ( **mensajes y eventos** ). Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión.
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>Azure Storage como punto de conexión de enrutamiento
 
@@ -59,7 +59,7 @@ IoT Hub admite la escritura de datos en Azure Storage con los formatos [Apache A
 
 El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. No se puede editar desde un punto de conexión existente. Para cambiar los formatos de codificación de un punto de conexión existente, debe eliminar y volver a crear el punto de conexión personalizado con el formato que quiera. Una estrategia útil podría ser crear un nuevo punto de conexión personalizado con el formato de codificación deseado y agregar una ruta paralela a ese punto de conexión. De esta manera, puede comprobar los datos antes de eliminar el punto de conexión existente.
 
-Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). En la siguiente imagen se muestra cómo seleccionar el formato de codificación en Azure Portal.
+Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](/cli/azure/iot/hub/routing-endpoint) o [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). En la siguiente imagen se muestra cómo seleccionar el formato de codificación en Azure Portal.
 
 ![Codificación de puntos de conexión de Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -89,7 +89,7 @@ public void ListBlobsInContainer(string containerName, string iothub)
 }
 ```
 
-Para crear una cuenta de almacenamiento compatible con Azure Data Lake Gen2, cree una nueva cuenta de almacenamiento V2 y seleccione *habilitado* en el campo *Espacio de nombres jerárquico* en la pestaña **Avanzado**, como se muestra en la siguiente imagen:
+Para crear una cuenta de almacenamiento compatible con Azure Data Lake Gen2, cree una nueva cuenta de almacenamiento V2 y seleccione *habilitado* en el campo *Espacio de nombres jerárquico* en la pestaña **Avanzado** , como se muestra en la siguiente imagen:
 
 ![Seleccione el almacenamiento de Azure Date Lake Gen2.](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
@@ -120,13 +120,13 @@ Use los siguientes tutoriales para obtener información sobre cómo leer un mens
 
 ## <a name="fallback-route"></a>Ruta de reserva
 
-La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de Event Hubs integrado (**mensajes y eventos**), que es compatible con [Event Hubs](../event-hubs/index.yml). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado.
+La ruta de reserva envía todos los mensajes que no cumplen las condiciones de la consulta en cualquiera de las rutas existentes al punto de conexión de Event Hubs integrado ( **mensajes y eventos** ), que es compatible con [Event Hubs](../event-hubs/index.yml). Si el enrutamiento de mensajes está activado, puede habilitar la funcionalidad de ruta de reserva. Una vez que se crea una ruta, los datos dejan de fluir al punto de conexión integrado, a menos que se cree una ruta a ese punto de conexión. Si no hay ninguna ruta al punto de conexión integrado y está habilitada una ruta de reserva, solo se enviarán al punto de conexión integrado los mensajes que no coinciden con las condiciones de la consulta sobre rutas. Además, si se eliminan todas las rutas existentes, se debe habilitar la ruta de reserva para recibir todos los datos en el punto de conexión integrado.
 
 Puede habilitar o deshabilitar la ruta de reserva en Azure Portal -> hoja Enrutamiento de mensajes. También puede usar Azure Resource Manager para [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) para usar un punto de conexión personalizado para la ruta de reserva.
 
 ## <a name="non-telemetry-events"></a>Eventos que no son de telemetría
 
-Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo y eventos de cambio de gemelos digitales. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo**, IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo**, IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Por último, como parte de [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una [propiedad](../iot-pnp/iot-plug-and-play-glossary.md) de gemelo digital, se sustituya un [gemelo digital](../iot-pnp/iot-plug-and-play-glossary.md) o se produzca un evento de cambio para el dispositivo gemelo subyacente.
+Además de los datos de telemetría del dispositivo, el enrutamiento de mensajes permite enviar eventos de cambio de dispositivo gemelo, eventos del ciclo de vida del dispositivo y eventos de cambio de gemelos digitales. Por ejemplo, si se crea una ruta con el origen de datos establecido en **eventos de cambio de dispositivo gemelo** , IoT Hub envía mensajes al punto de conexión que contienen el cambio en el dispositivo gemelo. De forma similar, si se crea una ruta con el origen de datos establecido en **eventos del ciclo de vida del dispositivo** , IoT Hub enviará un mensaje que indica si el dispositivo se ha eliminado o se ha creado. Por último, como parte de [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md), un desarrollador puede crear rutas con el origen de datos establecido en **eventos de cambio de gemelo digital** e IoT Hub enviará mensajes siempre que se establezca o cambie una [propiedad](../iot-pnp/iot-plug-and-play-glossary.md) de gemelo digital, se sustituya un [gemelo digital](../iot-pnp/iot-plug-and-play-glossary.md) o se produzca un evento de cambio para el dispositivo gemelo subyacente.
 
 [IoT Hub también se integra con Azure Event Grid](iot-hub-event-grid.md) para publicar los eventos de dispositivo con el fin de admitir integraciones en tiempo real y la automatización de flujos de trabajo basados en estos eventos. Consulte las [diferencias principales entre el enrutamiento de mensajes y Event Grid](iot-hub-event-grid-routing-comparison.md) para obtener información sobre la mejor opción para su escenario.
 
@@ -148,7 +148,9 @@ En la mayoría de los casos, el aumento medio de la latencia es inferior a 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Supervisión y solución de problemas
 
-IoT Hub proporciona varias métricas relacionadas con el enrutamiento y los puntos de conexión para ofrecerle una visión general del mantenimiento del centro y los mensajes enviados. [Métricas de IoT Hub](iot-hub-metrics.md) enumera todas las métricas que están habilitadas de forma predeterminada para el centro de IoT. Mediante los registros de diagnóstico de **rutas** de la [configuración de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md) de Azure Monitor, puede realizar un seguimiento de los errores producidos durante la evaluación de una consulta de enrutamiento y del mantenimiento del punto de conexión según lo percibido por IoT Hub. Puede usar la API REST [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el [estado de mantenimiento](iot-hub-devguide-endpoints.md#custom-endpoints) de los puntos de conexión. 
+IoT Hub proporciona varias métricas relacionadas con el enrutamiento y los puntos de conexión para ofrecerle una visión general del mantenimiento del centro y los mensajes enviados. Puede encontrar una lista de todas las métricas de IoT Hub desglosadas por categoría funcional en [Métricas de la referencia de datos de supervisión](monitor-iot-hub-reference.md#metrics). Puede realizar el seguimiento de los errores que se producen durante la evaluación de una consulta de enrutamiento y del estado del punto de conexión que percibe IoT Hub con la categoría [**rutas** de los registros de recursos de IoT Hub](monitor-iot-hub-reference.md#routes). Para más información sobre el uso de métricas y registros de recursos con IoT Hub, consulte [Supervisión de IoT Hub](monitor-iot-hub.md).
+
+Puede usar la API REST [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obtener el [estado de mantenimiento](iot-hub-devguide-endpoints.md#custom-endpoints) de los puntos de conexión.
 
 Use la[ guía de solución de problemas del enrutamiento](troubleshoot-message-routing.md) para obtener una información más detallada y soporte técnico para solucionar problemas de enrutamiento.
 

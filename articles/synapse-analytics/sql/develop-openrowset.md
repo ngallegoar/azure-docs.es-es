@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289028"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474791"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Uso de OPENROWSET con SQL a petición (versión preliminar)
 
@@ -127,7 +127,7 @@ El elemento unstructured_data_path que establece una ruta de acceso a los datos 
  Especifica una ruta de acceso en el almacenamiento que apunta a la carpeta o archivo que desea leer. Si la ruta de acceso apunta a un contenedor o a una carpeta, se leerán todos los archivos de ese contenedor o carpeta. No se incluirán los archivos de las subcarpetas. 
 
  Puede usar caracteres comodín si el destino son varios archivos o carpetas. Se permite el uso de varios caracteres comodín no consecutivos.
-A continuación se muestra un ejemplo en el que se leen todos los archivos *csv* que comienzan por *population* de todas las carpetas a partir de */csv/population*:  
+A continuación se muestra un ejemplo en el que se leen todos los archivos *csv* que comienzan por *population* de todas las carpetas a partir de */csv/population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Si especifica que el elemento unstructured_data_path sea una carpeta, una consulta de SQL a petición recuperará los archivos de esa carpeta. 
@@ -192,9 +192,9 @@ Especifica un carácter que se usará como carácter de comillas en el archivo C
 
 DATA_COMPRESSION = "data_compression_method"
 
-Especifica el método de compresión. Se admite el siguiente método de compresión:
+Especifica el método de compresión. Solo se admite en PARSER_VERSION='1.0'. Se admite el siguiente método de compresión:
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = "parser_version"
 

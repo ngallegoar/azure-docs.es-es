@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984108"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478327"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -79,7 +79,7 @@ En comparación con otras opciones de optimización, como el escalado y la admin
 
 **Necesidad de una estrategia de distribución de datos diferente para un rendimiento más rápido de las consultas**
 
-El grupo de SQL es un sistema de procesamiento masivo en paralelo (MPP) distribuido.   Los datos de una tabla del grupo de SQL se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin o replicada).  
+Synapse SQL es un sistema de procesamiento de consultas distribuidas.  Los datos de una tabla de SQL se distribuyen entre 60 nodos mediante una de estas tres [estrategias de distribución](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, round_robin o replicada).   
 
 La distribución de datos se especifica en el momento de creación de la tabla y permanece sin cambios hasta que se elimina la tabla. Puesto que la vista materializada es una tabla virtual en disco, posibilita las distribuciones de datos hash y round_robin.  Los usuarios pueden elegir una distribución de datos diferente a la de las tablas base, que sea óptima para el rendimiento de las consultas que más utilizan las vistas.  
 

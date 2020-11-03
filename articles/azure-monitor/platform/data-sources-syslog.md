@@ -1,20 +1,23 @@
 ---
-title: Recopilación y análisis de mensajes de Syslog en Azure Monitor | Microsoft Docs
+title: Recopilación de orígenes de datos de Syslog con el agente de Log Analytics en Azure Monitor
 description: Syslog es un protocolo de registro de eventos que es común a Linux. En este artículo se describe cómo configurar la recopilación de mensajes de Syslog en Log Analytics y detalles de los registros que se crean.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
-ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 2d86983c8ed6c738e4b4e96d8d291dee4dc4d87d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322319"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440627"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
+# <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Recopilación de orígenes de datos de Syslog con el agente de Log Analytics
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
+
+> [!IMPORTANT]
+> En este artículo se trata la recopilación de eventos de Syslog con el [agente de Log Analytics](log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 > [!NOTE]
 > Azure Monitor admite la recopilación de mensajes enviados por rsyslog o syslog-ng, donde rsyslog es el demonio predeterminado. El demonio predeterminado de Syslog en la versión 5 de Red Hat Enterprise Linux, CentOS y Oracle Linux (Sysklog) no se admite para la recopilación de eventos de Syslog. Para recopilar datos de Syslog de esta versión de estas distribuciones, es necesario instalar el [demonio rsyslog](http://rsyslog.com) y configurarlo para reemplazar Sysklog.
@@ -45,9 +48,9 @@ Para cualquier otro recurso, [configure un origen de datos de registros personal
 El agente de Log Analytics para Linux solo recopilará los eventos con los recursos y los niveles de gravedad que se especifican en su configuración. Puede configurar Syslog a través de Azure Portal o mediante la administración de archivos de configuración de sus agentes de Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configuración de Syslog en Azure Portal
-Configure Syslog desde el [menú de datos en la configuración avanzada](agent-data-sources.md#configuring-data-sources). Esta configuración se entrega al archivo de configuración de cada agente de Linux.
+Configure Syslog en el [menú Datos en Configuración avanzada](agent-data-sources.md#configuring-data-sources) para el área de trabajo de Log Analytics. Esta configuración se entrega al archivo de configuración de cada agente de Linux.
 
-Para agregar una nueva instalación, seleccione primero la opción **Aplicar la configuración siguiente a mis máquinas**, escriba su nombre y haga clic en **+** . Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar. No puede proporcionar criterios adicionales para filtrar mensajes.
+Para agregar una nueva instalación, seleccione primero la opción **Aplicar la configuración siguiente a mis máquinas** , escriba su nombre y haga clic en **+** . Para cada recurso, solo se recopilarán los mensajes con los niveles de gravedad seleccionados.  Compruebe los niveles de gravedad del recurso determinado que desea recopilar. No puede proporcionar criterios adicionales para filtrar mensajes.
 
 ![Configuración de Syslog](media/data-sources-syslog/configure.png)
 
@@ -188,7 +191,7 @@ Puede cambiar el número de puerto si crea dos archivos de configuración: un ar
     auth.warning              @127.0.0.1:%SYSLOG_PORT%
     ```
 
-* Para modificar la configuración de syslog-ng, copie la configuración del ejemplo que se muestra a continuación y agregue la configuración modificada personalizada al final del archivo de configuración syslog-ng.conf ubicado en `/etc/syslog-ng/`. **No** use la etiqueta predeterminada **%WORKSPACE_ID%_oms** ni **%WORKSPACE_ID_OMS**; defina una etiqueta personalizada para ayudar a distinguir los cambios.  
+* Para modificar la configuración de syslog-ng, copie la configuración del ejemplo que se muestra a continuación y agregue la configuración modificada personalizada al final del archivo de configuración syslog-ng.conf ubicado en `/etc/syslog-ng/`. **No** use la etiqueta predeterminada **%WORKSPACE_ID%_oms** ni **%WORKSPACE_ID_OMS** ; defina una etiqueta personalizada para ayudar a distinguir los cambios.  
 
     > [!NOTE]
     > Si modifica los valores predeterminados en el archivo de configuración, se sobrescribirán cuando el agente aplique una configuración predeterminada.

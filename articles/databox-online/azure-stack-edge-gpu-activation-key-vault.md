@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976838"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367608"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Integración de Azure Key Vault con Azure Stack Edge 
 
@@ -22,7 +22,7 @@ Azure Key Vault se integra con los recursos de Azure Stack Edge para la administ
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>Acerca de Key Vault y Azure Stack Edge
 
-El servicio en la nube Azure Key Vault se puede utilizar para almacenar de forma segura y controlar el acceso a los tokens, las contraseñas, los certificados, las claves de API y otros secretos. Key Vault también facilita la creación y control de las claves de cifrado utilizadas para cifrar los datos. 
+El servicio en la nube Azure Key Vault se puede utilizar para almacenar de forma segura y controlar el acceso a los tokens, las contraseñas, los certificados, las claves de API y otros secretos. Key Vault también facilita la creación y control de las claves de cifrado utilizadas para cifrar los datos. Para obtener más información sobre las transacciones permitidas y sus correspondientes cargos, consulte [Precios de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 Para el servicio Azure Stack Edge, uno de los secretos usados es la clave de integridad del canal (CIK). Esta clave le permite cifrar los secretos. Con la integración de Key Vault, la clave CIK se almacena de forma segura en el almacén de claves. Para más información, consulte [Almacenamiento seguro de secretos y claves](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
@@ -44,6 +44,8 @@ Se crea un almacén de claves para el recurso de Azure Stack Edge durante el pro
 - Puede elegir aceptar el nombre de clave predeterminado o especificar un nombre personalizado para el almacén de claves. El nombre de almacén de claves debe tener entre 3 y 24 caracteres de longitud. No se puede usar un almacén de claves que ya esté en uso. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![MSI creado durante la creación del recurso de Azure Stack Edge](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- Para ir al almacén de claves de Azure, vaya a **Propiedades** en el recurso de Azure Stack Edge y seleccione el nombre del almacén de claves. 
 
 - Para evitar la eliminación accidental, se habilita un bloqueo de recursos en el almacén de claves. También se habilita una eliminación temporal en el almacén de claves que permite restaurar el almacén de claves en un plazo de 90 días si hay una eliminación accidental. Para más información, consulte [Información general sobre la eliminación temporal de Azure Key Vault](../key-vault/general/soft-delete-overview.md).
 

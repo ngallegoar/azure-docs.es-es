@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b877ff912470cc19082410fddab64c84824eb269
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275139"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519561"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configuración de una conexión a una cuenta de Azure Storage mediante una identidad administrada
 
@@ -30,11 +30,11 @@ Antes de obtener más información acerca de esta característica, se recomienda
 
 ### <a name="1---turn-on-system-assigned-managed-identity"></a>1 - Activar la identidad administrada asignada por el sistema
 
-Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol (RBAC) que permiten el acceso a los datos durante la indexación.
+Cuando se habilita una identidad administrada asignada por el sistema, Azure crea una identidad para el servicio de búsqueda que se puede usar para autenticarse en otros servicios de Azure en el mismo inquilino y la misma suscripción. Después, puede usar esta identidad en las asignaciones de control de acceso basado en rol de Azure (RBAC de Azure) que permiten el acceso a los datos durante la indexación.
 
 ![Activar la identidad administrada asignada por el sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Activar la identidad administrada asignada por el sistema")
 
-Después de seleccionar **Guardar**, verá un identificador de objeto que se ha asignado al servicio de búsqueda.
+Después de seleccionar **Guardar** , verá un identificador de objeto que se ha asignado al servicio de búsqueda.
 
 ![Id. de objeto](./media/search-managed-identities/system-assigned-identity-object-id.png "Id. de objeto")
  
@@ -77,7 +77,7 @@ Al realizar la indexación desde una cuenta de almacenamiento, el origen de dato
 * **credentials**
     * Cuando se usa una identidad administrada para la autenticación, el formato de **credenciales** es diferente a cuando no se usa. Aquí proporcionará un ResourceId que no tiene ninguna contraseña ni clave de cuenta. El ResourceId debe incluir el identificador de suscripción de la cuenta de almacenamiento, el grupo de recursos de la cuenta de almacenamiento y el nombre de la cuenta de almacenamiento.
     * Formato de identidad administrada: 
-        * *ResourceId=/subscriptions/**id. de la suscripción**/resourceGroups/**nombre del grupo de recursos**/providers/Microsoft.Storage/storageAccounts/**nombre de la cuenta de almacenamiento**/;*
+        * *ResourceId=/subscriptions/ **id. de la suscripción** /resourceGroups/ **nombre del grupo de recursos** /providers/Microsoft.Storage/storageAccounts/ **nombre de la cuenta de almacenamiento** /;*
 * **container** especifica un contenedor o un nombre de tabla en la cuenta de almacenamiento. De manera predeterminada, se pueden recuperar todos los blobs dentro del contenedor. Si solo desea indexar blobs en un directorio virtual determinado, puede especificar ese directorio. Para ello, use el parámetro opcional **query**.
 
 Ejemplo de cómo crear un objeto de origen de datos de blob mediante la [API de REST](/rest/api/searchservice/create-data-source):

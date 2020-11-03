@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988247"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547136"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Actualización de las visualizaciones del panel de Log Analytics
 
@@ -32,13 +32,13 @@ Para más información, consulte [Paneles de Azure](../../azure-portal/azure-por
 
 La nueva tecnología de visualización soluciona algunos problemas comunes con la implementación anterior y presenta algunas funcionalidades nuevas para los elementos anclados de Log Analytics: 
 
-- **Los mismos tipos disponibles**: todos los tipos de visualización disponibles en Log Analytics están disponibles como elementos anclados en los paneles.
+- **Los mismos tipos disponibles** : todos los tipos de visualización disponibles en Log Analytics están disponibles como elementos anclados en los paneles.
 
-- **Apariencia coherente**: la apariencia de visualización de los elementos anclados ahora es casi idéntica a aquellos de Log Analytics. Las diferencias se deben a las optimizaciones que requieren diferencias sutiles en el contenido de los datos del objeto visual. Consulte la sección de consideraciones de este documento para más información sobre esas diferencias.
+- **Apariencia coherente** : la apariencia de visualización de los elementos anclados ahora es casi idéntica a aquellos de Log Analytics. Las diferencias se deben a las optimizaciones que requieren diferencias sutiles en el contenido de los datos del objeto visual. Consulte la sección de consideraciones de este documento para más información sobre esas diferencias.
 
-- **Información sobre herramientas y etiquetas**: las nuevas visualizaciones ancladas de Log Analytics admiten información sobre herramientas. Los gráficos circulares y de anillos ahora admiten etiquetas.
+- **Información sobre herramientas y etiquetas** : las nuevas visualizaciones ancladas de Log Analytics admiten información sobre herramientas. Los gráficos circulares y de anillos ahora admiten etiquetas.
 
-- **Leyendas interactivas**: al hacer clic en la leyenda de visualización, se permite agregar o quitar dimensiones del objeto visual anclado, tal como ocurre en Log Analytics.
+- **Leyendas interactivas** : al hacer clic en la leyenda de visualización, se permite agregar o quitar dimensiones del objeto visual anclado, tal como ocurre en Log Analytics.
 
 ## <a name="stage-1---opt-in-upgrade-message"></a>Fase 1: Mensaje de actualización de participación
 
@@ -47,7 +47,7 @@ Cuando se puede actualizar un elemento anclado de Log Analytics, aparece una not
  
 ![Barra lateral](media/dashboard-upgrade/update-message-1.png)
  
-![Barra lateral](media/dashboard-upgrade/update-message-2.png)
+![Captura de pantalla que muestra cómo actualizar la visualización de iconos.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > Una vez que se publica el panel, la actualización es irreversible. Sin embargo, los cambios se descartan si sale del panel sin volver a publicarlo.  
@@ -56,7 +56,7 @@ Una vez que se hace clic, la visualización se actualizará a la tecnología nue
 
 Una vez actualizadas las visualizaciones, debe volver a publicar el panel para que el cambio surta efecto.
 
-![Barra lateral](media/dashboard-upgrade/update-message-3.png)
+![Captura de pantalla que muestra las visualizaciones actualizadas.](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Fase 2: Migración de todos los paneles
 
@@ -74,7 +74,7 @@ Como los paneles pueden contener varias visualizaciones provenientes de varias c
 
 Los paneles pueden ser visualmente densos y complejos. Con el fin de reducir la carga cognitiva al ver un panel, las visualizaciones se optimizan limitando la presentación a 25 tipos de datos distintos. Cuando hay más de 25, Log Analytics optimiza los datos. Muestra individualmente los 25 tipos con la mayoría de los datos como independientes y, a continuación, agrupa los valores restantes en un valor "otro". En el gráfico siguiente se muestra este caso.  
 
-![Barra lateral](media/dashboard-upgrade/values-25-limit.png)
+![Captura de pantalla que muestra un panel con 25 tipos de datos diferentes.](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Actualización del panel al cargar
 

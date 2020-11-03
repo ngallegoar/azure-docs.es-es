@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767349"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547714"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Sintaxis de las consultas de enrutamiento de mensajes de IoT Hub
 
@@ -23,7 +23,7 @@ El enrutamiento de mensajes permite a los usuarios enrutar diferentes tipos de d
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-El enrutamiento de mensajes le permite realizar consultas sobre las propiedades de los mensajes y el cuerpo del mensaje, así como las etiquetas del dispositivo gemelo y las propiedades del dispositivo gemelo. Si el cuerpo del mensaje no está en formato JSON, el enrutamiento de mensajes aún puede enrutar el mensaje, pero las consultas no se pueden aplicar al cuerpo del mensaje.  Las consultas se describen como expresiones booleanas en las que un valor booleano true hace que la consulta se ejecute correctamente, lo que enruta todos los datos de entrada, y un valor booleano false produce un error en la consulta y no se enruta ningún dato. Si la expresión se evalúa como nula o indefinida, se trata como falsa y se generará un error en los registros de diagnóstico en caso de error. La sintaxis de consulta debe ser correcta para que la ruta se guarde y evalúe.  
+El enrutamiento de mensajes le permite realizar consultas sobre las propiedades de los mensajes y el cuerpo del mensaje, así como las etiquetas del dispositivo gemelo y las propiedades del dispositivo gemelo. Si el cuerpo del mensaje no está en formato JSON, el enrutamiento de mensajes aún puede enrutar el mensaje, pero las consultas no se pueden aplicar al cuerpo del mensaje.  Las consultas se describen como expresiones booleanas en las que un valor booleano true hace que la consulta se ejecute correctamente, lo que enruta todos los datos de entrada, y un valor booleano false produce un error en la consulta y no se enruta ningún dato. Si la expresión se evalúa como nula o indefinida, se trata como falsa y se generará un error en los [registros de recursos de rutas](monitor-iot-hub-reference.md#routes) en caso de error. La sintaxis de consulta debe ser correcta para que la ruta se guarde y evalúe.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Consulta de enrutamiento de mensajes basada en las propiedades del mensaje 
 
@@ -62,7 +62,7 @@ Las propiedades del sistema ayudan a identificar el contenido y el origen de los
 | dt-dataschema | string |  El centro de IoT establece este valor en mensajes de dispositivo a la nube. Contiene el id. de modelo del dispositivo establecido en la conexión del dispositivo. Para realizar la consulta, use `$dt-dataschema`. |
 | dt-subject | string | Nombre del componente que envía los mensajes del dispositivo a la nube. Para realizar la consulta, use `$dt-subject`. |
 
-Como se describe en los [mensajes de IoT Hub](iot-hub-devguide-messages-construct.md), hay propiedades adicionales del sistema en un mensaje. Además de las propiedades anteriores de la tabla anterior, también puede consultar **connectionDeviceId**, **connectionModuleId**.
+Como se describe en los [mensajes de IoT Hub](iot-hub-devguide-messages-construct.md), hay propiedades adicionales del sistema en un mensaje. Además de las propiedades anteriores de la tabla anterior, también puede consultar **connectionDeviceId** , **connectionModuleId**.
 
 ### <a name="application-properties"></a>Propiedades de la aplicación
 

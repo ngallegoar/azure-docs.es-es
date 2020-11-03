@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667442"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495980"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 
@@ -74,7 +74,7 @@ Studio puede simplificar el modo en que se administran los recursos del área de
 
 **Azure Machine Learning Studio** es un portal web *de* Azure Machine Learning que contiene las opciones de los tipos código bajo y sin código para la creación de proyectos y la administración de recursos. 
 
-Es aconsejable que los nuevos usuarios elijan **Azure Machine Learning**, en lugar de Machine Learning Studio (clásico), para obtener la gama más reciente de herramientas de ciencia de datos.
+Es aconsejable que los nuevos usuarios elijan **Azure Machine Learning** , en lugar de Machine Learning Studio (clásico), para obtener la gama más reciente de herramientas de ciencia de datos.
 
 ### <a name="feature-comparison"></a>Comparación de características
 
@@ -98,7 +98,9 @@ En la tabla siguiente se resumen las principales diferencias entre Machine Learn
 ## <a name="next-steps"></a>Pasos siguientes
 
 Visite [Studio](https://ml.azure.com) o explore las diferentes opciones de creación con estos tutoriales:  
-  + [Uso de cuadernos de Python para entrenar e implementar modelos](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Primeros pasos en su propio entorno de desarrollo](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Uso de cuadernos de Jupyter Notebook en una instancia de proceso para entrenar e implementar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Uso del aprendizaje automático automatizado para entrenar e implementar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Uso del diseñador para entrenar e implementar modelos](tutorial-designer-automobile-price-train-score.md)
 

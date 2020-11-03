@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123898"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426255"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,11 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
 
     ![Obtención de las credenciales de recursos compartidos para recursos compartido de archivos SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Seleccione **Aceptar**.
+2. En el cuadro de diálogo Access share and copy data (Acceder al recurso compartido y copiar datos), copie los valores de **Username** (Nombre de usuario) y **Password** (Contraseña) del recurso compartido. Si la contraseña tiene caracteres especiales, agregue comillas dobles antes y después de ella. Después, seleccione **Aceptar**.
     
     ![Obtención del nombre de usuario y la contraseña de un recurso compartido de archivos](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Para acceder a los recursos compartidos asociados con su cuenta de almacenamiento (*utsac1* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
+3. Para acceder a los recursos compartidos asociados con su cuenta de almacenamiento ( *utsac1* en el ejemplo siguiente) desde el equipo host, abra una ventana de comandos. En el símbolo del sistema, escriba:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -95,7 +95,7 @@ Si usa un equipo host Windows Server, realice los pasos siguientes para conectar
     The command completed successfully.
     ```
 
-4. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Seleccione **Aceptar** para abrir el Explorador de archivos.
+4. Presione Windows + R. En la ventana **Ejecutar** , escriba `\\<device IP address>`. Seleccione **Aceptar** para abrir el Explorador de archivos.
     
     ![Conexión a un recurso compartido de archivos mediante el Explorador de archivos](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 

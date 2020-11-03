@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208233"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516960"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Inicio rápido: Introducción a Azure Sentinel
 
@@ -54,7 +54,7 @@ El cuerpo principal de la página de información general ofrece conclusiones de
 
 Los libros integrados proporcionan datos integrados procedentes de orígenes de datos conectados y permiten analizar en profundidad los eventos generados en dichos servicios. Los libros integrados incluyen Azure AD, eventos de actividad de Azure y locales, que pueden ser datos de eventos de Windows de servidores, de alertas de primera entidad o de terceros, incluidos los registros de tráfico del firewall, Office 365 y protocolos poco seguros basados en eventos de Windows. Los libros se basan en Azure Monitor Workbooks para proporcionar una mayor flexibilidad y capacidad de personalización al diseñar su propio libro. Para más información, consulte [Libros](../azure-monitor/platform/workbooks-overview.md).
 
-1. En **Configuración** , seleccione **Libros** . En **Instalados** , puede ver todos los libros instalados. En **Todos** , puede ver toda la galería entera de libros integrados disponibles para su instalación. 
+1. En **Configuración** , seleccione **Libros**. En **Instalados** , puede ver todos los libros instalados. En **Todos** , puede ver toda la galería entera de libros integrados disponibles para su instalación. 
 2. Busque un libro específico ver la lista completa y una descripción de lo que ofrece cada uno. 
 3. Suponiendo que usa Azure AD, para comenzar a trabajar con Azure Sentinel, se recomienda que instale al menos los libros siguientes:
    - **Azure AD** : use uno de estos paneles o ambos:
@@ -79,11 +79,11 @@ Si desea agregar un icono, puede agregarlo a un libro existente (uno que cree o 
 ## <a name="create-new-workbooks"></a>Creación de libros
 Puede crear un libro desde cero o usar un libro integrado como base para un nuevo libro.
 
-1. Para crear un libro desde cero, seleccione **Libros** y, después, **+Nuevo libro** .
-2. Seleccione la suscripción en la que se crea el libro y asígnele un nombre descriptivo. Cada libro es un recurso de Azure como cualquier otro y puede asignarle roles (RBAC), con el fin de definir y limitar quién puede acceder. 
+1. Para crear un libro desde cero, seleccione **Libros** y, después, **+Nuevo libro**.
+2. Seleccione la suscripción en la que se crea el libro y asígnele un nombre descriptivo. Cada libro es un recurso de Azure como cualquier otro y puede asignarle roles (Azure RBAC), con el fin de definir y limitar quién puede acceder. 
 3. Para habilitarlo y mostrarlo en los libros a los que se anclan las visualizaciones, tiene que compartirlo. Haga clic en **Share** (Compartir) y, luego, en **Manage users** (Administrar usuarios). 
  
-1. Use **Check access** (Comprobar acceso) y **Role assignments** (Asignaciones de roles) como haría con cualquier otro recurso de Azure. Para más información, consulte [Uso compartido de libros de Azure mediante el control de acceso basado en rol](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Use **Check access** (Comprobar acceso) y **Role assignments** (Asignaciones de roles) como haría con cualquier otro recurso de Azure. Para más información, consulte [Uso compartido de paneles de Azure mediante el control de acceso basado en rol de Azure](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Ejemplos de libros nuevos

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa28b299a33f5386edc6ce14c523d2c332b0767b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613948"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520513"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configuración de Tableau Online para el aprovisionamiento automático de usuarios
 
@@ -61,7 +61,7 @@ Para eliminar Tableau Online de Marketplace, siga estos pasos.
 
 Azure Active Directory usa un concepto denominado *asignaciones* para determinar qué usuarios deben recibir acceso a determinadas aplicaciones. En el contexto de aprovisionamiento automático de usuarios, solo se sincronizan los usuarios o grupos que se han asignado a una aplicación en Azure AD.
 
-Antes de configurar y habilitar el aprovisionamiento automático de usuarios, decida qué usuarios o grupos de Azure AD necesitan acceder a Tableau Online. Para asignar estos usuarios o grupos a Tableau Online, siga las instrucciones de [Asignación de un usuario o un grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Antes de configurar y habilitar el aprovisionamiento automático de usuarios, decida qué usuarios o grupos de Azure AD necesitan acceder a Tableau Online. Para asignar estos usuarios o grupos a Tableau Online, siga las instrucciones de [Asignación de un usuario o un grupo a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-tableau-online"></a>Sugerencias importantes para asignar usuarios a Tableau Online
 
@@ -94,15 +94,15 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Modo de aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/ProvisioningCredentials.png)
 
-5. En la sección **Credenciales de administrador**, escriba los valores de dominio, nombre de usuario administrador, contraseña de administrador y dirección URL del contenido de la cuenta de Tableau Online:
+5. En la sección **Credenciales de administrador** , escriba los valores de dominio, nombre de usuario administrador, contraseña de administrador y dirección URL del contenido de la cuenta de Tableau Online:
 
-   * En el cuadro **Dominio**, rellene el subdominio según el paso 6.
+   * En el cuadro **Dominio** , rellene el subdominio según el paso 6.
 
-   * En el cuadro **Nombre de usuario de administrador**, rellene el nombre de usuario de la cuenta de administrador del inquilino de Clarizen. Un ejemplo es admin@contoso.com.
+   * En el cuadro **Nombre de usuario administrador** , rellene el nombre de usuario de la cuenta de administrador del inquilino de Tableau Online. Un ejemplo es admin@contoso.com.
 
-   * En el cuadro **Contraseña de administrador**, rellene la contraseña de la cuenta de administrador correspondiente al nombre de usuario de administrador.
+   * En el cuadro **Contraseña de administrador** , rellene la contraseña de la cuenta de administrador correspondiente al nombre de usuario de administrador.
 
-   * En el cuadro **Dirección URL del contenido**, rellene el subdominio según el paso 6.
+   * En el cuadro **Dirección URL del contenido** , rellene el subdominio según el paso 6.
 
 6. Después de iniciar sesión en la cuenta administrativa de Tableau Online, puede obtener los valores de **Dominio** y **Dirección URL del contenido** de la dirección URL de la página de administración.
 
@@ -121,13 +121,13 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Prueba de conexión de Tableau Online](./media/tableau-online-provisioning-tutorial/TestConnection.png)
 
-8. En el cuadro **Correo electrónico de notificación**, escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
+8. En el cuadro **Correo electrónico de notificación** , escriba la dirección de correo electrónico de la persona o el grupo que deben recibir las notificaciones de error de aprovisionamiento. Seleccione la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Notificación por correo electrónico de Tableau Online](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
 9. Seleccione **Guardar**.
 
-10. En la sección **Asignaciones**, seleccione **Sincronizar usuarios de Azure Active Directory con Tableau**.
+10. En la sección **Asignaciones** , seleccione **Sincronizar usuarios de Azure Active Directory con Tableau**.
 
     ![Sincronización de usuarios de Tableau Online](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
@@ -135,7 +135,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Atributos de usuario coincidentes de Tableau Online](./media/tableau-online-provisioning-tutorial/attribute.png)
 
-12. En la sección **Asignaciones**, seleccione **Sincronizar grupos de Azure Active Directory con Tableau**.
+12. En la sección **Asignaciones** , seleccione **Sincronizar grupos de Azure Active Directory con Tableau**.
 
     ![Sincronización de grupos de Tableau Online](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
@@ -149,7 +149,7 @@ Esta sección le guía por los pasos para configurar el servicio de aprovisionam
 
     ![Estado de aprovisionamiento de Tableau Online](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-16. Defina los usuarios o grupos que quiere que se aprovisionen en Tableau Online. En la sección **Configuración**, seleccione los valores que quiere incluir en el **Ámbito**.
+16. Defina los usuarios o grupos que quiere que se aprovisionen en Tableau Online. En la sección **Configuración** , seleccione los valores que quiere incluir en el **Ámbito**.
 
     ![Ámbito de Tableau Online](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 

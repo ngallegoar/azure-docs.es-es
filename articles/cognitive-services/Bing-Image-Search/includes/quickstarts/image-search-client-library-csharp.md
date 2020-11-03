@@ -17,7 +17,7 @@ ms.locfileid: "92371294"
 ---
 Use este inicio rápido para realizar la primera búsqueda de imágenes mediante la biblioteca cliente de Bing Image Search. 
 
-La biblioteca de búsqueda de cliente es un contenedor de la API de REST y contiene las mismas características. 
+La biblioteca de búsqueda de cliente es un contenedor de la API REST y contiene las mismas características. 
 
 Va a crear una aplicación de C# que envía una consulta de búsqueda de imágenes, analiza la respuesta de JSON y muestra la dirección URL de la primera imagen devuelta.
 

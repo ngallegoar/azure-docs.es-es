@@ -7,20 +7,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: yegu
-ms.openlocfilehash: 4b5f77742d3b2611fd7baf5880b9f8fed047aa86
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7b57bfbd09cd2b528b5a879acdb41b4716289aa6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147313"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372011"
 ---
 # <a name="how-the-reservation-discount-is-applied-to-azure-cache-for-redis"></a>Aplicación del descuento por reserva a Azure Cache for Redis
 
-Después de comprar capacidad reservada de Azure Cache for Redis, el descuento por reserva se aplica automáticamente a las instancias de caché que coincidan con los atributos y la cantidad de la reserva. Una reserva solo cubre los costos de proceso de su instancia de Azure Cache for Redis. Por el almacenamiento y la administración de redes se le cobra según las tarifas normales. La capacidad reservada solo está disponible para las memorias caché de [nivel premium](//azure/azure-cache-for-redis/quickstart-create-redis).
+Después de comprar capacidad reservada de Azure Cache for Redis, el descuento por reserva se aplica automáticamente a las instancias de caché que coincidan con los atributos y la cantidad de la reserva. Una reserva solo cubre los costos de proceso de su instancia de Azure Cache for Redis. Por el almacenamiento y la administración de redes se le cobra según las tarifas normales. La capacidad reservada solo está disponible para las memorias caché de [nivel premium](/azure/azure-cache-for-redis/quickstart-create-redis).
 
 ## <a name="how-reservation-discount-is-applied"></a>Aplicación del descuento por reserva
 
-Un descuento por reserva es para ***usarlo o perderlo***. Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
+Un descuento por reserva es para * **usarlo o perderlo**. Por lo tanto, si no tiene recursos coincidentes para ninguna hora, perderá una cantidad de reserva para esa hora. No se pueden arrastrar las horas reservadas no utilizadas.
 
 Al cerrar un recurso, el descuento por reserva se aplica automáticamente a otro recurso que coincida con el ámbito especificado. Si no se encuentran recursos coincidentes en el ámbito especificado, las horas reservadas se pierden.
 
@@ -30,15 +30,15 @@ El descuento por capacidad reservada de Azure Cache for Redis se aplica a las ca
 
 En los ejemplos siguientes se muestra cómo se aplica el descuento por capacidad reservada de Azure Cache for Redis en función del número de cachés adquiridas y el momento de su ejecución.
 
-**Ejemplo 1**: Compra una capacidad reservada de Azure Cache for Redis para una caché de 6 GB. Si va a ejecutar una caché de 13 GB que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso por 7 GB de su uso de proceso de Azure Cache for Redis y obtendrá el descuento por reserva durante una hora de uso de proceso de la caché de 6 GB.
+**Ejemplo 1** : Compra una capacidad reservada de Azure Cache for Redis para una caché de 6 GB. Si va a ejecutar una caché de 13 GB que coincida con el resto de los atributos de la reserva, se le cobrará el precio de pago por uso por 7 GB de su uso de proceso de Azure Cache for Redis y obtendrá el descuento por reserva durante una hora de uso de proceso de la caché de 6 GB.
 
 En el resto de estos ejemplos, supongamos que la capacidad reservada de Azure Cache for Redis que compra es por una caché de 26 GB y el resto de atributos de la reserva coinciden con la caché en ejecución.
 
-* **Ejemplo 2**: Ejecuta dos cachés de 13 GB durante una hora. El descuento por reserva de 26 GB se aplica al uso de proceso de ambas cachés.
+* **Ejemplo 2** : Ejecuta dos cachés de 13 GB durante una hora. El descuento por reserva de 26 GB se aplica al uso de proceso de ambas cachés.
 
-* **Ejemplo 3**: Ejecuta una caché de 26 GB de 1 a 1.30 de la tarde. Ejecuta otra caché de 26 GB de 1:30 a 2 de la tarde. Ambas están cubiertas por el descuento en la reserva.
+* **Ejemplo 3** : Ejecuta una caché de 26 GB de 1 a 1.30 de la tarde. Ejecuta otra caché de 26 GB de 1:30 a 2 de la tarde. Ambas están cubiertas por el descuento en la reserva.
 
-* **Ejemplo 4**: Ejecuta una caché de 26 GB de 1 a 1:45 de la tarde. Ejecuta otra caché de 26 GB de 1:30 a 2 de la tarde. Se le cobra el precio de pago por uso por el solapamiento de 15 minutos. El descuento en la reserva se aplica al uso de proceso por el resto del tiempo.
+* **Ejemplo 4** : Ejecuta una caché de 26 GB de 1 a 1:45 de la tarde. Ejecuta otra caché de 26 GB de 1:30 a 2 de la tarde. Se le cobra el precio de pago por uso por el solapamiento de 15 minutos. El descuento en la reserva se aplica al uso de proceso por el resto del tiempo.
 
 Para obtener información sobre la aplicación de Azure Reservations en informes de uso de facturación, consulte el artículo [Información sobre el uso de Azure Reservations](./understand-reserved-instance-usage-ea.md).
 

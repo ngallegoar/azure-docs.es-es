@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115482"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478140"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Descripción de las experiencias de consentimiento de la aplicación de Azure AD
 
@@ -65,13 +65,13 @@ Estas son las experiencias de consentimiento que un usuario puede ver en los esc
     
     2. Los usuarios verán la petición de consentimiento tradicional.
 
-        ![Petición de consentimiento para el escenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Captura de pantalla que muestra la petición de consentimiento tradicional.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Personas que accedan a una aplicación que requiera al menos un permiso que está fuera de su ámbito de autoridad.
     1. Los administradores verán la misma petición que la 1.i anterior.
     2. Los usuarios no podrá otorgar consentimiento a la aplicación y se les indicará que pidan al administrador acceso a la aplicación. 
                 
-        ![Petición de consentimiento para el escenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Captura de pantalla de la petición de consentimiento que indica al usuario que solicite a un administrador el acceso a la aplicación.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Personas que navegan o se las dirige al flujo de consentimiento del administrador.
     1. Los usuarios administradores verán la petición de consentimiento del administrador. El título y las descripciones de permisos cambiaron en esta petición, los cambios destacan el hecho de que, al aceptar esta petición, se otorgará a la aplicación acceso a los datos solicitados en el nombre de todo el inquilino.

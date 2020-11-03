@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282376"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487388"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 
@@ -40,7 +40,10 @@ Una consulta utiliza varios índices de campo único, siempre que estén disponi
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Índices compuestos (servidor de MongoDB versión 3.6)
 
-La API de Azure Cosmos DB para MongoDB admite índices compuestos para las cuentas que usan el protocolo de conexión de la versión 3.6. Puede incluir hasta ocho campos en un índice compuesto. **A diferencia de MongoDB, debe crear un índice compuesto solo si es necesario ordenar de manera eficaz la consulta en varios campos a la vez.** En el caso de las consultas con varios filtros que no es necesario ordenar, cree varios índices de campo único en lugar de un único índice compuesto.
+La API de Azure Cosmos DB para MongoDB admite índices compuestos para las cuentas que usan el protocolo de conexión de la versión 3.6. Puede incluir hasta ocho campos en un índice compuesto. A diferencia de MongoDB, debe crear un índice compuesto solo si es necesario ordenar de manera eficaz la consulta en varios campos a la vez. En el caso de las consultas con varios filtros que no es necesario ordenar, cree varios índices de campo único en lugar de un único índice compuesto. 
+
+> [!NOTE]
+> No se pueden crear índices compuestos en matrices o propiedades anidadas.
 
 El comando siguiente crea un índice compuesto en los campos `name` y `age`:
 
@@ -59,7 +62,7 @@ Sin embargo, la secuencia de las rutas de acceso en el índice compuesto debe co
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> No se pueden crear índices compuestos en matrices o propiedades anidadas.
+> Los índices compuestos solo se usan en consultas que ordenan los resultados. En el caso de las consultas con varios filtros que no necesitan ordenar, cree varios índices de campo único.
 
 ### <a name="multikey-indexes"></a>Índice de varias claves
 
@@ -75,7 +78,7 @@ A continuación, se muestra un ejemplo para crear un índice geoespacial en el c
 
 ### <a name="text-indexes"></a>Índices de texto
 
-La API de Azure Cosmos DB para MongoDB no admite actualmente los índices de texto. En el caso de las consultas de búsqueda de texto en cadenas, debe usar la integración de [Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) con Azure Cosmos DB.
+La API de Azure Cosmos DB para MongoDB no admite actualmente los índices de texto. En el caso de las consultas de búsqueda de texto en cadenas, debe usar la integración de [Azure Cognitive Search](../search/search-howto-index-cosmosdb.md) con Azure Cosmos DB. 
 
 ## <a name="wildcard-indexes"></a>Índices de caracteres comodín
 
@@ -118,7 +121,7 @@ El siguiente comando crea un índice de caracteres comodín en cualquier propied
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**A diferencia de MongoDB, los índices de caracteres comodín pueden admitir varios campos en predicados de consulta** . No habrá ninguna diferencia en el rendimiento de las consultas si se usa un solo índice de caracteres comodín en lugar de crear un índice independiente para cada propiedad.
+**A diferencia de MongoDB, los índices de caracteres comodín pueden admitir varios campos en predicados de consulta**. No habrá ninguna diferencia en el rendimiento de las consultas si se usa un solo índice de caracteres comodín en lugar de crear un índice independiente para cada propiedad.
 
 Puede crear los siguientes tipos de índice mediante la sintaxis de caracteres comodín:
 
@@ -131,7 +134,10 @@ A continuación se muestra cómo puede crear un índice de caracteres comodín e
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-Al iniciar el desarrollo, puede ser útil crear un índice de caracteres comodín en todos los campos. A medida que se indexan más propiedades en un documento, aumentará el precio de la unidad de solicitud (RU) para escribir y actualizar dicho documento. Por lo tanto, si tiene una carga de trabajo con muchas operaciones de escritura, debería optar por indexar individualmente las rutas de acceso en lugar de utilizar índices de caracteres comodín.
+> [!NOTE]
+> Si acaba de empezar a desarrollar, se recomienda **encarecidamente** empezar con un índice comodín en todos los campos. Esto puede simplificar el desarrollo y facilitar la optimización de las consultas.
+
+Los documentos con muchos campos pueden tener un cargo de unidad de solicitud (RU) elevado para las escrituras y las actualizaciones. Por lo tanto, si tiene una carga de trabajo con muchas operaciones de escritura, debería optar por indexar individualmente las rutas de acceso en lugar de utilizar índices de caracteres comodín.
 
 ### <a name="limitations"></a>Limitaciones
 
@@ -335,7 +341,7 @@ Actualmente, solo se pueden crear índices únicos cuando la colección no conti
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indexación de MongoDB versión 3.2
 
-Las características de indexación disponibles y los valores predeterminados son diferentes para las cuentas de Azure Cosmos que son compatibles con la versión 3.2 del protocolo de conexión de MongoDB. Puede [comprobar la versión de la cuenta](mongodb-feature-support-36.md#protocol-support). Para actualizar a la versión 3.6, presente una [solicitud de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Las características de indexación disponibles y los valores predeterminados son diferentes para las cuentas de Azure Cosmos que son compatibles con la versión 3.2 del protocolo de conexión de MongoDB. Puede [comprobar la versión de la cuenta](mongodb-feature-support-36.md#protocol-support) y [actualizar a la versión 3.6](mongodb-version-upgrade.md).
 
 Si usa la versión 3.2, en esta sección se describen las diferencias principales que tiene con la versión 3.6.
 
@@ -352,11 +358,11 @@ Después de colocar los índices predeterminados, puede agregar más índices, t
 
 ### <a name="compound-indexes-version-32"></a>Índices compuestos (versión 3.2)
 
-Los índices compuestos contienen referencias a varios campos de un documento. Si quiere crear un índice compuesto, actualice a la versión 3.6 mediante la presentación de una [solicitud de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Los índices compuestos contienen referencias a varios campos de un documento. Si quiere crear un índice compuesto, [actualice a la versión 3.6](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Índices de caracteres comodín (versión 3.2)
 
-Si quiere crear un índice de caracteres comodín, actualice a la versión 3.6 mediante la presentación de una [solicitud de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si quiere crear un índice de caracteres comodín, [actualice a la versión 3.6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

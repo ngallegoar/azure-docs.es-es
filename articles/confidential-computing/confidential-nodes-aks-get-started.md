@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122190"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341913"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Inicio rápido: Implementación de un clúster de Azure Kubernetes Service con nodos de computación confidencial mediante la CLI de Azure (versión preliminar)
 
@@ -27,11 +27,11 @@ En este inicio rápido, aprenderá a implementar un clúster de Azure Kubernetes
 ### <a name="deployment-pre-requisites"></a>Requisitos previos a la implementación
 
 1. Tener una suscripción a Azure activa. Si no tiene una suscripción a Azure, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-1. Tener la versión 2.0.64 de la CLI de Azure, o cualquier versión posterior, instalada y configurada en la máquina de implementación (ejecute  `az --version` para encontrar la versión). Si necesita instalarla o actualizarla, consulte el artículo sobre la  [instalación de la CLI de Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli).
+1. Tener la versión 2.0.64 de la CLI de Azure, o cualquier versión posterior, instalada y configurada en la máquina de implementación (ejecute `az --version` para encontrar la versión). Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 1. [Extensión aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview), versión mínima 0.4.62 
-1. Tener un mínimo de seis núcleos de DCSv2 en su suscripción disponibles para su uso. De forma predeterminada, la cuota de núcleos de máquina virtual para la computación confidencial por suscripción de Azure es 8 núcleos. Si planea aprovisionar un clúster que requiera más de 8 núcleos, siga [estas](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instrucciones para generar una incidencia de aumento de cuota.
+1. Tener un mínimo de seis núcleos de **DC<x>s-v2** en su suscripción disponibles para su uso. De forma predeterminada, la cuota de núcleos de máquina virtual para la computación confidencial por suscripción de Azure es 8 núcleos. Si planea aprovisionar un clúster que requiera más de 8 núcleos, siga [estas](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instrucciones para generar una incidencia de aumento de cuota.
 
-### <a name="confidential-computing-node-features"></a>Características de los nodos de computación confidencial
+### <a name="confidential-computing-node-features-dcxs-v2"></a>Características de los nodos de computación confidencial (DC<x>s-v2)
 
 1. Nodos de trabajo de Linux que admiten solo contenedores de Linux
 1. Máquinas virtuales Ubuntu de generación 2 18.04
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-El comando anterior debería aprovisionar un nuevo clúster de AKS con grupos de nodos DCSv2 e instalar automáticamente dos conjuntos de demonios ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)[SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
+El comando anterior debería aprovisionar un nuevo clúster de AKS con los conjuntos de nodos de **DC<x>s-v2** e instalar automáticamente dos conjuntos de demonios ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin) & [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Obtenga las credenciales para el clúster de AKS mediante el comando az aks get-credentials:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Compruebe que los nodos se crean correctamente y que los DaemonSet relacionados con SGX se ejecutan en grupos de nodos DCSv2 mediante el comando kubectl get pods & nodes, como se muestra a continuación:
+Compruebe que los nodos se crean correctamente y que los conjuntos de demonios relacionados con SGX se ejecutan en grupos de nodos de **DC<x>s-v2** mediante el comando kubectl get pods & nodes, como se muestra a continuación:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,9 +130,12 @@ En primer lugar, habilite los complementos de AKS relacionados con la computaci�
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Ahora, agregue un grupo de nodos DCSv2 al clúster
-
-```azurecli-interactive
+Ahora agregue un conjunto de nodos de **DC<x>s-v2** al clúster
+    
+> [!NOTE]
+> Para usar la funcionalidad de computación confidencial, el clúster de AKS existente debe tener al menos un grupo de nodos basado en una SKU de máquina virtual **DC<x>s-v2**. Obtenga más información sobre la computación confidencial de las SKU de las máquinas virtuales DCsv2 aquí [SKU disponibles y regiones admitidas](virtual-machine-solutions.md).
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 43206fbc956602ddaf189f45648cf8a44a3dd143
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277318"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475233"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Sugerencias de rendimiento para la versión 4 del SDK de Java de Azure Cosmos DB
 
@@ -85,13 +85,13 @@ Así que si se está preguntando "¿Cómo puedo mejorar el rendimiento de la bas
 
 * **Habilite las redes aceleradas en la máquina virtual de Azure para una menor latencia.**
 
-Se recomienda seguir las instrucciones para habilitar redes aceleradas en su VM de Azure con [Windows (haga clic para obtener instrucciones)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) o [Linux (haga clic en las instrucciones)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para maximizar el rendimiento.
+Se recomienda seguir las instrucciones para habilitar redes aceleradas en su VM de Azure con [Windows (haga clic para obtener instrucciones)](../virtual-network/create-vm-accelerated-networking-powershell.md) o [Linux (haga clic en las instrucciones)](../virtual-network/create-vm-accelerated-networking-cli.md) para maximizar el rendimiento.
 
 Sin las redes aceleradas, la E/S que pasa entre la máquina virtual de Azure y otros recursos de Azure puede enrutarse innecesariamente a través de un host y un conmutador virtual situado entre la máquina virtual y su tarjeta de red. Si el host y el conmutador virtual están alineados en la ruta de datos no solo se aumenta la latencia y la vibración en el canal de comunicación, sino que también se roban ciclos de la CPU de la máquina virtual. Con las redes aceleradas, la máquina virtual interactúa directamente con la NIC sin intermediarios; los detalles de la directiva de red que se administraban mediante el host y el conmutador virtual se administran ahora en hardware en la NIC; se omiten el host y el conmutador virtual. Por lo general, al habilitar las redes aceleradas puede esperar una menor latencia y un mayor rendimiento, así como una latencia más *uniforme* y una disminución del uso de la CPU.
 
 Limitaciones: las redes aceleradas deben ser compatibles con el sistema operativo de la máquina virtual y solo se pueden habilitar cuando la máquina virtual se ha detenido y se ha desasignado. No se puede implementar la máquina virtual con Azure Resource Manager.
 
-Consulte las instrucciones de [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) y [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para obtener más detalles.
+Consulte las instrucciones de [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) y [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) para obtener más detalles.
 
 ## <a name="sdk-usage"></a>Uso del SDK
 * **Instalación del SDK más reciente**
@@ -106,7 +106,7 @@ Consulte las instrucciones de [Windows](https://docs.microsoft.com/azure/virtual
 
 * **Uso del nivel de coherencia más bajo necesario para la aplicación**
 
-    Cuando se crea una instancia de *CosmosClient* , la coherencia predeterminada utilizada si no se establece explícitamente es *Sesión* . Si la lógica de la aplicación no requiere coherencia en el nivel *Sesión* , establezca el valor de *Coherencia* en *Ocasional* . Nota: Se recomienda usar al menos la coherencia en el nivel *Sesión* en las aplicaciones que emplean el procesador de fuente de cambios de Azure Cosmos DB.
+    Cuando se crea una instancia de *CosmosClient* , la coherencia predeterminada utilizada si no se establece explícitamente es *Sesión*. Si la lógica de la aplicación no requiere coherencia en el nivel *Sesión* , establezca el valor de *Coherencia* en *Ocasional*. Nota: Se recomienda usar al menos la coherencia en el nivel *Sesión* en las aplicaciones que emplean el procesador de fuente de cambios de Azure Cosmos DB.
 
 * **Uso de la API asincrónica para maximizar el rendimiento aprovisionado**
 
@@ -148,45 +148,45 @@ Consulte las instrucciones de [Windows](https://docs.microsoft.com/azure/virtual
 
     En la versión 4 del SDK de Java de Azure Cosmos DB, el modo directo es la mejor opción para mejorar el rendimiento de la base de datos con la mayoría de las cargas de trabajo. 
 
-    * ***Introducción al modo directo***
+    * ***Introducción al modo directo** _
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustración de la directiva de conexión de Azure Cosmos DB" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustración de la arquitectura del modo directo" border="false":::
 
-        La arquitectura del lado cliente empleada en el modo directo permite un uso predecible de la red y el acceso multiplexado a las réplicas de Azure Cosmos DB. En el diagrama anterior se muestra cómo el modo directo enruta las solicitudes de cliente a las réplicas en el back-end de Cosmos DB. La arquitectura del modo directo asigna hasta 10 **canales** en el lado cliente por réplica de base de datos. Un canal es una conexión TCP precedida por un búfer de solicitudes, que tiene 30 solicitudes de profundidad. El **punto de conexión de servicio** de la réplica asigna dinámicamente según sea necesario los canales que pertenecen a una réplica. Cuando el usuario emite una solicitud en el modo directo, **TransportClient** enruta la solicitud al punto de conexión de servicio adecuado en función de la clave de partición. La **cola de solicitudes** almacena en búfer las solicitudes antes del punto de conexión de servicio.
+        La arquitectura del lado cliente empleada en el modo directo permite un uso predecible de la red y el acceso multiplexado a las réplicas de Azure Cosmos DB. En el diagrama anterior se muestra cómo el modo directo enruta las solicitudes de cliente a las réplicas en el back-end de Cosmos DB. La arquitectura del modo directo asigna hasta 10  *canales* * en el lado cliente por réplica de base de datos. Un canal es una conexión TCP precedida por un búfer de solicitudes, que tiene 30 solicitudes de profundidad. El **punto de conexión de servicio** de la réplica asigna dinámicamente según sea necesario los canales que pertenecen a una réplica. Cuando el usuario emite una solicitud en el modo directo, **TransportClient** enruta la solicitud al punto de conexión de servicio adecuado en función de la clave de partición. La **cola de solicitudes** almacena en búfer las solicitudes antes del punto de conexión de servicio.
 
-    * ***Opciones de configuración para el modo directo***
+    * ***Opciones de configuración para el modo directo** _
 
-        Si se desea un comportamiento del modo directo no predeterminado, cree una instancia de *DirectConnectionConfig* y personalice sus propiedades y, a continuación, pase la instancia de la propiedad personalizada al método *directMode()* en el generador de cliente de Azure Cosmos DB.
+        Si se desea un comportamiento del modo directo no predeterminado, cree una instancia de_DirectConnectionConfig* y personalice sus propiedades y, a continuación, pase la instancia de la propiedad personalizada al método *directMode()* en el generador de cliente de Azure Cosmos DB.
 
         Estos valores de configuración controlan el comportamiento de la arquitectura del modo directo subyacente que se describió anteriormente.
 
         Como primer paso, utilice las opciones de configuración recomendadas a continuación. Estas opciones de *DirectConnectionConfig* son opciones de configuración avanzada que pueden afectar al rendimiento del SDK de maneras inesperadas; se recomienda que los usuarios no las modifiquen a menos que comprendan perfectamente los inconvenientes y sea absolutamente necesario. Póngase en contacto con el [equipo de Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com) si tiene problemas con este tema específico.
 
-        | Opción de configuración       | Valor predeterminado    |
-        | :------------------:       | :-----:    |
-        | idleConnectionTimeout      | "PT1M"     |
-        | maxConnectionsPerEndpoint  | "PT0S"     |
-        | connectTimeout             | "PT1M10S"  |
-        | idleEndpointTimeout        | 8388608    |
-        | maxRequestsPerConnection   | 10         |
+        | Opción de configuración       | Valor predeterminado   |
+        | :------------------:       | :-----:   |
+        | idleConnectionTimeout      | "PT0"     |
+        | maxConnectionsPerEndpoint  | "130"     |
+        | connectTimeout             | "PT5S"    |
+        | idleEndpointTimeout        | "PT1H"    |
+        | maxRequestsPerConnection   | "30"      |
 
 * **Ajuste de consultas paralelas en colecciones particionadas**
 
     La versión 4 del SDK de Java de Azure Cosmos DB admite consultas paralelas que permiten consultar una colección con particiones en paralelo. Para obtener más información, consulte [ejemplos de código](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples) relacionados para trabajar con la versión 4 del SDK de Java de Azure Cosmos DB. Las consultas paralelas están diseñadas para mejorar la latencia y el rendimiento de la consulta en todos sus homólogos seriales.
 
-    * ***Ajuste de setMaxDegreeOfParallelism\:***
+    * ***Ajuste de setMaxDegreeOfParallelism\:** _
     
         Las consultas paralelas funcionan creando consultas en varias particiones en paralelo. Sin embargo, los datos de una recopilación con particiones individual se capturan en serie con respecto a la consulta. Por lo tanto, use el parámetro setMaxDegreeOfParallelism para establecer el número de particiones que tienen la máxima probabilidad de conseguir el mejor rendimiento de consulta, siempre y cuando el resto de las demás condiciones del sistema permanezcan invariables. Si no conoce el número de particiones, puede usar setMaxDegreeOfParallelism para establecer un número alto y el sistema elegirá el mínimo (número de particiones, entrada proporcionada por el usuario) como el grado máximo de paralelismo.
 
         Es importante tener en cuenta que las consultas en paralelo producen los mejores beneficios si los datos se distribuyen uniformemente entre todas las particiones con respecto a la consulta. Si la colección con particiones está dividida de tal forma que todos, o la mayoría de los datos, devueltos por una consulta se concentran en algunas particiones (una partición en el peor de los casos), entonces el rendimiento de la consulta se vería afectada por cuellos de botella debido a esas particiones.
 
-    ***Ajuste de setMaxBufferedItemCount\:***
+    _ * **Ajuste de setMaxBufferedItemCount\:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
         Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
 
-Las consultas en paralelo están diseñadas para capturar previamente los resultados mientras el cliente procesa el lote actual de resultados.
+_ **Escalado horizontal de la carga de trabajo de cliente**
 
     If you are testing at high throughput levels, the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
@@ -194,48 +194,48 @@ Las consultas en paralelo están diseñadas para capturar previamente los result
 
    <a id="tune-page-size"></a>
 
-* La captura previa ayuda a mejorar la latencia general de una consulta.
+* **Ajuste del tamaño de página en consultas y fuentes de lectura para aumentar el rendimiento**
 
-    setMaxBufferedItemCount limita el número de resultados capturados previamente. Establece setMaxBufferedItemCount en el número esperado de resultados devueltos (o un número más alto) permite que la consulta reciba el máximo beneficio de la captura previa.
-
-    La captura previa funciona de la misma manera con independencia de MaxDegreeOfParallelism, y hay un único búfer para los datos de todas las particiones. **Escalado horizontal de la carga de trabajo de cliente** 
-
-    * Si va a realizar pruebas en niveles de alto rendimiento, la aplicación cliente puede volverse un cuello de botella debido a que la máquina limita el uso de CPU o de la red. Si llega a este punto, puede seguir insertando la cuenta de Azure Cosmos DB mediante la escala horizontal de las aplicaciones cliente en varios servidores.
-    
-    * Una buena regla general es no superar el uso de la CPU al 50 % en cualquier servidor para mantener baja la latencia. **Ajuste del tamaño de página en consultas y fuentes de lectura para aumentar el rendimiento** 
-    
     Al realizar una lectura masiva de documentos mediante la funcionalidad de fuentes de lectura (por ejemplo, *readItems* ) o al emitir una consulta SQL ( *queryItems* ), los resultados se devuelven de forma segmentada si el conjunto de resultados es demasiado grande. De forma predeterminada, se devuelven resultados en fragmentos de 1 MB o de 100 artículos, el límite que se alcance primero.
 
     Supongamos que la aplicación emite una consulta para Azure Cosmos DB y que la aplicación requiere el conjunto completo de resultados de la consulta para poder completar su tarea. Para reducir el número de recorridos de ida y vuelta de red necesarios para recuperar todos los resultados aplicables, puede aumentar el tamaño de página ajustando el campo del encabezado de la solicitud [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). 
 
-* Para consultas de una sola partición, el ajuste del valor del campo [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) a -1 (sin límite en el tamaño de página) maximiza la latencia al minimizar el número de páginas de respuesta de consulta: el conjunto de resultados completo se devolverá en una sola página o, si la consulta tarda más que el intervalo de tiempo de espera, se devolverá el conjunto de resultados completo en el número mínimo de páginas posible.
+    * Para consultas de una sola partición, el ajuste del valor del campo [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) a -1 (sin límite en el tamaño de página) maximiza la latencia al minimizar el número de páginas de respuesta de consulta: el conjunto de resultados completo se devolverá en una sola página o, si la consulta tarda más que el intervalo de tiempo de espera, se devolverá el conjunto de resultados completo en el número mínimo de páginas posible. Esto ahorra en múltiplos el tiempo de ida y vuelta de la solicitud.
+    
+    * En el caso de las consultas entre particiones, si se establece el campo [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en -1 y se quitan los riesgos del límite de tamaño de página, se satura el SDK con tamaños de página no administrables. En el caso de particiones cruzadas, se recomienda aumentar el límite de tamaño de página hasta un valor grande pero finito, quizás 1000, para reducir la latencia. 
+    
+    En algunas aplicaciones, es posible que no necesite el conjunto completo de resultados de la consulta. En aquellos casos en los que solo sea necesario mostrar unos cuantos resultados, por ejemplo, si la interfaz de usuario o la API de aplicación solo devuelven 10 resultados de una vez, también puede reducir el tamaño de página a 10 a fin de reducir el rendimiento consumido en las lecturas y consultas.
 
-    Esto ahorra en múltiplos el tiempo de ida y vuelta de la solicitud. En el caso de las consultas entre particiones, si se establece el campo [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en -1 y se quitan los riesgos del límite de tamaño de página, se satura el SDK con tamaños de página no administrables. En el caso de particiones cruzadas, se recomienda aumentar el límite de tamaño de página hasta un valor grande pero finito, quizás 1000, para reducir la latencia. En algunas aplicaciones, es posible que no necesite el conjunto completo de resultados de la consulta. En aquellos casos en los que solo sea necesario mostrar unos cuantos resultados, por ejemplo, si la interfaz de usuario o la API de aplicación solo devuelven 10 resultados de una vez, también puede reducir el tamaño de página a 10 a fin de reducir el rendimiento consumido en las lecturas y consultas.
+    También puede establecer el argumento de tamaño de página preferido del método *byPage* , en lugar de modificar el campo de encabezado REST directamente. Tenga en cuenta que [x-MS-Max-Item-Count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) o el argumento de tamaño de página preferido de *byPage* solo establece un límite superior en el tamaño de página, no un requisito absoluto; por lo tanto, por diversos motivos, puede ver que Azure Cosmos DB devuelve páginas que son menores que el tamaño de página preferido. 
 
-    También puede establecer el argumento de tamaño de página preferido del método *byPage* , en lugar de modificar el campo de encabezado REST directamente.
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a>Tenga en cuenta que [x-MS-Max-Item-Count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) o el argumento de tamaño de página preferido de *byPage* solo establece un límite superior en el tamaño de página, no un requisito absoluto; por lo tanto, por diversos motivos, puede ver que Azure Cosmos DB devuelve páginas que son menores que el tamaño de página preferido.
+* **Use el programador adecuado (evite el robo de subprocesos de E/S Eventloop de Netty)**
+
+    La funcionalidad asincrónica del SDK de Java de Azure Cosmos DB se basa en la E/S sin bloqueo de [netty](https://netty.io/). El SDK usa un número fijo de subprocesos de E/S Eventloop de Netty (tantos como núcleos de CPU tenga su máquina) para ejecutar operaciones de E/S. El elemento Flux que devuelve la API emite el resultado en uno de los subprocesos de E/S Eventloop de Netty compartidos. Así que es importante no bloquear dichos subprocesos. Realizar trabajos que hacen un uso elevado de CPU o bloquear operaciones en el subproceso de E/S Eventloop de Netty puede provocar un interbloqueo o reducir el rendimiento del SDK de manera considerable.
+
+    Por ejemplo, el código siguiente ejecuta un trabajo que hace un uso elevado de CPU en el subproceso de E/S Eventloop de Netty:
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-noscheduler"></a>Versión 4 del SDK de Java (Maven com.azure::azure-cosmos) API asincrónica
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNeedsSchedulerAsync)]
 
-    **Use el programador adecuado (evite el robo de subprocesos de E/S Eventloop de Netty)** La funcionalidad asincrónica del SDK de Java de Azure Cosmos DB se basa en la E/S sin bloqueo de [netty](https://netty.io/).
+    Tras recibir el resultado, si quiere realizar sobre él un trabajo que hace un uso elevado de CPU, debe evitar hacerlo sobre un subproceso de E/S Eventloop de Netty. En su lugar, proporcione su propio programador a fin de suministrar su propio subproceso para ejecutar su trabajo, como se muestra a continuación (requiere `import reactor.core.scheduler.Schedulers`).
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a>El SDK usa un número fijo de subprocesos de E/S Eventloop de Netty (tantos como núcleos de CPU tenga su máquina) para ejecutar operaciones de E/S.
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-scheduler"></a>API asincrónica del SDK para Java v4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddSchedulerAsync)]
 
-    El elemento Flux que devuelve la API emite el resultado en uno de los subprocesos de E/S Eventloop de Netty compartidos. Así que es importante no bloquear dichos subprocesos.
+    Según el tipo del trabajo, debe usar el programador de Reactor existente adecuado para su trabajo. Obtenga más información aquí [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
 
-    Realizar trabajos que hacen un uso elevado de CPU o bloquear operaciones en el subproceso de E/S Eventloop de Netty puede provocar un interbloqueo o reducir el rendimiento del SDK de manera considerable.
+    Para obtener más información sobre la versión 4 del SDK de Java de Azure Cosmos DB, consulte el [repositorio único del directorio Cosmos DB del SDK de Azure para Java en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 
-* Por ejemplo, el código siguiente ejecuta un trabajo que hace un uso elevado de CPU en el subproceso de E/S Eventloop de Netty:
+* **Optimización de la configuración de registro en la aplicación**
 
-    <a id="java4-noscheduler"></a>Versión 4 del SDK de Java (Maven com.azure::azure-cosmos) API asincrónica Tras recibir el resultado, si quiere realizar sobre él un trabajo que hace un uso elevado de CPU, debe evitar hacerlo sobre un subproceso de E/S Eventloop de Netty.
+    Por diversos motivos, puede que desee o necesite agregar registro en un subproceso que genera un rendimiento de solicitud elevado. Si su objetivo es saturar completamente el rendimiento aprovisionado de un contenedor con las solicitudes generadas por este subproceso, las optimizaciones de registro pueden mejorar considerablemente el rendimiento.
 
-    * En su lugar, proporcione su propio programador a fin de suministrar su propio subproceso para ejecutar su trabajo, como se muestra a continuación (requiere `import reactor.core.scheduler.Schedulers`).
+    * ***Configuración de un registrador asincrónico** _
 
-        <a id="java4-scheduler"></a>API asincrónica del SDK para Java v4 (Maven com.azure::azure-cosmos) Según el tipo del trabajo, debe usar el programador de Reactor existente adecuado para su trabajo.
+        La latencia de un registrador sincrónico necesariamente tiene en cuenta el cálculo de la latencia general de su subproceso generador de solicitudes. Se recomienda un registrador asincrónico como [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) para desacoplar la sobrecarga de registro de los subprocesos de la aplicación de alto rendimiento.
 
-    Obtenga más información aquí [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
+    _ * **Deshabilitación del registro de Netty** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 
@@ -243,109 +243,109 @@ Las consultas en paralelo están diseñadas para capturar previamente los result
         org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
         ```
 
- Para obtener más información sobre la versión 4 del SDK de Java de Azure Cosmos DB, consulte el [repositorio único del directorio Cosmos DB del SDK de Azure para Java en GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
+ _ **Límite de recursos de archivos abiertos del sistema operativo**
  
-    **Optimización de la configuración de registro en la aplicación** Por diversos motivos, puede que desee o necesite agregar registro en un subproceso que genera un rendimiento de solicitud elevado.
+    Algunos sistemas Linux (como Red Hat) tienen un límite superior sobre el número de archivos abiertos y, por tanto, sobre el número total de conexiones. Ejecute el siguiente código para ver los límites actuales:
 
     ```bash
     ulimit -a
     ```
 
-    Si su objetivo es saturar completamente el rendimiento aprovisionado de un contenedor con las solicitudes generadas por este subproceso, las optimizaciones de registro pueden mejorar considerablemente el rendimiento. ***Configuración de un registrador asincrónico***
+    El número de archivos abiertos (nofile) debe ser lo bastante grande como para que haya espacio suficiente para el tamaño configurado del grupo de conexiones y otros archivos abiertos por el sistema operativo. Se puede modificar para permitir un tamaño mayor del grupo de conexiones.
 
-    La latencia de un registrador sincrónico necesariamente tiene en cuenta el cálculo de la latencia general de su subproceso generador de solicitudes.
+    Abra el archivo limits.conf:
 
     ```bash
     vim /etc/security/limits.conf
     ```
     
-    Se recomienda un registrador asincrónico como [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0) para desacoplar la sobrecarga de registro de los subprocesos de la aplicación de alto rendimiento.
+    Agregue o modifique las siguientes líneas:
 
     ```
     * - nofile 100000
     ```
 
-* ***Deshabilitación del registro de Netty***
+* **Especificación de la clave de partición en escrituras puntuales**
 
-    El registro de la biblioteca Netty es muy activo y debe desactivarse (puede que no baste con suprimir el inicio de sesión en la configuración) para evitar costos adicionales de CPU.
+    Para mejorar el rendimiento de las escrituras puntuales, especifique la clave de partición del elemento en la llamada API de escritura puntual, como se muestra a continuación:
 
-    # <a name="async"></a>Si no está en modo de depuración, deshabilite por completo el registro de Netty.
+    # <a name="async"></a>[Asincrónico](#tab/api-async)
 
-    De modo que, si va a usar log4j para eliminar los costos de CPU adicionales que se producen debido al uso de ``org.apache.log4j.Category.callAppenders()`` desde Netty, agregue la siguiente línea al código base:
+    API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceNoPKAsync)]
 
-    # <a name="sync"></a>**Límite de recursos de archivos abiertos del sistema operativo**
+    # <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
-    Algunos sistemas Linux (como Red Hat) tienen un límite superior sobre el número de archivos abiertos y, por tanto, sobre el número total de conexiones.
+    API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceNoPKSync)]
 
     --- 
 
-    Ejecute el siguiente código para ver los límites actuales:
+    en lugar de proporcionar solo la instancia del elemento, como se muestra a continuación:
 
-    # <a name="async"></a>El número de archivos abiertos (nofile) debe ser lo bastante grande como para que haya espacio suficiente para el tamaño configurado del grupo de conexiones y otros archivos abiertos por el sistema operativo.
+    # <a name="async"></a>[Asincrónico](#tab/api-async)
 
-    Se puede modificar para permitir un tamaño mayor del grupo de conexiones.
+    API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceAddPKAsync)]
 
-    # <a name="sync"></a>Abra el archivo limits.conf:
+    # <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
-    Agregue o modifique las siguientes líneas:
+    API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceAddPKSync)]
 
     --- 
 
-    **Especificación de la clave de partición en escrituras puntuales**
+    Esta última es compatible, pero agregará latencia a la aplicación; el SDK debe analizar el elemento y extraer la clave de partición.
 
-## <a name="indexing-policy"></a>Para mejorar el rendimiento de las escrituras puntuales, especifique la clave de partición del elemento en la llamada API de escritura puntual, como se muestra a continuación:
+## <a name="indexing-policy"></a>Directiva de indexación
  
-* [Asincrónico](#tab/api-async)
+* **Exclusión de rutas de acceso sin utilizar de la indexación para acelerar las escrituras**
 
-    API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos) [Sincronizar](#tab/api-sync) API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
+    La directiva de indexación de Azure Cosmos DB le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación (setIncludedPaths y setExcludedPaths). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas. Por ejemplo, en el código siguiente se muestra cómo incluir y excluir secciones completas de los documentos (que también se conocen como subárbol) de la indexación mediante el comodín "*".
 
-    ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a>en lugar de proporcionar solo la instancia del elemento, como se muestra a continuación:
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos"></a><a id="java4-indexing"></a>SDK de Java V4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    [Asincrónico](#tab/api-async)
+    Para más información, consulte [Directivas de indexación de Azure Cosmos DB](index-policy.md).
 
-## <a name="throughput"></a>API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
+## <a name="throughput"></a>Throughput
 <a id="measure-rus"></a>
 
-* [Sincronizar](#tab/api-sync)
+* **Medición y optimización del uso menor de unidades de solicitud por segundo**
 
-    API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos) Esta última es compatible, pero agregará latencia a la aplicación; el SDK debe analizar el elemento y extraer la clave de partición. Directiva de indexación
+    Azure Cosmos DB ofrece un amplio conjunto de operaciones de base de datos, incluidas consultas relacionales y jerárquicas con funciones definidas por el usuario, procedimientos almacenados y desencadenadores. Todo funciona con los documentos dentro de una colección de base de datos. El costo asociado a cada una de estas operaciones variará en función de la CPU, la E/S y la memoria necesarias para completar la operación. En lugar de administrar y pensar sobre los recursos de hardware, puede pensar en una unidad de solicitud (RU) como una medida única para los recursos necesarios para realizar varias operaciones de la base de datos y dar servicio a una solicitud de la aplicación.
 
-    **Exclusión de rutas de acceso sin utilizar de la indexación para acelerar las escrituras** La directiva de indexación de Azure Cosmos DB le permite especificar las rutas de acceso de documentos que se incluirán en la indexación o se excluirán de esta mediante el aprovechamiento de las rutas de acceso de indexación (setIncludedPaths y setExcludedPaths). El uso de rutas de acceso de indexación puede ofrecer un rendimiento de escritura mejorado y un almacenamiento de índices reducido en escenarios en los que los patrones de consulta se conocen de antemano, dado que los costos de indexación están directamente correlacionados con el número de rutas de acceso únicas indexadas. Por ejemplo, en el código siguiente se muestra cómo incluir y excluir secciones completas de los documentos (que también se conocen como subárbol) de la indexación mediante el comodín "*".
+    El rendimiento se aprovisiona en función del número de [unidades de solicitud](request-units.md) establecido para cada contenedor. El consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para su contenedor están limitadas hasta que la frecuencia cae por debajo del nivel aprovisionado del contenedor. Si la aplicación requiere un mayor nivel de rendimiento, puede aumentar el rendimiento mediante el aprovisionamiento de unidades de solicitud adicionales.
 
-    <a id="java4-indexing"></a>SDK de Java V4 (Maven com.azure::azure-cosmos) Para más información, consulte [Directivas de indexación de Azure Cosmos DB](indexing-policies.md).
+    La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación. El número de predicados, la naturaleza de los predicados, el número de UDF y el tamaño del conjunto de datos de origen influyen en el costo de operaciones de consulta.
 
-    Throughput **Medición y optimización del uso menor de unidades de solicitud por segundo**
+    Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir el número de unidades de solicitud usadas por estas operaciones. También puede examinar la propiedad RequestCharge equivalente en ResourceResponse\<T> o FeedResponse\<T>.
 
-    # <a name="async"></a>Azure Cosmos DB ofrece un amplio conjunto de operaciones de base de datos, incluidas consultas relacionales y jerárquicas con funciones definidas por el usuario, procedimientos almacenados y desencadenadores. Todo funciona con los documentos dentro de una colección de base de datos.
+    # <a name="async"></a>[Asincrónico](#tab/api-async)
 
-    El costo asociado a cada una de estas operaciones variará en función de la CPU, la E/S y la memoria necesarias para completar la operación.
+    API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=PerformanceRequestChargeAsync)]
 
-    # <a name="sync"></a>En lugar de administrar y pensar sobre los recursos de hardware, puede pensar en una unidad de solicitud (RU) como una medida única para los recursos necesarios para realizar varias operaciones de la base de datos y dar servicio a una solicitud de la aplicación.
+    # <a name="sync"></a>[Sincronizar](#tab/api-sync)
 
-    El rendimiento se aprovisiona en función del número de [unidades de solicitud](request-units.md) establecido para cada contenedor.
+    API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/sync/SampleDocumentationSnippets.java?name=PerformanceRequestChargeSync)]
 
     --- 
 
-    El consumo de la unidad de solicitud se evalúa como frecuencia por segundo. Las aplicaciones que superan la frecuencia de unidad de solicitud aprovisionada para su contenedor están limitadas hasta que la frecuencia cae por debajo del nivel aprovisionado del contenedor. Si la aplicación requiere un mayor nivel de rendimiento, puede aumentar el rendimiento mediante el aprovisionamiento de unidades de solicitud adicionales. La complejidad de una consulta afecta a la cantidad de unidades de solicitud consumidas para una operación.
+    El cargo de solicitud devuelto en este encabezado es una fracción de la capacidad de proceso aprovisionada. Por ejemplo, si tiene 2000 RU/segundo aprovisionadas, y si la consulta anterior devuelve 1000 documentos de 1 KB, el costo de la operación será 1000. Por lo tanto, al cabo de un segundo, el servidor atenderá solo dos de estas solicitudes antes de limitar la velocidad de las solicitudes posteriores. Para más información, consulte [Unidades de solicitud](request-units.md) y la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
 
 <a id="429"></a>
-* El número de predicados, la naturaleza de los predicados, el número de UDF y el tamaño del conjunto de datos de origen influyen en el costo de operaciones de consulta.
+* **Administración de la limitación de velocidad y la tasa de solicitudes demasiado grande**
 
-    Para medir la sobrecarga de cualquier operación (crear, actualizar o eliminar), inspeccione el encabezado [x-ms-request-charge](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para medir el número de unidades de solicitud usadas por estas operaciones. También puede examinar la propiedad RequestCharge equivalente en ResourceResponse\<T> o FeedResponse\<T>.
+    Cuando un cliente intenta superar la capacidad de proceso reservada para una cuenta, no habrá ninguna degradación del rendimiento en el servidor y no se utilizará ninguna capacidad de proceso más allá del nivel reservado. El servidor finalizará de forma preventiva la solicitud con RequestRateTooLarge (código de estado HTTP 429) y devolverá el encabezado [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para indicar la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
 
     ```xml
         HTTP Status 429,
@@ -353,16 +353,16 @@ Las consultas en paralelo están diseñadas para capturar previamente los result
         x-ms-retry-after-ms :100
     ```
 
-    [Asincrónico](#tab/api-async) API asincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos)
+    Los SDK capturan implícitamente esta respuesta, respetan el encabezado retry-after especificado por el servidor y reintentan la solicitud. A menos que varios clientes obtengan acceso a la cuenta al mismo tiempo, el siguiente reintento se realizará correctamente.
 
-    [Sincronizar](#tab/api-sync) API sincrónica del SDK para Java V4 (Maven com.azure::azure-cosmos) El cargo de solicitud devuelto en este encabezado es una fracción de la capacidad de proceso aprovisionada. Por ejemplo, si tiene 2000 RU/segundo aprovisionadas, y si la consulta anterior devuelve 1000 documentos de 1 KB, el costo de la operación será 1000.
+    Si tiene más de un cliente que funciona acumulativamente de forma coherente por encima de la tasa de solicitudes, puede que el número de reintentos predeterminado establecido actualmente en 9 de manera interna por el cliente no sea suficiente; en este caso, el cliente producirá *CosmosClientException* con el código de estado 429 para la aplicación. El número de reintentos predeterminado se puede cambiar mediante setRetryOptions en la instancia ConnectionPolicy. De forma predeterminada, la excepción *CosmosClientException* con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes. Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario.
 
-    Por lo tanto, al cabo de un segundo, el servidor atenderá solo dos de estas solicitudes antes de limitar la velocidad de las solicitudes posteriores. Para más información, consulte [Unidades de solicitud](request-units.md) y la [calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner). **Administración de la limitación de velocidad y la tasa de solicitudes demasiado grande** Cuando un cliente intenta superar la capacidad de proceso reservada para una cuenta, no habrá ninguna degradación del rendimiento en el servidor y no se utilizará ninguna capacidad de proceso más allá del nivel reservado.
+    Aunque el comportamiento de reintento automático ayuda a mejorar la resistencia y la usabilidad en la mayoría de las aplicaciones, podría no resultar ventajoso al realizar comparativas de rendimiento, en especial al medir la latencia. La latencia observada del cliente aumentará si el experimento llega a la limitación del servidor y hace que el SDK del cliente realice reintentos de forma silenciosa. Para evitar aumentos de latencia durante los experimentos de rendimiento, mida el gasto devuelto por cada operación y asegúrese de que las solicitudes funcionan por debajo de la tasa de solicitudes observada. Para más información, consulte [Unidades de solicitud](request-units.md).
 
-* El servidor finalizará de forma preventiva la solicitud con RequestRateTooLarge (código de estado HTTP 429) y devolverá el encabezado [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) para indicar la cantidad de tiempo, en milisegundos, que el usuario debe esperar antes de volver a intentar realizar la solicitud.
+* **Diseño de documentos más pequeños para un mayor rendimiento**
 
-    Los SDK capturan implícitamente esta respuesta, respetan el encabezado retry-after especificado por el servidor y reintentan la solicitud. A menos que varios clientes obtengan acceso a la cuenta al mismo tiempo, el siguiente reintento se realizará correctamente. Si tiene más de un cliente que funciona acumulativamente de forma coherente por encima de la tasa de solicitudes, puede que el número de reintentos predeterminado establecido actualmente en 9 de manera interna por el cliente no sea suficiente; en este caso, el cliente producirá *CosmosClientException* con el código de estado 429 para la aplicación. El número de reintentos predeterminado se puede cambiar mediante setRetryOptions en la instancia ConnectionPolicy.
+    El gasto de solicitud (es decir, el costo de procesamiento de solicitudes) de una operación dada está directamente correlacionado con el tamaño del documento. Las operaciones con documentos grandes cuestan más que las operaciones con documentos pequeños. Idealmente, diseñe la aplicación y los flujos de trabajo para que el tamaño del elemento sea ~1 KB, o un orden o una magnitud similares. En el caso de las aplicaciones dependientes de la latencia, deben evitarse los elementos de gran tamaño; los documentos de varios MB ralentizarán la aplicación.
 
-## <a name="next-steps"></a>De forma predeterminada, la excepción *CosmosClientException* con el código de estado 429 se devuelve tras un tiempo de espera acumulativo de 30 segundos si la solicitud sigue funcionando por encima de la tasa de solicitudes.
+## <a name="next-steps"></a>Pasos siguientes
 
-Esto sucede incluso cuando el número de reintentos actual es inferior al número de reintentos máximo de 9, el valor predeterminado, o un valor definido por el usuario.
+Para más información sobre cómo diseñar la aplicación para escalarla y obtener un alto rendimiento, consulte [Partición y escalado en Azure Cosmos DB](partitioning-overview.md).

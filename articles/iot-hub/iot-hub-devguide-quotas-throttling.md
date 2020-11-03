@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797809"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547697"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -43,7 +43,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Limitación | Gratis, S1 y B1 | B2 y S2 | B3 y S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operaciones de registro de identidad](#identity-registry-operations-throttle) (crear, recuperar, enumerar, actualizar y eliminar) | 1,67/s/unidad (100/min/unidad) | 1,67/s/unidad (100/min/unidad) | 83,33/s/unidad (5000/m/unidad) |
-| [Nuevas conexiones de dispositivo](#device-connections-throttle) (este límite se aplica a la velocidad de las _nuevas conexiones_, no al número total de conexiones) | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 son 2\*12 = 24 nuevas conexiones por segundo, pero dispone de al menos 100 nuevas conexiones por segundo entre todas las unidades. Con nueve unidades S1 tiene 108 nuevas conexiones por segundo (9\*12) entre todas las unidades. | 120 conexiones nuevas por segundo por unidad | 6000 conexiones nuevas por segundo por unidad |
+| [Nuevas conexiones de dispositivo](#device-connections-throttle) (este límite se aplica a la velocidad de las _nuevas conexiones_ , no al número total de conexiones) | Mayor de 100/s o 12/s/unidad <br/> Por ejemplo, dos unidades S1 son 2\*12 = 24 nuevas conexiones por segundo, pero dispone de al menos 100 nuevas conexiones por segundo entre todas las unidades. Con nueve unidades S1 tiene 108 nuevas conexiones por segundo (9\*12) entre todas las unidades. | 120 conexiones nuevas por segundo por unidad | 6000 conexiones nuevas por segundo por unidad |
 | Envíos de dispositivo a nube | Más de 100 operaciones de envío por segundo o 12 operaciones de envío por segundo por unidad <br/> Por ejemplo, dos unidades S1 equivalen a 2\*12 = 24/s, pero tendrá al menos 100 operaciones de envío por segundo en todas las unidades. Con nueve unidades S1, tiene 108 nuevas operaciones de envío por segundo (9\*12) entre todas las unidades. | 120 operaciones de envío por segundo por unidad | 6000 operaciones de envío por segundo por unidad |
 | Envíos de nube a dispositivo<sup>1</sup> | 1,67 operaciones de envío por segundo por unidad (100 mensajes por minuto por unidad) | 1,67 operaciones de envío por segundo por unidad (100 operaciones de envío por minuto por unidad) | 83,33 operaciones de envío por segundo por unidad (5000 operaciones de envío por minuto por unidad) |
 | Recepciones de nube a dispositivo<sup>1</sup> <br/> (solo cuando el dispositivo usa HTTPS)| 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 16,67 operaciones de envío por segundo por unidad (1000 operaciones de recepción por minuto por unidad) | 833,33 operaciones de envío por segundo por unidad (50 000 operaciones de recepción por minuto por unidad) |
@@ -59,7 +59,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 | Número máximo de flujos de dispositivos conectados simultáneamente<sup>1</sup> | 50 | 50 | 50 |
 | Nivel máximo de transferencia de datos de flujo de dispositivos<sup>1</sup> (volumen agregado por día) | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md). <br/><sup>2</sup>El tamaño del medidor de limitación es de 4 KB.
+<sup>1</sup>Esta característica no está disponible en el nivel básico de IoT Hub. Para más información, consulte [Elección de la instancia de IoT Hub correcta](iot-hub-scaling.md). <br/><sup>2</sup>El tamaño del medidor de limitación es de 4 KB. La limitación solo se basa en el tamaño de la carga de solicitudes.
 
 ### <a name="throttling-details"></a>Detalles de la limitación
 
@@ -81,7 +81,7 @@ En la tabla siguiente se muestran las limitaciones exigidas. Los valores hacen r
 
 Para dar cabida al tráfico por ráfagas, IoT Hub acepta solicitudes por encima de la limitación durante un tiempo limitado. Las primeras solicitudes se procesan inmediatamente. Pero si el número de solicitudes sigue infringiendo la limitación, IoT Hub empieza a colocar las solicitudes en una cola y las procesa según la tarifa límite de IoT Hub. Este efecto se conoce como *modelado del tráfico*. Además, el tamaño de esta cola es limitado. Si se sigue produciendo una infracción de limitación, la cola acaba llenándose y IoT Hub empieza a rechazar solicitudes con `429 ThrottlingException`.
 
-Por ejemplo, imagine que usa un dispositivo simulado para enviar 200 mensajes de dispositivo a nube por segundo a S1 IoT Hub (que tiene un límite 100/s envíos D2C.). Durante el primer minuto o dos, los mensajes se procesan inmediatamente. Pero como el dispositivo sigue enviando más mensajes que el límite, IoT Hub empieza a procesar solo 100 mensajes por segundo y pone el resto en cola. Se empieza a notar una mayor latencia. Por último, empieza a recibir `429 ThrottlingException` a medida que se llena la cola y el "número de errores de limitación" en [métricas de IoT Hub](iot-hub-metrics.md) empieza a aumentar.
+Por ejemplo, imagine que usa un dispositivo simulado para enviar 200 mensajes de dispositivo a nube por segundo a S1 IoT Hub (que tiene un límite 100/s envíos D2C.). Durante el primer minuto o dos, los mensajes se procesan inmediatamente. Pero como el dispositivo sigue enviando más mensajes que el límite, IoT Hub empieza a procesar solo 100 mensajes por segundo y pone el resto en cola. Se empieza a notar una mayor latencia. Por último, empieza a recibir la excepción `429 ThrottlingException` a medida que se llena la cola y la [métrica de IoT Hub "Number of throttling errors" (Número de errores de limitación)](monitor-iot-hub-reference.md#device-telemetry-metrics) empieza a aumentar. Para aprender a crear alertas y gráficos basados en métricas, consulte [Supervisión de IoT Hub](monitor-iot-hub.md).
 
 ### <a name="identity-registry-operations-throttle"></a>Limitación de operaciones de registro de identidad
 
@@ -139,3 +139,4 @@ Consulte la entrada de blog [IoT Hub throttling and you](https://azure.microsoft
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 
 * [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md)
+* [Supervisión de IoT Hub](monitor-iot-hub.md)

@@ -1,21 +1,24 @@
 ---
-title: Recopilación de registros personalizados en Azure Monitor | Microsoft Docs
+title: Recopilación de registros personalizados con el agente de Log Analytics en Azure Monitor
 description: Azure Monitor puede recopilar eventos de archivos de texto en equipos Windows y Linux.  En este artículo se describe cómo definir un nuevo registro personalizado y los detalles de los registros que crean en Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269495"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461573"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Registros personalizados en Azure Monitor
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Recopilación de registros personalizados con el agente de Log Analytics en Azure Monitor
 
-El origen de datos de registros personalizados de Azure Monitor permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
+El origen de datos de registros personalizados para el agente de Log Analytics en Azure Monitor permite recopilar eventos de archivos de texto en equipos Windows y Linux. Muchas aplicaciones registran información en archivos de texto, en lugar de los servicios de registro estándar, como el registro de eventos de Windows o Syslog. Una vez recopilados, puede analizar los datos en campos individuales en las consultas o extraerlos durante la recopilación de campos individuales.
+
+> [!IMPORTANT]
+> En este artículo se trata la recopilación de registros personalizados con el [agente de Log Analytics](log-analytics-agent.md), que es uno de los agentes usados por Azure Monitor. Otros agentes recopilan otros datos y se configuran de forma diferente. Consulte [Información general sobre los agentes de Azure Monitor](agents-overview.md) para obtener una lista de los agentes disponibles y los datos que pueden recopilar.
 
 ![Recopilación de registros personalizados](media/data-sources-custom-logs/overview.png)
 
@@ -70,7 +73,7 @@ Si se usa un delimitador de marca de tiempo, la propiedad TimeGenerated de cada 
 ### <a name="step-3-add-log-collection-paths"></a>Paso 3. Incorporación de rutas de recopilación de registros
 Debe definir una o más rutas de acceso en el agente para colocar el registro personalizado.  Puede proporcionar un nombre y una ruta de acceso específicos para el archivo de registro, o bien puede especificar una ruta de acceso con un carácter comodín para el nombre. Esto admite aplicaciones que crean un archivo nuevo cada día o cuando un archivo alcanza un tamaño determinado. También puede proporcionar varias rutas de acceso para un solo archivo de registro.
 
-Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt*, que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
+Por ejemplo, una aplicación puede crear un archivo de registro cada día con la fecha incluida en el nombre, como registro20100316.txt. Un patrón para dicho registro podría ser *registro\*.txt* , que se aplicará a cualquier archivo de registro que siga el esquema de asignación de nombres de la aplicación.
 
 La tabla siguiente proporciona ejemplos de patrones válidos para especificar diferentes archivos de registro.
 
@@ -89,7 +92,7 @@ La tabla siguiente proporciona ejemplos de patrones válidos para especificar di
 El nombre que especifique se utilizará para el tipo de registro como se describió anteriormente.  Siempre finalizará con _CL para distinguirlo como un registro personalizado.
 
 1. Escriba un nombre para el registro.  El sufijo **\_CF** se anexa automáticamente.
-2. Agregue una **Descripción**opcional.
+2. Agregue una **Descripción** opcional.
 3. Haga clic en **Next** (Siguiente) para guardar la definición del registro personalizado.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Paso 5. Comprobación de que se recopilan los registros personalizados

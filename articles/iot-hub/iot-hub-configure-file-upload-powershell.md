@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: eadc976270888499be1ed01040cc4ff00632e8e4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e2b106e64aed08b0586575d4d77602329454a673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142280"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536018"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
 
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
-1. En el símbolo del sistema de PowerShell, ejecute el cmdlet **Connect-AzAccount**:
+1. En el símbolo del sistema de PowerShell, ejecute el cmdlet **Connect-AzAccount** :
 
     ```powershell
     Connect-AzAccount
@@ -58,7 +58,7 @@ Inicie sesión en la cuenta de Azure y seleccione su suscripción.
 
 ## <a name="retrieve-your-storage-account-details"></a>Recuperación de los detalles de la cuenta de almacenamiento
 
-En los siguientes pasos se supone que ha creado la cuenta de almacenamiento mediante el modelo de implementación de **Resource Manager**, y no el modelo **clásico**.
+En los siguientes pasos se supone que ha creado la cuenta de almacenamiento mediante el modelo de implementación de **Resource Manager** , y no el modelo **clásico**.
 
 Para configurar cargas de archivos desde sus dispositivos, necesitará la cadena de conexión de una cuenta de almacenamiento de Azure. Esta cuenta debe encontrarse en la misma suscripción que IoT Hub. También necesitará el nombre de un contenedor de blobs de la cuenta de almacenamiento. Use el siguiente comando para recuperar las claves de la cuenta de almacenamiento:
 
@@ -103,11 +103,11 @@ La configuración requiere los siguientes valores:
 
 * **Receive notifications for uploaded files** (Recibir notificaciones para archivos cargados): habilite o deshabilite las notificaciones de carga de archivos.
 
-* **SAS TTL**(TTL SAS): este valor es el periodo de vida de los URI de SAS que Azure IoT Hub devuelve al dispositivo. De forma predeterminada, está establecido en una hora.
+* **SAS TTL** (TTL SAS): este valor es el periodo de vida de los URI de SAS que Azure IoT Hub devuelve al dispositivo. De forma predeterminada, está establecido en una hora.
 
-* **File notification settings default TTL**(TTL predeterminado de configuración de notificación de archivos): el periodo de vida de una notificación de carga de archivos antes de que caduque. De forma predeterminada, está establecido en un día.
+* **File notification settings default TTL** (TTL predeterminado de configuración de notificación de archivos): el periodo de vida de una notificación de carga de archivos antes de que caduque. De forma predeterminada, está establecido en un día.
 
-* **File notification maximum delivery count**(Número máximo de entregas de notificaciones de archivo): el número de veces que Azure IoT Hub tratará de entregar una notificación de carga de archivos. De forma predeterminada, está establecido en 10.
+* **File notification maximum delivery count** (Número máximo de entregas de notificaciones de archivo): el número de veces que Azure IoT Hub tratará de entregar una notificación de carga de archivos. De forma predeterminada, está establecido en 10.
 
 Use el siguiente cmdlet de PowerShell para configurar la carga de archivos en su centro de IoT:
 
@@ -130,8 +130,7 @@ Para más información sobre las funcionalidades de carga de archivos de IoT Hub
 Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
 * [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
-* [Métricas de IoT Hub](iot-hub-metrics.md)
-* [Supervisión de operaciones](iot-hub-operations-monitoring.md)
+* [Supervisión del centro de IoT](monitor-iot-hub.md)
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 

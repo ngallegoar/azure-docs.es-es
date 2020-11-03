@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 67c52728b72f0941ae3c9b39552ca398c12c67a2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342304"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425144"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
@@ -30,7 +30,7 @@ En las dos tablas siguientes se muestran las características de Azure Security 
 
 |**Característica**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas habilitadas para Azure Arc**|**Azure Defender necesario**
 |----|:----:|:----:|:----:|:----:|
-|[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|✔</br>✔ (en versiones admitidas)|✔</br>✔ (en versiones admitidas)|✔|Sí|
+|[Integración de Microsoft Defender for Endpoint](security-center-wdatp.md)|✔</br>✔ (en versiones admitidas)|✔</br>✔ (en versiones admitidas)|✔|Sí|
 |[Análisis del comportamiento de máquinas virtuales (y alertas de seguridad)](alerts-reference.md)|✔|✔|✔|Sí|
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|✔|✔|✔|Sí|
 |[Alertas de seguridad basadas en la red](other-threat-protections.md#network-layer)|✔|✔|-|Sí|
@@ -54,7 +54,7 @@ En las dos tablas siguientes se muestran las características de Azure Security 
 
 |**Característica**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas habilitadas para Azure Arc**|**Azure Defender necesario**
 |----|:----:|:----:|:----:|:----:|
-|[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|-|-|-|Sí|
+|[Integración de Microsoft Defender for Endpoint](security-center-wdatp.md)|-|-|-|Sí|
 |[Análisis del comportamiento de máquinas virtuales (y alertas de seguridad)](./azure-defender.md)|✔</br>✔ (en versiones admitidas)|✔</br>✔ (en versiones admitidas)|✔|Sí|
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|-|-|-|Sí|
 |[Alertas de seguridad basadas en la red](other-threat-protections.md#network-layer)|✔|✔|-|Sí|

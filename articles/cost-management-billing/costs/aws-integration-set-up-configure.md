@@ -3,17 +3,17 @@ title: Configuración de la integración de AWS con Azure Cost Management
 description: En este artículo se le guiará a través de la instalación y configuración de la integración de informes de uso y costo de AWS con Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/23/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e900d63ba7e521cbf7e63d8580d22b08726d1ef6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266125"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517351"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Instalar y configurar la integración de informes de uso y costo de AWS
 
@@ -34,21 +34,19 @@ Use la página **Informes de uso y costo** de la consola de Administración de c
 1. Inicie sesión en la consola de Administración de AWS y abra la [Consola de administración de costos y facturación](https://console.aws.amazon.com/billing).
 2. Seleccione **Cost & Usage Reports** (Informes de costo y uso) en el panel de navegación.
 3. Seleccione **Crear informe**.
-4. En **Nombre del informe**, escriba un nombre para el informe.
-5. En **Detalles de informes adicionales**, seleccione **Incluir ID de recurso**.
-6. En **Configuración de actualización de datos**, seleccione si desea que el informe de uso y costo de AWS se actualice si AWS aplica reembolsos, créditos o honorarios de soporte técnico a su cuenta después de finalizar la factura. Cuando se actualiza un informe, se carga un nuevo informe a Amazon S3. Se recomienda dejar la opción seleccionada.
+4. En **Nombre del informe** , escriba un nombre para el informe.
+5. En **Detalles de informes adicionales** , seleccione **Incluir ID de recurso**.
+6. En **Configuración de actualización de datos** , seleccione si desea que el informe de uso y costo de AWS se actualice si AWS aplica reembolsos, créditos o honorarios de soporte técnico a su cuenta después de finalizar la factura. Cuando se actualiza un informe, se carga un nuevo informe a Amazon S3. Se recomienda dejar la opción seleccionada.
 7. Seleccione **Next** (Siguiente).
-8. En **Bucket de S3**, elija **Configurar**.
-9. En el cuadro de diálogo Configurar bucket de S3, realice una de las siguientes tareas:
-    1. Seleccione un bucket existente en la lista desplegable y elija **Siguiente**.
-    2. Escriba un nombre de bucket y la región donde desea crear un nuevo bucket y elija **Siguiente**.
-10.    Seleccione **Confirmo que esta política es correcta** y haga clic en **Guardar**.
-11.    (Opcional) En Prefijo de la ruta del informe, escriba el prefijo de la ruta de acceso del informe que quiera antes del nombre del informe.
+8. En **Bucket de S3** , elija **Configurar**.
+9. En el cuadro de diálogo Configure S3 Bucket (Configurar cubo S3), escriba un nombre de cubo y la región en la que desea crear un nuevo cubo y elija **Next** (Siguiente).
+10. Seleccione **Confirmo que esta política es correcta** y haga clic en **Guardar**.
+11. (Opcional) En Prefijo de la ruta del informe, escriba el prefijo de la ruta de acceso del informe que quiera antes del nombre del informe.
 Si no especifica un prefijo, el prefijo predeterminado es el nombre que especificó para el informe. El intervalo de fechas tiene el formato `/report-name/date-range/`.
-12. Para **Detalle del tiempo**, elija **Por hora**.
-13.    En **Control de versiones de informe**, elija si desea que cada versión del informe sobrescriba la versión anterior o si desea informes nuevos adicionales.
-14. En **Habilitar la integración de datos de informe para**, no se requiere ninguna selección.
-15. Para **Tipo de compresión**, seleccione **GZIP**.
+12. Para **Detalle del tiempo** , elija **Por hora**.
+13. En **Control de versiones de informe** , elija si desea que cada versión del informe sobrescriba la versión anterior o si desea informes nuevos adicionales.
+14. En **Habilitar la integración de datos de informe para** , no se requiere ninguna selección.
+15. Para **Tipo de compresión** , seleccione **GZIP**.
 16. Seleccione **Next** (Siguiente).
 17. Una vez que haya revisado la configuración para el informe, seleccione **Revisar y completar**.
 
@@ -68,9 +66,9 @@ Use el Asistente para crear un nuevo rol:
 2. En la lista de servicios, seleccione **IAM**.
 3. Seleccione **Roles** y, a continuación, seleccione **Crear un rol**.
 4. En la siguiente página, seleccione **Otra cuenta de AWS**.
-5. En **ID de cuenta**, escriba **432263259397**.
-6. En **Opciones**, seleccione **Requerir un ID externo (practica recomendada si un tercero va a adoptar este rol)** .
-7. En **Id. externo**, escriba el identificador externo, que es un código de acceso compartido entre el rol de AWS y Azure Cost Management. También se usa el mismo id. externo en la página **Nuevo conector** de Cost Management. Microsoft recomienda que use una directiva de código de acceso segura al especificar el identificador externo.
+5. En **ID de cuenta** , escriba **432263259397**.
+6. En **Opciones** , seleccione **Requerir un ID externo (practica recomendada si un tercero va a adoptar este rol)** .
+7. En **Id. externo** , escriba el identificador externo, que es un código de acceso compartido entre el rol de AWS y Azure Cost Management. También se usa el mismo id. externo en la página **Nuevo conector** de Cost Management. Microsoft recomienda que use una directiva de código de acceso segura al especificar el identificador externo.
     > [!NOTE]
     > No cambie la selección de **Require MFA (Requerir MFA)** . Debe permanecer desactivado.
 8. Seleccione **Siguiente: Permisos**.
@@ -94,7 +92,7 @@ Configure el permiso para el bucket de S3 y objetos:
 7. En **Bucket name** (Nombre de bucket), escriba el bucket que se usa para almacenar los archivos CUR.
 8. Seleccione **objeto: Agregar ARN**.
 9. En **Bucket name** (Nombre de bucket), escriba el bucket que se usa para almacenar los archivos CUR.
-10. En **Nombre de objeto**, seleccione **Cualquiera**.
+10. En **Nombre de objeto** , seleccione **Cualquiera**.
 11. Seleccione **Añadir permisos adicionales**.
 
 Configure el permiso para Cost Explorer:
@@ -108,7 +106,7 @@ Agregue el permiso para AWS Organizations:
 
 1. Escriba **Organizations**.
 2. Seleccione **Nivel de acceso** > **Enumeración** > **ListAccounts**. Esta acción obtiene los nombres de las cuentas.
-3. En **Revisar la directiva**, escriba un nombre para la nueva directiva. Compruebe que escribió la información correcta y, a continuación, seleccione **Crear directiva**.
+3. En **Revisar la directiva** , escriba un nombre para la nueva directiva. Compruebe que escribió la información correcta y, a continuación, seleccione **Crear directiva**.
 4. Vuelva a la pestaña anterior y actualice la página web de su explorador. Busque la nueva directiva en la barra de búsqueda.
 5. Seleccione **Siguiente: Review** (Siguiente: revisar).
 6. Escriba un nombre para el nuevo rol. Compruebe que escribió la información correcta y, a continuación, seleccione **Crear rol**.
@@ -153,16 +151,16 @@ Use la siguiente información para crear un conector de AWS y comenzar a supervi
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Vaya a **Administración de costos + facturación** > **Administración de costos**.
-3. En **Configuración**, seleccione **Conectores para AWS**.  
+3. En **Configuración** , seleccione **Conectores para AWS**.  
 4. Seleccione **+ Agregar** en la parte superior de la página para crear un conector.  
     :::image type="content" source="./media/aws-integration-setup-configure/aws-connector.png" alt-text="Ejemplo en el que se muestra la configuración de Conectores para AWS" :::
-1. En la página **Crear un conector**, en **Nombre para mostrar**, escriba el nombre del conector.  
+1. En la página **Crear un conector** , en **Nombre para mostrar** , escriba el nombre del conector.  
     :::image type="content" source="./media/aws-integration-setup-configure/create-aws-connector01.png" alt-text="Ejemplo de la página para crear un conector de AWS" :::
 1. Opcionalmente, seleccione el grupo de administración predeterminado. Almacenará todas las cuentas vinculadas detectadas. Se puede configurar más adelante.
-1. En la sección **Facturación**, en **Renovación automática** seleccione **Activar** si desea asegurarse de que funcionará de forma continuada. Si selecciona la opción automática, debe seleccionar una suscripción de facturación.
-1. Para **Rol de ARN**, escriba el valor que usó al configurar el rol en AWS.
-1. Para **Id. externo**, escriba el valor que usó al configurar el rol en AWS.
-1. Para **Nombre del informe**, escriba el nombre que creó en AWS.
+1. En la sección **Facturación** , en **Renovación automática** seleccione **Activar** si desea asegurarse de que funcionará de forma continuada. Si selecciona la opción automática, debe seleccionar una suscripción de facturación.
+1. Para **Rol de ARN** , escriba el valor que usó al configurar el rol en AWS.
+1. Para **Id. externo** , escriba el valor que usó al configurar el rol en AWS.
+1. Para **Nombre del informe** , escriba el nombre que creó en AWS.
 1. Seleccione **Siguiente** y después **Crear**.
 
 Los nuevos ámbitos de AWS, la cuenta consolidada de AWS y las cuentas vinculadas de AWS y sus datos de costo pueden tardar unas horas en aparecer.
@@ -175,14 +173,14 @@ Al asignar permisos de conector a los usuarios después de que se produzca la de
 
 - [Configure grupos de administración](../../governance/management-groups/overview.md#initial-setup-of-management-groups), si no lo ha hecho ya.
 - Compruebe que se agregan nuevos ámbitos para el selector de ámbitos. Seleccione **Actualizar** para ver los datos más recientes.
-- En la página **Conectores de nube**, seleccione el conector y seleccione **Ir a la cuenta de facturación** para asignar la cuenta vinculada a grupos de administración.
+- En la página **Conectores de nube** , seleccione el conector y seleccione **Ir a la cuenta de facturación** para asignar la cuenta vinculada a grupos de administración.
 
 > [!NOTE]
 > Los grupos de administración no se admiten actualmente para clientes con Contrato de cliente de Microsoft (MCA). Los clientes MCA pueden crear el conector y ver sus datos de AWS. Sin embargo, los clientes MCA no pueden ver los costos de Azure y los costos de AWS juntos en un grupo de administración.
 
 ## <a name="manage-aws-connectors"></a>Administración de conectores de Amazon Web Services
 
-Cuando selecciona un conector en la página **Conectores para AWS**, puede:
+Cuando selecciona un conector en la página **Conectores para AWS** , puede:
 
 - Seleccionar **Ir a la cuenta de facturación** para ver información de la cuenta consolidada de AWS.
 - Seleccione **Access Control** para administrar la asignación de roles para el conector.

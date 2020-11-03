@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 5e3b9b841c8e6ff17a29ac9c6a5e746ed6b687b9
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f99a3110880626b3a809e6bab5edc02398094547
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128431"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426222"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Requisitos del almacenamiento de blobs de Azure Stack Edge
 
@@ -21,16 +21,14 @@ En este artículo se enumeran las versiones de las API de Azure, las bibliotecas
 
 Se recomienda que revise cuidadosamente la información antes de conectarse al almacenamiento de blobs de Azure Stack Edge y que luego vuelva a ella si es necesario.
 
-
 ## <a name="storage-differences"></a>Diferencias de almacenamiento
 
 |     Característica                                             |     Azure Storage                                     |     Almacenamiento de blobs de Azure Stack Edge |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Almacenamiento de archivos de Azure                                   |    Recursos compartidos de archivos SMB basado en la nube admitidos              |    No compatible      |
-|    Cifrado de servicio para datos en reposo                  |    Cifrado de AES de 256 bits                             |    Cifrado de AES de 256 bits |
 |    Tipo de cuenta de almacenamiento                                 |    Cuentas de Azure Blob Storage y de uso general    |    Solo de uso general v1|
 |    Nombre de blob                                            |    1 024 caracteres (2 048 bytes)                     |    880 caracteres (1 760 bytes)|
-|    Tamaño máximo del blob en bloques                              |    4,75 TB (100 MB x 50 000 bloques)                   |    4,75 TB (100 MB x 50 000 bloques) para Azure Stack Edge v2.1.1377.2170 y versiones posteriores|
+|    Tamaño máximo del blob en bloques                              |    4,75 TB (100 MB x 50 000 bloques)                   |    4,75 TB (100 MB x 50 000 bloques) para Azure Stack Edge|
 |    Tamaño máximo del blob en páginas                               |    8 TB                                               |    1 TB                   |
 |    Tamaño de página de blob en página                                  |    512 bytes                                          |    4 KB                   |
 
@@ -44,7 +42,7 @@ Se admiten las siguientes versiones de las API del servicio Azure Storage con el
 
 ## <a name="supported-azure-client-libraries"></a>Bibliotecas de clientes de Azure compatibles
 
-Para el almacenamiento en blobs de Azure Stack Edge, hay requisitos de bibliotecas cliente y de sufijos de puntos de conexión que son específicos. Los puntos de conexión del almacenamiento de blobs de Azure Stack Edge no tienen una paridad completa con la última versión de la API de REST de Azure Blob Storage. Para más información, consulte las [versiones de API compatibles con Azure Stack Edge 2.1.1377.2170 y versiones posteriores](#supported-api-versions). En lo que respecta a las bibliotecas de cliente de almacenamiento, debe conocer cuál es la versión compatible con la API REST.
+Para el almacenamiento en blobs de Azure Stack Edge, hay requisitos de bibliotecas cliente y de sufijos de puntos de conexión que son específicos. Los puntos de conexión del almacenamiento de blobs de Azure Stack Edge no tienen una paridad completa con la última versión de la API REST de Azure Blob Storage. Para más información, consulte las [versiones de API compatibles con Azure Stack Edge](#supported-api-versions). En lo que respecta a las bibliotecas de cliente de almacenamiento, debe conocer cuál es la versión compatible con la API REST.
 
 ### <a name="azure-stack-edge-2113772170-onwards"></a>Azure Stack Edge 2.1.1377.2170 y versiones posteriores
 
@@ -52,10 +50,11 @@ Las siguientes versiones de la biblioteca cliente de Azure son compatibles con e
 
 [!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
-### <a name="install-php-client-via-composer---current"></a>Instalación del cliente PHP a través de compositor: actual
+### <a name="install-the-php-client-via-composer---current"></a>Instalación del cliente PHP a través de Composer: actual
 
-Para instalar a través de compositor: (usaremos blob como ejemplo).
-1. Cree un archivo llamado composer.json en la raíz del proyecto con el siguiente código:
+Para instalar el cliente PHP a través de Composer:
+
+1. Cree un archivo denominado composer.json en la raíz del proyecto con el código siguiente (el ejemplo utiliza el servicio Azure Storage Blob).
 
     ```
     {
@@ -68,10 +67,12 @@ Para instalar a través de compositor: (usaremos blob como ejemplo).
 
 3. Ejecute: php composer.phar install.
 
-### <a name="endpoint-declaration"></a>Declaración de punto de conexión
+
+## <a name="endpoint-declaration"></a>Declaración de punto de conexión
 
 En el SDK de almacenamiento de blobs de Azure Stack Edge, el sufijo de punto de conexión, `<device serial number>.microsoftdatabox.com`, identifica el dominio de Azure Stack Edge. Para obtener más información sobre el punto de conexión de Blob service, vaya a [Transferencia de datos a través de cuentas de almacenamiento de Azure Stack Edge Pro con GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
- 
+
+
 ## <a name="examples"></a>Ejemplos
 
 ### <a name="net"></a>.NET

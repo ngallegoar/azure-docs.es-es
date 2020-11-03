@@ -1,14 +1,14 @@
 ---
-title: Entrega de evento con Managed Service Identity
+title: Entrega de eventos, identidad de servicio administrado y vínculo privado
 description: En este artículo se describe cómo habilitar Managed Service Identity para un tema de Azure Event Grid. Úselo para reenviar eventos a los destinos admitidos.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534250"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460927"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
 En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) de temas o dominios de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
@@ -17,6 +17,9 @@ Estos son los pasos que se describen en detalle en este artículo:
 1. Cree un tema o un dominio con una identidad asignada por el sistema, o bien actualice un tema o dominio existente para habilitar la identidad. 
 1. Agregue la identidad a un rol adecuado (por ejemplo, Remitente de los datos de Service Bus) en el destino (por ejemplo, una cola de Service Bus).
 1. Al crear suscripciones de eventos, habilite el uso de la identidad para enviar eventos al destino. 
+
+> [!NOTE]
+> Actualmente, no es posible enviar eventos mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Para obtener más información, consulte la sección [Puntos de conexión privado](#private-endpoints) al final de este artículo. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Creación de un tema o un dominio con una identidad
 En primer lugar, echemos un vistazo a cómo crear un tema o un dominio con una identidad administrada por el sistema.
@@ -86,7 +89,7 @@ En el siguiente ejemplo se agrega una identidad administrada de un tema de Event
 1. Vaya al **espacio de nombres de Service Bus** en [Azure Portal](https://portal.azure.com). 
 1. Seleccione **Control de acceso** en el panel izquierdo. 
 1. Seleccione **Agregar** en la sección **Agregar una asignación de roles**. 
-1. En la página **Agregar una asignación de roles**, siga estos pasos:
+1. En la página **Agregar una asignación de roles** , siga estos pasos:
     1. Seleccione el rol. En este caso, es **Emisor de datos de Azure Event Hubs** 
     1. Seleccione la **identidad** para su tema o dominio. 
     1. Para guardar la configuración, seleccione **Guardar**.
@@ -279,6 +282,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## <a name="private-endpoints"></a>Puntos de conexión privados
+Actualmente, no es posible enviar eventos mediante [puntos de conexión privados](../private-link/private-endpoint-overview.md). Es decir, no hay compatibilidad si tiene requisitos de aislamiento de red estrictos por los que el tráfico de eventos entregados no debe abandonar el espacio de la IP privada. 
+
+Sin embargo, si sus requisitos exigen una forma segura de enviar eventos mediante un canal cifrado y una identidad conocida del remitente (en este caso, Event Grid) mediante un espacio de IP pública, puede enviar eventos a Event Hubs, Service Bus o Azure Storage mediante un tema de Azure Event Grid o un dominio con una identidad administrada por el sistema configurada como se muestra en este artículo. Después, puede usar un vínculo privado configurado en Azure Functions o en el webhook implementado en la red virtual para extraer eventos. Vea el siguiente ejemplo: [Conexión a puntos de conexión privados con Azure Functions](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+
+Tenga en cuenta que, en esta configuración, el tráfico pasa por la dirección IP pública/Internet desde Event Grid a Event Hubs, Service Bus o Azure Storage, pero el canal se puede cifrar y se usa una identidad administrada de Event Grid. Si configura Azure Functions o el webhook implementado en la red virtual para usar una instancia de Event Hubs, Service Bus o Azure Storage a través de un vínculo privado, esa sección del tráfico permanecerá en Azure de forma evidente.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132370"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460689"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferencia de suscripciones de Azure entre suscriptores y CSP
 
 En este artículo se proporcionan los pasos generales que se siguen para transferir suscripciones de Azure a asociados del Proveedor de soluciones en la nube (CSP) y sus clientes, y a recibirlos de ellos. Esta información está pensada para el suscriptor de Azure, para ayudarle a coordinarse con su asociado. La información que los asociados de Microsoft usan para el proceso de transferencia se documenta en [Aprenda cómo transferir las suscripciones de Azure de un cliente a otro asociado](/partner-center/switch-azure-subscriptions-to-a-different-partner).
+
+Antes de iniciar una solicitud de transferencia, debe descargar o exportar el costo y la información de facturación que desee conservar. La información de facturación y uso no se transfiere con la suscripción. Para más información acerca de cómo exportar datos de administración de costos, consulte [Creación y administración de datos exportados](../costs/tutorial-export-acm-data.md). Para más información sobre cómo descargar los datos de uso y factura, consulte [Procedimiento para descargar los datos de uso diario y de factura de Azure](download-azure-invoice-daily-usage-date.md).
+
+Si tiene reservas existentes, dejarán de aplicarse después de transferir una suscripción. Asegúrese de [cancelar las reservas y reembolsarlas](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir una suscripción.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferencia de suscripciones EA a un asociado de CSP
 

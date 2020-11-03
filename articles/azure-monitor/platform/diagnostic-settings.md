@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107936"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489445"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Creación de una configuración de diagnóstico para enviar los registros y las métricas de la plataforma a diferentes destinos
 Los [registros de plataforma](platform-logs-overview.md) de Azure, como los registros de recursos y los registros de actividad de Azure, proporcionan información de diagnóstico y auditoría detallada sobre los recursos de Azure y la plataforma de Azure de la que dependen. Las [métricas de plataforma](data-platform-metrics.md) se recopilan de forma predeterminada y suelen almacenarse en la base de datos de métricas de Azure Monitor. En este artículo, se explica cómo crear y establecer la configuración de diagnóstico para enviar métricas y registros de plataforma a diferentes destinos.
@@ -34,7 +34,7 @@ El siguiente vídeo describe cómo enrutar registros de plataforma con una confi
 > Las [métricas de plataforma](metrics-supported.md) se envían automáticamente a las [métricas de Azure Monitor](data-platform-metrics.md). Las configuraciones de diagnóstico se pueden usar para enviar métricas de determinados servicios de Azure a los registros de Azure Monitor a fin de analizarlas con otros datos de supervisión mediante [consultas de registro](../log-query/log-query-overview.md) con algunas limitaciones. 
 >  
 >  
-> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión. *Por ejemplo*: La métrica 'IOReadBytes' de una cadena de bloques puede consultarse y representarse individualmente en cada nodo. Sin embargo, cuando se exporta utilizando la configuración de diagnóstico, la métrica exportada representa los bytes de lectura de todos los nodos. Además, debido a limitaciones internas, no todas las métricas se exportan a los registros de Azure Monitor o Log Analytics. Para más información, consulte la [lista de métricas exportables](metrics-supported-export-diagnostic-settings.md). 
+> Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión. *Por ejemplo* : La métrica 'IOReadBytes' de una cadena de bloques puede consultarse y representarse individualmente en cada nodo. Sin embargo, cuando se exporta utilizando la configuración de diagnóstico, la métrica exportada representa los bytes de lectura de todos los nodos. Además, debido a limitaciones internas, no todas las métricas se exportan a los registros de Azure Monitor o Log Analytics. Para más información, consulte la [lista de métricas exportables](metrics-supported-export-diagnostic-settings.md). 
 >  
 >  
 > Para solucionar estas limitaciones de métricas específicas, se recomienda extraerlas manualmente mediante la [API REST de métricas](/rest/api/monitor/metrics/list) e importarlas a los registros de Azure Monitor con [Data Collector API de Azure Monitor](data-collector-api.md).  
@@ -63,6 +63,8 @@ Se deben crear todos los destinos para la configuración de diagnóstico antes d
 > [!NOTE]
 > Actualmente, las cuentas de Azure Data Lake Storage Gen2 no se admiten como destino de la configuración de diagnóstico, aunque pueden aparecer como una opción válida en Azure Portal.
 
+> [!NOTE]
+> Azure Monitor (configuración de diagnósticos) no puede tener acceso a los recursos de Event Hubs cuando están habilitadas las redes virtuales. Tiene que habilitar la opción de permitir que los servicios de confianza de Microsoft puedan omitir este firewall en la instancia de Event Hubs para que Azure Monitor (configuración de diagnósticos) tenga acceso a los recursos de Event Hubs. 
 
 
 ## <a name="create-in-azure-portal"></a>Creación en Azure Portal
@@ -103,21 +105,21 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
        > Consulte las limitaciones para enrutar métricas a los registros de Azure Monitor anteriormente en este artículo.  
 
 
-     - En **Registros**, se muestran las distintas categorías disponibles en función del tipo de recurso. Seleccione las categorías que desee enrutar a un destino.
+     - En **Registros** , se muestran las distintas categorías disponibles en función del tipo de recurso. Seleccione las categorías que desee enrutar a un destino.
 
-5. **Detalles del destino**: active la casilla de cada destino. Cuando se activa una casilla, aparecen opciones que le permiten agregar información adicional.
+5. **Detalles del destino** : active la casilla de cada destino. Cuando se activa una casilla, aparecen opciones que le permiten agregar información adicional.
 
       ![Envío a Log Analytics o centros de eventos](media/diagnostic-settings/send-to-log-analytics-event-hubs.png)
 
-    1. **Log Analytics**: especifique la suscripción y el área de trabajo.  Si no tiene ningún área de trabajo, tendrá que [crear una antes de continuar](../learn/quick-create-workspace.md).
+    1. **Log Analytics** : especifique la suscripción y el área de trabajo.  Si no tiene ningún área de trabajo, tendrá que [crear una antes de continuar](../learn/quick-create-workspace.md).
 
-    1. **Centro de eventos**: especifique los criterios siguientes:
+    1. **Centro de eventos** : especifique los criterios siguientes:
        - La suscripción de la que forma parte el centro de eventos.
        - El espacio de nombres del centro de eventos. Si aún no lo ha hecho, tendrá que [crear uno](../../event-hubs/event-hubs-create.md).
        - El nombre del centro de eventos (opcional) al que se van a enviar todos los datos. Si no especifica un nombre, se crea un centro de eventos para cada categoría de registro. Si va a enviar varias categorías, puede especificar un nombre para limitar el número de centros de eventos creados. Consulte [Cuotas y límites de Azure Event Hubs](../../event-hubs/event-hubs-quotas.md) para más detalles.
        - La directiva del centro de eventos (opcional), una directiva que defina los permisos que tiene el mecanismo de transmisión. Para más información, consulte este artículo sobre las [características de los centros de eventos](../../event-hubs/event-hubs-features.md#publisher-policy).
 
-    1. **Storage**: elija una suscripción, una cuenta de almacenamiento y una directiva de retención.
+    1. **Storage** : elija una suscripción, una cuenta de almacenamiento y una directiva de retención.
 
         ![Enviar a Storage](media/diagnostic-settings/storage-settings-new.png)
 
@@ -128,7 +130,7 @@ Puede realizar configuraciones de diagnóstico en Azure Portal desde el menú de
         >
         > Si establece la directiva de retención de *WorkflowRuntime* en 180 días y 24 horas después la establece en 365 días, los registros almacenados durante las primeras 24 horas se eliminarán automáticamente a los 180 días, mientras que todos los registros posteriores de ese mismo tipo se eliminarán automáticamente después de 365 días. Aunque posteriormente se modifique la directiva de retención, los registros que se almacenaron durante las 24 primeras horas no se conservarán 365 días.
 
-6. Haga clic en **Save**(Guardar).
+6. Haga clic en **Save** (Guardar).
 
 Transcurridos unos instantes, la nueva configuración aparece en la lista de configuraciones para este recurso y los registros se transmiten a los destinos especificados en cuanto se generan nuevos datos de eventos. Pueden pasar hasta quince minutos desde que se emite un evento hasta que [aparece en un área de trabajo de Log Analytics](data-ingestion-time.md).
 

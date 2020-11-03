@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836435"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489581"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Inicio rápido: Creación y administración de un recurso compartido de Azure Files con Windows Virtual Machines
 
@@ -63,15 +63,15 @@ Ya ha creado una cuenta de Azure Storage y un recurso compartido de archivos con
 ### <a name="deploy-a-vm"></a>Implementación de una máquina virtual
 
 1. A continuación, expanda el menú del lado izquierdo del portal y elija **Crear un recurso** en la esquina superior izquierda de Azure Portal.
-1. En el cuadro de búsqueda que está encima de la lista de recursos de **Azure Marketplace**, busque **Windows Server 2016 Datacenter**, selecciónelo y, después, elija **Crear**.
-1. En la pestaña **Conceptos básicos**, en **Detalles del proyecto**, seleccione el grupo de recursos que creó para esta guía de inicio rápido.
+1. En el cuadro de búsqueda que está encima de la lista de recursos de **Azure Marketplace** , busque **Windows Server 2016 Datacenter** , selecciónelo y, después, elija **Crear**.
+1. En la pestaña **Conceptos básicos** , en **Detalles del proyecto** , seleccione el grupo de recursos que creó para esta guía de inicio rápido.
 
    ![Especificación de la información básica de la máquina virtual en la hoja del Portal](./media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png)
 
-1. En **Detalles de la instancia**, asigne a la máquina virtual el nombre *qsVM*.
-1. Deje la configuración predeterminada en **Región**, **Opciones de disponibilidad**, **Imagen** y **Tamaño**.
-1. En **Cuenta de administrador**, agregue *VMadmin* como el **Nombre de usuario** y escriba una **Contraseña** para la máquina virtual.
-1. En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP** en la lista desplegable.
+1. En **Detalles de la instancia** , asigne a la máquina virtual el nombre *qsVM*.
+1. Deje la configuración predeterminada en **Región** , **Opciones de disponibilidad** , **Imagen** y **Tamaño**.
+1. En **Cuenta de administrador** , agregue *VMadmin* como el **Nombre de usuario** y escriba una **Contraseña** para la máquina virtual.
+1. En **Reglas de puerto de entrada** , elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** y **HTTP** en la lista desplegable.
 1. Seleccione **Revisar + crear**.
 1. Seleccione **Crear**. La creación de una máquina virtual nueva tardará varios minutos en completarse.
 
@@ -87,7 +87,7 @@ Ya ha creado una nueva máquina virtual y ha conectado un disco de datos. Ahora 
 
 1. En la página **Connect to virtual machine** (Conectarse a una máquina virtual), mantenga las opciones predeterminadas para conectarse por **dirección IP** a través del **número de puerto** *3389* y seleccione **Descargar archivo RDP**.
 1. Abra el archivo RDP que descargó y haga clic en **Conectar** cuando se le solicite.
-1. En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario con el siguiente formato, *localhost\nombre de usuario*, siendo &lt;nombre de usuario&gt; el nombre de usuario administrador de la máquina virtual que creó. Escriba la contraseña que creó para la máquina virtual y, luego seleccione **Aceptar**.
+1. En la ventana **Seguridad de Windows** , seleccione **Más opciones** y, después, **Usar otra cuenta**. Escriba el nombre de usuario con el siguiente formato, *localhost\nombre de usuario* , siendo &lt;nombre de usuario&gt; el nombre de usuario administrador de la máquina virtual que creó. Escriba la contraseña que creó para la máquina virtual y, luego seleccione **Aceptar**.
 
    ![Más opciones](./media/storage-files-quick-create-use-windows/local-host2.png)
 
@@ -98,9 +98,9 @@ Ya ha creado una nueva máquina virtual y ha conectado un disco de datos. Ahora 
 1. En Azure Portal, vaya al recurso compartido de archivos *qsfileshare* y seleccione **Conectar**.
 1. Copie el contenido de la segunda casilla y péguelo en el **Bloc de notas**.
 
-   ![Ruta de acceso UNC en el panel Conectar de Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   ![Captura de pantalla que muestra el contenido del cuadro de segundos que debe copiar y pegar en el Bloc de notas.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
-1. En la máquina virtual, abra **Explorador de archivos** y seleccione **Este equipo** en la ventana. Esta selección cambiará los menús disponibles en la barra de herramientas. En el menú **Equipo**, seleccione **Conectar a unidad de red**.
+1. En la máquina virtual, abra **Explorador de archivos** y seleccione **Este equipo** en la ventana. Esta selección cambiará los menús disponibles en la barra de herramientas. En el menú **Equipo** , seleccione **Conectar a unidad de red**.
 1. Seleccione la letra de unidad y escriba la ruta de acceso UNC. Si ha seguido las sugerencias de nomenclatura en esta guía de inicio rápido, copie *\\qsstorageacct.file.core.windows.net\qsfileshare* desde el **Bloc de notas**.
 
    Asegúrese de que ambas casillas están seleccionadas.
@@ -108,7 +108,7 @@ Ya ha creado una nueva máquina virtual y ha conectado un disco de datos. Ahora 
    ![Captura de pantalla del cuadro de diálogo "Conectar a unidad de red"](./media/storage-files-quick-create-use-windows/mountonwindows10.png)
 
 1. Seleccione **Finalizar**.
-1. En el cuadro de diálogo **Seguridad de Windows**:
+1. En el cuadro de diálogo **Seguridad de Windows** :
 
    - Desde el Bloc de notas, copie el nombre de la cuenta de almacenamiento precedido de AZURE\ y péguelo en el cuadro de diálogo **Windows Security** como nombre de usuario. Si ha seguido las sugerencias de nomenclatura en esta guía de inicio rápido, copie *AZURE\qsstorageacct*.
    - Desde el Bloc de notas, copie la clave de la cuenta de almacenamiento y péguela en el cuadro de diálogo **Windows Security** como contraseña.
@@ -129,7 +129,7 @@ Ahora que ha asignado la unidad, puede crear una instantánea.
 ## <a name="browse-a-share-snapshot"></a>Búsqueda de una instantánea de recurso compartido
 
 1. En el recurso compartido de archivos, seleccione **Ver instantáneas**.
-1. En el panel **Instantáneas de recursos compartidos de archivos**, seleccione la primera instantánea en la lista.
+1. En el panel **Instantáneas de recursos compartidos de archivos** , seleccione la primera instantánea en la lista.
 
    ![Instantánea seleccionada en la lista de marcas de tiempo](./media/storage-files-quick-create-use-windows/snapshot-list.png)
 
@@ -147,7 +147,7 @@ Ahora que ha asignado la unidad, puede crear una instantánea.
 ## <a name="delete-a-share-snapshot"></a>Eliminación de una instantánea de recurso compartido
 
 1. En el recurso compartido de archivos, seleccione **Ver instantáneas**.
-1. En el panel **Instantáneas de recursos compartidos de archivos**, seleccione las últimas instantáneas en la lista y haga clic en **Eliminar**.
+1. En el panel **Instantáneas de recursos compartidos de archivos** , seleccione las últimas instantáneas en la lista y haga clic en **Eliminar**.
 
    ![Botón Eliminar](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 

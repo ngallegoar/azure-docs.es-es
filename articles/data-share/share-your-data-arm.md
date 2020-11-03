@@ -1,30 +1,30 @@
 ---
 title: 'Uso compartido fuera de la organización (plantilla de ARM): Inicio rápido de Azure Data Share'
-description: Aprenda a compartir los datos con los clientes y los asociados mediante Azure Data Share y la plantilla de Resource Manager en este inicio rápido.
+description: En este inicio rápido, aprenderá a compartir datos con clientes y asociados mediante Azure Data Share y una plantilla de Azure Resource Manager en este inicio rápido.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146146"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487694"
 ---
-# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Inicio rápido: uso compartido de datos mediante Azure Data Share y las plantillas de Resource Manager
+# <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Inicio rápido: Uso compartido de datos mediante Azure Data Share y una plantilla de Resource Manager
 
-Aprenda a configurar una nueva instancia de Azure Data Share desde una cuenta de Azure Storage mediante una plantilla de Resource Manager y a empezar a compartir datos con clientes y asociados externos a la organización de Azure. Para ver una lista de los almacenes de datos compatibles, consulte los [Almacenes de datos admitidos en Azure Data Share](./supported-data-stores.md).
+Aprenda a configurar una instancia nueva de Azure Data Share desde una cuenta de Azure Storage mediante una plantilla de Azure Resource Manager. Y comience a compartir datos con clientes y asociados de fuera de la organización de Azure. Para ver una lista de los almacenes de datos compatibles, consulte los [Almacenes de datos admitidos en Azure Data Share](./supported-data-stores.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure** . La plantilla se abrirá en Azure Portal.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
 
 [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
@@ -38,12 +38,12 @@ Los recursos siguientes se definen en la plantilla:
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft.Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft.DataShare/accounts](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft.DataShare/accounts/shares](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft.Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/accounts](/rest/api/datashare/accounts/create)
-* [Microsoft.DataShare/accounts/shares](/rest/api/datashare/shares/create)
-* [Microsoft.DataShare/accounts/shares/dataSets](/rest/api/datashare/datasets/create)
-* [Microsoft.DataShare/accounts/shares/invitations](/rest/api/datashare/invitations/create)
-* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft.DataShare/accounts/shares/dataSets](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft.DataShare/accounts/shares/invitations](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 La plantilla realiza las siguientes tareas:
 
@@ -56,11 +56,11 @@ La plantilla realiza las siguientes tareas:
 
 Esta plantilla se crea con fines formativos. En la práctica, lo habitual es que haya datos en una cuenta de almacenamiento existente. Sería preciso que creara la asignación de roles antes de ejecutar una plantilla o un script para crear el conjunto de datos. Algunas veces puede aparecer el siguiente mensaje de error cuando se implementa la plantilla:
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Esto se debe a que la implementación intenta crear el conjunto de datos antes de que haya finalizado la asignación de roles de Azure. A pesar del mensaje de error, la implementación puede haberse realizado correctamente.  Puede examinar la sección [Revisión de los recursos implementados](#review-deployed-resources).
+Esto se debe a que la implementación intenta crear el conjunto de datos antes de que haya finalizado la asignación de roles de Azure. A pesar del mensaje de error, la implementación puede haberse realizado correctamente. Puede examinar la sección [Revisión de los recursos implementados](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
@@ -77,7 +77,7 @@ Esto se debe a que la implementación intenta crear el conjunto de datos antes d
     * **Invitation Email** (Correo electrónico de invitación): escriba la dirección de correo electrónico de inicio de sesión de Azure del destinatario del recurso compartido de datos.  El alias de correo electrónico no funciona.
 
     Use el valor predeterminado en el resto de la configuración.
-1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, **Comprar** .
+1. Seleccione **Acepto los términos y condiciones indicados anteriormente** y, después, **Comprar**.
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
@@ -87,7 +87,7 @@ Esto se debe a que la implementación intenta crear el conjunto de datos antes d
 1. Seleccione la cuenta de almacenamiento.  En **Detalles** , verá el valor de sincronización que ha configurado en la plantilla.
 
     ![Configuración de sincronización de la cuenta de almacenamiento de Azure Data Share](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
-1. Seleccione **Invitaciones** en la parte superior. Verá la dirección de correo electrónico que especificó al implementar la plantilla. El valor de **Estado** debe estar **Pendiente** .
+1. Seleccione **Invitaciones** en la parte superior. Verá la dirección de correo electrónico que especificó al implementar la plantilla. El valor de **Estado** debe estar **Pendiente**.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -1,6 +1,6 @@
 ---
-title: Uso de una plantilla de ARM para publicar en IoT Hub, crear una cuenta de almacenamiento y enrutar mensajes
-description: Uso de una plantilla de ARM para publicar en IoT Hub, crear una cuenta de almacenamiento y enrutar mensajes
+title: Uso de una plantilla de Resource Manager para publicar Azure IoT Hub, una cuenta de almacenamiento y mensajes de la ruta
+description: Uso de una plantilla de Resource Manager para publicar Azure IoT Hub, una cuenta de almacenamiento y mensajes de la ruta
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,18 +8,22 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1b9c576ce03d808fe6a4d0cac5196dfcd1b73eab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148913"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545487"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Inicio rápido: Implementación de un centro de Azure IoT Hub y una cuenta de almacenamiento mediante una plantilla de ARM
 
 En esta guía de inicio rápido, usará una plantilla de Azure Resource Manager (plantilla de ARM) para crear un centro de IoT que enrute los mensajes a Azure Storage y una cuenta de almacenamiento que contenga los mensajes. Después de agregar manualmente un dispositivo IoT virtual al centro para enviar los mensajes, configure esa información de conexión en una aplicación llamada *arm-read-write* para enviar mensajes desde el dispositivo al centro. El centro se configura de modo que los mensajes enviados al centro se enruten automáticamente a la cuenta de almacenamiento. Al final de esta guía de inicio rápido, podrá abrir la cuenta de almacenamiento y ver los mensajes enviados.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementar en Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,9 +35,10 @@ La plantilla usada en esta guía de inicio rápido se llama `101-iothub-auto-rou
 
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
-En la plantilla se definen dos recursos de Azure: 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage/allversions)
+En la plantilla se definen dos recursos de Azure:
+
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Devices/IotHubs](/azure/templates/microsoft.devices/iothubs)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>Implementación de la plantilla y ejecución de la aplicación de ejemplo
 
@@ -48,7 +53,7 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
 
 1. Descargue y descomprima los [ejemplos de IoT en C#](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
-1. Abra una ventana de comandos y vaya a la carpeta en la que descomprimió los ejemplos de IoT en C#. Busque la carpeta con el archivo arm-read-write.csproj. En esta ventana de comandos se crean las variables de entorno. Inicie sesión en Azure Portal (https://portal.azure.com ) para obtener las claves. Seleccione **Grupos de recursos** y, a continuación, el grupo de recursos que se usa para esta guía de inicio rápido.
+1. Abra una ventana de comandos y vaya a la carpeta en la que descomprimió los ejemplos de IoT en C#. Busque la carpeta con el archivo arm-read-write.csproj. En esta ventana de comandos se crean las variables de entorno. Inicie sesión en [Azure Portal](https://portal.azure.com) para obtener las claves. Seleccione **Grupos de recursos** y, a continuación, el grupo de recursos que se usa para esta guía de inicio rápido.
 
    ![Selección del grupo de recursos](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -56,12 +61,12 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
 
    ![Ver los recursos del grupo de recursos](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
 
-1. Necesitará el **nombre del centro**. Seleccione el centro en la lista de recursos. Copie el nombre del centro de la parte superior de la sección IoT Hub en el Portapapeles de Windows. 
- 
+1. Necesitará el **nombre del centro**. Seleccione el centro en la lista de recursos. Copie el nombre del centro de la parte superior de la sección IoT Hub en el Portapapeles de Windows.
+
    ![Copiar el nombre del centro](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
 
     Sustituya el nombre del centro en este comando, en el lugar que se indica y ejecute este comando en la ventana comandos:
-   
+
     ```cmd
     SET IOT_HUB_URI=<hub name goes here>.azure-devices-net;
     ```
@@ -72,11 +77,11 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. La siguiente variable de entorno es la clave del dispositivo IoT. Agregue un nuevo dispositivo al centro; para ello, seleccione **Dispositivos IoT** en el menú IoT Hub del centro. 
+1. La siguiente variable de entorno es la clave del dispositivo IoT. Agregue un nuevo dispositivo al centro; para ello, seleccione **Dispositivos IoT** en el menú IoT Hub del centro.
 
    ![Selección de dispositivos IoT](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
 
-1. En el lado derecho de la pantalla, seleccione **+ Nuevo** para agregar un nuevo dispositivo. 
+1. En el lado derecho de la pantalla, seleccione **+ Nuevo** para agregar un nuevo dispositivo.
 
    Rellene el nombre del nuevo dispositivo. En esta guía de inicio rápido se usa un nombre que empieza por **Contoso-Test-Device**. Guarde el dispositivo y, a continuación, vuelva a abrir la pantalla para recuperar la clave del dispositivo. (La clave se genera automáticamente cuando se cierra el panel). Seleccione la clave principal o la secundaria y cópiela en el Portapapeles de Windows. En la ventana de comandos, establezca el comando que se va a ejecutar y, a continuación, presione **Entrar**. El comando debe ser similar al siguiente, pero con la clave del dispositivo pegada:
 
@@ -84,10 +89,10 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
    SET IOT_DEVICE_KEY=<device-key-goes-here>
    ```
 
-1. La última variable de entorno es el **identificador de dispositivo**. En la ventana de comandos, configure el comando y ejecútelo. 
-   
+1. La última variable de entorno es el **identificador de dispositivo**. En la ventana de comandos, configure el comando y ejecútelo.
+
    ```cms
-   SET IOT_DEVICE_ID=<device-id-goes-here> 
+   SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
    será similar a este ejemplo:
@@ -96,17 +101,17 @@ En esta sección se proporcionan los pasos para implementar la plantilla, crear 
    SET IOT_DEVICE_ID=Contoso-Test-Device
    ```
 
-1. Para ver las variables de entorno que ha definido, escriba SET en la línea de comandos y presione **Entrar**; a continuación, busque las que comienzan por **IoT**.
+1. Para ver las variables de entorno que ha definido, escriba SET en la línea de comandos y presione **Entrar** ; a continuación, busque las que comienzan por **IoT**.
 
    ![Ver las variables de entorno](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
-Ahora se han establecido las variables de entorno, ejecute la aplicación desde la misma ventana de comandos. Dado que usa la misma ventana, las variables estarán accesibles en memoria al ejecutar la aplicación.
+    Ahora se han establecido las variables de entorno, ejecute la aplicación desde la misma ventana de comandos. Dado que usa la misma ventana, las variables estarán accesibles en memoria al ejecutar la aplicación.
 
 1. Para ejecutar la aplicación, escriba el siguiente comando en la ventana de comandos y presione **Entrar**.
 
     `dotnet run arm-read-write`
 
-   La aplicación genera y muestra mensajes en la consola a medida que envía cada mensaje al centro de IoT. El centro se configuró en la plantilla de ARM para que tenga enrutamiento automatizado. Los mensajes que contienen el texto "level = storage" se enrutan automáticamente a la cuenta de almacenamiento. Permita que la aplicación se ejecute entre 10 y 15 minutos y, a continuación, presione **Entrar** una o dos veces hasta que deje de ejecutarse.
+   La aplicación genera y muestra mensajes en la consola a medida que envía cada mensaje al centro de IoT. El centro se configuró en la plantilla de ARM para que tenga enrutamiento automatizado. Los mensajes que contienen el texto `level = storage` se enrutan automáticamente a la cuenta de almacenamiento. Permita que la aplicación se ejecute entre 10 y 15 minutos y, a continuación, presione **Entrar** una o dos veces hasta que deje de ejecutarse.
 
 ## <a name="review-deployed-resources"></a>Revisión de los recursos implementados
 
@@ -116,7 +121,7 @@ Ahora se han establecido las variables de entorno, ejecute la aplicación desde 
 
    ![Examinar los archivos de la cuenta de almacenamiento](./media/horizontal-arm-route-messages/07-see-storage.png)
 
-1. Seleccione uno de los archivos, seleccione **Descargar** y descargue el archivo en una ubicación que pueda encontrar más adelante. Tendrá un nombre numérico, como 47. Agregue ".txt" al final y, a continuación, haga doble clic en el archivo para abrirlo.
+1. Seleccione uno de los archivos, seleccione **Descargar** y descargue el archivo en una ubicación que pueda encontrar más adelante. Tendrá un nombre numérico, como 47. Agregue _.txt_ al final y, después, haga doble clic en el archivo para abrirlo.
 
 1. Al abrir el archivo, cada fila corresponde a un mensaje diferente; también se cifra el cuerpo de cada mensaje. Debe estar en orden para que pueda realizar consultas sobre el cuerpo del mensaje.
 

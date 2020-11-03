@@ -3,7 +3,7 @@ title: Migración de Indexer v1 y v2 a Video Indexer de Azure Media Services | M
 description: En este tema se aborda cómo migrar de Azure Media Indexer v1 y v2 a Video Indexer de Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,31 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2019
-ms.author: juliako
-ms.openlocfilehash: e6b7c8cbcf6685ca2e781789fc508d005bcb5f88
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/21/2020
+ms.author: inhenkel
+ms.openlocfilehash: 330bffebb870635fd473e88a8eadb300eed40b9b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018906"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518303"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migración de Media Indexer y Media Indexer 2 a Video Indexer
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-Tanto el procesador de multimedia [Azure Media Indexer](media-services-index-content.md) como los procesadores de multimedia [Azure Media Indexer 2 Preview](./legacy-components.md) se están retirando. Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md). [Video Indexer de Azure Media Services ](../video-indexer/index.yml) reemplaza a estos procesadores multimedia heredados.
+> [!IMPORTANT]
+> Se recomienda que los clientes migren de los indizadores v1 y v2 a usar el [modo básico AudioAnalyzerPreset de Media Services v3](../latest/analyzing-video-audio-files-concept.md). Tanto el procesador de multimedia [Azure Media Indexer](media-services-index-content.md) como los procesadores de multimedia [Azure Media Indexer 2 Preview](./legacy-components.md) se están retirando. Para ver las fechas de retirada, consulte el tema [componentes heredados](legacy-components.md).
 
 Video Indexer de Azure Media Services se basa en Azure Media Analytics, Azure Cognitive Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y el servicio Habla personalizada). Permite extraer conclusiones de los vídeos con los modelos de vídeo y audio de Video Indexer. Para ver en qué escenarios se puede usar Video Indexer, qué características ofrece y cómo empezar, consulte [Modelos de audio y vídeo de Video Indexer](../video-indexer/video-indexer-overview.md). 
 
 También puede extraer la información de los archivos de audio y vídeo mediante los [valores preestablecidos del analizador de Azure Media Services v3](../latest/analyzing-video-audio-files-concept.md) o directamente mediante las [API de Video Indexer](https://api-portal.videoindexer.ai/). Actualmente hay una superposición entre las características que ofrecen las API de Video Indexer y las API de Media Services v3.
 
 > [!NOTE]
-> Para saber cuándo se recomienda utilizar los valores preestablecidos del analizador de Video Indexer, en lugar de los del de Media Services, consulte el [documento en que se realiza una comparación de ambos](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
+> Para saber cuáles son los valores predeterminados de Video Indexer, en lugar de los del de Media Services, consulte el [documento en que se realiza una comparación de ambos](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 En este artículo se describen los pasos para migrar desde Azure Media Indexer y Azure Media Indexer 2 a Video Indexer de Azure Media Services.  
 
-## <a name="migration-options"></a>Opciones de migración 
+## <a name="migration-options"></a>Opciones de migración
 
 |Si requiere  |y luego |
 |---|---|
@@ -48,7 +49,7 @@ En la siguiente sección se indican vínculos relevantes: [¿Cómo puedo empezar
 
 ## <a name="getting-started-with-media-services-v3-apis"></a>Introducción a las API de Media Services v3
 
-La API de Azure Media Services v3 permite extraer la información de los archivos de audio y vídeo mediante los [valores preestablecidos del analizador de Azure Media Services v3](../latest/analyzing-video-audio-files-concept.md). 
+La API de Azure Media Services v3 permite extraer la información de los archivos de audio y vídeo mediante los [valores preestablecidos del analizador de Azure Media Services v3](../latest/analyzing-video-audio-files-concept.md).
 
 **AudioAnalyzerPreset** permite extraer diversa información de audio de un archivo de audio o vídeo. La salida incluye un archivo VTT o TTML para la transcripción del audio y un archivo JSON (con toda la información de audio adicional). La información de audio incluye palabras clave, indexación de hablantes y análisis de sentimiento de voz. AudioAnalyzerPreset también admite la detección de idioma para idiomas específicos. Para obtener más información, consulte [Transforms](/rest/api/media/transforms/createorupdate#audioanalyzerpreset) (Transformaciones).
 
@@ -69,15 +70,15 @@ Para empezar, consulte:
 
 Para obtener más información sobre el servicio de texto a voz y cómo empezar, consulte [¿Qué es la conversión de voz a texto?](../../cognitive-services/speech-service/speech-to-text.md)
 
-## <a name="known-differences-from-deprecated-services"></a>Diferencias conocidas de servicios en desuso 
+## <a name="known-differences-from-deprecated-services"></a>Diferencias conocidas de servicios en desuso
 
 Observará que Video Indexer, AudioAnalyzerPreset de Azure Media Services v3 y los servicios de voz de Cognitive Services son más confiables y producen salidas de mejor calidad que los procesadores retirados de Azure Media Indexer 1 y Azure Media Indexer 2.  
 
-Entre las diferencias conocidas se incluyen las siguientes: 
+Entre las diferencias conocidas se incluyen las siguientes:
 
-* Los servicios de voz de Cognitive Services no admiten la extracción de palabras clave. Sin embargo, Video Indexer y AudioAnalyzerPreset de Media Services v3 ofrecen un conjunto sólido de palabras clave en formato de archivo JSON. 
+* Los servicios de voz de Cognitive Services no admiten la extracción de palabras clave. Sin embargo, Video Indexer y AudioAnalyzerPreset de Media Services v3 ofrecen un conjunto sólido de palabras clave en formato de archivo JSON.
 
-## <a name="need-help"></a>¿Necesita ayuda?
+## <a name="support"></a>Soporte técnico
 
 Puede abrir una incidencia de soporte técnico si se desplaza a la [nueva solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

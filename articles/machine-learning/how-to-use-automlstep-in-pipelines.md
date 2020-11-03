@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 82e2a484e23d55b91ff0c7820302b2cc83537cb8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b6c6d15b553e8b19fff2c464dfb856550f7bcbf0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057712"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494914"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Uso de ML automatizado en una canalización de Azure Machine Learning en Python
 
@@ -73,7 +73,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-En primer lugar, el código inicia sesión en el área de trabajo de Azure Machine Learning definida en el archivo **config.json** (para una explicación, vea [Tutorial: Creación del primer experimento de ML con el SDK de Python](tutorial-1st-experiment-sdk-setup.md)). Si todavía no hay un conjunto de datos denominado `'titanic_ds'` registrado, se crea uno. El código descarga los datos CSV de la Web, los usa para crear una instancia de `TabularDataset` y luego registra el conjunto de datos con el área de trabajo. Por último, la función `Dataset.get_by_name()` asigna `Dataset` a `titanic_ds`. 
+En primer lugar, el código inicia sesión en el área de trabajo de Azure Machine Learning definida en el archivo **config.json** (para una explicación, vea [Creación de un archivo de configuración de área de trabajo](how-to-configure-environment.md#workspace). Si todavía no hay un conjunto de datos denominado `'titanic_ds'` registrado, se crea uno. El código descarga los datos CSV de la Web, los usa para crear una instancia de `TabularDataset` y luego registra el conjunto de datos con el área de trabajo. Por último, la función `Dataset.get_by_name()` asigna `Dataset` a `titanic_ds`. 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Configuración del almacenamiento y el destino de proceso
 

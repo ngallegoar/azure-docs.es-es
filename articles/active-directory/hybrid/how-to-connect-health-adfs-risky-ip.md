@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91306402"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458039"
 ---
 # <a name="risky-ip-report-public-preview"></a>Informe de direcciones IP de riesgo (versión preliminar pública)
 Los clientes de AD FS pueden exponer puntos de conexión de autenticación de contraseña en Internet para proporcionar servicios de autenticación para que los usuarios finales tengan acceso a aplicaciones de SaaS, como Microsoft 365. En este caso, es posible que un actor no deseado intente inicios de sesión en el sistema de AD FS para adivinar la contraseña de usuario final y acceder a los recursos de la aplicación. AD FS proporciona la funcionalidad de bloqueo de cuenta de extranet para evitar estos tipos de ataques desde AD FS en Windows Server 2012 R2. Si se encuentra en una versión anterior, se recomienda que actualice el sistema de AD FS a Windows Server 2016. <br />
@@ -35,7 +35,7 @@ Además, es posible que una única dirección IP intente varios inicios de sesi�
 
 > [!NOTE]
 > Para usar este informe, debe asegurarse de que está habilitada la auditoría de AD FS. Para obtener más información, consulte [Habilitación de la auditoría para AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Para acceder a la versión preliminar, se requiere el permiso de Administrador global o [Lector de seguridad](../../role-based-access-control/built-in-roles.md#security-reader).  
+> Para acceder a la versión preliminar, se requiere el permiso de Administrador global o [Lector de seguridad](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>Contenido del informe
@@ -66,7 +66,7 @@ Por ejemplo, el siguiente elemento del informe indica que en la ventana de las 6
 La instancia agregada de Load Balancer no pudo iniciar la sesión de las actividades y alcanzó el umbral de alerta. Si ve direcciones IP del equilibrador de carga, es muy probable que el equilibrador de carga externo no esté enviando la dirección IP del cliente cuando pasa la solicitud al servidor proxy de la aplicación web. Configure el equilibrador de carga correctamente para que pase la dirección IP de reenvío del cliente. 
 
 ## <a name="download-risky-ip-report"></a>Descarga del informe de direcciones IP de riesgo 
-Mediante la funcionalidad **Descargar**, se puede exportar la lista de direcciones IP de riesgo completa de los últimos 30 días desde el portal de Connect Health. El resultado de la exportación incluirá todas las actividades de inicio de sesión de AD FS con error en cada ventana de tiempo de detección para que pueda personalizar el filtrado después de la exportación. Además de las agregaciones resaltadas en el portal, el resultado de la exportación también muestra más detalles sobre las actividades de inicio de sesión con error por dirección IP:
+Mediante la funcionalidad **Descargar** , se puede exportar la lista de direcciones IP de riesgo completa de los últimos 30 días desde el portal de Connect Health. El resultado de la exportación incluirá todas las actividades de inicio de sesión de AD FS con error en cada ventana de tiempo de detección para que pueda personalizar el filtrado después de la exportación. Además de las agregaciones resaltadas en el portal, el resultado de la exportación también muestra más detalles sobre las actividades de inicio de sesión con error por dirección IP:
 
 |  Elemento de informe  |  Descripción  | 
 | ------- | ----------- | 
@@ -79,16 +79,16 @@ Mediante la funcionalidad **Descargar**, se puede exportar la lista de direccion
 Los contactos administrativos del informe se pueden actualizar en la **Configuración de notificaciones**. De forma predeterminada, la notificación por correo electrónico de alertas de IP de riesgo está desactivada. Puede habilitar las notificaciones mediante el botón conmutador "Obtener notificaciones por correo electrónico de las direcciones IP que superen el umbral del informe de actividades con error". Al igual que las opciones de notificación de alertas de Connect Health, le permite personalizar la lista de destinatarios de las notificaciones desde aquí. También puede notificar a todos los administradores globales al realizar el cambio. 
 
 ## <a name="configure-threshold-settings"></a>Configuración de las opciones del umbral
-El umbral de alerta se puede actualizar mediante las Opciones del umbral. De forma inicial, el sistema tiene un umbral establecido de forma predeterminada. Hay cuatro categorías en las opciones del umbral del informe de direcciones IP de riesgo:
+El umbral de alerta se puede actualizar mediante las Opciones del umbral. De forma inicial, el sistema tiene un umbral establecido de forma predeterminada. Los valores predeterminados se proporcionan a continuación. Hay cuatro categorías en las opciones del umbral del informe de direcciones IP de riesgo:
 
 ![portal de Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
 | Elemento del umbral | Descripción |
 | --- | --- |
-| Usuario y contraseña incorrectos y bloqueos de extranet por día  | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de contraseñas erróneas más el número de bloqueos de extranet se ha superado por **día**. |
-| Usuario y contraseña incorrectos y bloqueos de extranet por hora | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de contraseñas erróneas más el número de bloqueos de extranet se ha superado por **hora**. |
-| Bloqueos de extranet por día | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de bloqueos de extranet se ha superado por **día**. |
-| Bloqueos de extranet por hora| Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de bloqueos de extranet se ha superado por **hora**. |
+| Usuario y contraseña incorrectos y bloqueos de extranet por día  | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de contraseñas erróneas más el número de bloqueos de extranet se ha superado por **día**. El valor predeterminado es 100.|
+| Usuario y contraseña incorrectos y bloqueos de extranet por hora | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de contraseñas erróneas más el número de bloqueos de extranet se ha superado por **hora**. El valor predeterminado es 50.|
+| Bloqueos de extranet por día | Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de bloqueos de extranet se ha superado por **día**. El valor predeterminado es 50.|
+| Bloqueos de extranet por hora| Opción del umbral para informar de la actividad y desencadenar la notificación de alertas cuando el número de bloqueos de extranet se ha superado por **hora**. El valor predeterminado es 25.|
 
 > [!NOTE]
 > - El cambio del umbral del informe se aplicará una hora después del cambio de la opción. 
