@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5d83f05c16004edc3ad4842b7e4e9d4b9babe577
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319074"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896572"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Solución de problemas con Data Management Gateway
 En este artículo se ofrece información sobre la solución de problemas con Data Management Gateway.
@@ -86,7 +86,7 @@ Puede que vea el siguiente mensaje de error al volver a registrar una puerta de 
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![La clave de la puerta de enlace no es válida o está vacía](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Captura de pantalla que resalta el mensaje de error que indica que la clave de puerta de enlace no es válida o está vacía.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Causa
 La clave de la puerta de enlace se ha vuelto a generar o la puerta de enlace se ha eliminado en Azure Portal. También puede ocurrir que el programa de instalación de Data Management Gateway no sea el más reciente.
@@ -107,14 +107,14 @@ Puede que vea el siguiente mensaje de error al volver a registrar una puerta de 
 Este error puede producirse porque se ha eliminado la puerta de enlace o porque se ha vuelto generar la clave de la puerta de enlace asociada.
 
 #### <a name="resolution"></a>Resolución
-Si se ha eliminado la puerta de enlace, vuelva a crear la puerta de enlace desde el portal, haga clic en **Registrar**, copie la clave desde el portal, péguela y, después, intente registrar la puerta de enlace.
+Si se ha eliminado la puerta de enlace, vuelva a crear la puerta de enlace desde el portal, haga clic en **Registrar** , copie la clave desde el portal, péguela y, después, intente registrar la puerta de enlace.
 
 Si la puerta de enlace aún existe, pero su clave se ha vuelto a generar, use la nueva clave para registrar la puerta de enlace. Si no tiene la clave, vuelva a generar la clave desde el portal.
 
 ### <a name="7-problem"></a>7. Problema
 Al registrar una puerta de enlace, es posible que tenga que especificar la ruta de acceso y la contraseña de un certificado.
 
-![Especificar certificado](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![Captura de pantalla que muestra dónde se escribe la ruta de acceso y la contraseña del certificado.](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Causa
 La puerta de enlace se ha registrado en otras máquinas anteriormente. Durante el registro inicial de una puerta de enlace se ha asociado un certificado de cifrado con la puerta de enlace. El certificado puede ser generado automáticamente por la puerta de enlace o puede proporcionarlo el usuario.  Este certificado se usa para cifrar las credenciales del almacén de datos (servicio vinculado).  
@@ -233,7 +233,7 @@ Si ve errores relacionados con los controladores o la conexión al almacén de d
 
 1. Inicie el Administrador de configuración de la puerta de enlace de administración de datos en la máquina de la puerta de enlace.
 2. Cambie a la pestaña **Diagnósticos** .
-3. En **Probar conexión**, agregue los valores de grupo de puerta de enlace.
+3. En **Probar conexión** , agregue los valores de grupo de puerta de enlace.
 4. Haga clic en **Probar** para ver si puede conectarse al origen de datos local desde la máquina de la puerta de enlace utilizando las credenciales y la información de conexión. Si la conexión de prueba sigue sin funcionar después de instalar un controlador, reinicie la puerta de enlace para recoger los cambios más recientes.
 
 ![Prueba de conexión en la pestaña Diagnósticos](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -252,7 +252,7 @@ Cuando se ponga en contacto con el equipo de soporte técnico de Microsoft para 
 4. (Opcional) Haga clic en **Privacidad** para revisar la declaración de privacidad de servicios web de Microsoft.
 5. Una vez que esté satisfecho con lo que va a cargar, haga clic en **Enviar registros** para enviar realmente los registros de los últimos siete días a Microsoft para solucionar problemas. Debería ver el estado de la operación de envío de registros tal y como aparece en la siguiente captura.
 
-    ![Puerta de enlace de administración de datos: Estado del envío de registros](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![Captura de pantalla que muestra dónde ver el estado de la operación de envío de registros.](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. Una vez que finalice la operación, verá un cuadro de diálogo como el que se muestra en la siguiente captura de pantalla.
 
     ![Puerta de enlace de administración de datos: Estado del envío de registros](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)

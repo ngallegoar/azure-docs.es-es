@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80065204"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896045"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - Alta disponibilidad y escalabilidad (versión preliminar)
 > [!NOTE]
@@ -67,7 +67,7 @@ En esta sección se da por supuesto que ha consultado o está familiarizado con 
 1. En el [tutorial](data-factory-move-data-between-onprem-and-cloud.md#create-gateway), al crear una puerta de enlace lógica, se habilita la característica de **alta disponibilidad y escalabilidad**. 
 
     ![Data Management Gateway: habilitar alta disponibilidad y escalabilidad](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-enable-high-availability-scalability.png)
-2. En la página **Configurar**, utilice el vinculo **Instalación rápida** o **Instalación manual** para instalar una puerta de enlace en el primer nodo (un equipo Windows local).
+2. En la página **Configurar** , utilice el vinculo **Instalación rápida** o **Instalación manual** para instalar una puerta de enlace en el primer nodo (un equipo Windows local).
 
     ![Data Management Gateway: instalación rápida o manual](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-express-manual-setup.png)
 
@@ -79,13 +79,13 @@ En esta sección se da por supuesto que ha consultado o está familiarizado con 
         ![Data Management Gateway: instalación rápida correcta](media/data-factory-data-management-gateway-high-availability-scalability/express-setup-success.png)
     2. Puede iniciar Configuration Manager de Data Management Gateway siguiendo [estas instrucciones](data-factory-data-management-gateway.md#configuration-manager). Verá el nombre de la puerta de enlace, el nombre de nodo, el estado, etcetera.
 
-        ![Data Management Gateway: instalación correcta](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
-4. Si elige **instalación manual**:
+        ![Captura de pantalla que muestra dónde puede ver el nombre de la puerta de enlace, el nombre del nodo y el estado.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
+4. Si elige **instalación manual** :
     1. Descargue el paquete de instalación de Microsoft Download Center y ejecútelo para instalar la puerta de enlace en el equipo.
     2. Use la **clave de autenticación** desde la página **Configurar** para registrar la puerta de enlace.
     
-        ![Data Management Gateway: instalación correcta](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
-    3. En la página **Nuevo nodo de puerta de enlace**, puede proporcionar un **nombre** personalizado al nodo de la puerta de enlace. De forma predeterminada, el nombre de nodo es igual que el nombre del equipo.    
+        ![Captura de pantalla que muestra dónde usar la clave de autenticación.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-authentication-key.png)
+    3. En la página **Nuevo nodo de puerta de enlace** , puede proporcionar un **nombre** personalizado al nodo de la puerta de enlace. De forma predeterminada, el nombre de nodo es igual que el nombre del equipo.    
 
         ![Data Management Gateway: especificar nombre](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-name.png)
     4. En la página siguiente, puede elegir si desea **habilitar el cifrado para la comunicación de nodo a nodo**. Haga clic en **Omitir** para deshabilitar el cifrado (valor predeterminado).
@@ -105,14 +105,14 @@ En esta sección se da por supuesto que ha consultado o está familiarizado con 
 
         > [!NOTE]
         > Si va a aprovisionar la puerta de enlace en una máquina virtual de Azure, puede usar [esta plantilla de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway). Este script crea una puerta de enlace lógica, configura las máquinas virtuales con el software de Data Management Gateway instalado y las registra en la puerta de enlace lógica. 
-6. En Azure Portal, abra la página **Puerta de enlace**: 
+6. En Azure Portal, abra la página **Puerta de enlace** : 
     1. En la página de inicio de factoría de datos en el portal, haga clic en **Servicios vinculados**.
     
-        ![Página principal Factoría de datos](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
-    2. Seleccione **Puerta de enlace** para ver la página **Puerta de enlace**:
+        ![Captura de pantalla en la que se resalta el icono Servicios vinculados.](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-home-page.png)
+    2. Seleccione **Puerta de enlace** para ver la página **Puerta de enlace** :
     
         ![Página principal Factoría de datos](media/data-factory-data-management-gateway-high-availability-scalability/linked-services-gateway.png)
-    4. Verá la página **Puerta de enlace**:   
+    4. Verá la página **Puerta de enlace** :   
 
         ![Puerta de enlace con la vista de un solo nodo](media/data-factory-data-management-gateway-high-availability-scalability/gateway-first-node-portal-view.png) 
 7. Haga clic en **Agregar nodo** en la barra de herramientas para agregar un nodo a la puerta de enlace lógica. Si va a usar la instalación rápida, realice este paso desde la máquina local que va a agregar como un nodo a la puerta de enlace. 
@@ -144,7 +144,7 @@ Puede actualizar una puerta de enlace existente para usar la característica de 
 
     > [!NOTE]
     > Durante la actualización, el nombre del primer nodo es el nombre de la máquina. 
-3. Ahora, agregue un nodo. En la página **Puerta de enlace**, haga clic en **Agregar nodo**.  
+3. Ahora, agregue un nodo. En la página **Puerta de enlace** , haga clic en **Agregar nodo**.  
 
     ![Data Management Gateway: menú agregar nodo](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-add-node-menu.png)
 
@@ -164,8 +164,8 @@ Estos son los requisitos para el certificado TLS/SSL que se usa para proteger la
 - Cada nodo de Integration Runtime debe confiar en este certificado, así como en el equipo cliente que ejecuta la aplicación del Administrador de credenciales. 
   > [!NOTE]
   > La aplicación del Administrador de credenciales se usa al configurar de forma segura las credenciales en el Asistente para copia o en Azure Portal. Además, puede activarse en cualquier equipo que se encuentre en la misma red que el almacén de datos local o privado.
-- Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com**, puede utilizar * **.domain.contoso.com** como nombre del firmante del certificado.
-- No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com**, pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
+- Se admiten certificados comodín. Si el nombre FQDN es **node1.domain.contoso.com** , puede utilizar * *_.domain.contoso.com_* como nombre del firmante del certificado.
+- No se recomienda usar certificados de SAN, ya que solo se utilizará el último elemento de los nombres alternativos del firmante y los demás se ignorarán debido a la limitación actual. Por ejemplo, tiene un certificado de SAN cuyos SAN son **node1.domain.contoso.com** y **node2.domain.contoso.com** , pero solo puede usar este certificado en el equipo cuyo FQDN es **node2.domain.contoso.com**.
 - Se admite cualquier tamaño de clave compatible con Windows Server 2012 R2 para los certificados TLS/SSL.
 - El certificado que usa claves CNG no es compatible.
 
@@ -181,7 +181,7 @@ En Azure Portal, puede ver una instantánea casi en tiempo real de la utilizaci�
 
 ![Data Management Gateway: supervisión de varios nodos](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring.png)
 
-Puede habilitar la **Configuración avanzada** en la página **Puerta de enlace** para ver métricas avanzadas como **Red**(entrada/salida), **Rol y estado de credenciales**, que es útil para depurar problemas de puerta de enlace y **Trabajos simultáneos** (en ejecución / límite) que puede ser modificado según corresponda durante la optimización del rendimiento. En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace**:  
+Puede habilitar la **Configuración avanzada** en la página **Puerta de enlace** para ver métricas avanzadas como **Red** (entrada/salida), **Rol y estado de credenciales** , que es útil para depurar problemas de puerta de enlace y **Trabajos simultáneos** (en ejecución / límite) que puede ser modificado según corresponda durante la optimización del rendimiento. En la tabla siguiente se proporcionan las descripciones de las columnas de la lista **Nodos de la puerta de enlace** :  
 
 Propiedad de supervisión | Descripción
 :------------------ | :---------- 
@@ -198,7 +198,7 @@ Role | Hay dos tipos de roles: distribuidor y de trabajo. Todos los nodos son tr
 
 ### <a name="gateway-status"></a>Estado de la puerta de enlace
 
-La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace**: 
+La tabla siguiente proporciona los estados posibles de un **nodo de la puerta de enlace** : 
 
 Status  | Comentarios/Escenarios
 :------- | :------------------
@@ -228,7 +228,7 @@ Azure Portal proporciona una experiencia de supervisión de canalización con de
 ## <a name="scale-considerations"></a>Consideraciones de escala
 
 ### <a name="scale-out"></a>Escalado horizontal
-Cuando la **memoria disponible es baja** y el **uso de CPU es alto**, agregar un nuevo nodo ayuda a escalar horizontalmente la carga en los equipos. Si se producen errores en las actividades debido a tiempos de espera excedidos o a un nodo de la puerta de enlace sin conexión, será útil agregar un nodo a la puerta de enlace.
+Cuando la **memoria disponible es baja** y el **uso de CPU es alto** , agregar un nuevo nodo ayuda a escalar horizontalmente la carga en los equipos. Si se producen errores en las actividades debido a tiempos de espera excedidos o a un nodo de la puerta de enlace sin conexión, será útil agregar un nodo a la puerta de enlace.
  
 ### <a name="scale-up"></a>Escalado vertical
 Cuando la memoria disponible y la CPU no se utilizan correctamente, pero la capacidad de inactividad es 0, debe escalar verticalmente aumentando el número de trabajos simultáneos que se pueden ejecutar en un nodo. También puede escalar verticalmente cuando se agota el tiempo de espera de las actividades porque la puerta de enlace está sobrecargada. Como se muestra en la siguiente imagen, puede aumentar la capacidad máxima para un nodo. Se recomienda comenzar duplicándolo.  
@@ -250,7 +250,7 @@ Cuando la memoria disponible y la CPU no se utilizan correctamente, pero la capa
 
 
 ## <a name="rolling-back-from-the-preview"></a>Revertir desde la versión preliminar 
-Para revertir desde la versión preliminar, elimine todos los nodos excepto uno. No importa qué nodos elimine, pero asegúrese de tener al menos un nodo en la puerta de enlace lógica. Puede eliminar un nodo mediante la desinstalación de la puerta de enlace en el equipo o a través de Azure Portal. En Azure Portal, en la página **Factoría de datos**, haga clic en Servicios vinculados para abrir la página **Servicios vinculados**. Seleccione la puerta de enlace para abrir la página **Puerta de enlace**. En la página Puerta de enlace puede ver los nodos asociados a la puerta de enlace. La página permite eliminar un nodo de la puerta de enlace.
+Para revertir desde la versión preliminar, elimine todos los nodos excepto uno. No importa qué nodos elimine, pero asegúrese de tener al menos un nodo en la puerta de enlace lógica. Puede eliminar un nodo mediante la desinstalación de la puerta de enlace en el equipo o a través de Azure Portal. En Azure Portal, en la página **Factoría de datos** , haga clic en Servicios vinculados para abrir la página **Servicios vinculados**. Seleccione la puerta de enlace para abrir la página **Puerta de enlace**. En la página Puerta de enlace puede ver los nodos asociados a la puerta de enlace. La página permite eliminar un nodo de la puerta de enlace.
  
 Después de eliminarlo, haga clic en **Característica de versión preliminar** en la misma página de Azure Portal y deshabilite la característica de versión preliminar. Ha restablecido la puerta de enlace como puerta de enlace de un nodo GA (disponibilidad general).
 

@@ -1,5 +1,5 @@
 ---
-title: Seguridad de la empresa
+title: Seguridad y gobernanza para empresas
 titleSuffix: Azure Machine Learning
 description: 'Use Azure Machine Learning de forma segura: autenticación, autorización, seguridad de red, cifrado de datos y supervisión.'
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207944"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899318"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Seguridad de empresa y gobernanza para Azure Machine Learning
 
 En este artículo conocerá las características de seguridad disponibles con Azure Machine Learning.
 
-Cuando se usa un servicio en la nube, se recomienda restringir el acceso solo a los usuarios que lo necesiten. Para empezar, es necesario comprender el modelo de autenticación y autorización que usa el servicio. Es posible que también quiera restringir el acceso a la red o unir de forma segura los recursos de la red local con la nube. También es fundamental el cifrado de datos, tanto si están en reposo como si se mueven entre los servicios. Por último, debe ser capaz de supervisar el servicio y generar un registro de auditoría de todas las actividades.
+Cuando se usa un servicio en la nube, se recomienda restringir el acceso solo a los usuarios que lo necesiten. Para empezar, es necesario comprender el modelo de autenticación y autorización que usa el servicio. Es posible que también quiera restringir el acceso a la red o unir de forma segura los recursos de la red local con la nube. También es fundamental el cifrado de datos, tanto si están en reposo como si se mueven entre los servicios. También puede que quiera crear directivas para aplicar determinadas configuraciones o registrar cuándo se crean configuraciones no compatibles. Por último, debe ser capaz de supervisar el servicio y generar un registro de auditoría de todas las actividades.
 
 > [!NOTE]
 > La información de este artículo se aplica a la versión 1.0.83.1 o a versiones posteriores del SDK de Python de Azure Machine Learning.
@@ -111,7 +111,7 @@ También puede habilitar Azure Private Link para el área de trabajo. Private Li
 ## <a name="data-encryption"></a>Cifrado de datos
 
 > [!IMPORTANT]
-> Para el cifrado de nivel de producción durante el __aprendizaje__, Microsoft recomienda usar el clúster de proceso de Azure Machine Learning. Para el cifrado de nivel de producción durante la __inferencia__, Microsoft recomienda usar Azure Kubernetes Service.
+> Para el cifrado de nivel de producción durante el __aprendizaje__ , Microsoft recomienda usar el clúster de proceso de Azure Machine Learning. Para el cifrado de nivel de producción durante la __inferencia__ , Microsoft recomienda usar Azure Kubernetes Service.
 >
 > La instancia de proceso de Azure Machine Learning es un entorno de desarrollo/pruebas. Cuando se usa, se recomienda almacenar los archivos, como cuadernos s y scripts, en un recurso compartido de archivos. Los datos deben almacenarse en un almacén de datos.
 
@@ -158,12 +158,7 @@ Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripc
         > [!NOTE]
         > Esta instancia del almacén de claves puede ser diferente a la creada por Azure Machine Learning al aprovisionar el área de trabajo. Si quiere usar la misma instancia del almacén de claves para el área de trabajo, pase el mismo almacén de claves al aprovisionar el área de trabajo mediante el [parámetro key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truecreate-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Esta instancia de Cosmos DB se crea en un grupo de recursos administrados por Microsoft en su suscripción, junto con los recursos que necesita. El grupo de recursos administrado se denomina con el formato `<AML Workspace Resource Group Name><GUID>`. Si el área de trabajo de Azure Machine Learning usa un punto de conexión privado, también se crea una red virtual para la instancia de Cosmos DB. Esta red virtual se usa para proteger la comunicación entre Cosmos DB y Azure Machine Learning.
-
-> [!IMPORTANT]
-> * No elimine el grupo de recursos que contiene esta instancia de Cosmos DB, ni ninguno de los recursos que se crean automáticamente en este grupo. Si necesita eliminar el grupo de recursos, la instancia de Cosmos DB, etc., primero debe eliminar el área de trabajo de Azure Machine Learning que la usa. El grupo de recursos, la instancia de Cosmos DB y los otros recursos que se crean automáticamente se eliminan cuando se elimina el área de trabajo asociada.
-> * Las [__Unidades de solicitud__](../cosmos-db/request-units.md) predeterminadas para esta cuenta de Cosmos DB son __8000__. Este valor no se puede cambiar.
-> * No puede proporcionar su propia red virtual para usar con la instancia de Cosmos DB que se crea. Tampoco puede modificar la red virtual. Por ejemplo, no puede cambiar el rango de direcciones IP que usa.
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 Si necesita __girar o revocar__ la clave, puede hacerlo en cualquier momento. Al rotar una clave, Cosmos DB comenzará a usar la nueva clave (versión más reciente) para cifrar los datos en reposo. Al revocar (deshabilitar) una clave, Cosmos DB se encarga de las solicitudes con error. Normalmente, se tarda una hora para que la rotación o la revocación surtan efecto.
 
@@ -183,6 +178,7 @@ Para usar sus propias claves (administradas por el cliente) para cifrar su insta
 Para ver ejemplos de cómo crear un área de trabajo con una instancia existente de Azure Container Registry, vea los siguientes artículos:
 
 * [Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure](how-to-manage-workspace-cli.md).
+* [Creación de un área de trabajo con el SDK de Python](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning](how-to-create-workspace-template.md).
 
 #### <a name="azure-container-instance"></a>Azure Container Instances
@@ -260,7 +256,7 @@ También puede que quiera cifrar la [información de diagnóstico registrada des
 
 ### <a name="metrics"></a>Métricas
 
-Puede usar las métricas de Azure Monitor para ver y supervisar las métricas del área de trabajo de Azure Machine Learning. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo y, a continuación, **Métricas**:
+Puede usar las métricas de Azure Monitor para ver y supervisar las métricas del área de trabajo de Azure Machine Learning. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo y, a continuación, **Métricas** :
 
 [![Captura de pantalla que muestra las métricas de ejemplo de un área de trabajo](media/concept-enterprise-security/workspace-metrics.png)](media/concept-enterprise-security/workspace-metrics-expanded.png#lightbox)
 
@@ -370,8 +366,8 @@ Estos son los detalles:
 
 [Azure Policy](/azure/governance/policy) es una herramienta de gobierno que le permite asegurarse de que los recursos de Azure son compatibles con las directivas. Con Azure Machine Learning, puede asignar las siguientes directivas:
 
-* **Clave administrada por el cliente**: audite o exija si las áreas de trabajo deben usar una clave administrada por el cliente.
-* **Vínculo privado**: audite si las áreas de trabajo usan un punto de conexión privado para comunicarse con una red virtual.
+* **Clave administrada por el cliente** : audite o exija si las áreas de trabajo deben usar una clave administrada por el cliente.
+* **Vínculo privado** : audite si las áreas de trabajo usan un punto de conexión privado para comunicarse con una red virtual.
 
 Para obtener más información sobre Azure Policy, consulte la documentación de [Azure Policy](/azure/governance/policy/overview).
 

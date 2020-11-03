@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: 9088b36acead9f47e94949ee102d66a8aff2d226
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 1f3ab61c6030c2871356f494db228711305e5466
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529609"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901583"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copia de datos de SAP ECC mediante Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -46,6 +46,13 @@ En concreto, este conector SAP ECC admite las siguientes funcionalidades:
   - Datos o documentos intermedios (IDOC) enviados a la integración de procesos (PI) de SAP que se pueden recibir como OData a través de adaptadores relativos.
 
 - Copia de datos mediante la autenticación básica.
+
+La versión 7.0 o posterior hace referencia a la versión de SAP NetWeaver en lugar de a la versión de SAP ECC. Por ejemplo, SAP ECC 6.0 EHP 7 en general tiene una versión de NetWeaver >= 7.4. En caso de que no esté seguro de su entorno, estos son los pasos para confirmar la versión del sistema de SAP:
+
+1. Use la GUI de SAP para conectarse al sistema de SAP. 
+2. Vaya a **System** -> **Status**. 
+3. Compruebe la versión de SAP_BASIS, asegúrese de que sea mayor o igual que 701.  
+      ![Comprobar SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 >[!TIP]
 >Para copiar datos de SAP ECC a través de una tabla o una vista de SAP, use el conector de [tabla de SAP](connector-sap-table.md), que es más rápido y escalable.
@@ -146,8 +153,8 @@ Se admiten las siguientes propiedades en la sección `source` de la actividad de
 |:--- |:--- |:--- |
 | `type` | La propiedad `type` de la sección `source` de la actividad de copia debe establecerse en `SapEccSource`. | Sí |
 | `query` | Opciones de consulta de OData para filtrar los datos. Por ejemplo:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>El conector de SAP ECC copia datos de la dirección URL combinada:<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>Para más información, consulte el artículo sobre [componentes de URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
-| `sapDataColumnDelimiter` | El único carácter que se usa como delimitador que se pasa a RFC de SAP para dividir los datos de salida. | No |
-| `httpRequestTimeout` | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. Si no se especifica, el valor predeterminado es **00:30:00** (30 minutos). | No |
+| `sapDataColumnDelimiter` | El único carácter que se usa como delimitador que se pasa al RFC de SAP para dividir los datos de salida. | No |
+| `httpRequestTimeout` | El tiempo de espera (el valor **TimeSpan** ) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. Si no se especifica, el valor predeterminado es **00:30:00** (30 minutos). | No |
 
 ### <a name="example"></a>Ejemplo
 

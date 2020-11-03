@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 1dc35b596d73f713aea99ea14ddb0ff8cbc8d203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b0b2cbf3fc637d7ad53be911c0171f6bb971bc6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688627"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896130"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>Creación de una máquina virtual Linux con Accelerated Networking con la CLI de Azure
 
@@ -58,7 +58,7 @@ Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 ### <a name="supported-vm-instances"></a>Instancias de máquina virtual admitidas
 Accelerated Networking se admite con la mayoría de los tamaños de instancia de uso general y optimizados para procesos de dos o más vCPU.  Estas series admitidas son: D/DSv2 y F/Fs
 
-En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
+En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de máquina virtual con cuatro o más vCPU. Las series admitidas son: D/Dsv3, D/Dsv4, Dd/Ddv4, Da/Dasv4, E/Esv3, E/Esv4, Ed/Edsv4, Ea/Easv4, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
 
 Para más información sobre las instancias de máquinas virtuales, consulte [Tamaños de las máquinas virtuales Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -78,7 +78,7 @@ Las máquinas virtuales (clásicas) no se pueden implementar con Accelerated Net
 
 ## <a name="create-a-linux-vm-with-azure-accelerated-networking"></a>Creación de una máquina virtual Linux con Azure Accelerated Networking
 ## <a name="portal-creation"></a>Creación del portal
-Aunque en este artículo se explica cómo crear una máquina virtual con redes aceleradas mediante la CLI de Azure, también puede [crear una máquina virtual con redes aceleradas mediante Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Al crear una máquina virtual en el portal, en la hoja **Crear una máquina virtual**, seleccione la pestaña **Redes**.  En esta pestaña hay una opción para **Redes aceleradas**.  Si ha seleccionado un [sistema operativo compatible](#supported-operating-systems) y un [tamaño de máquina virtual](#supported-vm-instances), esta opción se rellena automáticamente como "Activado".  Si no, se rellena la opción "Desactivado" para Redes aceleradas y se proporciona al usuario un motivo de por qué no están habilitadas.   
+Aunque en este artículo se explica cómo crear una máquina virtual con redes aceleradas mediante la CLI de Azure, también puede [crear una máquina virtual con redes aceleradas mediante Azure Portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Al crear una máquina virtual en el portal, en la hoja **Crear una máquina virtual** , seleccione la pestaña **Redes**.  En esta pestaña hay una opción para **Redes aceleradas**.  Si ha seleccionado un [sistema operativo compatible](#supported-operating-systems) y un [tamaño de máquina virtual](#supported-vm-instances), esta opción se rellena automáticamente como "Activado".  Si no, se rellena la opción "Desactivado" para Redes aceleradas y se proporciona al usuario un motivo de por qué no están habilitadas.   
 
 * *Nota:* Solo los sistemas operativos compatibles se pueden habilitar a través del portal.  Si usa una imagen personalizada y esta es compatible con Redes aceleradas, cree la máquina virtual mediante la CLI o PowerShell. 
 
@@ -87,9 +87,9 @@ Una vez creada la máquina virtual, puede confirmar que la opción Redes acelera
 ## <a name="cli-creation"></a>Creación de la CLI
 ### <a name="create-a-virtual-network"></a>Creación de una red virtual
 
-Instale la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup*, *myNic* y *myVM*.
+Instale la última versión de la [CLI de Azure](/cli/azure/install-azure-cli) e inicie sesión en una cuenta de Azure con [az login](/cli/azure/reference-index). En los ejemplos siguientes, reemplace los nombres de parámetros de ejemplo por los suyos propios. Los nombres de parámetro de ejemplo incluyen *myResourceGroup* , *myNic* y *myVM*.
 
-Cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *centralus*:
+Cree un grupo de recursos con [az group create](/cli/azure/group). En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la ubicación *centralus* :
 
 ```azurecli
 az group create --name myResourceGroup --location centralus
@@ -109,7 +109,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>Crear un grupo de seguridad de red
-Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup*:
+Cree un grupo de seguridad de red con [az network nsg create](/cli/azure/network/nsg). En el ejemplo siguiente se crea un grupo de seguridad de red denominado *myNetworkSecurityGroup* :
 
 ```azurecli
 az network nsg create \
@@ -160,7 +160,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>Creación de una máquina virtual y conexión de NIC
 Cuando cree la máquina virtual, especifique las NIC creadas con `--nics`. Seleccione un tamaño y una distribución enumerados en [Linux accelerated networking](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview) (Accelerated Networking para Linux). 
 
-Cree la máquina virtual con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* con la imagen de UbuntuTLS y un tamaño que admite Accelerated Neworking (*Standard_DS4_v2*):
+Cree la máquina virtual con [az vm create](/cli/azure/vm). En el ejemplo siguiente se crea una máquina virtual denominada *myVM* con la imagen de UbuntuTLS y un tamaño que admite Accelerated Neworking ( *Standard_DS4_v2* ):
 
 ```azurecli
 az vm create \
@@ -200,10 +200,10 @@ ssh azureuser@<your-public-ip-address>
 
 En el shell de Bash, escriba `uname -r` y confirme que la versión de kernel es una de las siguientes o una posterior:
 
-* **Ubuntu 16.04**: 4.11.0-1013
-* **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 7.4.2017120423
-* **CentOS**: 7.4.20171206
+* **Ubuntu 16.04** : 4.11.0-1013
+* **SLES SP3** : 4.4.92-6.18
+* **RHEL** : 7.4.2017120423
+* **CentOS** : 7.4.20171206
 
 
 Con el comando `lspci`, confirme que el dispositivo Mellanox VF se expone a la máquina virtual. La salida devuelta será similar a la siguiente:

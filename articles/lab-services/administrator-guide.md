@@ -148,7 +148,7 @@ La ubicación en la que existe un laboratorio educativo varía en función de es
   
     Cuando **no** hay ninguna red virtual emparejada con la cuenta de laboratorio *y* los [creadores del laboratorio **no** pueden elegir la ubicación del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), los laboratorios educativos se crean automáticamente en una región que tiene capacidad de VM disponible.  En concreto, Azure Lab Services busca disponibilidad en [regiones que se encuentran en la misma geografía que la cuenta de laboratorio](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - No hay ninguna red virtual emparejada *_y_* los creadores del laboratorio no pueden elegir la ubicación del laboratorio.
+  - No hay ninguna red virtual emparejada *_y_* los creadores del laboratorio pueden elegir la ubicación del laboratorio.
        
     Cuando **no** hay ninguna red virtual emparejada y [los creadores del laboratorio pueden elegir la ubicación del laboratorio](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), el creador del laboratorio puede seleccionar las ubicaciones según la capacidad disponible.
 

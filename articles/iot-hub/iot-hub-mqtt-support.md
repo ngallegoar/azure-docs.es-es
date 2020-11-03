@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: IoT Device'
 - 'Role: Cloud Development'
 - contperfq1
-ms.openlocfilehash: c4b8cbf9473fd605fc4367e88a6892a15bd25b1b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9f063b147fbddaeaa7888af755dba8f325d4fe0f
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150791"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899101"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
 
@@ -139,11 +139,11 @@ Esta carpeta contiene dos comandos de ejemplo que se usan con la herramienta de 
 
 Si un dispositivo no puede usar los SDK de dispositivo, tendrá la posibilidad de conectarse a los puntos de conexión públicos del dispositivo mediante el protocolo MQTT en el puerto 8883. En el paquete **CONNECT** el dispositivo debe usar los siguientes valores:
 
-* Para el campo **ClientId**, use **deviceId**.
+* Para el campo **ClientId** , use **deviceId**.
 
 * Para el campo **Nombre de usuario** use `{iothubhostname}/{device_id}/?api-version=2018-06-30`, donde `{iothubhostname}` es el CName completo del centro de IoT.
 
-    Por ejemplo, si el nombre de su centro de IoT es **contoso.azure-devices.net** y si el nombre del dispositivo es **MyDevice01**, el campo **Nombre de usuario** completo debe contener:
+    Por ejemplo, si el nombre de su centro de IoT es **contoso.azure-devices.net** y si el nombre del dispositivo es **MyDevice01** , el campo **Nombre de usuario** completo debe contener:
 
     `contoso.azure-devices.net/MyDevice01/?api-version=2018-06-30`
 
@@ -178,7 +178,7 @@ Si un dispositivo no puede usar los SDK de dispositivo, tendrá la posibilidad d
 
 Para que MQTT conecte y desconecte paquetes, Azure IoT Hub emite un evento en el canal **Supervisión de operaciones** . Este evento tiene información adicional que puede ayudarle a solucionar problemas de conectividad.
 
-La aplicación para dispositivo puede especificar un mensaje**Will** en el paquete **CONNECT**. La aplicación para dispositivo debe usar `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` como el nombre del tema **Will** para definir los mensajes **Will** que se reenviarán como un mensaje de telemetría. En este caso, si la conexión de red se cierra, pero no se recibió anteriormente un paquete **DISCONNECT** desde el dispositivo, IoT Hub envía el mensaje **Will** que se suministra en el paquete **CONNECT** al canal de telemetría. El canal de telemetría puede ser el punto de conexión **Eventos** predeterminado o un punto de conexión personalizado que se define por el enrutamiento de IoT Hub. El mensaje tiene la propiedad **iothub-MessageType** con un valor de **Will** asignado.
+La aplicación para dispositivo puede especificar un mensaje **Will** en el paquete **CONNECT**. La aplicación para dispositivo debe usar `devices/{device_id}/messages/events/` o `devices/{device_id}/messages/events/{property_bag}` como el nombre del tema **Will** para definir los mensajes **Will** que se reenviarán como un mensaje de telemetría. En este caso, si la conexión de red se cierra, pero no se recibió anteriormente un paquete **DISCONNECT** desde el dispositivo, IoT Hub envía el mensaje **Will** que se suministra en el paquete **CONNECT** al canal de telemetría. El canal de telemetría puede ser el punto de conexión **Eventos** predeterminado o un punto de conexión personalizado que se define por el enrutamiento de IoT Hub. El mensaje tiene la propiedad **iothub-MessageType** con un valor de **Will** asignado.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Uso del protocolo MQTT directamente (como un módulo)
 
@@ -294,9 +294,9 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 
 Esta es una lista de los comportamientos específicos de la implementación de IoT Hub:
 
-* IoT Hub no admite mensajes QoS 2. Si una aplicación de dispositivo publica un mensaje con **QoS 2**, el IoT Hub cierra la conexión de red.
+* IoT Hub no admite mensajes QoS 2. Si una aplicación de dispositivo publica un mensaje con **QoS 2** , el IoT Hub cierra la conexión de red.
 
-* IoT Hub no retiene los mensajes de conservación. Si un dispositivo envía un mensaje con la marca **RETAIN** establecida en 1, el IoT Hub agrega la propiedad de aplicación **x-opt-retain** al mensaje. En este caso, en lugar de retener el mensaje de conservación, IoT Hub lo pasa a la aplicación de back-end.
+* IoT Hub no retiene los mensajes de conservación. Si un dispositivo envía un mensaje con la marca **RETAIN** establecida en 1, IoT Hub agrega la propiedad de aplicación **mqtt-retain** al mensaje. En este caso, en lugar de retener el mensaje de conservación, IoT Hub lo pasa a la aplicación de back-end.
 
 * IoT Hub solo admite una conexión MQTT activa por dispositivo. Todas las conexiones MQTT nuevas en nombre del mismo identificador de dispositivo provocarán que IoT Hub cierre la existente.
 
@@ -306,9 +306,9 @@ Para obtener más información, consulte la [guía del desarrollador de mensajer
 
 Para recibir mensajes de IoT Hub, un dispositivo debe suscribirse usando `devices/{device_id}/messages/devicebound/#` como un **filtro de tema**. El comodín de varios niveles `#` en el filtro de tema solo se utiliza para permitir que el dispositivo reciba propiedades adicionales en el nombre del tema. IoT Hub no permite el uso de los caracteres comodín `#` o `?` para el filtrado de subtemas. Puesto que IoT Hub no es un agente de mensajería de publicación-suscripción de propósito general, solo admite los filtros de tema y los nombres de tema documentados.
 
-El dispositivo no recibe ningún mensaje de IoT Hub hasta que se suscribe correctamente al punto de conexión específico del dispositivo, representado por el filtro del tema `devices/{device_id}/messages/devicebound/#`. Después de que se haya establecido una suscripción, el dispositivo recibe solo los mensajes de la nube al dispositivo que se enviaron a este después de la hora de la suscripción. Si el dispositivo se conecta con la marca **CleanSession** establecida en **0**, la suscripción se conserva entre distintas sesiones. En este caso, la próxima vez que el dispositivo se conecte con **CleanSession 0**, este recibirá los mensajes pendientes que se le han enviado mientras estaba desconectado. Si el dispositivo usa la marca **CleanSession** establecida en **1**, no recibe los mensajes de IoT Hub hasta que se suscribe al punto de conexión del dispositivo.
+El dispositivo no recibe ningún mensaje de IoT Hub hasta que se suscribe correctamente al punto de conexión específico del dispositivo, representado por el filtro del tema `devices/{device_id}/messages/devicebound/#`. Después de que se haya establecido una suscripción, el dispositivo recibe solo los mensajes de la nube al dispositivo que se enviaron a este después de la hora de la suscripción. Si el dispositivo se conecta con la marca **CleanSession** establecida en **0** , la suscripción se conserva entre distintas sesiones. En este caso, la próxima vez que el dispositivo se conecte con **CleanSession 0** , este recibirá los mensajes pendientes que se le han enviado mientras estaba desconectado. Si el dispositivo usa la marca **CleanSession** establecida en **1** , no recibe los mensajes de IoT Hub hasta que se suscribe al punto de conexión del dispositivo.
 
-IoT Hub entrega los mensajes con el **Nombre del tema** `devices/{device_id}/messages/devicebound/` o `devices/{device_id}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$** ; las propiedades de aplicaciones utilizan el nombre de propiedad original sin prefijo. Para obtener información adicional sobre el formato del contenedor de propiedades, consulte [Envío de mensajes de dispositivo a nube](#sending-device-to-cloud-messages).
+IoT Hub entrega los mensajes con el **Nombre del tema** `devices/{device_id}/messages/devicebound/` o `devices/{device_id}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId** ) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$** ; las propiedades de aplicaciones utilizan el nombre de propiedad original sin prefijo. Para obtener información adicional sobre el formato del contenedor de propiedades, consulte [Envío de mensajes de dispositivo a nube](#sending-device-to-cloud-messages).
 
 En los mensajes de la nube al dispositivo, los valores del contenedor de propiedades se representan como en la tabla siguiente:
 
@@ -318,13 +318,13 @@ En los mensajes de la nube al dispositivo, los valores del contenedor de propied
 | cadena vacía | `key=` | Clave seguida de un signo igual sin valor |
 | valor que no es nulo ni está vacío | `key=value` | Clave seguida de un signo igual y un valor |
 
-En el ejemplo siguiente se muestra un contenedor de propiedades que contiene tres propiedades de la aplicación: **prop1** con un valor de `null`; **prop2**, que es una cadena vacía (""); y **prop3** que tiene como valor "a string".
+En el ejemplo siguiente se muestra un contenedor de propiedades que contiene tres propiedades de la aplicación: **prop1** con un valor de `null`; **prop2** , que es una cadena vacía (""); y **prop3** que tiene como valor "a string".
 
 ```mqtt
 /?prop1&prop2=&prop3=a%20string
 ```
 
-Cuando una aplicación de dispositivo se suscribe a un tema con **QoS 2**, IoT Hub concede el QoS de nivel 1 (el máximo) en el paquete **SUBACK**. Después de eso, IoT Hub envía mensajes al dispositivo con QoS 1.
+Cuando una aplicación de dispositivo se suscribe a un tema con **QoS 2** , IoT Hub concede el QoS de nivel 1 (el máximo) en el paquete **SUBACK**. Después de eso, IoT Hub envía mensajes al dispositivo con QoS 1.
 
 ## <a name="retrieving-a-device-twins-properties"></a>Recuperación de propiedades del dispositivo gemelo
 

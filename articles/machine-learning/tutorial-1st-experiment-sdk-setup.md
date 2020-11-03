@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df8e4c2728bd7487520164553d26dfd42e38b647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841869"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913303"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Introducción a Azure Machine Learning en cuadernos de Jupyter Notebook
 
@@ -34,7 +34,9 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 
 Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio.
 
-Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
+Si ya tiene un área de trabajo de Azure Machine Learning, vaya a [Clone a notebook folder](#clone) (Clonar una carpeta de cuaderno).  
+
+Existen muchas [maneras de crear un área de trabajo](how-to-manage-workspace.md).  En este tutorial, creará un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -49,7 +51,7 @@ Azure Machine Learning incluye un servidor de cuadernos en la nube del área de 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### <a name="clone-a-notebook-folder"></a>Clonación de la carpeta de un cuaderno
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Clonación de una carpeta de cuaderno
 
 Complete la configuración del experimento siguiente y ejecute los pasos de Azure Machine Learning Studio. Esta interfaz consolidada incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos con conocimientos de todos los niveles.
 
@@ -76,11 +78,11 @@ Complete la configuración del experimento siguiente y ejecute los pasos de Azur
 1. Abra la carpeta **tutorials** que se acaba de cerrar en la sección **User files** (Archivos de usuario).
 
     > [!IMPORTANT]
-    > Verá los cuadernos en la carpeta **samples**, pero no puede ejecutar cuadernos desde aquí. Para ejecutar un cuaderno, asegúrese de que abre la versión clonada de este en la sección **User Files** (Archivos de usuario).
+    > Verá los cuadernos en la carpeta **samples** , pero no puede ejecutar cuadernos desde aquí. Para ejecutar un cuaderno, asegúrese de que abre la versión clonada de este en la sección **User Files** (Archivos de usuario).
     
 1. Seleccione el archivo **tutorial-1st-experiment-sdk-train.ipynb** de la carpeta **tutorials/image-classification-mnist-data**.
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Captura de pantalla que muestra la carpeta tutorials > Clone.":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Captura de pantalla que muestra la carpeta tutorials abierta.":::
 
 1. En la barra superior, seleccione una instancia de proceso para usarla para ejecutar el cuaderno. Estas máquinas virtuales están configuradas previamente con [todo lo necesario para ejecutar Azure Machine Learning](concept-compute-instance.md#contents).
 

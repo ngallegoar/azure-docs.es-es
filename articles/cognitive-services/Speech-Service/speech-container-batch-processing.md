@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319085"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425790"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de procesamiento por lotes para contenedores de voz
 
@@ -75,9 +75,8 @@ El lote del cliente puede detectar dinámicamente si un punto de conexión deja 
 > [!NOTE] 
 > * Este ejemplo utiliza el mismo directorio (`/my_nfs`) para el archivo de configuración y los directorios de entradas, salidas y registros. Puede usar directorios hospedados o NFS montados para estas carpetas.
 > * Al ejecutar el cliente con `–h` se listarán los parámetros de la línea de comandos disponibles, y sus valores predeterminados. 
+> * El contenedor de procesamiento por lotes solo se admite en Linux.
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 Utilice el comando `run` de Docker para iniciar el contenedor. Se iniciará un shell interactivo dentro del contenedor.
 
 ```Docker
@@ -96,17 +95,6 @@ Para ejecutar el lote cliente y el contenedor en un solo comando:
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-Para ejecutar el lote cliente y el contenedor en un solo comando:
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
-
 
 El cliente comenzará a ejecutarse. Si ya se ha transformado un archivo de audio en una ejecución anterior, el cliente omitirá automáticamente el archivo. Los archivos se envían con un reintento automático si se producen errores transitorios y puede diferenciar entre los errores en los que desea que el cliente vuelva a intentarlo. En un error de transcripción, el cliente seguirá la transcripción y puede volver a intentarlo sin perder el progreso.  
 
@@ -118,7 +106,7 @@ El kit de procesamiento por lotes ofrece tres modos, mediante el parámetro `--r
 
 El modo `ONESHOT` transcribe un solo lote de archivos de audio (de un directorio de entrada y una lista de archivos opcional) a una carpeta de salida.
 
-:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Un diagrama que muestra un ejemplo del flujo de trabajo del kit por lote para contenedor.":::
+:::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Un diagrama que muestra los archivos de procesamiento del contenedor del kit por lotes en modo OneShot.":::
 
 1. Defina los puntos de conexión del contenedor de voz que el cliente de lote usará en el archivo de `config.yaml`. 
 2. Coloque los archivos de audio para la transcripción en un directorio de entrada.  
@@ -133,7 +121,7 @@ El modo `ONESHOT` transcribe un solo lote de archivos de audio (de un directorio
 
 El modo `DAEMON` transcribe los archivos existentes en una carpeta determinada, y transcribe continuamente nuevos archivos de audio a medida que se agregan.          
 
-:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Un diagrama que muestra un ejemplo del flujo de trabajo del kit por lote para contenedor.":::
+:::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Un diagrama que muestra los archivos de procesamiento del contenedor del kit por lotes en modo demonio.":::
 
 1. Defina los puntos de conexión del contenedor de voz que el cliente de lote usará en el archivo de `config.yaml`. 
 2. Invoque el contenedor en un directorio de entrada. El cliente de lote comenzará a supervisar el directorio para los archivos entrantes. 
@@ -146,7 +134,7 @@ El modo `DAEMON` transcribe los archivos existentes en una carpeta determinada, 
 
 El modo `REST` es un modo de servidor API que proporciona un conjunto básico de puntos de conexión HTTP para el envío por lotes de archivos de audio, la comprobación del estado y el sondeo prolongado. También habilita el consumo programático mediante una extensión de módulo de python, o la importación como un submódulo.
 
-:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Un diagrama que muestra un ejemplo del flujo de trabajo del kit por lote para contenedor.":::
+:::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Un diagrama que muestra los archivos de procesamiento del contenedor del kit por lotes en modo REST.":::
 
 1. Defina los puntos de conexión del contenedor de voz que el cliente de lote usará en el archivo de `config.yaml`. 
 2. Envíe una solicitud HTTP a uno de los puntos de conexión del servidor de la API. 

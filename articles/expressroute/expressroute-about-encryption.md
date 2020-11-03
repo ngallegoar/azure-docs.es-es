@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996841"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899867"
 ---
 # <a name="expressroute-encryption"></a>Cifrado de ExpressRoute
  
@@ -31,7 +31,7 @@ No. Si MACsec se configura y se produce una discrepancia en la clave, se pierde 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>¿Al habilitarse MACsec en ExpressRoute Direct se degradará el rendimiento de la red?
 El cifrado y el descifrado de MACsec se produce en el hardware de los enrutadores que usamos. No hay ningún efecto en el rendimiento por nuestra parte. Sin embargo, debe consultar al proveedor de la red los dispositivos que usa y comprobar si MACsec tiene alguna implicación en su rendimiento.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>¿Qué conjuntos de cifrado se admiten para el cifrado?
-Solo se admite la versión de [números de paquetes extendidos](https://1.ieee802.org/security/802-1aebw/) de AES128 y AES256. Además, deshabilite el [identificador de canal seguro (SCI)](https://en.wikipedia.org/wiki/IEEE_802.1AE) en la configuración MACsec del dispositivo. 
+Solo se admite la versión de [números de paquetes extendidos](https://1.ieee802.org/security/802-1aebw/) de AES-128 y AES-256. Además, tendrá que deshabilitar el [identificador de canal seguro (SCI)](https://wikipedia.org/wiki/IEEE_802.1AE) en la configuración MACsec del dispositivo. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Preguntas frecuentes sobre el cifrado de un extremo a otro de IPsec
 IPsec es un [estándar de IETF](https://tools.ietf.org/html/rfc6071). Cifra los datos en el nivel Protocolo de Internet (IP) o Capa 3 de red. Puede usar IPsec para cifrar una conexión de un extremo a otro entre la red local y la red virtual (VNET) en Azure. Vea otras preguntas frecuentes a continuación.

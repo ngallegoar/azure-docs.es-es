@@ -1,5 +1,5 @@
 ---
-title: Novedades en el aprovisionamiento de aplicaciones en Azure Active Directory
+title: Novedades en el aprovisionamiento de aplicaciones de Azure Active Directory
 description: Documentación nueva y actualizada sobre el aprovisionamiento de aplicaciones de Azure Active Directory.
 ms.date: 10/21/2020
 ms.service: active-directory

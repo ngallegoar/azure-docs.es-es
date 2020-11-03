@@ -3,12 +3,12 @@ title: Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38745d1cc2b1961da10a0c9e9f2c90c3b7dc48a7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894519"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899531"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Preguntas más frecuentes (FAQ) sobre Azure Service Bus
 
@@ -26,7 +26,7 @@ Un [espacio de nombres](service-bus-create-namespace-portal.md) proporciona un c
 Una [cola de Service Bus](service-bus-queues-topics-subscriptions.md) es una entidad en la que se almacenan los mensajes. Las colas son útiles cuando tiene varias aplicaciones o varias partes de una aplicación distribuida que necesitan comunicarse entre sí. La cola es similar a un centro de distribución en el sentido de que se recibe múltiples productos (mensajes) que luego se envían desde esa ubicación.
 
 ### <a name="what-are-azure-service-bus-topics-and-subscriptions"></a>¿Qué son los temas y las suscripciones de Azure Service Bus?
-Un tema se puede visualizar como una cola y cuando utiliza varias suscripciones, se convierte en un modelo de mensajería más enriquecido; básicamente en una herramienta de comunicación de uno a varios. Este modelo de publicación o suscripción (o *pub/sub*) permite que cuando una aplicación envía un mensaje a un tema con varias suscripciones, el mensaje lo reciban varias aplicaciones.
+Un tema se puede visualizar como una cola y cuando utiliza varias suscripciones, se convierte en un modelo de mensajería más enriquecido; básicamente en una herramienta de comunicación de uno a varios. Este modelo de publicación o suscripción (o *pub/sub* ) permite que cuando una aplicación envía un mensaje a un tema con varias suscripciones, el mensaje lo reciban varias aplicaciones.
 
 ### <a name="what-is-a-partitioned-entity"></a>¿Qué es una entidad con particiones?
 Un único agente de mensajes controla una cola o tema convencional, que se almacena en un almacén de mensajería. Las [colas o temas con particiones](service-bus-partitioning.md), que solo se admiten en los niveles de mensajería Básico y Estándar, las administran varios agentes de mensajes y se almacenan en varios almacenes de mensajería. Esta característica significa que el rendimiento general de una cola o tema particionado ya no está limitado por el rendimiento de un solo agente o almacén de mensajería. Además, una interrupción temporal de un almacén de mensajería no hace que una cola o tema con particiones deje de estar disponible.
@@ -41,17 +41,28 @@ Azure Service Bus almacena los datos de los clientes. Service Bus almacena estos
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>¿Qué puertos es necesario abrir en el firewall? 
 Puede usar los siguientes protocolos con Azure Service Bus para enviar y recibir mensajes:
 
-- Advanced Message Queuing Protocol (AMQP)
-- Protocolo de mensajería de Service Bus (SBMP)
-- HTTP
+- Advanced Message Queuing Protocol 1.0 (AMQP)
+- Protocolo de transferencia de hipertexto 1.1 con TLS (HTTPS)
 
-Consulte en la siguiente tabla los puertos de salida que se deben abrir para usar estos protocolos para comunicarse con Azure Event Hubs. 
+Vea la tabla siguiente para obtener los puertos TCP de salida que se deben abrir para usar estos protocolos para comunicarse con Azure Service Bus:
 
-| Protocolo | Puertos | Detalles | 
+| Protocolo | Puerto | Detalles | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 y 5672 | Consulte la [guía del protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | 9350 a 9354 | Consulte [Modo de conectividad](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
-| HTTP, HTTPS | 80, 443 | 
+| AMQP | 5671 | AMQP con TLS. Consulte la [guía del protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| HTTPS | 443 | Este puerto se usa para la API HTTP/REST y para AMQP a través de WebSockets |
+
+Normalmente, el puerto HTTPS también es necesario para la comunicación saliente cuando se usa AMQP a través del puerto 5671, ya que varias operaciones de administración realizadas por los SDK de cliente y la adquisición de tokens desde Azure Active Directory (cuando se usa) se ejecutan a través de HTTPS. 
+
+Los SDK de Azure oficiales suelen usar el protocolo AMQP para enviar y recibir mensajes de Service Bus. La opción de protocolo AMQP sobre WebSockets se ejecuta a través del puerto TCP 443 como la API HTTP, pero, de lo contrario, es funcionalmente idéntica a AMQP sin modificar. Esta opción tiene una mayor latencia de conexión inicial debido a los intercambios de protocolo de enlace adicionales y una sobrecarga ligeramente mayor como compensación para compartir el puerto HTTPS. Si se selecciona este modo, el puerto TCP 443 es suficiente para la comunicación. Las opciones siguientes permiten seleccionar el modo WebSockets AMQP o AMQP:
+
+| Lenguaje | Opción   |
+| -------- | ----- |
+| .NET     | La propiedad [ServiceBusConnection.TransportType](/dotnet/api/microsoft.azure.servicebus.servicebusconnection.transporttype?view=azure-dotnet) con [TransportType.Amqp](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) o [TransportType.AmqpWebSockets](/dotnet/api/microsoft.azure.servicebus.transporttype?view=azure-dotnet) |
+| Java     | [com.microsoft.azure.servicebus.ClientSettings](/java/api/com.microsoft.azure.servicebus.clientsettings.clientsettings?view=azure-java-stable) con [com.microsoft.azure.servicebus.primitives.TransportType.AMQP](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) o [com.microsoft.azure.servicebus.primitives.TransportType.AMQP_WEB_SOCKETS](/java/api/com.microsoft.azure.servicebus.primitives.transporttype?view=azure-java-stable) |
+| Nodo  | [ServiceBusClientOptions](/javascript/api/@azure/service-bus/servicebusclientoptions?view=azure-node-latest) tiene un argumento de constructor `webSocket`. |
+| Python | [ServiceBusClient.transport_type](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.ServiceBusClient) con [TransportType.Amqp](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) o [TransportType.AmqpOverWebSocket](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-servicebus/latest/azure.servicebus.html#azure.servicebus.TransportType) |
+
+El paquete WindowsAzure.ServiceBus anterior para .NET Framework tiene una opción para usar el "Protocolo de mensajería de Service Bus" (SBMP) heredado, también denominado "NetMessaging". Este protocolo usa los puertos TCP 9350-9354. El modo predeterminado para este paquete es detectar automáticamente si los puertos están disponibles para la comunicación y cambiará a WebSockets con TLS en el puerto 443 si no es el caso. Puede invalidar esta configuración y forzar este modo si establece [ConnectivityMode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) `Https` en el valor [`ServiceBusEnvironment.SystemConnectivity`](/dotnet/api/microsoft.servicebus.servicebusenvironment.systemconnectivity?view=azure-dotnet), que se aplica globalmente a la aplicación.
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>¿Qué direcciones IP debo agregar a la lista de permitidas?
 Para buscar las direcciones IP correctas para agregar a la lista de permitidas para las conexiones, siga estos pasos:
@@ -70,7 +81,7 @@ Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar a
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote el nombre de la sección **respuesta no autoritativa**, que se encuentra en uno de los siguientes formatos: 
+2. Anote el nombre de la sección **respuesta no autoritativa** , que se encuentra en uno de los siguientes formatos: 
 
     ```
     <name>-s1.cloudapp.net
@@ -83,9 +94,9 @@ Si usa la **redundancia de zona** para el espacio de nombres, deberá realizar a
     > La dirección IP devuelta por el comando `nslookup` no es una dirección IP estática. Sin embargo, permanece constante hasta que la implementación subyacente se elimine o se mueva a otro clúster.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>¿Dónde puedo encontrar la dirección IP del cliente que envía o recibe mensajes hacia o desde un espacio de nombres? 
-No registramos las direcciones IP de clientes que envían o reciben mensajes hacia o desde su espacio de nombres. Vuelva a generar las claves para que todos los clientes existentes no puedan autenticarse y revise la configuración de control de acceso basado en roles ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) para asegurarse de que solo los usuarios o las aplicaciones permitidos tienen acceso al espacio de nombres. 
+No registramos las direcciones IP de clientes que envían o reciben mensajes hacia o desde su espacio de nombres. Vuelva a generar las claves para que todos los clientes existentes no puedan autenticarse y revise la configuración de [Control de acceso basado en roles de Azure (RBAC de Azure)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus) para asegurarse de que solo los usuarios o las aplicaciones permitidos tienen acceso al espacio de nombres. 
 
-Si usa un espacio de nombres **Premium**, use el [filtrado de IP](service-bus-ip-filtering.md), [puntos de conexión de servicio de red virtual](service-bus-service-endpoints.md) y [puntos de conexión privados](private-link-service.md) para limitar el acceso al espacio de nombres. 
+Si usa un espacio de nombres **Premium** , use el [filtrado de IP](service-bus-ip-filtering.md), [puntos de conexión de servicio de red virtual](service-bus-service-endpoints.md) y [puntos de conexión privados](private-link-service.md) para limitar el acceso al espacio de nombres. 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>¿Cuáles son algunos de los procedimientos recomendados de Azure Service Bus?

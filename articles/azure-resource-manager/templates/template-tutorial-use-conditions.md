@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119317"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896997"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Tutorial: Uso de condiciones en plantillas de Resource Manager
 
@@ -55,7 +55,7 @@ Para completar este artículo, necesitará lo siguiente:
 Plantillas de inicio rápido de Azure es un repositorio de plantillas de Azure Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy a simple Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/).
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
-1. En **Nombre de archivo**, pegue el código URL siguiente:
+1. En **Nombre de archivo** , pegue el código URL siguiente:
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
@@ -88,7 +88,7 @@ Realice dos cambios en la plantilla existente:
 1. Reemplace las tres apariciones de **variables("storageAccountName")** por **parameters("storageAccountName")** en toda la plantilla.
 1. Quite la siguiente definición de variable:
 
-    ![Diagrama de las condiciones de uso de la plantilla de Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Captura de pantalla que resalta las definiciones de variables que se deben quitar.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Agregue los dos parámetros siguientes al principio de la sección parameters:
 
@@ -117,11 +117,11 @@ Realice dos cambios en la plantilla existente:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    La condición comprueba el valor de un parámetro llamado **newOrExisting**. Si el valor del parámetro es **new**, en la implementación se crea la cuenta de almacenamiento.
+    La condición comprueba el valor de un parámetro llamado **newOrExisting**. Si el valor del parámetro es **new** , en la implementación se crea la cuenta de almacenamiento.
 
     La definición de la cuenta de almacenamiento actualizada se parece a esta:
 
-    ![Condición de uso de Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Captura de pantalla que muestra la definición de la cuenta de almacenamiento actualizada.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Actualice la propiedad **storageUri** de la definición de recursos de la máquina virtual con el siguiente valor:
 
     ```json
@@ -172,7 +172,7 @@ Realice dos cambios en la plantilla existente:
     ```
 
     > [!NOTE]
-    > Se produce un error en la implementación si **newOrExisting** es **new**, pero la cuenta de almacenamiento con el nombre especificado ya existe.
+    > Se produce un error en la implementación si **newOrExisting** es **new** , pero la cuenta de almacenamiento con el nombre especificado ya existe.
 
 Pruebe otra implementación con **newOrExisting** establecido en "existing" y especifique una cuenta de almacenamiento existente. Para crear una cuenta de almacenamiento con antelación, consulte [Creación de una cuenta de almacenamiento](../../storage/common/storage-account-create.md).
 

@@ -34,7 +34,7 @@ Para comprobar el estado de la instancia, siga estos pasos:
 
 En la imagen anterior, esta instancia se muestra como *Disponible* y lo ha estado durante los últimos nueve días. Para más información sobre el estado *Disponible* y los otros tipos de estado que pueden aparecer, consulte [*Introducción a Resource Health*](../service-health/resource-health-overview.md).
 
-También puede encontrar información sobre las distintas comprobaciones que entran en el estado de los recursos para los diferentes tipos de recursos de Azure en [*Tipos de recursos y comprobaciones de estado en Azure Resource Health*](../service-health/resource-health-checks-resource-types.md).
+También puede encontrar más información sobre las distintas comprobaciones que entran en el estado de los recursos para los diferentes tipos de recursos de Azure en [*Tipos de recursos y comprobaciones de estado en Azure Resource Health*](../service-health/resource-health-checks-resource-types.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

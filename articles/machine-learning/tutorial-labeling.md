@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c5f0103908ea150cbe6eb373e25f7d741127f5
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906711"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913269"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Creación de un proyecto de etiquetado para la clasificación de imágenes con varias clases 
 
@@ -42,7 +42,7 @@ En este tutorial, se usarán imágenes de gatos y perros.  Puesto que cada image
 
 Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio.
 
-Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
+Existen muchas [maneras de crear un área de trabajo](how-to-manage-workspace.md). En este tutorial, creará un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -67,7 +67,7 @@ Los almacenes de datos de Azure Machine Learning se usan para guardar la informa
     Campo|Descripción 
     ---|---
     Nombre del almacén de datos | Asigne un nombre al almacén de datos.  Aquí se usará **labeling_tutorial**.
-    Tipo de almacén de datos | Seleccione el tipo de almacenamiento.  En este caso se utilizará **Azure Blob Storage**, el almacenamiento preferido para las imágenes.
+    Tipo de almacén de datos | Seleccione el tipo de almacenamiento.  En este caso se utilizará **Azure Blob Storage** , el almacenamiento preferido para las imágenes.
     Método de selección de cuentas | Seleccione **Especificar manualmente**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Tipo de autenticación | Seleccione **Token de SAS**.
@@ -87,7 +87,7 @@ Ahora que tiene acceso a los datos que desea que se etiqueten, cree el proyecto 
 
 ### <a name="project-details"></a>Detalles del proyecto
 
-1. Use la entrada siguiente para el formulario **Detalles del proyecto**:
+1. Use la entrada siguiente para el formulario **Detalles del proyecto** :
 
     Campo|Descripción 
     ---|---
@@ -98,11 +98,11 @@ Ahora que tiene acceso a los datos que desea que se etiqueten, cree el proyecto 
 
 ### <a name="select-or-create-a-dataset"></a>Selección o creación de un conjunto de datos
 
-1.   En el formulario **Seleccione o cree un conjunto de datos**, seleccione la segunda opción, **Crear un conjunto de datos** y, a continuación, el vínculo **De almacén de datos**.
+1.   En el formulario **Seleccione o cree un conjunto de datos** , seleccione la segunda opción, **Crear un conjunto de datos** y, a continuación, el vínculo **De almacén de datos**.
 
-1. Use la siguiente entrada para el formulario **Creación de un conjunto de datos a partir de un almacén de datos**:
+1. Use la siguiente entrada para el formulario **Creación de un conjunto de datos a partir de un almacén de datos** :
 
-    1. En el formulario **Información básica**, agregue un nombre, aquí usaremos **images-for-tutorial**.  Si así lo desea, agregue una descripción.  Luego, seleccione **Siguiente**.
+    1. En el formulario **Información básica** , agregue un nombre, aquí usaremos **images-for-tutorial**.  Si así lo desea, agregue una descripción.  Luego, seleccione **Siguiente**.
     1. En el formulario **Datastore selection** (Selección de almacén de datos), utilice la lista desplegable para seleccionar la opción **Previously created datastore** (Almacén de datos creado anteriormente), por ejemplo **tutorial_images (Azure Blob Storage)**
     1. A continuación, en el formulario **Datastore selection** (Selección de almacén de datos), seleccione **Examinar** y, a continuación, **MultiClass - DogsCats**.  Seleccione **Guardar** para usar **/MultiClass - DogsCats** como ruta de acceso.
     1. Seleccione **Siguiente** para confirmar los detalles y, a continuación, **Crear** para crear el conjunto de datos.
@@ -118,19 +118,19 @@ Seleccione **Next** (Siguiente) para continuar.
 
 ### <a name="label-classes"></a>Clases de etiquetas
 
-1. En el formulario **Clases de etiquetas**, escriba un nombre de etiqueta y, a continuación, seleccione **+ Agregar etiqueta** para escribir la etiqueta siguiente.  En este proyecto, las etiquetas son **Cat**, **Dog** y **Uncertain** (Incierto).
+1. En el formulario **Clases de etiquetas** , escriba un nombre de etiqueta y, a continuación, seleccione **+ Agregar etiqueta** para escribir la etiqueta siguiente.  En este proyecto, las etiquetas son **Cat** , **Dog** y **Uncertain** (Incierto).
 
 1. Seleccione **Siguiente** cuando haya agregado todas las etiquetas.
 
 ### <a name="labeling-instructions"></a>Instrucciones de etiquetado
 
-1. En el formulario **Instrucciones de etiquetado**, puede proporcionar un vínculo a un sitio web que da instrucciones detalladas para los etiquetadores.  Para este tutorial lo dejaremos en blanco.
+1. En el formulario **Instrucciones de etiquetado** , puede proporcionar un vínculo a un sitio web que da instrucciones detalladas para los etiquetadores.  Para este tutorial lo dejaremos en blanco.
 
 1. También puede agregar una breve descripción de la tarea directamente en el formulario.  Escriba **Labeling tutorial - Cats & Dogs.**
 
 1. Seleccione **Next** (Siguiente).
 
-1. En la sección **Etiquetado con asistencia de ML**, deje la casilla desactivada. El etiquetado con asistencia de ML requiere más datos de los que va a usar en este tutorial.
+1. En la sección **Etiquetado con asistencia de ML** , deje la casilla desactivada. El etiquetado con asistencia de ML requiere más datos de los que va a usar en este tutorial.
 
 1. Seleccione **Create project** (Crear proyecto).
 

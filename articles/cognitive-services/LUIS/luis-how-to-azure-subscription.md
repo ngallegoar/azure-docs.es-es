@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eecc93558625d3ae891ca589424aec218036adae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151581"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744699"
 ---
 # <a name="create-luis-resources"></a>Creación de recursos de LUIS
 
@@ -76,7 +76,7 @@ En el caso de las aplicaciones que no se han migrado todavía: la clave se resta
 
 ### <a name="regenerate-azure-key"></a>Regeneración de la clave de Azure
 
-Vuelva a generar las claves de Azure desde Azure Portal, en la página de **claves** .
+Vuelva a generar las claves de Azure desde Azure Portal, en la página de **claves**.
 
 
 <a name="securing-the-endpoint"></a>
@@ -94,7 +94,7 @@ Puede mover la aplicación de LUIS. Use los siguientes recursos de documentació
 
 ### <a name="contributions-from-other-authors"></a>Contribuciones de otros autores
 
-Para la [creación de aplicaciones migradas de recursos](luis-migration-authoring.md): los _colaboradores_ se administran en Azure Portal para el recurso de creación, mediante la página del **control de acceso (IAM)** . Obtenga información acerca de [cómo agregar un usuario](luis-how-to-collaborate.md) mediante la dirección de correo electrónico del colaborador y el rol del _colaborador_ .
+Para la [creación de aplicaciones migradas de recursos](luis-migration-authoring.md): los _colaboradores_ se administran en Azure Portal para el recurso de creación, mediante la página del **control de acceso (IAM)** . Obtenga información acerca de [cómo agregar un usuario](luis-how-to-collaborate.md) mediante la dirección de correo electrónico del colaborador y el rol del _colaborador_.
 
 En el caso de las aplicaciones que no se han migrado todavía: todos los _colaboradores_ se administran en el portal de LUIS desde la página **Manage -> Collaborators** (Administrar -> Colaboradores).
 
@@ -213,7 +213,7 @@ Puede asignar un recurso de creación de una sola aplicación o de todas las apl
 
 1. Inicie sesión en el [portal de LUIS](https://www.luis.ai).
 1. En la barra de navegación superior, en el extremo derecho, seleccione su cuenta de usuario y, a continuación, seleccione **Settings** (Configuración).
-1. En la página de **configuración de usuario** , seleccione **Add authoring resource** (Agregar recurso de creación) y, a continuación, seleccione un recurso de creación existente. Seleccione **Guardar** .
+1. En la página de **configuración de usuario** , seleccione **Add authoring resource** (Agregar recurso de creación) y, a continuación, seleccione un recurso de creación existente. Seleccione **Guardar**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Asignar un recurso a una aplicación
 

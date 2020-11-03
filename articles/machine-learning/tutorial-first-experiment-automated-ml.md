@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: ebc3899c98a09b64443b129dde52cb597fac9eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3fd4dcfa4c01c39e4e6cab4915de807c3d19ae6
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976647"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913864"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 
@@ -44,7 +44,7 @@ En este tutorial, aprenderá las siguientes tareas:
 
 Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio. 
 
-Cree un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
+Existen muchas [maneras de crear un área de trabajo](how-to-manage-workspace.md). En este tutorial, creará un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -101,7 +101,7 @@ Antes de configurar el experimento, cargue el archivo de datos en el área de tr
         Encabezados de columna| Indica cómo se tratarán los encabezados del conjunto de datos, si existen.| Todos los archivos tienen los mismos encabezados
         Omitir filas | Indica el número de filas, si hay alguna, que se omiten en el conjunto de datos.| None
 
-    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, seleccione el modificador de alternancia de la característica **day_of_week**, de modo que no se incluya para este experimento. Seleccione **Next** (Siguiente).
+    1. El formulario **Scheme** (Esquema) permite una configuración adicional de los datos para este experimento. En este ejemplo, seleccione el modificador de alternancia de la característica **day_of_week** , de modo que no se incluya para este experimento. Seleccione **Next** (Siguiente).
 
         ![Configuración de la pestaña Preview (Versión preliminar)](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019382"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913286"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Uso de R para crear un modelo de Machine Learning (versión preliminar)
 
@@ -45,7 +45,7 @@ Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar
 
 Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio. 
 
-Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure. 
+Existen muchas [maneras de crear un área de trabajo](how-to-manage-workspace.md). En este tutorial, creará un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -74,7 +74,7 @@ Clone el repositorio de GitHub https://github.com/Azure/azureml-sdk-for-r para o
 
 1. Ejecute `git clone https://github.com/Azure/azureml-sdk-for-r` en el terminal para clonar el repositorio.
 
-1. En RStudio, vaya a la carpeta *vignettes* de la carpeta clonada *azureml-sdk-for-r*.  En *vignettes*, seleccione el archivo *train-and-deploy-first-model.rmd* para buscar la viñeta que se usa en este tutorial. Los archivos adicionales que se usan para la viñeta se encuentran en la subcarpeta *train-and-deploy-first-model*. Una vez que haya abierto la viñeta, establezca el directorio de trabajo en la ubicación del archivo mediante **Sesión > Establecer el directorio de trabajo en la ubicación del archivo de origen**. 
+1. En RStudio, vaya a la carpeta *vignettes* de la carpeta clonada *azureml-sdk-for-r*.  En *vignettes* , seleccione el archivo *train-and-deploy-first-model.rmd* para buscar la viñeta que se usa en este tutorial. Los archivos adicionales que se usan para la viñeta se encuentran en la subcarpeta *train-and-deploy-first-model*. Una vez que haya abierto la viñeta, establezca el directorio de trabajo en la ubicación del archivo mediante **Sesión > Establecer el directorio de trabajo en la ubicación del archivo de origen**. 
 
 > [!Important]
 > El resto de este artículo incluye el mismo contenido que el del archivo *train-and-deploy-first-model.rmd*. Si tiene experiencia con RMarkdown, no dude en usar el código de ese archivo.  También puede copiar y pegar los fragmentos de código desde allí o desde este artículo en un script de R o en la línea de comandos. 
@@ -184,7 +184,7 @@ En este tutorial se ajusta un modelo de regresión logística a los datos cargad
 * Enviar el archivo
 
 ### <a name="prepare-the-training-script"></a>Preparar el script de entrenamiento
-Se incluyó un script de entrenamiento llamado `accidents.R` en el directorio *train-and-deploy-first-model*. **Dentro del script de entrenamiento**, tenga en cuenta los siguientes detalles que se han creado para aprovechar las ventajas de Azure Machine Learning para el entrenamiento:
+Se incluyó un script de entrenamiento llamado `accidents.R` en el directorio *train-and-deploy-first-model*. **Dentro del script de entrenamiento** , tenga en cuenta los siguientes detalles que se han creado para aprovechar las ventajas de Azure Machine Learning para el entrenamiento:
 
 * El script de entrenamiento toma un argumento `-d` para buscar el directorio que contiene los datos de entrenamiento. Al definir y enviar el trabajo más adelante, apunte al almacén de datos de este argumento. Azure Machine Learning montará la carpeta de almacenamiento en el clúster remoto para el trabajo de entrenamiento.
 * El script de entrenamiento registra la precisión final como métrica del registro de ejecución en Azure Machine Learning mediante `log_metric_to_run()`. El SDK de Azure Machine Learning proporciona un conjunto de API de registro para el registro de varias métricas durante las ejecuciones de entrenamiento. Estas métricas se registran y se conservan en el registro de ejecución del experimento. A continuación, se puede acceder a las métricas en cualquier momento o visualizarlas en la página de detalles de la ejecución de [Studio](https://ml.azure.com). Consulte la [referencia](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para ver el conjunto completo de métodos de registro `log_*()`.

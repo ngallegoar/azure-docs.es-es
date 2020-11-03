@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254081"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496110"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetría y solución de problemas
 
@@ -23,9 +23,9 @@ El análisis espacial incluye un conjunto de características para supervisar el
 
 ## <a name="enable-visualizations"></a>Habilitación de visualizaciones
 
-Para habilitar una visualización de eventos de Conclusiones de IA en un fotograma de vídeo, debe usar la versión `.debug` de una [operación de análisis espacial](spatial-analysis-operations.md). Hay cuatro operaciones de depuración disponibles.
+Para habilitar una visualización de eventos de Conclusiones de IA en un fotograma de vídeo, debe usar la versión `.debug` de una [operación de análisis espacial](spatial-analysis-operations.md). en una máquina de escritorio. La visualización no es posible en dispositivos de Azure Stack Edge. Hay cuatro operaciones de depuración disponibles.
 
-Edite el [manifiesto de implementación](https://go.microsoft.com/fwlink/?linkid=2142179) para usar el valor correcto para la variable de entorno `DISPLAY`. Debe coincidir con la variable `$DISPLAY` del equipo host. Después de actualizar el manifiesto de implementación, vuelva a implementar el contenedor.
+Si el dispositivo no es un dispositivo de Azure Stack Edge, edite el archivo del manifiesto de implementación para [máquinas de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) para usar el valor correcto para la variable de entorno `DISPLAY`. Debe coincidir con la variable `$DISPLAY` del equipo host. Después de actualizar el manifiesto de implementación, vuelva a implementar el contenedor.
 
 Una vez finalizada la implementación, es posible que tenga que copiar el archivo `.Xauthority` del equipo host en el contenedor y reiniciarlo. En el ejemplo siguiente, `peopleanalytics` es el nombre del contenedor del equipo host.
 
@@ -39,7 +39,7 @@ xhost +
 
 ## <a name="collect-system-health-telemetry"></a>Recopilación de telemetría de mantenimiento del sistema
 
-Telegraf es una imagen de código abierto que funciona con el análisis espacial y está disponible en Microsoft Container Registry. Toma las siguientes entradas y las envía a Azure Monitor. El módulo Telegraf se puede compilar con las entradas y salidas personalizadas que se quiera. La configuración del módulo Telegraf en el análisis espacial forma parte del [manifiesto de implementación](https://go.microsoft.com/fwlink/?linkid=2142179). Este módulo es opcional y se puede quitar del manifiesto si no se necesita. 
+Telegraf es una imagen de código abierto que funciona con el análisis espacial y está disponible en Microsoft Container Registry. Toma las siguientes entradas y las envía a Azure Monitor. El módulo Telegraf se puede compilar con las entradas y salidas personalizadas que se quiera. La configuración del módulo Telegraf en el análisis espacial forma parte del manifiesto de implementación (vinculado anteriormente). Este módulo es opcional y se puede quitar del manifiesto si no se necesita. 
 
 Entradas: 
 1. Métricas de análisis espacial
@@ -68,14 +68,14 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-En el [manifiesto de implementación](https://go.microsoft.com/fwlink/?linkid=2142179), busque el módulo *Telegraf* y reemplace los siguientes valores por la información de la entidad de servicio del paso anterior y vuelva a implementarlo.
+En el manifiesto de implementación del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) u otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), busque el módulo *Telegraf* y reemplace los siguientes valores por la información de la entidad de servicio del paso anterior y vuelva a implementarlo.
 
 ```json
 
 "telegraf": { 
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
 },
 "type": "docker",
 "env": {
@@ -105,19 +105,19 @@ Cuando haya implementado el módulo Telegraf, se puede acceder a las métricas n
 
 | Nombre del evento | Descripción|
 |------|---------|
-|archon_exit    |Se envía cuando un usuario cambia el estado del módulo de análisis espacial de *en ejecución* a *detenido*.  |
-|archon_error   |Se envía cuando alguno de los procesos se bloquea en el contenedor. Se trata de un error crítico.  |
-|InputRate  |Velocidad a la que el gráfico procesa la entrada de vídeo. Se notifica cada cinco minutos. | 
-|OutputRate     |Velocidad a la que el gráfico genera Conclusiones de IA. Se notifica cada cinco minutos. |
-|archon_allGraphsStarted | Se envía cuando todos los gráficos han terminado de iniciarse. |
-|archon_configchange    | Se envía cuando cambia la configuración de un gráfico. |
-|archon_graphCreationFailed     |Se envía cuando no se puede iniciar el gráfico con la `graphId` notificada. |
-|archon_graphCreationSuccess    |Se envía cuando el gráfico con la `graphId` notificada se inicia correctamente. |
-|archon_graphCleanup    | Se envía cuando el gráfico con la `graphId` notificada se limpia y se cierra. |
-|archon_graphHeartbeat  |Latido que se envía cada minuto por cada gráfico de una aptitud. |
+|archon_exit    |Se envía cuando un usuario cambia el estado del módulo de análisis espacial de *en ejecución* a *detenido*.  |
+|archon_error   |Se envía cuando alguno de los procesos se bloquea en el contenedor. Se trata de un error crítico.  |
+|InputRate  |Velocidad a la que el gráfico procesa la entrada de vídeo. Se notifica cada cinco minutos. | 
+|OutputRate     |Velocidad a la que el gráfico genera Conclusiones de IA. Se notifica cada cinco minutos. |
+|archon_allGraphsStarted | Se envía cuando todos los gráficos han terminado de iniciarse. |
+|archon_configchange    | Se envía cuando cambia la configuración de un gráfico. |
+|archon_graphCreationFailed     |Se envía cuando no se puede iniciar el gráfico con la `graphId` notificada. |
+|archon_graphCreationSuccess    |Se envía cuando el gráfico con la `graphId` notificada se inicia correctamente. |
+|archon_graphCleanup    | Se envía cuando el gráfico con la `graphId` notificada se limpia y se cierra. |
+|archon_graphHeartbeat  |Latido que se envía cada minuto por cada gráfico de una aptitud. |
 |archon_apiKeyAuthFail |Se envía cuando se produce un error en la clave de recurso de Computer Vision para autenticar el contenedor durante más de 24 horas, debido a los siguientes motivos: Cuota agotada, no válido, sin conexión. |
-|VideoIngesterHeartbeat     |Se envía cada hora para indicar que el vídeo se transmite desde el origen de vídeo, con el número de errores en esa hora. Se notifica para cada gráfico. |
-|VideoIngesterState | Notifica el estado *Detenido* o *Iniciado* para el streaming de vídeo. Se notifica para cada gráfico. |
+|VideoIngesterHeartbeat     |Se envía cada hora para indicar que el vídeo se transmite desde el origen de vídeo, con el número de errores en esa hora. Se notifica para cada gráfico. |
+|VideoIngesterState | Notifica el estado *Detenido* o *Iniciado* para el streaming de vídeo.  Se notifica para cada gráfico. |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Solución de problemas de un dispositivo IoT Edge
 
@@ -129,22 +129,17 @@ Puede usar la herramienta de línea de comandos `iotedge` para comprobar el esta
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Recopilación de archivos de registro con el contenedor de diagnósticos
 
-El análisis espacial genera registros de depuración de Docker que puede usar para diagnosticar problemas en tiempo de ejecución o incluir en incidencias de soporte técnico. El módulo de diagnóstico de análisis espacial está disponible en Microsoft Container Registry para su descarga. En el [manifiesto de implementación](https://go.microsoft.com/fwlink/?linkid=2142179) de ejemplo, busque el módulo de *diagnóstico*.
+El análisis espacial genera registros de depuración de Docker que puede usar para diagnosticar problemas en tiempo de ejecución o incluir en incidencias de soporte técnico. El módulo de diagnóstico de análisis espacial está disponible en Microsoft Container Registry para su descarga. En el archivo de implementación del manifiesto del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de cualquier otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), busque el módulo de *diagnóstico*.
 
 En la sección "env", agregue la siguiente configuración:
 
 ```json
-"diagnostics": {  
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
-  }
+"diagnostics": {  
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
+  }
 ```    
-
->[!NOTE]
-> Si no está ejecutando en un entorno de Kubernetes de ASE, reemplace las opciones de creación del contenedor del módulo de registro por lo siguiente:
->
->`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
 Para optimizar los registros cargados en un punto de conexión remoto, como Azure Blob Storage, se recomienda mantener un tamaño de archivo pequeño. Consulte el ejemplo siguiente para ver la configuración recomendada de los registros de Docker.
 
@@ -193,13 +188,13 @@ También pueden establecerse a través del documento del módulo gemelo IoT Edge
 > El módulo `diagnostics` no afecta al contenido del registro, solo sirve para recopilar, filtrar y cargar los registros existentes.
 > Para usar este módulo, debe tener la versión 1.40 o superior de la API de Docker.
 
-El archivo de [manifiesto de implementación de ejemplo](https://go.microsoft.com/fwlink/?linkid=2142179) incluye un módulo denominado `diagnostics` que recopila y carga registros. Este módulo está deshabilitado de forma predeterminada y debe habilitarse a través de la configuración del módulo IoT Edge cuando tenga que acceder a los registros. 
+El archivo del manifiesto de implementación de ejemplo del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de cualquier otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) incluye un módulo denominado `diagnostics` que recopila y carga registros. Este módulo está deshabilitado de forma predeterminada y debe habilitarse a través de la configuración del módulo IoT Edge cuando tenga que acceder a los registros. 
 
 La recopilación de `diagnostics` se realiza a petición y se controla a través de un método directo de IoT Edge, y puede enviar registros a una instancia de Azure Blob Storage.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Configuración de destinos de carga de diagnósticos
 
-En el portal de IoT Edge, seleccione el dispositivo y luego el módulo de **diagnóstico**. En el archivo de ejemplo [*DeploymentManifest.json*](https://go.microsoft.com/fwlink/?linkid=2142179), busque la sección de **variables de entorno** de diagnóstico, denominada "env", y agregue la siguiente información:
+En el portal de IoT Edge, seleccione el dispositivo y luego el módulo de **diagnóstico**. En el archivo del manifiesto de implementación de ejemplo del [dispositivo de Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) o de cualquier otra [máquina de escritorio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), busque la sección **Variables de entorno** para los diagnósticos, denominada `env`, y agregue la siguiente información:
 
 **Configuración de la carga en Azure Blob Storage**
 
@@ -221,15 +216,15 @@ Los registros se cargan a petición con el método `getRTCVLogs` de IoT Edge, en
 
 
 1. Vaya a la página del portal de IoT Hub, seleccione **dispositivos perimetrales** y elija el dispositivo y el módulo de diagnóstico. 
-2. Vaya a la página de detalles del módulo y haga clic en la pestaña ***método directo***.
+2. Vaya a la página de detalles del módulo y haga clic en la pestaña * *_método directo_*.
 3. Escriba `getRTCVLogs` como Nombre del método y una cadena de formato JSON en la carga. Puede escribir `{}`, que es una carga vacía. 
-4. Establezca los tiempos de espera de conexión y método y haga clic en **Invocar método**.
+4. Establezca los tiempos de espera de conexión y método y haga clic en *Invocar método**.
 5. Seleccione el contenedor de destino y cree una cadena JSON de carga con los parámetros descritos en la sección **Sintaxis de registro**. Haga clic en **Invocar método** para realizar la solicitud.
 
 >[!NOTE]
 > Al invocar el método `getRTCVLogs` con una carga vacía, se devolverá una lista de todos los contenedores implementados en el dispositivo. El nombre del método distingue mayúsculas de minúsculas. Obtendrá un error 501 si se especifica un nombre de método incorrecto.
 
-:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Informe de telemetría de Azure Monitor":::
+:::image type="content" source="./media/spatial-analysis/direct-log-collection.png" alt-text="Invocación del método getRTCVLogs ":::
 ![Página de método directo getRTCVLogs](./media/spatial-analysis/direct-log-collection.png)
 
  
@@ -250,7 +245,7 @@ En la tabla siguiente se muestran los atributos de la respuesta de la consulta.
 
 | Palabra clave | Descripción|
 |--|--|
-|DoPost| Puede ser *true* o *false*. Indica si los registros se han cargado o no. Cuando elige no cargar los registros, la API devuelve información ***sincrónicamente***. Cuando elige cargar registros, la API devuelve 200, si la solicitud es válida, e inicia la carga de registros ***asincrónicamente***.|
+|DoPost| Puede ser *true* o *false*. Indica si los registros se han cargado o no. Cuando elige no cargar los registros, la API devuelve información * **sincrónicamente**. Cuando elige cargar registros, la API devuelve 200, si la solicitud es válida, e inicia la carga de registros _*_asincrónicamente_*_.|
 |TimeFilter| Filtro de tiempo aplicado a los registros.|
 |ValueFilters| Filtros de palabra clave aplicados a los registros. |
 |TimeStamp| Hora de inicio de ejecución del método. |
@@ -303,7 +298,7 @@ En la tabla siguiente se muestran los atributos de la respuesta de la consulta.
 }
 ```
 
-Compruebe las líneas, las horas y los tamaños del registro de captura, y si la configuración es correcta, reemplace ***DoPost*** por `true` y eso insertará los registros con los mismos filtros en los destinos. 
+Compruebe las líneas, las horas y los tamaños del registro de captura, y si la configuración es correcta, reemplace _*_DoPost_*_ por `true` y eso insertará los registros con los mismos filtros en los destinos. 
 
 Puede exportar registros desde la instancia de Azure Blob Storage al solucionar problemas. 
 
@@ -319,10 +314,10 @@ Para obtener más información, consulte [Solicitud de aprobación para ejecutar
 
 La siguiente sección se ofrece como ayuda con la depuración y comprobación del estado del dispositivo de Azure Stack Edge.
 
-### <a name="access-the-kubernetes-api-endpoint"></a>Acceda al punto de conexión de API de Kubernetes. 
+### <a name="access-the-kubernetes-api-endpoint"></a>Acceda al punto de conexión de API de Kubernetes. 
 
-1. En la interfaz de usuario local del dispositivo, vaya a la página **Dispositivos**. 
-2. En **Puntos de conexión del dispositivo**, copie el punto de conexión de servicio API de Kubernetes. Este punto de conexión es una cadena en el formato siguiente: `https://compute..[device-IP-address]`.
+1. En la interfaz de usuario local del dispositivo, vaya a la página *Dispositivos* *. 
+2. En **Puntos de conexión del dispositivo** , copie el punto de conexión de servicio API de Kubernetes. Este punto de conexión es una cadena en el formato siguiente: `https://compute..[device-IP-address]`.
 3. Guarde la cadena de punto de conexión. La usará más adelante al configurar `kubectl` para acceder al clúster de Kubernetes.
 
 ### <a name="connect-to-powershell-interface"></a>Conexión a la interfaz de PowerShell

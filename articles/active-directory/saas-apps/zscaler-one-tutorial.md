@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 8bac5d208cacc03b97c915cac174577fc673712e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d55e02bd981a220fee55a0abd540206a2701850a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545903"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896861"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: Integración de Azure Active Directory con Zscaler One
 
@@ -27,7 +27,7 @@ La integración de Zscaler One con Azure AD le proporciona las siguientes ventaj
 * Puede permitir que los usuarios inicien sesión automáticamente en Zscaler One (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Para configurar la integración de Zscaler One en Azure AD, deberá agregar Zsca
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Zscaler One**, seleccione **Zscaler One** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Zscaler One** , seleccione **Zscaler One** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Zscaler One en la lista de resultados](common/search-new-app.png)
 
@@ -91,28 +91,28 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único** , seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML** , haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la sección **Configuración básica de SAML** , siga estos pasos:
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de Zscaler One](common/sp-signonurl.png)
 
-    En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL con la que los usuarios inician sesión en la aplicación Zscaler One.
+    En el cuadro de texto **Dirección URL de inicio de sesión** , escriba la dirección URL con la que los usuarios inician sesión en la aplicación Zscaler One.
 
     > [!NOTE]
     > Actualizará este valor con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico al cliente de Zscaler One](https://www.zscaler.com/company/contact) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. La aplicación Zscaler One espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](common/edit-attribute.png)
+    ![Captura de pantalla que muestra User Attributes (Atributos de usuario) con el icono de edición seleccionado.](common/edit-attribute.png)
 
-6. Además de lo anterior, la aplicación Zscaler One espera que se pasen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
+6. Además de lo anterior, la aplicación Zscaler One espera que se pasen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario** , realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
     
     | Nombre | Atributo de origen |
     | ---------| ------------ |
@@ -120,28 +120,28 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
 
     a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](common/new-save-attribute.png)
+    ![Captura de pantalla que muestra User claims (Reclamaciones de usuario) con la opción Add new claim (Agregar nueva reclamación).](common/new-save-attribute.png)
 
-    ![imagen](common/new-attribute-details.png)
+    ![Captura de pantalla que muestra Manage user claims (Administrar reclamaciones de usuario) para escribir los valores que se describen.](common/new-attribute-details.png)
 
-    b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
+    b. En el cuadro de texto **Nombre** , escriba el nombre que se muestra para la fila.
 
     c. Deje **Espacio de nombres** en blanco.
 
     d. Seleccione **Atributo** como origen.
 
-    e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
+    e. En la lista **Atributo de origen** , escriba el valor de atributo que se muestra para esa fila.
     
-    f. Haga clic en **Save**(Guardar).
+    f. Haga clic en **Save** (Guardar).
 
     > [!NOTE]
-    > Haga clic [aquí](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) para saber cómo configurar el valor Role en Azure AD.
+    > Haga clic [aquí](../develop/active-directory-enterprise-app-role-management.md) para saber cómo configurar el valor Role en Azure AD.
 
-7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+7. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-8. En la sección **Configurar Zscaler One**, copie la dirección URL adecuada según sus necesidades.
+8. En la sección **Configurar Zscaler One** , copie la dirección URL adecuada según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -165,35 +165,35 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
 
 4. Vaya a **Administración > Autenticación > Configuración de autenticación** y realice los siguientes pasos:
    
-    ![Administración](./media/zscaler-one-tutorial/ic800206.png "Administración")
+    ![Captura de pantalla que muestra el sitio de Zscaler One con los pasos descritos.](./media/zscaler-one-tutorial/ic800206.png "Administración")
 
     a. En Tipo de autenticación, elija **SAML**.
 
     b. Haga clic en **Configurar SAML**.
 
-5. En la ventana **Editar SAML**, realice los pasos siguientes y haga clic en Guardar.  
+5. En la ventana **Editar SAML** , realice los pasos siguientes y haga clic en Guardar.  
             
     ![Administración de usuarios y autenticación](./media/zscaler-one-tutorial/ic800208.png "Manage Users & Authentication")
     
-    a. En el cuadro de texto **Dirección URL del portal de SAML**, pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Dirección URL del portal de SAML** , pegue la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    b. En el cuadro de texto **Atributo de nombre de inicio de sesión**, escriba **NameID**.
+    b. En el cuadro de texto **Atributo de nombre de inicio de sesión** , escriba **NameID**.
 
     c. Haga clic en **Cargar** para cargar el certificado de firma de SAML de Azure que ha descargado desde Azure Portal en el **Certificado SSL público**.
 
     d. Alterne **Habilitar aprovisionamiento automático de SAML**.
 
-    e. En el cuadro de texto **Atributo de nombre para mostrar del usuario**, escriba **displayName** si desea habilitar el aprovisionamiento automático de SAML para atributos displayName.
+    e. En el cuadro de texto **Atributo de nombre para mostrar del usuario** , escriba **displayName** si desea habilitar el aprovisionamiento automático de SAML para atributos displayName.
 
-    f. En el cuadro de texto **Atributo de nombre del grupo**, escriba **memberOf** si desea habilitar el aprovisionamiento automático de SAML para atributos memberOf.
+    f. En el cuadro de texto **Atributo de nombre del grupo** , escriba **memberOf** si desea habilitar el aprovisionamiento automático de SAML para atributos memberOf.
 
-    g. En el cuadro de texto **Atributo de nombre del departamento**, escriba **department** si desea habilitar el aprovisionamiento automático de SAML para atributos department.
+    g. En el cuadro de texto **Atributo de nombre del departamento** , escriba **department** si desea habilitar el aprovisionamiento automático de SAML para atributos department.
 
-    h. Haga clic en **Save**(Guardar).
+    h. Haga clic en **Save** (Guardar).
 
 6. En la página del cuadro de diálogo **Configurar autenticación de usuario** , realice los pasos siguientes:
 
-    ![Administración](./media/zscaler-one-tutorial/ic800207.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Configure User Authentication (Configurar autenticación de usuario) con la opción Activate (Activar) seleccionada.](./media/zscaler-one-tutorial/ic800207.png)
 
     a. Mantenga el puntero sobre el menú **Activación** situado cerca de la parte inferior izquierda.
 
@@ -234,7 +234,7 @@ Para configurar el inicio de sesión único de Azure AD con Zscaler One, realic
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory** , **Usuarios** y **Todos los usuarios**.
 
     ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
@@ -246,9 +246,9 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+    a. En el campo **Nombre** , escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario** , escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -258,7 +258,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Zscaler One.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Zscaler One**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales** , **Todas las aplicaciones** y **Zscaler One**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -274,17 +274,17 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
     ![Panel Agregar asignación](common/add-assign-user.png)
 
-5. En el cuadro de diálogo **Usuarios y grupos**, seleccione el usuario, como **Britta Simon**, en la lista y luego haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos** , seleccione el usuario, como **Britta Simon** , en la lista y luego haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![imagen](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Usuarios y grupos, donde puede seleccionar un usuario.](./media/zscaler-one-tutorial/tutorial_zscalerone_users.png)
 
-6. En el cuadro de diálogo **Seleccionar rol**, elija el rol de usuario adecuado de la lista y, luego, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
+6. En el cuadro de diálogo **Seleccionar rol** , elija el rol de usuario adecuado de la lista y, luego, haga clic en el botón **Seleccionar** situado en la parte inferior de la pantalla.
 
-    ![imagen](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Seleccionar rol, donde puede elegir un rol de usuario.](./media/zscaler-one-tutorial/tutorial_zscalerone_roles.png)
 
-7. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
+7. En el cuadro de diálogo **Agregar asignación** , seleccione el botón **Asignar**.
 
-    ![imagen](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo Agregar asignación, donde puede seleccionar Asignar.](./media/zscaler-one-tutorial/tutorial_zscalerone_assign.png)
 
 ### <a name="create-zscaler-one-test-user"></a>Creación de un usuario de prueba de Zscaler One
 
@@ -297,13 +297,12 @@ En esta sección, se crea un usuario llamado Britta Simon en Zscaler One. Zscale
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Zscaler One en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Zscaler One para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Zscaler One en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Zscaler One para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [¿Qué es el acceso condicional en Azure Active Directory?](../conditional-access/overview.md)

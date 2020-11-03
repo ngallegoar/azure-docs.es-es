@@ -9,16 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ee7eda58c211ca570b052d55c813999e62b95fde
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 61b6f4a530ab1861c67b0bd4983167546e268957
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876318"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896334"
 ---
 # <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Tutorial: Migración de Google Maps a Azure Maps
 
-En este artículo se proporciona información sobre cómo migrar aplicaciones web, para dispositivos móviles y basadas en servidor de Google Maps a la plataforma Microsoft Azure Maps. En este tutorial se incluyen ejemplos de código comparativos, sugerencias de migración y procedimientos recomendados para migrar a Azure Maps.
+En este artículo se proporciona información sobre cómo migrar aplicaciones web, para dispositivos móviles y basadas en servidor de Google Maps a la plataforma Microsoft Azure Maps. En este tutorial se incluyen ejemplos de código comparativos, sugerencias de migración y procedimientos recomendados para migrar a Azure Maps. En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> * Hacer una comparación de alto nivel para características equivalentes de Google Maps disponibles en Azure Maps
+> * Identificar las diferencias en las licencias que se deben tener en cuenta
+> * Planear la migración
+> * Encontrar recursos técnicos y soporte técnico
+
+## <a name="prerequisites"></a>Requisitos previos 
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com). Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+2. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
+3. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="azure-maps-platform-overview"></a>Introducción a la plataforma Azure Maps
 
@@ -67,7 +79,7 @@ Estos son algunos recursos relacionados con Azure Maps:
 - [Página de precios de Azure Maps](https://azure.microsoft.com/pricing/details/azure-maps/)
 - [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 - [Condiciones de uso de Azure Maps](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46) (incluido en los términos de Microsoft Online Services)
-- [Elección del plan de tarifa adecuado de Azure Maps](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+- [Elección del plan de tarifa adecuado de Azure Maps](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>Plan de migración sugerido
 
@@ -75,7 +87,7 @@ A continuación se describe un plan de migración general.
 
 1. Realice un inventario de los SDK y servicios de Google Maps que usa la aplicación. Compruebe que Azure Maps proporciona SDK y servicios alternativos.
 2. Si todavía no tiene una, cree una suscripción de Azure en [https://azure.com](https://azure.com).
-3. Cree una cuenta de Azure Maps ([documentación](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys))y una clave de autenticación o de Azure Active Directory ([documentación](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
+3. Cree una cuenta de Azure Maps ([documentación](./how-to-manage-account-keys.md))y una clave de autenticación o de Azure Active Directory ([documentación](./how-to-manage-authentication.md)).
 4. Migre el código de la aplicación.
 5. Pruebe la aplicación migrada.
 6. Implemente la aplicación migrada en producción.
@@ -86,17 +98,17 @@ Para crear una cuenta de Azure Maps y acceder a la plataforma Azure Maps, siga e
 
 1. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 2. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-3. Cree una [cuenta de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
-4. [Obtenga su clave de suscripción de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) o configure la autenticación de Azure Active Directory para reforzar la seguridad.
+3. Cree una [cuenta de Azure Maps](./how-to-manage-account-keys.md). 
+4. [Obtenga su clave de suscripción de Azure Maps](./how-to-manage-authentication.md#view-authentication-details) o configure la autenticación de Azure Active Directory para reforzar la seguridad.
 
 ## <a name="azure-maps-technical-resources"></a>Recursos técnicos para Azure Maps
 
 Esta es una lista de recursos técnicos útiles para Azure Maps.
 
 - Información general: [https://azure.com/maps](https://azure.com/maps)
-- Documentación: [https://aka.ms/AzureMapsDocs](https://aka.ms/AzureMapsDocs)
+- Documentación: [https://aka.ms/AzureMapsDocs](./index.yml)
 - Ejemplos de código del SDK web: [https://aka.ms/AzureMapsSamples](https://aka.ms/AzureMapsSamples)
-- Foros para desarrolladores: [https://aka.ms/AzureMapsForums](https://aka.ms/AzureMapsForums)
+- Foros para desarrolladores: [https://aka.ms/AzureMapsForums](/answers/topics/azure-maps.html)
 - Vídeos: [https://aka.ms/AzureMapsVideos](https://aka.ms/AzureMapsVideos)
 - Blog: [https://aka.ms/AzureMapsBlog](https://aka.ms/AzureMapsBlog)
 - Blog técnico: [https://aka.ms/AzureMapsTechBlog](https://aka.ms/AzureMapsTechBlog)
@@ -105,12 +117,17 @@ Esta es una lista de recursos técnicos útiles para Azure Maps.
 
 ## <a name="migration-support"></a>Compatibilidad con la migración
 
-Los desarrolladores pueden buscar compatibilidad con la migración a través de los [foros](https://aka.ms/AzureMapsForums) o de una de las muchas opciones de soporte técnico de Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
+Los desarrolladores pueden buscar compatibilidad con la migración a través de los [foros](/answers/topics/azure-maps.html) o de una de las muchas opciones de soporte técnico de Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
-Para obtener información sobre cómo migrar la aplicación de Google Maps, consulte: 
+## <a name="next-steps"></a>Pasos siguientes
 
-[Migración de una aplicación de Android](migrate-from-google-maps-android-app.md) 
+Aprenda a migrar la aplicación de Google Maps con estos artículos:
 
-[Migración de un servicio web](migrate-from-google-maps-web-services.md) 
+> [!div class="nextstepaction"]
+> [Migración de una aplicación web](migrate-from-google-maps-web-app.md)
 
-[Migración de una aplicación web](migrate-from-google-maps-web-app.md)
+> [!div class="nextstepaction"]
+> [Migración de un servicio web](migrate-from-google-maps-web-services.md) 
+
+> [!div class="nextstepaction"]
+> [Migración de una aplicación de Android](migrate-from-google-maps-android-app.md) 

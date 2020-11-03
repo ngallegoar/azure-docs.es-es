@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: 024b7adb254980ec87084b4794a9ced3eaea95eb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 39c2fe177d0a6d913d7bf2b2baf44af3c69c0868
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074522"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900094"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -121,7 +121,7 @@ En la siguiente salida de ejemplo se puede ver que *mynodepool* se ha creado cor
 ```
 
 > [!TIP]
-> Si no se especifica *VmSize* al agregar un grupo de nodos, el tamaño predeterminado será *Standard_D2s_v3* para los grupos de nodos de Windows y *Standard_DS2_v2* para los grupos de nodos de Linux. Si no se especifica *OrchestratorVersion*, se establecerá de forma predeterminada en la misma versión que el plano de control.
+> Si no se especifica *VmSize* al agregar un grupo de nodos, el tamaño predeterminado será *Standard_D2s_v3* para los grupos de nodos de Windows y *Standard_DS2_v2* para los grupos de nodos de Linux. Si no se especifica *OrchestratorVersion* , se establecerá de forma predeterminada en la misma versión que el plano de control.
 
 ### <a name="add-a-node-pool-with-a-unique-subnet-preview"></a>Adición de un grupo de nodos con una subred única (versión preliminar)
 
@@ -172,7 +172,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente, se muestra que *mynodepool* se encuentra en el estado *Actualizando* a *KUBERNETES_VERSION*:
+Muestre el estado de los grupos de nodos de nuevo mediante el comando [az aks node pool list][az-aks-nodepool-list]. En el ejemplo siguiente, se muestra que *mynodepool* se encuentra en el estado *Actualizando* a *KUBERNETES_VERSION* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -214,7 +214,7 @@ Se recomienda que actualice todos los grupos de nodos de un clúster de AKS a la
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Actualización del plano de control de un clúster con varios grupos de nodos
 
 > [!NOTE]
-> Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z*, donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión *1.12.6*, 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. Las versiones de Kubernetes del plano de control y del grupo de nodos inicial se establecen durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control.
+> Kubernetes usa el esquema de versiones estándar de [Versionamiento Semántico](https://semver.org/). El número de versión se expresa como *x.y.z* , donde *x* es la versión principal, *y* es la versión secundaria y *z* es la versión de revisión. Por ejemplo, en la versión  *1.12.6* , 1 es la versión principal, 12 es la versión secundaria y 6 es la versión de revisión. Las versiones de Kubernetes del plano de control y del grupo de nodos inicial se establecen durante la creación del clúster. Todos los grupos de nodos adicionales tienen establecida la versión de Kubernetes cuando se agregan al clúster. Las versiones de Kubernetes pueden diferir entre los grupos de nodos, así como entre un grupo de nodos y el plano de control.
 
 Un clúster de AKS tiene dos objetos de recursos de clúster con las versiones de Kubernetes asociadas.
 
@@ -249,7 +249,7 @@ A medida que la carga de trabajo de las aplicaciones cambia, puede que tenga que
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-Para escalar el número de nodos de un grupo de nodos, use el comando [az aks node pool scale][az-aks-nodepool-scale]. En el ejemplo siguiente se escala el número de nodos de *mynodepool* a *5*:
+Para escalar el número de nodos de un grupo de nodos, use el comando [az aks node pool scale][az-aks-nodepool-scale]. En el ejemplo siguiente se escala el número de nodos de *mynodepool* a *5* :
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -312,7 +312,7 @@ Si ya no necesita un grupo, puede eliminarlo y quitar los nodos de máquinas vir
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nodepool-list] se puede ver que *mynodepool* se encuentra en el estado *Eliminando*:
+En la siguiente salida de ejemplo del comando [az aks node pool list][az-aks-nodepool-list] se puede ver que *mynodepool* se encuentra en el estado *Eliminando* :
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -351,11 +351,11 @@ Tarda unos minutos en eliminar los nodos y el grupo de nodos.
 
 ## <a name="specify-a-vm-size-for-a-node-pool"></a>Especificación de un tamaño de máquina virtual para un grupo de nodos
 
-En los ejemplos anteriores para crear un grupo de nodos, se usó un tamaño de máquina virtual predeterminado para los nodos creados en el clúster. Un escenario habitual consiste en crear grupos de nodos con diferentes tamaños y funcionalidades de máquina virtual. Por ejemplo, puede crear un grupo de nodos que contenga nodos con grandes cantidades de memoria o CPU, o un grupo de nodos que proporcione compatibilidad con GPU. En el paso siguiente, se [usan taints y tolerations](#schedule-pods-using-taints-and-tolerations) para indicar al programador de Kubernetes cómo limitar el acceso a los pods que se pueden ejecutar en esos nodos.
+En los ejemplos anteriores para crear un grupo de nodos, se usó un tamaño de máquina virtual predeterminado para los nodos creados en el clúster. Un escenario habitual consiste en crear grupos de nodos con diferentes tamaños y funcionalidades de máquina virtual. Por ejemplo, puede crear un grupo de nodos que contenga nodos con grandes cantidades de memoria o CPU, o un grupo de nodos que proporcione compatibilidad con GPU. En el paso siguiente, se [usan taints y tolerations](#setting-nodepool-taints) para indicar al programador de Kubernetes cómo limitar el acceso a los pods que se pueden ejecutar en esos nodos.
 
 En el ejemplo siguiente, cree un grupo de nodos basado en GPU que use el tamaño de máquina virtual *Standard_NC6*. Estas máquinas virtuales disponen de una tarjeta Tesla K80 de NVIDIA. Para más información sobre los tamaños de máquina virtual disponibles, consulte [Tamaños de las máquinas virtuales Linux en Azure][vm-sizes].
 
-Cree un grupo de nodos mediante el comando [az aks node pool add][az-aks-nodepool-add] de nuevo. Esta vez, especifique el nombre *gpunodepool* y use el parámetro `--node-vm-size` para especificar el tamaño *Standard_NC6*:
+Cree un grupo de nodos mediante el comando [az aks node pool add][az-aks-nodepool-add] de nuevo. Esta vez, especifique el nombre *gpunodepool* y use el parámetro `--node-vm-size` para especificar el tamaño *Standard_NC6* :
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -404,89 +404,6 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 Tarda unos minutos en crear correctamente *gpunodepool*.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>Programación de pods con taints y tolerations
-
-Ahora tiene dos grupos de nodos en el clúster, el grupo de nodos predeterminado que se creó inicialmente y el grupo de nodos basado en GPU. Use el comando [kubectl get nodes][kubectl-get] para ver los nodos del clúster. En la siguiente salida de ejemplo se muestran los nodos:
-
-```console
-kubectl get nodes
-```
-
-```output
-NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
-```
-
-El programador de Kubernetes puede utilizar taints y tolerations para limitar las cargas de trabajo que se pueden ejecutar en los nodos.
-
-* Un valor **taint** se aplica a un nodo que indica que solo se pueden programar pods específicos en él.
-* Luego se aplica un valor **toleration** a un pod que le permite *tolerar* el valor taint de un nodo.
-
-Para más información sobre cómo usar las características avanzadas programadas de Kubernetes, consulte [Best practices for advanced scheduler features in AKS][taints-tolerations] (Procedimientos recomendados para las características avanzadas del programador en AKS).
-
-En este ejemplo, aplique un valor taint al nodo basado en GPU mediante el comando --node-taints. Especifique el nombre del nodo basado en GPU de la salida del comando `kubectl get nodes` anterior. El valor taint se aplica como un par *key=value* y como una opción de programación. En el ejemplo siguiente se usa el par *sku=gpu* y se definen los pods que, en caso contrario, tendrán la capacidad *NoSchedule*:
-
-```console
-az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
-```
-
-El siguiente manifiesto YAML básico de ejemplo usa un valor toleration para permitir al programador de Kubernetes ejecutar un pod NGINX en el nodo basado en GPU. Para ver un ejemplo más adecuado pero que requiere mucho tiempo para ejecutar un trabajo de Tensorflow en el conjunto de datos de MNIST, consulte [Use GPUs for compute-intensive workloads on AKS][gpu-cluster] (Uso de GPU para cargas de trabajo de procesos intensivos en AKS).
-
-Cree un archivo denominado `gpu-toleration.yaml` y cópielo en el ejemplo siguiente de YAML:
-
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: mypod
-spec:
-  containers:
-  - image: nginx:1.15.9
-    name: mypod
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 1
-        memory: 2G
-  tolerations:
-  - key: "sku"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
-```
-
-Programe el pod mediante el comando `kubectl apply -f gpu-toleration.yaml`:
-
-```console
-kubectl apply -f gpu-toleration.yaml
-```
-
-Se tarda unos segundos en programar el pod y extraer la imagen NGINX. Use el comando [kubectl describe pod][kubectl-describe] para ver el estado del pod. En la siguiente salida de ejemplo reducida se puede ver que se aplica el valor *sku=gpu:NoSchedule* a toleration. En la sección de eventos, el programador ha asignado el pod al nodo basado en GPU *aks-gpunodepool-28993262-vmss000000*:
-
-```console
-kubectl describe pod mypod
-```
-
-```output
-[...]
-Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
-                 node.kubernetes.io/unreachable:NoExecute for 300s
-                 sku=gpu:NoSchedule
-Events:
-  Type    Reason     Age    From                                          Message
-  ----    ------     ----   ----                                          -------
-  Normal  Scheduled  4m48s  default-scheduler                             Successfully assigned default/mypod to aks-gpunodepool-28993262-vmss000000
-  Normal  Pulling    4m47s  kubelet, aks-gpunodepool-28993262-vmss000000  pulling image "nginx:1.15.9"
-  Normal  Pulled     4m43s  kubelet, aks-gpunodepool-28993262-vmss000000  Successfully pulled image "nginx:1.15.9"
-  Normal  Created    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Created container
-  Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
-```
-
-Solo los pods a los que se ha aplicado este valor toleration se pueden programar en los nodos de *gpunodepool*. Cualquier otro pod se tendría que programar en el grupo de nodos *nodepool1*. Si crea grupos de nodos adicionales, puede usar valores taint y toleration adicionales para limitar los pods que se pueden programar en esos recursos del nodo.
-
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especificación de un valor taint o una etiqueta para un grupo de nodos
 
 ### <a name="setting-nodepool-taints"></a>Configuración de las intolerancias de un grupo de nodos
@@ -508,7 +425,7 @@ az aks nodepool add \
 > [!NOTE]
 > Solo pueden crearse intolerancias para los grupos de nodos cuando estos se crean.
 
-En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *taintnp* está creando (*Creating*) nodos con el valor *nodeTaints* especificado:
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *taintnp* está creando ( *Creating* ) nodos con el valor *nodeTaints* especificado:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -532,7 +449,68 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-La información del valor taint está visible en Kubernetes para controlar las reglas de programación de los nodos.
+La información del valor taint está visible en Kubernetes para controlar las reglas de programación de los nodos. El programador de Kubernetes puede utilizar taints y tolerations para limitar las cargas de trabajo que se pueden ejecutar en los nodos.
+
+* Un valor **taint** se aplica a un nodo que indica que solo se pueden programar pods específicos en él.
+* Luego se aplica un valor **toleration** a un pod que le permite *tolerar* el valor taint de un nodo.
+
+Para más información sobre cómo usar las características avanzadas programadas de Kubernetes, consulte [Best practices for advanced scheduler features in AKS][taints-tolerations] (Procedimientos recomendados para las características avanzadas del programador en AKS).
+
+En el paso anterior, aplicó el valor taint *sku=gpu:NoSchedule* cuando creó el grupo de nodos. El siguiente manifiesto YAML básico de ejemplo usa un valor toleration para permitir al programador de Kubernetes ejecutar un pod NGINX en un nodo de ese grupo de nodos.
+
+Cree un archivo denominado `nginx-toleration.yaml` y cópielo en el ejemplo siguiente de YAML:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - image: mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 1
+        memory: 2G
+  tolerations:
+  - key: "sku"
+    operator: "Equal"
+    value: "gpu"
+    effect: "NoSchedule"
+```
+
+Programe el pod mediante el comando `kubectl apply -f nginx-toleration.yaml`:
+
+```console
+kubectl apply -f nginx-toleration.yaml
+```
+
+Se tarda unos segundos en programar el pod y extraer la imagen NGINX. Use el comando [kubectl describe pod][kubectl-describe] para ver el estado del pod. En la siguiente salida de ejemplo reducida se puede ver que se aplica el valor *sku=gpu:NoSchedule* a toleration. En la sección de eventos, el programador ha asignado el pod al nodo *aks-taintnp-28993262-vmss000000* :
+
+```console
+kubectl describe pod mypod
+```
+
+```output
+[...]
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s
+                 sku=gpu:NoSchedule
+Events:
+  Type    Reason     Age    From                Message
+  ----    ------     ----   ----                -------
+  Normal  Scheduled  4m48s  default-scheduler   Successfully assigned default/mypod to aks-taintnp-28993262-vmss000000
+  Normal  Pulling    4m47s  kubelet             pulling image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Pulled     4m43s  kubelet             Successfully pulled image "mcr.microsoft.com/oss/nginx/nginx:1.15.9-alpine"
+  Normal  Created    4m40s  kubelet             Created container
+  Normal  Started    4m40s  kubelet             Started container
+```
+
+Solo los pods a los que se ha aplicado este valor toleration se pueden programar en los nodos de *taintnp*. Cualquier otro pod se tendría que programar en el grupo de nodos *nodepool1*. Si crea grupos de nodos adicionales, puede usar valores taint y toleration adicionales para limitar los pods que se pueden programar en esos recursos del nodo.
 
 ### <a name="setting-nodepool-labels"></a>Configuración de etiquetas de grupos de nodos
 
@@ -553,7 +531,7 @@ az aks nodepool add \
 > [!NOTE]
 > La etiqueta solo se puede establecer para los grupos de nodos durante la creación de estos. Las etiquetas también deben ser un par clave-valor y tener una [sintaxis válida][kubernetes-label-syntax].
 
-En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *labelnp* está creando (*Creating*) nodos con el valor *nodeLabels* especificado:
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *labelnp* está creando ( *Creating* ) nodos con el valor *nodeLabels* especificado:
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -599,9 +577,9 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> También puede usar el parámetro `--tags` cuando use el comando [az aks nodepool update][az-aks-nodepool-update], y también durante la creación del clúster. Durante la creación del clúster, el parámetro `--tags` aplica la etiqueta al grupo de nodos inicial que se crea con el clúster. Todos los nombres de etiqueta deben cumplir las limitaciones de [Uso de etiquetas para organizar los recursos de Azure][tag-limitation]. Al actualizar un grupo de nodos con el parámetro `--tags`, se actualizan los valores de etiqueta existentes y se anexan las etiquetas nuevas. Por ejemplo, si el grupo de nodos tuviera *dept=IT* y *costcenter=9999* en las etiquetas y lo actualizara a *team=dev* y *costcenter=111*, el grupo de nodos tendría *dept=IT*, *costcenter=111* y *team=dev* como etiquetas.
+> También puede usar el parámetro `--tags` cuando use el comando [az aks nodepool update][az-aks-nodepool-update], y también durante la creación del clúster. Durante la creación del clúster, el parámetro `--tags` aplica la etiqueta al grupo de nodos inicial que se crea con el clúster. Todos los nombres de etiqueta deben cumplir las limitaciones de [Uso de etiquetas para organizar los recursos de Azure][tag-limitation]. Al actualizar un grupo de nodos con el parámetro `--tags`, se actualizan los valores de etiqueta existentes y se anexan las etiquetas nuevas. Por ejemplo, si el grupo de nodos tuviera *dept=IT* y *costcenter=9999* en las etiquetas y lo actualizara a *team=dev* y *costcenter=111* , el grupo de nodos tendría *dept=IT* , *costcenter=111* y *team=dev* como etiquetas.
 
-En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *tagnodepool* está creando (*Creating*) nodos con el valor de *tag* especificado:
+En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *tagnodepool* está creando ( *Creating* ) nodos con el valor de *tag* especificado:
 
 ```azurecli
 az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster

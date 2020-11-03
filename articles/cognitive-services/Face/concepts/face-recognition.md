@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323029"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518813"
 ---
 # <a name="face-recognition-concepts"></a>Conceptos del reconocimiento facial
 
@@ -58,7 +58,7 @@ La operación [Identificar](https://westus.dev.cognitive.microsoft.com/docs/serv
 Utilice las siguientes sugerencias para asegurarse de que las imágenes de entrada proporcionan los resultados de reconocimiento más precisos:
 
 * Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF(el primer fotograma) y BMP.
-* El tamaño del archivo de imagen no debe ser superior a 4 MB.
+* El tamaño del archivo de imagen no debe ser superior a 6 MB.
 * Cuando crea objetos Person, use las fotos que presentan distintos tipos de ángulos e iluminaciones.
 * Es posible que no se puedan reconocer algunas caras debido a desafíos técnicos como, por ejemplo:
   * Imágenes con iluminación extrema, por ejemplo, fuerte contraluz.

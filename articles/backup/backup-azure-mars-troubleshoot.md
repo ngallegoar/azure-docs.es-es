@@ -3,12 +3,12 @@ title: Solución de problemas del agente de Azure Backup
 description: En este artículo se explica cómo solucionar problemas de instalación y registro del agente de Azure Backup.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 2e2e807a8b849af435fe82d54bbfdd96b729fa38
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4ae4142652d9d38d5bf384e5a10d6eeb7e3cc608
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091464"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900381"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -41,7 +41,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 | Causa | Acciones recomendadas |
 | ---     | ---    |
-| **Las credenciales de almacén no son válidas** <br/> <br/> Los archivos de credenciales de almacén podrían estar dañados o es posible que hayan expirado (por ejemplo, podrían haberse descargado más de 48 horas antes del momento del registro).| [Descargue nuevas credenciales](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) del almacén de Recovery Services en Azure Portal. Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup. A continuación, seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota** : Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido las próximas 48 horas. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
+| **Las credenciales de almacén no son válidas** <br/> <br/> Es posible que los archivos de credenciales de almacén estén dañados, que hayan expirado o que tengan una extensión de archivo diferente de *.vaultCredentials*. (por ejemplo, podrían haberse descargado más de 48 horas antes del momento del registro).| [Descargue nuevas credenciales](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) del almacén de Recovery Services en Azure Portal. Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup. A continuación, seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota** : Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido las próximas 48 horas. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
 | **El servidor proxy o el firewall están bloqueando el registro** <br/>or <br/>**No hay conectividad de Internet** <br/><br/> Si la máquina o servidor proxy tiene una conectividad de Internet limitada y el acceso a las direcciones URL necesarias no está garantizado, se producirá un error en el registro.| Siga estos pasos:<br/> <ul><li> Acuda al equipo de TI para asegurarse de que el sistema tiene conectividad de Internet.<li> Si no tiene un servidor proxy, asegúrese de que la opción de proxy no está seleccionada al registrar el agente. [Compruebe la configuración de proxy](#verifying-proxy-settings-for-windows).<li> Si tiene un servidor proxy o un firewall, acuda al equipo de red para asegurarse de que estas direcciones URL y direcciones IP tienen acceso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Direcciones IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Intente realizar el registro de nuevo después de completar los pasos de solución de problemas anteriores.<br></br> Si la conexión se realiza a través de Azure ExpressRoute, asegúrese de que la configuración esté definida como se describe en [Compatibilidad con Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **El software antivirus está bloqueando el registro** | Si tiene un software antivirus instalado en el servidor, agregue al examen antivirus las reglas de exclusión necesarias correspondientes a los siguientes archivos y carpetas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> La carpeta temporal. La ubicación predeterminada es: C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch. <li> La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -57,7 +57,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 1. Ejecute `psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"` en un símbolo del sistema con privilegios elevados.
 
    Este comando abrirá Internet Explorer.
-1. Vaya a **Herramientas** > **Opciones de Internet** > **Conexiones** > **Configuración de LAN** .
+1. Vaya a **Herramientas** > **Opciones de Internet** > **Conexiones** > **Configuración de LAN**.
 1. Compruebe la configuración del proxy de la cuenta del sistema.
 1. Si no se ha configurado ningún proxy, pero se han proporcionado detalles del proxy, quite esos detalles.
 1. Si hay un proxy configurado y los detalles del proxy son incorrectos, asegúrese de que los datos de **IP del servidor proxy** y **Puerto** son correctos.
@@ -73,7 +73,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 | Error  | Causa posible | Acciones recomendadas |
 | ---     | ---     | ---    |
-| <br /><ul><li>El Agente de servicios Microsoft Azure Recovery no se pudo conectar al servicio Microsoft Azure Backup. (Id.: 100050) Compruebe la configuración de red y asegúrese de que tiene conexión a Internet.<li>(407) Se requiere autenticación del proxy. |El proxy bloquea la conexión. |  <ul><li>En Internet Explorer, vaya a **Herramientas** > **Opciones de Internet** > **Seguridad** > **Internet** . Seleccione **Nivel personalizado** y desplácese hasta que vea la sección de **descarga de archivos** . Seleccione **Habilitar** .<p>También es posible que deba agregar [direcciones URL y direcciones IP](install-mars-agent.md#verify-internet-access) a los sitios de confianza en Internet Explorer.<li>Cambie la configuración para usar un servidor proxy. A continuación, proporcione los detalles del servidor proxy.<li> Si la máquina tiene limitado el acceso a Internet, asegúrese de que su configuración de firewall está establecida para permitir estas [direcciones URL y direcciones IP](install-mars-agent.md#verify-internet-access). <li>Si tiene un software antivirus instalado en el servidor, excluya estos archivos del examen: <ul><li>CBEngine.exe (en lugar de dpmra.exe).<li>CSC.exe (relacionado con .NET Framework). Hay un archivo CSC.exe por cada versión de .NET Framework instalada en el servidor. Excluya todos los archivos CSC.exe de todas las versiones de .NET Framework en el servidor afectado. <li>La ubicación de la memoria caché o la carpeta temporal. <br>La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch.<li>La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
+| <br /><ul><li>El Agente de servicios Microsoft Azure Recovery no se pudo conectar al servicio Microsoft Azure Backup. (Id.: 100050) Compruebe la configuración de red y asegúrese de que tiene conexión a Internet.<li>(407) Se requiere autenticación del proxy. |El proxy bloquea la conexión. |  <ul><li>En Internet Explorer, vaya a **Herramientas** > **Opciones de Internet** > **Seguridad** > **Internet**. Seleccione **Nivel personalizado** y desplácese hasta que vea la sección de **descarga de archivos**. Seleccione **Habilitar**.<p>También es posible que deba agregar [direcciones URL y direcciones IP](install-mars-agent.md#verify-internet-access) a los sitios de confianza en Internet Explorer.<li>Cambie la configuración para usar un servidor proxy. A continuación, proporcione los detalles del servidor proxy.<li> Si la máquina tiene limitado el acceso a Internet, asegúrese de que su configuración de firewall está establecida para permitir estas [direcciones URL y direcciones IP](install-mars-agent.md#verify-internet-access). <li>Si tiene un software antivirus instalado en el servidor, excluya estos archivos del examen: <ul><li>CBEngine.exe (en lugar de dpmra.exe).<li>CSC.exe (relacionado con .NET Framework). Hay un archivo CSC.exe por cada versión de .NET Framework instalada en el servidor. Excluya todos los archivos CSC.exe de todas las versiones de .NET Framework en el servidor afectado. <li>La ubicación de la memoria caché o la carpeta temporal. <br>La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch.<li>La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
 
 ## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>El archivo de credenciales del almacén especificado no se puede usar, ya que no se descargó desde el almacén asociado a este servidor.
 
@@ -93,7 +93,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
   - Otro proceso interfiere (por ejemplo: el software antivirus que contiene identificadores en archivos puede impedir que el agente de MARS tenga acceso a los archivos).
   - Archivos bloqueados por una aplicación.  
 
-- El servicio de copia de seguridad marcará estos archivos como erróneos en el archivo de registro, con la siguiente convención de nomenclatura: *LastBackupFailedFilesxxxx.txt* en la carpeta *C:\Archivos de programa\Microsoft Azure Recovery Service Agent\temp* .
+- El servicio de copia de seguridad marcará estos archivos como erróneos en el archivo de registro, con la siguiente convención de nomenclatura: *LastBackupFailedFilesxxxx.txt* en la carpeta *C:\Archivos de programa\Microsoft Azure Recovery Service Agent\temp*.
 - Para resolver el problema, revise el archivo de registro para comprender la naturaleza del problema:
 
   | Código de error             | Motivos                                             | Recomendaciones                                              |
@@ -117,13 +117,13 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 | Error  | Causas posibles | Acciones recomendadas |
 |---------|---------|---------|
-|<br />La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft.     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch* .        |
+|<br />La activación no se completó correctamente. No se pudo realizar la operación actual debido a un error de servicio interno [0x1FC07]. Vuelva a intentar la operación más tarde. Si el problema persiste, póngase en contacto con el servicio de soporte técnico de Microsoft.     | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.         | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La frase de contraseña de cifrado no está configurada correctamente.
 
 | Error  | Causas posibles | Acciones recomendadas |
 |---------|---------|---------|
-| <br />Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente.    | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.        | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch* .         |
+| <br />Error 34506. La frase de contraseña de cifrado almacenada en este equipo no está configurada correctamente.    | <li> La carpeta temporal se encuentra en un volumen sin espacio suficiente. <li> La carpeta temporal se ha trasladado incorrectamente. <li> Falta el archivo OnlineBackup.KEK.        | <li>Actualice a la [versión más reciente](https://aka.ms/azurebackup_agent) del agente de MARS.<li>Mueva la carpeta temporal o la ubicación de caché a un volumen con espacio libre entre el 5 % y el 10 % del tamaño total de los datos de copia de seguridad. Para mover correctamente la ubicación de caché, vea los pasos de [Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas](./backup-azure-file-folder-backup-faq.md#manage-the-backup-cache-folder).<li> Asegúrese de que exista el archivo OnlineBackup.KEK. <br>*La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
 ## <a name="backups-dont-run-according-to-schedule"></a>Las copias de seguridad no se ejecutan según la programación
 
@@ -131,13 +131,13 @@ Si las copias de seguridad programadas no se desencadenan automáticamente, pero
 
 - Asegúrese de que la programación de copia de seguridad de Windows Server no entra en conflicto con la programación de copia de seguridad de archivos y carpetas de Azure.
 
-- Asegúrese de que el estado de copia de seguridad en línea está establecido en **Habilitar** . Haga lo siguiente para comprobar el estado:
+- Asegúrese de que el estado de copia de seguridad en línea está establecido en **Habilitar**. Haga lo siguiente para comprobar el estado:
 
-  1. En el Programador de tareas, expanda **Microsoft** y seleccione **Copia de seguridad en línea** .
-  1. Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores** .
-  1. Compruebe si el estado de la tarea está establecido en **Habilitado** . Si no lo está, seleccione **Editar** , luego **Habilitado** y, por último, **Aceptar** .
+  1. En el Programador de tareas, expanda **Microsoft** y seleccione **Copia de seguridad en línea**.
+  1. Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores**.
+  1. Compruebe si el estado de la tarea está establecido en **Habilitado**. Si no lo está, seleccione **Editar** , luego **Habilitado** y, por último, **Aceptar**.
 
-- Asegúrese de que la cuenta de usuario que está seleccionada para la ejecución de la tarea es la de **sistema** o la del **grupo de administradores locales** del servidor. Para comprobar la cuenta de usuario, vaya a la pestaña **General** y consulte las opciones en **Seguridad** .
+- Asegúrese de que la cuenta de usuario que está seleccionada para la ejecución de la tarea es la de **sistema** o la del **grupo de administradores locales** del servidor. Para comprobar la cuenta de usuario, vaya a la pestaña **General** y consulte las opciones en **Seguridad**.
 
 - Asegúrese de que PowerShell 3.0 o posterior está instalado en el servidor. Para comprobar la versión de PowerShell, ejecute este comando y confirme que el número de versión reflejado en `Major` es 3 o posterior:
 
@@ -180,13 +180,13 @@ Si aparece un mensaje de advertencia en la **consola de MARS** > **Historial de 
 Para solucionar este problema:
 
 1. Inicie el complemento del Programador de tareas, en la ventana de ejecución. Para hacerlo, escriba *taskschd.msc*
-1. En el panel izquierdo, vaya a **biblioteca del Programador de tareas** -> **Microsoft** -> **OnlineBackup** .
+1. En el panel izquierdo, vaya a **biblioteca del Programador de tareas** -> **Microsoft** -> **OnlineBackup**.
 1. Para cada tarea de esta biblioteca, haga doble clic en la tarea para abrir propiedades y realice los pasos siguientes:
     1. Cambie a la pestaña **Configuración** .
 
          ![Pestaña Settings](./media/backup-azure-mars-troubleshoot/settings-tab.png)
 
-    1. Cambie la opción  **si la tarea ya está en ejecución, entonces se aplica la siguiente regla** . Elija **No iniciar una instancia nueva** .
+    1. Cambie la opción  **si la tarea ya está en ejecución, entonces se aplica la siguiente regla**. Elija **No iniciar una instancia nueva**.
 
          ![Cambie la regla a no iniciar nueva instancia](./media/backup-azure-mars-troubleshoot/change-rule.png)
 
@@ -196,15 +196,15 @@ Es posible que Azure Backup no monte correctamente el volumen de recuperación, 
 
 1. Cancele el proceso de montaje si se ha estado ejecutando durante varios minutos.
 
-2. Compruebe si tiene la versión más reciente del agente de Backup. Para averiguar la versión, en el panel **Acciones** de la consola de MARS, seleccione **Acerca del Agente de Microsoft Azure Recovery Services** . Confirme que el número de **versión** es igual o mayor que la versión mencionada en [este artículo](https://go.microsoft.com/fwlink/?linkid=229525). Seleccione este vínculo para [descargar la versión más reciente](https://go.microsoft.com/fwLink/?LinkID=288905).
+2. Compruebe si tiene la versión más reciente del agente de Backup. Para averiguar la versión, en el panel **Acciones** de la consola de MARS, seleccione **Acerca del Agente de Microsoft Azure Recovery Services**. Confirme que el número de **versión** es igual o mayor que la versión mencionada en [este artículo](https://go.microsoft.com/fwlink/?linkid=229525). Seleccione este vínculo para [descargar la versión más reciente](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3. Vaya a **Administrador de dispositivos** > **Controladores de almacenamiento** y busque el **iniciador iSCSI de Microsoft** . Si lo encuentra, vaya directamente al paso 7.
+3. Vaya a **Administrador de dispositivos** > **Controladores de almacenamiento** y busque el **iniciador iSCSI de Microsoft**. Si lo encuentra, vaya directamente al paso 7.
 
-4. Si no encuentra el servicio del iniciador iSCSI de Microsoft, intente encontrar una entrada en **Administrador de dispositivos** > **Controladores de almacenamiento** denominada **Dispositivo desconocido** con el identificador de hardware **ROOT\ISCSIPRT** .
+4. Si no encuentra el servicio del iniciador iSCSI de Microsoft, intente encontrar una entrada en **Administrador de dispositivos** > **Controladores de almacenamiento** denominada **Dispositivo desconocido** con el identificador de hardware **ROOT\ISCSIPRT**.
 
-5. Haga clic con el botón derecho en **Dispositivo desconocido** y seleccione **Actualizar software de controlador** .
+5. Haga clic con el botón derecho en **Dispositivo desconocido** y seleccione **Actualizar software de controlador**.
 
-6. Actualice el controlador. Para ello, seleccione la opción **Buscar software de controlador actualizado automáticamente** . Esta actualización debe cambiar **Dispositivo desconocido** por **Iniciador iSCSI de Microsoft** :
+6. Actualice el controlador. Para ello, seleccione la opción **Buscar software de controlador actualizado automáticamente**. Esta actualización debe cambiar **Dispositivo desconocido** por **Iniciador iSCSI de Microsoft** :
 
     ![Captura de pantalla del Administrador de dispositivos de Azure Backup con la opción Controladores de almacenamiento resaltada](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
@@ -212,7 +212,7 @@ Es posible que Azure Backup no monte correctamente el volumen de recuperación, 
 
     ![Captura de pantalla del Administrador de tareas de Azure Backup con la opción Servicios (local) resaltada](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
-8. Reinicie el servicio del iniciador iSCSI de Microsoft. Para ello, haga clic con el botón derecho en el servicio y, después, seleccione **Detener** . Luego, haga clic con el botón derecho otra vez y seleccione **Iniciar** .
+8. Reinicie el servicio del iniciador iSCSI de Microsoft. Para ello, haga clic con el botón derecho en el servicio y, después, seleccione **Detener**. Luego, haga clic con el botón derecho otra vez y seleccione **Iniciar**.
 
 9. Vuelva a intentar la recuperación mediante la [restauración instantánea](backup-instant-restore-capability.md).
 

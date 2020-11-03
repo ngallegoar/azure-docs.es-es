@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73743054"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504136"
 ---
 # <a name="face-detection-and-attributes"></a>Atributos y detección de caras
 
@@ -47,7 +47,7 @@ Los atributos son un conjunto de características que la API [Face - Detect](htt
 * **Sexo**. Sexo estimado de la cara determinada. Los valores posibles son hombre, mujer y sin sexo definido.
 * **Gafas**. Si la cara determinada tiene gafas. Los valores posibles son NoGlasses, ReadingGlasses, Sunglasses y Swimming Goggles.
 * **Pelo**. Tipo de pelo de la cara. Este atributo muestra si el pelo está visible, así como la calvicie y el color de pelo que se detecten.
-* **Posición de la cabeza**. Orientación de la cara en un espacio 3D. Este atributo se describe mediante los ángulos de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) en grados. Los intervalos de valores son de -90 a 90 grados, de -180 a 180 grados y de-90 a 90 grados, respectivamente. Consulte el siguiente diagrama de asignaciones de ángulos:
+* **Posición de la cabeza**. Orientación de la cara en un espacio 3D. Este atributo se describe mediante los ángulos de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) en grados. Los intervalos de valores son de -90 a 90 grados, de -90 a 90 grados y de-90 a 90 grados, respectivamente. Consulte el siguiente diagrama de asignaciones de ángulos:
 
     ![Cabeza con ejes de rotación alrededor del eje x (pitch), de rotación y de rotación alrededor del eje y (yaw) etiquetados](../Images/headpose.1.jpg)
 * **Maquillaje**. Si la cara está maquillada. Este atributo devuelve un valor booleano para eyeMakeup y lipMakeup.
@@ -63,15 +63,15 @@ Los atributos son un conjunto de características que la API [Face - Detect](htt
 Utilice las siguientes sugerencias para asegurarse de que las imágenes de entrada proporcionan los resultados de detección más precisos:
 
 * Los formatos de imagen de entrada admitidos son JPEG, PNG, GIF para el primer fotograma y BMP.
-* El tamaño del archivo de imagen no debe ser superior a 4 MB.
+* El tamaño del archivo de imagen no debe ser superior a 6 MB.
 * El intervalo de tamaño de cara detectable es 36 x 36 a 4096 × 4096 píxeles. Las caras que se encuentren fuera de este intervalo no se detectarán.
 * Es posible que no se puedan detectar algunas caras debido a desafíos técnicos. Unos ángulos de cara extremos (posición de la cabeza) o una oclusión de la cara (objetos como gafas de sol o manos que bloquean parte de la cara) pueden afectar a la detección. Las caras de frente y casi de frente proporcionan los mejores resultados.
 
 Si está detectando caras de una fuente de vídeo, puede mejorar el rendimiento mediante el ajuste de determinados valores de la cámara de vídeo:
 
-* **Suavizado**: muchas cámaras de vídeo aplican un efecto de suavizado. Debe desactivar esta opción, si es posible, porque crea un desenfoque entre fotogramas y reduce la claridad.
-* **Velocidad de obturación**: una velocidad de obturación más rápida reduce la cantidad de movimiento entre fotogramas y hace que cada fotograma sea más claro. Se recomienda utilizar velocidades de obturación de 1/60 de segundo o más rápidas.
-* **Ángulo de obturación**: algunas cámaras especifican el ángulo de obturación en lugar de la velocidad de obturación. Debe usar un ángulo de obturación inferior si es posible. Esto generará unos fotogramas de vídeo más claros.
+* **Suavizado** : muchas cámaras de vídeo aplican un efecto de suavizado. Debe desactivar esta opción, si es posible, porque crea un desenfoque entre fotogramas y reduce la claridad.
+* **Velocidad de obturación** : una velocidad de obturación más rápida reduce la cantidad de movimiento entre fotogramas y hace que cada fotograma sea más claro. Se recomienda utilizar velocidades de obturación de 1/60 de segundo o más rápidas.
+* **Ángulo de obturación** : algunas cámaras especifican el ángulo de obturación en lugar de la velocidad de obturación. Debe usar un ángulo de obturación inferior si es posible. Esto generará unos fotogramas de vídeo más claros.
 
     >[!NOTE]
     > Una cámara con un ángulo de obturación inferior recibirá menos luz en cada fotograma, por lo que la imagen será más oscura. Deberá determinar el nivel adecuado que vaya a usar.

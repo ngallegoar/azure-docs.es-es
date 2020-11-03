@@ -5,14 +5,14 @@ services: container-service
 ms.topic: article
 ms.author: jpalma
 ms.date: 06/29/2020
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570382"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900482"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)
 
@@ -29,13 +29,13 @@ Las dependencias de salida de AKS se definen casi por completo mediante FQDN, qu
 De forma predeterminada, los clústeres de AKS tienen acceso de salida a Internet ilimitado. Este nivel de acceso a la red permite que los nodos y servicios que ejecuta accedan a recursos externos según sea necesario. Si desea restringir el tráfico de salida, es necesario el acceso a un número limitado de puertos y direcciones para mantener las tareas de mantenimiento del clúster en buen estado. La solución más sencilla para proteger las direcciones de salida consiste en usar un dispositivo de firewall que pueda controlar el tráfico saliente en función de los nombres de dominio. Azure Firewall, por ejemplo, puede restringir el tráfico saliente HTTP y HTTPS en función del FQDN de destino. También puede configurar las reglas de seguridad y de firewall que prefiera para permitir estos puertos y direcciones necesarios.
 
 > [!IMPORTANT]
-> En este documento solo se explica cómo bloquear el tráfico que sale de la subred de AKS. De forma predeterminada, AKS no tiene requisitos de entrada.  No se admite el bloqueo del **tráfico de subred interno** mediante grupos de seguridad de red (NSG) y firewalls. Para controlar y bloquear el tráfico dentro del clúster, use [***directivas de red***][network-policy].
+> En este documento solo se explica cómo bloquear el tráfico que sale de la subred de AKS. De forma predeterminada, AKS no tiene requisitos de entrada.  No se admite el bloqueo del **tráfico de subred interno** mediante grupos de seguridad de red (NSG) y firewalls. Para controlar y bloquear el tráfico dentro del clúster, use [**_directivas de red_* _][network-policy].
 
 ## <a name="required-outbound-network-rules-and-fqdns-for-aks-clusters"></a>Reglas de red de salida y FQDN necesarios para clústeres de AKS
 
 Las siguientes reglas de red y FQDN o aplicación son obligatorias para un clúster de AKS; puede usarlas si quiere configurar una solución que no sea Azure Firewall.
 
-* Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
+_ Las dependencias de dirección IP son para tráfico que no sea HTTP/HTTPS (tráfico TCP y UDP).
 * Los puntos de conexión HTTP/HTTPS de FQDN se pueden colocar en el dispositivo de firewall.
 * Los puntos de conexión HTTP/HTTPS de carácter comodín son dependencias que pueden variar con el clúster de AKS en función de una serie de calificadores.
 * AKS usa un controlador de admisión para insertar el FQDN como una variable de entorno en todas las implementaciones en kube-system y gatekeeper-system, lo que garantiza que toda la comunicación del sistema entre los nodos y el servidor de API usa el FQDN del servidor de API y no su dirección IP. 
@@ -49,11 +49,11 @@ Las reglas de red obligatorias y las dependencias de dirección IP son las sigui
 
 | Punto de conexión de destino                                                             | Protocolo | Port    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para la comunicación segura por túnel entre los nodos y el plano de control. Esto no es necesario para los [clústeres privados](private-clusters.md).|
-| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para la comunicación segura por túnel entre los nodos y el plano de control. Esto no es necesario para los [clústeres privados](private-clusters.md). |
+| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para la comunicación segura por túnel entre los nodos y el plano de control. Esto no es necesario para los [clústeres privados](private-clusters.md).|
+| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para la comunicación segura por túnel entre los nodos y el plano de control. Esto no es necesario para los [clústeres privados](private-clusters.md). |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (si usa reglas de red Azure Firewall)  | UDP      | 123     | Obligatorio para la sincronización de hora del protocolo de tiempo de red (NTP) en nodos de Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si usa servidores DNS personalizados, debe asegurarse de que sean accesibles para los nodos de clúster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API. Esto no es necesario para los [clústeres privados](private-clusters.md).  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API. Esto no es necesario para los [clústeres privados](private-clusters.md).  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias globales de Azure 
 
@@ -76,12 +76,12 @@ Las reglas de red obligatorias y las dependencias de dirección IP son las sigui
 
 | Punto de conexión de destino                                                             | Protocolo | Port    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.Region:1194`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
-| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
-| **`*:22`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:22`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:22`** <br/> *O* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
+| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.Region:1194`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
+| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
+| **`*:22`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:22`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:22`** <br/> *O* <br/> **`APIServerPublicIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (si usa reglas de red Azure Firewall)  | UDP      | 123     | Obligatorio para la sincronización de hora del protocolo de tiempo de red (NTP) en nodos de Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si usa servidores DNS personalizados, debe asegurarse de que sean accesibles para los nodos de clúster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API.  |
 
 ### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias para Azure China 21Vianet
 
@@ -105,11 +105,11 @@ Las reglas de red obligatorias y las dependencias de dirección IP son las sigui
 
 | Punto de conexión de destino                                                             | Protocolo | Port    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
-| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
+| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:1194`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
+| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) -  **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDR regionales](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) -  **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para la comunicación segura por túnel entre los nodos y el plano de control. |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (si usa reglas de red Azure Firewall)  | UDP      | 123     | Obligatorio para la sincronización de hora del protocolo de tiempo de red (NTP) en nodos de Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Si usa servidores DNS personalizados, debe asegurarse de que sean accesibles para los nodos de clúster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obligatorio si se ejecutan pods o implementaciones que acceden al servidor de API, en cuyo caso usarían la dirección IP de la API.  |
 
 ### <a name="azure-us-government-required-fqdn--application-rules"></a>Reglas de aplicación o FQDN obligatorias para Azure Gobierno de EE. UU. 
 

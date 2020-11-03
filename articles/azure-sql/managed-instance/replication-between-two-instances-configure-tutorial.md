@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058223"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900459"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configuración de la replicación entre dos instancias administradas
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 > [!div class="checklist"]
 >
 > - Configurar una instancia administrada como publicador y distribuidor de replicación.
-> - Configurar una instancia administrada como distribuidor de replicación.
+> - Configurar una instancia administrada como suscriptor de replicación.
 
 ![Replicación entre dos instancias administradas](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
@@ -68,7 +68,7 @@ También deberá [configurar una máquina virtual de Azure para la conexión](co
 
 ## <a name="3---create-an-azure-storage-account"></a>3\. Creación de una cuenta de Azure Storage
 
-[Cree una cuenta de Azure Storage](/azure/storage/common/storage-create-storage-account#create-a-storage-account) para el directorio de trabajo y, después, cree un [recurso compartido de archivos](../../storage/files/storage-how-to-create-file-share.md) dentro de la cuenta de almacenamiento. 
+[Cree una cuenta de Azure Storage](../../storage/common/storage-account-create.md#create-a-storage-account) para el directorio de trabajo y, después, cree un [recurso compartido de archivos](../../storage/files/storage-how-to-create-file-share.md) dentro de la cuenta de almacenamiento. 
 
 Copie la ruta de acceso del recurso compartido de archivos en el formato `\\storage-account-name.file.core.windows.net\file-share-name`.
 
@@ -326,4 +326,4 @@ Para limpiar los recursos de Azure, [elimine los recursos de Instancia administr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede obtener más información sobre la [replicación transaccional con Instancia administrada de Azure SQL](replication-transactional-overview.md) o aprender a configurar la replicación entre un [publicador/distribuidor de Instancia administrada de SQL y un suscriptor de SQL Server en una máquina virtual de Azure](replication-two-instances-and-sql-server-configure-tutorial.md). 
+También puede obtener más información sobre la [replicación transaccional con Instancia administrada de Azure SQL](replication-transactional-overview.md) o aprender a configurar la replicación entre un [publicador/distribuidor de Instancia administrada de SQL y un suscriptor de SQL Server en una máquina virtual de Azure](replication-two-instances-and-sql-server-configure-tutorial.md).

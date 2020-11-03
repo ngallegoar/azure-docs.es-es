@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: allensu
-ms.openlocfilehash: c41bf8bc6e5aa3749786bc1189343dfdebdc1508
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2fbefd3b7761976cffbd6be8714cb849e1253aec
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321252"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778033"
 ---
 # <a name="monitoring-metrics-and-raw-logs-for-azure-cdn-from-microsoft"></a>Supervisión de métricas y registros sin procesar para Azure CDN de Microsoft
 Con Azure CDN de Microsoft, puede supervisar los recursos de las siguientes maneras para ayudarle a solucionar problemas, realizar seguimientos y depurar incidencias. 
@@ -40,7 +40,7 @@ Para configurar los registros sin procesar para Azure CDN desde el perfil de Mi
 
 1. En el menú de Azure Portal, seleccione **Todos los recursos** >>  **\<your-CDN-profile>** .
 
-2. En **Supervisión**, seleccione **Configuración de diagnóstico**.
+2. En **Supervisión** , seleccione **Configuración de diagnóstico**.
 
 3. Seleccione **+ Agregar configuración de diagnóstico**.
 
@@ -49,7 +49,7 @@ Para configurar los registros sin procesar para Azure CDN desde el perfil de Mi
     > [!IMPORTANT]
     > Los registros sin procesar solo están disponibles en el nivel de perfil, mientras que los registros de código de estado HTTP agregados están disponibles en el nivel de punto de conexión.
 
-4. En **Configuración de diagnóstico**, escriba un nombre para la configuración de diagnóstico en **Nombre de la configuración de diagnóstico**.
+4. En **Configuración de diagnóstico** , escriba un nombre para la configuración de diagnóstico en **Nombre de la configuración de diagnóstico**.
 
 5. Seleccione **AzureCdnAccessLog** y establezca la retención en días.
 
@@ -59,15 +59,15 @@ Para configurar los registros sin procesar para Azure CDN desde el perfil de Mi
     * **Archivar en una cuenta de almacenamiento**
         * Seleccione la **Suscripción** y la **Cuenta de almacenamiento**.
     * **Transmisión a un centro de eventos**
-        * Seleccione la **Suscripción**, el **Espacio de nombres del centro de eventos**, el **Nombre del centro de eventos (opcional)** y el **Nombre de la directiva del centro de eventos**.
+        * Seleccione la **Suscripción** , el **Espacio de nombres del centro de eventos** , el **Nombre del centro de eventos (opcional)** y el **Nombre de la directiva del centro de eventos**.
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configuración del destino para la configuración de registro." border="true":::
 
 7. Seleccione **Guardar**.
 
 ## <a name="configuration---azure-powershell"></a>Configuración: Azure PowerShell
 
-Use [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) para configurar los valores de diagnóstico de los registros sin procesar.
+Use [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) para configurar los valores de diagnóstico de los registros sin procesar.
 
 Los datos de retención se definen mediante la opción **-RetentionInDays** del comando.
 
@@ -211,7 +211,7 @@ Las métricas se muestran en gráficos y se puede acceder a ellas a través de P
 
 Azure CDN de Microsoft mide y envía sus métricas a intervalos de 60 segundos. Las métricas pueden tardar hasta 3 minutos en aparecer en el portal. 
 
-Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics).
+Para obtener más información, vea [Información general sobre las métricas en Microsoft Azure](../azure-monitor/platform/data-platform-metrics.md).
 
 **Métricas compatibles con Azure CDN de Microsoft**
 
@@ -222,7 +222,7 @@ Para obtener más información, vea [Información general sobre las métricas en
 | ResponseSize    | Número de bytes enviados como respuestas desde el perímetro de CDN a los clientes.                                                  |Punto de conexión </br> País del cliente. </br> Región del cliente. </br> Estado de HTTP </br> Código de estado HTTP.                                                                                          |
 | TotalLatency    | El tiempo total desde la solicitud de cliente recibida por CDN **hasta el último byte de respuesta enviado desde CDN al cliente**. |Punto de conexión </br> País del cliente. </br> Región del cliente. </br> Estado de HTTP </br> Código de estado HTTP.                                                                                             |
 
-***Proporción de aciertos de bytes = (salida desde el perímetro - salida desde el origen)/salida desde el perímetro**
+**_Proporción de aciertos de bytes = (salida desde el perímetro - salida desde el origen)/salida desde el perímetro_*
 
 Escenarios excluidos en el cálculo de la proporción de aciertos de bytes:
 
@@ -233,25 +233,25 @@ Escenarios excluidos en el cálculo de la proporción de aciertos de bytes:
 
 1. En el menú de Azure Portal, seleccione **Todos los recursos** >>  **\<your-CDN-profile>** .
 
-2. En **Supervisión**, seleccione **Métricas**:
+2. En **Supervisión** , seleccione **Métricas** :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Métricas para el perfil de CDN." border="true":::
 
 3. Seleccione **Agregar métrica** y luego la métrica que desea agregar:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Adición y selección de una métrica para el perfil de CDN." border="true":::
 
 4. Seleccione **Agregar filtro** para agregar un filtro:
     
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-05.png" alt-text="Aplicación de un filtro a la métrica." border="true":::
 
 5. Seleccione **Aplicar** división para ver la tendencia por dimensiones diferentes:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-06.png" alt-text="Aplicación de la división a la métrica." border="true":::
 
 6. Seleccione **Nuevo gráfico** para agregar un nuevo gráfico:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-07.png" alt-text="Adición de un nuevo gráfico a la vista de métrica." border="true":::
 
 ### <a name="alerts"></a>Alertas
 
@@ -259,9 +259,9 @@ Puede configurar alertas en CDN de Microsoft seleccionando **Supervisión** >> *
 
 Seleccione **Nueva regla de alertas** para las métricas que aparecen en la sección Métricas:
 
-:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::
+:::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configuración de alertas para el punto de conexión de CDN." border="true":::
 
-La alerta se cobrará en función de Azure Monitor. Para más información sobre alertas, consulte [Alertas de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+La alerta se cobrará en función de Azure Monitor. Para más información sobre alertas, consulte [Alertas de Azure Monitor](../azure-monitor/platform/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métricas adicionales
 Puede habilitar métricas adicionales con Azure Log Analytics y registros sin procesar por un costo adicional.
@@ -270,21 +270,21 @@ Puede habilitar métricas adicionales con Azure Log Analytics y registros sin pr
 
 2. Seleccione el área de trabajo de Log Analytics que creó:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Selección de un área de trabajo de Log Analytics" border="true":::   
 
-3. Seleccione **Registros** en **General** en el área de trabajo de Log Analytics.  Luego seleccione **Tareas iniciales**:
+3. Seleccione **Registros** en **General** en el área de trabajo de Log Analytics.  Luego seleccione **Tareas iniciales** :
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Área de trabajo de recursos de Log Analytics." border="true":::   
  
 4. Seleccione **Perfiles de CDN**.  Seleccione una consulta de ejemplo para ejecutar o cerrar la pantalla de ejemplo para escribir una consulta personalizada:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Pantalla de consulta de ejemplo." border="true":::   
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true":::   
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Ejecución de la consulta." border="true":::   
 
 4. Para ver los datos por gráfico, seleccione **Gráfico**.  Seleccione **Anclar al panel** para anclar el gráfico al panel de Azure:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Adición de configuración de diagnóstico para el perfil de CDN." border="true"::: 
+    :::image type="content" source="./media/cdn-raw-logs/raw-logs-13.png" alt-text="Ancle un gráfico al panel." border="true"::: 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha habilitado los registros sin procesar de HTTP para el servicio CDN de Microsoft.
@@ -293,6 +293,6 @@ Para más información sobre Azure CDN y los otros servicios de Azure que se me
 
 * [Análisis](cdn-log-analysis.md) de patrones de uso de Azure CDN.
 
-* Más información sobre [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+* Más información sobre [Azure Monitor](../azure-monitor/overview.md).
 
-* Configuración de [Log Analytics en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+* Configuración de [Log Analytics en Azure Monitor](../azure-monitor/log-query/get-started-portal.md).

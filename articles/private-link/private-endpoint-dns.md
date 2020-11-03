@@ -162,7 +162,7 @@ Para realizar la configuración correctamente, necesitaría los siguientes recur
 En el diagrama siguiente se muestra la secuencia de resolución DNS de una red local que reenvía condicionalmente el tráfico DNS dirigido a Azure, donde la resolución la realiza una zona DNS privada [vinculada a una red virtual](../dns/private-dns-virtual-network-links.md).
 
 > [!IMPORTANT]
-> El reenvío condicional debe realizarse en el [reenviador de zona DNS pública](#azure-services-dns-zone-configuration). Por ejemplo: `database.windows.net` en lugar de **privatelink**.database.windows.net.
+> El reenvío condicional debe realizarse en el [reenviador de zona DNS pública](#azure-services-dns-zone-configuration). Por ejemplo, `database.windows.net` en lugar de **privatelink**.database.windows.net.
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Reenvío local a Azure DNS":::
 

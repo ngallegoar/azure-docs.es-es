@@ -1,18 +1,18 @@
 ---
 title: Apertura de puertos en una VM desde Azure Portal
-description: Aprenda a abrir un puerto o crear un punto de conexión en su máquina virtual Windows mediante Azure Portal.
+description: Aprenda a abrir un puerto y crear un punto de conexión en la máquina virtual mediante Azure Portal.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973995"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777765"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Apertura de puertos en una máquina virtual con Azure Portal
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -45,7 +45,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
     ![Cambio a la página de opciones avanzadas](./media/nsg-quickstart-portal/advanced.png)
 
-1. En la página **Agregar regla de seguridad de entrada**, cambie a **Avanzadas** de **Básico** en la parte superior de la página. 
+1. En la página **Agregar regla de seguridad de entrada** , cambie a **Avanzadas** de **Básico** en la parte superior de la página. 
 
 1. Elija un **servicio** común en el menú desplegable, como **HTTP**. También puede seleccionar **Personalizado** si quiere proporcionar un puerto específico para su uso. 
 
