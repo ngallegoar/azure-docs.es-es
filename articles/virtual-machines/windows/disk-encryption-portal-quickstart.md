@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 69d34b6c50d5a4be728453a34c1c092c63c7b6be
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 98764df41d5488afaaf7a24e0f1aa2535b0691d7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977330"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896963"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Inicio rápido: Creación y cifrado de una máquina virtual Windows desde Azure Portal
 
@@ -32,27 +32,20 @@ Inicie sesión en [Azure Portal](https://portal.azure.com).
 1. En la pestaña Datos básicos, en Detalles del proyecto, asegúrese de que está seleccionada la suscripción correcta.
 1. En "Grupo de recursos", seleccione **Crear nuevo**. Como nombre, escriba *myResourceGroup* y seleccione **Aceptar**.
 1. En **Nombre de máquina virtual** , escriba *MyVM*.
-1. En **Región**, seleccione *(EE. UU.) Este de EE. UU.* .
+1. En **Región** , seleccione *(EE. UU.) Este de EE. UU.* .
 1. Compruebe que el valor de **Tamaño** es *Estándar D2s v3*.
 1. En **Cuenta de administrador** , seleccione **Contraseña**. Escriba un nombre de usuario y una contraseña.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Pantalla de creación de máquinas virtuales Windows&quot;:::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-windows-vm-creation.png" alt-text="Pantalla de creación de máquinas virtuales Windows":::
 
     > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, no para Azure Disk Encryption.
+    > La pestaña "Discos" incluye el campo "Tipo de cifrado" en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, no para Azure Disk Encryption.
     >
     > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
 
-1. Seleccione la pestaña &quot;Administración&quot; y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione &quot;Crear nuevo&quot;, asigne un nombre a la cuenta nueva y seleccione &quot;Aceptar"
+1. Seleccione la pestaña "Administración" y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione "Crear nuevo", asigne un nombre a la cuenta nueva y seleccione "Aceptar"
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Pantalla de creación de máquinas virtuales Windows&quot;:::
-
-    > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, no para Azure Disk Encryption.
-    >
-    > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
-
-1. Seleccione la pestaña &quot;Administración&quot; y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione &quot;Crear nuevo&quot;, asigne un nombre a la cuenta nueva y seleccione &quot;Aceptar":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Pantalla de creación de grupos de recursos":::
 
 1. Haga clic en "Revisar y crear".
 1. En la página **Crear una máquina virtual** verá los detalles de la máquina virtual que va a crear. Cuando esté preparado, seleccione **Crear**.
@@ -64,42 +57,21 @@ La implementación de la máquina virtual tardará unos minutos. Cuando finalice
 1. Cuando la implementación de la máquina virtual se complete, seleccione **Ir al recurso**.
 1. En la barra lateral izquierda, seleccione **Discos**.
 1. En la barra superior, seleccione **Configuración adicional** .
-1. En **Configuración de cifrado** > **Discos que se van a cifrar**, seleccione **Discos del SO y de datos**.
+1. En **Configuración de cifrado** > **Discos que se van a cifrar** , seleccione **Discos del SO y de datos**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Pantalla de creación de máquinas virtuales Windows&quot;:::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Captura de pantalla que muestra los discos del sistema operativo y de datos":::
 
-    > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, no para Azure Disk Encryption.
-    >
-    > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
+1. En **Configuración de cifrado** , elija **Seleccionar un almacén de claves y una clave para el cifrado**.
+1. En la pantalla **Seleccionar la clave de Azure Key Vault** , seleccione **Crear nuevo**.
 
-1. Seleccione la pestaña &quot;Administración&quot; y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione &quot;Crear nuevo&quot;, asigne un nombre a la cuenta nueva y seleccione &quot;Aceptar":::
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Captura de pantalla que muestra la opción Crear nuevo":::
 
-1. En **Configuración de cifrado**, elija **Seleccionar un almacén de claves y una clave para el cifrado**.
-1. En la pantalla **Seleccionar la clave de Azure Key Vault**, seleccione **Crear nuevo**.
+1. A la izquierda de **Almacén de claves y clave** , seleccione **Hacer clic para seleccionar una clave**.
+1. En **Seleccionar la clave de Azure Key Vault** , en el campo **Almacén de claves** , seleccione **Crear nuevo**.
+1. En la pantalla **Crear almacén de claves** , asegúrese de que el valor de Resource Group es *myResourceGroup* y asigne un nombre al almacén de claves.  Cada almacén de claves en Azure debe tener un nombre único.
+1. En la pestaña **Directivas de acceso** , active la casilla **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Pantalla de creación de máquinas virtuales Windows&quot;:::
-
-    > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, no para Azure Disk Encryption.
-    >
-    > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
-
-1. Seleccione la pestaña &quot;Administración&quot; y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione &quot;Crear nuevo&quot;, asigne un nombre a la cuenta nueva y seleccione &quot;Aceptar":::
-
-1. A la izquierda de **Almacén de claves y clave**, seleccione **Hacer clic para seleccionar una clave**.
-1. En **Seleccionar la clave de Azure Key Vault**, en el campo **Almacén de claves**, seleccione **Crear nuevo**.
-1. En la pantalla **Crear almacén de claves**, asegúrese de que el valor de Resource Group es *myResourceGroup* y asigne un nombre al almacén de claves.  Cada almacén de claves en Azure debe tener un nombre único.
-1. En la pestaña **Directivas de acceso**, active la casilla **Habilitar el acceso a Azure Disk Encryption para el cifrado de volúmenes**.
-
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Pantalla de creación de máquinas virtuales Windows&quot;:::
-
-    > [!WARNING]
-    > La pestaña &quot;Discos&quot; incluye el campo &quot;Tipo de cifrado&quot; en **Opciones de disco**. Este campo se usa para especificar las opciones de cifrado de [Managed Disks](../managed-disks-overview.md) + CMK, no para Azure Disk Encryption.
-    >
-    > Para evitar confusiones, se recomienda omitir la pestaña *Discos* completamente mientras se completa este tutorial.
-
-1. Seleccione la pestaña &quot;Administración&quot; y compruebe que tiene una cuenta de almacenamiento de diagnóstico. Si no tiene cuentas de almacenamiento, seleccione &quot;Crear nuevo&quot;, asigne un nombre a la cuenta nueva y seleccione &quot;Aceptar":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Selección de discos y de cifrado":::
 
 1. Seleccione **Revisar + crear**.  
 1. Una vez que el almacén de claves haya superado la validación, seleccione **Crear**. Al hacerlo, regresará a la pantalla **Seleccionar la clave de Azure Key Vault**.

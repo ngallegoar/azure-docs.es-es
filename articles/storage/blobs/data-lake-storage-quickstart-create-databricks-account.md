@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 908bf21d2fe101731b11e3a8ad783f17728c8ed3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86109780"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677338"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Inicio rápido: Análisis de datos con Databricks
 
@@ -38,7 +38,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     ![Databricks en Azure Portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks de Azure Portal")
 
-2. En **Azure Databricks Service**, proporcione los valores para crear un área de trabajo de Databricks.
+2. En **Azure Databricks Service** , proporcione los valores para crear un área de trabajo de Databricks.
 
     ![Creación de un área de trabajo de Azure Databricks](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-workspace.png "Creación de un área de trabajo de Azure Databricks")
 
@@ -64,7 +64,7 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     ![Databricks en Azure](./media/data-lake-storage-quickstart-create-databricks-account/databricks-on-azure.png "Databricks en Azure")
 
-3. En la página **Nuevo clúster**, proporcione los valores para crear un clúster.
+3. En la página **Nuevo clúster** , proporcione los valores para crear un clúster.
 
     ![Creación de clústeres de Spark para Databricks en Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Creación de clústeres de Spark para Databricks en Azure")
 
@@ -86,7 +86,7 @@ En esta sección, creará un cuaderno en el área de trabajo de Azure Databricks
 
 2. En el panel izquierdo, seleccione **Workspace** (Área de trabajo). En la lista desplegable **Workspace** (Área de trabajo), seleccione **Create** > **Notebook** (Crear > Cuaderno).
 
-    ![Creación de un cuaderno en Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creación de un cuaderno en Databricks")
+    ![Captura de pantalla que muestra cómo se crea un cuaderno en Databricks y en la que la opción de menú Crear > Cuaderno está resaltada.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creación de un cuaderno en Databricks")
 
 3. En el cuadro de diálogo **Create Notebook** (Crear cuaderno), escriba un nombre para el cuaderno. Seleccione **Scala** como lenguaje y, a continuación, seleccione el clúster de Spark que creó anteriormente.
 
@@ -162,15 +162,15 @@ Realice las siguientes tareas para ejecutar un trabajo de Spark SQL en los datos
 
     ![Datos JSON de ejemplo](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "Datos JSON de ejemplo")
 
-    Entre otros detalles, los datos de ejemplo capturan el género de la audiencia de un canal de radio (nombre de columna, **género**) y si su suscripción es gratis o de pago (nombre de columna, **nivel**).
+    Entre otros detalles, los datos de ejemplo capturan el género de la audiencia de un canal de radio (nombre de columna, **género** ) y si su suscripción es gratis o de pago (nombre de columna, **nivel** ).
 
 4. Ahora cree una representación visual de estos datos para mostrar para cada género, cuántos usuarios tienen cuentas gratis y cuántas son de suscriptores pagados. En la parte inferior de la salida tabular, haga clic en el icono **Gráfico de barras** y, a continuación, haga clic en **Opciones de trazado**.
 
     ![Creación de un gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/create-plots-databricks-notebook.png "Creación de un gráfico de barras")
 
-5. En **Personalizar trazado**, arrastre y coloque los valores como se muestra en la captura de pantalla.
+5. En **Personalizar trazado** , arrastre y coloque los valores como se muestra en la captura de pantalla.
 
-    ![Personalización del gráfico de barras](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalización del gráfico de barras")
+    ![Captura de pantalla que muestra la pantalla Customize Plot (Personalizar trazado) y los valores que se pueden arrastrar y colocar.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalización del gráfico de barras")
 
     - Establezca **Claves** en **gender** (género).
     - Establezca **Agrupaciones de serie** en **level** (nivel).

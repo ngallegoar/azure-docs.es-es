@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 5e20863cd971a55142283676fe035d3238520ae1
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: be7cfef5c7121d918c375dae216d293d9d56526b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361371"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92890486"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Conector de SAP LaMa para Azure
 
@@ -181,7 +181,7 @@ Cree una máquina virtual con uno de los sistemas operativos admitidos para base
 
 La base de datos Oracle necesita discos para /oracle, /home/oraod1 y /home/oracle
 
-![Oracle Database en Linux](media/lama/sap-lama-db-ora-lnx.png)
+![Diagrama que muestra una base de datos de Oracle en Linux y los discos que necesita.](media/lama/sap-lama-db-ora-lnx.png)
 
 #### <a name="manual-deployment-for-microsoft-sql-server"></a>Implementación manual para Microsoft SQL Server
 
@@ -447,7 +447,7 @@ Deberá agregar la dirección IP del nombre de host virtual de la base de datos 
 C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-db -n 255.255.255.128
 ```
 
-Ejecute la instalación de la instancia de base de datos de SWPM en la máquina virtual de SQL Server. Use SAPINST_USE_HOSTNAME=*as1-db* para invalidar el nombre de host usado para conectar con SQL Server. Si implementó la máquina virtual mediante la plantilla de Azure Resource Manager, asegúrese de establecer el directorio usado para los archivos de datos de la base de datos en *C:\sql\data* y el archivo de registro de base de datos en *C:\sql\log*.
+Ejecute la instalación de la instancia de base de datos de SWPM en la máquina virtual de SQL Server. Use SAPINST_USE_HOSTNAME= *as1-db* para invalidar el nombre de host usado para conectar con SQL Server. Si implementó la máquina virtual mediante la plantilla de Azure Resource Manager, asegúrese de establecer el directorio usado para los archivos de datos de la base de datos en *C:\sql\data* y el archivo de registro de base de datos en *C:\sql\log*.
 
 Asegúrese de que el usuario *NT AUTHORITY\SYSTEM* tenga acceso a SQL Server y tenga el rol de servidor *sysadmin*. Para más información, consulte las notas de SAP [1877727] y [2562184].
 

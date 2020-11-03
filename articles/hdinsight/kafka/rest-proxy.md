@@ -8,26 +8,26 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 97bd71dd5a70a867f45915a5a5f95f6513f2a824
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8447eae4ea7234a7f47219cc81441650121b84ae
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541737"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676171"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interacción con clústeres de Apache Kafka en Azure HDInsight mediante un proxy de REST
 
-El proxy de REST de Kafka le permite interactuar con el clúster de Kafka mediante una API REST a través de HTTP. Esta acción significa que los clientes de Kafka pueden estar fuera de la red virtual. Los clientes pueden realizar llamadas HTTP sencillas al clúster de Kafka, en lugar de depender de las bibliotecas de Kafka. En este artículo se muestra cómo crear un clúster de Kafka habilitado para servidor proxy REST. También proporciona código de ejemplo que muestra cómo realizar llamadas al servidor proxy REST.
+El proxy REST de Kafka le permite interactuar con el clúster de Kafka mediante una API REST a través de HTTPS. Esta acción significa que los clientes de Kafka pueden estar fuera de la red virtual. Los clientes pueden realizar llamadas HTTPS sencillas y seguras al clúster de Kafka, en lugar de depender de las bibliotecas de Kafka. En este artículo se muestra cómo crear un clúster de Kafka habilitado para servidor proxy REST. También proporciona código de ejemplo que muestra cómo realizar llamadas al servidor proxy REST.
 
 ## <a name="rest-api-reference"></a>Referencia de la API REST
 
-Para conocer las operaciones que admite la API REST de Kafka, consulte [Referencia de la API del servidor proxy REST de Kafka en HDInsight](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
+Para conocer las operaciones que admite la API REST de Kafka, consulte [Referencia de la API del servidor proxy REST de Kafka en HDInsight](/rest/api/hdinsight-kafka-rest-proxy).
 
 ## <a name="background"></a>Información previa
 
 ![Diseño del servidor proxy REST de Kafka](./media/rest-proxy/rest-proxy-architecture.png)
 
-Para obtener la especificación completa de las operaciones que admite la API, consulte [API del servidor proxy REST de Apache Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy).
+Para obtener la especificación completa de las operaciones que admite la API, consulte [API del servidor proxy REST de Apache Kafka](/rest/api/hdinsight-kafka-rest-proxy).
 
 ### <a name="rest-proxy-endpoint"></a>Punto de conexión de proxy de REST
 
@@ -37,13 +37,13 @@ Al crear un clúster de Kafka en HDInsight con el servidor proxy REST, se crea u
 
 El acceso al proxy de REST de Kafka se administra con grupos de seguridad de Azure Active Directory. Al crear el clúster de Kafka, proporcione al grupo de seguridad de Azure AD acceso al punto de conexión REST. El propietario del grupo debe registrar en este grupo los clientes de Kafka que necesitan acceso al servidor proxy REST. El propietario del grupo puede realizar el registro mediante el portal o PowerShell.
 
-Para las solicitudes al punto de conexión proxy REST, las aplicaciones cliente deben obtener un token de OAuth. El token se usa para comprobar la pertenencia al grupo de seguridad. Busque a continuación un [ejemplo de aplicación cliente](#client-application-sample) que muestre cómo obtener un token de OAuth. La aplicación cliente pasa el token de OAuth en la solicitud HTTP al servidor proxy REST.
+Para las solicitudes al punto de conexión proxy REST, las aplicaciones cliente deben obtener un token de OAuth. El token se usa para comprobar la pertenencia al grupo de seguridad. Busque a continuación un [ejemplo de aplicación cliente](#client-application-sample) que muestre cómo obtener un token de OAuth. La aplicación cliente pasa el token de OAuth de la solicitud HTTPS al servidor proxy REST.
 
 > [!NOTE]
-> Consulte [Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md) para más información sobre los grupos de seguridad de AAD. Para obtener más información sobre cómo funcionan los tokens de OAuth, consulte [Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
+> Consulte [Administración del acceso a recursos y aplicaciones con grupos en Azure Active Directory](../../active-directory/fundamentals/active-directory-manage-groups.md) para más información sobre los grupos de seguridad de AAD. Para obtener más información sobre cómo funcionan los tokens de OAuth, consulte [Autorización del acceso a aplicaciones web de Azure Active Directory mediante el flujo de concesión de código OAuth 2.0](../../active-directory/azuread-dev/v1-protocols-oauth-code.md).
 
 ## <a name="kafka-rest-proxy-with-network-security-groups"></a>Proxy REST de Kafka con grupos de seguridad de red
-Si aporta su propia red virtual y controla el tráfico de red con grupos de seguridad de red, permita el tráfico **entrante** en el puerto **9400**, además del puerto 443. Esto garantizará que el proxy REST de Kafka sea accesible.
+Si aporta su propia red virtual y controla el tráfico de red con grupos de seguridad de red, permita el tráfico **entrante** en el puerto  **9400** , además del puerto 443. Esto garantizará que el proxy REST de Kafka sea accesible.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -61,7 +61,7 @@ Si aporta su propia red virtual y controla el tráfico de red con grupos de segu
 
 En los pasos siguientes se usa Azure Portal. Para ver un ejemplo con la CLI de Azure, consulte [Creación de un clúster para el proxy REST de Apache Kafka con la CLI de Azure](tutorial-cli-rest-proxy.md).
 
-1. Durante el flujo de trabajo de creación del clúster de Kafka, en la pestaña **Seguridad y redes**, active la opción **Habilitar proxy REST de Kafka**.
+1. Durante el flujo de trabajo de creación del clúster de Kafka, en la pestaña **Seguridad y redes** , active la opción **Habilitar proxy REST de Kafka**.
 
      ![En la captura de pantalla se muestra la página Crear clúster H D Insight con la opción Seguridad y redes seleccionada.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
 
@@ -69,7 +69,7 @@ En los pasos siguientes se usa Azure Portal. Para ver un ejemplo con la CLI de A
 
      ![Captura de pantalla que muestra la página Crear clúster de H D Insight con la opción para seleccionar un grupo de seguridad.](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png)
 
-1. Complete los pasos restantes para crear el clúster como se describe en [Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started).
+1. Complete los pasos restantes para crear el clúster como se describe en [Creación de un clúster de Apache Kafka en Azure HDInsight mediante Azure Portal](./apache-kafka-get-started.md).
 
 1. Una vez creado el clúster, vaya a las propiedades del clúster para registrar la URL del proxy de REST de Kafka.
 
@@ -97,7 +97,7 @@ Este código realiza la siguiente acción:
 1. Recupera un token de OAuth de Azure AD.
 1. Muestra cómo realizar una solicitud al servidor proxy REST de Kafka.
 
-Para obtener más información sobre cómo obtener tokens de OAuth en Python, consulte [Clase AuthenticationContext de Python](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Es posible que vea un retraso en tanto que los `topics` que no se crean o eliminan mediante el servidor proxy REST de Kafka se reflejan. Este retraso se debe a la actualización de la memoria caché.
+Para obtener más información sobre cómo obtener tokens de OAuth en Python, consulte [Clase AuthenticationContext de Python](/python/api/adal/adal.authentication_context.authenticationcontext). Es posible que vea un retraso en tanto que los `topics` que no se crean o eliminan mediante el servidor proxy REST de Kafka se reflejan. Este retraso se debe a la actualización de la memoria caché.
 
 ```python
 #Required python packages
@@ -269,4 +269,4 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentos de referencia de la API de proxy de REST de Kafka](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/)
+* [Documentos de referencia de la API de proxy de REST de Kafka](/rest/api/hdinsight-kafka-rest-proxy/)

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: bae4cb72201bbc1653db5bb549d67531bda71d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 0c05db39e02a6bc2a7fa5d62b8b891626eb0d241
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537725"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675795"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipos y composición de consultas en Azure Cognitive Search
 
@@ -59,9 +59,9 @@ Si ha seguido este [inicio rápido para crear el índice de demostración de hot
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Habilitación de las operaciones de consulta según el índice
 
-El diseño del índice y de la consulta están estrechamente unidos en Azure Cognitive Search. Es crucial saber de antemano que el *esquema de índice*, con los atributos en cada campo, determina el tipo de consulta que se puede compilar. 
+El diseño del índice y de la consulta están estrechamente unidos en Azure Cognitive Search. Es crucial saber de antemano que el *esquema de índice* , con los atributos en cada campo, determina el tipo de consulta que se puede compilar. 
 
-Los atributos de índice de un campo establecen las operaciones permitidas: si es un campo *que permite búsquedas* en el índice, *recuperable* en los resultados, *ordenable*, *filtrable*,etc. En la cadena de consulta de ejemplo, `"$orderby": "Rating"` solo funciona porque el campo Clasificación está marcado como *ordenable* en el esquema de índice. 
+Los atributos de índice de un campo establecen las operaciones permitidas: si es un campo *que permite búsquedas* en el índice, *recuperable* en los resultados, *ordenable* , *filtrable* ,etc. En la cadena de consulta de ejemplo, `"$orderby": "Rating"` solo funciona porque el campo Clasificación está marcado como *ordenable* en el esquema de índice. 
 
 ![Definición del índice para el ejemplo del hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definición del índice para el ejemplo del hotel")
 
@@ -92,7 +92,7 @@ En la tabla siguiente se enumeran las API y los métodos basados en herramientas
 |-------------|-------------|
 | [Explorador de búsqueda (portal)](search-explorer.md) | Proporciona una barra de búsqueda y opciones para la selección del índice y la versión de API. Los resultados se devuelven como documentos JSON. Recomendado para exploración, prueba y validación. <br/>[Más información.](search-get-started-portal.md#query-index) | 
 | [Postman u otras herramientas de REST](search-get-started-postman.md) | Las herramientas de pruebas Web son una opción excelente para formular llamadas REST. La API REST es compatible con todas las operaciones posibles de Azure Cognitive Search. En este artículo, se explica cómo configurar el encabezado y el cuerpo de una solicitud HTTP para enviar solicitudes a Azure Cognitive Search.  |
-| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient) | Cliente que puede usarse para consultar un índice de Azure Cognitive Search.  <br/>[Más información.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [SearchClient (.NET)](/dotnet/api/azure.search.documents.searchclient) | Cliente que puede usarse para consultar un índice de Azure Cognitive Search.  <br/>[Más información.](search-howto-dotnet-sdk.md)  |
 | [Documentos de búsqueda (API REST)](/rest/api/searchservice/search-documents) | Métodos GET o POST en un índice, con parámetros de consulta para entradas adicionales.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Elección del analizador: básico | completo

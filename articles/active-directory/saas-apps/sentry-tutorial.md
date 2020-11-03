@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Sentry | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure Active Directory con Sentry | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Sentry.
 services: active-directory
 author: jeevansd
@@ -18,7 +18,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 10/27/2020
 ms.locfileid: "92681254"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Sentry
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sentry"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Sentry
 
 En este tutorial aprenderá a integrar Sentry con Azure Active Directory (Azure AD). Al integrar Sentry con Azure AD, puede hacer lo siguiente:
 
@@ -31,7 +31,7 @@ En este tutorial aprenderá a integrar Sentry con Azure Active Directory (Azure�
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Suscripción habilitada para el inicio de sesión único (SSO) en Sentry.
+* Suscripción habilitada para el inicio de sesión único en Sentry.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -54,7 +54,7 @@ Para configurar la integración de Sentry en Azure AD, deberá agregar Sentry d
 
 ## <a name="configure-and-test-azure-ad-sso-for-sentry"></a>Configuración y prueba del inicio de sesión único de Azure AD para Sentry
 
-Configure y pruebe el inicio de sesión único (SSO) de Azure AD con Sentry mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de Sentry.
+Configure y pruebe el inicio de sesión único de Azure AD con Sentry mediante un usuario de prueba llamado **B.Simon**. Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario correspondiente de Sentry.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Sentry, lleve a cabo los siguientes pasos:
 
@@ -86,7 +86,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión** , escriba una dirección URL con el siguiente patrón: `https://sentry.io/organizations/<ORGANIZATION_SLUG>/`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de Sentry](mailto:support@sentry.io) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico al cliente de Sentry](mailto:support@sentry.io) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 1. En la página **Configurar el inicio de sesión único con SAML** , en la sección **Certificado de firma de SAML** , haga clic en el botón de copia para copiar la **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
@@ -135,9 +135,9 @@ En esta sección, probará la configuración de inicio de sesión único de Azur
 
 #### <a name="idp-initiated"></a>Iniciado por IDP:
 
-* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Sentry para la que configurara el inicio de sesión único. 
+* Haga clic en **Probar esta aplicación** en Azure Portal; debería iniciar sesión automáticamente en la instancia de Sentry para la que ha configurado el inicio de sesión único. 
 
-También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Sentry en el panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Sentry para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+También puede usar el Panel de acceso de Microsoft para probar la aplicación en cualquier modo. Al hacer clic en el icono de Sentry en el panel de acceso, si está configurado en modo SP, se le redirigirá a la página de inicio de sesión de la aplicación para iniciar el flujo de inicio de sesión y, si está configurado en modo IDP, debería iniciar sesión automáticamente en la instancia de Sentry para la que ha configurado el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -39,7 +39,7 @@ En este tutorial, va a configurar y probar el inicio de sesión único de Azure�
 
 * Workday admite el inicio de sesión único iniciado por **SP**.
 
-* Ahora se puede configurar la aplicación Workday Mobile con Azure AD para habilitar el inicio de sesión único. Para obtener más información acerca de la configuración, consulte [este vínculo](workday-mobile-tutorial.md).
+* Ahora se puede configurar la aplicación Workday Mobile con Azure AD para habilitar el inicio de sesión único. Para más información sobre cómo realizar la configuración, consulte [este vínculo](workday-mobile-tutorial.md).
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -227,7 +227,7 @@ En esta sección, va a permitir que B. Simon acceda a Workday mediante el inici
     ![Seguridad del trabajador](./media/workday-tutorial/worker-security.png)
 
 > [!NOTE]
-> Para obtener más información sobre cómo crear un usuario de prueba de Workday, póngase en contacto con el [equipo de soporte técnico al cliente de Workday](https://www.workday.com/en-us/partners-services/services/support.html).
+> Para más información sobre cómo crear un usuario de prueba de Workday, póngase en contacto con el [equipo de soporte técnico al cliente de Workday](https://www.workday.com/en-us/partners-services/services/support.html).
 
 ## <a name="test-sso"></a>Prueba de SSO
 

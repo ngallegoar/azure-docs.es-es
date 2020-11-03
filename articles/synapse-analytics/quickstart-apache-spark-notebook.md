@@ -8,13 +8,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651724"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742555"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Inicio rápido: Creación de un grupo de Apache Spark en Azure Synapse Analytics mediante herramientas web
 
@@ -42,9 +42,10 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Un cuaderno es un entorno interactivo que admite varios lenguajes de programación. El cuaderno le permite interactuar con los datos, combinar código con texto y Markdown y, realizar visualizaciones simples.
 
 1. En la vista de Azure Portal del área de trabajo de Azure Synapse que quiera usar, seleccione **Iniciar Synapse Studio**.
-2. Cuando haya iniciado Synapse Studio, seleccione **Desarrollar**. Luego, mantenga el mouse sobre la entrada **Notebooks**. Seleccione los puntos suspensivos ( **...** ).
-3. Desde ahí, seleccione **New notebook** (Nuevo cuaderno). Se crea un cuaderno y se abre con un nombre generado automáticamente.
-  ![Nuevo cuaderno](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nuevo cuaderno")
+2. Cuando haya iniciado Synapse Studio, seleccione **Desarrollar**. A continuación, seleccione el icono " **+** " para agregar un nuevo recurso.
+3. Desde ahí, seleccione **Cuaderno**. Se crea un cuaderno y se abre con un nombre generado automáticamente.
+ 
+     ![Nuevo cuaderno](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nuevo cuaderno")
 
 4. En la ventana **Properties** (Propiedades), proporcione un nombre para el cuaderno.
 5. En la barra de herramientas, haga clic en **Publish** (Publicar).
@@ -64,11 +65,11 @@ Un cuaderno es un entorno interactivo que admite varios lenguajes de programaci�
    - Seleccione el icono de reproducción azul situado a la izquierda de la celda.
    - Seleccione el botón **Run all** (Ejecutar todo) en la barra de herramientas.
 
-   ![Creación de un objeto de trama de datos](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Salida del trabajo de Spark")
+       ![Creación de un objeto de trama de datos](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. Si no se está ejecutando la instancia del grupo de Apache Spark, se inicia automáticamente. Puede ver el estado de la instancia del grupo de Apache Spark tanto debajo de la celda está ejecutando como en el panel de estado de la parte inferior del cuaderno. En función del tamaño del grupo, el inicio debe durar entre 2 y 5 minutos. Una vez que el código haya terminado de ejecutarse, la información que aparece debajo de la celda muestra cuánto tiempo tardó en ejecutarse y su ejecución. En la celda de salida, verá la salida.
 
-    ![Salida de ejecutar una celda](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Salida del trabajo de Spark")
+    ![Salida de ejecutar una celda](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. Los datos existen ahora en una trama de datos; desde ahí, puede usarlos de muchas maneras diferentes. Los va a necesitar en diferentes formatos durante el resto de este inicio rápido.
 12. Escriba el código siguiente en otra celda y ejecútelo; se crea una tabla de Spark, un archivo CSV y un archivo de Parquet, todos ellos con copias de los datos:
@@ -123,7 +124,7 @@ SQL (Lenguaje de consulta estructurado) es el lenguaje más común y ampliamente
 
    ![Salida del gráfico en Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Salida del gráfico en Azure Synapse Spark")
 
-10. Es posible obtener la misma experiencia de ejecutar SQL, pero sin tener que cambiar de lenguaje. Para ello, reemplace la celda de SQL anterior por esta celda de PySpark; la experiencia de salida es la misma porque se usa el comando **display**:
+10. Es posible obtener la misma experiencia de ejecutar SQL, pero sin tener que cambiar de lenguaje. Para ello, reemplace la celda de SQL anterior por esta celda de PySpark; la experiencia de salida es la misma porque se usa el comando **display** :
 
     ```python
     display(spark.sql('SELECT * FROM demo_df'))

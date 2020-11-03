@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996539"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783188"
 ---
 # <a name="what-is-identity-protection"></a>¿Qué es Identity Protection?
 
@@ -39,8 +39,8 @@ En su [entrada de blog de octubre de 2018](https://techcommunity.microsoft.com/t
 >
 > El año pasado, en Ignite, hablé sobre los tres ataques principales a nuestros sistemas de identidad. Este es el volumen reciente de estos ataques
 >   
->   - **Reproducción de infracciones**: 4600 millones detectados en mayo de 2018
->   - **Difusión de contraseña**: 350 000 en abril de 2018
+>   - **Reproducción de infracciones** : 4600 millones detectados en mayo de 2018
+>   - **Difusión de contraseña** : 350 000 en abril de 2018
 >   - **Suplantación de identidad (phishing)** : Es difícil de cuantificar con precisión, pero en marzo de 2018, detectamos 23 millones de eventos de riesgo, muchos de los cuales estaban relacionados con la suplantación de identidad (phishing)
 
 ## <a name="risk-detection-and-remediation"></a>Detección y corrección de riesgos
@@ -107,9 +107,9 @@ Los administradores de acceso condicional también pueden crear directivas que r
 | Directivas de riesgo | Directiva de riesgo de usuario (mediante Identity Protection)  | No | No |Sí | 
 | Directivas de riesgo | Directiva de riesgo de inicio de sesión (mediante Identity Protection o acceso condicional)  | No |  No |Sí |
 | Informes de seguridad | Información general |  No | No |Sí |
-| Informes de seguridad | Usuarios de riesgo  | Información limitada | Información limitada | Acceso total|
-| Informes de seguridad | Inicios de sesión no seguros  | Información limitada | Información limitada | Acceso total|
-| Informes de seguridad | Detecciones de riesgo   | No | Información limitada| Acceso total|
+| Informes de seguridad | Usuarios de riesgo  | Información limitada. Solo se muestran los usuarios con riesgo medio y alto. No hay ningún cajón de detalles ni historial de riesgos. | Información limitada. Solo se muestran los usuarios con riesgo medio y alto. No hay ningún cajón de detalles ni historial de riesgos. | Acceso total|
+| Informes de seguridad | Inicios de sesión no seguros  | Información limitada. No se muestran detalles del riesgo ni el nivel de riesgo. | Información limitada. No se muestran detalles del riesgo ni el nivel de riesgo. | Acceso total|
+| Informes de seguridad | Detecciones de riesgo   | No | Información limitada. No hay ningún cajón de detalles.| Acceso total|
 | Notificaciones | Alertas detectadas sobre usuarios en riesgo  | No | No |Sí |
 | Notificaciones | Resumen semanal| No | No | Sí | 
 | | Directiva de registro de MFA | No | No | Sí |

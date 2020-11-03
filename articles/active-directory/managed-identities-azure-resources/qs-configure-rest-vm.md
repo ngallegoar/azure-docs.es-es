@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b159250e107fa73b9071eafe24fbe08ff1ea100b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968864"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896011"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en una VM de Azure mediante llamadas a la API REST
 
@@ -33,13 +33,13 @@ En este artículo, mediante CURL para llamar al punto de conexión REST de Azure
 - Habilitar y deshabilitar la identidad administrada asignada por el sistema en una VM de Azure
 - Agregar y quitar una identidad administrada asignada por el usuario en una VM de Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Puede ejecutar todos los comandos de este artículo, ya sea en la nube o localmente:
-    - Para ejecutar en la nube, use [Azure Cloud Shell](../../cloud-shell/overview.md).
-    - Para ejecutar en el entorno local, instale [curl](https://curl.haxx.se/download.html) y la [CLI de Azure](/cli/azure/install-azure-cli) y, a continuación, inicie sesión en Azure mediante [az login](/cli/azure/reference-index#az-login) con una cuenta que esté asociada a la suscripción de Azure de la que desea administrar las identidades administradas asignadas por el usuario o por el sistema.
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Si no está familiarizado con las identidades administradas para los recursos de Azure, consulte [¿Qué son las identidades administradas para recursos de Azure?](overview.md). Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, consulte [Tipos de identidad administrada](overview.md#managed-identity-types).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
@@ -55,7 +55,7 @@ Para crear una máquina virtual de Azure que tenga habilitada la identidad admin
    az group create --name myResourceGroup --location westus
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para la máquina virtual:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para la máquina virtual:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -67,7 +67,7 @@ Para crear una máquina virtual de Azure que tenga habilitada la identidad admin
    az account get-access-token
    ``` 
 
-4. Cree una máquina virtual con CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente, se crea una máquina virtual denominada *myVM* con una identidad administrada asignada por el sistema, como ha identificado en el cuerpo de la solicitud el valor `"identity":{"type":"SystemAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
+4. Utilice Azure Cloud Shell para crear una máquina virtual mediante CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente, se crea una máquina virtual denominada *myVM* con una identidad administrada asignada por el sistema, como ha identificado en el cuerpo de la solicitud el valor `"identity":{"type":"SystemAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"<SECURE PASSWORD STRING>"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -309,7 +309,7 @@ Para asignar una identidad asignada por un usuario a una máquina virtual, la cu
    az account get-access-token
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para la máquina virtual:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para la máquina virtual:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

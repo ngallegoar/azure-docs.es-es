@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bdfb1ca21860f1dc338f85a82caf643f9f7be6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89280186"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92678170"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticación de paso a través de Azure Active Directory: Guía de inicio rápido
 
@@ -74,7 +74,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos.
      Si el firewall fuerza las reglas según los usuarios que las originan, abra estos puertos para el tráfico de servicios de Windows que se ejecutan como un servicio de red.
    - Si el firewall o el proxy permiten la creación de listas blancas con DNS, agregue conexiones a **\*.msappproxy.net** y **\*.servicebus.windows.net**. En caso contrario, permita el acceso a los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653), que se actualizan cada semana.
    - Los agentes de autenticación necesitan acceder a **login.windows.net** y **login.microsoftonline.com** para el registro inicial. Abra el firewall también para esas direcciones URL.
-   - Para la validación de certificados, desbloquee las siguientes direcciones URL: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** y **www\.microsoft.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
+    - Para la validación de certificados, desbloquee las direcciones URL siguientes: **crl3.digicert.com:80** , **crl4.digicert.com:80** , **ocsp.digicert.com:80** , **www\.d-trust.net:80** , **root-c3-ca2-2009.ocsp.d-trust.net:80** , **crl.microsoft.com:80** , **oneocsp.microsoft.com:80** y **ocsp.msocsp.com:80**. Como estas direcciones URL se utilizan para la validación de certificados con otros productos de Microsoft, es posible que estas direcciones URL ya estén desbloqueadas.
 
 ### <a name="azure-government-cloud-prerequisite"></a>Requisitos previos de la nube de Azure Government
 Antes de habilitar la autenticación de paso a través mediante Azure AD Connect con el paso 2, descargue la versión más reciente del agente de PTA de Azure Portal.  Debe asegurarse de que la versión del agente es **1.5.1742.0**. o posterior.  Para comprobar el agente, consulte el tema sobre [actualización de los agentes de autenticación](how-to-connect-pta-upgrade-preview-authentication-agents.md)
@@ -88,7 +88,7 @@ Habilite la [autenticación de paso a través mediante Azure AD Connect](whatis-
 >[!IMPORTANT]
 >Puede habilitar la autenticación de paso a través en el servidor principal o provisional de Azure AD Connect. Se recomienda muy especialmente habilitarlo desde el servidor principal. Si va a configurar un servidor de almacenamiento provisional de Azure AD Connect en el futuro, **debe** continuar para elegir Autenticación de paso a través como opción de inicio de sesión; la elección de otra opción **deshabilitará** la autenticación de paso a través en el inquilino y reemplazará el valor en el servidor principal.
 
-Si va a instalar Azure AD Connect por primera vez, elija la [ruta de acceso de instalación personalizada](how-to-connect-install-custom.md). En la página **Inicio de sesión de usuario**, elija **Autenticación de paso a través** como **método de inicio de sesión**. Si se completa correctamente, se instala un agente de autenticación de paso a través en el mismo servidor que Azure AD Connect. Además, se habilita la característica de autenticación de paso a través en el inquilino.
+Si va a instalar Azure AD Connect por primera vez, elija la [ruta de acceso de instalación personalizada](how-to-connect-install-custom.md). En la página **Inicio de sesión de usuario** , elija **Autenticación de paso a través** como **método de inicio de sesión**. Si se completa correctamente, se instala un agente de autenticación de paso a través en el mismo servidor que Azure AD Connect. Además, se habilita la característica de autenticación de paso a través en el inquilino.
 
 ![Azure AD Connect: Inicio de sesión de usuario](./media/how-to-connect-pta-quick-start/sso3.png)
 
@@ -134,7 +134,7 @@ Para empezar, siga estas instrucciones para descargar el software de agente de a
 
 1. Para descargar la versión más reciente del agente de autenticación (versión 1.5.193.0 o posterior), inicie sesión en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com) con las credenciales de administrador global del inquilino.
 2. Seleccione **Azure Active Directory** en el panel izquierdo.
-3. Seleccione **Azure AD Connect**, **Autenticación de paso a través** y **Descargar agente**.
+3. Seleccione **Azure AD Connect** , **Autenticación de paso a través** y **Descargar agente**.
 4. Seleccione el botón **Aceptar las condiciones y descargar**.
 
 ![Centro de administración de Azure Active Directory: Botón Descargar agente de autenticación](./media/how-to-connect-pta-quick-start/pta9.png)

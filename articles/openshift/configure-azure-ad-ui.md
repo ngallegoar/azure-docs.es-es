@@ -7,17 +7,17 @@ ms.date: 03/12/2020
 author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
-ms.custom: mvc
-ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 1b9e4d1f1b989caa317384292d013af255530f11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469888"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748073"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configuración de la autenticación de Azure Active Directory para un clúster de Red Hat OpenShift en Azure 4 (Portal)
 
-Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Si decide instalar y usar la CLI de forma local, en este tutorial es preciso que ejecute la CLI de Azure de la versión 2.6.0, u otra posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -40,7 +40,7 @@ Proporcione un nombre para la aplicación, por ejemplo **aro-azuread-auth** y re
 
 ![Nuevo registro de aplicaciones](media/aro4-ad-registerapp.png)
 
-Vaya a **Certificados y secretos**, haga clic en **Nuevo secreto de cliente** y rellene los detalles. Anote el valor de la clave, ya que lo usará en una fase posterior. No podrá recuperarlo de nuevo.
+Vaya a **Certificados y secretos** , haga clic en **Nuevo secreto de cliente** y rellene los detalles. Anote el valor de la clave, ya que lo usará en una fase posterior. No podrá recuperarlo de nuevo.
 
 ![Crear un secreto](media/aro4-ad-clientsecret.png)
 
@@ -62,7 +62,7 @@ Se va a configurar OpenShift para usar la notificación `email` y revertir a `up
 
 Vaya a **Configuración de token (versión preliminar)** y haga clic en **Agregar notificación opcional**. Seleccione **Id.** y, a continuación, compruebe las notificaciones de **correo** y **UPN**.
 
-![Crear un secreto](media/aro4-ad-tokens.png)
+![Captura de pantalla que muestra el correo electrónico y las notificaciones de UPN que se agregaron.](media/aro4-ad-tokens.png)
 
 ## <a name="assign-users-and-groups-to-the-cluster-optional"></a>Asignación de usuarios y grupos al clúster (opcional)
 
@@ -100,12 +100,12 @@ Para encontrar la dirección URL de la consola del clúster, ejecute el siguient
 
 Inicie la dirección URL de la consola en un explorador e inicie sesión con las credenciales de `kubeadmin`.
 
-Vaya a **Administración**, haga clic en **Configuración del clúster** y, a continuación, seleccione la pestaña **Configuración global**. Desplácese para seleccionar **OAuth**.
+Vaya a **Administración** , haga clic en **Configuración del clúster** y, a continuación, seleccione la pestaña **Configuración global**. Desplácese para seleccionar **OAuth**.
 
 Desplácese hacia abajo para seleccionar **Agregar** en la sección **Proveedores de identidades** y seleccione **OpenID Connect**.
 ![Seleccionar OpenID Connect del menú desplegable Proveedores de identidades](media/aro4-oauth-idpdrop.png).
 
-Rellene el nombre como **AAD**, el **Id. de cliente** como **Id. de la aplicación** y el **Secreto de cliente**. La **URL del emisor** tiene el formato siguiente: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Reemplace el marcador de posición por el Id. de inquilino que recuperó anteriormente.
+Rellene el nombre como **AAD** , el **Id. de cliente** como **Id. de la aplicación** y el **Secreto de cliente**. La **URL del emisor** tiene el formato siguiente: `https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`. Reemplace el marcador de posición por el Id. de inquilino que recuperó anteriormente.
 
 ![Rellenar los detalles de OAuth](media/aro4-oauth-idp-1.png)
 

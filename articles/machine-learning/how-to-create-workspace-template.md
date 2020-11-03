@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057848"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631058"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -53,13 +53,13 @@ Esta plantilla crea los siguientes servicios de Azure:
 
 El grupo de recursos es el contenedor que contiene los servicios. El área de trabajo de Azure Machine Learning requiere los diversos servicios.
 
-La plantilla de ejemplo tiene dos parámetros **necesarios**:
+La plantilla de ejemplo tiene dos parámetros **necesarios** :
 
 * La **ubicación** en la que se crearán los recursos.
 
     La plantilla utilizará la ubicación que seleccione para la mayoría de los recursos. La excepción es el servicio Application Insights que no está disponible en todas las ubicaciones en las que están los demás servicios. Si selecciona una ubicación donde no está disponible, el servicio se creará en la ubicación Centro-sur de EE. UU.
 
-* El **nombre del área de trabajo**, que es el nombre descriptivo del área de trabajo de Azure Machine Learning.
+* El **nombre del área de trabajo** , que es el nombre descriptivo del área de trabajo de Azure Machine Learning.
 
     > [!NOTE]
     > El nombre del área de trabajo no distingue mayúsculas de minúsculas.
@@ -161,9 +161,11 @@ New-AzResourceGroupDeployment `
 
 En la plantilla de ejemplo siguiente se muestra cómo crear un área de trabajo con tres configuraciones:
 
-* Habilitar la configuración de alta confidencialidad para el área de trabajo
-* Habilitar el cifrado para el área de trabajo
-* Usar una instancia de Azure Key Vault existente para recuperar las claves administradas por el cliente
+* Habilitar la configuración de alta confidencialidad para el área de trabajo. Se crea una instancia de Cosmos DB.
+* Habilitar el cifrado para el área de trabajo.
+* Se usa una instancia de Azure Key Vault existente para recuperar las claves administradas por el cliente. Las claves administradas por el cliente se utilizan para crear una instancia de Cosmos DB para el área de trabajo.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.
@@ -539,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 
-1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__, elija la plantilla **201-machine-learning-advanced** en la lista desplegable.
+1. Siga los pasos que se indican en [Implementación de recursos desde plantilla personalizada](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Cuando llegue a la pantalla __Seleccionar una plantilla__ , elija la plantilla **201-machine-learning-advanced** en la lista desplegable.
 1. Seleccione __Seleccionar plantilla__ para usar la plantilla. Proporcione la siguiente información necesaria y cualquier otro parámetro en función del escenario de implementación.
 
    * Suscripción: Seleccione la suscripción de Azure que va a usar para estos recursos.
@@ -548,7 +550,7 @@ New-AzResourceGroupDeployment `
    * Nombre del área de trabajo: El nombre que se usará para el área de trabajo de Azure Machine Learning que se va a crear. El nombre del área de trabajo debe tener entre 3 y 33 caracteres. Solo puede contener caracteres alfanuméricos y "-".
    * Ubicación: Seleccione la ubicación en la que se crearán los recursos.
 1. Seleccione __Revisar + crear__.
-1. En la pantalla __Revisar y crear__, acepte los términos y condiciones de la lista y seleccione __Crear__.
+1. En la pantalla __Revisar y crear__ , acepte los términos y condiciones de la lista y seleccione __Crear__.
 
 Para más información, vea [Implementación de recursos desde plantilla personalizada](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 

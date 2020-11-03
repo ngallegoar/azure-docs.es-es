@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: 6ae5c4f20cc42ee3865726973a81e2ba90aeaf33
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2b05220081dde4db6f07f21fb9978d9e466235ca
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093844"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740367"
 ---
-# <a name="quickstart-create-an-azure-synapse-workspace-using-a-deployment-template"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse mediante una plantilla de implementación
+# <a name="quickstart-create-an-azure-synapse-workspace-using-an-arm-template"></a>Inicio rápido: Creación de un área de trabajo de Azure Synapse mediante una plantilla de Resource Manager
 
 Esta plantilla de Azure Resource Manager creará un área de trabajo de Azure Synapse con una instancia de Data Lake Storage subyacente. El área de trabajo de Azure Synapse es un límite de colaboración protegible para los procesos de análisis en Azure Synapse Analytics.
 
@@ -31,7 +31,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
-Para examinar la plantilla, seleccione el vínculo **Visualizar** siguiente:
+Para revisar la plantilla, seleccione el vínculo **Visualizar**. Seleccione **Editar plantilla**.
 
 [![Visualizar](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
@@ -43,25 +43,25 @@ La plantilla define dos recursos:
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 1. Seleccione la imagen siguiente para iniciar sesión en Azure y abrir la plantilla. Esta plantilla crea un área de trabajo de Synapse.
-   
+
    [![Implementación en Azure 2](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 1. Escriba o actualice los siguientes valores:
 
-   * **Suscripción**: Seleccione una suscripción de Azure.
-   * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y seleccione **Aceptar**. Un grupo de recursos nuevo facilitará la limpieza de los recursos.
-   * **Región**: Seleccione una región.  Por ejemplo, **Centro de EE. UU**.
-   * **Name**: Escriba un nombre del área de trabajo.
-   * **Inicio de sesión de administrador de SQL**: escriba el nombre de usuario del administrador del servidor de SQL Server.
-   * **Contraseña de administrador de SQL**: escriba la contraseña del administrador del servidor de SQL Server.
-   * **Valores de etiqueta**: Acepte el valor predeterminado. 
-   * **Revisar y crear**: Seleccionar.
-   * **Crear**: Seleccionar.
+   - **Suscripción** : Seleccione una suscripción de Azure.
+   - **Grupo de recursos** : seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y seleccione **Aceptar**. Un grupo de recursos nuevo facilitará la limpieza de los recursos.
+   - **Región** : Seleccione una región.  Por ejemplo, **Centro de EE. UU**.
+   - **Name** : Escriba un nombre del área de trabajo.
+   - **Inicio de sesión de administrador de SQL** : escriba el nombre de usuario del administrador del servidor de SQL Server.
+   - **Contraseña de administrador de SQL** : escriba la contraseña del administrador del servidor de SQL Server.
+   - **Valores de etiqueta** : Acepte el valor predeterminado.
+   - **Revisar y crear** : Seleccionar.
+   - **Crear** : Seleccionar.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información sobre Azure Synapse Analytics y Azure Resource Manager, consulte los artículos siguientes.
 
-- Lea la [introducción a Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 
+- Lea la [introducción a Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 - Obtenga más información sobre [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - [Creación e implementación de la primera plantilla de Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

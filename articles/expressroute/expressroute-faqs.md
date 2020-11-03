@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202215"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631281"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -40,9 +40,10 @@ Para obtener más información sobre los precios, consulte [Información sobre e
 
 No. Puede adquirir una conexión VPN de cualquier velocidad de su proveedor de servicios. Sin embargo, la conexión a Azure se limitará al ancho de banda de circuito ExpressRoute que compre.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿puedo aumentar la velocidad si quiero?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Si pago por un circuito ExpressRoute de un ancho de banda determinado, ¿puedo usar una cantidad superior al ancho de banda adquirido?
 
-Sí. Los circuitos ExpressRoute están configurados para aumentar hasta dos veces el límite de ancho de banda adquirido sin coste adicional. Consulte con su proveedor de servicios para ver si son compatibles con esta capacidad. No es para un período de tiempo prolongado y no está garantizado.  Si el tráfico fluye a través de una puerta de enlace de ExpressRoute, el ancho de banda de la SKU es fijo y no ampliable.
+Sí, puede usar hasta dos veces el límite de ancho de banda que haya adquirido empleando el ancho de banda disponible en la conexión secundaria del circuito ExpressRoute. La redundancia integrada del circuito se configura mediante conexiones principales y secundarias, cada una de ellas del ancho de banda adquirido, a dos enrutadores perimetrales de Microsoft Enterprise (los MSEE). El ancho de banda disponible mediante la conexión secundaria se puede usar para permitir más tráfico, en caso necesario. No obstante, dado que la conexión secundaria está pensada para la redundancia, no se garantiza y no debe usarse para permitir más tráfico durante un período de tiempo prolongado. Para más información sobre cómo usar ambas conexiones para transmitir tráfico, consulte [aquí](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Si planea usar solo la conexión principal para transmitir el tráfico, el ancho de banda de la conexión es fijo y al intentar saturarlo se producirá un aumento en los descartes de paquetes. Si el tráfico fluye a través de una puerta de enlace de ExpressRoute, el ancho de banda de la SKU es fijo y no ampliable.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>¿Es posible usar la misma conexión de red privada con Red virtual y otros servicios de Azure simultáneamente?
 

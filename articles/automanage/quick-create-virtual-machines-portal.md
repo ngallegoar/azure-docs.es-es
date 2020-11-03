@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 69f43b626bb50171ceaca1b7a8761bec040d1dd6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91445790"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897235"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Inicio rápido: Habilitación de la administración automática para máquinas virtuales en Azure Portal
 
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, [cree una cuenta](https://azure.microsoft.
 > Las cuentas de evaluación gratuita no tienen acceso a las máquinas virtuales que se usan en este tutorial. Actualice a una suscripción de pago por uso.
 
 > [!IMPORTANT]
-> Debe tener el rol de **colaborador** para habilitar Automanage mediante una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos: el rol **Propietario** o **Colaborador** junto con el rol **Administrador de acceso de usuario**.
+> Debe tener el rol **Colaborador** en el grupo de recursos que contiene las máquinas virtuales para habilitar Automanage mediante una cuenta existente de Automanage. Si va a habilitar Automanage con una cuenta nueva de Automanage, necesita los siguientes permisos: los roles **Propietario** o **Colaborador** , junto con el rol **Administrador de acceso de usuario** de la suscripción.
 
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
@@ -44,22 +44,22 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Habilitación en una máquina virtual existente.":::
 
-3. En la hoja **Seleccionar máquinas**:
+3. En la hoja **Seleccionar máquinas** :
     1. Filtre la lista de máquinas virtuales por su **Suscripción** y **Grupo de recursos**.
     1. Active la casilla de cada máquina virtual que desee incorporar.
     1. Haga clic en el botón **Seleccionar**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Habilitación en una máquina virtual existente.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Seleccione una máquina virtual existente en la lista de máquinas virtuales disponibles.":::
 
-4. En **Perfil de configuración**, haga clic en **Browse and change profiles and preferences** (Examinar y cambiar perfiles y preferencias).
+4. En **Perfil de configuración** , haga clic en **Browse and change profiles and preferences** (Examinar y cambiar perfiles y preferencias).
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Habilitación en una máquina virtual existente.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Examine y cambie perfiles y preferencias.":::
 
-5. En la hoja **Selección del perfil y las preferencias de configuración**:
+5. En la hoja **Selección del perfil y las preferencias de configuración** :
     1. Seleccione un perfil a la izquierda: *Desarrollo/pruebas* para pruebas, *Prod* para producción.
     1. Haga clic en el botón **Seleccionar**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Habilitación en una máquina virtual existente.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Examine el perfil de configuración de producción.":::
 
 6. Haga clic en el botón **Habilitar**.
 
@@ -72,21 +72,21 @@ Inicie sesión en Azure Portal [aquí](https://aka.ms/automanageportalnextstep) 
 
 2. Una vez implementada la máquina virtual, se mostrará la página de estado de la implementación con los **Pasos siguientes** recomendados en la parte inferior.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Habilitación en una máquina virtual existente.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Sección Pasos siguientes ubicada en la parte inferior de la página de la implementación.":::
 
-3. En **Pasos siguientes**, seleccione **Enable Automanage virtual machine best practices** (Habilitar los procedimientos recomendados de la administración automática de máquinas virtuales).
+3. En **Pasos siguientes** , seleccione **Enable Automanage virtual machine best practices** (Habilitar los procedimientos recomendados de la administración automática de máquinas virtuales).
 
-4. En la página **Administración automática: procedimientos recomendados para máquinas virtuales de Azure**, la información de **Máquinas** se rellenará automáticamente con la máquina virtual recién creada.
+4. En la página **Administración automática: procedimientos recomendados para máquinas virtuales de Azure** , la información de **Máquinas** se rellenará automáticamente con la máquina virtual recién creada.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Habilitación en una máquina virtual existente.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="La máquina virtual recién creada se mostrará como la máquina seleccionada.":::
 
-5. En **Perfil de configuración**, haga clic en **Browse and change profiles and preferences** (Examinar y cambiar perfiles y preferencias).
+5. En **Perfil de configuración** , haga clic en **Browse and change profiles and preferences** (Examinar y cambiar perfiles y preferencias).
 
-6. En la hoja **Selección del perfil y las preferencias de configuración**:
+6. En la hoja **Selección del perfil y las preferencias de configuración** :
     1. Seleccione un perfil a la izquierda: *Desarrollo/pruebas* para pruebas, *Prod* para producción.
     1. Haga clic en el botón **Seleccionar**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Habilitación en una máquina virtual existente.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Examine el perfil de configuración de producción.":::
 
 7. Haga clic en el botón **Habilitar**.
 
@@ -94,7 +94,7 @@ Inicie sesión en Azure Portal [aquí](https://aka.ms/automanageportalnextstep) 
 
 Deje de usar rápidamente Azure Automanage para máquinas virtuales deshabilitando la administración automática.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Habilitación en una máquina virtual existente.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Deshabilite Automanage en una máquina virtual.":::
 
 1. Vaya a la página **Automanage – Azure virtual machine best practices** (Automanage: procedimientos recomendados para máquinas virtuales de Azure) en la que se muestran todas las máquinas virtuales administradas automáticamente.
 1. Active la casilla situada junto a la máquina virtual que desea deshabilitar.

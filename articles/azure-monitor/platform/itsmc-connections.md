@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 3cb335cb32ded68377b4eec0af3b1ebbc19e77d9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328308"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677105"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Conectar productos o servicios de ITSM con el Conector de Administración de servicios de TI
 En este artículo se proporciona información sobre cómo configurar la conexión entre los productos y servicios de ITSM y el Conector de Administración de servicios de TI (ITSMC) en Log Analytics para administrar de forma centralizada los elementos de trabajo. Para obtener más información sobre ITSMC, vea [Información general](./itsmc-overview.md).
@@ -45,7 +45,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 > [!NOTE]
 > 
 > - El conector de ITSM solo se puede conectar a instancias de ServiceNow basadas en la nube. Actualmente no se admiten instancias locales de ServiceNow.
-> - Para usar plantillas personalizadas como parte de las acciones, el parámetro "ProjectionType" de la plantilla SCSM debe estar asignado a "IncidentManagement!System.WorkItem.Incident.ProjectionType".
+> - Para usar [plantillas](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) personalizadas como parte de las acciones, se debe asignar el parámetro "ProjectionType" de la plantilla SCSM a "IncidentManagement!System.WorkItem.Incident.ProjectionType".
 
 ### <a name="connection-procedure"></a>Procedimiento de conexión
 
@@ -53,11 +53,11 @@ Use el siguiente procedimiento para conectar la instancia de System Center Servi
 
 1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
-2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM** .
+2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM**.
 
     ![Nueva conexión](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. En la parte superior del panel derecho, haga clic en **Agregar** .
+3. En la parte superior del panel derecho, haga clic en **Agregar**.
 
 4. Proporcione la información tal como se describe en la tabla siguiente y haga clic en **Aceptar** para crear la conexión.
 
@@ -68,7 +68,7 @@ Use el siguiente procedimiento para conectar la instancia de System Center Servi
 | **Campo** | **Descripción** |
 | --- | --- |
 | **Nombre de la conexión**   | Escriba un nombre para la instancia de System Center Service Manager que quiere conectar con ITSMC.  Usará este nombre más adelante cuando configure los elementos de trabajo en el análisis de registros detallados de la instancia o vista. |
-| **Tipo de asociado**   | Seleccione **System Center Service Manager** . |
+| **Tipo de asociado**   | Seleccione **System Center Service Manager**. |
 | **Dirección URL del servidor**   | Escriba la dirección URL de la aplicación web de Service Manager. [Aquí](#create-and-deploy-service-manager-web-app-service) podrá obtener más información sobre la aplicación web de Service Manager.
 | **Id. de cliente**   | Escriba el identificador de cliente que ha generado (mediante el script automático) para autenticar la aplicación web. [Aquí](./itsmc-service-manager-script.md) podrá obtener más información sobre el script automatizado.|
 | **Secreto de cliente**   | Escriba el secreto de cliente generado para este identificador.   |
@@ -80,7 +80,7 @@ Use el siguiente procedimiento para conectar la instancia de System Center Servi
 
 **Cuando se ha conectado y sincronizado correctamente** :
 
-- Los elementos de trabajo seleccionados de Service Manager se importan en Azure **Log Analytics** . Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
+- Los elementos de trabajo seleccionados de Service Manager se importan en Azure **Log Analytics**. Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
 
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de Service Manager.
 
@@ -108,30 +108,30 @@ Ejecute el script proporcionando los siguientes detalles necesarios:
 - Prefijo de nombre de sitio de la aplicación web
 - Espacio de nombres de ServiceBus.
 
-El script crea la aplicación web con el nombre que especificó (junto con algunas cadenas adicionales para hacerlo único). Genera la **dirección URL de la aplicación web** , el **id. de cliente** y el **secreto de cliente** .
+El script crea la aplicación web con el nombre que especificó (junto con algunas cadenas adicionales para hacerlo único). Genera la **dirección URL de la aplicación web** , el **id. de cliente** y el **secreto de cliente**.
 
 Guarde los valores, ya que se usan al crear una conexión con ITSMC.
 
 **Comprobación de la instalación de la aplicación web**
 
-1. Vaya a **Azure Portal** > **Recursos** .
-2. Seleccione la aplicación web y haga clic en **Configuración** > **Configuración de la aplicación** .
+1. Vaya a **Azure Portal** > **Recursos**.
+2. Seleccione la aplicación web y haga clic en **Configuración** > **Configuración de la aplicación**.
 3. Confirme la información sobre la instancia de Service Manager que ha proporcionado en el momento de la implementación de la aplicación a través del script.
 
 ### <a name="configure-the-hybrid-connection"></a>Configuración de la conexión híbrida
 
 Use el procedimiento siguiente para configurar la conexión híbrida que conecta la instancia de Service Manager con ITSMC en Azure.
 
-1. Busque la aplicación web de Service Manager, **Recursos de Azure** .
-2. Haga clic en **Configuración** > **Redes** .
-3. En **Conexiones híbridas** , haga clic en **Configure los puntos de conexión de la conexión híbrida** .
+1. Busque la aplicación web de Service Manager, **Recursos de Azure**.
+2. Haga clic en **Configuración** > **Redes**.
+3. En **Conexiones híbridas** , haga clic en **Configure los puntos de conexión de la conexión híbrida**.
 
     ![Redes de conexión híbrida](media/itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
-4. En la hoja **Conexiones híbridas** , haga clic en **Agregar conexión híbrida** .
+4. En la hoja **Conexiones híbridas** , haga clic en **Agregar conexión híbrida**.
 
     ![Adición de conexión híbrida](media/itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
-5. En la hoja **Agregar conexiones híbridas** , haga clic en **Crear conexión híbrida nueva** .
+5. En la hoja **Agregar conexiones híbridas** , haga clic en **Crear conexión híbrida nueva**.
 
     ![Conexión híbrida nueva](media/itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
@@ -149,7 +149,7 @@ Use el procedimiento siguiente para configurar la conexión híbrida que conecta
 
     Una vez creada, se muestra debajo de la hoja.
 
-7. Cuando se crea la conexión híbrida, seleccione la conexión y haga clic en **Agregar conexión híbrida seleccionada** .
+7. Cuando se crea la conexión híbrida, seleccione la conexión y haga clic en **Agregar conexión híbrida seleccionada**.
 
     ![Conexión híbrida nueva](media/itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
@@ -159,7 +159,7 @@ Utilice el procedimiento siguiente para configurar el programa de instalación d
 
 1. En la hoja **Conexiones híbridas** , haga clic en **Descargar administrador de conexión** e instálelo en el equipo donde se ejecuta la instancia de System Center Service Manager.
 
-    Una vez finalizada la instalación, la opción **Hybrid Connection Manager UI** (IU de administración de conexión híbrida) está disponible en el menú **Iniciar** .
+    Una vez finalizada la instalación, la opción **Hybrid Connection Manager UI** (IU de administración de conexión híbrida) está disponible en el menú **Iniciar**.
 
 2. Haga clic en **Hybrid Connection Manager UI** (IU de administración de conexión híbrida), se le pedirán las credenciales de Azure.
 
@@ -214,6 +214,8 @@ Asegúrese de que se cumplen los siguientes requisitos previos:
 > 3. Haga clic en Revoke Access (Revocar acceso) y, a continuación, en Revoke (Revocar).
 
 - Instalar la aplicación de usuario para la integración de Microsoft Log Analytics (aplicación de ServiceNow). [Más información](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+> [!NOTE]
+> ITSMC solo es compatible con la aplicación de usuario oficial para la integración de Microsoft Log Analytics que se descarga del almacén de ServiceNow. ITSMC no admiten la ingesta de código en el lado de ServiceNow ni la aplicación que no forma parte de la solución oficial de ServiceNow. 
 - Crear el rol de usuario de integración para la aplicación de usuario instalada. [Aquí](#create-integration-user-role-in-servicenow-app) puede encontrar más información sobre cómo crear el rol de usuario de integración.
 
 ### <a name="connection-procedure"></a>**Procedimiento de conexión**
@@ -222,10 +224,10 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
 
 1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
-2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM** .
+2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM**.
     ![Nueva conexión](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. En la parte superior del panel derecho, haga clic en **Agregar** .
+3. En la parte superior del panel derecho, haga clic en **Agregar**.
 
 4. Proporcione la información tal como se describe en la tabla siguiente y haga clic en **Aceptar** para crear la conexión.
 
@@ -236,7 +238,7 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
 | **Campo** | **Descripción** |
 | --- | --- |
 | **Nombre de la conexión**   | Escriba un nombre para la instancia de ServiceNow que quiere conectar con ITSMC.  Usará este nombre más adelante en Log Analytics cuando configure los elementos de trabajo en el análisis de registros detallados de ITSM o vista. |
-| **Tipo de asociado**   | Seleccione **ServiceNow** . |
+| **Tipo de asociado**   | Seleccione **ServiceNow**. |
 | **Nombre de usuario**   | Escriba el nombre de usuario de integración que ha creado en la aplicación de ServiceNow para que admita la conexión con ITSMC. Más información: [Creación de un rol de usuario de aplicación de ServiceNow](#create-integration-user-role-in-servicenow-app).|
 | **Contraseña**   | Escriba la contraseña asociada con este nombre de usuario. **Nota** : El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC.  |
 | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de ServiceNow que quiere conectar con ITSMC. La dirección URL debe apuntar a una versión de SaaS compatible con el sufijo ".servicenow.com".|
@@ -250,7 +252,7 @@ Use el procedimiento siguiente para crear una nueva conexión a ServiceNow.
 
 **Cuando se ha conectado y sincronizado correctamente** :
 
-- Los elementos de trabajo seleccionados en la instancia de ServiceNow se importan en Azure **Log Analytics** . Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
+- Los elementos de trabajo seleccionados en la instancia de ServiceNow se importan en Azure **Log Analytics**. Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
 
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de ServiceNow.
 
@@ -274,7 +276,7 @@ Utilice el siguiente procedimiento:
    El estado se muestra como **Not complete** (Sin completar) si aún no se creó el rol de usuario.
 
 4. En los cuadros de texto, junto a **Create integration user** (Crear usuario de integración), escriba el nombre de usuario para el usuario que puede conectarse a ITSMC en Azure.
-5. Escriba la contraseña para este usuario y haga clic en **Aceptar** .  
+5. Escriba la contraseña para este usuario y haga clic en **Aceptar**.  
 
 > [!NOTE]
 > 
@@ -325,10 +327,10 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 
 1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
-2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM** .
+2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM**.
     ![Nueva conexión](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. En la parte superior del panel derecho, haga clic en **Agregar** .
+3. En la parte superior del panel derecho, haga clic en **Agregar**.
 
 4. Proporcione la información tal como se describe en la tabla siguiente y haga clic en **Aceptar** para crear la conexión.
 
@@ -339,7 +341,7 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 | **Campo** | **Descripción** |
 | --- | --- |
 | **Nombre de la conexión**   | Escriba un nombre para la instancia de Provance que quiere conectar con ITSMC.  Usará este nombre más adelante cuando configure los elementos de trabajo en el análisis de registros detallados de ITSM o vista. |
-| **Tipo de asociado**   | Seleccione **Provance** . |
+| **Tipo de asociado**   | Seleccione **Provance**. |
 | **Nombre de usuario**   | Escriba el nombre de usuario que puede conectarse a ITSMC.    |
 | **Contraseña**   | Escriba la contraseña asociada con este nombre de usuario. **Nota:** El nombre de usuario y la contraseña se utilizan para generar únicamente tokens de autenticación y no se almacenan en ningún lugar dentro del servicio ITSMC._|
 | **Dirección URL del servidor**   | Escriba la dirección URL de la instancia de Provance que quiere conectar con ITSMC. |
@@ -348,11 +350,11 @@ Use el procedimiento siguiente para crear una conexión a Provance:
 | **Sincronización de datos** | Escriba el número de días pasados de los que desea los datos. **Límite máximo** : 120 días. |
 | **Creación de un elemento de configuración de solución ITSM** | Seleccione esta opción si desea crear los elementos de configuración en el producto ITSM. Cuando se selecciona, ITMSC crea los elementos de configuración afectados como elementos de configuración (en el caso de que no existan) en el sistema ITSM compatible. **Valor predeterminado** : deshabilitado.|
 
-![Conexión a Provance](media/itsmc-connections/itsm-connections-provance-latest.png)
+![Captura de pantalla que resalta las listas Connection Name (Nombre de la conexión) y Partner Type (Tipo de asociado).](media/itsmc-connections/itsm-connections-provance-latest.png)
 
 **Cuando se ha conectado y sincronizado correctamente** :
 
-- Los elementos de trabajo seleccionados en la instancia de Provance se importan en Azure **Log Analytics** . Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
+- Los elementos de trabajo seleccionados en la instancia de Provance se importan en Azure **Log Analytics**. Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
 
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de Provance.
 
@@ -381,10 +383,10 @@ Use el procedimiento siguiente para crear una conexión a Cherwell:
 
 1. En Azure Portal, vaya a **Todos los recursos** y busque **ServiceDesk(YourWorkspaceName)** .
 
-2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM** .
+2.  En **ORÍGENES DE DATOS DEL ÁREA DE TRABAJO** , haga clic en **Conexiones de ITSM**.
     ![Nueva conexión](media/itsmc-connections/add-new-itsm-connection.png)
 
-3. En la parte superior del panel derecho, haga clic en **Agregar** .
+3. En la parte superior del panel derecho, haga clic en **Agregar**.
 
 4. Proporcione la información tal como se describe en la tabla siguiente y haga clic en **Aceptar** para crear la conexión.
 
@@ -409,7 +411,7 @@ Use el procedimiento siguiente para crear una conexión a Cherwell:
 
 **Cuando se ha conectado y sincronizado correctamente** :
 
-- Los elementos de trabajo seleccionados en la instancia de Cherwell se importan en Azure **Log Analytics** . Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
+- Los elementos de trabajo seleccionados en la instancia de Cherwell se importan en Azure **Log Analytics**. Puede ver el resumen de estos elementos de trabajo en el icono de IT Service Management Connector.
 
 - Puede crear incidentes a partir de alertas de Log Analytics, de entradas de registros o de alertas de Azure en esta instancia de Cherwell.
 

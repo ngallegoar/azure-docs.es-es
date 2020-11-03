@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2b776ba64d96d092ad51ad2888b891e19e8b521
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c79942aad2ce450bc22aa0a0cfc32e67a667bd48
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90968880"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895960"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
 
@@ -33,21 +33,24 @@ En este artículo, mediante CURL para llamar al punto de conexión REST de Azure
 - Habilitación y deshabilitación de la identidad administrada asignada por el sistema en un conjunto de escalado de máquinas virtuales de Azure
 - Adición y eliminación de una identidad asignada por el usuario un conjunto de escalado de máquinas virtuales de Azure
 
-## <a name="prerequisites"></a>Requisitos previos
+Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
-- Si no está familiarizado con las identidades administradas de los recursos de Azure, consulte la [sección de introducción](overview.md). **No olvide revisar la [diferencia entre una identidad administrada asignada por el sistema y una identidad administrada asignada por el usuario](overview.md#managed-identity-types)** .
-- Si aún no tiene una cuenta de Azure, [regístrese para una cuenta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+## <a name="prerequisites"></a>Prerrequisitos
+
+- Si no está familiarizado con las identidades administradas para los recursos de Azure, consulte [¿Qué son las identidades administradas para recursos de Azure?](overview.md). Para obtener información sobre los tipos de identidad administrada asignados por el sistema y asignados por el usuario, consulte [Tipos de identidad administrada](overview.md#managed-identity-types).
+
 - Para llevar a cabo las operaciones de administración de este artículo, su cuenta debe tener las siguientes asignaciones de roles de Azure:
 
-    > [!NOTE]
-    > No se requieren asignaciones de roles del directorio de Azure AD.
+  - [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde un conjunto de escalado de máquinas virtuales.
 
-    - [Colaborador de máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) para crear un conjunto de escalado de máquinas virtuales y habilitar y quitar la identidad administrada asignada por el usuario o el sistema desde un conjunto de escalado de máquinas virtuales.
-    - Rol [Colaborador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para crear una identidad administrada asignada por el usuario.
-    - Rol [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en un conjunto de escalado de máquinas virtuales.
-- Puede ejecutar todos los comandos de este artículo, ya sea en la nube o localmente:
-    - Para ejecutar en la nube, use [Azure Cloud Shell](../../cloud-shell/overview.md).
-    - Para ejecutar en el entorno local, instale [curl](https://curl.haxx.se/download.html) y la [CLI de Azure](/cli/azure/install-azure-cli) y, a continuación, inicie sesión en Azure mediante [az login](/cli/azure/reference-index#az-login) con una cuenta que esté asociada a la suscripción de Azure de la que desea administrar las identidades administradas asignadas por el usuario o por el sistema.
+  - Rol [Colaborador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) para crear una identidad administrada asignada por el usuario.
+
+  - Rol [Operador de identidad administrada](../../role-based-access-control/built-in-roles.md#managed-identity-operator) para asignar y quitar una identidad asignada por el usuario en un conjunto de escalado de máquinas virtuales.
+
+  > [!NOTE]
+  > No se requieren asignaciones de roles del directorio de Azure AD.
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## <a name="system-assigned-managed-identity"></a>Identidad administrada asignada por el sistema
 
@@ -63,7 +66,7 @@ Para crear un conjunto de escalado de máquinas virtuales con la identidad admin
    az group create --name myResourceGroup --location westus
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para el conjunto de escalado de máquinas virtuales:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para el conjunto de escalado de máquinas virtuales:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
@@ -75,7 +78,7 @@ Para crear un conjunto de escalado de máquinas virtuales con la identidad admin
    az account get-access-token
    ``` 
 
-4. Cree un conjunto de escalado de máquinas virtuales con CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales denominado *myVMSS* en *myResourceGroup* con una identidad administrada asignada por el sistema, como se identificó en el cuerpo de la solicitud por el valor `"identity":{"type":"SystemAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
+4. Utilice Azure Cloud Shell para crear un conjunto de escalado de máquinas virtuales mediante CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales denominado *myVMSS* en *myResourceGroup* con una identidad administrada asignada por el sistema, como se identificó en el cuerpo de la solicitud por el valor `"identity":{"type":"SystemAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -322,7 +325,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
    az account get-access-token
    ```
 
-2. Cree una [interfaz de red](/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create) para el conjunto de escalado de máquinas virtuales:
+2. Cree una [interfaz de red](/cli/azure/network/nic#az-network-nic-create) para el conjunto de escalado de máquinas virtuales:
 
    ```azurecli-interactive
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic

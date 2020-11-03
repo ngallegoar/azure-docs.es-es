@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088931"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896062"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Inicio rápido: Creación de una instancia de Front Door mediante una plantilla de ARM
 
@@ -40,7 +40,7 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-En esta guía de inicio rápido, creará una configuración de Front Door con un solo back-end y una única ruta de acceso predeterminada que coincide con "/*". 
+En este inicio rápido, creará una configuración de Front Door con un solo back-end y una única ruta de acceso predeterminada que coincide con `/*`.
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ En la plantilla, se define un recurso de Azure:
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Seleccione **Try It** (Probarlo) en el bloque de código siguiente para abrir Azure Cloud Shell y siga las instrucciones para iniciar sesión en Azure. 
+1. Seleccione **Try It** (Probarlo) en el bloque de código siguiente para abrir Azure Cloud Shell y siga las instrucciones para iniciar sesión en Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -73,7 +73,7 @@ En la plantilla, se define un recurso de Azure:
 
 1. Escriba los valores.
 
-    La implementación de la plantilla crea una instancia de Front Door con un solo back-end. En este ejemplo se utiliza *<span>microsoft.</span>com* como **backendAddress**.
+    La implementación de la plantilla crea una instancia de Front Door con un solo back-end. En este ejemplo `microsoft.com` se usa como valor de **backendAddress**.
 
     El nombre del grupo de recursos es el nombre del proyecto con **rg** anexado.
 
@@ -96,7 +96,7 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
 
 1. Seleccione la instancia de Front Door que creó previamente y haga clic en el vínculo **Host de front-end**. El vínculo abrirá un explorador web que le redirigirá al FQDN de back-end que definió durante la creación.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de Front Door":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Información general del portal de Front Door":::
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado lo siguiente:
-* Front Door
+En este inicio rápido, ha creado una instancia de Front Door.
 
 Para obtener información sobre cómo agregar un dominio personalizado a Front Door, continúe con los tutoriales de Front Door.
 

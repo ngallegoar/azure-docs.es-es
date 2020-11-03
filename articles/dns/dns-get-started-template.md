@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 09/8/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: 986258631d47989e5be5e738da86f844283ce706
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 24460167e2279e7d3001d0bc16d050beb5b55289
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093827"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791008"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-an-arm-template"></a>Creación de un registro y una zona DNS de Azure mediante una plantilla de Resource Manager
 
-En este inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una zona DNS que contenga un registro D.
+En este inicio rápido se describe cómo usar una plantilla de Azure Resource Manager para crear una zona DNS que contenga un registro `A`.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,20 +34,20 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-azure-dns-new-zone).
 
-En este inicio rápido, va a crear una zona DNS única con el sufijo *<span>azurequickstart.</span>org*. En la zona también se colocará un registro *D* que apunte a dos direcciones IP.
+En este inicio rápido, va a crear una zona DNS única con el sufijo `azurequickstart.org`. En la zona también se colocará un registro `A` que apunte a dos direcciones IP.
 
 :::code language="json" source="~/quickstart-templates/101-azure-dns-new-zone/azuredeploy.json":::
 
 En la plantilla se han definido dos recursos de Azure:
 
-* [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
-* [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A) (se usa para crear un registro D en la zona)
+- [**Microsoft.Network/dnsZones**](/azure/templates/microsoft.network/dnsZones)
+- [**Microsoft.Network/dnsZones/A**](/azure/templates/microsoft.network/dnsZones/A): Se usa para crear un registro `A` en la zona.
 
 Para encontrar más plantillas relacionadas con Azure Traffic Manager, consulte [Plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-1. Seleccione **Try It** (Probarlo) en el bloque de código siguiente para abrir Azure Cloud Shell y siga las instrucciones para iniciar sesión en Azure. 
+1. Seleccione **Try It** (Probarlo) en el bloque de código siguiente para abrir Azure Cloud Shell y siga las instrucciones para iniciar sesión en Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -70,7 +70,7 @@ Para encontrar más plantillas relacionadas con Azure Traffic Manager, consulte 
 
 1. Escriba los valores.
 
-    La implementación de la plantilla crea una zona con un registro D que apunta a dos direcciones IP. El nombre del grupo de recursos es el nombre del proyecto con **rg** anexado.
+    La implementación de la plantilla crea una zona con un registro `A` que apunta a dos direcciones IP. El nombre del grupo de recursos es el nombre del proyecto con **rg** anexado.
 
     La plantilla tarda un par de minutos en implementarse. Al finalizar, la salida es parecida a esta:
 
@@ -88,31 +88,31 @@ Azure PowerShell se usa para implementar la plantilla. Además de Azure PowerShe
 
 1. El grupo de recursos debe contener los recursos que se ven aquí:
 
-    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de la zona DNS de Azure":::
+    :::image type="content" source="./media/dns-getstarted-template/resource-group-dns-zone.png" alt-text="Grupo de recursos de implementación de zona DNS":::
 
-1. Seleccione la zona DNS con el sufijo **<span>azurequickstart.</span>org** para comprobar que la zona se crea correctamente con un registro **D** que hace referencia al valor de **1.2.3.4** y **1.2.3.5**.
+1. Seleccione la zona DNS con el sufijo de `azurequickstart.org` para comprobar que la zona se crea correctamente con un registro `A` que hace referencia al valor de `1.2.3.4` y `1.2.3.5`.
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de la zona DNS de Azure":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-overview.png" alt-text="Implementación de zona DNS":::
 
 1. Copie uno de los nombres de servidor del paso anterior.
 
 1. Abra un símbolo del sistema y ejecute el comando siguiente:
 
-   ```
+   ```cmd
    nslookup www.<dns zone name> <name server name>
    ```
 
-   Por ejemplo: ;;
+   Por ejemplo:
 
-   ```
+   ```cmd
    nslookup www.2lwynbseszpam.azurequickstart.org ns1-09.azure-dns.com.
    ```
 
    Debería ver algo parecido a la captura de pantalla siguiente:
 
-    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="Salida de la implementación de PowerShell de la plantilla de Resource Manager de la zona DNS de Azure":::
+    :::image type="content" source="./media/dns-getstarted-template/dns-zone-validation.png" alt-text="nslookup de zona DNS":::
 
-El nombre de host **www<span>.2lwynbseszpam.azurequickstart.</span>org** se resuelve en **1.2.3.4** y **1.2.3.5**, tal como lo configuró. Este resultado confirma que la resolución de nombres funciona correctamente.
+El nombre de host `www.2lwynbseszpam.azurequickstart.org` resuelve en `1.2.3.4` y `1.2.3.5`, tal como lo ha configurado. Este resultado confirma que la resolución de nombres funciona correctamente.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -127,10 +127,11 @@ Remove-AzResourceGroup -Name <your resource group name>
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este inicio rápido, ha creado lo siguiente:
-* Zona DNS
-* Registro D
 
-Ahora que ha creado su primer registro y su primera zona DNS mediante la plantilla de Azure Resource Manager, puede crear registros para una aplicación web de un dominio personalizado.
+- Zona DNS
+- Registro `A`
+
+Ahora que ha creado su primera zona y su primer registro DNS mediante una plantilla de Resource Manager, puede crear registros para una aplicación web de un dominio personalizado.
 
 > [!div class="nextstepaction"]
 > [Creación de registros DNS para una aplicación web en un dominio personalizado](./dns-web-sites-custom-domain.md)

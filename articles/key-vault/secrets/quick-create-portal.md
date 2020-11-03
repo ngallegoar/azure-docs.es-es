@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 080e2daf5065c0762fb039a84e62580e5c915ddb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962452"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735167"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
 Azure Key Vault es un servicio de almacenamiento seguro de secretos en la nube. Puede almacenar de forma segura claves, contraseñas, certificados y otros secretos. Las instancias de Azure Key Vault se pueden crear y administrar a través de Azure Portal. En esta guía de inicio rápido se crea un almacén de claves y se usa para almacenar un secreto. Para más información sobre Key Vault, consulte esta [introducción](../general/overview.md).
 
-Para más información sobre los secretos, consulte (about-secrets.md).
+Para más información sobre los secretos, consulte [Acerca de los secretos](about-secrets.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,25 +34,26 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Creación de un almacén
 
-1. En el menú de Azure Portal o en la **página principal**, seleccione **Crear un recurso**.
+1. En el menú de Azure Portal o en la **página principal** , seleccione **Crear un recurso**.
 2. En el cuadro de búsqueda, escriba **Key Vault**.
 3. En la lista de resultados, elija **Key Vault**.
 4. En la sección Key Vault, elija **Crear**.
-5. En la sección **Crear Key Vault**, proporcione la siguiente información:
-    - **Name**: se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
-    - **Suscripción**: Elija una suscripción.
+5. En la sección **Crear Key Vault** , proporcione la siguiente información:
+    - **Name** : se requiere un nombre único. En esta guía de inicio rápido se usará **Contoso-vault2**. 
+    - **Suscripción** : Elija una suscripción.
     - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
-    - En el menú desplegable **Ubicación**, elija una ubicación.
+    - En el menú desplegable **Ubicación** , elija una ubicación.
     - Deje las restantes opciones con sus valores predeterminados.
 6. Después de proporcionar la información descrita anteriormente, seleccione **Crear**.
 
 Tome nota de las dos propiedades siguientes:
 
-* **Nombre del almacén**: en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros pasos.
-* **URI de almacén**: en el ejemplo es https://contoso-vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
+* **Nombre del almacén** : en este ejemplo es **Contoso-Vault2**. Utilizará este nombre para otros pasos.
+* **URI de almacén** : en el ejemplo es https://contoso-vault2.vault.azure.net/. Las aplicaciones que utilizan el almacén a través de su API de REST deben usar este identificador URI.
 
-También se puede crear un almacén de claves con la CLI de Azure y PowerShell: [Creación de un almacén de claves mediante PowerShell](../general/quick-create-powershell.md)
-[Creación de un almacén de claves mediante la CLI de Azure](../general/quick-create-cli.md)
+También se puede crear un almacén de claves con la CLI de Azure y PowerShell:
+- [Creación de un almacén de claves mediante PowerShell](../general/quick-create-powershell.md)
+- [Creación de un almacén de claves mediante la CLI de Azure](../general/quick-create-cli.md)
 
 En este momento, su cuenta de Azure es la única autorizada para realizar operaciones en este nuevo almacén.
 
@@ -64,10 +65,10 @@ Para agregar un secreto al almacén, simplemente debe realizar un par de pasos a
 
 1. En las páginas de propiedades de Key Vault, seleccione **Secretos**.
 2. Haga clic en **Generar o Importar**.
-3. En la pantalla **Crear un secreto**, elija los siguientes valores:
-    - **Opciones de carga**: Manual.
-    - **Name**: ExamplePassword.
-    - **Valor**: hVFkk965BuUv
+3. En la pantalla **Crear un secreto** , elija los siguientes valores:
+    - **Opciones de carga** : Manual.
+    - **Name** : ExamplePassword.
+    - **Valor** : hVFkk965BuUv
     - Deje las restantes opciones con sus valores predeterminados. Haga clic en **Crear**.
 
 Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. 

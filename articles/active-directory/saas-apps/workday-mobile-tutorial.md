@@ -39,7 +39,7 @@ Para empezar, necesita los siguientes elementos:
 
 En este tutorial, configurará y probará las directivas de acceso condicional de Microsoft e Intune con la aplicación móvil Workday.
 
-* Ahora se puede configurar la aplicación federada de Workday con Azure AD para habilitar el inicio de sesión único. Para obtener más información acerca de la configuración, consulte [este](workday-tutorial.md) vínculo.
+* Ahora se puede configurar la aplicación federada de Workday con Azure AD para habilitar el inicio de sesión único. Para más información sobre cómo realizar la configuración, consulte [este](workday-tutorial.md) vínculo.
 
 > [!NOTE] 
 > Workday no es compatible con las directivas de Intune App Protection. Debe usar la administración de dispositivos móviles para utilizar el acceso condicional.
@@ -134,7 +134,7 @@ Para asegurarse de que los dispositivos iOS solo pueden iniciar sesión mediante
 
 | Escenario | Pares clave-valor |
 |----------------------------------------------------------------------------------------   |-----------|
-| Rellene automáticamente los campos Inquilino y Dirección web para:<br>• Workday en Android al habilitar perfiles de trabajo en Android.<br>• Workday en iPad y iPhone.     | Use estos valores para configurar el inquilino: <br>● Clave de configuración = UserGroupCode<br>●   Tipo de valor = String <br>●   Valor de configuración = Nombre del inquilino Ejemplo: gms<br>Use estos valores para configurar la dirección web:<br>●    Clave de configuración = AppServiceHost<br>● Tipo de valor = String<br>●    Valor de configuración = Dirección URL base para el inquilino Ejemplo: https://www.myworkday.com                              |   |
+| Rellene automáticamente los campos Inquilino y Dirección web para:<br>• Workday en Android al habilitar perfiles de Android for Work.<br>• Workday en iPad y iPhone.     | Use estos valores para configurar el inquilino: <br>● Clave de configuración = UserGroupCode<br>●   Tipo de valor = String <br>●   Valor de configuración = Nombre del inquilino Ejemplo: gms<br>Use estos valores para configurar la dirección web:<br>●    Clave de configuración = AppServiceHost<br>● Tipo de valor = String<br>●    Valor de configuración = Dirección URL base para el inquilino Ejemplo: https://www.myworkday.com                              |   |
 | Deshabilite estas acciones para Workday en iPad y iPhone:<br>●    Cortar, copiar y pegar<br>●   Imprimir                       | Establezca el valor (booleano) en false en estas claves para deshabilitar la funcionalidad:<br>● AllowCutCopyPaste<br>●  AllowPrint  |
 | Deshabilite las capturas de pantalla para Workday en Android. |Establezca el valor (booleano) en false en la clave AllowScreenshots para deshabilitar la funcionalidad.|
 | Deshabilite las actualizaciones sugeridas para los usuarios.|Establezca el valor (booleano) en false en la clave AllowSuggestedUpdates para deshabilitar la funcionalidad.|

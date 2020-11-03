@@ -194,11 +194,11 @@ Para configurar el inicio de sesión único de Azure AD con SAML SSO for Conflue
     
 15. En la página **User creation and update** (Creación y actualización de usuarios), haga clic en **Guardar y siguiente** para guardar la configuración.   
     
-    ![Captura de pantalla que muestra la página "User creation and update" (Creación y actualización de usuarios), con el botón "Save & Next" (Guardar y siguiente) seleccionado.](./media/samlssoconfluence-tutorial/addon6a.png)
+    ![Captura de pantalla que muestra la página "User creation and update" (Creación y actualización de usuarios) con el botón "Save & Next" (Guardar y siguiente) seleccionado.](./media/samlssoconfluence-tutorial/addon6a.png)
     
 16. En la página **Test your settings** (Probar su configuración), haga clic en **Skip test & configure manually** (Omitir la prueba y configurar manualmente) para omitir la prueba de usuario por ahora. Esto se realizará en la sección siguiente y requiere la configuración de algunos valores en Azure Portal. 
     
-    ![Captura de pantalla que muestra la página "Test your settings" (Probar su configuración), con el botón "Skip test & configure manually" (Omitir la prueba y configurar manualmente) seleccionado.](./media/samlssoconfluence-tutorial/addon6b.png)
+    ![Captura de pantalla que muestra la página "Test your settings" (Probar su configuración) con el botón "Skip test & configure manually" (Omitir la prueba y configurar manualmente) seleccionado.](./media/samlssoconfluence-tutorial/addon6b.png)
     
 17. En el cuadro que aparece con el texto **Skipping the test means...** (Omitir la prueba significa...), haga clic en **OK** (Aceptar).
     

@@ -1,18 +1,17 @@
 ---
 title: archivo de inclusión
-description: archivo de inclusión
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116750"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897804"
 ---
 Shared Image Gallery es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes. Las galerías de imágenes compartidas proporcionan:
 
@@ -46,7 +45,7 @@ La característica de galería de imágenes compartidas tiene varios tipos de re
 
 Las definiciones de la imagen son una agrupación lógica de las versiones de una imagen. La definición de la imagen contiene información acerca de por qué se creó la imagen, para qué sistema operativo sirve y otra información acerca del uso de la imagen. Una definición de imagen es como un plan para todos los detalles que rodean la creación de una imagen específica. No se implementa una VM desde una definición de imagen, sino desde las versiones de imágenes creadas a partir de la definición.
 
-Hay tres parámetros para cada definición de imagen que se usan en combinación: **Publisher** , **Offer** y **SKU** . Se utilizan para buscar una definición de imagen específica. Puede tener versiones de imágenes que comparten uno o dos valores, pero no los tres.  Por ejemplo, estas son las tres definiciones de imágenes y sus valores:
+Hay tres parámetros para cada definición de imagen que se usan en combinación: **Publisher** , **Offer** y **SKU**. Se utilizan para buscar una definición de imagen específica. Puede tener versiones de imágenes que comparten uno o dos valores, pero no los tres.  Por ejemplo, estas son las tres definiciones de imágenes y sus valores:
 
 |Definición de imágenes|Publicador|Oferta|SKU|
 |---|---|---|---|
@@ -155,8 +154,11 @@ Las imágenes también se pueden compartir, a escala, incluso entre inquilinos m
 
 ## <a name="billing"></a>Facturación
 No hay ningún cargo adicional por usar el servicio de la galería de imágenes compartidas. Se le cobrará por los siguientes recursos:
-- Costos de almacenamiento de las versiones de imágenes compartidas. El costo depende del número de réplicas de la versión de la imagen y del número de regiones en las que se replique la versión. Por ejemplo, si tiene dos imágenes y ambas se replican en tres regiones, se le cobrará entonces por seis discos administrados según su tamaño. Para más información, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Cargos de salida de red para la replicación de la primera versión de la imagen desde la región de origen a las regiones replicadas. Las réplicas subsiguientes se tratan dentro de la región, por lo que no habrá ningún cargo adicional. 
+-   Costos del almacenamiento de cada réplica. El costo de almacenamiento se cobra como una instantánea y se basa en el tamaño ocupado de la versión de la imagen, el número de réplicas de la versión de la imagen y el número de regiones en que se replica la versión. 
+-   Cargos de salida de red para la replicación de la primera versión de la imagen desde la región de origen a las regiones replicadas. Las réplicas subsiguientes se tratan dentro de la región, por lo que no habrá ningún cargo adicional. 
+
+Por ejemplo, supongamos que tiene una imagen de un disco de sistema operativo de 127 GB, que solo ocupa 10 GB de almacenamiento, y un disco de datos vacío de 32 GB. El tamaño ocupado de cada imagen solo sería de 10 GB. La imagen se replica en tres regiones y cada una de ellas tiene dos réplicas. Habrá un total de seis instantáneas, y cada una de ellas usará 10 GB. Se le cobrará el costo de almacenamiento de cada instantánea en función del tamaño ocupado de 10 GB. Pagará los cargos de salida de red por la primera réplica que se copie en las dos regiones adicionales. Para más información sobre los precios de las instantáneas de cada región, consulte [Precios de Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Para más información sobre la salida de la red, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## <a name="updating-resources"></a>Actualización de recursos
 
@@ -220,9 +222,9 @@ Puede crear recursos de galería de imágenes compartidas con plantillas. Hay va
 Para enumerar todos los recursos de Shared Image Gallery en las suscripciones a las que tiene acceso en Azure Portal, siga estos pasos:
 
 1. Abra [Azure Portal](https://portal.azure.com).
-1. Desplácese hacia abajo en la página y seleccione **Todos los recursos** .
+1. Desplácese hacia abajo en la página y seleccione **Todos los recursos**.
 1. Seleccione todas las suscripciones en las que quiera enumerar todos los recursos.
-1. Busque los recursos de tipo **Shared Image Gallery** .
+1. Busque los recursos de tipo **Shared Image Gallery**.
   
 Para enumerar todos los recursos de la galería de imágenes compartidas mediante las suscripciones para las que tiene permiso, use el comando siguiente en la CLI de Azure:
 

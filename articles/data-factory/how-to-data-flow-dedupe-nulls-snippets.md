@@ -1,6 +1,6 @@
 ---
-title: Desduplicación de filas y búsqueda de valores NULL mediante fragmentos de flujo de datos
-description: Aprenda cómo desduplicar filas y buscar valores NULL fácilmente mediante fragmentos de código en flujos de datos.
+title: Desduplicación de filas y búsqueda de valores NULL mediante fragmentos de código de flujo de datos
+description: Aprenda a desduplicar filas y buscar valores NULL mediante fragmentos de código de flujos de datos.
 services: data-factory
 author: kromerm
 ms.service: data-factory
@@ -8,60 +8,62 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 841484a647d2737d621c75ebe63f65f2de829a26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666520"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632454"
 ---
-# <a name="dedupe-rows-and-find-nulls-using-data-flow-snippets"></a>Desduplicación de filas y búsqueda de valores NULL mediante fragmentos de flujo de datos
+# <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Desduplicación de filas y búsqueda de valores NULL mediante fragmentos de código de flujo de datos
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Si utiliza fragmentos de código en los flujos de datos de asignación, puede realizar de manera muy sencilla tareas comunes, como la desduplicación de datos y el filtrado de valores NULL. En esta guía paso a paso se explica cómo agregar esas funciones a las canalizaciones de un modo muy fácil mediante fragmentos de código de script de flujo de datos.
-
+Si utiliza fragmentos de código en los flujos de datos de asignación, puede realizar de manera muy sencilla tareas comunes, como la desduplicación de datos y el filtrado de valores NULL. En este artículo se explica cómo agregar fácilmente esas funciones a las canalizaciones mediante fragmentos de scripts de flujo de datos.
+<br>
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
 
 ## <a name="create-a-pipeline"></a>Crear una canalización
 
-1. Seleccione **+Nueva canalización** para iniciar una nueva canalización.
+1. Seleccione **Nueva canalización**.
 
-2. Agregue una actividad de flujo de datos.
+1. Agregue una actividad de flujo de datos.
 
-3. Agregue una transformación de origen y conéctela a uno de los conjuntos de datos.
+1. Seleccione la pestaña **Configuración de origen** , agregue una transformación de origen y conéctela a uno de los conjuntos de datos.
 
-    ![Fragmento de origen 2](media/data-flow/snippet-adf-2.png)
+    ![Captura de pantalla del panel "Configuración de origen" para agregar un tipo de origen.](media/data-flow/snippet-adf-2.png)
 
-4. Los fragmentos de código de desduplicación y comprobación de valores NULL usan patrones genéricos que aprovechan el desfase del esquema de flujo de datos, por lo que funcionarán con cualquier esquema de su conjunto de datos o con conjuntos de datos que no tengan ningún esquema predefinido.
+    Los fragmentos de código de desduplicación y comprobación de valores NULL emplean patrones genéricos que aprovechan las ventajas del desplazamiento del esquema de flujo de datos. Los fragmentos de código funcionan con cualquier esquema del conjunto de datos o con conjuntos de datos que no tienen ningún esquema predefinido.
 
-5. [Vaya a la página de documentación Script de flujo de datos y copie el fragmento de código de filas distintas](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns).
+1. En la sección "Fila DISTINCT que utiliza todas las columnas" de [Script de flujo de datos (DFS)](./data-flow-script.md#distinct-row-using-all-columns), copie el fragmento de código de DistinctRows.
 
-6. En la interfaz de usuario del diseñador de flujo de datos, haga clic en el botón Script situado en la parte superior derecha para abrir el editor de script tras el gráfico de flujo de datos.
+1. [Vaya a la página de documentación Script de flujo de datos y copie el fragmento de código de filas distintas](./data-flow-script.md#distinct-row-using-all-columns).
 
-    ![Fragmento de origen 3](media/data-flow/snippet-adf-3.png)
+    ![Captura de pantalla de un fragmento de código de origen.](media/data-flow/snippet-adf-3.png)
 
-7. Después de la definición de ```source1``` en el script, presione Intro y pegue el fragmento de código.
+1. En el script, después de la definición de `source1`, presione Entrar y, luego, pegue el fragmento de código.
 
-8. Conectará este fragmento de código pegado a la transformación de origen anterior que creó en el gráfico escribiendo "source1" antes del código pegado.
+1. Realice cualquiera de las siguientes acciones:
 
-9. También puede conectar la transformación nueva en el diseñador seleccionando la secuencia entrante del nuevo nodo de transformación en el gráfico.
+   * Conecte este fragmento de código pegado a la transformación de origen que creó anteriormente en el gráfico escribiendo **source1** delante.
 
-    ![Fragmento de origen 4](media/data-flow/snippet-adf-4.png)
+   * También puede conectar la transformación nueva en el diseñador seleccionando la secuencia entrante del nuevo nodo de transformación en el gráfico.
 
-10. Ahora, el flujo de datos quitará las filas duplicadas del origen mediante la transformación de agregado, que agrupa todas las filas usando un hash general en todos los valores de columna.
+     ![Captura de pantalla del panel "Conditional split settings" (Configuración de división condicional).](media/data-flow/snippet-adf-4.png)
+
+   Ahora, el flujo de datos quitará las filas duplicadas del origen mediante la transformación de agregados, que agrupa todas las filas usando un hash general en todos los valores de columna.
     
-11. A continuación, agregaremos un fragmento de código para dividir los datos en una secuencia que contiene filas con valores NULL y otra secuencia que no tiene valores NULL.
+1. Agregue un fragmento de código para dividir los datos en un flujo que contenga filas con valores NULL y otro flujo sin valores NULL. Para ello:
 
-12. [Vuelva a la biblioteca de fragmentos de código y esta vez copie el código para las comprobaciones de valores NULL](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns).
+1. [Vuelva a la biblioteca de fragmentos de código y esta vez copie el código para las comprobaciones de valores NULL](./data-flow-script.md#check-for-nulls-in-all-columns).
 
-13. En el diseñador de flujo de datos, haga clic de nuevo en Script y pegue este nuevo código de transformación en la parte inferior, conectándolo a la transformación anterior; para ello, escriba el nombre de esa transformación antes del fragmento de código pegado.
+   b. En el diseñador de flujos de datos, seleccione **Script** de nuevo y, luego, pegue este nuevo código de transformación en la parte inferior. Esta acción conecta el script a la transformación anterior al colocar el nombre de esa transformación delante del fragmento de código pegado.
 
-14. El gráfico de flujo de datos debería tener ahora un aspecto similar al siguiente:
+   El gráfico de flujo de datos debería tener ahora un aspecto similar al siguiente:
 
-    ![Fragmento de origen 1](media/data-flow/snippet-adf-1.png)
+    ![Captura de pantalla del gráfico de flujo de datos.](media/data-flow/snippet-adf-1.png)
 
-  Ahora tiene un flujo de datos en funcionamiento con desduplicación y comprobación de valores NULL genéricos, que ha creado tomando fragmentos de código existentes de la biblioteca de Scripts de flujo de datos y agregándolos al diseño existente.
+  Ahora ha creado un flujo de datos funcional con desduplicación y comprobación de valores NULL genéricos, para lo cual ha tomado fragmentos de código existentes de la biblioteca de scripts de flujo de datos y los ha agregado al diseño existente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

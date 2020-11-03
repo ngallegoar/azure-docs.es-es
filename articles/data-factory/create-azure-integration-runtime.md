@@ -10,12 +10,12 @@ ms.date: 06/09/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: c7880fd7fb687483409ce591059e0f5b2d2e2991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97f3a8f79e503b8870baf67ee982b0091d926b1e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84659699"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895348"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Cómo crear y configurar una instancia de Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -48,15 +48,15 @@ Puede configurar una instancia de Azure IR existente para cambiar su ubicación 
 ### <a name="create-an-azure-ir-via-azure-data-factory-ui"></a>Creación de una instancia de Azure IR mediante la interfaz de usuario de Azure Data Factory
 Use los pasos siguientes para crear una instancia de Azure IR mediante la interfaz de usuario de Azure Data Factory.
 
-1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la [pestaña Administrar](https://docs.microsoft.com/azure/data-factory/author-management-hub) en el panel izquierdo.
+1. En la página **Comencemos** de la interfaz de usuario de Azure Data Factory, seleccione la [pestaña Administrar](./author-management-hub.md) en el panel izquierdo.
 
    ![Botón Administrar de la página principal](media/doc-common-process/get-started-page-manage-button.png)
 
 1. Seleccione **Entornos de ejecución de integración** en el panel izquierdo y, a continuación, seleccione **+ Nuevo**.
 
-   ![Creación de una instancia de Integration Runtime](media/doc-common-process/manage-new-integration-runtime.png)
+   ![Captura de pantalla que resalta los entornos de ejecución de integración en el panel izquierdo y el botón +Nuevo.](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. En la página **Configuración de Integration Runtime**, seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, seleccione **Continuar**. 
+1. En la página **Configuración de Integration Runtime** , seleccione **Azure, Self-Hosted** (Azure, autohospedado) y, luego, seleccione **Continuar**. 
 
 1. En la página siguiente, seleccione **Azure** para crear una instancia de Azure IR y, luego, seleccione **Continuar**.
    ![Creación de un entorno de ejecución de integración](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
@@ -64,7 +64,7 @@ Use los pasos siguientes para crear una instancia de Azure IR mediante la interf
 1. Escriba un nombre para la instancia de Azure IR y seleccione **Crear**.
    ![Creación de una instancia de Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
-1. Verá una notificación emergente cuando se complete la creación. En la página **Entornos de ejecución de integración**, asegúrese de que ve el entorno de ejecución de integración recién creado en la lista.
+1. Verá una notificación emergente cuando se complete la creación. En la página **Entornos de ejecución de integración** , asegúrese de que ve el entorno de ejecución de integración recién creado en la lista.
 
 ## <a name="use-azure-ir"></a>Usar Azure IR
 
@@ -92,4 +92,3 @@ Vea los siguientes artículos sobre cómo crear otros tipos de instancias de Int
 
 - [Crear Integration Runtime autohospedado](create-self-hosted-integration-runtime.md)
 - [Crear una instancia de Integration Runtime de Azure SSIS](create-azure-ssis-integration-runtime.md)
- 

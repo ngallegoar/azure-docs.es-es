@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945624"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791875"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configuración de notificaciones de alertas de seguridad por correo electrónico 
 
@@ -26,8 +26,8 @@ Las alertas de seguridad deben llegar a las personas adecuadas de la organizaci�
 
 Para definir sus propias preferencias para los correos electrónicos de notificación, la página de configuración **Notificaciones por correo electrónico** de Azure Defender le permite elegir:
 
-- ***A quién* se debe notificar**: se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
-- ***Qué* se les debe notificar**: modifique los niveles de gravedad para los que Defender debe enviar notificaciones.
+- **_A quién_ se debe notificar** : se pueden enviar mensajes de correo electrónico a usuarios individuales o a cualquier persona con un rol de Azure especificado para una suscripción. 
+- **_Qué_ se les debe notificar** : modifique los niveles de gravedad para los que Defender debe enviar notificaciones.
 
 Para evitar un exceso de alertas, Security Center limita el volumen de correos salientes. Para cada suscripción, Security Center envía:
 
@@ -62,9 +62,10 @@ Puede enviar notificaciones por correo electrónico a individuos o a todos los u
 1. Seleccione **Guardar** para aplicar la información de contacto de seguridad a su suscripción.
 
 
-## <a name="see-also"></a>Consulte también
+## <a name="next-steps"></a>Pasos siguientes
+
 Para más información sobre las alertas de seguridad, consulte las siguientes páginas:
 
 - [Alertas de seguridad: una guía de referencia](alerts-reference.md): obtenga información sobre las alertas de seguridad que puede ver en el módulo de protección contra amenazas de Azure Defender.
 - [Administración y respuesta a las alertas de seguridad en Azure Defender](security-center-managing-and-responding-alerts.md): aprenda a administrar y responder a alertas de seguridad.
-- [Automatización de flujos de trabajo](workflow-automation.md): automatice respuestas a alertas con lógica de notificación personalizada
+- [Automatización de las respuestas a los desencadenadores de Security Center](workflow-automation.md): use la automatización para responder a los desencadenadores de Security Center con una lógica de notificación personalizada

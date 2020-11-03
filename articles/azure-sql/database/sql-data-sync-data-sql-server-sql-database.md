@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: fdeddfb0a09151ea010d4e95a2954200dd9371dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173570"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791433"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>¿Qué es SQL Data Sync para Azure?
 
@@ -46,7 +46,7 @@ Un grupo de sincronización tiene las siguientes propiedades:
 - En el **esquema de sincronización** se describen qué datos se están sincronizando.
 - La **dirección de sincronización** puede ser bidireccional o puede fluir solo en una dirección. Es decir, la dirección de sincronización puede ser de la *base de datos central al miembro* o del *miembro a la base de datos central* , o ambas.
 - El **intervalo de sincronización** describe la frecuencia con la que se produce la sincronización.
-- El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente* .
+- El **directiva de resolución de conflictos** es una directiva de nivel de grupo, que puede ser *Prevalece la base de datos central* o *Prevalece el cliente*.
 
 ## <a name="when-to-use"></a>Cuándo se usa
 
@@ -62,7 +62,7 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 |----------|----------------------------|
 | Recuperación ante desastres | [Copias de seguridad con redundancia geográfica de Azure](automated-backups-overview.md) |
 | Escalado de lectura | [Uso de réplicas de solo lectura para equilibrar la carga de las cargas de trabajo de consultas de solo lectura](read-scale-out.md) |
-| ETL (OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| ETL (OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migración de SQL Server a Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -72,7 +72,7 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 
 - **Seguimiento de cambios de datos:** Data Sync realiza un seguimiento de cambios mediante los desencadenadores de inserción, actualización y eliminación. Los cambios se registran en una tabla en la base de datos de usuario. Tenga en cuenta que BULK INSERT no activa los desencadenadores de forma predeterminada. Si no se especifica FIRE_TRIGGERS, no se ejecutará ningún desencadenador de inserción. Agregue la opción FIRE_TRIGGERS para que Data Sync pueda realizar un seguimiento de esas inserciones. 
 - **Sincronización de datos:** La Sincronización de datos está diseñada en un modelo de concentrador y radio. La base de datos central se sincronizada con cada cliente individualmente. Los cambios de la base de datos central se descargan en el cliente y, después, los cambios del cliente se cargan en la base de datos central.
-- **Resolución de conflictos:** Data Sync proporciona dos opciones para la resolución de conflictos, *Prevalece la base de datos central* o *Prevalece el cliente* .
+- **Resolución de conflictos:** Data Sync proporciona dos opciones para la resolución de conflictos, *Prevalece la base de datos central* o *Prevalece el cliente*.
   - Si selecciona *Prevalece la base de datos central* , los cambios de la base de datos central siempre sobrescriben los cambios del cliente.
   - Si selecciona *Prevalece el cliente* , los cambios del cliente sobrescriben los cambios de la base de datos central. Si hay más de un cliente, el valor final depende del cliente que primero se sincronice.
 
@@ -81,7 +81,7 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 | | Sincronización de datos | Replicación transaccional |
 |---|---|---|
 | **Ventajas** | - Compatibilidad activo-activo<br/>- Bidireccional entre el entorno local y Azure SQL Database | - Menor latencia<br/>- Coherencia transaccional<br/>- Reutilización de la topología existente después de la migración <br/>\- Compatibilidad con Instancia administrada de Azure SQL |
-| **Desventajas** | - 5 minutos o más de latencia<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Mayor costo de mantenimiento |
+| **Desventajas** | - Frecuencia mínima de 5 min entre sincronizaciones<br/>- Sin coherencia transaccional<br/>- Mayor impacto en el rendimiento | - No se puede publicar desde Azure SQL Database <br/>- Mayor costo de mantenimiento |
 
 ## <a name="get-started"></a>Introducción 
 
@@ -101,7 +101,7 @@ Data Sync no es la solución preferida en los siguientes escenarios:
 
 ### <a name="did-something-go-wrong"></a>¿Algo salió mal?
 
-- [Solución de problemas de SQL Data Sync de Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Solución de problemas de SQL Data Sync de Azure](./sql-data-sync-troubleshoot.md)
 
 ## <a name="consistency-and-performance"></a>Coherencia y rendimiento
 
@@ -126,7 +126,7 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 > - Los datos entre el concentrador y el miembro pueden perderse aunque la sincronización no notifique ningún problema.
 > - Se puede producir un error en la sincronización porque la tabla de seguimiento tiene una fila no existente del origen debido al cambio de la clave principal.
 
-- El aislamiento de instantánea debe estar habilitado tanto para el centro como para los miembros de sincronización. Para más información, consulte [Aislamiento de instantáneas en SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- El aislamiento de instantánea debe estar habilitado tanto para el centro como para los miembros de sincronización. Para más información, consulte [Aislamiento de instantáneas en SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="general-limitations"></a>Limitaciones generales
 
@@ -135,9 +135,9 @@ El aprovisionamiento y desaprovisionamiento durante la creación, actualización
 - Una clave principal no puede tener los siguientes tipos de datos: sql_variant, binary, varbinary, image, xml.
 - Tenga cuidado al usar los siguientes tipos de datos como clave principal, porque la precisión admitida solo llega al segundo: time, datetime, datetime2, datetimeoffset.
 - Los nombres de objetos (bases de datos, tablas y columnas) no pueden contener los caracteres imprimibles punto (.), corchete de apertura ([) o corchete de cierre (]).
+- Un nombre de tabla no puede contener caracteres imprimibles: ! " # $ % ' ( ) * + - espacio
 - No se admite la autenticación de Azure Active Directory.
 - Si hay tablas con el mismo nombre pero distinto esquema (por ejemplo, dbo.customers y sales.customers), solo se puede agregar una de las tablas a la sincronización.
-- Un nombre de tabla no puede tener caracteres que tengan un valor ASCII menor o igual que "-".
 - No se admiten columnas con tipos de datos definidos por el usuario
 - No se admite el traslado de servidores entre diferentes suscripciones. 
 
@@ -166,7 +166,7 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 | Tablas de un grupo de sincronización                                          | 500                    | Crear varios grupos de sincronización |
 | Columnas de una tabla de un grupo de sincronización                              | 1000                   |                             |
 | Tamaño de la fila de datos en una tabla                                        | 24 Mb                  |                             |
-| Intervalo de sincronización mínimo                                           | 5 minutos              |                             |
+| Intervalo de frecuencia de sincronización mínimo                                 | 5 minutos              |                             |
 
 > [!NOTE]
 > Puede haber hasta 30 puntos de conexión en un solo grupo de sincronización si hay un único grupo de sincronización. Si hay más de un grupo de sincronización, el número total de puntos de conexión en todos los grupos de sincronización no puede superar los 30. Si una base de datos pertenece a varios grupos de sincronización, se cuenta como varios puntos de conexión, no como uno.
@@ -175,7 +175,7 @@ Data Sync no puede sincronizar las columnas de solo lectura o generadas por el s
 
 Cuando se establece el grupo de sincronización, el servicio Data Sync debe conectarse a la base de datos central. En el momento en que establece el grupo de sincronización, el servidor Azure SQL debe tener los siguientes valores en la configuración de `Firewalls and virtual networks`:
 
- * *Denegar acceso desde red pública* debe establecerse en *Desactivado* .
+ * *Denegar acceso desde red pública* debe establecerse en *Desactivado*.
  * *Permitir que los servicios y recursos de Azure accedan a este servidor* debe establecerse en *Sí* , o bien debe crear reglas de IP para las [direcciones IP que usa el servicio Data Sync](network-access-controls-overview.md#data-sync).
 
 Una vez creado y aprovisionado el grupo de sincronización, puede deshabilitar estos valores. El agente de sincronización se conectará directamente a la base de datos central y entonces se podrán usar las [reglas de IP del firewall](firewall-configure.md) del servidor o [puntos de conexión privados](private-endpoint-overview.md) para permitir que el agente acceda al servidor central.
@@ -240,7 +240,7 @@ La base de datos raíz de federación puede utilizarse en el servicio SQL Data S
 
 ### <a name="can-i-use-data-sync-to-sync-data-exported-from-dynamics-365-using-bring-your-own-database-byod-feature"></a>¿Puedo usar Data Sync para sincronizar datos exportados desde Dynamics 365 con la característica traiga su propia base de datos (BYOD)?
 
-La característica de Dynamics 365 traiga su propia base de datos permite a los administradores exportar entidades de datos de la aplicación a su propia base de datos de Microsoft Azure SQL. La sincronización de datos se puede usar para sincronizar estos datos en otras bases de datos si los datos se exportan usando **inserción incremental** (la inserción completa no es compatible) y la **habilitación los desencadenadores en la base de datos de destino** se establece en **sí** .
+La característica de Dynamics 365 traiga su propia base de datos permite a los administradores exportar entidades de datos de la aplicación a su propia base de datos de Microsoft Azure SQL. La sincronización de datos se puede usar para sincronizar estos datos en otras bases de datos si los datos se exportan usando **inserción incremental** (la inserción completa no es compatible) y la **habilitación los desencadenadores en la base de datos de destino** se establece en **sí**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -248,20 +248,19 @@ La característica de Dynamics 365 traiga su propia base de datos permite a los 
 
 ¿Es necesario actualizar el esquema de una base de datos en un grupo de sincronización? Los cambios de esquema no se replican automáticamente. Para algunas soluciones, consulte los artículos siguientes:
 
-- [Automatización de la replicación de los cambios de esquema en SQL Data Sync en Azure](../../sql-database/sql-database-update-sync-schema.md)
+- [Automatización de la replicación de los cambios de esquema en SQL Data Sync en Azure](./sql-data-sync-update-sync-schema.md)
 - [Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente](scripts/update-sync-schema-in-sync-group.md)
 
 ### <a name="monitor-and-troubleshoot"></a>Supervisión y solución de problemas
 
 ¿Funciona SQL Data Sync según lo previsto? Para supervisar la actividad y solucionar problemas, consulte los artículos siguientes:
 
-- [Monitor SQL Data Sync with Azure Monitor logs](../../sql-database/sql-database-sync-monitor-oms.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
-- [Solución de problemas de SQL Data Sync de Azure](../../sql-database/sql-database-troubleshoot-data-sync.md)
+- [Monitor SQL Data Sync with Azure Monitor logs](./monitor-tune-overview.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
+- [Solución de problemas de SQL Data Sync de Azure](./sql-data-sync-troubleshoot.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Más información acerca de Azure SQL Database
 
 Para más información sobre Azure SQL Database, vea los siguientes artículos:
 
 - [Información general de SQL Database](sql-database-paas-overview.md)
-- [Administración del ciclo de vida de las aplicaciones](https://msdn.microsoft.com/library/jj907294.aspx)
- 
+- [Administración del ciclo de vida de las aplicaciones](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

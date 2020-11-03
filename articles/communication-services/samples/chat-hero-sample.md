@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124592"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677411"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introducción al ejemplo de elementos principales de un chat grupal
 
@@ -25,12 +25,14 @@ ms.locfileid: "92124592"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Este ejemplo está disponible en GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 En el ejemplo de salón de chat de grupo **de Azure Communication Services** se muestra cómo se puede usar la biblioteca de cliente web de chat de servicios de comunicación para crear una experiencia de llamada de grupo.
 
 En esta guía de inicio rápido de ejemplo, veremos cómo funciona el ejemplo antes de ejecutarlo en la máquina local. A continuación, implementaremos el ejemplo en Azure con sus propios recursos de Azure Communication Services.
 
-> [!IMPORTANT]
-> [Descargue el ejemplo de GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero).
 
 ## <a name="overview"></a>Información general
 
@@ -42,17 +44,17 @@ El ejemplo tendrá una apariencia similar a la siguiente:
 
 Cuando se presiona el botón "Start chat", la aplicación web captura un token de acceso de usuario de la aplicación del lado servidor. A continuación, este token se usa para conectar la aplicación cliente con Azure Communication Services. Una vez que se recupera el token, se le pedirá que especifique su nombre y el emoji que le representará en el chat. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de pantalla que muestra la página de aterrizaje de la aplicación de ejemplo.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Captura de pantalla que muestra la pantalla anterior al chat de la aplicación.":::
 
 Una vez que configure el nombre para mostrar y el emoji, puede unirse a la sesión de chat. Ahora verá el lienzo de chat principal donde se encuentra la experiencia de chat principal.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de pantalla que muestra la página de aterrizaje de la aplicación de ejemplo.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Captura de pantalla que muestra la pantalla principal de la aplicación de ejemplo.":::
 
 Componentes de la pantalla principal de chat:
 
-- **Área de chat principal**: Aquí se encuentra la experiencia de chat principal, donde los usuarios pueden enviar y recibir mensajes. Para enviar mensajes, puede usar el área de entrada y presionar Entrar (o usar el botón de envío). Los mensajes de chat recibidos se clasifican por remitente con el nombre y el emoji correctos. Verá dos tipos de notificaciones en el área de chat: 1) notificaciones de escritura cuando un usuario esté escribiendo y 2) notificaciones de envío y lectura para los mensajes.
-- **Encabezado**: Aquí es donde el usuario verá el título del hilo de chat y los controles para alternar las barras laterales de participantes y de configuración, y un botón Leave para salir de la sesión de chat.
-- **Barra lateral**: Aquí es donde se muestran los participantes y la información de configuración cuando se alternan con los controles del encabezado. La barra lateral de participantes contiene una lista de participantes en el chat y un vínculo para invitar a los participantes a la sesión de chat. La barra lateral de configuración permite configurar el título del hilo de chat. 
+- **Área de chat principal** : Aquí se encuentra la experiencia de chat principal, donde los usuarios pueden enviar y recibir mensajes. Para enviar mensajes, puede usar el área de entrada y presionar Entrar (o usar el botón de envío). Los mensajes de chat recibidos se clasifican por remitente con el nombre y el emoji correctos. Verá dos tipos de notificaciones en el área de chat: 1) notificaciones de escritura cuando un usuario esté escribiendo y 2) notificaciones de envío y lectura para los mensajes.
+- **Encabezado** : Aquí es donde el usuario verá el título del hilo de chat y los controles para alternar las barras laterales de participantes y de configuración, y un botón Leave para salir de la sesión de chat.
+- **Barra lateral** : Aquí es donde se muestran los participantes y la información de configuración cuando se alternan con los controles del encabezado. La barra lateral de participantes contiene una lista de participantes en el chat y un vínculo para invitar a los participantes a la sesión de chat. La barra lateral de configuración permite configurar el título del hilo de chat. 
 
 A continuación encontrará más información sobre los requisitos previos y los pasos para configurar el ejemplo.
 
@@ -75,7 +77,7 @@ Para probar el ejemplo localmente, puede abrir varias sesiones del explorador co
 ## <a name="before-running-the-sample-for-the-first-time"></a>Antes de ejecutar el ejemplo por primera vez
 
 1. Abra una instancia de PowerShell, Terminal Windows, símbolo del sistema o equivalente y navegue hasta el directorio donde le gustaría clonar el ejemplo.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Obtenga `Connection String` de Azure Portal. Para obtener más información sobre las cadenas de conexión, consulte [Creación de un recurso de Azure Communication Services](../quickstarts/create-communication-resource.md).
 4. Una vez que obtenga `Connection String`, agregue la cadena de conexión al archivo **Chat/appsettings.json** que se encuentra en la carpeta Chat. Escriba la cadena de conexión en la variable: `ResourceConnectionString`.
 

@@ -3,14 +3,14 @@ title: Creación de implementaciones de actualizaciones para Update Management e
 description: En este artículo se describe cómo programar implementaciones de actualizaciones y revisar su estado.
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8b9b3df024839007a349d3a412de4a70ff3a1cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 41ccecfb844f11a0d234271bcddc1851d3c02fda
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221852"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742300"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Implementación de actualizaciones y revisión de los resultados
 
@@ -20,7 +20,7 @@ En cada escenario, la implementación que se crea tiene como destino esa máquin
 
 * El sistema operativo se preselecciona de manera automática en función del SO de la máquina.
 * La máquina de destino que se va a actualizar se establece automáticamente.
-* Al configurar la programación, puede especificar **Actualizar ahora**, si sucede una vez o si usa una programación recurrente.
+* Al configurar la programación, puede especificar **Actualizar ahora** , si sucede una vez o si usa una programación recurrente.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 
@@ -47,19 +47,19 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
    * Si seleccionó una VM de Azure, vaya a **Actualizaciones de invitado y host** y, luego, seleccione **Ir a Update Management**.
    * Si seleccionó un servidor habilitado para Arc, vaya a **Update Management** y, luego, seleccione **Programar implementación de actualizaciones**.
 
-3. En **Nueva implementación de la actualización**, utilice el campo **Nombre** para escribir un nombre único para la implementación.
+3. En **Nueva implementación de la actualización** , utilice el campo **Nombre** para escribir un nombre único para la implementación.
 
 4. Seleccione el sistema operativo para la implementación de actualizaciones.
 
     > [!NOTE]
     > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. El sistema operativo se identifica automáticamente.
 
-5. En el área **Grupos que se deben actualizar (versión preliminar)** , defina una consulta que combine una suscripción, grupos de recursos, ubicaciones y etiquetas con el fin de crear un grupo dinámico de máquinas virtuales de Azure e incluirlo en su implementación. Para más información, consulte [Uso de grupos dinámicos con Update Management](configure-groups.md).
+5. En la región **Grupos para actualizar** , defina una consulta que combine una suscripción, grupos de recursos, ubicaciones y etiquetas con el fin de crear un grupo dinámico de VM de Azure e incluirlo en su implementación. Para más información, consulte [Uso de grupos dinámicos con Update Management](configure-groups.md).
 
     > [!NOTE]
     > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
 
-6. En el área **Máquinas para actualizar**, seleccione una búsqueda guardada, un grupo importado, o bien la opción **Máquinas** del menú desplegable, y elija máquinas específicas. Mediante esta opción, puede ver el grado de preparación del agente de Log Analytics para cada máquina. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md). Es posible incluir hasta un máximo de 500 máquinas en una implementación de actualizaciones programada.
+6. En el área **Máquinas para actualizar** , seleccione una búsqueda guardada, un grupo importado, o bien la opción **Máquinas** del menú desplegable, y elija máquinas específicas. Mediante esta opción, puede ver el grado de preparación del agente de Log Analytics para cada máquina. Para más información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md). Es posible incluir hasta un máximo de 1000 máquinas en una implementación de actualizaciones programada.
 
     > [!NOTE]
     > Esta opción no está disponible si seleccionó una VM de Azure o un servidor habilitado para Arc. La máquina se establece automáticamente como el destino de la implementación programada.
@@ -68,7 +68,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
     Si la implementación está pensada para aplicar solo un conjunto de actualizaciones específico, es necesario anular la selección de todas las clasificaciones de actualización preseleccionadas al configurar la opción **Incluir o excluir las actualizaciones** como se describe en el paso siguiente. Esto garantiza que solo se instalen en las máquinas de destino las actualizaciones que haya especificado para *incluirse* en esta implementación.
 
-8. Use la región **Incluir o excluir las actualizaciones** para agregar o excluir actualizaciones seleccionadas de la implementación. En la página **Incluir/excluir**, escriba los números de identificador de artículo de KB que se van a incluir o excluir.
+8. Use la región **Incluir o excluir las actualizaciones** para agregar o excluir actualizaciones seleccionadas de la implementación. En la página **Incluir/excluir** , escriba los números de identificador de artículo de KB que se van a incluir o excluir para actualizaciones de Windows. Para distribuciones de Linux compatibles, especifique el nombre del paquete.
 
    > [!IMPORTANT]
    > Es importante recordar que las exclusiones tienen prioridad sobre las inclusiones. Por ejemplo, si define una regla de exclusión con `*`, Update Management excluirá todas las revisiones o los paquetes de la instalación. Las revisiones excluidas aparecen todavía como que faltan en la máquina. En el caso de las máquinas Linux, si incluye un paquete que tiene un paquete dependiente excluido, Update Management no instalará el paquete principal.
@@ -83,7 +83,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
 
 10. Use **Periodicidad** para especificar si la implementación se producirá una vez o de manera periódica y, luego, seleccione **Aceptar**.
 
-11. En el área **Scripts previos + scripts posteriores (versión preliminar)** , seleccione los scripts que se van a ejecutar antes y después de la implementación. Para más información, consulte [Administración de scripts previos y posteriores](pre-post-scripts.md).
+11. En la región **Scripts previos + scripts posteriores** , seleccione los scripts que se van a ejecutar antes y después de la implementación. Para más información, consulte [Administración de scripts previos y posteriores](pre-post-scripts.md).
 
 12. Use el campo **Ventana de mantenimiento (minutos)** con el fin de indicar la cantidad de tiempo permitido para la instalación de actualizaciones. Tenga en cuenta los siguientes detalles al especificar una ventana de mantenimiento:
 
@@ -95,7 +95,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
     > [!NOTE]
     > Para evitar que las actualizaciones se apliquen en Ubuntu fuera de la ventana de mantenimiento, vuelva a configurar el paquete `Unattended-Upgrade` para deshabilitar las actualizaciones automáticas. Para más información sobre cómo configurar el paquete, consulte el tema sobre [actualizaciones automáticas en la guía de Ubuntu Server](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-13. En el campo **Opciones de reinicio**, especifique cómo abordar los reinicios durante la implementación. Están disponibles las siguientes opciones: 
+13. En el campo **Opciones de reinicio** , especifique cómo abordar los reinicios durante la implementación. Están disponibles las siguientes opciones: 
     * Reboot if necessary (default) [Reiniciar si es necesario (valor predeterminado)]
     * Always reboot (Reiniciar siempre)
     * Never reboot (No reiniciar nunca)
@@ -111,7 +111,7 @@ Para programar una implementación de actualizaciones nueva, siga estos pasos. E
     > [!NOTE]
     > Cuando haya terminado de configurar la programación de la implementación de un servidor habilitado para Arc seleccionado, seleccione **Revisar y crear**.
 
-15. Volverá al panel de estado. Seleccione **Programaciones de implementación** para ver la programación de implementación que creó.
+15. Volverá al panel de estado. Seleccione **Programaciones de implementación** para ver la programación de implementación que creó. Se muestra un máximo de 500 programaciones. Si tiene más de 500 programas y desea revisar la lista completa, consulte el método API REST [Configuraciones de actualización de software: lista](/rest/api/automation/softwareupdateconfigurations/list). Especifique la versión de API 2019-06-01 o superior.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Programación de una implementación de actualizaciones mediante programación
 
@@ -133,10 +133,10 @@ Una vez finalizada la implementación, puede seleccionarla para consultar los re
 
 Los valores disponibles son:
 
-* **No intentado**: la actualización no se instaló porque no se disponía de tiempo suficiente, de acuerdo con la duración especificada para la ventana de mantenimiento.
-* **No seleccionado**: la actualización no se seleccionó para su implementación.
-* **Correcta**: la actualización se realizó correctamente.
-* **Error**: la actualización generó un error.
+* **No intentado** : la actualización no se instaló porque no se disponía de tiempo suficiente, de acuerdo con la duración especificada para la ventana de mantenimiento.
+* **No seleccionado** : la actualización no se seleccionó para su implementación.
+* **Correcta** : la actualización se realizó correctamente.
+* **Error** : la actualización generó un error.
 
 Seleccione **Todos los registros** para ver todas las entradas de registro creadas por la implementación.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workware | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure Active Directory con Workware | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Workware.
 services: active-directory
 author: jeevansd
@@ -18,7 +18,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 10/28/2020
 ms.locfileid: "92904826"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workware"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Workware
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workware"></a>Tutorial: Integración del inicio de sesión único de Azure Active Directory con Workware
 
 En este tutorial aprenderá a integrar Workware con Azure Active Directory (Azure AD). Al integrar Workware con Azure AD, puede hacer lo siguiente:
 
@@ -31,7 +31,7 @@ En este tutorial aprenderá a integrar Workware con Azure Active Directory (Azur
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Workware.
+* Una suscripción habilitada para el inicio de sesión único en Workware.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -146,7 +146,7 @@ Para usar la característica de inicio de sesión único en Workware, es necesar
 
 1. Inicie sesión en el sitio web de Workware como administrador.
 
-1. Seleccione **Admin > Create / View > User Accounts > Add New** (Administrador > Crear /Ver > Cuentas de usuario > Agregar nueva).
+1. Seleccione **Admin > Create / View > User Accounts > Add New** (Administrador > Crear / Ver > Cuentas de usuario > Agregar nueva).
 
 1. En la página siguiente, realice estos pasos.
 
@@ -162,9 +162,9 @@ Para usar la característica de inicio de sesión único en Workware, es necesar
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD con las siguientes opciones.
 
-* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Workware para la que configurara el inicio de sesión único.
+* Haga clic en Probar esta aplicación en Azure Portal; debería iniciar sesión automáticamente en la instancia de Workware para la que ha configurado el inicio de sesión único.
 
-* Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Workware en el panel de acceso, debería iniciar sesión automáticamente en la versión de Workware para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Puede usar el Panel de acceso de Microsoft. Al hacer clic en el icono de Workware en el panel de acceso, debería iniciar sesión automáticamente en la versión de Workware para la que ha configurado el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

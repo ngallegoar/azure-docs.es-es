@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328571"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632692"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure Private Link para Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Con Azure Private Link, puede conectarse a varias implementaciones de plataforma como servicio (PaaS) en Azure a través de un punto de conexión privado. Un punto de conexión privado es una dirección IP privada dentro de una red virtual y una subred específicas. Para obtener una lista de las implementaciones PaaS que admiten la funcionalidad Private Link, vea la [documentación de Private Link](https://docs.microsoft.com/azure/private-link/). 
+Con Azure Private Link, puede conectarse a varias implementaciones de plataforma como servicio (PaaS) en Azure a través de un punto de conexión privado. Un punto de conexión privado es una dirección IP privada dentro de una red virtual y una subred específicas. Para obtener una lista de las implementaciones PaaS que admiten la funcionalidad Private Link, vea la [documentación de Private Link](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Comunicación segura entre las redes del cliente y Azure Data Factory 
 Puede configurar una red virtual de Azure como una representación lógica de la red en la nube. Esta acción tiene estas ventajas derivadas:
@@ -53,10 +53,10 @@ Las comunicaciones con el servicio Azure Data Factory pasan a través de Private
 ![Diagrama de Private Link para la arquitectura de Azure Data Factory.](./media/data-factory-private-link/private-link-architecture.png)
 
 La habilitación del servicio Private Link para cada uno de los canales de comunicación anteriores ofrece la siguiente funcionalidad:
-- **Admitido**:
+- **Admitido** :
    - Puede crear y supervisar la factoría de datos en la red virtual, incluso si bloquea todas las comunicaciones salientes.
    - Las comunicaciones de comandos entre el entorno de ejecución de integración autohospedado y el servicio Azure Data Factory se pueden realizar de forma segura en un entorno de red privado. El tráfico entre el entorno de ejecución de integración autohospedado y el servicio Azure Data Factory pasa a través Private Link. 
-- **No admitido actualmente**:
+- **No admitido actualmente** :
    - La creación interactiva que usa el entorno de ejecución de integración autohospedado pasa a través de Private Link como, por ejemplo, en el caso de las pruebas de conexiones, el examen de la lista de carpetas y de tablas, la obtención de esquemas y la vista previa de los datos.
    - La nueva versión del entorno de ejecución de integración autohospedado se puede descargar automáticamente desde el Centro de descarga de Microsoft si habilita la actualización automática.
 
@@ -67,7 +67,7 @@ La habilitación del servicio Private Link para cada uno de los canales de comun
 > Cuando cree un servicio vinculado, asegúrese de que las credenciales se almacenan en un almacén de claves de Azure. De lo contrario, las credenciales no funcionarán al habilitar Private Link en Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configuración de Private Link para Azure Data Factory
-Puede crear puntos de conexión privados mediante [Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), PowerShell o la CLI de Azure.
+Puede crear puntos de conexión privados mediante [Azure Portal](../private-link/create-private-endpoint-portal.md).
 
 También puede ir a Azure Data Factory en Azure Portal y crear un punto de conexión privado, como se muestra aquí:
 
@@ -89,4 +89,3 @@ Si desea bloquear el acceso público a esta instancia de Azure Data Factory y so
 - [Creación de una factoría de datos con la interfaz de usuario de Azure Data Factory](quickstart-create-data-factory-portal.md)
 - [Introducción al servicio Azure Data Factory](introduction.md)
 - [Creación visual de Azure Data Factory](author-visually.md)
-

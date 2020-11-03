@@ -22,14 +22,14 @@ La mayoría de las aplicaciones web que usan Google Maps usan el SDK de Google M
 
 > [!div class="checklist"]
 > * Carga de un mapa
-> * Localización de un mapa
-> * Adición de marcadores, polilíneas y polígonos.
-> * Muestra de información en una ventana emergente o de informativa
-> * Carga y muestra de datos de KML y GeoJSON
-> * Agrupación de marcadores
-> * Superposición de una capa de mosaicos
+> * Localizar un mapa
+> * Agregar marcadores, polilíneas y polígonos.
+> * Mostrar información en una ventana emergente o informativa
+> * Cargar y mostrar datos de KML y GeoJSON
+> * Agrupar marcadores
+> * Superponer una capa de mosaicos
 > * Mostrar datos del tráfico
-> * Adición de una superposición de suelo
+> * Agregar una superposición de suelo
 
 También aprenderá lo siguiente: 
 

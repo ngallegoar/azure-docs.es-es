@@ -3,17 +3,18 @@ title: Información sobre los datos de Azure Cost Management
 description: Este artículo le ayudará a comprender mejor qué datos se incluyen en Azure Cost Management y con qué frecuencia se procesan, recopilan, muestran y cierran.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 923b03f0c7bbf8d6948a80742530db6cb9b06c25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132319"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675906"
 ---
 # <a name="understand-cost-management-data"></a>Descripción de los datos de Cost Management
 
@@ -31,22 +32,22 @@ La siguiente información muestra las [ofertas de Microsoft Azure](https://azure
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Mayo de 2014<sup>1</sup> |
 | **Contrato Enterprise (EA)** | Desarrollo/pruebas - Enterprise                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Mayo de 2014<sup>1</sup> |
-| **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Mayo de 2014<sup>1</sup> |
-| **Contrato de cliente de Microsoft** | [Plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D | Marzo de 2019<sup>3</sup> |
-| **Contrato de cliente de Microsoft** | [Plan de Microsoft Azure para Desarrollo/pruebas](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/D | Marzo de 2019<sup>3</sup> |
+| **Contrato Enterprise (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Mayo de 2014<sup>1</sup> |
+| **Contrato de cliente de Microsoft** | Plan de Microsoft Azure | EnterpriseAgreement_2014-09-01 | N/D | Marzo de 2019<sup>3</sup> |
+| **Contrato de cliente de Microsoft** | Plan de Microsoft Azure para desarrollo y pruebas | MSDNDevTest_2014-09-01 | N/D | Marzo de 2019<sup>3</sup> |
 | **Contrato de cliente de Microsoft admitido por los asociados** | Plan de Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01 y CSPDEVTEST_2018-05-01<br><br>El identificador de cuota se reutiliza para el Contrato de cliente de Microsoft y las suscripciones de CSP heredadas. Actualmente, solo se admiten las suscripciones de Contrato de cliente de Microsoft. | N/D | Octubre de 2019 |
-| **Microsoft Developer Network (MSDN)** | [Plataformas de MSDN](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Desarrollo/pruebas - Pago por uso](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Evaluación gratuita](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 de octubre de 2018<sup>2</sup> |
-| **Pay-As-You-Go** | [Azure bajo licencia Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 de octubre de 2018<sup>2</sup> |
+| **Microsoft Developer Network (MSDN)** | Plataformas de MSDN<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 de octubre de 2018<sup>2</sup> |
+| **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 de octubre de 2018<sup>2</sup> |
+| **Pay-As-You-Go** | Desarrollo/pruebas - Pago por uso         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de octubre de 2018<sup>2</sup> |
+| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | 2 de octubre de 2018<sup>2</sup> |
+| **Pay-As-You-Go** | Evaluación gratuita<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 de octubre de 2018<sup>2</sup> |
+| **Pay-As-You-Go** | Azure bajo licencia Open<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 de octubre de 2018<sup>2</sup> |
 | **Pay-As-You-Go** | Pase para Azure<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 de octubre de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 de octubre de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise – MPN<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 de octubre de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Professional<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 de octubre de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Test Professional<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 de octubre de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 de octubre de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 de octubre de 2018<sup>2</sup> |
 
 _<sup>**1**</sup> Para los datos antes de mayo de 2014, visite [Azure Enterprise Portal](https://ea.azure.com)._
 
@@ -60,14 +61,14 @@ Las siguientes ofertas todavía no se admiten:
 
 | Category  | **Nombre de la oferta** | **Identificador de la cuota** | **Número de la oferta** |
 | --- | --- | --- | --- |
-| **Azure Alemania** | [Pago por uso de Azure Germany](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Alemania** | Pago por uso de Azure Germany | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Pago por uso de Azure Government | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Proveedor de soluciones en la nube (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Proveedor de soluciones en la nube (CSP)** | Azure Alemania en CSP para Microsoft Cloud Alemania   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Pay-As-You-Go**                 | Paquete de inicio de Azure for Students | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Pay-As-You-Go**                 | [Patrocinio de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Pay-As-You-Go** | Azure for Students<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay-As-You-Go**                 | Patrocinio de Microsoft Azure | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Planes de soporte técnico** | Soporte técnico Standard                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Planes de soporte técnico** | Soporte técnico Professional Direct         | Default_2014-09-01 | MS-AZR-0042P |
 | **Planes de soporte técnico** | Soporte técnico Developer                   | Default_2014-09-01 | MS-AZR-0043P |
@@ -82,7 +83,7 @@ Para información sobre la disponibilidad de los servicios de nivel gratuito des
 
 ### <a name="determine-your-offer-type"></a>Determinación del tipo de oferta
 
-Si no ve los datos de una suscripción y desea determinar si tal suscripción se encuentra entre las ofertas admitidas, puede comprobar si realmente se admite. Para validar que se admite una suscripción a Azure, inicie sesión en [Azure Portal](https://portal.azure.com). Luego, seleccione **Todos los servicios** en el panel del menú izquierdo. En la lista de servicios, seleccione **Suscripciones**. En el menú de la lista de suscripciones, seleccione la suscripción que desee comprobar. La suscripción se muestra en la pestaña Información general y puede ver la **Oferta** y el **Id. de oferta**. En la imagen siguiente se muestra un ejemplo:
+Si no ve los datos de una suscripción y desea determinar si tal suscripción se encuentra entre las ofertas admitidas, puede comprobar si realmente se admite. Para validar que se admite una suscripción a Azure, inicie sesión en Azure Portal. Luego, seleccione **Todos los servicios** en el panel del menú izquierdo. En la lista de servicios, seleccione **Suscripciones**. En el menú de la lista de suscripciones, seleccione la suscripción que desee comprobar. La suscripción se muestra en la pestaña Información general y puede ver la **Oferta** y el **Id. de oferta**. En la imagen siguiente se muestra un ejemplo:
 
 ![Ejemplo de la pestaña Información general de la suscripción mostrando la Oferta y el Id. de oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
@@ -110,9 +111,9 @@ Azure Cost Management recibe etiquetas como parte de cada registro de uso enviad
 
 - Las etiquetas deben aplicarse directamente a los recursos y no se heredan implícitamente del grupo de recursos primario.
 - Las etiquetas de recursos solo se admiten para los recursos implementados en grupos de recursos.
-- Es posible que algunos recursos implementados no admitan etiquetas o que no incluyan etiquetas en los datos de uso; consulte [Compatibilidad de etiquetas de los recursos de Azure](../../azure-resource-manager/management/tag-support.md).
+- Es posible que algunos recursos implementados no admitan etiquetas o que no incluyan etiquetas en los datos de uso.
 - Las etiquetas de recursos solo se incluyen en los datos de uso mientras se aplica la etiqueta; las etiquetas no se aplican a los datos históricos.
-- Las etiquetas de recursos solo están disponibles en Cost Management después de que se actualicen los datos; consulte [Retención y actualizaciones de datos de uso y costos](#cost-and-usage-data-updates-and-retention).
+- Las etiquetas de recursos solo están disponibles en Cost Management después de que se actualicen los datos.
 - Las etiquetas de recursos solo están disponibles en Cost Management cuando el recurso está activo o en ejecución y genera registros de uso (por ejemplo, no cuando una máquina virtual está desasignada).
 - La administración de etiquetas requiere el acceso de colaborador a cada recurso.
 - La administración de directivas de etiquetas requiere el acceso de propietario o de colaborador de directiva a un grupo de administración, suscripción o grupo de recursos.
@@ -120,7 +121,7 @@ Azure Cost Management recibe etiquetas como parte de cada registro de uso enviad
 Si no ve una etiqueta específica en Cost Management, tenga en cuenta lo siguiente:
 
 - ¿Se aplicó la etiqueta directamente al recurso?
-- ¿Se aplicó la etiqueta hace más de 24 horas? Consulte [Retención y actualizaciones de datos de uso y costos](#cost-and-usage-data-updates-and-retention)
+- ¿Se aplicó la etiqueta hace más de 24 horas?
 - ¿Admite etiquetas el tipo de recurso? Los siguientes tipos de recursos no admiten etiquetas en los datos de uso a partir del 1 de diciembre de 2019. Consulte [Compatibilidad de etiquetas de los recursos de Azure](../../azure-resource-manager/management/tag-support.md) para ver la lista completa de lo que se admite.
     - Directorios de Azure Active Directory B2C
     - Azure Bastion
@@ -143,7 +144,7 @@ Estas son algunas sugerencias para trabajar con etiquetas:
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Retención y actualizaciones de datos de uso y costos
 
-Los datos de uso y costos normalmente están disponibles en Administración de costos + facturación en Azure Portal y las [API de apoyo](../index.yml) en un plazo de 8 a 24 horas. Tenga en cuenta los puntos siguientes al revisar los costes:
+Los datos de uso y costos normalmente están disponibles en Administración de costos + facturación en Azure Portal y las API de apoyo en un plazo de 8 a 24 horas. Tenga en cuenta los puntos siguientes al revisar los costes:
 
 - Cada servicio de Azure (como Storage, Compute y SQL) emite el uso en diferentes intervalos: puede ver los datos de algunos servicios antes que otros.
 - La estimación de los cargos para el período de facturación actual se actualiza seis veces al día.
@@ -160,7 +161,7 @@ Cuando los datos de uso y costos están disponibles en Administración de costos
 
 ### <a name="rerated-data"></a>Nueva valoración de los datos
 
-Si usa las [API de Cost Management](../index.yml), Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a valorar y, consecuentemente, cambien hasta que se cierre la factura.
+Si usa las API de Cost Management, Power BI o Azure Portal para recuperar datos, es posible que los cargos del período de facturación actual se vuelvan a valorar y, consecuentemente, cambien hasta que se cierre la factura.
 
 ## <a name="cost-rounding"></a>Redondeo de los costos
 

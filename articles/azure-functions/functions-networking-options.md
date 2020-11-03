@@ -1,15 +1,16 @@
 ---
 title: Opciones de redes de Azure Functions
 description: Introducción a todas las opciones de redes disponibles en Azure Functions.
+author: jeffhollan
 ms.topic: conceptual
-ms.date: 4/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.author: jehollan
+ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530102"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897082"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de redes de Azure Functions
 
@@ -66,11 +67,30 @@ Con el fin de proporcionar un mayor nivel de seguridad, puede restringir una ser
 
 Para más información, consulte [Puntos de conexión de servicio de red virtual](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restricción de la cuenta de almacenamiento a una red virtual
+## <a name="restrict-your-storage-account-to-a-virtual-network-preview"></a>Restricción de la cuenta de almacenamiento a una red virtual (versión preliminar)
 
-Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una. En la actualidad, no es posible usar ninguna restricción de red virtual en esta cuenta. Si configura un punto de conexión de servicio de red virtual en la cuenta de almacenamiento que usa para la aplicación de funciones, esta configuración interrumpirá la aplicación.
+Al crear una aplicación de funciones, debe crear una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage, o vincular a una.  Puede reemplazar esta cuenta de almacenamiento por una que esté protegida con puntos de conexión de servicio o punto de conexión privado.  Esta característica de vista previa solo funciona actualmente con planes Premium de Windows en la región Oeste de Europa.  Para configurar una función con una cuenta de almacenamiento restringida a una red privada:
 
-Para más información, consulte [Requisitos de la cuenta de almacenamiento](./functions-create-function-app-portal.md#storage-account-requirements).
+> [!NOTE]
+> La restricción de la cuenta de almacenamiento solo funciona actualmente para las funciones Premium con Windows en la región Oeste de Europa.
+
+1. Cree una función con una cuenta de almacenamiento que no tenga habilitados los puntos de conexión de servicio.
+1. Configure la función para conectarse a la red virtual.
+1. Cree o configure una cuenta de almacenamiento diferente.  Será la cuenta de almacenamiento que se proteja con los puntos de conexión de servicio y se conecte a la función.
+1. [Cree un recurso compartido de archivos](../storage/files/storage-how-to-create-file-share.md#create-file-share) en la cuenta de almacenamiento protegida.
+1. Habilite los puntos de conexión de servicio o el punto de conexión privado para la cuenta de almacenamiento.  
+    * Asegúrese de habilitar la subred dedicada a sus aplicaciones de funciones si usa un punto de conexión de servicio.
+    * Asegúrese de crear un registro DNS y de configurar la aplicación para [trabajar con puntos de conexión privados](#azure-dns-private-zones) si usa un punto de conexión privado.  La cuenta de almacenamiento necesitará un punto de conexión privado para los recursos secundarios `file` y `blob`.  Si se usan ciertas funcionalidades como Durable Functions, también necesitará que se pueda acceder a `queue` y `table` a través de una conexión de punto de conexión privado.
+1. (Opcional) Copie el contenido del archivo y el blob de la cuenta de almacenamiento de la aplicación de funciones en la cuenta de almacenamiento protegida y el recurso compartido de archivos.
+1. Copie la cadena de conexión para esta cuenta de almacenamiento.
+1. Actualice el contenido de **Configuración de la aplicación** que se encuentra en **Configuración** para la aplicación de funciones a lo siguiente:
+    - `AzureWebJobsStorage` a la cadena de conexión de la cuenta de almacenamiento.
+    - `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` a la cadena de conexión de la cuenta de almacenamiento.
+    - `WEBSITE_CONTENTSHARE` al nombre del recurso compartido de archivos creado en la cuenta de almacenamiento protegida.
+    - Cree una nueva configuración con el nombre `WEBSITE_CONTENTOVERVNET` y el valor de `1`.
+1. Guarde la configuración de la aplicación.  
+
+La aplicación de funciones se reiniciará y ahora se conectará a una cuenta de almacenamiento protegida.
 
 ## <a name="use-key-vault-references"></a>Uso de referencias de Key Vault
 
@@ -136,8 +156,8 @@ Cuando se integra una aplicación de funciones de un plan Premium o un plan de A
 ## <a name="automation"></a>Automation
 Las siguientes API permiten administrar mediante programación las integraciones de redes virtuales regionales:
 
-+ **CLI de Azure**: Use los comandos [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) para agregar, enumerar o quitar integraciones de redes virtuales regionales.  
-+ **Plantillas ARM**: La integración de la red virtual regional se puede habilitar mediante una plantilla de Azure Resource Manager. Para obtener un ejemplo completo, consulte [esta plantilla de inicio rápido de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
++ **CLI de Azure** : Use los comandos [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) para agregar, enumerar o quitar integraciones de redes virtuales regionales.  
++ **Plantillas ARM** : La integración de la red virtual regional se puede habilitar mediante una plantilla de Azure Resource Manager. Para obtener un ejemplo completo, consulte [esta plantilla de inicio rápido de Functions](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

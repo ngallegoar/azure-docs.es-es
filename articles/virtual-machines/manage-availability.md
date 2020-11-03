@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 11444fc599b46ceff90eda562d2fd557bcaf53b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9d9a9c878c96c7f5a38466c494e4b90287c984da
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961347"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92734953"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Manage the availability of Linux virtual machines (Administración de la disponibilidad de las máquinas virtuales con Linux)
 
@@ -34,7 +34,7 @@ Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimi
 
 Para reducir el impacto del tiempo de parada debido a uno o más de estos eventos, recomendamos las siguientes mejores prácticas de alta disponibilidad para las máquinas virtuales:
 
-* Uso de Availability Zones para protegerse frente a errores en el centro de datos
+* Uso de Availability Zones para protegerse frente a errores del centro de datos
 * Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia
 * Uso de Managed Disks para las máquinas virtuales de un conjunto de disponibilidad
 * Uso de eventos programados para responder de manera proactiva a eventos que afectan a la máquina virtual

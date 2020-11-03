@@ -100,7 +100,7 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
 1.  En la ventana **New Linked Service** (Nuevo servicio vinculado), realice los pasos siguientes:
     
-    1.  En **Name** (Nombre) escriba *_AzureDatabricksLinkedService\_LinkedService_*.
+    1.  En **Name** (Nombre) escriba *_AzureDatabricks\_LinkedService_*.
     
     1.  Seleccione el *área de trabajo de Databricks* adecuado en el que ejecutará el cuaderno.
 

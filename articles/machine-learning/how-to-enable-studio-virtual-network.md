@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131826"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792028"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Habilitación de Azure Machine Learning Studio en una Azure Virtual Network
 
@@ -32,11 +32,11 @@ Este artículo es la quinta parte de una serie de cinco capítulos que le guía 
 
 Consulte los demás artículos de esta serie:
 
-[1. Introducción a las redes virtuales](how-to-network-security-overview.md) > [2. Protección del área de trabajo ](how-to-secure-workspace-vnet.md) > [3. Protección del entorno de entrenamiento](how-to-secure-training-vnet.md) > [4. Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md) > **5. Habilitación de la funcionalidad de Studio**
+[1. Introducción a las redes virtuales](how-to-network-security-overview.md) > [2. Protección del área de trabajo](how-to-secure-workspace-vnet.md) > [3. Protección del entorno de entrenamiento](how-to-secure-training-vnet.md) > [4. Protección del entorno de inferencia](how-to-secure-inferencing-vnet.md) > **5. Habilitación de la funcionalidad de Studio**
 
 
 > [!IMPORTANT]
-> Aunque la mayor parte de Studio funciona con datos almacenados en una red virtual, __no__ es así en el caso de los cuadernos integrados. Los notebooks integrados no admiten el uso de almacenamiento que se encuentra en una red virtual. En su lugar, puede usar cuadernos de Jupyter Notebook en una instancia de Compute. Para obtener más información, consulte la sección [Acceso a los datos en un cuaderno de instancia de Compute]().
+> Si el área de trabajo está en una __nube soberana__ , como Azure Government o Azure China 21Vianet, los cuadernos integrados _no_ admiten el uso de almacenamiento que se encuentra en una red virtual. En su lugar, puede usar cuadernos de Jupyter Notebook en una instancia de Compute. Para obtener más información, consulte la sección [Acceso a los datos en un cuaderno de instancia de Compute](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook).
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -66,9 +66,6 @@ Si no habilita la identidad administrada, recibirá este error: `Error: Unable t
 * Envío de un experimento de AutoML.
 * Inicio de un proyecto de etiquetado.
 
-> [!NOTE]
-> [El etiquetado de datos asistido mediante ML](how-to-create-labeling-projects.md#use-ml-assisted-labeling) no es compatible con las cuentas de almacenamiento predeterminadas que estén protegidas en una red virtual. Debe usar una cuenta de almacenamiento no predeterminada para el etiquetado de datos asistidos mediante ML. La cuenta de almacenamiento no predeterminada se puede proteger en la red virtual. 
-
 Studio admite la lectura de datos de los siguientes tipos de almacén de datos en una red virtual:
 
 * Blob de Azure
@@ -76,7 +73,11 @@ Studio admite la lectura de datos de los siguientes tipos de almacén de datos e
 * Azure Data Lake Storage Gen2
 * Azure SQL Database
 
-### <a name="configure-datastores-to-use-managed-identity"></a>Configuración de almacenes de datos para usar identidad administrada
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concesión de acceso __Lector__ de identidad administrada del área de trabajo al vínculo privado de almacenamiento
+
+Este paso solo es necesario si ha agregado la cuenta de Azure Storage a la red virtual con un [punto de conexión privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). Para más información, consulte el rol integrado [Lector](../role-based-access-control/built-in-roles.md#reader).
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configuración de almacenes de datos para usar una identidad administrada del área de trabajo
 
 Azure Machine Learning usa [almacenes de datos](concept-data.md#datastores) para conectarse a las cuentas de almacenamiento. Siga los pasos que se indican a continuación para configurar los almacenes de datos para que usen identidad administrada. 
 
@@ -89,7 +90,7 @@ Azure Machine Learning usa [almacenes de datos](concept-data.md#datastores) para
 1. En la configuración del almacén de datos, seleccione __Sí__ para __Permitir que Azure Machine Learning Service acceda al almacenamiento mediante la identidad administrada del área de trabajo__.
 
 
-En estos pasos se agrega la identidad administrada del área de trabajo como __Lector__ al servicio de almacenamiento mediante el control de acceso basado en recursos (RBAC) de Azure. El acceso __Lector__ permite que el área de trabajo recupere la configuración del firewall y se asegura de que los datos no salgan de la red virtual.
+En estos pasos se agrega la identidad administrada del área de trabajo como __Lector__ al servicio de almacenamiento mediante el control de acceso basado en recursos de Azure (RBAC de Azure). El acceso __Lector__ permite que el área de trabajo recupere la configuración del firewall y se asegura de que los datos no salgan de la red virtual.
 
 > [!NOTE]
 > Estos cambios pueden tardar hasta 10 minutos en surtir efecto.
@@ -100,13 +101,13 @@ El uso de identidad administrada para tener acceso a los servicios de almacenami
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Para __Azure Blob Storage__, la identidad administrada del área de trabajo también se agrega como un [lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que pueda leer datos del almacenamiento de blobs.
+Para __Azure Blob Storage__ , la identidad administrada del área de trabajo también se agrega como un [lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) para que pueda leer datos del almacenamiento de blobs.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Control de acceso de Azure Data Lake Storage Gen2
 
-Puede usar listas de control de acceso (ACL) de tipo RBAC y POSIX para controlar el acceso a los datos dentro de una red virtual.
+Puede usar RBAC de Azure y listas de control de acceso (ACL) de tipo POSIX para controlar el acceso a los datos dentro de una red virtual.
 
-Para usar RBAC, agregue la identidad administrada del área de trabajo al rol [Lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Para obtener más información, consulte [Control de acceso basado en roles de Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Para usar RBAC de Azure, agregue la identidad administrada del área de trabajo al rol [Lector de datos de blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Para obtener más información, consulte [Control de acceso basado en roles de Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Para usar ACL, se puede asignar el acceso de la identidad administrada del área de trabajo como cualquier otra entidad de seguridad. Para obtener más información, vea [Listas de control de acceso en archivos y directorios](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
@@ -127,7 +128,7 @@ El diseñador usa la cuenta de almacenamiento asociada al área de trabajo para 
 Para configurar un nuevo almacenamiento predeterminado para una canalización:
 
 1. En un borrador de canalización, seleccione el **icono de engranaje de la configuración** junto al título de la canalización.
-1. Seleccione la opción **Seleccionar almacén de datos predeterminado**.
+1. Elija **Seleccionar almacén de datos predeterminado**.
 1. Especifique un nuevo almacén de datos.
 
 También puede invalidar el almacén de datos predeterminado por cada módulo. Esto le ofrece control sobre la ubicación de almacenamiento de cada módulo individual.

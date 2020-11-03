@@ -8,21 +8,21 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 06/05/2020
-ms.openlocfilehash: 7573abbbee479bfb0d1710beba3b95d084a5e657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.openlocfilehash: a5db3935ae445ee7dcf8129eb1d4c75fcb64302f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898882"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739232"
 ---
 # <a name="apply-transformation-module"></a>Módulo Aplicar transformación
 
 En este artículo se describe un módulo del diseñador de Azure Machine Learning.
 
-Utilice este módulo para modificar un conjunto de datos de entrada basado en una transformación calculada previamente.
+Utilice este módulo para modificar un conjunto de datos de entrada basado en una transformación calculada previamente. Este módulo es necesario si tiene que actualizar transformaciones en canalizaciones de inferencia.
 
-Por ejemplo, si usa puntuaciones z para normalizar los datos de aprendizaje utilizando el nódulo **Normalizar datos**, tendrá que usar el valor de puntuación z que se calculó para el aprendizaje durante la fase de puntuación. En Azure Machine Learning, puede guardar el método de normalización como una transformación y después usar **Aplicar transformación** para aplicar la puntuación z a los datos de entrada antes de la puntuación.
+Por ejemplo, si usa puntuaciones z para normalizar los datos de aprendizaje utilizando el nódulo **Normalizar datos** , tendrá que usar el valor de puntuación z que se calculó para el aprendizaje durante la fase de puntuación. En Azure Machine Learning, puede guardar el método de normalización como una transformación y después usar **Aplicar transformación** para aplicar la puntuación z a los datos de entrada antes de la puntuación.
 
 ## <a name="how-to-save-transformations"></a>Procedimiento para guardar transformaciones
 
@@ -46,7 +46,14 @@ El diseñador le permite guardar transformaciones de datos como **conjuntos de d
   
 1. Conecte la salida del conjunto de datos del módulo deseado al puerto de entrada derecho del módulo **Apply Transformation** (Aplicar transformación).
   
-1. Para aplicar una transformación al nuevo conjunto de datos, ejecute la canalización.  
+1. Para aplicar una transformación al nuevo conjunto de datos, envíe la canalización.  
+
+> [!IMPORTANT]
+> Para asegurarse de que la transformación actualizada en las canalizaciones de entrenamiento también es factible en las canalizaciones de inferencia, debe seguir los pasos que se indican a continuación cada vez que haya una transformación actualizada en la canalización de entrenamiento:
+> 1. En la canalización de entrenamiento, registre la salida de [Select Columns Transform](select-columns-transform.md) (Seleccionar transformación de columnas) como un conjunto de registros.
+> ![Registro del conjunto de datos de la salida del módulo](media/module/select-columns-transform-register-dataset.png)
+> 1. En la canalización de inferencia, quite el módulo **TD-** y reemplácelo por el conjunto de datos registrado en el paso anterior.
+> ![Reemplazo del módulo TD](media/module/replace-tranformation-directory.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

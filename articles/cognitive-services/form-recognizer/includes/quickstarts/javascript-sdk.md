@@ -194,7 +194,7 @@ La función siguiente entrena un modelo en un conjunto de documentos determinado
 
 ### <a name="output"></a>Resultados
 
-Esta es la salida de un modelo entrenado con los datos disponibles en el [SDK de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). La salida de ejemplo se ha acortado para facilitar la lectura.
+Esta es la salida de un modelo entrenado con los datos disponibles en el [SDK de JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer). La salida de ejemplo se ha recortado para facilitar la lectura.
 
 ```console
 training status: creating

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973316"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790617"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferencias de T-SQL entre SQL Server y una Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -114,7 +114,7 @@ Una Instancia administrada de SQL no puede acceder a los recursos compartidos de
 
 Consulte [CREATE CERTIFICATE](/sql/t-sql/statements/create-certificate-transact-sql) y [BACKUP CERTIFICATE](/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solución alternativa**: En lugar de crear una copia de seguridad del certificado y restaurar la copia de seguridad, [obtenga el contenido binario del certificado y la clave privada, almacénelo como archivo .sql y cree a partir del binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
+**Solución alternativa** : En lugar de crear una copia de seguridad del certificado y restaurar la copia de seguridad, [obtenga el contenido binario del certificado y la clave privada, almacénelo como archivo .sql y cree a partir del binario](/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -220,7 +220,7 @@ Para más información, consulte [ALTER DATABASE SET PARTNER y SET WITNESS](/sql
 
 - No se permite usar varios archivos de registro.
 - No se admiten objetos en memoria caché en el nivel de servicio de uso general. 
-- Hay un límite de 280 archivos por instancia de uso general, lo cual implica un máximo de 280 archivos por base de datos. Los datos y archivos de registro en el nivel de uso general cuentan para este límite. [El nivel Crítico para la empresa admite 32 767 archivos por base de datos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+- Hay un límite de 280 archivos por instancia de uso general, lo cual implica un máximo de 280 archivos por base de datos. Los datos y archivos de registro en el nivel de uso general cuentan para este límite. [El nivel Crítico para la empresa admite 32 767 archivos por base de datos](./resource-limits.md#service-tier-characteristics).
 - La base de datos no puede contener grupos de archivos que contengan datos de secuencia de archivos. Se producirá un error en la restauración si el archivo .bak contiene datos `FILESTREAM`. 
 - Todos los archivos se colocan en Azure Blob Storage. La E/S y el rendimiento por archivo dependen del tamaño de cada archivo individual.
 
@@ -354,7 +354,7 @@ La Instancia administrada de SQL no admite instrucciones DBCC no documentadas qu
 ### <a name="distributed-transactions"></a>Distributed transactions
 
 La compatibilidad parcial con las [transacciones distribuidas](../database/elastic-transactions-overview.md) está actualmente en versión preliminar pública. Los escenarios admitidos son:
-* Transacciones en las que los participantes son solo instancias de Azure SQL Managed Instance que forman parte de un [grupo de confianza de servidor](https://aka.ms/mitrusted-groups).
+* Transacciones en las que los participantes son solo instancias de Azure SQL Managed Instance que forman parte de un [grupo de confianza de servidor](./server-trust-group-overview.md).
 * Transacciones iniciadas desde .NET (clase TransactionScope) y Transact-SQL.
 
 Actualmente, Azure SQL Managed Instance no admite otros escenarios que se admiten con regularidad en el Coordinador de transacciones distribuidas local o en Azure Virtual Machines.
@@ -482,7 +482,7 @@ No se admite el agente de servicio entre instancias:
   - `remote proc trans`
 - `sp_execute_external_scripts` no se admite. Consulte [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` no se admite. Consulte [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- No se admiten `Extended stored procedures`, lo cual incluye `sp_addextendedproc` y `sp_dropextendedproc`. Consulte [Procedimientos almacenados extendidos](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `Extended stored procedures` no se admiten, que incluye `sp_addextendedproc` y `sp_dropextendedproc`. Consulte [Procedimientos almacenados extendidos](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - No se admiten `sp_attach_db`, `sp_attach_single_file_db`, y `sp_detach_db`. Consulte [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), y [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>Variables y funciones del sistema
@@ -527,13 +527,13 @@ Los siguientes esquemas MSDB de la Instancia administrada de SQL deben ser propi
 
 - Roles generales
   - TargetServersRole
-- [Roles fijos de base de datos](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Roles fijos de base de datos](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Roles de DatabaseMail](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Roles de DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
   - DatabaseMailUserRole
-- [Roles de Integration Services](https://docs.microsoft.com/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Roles de Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator
@@ -543,7 +543,7 @@ Los siguientes esquemas MSDB de la Instancia administrada de SQL deben ser propi
 
 ### <a name="error-logs"></a>Registros de error
 
-Una Instancia administrada de SQL coloca información detallada en los registros de errores. Existen muchos eventos internos del sistema que se archivan en el registro de errores. use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, vea [Instancia administrada de SQL – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) o [Extensión de Instancia administrada de SQL (versión preliminar)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
+Una Instancia administrada de SQL coloca información detallada en los registros de errores. Existen muchos eventos internos del sistema que se archivan en el registro de errores. use un procedimiento personalizado para leer los registros de errores que filtran algunas entradas que no son pertinentes. Para obtener más información, vea [Instancia administrada de SQL – sp_readmierrorlog](/archive/blogs/sqlcat/azure-sql-db-managed-instance-sp_readmierrorlog) o [Extensión de Instancia administrada de SQL (versión preliminar)](/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) para Azure Data Studio.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267030"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785228"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>¿Qué es el firewall de aplicaciones web de Azure en Azure Application Gateway?
 
@@ -74,6 +74,7 @@ En esta sección se describen las ventajas principales que el firewall de aplica
 - Cree reglas personalizadas para satisfacer las necesidades específicas de las aplicaciones.
 - Filtre geográficamente el tráfico para permitir o impedir que determinados países o regiones obtengan acceso a las aplicaciones. (versión preliminar)
 - Proteja sus aplicaciones de bots con el conjunto de reglas de mitigación de bots. (versión preliminar)
+- Inspección de JSON y XML en el cuerpo de la solicitud
 
 ## <a name="waf-policy-and-rules"></a>Reglas y directiva de WAF
 
@@ -121,8 +122,8 @@ Si la protección contra bots está habilitada, las solicitudes entrantes que co
 
 El WAF de Application Gateway se puede configurar para ejecutarse en dos modos:
 
-* **Modo de detección**: supervisa y registra todas las alertas de amenazas. Puede activar el registro de diagnósticos de Application Gateway en la sección **Diagnósticos**. También debe asegurarse de que el registro del WAF está seleccionado y activado. El firewall de aplicaciones web no bloquea solicitudes entrantes cuando se ejecuta en modo de detección.
-* **Modo de prevención**: bloquea las intrusiones y los ataques que detectan las reglas. El atacante recibe una excepción de "403: acceso no autorizado" y se cierra la conexión. El modo de prevención registra dichos ataques en los registros del WAF.
+* **Modo de detección** : supervisa y registra todas las alertas de amenazas. Puede activar el registro de diagnósticos de Application Gateway en la sección **Diagnósticos**. También debe asegurarse de que el registro del WAF está seleccionado y activado. El firewall de aplicaciones web no bloquea solicitudes entrantes cuando se ejecuta en modo de detección.
+* **Modo de prevención** : bloquea las intrusiones y los ataques que detectan las reglas. El atacante recibe una excepción de "403: acceso no autorizado" y se cierra la conexión. El modo de prevención registra dichos ataques en los registros del WAF.
 
 > [!NOTE]
 > Se recomienda ejecutar un WAF recién implementado en modo de detección durante un breve período en un entorno de producción. Esto proporciona la oportunidad de obtener [registros de firewall](../../application-gateway/application-gateway-diagnostics.md#firewall-log) y actualizar cualquier excepción o [reglas personalizadas](./custom-waf-rules-overview.md) antes de la transición al modo de prevención. Esto puede ayudar a reducir la aparición de tráfico bloqueado inesperado.
@@ -131,9 +132,9 @@ El WAF de Application Gateway se puede configurar para ejecutarse en dos modos:
 
 OWASP tiene dos modos para decidir si bloquear el tráfico: el modo tradicional y el modo de puntuación de anomalías.
 
-En el modo tradicional, se considera el tráfico que coincide con alguna regla, independientemente de si otra regla coincide. Este modo es fácil de entender, pero la falta de información sobre cuántas reglas coinciden con una solicitud específica representa una limitación. Es por eso que se introdujo el modo de puntuación de anomalías. Es el valor predeterminado en OWASP 3.*x*.
+En el modo tradicional, se considera el tráfico que coincide con alguna regla, independientemente de si otra regla coincide. Este modo es fácil de entender, pero la falta de información sobre cuántas reglas coinciden con una solicitud específica representa una limitación. Es por eso que se introdujo el modo de puntuación de anomalías. Es el valor predeterminado en OWASP 3. *x*.
 
-En el modo de puntuación de anomalías, el tráfico que coincide con alguna regla no se bloquea de inmediato cuando el firewall está en modo de prevención. Las reglas tienen una gravedad determinada: *Crítica*, *Error*, *Advertencia* o *Aviso*. Dicha gravedad afecta a un valor numérico para la solicitud, denominado como la puntuación de anomalía. Por ejemplo, una coincidencia con la regla *Advertencia* contribuye con un valor de 3 a la puntuación. Una coincidencia con la regla *Crítica*, con 5.
+En el modo de puntuación de anomalías, el tráfico que coincide con alguna regla no se bloquea de inmediato cuando el firewall está en modo de prevención. Las reglas tienen una gravedad determinada: *Crítica* , *Error* , *Advertencia* o *Aviso*. Dicha gravedad afecta a un valor numérico para la solicitud, denominado como la puntuación de anomalía. Por ejemplo, una coincidencia con la regla *Advertencia* contribuye con un valor de 3 a la puntuación. Una coincidencia con la regla *Crítica* , con 5.
 
 |severity  |Value  |
 |---------|---------|

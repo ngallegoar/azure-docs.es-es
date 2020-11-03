@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/27/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 53d41b5024b29a8c6c394d65a3ce36f8bb878fc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82edf39185067e4c761c7598b159a655dfc370c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90524987"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735406"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Establecimiento de direcciones URL de redireccionamiento en b2clogin.com para Azure Active Directory B2C
 
@@ -24,11 +24,9 @@ Cuando se configura un proveedor de identidades para registrarse e iniciar sesi�
 
 ## <a name="deprecation-of-loginmicrosoftonlinecom"></a>Desuso de login.microsoftonline.com
 
-El 4 de diciembre de 2019 anunciamos la retirada programada de la compatibilidad con login.microsoftonline.com en Azure AD B2C para el **4 de diciembre de 2020**:
+**Actualización de octubre de 2020:** Estamos ampliando un período de gracia para los inquilinos que no pueden cumplir la fecha de desuso 4 de diciembre de 2020 anunciada originalmente. La retirada de login.microsoftonline.com se producirá ahora no antes del **14 de enero de 2021**.
 
-[Azure Active Directory B2C está dejando de usar login.microsoftonline.com](https://azure.microsoft.com/updates/b2c-deprecate-msol/)
-
-El desuso de login.microsoftonline.com entrará en vigor en todos los inquilinos de Azure AD B2C el 4 de diciembre de 2020, lo que deja a los inquilinos existentes un (1) año para migrar a b2clogin.com. Los nuevos inquilinos creados después del 4 de diciembre de 2019 no aceptarán solicitudes de login.microsoftonline.com. Toda la funcionalidad sigue igual en el punto de conexión b2clogin.com.
+**Información previa:** el 4 de diciembre de 2019 originalmente [anunciamos](https://azure.microsoft.com/updates/b2c-deprecate-msol/) la retirada programada de la compatibilidad con login.microsoftonline.com en Azure AD B2C para el 4 de diciembre de 2020. Esto proporcionó a los inquilinos existentes un (1) año para migrar a b2clogin.com. Los nuevos inquilinos creados después del 4 de diciembre de 2019 no aceptarán solicitudes de login.microsoftonline.com. Toda la funcionalidad sigue igual en el punto de conexión b2clogin.com.
 
 El desuso de login.microsoftonline.com no afecta a los inquilinos de Azure Active Directory. Este cambio solo afecta a los inquilinos de Azure Active Directory B2C.
 
@@ -59,7 +57,7 @@ Cuando use *b2clogin.com* como la dirección URL de redireccionamiento:
 
 ## <a name="overview-of-required-changes"></a>Información general de los cambios necesarios
 
-Puede que tenga que realizar varias modificaciones para migrar las aplicaciones a *b2clogin.com*:
+Puede que tenga que realizar varias modificaciones para migrar las aplicaciones a *b2clogin.com* :
 
 * Cambie las direcciones URL de redireccionamiento en las aplicaciones del proveedor de identidades para hacer referencia a *b2clogin.com*.
 * Actualice la aplicación Azure AD B2C para que utilice *b2clogin.com* como referencias de flujos de usuario y puntos de conexión de token. Esto puede incluir la actualización del uso de una biblioteca de autenticación, como la biblioteca de autenticación de Microsoft (MSAL).

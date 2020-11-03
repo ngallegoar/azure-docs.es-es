@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249457"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738291"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Identidad administrada del área de trabajo de Azure Synapse (versión preliminar)
 
@@ -32,7 +32,7 @@ Al crear el área de trabajo, se crea una identidad administrada asignada por el
 >[!NOTE]
 >En el resto de este documento, se hará referencia a ella como identidad administrada.
 
-Azure Synapse usa la identidad administrada para orquestar las canalizaciones. El ciclo de vida de la identidad administrada está directamente vinculado al área de trabajo de Azure Synapse. Si elimina el área de trabajo de Azure Synapse, la identidad administrada también se borra.
+Azure Synapse usa la identidad administrada para integrar las canalizaciones. El ciclo de vida de la identidad administrada está directamente vinculado al área de trabajo de Azure Synapse. Si elimina el área de trabajo de Azure Synapse, la identidad administrada también se borra.
 
 La identidad administrada del área de trabajo necesita permisos para realizar operaciones en las canalizaciones. Al conceder permisos, puede usar el identificador de objeto o el nombre del área de trabajo de Azure Synapse para buscar la identidad administrada.
 

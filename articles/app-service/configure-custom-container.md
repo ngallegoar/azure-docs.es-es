@@ -4,12 +4,12 @@ description: Aprenda a configurar un contenedor personalizado en Azure App Servi
 ms.topic: article
 ms.date: 09/22/2020
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 5b1bf9b205fc1eb90c6eeae3a101def764381213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f71efbf7cc606efd598880e90ade3a549402245
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264582"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787064"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configuración de un contenedor de Linux personalizado para Azure App Service
 
@@ -216,7 +216,7 @@ Los registros de Docker aparecen en el portal, en la página **Configuración de
 
 ### <a name="from-the-kudu-console"></a>Desde la consola de Kudu
 
-Vaya a `https://<app-name>.scm.azurewebsites.net/DebugConsole` y haga clic en la carpeta **LogFiles** para ver archivos de registro específicos. Para descargar todo el directorio **LogFiles**, haga clic en el icono **Descargar** situado a la izquierda del nombre del directorio. También puede acceder a esta carpeta utilizando un cliente FTP.
+Vaya a `https://<app-name>.scm.azurewebsites.net/DebugConsole` y haga clic en la carpeta **LogFiles** para ver archivos de registro específicos. Para descargar todo el directorio **LogFiles** , haga clic en el icono **Descargar** situado a la izquierda del nombre del directorio. También puede acceder a esta carpeta utilizando un cliente FTP.
 
 Desde el terminal de la consola, no se puede acceder a la carpeta `C:\home\LogFiles` de forma predeterminada, ya que el almacenamiento compartido persistente no está habilitado. Para habilitar este comportamiento en el terminal de la consola, [habilite el almacenamiento compartido persistente](#use-persistent-shared-storage).
 
@@ -272,7 +272,7 @@ Los procesadores pueden ser multithreading o tener varios núcleos. Encontrará 
 
 ## <a name="customize-health-ping-behavior"></a>Personalización del comportamiento del ping de estado
 
-App Service considera que un contenedor se ha iniciado correctamente cuando se inicia y responde a un ping HTTP. El ping de estado solicita a los contenedores el encabezado `User-Agent= "App Service Hyper-V Container Availability Check"`. Si el contenedor se inicia pero no responde al ping tras un período de tiempo determinado, App Service agrega un evento al registro de Docker, lo que indica que el contenedor no se inició. 
+App Service considera que un contenedor se ha iniciado correctamente cuando se inicia y responde a un ping HTTP. La solicitud de ping de estado contiene el encabezado `User-Agent= "App Service Hyper-V Container Availability Check"`. Si el contenedor se inicia pero no responde al ping tras un período de tiempo determinado, App Service agrega un evento al registro de Docker, lo que indica que el contenedor no se inició. 
 
 Si la aplicación consume muchos recursos, es posible que el contenedor no responda a tiempo al ping HTTP. Para controlar las acciones cuando se produce un error en el ping HTTP, establezca la opción `CONTAINER_AVAILABILITY_CHECK_MODE` de la aplicación. Puede hacerlo mediante [Cloud Shell](https://shell.azure.com). En Bash:
 
@@ -318,7 +318,7 @@ SSH habilita la comunicación segura entre un contenedor y un cliente. Para que 
 
     Esta configuración no permite realizar conexiones externas al contenedor. SSH solo está disponible en `https://<app-name>.scm.azurewebsites.net` y después de autenticarse con las credenciales de publicación.
 
-- Agregue [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) al repositorio de imágenes y use la instrucción [COPY](https://docs.docker.com/engine/reference/builder/#copy) para copiar el archivo en el directorio */etc/ssh/* . Para más información acerca de los archivos *sshd_config*, consulte la [documentación de OpenBSD](https://man.openbsd.org/sshd_config).
+- Agregue [este archivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) al repositorio de imágenes y use la instrucción [COPY](https://docs.docker.com/engine/reference/builder/#copy) para copiar el archivo en el directorio */etc/ssh/* . Para más información acerca de los archivos *sshd_config* , consulte la [documentación de OpenBSD](https://man.openbsd.org/sshd_config).
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/
@@ -363,7 +363,7 @@ Para habilitar el almacenamiento persistente, establezca la opción `WEBSITES_EN
 az webapp config appsettings set --resource-group <group-name> --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
 ```
 
-En el archivo *docker-compose.yml*, asigne la opción `volumes` a `${WEBAPP_STORAGE_HOME}`. 
+En el archivo *docker-compose.yml* , asigne la opción `volumes` a `${WEBAPP_STORAGE_HOME}`. 
 
 `WEBAPP_STORAGE_HOME` es una variable de entorno en App Service que se asigna al almacenamiento persistente para la aplicación. Por ejemplo:
 

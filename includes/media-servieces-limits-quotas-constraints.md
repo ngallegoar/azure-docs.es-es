@@ -1,39 +1,39 @@
 ---
-author: Juliako
+author: IngridAtMicrosoft
 ms.service: media-services
 ms.topic: include
-ms.date: 03/31/2020
-ms.author: juliako
-ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.author: inhenkel
+ms.openlocfilehash: 84aa07ef282dd7100043f7e9bfcc97cb3b3673a5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997688"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755966"
 ---
 > [!NOTE]
 > En relación con los recursos que no están fijados, abra una incidencia de soporte técnico para solicitar un aumento en las cuotas. No cree cuentas adicionales de Azure Media Services para obtener límites mayores.
 
 ### <a name="account-limits"></a>Límites de cuentas
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
-| Cuentas de Media Services en una suscripción única | 25 (fijo) |
+| Resource | Límite predeterminado |
+| --- | --- |
+| Cuentas de Media Services en una suscripción única | 100 (fijo) |
 
 ### <a name="asset-limits"></a>Límites de recursos
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
+| Resource | Límite predeterminado |
+| --- | --- |
 | Recursos por cuenta de Media Services | 1 000 000|
 
 ### <a name="storage-media-limits"></a>Límites de almacenamiento (elementos multimedia)
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
+| Resource | Límite predeterminado |
+| --- | --- |
 | Tamaño de archivo| En algunos casos, existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. <sup>(1)</sup> |
 | Cuentas de almacenamiento | 100<sup>(2)</sup> (cantidad fija) |
 
-<sup>1</sup> El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. En Media Services, se aplican límites adicionales en función de los tamaños de máquina virtual utilizados por el servicio. El límite de tamaño se aplica a los archivos que se cargan y también a los que se generan como resultado del procesamiento (codificación o análisis) de Media Services. Si el archivo de origen es mayor de 260 GB, es muy probable que el trabajo presente un error. 
+<sup>1</sup> El tamaño máximo admitido para un único blob es actualmente de 5 TB en Azure Blob Storage. En Media Services, se aplican límites adicionales en función de los tamaños de máquina virtual utilizados por el servicio. El límite de tamaño se aplica a los archivos que se cargan y también a los que se generan como resultado del procesamiento (codificación o análisis) de Media Services. Si el archivo de origen es mayor de 260 GB, es muy probable que el trabajo presente un error.
 
 En la tabla siguiente se muestran los límites en cada una de las unidades reservadas de multimedia (S1, S2 y S3). Si el archivo de origen es mayor que los límites definidos en la tabla, se producirá un error en el trabajo de codificación. Si codifica orígenes de resolución en 4K de larga duración, debe usar unidades reservadas de multimedia S3 para lograr el rendimiento necesario. Si tiene contenido de 4K mayor que el límite de 260 GB en las unidades reservadas de multimedia S3, abra una incidencia de soporte técnico.
 
@@ -47,8 +47,8 @@ En la tabla siguiente se muestran los límites en cada una de las unidades reser
 
 ### <a name="jobs-encoding--analyzing-limits"></a>Límites de trabajos (codificación y análisis)
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
+| Resource | Límite predeterminado |
+| --- | --- |
 | Trabajos por cuenta de Media Services | 500 000 <sup>(3)</sup> (cantidad fija)|
 | Entradas de trabajo por trabajo | 50 (cantidad fija)|
 | Salidas de trabajo por trabajo | 20 (cantidad fija) |
@@ -62,8 +62,8 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 
 ### <a name="live-streaming-limits"></a>Límites de streaming en vivo
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
+| Resource | Límite predeterminado |
+| --- | --- |
 | Eventos en directo <sup>(4)</sup> por cuenta de Media Services |5|
 | Salidas en directo por evento en directo |3 <sup>(5)</sup> |
 | Duración máxima de la salida en directo | [Tamaño de la ventana de DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
@@ -74,9 +74,9 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 
 ### <a name="packaging--delivery-limits"></a>Límites de empaquetado y entrega
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
-| Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2 (fijo)|
+| Resource | Límite predeterminado |
+| --- | --- |
+| Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services| 2 |
 | Filtros de manifiesto dinámico|100|
 | Directivas de streaming | 100 <sup>(6)</sup> |
 | Localizadores de streaming únicos asociados con un recurso al mismo tiempo | 100<sup>(7)</sup> (cantidad fija) |
@@ -87,9 +87,9 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 
 ### <a name="protection-limits"></a>Límites de protección
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
-| Opciones por directiva de clave de contenido |30 | 
+| Resource | Límite predeterminado |
+| --- | --- |
+| Opciones por directiva de clave de contenido | 30 |
 | Licencias por mes para cada uno de los tipos DRM en el servicio de entrega de claves de Media Services por cuenta|1 000 000|
 
 ### <a name="support-ticket"></a>Incidencia de soporte técnico

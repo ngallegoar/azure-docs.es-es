@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 266ad613a4966b26fc4a6ddffbb7b4196aa937b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2274a551542b06996941b49e7d047baf3e8b3ca
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372109"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894039"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Administración de recursos de Azure con Azure Portal
 
@@ -40,11 +40,11 @@ Para abrir un recurso de tipo de servicio:
 
 3. Seleccione el recurso que quiera abrir.
 
-    ![apertura del recurso de azure en el portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![Captura de pantalla que resalta el recurso seleccionado.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
     Una cuenta de almacenamiento tiene el siguiente aspecto:
 
-    ![apertura del recurso de azure en el portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![Captura de pantalla que muestra el aspecto de una cuenta de almacenamiento.](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
 Para abrir un recurso por grupo de recursos:
 

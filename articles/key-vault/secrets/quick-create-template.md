@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690636"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896436"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una plantilla de Resource Manager
 
@@ -82,15 +82,15 @@ Puede encontrar más ejemplos de plantillas de Azure Key Vault en [Plantillas de
 
     A menos que se especifique otra cosa, utilice el valor predeterminado para crear el almacén de claves y un secreto.
 
-    * **Suscripción**: seleccione una suscripción de Azure.
-    * **Grupo de recursos**: seleccione **Crear nuevo**, escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
-    * **Ubicación**: seleccione una ubicación. Por ejemplo, **Centro de EE. UU**.
-    * **Nombre del almacén de claves**: escriba un nombre para el almacén de claves que sea globalmente único dentro del espacio de nombres .vault.azure.net. Necesitará el nombre en la sección siguiente cuando valide la implementación.
-    * **Id. de inquilino**: la función de la plantilla recupera automáticamente el identificador del inquilino. No cambie el valor predeterminado.
-    * **Id. de usuario de AD**: escriba el identificador del objeto de usuario de Azure AD que recuperó de [Requisitos previos](#prerequisites).
-    * **Nombre del secreto**: escriba un nombre para el secreto que almacenará en el almacén de claves. Por ejemplo, **adminpassword**.
-    * **Valor del secreto**: escriba el valor del secreto. Si almacena una contraseña, se recomienda usar la contraseña generada que creó en Requisitos previos.
-    * **Acepto los términos y condiciones anteriores**: Seleccionar.
+    * **Suscripción** : seleccione una suscripción de Azure.
+    * **Grupo de recursos** : seleccione **Crear nuevo** , escriba un nombre único para el grupo de recursos y, a continuación, haga clic en **Aceptar**.
+    * **Ubicación** : seleccione una ubicación. Por ejemplo, **Centro de EE. UU**.
+    * **Nombre del almacén de claves** : escriba un nombre para el almacén de claves que sea globalmente único dentro del espacio de nombres .vault.azure.net. Necesitará el nombre en la sección siguiente cuando valide la implementación.
+    * **Id. de inquilino** : la función de la plantilla recupera automáticamente el identificador del inquilino. No cambie el valor predeterminado.
+    * **Id. de usuario de AD** : escriba el identificador del objeto de usuario de Azure AD que recuperó de [Requisitos previos](#prerequisites).
+    * **Nombre del secreto** : escriba un nombre para el secreto que almacenará en el almacén de claves. Por ejemplo, **adminpassword**.
+    * **Valor del secreto** : escriba el valor del secreto. Si almacena una contraseña, se recomienda usar la contraseña generada que creó en Requisitos previos.
+    * **Acepto los términos y condiciones anteriores** : Seleccionar.
 3. Seleccione **Comprar**. Una vez que el almacén de claves se haya implementado correctamente, recibirá una notificación:
 
     ![Plantilla de Resource Manager, integración de Key Vault, notificación del portal de implementación](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
@@ -124,7 +124,7 @@ La salida es similar a esta:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-![Plantilla de Resource Manager, integración de Key Vault, salida de la validación del portal de implementación](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Captura de pantalla que muestra el resultado de la validación del portal de implementación de la CLI.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

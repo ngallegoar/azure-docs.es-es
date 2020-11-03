@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/04/2020
+ms.date: 10/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: efb32631c5ee1eedece6d2a06b94702b602ed418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c55f92304ddd3ec2b3d44d4f07fb64ab815c6d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276128"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755757"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>¿En qué regiones está disponible?
 
@@ -45,6 +45,10 @@ Tanto RDP como SSH son protocolos basados en el uso. El uso intensivo de las ses
 
 En este momento, solo se admiten las operaciones de copiado y pegado de texto. No se admiten características como la copia de archivos. No dude en compartir sus comentarios sobre las nuevas características en la [página de comentarios de Azure Bastion](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
+### <a name="does-bastion-hardening-work-with-aadj-vm-extension-joined-vms"></a><a name="aadj"></a>¿Funciona la protección de Bastion con las máquinas virtuales unidas mediante extensión a una máquina virtual AADJ?
+
+Esta característica no funciona con las máquinas unidas mediante extensión que utilizan usuarios de Azure AD. Para más información, consulte la sección sobre [máquinas virtuales Azure con Windows y Azure AD](../articles/active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#requirements).
+
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>¿Qué exploradores se admiten?
 
 Utilice el explorador Microsoft Edge o Google Chrome en Windows. Para Apple Mac, use Google Chrome. Microsoft Edge Chromium también es compatible tanto con Windows como con Mac.
@@ -66,7 +70,7 @@ Para crear una conexión, se requieren los siguientes roles:
 Consulte la [página de precios](https://aka.ms/BastionHostPricing)para obtener más información.
 
 ### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>¿Requiere Azure Bastion una CAL de RDS con fines administrativos en máquinas virtuales hospedadas en Azure?
-No, el acceso a las máquinas virtuales Windows Server con Azure Bastion no requiere una [CAL de RDS](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) cuando se utiliza únicamente con fines administrativos.
+No, el acceso a las máquinas virtuales Windows Server con Azure Bastion no requiere una [CAL de RDS](https://www.microsoft.com/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) cuando se utiliza únicamente con fines administrativos.
 
 ### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>¿Qué distribuciones de teclado se admiten durante la sesión remota Bastion?
 

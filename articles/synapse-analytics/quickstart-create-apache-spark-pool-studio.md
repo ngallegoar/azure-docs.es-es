@@ -6,15 +6,15 @@ author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: spark
-ms.date: 3/19/2020
+ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: cdf9a1f211e889146c9a6986eeea7502d3177057
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c497b9974ad2d6fdd9482ae673de5807669d8ff5
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260842"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748318"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) mediante Synapse Studio
 
@@ -39,25 +39,29 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
 ## <a name="navigate-to-the-synapse-workspace"></a>Desplazamiento al área de trabajo de Synapse
 
 1. Vaya al área de trabajo de Synapse en la que se va a crear el grupo de Apache Spark. Para ello, escriba el nombre del servicio (o el nombre del recurso directamente) en la barra de búsqueda.
-![Barra de búsqueda de Azure Portal en la que se ha escrito "Áreas de trabajo de Synapse".](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
+
+    ![Barra de búsqueda de Azure Portal en la que se ha escrito "Áreas de trabajo de Synapse".](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
 1. En la lista de áreas de trabajo, escriba el nombre (o una parte del nombre) del área que desea abrir. En este ejemplo, se usará un área de trabajo denominado **contosoanalytics**.
-![Lista de áreas de trabajo de Synapse filtradas en la que se muestran las que contienen el nombre Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
+
+    ![Lista de áreas de trabajo de Synapse filtradas en la que se muestran las que contienen el nombre Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 ## <a name="launch-synapse-studio"></a>Inicio de Synapse Studio 
 
-1. En la información general del área de trabajo, seleccione **Iniciar Synapse Studio** para abrir la ubicación en la que se va a crear el grupo de Apache Spark. Escriba el nombre del servicio o del recurso directamente en la barra de búsqueda.
+En la información general del área de trabajo, seleccione **Iniciar Synapse Studio** para abrir la ubicación en la que se va a crear el grupo de Apache Spark. Escriba el nombre del servicio o del recurso directamente en la barra de búsqueda.
+
 ![Información general del área de trabajo de Synapse en Azure Portal con la opción Iniciar Synapse Studio resaltada.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
 ## <a name="create-the-apache-spark-pool-in-synapse-studio"></a>Creación del grupo de Apache Spark en Synapse Studio
 
 1. En la página principal de Synapse Studio, vaya a **Management Hub** (Centro de administración) en el panel de navegación de la izquierda, para lo que debe seleccionar el icono **Manage** (Administrar).
-![Página principal de Synapse Studio con la sección Management Hub (Centro de administración) resaltada.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-21.png)
+
+    ![Página principal de Synapse Studio con la sección Management Hub (Centro de administración) resaltada.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-21.png)
 
 1. Una vez que esté en Management Hub (Centro de administración), vaya a la sección **Apache Spark pools** (Grupos de Apache Spark) para ver la lista actual de grupos de Apache Spark que están disponibles en el área de trabajo.
-![Centro de administración de Synapse Studio con la navegación por los grupos de Apache Spark seleccionada](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-22.png)
+    
+    ![Centro de administración de Synapse Studio con la navegación por los grupos de Apache Spark seleccionada](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-22.png)
 
 1. Seleccione **+ New** (+Nuevo) y aparecerá el nuevo Asistente para crear grupos de Apache Spark. 
-![Centro de administración de Synapse Studio con la lista de grupos de Spark.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-23.png)
 
 1. Escriba la siguiente información en la pestaña **Datos básicos**.
 
@@ -67,24 +71,25 @@ Inicie sesión en el [Portal de Azure](https://portal.azure.com/)
     | **Tamaño del nodo** | Pequeño (4 vCPU/32 GB) | Establézcalo en el menor tamaño para reducir los costos de este artículo de inicio rápido |
     | **Autoscale** | Disabled | En este inicio rápido no se necesitará la escalabilidad automática |
     | **Número de nodos** | 8 | Use un tamaño pequeño para limitar los costos en este inicio rápido|
+       
+    ![Aspectos básicos del nuevo grupo de Apache Spark en Synapse Studio](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
     
-    ![Nuevo formulario de grupo de Apache Spark en Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-24.png)
     > [!IMPORTANT]
     > Tenga en cuenta que existen limitaciones específicas para los nombres que pueden usar los grupos de Apache Spark. Los nombres solo deben contener letras o números, deben tener 15 caracteres o menos, deben comenzar con una letra, no contener palabras reservadas y ser únicos en el área de trabajo.
 
-1. En la pestaña siguiente (Additional settings [Configuración adicional]), deje todos los valores predeterminados y pulse **Review + create** (Revisar y crear) (no se agregarán etiquetas).
- ![Nuevo formulario de grupo de Apache Spark en Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-25.png)
+1. En la pestaña siguiente (Configuración adicional), deje todas las configuraciones en sus valores predeterminados.
 
 1. Por ahora no vamos a agregar etiquetas, así que seleccione **Review + create** (Revisar y crear).
 
 1. En la pestaña **Review + create** (Revisar y crear), asegúrese de que los datos son correctos, en función de lo que se especificó anteriormente, y haga clic en **Create** (Crear). 
- ![Nuevo formulario de grupo de Apache Spark en Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
+
+    ![Creación de un nuevo grupo de Apache Spark en Synapse Studio](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
 
 1. El grupo de Apache Spark iniciará el proceso de aprovisionamiento.
-![Nuevo formulario de grupo de Apache Spark en Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-27.png)
 
 1. Una vez que se haya completado el aprovisionamiento, el nuevo grupo de Apache Spark aparecerá en la lista.
-![Nuevo formulario de grupo de Apache Spark en Synapse Studio.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-28.png)
+    
+    ![Lista del nuevo grupo de Apache Spark en Synapse Studio](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-28.png)
 
 ## <a name="clean-up-apache-spark-pool-resources-using-synapse-studio"></a>Eliminación de recursos de un grupo de Apache Spark mediante Synapse Studio
 
@@ -95,11 +100,12 @@ Siga los pasos que se indican a continuación para eliminar el grupo de Apache S
 Si está seguro de que quiere eliminar el grupo de Apache Spark, haga lo siguiente:
 
 1. Vaya a los grupos de Apache Spark en el centro de administración de Synapse Studio.
-1. Seleccione los puntos suspensivos que aparecen al lado del grupo de Apache que se va a eliminar (en este caso, **contosospark**) para mostrar los comandos del grupo de Apache Spark.
-![Lista de grupos de Apache Spark, con el grupo creado recientemente seleccionado.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
+1. Seleccione los puntos suspensivos que aparecen al lado del grupo de Apache que se va a eliminar (en este caso, **contosospark** ) para mostrar los comandos del grupo de Apache Spark.
+
+    ![Lista de grupos de Apache Spark, con el grupo creado recientemente seleccionado.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
+
 1. Presione **Eliminar**.
 1. Confirme la eliminación y presione el botón **Eliminar**.
- ![Cuadro de diálogo de confirmación para eliminar el grupo de Apache Spark seleccionado.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-30.png)
 1. Cuando el proceso se complete correctamente, el grupo de Apache Spark dejará de aparecer en los recursos del área de trabajo. 
 
 ## <a name="next-steps"></a>Pasos siguientes
